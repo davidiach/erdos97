@@ -19,7 +19,11 @@ permutation of the 21 unordered chords. Perpendicularity along the cycles of
 that permutation forces all cycles to be even, impossible for 21 objects.[^small]
 
 The current repository also keeps the finite Fano enumeration as a reproducible
-check of the `n=7` equality case.
+check of the `n=7` equality case: `scripts/enumerate_n7_fano.py` enumerates 30
+labelled Fano planes and 720 pointed complement families, then quotients them
+to 54 cyclic-dihedral classes. Every class has common-witness chord-cycle type
+`7+7+7`, so every class contains odd perpendicularity cycles. See
+`docs/n7-fano-enumeration.md`.
 
 ## Lemmas
 

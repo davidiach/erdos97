@@ -15,6 +15,9 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).
 - For known bad proof routes, read [`docs/failed-ideas.md`](docs/failed-ideas.md).
 - For the verification standard, read [`docs/verification-contract.md`](docs/verification-contract.md).
+- For archive synthesis provenance, read [`inventory.json`](inventory.json),
+  [`kernels.json`](kernels.json), [`contradictions.md`](contradictions.md),
+  and [`dropped_kernels.md`](dropped_kernels.md).
 - For runnable verification, start with [`scripts/verify_candidate.py`](scripts/verify_candidate.py).
 - For current work items, see [Issues #1-#7](https://github.com/davidiach/erdos97/issues).
 
