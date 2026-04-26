@@ -1,0 +1,1106 @@
+[
+  {
+    "path": "erd archive/4-equidistant-neighbors-summary.md",
+    "length_bytes": 10793,
+    "mtime": "2026-04-26T22:09:06",
+    "two_sentence_summary": "This file is `The 4-Equidistant Neighbor Problem in Strictly Convex Polygons` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "842c9a05a64144cd7b8ba657c9186b18bb50b53cfcadb2ddf3f249119f31d022"
+  },
+  {
+    "path": "erd archive/best_of_n_for_erdos_problem.md",
+    "length_bytes": 11529,
+    "mtime": "2026-04-26T22:23:24",
+    "two_sentence_summary": "This file is `Best-of-N Workflow for Attacking an Erd\u0151s Problem` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.",
+    "tentative_label": "SCRATCH",
+    "sha256": "5118cd195c949f12b3a36db761c4d2b0599cfdeb3c50791bc191d757cd743fe6"
+  },
+  {
+    "path": "erd archive/bridge_lemma_analysis.md",
+    "length_bytes": 8388,
+    "mtime": "2026-04-26T22:11:04",
+    "two_sentence_summary": "This file is `Bridge Lemma Analysis: Computational Evidence and Path Forward` and was tentatively classified as CONJECTURE because it isolates an open bridge or conditional proof program. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "CONJECTURE",
+    "sha256": "4cc60b06b0896bb30701b63fb4124f61c0e5eb57756e215980899740f876e225"
+  },
+  {
+    "path": "erd archive/convex_polygon_proof_review.md",
+    "length_bytes": 3467,
+    "mtime": "2026-04-26T22:09:22",
+    "two_sentence_summary": "This file is `Review: Strictly Convex Polygons and 4-Equidistant Neighbors` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "ab6dbb395d66516c8d1a6cf4d37c048c3a8c3ee8a50f0ff03bfffc2314a98f6a"
+  },
+  {
+    "path": "erd archive/ear_elimination_proof_notes.md",
+    "length_bytes": 9071,
+    "mtime": "2026-04-26T22:10:56",
+    "two_sentence_summary": "This file is `Ear Elimination \u21d2 Maximal Jacobian Rank: Proof Notes` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "5d9605307d7f1c01a54ee78d552ac0bbfb7ab5fdc283e9cfca2366bfb4f583e5"
+  },
+  {
+    "path": "erd archive/equidistant_neighbors_notes.md",
+    "length_bytes": 6432,
+    "mtime": "2026-04-26T22:09:16",
+    "two_sentence_summary": "This file is `Notes: 4-Equidistant Neighbors in Strictly Convex Polygons` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "56bb8fc61b611fd650406237a51be9d52cf911f364fe3621123f0cdc47bd0dc6"
+  },
+  {
+    "path": "erd archive/erdos97_algebraic_approach_conversation_notes.md",
+    "length_bytes": 18119,
+    "mtime": "2026-04-26T22:18:24",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Notes from Algebraic-Geometry Verification Thread` and was tentatively classified as EXACTIFICATION because it concerns polynomial, rank, or certification machinery. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "EXACTIFICATION",
+    "sha256": "f9b2f2c60b639cc311ef21e8652b0a3559d5e6e8a049b29c5d006b5beed068e2"
+  },
+  {
+    "path": "erd archive/erdos97_chatgpt_research_notes.md",
+    "length_bytes": 32046,
+    "mtime": "2026-04-26T22:26:30",
+    "two_sentence_summary": "This file is `Erd\u0151s 97 / Convex Polygon Equal-Distance Research Notes` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "39a61d846fa78a65bb76457f49d423def9a89f6bf7af681dda429b5f82b8f33e"
+  },
+  {
+    "path": "erd archive/erdos97_conversation_handoff (1).md",
+    "length_bytes": 24084,
+    "mtime": "2026-04-26T22:17:42",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Conversation Handoff / Starter Kit` and was tentatively classified as SAT_SMT because it concerns finite incidence or solver abstractions. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "SAT_SMT",
+    "sha256": "6982cccde960af710658942cb529438f28788563b79a1c9ac2343b79e1fd1c85"
+  },
+  {
+    "path": "erd archive/erdos97_conversation_handoff (2).md",
+    "length_bytes": 22968,
+    "mtime": "2026-04-26T22:23:30",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Conversation Handoff` and was tentatively classified as SAT_SMT because it concerns finite incidence or solver abstractions. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "SAT_SMT",
+    "sha256": "375eb6e53d1f75ec48203d6d4cb9ab4c589b6ad55381b47a20732ebdc6360903"
+  },
+  {
+    "path": "erd archive/erdos97_conversation_handoff.md",
+    "length_bytes": 26603,
+    "mtime": "2026-04-26T22:17:18",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Conversation Handoff Notes` and was tentatively classified as SAT_SMT because it concerns finite incidence or solver abstractions. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "SAT_SMT",
+    "sha256": "e9420072603864ee45a3d1ee5f2befc392228015a70967dfa74c2a8324fac5f1"
+  },
+  {
+    "path": "erd archive/erdos97_conversation_notes (1).md",
+    "length_bytes": 15346,
+    "mtime": "2026-04-26T22:18:48",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Conversation Notes and Proof-Critique Starter` and was tentatively classified as SAT_SMT because it concerns finite incidence or solver abstractions. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "SAT_SMT",
+    "sha256": "00050ecf670d9885c6903b73fdbf594d999d5cd3b661363d2f3600b14484e2b9"
+  },
+  {
+    "path": "erd archive/erdos97_conversation_notes (2).md",
+    "length_bytes": 15795,
+    "mtime": "2026-04-26T22:19:04",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 Conversation Notes \u2014 Proof Review, Failure Modes, and Useful Salvage` and was tentatively classified as SAT_SMT because it concerns finite incidence or solver abstractions. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "SAT_SMT",
+    "sha256": "e5448ee0e9613252100dda10a8d231170bd7acafc72d4639acd69e04db545524"
+  },
+  {
+    "path": "erd archive/erdos97_conversation_notes (3).md",
+    "length_bytes": 21901,
+    "mtime": "2026-04-26T22:19:46",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Conversation Notes and Research Starter` and was tentatively classified as SAT_SMT because it concerns finite incidence or solver abstractions. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "SAT_SMT",
+    "sha256": "7590e7f58dfbcf7294e4e349867300aab62da9e47fca1d88b7363b9d92799487"
+  },
+  {
+    "path": "erd archive/erdos97_conversation_notes (4).md",
+    "length_bytes": 8737,
+    "mtime": "2026-04-26T22:23:44",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Notes From This Conversation` and was tentatively classified as SAT_SMT because it concerns finite incidence or solver abstractions. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "SAT_SMT",
+    "sha256": "795189e0d1d9aedbf2f8ce03d4567cbd95cf8c53b143eb3fb314222548c7e299"
+  },
+  {
+    "path": "erd archive/erdos97_conversation_notes (5).md",
+    "length_bytes": 13864,
+    "mtime": "2026-04-26T22:25:12",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Conversation Notes / Starter Kit` and was tentatively classified as SAT_SMT because it concerns finite incidence or solver abstractions. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "SAT_SMT",
+    "sha256": "535ea6858ca317e6ab4af7b4b8f7c02d1f72ac095e7d92abc0e3aa612f638f02"
+  },
+  {
+    "path": "erd archive/erdos97_conversation_notes.md",
+    "length_bytes": 19941,
+    "mtime": "2026-04-26T22:17:10",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Useful Conversation Notes` and was tentatively classified as SAT_SMT because it concerns finite incidence or solver abstractions. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "SAT_SMT",
+    "sha256": "7beee62ab4e15bc28ea2c015749a71d8e9e5cbb7742459cbe034a2d94e09b050"
+  },
+  {
+    "path": "erd archive/erdos97_conversation_useful_notes (1).md",
+    "length_bytes": 14876,
+    "mtime": "2026-04-26T22:18:56",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Useful Notes from This Conversation` and was tentatively classified as LEMMA because it contains reusable small-case or incidence lemmas. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "LEMMA",
+    "sha256": "473ef1071f33641a130298b32c3bdb381e741144ce10f7d8714fd99638568c6e"
+  },
+  {
+    "path": "erd archive/erdos97_conversation_useful_notes.md",
+    "length_bytes": 23664,
+    "mtime": "2026-04-26T22:17:24",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Useful Notes From This Conversation` and was tentatively classified as SAT_SMT because it concerns finite incidence or solver abstractions. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "SAT_SMT",
+    "sha256": "33c0adbb79d9449d0da8ad9b8ef9878018bfc0591844a18e22f14199f94506f5"
+  },
+  {
+    "path": "erd archive/erdos97_convo_notes.md",
+    "length_bytes": 17088,
+    "mtime": "2026-04-26T22:28:32",
+    "two_sentence_summary": "This file is `Erd\u0151s #97 Construction Search \u2014 Notes from Conversation` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "6ff4e035e703fe566cc6a48c09facdcae533fd9e0961f790f5f2f43a7d894e32"
+  },
+  {
+    "path": "erd archive/erdos97_corrected_global_counting_framework.md",
+    "length_bytes": 16574,
+    "mtime": "2026-04-26T22:18:30",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Corrected Global Counting / Critical-Circle Framework` and was tentatively classified as CONJECTURE because it isolates an open bridge or conditional proof program. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "CONJECTURE",
+    "sha256": "6c5023fa1aab2d7a844034fd17a287b6e16b7e3eb98e48750c71479c9715e2c3"
+  },
+  {
+    "path": "erd archive/erdos97_ear_elimination_rank_obstruction_review_notes.md",
+    "length_bytes": 19422,
+    "mtime": "2026-04-26T22:23:16",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Notes From This Conversation` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "448e94902b9e576aa4078364da7b269beb14663e7b6d00364d4eebd96d968a52"
+  },
+  {
+    "path": "erd archive/erdos97_github_repo_handoff_notes.md",
+    "length_bytes": 20572,
+    "mtime": "2026-04-26T22:27:56",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 GitHub Repo Handoff Notes` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "84c794822851db221dcfbd776bcb0ef262638654f81f801c19bbc2e4b2d2c7be"
+  },
+  {
+    "path": "erd archive/erdos97_gpt52_pro_prompt_notes.md",
+    "length_bytes": 9307,
+    "mtime": "2026-04-26T22:17:00",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Useful Prompt & Notes` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.",
+    "tentative_label": "SCRATCH",
+    "sha256": "89b65d9510a4de9f36031c3c089a4fdd7f7d8dcc1e44b14ba80ce0517871a452"
+  },
+  {
+    "path": "erd archive/erdos97_k4_search_artifacts.json",
+    "length_bytes": 4781,
+    "mtime": "2026-04-26T22:17:48",
+    "two_sentence_summary": "This file is `erdos97_k4_search_artifacts.json` and was tentatively classified as NUMERICAL_EVIDENCE because it contains machine-readable or numerical search evidence. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "NUMERICAL_EVIDENCE",
+    "sha256": "a8e6d79e79ef8d894a85ba2836e8973cd1e688c431f4a1d4924941654dbf32d5"
+  },
+  {
+    "path": "erd archive/erdos97_lemma12_convo_notes.md",
+    "length_bytes": 14393,
+    "mtime": "2026-04-26T22:18:18",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Notes from Lemma Review and Lemma 12 Rewrite` and was tentatively classified as CONJECTURE because it isolates an open bridge or conditional proof program. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "CONJECTURE",
+    "sha256": "bd9ea5387394f850669bc117a70c502a83e0c219192b24304f7d901fcbd3d91b"
+  },
+  {
+    "path": "erd archive/erdos97_n39_circulant_degeneracy_notes.md",
+    "length_bytes": 17026,
+    "mtime": "2026-04-26T22:28:38",
+    "two_sentence_summary": "This file is `Erd\u0151s 97 / Convex Polygon Construction Notes \u2014 n=39 Circulant Degeneration` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "4937398949f7b3856b8599b6abdf6de542221e3765da32b662c35f3cf234892a"
+  },
+  {
+    "path": "erd archive/erdos97_notes (1).md",
+    "length_bytes": 10186,
+    "mtime": "2026-04-26T22:11:12",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 (k=4): Notes & Proof Summary` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "3db168b49cb4ec2c05d89465755e72282ec70b5cf387e65104d1503170604cb0"
+  },
+  {
+    "path": "erd archive/erdos97_notes.md",
+    "length_bytes": 11900,
+    "mtime": "2026-04-26T22:01:54",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Rigidity-Theoretic Analysis \u2014 Complete Notes` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "be55bd682bbbf4ee44d140406e9719269baa97363e99dfcaf35e07dd12bb91f8"
+  },
+  {
+    "path": "erd archive/erdos97_paper_review_notes.md",
+    "length_bytes": 16176,
+    "mtime": "2026-04-26T22:18:38",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 Paper Review Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "b7f77e061dd6fc9a95947c0fdc98f6876e83f6845a9b9e36d93f843f555f2ee8"
+  },
+  {
+    "path": "erd archive/erdos97_project_notes (1).md",
+    "length_bytes": 20494,
+    "mtime": "2026-04-26T22:24:54",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Project Notes and Starter Kit` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "13c9dc2a57802c7565554de77a5505753eda170e98ac4f1a124482df564dc724"
+  },
+  {
+    "path": "erd archive/erdos97_project_notes.md",
+    "length_bytes": 20494,
+    "mtime": "2026-04-26T22:05:22",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Project Notes and Starter Kit` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "13c9dc2a57802c7565554de77a5505753eda170e98ac4f1a124482df564dc724"
+  },
+  {
+    "path": "erd archive/erdos97_prompt_notes (1).md",
+    "length_bytes": 15438,
+    "mtime": "2026-04-26T22:19:16",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 Prompt Notes` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.",
+    "tentative_label": "SCRATCH",
+    "sha256": "21b1f1e8c8253a4b18cc78e27fe132cab8f58e98f8884b5d0507b57075cdcaaa"
+  },
+  {
+    "path": "erd archive/erdos97_prompt_notes.md",
+    "length_bytes": 15438,
+    "mtime": "2026-04-26T22:17:34",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 Prompt Notes` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.",
+    "tentative_label": "SCRATCH",
+    "sha256": "21b1f1e8c8253a4b18cc78e27fe132cab8f58e98f8884b5d0507b57075cdcaaa"
+  },
+  {
+    "path": "erd archive/erdos97_research_notes (1).md",
+    "length_bytes": 12879,
+    "mtime": "2026-04-26T22:05:36",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Research Notes` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "3a076d71888efaebeeb59a12eb68d03d0c12a7b419c6ec9c86db2b6dbe0ce56c"
+  },
+  {
+    "path": "erd archive/erdos97_research_notes.md",
+    "length_bytes": 12697,
+    "mtime": "2026-04-26T22:02:22",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Research Notes` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "956ea488b34e05c3e9d848273df258b0bba400c0d5de66424166c817b4db1f34"
+  },
+  {
+    "path": "erd archive/erdos97_review_notes (1).md",
+    "length_bytes": 6647,
+    "mtime": "2026-04-26T22:11:16",
+    "two_sentence_summary": "This file is `Critical Review Notes: \"Erd\u0151s Problem #97 via an Ear-Elimination Rank Obstruction\"` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "c3a5c858cf2db23bae7eb7d200d8c64f12976f3c3b48f7116982d1d6a6cd485c"
+  },
+  {
+    "path": "erd archive/erdos97_review_notes.md",
+    "length_bytes": 7408,
+    "mtime": "2026-04-26T22:04:02",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Review Notes & Analysis` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "16d5633a93cecd73587bdfd8bb944b7b16fe3a821a1dbb5891d9c0fcd63f1416"
+  },
+  {
+    "path": "erd archive/ERDOS97_SESSION_NOTES.md",
+    "length_bytes": 8976,
+    "mtime": "2026-04-26T22:00:50",
+    "two_sentence_summary": "This file is `Erd\u0151s #97 \u2014 Session Notes` and was tentatively classified as NUMERICAL_EVIDENCE because it contains machine-readable or numerical search evidence. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "NUMERICAL_EVIDENCE",
+    "sha256": "6346c3562a3a3dfd1ed11d9ccfea46159fdacebd08ae95f3fe24ace4fc0ca165"
+  },
+  {
+    "path": "erd archive/erdos97_solution_review_notes.md",
+    "length_bytes": 11652,
+    "mtime": "2026-04-26T22:25:56",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Review of Proposed \u201cForest Lemma\u201d Proof` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "6fc56a773ca11563e6f2a2bde4d4ddb7ca71b3001636af05818822441504d5fa"
+  },
+  {
+    "path": "erd archive/erdos_97_analysis (1).md",
+    "length_bytes": 7064,
+    "mtime": "2026-04-26T22:02:14",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Analysis Notes and Review Synthesis` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "87ba0e84ca6b2d8d56ef72cc0f6f9b31e04b12996666c63f16f75fe78c5f84b9"
+  },
+  {
+    "path": "erd archive/erdos_97_analysis.md",
+    "length_bytes": 13804,
+    "mtime": "2026-04-26T22:02:00",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Analysis, Attempts, and Path Forward` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "da056a7c648dac1dc9a7e694032f61a24a4d4e8c75aced3f3c7d016b1f49e176"
+  },
+  {
+    "path": "erd archive/erdos_97_complete_notes.md",
+    "length_bytes": 21760,
+    "mtime": "2026-04-26T22:08:52",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Complete Working Notes` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "619e42505fea4ce8b105fce84bed800e8e304f9209ddbc7ff07f4876adf0f5ec"
+  },
+  {
+    "path": "erd archive/erdos_97_notes (1).md",
+    "length_bytes": 11176,
+    "mtime": "2026-04-26T22:06:44",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem 97: Analysis Notes` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "ce9c3b5f6935aa3fb6b9af88360cee6c207de6128c1e788f0742c18cf88da524"
+  },
+  {
+    "path": "erd archive/erdos_97_notes (2).md",
+    "length_bytes": 9861,
+    "mtime": "2026-04-26T22:09:00",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Exploration Notes and Partial Results` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "e1405d17c56082790dc0c5deaab7c925d69577f0807e1dd48771f40f1fe12dde"
+  },
+  {
+    "path": "erd archive/erdos_97_notes.md",
+    "length_bytes": 8134,
+    "mtime": "2026-04-26T22:03:54",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Notes and Rigorous Analysis` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "922c097fa9f5c92c5404a040598ee99ff0a4bdaa481d231025b81d6a4623cb5f"
+  },
+  {
+    "path": "erd archive/erdos_97_partial_proof_notes.md",
+    "length_bytes": 5966,
+    "mtime": "2026-04-26T21:56:46",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Partial Proof Notes & Review` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "6565fdf35c70403259d6eb140b21b253335a13c759f5495371989f322a06cc2a"
+  },
+  {
+    "path": "erd archive/erdos_97_proof_analysis.md",
+    "length_bytes": 6496,
+    "mtime": "2026-04-26T22:01:06",
+    "two_sentence_summary": "This file is `Analysis of a Proof Attempt for Erd\u0151s Problem #97` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "0dbbb89b63a4e5c181b392296fcfdc5991c3a00969c8f71a4568f41d4db2bbec"
+  },
+  {
+    "path": "erd archive/erdos_97_summary.md",
+    "length_bytes": 10638,
+    "mtime": "2026-04-26T21:57:04",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Work Summary` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "1bc1c4079166c56a81b09a40884e21f17a289b1badf42dddafa3d0b096d7a543"
+  },
+  {
+    "path": "erd archive/erdos_problem_97.md",
+    "length_bytes": 12027,
+    "mtime": "2026-04-26T22:00:58",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Research Brief & Prompt Kit` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "29adaf6e7bab5e66b948b7cc1cedc94737403c1d2c46bfef2f1bafc339c2d09a"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.md",
+    "length_bytes": 5449,
+    "mtime": "2026-04-26T21:57:12",
+    "two_sentence_summary": "This file is `Lemma 12 Rewrite \u2014 Review Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "91f64543c55fae3c0be1d7b3f1e3422725f87099ff53265d975690f4752ca769"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip",
+    "length_bytes": 298899,
+    "mtime": "2026-04-26T22:29:18",
+    "two_sentence_summary": "This file is `lemma12_review_notes.zip` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.",
+    "tentative_label": "SCRATCH",
+    "sha256": "089d7a4d219d3f3b090b61b232ae8cbe505fa8fee643a031f7bdb91798612d31"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::lemma12_review_notes.md",
+    "length_bytes": 5449,
+    "mtime": "2026-04-26T21:57:12",
+    "two_sentence_summary": "This file is `Lemma 12 Rewrite \u2014 Review Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "91f64543c55fae3c0be1d7b3f1e3422725f87099ff53265d975690f4752ca769"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::vertex_equidistance_complete_analysis.md",
+    "length_bytes": 11108,
+    "mtime": "2026-04-26T22:07:14",
+    "two_sentence_summary": "This file is `Vertex Equidistance Theorem: Review, Correction & Extension` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "062d522476bf3f83c4ca534d74384f0def7d841e85fd11635237543b6b3fd3c7"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::vertex_equidistance_research.md",
+    "length_bytes": 14794,
+    "mtime": "2026-04-26T22:04:16",
+    "two_sentence_summary": "This file is `Vertex Equidistance in Convex Polygons` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "81b93af9de9646c0a81b29a9a68b1e51da08d27ef65b9e332b6a94ff3aa99032"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::4-equidistant-neighbors-summary.md",
+    "length_bytes": 10793,
+    "mtime": "2026-04-26T22:09:06",
+    "two_sentence_summary": "This file is `The 4-Equidistant Neighbor Problem in Strictly Convex Polygons` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "842c9a05a64144cd7b8ba657c9186b18bb50b53cfcadb2ddf3f249119f31d022"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::best_of_n_for_erdos_problem.md",
+    "length_bytes": 11529,
+    "mtime": "2026-04-26T22:23:24",
+    "two_sentence_summary": "This file is `Best-of-N Workflow for Attacking an Erd\u0151s Problem` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.",
+    "tentative_label": "SCRATCH",
+    "sha256": "5118cd195c949f12b3a36db761c4d2b0599cfdeb3c50791bc191d757cd743fe6"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::bridge_lemma_analysis.md",
+    "length_bytes": 8388,
+    "mtime": "2026-04-26T22:11:04",
+    "two_sentence_summary": "This file is `Bridge Lemma Analysis: Computational Evidence and Path Forward` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "4cc60b06b0896bb30701b63fb4124f61c0e5eb57756e215980899740f876e225"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::convex_polygon_proof_review.md",
+    "length_bytes": 3467,
+    "mtime": "2026-04-26T22:09:22",
+    "two_sentence_summary": "This file is `Review: Strictly Convex Polygons and 4-Equidistant Neighbors` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "ab6dbb395d66516c8d1a6cf4d37c048c3a8c3ee8a50f0ff03bfffc2314a98f6a"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::ear_elimination_proof_notes.md",
+    "length_bytes": 9071,
+    "mtime": "2026-04-26T22:10:56",
+    "two_sentence_summary": "This file is `Ear Elimination \u21d2 Maximal Jacobian Rank: Proof Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "5d9605307d7f1c01a54ee78d552ac0bbfb7ab5fdc283e9cfca2366bfb4f583e5"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::equidistant_neighbors_notes.md",
+    "length_bytes": 6432,
+    "mtime": "2026-04-26T22:09:16",
+    "two_sentence_summary": "This file is `Notes: 4-Equidistant Neighbors in Strictly Convex Polygons` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "56bb8fc61b611fd650406237a51be9d52cf911f364fe3621123f0cdc47bd0dc6"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos_97_analysis (1).md",
+    "length_bytes": 7064,
+    "mtime": "2026-04-26T22:02:14",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Analysis Notes and Review Synthesis` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "87ba0e84ca6b2d8d56ef72cc0f6f9b31e04b12996666c63f16f75fe78c5f84b9"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos_97_analysis.md",
+    "length_bytes": 13804,
+    "mtime": "2026-04-26T22:02:00",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Analysis, Attempts, and Path Forward` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "da056a7c648dac1dc9a7e694032f61a24a4d4e8c75aced3f3c7d016b1f49e176"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos_97_complete_notes.md",
+    "length_bytes": 21760,
+    "mtime": "2026-04-26T22:08:52",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Complete Working Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "619e42505fea4ce8b105fce84bed800e8e304f9209ddbc7ff07f4876adf0f5ec"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos_97_notes (1).md",
+    "length_bytes": 11176,
+    "mtime": "2026-04-26T22:06:44",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem 97: Analysis Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "ce9c3b5f6935aa3fb6b9af88360cee6c207de6128c1e788f0742c18cf88da524"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos_97_notes (2).md",
+    "length_bytes": 9861,
+    "mtime": "2026-04-26T22:09:00",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Exploration Notes and Partial Results` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "e1405d17c56082790dc0c5deaab7c925d69577f0807e1dd48771f40f1fe12dde"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos_97_notes.md",
+    "length_bytes": 8134,
+    "mtime": "2026-04-26T22:03:54",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Notes and Rigorous Analysis` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "922c097fa9f5c92c5404a040598ee99ff0a4bdaa481d231025b81d6a4623cb5f"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos_97_partial_proof_notes.md",
+    "length_bytes": 5966,
+    "mtime": "2026-04-26T21:56:46",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Partial Proof Notes & Review` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "6565fdf35c70403259d6eb140b21b253335a13c759f5495371989f322a06cc2a"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos_97_proof_analysis.md",
+    "length_bytes": 6496,
+    "mtime": "2026-04-26T22:01:06",
+    "two_sentence_summary": "This file is `Analysis of a Proof Attempt for Erd\u0151s Problem #97` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "0dbbb89b63a4e5c181b392296fcfdc5991c3a00969c8f71a4568f41d4db2bbec"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos_97_summary.md",
+    "length_bytes": 10638,
+    "mtime": "2026-04-26T21:57:04",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Work Summary` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "1bc1c4079166c56a81b09a40884e21f17a289b1badf42dddafa3d0b096d7a543"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos_problem_97.md",
+    "length_bytes": 12027,
+    "mtime": "2026-04-26T22:00:58",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Research Brief & Prompt Kit` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "29adaf6e7bab5e66b948b7cc1cedc94737403c1d2c46bfef2f1bafc339c2d09a"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_algebraic_approach_conversation_notes.md",
+    "length_bytes": 18119,
+    "mtime": "2026-04-26T22:18:24",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Notes from Algebraic-Geometry Verification Thread` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "f9b2f2c60b639cc311ef21e8652b0a3559d5e6e8a049b29c5d006b5beed068e2"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_chatgpt_research_notes.md",
+    "length_bytes": 32046,
+    "mtime": "2026-04-26T22:26:30",
+    "two_sentence_summary": "This file is `Erd\u0151s 97 / Convex Polygon Equal-Distance Research Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "39a61d846fa78a65bb76457f49d423def9a89f6bf7af681dda429b5f82b8f33e"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_conversation_handoff (1).md",
+    "length_bytes": 24084,
+    "mtime": "2026-04-26T22:17:42",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Conversation Handoff / Starter Kit` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "6982cccde960af710658942cb529438f28788563b79a1c9ac2343b79e1fd1c85"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_conversation_handoff (2).md",
+    "length_bytes": 22968,
+    "mtime": "2026-04-26T22:23:30",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Conversation Handoff` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "375eb6e53d1f75ec48203d6d4cb9ab4c589b6ad55381b47a20732ebdc6360903"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_conversation_handoff.md",
+    "length_bytes": 26603,
+    "mtime": "2026-04-26T22:17:18",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Conversation Handoff Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "e9420072603864ee45a3d1ee5f2befc392228015a70967dfa74c2a8324fac5f1"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_conversation_notes (1).md",
+    "length_bytes": 15346,
+    "mtime": "2026-04-26T22:18:48",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Conversation Notes and Proof-Critique Starter` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "00050ecf670d9885c6903b73fdbf594d999d5cd3b661363d2f3600b14484e2b9"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_conversation_notes (2).md",
+    "length_bytes": 15795,
+    "mtime": "2026-04-26T22:19:04",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 Conversation Notes \u2014 Proof Review, Failure Modes, and Useful Salvage` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "e5448ee0e9613252100dda10a8d231170bd7acafc72d4639acd69e04db545524"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_conversation_notes (3).md",
+    "length_bytes": 21901,
+    "mtime": "2026-04-26T22:19:46",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Conversation Notes and Research Starter` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "7590e7f58dfbcf7294e4e349867300aab62da9e47fca1d88b7363b9d92799487"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_conversation_notes (4).md",
+    "length_bytes": 8737,
+    "mtime": "2026-04-26T22:23:44",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Notes From This Conversation` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "795189e0d1d9aedbf2f8ce03d4567cbd95cf8c53b143eb3fb314222548c7e299"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_conversation_notes (5).md",
+    "length_bytes": 13864,
+    "mtime": "2026-04-26T22:25:12",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Conversation Notes / Starter Kit` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "535ea6858ca317e6ab4af7b4b8f7c02d1f72ac095e7d92abc0e3aa612f638f02"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_conversation_notes.md",
+    "length_bytes": 19941,
+    "mtime": "2026-04-26T22:17:10",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Useful Conversation Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "7beee62ab4e15bc28ea2c015749a71d8e9e5cbb7742459cbe034a2d94e09b050"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_conversation_useful_notes (1).md",
+    "length_bytes": 14876,
+    "mtime": "2026-04-26T22:18:56",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Useful Notes from This Conversation` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "473ef1071f33641a130298b32c3bdb381e741144ce10f7d8714fd99638568c6e"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_conversation_useful_notes.md",
+    "length_bytes": 23664,
+    "mtime": "2026-04-26T22:17:24",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Useful Notes From This Conversation` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "33c0adbb79d9449d0da8ad9b8ef9878018bfc0591844a18e22f14199f94506f5"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_convo_notes.md",
+    "length_bytes": 17088,
+    "mtime": "2026-04-26T22:28:32",
+    "two_sentence_summary": "This file is `Erd\u0151s #97 Construction Search \u2014 Notes from Conversation` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "6ff4e035e703fe566cc6a48c09facdcae533fd9e0961f790f5f2f43a7d894e32"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_corrected_global_counting_framework.md",
+    "length_bytes": 16574,
+    "mtime": "2026-04-26T22:18:30",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Corrected Global Counting / Critical-Circle Framework` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "6c5023fa1aab2d7a844034fd17a287b6e16b7e3eb98e48750c71479c9715e2c3"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_ear_elimination_rank_obstruction_review_notes.md",
+    "length_bytes": 19422,
+    "mtime": "2026-04-26T22:23:16",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Notes From This Conversation` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "448e94902b9e576aa4078364da7b269beb14663e7b6d00364d4eebd96d968a52"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_github_repo_handoff_notes.md",
+    "length_bytes": 20572,
+    "mtime": "2026-04-26T22:27:56",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 GitHub Repo Handoff Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "84c794822851db221dcfbd776bcb0ef262638654f81f801c19bbc2e4b2d2c7be"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_gpt52_pro_prompt_notes.md",
+    "length_bytes": 9307,
+    "mtime": "2026-04-26T22:17:00",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Useful Prompt & Notes` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.",
+    "tentative_label": "SCRATCH",
+    "sha256": "89b65d9510a4de9f36031c3c089a4fdd7f7d8dcc1e44b14ba80ce0517871a452"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_k4_search_artifacts.json",
+    "length_bytes": 4781,
+    "mtime": "2026-04-26T22:17:48",
+    "two_sentence_summary": "This file is `lemma12_review_notes.zip::erdos97_k4_search_artifacts.json` and was tentatively classified as NUMERICAL_EVIDENCE because it contains machine-readable or numerical search evidence. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "NUMERICAL_EVIDENCE",
+    "sha256": "a8e6d79e79ef8d894a85ba2836e8973cd1e688c431f4a1d4924941654dbf32d5"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_lemma12_convo_notes.md",
+    "length_bytes": 14393,
+    "mtime": "2026-04-26T22:18:18",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Notes from Lemma Review and Lemma 12 Rewrite` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "bd9ea5387394f850669bc117a70c502a83e0c219192b24304f7d901fcbd3d91b"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_n39_circulant_degeneracy_notes.md",
+    "length_bytes": 17026,
+    "mtime": "2026-04-26T22:28:38",
+    "two_sentence_summary": "This file is `Erd\u0151s 97 / Convex Polygon Construction Notes \u2014 n=39 Circulant Degeneration` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "4937398949f7b3856b8599b6abdf6de542221e3765da32b662c35f3cf234892a"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_notes (1).md",
+    "length_bytes": 10186,
+    "mtime": "2026-04-26T22:11:12",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 (k=4): Notes & Proof Summary` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "3db168b49cb4ec2c05d89465755e72282ec70b5cf387e65104d1503170604cb0"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_notes.md",
+    "length_bytes": 11900,
+    "mtime": "2026-04-26T22:01:54",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Rigidity-Theoretic Analysis \u2014 Complete Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "be55bd682bbbf4ee44d140406e9719269baa97363e99dfcaf35e07dd12bb91f8"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_paper_review_notes.md",
+    "length_bytes": 16176,
+    "mtime": "2026-04-26T22:18:38",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 Paper Review Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "b7f77e061dd6fc9a95947c0fdc98f6876e83f6845a9b9e36d93f843f555f2ee8"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_project_notes (1).md",
+    "length_bytes": 20494,
+    "mtime": "2026-04-26T22:24:54",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Project Notes and Starter Kit` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "13c9dc2a57802c7565554de77a5505753eda170e98ac4f1a124482df564dc724"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_project_notes.md",
+    "length_bytes": 20494,
+    "mtime": "2026-04-26T22:05:22",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Project Notes and Starter Kit` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "13c9dc2a57802c7565554de77a5505753eda170e98ac4f1a124482df564dc724"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_prompt_notes (1).md",
+    "length_bytes": 15438,
+    "mtime": "2026-04-26T22:19:16",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 Prompt Notes` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.",
+    "tentative_label": "SCRATCH",
+    "sha256": "21b1f1e8c8253a4b18cc78e27fe132cab8f58e98f8884b5d0507b57075cdcaaa"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_prompt_notes.md",
+    "length_bytes": 15438,
+    "mtime": "2026-04-26T22:17:34",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 Prompt Notes` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.",
+    "tentative_label": "SCRATCH",
+    "sha256": "21b1f1e8c8253a4b18cc78e27fe132cab8f58e98f8884b5d0507b57075cdcaaa"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_research_notes (1).md",
+    "length_bytes": 12879,
+    "mtime": "2026-04-26T22:05:36",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Research Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "3a076d71888efaebeeb59a12eb68d03d0c12a7b419c6ec9c86db2b6dbe0ce56c"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_research_notes.md",
+    "length_bytes": 12697,
+    "mtime": "2026-04-26T22:02:22",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97: Research Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "956ea488b34e05c3e9d848273df258b0bba400c0d5de66424166c817b4db1f34"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_review_notes (1).md",
+    "length_bytes": 6647,
+    "mtime": "2026-04-26T22:11:16",
+    "two_sentence_summary": "This file is `Critical Review Notes: \"Erd\u0151s Problem #97 via an Ear-Elimination Rank Obstruction\"` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "c3a5c858cf2db23bae7eb7d200d8c64f12976f3c3b48f7116982d1d6a6cd485c"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_review_notes.md",
+    "length_bytes": 7408,
+    "mtime": "2026-04-26T22:04:02",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Review Notes & Analysis` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "16d5633a93cecd73587bdfd8bb944b7b16fe3a821a1dbb5891d9c0fcd63f1416"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::ERDOS97_SESSION_NOTES.md",
+    "length_bytes": 8976,
+    "mtime": "2026-04-26T22:00:50",
+    "two_sentence_summary": "This file is `Erd\u0151s #97 \u2014 Session Notes` and was tentatively classified as NUMERICAL_EVIDENCE because it contains machine-readable or numerical search evidence. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "NUMERICAL_EVIDENCE",
+    "sha256": "6346c3562a3a3dfd1ed11d9ccfea46159fdacebd08ae95f3fe24ace4fc0ca165"
+  },
+  {
+    "path": "erd archive/lemma12_review_notes.zip::erdos97_solution_review_notes.md",
+    "length_bytes": 11652,
+    "mtime": "2026-04-26T22:25:56",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Review of Proposed \u201cForest Lemma\u201d Proof` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "6fc56a773ca11563e6f2a2bde4d4ddb7ca71b3001636af05818822441504d5fa"
+  },
+  {
+    "path": "erd archive/outputs/erdos97_consolidated private.md",
+    "length_bytes": 108446,
+    "mtime": "2026-04-26T23:18:14",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Consolidated Research State` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "450603c9828f13e0c75c674f0feeab646c3477a9b2efdd01c37324fa409ceb31"
+  },
+  {
+    "path": "erd archive/outputs/erdos97_consolidated.md",
+    "length_bytes": 59070,
+    "mtime": "2026-04-26T23:08:20",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Consolidated State of Play` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "923669cae987f11e73492a9a45843535a78687018577c6737947ce496382287c"
+  },
+  {
+    "path": "erd archive/outputs/erdos97_research_state.md",
+    "length_bytes": 79816,
+    "mtime": "2026-04-26T23:36:24",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Research State` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "814f16a9d5e79195395365474d7c35cc5b7bb97571d71c7c052558931436772e"
+  },
+  {
+    "path": "erd archive/outputs/erdos97_standalone.md",
+    "length_bytes": 49538,
+    "mtime": "2026-04-26T23:26:52",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 State of Play` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "7dfa960462be5be09e2255a318d96c4f901a27c4ece44b03d23edc4149f21a49"
+  },
+  {
+    "path": "erd archive/outputs/erdos97_synthesis.md",
+    "length_bytes": 29384,
+    "mtime": "2026-04-26T23:45:12",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Meta-Synthesis` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "2a877fce406de862813d1987ae7b3c4be403364fa2755b158d8dd3cd36673c8e"
+  },
+  {
+    "path": "erd archive/outputs/erdos97_useful_findings.md",
+    "length_bytes": 45831,
+    "mtime": "2026-04-26T22:46:50",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Consolidated Useful Findings` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "8d3d245909543bb01f2022e9cb6560c572a58bbcde5ed0d2f94328d5d5311351"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip",
+    "length_bytes": 115095,
+    "mtime": "2026-04-26T22:46:38",
+    "two_sentence_summary": "This file is `useful_research_findings.zip` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.",
+    "tentative_label": "SCRATCH",
+    "sha256": "afad4e8e1306d0a745b19294e19c6e6b46d9e919c5ede853091485ba8c760b20"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/README.md",
+    "length_bytes": 1088,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Useful research findings \u2014 curated package` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "1e3f8b22ea6e835e87d110a80142bc1d56824fedadafdc8d0c0684269478c127"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md",
+    "length_bytes": 7407,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Useful findings digest` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "ce6b3ab336d49bd5619f5f53f3352349df0287d62d3b9a3cad511bca08a37995"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/02_SMALL_CASES_N5_N6_N7.md",
+    "length_bytes": 3421,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Small cases n = 5, 6, 7` and was tentatively classified as LEMMA because it contains reusable small-case or incidence lemmas. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "LEMMA",
+    "sha256": "8a771322faab443b1b7645e986942f2417aef02eb7560365b8810e9d49efeb59"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/03_RANK_AND_BRIDGE_STATUS.md",
+    "length_bytes": 2950,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Rank, ear-elimination, and bridge-lemma status` and was tentatively classified as EXACTIFICATION because it concerns polynomial, rank, or certification machinery. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "EXACTIFICATION",
+    "sha256": "fb0f990c1326bcb572c2f48439274f304b599c5c8ad8a33b3acef091239377d5"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/04_COMPUTATIONAL_FINDINGS.md",
+    "length_bytes": 3153,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Computational and search findings` and was tentatively classified as NUMERICAL_EVIDENCE because it contains machine-readable or numerical search evidence. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "NUMERICAL_EVIDENCE",
+    "sha256": "96f1d199499112ec50496156725f96ac2d7be58386b8e9cf93bd5905c03f0496"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/05_SELECTION_MANIFEST.md",
+    "length_bytes": 9929,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Selection manifest` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.",
+    "tentative_label": "SCRATCH",
+    "sha256": "86c7eff060bc2dcff673ca1e031daa7d8bac691edac7f51f655fc47e7ea4b5ec"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/machine_readable/erdos97_k4_search_artifacts.json",
+    "length_bytes": 4782,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `erdos97_k4_search_artifacts.json` and was tentatively classified as NUMERICAL_EVIDENCE because it contains machine-readable or numerical search evidence. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "NUMERICAL_EVIDENCE",
+    "sha256": "ce0221c008155a040a6ef9b1a519db2e733638593d5205b95a43174cde1569cd"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/01_small_cases_and_incidence_review.md",
+    "length_bytes": 15157,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Useful Notes from This Conversation` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "3c58aac4455c655581cd366ae925bd40b422b565045478176f2af2efd34b3dcb"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/02_core_handoff_paraboloid_intersection.md",
+    "length_bytes": 23246,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Conversation Handoff` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "0f668200edc8428003bfc7daaf7cffb871bb98401235ad9189320e0d0fac3862"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/03_lemma12_review_notes.md",
+    "length_bytes": 5614,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Lemma 12 Rewrite \u2014 Review Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "f2863842a661b27923a75fecc071431fd389baedda49324057317e3d80b125ed"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/04_algebraic_and_semicircle_corrections.md",
+    "length_bytes": 18353,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Notes from Algebraic-Geometry Verification Thread` and was tentatively classified as EXACTIFICATION because it concerns polynomial, rank, or certification machinery. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "EXACTIFICATION",
+    "sha256": "e1f890869c24772e5752ba5c01a2db7db0a70b3ef427c65b045391ac4d98a5bf"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/05_rank_scaling_and_verifier_review.md",
+    "length_bytes": 16378,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 Paper Review Notes` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "f0233d6b317ca465aae06833aa4d4a29ad8c3a41125437bc2df6780056cdd26f"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/06_ear_elimination_rank_obstruction_review.md",
+    "length_bytes": 19655,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Notes From This Conversation` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "2b2d371ed4a14f4c99adf60b6a2e34ccfcd2ce2302ffa8b8e99cdfe29f373d88"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/07_critical_review_ear_route_gaps.md",
+    "length_bytes": 6825,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Critical Review Notes: \"Erd\u0151s Problem #97 via an Ear-Elimination Rank Obstruction\"` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "53f819e8832e1614e9241037438a760bce1a659ff5fd6fa21218b8648d5095c0"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/08_ear_elimination_proof_draft_read_with_caveat.md",
+    "length_bytes": 9279,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Ear Elimination \u21d2 Maximal Jacobian Rank: Proof Notes` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "ded4dc337276ffe7c809c94d337dbf8e57c9c7073c133662d10bf05e0e3aeb63"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/09_bridge_lemma_computational_analysis.md",
+    "length_bytes": 8589,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Bridge Lemma Analysis: Computational Evidence and Path Forward` and was tentatively classified as CONJECTURE because it isolates an open bridge or conditional proof program. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "CONJECTURE",
+    "sha256": "00ab00e319c9d3e2bfc98ac13fb63f3bd3f0fc219675dfb68b64870b3b6f9556"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/10_corrected_global_counting_framework.md",
+    "length_bytes": 16804,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Corrected Global Counting / Critical-Circle Framework` and was tentatively classified as CONJECTURE because it isolates an open bridge or conditional proof program. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "CONJECTURE",
+    "sha256": "46f92407c29d401304838af450a706df57b89eca7406e22b76072005ccda4463"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/11_forest_lemma_counterexample_review.md",
+    "length_bytes": 11832,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Review of Proposed \u201cForest Lemma\u201d Proof` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "d0a86671a22050559091a2d3a7c9b538e63efeab5264d2bd30ff8e3a84f464a5"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/12_n39_circulant_degeneracy.md",
+    "length_bytes": 17242,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Erd\u0151s 97 / Convex Polygon Construction Notes \u2014 n=39 Circulant Degeneration` and was tentatively classified as FAILED_APPROACH because it mainly diagnoses a failed or overstrong proof route. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "FAILED_APPROACH",
+    "sha256": "d8b8aa4dac1f776d3bb06509f5f3856b99fe34b4f633257b0249d740bdf4e6a9"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/13_n39_raw_search_notes_and_code.md",
+    "length_bytes": 17334,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Erd\u0151s #97 Construction Search \u2014 Notes from Conversation` and was tentatively classified as NUMERICAL_EVIDENCE because it contains machine-readable or numerical search evidence. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "NUMERICAL_EVIDENCE",
+    "sha256": "041f42854db869b42f9339e71895a93f89c431aeef0d6fb50f5512a232c69f3d"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/14_k3_benchmark_and_solver_notes.md",
+    "length_bytes": 9162,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Erd\u0151s #97 \u2014 Session Notes` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "2f259424f6024436fa448d8bbde16a457e315fa40b683466b7a8d6d598bd74a0"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/15_desargues_k3_upgrade_state.md",
+    "length_bytes": 23869,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 Useful Notes From This Conversation` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "55e81b1dd47f6341cf52c6e62b989e8f4ed7a941eb2fec0df834bf70b9b0bd2d"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md",
+    "length_bytes": 20784,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `Erd\u0151s Problem #97 \u2014 GitHub Repo Handoff Notes` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "cac84d823c873414a58f78f8c61ab5eb9bbd65dfebcad6691c9fc56f0069fa09"
+  },
+  {
+    "path": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/17_uniform_radius_related_case.md",
+    "length_bytes": 10999,
+    "mtime": "2026-04-26T19:38:04",
+    "two_sentence_summary": "This file is `The 4-Equidistant Neighbor Problem in Strictly Convex Polygons` and was tentatively classified as LITERATURE_RISK because it concerns related literature or a stricter nearby problem. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "LITERATURE_RISK",
+    "sha256": "3108424bd7f5a2b9a1471574ba6558098c7df144fdf2e170f4a58d34d913e95c"
+  },
+  {
+    "path": "erd archive/vertex_equidistance_complete_analysis.md",
+    "length_bytes": 11108,
+    "mtime": "2026-04-26T22:07:14",
+    "two_sentence_summary": "This file is `Vertex Equidistance Theorem: Review, Correction & Extension` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "062d522476bf3f83c4ca534d74384f0def7d841e85fd11635237543b6b3fd3c7"
+  },
+  {
+    "path": "erd archive/vertex_equidistance_research.md",
+    "length_bytes": 14794,
+    "mtime": "2026-04-26T22:04:16",
+    "two_sentence_summary": "This file is `Vertex Equidistance in Convex Polygons` and was tentatively classified as HEURISTIC because it is a mixed research note whose durable content is routed through specific kernels. Only claims surviving the hard filters were routed through deduplicated kernels.",
+    "tentative_label": "HEURISTIC",
+    "sha256": "81b93af9de9646c0a81b29a9a68b1e51da08d27ef65b9e332b6a94ff3aa99032"
+  }
+]

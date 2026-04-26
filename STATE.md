@@ -1,52 +1,85 @@
-# STATE.md — Erdős Problem #97 working state
+# STATE.md - Erdos Problem #97 working state
 
 Status: no proof and no counterexample are claimed.
 
-## Problem target
-Find a strictly convex polygon with vertices `p_0,...,p_{n-1}` such that for every center `i` there is a 4-set `S_i` not containing `i` and all four squared distances `|p_i-p_j|^2`, `j in S_i`, are equal. Radii and selected 4-sets may vary with `i`; the directed incidence graph need not be symmetric.
+## Target
 
-## Literature baseline checked 2026-04-26
-The Erdős Problems page still lists #97 as open/falsifiable. Known nearby examples: Danzer gave a 9-point convex polygon with 3 equidistant vertices from every vertex, radius depending on the center; Fishburn–Reeds gave a 20-point convex polygon with 3 unit-distance vertices from every vertex. These do not imply the 4-neighbor target.
+Find, or rule out, a strictly convex polygon with vertices
+`p_0,...,p_{n-1}` such that every center `i` has a 4-set
+`S_i` of other vertices with all squared distances `|p_i-p_j|^2`,
+`j in S_i`, equal. Radii and selected 4-sets may vary with `i`;
+the directed incidence graph need not be symmetric.[^repo]
 
-## Rigorously survived lemmas
-1. Circle-intersection incidence cap: in any true counterexample, for distinct centers `a,b`, `|S_a ∩ S_b| <= 2`. Proof: two distinct Euclidean circles intersect in at most two points.
-2. Consequence: no counterexample with `n <= 6`. For `n=5`, every pair of 4-sets shares 3 points. For `n=6`, write `S_i = V \ {i,f(i)}`; the pair `(i,f(i))` has intersection at least 3.
-3. Incidence counting: if `d_j` is the indegree of vertex `j`, then `sum_j binom(d_j,2) <= 2 binom(n,2)` and `sum_j d_j=4n`; convexity of `binom(d,2)` gives `n>=7`.
-4. Equality case `n=7`: all indegrees are 4 and every pair of selected 4-sets intersects in exactly 2 points. Complements `T_i=V\S_i` are Fano lines of size 3 with `i in T_i`. For any centers `i,j`, if `S_i ∩ S_j={a,b}`, then segment `p_a p_b` is perpendicular to segment `p_i p_j` by the radical-axis theorem.
-5. Finite `n=7` Fano obstruction: the reproducible enumeration in `scripts/enumerate_n7_fano.py` finds 30 labelled Fano planes, 720 pointed equality families, and 54 cyclic-dihedral classes. Every class has chord-cycle type `7+7+7`, so the required perpendicularity constraints contain odd cycles and cannot be realized by nonzero Euclidean chords. See `docs/n7-fano-enumeration.md`.
+## Strongest proved state
 
-## Candidate incidence patterns
-Priority patterns in the current code:
-- `B12_3x4_danzer_lift`: `i=(a,b)` mod `(3,4)`, `S_i={(a+1,b),(a+2,b),(a+1,b+1),(a+2,b-1)}`.
-- `B20_4x5_FR_lift`: `i=(a,b)` mod `(4,5)`, `S_i={(a+1,b),(a-1,b),(a+1,b+2),(a-1,b-2)}`.
-- `P18_parity_balanced`, `P24_parity_balanced`.
-- Skew circulants `C17_skew`, `C19_skew`.
-- Palindromic circulants `C9_pm_2_4`, `C13_pm_3_5`, `C16_pm_1_6`, `C20_pm_4_9`.
+The selected-witness method rules out `n <= 7`. The core filters are the
+two-circle cap `|S_a cap S_b| <= 2`, radical-axis perpendicularity when two
+rows share exactly two witnesses, and the incidence count forcing `n >= 7`.
+At `n=7`, the equality case forces a chord permutation on 21 chords, and odd
+cycle parity contradicts alternating perpendicularity.[^small]
 
-All built-in patterns satisfy the pairwise common-selected-neighbor cap `<=2`.
+## Best saved near-miss
 
-## Numerical status
-Best current near-miss is `B12_3x4_danzer_lift` with constrained SLSQP at margin `1e-6`:
-- max squared-distance spread: about `0.00680637`
-- RMS equality residual: about `0.00195995`
-- convexity margin: about `1e-6`
-- minimum edge length: about `7.47e-4`
-Coordinates are essentially four tiny clusters near each vertex of an equilateral triangle. As the enforced convexity/edge margins are decreased, residual decreases, so this is probably a boundary degeneration, not evidence for a strict counterexample.
+The best saved near-miss remains `B12_3x4_danzer_lift`. It is numerical only
+and is rejected as proof or counterexample because the residual improves toward
+a clustered boundary degeneration.[^repo]
 
-Saved files:
-- `src/erdos97/search.py`: runnable search engine.
-- `data/runs/best_B12_slsqp_m1e-6.json`: best numerical near-miss.
-- `certificates/best_B12_certificate_template.json`: exact-certificate skeleton.
+```text
+n: 12
+pattern: B12_3x4_danzer_lift
+max squared-distance spread: 0.006806368780585714
+RMS equality residual:       0.0019599509549614457
+convexity margin:            9.999999943508973e-07
+minimum edge length:         0.0007465865604262556
+status: numerical only, rejected as proof/counterexample
+```
 
-## Failed/unsafe proof ideas
-- Do not claim equal-distance vertices around one center are limited to two; Danzer's 3-neighbor example already rules out the naive version.
-- Do not use an end-neighbor/middle-neighbor/forest argument without proof. The selected directed graph is not planar, need not be symmetric, and selected radii need not be nearest/farthest distances.
-- Do not impose common radius unless explicitly searching the Fishburn–Reeds-like subclass.
-- Do not assume coordinate symmetry from incidence symmetry. Full cyclic coordinate symmetry forces a regular polygon and usually kills the desired two-offset equalities.
+The archive also contained two C12 numerical artifacts. They were normalized
+under `data/runs/`, but excluded from this dashboard: one fails the `1e-6`
+verification threshold and the other collapses to a non-strict configuration.[^comp]
 
-## Next experiments
-1. Analyze the `B12` cluster degeneration symbolically; add a penalty lower-bounding cluster diameter / convexity margin and see whether residual has a positive lower bound.
-2. Run the same constrained margin sweep for `B20_4x5_FR_lift`; look for non-cluster near-misses.
-3. Add a true interval/SOS lower-bound attempt for fixed patterns: minimize equality residual subject to rational convexity margins.
-4. Implement incidence SAT with stronger necessary geometric constraints, but keep optional heuristics separate from necessary constraints.
-5. If a candidate reaches residual <1e-10 with convexity margin and edge length comfortably >1e-3, start exactification via algebraic recognition.
+## Top live patterns
+
+1. `B12_3x4_danzer_lift`: leading saved degeneration diagnostic, not a
+   counterexample candidate in its current form.[^repo]
+2. `B20_4x5_FR_lift`: next block/symmetric margin sweep with anti-clustering
+   diagnostics.[^repo]
+3. `P18_parity_balanced`: period-2 pattern worth broader numerical search.[^repo]
+
+## Top killed approaches
+
+1. Middle-neighbor forest proof: killed by an affine regular 24-gon cycle in
+   the proposed middle-neighbor graph.[^forest]
+2. `C39_pm_18_19`: killed exactly because adjacent rows share three selected
+   targets, violating the two-circle cap.[^n39]
+3. Generic rank obstruction: rank `2n-3` at non-solutions is only diagnostic;
+   exact solutions have an extra scaling kernel.[^rank]
+
+## Exactification frontier
+
+The current frontier is fixed-pattern certification on special rank-drop loci.
+Distance-equality equations are polynomial and center-affine; exact convexity
+should be certified with edge-line orientation inequalities. The rank route is
+promising only as a conditional program: repair the ear-orderable rank proof,
+then prove or refute the bridge that every realizable counterexample admits an
+ear-orderable selected witness pattern.[^alg][^rank]
+
+## Open literature questions
+
+- Recheck the public Erdos Problems listing before any solution claim.[^repo]
+- Pin exact citations and statements for Danzer's 9-point `k=3` example.[^digest]
+- Pin exact citations and statements for the Fishburn--Reeds 20-point
+  unit-distance `k=3` example.[^digest]
+- Keep convex unit-distance bounds separate from the variable-radius problem.[^syn]
+- Search related work on repeated distances, order-k Voronoi degeneracies, and
+  metric oriented-matroid realizability before paper-style claims.[^repo]
+
+[^repo]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md`.
+[^small]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/02_SMALL_CASES_N5_N6_N7.md`.
+[^comp]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/04_COMPUTATIONAL_FINDINGS.md`.
+[^forest]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/11_forest_lemma_counterexample_review.md`.
+[^n39]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/12_n39_circulant_degeneracy.md`.
+[^rank]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/03_RANK_AND_BRIDGE_STATUS.md`.
+[^alg]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/04_algebraic_and_semicircle_corrections.md`.
+[^digest]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md`.
+[^syn]: Source file: `erd archive/outputs/erdos97_synthesis.md`.

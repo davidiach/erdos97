@@ -55,6 +55,25 @@ Interpretation:
 The residual improves as the polygon approaches a three-cluster degeneration.
 This is evidence about a failed route, not a solution.
 
+### Archived C12 artifacts
+
+Status: normalized archive imports, rejected as counterexamples.
+
+The synthesis pass imported two machine-readable C12 artifacts into
+`data/runs/` so they can be checked by the same verifier as other runs:
+
+- `archive_C12_offsets_4_5_8_11_near_convex.json`: verifier status at
+  tolerance `1e-6` is rejected. Its selected-distance spread is about
+  `1.85e-6`, and empirical multiplicities alternate between 4 and 3, so half
+  the centers do not meet the 4-neighbor target even numerically.
+- `archive_C12_offsets_2_3_4_10_degenerate.json`: verifier status at
+  tolerance `1e-6` is rejected. The equality residual is tiny only because the
+  configuration collapses; the convexity margin is negative and the minimum
+  pair distance is essentially zero.
+
+See `dropped_kernels.md` for the rejection log. These files are retained as
+search-history artifacts, not as live candidates.
+
 ## Open Subproblems
 
 1. Prove or refute degeneration for `B12_3x4_danzer_lift`.

@@ -26,3 +26,15 @@ def test_saved_b12_near_miss_is_not_certified_at_strict_tolerance() -> None:
     diag = verify_json(str(path), tol=1e-8)
     assert not diag["ok_at_tol"]
     assert diag["convexity_margin"] > 0
+
+
+def test_archive_c12_imports_are_not_certified_at_synthesis_tolerance() -> None:
+    root = pathlib.Path(__file__).resolve().parents[1]
+    runs = root / "data" / "runs"
+    paths = [
+        runs / "archive_C12_offsets_4_5_8_11_near_convex.json",
+        runs / "archive_C12_offsets_2_3_4_10_degenerate.json",
+    ]
+    for path in paths:
+        diag = verify_json(str(path), tol=1e-6)
+        assert not diag["ok_at_tol"]

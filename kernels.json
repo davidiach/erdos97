@@ -1,0 +1,507 @@
+[
+  {
+    "label": "LEMMA",
+    "claim": "For distinct centers a and b in a selected-witness counterexample, the selected sets satisfy |S_a cap S_b| <= 2.",
+    "evidence": "Two distinct Euclidean circles intersect in at most two points; see setup in the small-case summary.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/02_SMALL_CASES_N5_N6_N7.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "LEMMA",
+    "claim": "If S_i cap S_j = {a,b}, then the center chord p_i p_j is perpendicular to the witness chord p_a p_b.",
+    "evidence": "Both centers lie on the perpendicular bisector of p_a p_b; see the small-case summary.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/02_SMALL_CASES_N5_N6_N7.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "THEOREM",
+    "claim": "There is no selected-witness counterexample with n=5.",
+    "evidence": "For n=5 every selected 4-set is V\\{i}, so two rows share three vertices, contradicting the two-circle cap.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/02_SMALL_CASES_N5_N6_N7.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "THEOREM",
+    "claim": "There is no selected-witness counterexample with n=6.",
+    "evidence": "Writing S_i=V\\{i,f(i)}, the rows S_i and S_f(i) share at least three vertices, contradicting the two-circle cap.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/02_SMALL_CASES_N5_N6_N7.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "THEOREM",
+    "claim": "There is no selected-witness counterexample with n=7.",
+    "evidence": "The indegree and row-intersection counts saturate, the common-witness map is a permutation of 21 chords, and an odd cycle contradicts alternating perpendicularity.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/02_SMALL_CASES_N5_N6_N7.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "LEMMA",
+    "claim": "The incidence counting lower bound gives n >= 7 for any selected-witness counterexample.",
+    "evidence": "The two-circle cap gives sum_j binom(d_j,2) <= 2 binom(n,2), while Jensen with average indegree 4 gives sum_j binom(d_j,2) >= 6n.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null,
+    "contradiction_id": "C-002"
+  },
+  {
+    "label": "LEMMA",
+    "claim": "For any unordered pair {a,b}, at most two vertices x of a strictly convex polygon can satisfy |x-a|=|x-b|.",
+    "evidence": "The locus is the perpendicular bisector line of ab, and a line meets a strictly convex polygon boundary in at most two vertices.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "LEMMA",
+    "claim": "Any noncollinear triple of vertices can appear together in at most one selected witness set.",
+    "evidence": "Three noncollinear points have a unique circumcenter, so at most one polygon vertex can center a circle through the triple.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "LEMMA",
+    "claim": "At a polygon vertex, the other vertices lie in the open convex cone between the two incident edges, so their boundary order agrees with angular order around that vertex.",
+    "evidence": "Strict convexity makes every other vertex lie inside the interior angle at the hull vertex; the useful-findings digest records this as cone containment and angular order.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "LEMMA",
+    "claim": "For witnesses on one circle centered at a vertex, chord length is monotone in angular separation as long as the separation is below pi.",
+    "evidence": "The chord formula |a-b|=2r sin(theta/2) is monotone on the open semicircle forced by the vertex cone.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "LEMMA",
+    "claim": "If all vertices of the polygon are cyclic, then no vertex has more than two other vertices at any one distance.",
+    "evidence": "A circle centered at a vertex intersects the common circumcircle in at most two points.",
+    "source_file": "erd archive/outputs/erdos97_synthesis.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "LEMMA",
+    "claim": "Four vertices are equidistant from p_i exactly when their paraboloid lifts are coplanar in a plane parallel to the tangent plane at the lift of p_i.",
+    "evidence": "The handoff summary derives the standard z=x^2+y^2 lift for centered circles.",
+    "source_file": "erd archive/outputs/erdos97_synthesis.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "LEMMA",
+    "claim": "The equation |p_i-p_a|^2=|p_i-p_b|^2 is affine-linear in the center coordinates p_i and quadratic overall.",
+    "evidence": "The algebraic notes expand E_{i;a,b} and isolate its center-affine structure.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/04_algebraic_and_semicircle_corrections.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "LEMMA",
+    "claim": "If a,b,c are noncollinear and p_i is equidistant from them, then p_i is the circumcenter of triangle abc.",
+    "evidence": "The algebraic notes state the circumcenter interpretation and use the fourth witness as the same-circle condition.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/04_algebraic_and_semicircle_corrections.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "LEMMA",
+    "claim": "The Jacobian of the selected squared-distance constraints always has the two translation directions and the rotation direction in its kernel.",
+    "evidence": "The rank review states the Euclidean-motion kernel lemma for F_{i,a,b}.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/05_rank_scaling_and_verifier_review.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "LEMMA",
+    "claim": "At any exact solution of the selected squared-distance equations, the scaling direction is also in the Jacobian kernel, so rank R_W(p) <= 2n-4 for a nondegenerate solution.",
+    "evidence": "Homogeneity gives R_W(p)p=2F_W(p), hence R_W(p)p=0 on the solution set.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/03_RANK_AND_BRIDGE_STATUS.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null,
+    "contradiction_id": "C-003"
+  },
+  {
+    "label": "LEMMA",
+    "claim": "A witness set from a hull vertex may lie in a semicircle of its witness circle, so the center need not lie in the convex hull of the witnesses.",
+    "evidence": "The algebraic correction gives the semicircle criterion and a pentagon example.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/04_algebraic_and_semicircle_corrections.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null,
+    "contradiction_id": "C-004"
+  },
+  {
+    "label": "CONJECTURE",
+    "claim": "Every realizable k=4 counterexample may admit an ear-orderable selected witness pattern.",
+    "evidence": "This is Bridge Lemma A prime / Key Peeling Lemma in the rank-and-bridge summary; it remains the central open bottleneck.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/03_RANK_AND_BRIDGE_STATUS.md",
+    "status": "speculative",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "CONJECTURE",
+    "claim": "The Lemma 12 endpoint-descent route would work if the endpoint-control auxiliary claim held for at least one endpoint of a minimal bad circle.",
+    "evidence": "The synthesis isolates the outside-of-A endpoint-control claim as the missing global statement.",
+    "source_file": "erd archive/outputs/erdos97_synthesis.md",
+    "status": "speculative",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "CONJECTURE",
+    "claim": "Erdos #97 would follow if every bad vertex forced a 3-critical 4-tie and strictly convex n-gons had fewer than n such ties.",
+    "evidence": "The corrected global-counting framework replaces the false quadruple count with bridge and critical-counting conjectures.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/04_algebraic_and_semicircle_corrections.md",
+    "status": "speculative",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "CONJECTURE",
+    "claim": "A canonical short-base chord rule might assign distinct noncrossing chords to bad vertices, but injectivity is unproved.",
+    "evidence": "The synthesis records the noncrossing-diagonal route and its canonical-chord injectivity gap.",
+    "source_file": "erd archive/outputs/erdos97_synthesis.md",
+    "status": "speculative",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "CONJECTURE",
+    "claim": "The three-support smallest-enclosing-circle case may close if a three-cap bridge lemma forces two witnesses of a bad support vertex into the opposite cap.",
+    "evidence": "The synthesis records the diameter case as settled and the three-cap case as open.",
+    "source_file": "erd archive/outputs/erdos97_synthesis.md",
+    "status": "speculative",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "INCIDENCE_PATTERN",
+    "claim": "B12_3x4_danzer_lift is the leading saved block pattern but currently degenerates toward three tight clusters.",
+    "evidence": "Repo handoff and current state list its formula and diagnostics as a near-miss degeneration.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md",
+    "status": "abandoned",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "INCIDENCE_PATTERN",
+    "claim": "B20_4x5_FR_lift is the next block/symmetric pattern to test with a margin sweep and anti-clustering diagnostics.",
+    "evidence": "The repo handoff preserves B20 as the second-ranked candidate pattern.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md",
+    "status": "speculative",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "INCIDENCE_PATTERN",
+    "claim": "P18_parity_balanced and P24_parity_balanced are period-2 incidence patterns worth search testing.",
+    "evidence": "The repo handoff preserves both parity-balanced patterns in the ranked candidate list.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md",
+    "status": "speculative",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "INCIDENCE_PATTERN",
+    "claim": "C17_skew, C19_skew, and palindromic circulants remain search patterns only and must not be paired with forced coordinate symmetry.",
+    "evidence": "The repo handoff candidate list and failed-idea section warn that incidence symmetry is not coordinate symmetry.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md",
+    "status": "speculative",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "INCIDENCE_PATTERN",
+    "claim": "The n=8 cube witness pattern is unrealizable by an orthocenter obstruction, but this does not settle all n=8 witness patterns.",
+    "evidence": "The synthesis separates the real cube-pattern obstruction from the unproved uniqueness claim for n=8.",
+    "source_file": "erd archive/outputs/erdos97_synthesis.md",
+    "status": "abandoned",
+    "failure_mode": null,
+    "failure_informative": null,
+    "contradiction_id": "C-001"
+  },
+  {
+    "label": "INCIDENCE_PATTERN",
+    "claim": "The n=39 circulant pattern S_i={i+18,i-18,i+19,i-19} mod 39 is impossible because adjacent rows share three targets.",
+    "evidence": "Modulo 39 this is {i+18,i+19,i+20,i+21}, so S_i cap S_{i+1} has size 3 and violates the two-circle cap.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/12_n39_circulant_degeneracy.md",
+    "status": "abandoned",
+    "failure_mode": null,
+    "failure_informative": null,
+    "contradiction_id": "C-005"
+  },
+  {
+    "label": "INCIDENCE_PATTERN",
+    "claim": "Prime cyclic and Sidon-type four-offset families with all row overlaps <=2 are plausible future incidence sources.",
+    "evidence": "The n=39 degeneracy note proposes examples such as n=41 with offsets {5,14,24,34} and n=43 with {6,15,27,36}.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/12_n39_circulant_degeneracy.md",
+    "status": "speculative",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "NUMERICAL_EVIDENCE",
+    "claim": "The saved B12 run has max squared-distance spread about 0.006806368780585714 and convexity margin about 1e-6, so it is a near-miss only.",
+    "evidence": "Existing data/runs/best_B12_slsqp_m1e-6.json plus the repo handoff diagnostics; not routed to claims.md as proof.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md",
+    "status": "abandoned",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "NUMERICAL_EVIDENCE",
+    "claim": "The archive C12 offsets {4,5,8,11} artifact has max spread about 1.85e-6 but fails the required 1e-6 verification threshold.",
+    "evidence": "Normalized artifact data/runs/archive_C12_offsets_4_5_8_11_near_convex.json from the machine-readable archive.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/machine_readable/erdos97_k4_search_artifacts.json",
+    "status": "abandoned",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "NUMERICAL_EVIDENCE",
+    "claim": "The archive C12 offsets {2,3,4,10} artifact has near-zero equality residual only because the configuration collapses and is not strictly convex.",
+    "evidence": "Normalized artifact data/runs/archive_C12_offsets_2_3_4_10_degenerate.json from the machine-readable archive.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/machine_readable/erdos97_k4_search_artifacts.json",
+    "status": "abandoned",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "FAILED_APPROACH",
+    "claim": "The claim that n=8 is proved by reducing to the cube witness pattern is not justified.",
+    "evidence": "The cube pattern is ruled out, but the source does not prove it is the only n=8 witness pattern.",
+    "source_file": "erd archive/outputs/erdos97_synthesis.md",
+    "status": "abandoned",
+    "failure_mode": "Unproved incidence uniqueness: n=8 has counting slack, so double regularity and cube uniqueness do not follow from the n=7 saturation argument.",
+    "failure_informative": true,
+    "contradiction_id": "C-001"
+  },
+  {
+    "label": "FAILED_APPROACH",
+    "claim": "The claim that direct counting proves n>=13 or rules out n<=12 is wrong.",
+    "evidence": "The corrected count has a missing factor of two and yields only n>=7.",
+    "source_file": "erd archive/outputs/erdos97_synthesis.md",
+    "status": "abandoned",
+    "failure_mode": "Incorrect global count: the upper bound is 2*binom(n,2), not binom(n,2), so the claimed n>=13 threshold collapses to n>=7.",
+    "failure_informative": true,
+    "contradiction_id": "C-002"
+  },
+  {
+    "label": "FAILED_APPROACH",
+    "claim": "A generic Jacobian rank of 2n-3 at non-solutions does not prove nonexistence of counterexamples.",
+    "evidence": "Actual solutions lie on the constraint variety where scaling adds a kernel direction and rank can drop.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/05_rank_scaling_and_verifier_review.md",
+    "status": "abandoned",
+    "failure_mode": "Rank sampled off the solution variety misses the homogeneous scaling kernel present at F=0.",
+    "failure_informative": true,
+    "contradiction_id": "C-003"
+  },
+  {
+    "label": "FAILED_APPROACH",
+    "claim": "The circumcenter of a cyclic convex quadrilateral need not lie inside the quadrilateral.",
+    "evidence": "The algebraic correction gives witness points in a semicircle around a hull vertex.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/04_algebraic_and_semicircle_corrections.md",
+    "status": "abandoned",
+    "failure_mode": "Semicircle obstruction: four equidistant witnesses from a hull vertex can lie in a small arc, placing the center outside their convex hull.",
+    "failure_informative": true,
+    "contradiction_id": "C-004"
+  },
+  {
+    "label": "FAILED_APPROACH",
+    "claim": "The middle-neighbor forest lemma is false.",
+    "evidence": "The forest review gives an affine regular 24-gon construction producing cycles in the middle-neighbor graph.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/11_forest_lemma_counterexample_review.md",
+    "status": "abandoned",
+    "failure_mode": "Structured cycle in the proposed middle-neighbor graph; cap regions can overlap or be incomparable instead of forming a forest.",
+    "failure_informative": true
+  },
+  {
+    "label": "FAILED_APPROACH",
+    "claim": "Forced indegree-four regularity is valid at n=7 saturation but is not available for general n.",
+    "evidence": "The synthesis notes that Jensen is tight only at n=7 and there is slack for n>=8.",
+    "source_file": "erd archive/outputs/erdos97_synthesis.md",
+    "status": "abandoned",
+    "failure_mode": "Saturation failure: the equality conditions used to force all indegrees to 4 disappear once n>=8.",
+    "failure_informative": true
+  },
+  {
+    "label": "FAILED_APPROACH",
+    "claim": "Using a weak witness definition based on separate repeated-distance pairs is not equivalent to four witnesses on one circle.",
+    "evidence": "The synthesis warns that superseded notes used the weak definition and reached invalid conclusions.",
+    "source_file": "erd archive/outputs/erdos97_synthesis.md",
+    "status": "abandoned",
+    "failure_mode": "Definition mismatch: pairwise repeated distances do not produce one selected 4-set at a common radius.",
+    "failure_informative": true
+  },
+  {
+    "label": "FAILED_APPROACH",
+    "claim": "The n=39 circulant optimization branch should be abandoned because the fixed incidence pattern violates the row-overlap cap exactly.",
+    "evidence": "Adjacent rows share three targets before geometry enters, so the numerical collapse was diagnosing an impossible pattern.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/12_n39_circulant_degeneracy.md",
+    "status": "abandoned",
+    "failure_mode": "Exact incidence obstruction: S_i and S_{i+1} have a three-point intersection, impossible for two distinct witness circles.",
+    "failure_informative": true,
+    "contradiction_id": "C-005"
+  },
+  {
+    "label": "FAILED_APPROACH",
+    "claim": "Assuming equal-distance witnesses form one consecutive cyclic block around the polygon is geometrically false.",
+    "evidence": "The rank-and-bridge summary lists this as a failed bridge-lemma step.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/03_RANK_AND_BRIDGE_STATUS.md",
+    "status": "abandoned",
+    "failure_mode": "Cyclic polygon order around the boundary is not enough to force repeated-distance classes to be one consecutive boundary interval.",
+    "failure_informative": true
+  },
+  {
+    "label": "FAILED_APPROACH",
+    "claim": "Counting all centered concyclic quadruples is not a stable route to the problem.",
+    "evidence": "One vertex can have Theta(n) other vertices on one circle centered there, creating Theta(n^4) ordered quadruples.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/04_algebraic_and_semicircle_corrections.md",
+    "status": "abandoned",
+    "failure_mode": "Artificial multiplicity blow-up: one high-multiplicity center dominates the count without global obstruction.",
+    "failure_informative": true
+  },
+  {
+    "label": "FAILED_APPROACH",
+    "claim": "Imposing one global common radius solves only a stricter subcase and should not be used as the full problem.",
+    "evidence": "The synthesis says the uniform-radius subcase is distinct and the variable-radius case is the content of Erdos #97.",
+    "source_file": "erd archive/outputs/erdos97_synthesis.md",
+    "status": "abandoned",
+    "failure_mode": "Overrestricted model: bidirectional/common-radius arguments stop applying once radii may vary by center.",
+    "failure_informative": true
+  },
+  {
+    "label": "FAILED_APPROACH",
+    "claim": "Treating the B12 near-miss as evidence for a counterexample is unsafe.",
+    "evidence": "The repo handoff says the residual improves as the configuration collapses toward three clusters.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md",
+    "status": "abandoned",
+    "failure_mode": "Boundary degeneration: decreasing convexity or edge margins improves residual, pointing to a clustered limit rather than a strict solution.",
+    "failure_informative": true
+  },
+  {
+    "label": "EXACTIFICATION",
+    "claim": "A certificate must encode exact coordinates or algebraic parameters, selected sets S_i, exact zero checks for distance equations, and exact positivity checks for convexity.",
+    "evidence": "The repo handoff and exactification requirements list the certificate data and polynomial identities.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "EXACTIFICATION",
+    "claim": "Strict convexity in a fixed cyclic order should be encoded by orientation inequalities against each edge line, not only consecutive triples in unconstrained coordinate space.",
+    "evidence": "The algebraic correction warns that consecutive left turns alone do not always rule out global self-intersection or wrong cyclic order.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/04_algebraic_and_semicircle_corrections.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "EXACTIFICATION",
+    "claim": "Fixed-pattern exactification should study special rank-drop loci compatible with the scaling kernel rather than generic full-rank samples.",
+    "evidence": "The rank review recommends classifying rank-deficient solution loci after the scaling-kernel correction.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/05_rank_scaling_and_verifier_review.md",
+    "status": "speculative",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "SAT_SMT",
+    "claim": "The mandatory Boolean incidence constraints are x[i,i]=0, row sum 4, and pairwise selected-row overlap at most 2.",
+    "evidence": "The repo handoff SAT/SMT section gives the base abstraction and explains what SAT and UNSAT mean.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "SAT_SMT",
+    "claim": "SAT/SMT filters may add pair/triple sharing, perpendicularity templates, or order-type constraints only after they are proved necessary.",
+    "evidence": "The current SAT/SMT plan and computational summaries warn that heuristic balance or symmetry filters only rule out restricted subclasses.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/04_COMPUTATIONAL_FINDINGS.md",
+    "status": "speculative",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "LITERATURE_RISK",
+    "claim": "Danzer and Fishburn--Reeds are k=3 nearby examples and do not solve or refute the k=4 target.",
+    "evidence": "The useful-findings digest corrects Danzer attribution and records Fishburn--Reeds as a 20-point k=3 unit-distance example.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "LITERATURE_RISK",
+    "claim": "Before any solution claim, the public Erdos Problems listing and related formal-conjectures records need a fresh status check.",
+    "evidence": "The repo handoff lists this as baseline literature hygiene for a public ledger.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md",
+    "status": "speculative",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "LITERATURE_RISK",
+    "claim": "The uniform-radius subcase depends on convex unit-distance literature and should be cited separately from the variable-radius problem.",
+    "evidence": "The synthesis cites Edelsbrunner-Hajnal, Furedi, and later convex unit-distance bounds as background for only the common-radius subcase.",
+    "source_file": "erd archive/outputs/erdos97_synthesis.md",
+    "status": "speculative",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "HEURISTIC",
+    "claim": "Run the row-overlap filter |S_i cap S_j|<=2 before optimizing any fixed incidence pattern.",
+    "evidence": "The computational summary provides a row_overlap_filter snippet and treats any violation as an exact obstruction.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/04_COMPUTATIONAL_FINDINGS.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "HEURISTIC",
+    "claim": "Search should optimize per-vertex quartets and per-vertex radii directly before freezing stabilized quartets for exact solving.",
+    "evidence": "The computational summary says global-distance upgrades are overrestrictive and recommends the real per-vertex objective.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/04_COMPUTATIONAL_FINDINGS.md",
+    "status": "speculative",
+    "failure_mode": null,
+    "failure_informative": null
+  },
+  {
+    "label": "HEURISTIC",
+    "claim": "Numerical candidates should be judged by residuals relative to nondegeneracy scales such as minimum pair distance, minimum edge length, and convexity margin.",
+    "evidence": "The computational summary lists these diagnostics as required acceptance standards.",
+    "source_file": "erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/04_COMPUTATIONAL_FINDINGS.md",
+    "status": "validated",
+    "failure_mode": null,
+    "failure_informative": null
+  }
+]
