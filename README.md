@@ -8,7 +8,11 @@ This repository is a public research log and reproducibility workspace for Erdő
 
 ## Where to start
 
-- For the current mathematical state, read [`STATE.md`](STATE.md).
+- For the short working state, read [`STATE.md`](STATE.md).
+- For the long-form canonical synthesis and claim reconciliation, read
+  [`docs/canonical-synthesis.md`](docs/canonical-synthesis.md) before adding
+  new claims, search branches, or proof attempts.
+- For documentation navigation, read [`docs/index.md`](docs/index.md).
 - For the compact results ledger, read [`RESULTS.md`](RESULTS.md).
 - For proved local facts, read [`docs/claims.md`](docs/claims.md).
 - For the reproducible `n=7` Fano enumeration, read [`docs/n7-fano-enumeration.md`](docs/n7-fano-enumeration.md).
@@ -59,9 +63,15 @@ classes; in every case the common-witness chord map has cycle type `7+7+7`,
 so the required perpendicularity relation has an odd cycle. See
 [`docs/n7-fano-enumeration.md`](docs/n7-fano-enumeration.md).
 
+This proves the `n=5,6,7` cases only. The `n=8` case remains open: the cube
+witness pattern is obstructed, but that is not a complete `n=8` proof.
+
 The current best numerical object is a near-miss for the pattern `B12_3x4_danzer_lift`. It has small residual but appears to degenerate toward three tight clusters near an equilateral triangle. It is therefore recorded as useful evidence about a failed route, **not** as a solution.
 
 The best saved B12 object is **not** a counterexample: its max selected-distance spread is about `0.0068`, and its convexity margin is about `1e-6`.
+
+Any claimed counterexample needs exact coordinates, or an exact algebraic
+certificate, verifying the distance equalities and strict convexity.
 
 Key diagnostics for the best saved near-miss:
 
@@ -75,7 +85,9 @@ minimum edge length:         0.0007465865604262556
 status: numerical only, rejected as proof/counterexample
 ```
 
-See [`STATE.md`](STATE.md) for the most compact working summary.
+See [`STATE.md`](STATE.md) for the most compact working summary and
+[`docs/canonical-synthesis.md`](docs/canonical-synthesis.md) for the full
+canonical synthesis.
 
 ## Trust levels used here
 
@@ -107,6 +119,8 @@ Use these labels consistently:
 ├── scripts/                           # thin CLI helpers
 ├── tests/                             # smoke tests and incidence checks
 ├── docs/
+│   ├── index.md                       # documentation navigation
+│   ├── canonical-synthesis.md         # long-form canonical project synthesis
 │   ├── claims.md                      # proved vs heuristic statements
 │   ├── candidate-patterns.md          # ranked incidence patterns
 │   ├── failed-ideas.md                # failed arguments to avoid repeating

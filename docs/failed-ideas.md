@@ -97,6 +97,11 @@ Failure mode: requiring one global radius solves only a stricter subcase. The
 actual problem allows each center to choose its own radius, so common-radius
 or unit-distance bounds must stay in a separate literature-risk lane.[^syn]
 
+A related rejected shortcut claimed that Furedi's `2n-7` unit-distance result
+settles the uniform-radius subcase. The canonical synthesis records this as a
+direction-of-bound error: `2n-7` is a lower-bound construction, not the needed
+`< 2n` upper bound.[^canon]
+
 [^lit]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md`.
 [^forest]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/11_forest_lemma_counterexample_review.md`.
 [^rank]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/03_RANK_AND_BRIDGE_STATUS.md`.
@@ -105,3 +110,4 @@ or unit-distance bounds must stay in a separate literature-risk lane.[^syn]
 [^n39]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/12_n39_circulant_degeneracy.md`.
 [^paper]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/05_rank_scaling_and_verifier_review.md`.
 [^syn]: Source file: `erd archive/outputs/erdos97_synthesis.md`.
+[^canon]: Source file: `docs/canonical-synthesis.md`.
