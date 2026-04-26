@@ -27,6 +27,15 @@ Thus `n=5,6,7` are proved impossible in this selected-witness framework. The
 `n=8` case remains open: the cube witness pattern is obstructed, but no
 complete `n=8` classification or proof is claimed.
 
+For `n=8`, the repo now records a conditional exactification artifact for a
+reconstructed canonical 15-class survivor list. Exact cyclic-order noncrossing
+kills 1 class and exact perpendicular-bisector / equal-distance algebra kills
+the other 14. This is not a theorem yet: the live gap is provenance against the
+original survivor enumeration and independent review of the exact certificates.
+In this workspace the reconstructed classes match the archived
+`n8_exact_geometry_filter_results.json` classes up to simultaneous relabeling.
+See `docs/n8-exact-survivors.md`.
+
 ## Best saved near-miss
 
 The best saved near-miss remains `B12_3x4_danzer_lift`. It is numerical only
@@ -80,6 +89,12 @@ should be certified with edge-line orientation inequalities. The rank route is
 promising only as a conditional program: repair the ear-orderable rank proof,
 then prove or refute the bridge that every realizable counterexample admits an
 ear-orderable selected witness pattern.[^alg][^rank]
+
+The new `n=8` artifact is the sharpest exactification target in the repo. Its
+checker verifies the reconstructed-class obstruction, the class `3` duplicate
+certificate, the class `4` collinearity certificate, the class `14`
+strict-interior certificate, and an optional archived-ID provenance mapping when
+the archive JSON is available.
 
 ## Open literature questions
 

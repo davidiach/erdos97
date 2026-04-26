@@ -117,6 +117,16 @@ of the witnesses.[^alg]
 
 ## Conjectures / Conditional Programs
 
+### Conditional n=8 exact survivor obstruction artifact
+
+For the reconstructed canonical list of 15 `n=8` survivor classes, exact
+cyclic-order and perpendicular-bisector/equal-distance checks leave no strictly
+convex realization. This remains conditional until the reconstructed JSON is
+tied to the original survivor-enumeration provenance and the certificate is
+independently reviewed. In this workspace, the reconstructed classes match the
+archived `n8_exact_geometry_filter_results.json` classes up to simultaneous
+relabeling. See `docs/n8-exact-survivors.md`.
+
 ### Ear-orderable bridge
 
 If every realizable `k=4` counterexample admitted an ear-orderable selected
