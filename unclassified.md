@@ -1,0 +1,16 @@
+# Unclassified / scratch files
+
+11 of 138 inventoried files are SCRATCH (8.0%).
+
+These files resisted trust-label routing or were archive/prompt/provenance containers.
+- `erd archive/best_of_n_for_erdos_problem.md`: This file is `Best-of-N Workflow for Attacking an Erdos Problem` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.
+- `erd archive/erdos97_gpt52_pro_prompt_notes.md`: This file is `Erdos Problem #97 - Useful Prompt & Notes` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.
+- `erd archive/erdos97_prompt_notes (1).md`: This file is `Erdos Problem #97 Prompt Notes` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.
+- `erd archive/erdos97_prompt_notes.md`: This file is `Erdos Problem #97 Prompt Notes` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.
+- `erd archive/lemma12_review_notes.zip`: This file is `lemma12_review_notes.zip` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.
+- `erd archive/lemma12_review_notes.zip::best_of_n_for_erdos_problem.md`: This file is `Best-of-N Workflow for Attacking an Erdos Problem` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.
+- `erd archive/lemma12_review_notes.zip::erdos97_gpt52_pro_prompt_notes.md`: This file is `Erdos Problem #97 - Useful Prompt & Notes` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.
+- `erd archive/lemma12_review_notes.zip::erdos97_prompt_notes (1).md`: This file is `Erdos Problem #97 Prompt Notes` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.
+- `erd archive/lemma12_review_notes.zip::erdos97_prompt_notes.md`: This file is `Erdos Problem #97 Prompt Notes` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.
+- `erd archive/outputs/useful_research_findings.zip`: This file is `useful_research_findings.zip` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.
+- `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/05_SELECTION_MANIFEST.md`: This file is `Selection manifest` and was classified as SCRATCH because it is an archive, manifest, prompt, or workflow-only file. No trust-labelled research kernel was promoted from the file itself.
