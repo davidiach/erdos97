@@ -1,0 +1,1437 @@
+Erdos Problem #97 n=8: polynomial systems after cyclic-order filter
+Gauge: p0=(0,0), p1=(1,0), variables x2,y2,...,x7,y7; nondegenerate gauge condition y2 != 0.
+For each phi edge {i,j}->{a,b}, PB equations are:
+  dot(i,j;a,b) = (p_i-p_j)·(p_a-p_b) = 0
+  bis(i,j;a,b) = det(p_j-p_i, p_a+p_b-2*p_i) = 0
+Full equal-distance equations use each row W_i: |p_i-p_other|^2-|p_i-p_base|^2=0 for other in W_i\{base}.
+
+================================================================================
+Class 0
+Compatible cyclic orders: 2520 (full list in JSON artifact)
+W sets:
+  W_0 = [1, 2, 3, 4]
+  W_1 = [0, 2, 3, 5]
+  W_2 = [0, 1, 3, 6]
+  W_3 = [0, 1, 2, 7]
+  W_4 = [0, 5, 6, 7]
+  W_5 = [1, 4, 6, 7]
+  W_6 = [2, 4, 5, 7]
+  W_7 = [3, 4, 5, 6]
+phi edges and PB polynomials:
+  (0, 1) -> (2, 3):
+    dot = -x2 + x3
+    bis = y2 + y3
+  (0, 2) -> (1, 3):
+    dot = x2*x3 - x2 + y2*y3
+    bis = x2*y3 - x3*y2 - y2
+  (0, 3) -> (1, 2):
+    dot = x2*x3 - x3 + y2*y3
+    bis = -x2*y3 + x3*y2 - y3
+  (0, 5) -> (1, 4):
+    dot = x4*x5 - x5 + y4*y5
+    bis = -x4*y5 + x5*y4 - y5
+  (0, 6) -> (2, 4):
+    dot = -x2*x6 + x4*x6 - y2*y6 + y4*y6
+    bis = -x2*y6 - x4*y6 + x6*y2 + x6*y4
+  (0, 7) -> (3, 4):
+    dot = -x3*x7 + x4*x7 - y3*y7 + y4*y7
+    bis = -x3*y7 - x4*y7 + x7*y3 + x7*y4
+  (1, 2) -> (0, 3):
+    dot = x2*x3 - x3 + y2*y3
+    bis = x2*y3 - x3*y2 + 2*y2 - y3
+  (1, 3) -> (0, 2):
+    dot = x2*x3 - x2 + y2*y3
+    bis = -x2*y3 + x3*y2 - y2 + 2*y3
+  (1, 4) -> (0, 5):
+    dot = x4*x5 - x5 + y4*y5
+    bis = x4*y5 - x5*y4 + 2*y4 - y5
+  (1, 6) -> (2, 5):
+    dot = -x2*x6 + x2 + x5*x6 - x5 - y2*y6 + y5*y6
+    bis = -x2*y6 - x5*y6 + x6*y2 + x6*y5 - y2 - y5 + 2*y6
+  (1, 7) -> (3, 5):
+    dot = -x3*x7 + x3 + x5*x7 - x5 - y3*y7 + y5*y7
+    bis = -x3*y7 - x5*y7 + x7*y3 + x7*y5 - y3 - y5 + 2*y7
+  (2, 3) -> (0, 1):
+    dot = -x2 + x3
+    bis = 2*x2*y3 - 2*x3*y2 + y2 - y3
+  (2, 4) -> (0, 6):
+    dot = -x2*x6 + x4*x6 - y2*y6 + y4*y6
+    bis = 2*x2*y4 - x2*y6 - 2*x4*y2 + x4*y6 + x6*y2 - x6*y4
+  (2, 5) -> (1, 6):
+    dot = -x2*x6 + x2 + x5*x6 - x5 - y2*y6 + y5*y6
+    bis = 2*x2*y5 - x2*y6 - 2*x5*y2 + x5*y6 + x6*y2 - x6*y5 + y2 - y5
+  (2, 7) -> (3, 6):
+    dot = x2*x3 - x2*x6 - x3*x7 + x6*x7 + y2*y3 - y2*y6 - y3*y7 + y6*y7
+    bis = -x2*y3 - x2*y6 + 2*x2*y7 + x3*y2 - x3*y7 + x6*y2 - x6*y7 - 2*x7*y2 + x7*y3 + x7*y6
+  (3, 4) -> (0, 7):
+    dot = -x3*x7 + x4*x7 - y3*y7 + y4*y7
+    bis = 2*x3*y4 - x3*y7 - 2*x4*y3 + x4*y7 + x7*y3 - x7*y4
+  (3, 5) -> (1, 7):
+    dot = -x3*x7 + x3 + x5*x7 - x5 - y3*y7 + y5*y7
+    bis = 2*x3*y5 - x3*y7 - 2*x5*y3 + x5*y7 + x7*y3 - x7*y5 + y3 - y5
+  (3, 6) -> (2, 7):
+    dot = x2*x3 - x2*x6 - x3*x7 + x6*x7 + y2*y3 - y2*y6 - y3*y7 + y6*y7
+    bis = x2*y3 - x2*y6 - x3*y2 + 2*x3*y6 - x3*y7 + x6*y2 - 2*x6*y3 + x6*y7 + x7*y3 - x7*y6
+  (4, 5) -> (6, 7):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = 2*x4*y5 - x4*y6 - x4*y7 - 2*x5*y4 + x5*y6 + x5*y7 + x6*y4 - x6*y5 + x7*y4 - x7*y5
+  (4, 6) -> (5, 7):
+    dot = x4*x5 - x4*x7 - x5*x6 + x6*x7 + y4*y5 - y4*y7 - y5*y6 + y6*y7
+    bis = -x4*y5 + 2*x4*y6 - x4*y7 + x5*y4 - x5*y6 - 2*x6*y4 + x6*y5 + x6*y7 + x7*y4 - x7*y6
+  (4, 7) -> (5, 6):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = -x4*y5 - x4*y6 + 2*x4*y7 + x5*y4 - x5*y7 + x6*y4 - x6*y7 - 2*x7*y4 + x7*y5 + x7*y6
+  (5, 6) -> (4, 7):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = x4*y5 - x4*y6 - x5*y4 + 2*x5*y6 - x5*y7 + x6*y4 - 2*x6*y5 + x6*y7 + x7*y5 - x7*y6
+  (5, 7) -> (4, 6):
+    dot = x4*x5 - x4*x7 - x5*x6 + x6*x7 + y4*y5 - y4*y7 - y5*y6 + y6*y7
+    bis = x4*y5 - x4*y7 - x5*y4 - x5*y6 + 2*x5*y7 + x6*y5 - x6*y7 + x7*y4 - 2*x7*y5 + x7*y6
+  (6, 7) -> (4, 5):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = x4*y6 - x4*y7 + x5*y6 - x5*y7 - x6*y4 - x6*y5 + 2*x6*y7 + x7*y4 + x7*y5 - 2*x7*y6
+Full equal-distance equations:
+  center 0, base 1, other 2: x2**2 + y2**2 - 1
+  center 0, base 1, other 3: x3**2 + y3**2 - 1
+  center 0, base 1, other 4: x4**2 + y4**2 - 1
+  center 1, base 0, other 2: x2**2 - 2*x2 + y2**2
+  center 1, base 0, other 3: x3**2 - 2*x3 + y3**2
+  center 1, base 0, other 5: x5**2 - 2*x5 + y5**2
+  center 2, base 0, other 1: 1 - 2*x2
+  center 2, base 0, other 3: -2*x2*x3 + x3**2 - 2*y2*y3 + y3**2
+  center 2, base 0, other 6: -2*x2*x6 + x6**2 - 2*y2*y6 + y6**2
+  center 3, base 0, other 1: 1 - 2*x3
+  center 3, base 0, other 2: x2**2 - 2*x2*x3 + y2**2 - 2*y2*y3
+  center 3, base 0, other 7: -2*x3*x7 + x7**2 - 2*y3*y7 + y7**2
+  center 4, base 0, other 5: -2*x4*x5 + x5**2 - 2*y4*y5 + y5**2
+  center 4, base 0, other 6: -2*x4*x6 + x6**2 - 2*y4*y6 + y6**2
+  center 4, base 0, other 7: -2*x4*x7 + x7**2 - 2*y4*y7 + y7**2
+  center 5, base 1, other 4: x4**2 - 2*x4*x5 + 2*x5 + y4**2 - 2*y4*y5 - 1
+  center 5, base 1, other 6: -2*x5*x6 + 2*x5 + x6**2 - 2*y5*y6 + y6**2 - 1
+  center 5, base 1, other 7: -2*x5*x7 + 2*x5 + x7**2 - 2*y5*y7 + y7**2 - 1
+  center 6, base 2, other 4: -x2**2 + 2*x2*x6 + x4**2 - 2*x4*x6 - y2**2 + 2*y2*y6 + y4**2 - 2*y4*y6
+  center 6, base 2, other 5: -x2**2 + 2*x2*x6 + x5**2 - 2*x5*x6 - y2**2 + 2*y2*y6 + y5**2 - 2*y5*y6
+  center 6, base 2, other 7: -x2**2 + 2*x2*x6 - 2*x6*x7 + x7**2 - y2**2 + 2*y2*y6 - 2*y6*y7 + y7**2
+  center 7, base 3, other 4: -x3**2 + 2*x3*x7 + x4**2 - 2*x4*x7 - y3**2 + 2*y3*y7 + y4**2 - 2*y4*y7
+  center 7, base 3, other 5: -x3**2 + 2*x3*x7 + x5**2 - 2*x5*x7 - y3**2 + 2*y3*y7 + y5**2 - 2*y5*y7
+  center 7, base 3, other 6: -x3**2 + 2*x3*x7 + x6**2 - 2*x6*x7 - y3**2 + 2*y3*y7 + y6**2 - 2*y6*y7
+
+================================================================================
+Class 1
+Compatible cyclic orders: 280 (full list in JSON artifact)
+W sets:
+  W_0 = [1, 2, 3, 4]
+  W_1 = [0, 2, 3, 5]
+  W_2 = [0, 1, 3, 6]
+  W_3 = [0, 1, 2, 7]
+  W_4 = [1, 5, 6, 7]
+  W_5 = [0, 4, 6, 7]
+  W_6 = [3, 4, 5, 7]
+  W_7 = [2, 4, 5, 6]
+phi edges and PB polynomials:
+  (0, 1) -> (2, 3):
+    dot = -x2 + x3
+    bis = y2 + y3
+  (0, 2) -> (1, 3):
+    dot = x2*x3 - x2 + y2*y3
+    bis = x2*y3 - x3*y2 - y2
+  (0, 3) -> (1, 2):
+    dot = x2*x3 - x3 + y2*y3
+    bis = -x2*y3 + x3*y2 - y3
+  (0, 6) -> (3, 4):
+    dot = -x3*x6 + x4*x6 - y3*y6 + y4*y6
+    bis = -x3*y6 - x4*y6 + x6*y3 + x6*y4
+  (0, 7) -> (2, 4):
+    dot = -x2*x7 + x4*x7 - y2*y7 + y4*y7
+    bis = -x2*y7 - x4*y7 + x7*y2 + x7*y4
+  (1, 2) -> (0, 3):
+    dot = x2*x3 - x3 + y2*y3
+    bis = x2*y3 - x3*y2 + 2*y2 - y3
+  (1, 3) -> (0, 2):
+    dot = x2*x3 - x2 + y2*y3
+    bis = -x2*y3 + x3*y2 - y2 + 2*y3
+  (1, 6) -> (3, 5):
+    dot = -x3*x6 + x3 + x5*x6 - x5 - y3*y6 + y5*y6
+    bis = -x3*y6 - x5*y6 + x6*y3 + x6*y5 - y3 - y5 + 2*y6
+  (1, 7) -> (2, 5):
+    dot = -x2*x7 + x2 + x5*x7 - x5 - y2*y7 + y5*y7
+    bis = -x2*y7 - x5*y7 + x7*y2 + x7*y5 - y2 - y5 + 2*y7
+  (2, 3) -> (0, 1):
+    dot = -x2 + x3
+    bis = 2*x2*y3 - 2*x3*y2 + y2 - y3
+  (2, 4) -> (1, 6):
+    dot = -x2*x6 + x2 + x4*x6 - x4 - y2*y6 + y4*y6
+    bis = 2*x2*y4 - x2*y6 - 2*x4*y2 + x4*y6 + x6*y2 - x6*y4 + y2 - y4
+  (2, 5) -> (0, 6):
+    dot = -x2*x6 + x5*x6 - y2*y6 + y5*y6
+    bis = 2*x2*y5 - x2*y6 - 2*x5*y2 + x5*y6 + x6*y2 - x6*y5
+  (3, 4) -> (1, 7):
+    dot = -x3*x7 + x3 + x4*x7 - x4 - y3*y7 + y4*y7
+    bis = 2*x3*y4 - x3*y7 - 2*x4*y3 + x4*y7 + x7*y3 - x7*y4 + y3 - y4
+  (3, 5) -> (0, 7):
+    dot = -x3*x7 + x5*x7 - y3*y7 + y5*y7
+    bis = 2*x3*y5 - x3*y7 - 2*x5*y3 + x5*y7 + x7*y3 - x7*y5
+  (4, 5) -> (6, 7):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = 2*x4*y5 - x4*y6 - x4*y7 - 2*x5*y4 + x5*y6 + x5*y7 + x6*y4 - x6*y5 + x7*y4 - x7*y5
+  (4, 6) -> (5, 7):
+    dot = x4*x5 - x4*x7 - x5*x6 + x6*x7 + y4*y5 - y4*y7 - y5*y6 + y6*y7
+    bis = -x4*y5 + 2*x4*y6 - x4*y7 + x5*y4 - x5*y6 - 2*x6*y4 + x6*y5 + x6*y7 + x7*y4 - x7*y6
+  (4, 7) -> (5, 6):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = -x4*y5 - x4*y6 + 2*x4*y7 + x5*y4 - x5*y7 + x6*y4 - x6*y7 - 2*x7*y4 + x7*y5 + x7*y6
+  (5, 6) -> (4, 7):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = x4*y5 - x4*y6 - x5*y4 + 2*x5*y6 - x5*y7 + x6*y4 - 2*x6*y5 + x6*y7 + x7*y5 - x7*y6
+  (5, 7) -> (4, 6):
+    dot = x4*x5 - x4*x7 - x5*x6 + x6*x7 + y4*y5 - y4*y7 - y5*y6 + y6*y7
+    bis = x4*y5 - x4*y7 - x5*y4 - x5*y6 + 2*x5*y7 + x6*y5 - x6*y7 + x7*y4 - 2*x7*y5 + x7*y6
+  (6, 7) -> (4, 5):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = x4*y6 - x4*y7 + x5*y6 - x5*y7 - x6*y4 - x6*y5 + 2*x6*y7 + x7*y4 + x7*y5 - 2*x7*y6
+Full equal-distance equations:
+  center 0, base 1, other 2: x2**2 + y2**2 - 1
+  center 0, base 1, other 3: x3**2 + y3**2 - 1
+  center 0, base 1, other 4: x4**2 + y4**2 - 1
+  center 1, base 0, other 2: x2**2 - 2*x2 + y2**2
+  center 1, base 0, other 3: x3**2 - 2*x3 + y3**2
+  center 1, base 0, other 5: x5**2 - 2*x5 + y5**2
+  center 2, base 0, other 1: 1 - 2*x2
+  center 2, base 0, other 3: -2*x2*x3 + x3**2 - 2*y2*y3 + y3**2
+  center 2, base 0, other 6: -2*x2*x6 + x6**2 - 2*y2*y6 + y6**2
+  center 3, base 0, other 1: 1 - 2*x3
+  center 3, base 0, other 2: x2**2 - 2*x2*x3 + y2**2 - 2*y2*y3
+  center 3, base 0, other 7: -2*x3*x7 + x7**2 - 2*y3*y7 + y7**2
+  center 4, base 1, other 5: -2*x4*x5 + 2*x4 + x5**2 - 2*y4*y5 + y5**2 - 1
+  center 4, base 1, other 6: -2*x4*x6 + 2*x4 + x6**2 - 2*y4*y6 + y6**2 - 1
+  center 4, base 1, other 7: -2*x4*x7 + 2*x4 + x7**2 - 2*y4*y7 + y7**2 - 1
+  center 5, base 0, other 4: x4**2 - 2*x4*x5 + y4**2 - 2*y4*y5
+  center 5, base 0, other 6: -2*x5*x6 + x6**2 - 2*y5*y6 + y6**2
+  center 5, base 0, other 7: -2*x5*x7 + x7**2 - 2*y5*y7 + y7**2
+  center 6, base 3, other 4: -x3**2 + 2*x3*x6 + x4**2 - 2*x4*x6 - y3**2 + 2*y3*y6 + y4**2 - 2*y4*y6
+  center 6, base 3, other 5: -x3**2 + 2*x3*x6 + x5**2 - 2*x5*x6 - y3**2 + 2*y3*y6 + y5**2 - 2*y5*y6
+  center 6, base 3, other 7: -x3**2 + 2*x3*x6 - 2*x6*x7 + x7**2 - y3**2 + 2*y3*y6 - 2*y6*y7 + y7**2
+  center 7, base 2, other 4: -x2**2 + 2*x2*x7 + x4**2 - 2*x4*x7 - y2**2 + 2*y2*y7 + y4**2 - 2*y4*y7
+  center 7, base 2, other 5: -x2**2 + 2*x2*x7 + x5**2 - 2*x5*x7 - y2**2 + 2*y2*y7 + y5**2 - 2*y5*y7
+  center 7, base 2, other 6: -x2**2 + 2*x2*x7 + x6**2 - 2*x6*x7 - y2**2 + 2*y2*y7 + y6**2 - 2*y6*y7
+
+================================================================================
+Class 2
+Compatible cyclic orders: 21 (full list in JSON artifact)
+W sets:
+  W_0 = [1, 2, 3, 4]
+  W_1 = [0, 2, 3, 5]
+  W_2 = [0, 1, 3, 6]
+  W_3 = [0, 1, 2, 7]
+  W_4 = [1, 5, 6, 7]
+  W_5 = [2, 4, 6, 7]
+  W_6 = [3, 4, 5, 7]
+  W_7 = [0, 4, 5, 6]
+phi edges and PB polynomials:
+  (0, 1) -> (2, 3):
+    dot = -x2 + x3
+    bis = y2 + y3
+  (0, 2) -> (1, 3):
+    dot = x2*x3 - x2 + y2*y3
+    bis = x2*y3 - x3*y2 - y2
+  (0, 3) -> (1, 2):
+    dot = x2*x3 - x3 + y2*y3
+    bis = -x2*y3 + x3*y2 - y3
+  (0, 5) -> (2, 4):
+    dot = -x2*x5 + x4*x5 - y2*y5 + y4*y5
+    bis = -x2*y5 - x4*y5 + x5*y2 + x5*y4
+  (0, 6) -> (3, 4):
+    dot = -x3*x6 + x4*x6 - y3*y6 + y4*y6
+    bis = -x3*y6 - x4*y6 + x6*y3 + x6*y4
+  (1, 2) -> (0, 3):
+    dot = x2*x3 - x3 + y2*y3
+    bis = x2*y3 - x3*y2 + 2*y2 - y3
+  (1, 3) -> (0, 2):
+    dot = x2*x3 - x2 + y2*y3
+    bis = -x2*y3 + x3*y2 - y2 + 2*y3
+  (1, 6) -> (3, 5):
+    dot = -x3*x6 + x3 + x5*x6 - x5 - y3*y6 + y5*y6
+    bis = -x3*y6 - x5*y6 + x6*y3 + x6*y5 - y3 - y5 + 2*y6
+  (1, 7) -> (0, 5):
+    dot = x5*x7 - x5 + y5*y7
+    bis = -x5*y7 + x7*y5 - y5 + 2*y7
+  (2, 3) -> (0, 1):
+    dot = -x2 + x3
+    bis = 2*x2*y3 - 2*x3*y2 + y2 - y3
+  (2, 4) -> (1, 6):
+    dot = -x2*x6 + x2 + x4*x6 - x4 - y2*y6 + y4*y6
+    bis = 2*x2*y4 - x2*y6 - 2*x4*y2 + x4*y6 + x6*y2 - x6*y4 + y2 - y4
+  (2, 7) -> (0, 6):
+    dot = -x2*x6 + x6*x7 - y2*y6 + y6*y7
+    bis = -x2*y6 + 2*x2*y7 + x6*y2 - x6*y7 - 2*x7*y2 + x7*y6
+  (3, 4) -> (1, 7):
+    dot = -x3*x7 + x3 + x4*x7 - x4 - y3*y7 + y4*y7
+    bis = 2*x3*y4 - x3*y7 - 2*x4*y3 + x4*y7 + x7*y3 - x7*y4 + y3 - y4
+  (3, 5) -> (2, 7):
+    dot = x2*x3 - x2*x5 - x3*x7 + x5*x7 + y2*y3 - y2*y5 - y3*y7 + y5*y7
+    bis = x2*y3 - x2*y5 - x3*y2 + 2*x3*y5 - x3*y7 + x5*y2 - 2*x5*y3 + x5*y7 + x7*y3 - x7*y5
+  (4, 5) -> (6, 7):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = 2*x4*y5 - x4*y6 - x4*y7 - 2*x5*y4 + x5*y6 + x5*y7 + x6*y4 - x6*y5 + x7*y4 - x7*y5
+  (4, 6) -> (5, 7):
+    dot = x4*x5 - x4*x7 - x5*x6 + x6*x7 + y4*y5 - y4*y7 - y5*y6 + y6*y7
+    bis = -x4*y5 + 2*x4*y6 - x4*y7 + x5*y4 - x5*y6 - 2*x6*y4 + x6*y5 + x6*y7 + x7*y4 - x7*y6
+  (4, 7) -> (5, 6):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = -x4*y5 - x4*y6 + 2*x4*y7 + x5*y4 - x5*y7 + x6*y4 - x6*y7 - 2*x7*y4 + x7*y5 + x7*y6
+  (5, 6) -> (4, 7):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = x4*y5 - x4*y6 - x5*y4 + 2*x5*y6 - x5*y7 + x6*y4 - 2*x6*y5 + x6*y7 + x7*y5 - x7*y6
+  (5, 7) -> (4, 6):
+    dot = x4*x5 - x4*x7 - x5*x6 + x6*x7 + y4*y5 - y4*y7 - y5*y6 + y6*y7
+    bis = x4*y5 - x4*y7 - x5*y4 - x5*y6 + 2*x5*y7 + x6*y5 - x6*y7 + x7*y4 - 2*x7*y5 + x7*y6
+  (6, 7) -> (4, 5):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = x4*y6 - x4*y7 + x5*y6 - x5*y7 - x6*y4 - x6*y5 + 2*x6*y7 + x7*y4 + x7*y5 - 2*x7*y6
+Full equal-distance equations:
+  center 0, base 1, other 2: x2**2 + y2**2 - 1
+  center 0, base 1, other 3: x3**2 + y3**2 - 1
+  center 0, base 1, other 4: x4**2 + y4**2 - 1
+  center 1, base 0, other 2: x2**2 - 2*x2 + y2**2
+  center 1, base 0, other 3: x3**2 - 2*x3 + y3**2
+  center 1, base 0, other 5: x5**2 - 2*x5 + y5**2
+  center 2, base 0, other 1: 1 - 2*x2
+  center 2, base 0, other 3: -2*x2*x3 + x3**2 - 2*y2*y3 + y3**2
+  center 2, base 0, other 6: -2*x2*x6 + x6**2 - 2*y2*y6 + y6**2
+  center 3, base 0, other 1: 1 - 2*x3
+  center 3, base 0, other 2: x2**2 - 2*x2*x3 + y2**2 - 2*y2*y3
+  center 3, base 0, other 7: -2*x3*x7 + x7**2 - 2*y3*y7 + y7**2
+  center 4, base 1, other 5: -2*x4*x5 + 2*x4 + x5**2 - 2*y4*y5 + y5**2 - 1
+  center 4, base 1, other 6: -2*x4*x6 + 2*x4 + x6**2 - 2*y4*y6 + y6**2 - 1
+  center 4, base 1, other 7: -2*x4*x7 + 2*x4 + x7**2 - 2*y4*y7 + y7**2 - 1
+  center 5, base 2, other 4: -x2**2 + 2*x2*x5 + x4**2 - 2*x4*x5 - y2**2 + 2*y2*y5 + y4**2 - 2*y4*y5
+  center 5, base 2, other 6: -x2**2 + 2*x2*x5 - 2*x5*x6 + x6**2 - y2**2 + 2*y2*y5 - 2*y5*y6 + y6**2
+  center 5, base 2, other 7: -x2**2 + 2*x2*x5 - 2*x5*x7 + x7**2 - y2**2 + 2*y2*y5 - 2*y5*y7 + y7**2
+  center 6, base 3, other 4: -x3**2 + 2*x3*x6 + x4**2 - 2*x4*x6 - y3**2 + 2*y3*y6 + y4**2 - 2*y4*y6
+  center 6, base 3, other 5: -x3**2 + 2*x3*x6 + x5**2 - 2*x5*x6 - y3**2 + 2*y3*y6 + y5**2 - 2*y5*y6
+  center 6, base 3, other 7: -x3**2 + 2*x3*x6 - 2*x6*x7 + x7**2 - y3**2 + 2*y3*y6 - 2*y6*y7 + y7**2
+  center 7, base 0, other 4: x4**2 - 2*x4*x7 + y4**2 - 2*y4*y7
+  center 7, base 0, other 5: x5**2 - 2*x5*x7 + y5**2 - 2*y5*y7
+  center 7, base 0, other 6: x6**2 - 2*x6*x7 + y6**2 - 2*y6*y7
+
+================================================================================
+Class 3
+Compatible cyclic orders: 2520 (full list in JSON artifact)
+W sets:
+  W_0 = [1, 2, 3, 4]
+  W_1 = [0, 2, 3, 5]
+  W_2 = [0, 1, 4, 6]
+  W_3 = [0, 1, 5, 7]
+  W_4 = [0, 2, 6, 7]
+  W_5 = [1, 3, 6, 7]
+  W_6 = [2, 4, 5, 7]
+  W_7 = [3, 4, 5, 6]
+phi edges and PB polynomials:
+  (0, 1) -> (2, 3):
+    dot = -x2 + x3
+    bis = y2 + y3
+  (0, 2) -> (1, 4):
+    dot = x2*x4 - x2 + y2*y4
+    bis = x2*y4 - x4*y2 - y2
+  (0, 5) -> (1, 3):
+    dot = x3*x5 - x5 + y3*y5
+    bis = -x3*y5 + x5*y3 - y5
+  (0, 6) -> (2, 4):
+    dot = -x2*x6 + x4*x6 - y2*y6 + y4*y6
+    bis = -x2*y6 - x4*y6 + x6*y2 + x6*y4
+  (0, 7) -> (3, 4):
+    dot = -x3*x7 + x4*x7 - y3*y7 + y4*y7
+    bis = -x3*y7 - x4*y7 + x7*y3 + x7*y4
+  (1, 3) -> (0, 5):
+    dot = x3*x5 - x5 + y3*y5
+    bis = x3*y5 - x5*y3 + 2*y3 - y5
+  (1, 4) -> (0, 2):
+    dot = x2*x4 - x2 + y2*y4
+    bis = -x2*y4 + x4*y2 - y2 + 2*y4
+  (1, 6) -> (2, 5):
+    dot = -x2*x6 + x2 + x5*x6 - x5 - y2*y6 + y5*y6
+    bis = -x2*y6 - x5*y6 + x6*y2 + x6*y5 - y2 - y5 + 2*y6
+  (1, 7) -> (3, 5):
+    dot = -x3*x7 + x3 + x5*x7 - x5 - y3*y7 + y5*y7
+    bis = -x3*y7 - x5*y7 + x7*y3 + x7*y5 - y3 - y5 + 2*y7
+  (2, 3) -> (0, 1):
+    dot = -x2 + x3
+    bis = 2*x2*y3 - 2*x3*y2 + y2 - y3
+  (2, 4) -> (0, 6):
+    dot = -x2*x6 + x4*x6 - y2*y6 + y4*y6
+    bis = 2*x2*y4 - x2*y6 - 2*x4*y2 + x4*y6 + x6*y2 - x6*y4
+  (2, 5) -> (1, 6):
+    dot = -x2*x6 + x2 + x5*x6 - x5 - y2*y6 + y5*y6
+    bis = 2*x2*y5 - x2*y6 - 2*x5*y2 + x5*y6 + x6*y2 - x6*y5 + y2 - y5
+  (2, 7) -> (4, 6):
+    dot = x2*x4 - x2*x6 - x4*x7 + x6*x7 + y2*y4 - y2*y6 - y4*y7 + y6*y7
+    bis = -x2*y4 - x2*y6 + 2*x2*y7 + x4*y2 - x4*y7 + x6*y2 - x6*y7 - 2*x7*y2 + x7*y4 + x7*y6
+  (3, 4) -> (0, 7):
+    dot = -x3*x7 + x4*x7 - y3*y7 + y4*y7
+    bis = 2*x3*y4 - x3*y7 - 2*x4*y3 + x4*y7 + x7*y3 - x7*y4
+  (3, 5) -> (1, 7):
+    dot = -x3*x7 + x3 + x5*x7 - x5 - y3*y7 + y5*y7
+    bis = 2*x3*y5 - x3*y7 - 2*x5*y3 + x5*y7 + x7*y3 - x7*y5 + y3 - y5
+  (3, 6) -> (5, 7):
+    dot = x3*x5 - x3*x7 - x5*x6 + x6*x7 + y3*y5 - y3*y7 - y5*y6 + y6*y7
+    bis = -x3*y5 + 2*x3*y6 - x3*y7 + x5*y3 - x5*y6 - 2*x6*y3 + x6*y5 + x6*y7 + x7*y3 - x7*y6
+  (4, 5) -> (6, 7):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = 2*x4*y5 - x4*y6 - x4*y7 - 2*x5*y4 + x5*y6 + x5*y7 + x6*y4 - x6*y5 + x7*y4 - x7*y5
+  (4, 6) -> (2, 7):
+    dot = x2*x4 - x2*x6 - x4*x7 + x6*x7 + y2*y4 - y2*y6 - y4*y7 + y6*y7
+    bis = x2*y4 - x2*y6 - x4*y2 + 2*x4*y6 - x4*y7 + x6*y2 - 2*x6*y4 + x6*y7 + x7*y4 - x7*y6
+  (5, 7) -> (3, 6):
+    dot = x3*x5 - x3*x7 - x5*x6 + x6*x7 + y3*y5 - y3*y7 - y5*y6 + y6*y7
+    bis = x3*y5 - x3*y7 - x5*y3 - x5*y6 + 2*x5*y7 + x6*y5 - x6*y7 + x7*y3 - 2*x7*y5 + x7*y6
+  (6, 7) -> (4, 5):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = x4*y6 - x4*y7 + x5*y6 - x5*y7 - x6*y4 - x6*y5 + 2*x6*y7 + x7*y4 + x7*y5 - 2*x7*y6
+Full equal-distance equations:
+  center 0, base 1, other 2: x2**2 + y2**2 - 1
+  center 0, base 1, other 3: x3**2 + y3**2 - 1
+  center 0, base 1, other 4: x4**2 + y4**2 - 1
+  center 1, base 0, other 2: x2**2 - 2*x2 + y2**2
+  center 1, base 0, other 3: x3**2 - 2*x3 + y3**2
+  center 1, base 0, other 5: x5**2 - 2*x5 + y5**2
+  center 2, base 0, other 1: 1 - 2*x2
+  center 2, base 0, other 4: -2*x2*x4 + x4**2 - 2*y2*y4 + y4**2
+  center 2, base 0, other 6: -2*x2*x6 + x6**2 - 2*y2*y6 + y6**2
+  center 3, base 0, other 1: 1 - 2*x3
+  center 3, base 0, other 5: -2*x3*x5 + x5**2 - 2*y3*y5 + y5**2
+  center 3, base 0, other 7: -2*x3*x7 + x7**2 - 2*y3*y7 + y7**2
+  center 4, base 0, other 2: x2**2 - 2*x2*x4 + y2**2 - 2*y2*y4
+  center 4, base 0, other 6: -2*x4*x6 + x6**2 - 2*y4*y6 + y6**2
+  center 4, base 0, other 7: -2*x4*x7 + x7**2 - 2*y4*y7 + y7**2
+  center 5, base 1, other 3: x3**2 - 2*x3*x5 + 2*x5 + y3**2 - 2*y3*y5 - 1
+  center 5, base 1, other 6: -2*x5*x6 + 2*x5 + x6**2 - 2*y5*y6 + y6**2 - 1
+  center 5, base 1, other 7: -2*x5*x7 + 2*x5 + x7**2 - 2*y5*y7 + y7**2 - 1
+  center 6, base 2, other 4: -x2**2 + 2*x2*x6 + x4**2 - 2*x4*x6 - y2**2 + 2*y2*y6 + y4**2 - 2*y4*y6
+  center 6, base 2, other 5: -x2**2 + 2*x2*x6 + x5**2 - 2*x5*x6 - y2**2 + 2*y2*y6 + y5**2 - 2*y5*y6
+  center 6, base 2, other 7: -x2**2 + 2*x2*x6 - 2*x6*x7 + x7**2 - y2**2 + 2*y2*y6 - 2*y6*y7 + y7**2
+  center 7, base 3, other 4: -x3**2 + 2*x3*x7 + x4**2 - 2*x4*x7 - y3**2 + 2*y3*y7 + y4**2 - 2*y4*y7
+  center 7, base 3, other 5: -x3**2 + 2*x3*x7 + x5**2 - 2*x5*x7 - y3**2 + 2*y3*y7 + y5**2 - 2*y5*y7
+  center 7, base 3, other 6: -x3**2 + 2*x3*x7 + x6**2 - 2*x6*x7 - y3**2 + 2*y3*y7 + y6**2 - 2*y6*y7
+
+================================================================================
+Class 4
+Compatible cyclic orders: 280 (full list in JSON artifact)
+W sets:
+  W_0 = [1, 2, 3, 4]
+  W_1 = [0, 2, 3, 5]
+  W_2 = [0, 1, 4, 6]
+  W_3 = [0, 1, 5, 7]
+  W_4 = [1, 2, 6, 7]
+  W_5 = [0, 3, 6, 7]
+  W_6 = [3, 4, 5, 7]
+  W_7 = [2, 4, 5, 6]
+phi edges and PB polynomials:
+  (0, 1) -> (2, 3):
+    dot = -x2 + x3
+    bis = y2 + y3
+  (0, 2) -> (1, 4):
+    dot = x2*x4 - x2 + y2*y4
+    bis = x2*y4 - x4*y2 - y2
+  (0, 4) -> (1, 2):
+    dot = x2*x4 - x4 + y2*y4
+    bis = -x2*y4 + x4*y2 - y4
+  (0, 6) -> (3, 4):
+    dot = -x3*x6 + x4*x6 - y3*y6 + y4*y6
+    bis = -x3*y6 - x4*y6 + x6*y3 + x6*y4
+  (0, 7) -> (2, 4):
+    dot = -x2*x7 + x4*x7 - y2*y7 + y4*y7
+    bis = -x2*y7 - x4*y7 + x7*y2 + x7*y4
+  (1, 3) -> (0, 5):
+    dot = x3*x5 - x5 + y3*y5
+    bis = x3*y5 - x5*y3 + 2*y3 - y5
+  (1, 5) -> (0, 3):
+    dot = x3*x5 - x3 + y3*y5
+    bis = -x3*y5 + x5*y3 - y3 + 2*y5
+  (1, 6) -> (3, 5):
+    dot = -x3*x6 + x3 + x5*x6 - x5 - y3*y6 + y5*y6
+    bis = -x3*y6 - x5*y6 + x6*y3 + x6*y5 - y3 - y5 + 2*y6
+  (1, 7) -> (2, 5):
+    dot = -x2*x7 + x2 + x5*x7 - x5 - y2*y7 + y5*y7
+    bis = -x2*y7 - x5*y7 + x7*y2 + x7*y5 - y2 - y5 + 2*y7
+  (2, 3) -> (0, 1):
+    dot = -x2 + x3
+    bis = 2*x2*y3 - 2*x3*y2 + y2 - y3
+  (2, 4) -> (1, 6):
+    dot = -x2*x6 + x2 + x4*x6 - x4 - y2*y6 + y4*y6
+    bis = 2*x2*y4 - x2*y6 - 2*x4*y2 + x4*y6 + x6*y2 - x6*y4 + y2 - y4
+  (2, 5) -> (0, 6):
+    dot = -x2*x6 + x5*x6 - y2*y6 + y5*y6
+    bis = 2*x2*y5 - x2*y6 - 2*x5*y2 + x5*y6 + x6*y2 - x6*y5
+  (2, 7) -> (4, 6):
+    dot = x2*x4 - x2*x6 - x4*x7 + x6*x7 + y2*y4 - y2*y6 - y4*y7 + y6*y7
+    bis = -x2*y4 - x2*y6 + 2*x2*y7 + x4*y2 - x4*y7 + x6*y2 - x6*y7 - 2*x7*y2 + x7*y4 + x7*y6
+  (3, 4) -> (1, 7):
+    dot = -x3*x7 + x3 + x4*x7 - x4 - y3*y7 + y4*y7
+    bis = 2*x3*y4 - x3*y7 - 2*x4*y3 + x4*y7 + x7*y3 - x7*y4 + y3 - y4
+  (3, 5) -> (0, 7):
+    dot = -x3*x7 + x5*x7 - y3*y7 + y5*y7
+    bis = 2*x3*y5 - x3*y7 - 2*x5*y3 + x5*y7 + x7*y3 - x7*y5
+  (3, 6) -> (5, 7):
+    dot = x3*x5 - x3*x7 - x5*x6 + x6*x7 + y3*y5 - y3*y7 - y5*y6 + y6*y7
+    bis = -x3*y5 + 2*x3*y6 - x3*y7 + x5*y3 - x5*y6 - 2*x6*y3 + x6*y5 + x6*y7 + x7*y3 - x7*y6
+  (4, 5) -> (6, 7):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = 2*x4*y5 - x4*y6 - x4*y7 - 2*x5*y4 + x5*y6 + x5*y7 + x6*y4 - x6*y5 + x7*y4 - x7*y5
+  (4, 7) -> (2, 6):
+    dot = x2*x4 - x2*x7 - x4*x6 + x6*x7 + y2*y4 - y2*y7 - y4*y6 + y6*y7
+    bis = x2*y4 - x2*y7 - x4*y2 - x4*y6 + 2*x4*y7 + x6*y4 - x6*y7 + x7*y2 - 2*x7*y4 + x7*y6
+  (5, 6) -> (3, 7):
+    dot = x3*x5 - x3*x6 - x5*x7 + x6*x7 + y3*y5 - y3*y6 - y5*y7 + y6*y7
+    bis = x3*y5 - x3*y6 - x5*y3 + 2*x5*y6 - x5*y7 + x6*y3 - 2*x6*y5 + x6*y7 + x7*y5 - x7*y6
+  (6, 7) -> (4, 5):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = x4*y6 - x4*y7 + x5*y6 - x5*y7 - x6*y4 - x6*y5 + 2*x6*y7 + x7*y4 + x7*y5 - 2*x7*y6
+Full equal-distance equations:
+  center 0, base 1, other 2: x2**2 + y2**2 - 1
+  center 0, base 1, other 3: x3**2 + y3**2 - 1
+  center 0, base 1, other 4: x4**2 + y4**2 - 1
+  center 1, base 0, other 2: x2**2 - 2*x2 + y2**2
+  center 1, base 0, other 3: x3**2 - 2*x3 + y3**2
+  center 1, base 0, other 5: x5**2 - 2*x5 + y5**2
+  center 2, base 0, other 1: 1 - 2*x2
+  center 2, base 0, other 4: -2*x2*x4 + x4**2 - 2*y2*y4 + y4**2
+  center 2, base 0, other 6: -2*x2*x6 + x6**2 - 2*y2*y6 + y6**2
+  center 3, base 0, other 1: 1 - 2*x3
+  center 3, base 0, other 5: -2*x3*x5 + x5**2 - 2*y3*y5 + y5**2
+  center 3, base 0, other 7: -2*x3*x7 + x7**2 - 2*y3*y7 + y7**2
+  center 4, base 1, other 2: x2**2 - 2*x2*x4 + 2*x4 + y2**2 - 2*y2*y4 - 1
+  center 4, base 1, other 6: -2*x4*x6 + 2*x4 + x6**2 - 2*y4*y6 + y6**2 - 1
+  center 4, base 1, other 7: -2*x4*x7 + 2*x4 + x7**2 - 2*y4*y7 + y7**2 - 1
+  center 5, base 0, other 3: x3**2 - 2*x3*x5 + y3**2 - 2*y3*y5
+  center 5, base 0, other 6: -2*x5*x6 + x6**2 - 2*y5*y6 + y6**2
+  center 5, base 0, other 7: -2*x5*x7 + x7**2 - 2*y5*y7 + y7**2
+  center 6, base 3, other 4: -x3**2 + 2*x3*x6 + x4**2 - 2*x4*x6 - y3**2 + 2*y3*y6 + y4**2 - 2*y4*y6
+  center 6, base 3, other 5: -x3**2 + 2*x3*x6 + x5**2 - 2*x5*x6 - y3**2 + 2*y3*y6 + y5**2 - 2*y5*y6
+  center 6, base 3, other 7: -x3**2 + 2*x3*x6 - 2*x6*x7 + x7**2 - y3**2 + 2*y3*y6 - 2*y6*y7 + y7**2
+  center 7, base 2, other 4: -x2**2 + 2*x2*x7 + x4**2 - 2*x4*x7 - y2**2 + 2*y2*y7 + y4**2 - 2*y4*y7
+  center 7, base 2, other 5: -x2**2 + 2*x2*x7 + x5**2 - 2*x5*x7 - y2**2 + 2*y2*y7 + y5**2 - 2*y5*y7
+  center 7, base 2, other 6: -x2**2 + 2*x2*x7 + x6**2 - 2*x6*x7 - y2**2 + 2*y2*y7 + y6**2 - 2*y6*y7
+
+================================================================================
+Class 5
+Compatible cyclic orders: 4 (full list in JSON artifact)
+W sets:
+  W_0 = [1, 2, 3, 4]
+  W_1 = [0, 2, 3, 5]
+  W_2 = [0, 1, 4, 6]
+  W_3 = [2, 4, 6, 7]
+  W_4 = [1, 3, 5, 7]
+  W_5 = [0, 3, 6, 7]
+  W_6 = [0, 4, 5, 7]
+  W_7 = [1, 2, 5, 6]
+phi edges and PB polynomials:
+  (0, 1) -> (2, 3):
+    dot = -x2 + x3
+    bis = y2 + y3
+  (0, 2) -> (1, 4):
+    dot = x2*x4 - x2 + y2*y4
+    bis = x2*y4 - x4*y2 - y2
+  (0, 3) -> (2, 4):
+    dot = -x2*x3 + x3*x4 - y2*y3 + y3*y4
+    bis = -x2*y3 + x3*y2 + x3*y4 - x4*y3
+  (0, 4) -> (1, 3):
+    dot = x3*x4 - x4 + y3*y4
+    bis = -x3*y4 + x4*y3 - y4
+  (0, 7) -> (1, 2):
+    dot = x2*x7 - x7 + y2*y7
+    bis = -x2*y7 + x7*y2 - y7
+  (1, 4) -> (3, 5):
+    dot = -x3*x4 + x3 + x4*x5 - x5 - y3*y4 + y4*y5
+    bis = -x3*y4 + x4*y3 + x4*y5 - x5*y4 - y3 + 2*y4 - y5
+  (1, 5) -> (0, 3):
+    dot = x3*x5 - x3 + y3*y5
+    bis = -x3*y5 + x5*y3 - y3 + 2*y5
+  (1, 6) -> (0, 5):
+    dot = x5*x6 - x5 + y5*y6
+    bis = -x5*y6 + x6*y5 - y5 + 2*y6
+  (1, 7) -> (2, 5):
+    dot = -x2*x7 + x2 + x5*x7 - x5 - y2*y7 + y5*y7
+    bis = -x2*y7 - x5*y7 + x7*y2 + x7*y5 - y2 - y5 + 2*y7
+  (2, 3) -> (4, 6):
+    dot = x2*x4 - x2*x6 - x3*x4 + x3*x6 + y2*y4 - y2*y6 - y3*y4 + y3*y6
+    bis = 2*x2*y3 - x2*y4 - x2*y6 - 2*x3*y2 + x3*y4 + x3*y6 + x4*y2 - x4*y3 + x6*y2 - x6*y3
+  (2, 5) -> (0, 6):
+    dot = -x2*x6 + x5*x6 - y2*y6 + y5*y6
+    bis = 2*x2*y5 - x2*y6 - 2*x5*y2 + x5*y6 + x6*y2 - x6*y5
+  (2, 6) -> (0, 4):
+    dot = -x2*x4 + x4*x6 - y2*y4 + y4*y6
+    bis = -x2*y4 + 2*x2*y6 + x4*y2 - x4*y6 - 2*x6*y2 + x6*y4
+  (2, 7) -> (1, 6):
+    dot = -x2*x6 + x2 + x6*x7 - x7 - y2*y6 + y6*y7
+    bis = -x2*y6 + 2*x2*y7 + x6*y2 - x6*y7 - 2*x7*y2 + x7*y6 + y2 - y7
+  (3, 5) -> (6, 7):
+    dot = x3*x6 - x3*x7 - x5*x6 + x5*x7 + y3*y6 - y3*y7 - y5*y6 + y5*y7
+    bis = 2*x3*y5 - x3*y6 - x3*y7 - 2*x5*y3 + x5*y6 + x5*y7 + x6*y3 - x6*y5 + x7*y3 - x7*y5
+  (3, 6) -> (4, 7):
+    dot = x3*x4 - x3*x7 - x4*x6 + x6*x7 + y3*y4 - y3*y7 - y4*y6 + y6*y7
+    bis = -x3*y4 + 2*x3*y6 - x3*y7 + x4*y3 - x4*y6 - 2*x6*y3 + x6*y4 + x6*y7 + x7*y3 - x7*y6
+  (3, 7) -> (2, 6):
+    dot = x2*x3 - x2*x7 - x3*x6 + x6*x7 + y2*y3 - y2*y7 - y3*y6 + y6*y7
+    bis = x2*y3 - x2*y7 - x3*y2 - x3*y6 + 2*x3*y7 + x6*y3 - x6*y7 + x7*y2 - 2*x7*y3 + x7*y6
+  (4, 5) -> (3, 7):
+    dot = x3*x4 - x3*x5 - x4*x7 + x5*x7 + y3*y4 - y3*y5 - y4*y7 + y5*y7
+    bis = x3*y4 - x3*y5 - x4*y3 + 2*x4*y5 - x4*y7 + x5*y3 - 2*x5*y4 + x5*y7 + x7*y4 - x7*y5
+  (4, 6) -> (5, 7):
+    dot = x4*x5 - x4*x7 - x5*x6 + x6*x7 + y4*y5 - y4*y7 - y5*y6 + y6*y7
+    bis = -x4*y5 + 2*x4*y6 - x4*y7 + x5*y4 - x5*y6 - 2*x6*y4 + x6*y5 + x6*y7 + x7*y4 - x7*y6
+  (4, 7) -> (1, 5):
+    dot = -x4*x5 + x4 + x5*x7 - x7 - y4*y5 + y5*y7
+    bis = -x4*y5 + 2*x4*y7 + x5*y4 - x5*y7 - 2*x7*y4 + x7*y5 + y4 - y7
+  (5, 6) -> (0, 7):
+    dot = -x5*x7 + x6*x7 - y5*y7 + y6*y7
+    bis = 2*x5*y6 - x5*y7 - 2*x6*y5 + x6*y7 + x7*y5 - x7*y6
+Full equal-distance equations:
+  center 0, base 1, other 2: x2**2 + y2**2 - 1
+  center 0, base 1, other 3: x3**2 + y3**2 - 1
+  center 0, base 1, other 4: x4**2 + y4**2 - 1
+  center 1, base 0, other 2: x2**2 - 2*x2 + y2**2
+  center 1, base 0, other 3: x3**2 - 2*x3 + y3**2
+  center 1, base 0, other 5: x5**2 - 2*x5 + y5**2
+  center 2, base 0, other 1: 1 - 2*x2
+  center 2, base 0, other 4: -2*x2*x4 + x4**2 - 2*y2*y4 + y4**2
+  center 2, base 0, other 6: -2*x2*x6 + x6**2 - 2*y2*y6 + y6**2
+  center 3, base 2, other 4: -x2**2 + 2*x2*x3 - 2*x3*x4 + x4**2 - y2**2 + 2*y2*y3 - 2*y3*y4 + y4**2
+  center 3, base 2, other 6: -x2**2 + 2*x2*x3 - 2*x3*x6 + x6**2 - y2**2 + 2*y2*y3 - 2*y3*y6 + y6**2
+  center 3, base 2, other 7: -x2**2 + 2*x2*x3 - 2*x3*x7 + x7**2 - y2**2 + 2*y2*y3 - 2*y3*y7 + y7**2
+  center 4, base 1, other 3: x3**2 - 2*x3*x4 + 2*x4 + y3**2 - 2*y3*y4 - 1
+  center 4, base 1, other 5: -2*x4*x5 + 2*x4 + x5**2 - 2*y4*y5 + y5**2 - 1
+  center 4, base 1, other 7: -2*x4*x7 + 2*x4 + x7**2 - 2*y4*y7 + y7**2 - 1
+  center 5, base 0, other 3: x3**2 - 2*x3*x5 + y3**2 - 2*y3*y5
+  center 5, base 0, other 6: -2*x5*x6 + x6**2 - 2*y5*y6 + y6**2
+  center 5, base 0, other 7: -2*x5*x7 + x7**2 - 2*y5*y7 + y7**2
+  center 6, base 0, other 4: x4**2 - 2*x4*x6 + y4**2 - 2*y4*y6
+  center 6, base 0, other 5: x5**2 - 2*x5*x6 + y5**2 - 2*y5*y6
+  center 6, base 0, other 7: -2*x6*x7 + x7**2 - 2*y6*y7 + y7**2
+  center 7, base 1, other 2: x2**2 - 2*x2*x7 + 2*x7 + y2**2 - 2*y2*y7 - 1
+  center 7, base 1, other 5: x5**2 - 2*x5*x7 + 2*x7 + y5**2 - 2*y5*y7 - 1
+  center 7, base 1, other 6: x6**2 - 2*x6*x7 + 2*x7 + y6**2 - 2*y6*y7 - 1
+
+================================================================================
+Class 6
+Compatible cyclic orders: 280 (full list in JSON artifact)
+W sets:
+  W_0 = [1, 2, 3, 4]
+  W_1 = [0, 2, 3, 5]
+  W_2 = [0, 3, 4, 6]
+  W_3 = [1, 2, 5, 7]
+  W_4 = [0, 5, 6, 7]
+  W_5 = [1, 4, 6, 7]
+  W_6 = [0, 2, 4, 7]
+  W_7 = [1, 3, 5, 6]
+phi edges and PB polynomials:
+  (0, 1) -> (2, 3):
+    dot = -x2 + x3
+    bis = y2 + y3
+  (0, 2) -> (3, 4):
+    dot = -x2*x3 + x2*x4 - y2*y3 + y2*y4
+    bis = x2*y3 + x2*y4 - x3*y2 - x4*y2
+  (0, 3) -> (1, 2):
+    dot = x2*x3 - x3 + y2*y3
+    bis = -x2*y3 + x3*y2 - y3
+  (0, 5) -> (1, 4):
+    dot = x4*x5 - x5 + y4*y5
+    bis = -x4*y5 + x5*y4 - y5
+  (0, 6) -> (2, 4):
+    dot = -x2*x6 + x4*x6 - y2*y6 + y4*y6
+    bis = -x2*y6 - x4*y6 + x6*y2 + x6*y4
+  (0, 7) -> (1, 3):
+    dot = x3*x7 - x7 + y3*y7
+    bis = -x3*y7 + x7*y3 - y7
+  (1, 2) -> (0, 3):
+    dot = x2*x3 - x3 + y2*y3
+    bis = x2*y3 - x3*y2 + 2*y2 - y3
+  (1, 3) -> (2, 5):
+    dot = -x2*x3 + x2 + x3*x5 - x5 - y2*y3 + y3*y5
+    bis = -x2*y3 + x3*y2 + x3*y5 - x5*y3 - y2 + 2*y3 - y5
+  (1, 4) -> (0, 5):
+    dot = x4*x5 - x5 + y4*y5
+    bis = x4*y5 - x5*y4 + 2*y4 - y5
+  (1, 6) -> (0, 2):
+    dot = x2*x6 - x2 + y2*y6
+    bis = -x2*y6 + x6*y2 - y2 + 2*y6
+  (1, 7) -> (3, 5):
+    dot = -x3*x7 + x3 + x5*x7 - x5 - y3*y7 + y5*y7
+    bis = -x3*y7 - x5*y7 + x7*y3 + x7*y5 - y3 - y5 + 2*y7
+  (2, 4) -> (0, 6):
+    dot = -x2*x6 + x4*x6 - y2*y6 + y4*y6
+    bis = 2*x2*y4 - x2*y6 - 2*x4*y2 + x4*y6 + x6*y2 - x6*y4
+  (2, 5) -> (4, 6):
+    dot = x2*x4 - x2*x6 - x4*x5 + x5*x6 + y2*y4 - y2*y6 - y4*y5 + y5*y6
+    bis = -x2*y4 + 2*x2*y5 - x2*y6 + x4*y2 - x4*y5 - 2*x5*y2 + x5*y4 + x5*y6 + x6*y2 - x6*y5
+  (2, 6) -> (0, 4):
+    dot = -x2*x4 + x4*x6 - y2*y4 + y4*y6
+    bis = -x2*y4 + 2*x2*y6 + x4*y2 - x4*y6 - 2*x6*y2 + x6*y4
+  (2, 7) -> (3, 6):
+    dot = x2*x3 - x2*x6 - x3*x7 + x6*x7 + y2*y3 - y2*y6 - y3*y7 + y6*y7
+    bis = -x2*y3 - x2*y6 + 2*x2*y7 + x3*y2 - x3*y7 + x6*y2 - x6*y7 - 2*x7*y2 + x7*y3 + x7*y6
+  (3, 4) -> (5, 7):
+    dot = x3*x5 - x3*x7 - x4*x5 + x4*x7 + y3*y5 - y3*y7 - y4*y5 + y4*y7
+    bis = 2*x3*y4 - x3*y5 - x3*y7 - 2*x4*y3 + x4*y5 + x4*y7 + x5*y3 - x5*y4 + x7*y3 - x7*y4
+  (3, 5) -> (1, 7):
+    dot = -x3*x7 + x3 + x5*x7 - x5 - y3*y7 + y5*y7
+    bis = 2*x3*y5 - x3*y7 - 2*x5*y3 + x5*y7 + x7*y3 - x7*y5 + y3 - y5
+  (3, 6) -> (2, 7):
+    dot = x2*x3 - x2*x6 - x3*x7 + x6*x7 + y2*y3 - y2*y6 - y3*y7 + y6*y7
+    bis = x2*y3 - x2*y6 - x3*y2 + 2*x3*y6 - x3*y7 + x6*y2 - 2*x6*y3 + x6*y7 + x7*y3 - x7*y6
+  (3, 7) -> (1, 5):
+    dot = -x3*x5 + x3 + x5*x7 - x7 - y3*y5 + y5*y7
+    bis = -x3*y5 + 2*x3*y7 + x5*y3 - x5*y7 - 2*x7*y3 + x7*y5 + y3 - y7
+  (4, 5) -> (6, 7):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = 2*x4*y5 - x4*y6 - x4*y7 - 2*x5*y4 + x5*y6 + x5*y7 + x6*y4 - x6*y5 + x7*y4 - x7*y5
+  (4, 6) -> (0, 7):
+    dot = -x4*x7 + x6*x7 - y4*y7 + y6*y7
+    bis = 2*x4*y6 - x4*y7 - 2*x6*y4 + x6*y7 + x7*y4 - x7*y6
+  (4, 7) -> (5, 6):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = -x4*y5 - x4*y6 + 2*x4*y7 + x5*y4 - x5*y7 + x6*y4 - x6*y7 - 2*x7*y4 + x7*y5 + x7*y6
+  (5, 6) -> (4, 7):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = x4*y5 - x4*y6 - x5*y4 + 2*x5*y6 - x5*y7 + x6*y4 - 2*x6*y5 + x6*y7 + x7*y5 - x7*y6
+  (5, 7) -> (1, 6):
+    dot = -x5*x6 + x5 + x6*x7 - x7 - y5*y6 + y6*y7
+    bis = -x5*y6 + 2*x5*y7 + x6*y5 - x6*y7 - 2*x7*y5 + x7*y6 + y5 - y7
+Full equal-distance equations:
+  center 0, base 1, other 2: x2**2 + y2**2 - 1
+  center 0, base 1, other 3: x3**2 + y3**2 - 1
+  center 0, base 1, other 4: x4**2 + y4**2 - 1
+  center 1, base 0, other 2: x2**2 - 2*x2 + y2**2
+  center 1, base 0, other 3: x3**2 - 2*x3 + y3**2
+  center 1, base 0, other 5: x5**2 - 2*x5 + y5**2
+  center 2, base 0, other 3: -2*x2*x3 + x3**2 - 2*y2*y3 + y3**2
+  center 2, base 0, other 4: -2*x2*x4 + x4**2 - 2*y2*y4 + y4**2
+  center 2, base 0, other 6: -2*x2*x6 + x6**2 - 2*y2*y6 + y6**2
+  center 3, base 1, other 2: x2**2 - 2*x2*x3 + 2*x3 + y2**2 - 2*y2*y3 - 1
+  center 3, base 1, other 5: -2*x3*x5 + 2*x3 + x5**2 - 2*y3*y5 + y5**2 - 1
+  center 3, base 1, other 7: -2*x3*x7 + 2*x3 + x7**2 - 2*y3*y7 + y7**2 - 1
+  center 4, base 0, other 5: -2*x4*x5 + x5**2 - 2*y4*y5 + y5**2
+  center 4, base 0, other 6: -2*x4*x6 + x6**2 - 2*y4*y6 + y6**2
+  center 4, base 0, other 7: -2*x4*x7 + x7**2 - 2*y4*y7 + y7**2
+  center 5, base 1, other 4: x4**2 - 2*x4*x5 + 2*x5 + y4**2 - 2*y4*y5 - 1
+  center 5, base 1, other 6: -2*x5*x6 + 2*x5 + x6**2 - 2*y5*y6 + y6**2 - 1
+  center 5, base 1, other 7: -2*x5*x7 + 2*x5 + x7**2 - 2*y5*y7 + y7**2 - 1
+  center 6, base 0, other 2: x2**2 - 2*x2*x6 + y2**2 - 2*y2*y6
+  center 6, base 0, other 4: x4**2 - 2*x4*x6 + y4**2 - 2*y4*y6
+  center 6, base 0, other 7: -2*x6*x7 + x7**2 - 2*y6*y7 + y7**2
+  center 7, base 1, other 3: x3**2 - 2*x3*x7 + 2*x7 + y3**2 - 2*y3*y7 - 1
+  center 7, base 1, other 5: x5**2 - 2*x5*x7 + 2*x7 + y5**2 - 2*y5*y7 - 1
+  center 7, base 1, other 6: x6**2 - 2*x6*x7 + 2*x7 + y6**2 - 2*y6*y7 - 1
+
+================================================================================
+Class 7
+Compatible cyclic orders: 50 (full list in JSON artifact)
+W sets:
+  W_0 = [1, 2, 3, 4]
+  W_1 = [0, 2, 3, 5]
+  W_2 = [0, 3, 4, 6]
+  W_3 = [1, 2, 5, 7]
+  W_4 = [3, 5, 6, 7]
+  W_5 = [2, 4, 6, 7]
+  W_6 = [0, 1, 4, 7]
+  W_7 = [0, 1, 5, 6]
+phi edges and PB polynomials:
+  (0, 1) -> (2, 3):
+    dot = -x2 + x3
+    bis = y2 + y3
+  (0, 2) -> (3, 4):
+    dot = -x2*x3 + x2*x4 - y2*y3 + y2*y4
+    bis = x2*y3 + x2*y4 - x3*y2 - x4*y2
+  (0, 3) -> (1, 2):
+    dot = x2*x3 - x3 + y2*y3
+    bis = -x2*y3 + x3*y2 - y3
+  (0, 5) -> (2, 4):
+    dot = -x2*x5 + x4*x5 - y2*y5 + y4*y5
+    bis = -x2*y5 - x4*y5 + x5*y2 + x5*y4
+  (0, 6) -> (1, 4):
+    dot = x4*x6 - x6 + y4*y6
+    bis = -x4*y6 + x6*y4 - y6
+  (1, 2) -> (0, 3):
+    dot = x2*x3 - x3 + y2*y3
+    bis = x2*y3 - x3*y2 + 2*y2 - y3
+  (1, 3) -> (2, 5):
+    dot = -x2*x3 + x2 + x3*x5 - x5 - y2*y3 + y3*y5
+    bis = -x2*y3 + x3*y2 + x3*y5 - x5*y3 - y2 + 2*y3 - y5
+  (1, 4) -> (3, 5):
+    dot = -x3*x4 + x3 + x4*x5 - x5 - y3*y4 + y4*y5
+    bis = -x3*y4 + x4*y3 + x4*y5 - x5*y4 - y3 + 2*y4 - y5
+  (1, 7) -> (0, 5):
+    dot = x5*x7 - x5 + y5*y7
+    bis = -x5*y7 + x7*y5 - y5 + 2*y7
+  (2, 4) -> (3, 6):
+    dot = x2*x3 - x2*x6 - x3*x4 + x4*x6 + y2*y3 - y2*y6 - y3*y4 + y4*y6
+    bis = -x2*y3 + 2*x2*y4 - x2*y6 + x3*y2 - x3*y4 - 2*x4*y2 + x4*y3 + x4*y6 + x6*y2 - x6*y4
+  (2, 5) -> (4, 6):
+    dot = x2*x4 - x2*x6 - x4*x5 + x5*x6 + y2*y4 - y2*y6 - y4*y5 + y5*y6
+    bis = -x2*y4 + 2*x2*y5 - x2*y6 + x4*y2 - x4*y5 - 2*x5*y2 + x5*y4 + x5*y6 + x6*y2 - x6*y5
+  (2, 6) -> (0, 4):
+    dot = -x2*x4 + x4*x6 - y2*y4 + y4*y6
+    bis = -x2*y4 + 2*x2*y6 + x4*y2 - x4*y6 - 2*x6*y2 + x6*y4
+  (2, 7) -> (0, 6):
+    dot = -x2*x6 + x6*x7 - y2*y6 + y6*y7
+    bis = -x2*y6 + 2*x2*y7 + x6*y2 - x6*y7 - 2*x7*y2 + x7*y6
+  (3, 4) -> (5, 7):
+    dot = x3*x5 - x3*x7 - x4*x5 + x4*x7 + y3*y5 - y3*y7 - y4*y5 + y4*y7
+    bis = 2*x3*y4 - x3*y5 - x3*y7 - 2*x4*y3 + x4*y5 + x4*y7 + x5*y3 - x5*y4 + x7*y3 - x7*y4
+  (3, 5) -> (2, 7):
+    dot = x2*x3 - x2*x5 - x3*x7 + x5*x7 + y2*y3 - y2*y5 - y3*y7 + y5*y7
+    bis = x2*y3 - x2*y5 - x3*y2 + 2*x3*y5 - x3*y7 + x5*y2 - 2*x5*y3 + x5*y7 + x7*y3 - x7*y5
+  (3, 6) -> (1, 7):
+    dot = -x3*x7 + x3 + x6*x7 - x6 - y3*y7 + y6*y7
+    bis = 2*x3*y6 - x3*y7 - 2*x6*y3 + x6*y7 + x7*y3 - x7*y6 + y3 - y6
+  (3, 7) -> (1, 5):
+    dot = -x3*x5 + x3 + x5*x7 - x7 - y3*y5 + y5*y7
+    bis = -x3*y5 + 2*x3*y7 + x5*y3 - x5*y7 - 2*x7*y3 + x7*y5 + y3 - y7
+  (4, 5) -> (6, 7):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = 2*x4*y5 - x4*y6 - x4*y7 - 2*x5*y4 + x5*y6 + x5*y7 + x6*y4 - x6*y5 + x7*y4 - x7*y5
+  (4, 7) -> (5, 6):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = -x4*y5 - x4*y6 + 2*x4*y7 + x5*y4 - x5*y7 + x6*y4 - x6*y7 - 2*x7*y4 + x7*y5 + x7*y6
+  (5, 6) -> (4, 7):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = x4*y5 - x4*y6 - x5*y4 + 2*x5*y6 - x5*y7 + x6*y4 - 2*x6*y5 + x6*y7 + x7*y5 - x7*y6
+  (6, 7) -> (0, 1):
+    dot = -x6 + x7
+    bis = 2*x6*y7 - 2*x7*y6 + y6 - y7
+Full equal-distance equations:
+  center 0, base 1, other 2: x2**2 + y2**2 - 1
+  center 0, base 1, other 3: x3**2 + y3**2 - 1
+  center 0, base 1, other 4: x4**2 + y4**2 - 1
+  center 1, base 0, other 2: x2**2 - 2*x2 + y2**2
+  center 1, base 0, other 3: x3**2 - 2*x3 + y3**2
+  center 1, base 0, other 5: x5**2 - 2*x5 + y5**2
+  center 2, base 0, other 3: -2*x2*x3 + x3**2 - 2*y2*y3 + y3**2
+  center 2, base 0, other 4: -2*x2*x4 + x4**2 - 2*y2*y4 + y4**2
+  center 2, base 0, other 6: -2*x2*x6 + x6**2 - 2*y2*y6 + y6**2
+  center 3, base 1, other 2: x2**2 - 2*x2*x3 + 2*x3 + y2**2 - 2*y2*y3 - 1
+  center 3, base 1, other 5: -2*x3*x5 + 2*x3 + x5**2 - 2*y3*y5 + y5**2 - 1
+  center 3, base 1, other 7: -2*x3*x7 + 2*x3 + x7**2 - 2*y3*y7 + y7**2 - 1
+  center 4, base 3, other 5: -x3**2 + 2*x3*x4 - 2*x4*x5 + x5**2 - y3**2 + 2*y3*y4 - 2*y4*y5 + y5**2
+  center 4, base 3, other 6: -x3**2 + 2*x3*x4 - 2*x4*x6 + x6**2 - y3**2 + 2*y3*y4 - 2*y4*y6 + y6**2
+  center 4, base 3, other 7: -x3**2 + 2*x3*x4 - 2*x4*x7 + x7**2 - y3**2 + 2*y3*y4 - 2*y4*y7 + y7**2
+  center 5, base 2, other 4: -x2**2 + 2*x2*x5 + x4**2 - 2*x4*x5 - y2**2 + 2*y2*y5 + y4**2 - 2*y4*y5
+  center 5, base 2, other 6: -x2**2 + 2*x2*x5 - 2*x5*x6 + x6**2 - y2**2 + 2*y2*y5 - 2*y5*y6 + y6**2
+  center 5, base 2, other 7: -x2**2 + 2*x2*x5 - 2*x5*x7 + x7**2 - y2**2 + 2*y2*y5 - 2*y5*y7 + y7**2
+  center 6, base 0, other 1: 1 - 2*x6
+  center 6, base 0, other 4: x4**2 - 2*x4*x6 + y4**2 - 2*y4*y6
+  center 6, base 0, other 7: -2*x6*x7 + x7**2 - 2*y6*y7 + y7**2
+  center 7, base 0, other 1: 1 - 2*x7
+  center 7, base 0, other 5: x5**2 - 2*x5*x7 + y5**2 - 2*y5*y7
+  center 7, base 0, other 6: x6**2 - 2*x6*x7 + y6**2 - 2*y6*y7
+
+================================================================================
+Class 8
+Compatible cyclic orders: 538 (full list in JSON artifact)
+W sets:
+  W_0 = [1, 2, 3, 4]
+  W_1 = [0, 2, 3, 5]
+  W_2 = [0, 3, 4, 6]
+  W_3 = [1, 2, 6, 7]
+  W_4 = [0, 5, 6, 7]
+  W_5 = [0, 1, 4, 7]
+  W_6 = [2, 4, 5, 7]
+  W_7 = [1, 3, 5, 6]
+phi edges and PB polynomials:
+  (0, 1) -> (2, 3):
+    dot = -x2 + x3
+    bis = y2 + y3
+  (0, 2) -> (3, 4):
+    dot = -x2*x3 + x2*x4 - y2*y3 + y2*y4
+    bis = x2*y3 + x2*y4 - x3*y2 - x4*y2
+  (0, 3) -> (1, 2):
+    dot = x2*x3 - x3 + y2*y3
+    bis = -x2*y3 + x3*y2 - y3
+  (0, 5) -> (1, 4):
+    dot = x4*x5 - x5 + y4*y5
+    bis = -x4*y5 + x5*y4 - y5
+  (0, 6) -> (2, 4):
+    dot = -x2*x6 + x4*x6 - y2*y6 + y4*y6
+    bis = -x2*y6 - x4*y6 + x6*y2 + x6*y4
+  (0, 7) -> (1, 3):
+    dot = x3*x7 - x7 + y3*y7
+    bis = -x3*y7 + x7*y3 - y7
+  (1, 2) -> (0, 3):
+    dot = x2*x3 - x3 + y2*y3
+    bis = x2*y3 - x3*y2 + 2*y2 - y3
+  (1, 4) -> (0, 5):
+    dot = x4*x5 - x5 + y4*y5
+    bis = x4*y5 - x5*y4 + 2*y4 - y5
+  (1, 6) -> (2, 5):
+    dot = -x2*x6 + x2 + x5*x6 - x5 - y2*y6 + y5*y6
+    bis = -x2*y6 - x5*y6 + x6*y2 + x6*y5 - y2 - y5 + 2*y6
+  (1, 7) -> (3, 5):
+    dot = -x3*x7 + x3 + x5*x7 - x5 - y3*y7 + y5*y7
+    bis = -x3*y7 - x5*y7 + x7*y3 + x7*y5 - y3 - y5 + 2*y7
+  (2, 4) -> (0, 6):
+    dot = -x2*x6 + x4*x6 - y2*y6 + y4*y6
+    bis = 2*x2*y4 - x2*y6 - 2*x4*y2 + x4*y6 + x6*y2 - x6*y4
+  (2, 5) -> (0, 4):
+    dot = -x2*x4 + x4*x5 - y2*y4 + y4*y5
+    bis = -x2*y4 + 2*x2*y5 + x4*y2 - x4*y5 - 2*x5*y2 + x5*y4
+  (2, 7) -> (3, 6):
+    dot = x2*x3 - x2*x6 - x3*x7 + x6*x7 + y2*y3 - y2*y6 - y3*y7 + y6*y7
+    bis = -x2*y3 - x2*y6 + 2*x2*y7 + x3*y2 - x3*y7 + x6*y2 - x6*y7 - 2*x7*y2 + x7*y3 + x7*y6
+  (3, 4) -> (6, 7):
+    dot = x3*x6 - x3*x7 - x4*x6 + x4*x7 + y3*y6 - y3*y7 - y4*y6 + y4*y7
+    bis = 2*x3*y4 - x3*y6 - x3*y7 - 2*x4*y3 + x4*y6 + x4*y7 + x6*y3 - x6*y4 + x7*y3 - x7*y4
+  (3, 5) -> (1, 7):
+    dot = -x3*x7 + x3 + x5*x7 - x5 - y3*y7 + y5*y7
+    bis = 2*x3*y5 - x3*y7 - 2*x5*y3 + x5*y7 + x7*y3 - x7*y5 + y3 - y5
+  (3, 6) -> (2, 7):
+    dot = x2*x3 - x2*x6 - x3*x7 + x6*x7 + y2*y3 - y2*y6 - y3*y7 + y6*y7
+    bis = x2*y3 - x2*y6 - x3*y2 + 2*x3*y6 - x3*y7 + x6*y2 - 2*x6*y3 + x6*y7 + x7*y3 - x7*y6
+  (3, 7) -> (1, 6):
+    dot = -x3*x6 + x3 + x6*x7 - x7 - y3*y6 + y6*y7
+    bis = -x3*y6 + 2*x3*y7 + x6*y3 - x6*y7 - 2*x7*y3 + x7*y6 + y3 - y7
+  (4, 5) -> (0, 7):
+    dot = -x4*x7 + x5*x7 - y4*y7 + y5*y7
+    bis = 2*x4*y5 - x4*y7 - 2*x5*y4 + x5*y7 + x7*y4 - x7*y5
+  (4, 6) -> (5, 7):
+    dot = x4*x5 - x4*x7 - x5*x6 + x6*x7 + y4*y5 - y4*y7 - y5*y6 + y6*y7
+    bis = -x4*y5 + 2*x4*y6 - x4*y7 + x5*y4 - x5*y6 - 2*x6*y4 + x6*y5 + x6*y7 + x7*y4 - x7*y6
+  (4, 7) -> (5, 6):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = -x4*y5 - x4*y6 + 2*x4*y7 + x5*y4 - x5*y7 + x6*y4 - x6*y7 - 2*x7*y4 + x7*y5 + x7*y6
+  (5, 6) -> (4, 7):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = x4*y5 - x4*y6 - x5*y4 + 2*x5*y6 - x5*y7 + x6*y4 - 2*x6*y5 + x6*y7 + x7*y5 - x7*y6
+Full equal-distance equations:
+  center 0, base 1, other 2: x2**2 + y2**2 - 1
+  center 0, base 1, other 3: x3**2 + y3**2 - 1
+  center 0, base 1, other 4: x4**2 + y4**2 - 1
+  center 1, base 0, other 2: x2**2 - 2*x2 + y2**2
+  center 1, base 0, other 3: x3**2 - 2*x3 + y3**2
+  center 1, base 0, other 5: x5**2 - 2*x5 + y5**2
+  center 2, base 0, other 3: -2*x2*x3 + x3**2 - 2*y2*y3 + y3**2
+  center 2, base 0, other 4: -2*x2*x4 + x4**2 - 2*y2*y4 + y4**2
+  center 2, base 0, other 6: -2*x2*x6 + x6**2 - 2*y2*y6 + y6**2
+  center 3, base 1, other 2: x2**2 - 2*x2*x3 + 2*x3 + y2**2 - 2*y2*y3 - 1
+  center 3, base 1, other 6: -2*x3*x6 + 2*x3 + x6**2 - 2*y3*y6 + y6**2 - 1
+  center 3, base 1, other 7: -2*x3*x7 + 2*x3 + x7**2 - 2*y3*y7 + y7**2 - 1
+  center 4, base 0, other 5: -2*x4*x5 + x5**2 - 2*y4*y5 + y5**2
+  center 4, base 0, other 6: -2*x4*x6 + x6**2 - 2*y4*y6 + y6**2
+  center 4, base 0, other 7: -2*x4*x7 + x7**2 - 2*y4*y7 + y7**2
+  center 5, base 0, other 1: 1 - 2*x5
+  center 5, base 0, other 4: x4**2 - 2*x4*x5 + y4**2 - 2*y4*y5
+  center 5, base 0, other 7: -2*x5*x7 + x7**2 - 2*y5*y7 + y7**2
+  center 6, base 2, other 4: -x2**2 + 2*x2*x6 + x4**2 - 2*x4*x6 - y2**2 + 2*y2*y6 + y4**2 - 2*y4*y6
+  center 6, base 2, other 5: -x2**2 + 2*x2*x6 + x5**2 - 2*x5*x6 - y2**2 + 2*y2*y6 + y5**2 - 2*y5*y6
+  center 6, base 2, other 7: -x2**2 + 2*x2*x6 - 2*x6*x7 + x7**2 - y2**2 + 2*y2*y6 - 2*y6*y7 + y7**2
+  center 7, base 1, other 3: x3**2 - 2*x3*x7 + 2*x7 + y3**2 - 2*y3*y7 - 1
+  center 7, base 1, other 5: x5**2 - 2*x5*x7 + 2*x7 + y5**2 - 2*y5*y7 - 1
+  center 7, base 1, other 6: x6**2 - 2*x6*x7 + 2*x7 + y6**2 - 2*y6*y7 - 1
+
+================================================================================
+Class 9
+Compatible cyclic orders: 100 (full list in JSON artifact)
+W sets:
+  W_0 = [1, 2, 3, 4]
+  W_1 = [0, 2, 3, 5]
+  W_2 = [0, 3, 4, 6]
+  W_3 = [1, 2, 6, 7]
+  W_4 = [3, 5, 6, 7]
+  W_5 = [0, 2, 4, 7]
+  W_6 = [1, 4, 5, 7]
+  W_7 = [0, 1, 5, 6]
+phi edges and PB polynomials:
+  (0, 1) -> (2, 3):
+    dot = -x2 + x3
+    bis = y2 + y3
+  (0, 2) -> (3, 4):
+    dot = -x2*x3 + x2*x4 - y2*y3 + y2*y4
+    bis = x2*y3 + x2*y4 - x3*y2 - x4*y2
+  (0, 3) -> (1, 2):
+    dot = x2*x3 - x3 + y2*y3
+    bis = -x2*y3 + x3*y2 - y3
+  (0, 5) -> (2, 4):
+    dot = -x2*x5 + x4*x5 - y2*y5 + y4*y5
+    bis = -x2*y5 - x4*y5 + x5*y2 + x5*y4
+  (0, 6) -> (1, 4):
+    dot = x4*x6 - x6 + y4*y6
+    bis = -x4*y6 + x6*y4 - y6
+  (1, 2) -> (0, 3):
+    dot = x2*x3 - x3 + y2*y3
+    bis = x2*y3 - x3*y2 + 2*y2 - y3
+  (1, 4) -> (3, 5):
+    dot = -x3*x4 + x3 + x4*x5 - x5 - y3*y4 + y4*y5
+    bis = -x3*y4 + x4*y3 + x4*y5 - x5*y4 - y3 + 2*y4 - y5
+  (1, 5) -> (0, 2):
+    dot = x2*x5 - x2 + y2*y5
+    bis = -x2*y5 + x5*y2 - y2 + 2*y5
+  (1, 7) -> (0, 5):
+    dot = x5*x7 - x5 + y5*y7
+    bis = -x5*y7 + x7*y5 - y5 + 2*y7
+  (2, 4) -> (3, 6):
+    dot = x2*x3 - x2*x6 - x3*x4 + x4*x6 + y2*y3 - y2*y6 - y3*y4 + y4*y6
+    bis = -x2*y3 + 2*x2*y4 - x2*y6 + x3*y2 - x3*y4 - 2*x4*y2 + x4*y3 + x4*y6 + x6*y2 - x6*y4
+  (2, 5) -> (0, 4):
+    dot = -x2*x4 + x4*x5 - y2*y4 + y4*y5
+    bis = -x2*y4 + 2*x2*y5 + x4*y2 - x4*y5 - 2*x5*y2 + x5*y4
+  (2, 7) -> (0, 6):
+    dot = -x2*x6 + x6*x7 - y2*y6 + y6*y7
+    bis = -x2*y6 + 2*x2*y7 + x6*y2 - x6*y7 - 2*x7*y2 + x7*y6
+  (3, 4) -> (6, 7):
+    dot = x3*x6 - x3*x7 - x4*x6 + x4*x7 + y3*y6 - y3*y7 - y4*y6 + y4*y7
+    bis = 2*x3*y4 - x3*y6 - x3*y7 - 2*x4*y3 + x4*y6 + x4*y7 + x6*y3 - x6*y4 + x7*y3 - x7*y4
+  (3, 5) -> (2, 7):
+    dot = x2*x3 - x2*x5 - x3*x7 + x5*x7 + y2*y3 - y2*y5 - y3*y7 + y5*y7
+    bis = x2*y3 - x2*y5 - x3*y2 + 2*x3*y5 - x3*y7 + x5*y2 - 2*x5*y3 + x5*y7 + x7*y3 - x7*y5
+  (3, 6) -> (1, 7):
+    dot = -x3*x7 + x3 + x6*x7 - x6 - y3*y7 + y6*y7
+    bis = 2*x3*y6 - x3*y7 - 2*x6*y3 + x6*y7 + x7*y3 - x7*y6 + y3 - y6
+  (3, 7) -> (1, 6):
+    dot = -x3*x6 + x3 + x6*x7 - x7 - y3*y6 + y6*y7
+    bis = -x3*y6 + 2*x3*y7 + x6*y3 - x6*y7 - 2*x7*y3 + x7*y6 + y3 - y7
+  (4, 6) -> (5, 7):
+    dot = x4*x5 - x4*x7 - x5*x6 + x6*x7 + y4*y5 - y4*y7 - y5*y6 + y6*y7
+    bis = -x4*y5 + 2*x4*y6 - x4*y7 + x5*y4 - x5*y6 - 2*x6*y4 + x6*y5 + x6*y7 + x7*y4 - x7*y6
+  (4, 7) -> (5, 6):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = -x4*y5 - x4*y6 + 2*x4*y7 + x5*y4 - x5*y7 + x6*y4 - x6*y7 - 2*x7*y4 + x7*y5 + x7*y6
+  (5, 6) -> (4, 7):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = x4*y5 - x4*y6 - x5*y4 + 2*x5*y6 - x5*y7 + x6*y4 - 2*x6*y5 + x6*y7 + x7*y5 - x7*y6
+  (6, 7) -> (1, 5):
+    dot = -x5*x6 + x5*x7 + x6 - x7 - y5*y6 + y5*y7
+    bis = x5*y6 - x5*y7 - x6*y5 + 2*x6*y7 + x7*y5 - 2*x7*y6 + y6 - y7
+Full equal-distance equations:
+  center 0, base 1, other 2: x2**2 + y2**2 - 1
+  center 0, base 1, other 3: x3**2 + y3**2 - 1
+  center 0, base 1, other 4: x4**2 + y4**2 - 1
+  center 1, base 0, other 2: x2**2 - 2*x2 + y2**2
+  center 1, base 0, other 3: x3**2 - 2*x3 + y3**2
+  center 1, base 0, other 5: x5**2 - 2*x5 + y5**2
+  center 2, base 0, other 3: -2*x2*x3 + x3**2 - 2*y2*y3 + y3**2
+  center 2, base 0, other 4: -2*x2*x4 + x4**2 - 2*y2*y4 + y4**2
+  center 2, base 0, other 6: -2*x2*x6 + x6**2 - 2*y2*y6 + y6**2
+  center 3, base 1, other 2: x2**2 - 2*x2*x3 + 2*x3 + y2**2 - 2*y2*y3 - 1
+  center 3, base 1, other 6: -2*x3*x6 + 2*x3 + x6**2 - 2*y3*y6 + y6**2 - 1
+  center 3, base 1, other 7: -2*x3*x7 + 2*x3 + x7**2 - 2*y3*y7 + y7**2 - 1
+  center 4, base 3, other 5: -x3**2 + 2*x3*x4 - 2*x4*x5 + x5**2 - y3**2 + 2*y3*y4 - 2*y4*y5 + y5**2
+  center 4, base 3, other 6: -x3**2 + 2*x3*x4 - 2*x4*x6 + x6**2 - y3**2 + 2*y3*y4 - 2*y4*y6 + y6**2
+  center 4, base 3, other 7: -x3**2 + 2*x3*x4 - 2*x4*x7 + x7**2 - y3**2 + 2*y3*y4 - 2*y4*y7 + y7**2
+  center 5, base 0, other 2: x2**2 - 2*x2*x5 + y2**2 - 2*y2*y5
+  center 5, base 0, other 4: x4**2 - 2*x4*x5 + y4**2 - 2*y4*y5
+  center 5, base 0, other 7: -2*x5*x7 + x7**2 - 2*y5*y7 + y7**2
+  center 6, base 1, other 4: x4**2 - 2*x4*x6 + 2*x6 + y4**2 - 2*y4*y6 - 1
+  center 6, base 1, other 5: x5**2 - 2*x5*x6 + 2*x6 + y5**2 - 2*y5*y6 - 1
+  center 6, base 1, other 7: -2*x6*x7 + 2*x6 + x7**2 - 2*y6*y7 + y7**2 - 1
+  center 7, base 0, other 1: 1 - 2*x7
+  center 7, base 0, other 5: x5**2 - 2*x5*x7 + y5**2 - 2*y5*y7
+  center 7, base 0, other 6: x6**2 - 2*x6*x7 + y6**2 - 2*y6*y7
+
+================================================================================
+Class 10
+Compatible cyclic orders: 74 (full list in JSON artifact)
+W sets:
+  W_0 = [1, 2, 3, 4]
+  W_1 = [0, 2, 3, 5]
+  W_2 = [0, 4, 5, 6]
+  W_3 = [2, 4, 5, 7]
+  W_4 = [3, 5, 6, 7]
+  W_5 = [1, 2, 6, 7]
+  W_6 = [0, 1, 4, 7]
+  W_7 = [0, 1, 3, 6]
+phi edges and PB polynomials:
+  (0, 1) -> (2, 3):
+    dot = -x2 + x3
+    bis = y2 + y3
+  (0, 3) -> (2, 4):
+    dot = -x2*x3 + x3*x4 - y2*y3 + y3*y4
+    bis = -x2*y3 + x3*y2 + x3*y4 - x4*y3
+  (0, 5) -> (1, 2):
+    dot = x2*x5 - x5 + y2*y5
+    bis = -x2*y5 + x5*y2 - y5
+  (0, 6) -> (1, 4):
+    dot = x4*x6 - x6 + y4*y6
+    bis = -x4*y6 + x6*y4 - y6
+  (0, 7) -> (1, 3):
+    dot = x3*x7 - x7 + y3*y7
+    bis = -x3*y7 + x7*y3 - y7
+  (1, 2) -> (0, 5):
+    dot = x2*x5 - x5 + y2*y5
+    bis = x2*y5 - x5*y2 + 2*y2 - y5
+  (1, 3) -> (2, 5):
+    dot = -x2*x3 + x2 + x3*x5 - x5 - y2*y3 + y3*y5
+    bis = -x2*y3 + x3*y2 + x3*y5 - x5*y3 - y2 + 2*y3 - y5
+  (1, 4) -> (3, 5):
+    dot = -x3*x4 + x3 + x4*x5 - x5 - y3*y4 + y4*y5
+    bis = -x3*y4 + x4*y3 + x4*y5 - x5*y4 - y3 + 2*y4 - y5
+  (1, 7) -> (0, 3):
+    dot = x3*x7 - x3 + y3*y7
+    bis = -x3*y7 + x7*y3 - y3 + 2*y7
+  (2, 3) -> (4, 5):
+    dot = x2*x4 - x2*x5 - x3*x4 + x3*x5 + y2*y4 - y2*y5 - y3*y4 + y3*y5
+    bis = 2*x2*y3 - x2*y4 - x2*y5 - 2*x3*y2 + x3*y4 + x3*y5 + x4*y2 - x4*y3 + x5*y2 - x5*y3
+  (2, 4) -> (5, 6):
+    dot = x2*x5 - x2*x6 - x4*x5 + x4*x6 + y2*y5 - y2*y6 - y4*y5 + y4*y6
+    bis = 2*x2*y4 - x2*y5 - x2*y6 - 2*x4*y2 + x4*y5 + x4*y6 + x5*y2 - x5*y4 + x6*y2 - x6*y4
+  (2, 6) -> (0, 4):
+    dot = -x2*x4 + x4*x6 - y2*y4 + y4*y6
+    bis = -x2*y4 + 2*x2*y6 + x4*y2 - x4*y6 - 2*x6*y2 + x6*y4
+  (2, 7) -> (0, 6):
+    dot = -x2*x6 + x6*x7 - y2*y6 + y6*y7
+    bis = -x2*y6 + 2*x2*y7 + x6*y2 - x6*y7 - 2*x7*y2 + x7*y6
+  (3, 4) -> (5, 7):
+    dot = x3*x5 - x3*x7 - x4*x5 + x4*x7 + y3*y5 - y3*y7 - y4*y5 + y4*y7
+    bis = 2*x3*y4 - x3*y5 - x3*y7 - 2*x4*y3 + x4*y5 + x4*y7 + x5*y3 - x5*y4 + x7*y3 - x7*y4
+  (3, 5) -> (2, 7):
+    dot = x2*x3 - x2*x5 - x3*x7 + x5*x7 + y2*y3 - y2*y5 - y3*y7 + y5*y7
+    bis = x2*y3 - x2*y5 - x3*y2 + 2*x3*y5 - x3*y7 + x5*y2 - 2*x5*y3 + x5*y7 + x7*y3 - x7*y5
+  (3, 6) -> (4, 7):
+    dot = x3*x4 - x3*x7 - x4*x6 + x6*x7 + y3*y4 - y3*y7 - y4*y6 + y6*y7
+    bis = -x3*y4 + 2*x3*y6 - x3*y7 + x4*y3 - x4*y6 - 2*x6*y3 + x6*y4 + x6*y7 + x7*y3 - x7*y6
+  (4, 5) -> (6, 7):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = 2*x4*y5 - x4*y6 - x4*y7 - 2*x5*y4 + x5*y6 + x5*y7 + x6*y4 - x6*y5 + x7*y4 - x7*y5
+  (4, 7) -> (3, 6):
+    dot = x3*x4 - x3*x7 - x4*x6 + x6*x7 + y3*y4 - y3*y7 - y4*y6 + y6*y7
+    bis = x3*y4 - x3*y7 - x4*y3 - x4*y6 + 2*x4*y7 + x6*y4 - x6*y7 + x7*y3 - 2*x7*y4 + x7*y6
+  (5, 6) -> (1, 7):
+    dot = -x5*x7 + x5 + x6*x7 - x6 - y5*y7 + y6*y7
+    bis = 2*x5*y6 - x5*y7 - 2*x6*y5 + x6*y7 + x7*y5 - x7*y6 + y5 - y6
+  (5, 7) -> (1, 6):
+    dot = -x5*x6 + x5 + x6*x7 - x7 - y5*y6 + y6*y7
+    bis = -x5*y6 + 2*x5*y7 + x6*y5 - x6*y7 - 2*x7*y5 + x7*y6 + y5 - y7
+  (6, 7) -> (0, 1):
+    dot = -x6 + x7
+    bis = 2*x6*y7 - 2*x7*y6 + y6 - y7
+Full equal-distance equations:
+  center 0, base 1, other 2: x2**2 + y2**2 - 1
+  center 0, base 1, other 3: x3**2 + y3**2 - 1
+  center 0, base 1, other 4: x4**2 + y4**2 - 1
+  center 1, base 0, other 2: x2**2 - 2*x2 + y2**2
+  center 1, base 0, other 3: x3**2 - 2*x3 + y3**2
+  center 1, base 0, other 5: x5**2 - 2*x5 + y5**2
+  center 2, base 0, other 4: -2*x2*x4 + x4**2 - 2*y2*y4 + y4**2
+  center 2, base 0, other 5: -2*x2*x5 + x5**2 - 2*y2*y5 + y5**2
+  center 2, base 0, other 6: -2*x2*x6 + x6**2 - 2*y2*y6 + y6**2
+  center 3, base 2, other 4: -x2**2 + 2*x2*x3 - 2*x3*x4 + x4**2 - y2**2 + 2*y2*y3 - 2*y3*y4 + y4**2
+  center 3, base 2, other 5: -x2**2 + 2*x2*x3 - 2*x3*x5 + x5**2 - y2**2 + 2*y2*y3 - 2*y3*y5 + y5**2
+  center 3, base 2, other 7: -x2**2 + 2*x2*x3 - 2*x3*x7 + x7**2 - y2**2 + 2*y2*y3 - 2*y3*y7 + y7**2
+  center 4, base 3, other 5: -x3**2 + 2*x3*x4 - 2*x4*x5 + x5**2 - y3**2 + 2*y3*y4 - 2*y4*y5 + y5**2
+  center 4, base 3, other 6: -x3**2 + 2*x3*x4 - 2*x4*x6 + x6**2 - y3**2 + 2*y3*y4 - 2*y4*y6 + y6**2
+  center 4, base 3, other 7: -x3**2 + 2*x3*x4 - 2*x4*x7 + x7**2 - y3**2 + 2*y3*y4 - 2*y4*y7 + y7**2
+  center 5, base 1, other 2: x2**2 - 2*x2*x5 + 2*x5 + y2**2 - 2*y2*y5 - 1
+  center 5, base 1, other 6: -2*x5*x6 + 2*x5 + x6**2 - 2*y5*y6 + y6**2 - 1
+  center 5, base 1, other 7: -2*x5*x7 + 2*x5 + x7**2 - 2*y5*y7 + y7**2 - 1
+  center 6, base 0, other 1: 1 - 2*x6
+  center 6, base 0, other 4: x4**2 - 2*x4*x6 + y4**2 - 2*y4*y6
+  center 6, base 0, other 7: -2*x6*x7 + x7**2 - 2*y6*y7 + y7**2
+  center 7, base 0, other 1: 1 - 2*x7
+  center 7, base 0, other 3: x3**2 - 2*x3*x7 + y3**2 - 2*y3*y7
+  center 7, base 0, other 6: x6**2 - 2*x6*x7 + y6**2 - 2*y6*y7
+
+================================================================================
+Class 11
+Compatible cyclic orders: 44 (full list in JSON artifact)
+W sets:
+  W_0 = [1, 2, 3, 4]
+  W_1 = [0, 2, 3, 5]
+  W_2 = [3, 4, 5, 6]
+  W_3 = [2, 4, 5, 7]
+  W_4 = [0, 5, 6, 7]
+  W_5 = [1, 4, 6, 7]
+  W_6 = [0, 1, 2, 7]
+  W_7 = [0, 1, 3, 6]
+phi edges and PB polynomials:
+  (0, 1) -> (2, 3):
+    dot = -x2 + x3
+    bis = y2 + y3
+  (0, 2) -> (3, 4):
+    dot = -x2*x3 + x2*x4 - y2*y3 + y2*y4
+    bis = x2*y3 + x2*y4 - x3*y2 - x4*y2
+  (0, 3) -> (2, 4):
+    dot = -x2*x3 + x3*x4 - y2*y3 + y3*y4
+    bis = -x2*y3 + x3*y2 + x3*y4 - x4*y3
+  (0, 5) -> (1, 4):
+    dot = x4*x5 - x5 + y4*y5
+    bis = -x4*y5 + x5*y4 - y5
+  (0, 6) -> (1, 2):
+    dot = x2*x6 - x6 + y2*y6
+    bis = -x2*y6 + x6*y2 - y6
+  (0, 7) -> (1, 3):
+    dot = x3*x7 - x7 + y3*y7
+    bis = -x3*y7 + x7*y3 - y7
+  (1, 2) -> (3, 5):
+    dot = -x2*x3 + x2*x5 + x3 - x5 - y2*y3 + y2*y5
+    bis = x2*y3 + x2*y5 - x3*y2 - x5*y2 + 2*y2 - y3 - y5
+  (1, 3) -> (2, 5):
+    dot = -x2*x3 + x2 + x3*x5 - x5 - y2*y3 + y3*y5
+    bis = -x2*y3 + x3*y2 + x3*y5 - x5*y3 - y2 + 2*y3 - y5
+  (1, 4) -> (0, 5):
+    dot = x4*x5 - x5 + y4*y5
+    bis = x4*y5 - x5*y4 + 2*y4 - y5
+  (1, 6) -> (0, 2):
+    dot = x2*x6 - x2 + y2*y6
+    bis = -x2*y6 + x6*y2 - y2 + 2*y6
+  (1, 7) -> (0, 3):
+    dot = x3*x7 - x3 + y3*y7
+    bis = -x3*y7 + x7*y3 - y3 + 2*y7
+  (2, 3) -> (4, 5):
+    dot = x2*x4 - x2*x5 - x3*x4 + x3*x5 + y2*y4 - y2*y5 - y3*y4 + y3*y5
+    bis = 2*x2*y3 - x2*y4 - x2*y5 - 2*x3*y2 + x3*y4 + x3*y5 + x4*y2 - x4*y3 + x5*y2 - x5*y3
+  (2, 4) -> (5, 6):
+    dot = x2*x5 - x2*x6 - x4*x5 + x4*x6 + y2*y5 - y2*y6 - y4*y5 + y4*y6
+    bis = 2*x2*y4 - x2*y5 - x2*y6 - 2*x4*y2 + x4*y5 + x4*y6 + x5*y2 - x5*y4 + x6*y2 - x6*y4
+  (2, 5) -> (4, 6):
+    dot = x2*x4 - x2*x6 - x4*x5 + x5*x6 + y2*y4 - y2*y6 - y4*y5 + y5*y6
+    bis = -x2*y4 + 2*x2*y5 - x2*y6 + x4*y2 - x4*y5 - 2*x5*y2 + x5*y4 + x5*y6 + x6*y2 - x6*y5
+  (2, 7) -> (3, 6):
+    dot = x2*x3 - x2*x6 - x3*x7 + x6*x7 + y2*y3 - y2*y6 - y3*y7 + y6*y7
+    bis = -x2*y3 - x2*y6 + 2*x2*y7 + x3*y2 - x3*y7 + x6*y2 - x6*y7 - 2*x7*y2 + x7*y3 + x7*y6
+  (3, 4) -> (5, 7):
+    dot = x3*x5 - x3*x7 - x4*x5 + x4*x7 + y3*y5 - y3*y7 - y4*y5 + y4*y7
+    bis = 2*x3*y4 - x3*y5 - x3*y7 - 2*x4*y3 + x4*y5 + x4*y7 + x5*y3 - x5*y4 + x7*y3 - x7*y4
+  (3, 5) -> (4, 7):
+    dot = x3*x4 - x3*x7 - x4*x5 + x5*x7 + y3*y4 - y3*y7 - y4*y5 + y5*y7
+    bis = -x3*y4 + 2*x3*y5 - x3*y7 + x4*y3 - x4*y5 - 2*x5*y3 + x5*y4 + x5*y7 + x7*y3 - x7*y5
+  (3, 6) -> (2, 7):
+    dot = x2*x3 - x2*x6 - x3*x7 + x6*x7 + y2*y3 - y2*y6 - y3*y7 + y6*y7
+    bis = x2*y3 - x2*y6 - x3*y2 + 2*x3*y6 - x3*y7 + x6*y2 - 2*x6*y3 + x6*y7 + x7*y3 - x7*y6
+  (4, 5) -> (6, 7):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = 2*x4*y5 - x4*y6 - x4*y7 - 2*x5*y4 + x5*y6 + x5*y7 + x6*y4 - x6*y5 + x7*y4 - x7*y5
+  (4, 6) -> (0, 7):
+    dot = -x4*x7 + x6*x7 - y4*y7 + y6*y7
+    bis = 2*x4*y6 - x4*y7 - 2*x6*y4 + x6*y7 + x7*y4 - x7*y6
+  (4, 7) -> (0, 6):
+    dot = -x4*x6 + x6*x7 - y4*y6 + y6*y7
+    bis = -x4*y6 + 2*x4*y7 + x6*y4 - x6*y7 - 2*x7*y4 + x7*y6
+  (5, 6) -> (1, 7):
+    dot = -x5*x7 + x5 + x6*x7 - x6 - y5*y7 + y6*y7
+    bis = 2*x5*y6 - x5*y7 - 2*x6*y5 + x6*y7 + x7*y5 - x7*y6 + y5 - y6
+  (5, 7) -> (1, 6):
+    dot = -x5*x6 + x5 + x6*x7 - x7 - y5*y6 + y6*y7
+    bis = -x5*y6 + 2*x5*y7 + x6*y5 - x6*y7 - 2*x7*y5 + x7*y6 + y5 - y7
+  (6, 7) -> (0, 1):
+    dot = -x6 + x7
+    bis = 2*x6*y7 - 2*x7*y6 + y6 - y7
+Full equal-distance equations:
+  center 0, base 1, other 2: x2**2 + y2**2 - 1
+  center 0, base 1, other 3: x3**2 + y3**2 - 1
+  center 0, base 1, other 4: x4**2 + y4**2 - 1
+  center 1, base 0, other 2: x2**2 - 2*x2 + y2**2
+  center 1, base 0, other 3: x3**2 - 2*x3 + y3**2
+  center 1, base 0, other 5: x5**2 - 2*x5 + y5**2
+  center 2, base 3, other 4: 2*x2*x3 - 2*x2*x4 - x3**2 + x4**2 + 2*y2*y3 - 2*y2*y4 - y3**2 + y4**2
+  center 2, base 3, other 5: 2*x2*x3 - 2*x2*x5 - x3**2 + x5**2 + 2*y2*y3 - 2*y2*y5 - y3**2 + y5**2
+  center 2, base 3, other 6: 2*x2*x3 - 2*x2*x6 - x3**2 + x6**2 + 2*y2*y3 - 2*y2*y6 - y3**2 + y6**2
+  center 3, base 2, other 4: -x2**2 + 2*x2*x3 - 2*x3*x4 + x4**2 - y2**2 + 2*y2*y3 - 2*y3*y4 + y4**2
+  center 3, base 2, other 5: -x2**2 + 2*x2*x3 - 2*x3*x5 + x5**2 - y2**2 + 2*y2*y3 - 2*y3*y5 + y5**2
+  center 3, base 2, other 7: -x2**2 + 2*x2*x3 - 2*x3*x7 + x7**2 - y2**2 + 2*y2*y3 - 2*y3*y7 + y7**2
+  center 4, base 0, other 5: -2*x4*x5 + x5**2 - 2*y4*y5 + y5**2
+  center 4, base 0, other 6: -2*x4*x6 + x6**2 - 2*y4*y6 + y6**2
+  center 4, base 0, other 7: -2*x4*x7 + x7**2 - 2*y4*y7 + y7**2
+  center 5, base 1, other 4: x4**2 - 2*x4*x5 + 2*x5 + y4**2 - 2*y4*y5 - 1
+  center 5, base 1, other 6: -2*x5*x6 + 2*x5 + x6**2 - 2*y5*y6 + y6**2 - 1
+  center 5, base 1, other 7: -2*x5*x7 + 2*x5 + x7**2 - 2*y5*y7 + y7**2 - 1
+  center 6, base 0, other 1: 1 - 2*x6
+  center 6, base 0, other 2: x2**2 - 2*x2*x6 + y2**2 - 2*y2*y6
+  center 6, base 0, other 7: -2*x6*x7 + x7**2 - 2*y6*y7 + y7**2
+  center 7, base 0, other 1: 1 - 2*x7
+  center 7, base 0, other 3: x3**2 - 2*x3*x7 + y3**2 - 2*y3*y7
+  center 7, base 0, other 6: x6**2 - 2*x6*x7 + y6**2 - 2*y6*y7
+
+================================================================================
+Class 13
+Compatible cyclic orders: 280 (full list in JSON artifact)
+W sets:
+  W_0 = [1, 2, 3, 4]
+  W_1 = [0, 2, 3, 5]
+  W_2 = [0, 3, 6, 7]
+  W_3 = [1, 2, 6, 7]
+  W_4 = [0, 1, 5, 6]
+  W_5 = [0, 1, 4, 7]
+  W_6 = [2, 4, 5, 7]
+  W_7 = [3, 4, 5, 6]
+phi edges and PB polynomials:
+  (0, 1) -> (2, 3):
+    dot = -x2 + x3
+    bis = y2 + y3
+  (0, 3) -> (1, 2):
+    dot = x2*x3 - x3 + y2*y3
+    bis = -x2*y3 + x3*y2 - y3
+  (0, 5) -> (1, 4):
+    dot = x4*x5 - x5 + y4*y5
+    bis = -x4*y5 + x5*y4 - y5
+  (0, 6) -> (2, 4):
+    dot = -x2*x6 + x4*x6 - y2*y6 + y4*y6
+    bis = -x2*y6 - x4*y6 + x6*y2 + x6*y4
+  (0, 7) -> (3, 4):
+    dot = -x3*x7 + x4*x7 - y3*y7 + y4*y7
+    bis = -x3*y7 - x4*y7 + x7*y3 + x7*y4
+  (1, 2) -> (0, 3):
+    dot = x2*x3 - x3 + y2*y3
+    bis = x2*y3 - x3*y2 + 2*y2 - y3
+  (1, 4) -> (0, 5):
+    dot = x4*x5 - x5 + y4*y5
+    bis = x4*y5 - x5*y4 + 2*y4 - y5
+  (1, 6) -> (2, 5):
+    dot = -x2*x6 + x2 + x5*x6 - x5 - y2*y6 + y5*y6
+    bis = -x2*y6 - x5*y6 + x6*y2 + x6*y5 - y2 - y5 + 2*y6
+  (1, 7) -> (3, 5):
+    dot = -x3*x7 + x3 + x5*x7 - x5 - y3*y7 + y5*y7
+    bis = -x3*y7 - x5*y7 + x7*y3 + x7*y5 - y3 - y5 + 2*y7
+  (2, 3) -> (6, 7):
+    dot = x2*x6 - x2*x7 - x3*x6 + x3*x7 + y2*y6 - y2*y7 - y3*y6 + y3*y7
+    bis = 2*x2*y3 - x2*y6 - x2*y7 - 2*x3*y2 + x3*y6 + x3*y7 + x6*y2 - x6*y3 + x7*y2 - x7*y3
+  (2, 4) -> (0, 6):
+    dot = -x2*x6 + x4*x6 - y2*y6 + y4*y6
+    bis = 2*x2*y4 - x2*y6 - 2*x4*y2 + x4*y6 + x6*y2 - x6*y4
+  (2, 5) -> (0, 7):
+    dot = -x2*x7 + x5*x7 - y2*y7 + y5*y7
+    bis = 2*x2*y5 - x2*y7 - 2*x5*y2 + x5*y7 + x7*y2 - x7*y5
+  (2, 7) -> (3, 6):
+    dot = x2*x3 - x2*x6 - x3*x7 + x6*x7 + y2*y3 - y2*y6 - y3*y7 + y6*y7
+    bis = -x2*y3 - x2*y6 + 2*x2*y7 + x3*y2 - x3*y7 + x6*y2 - x6*y7 - 2*x7*y2 + x7*y3 + x7*y6
+  (3, 4) -> (1, 6):
+    dot = -x3*x6 + x3 + x4*x6 - x4 - y3*y6 + y4*y6
+    bis = 2*x3*y4 - x3*y6 - 2*x4*y3 + x4*y6 + x6*y3 - x6*y4 + y3 - y4
+  (3, 5) -> (1, 7):
+    dot = -x3*x7 + x3 + x5*x7 - x5 - y3*y7 + y5*y7
+    bis = 2*x3*y5 - x3*y7 - 2*x5*y3 + x5*y7 + x7*y3 - x7*y5 + y3 - y5
+  (3, 6) -> (2, 7):
+    dot = x2*x3 - x2*x6 - x3*x7 + x6*x7 + y2*y3 - y2*y6 - y3*y7 + y6*y7
+    bis = x2*y3 - x2*y6 - x3*y2 + 2*x3*y6 - x3*y7 + x6*y2 - 2*x6*y3 + x6*y7 + x7*y3 - x7*y6
+  (4, 5) -> (0, 1):
+    dot = -x4 + x5
+    bis = 2*x4*y5 - 2*x5*y4 + y4 - y5
+  (4, 7) -> (5, 6):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = -x4*y5 - x4*y6 + 2*x4*y7 + x5*y4 - x5*y7 + x6*y4 - x6*y7 - 2*x7*y4 + x7*y5 + x7*y6
+  (5, 6) -> (4, 7):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = x4*y5 - x4*y6 - x5*y4 + 2*x5*y6 - x5*y7 + x6*y4 - 2*x6*y5 + x6*y7 + x7*y5 - x7*y6
+  (6, 7) -> (4, 5):
+    dot = x4*x6 - x4*x7 - x5*x6 + x5*x7 + y4*y6 - y4*y7 - y5*y6 + y5*y7
+    bis = x4*y6 - x4*y7 + x5*y6 - x5*y7 - x6*y4 - x6*y5 + 2*x6*y7 + x7*y4 + x7*y5 - 2*x7*y6
+Full equal-distance equations:
+  center 0, base 1, other 2: x2**2 + y2**2 - 1
+  center 0, base 1, other 3: x3**2 + y3**2 - 1
+  center 0, base 1, other 4: x4**2 + y4**2 - 1
+  center 1, base 0, other 2: x2**2 - 2*x2 + y2**2
+  center 1, base 0, other 3: x3**2 - 2*x3 + y3**2
+  center 1, base 0, other 5: x5**2 - 2*x5 + y5**2
+  center 2, base 0, other 3: -2*x2*x3 + x3**2 - 2*y2*y3 + y3**2
+  center 2, base 0, other 6: -2*x2*x6 + x6**2 - 2*y2*y6 + y6**2
+  center 2, base 0, other 7: -2*x2*x7 + x7**2 - 2*y2*y7 + y7**2
+  center 3, base 1, other 2: x2**2 - 2*x2*x3 + 2*x3 + y2**2 - 2*y2*y3 - 1
+  center 3, base 1, other 6: -2*x3*x6 + 2*x3 + x6**2 - 2*y3*y6 + y6**2 - 1
+  center 3, base 1, other 7: -2*x3*x7 + 2*x3 + x7**2 - 2*y3*y7 + y7**2 - 1
+  center 4, base 0, other 1: 1 - 2*x4
+  center 4, base 0, other 5: -2*x4*x5 + x5**2 - 2*y4*y5 + y5**2
+  center 4, base 0, other 6: -2*x4*x6 + x6**2 - 2*y4*y6 + y6**2
+  center 5, base 0, other 1: 1 - 2*x5
+  center 5, base 0, other 4: x4**2 - 2*x4*x5 + y4**2 - 2*y4*y5
+  center 5, base 0, other 7: -2*x5*x7 + x7**2 - 2*y5*y7 + y7**2
+  center 6, base 2, other 4: -x2**2 + 2*x2*x6 + x4**2 - 2*x4*x6 - y2**2 + 2*y2*y6 + y4**2 - 2*y4*y6
+  center 6, base 2, other 5: -x2**2 + 2*x2*x6 + x5**2 - 2*x5*x6 - y2**2 + 2*y2*y6 + y5**2 - 2*y5*y6
+  center 6, base 2, other 7: -x2**2 + 2*x2*x6 - 2*x6*x7 + x7**2 - y2**2 + 2*y2*y6 - 2*y6*y7 + y7**2
+  center 7, base 3, other 4: -x3**2 + 2*x3*x7 + x4**2 - 2*x4*x7 - y3**2 + 2*y3*y7 + y4**2 - 2*y4*y7
+  center 7, base 3, other 5: -x3**2 + 2*x3*x7 + x5**2 - 2*x5*x7 - y3**2 + 2*y3*y7 + y5**2 - 2*y5*y7
+  center 7, base 3, other 6: -x3**2 + 2*x3*x7 + x6**2 - 2*x6*x7 - y3**2 + 2*y3*y7 + y6**2 - 2*y6*y7
+
+================================================================================
+Class 14
+Compatible cyclic orders: 72 (full list in JSON artifact)
+W sets:
+  W_0 = [1, 2, 3, 4]
+  W_1 = [0, 2, 5, 6]
+  W_2 = [3, 4, 5, 6]
+  W_3 = [1, 2, 5, 7]
+  W_4 = [0, 3, 5, 7]
+  W_5 = [1, 4, 6, 7]
+  W_6 = [0, 2, 4, 7]
+  W_7 = [0, 1, 3, 6]
+phi edges and PB polynomials:
+  (0, 2) -> (3, 4):
+    dot = -x2*x3 + x2*x4 - y2*y3 + y2*y4
+    bis = x2*y3 + x2*y4 - x3*y2 - x4*y2
+  (0, 3) -> (1, 2):
+    dot = x2*x3 - x3 + y2*y3
+    bis = -x2*y3 + x3*y2 - y3
+  (0, 5) -> (1, 4):
+    dot = x4*x5 - x5 + y4*y5
+    bis = -x4*y5 + x5*y4 - y5
+  (0, 6) -> (2, 4):
+    dot = -x2*x6 + x4*x6 - y2*y6 + y4*y6
+    bis = -x2*y6 - x4*y6 + x6*y2 + x6*y4
+  (0, 7) -> (1, 3):
+    dot = x3*x7 - x7 + y3*y7
+    bis = -x3*y7 + x7*y3 - y7
+  (1, 2) -> (5, 6):
+    dot = -x2*x5 + x2*x6 + x5 - x6 - y2*y5 + y2*y6
+    bis = x2*y5 + x2*y6 - x5*y2 - x6*y2 + 2*y2 - y5 - y6
+  (1, 3) -> (2, 5):
+    dot = -x2*x3 + x2 + x3*x5 - x5 - y2*y3 + y3*y5
+    bis = -x2*y3 + x3*y2 + x3*y5 - x5*y3 - y2 + 2*y3 - y5
+  (1, 4) -> (0, 5):
+    dot = x4*x5 - x5 + y4*y5
+    bis = x4*y5 - x5*y4 + 2*y4 - y5
+  (1, 6) -> (0, 2):
+    dot = x2*x6 - x2 + y2*y6
+    bis = -x2*y6 + x6*y2 - y2 + 2*y6
+  (1, 7) -> (0, 6):
+    dot = x6*x7 - x6 + y6*y7
+    bis = -x6*y7 + x7*y6 - y6 + 2*y7
+  (2, 4) -> (3, 5):
+    dot = x2*x3 - x2*x5 - x3*x4 + x4*x5 + y2*y3 - y2*y5 - y3*y4 + y4*y5
+    bis = -x2*y3 + 2*x2*y4 - x2*y5 + x3*y2 - x3*y4 - 2*x4*y2 + x4*y3 + x4*y5 + x5*y2 - x5*y4
+  (2, 5) -> (4, 6):
+    dot = x2*x4 - x2*x6 - x4*x5 + x5*x6 + y2*y4 - y2*y6 - y4*y5 + y5*y6
+    bis = -x2*y4 + 2*x2*y5 - x2*y6 + x4*y2 - x4*y5 - 2*x5*y2 + x5*y4 + x5*y6 + x6*y2 - x6*y5
+  (2, 7) -> (3, 6):
+    dot = x2*x3 - x2*x6 - x3*x7 + x6*x7 + y2*y3 - y2*y6 - y3*y7 + y6*y7
+    bis = -x2*y3 - x2*y6 + 2*x2*y7 + x3*y2 - x3*y7 + x6*y2 - x6*y7 - 2*x7*y2 + x7*y3 + x7*y6
+  (3, 4) -> (5, 7):
+    dot = x3*x5 - x3*x7 - x4*x5 + x4*x7 + y3*y5 - y3*y7 - y4*y5 + y4*y7
+    bis = 2*x3*y4 - x3*y5 - x3*y7 - 2*x4*y3 + x4*y5 + x4*y7 + x5*y3 - x5*y4 + x7*y3 - x7*y4
+  (3, 5) -> (1, 7):
+    dot = -x3*x7 + x3 + x5*x7 - x5 - y3*y7 + y5*y7
+    bis = 2*x3*y5 - x3*y7 - 2*x5*y3 + x5*y7 + x7*y3 - x7*y5 + y3 - y5
+  (3, 6) -> (2, 7):
+    dot = x2*x3 - x2*x6 - x3*x7 + x6*x7 + y2*y3 - y2*y6 - y3*y7 + y6*y7
+    bis = x2*y3 - x2*y6 - x3*y2 + 2*x3*y6 - x3*y7 + x6*y2 - 2*x6*y3 + x6*y7 + x7*y3 - x7*y6
+  (4, 6) -> (0, 7):
+    dot = -x4*x7 + x6*x7 - y4*y7 + y6*y7
+    bis = 2*x4*y6 - x4*y7 - 2*x6*y4 + x6*y7 + x7*y4 - x7*y6
+  (4, 7) -> (0, 3):
+    dot = -x3*x4 + x3*x7 - y3*y4 + y3*y7
+    bis = x3*y4 - x3*y7 - x4*y3 + 2*x4*y7 + x7*y3 - 2*x7*y4
+  (5, 6) -> (4, 7):
+    dot = x4*x5 - x4*x6 - x5*x7 + x6*x7 + y4*y5 - y4*y6 - y5*y7 + y6*y7
+    bis = x4*y5 - x4*y6 - x5*y4 + 2*x5*y6 - x5*y7 + x6*y4 - 2*x6*y5 + x6*y7 + x7*y5 - x7*y6
+  (5, 7) -> (1, 6):
+    dot = -x5*x6 + x5 + x6*x7 - x7 - y5*y6 + y6*y7
+    bis = -x5*y6 + 2*x5*y7 + x6*y5 - x6*y7 - 2*x7*y5 + x7*y6 + y5 - y7
+Full equal-distance equations:
+  center 0, base 1, other 2: x2**2 + y2**2 - 1
+  center 0, base 1, other 3: x3**2 + y3**2 - 1
+  center 0, base 1, other 4: x4**2 + y4**2 - 1
+  center 1, base 0, other 2: x2**2 - 2*x2 + y2**2
+  center 1, base 0, other 5: x5**2 - 2*x5 + y5**2
+  center 1, base 0, other 6: x6**2 - 2*x6 + y6**2
+  center 2, base 3, other 4: 2*x2*x3 - 2*x2*x4 - x3**2 + x4**2 + 2*y2*y3 - 2*y2*y4 - y3**2 + y4**2
+  center 2, base 3, other 5: 2*x2*x3 - 2*x2*x5 - x3**2 + x5**2 + 2*y2*y3 - 2*y2*y5 - y3**2 + y5**2
+  center 2, base 3, other 6: 2*x2*x3 - 2*x2*x6 - x3**2 + x6**2 + 2*y2*y3 - 2*y2*y6 - y3**2 + y6**2
+  center 3, base 1, other 2: x2**2 - 2*x2*x3 + 2*x3 + y2**2 - 2*y2*y3 - 1
+  center 3, base 1, other 5: -2*x3*x5 + 2*x3 + x5**2 - 2*y3*y5 + y5**2 - 1
+  center 3, base 1, other 7: -2*x3*x7 + 2*x3 + x7**2 - 2*y3*y7 + y7**2 - 1
+  center 4, base 0, other 3: x3**2 - 2*x3*x4 + y3**2 - 2*y3*y4
+  center 4, base 0, other 5: -2*x4*x5 + x5**2 - 2*y4*y5 + y5**2
+  center 4, base 0, other 7: -2*x4*x7 + x7**2 - 2*y4*y7 + y7**2
+  center 5, base 1, other 4: x4**2 - 2*x4*x5 + 2*x5 + y4**2 - 2*y4*y5 - 1
+  center 5, base 1, other 6: -2*x5*x6 + 2*x5 + x6**2 - 2*y5*y6 + y6**2 - 1
+  center 5, base 1, other 7: -2*x5*x7 + 2*x5 + x7**2 - 2*y5*y7 + y7**2 - 1
+  center 6, base 0, other 2: x2**2 - 2*x2*x6 + y2**2 - 2*y2*y6
+  center 6, base 0, other 4: x4**2 - 2*x4*x6 + y4**2 - 2*y4*y6
+  center 6, base 0, other 7: -2*x6*x7 + x7**2 - 2*y6*y7 + y7**2
+  center 7, base 0, other 1: 1 - 2*x7
+  center 7, base 0, other 3: x3**2 - 2*x3*x7 + y3**2 - 2*y3*y7
+  center 7, base 0, other 6: x6**2 - 2*x6*x7 + y6**2 - 2*y6*y7

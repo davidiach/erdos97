@@ -16,6 +16,8 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the compact results ledger, read [`RESULTS.md`](RESULTS.md).
 - For proved local facts, read [`docs/claims.md`](docs/claims.md).
 - For the reproducible `n=7` Fano enumeration, read [`docs/n7-fano-enumeration.md`](docs/n7-fano-enumeration.md).
+- For the conditional `n=8` exact survivor obstruction artifact, read
+  [`docs/n8-exact-survivors.md`](docs/n8-exact-survivors.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).
 - For known bad proof routes, read [`docs/failed-ideas.md`](docs/failed-ideas.md).
 - For the verification standard, read [`docs/verification-contract.md`](docs/verification-contract.md).
@@ -65,6 +67,13 @@ so the required perpendicularity relation has an odd cycle. See
 
 This proves the `n=5,6,7` cases only. The `n=8` case remains open: the cube
 witness pattern is obstructed, but that is not a complete `n=8` proof.
+
+A conditional `n=8` exactification artifact is recorded for a reconstructed
+canonical 15-class survivor list. Exact cyclic-order and
+perpendicular-bisector/equal-distance checks leave no strictly convex
+realization for that list. This is not promoted to a theorem here: the remaining
+gap is provenance and independent review, not numerical optimization. See
+[`docs/n8-exact-survivors.md`](docs/n8-exact-survivors.md).
 
 The current best numerical object is a near-miss for the pattern `B12_3x4_danzer_lift`. It has small residual but appears to degenerate toward three tight clusters near an equilateral triangle. It is therefore recorded as useful evidence about a failed route, **not** as a solution.
 
