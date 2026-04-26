@@ -140,10 +140,14 @@ Contributions are welcome if they are reproducible and clearly labelled. Especia
 
 Please avoid presenting numerical near-equalities as counterexamples.
 
+## License and citation
+
+Code is licensed under the MIT License. Research notes, documentation, data artifacts, issue templates, and certificate templates are licensed under CC-BY-4.0. See [`LICENSE.md`](LICENSE.md).
+
+If you use this repository, please cite it using [`CITATION.cff`](CITATION.cff).
+
 ## Before public release
 
-- Choose a license deliberately and replace `LICENSE_NOT_SELECTED.md`.
-- Replace the TODO fields in `CITATION.cff`.
 - Run `pytest -q`.
 - Confirm this README still says no proof and no counterexample are claimed.
 - Create labels matching `.github/labels.yml`.

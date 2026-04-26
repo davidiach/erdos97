@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "erdos97-research"
 version = "0.1.0"
 description = "Research tooling for Erdős Problem #97"
+license = { text = "MIT" }
 requires-python = ">=3.10"
 dependencies = [
   "numpy>=1.24",
