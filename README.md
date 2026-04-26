@@ -11,6 +11,7 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the current mathematical state, read [`STATE.md`](STATE.md).
 - For the compact results ledger, read [`RESULTS.md`](RESULTS.md).
 - For proved local facts, read [`docs/claims.md`](docs/claims.md).
+- For the reproducible `n=7` Fano enumeration, read [`docs/n7-fano-enumeration.md`](docs/n7-fano-enumeration.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).
 - For known bad proof routes, read [`docs/failed-ideas.md`](docs/failed-ideas.md).
 - For the verification standard, read [`docs/verification-contract.md`](docs/verification-contract.md).
@@ -48,6 +49,12 @@ are equal. The radius may depend on `i`; the selected set may depend on `i`; the
 ## Current status in this repo
 
 No proof and no counterexample are claimed.
+
+The selected-witness incidence method rules out `n <= 7`. In the `n=7`
+equality case, the 720 pointed Fano patterns fall into 54 cyclic-dihedral
+classes; in every case the common-witness chord map has cycle type `7+7+7`,
+so the required perpendicularity relation has an odd cycle. See
+[`docs/n7-fano-enumeration.md`](docs/n7-fano-enumeration.md).
 
 The current best numerical object is a near-miss for the pattern `B12_3x4_danzer_lift`. It has small residual but appears to degenerate toward three tight clusters near an equilateral triangle. It is therefore recorded as useful evidence about a failed route, **not** as a solution.
 
@@ -93,6 +100,7 @@ Use these labels consistently:
 ├── pyproject.toml
 ├── requirements.txt
 ├── src/erdos97/search.py              # main search/verification engine
+├── src/erdos97/n7_fano.py             # exact n=7 Fano enumeration
 ├── scripts/                           # thin CLI helpers
 ├── tests/                             # smoke tests and incidence checks
 ├── docs/
@@ -104,6 +112,7 @@ Use these labels consistently:
 │   ├── literature-risk.md             # what has/has not been checked
 │   └── verification-contract.md       # candidate acceptance requirements
 ├── data/
+│   ├── incidence/n7_fano_dihedral_representatives.json
 │   ├── patterns/candidate_patterns.json
 │   └── runs/best_B12_slsqp_m1e-6.json
 └── certificates/

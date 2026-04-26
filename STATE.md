@@ -13,6 +13,7 @@ The Erdős Problems page still lists #97 as open/falsifiable. Known nearby examp
 2. Consequence: no counterexample with `n <= 6`. For `n=5`, every pair of 4-sets shares 3 points. For `n=6`, write `S_i = V \ {i,f(i)}`; the pair `(i,f(i))` has intersection at least 3.
 3. Incidence counting: if `d_j` is the indegree of vertex `j`, then `sum_j binom(d_j,2) <= 2 binom(n,2)` and `sum_j d_j=4n`; convexity of `binom(d,2)` gives `n>=7`.
 4. Equality case `n=7`: all indegrees are 4 and every pair of selected 4-sets intersects in exactly 2 points. Complements `T_i=V\S_i` are Fano lines of size 3 with `i in T_i`. For any centers `i,j`, if `S_i ∩ S_j={a,b}`, then segment `p_a p_b` is perpendicular to segment `p_i p_j` by the radical-axis theorem.
+5. Finite `n=7` Fano obstruction: the reproducible enumeration in `scripts/enumerate_n7_fano.py` finds 30 labelled Fano planes, 720 pointed equality families, and 54 cyclic-dihedral classes. Every class has chord-cycle type `7+7+7`, so the required perpendicularity constraints contain odd cycles and cannot be realized by nonzero Euclidean chords. See `docs/n7-fano-enumeration.md`.
 
 ## Candidate incidence patterns
 Priority patterns in the current code:
