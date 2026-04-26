@@ -1,0 +1,33 @@
+- name: THEOREM
+  color: "0e8a16"
+  description: Fully proved and checked statement.
+- name: LEMMA
+  color: "1d76db"
+  description: Local proved statement or obstruction.
+- name: CONJECTURE
+  color: "5319e7"
+  description: Plausible mathematical claim without proof.
+- name: HEURISTIC
+  color: "fbca04"
+  description: Search guidance that is not a proof ingredient.
+- name: NUMERICAL_EVIDENCE
+  color: "c2e0c6"
+  description: Floating-point computation or near-miss.
+- name: FAILED_APPROACH
+  color: "d93f0b"
+  description: Tempting route with a known failure mode.
+- name: LITERATURE_RISK
+  color: "bfdadc"
+  description: Paper, note, or missing sweep that may affect status.
+- name: EXACTIFICATION
+  color: "006b75"
+  description: Algebraic, interval, SMT, or certificate work.
+- name: SAT_SMT
+  color: "0052cc"
+  description: Finite abstraction or solver encoding.
+- name: INCIDENCE_PATTERN
+  color: "f9d0c4"
+  description: Directed 4-neighbor incidence pattern.
+- name: COUNTEREXAMPLE_CANDIDATE
+  color: "b60205"
+  description: Candidate needing verification; not a counterexample.

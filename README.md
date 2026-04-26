@@ -1,0 +1,150 @@
+# Erdős Problem #97 — counterexample/proof search
+
+This repository is a public research log and reproducibility workspace for Erdős Problem #97.
+
+**Status:** No proof and no counterexample are claimed. This repo records reproducible searches, obstruction lemmas, failed approaches, and exact-certification attempts.
+
+## Problem
+
+Let `P` be a strictly convex polygon in the Euclidean plane with vertex set `V`, `|V| = n >= 5`. For a vertex `v`, define
+
+```text
+E(v) = max_{r > 0} #{ w in V \ {v} : |vw| = r }.
+```
+
+The question is whether every convex polygon must have some vertex `v` with `E(v) <= 3`.
+
+Equivalently, can one find a strictly convex polygon whose every vertex has **four** other vertices on a circle centered at that vertex?
+
+A counterexample consists of:
+
+```text
+n >= 5
+strictly convex points p_0,...,p_{n-1}
+4-sets S_i subset {0,...,n-1} \ {i}
+```
+
+such that, for each center `i`, all values
+
+```text
+|p_i - p_j|^2,  j in S_i
+```
+
+are equal. The radius may depend on `i`; the selected set may depend on `i`; the directed incidence graph need not be symmetric.
+
+## Current status in this repo
+
+No proof and no counterexample are claimed.
+
+The current best numerical object is a near-miss for the pattern `B12_3x4_danzer_lift`. It has small residual but appears to degenerate toward three tight clusters near an equilateral triangle. It is therefore recorded as useful evidence about a failed route, **not** as a solution.
+
+Key diagnostics for the best saved near-miss:
+
+```text
+n: 12
+pattern: B12_3x4_danzer_lift
+max squared-distance spread: 0.006806368780585714
+RMS equality residual:       0.0019599509549614457
+convexity margin:            9.999999943508973e-07
+minimum edge length:         0.0007465865604262556
+status: numerical only, rejected as proof/counterexample
+```
+
+See [`STATE.md`](STATE.md) for the most compact working summary.
+
+## Trust levels used here
+
+Use these labels consistently:
+
+- **THEOREM**: fully proved and checked.
+- **LEMMA**: fully justified local result, preferably with tests or formalizable proof.
+- **CONJECTURE**: plausible but unproved mathematical claim.
+- **HEURISTIC**: useful search guidance, not a proof ingredient.
+- **NUMERICAL_EVIDENCE**: floating-point result; never a proof of equality.
+- **FAILED_APPROACH**: route that currently appears invalid or degenerate.
+- **LITERATURE_RISK**: reference or missing reference that could change the project status.
+- **EXACTIFICATION**: algebraic, interval, SMT, or certificate work.
+- **SAT_SMT**: finite abstraction or solver encoding.
+- **INCIDENCE_PATTERN**: directed 4-neighbor pattern proposal or enumeration.
+- **COUNTEREXAMPLE_CANDIDATE**: candidate requiring independent verification; not a counterexample.
+
+## Repository map
+
+```text
+.
+├── README.md
+├── STATE.md
+├── pyproject.toml
+├── requirements.txt
+├── src/erdos97/search.py              # main search/verification engine
+├── scripts/                           # thin CLI helpers
+├── tests/                             # smoke tests and incidence checks
+├── docs/
+│   ├── claims.md                      # proved vs heuristic statements
+│   ├── candidate-patterns.md          # ranked incidence patterns
+│   ├── failed-ideas.md                # failed arguments to avoid repeating
+│   ├── exactification-plan.md         # numerical-to-exact certificate route
+│   ├── sat-smt-plan.md                # finite abstraction plan
+│   └── literature-risk.md             # what has/has not been checked
+├── data/
+│   ├── patterns/candidate_patterns.json
+│   └── runs/best_B12_slsqp_m1e-6.json
+└── certificates/
+    └── best_B12_certificate_template.json
+```
+
+## Quick start
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .[dev]
+pytest -q
+erdos97-search --list-patterns
+erdos97-search --verify data/runs/best_B12_slsqp_m1e-6.json --tol 1e-6
+```
+
+Run a small search:
+
+```bash
+erdos97-search --pattern B12_3x4_danzer_lift --mode polar --restarts 10 --max-nfev 1000 --out data/runs/new_attempt.json
+```
+
+Optional dependencies:
+
+```bash
+pip install sympy z3-solver
+```
+
+## Research hygiene
+
+1. Do not present floating-point equalities as exact.
+2. Keep optional search heuristics separate from necessary mathematical constraints.
+3. Record failed approaches with enough detail that future work can avoid repeating them.
+4. Prefer small reproducible JSON artifacts over screenshots or prose-only claims.
+5. Any proposed counterexample should include an independent verifier output and then an exactification plan.
+
+## Known nearby examples
+
+The 3-neighbor version is false: Danzer produced a 9-point convex polygon where every vertex has 3 equidistant vertices, and Fishburn--Reeds produced a 20-point convex polygon where every vertex has 3 equidistant vertices at a common radius. These do not automatically extend to the 4-neighbor target.
+
+## Contribution policy
+
+Contributions are welcome if they are reproducible and clearly labelled. Especially useful contributions:
+
+- new incidence patterns satisfying known necessary filters;
+- independent verification scripts;
+- exact obstruction lemmas;
+- interval/SOS/SMT certificates for restricted classes;
+- numerical candidates with robust convexity margins and residual below `1e-10`.
+
+Please avoid presenting numerical near-equalities as counterexamples.
+
+## Before public release
+
+- Choose a license deliberately and replace `LICENSE_NOT_SELECTED.md`.
+- Replace the TODO fields in `CITATION.cff`.
+- Run `pytest -q`.
+- Confirm this README still says no proof and no counterexample are claimed.
+- Create labels matching `.github/labels.yml`.
+- Open the seed issues listed in `docs/initial-issues.md`.

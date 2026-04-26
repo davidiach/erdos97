@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it. Edit author/repository details before publishing."
+title: "Erdős Problem 97: Convex polygon equal-distance search"
+authors:
+  - given-names: "David"
+    family-names: "TODO"
+version: "0.1.0"
+date-released: "2026-04-26"
+repository-code: "https://github.com/TODO/erdos97"
+license: "NOASSERTION"
+abstract: "Computational and proof-search artifacts for Erdős Problem #97 on equal distances in strictly convex polygons. No proof or counterexample is currently claimed."

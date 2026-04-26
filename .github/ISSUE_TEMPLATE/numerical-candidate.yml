@@ -1,0 +1,40 @@
+name: Numerical candidate or near-miss
+description: Record a numerical run, whether successful or failed
+labels: ["NUMERICAL_EVIDENCE"]
+body:
+  - type: input
+    id: pattern
+    attributes:
+      label: Pattern name
+    validations:
+      required: true
+  - type: input
+    id: command
+    attributes:
+      label: Command or script used
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Include max spread, RMS residual, convexity margin, min edge length, seed, optimizer, and verifier output.
+    validations:
+      required: true
+  - type: textarea
+    id: coordinates
+    attributes:
+      label: Coordinates or JSON link
+    validations:
+      required: false
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options:
+        - rejected / failed
+        - near-miss only
+        - needs independent verification
+        - exactification candidate
+    validations:
+      required: true

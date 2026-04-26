@@ -1,0 +1,25 @@
+name: Failed approach
+description: Record a tempting argument or computation that failed
+labels: [FAILED_APPROACH]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Tempting idea
+      description: What was the approach?
+    validations:
+      required: true
+  - type: textarea
+    id: failure
+    attributes:
+      label: Failure mode or counterexample
+      description: Why does it fail? Include data or a small counterexample if available.
+    validations:
+      required: true
+  - type: textarea
+    id: weaker
+    attributes:
+      label: Weaker version?
+      description: Does any weaker statement survive?
+    validations:
+      required: false

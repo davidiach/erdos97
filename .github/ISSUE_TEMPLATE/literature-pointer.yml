@@ -1,0 +1,28 @@
+name: Literature pointer
+description: Add a paper, note, formalization, or webpage that may affect this project
+labels: ["LITERATURE_RISK"]
+body:
+  - type: input
+    id: citation
+    attributes:
+      label: Citation or link
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Why it is relevant
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Expected impact
+      options:
+        - may contain a counterexample
+        - may contain an obstruction/proof
+        - related 3-neighbor construction
+        - computational method
+        - background only
+    validations:
+      required: true

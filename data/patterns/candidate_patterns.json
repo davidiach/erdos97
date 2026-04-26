@@ -1,0 +1,82 @@
+[
+  {
+    "rank": 1,
+    "name": "B12_3x4_danzer_lift",
+    "n": 12,
+    "formula": "i=(a,b) mod (3,4); S_i={(a+1,b),(a+2,b),(a+1,b+1),(a+2,b-1)}",
+    "type": "block/symmetric",
+    "status": "best near-miss; degenerates toward three clusters"
+  },
+  {
+    "rank": 2,
+    "name": "B20_4x5_FR_lift",
+    "n": 20,
+    "formula": "i=(a,b) mod (4,5); S_i={(a+1,b),(a+3,b),(a+1,b+2),(a+3,b-2)}",
+    "type": "block/symmetric",
+    "status": "promising next margin sweep"
+  },
+  {
+    "rank": 3,
+    "name": "P18_parity_balanced",
+    "n": 18,
+    "formula": "even offsets {-7,-2,4,8}; odd offsets {-8,-4,2,7}",
+    "type": "period-2",
+    "status": "worth numerical search"
+  },
+  {
+    "rank": 4,
+    "name": "P24_parity_balanced",
+    "n": 24,
+    "formula": "even offsets {-10,-3,5,11}; odd offsets {-11,-5,3,10}",
+    "type": "period-2",
+    "status": "higher-dimensional search"
+  },
+  {
+    "rank": 5,
+    "name": "C19_skew",
+    "n": 19,
+    "formula": "offsets {-8,-3,5,9}",
+    "type": "skew circulant",
+    "status": "sparse common-neighbor overlap"
+  },
+  {
+    "rank": 6,
+    "name": "C17_skew",
+    "n": 17,
+    "formula": "offsets {-7,-2,4,8}",
+    "type": "skew circulant",
+    "status": "overdetermined but useful"
+  },
+  {
+    "rank": 7,
+    "name": "C20_pm_4_9",
+    "n": 20,
+    "formula": "offsets {-9,-4,4,9}",
+    "type": "palindromic circulant",
+    "status": "do not impose coordinate symmetry"
+  },
+  {
+    "rank": 8,
+    "name": "C16_pm_1_6",
+    "n": 16,
+    "formula": "offsets {-6,-1,1,6}",
+    "type": "palindromic circulant",
+    "status": "may encourage local edge collapse"
+  },
+  {
+    "rank": 9,
+    "name": "C13_pm_3_5",
+    "n": 13,
+    "formula": "offsets {-5,-3,3,5}",
+    "type": "palindromic circulant",
+    "status": "small smoke test"
+  },
+  {
+    "rank": 10,
+    "name": "C9_pm_2_4",
+    "n": 9,
+    "formula": "offsets {-4,-2,2,4}",
+    "type": "palindromic circulant",
+    "status": "likely too constrained"
+  }
+]
