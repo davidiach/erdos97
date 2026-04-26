@@ -28,6 +28,19 @@ Allowed numerical statuses:
 
 The status `certified` must not be used for a floating-point-only artifact.
 
+## Strict Numerical Verifier
+
+The runnable verifier is an acceptance filter, not just a diagnostic report. It
+requires:
+
+- finite real coordinates with shape `(n, 2)` and `n >= 5`;
+- exactly `n` witness rows;
+- each witness row to be a 4-element subset of `V \ {i}`;
+- normalized coordinates before applying absolute spread tolerances;
+- both absolute and relative selected-distance spreads below tolerance;
+- convexity checked by every oriented edge against every non-edge vertex;
+- minimum pair distance and convexity margin above the configured margin.
+
 ## Certified Counterexample Requirements
 
 A certified counterexample must include:

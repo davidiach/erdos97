@@ -2,6 +2,11 @@
 """List built-in incidence patterns and basic obstruction statistics."""
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+
 from erdos97.search import built_in_patterns, incidence_obstruction_stats
 
 

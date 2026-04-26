@@ -6,6 +6,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
 TEXT_SUFFIXES = {
     ".cff",
     ".json",
@@ -15,6 +17,19 @@ TEXT_SUFFIXES = {
     ".txt",
     ".yaml",
     ".yml",
+}
+
+SKIP_DIRS = {
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".tox",
+    ".venv",
+    "__pycache__",
+    "build",
+    "dist",
+    "venv",
 }
 
 HIDDEN_CHARS = {
@@ -36,14 +51,37 @@ HIDDEN_CHARS = {
 
 
 def tracked_files() -> list[Path]:
-    result = subprocess.run(
-        ["git", "ls-files"],
-        check=True,
-        stdout=subprocess.PIPE,
-        text=True,
-        encoding="utf-8",
-    )
-    return [Path(line) for line in result.stdout.splitlines()]
+    def filesystem_files() -> list[Path]:
+        return [
+            path
+            for path in sorted(REPO_ROOT.rglob("*"))
+            if path.is_file() and not any(part in SKIP_DIRS for part in path.relative_to(REPO_ROOT).parts)
+        ]
+
+    try:
+        root_result = subprocess.run(
+            ["git", "rev-parse", "--show-toplevel"],
+            check=True,
+            cwd=REPO_ROOT,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            encoding="utf-8",
+        )
+        if Path(root_result.stdout.strip()).resolve() != REPO_ROOT.resolve():
+            return filesystem_files()
+        result = subprocess.run(
+            ["git", "ls-files"],
+            check=True,
+            cwd=REPO_ROOT,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            encoding="utf-8",
+        )
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        return filesystem_files()
+    return [REPO_ROOT / line for line in result.stdout.splitlines()]
 
 
 def is_text_target(path: Path) -> bool:
@@ -57,25 +95,33 @@ def line_col(text: str, index: int) -> tuple[int, int]:
     return line, col
 
 
+def display_path(path: Path) -> str:
+    try:
+        return str(path.relative_to(REPO_ROOT))
+    except ValueError:
+        return str(path)
+
+
 def main() -> int:
     errors: list[str] = []
     for path in tracked_files():
         if not is_text_target(path):
             continue
         data = path.read_bytes()
+        shown = display_path(path)
         if b"\r" in data:
-            errors.append(f"{path}: contains CR or CRLF line endings")
+            errors.append(f"{shown}: contains CR or CRLF line endings")
         try:
             text = data.decode("utf-8")
         except UnicodeDecodeError as exc:
-            errors.append(f"{path}: not valid UTF-8: {exc}")
+            errors.append(f"{shown}: not valid UTF-8: {exc}")
             continue
         for index, char in enumerate(text):
             if char in HIDDEN_CHARS:
                 line, col = line_col(text, index)
                 codepoint = f"U+{ord(char):04X}"
                 errors.append(
-                    f"{path}:{line}:{col}: hidden character {codepoint} "
+                    f"{shown}:{line}:{col}: hidden character {codepoint} "
                     f"({HIDDEN_CHARS[char]})"
                 )
     if errors:

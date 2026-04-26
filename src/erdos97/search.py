@@ -26,14 +26,13 @@ import dataclasses
 import itertools
 import json
 import math
-import os
 import random
 import time
-from typing import Callable, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
+from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
 import numpy as np
 from numpy.typing import NDArray
-from scipy.optimize import least_squares, differential_evolution, basinhopping, minimize
+from scipy.optimize import least_squares, differential_evolution
 
 Array = NDArray[np.float64]
 Pattern = List[List[int]]
@@ -57,8 +56,6 @@ class LossWeights:
     pair: float = 1.0
     concyclic_avoid: float = 0.0
     angle_gap: float = 0.0
-    centroid: float = 0.0
-    scale: float = 0.0
 
 
 @dataclasses.dataclass
@@ -134,28 +131,43 @@ def random_pattern(n: int, rng: random.Random, max_pair_common: int = 2, balance
 
     If balanced=True, keep indegrees near 4 using a soft greedy objective.
     """
-    S: Pattern = [[] for _ in range(n)]
-    indeg = [0] * n
-    for i in range(n):
-        candidates = [j for j in range(n) if j != i]
-        ok_sets = []
-        for comb in itertools.combinations(candidates, 4):
-            ss = set(comb)
-            if all(len(ss.intersection(S[a])) <= max_pair_common for a in range(i)):
-                score = sum((indeg[j] + 1 - 4) ** 2 - (indeg[j] - 4) ** 2 for j in comb) if balanced else 0
-                # discourage four clustered choices on one side in cyclic order
-                gaps = cyclic_gaps(sorted(comb), n)
-                cluster_penalty = max(gaps)  # if max gap huge, selected points are clustered
-                ok_sets.append((score + 0.02 * cluster_penalty + rng.random() * 1e-3, list(comb)))
-        if not ok_sets:
-            raise RuntimeError("random_pattern failed; try larger n or max_pair_common")
-        ok_sets.sort(key=lambda t: t[0])
-        # pick from a small elite set for diversity
-        chosen = rng.choice(ok_sets[: min(50, len(ok_sets))])[1]
-        S[i] = sorted(chosen)
-        for j in chosen:
-            indeg[j] += 1
-    return PatternInfo(name=name, n=n, S=S, family="random-greedy", formula="greedy random 4-out, pairwise common-neighbor cap")
+    if max_tries <= 0:
+        raise ValueError(f"max_tries must be positive, got {max_tries}")
+
+    for _ in range(max_tries):
+        S: Pattern = [[] for _ in range(n)]
+        indeg = [0] * n
+        failed = False
+        for i in range(n):
+            candidates = [j for j in range(n) if j != i]
+            ok_sets = []
+            for comb in itertools.combinations(candidates, 4):
+                ss = set(comb)
+                if all(len(ss.intersection(S[a])) <= max_pair_common for a in range(i)):
+                    score = sum((indeg[j] + 1 - 4) ** 2 - (indeg[j] - 4) ** 2 for j in comb) if balanced else 0
+                    # Discourage four clustered choices on one side in cyclic order.
+                    gaps = cyclic_gaps(sorted(comb), n)
+                    cluster_penalty = max(gaps)  # if max gap huge, selected points are clustered
+                    ok_sets.append((score + 0.02 * cluster_penalty + rng.random() * 1e-3, list(comb)))
+            if not ok_sets:
+                failed = True
+                break
+            ok_sets.sort(key=lambda t: t[0])
+            # Pick from a small elite set for diversity.
+            chosen = rng.choice(ok_sets[: min(50, len(ok_sets))])[1]
+            S[i] = sorted(chosen)
+            for j in chosen:
+                indeg[j] += 1
+        if not failed:
+            return PatternInfo(
+                name=name,
+                n=n,
+                S=S,
+                family="random-greedy",
+                formula="greedy random 4-out, pairwise common-neighbor cap",
+            )
+
+    raise RuntimeError(f"random_pattern failed after {max_tries} attempts; try larger n or max_pair_common")
 
 
 def cyclic_gaps(vals: Sequence[int], n: int) -> List[int]:
@@ -244,9 +256,29 @@ def pairwise_sqdist(P: Array) -> Array:
 
 
 def convexity_margin(P: Array) -> float:
-    if polygon_area2(P) < 0:
-        P = P[::-1]
-    return float(np.min(orient_margins(P)))
+    """Return the strict convexity margin for the supplied cyclic order.
+
+    The margin is the minimum signed area over every directed boundary edge and
+    every non-incident vertex. Positive margin means every other vertex lies
+    strictly to the same side of each oriented edge.
+    """
+    Q = np.asarray(P, dtype=float)
+    n = len(Q)
+    if n < 3:
+        return float("-inf")
+    if polygon_area2(Q) < 0:
+        Q = Q[::-1]
+    margins: List[float] = []
+    for i in range(n):
+        a = Q[i]
+        b = Q[(i + 1) % n]
+        edge = b - a
+        for j in range(n):
+            if j == i or j == (i + 1) % n:
+                continue
+            v = Q[j] - a
+            margins.append(float(edge[0] * v[1] - edge[1] * v[0]))
+    return min(margins) if margins else float("-inf")
 
 
 def min_edge_length(P: Array) -> float:
@@ -256,8 +288,43 @@ def min_edge_length(P: Array) -> float:
 def min_pair_distance(P: Array) -> float:
     D = pairwise_distances(P)
     n = len(P)
-    D[D == 0] = np.inf
-    return float(np.min(D))
+    if n < 2:
+        return float("inf")
+    iu = np.triu_indices(n, 1)
+    return float(np.min(D[iu]))
+
+
+def validate_candidate_shape(P: Array, S: Pattern) -> List[str]:
+    """Validate the structural contract for a numerical k=4 candidate."""
+    errors: List[str] = []
+
+    if P.ndim != 2 or P.shape[1] != 2:
+        errors.append(f"coordinates must have shape (n, 2), got {P.shape}")
+        return errors
+
+    if not np.all(np.isfinite(P)):
+        errors.append("coordinates contain NaN or infinite values")
+
+    n = int(P.shape[0])
+    if n < 5:
+        errors.append(f"n must be at least 5, got {n}")
+
+    if len(S) != n:
+        errors.append(f"expected {n} witness rows, got {len(S)}")
+        return errors
+
+    for i, row in enumerate(S):
+        if len(row) != 4:
+            errors.append(f"row {i} has length {len(row)}, expected 4")
+        if len(set(row)) != len(row):
+            errors.append(f"row {i} contains duplicate targets: {row}")
+        if i in row:
+            errors.append(f"row {i} contains its own center")
+        bad = [j for j in row if j < 0 or j >= n]
+        if bad:
+            errors.append(f"row {i} contains out-of-range targets: {bad}")
+
+    return errors
 
 
 def independent_diagnostics(P: Array, S: Pattern) -> Dict[str, object]:
@@ -380,11 +447,7 @@ def polygon_from_support_x(x: Array, n: int) -> Array:
         A = np.vstack([U[k], U[(k + 1) % n]])
         b = np.array([h[k], h[(k + 1) % n]])
         P[k] = np.linalg.solve(A, b)
-    # The vertex order from consecutive outward normals may be clockwise; normalize then flip if needed.
-    P = normalize_points(P)
-    if polygon_area2(P) < 0:
-        P = P[::-1]
-    return P
+    return normalize_points(P)
 
 
 def init_support_x(n: int, rng: np.random.Generator, jitter: float = 0.15) -> Array:
@@ -553,12 +616,38 @@ def load_json_result(path: str) -> Tuple[Array, Pattern]:
     return P, S
 
 
-def verify_json(path: str, tol: float = 1e-8) -> Dict[str, object]:
-    P, S = load_json_result(path)
+def verify_json(path: str, tol: float = 1e-8, min_margin: float = 1e-8) -> Dict[str, object]:
+    P_raw, S = load_json_result(path)
+    validation_errors = validate_candidate_shape(P_raw, S)
+
+    if validation_errors:
+        return {
+            "ok_at_tol": False,
+            "tol": tol,
+            "min_margin": min_margin,
+            "validation_errors": validation_errors,
+            "empirical_E_values": [],
+        }
+
+    # Distance equalities are scale invariant; normalize before applying any
+    # absolute spread tolerance so tiny malformed inputs cannot pass.
+    P = normalize_points(P_raw)
     diag = independent_diagnostics(P, S)
     E = empirical_E_values(P, tol=tol)
-    ok = bool(diag["max_spread"] <= tol and diag["convexity_margin"] > 0 and diag["min_pair_distance"] > 0)
-    return {"ok_at_tol": ok, "tol": tol, "empirical_E_values": E, **diag}
+    ok = bool(
+        diag["max_spread"] <= tol
+        and diag["max_rel_spread"] <= tol
+        and diag["convexity_margin"] > min_margin
+        and diag["min_pair_distance"] > min_margin
+    )
+    return {
+        "ok_at_tol": ok,
+        "tol": tol,
+        "min_margin": min_margin,
+        "validation_errors": validation_errors,
+        "empirical_E_values": E,
+        **diag,
+    }
 
 
 # ------------------------- finite/SAT-style abstraction ----------------------
@@ -679,6 +768,7 @@ def main() -> None:
     ap.add_argument("--verbose", action="store_true")
     ap.add_argument("--verify", default="")
     ap.add_argument("--tol", type=float, default=1e-8)
+    ap.add_argument("--min-margin", type=float, default=1e-8)
     args = ap.parse_args()
 
     pats = built_in_patterns()
@@ -690,7 +780,7 @@ def main() -> None:
         return
 
     if args.verify:
-        diag = verify_json(args.verify, tol=args.tol)
+        diag = verify_json(args.verify, tol=args.tol, min_margin=args.min_margin)
         print(json.dumps(diag, indent=2))
         return
 

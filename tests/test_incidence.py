@@ -1,8 +1,29 @@
 from __future__ import annotations
 
+import json
+import math
 import pathlib
 
-from erdos97.search import built_in_patterns, incidence_obstruction_stats, verify_json
+import numpy as np
+
+from erdos97.search import (
+    built_in_patterns,
+    convexity_margin,
+    incidence_obstruction_stats,
+    min_pair_distance,
+    verify_json,
+)
+
+
+def regular_ngon(n: int, scale: float = 1.0) -> list[list[float]]:
+    return [
+        [scale * math.cos(2.0 * math.pi * i / n), scale * math.sin(2.0 * math.pi * i / n)]
+        for i in range(n)
+    ]
+
+
+def write_candidate(path: pathlib.Path, coordinates: list[list[float]], S: list[list[int]]) -> None:
+    path.write_text(json.dumps({"coordinates": coordinates, "S": S}), encoding="utf-8")
 
 
 def test_built_in_patterns_have_outdegree_four_and_no_loops() -> None:
@@ -38,3 +59,39 @@ def test_archive_c12_imports_are_not_certified_at_synthesis_tolerance() -> None:
     for path in paths:
         diag = verify_json(str(path), tol=1e-6)
         assert not diag["ok_at_tol"]
+
+
+def test_verify_json_rejects_duplicate_self_witness_rows(tmp_path: pathlib.Path) -> None:
+    path = tmp_path / "bad_self_witness.json"
+    write_candidate(path, regular_ngon(5), [[i, i, i, i] for i in range(5)])
+
+    diag = verify_json(str(path), tol=1e-8)
+
+    assert not diag["ok_at_tol"]
+    assert any("duplicate targets" in err for err in diag["validation_errors"])
+    assert any("own center" in err for err in diag["validation_errors"])
+
+
+def test_verify_json_normalizes_before_acceptance(tmp_path: pathlib.Path) -> None:
+    path = tmp_path / "tiny_regular_pentagon.json"
+    witnesses = [[j for j in range(5) if j != i] for i in range(5)]
+    write_candidate(path, regular_ngon(5, scale=1e-12), witnesses)
+
+    diag = verify_json(str(path), tol=1e-8)
+
+    assert not diag["ok_at_tol"]
+    assert diag["validation_errors"] == []
+    assert diag["max_spread"] > 1.0
+
+
+def test_min_pair_distance_detects_duplicate_points() -> None:
+    P = np.array([[0.0, 0.0], [0.0, 0.0], [1.0, 0.0], [0.0, 1.0]])
+
+    assert min_pair_distance(P) == 0.0
+
+
+def test_convexity_margin_checks_edges_against_all_vertices() -> None:
+    pentagon = np.array(regular_ngon(5), dtype=float)
+    star_order = pentagon[[0, 2, 4, 1, 3]]
+
+    assert convexity_margin(star_order) < 0.0
