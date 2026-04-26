@@ -1,8 +1,21 @@
 # Erdős Problem #97 — counterexample/proof search
 
+![tests](https://github.com/davidiach/erdos97/actions/workflows/tests.yml/badge.svg)
+
 This repository is a public research log and reproducibility workspace for Erdős Problem #97.
 
 **Status:** No proof and no counterexample are claimed. This repo records reproducible searches, obstruction lemmas, failed approaches, and exact-certification attempts.
+
+## Where to start
+
+- For the current mathematical state, read [`STATE.md`](STATE.md).
+- For the compact results ledger, read [`RESULTS.md`](RESULTS.md).
+- For proved local facts, read [`docs/claims.md`](docs/claims.md).
+- For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).
+- For known bad proof routes, read [`docs/failed-ideas.md`](docs/failed-ideas.md).
+- For the verification standard, read [`docs/verification-contract.md`](docs/verification-contract.md).
+- For runnable verification, start with [`scripts/verify_candidate.py`](scripts/verify_candidate.py).
+- For current work items, see [Issues #1-#7](https://github.com/davidiach/erdos97/issues).
 
 ## Problem
 
@@ -37,6 +50,8 @@ are equal. The radius may depend on `i`; the selected set may depend on `i`; the
 No proof and no counterexample are claimed.
 
 The current best numerical object is a near-miss for the pattern `B12_3x4_danzer_lift`. It has small residual but appears to degenerate toward three tight clusters near an equilateral triangle. It is therefore recorded as useful evidence about a failed route, **not** as a solution.
+
+The best saved B12 object is **not** a counterexample: its max selected-distance spread is about `0.0068`, and its convexity margin is about `1e-6`.
 
 Key diagnostics for the best saved near-miss:
 
@@ -73,6 +88,7 @@ Use these labels consistently:
 ```text
 .
 ├── README.md
+├── RESULTS.md
 ├── STATE.md
 ├── pyproject.toml
 ├── requirements.txt
@@ -85,7 +101,8 @@ Use these labels consistently:
 │   ├── failed-ideas.md                # failed arguments to avoid repeating
 │   ├── exactification-plan.md         # numerical-to-exact certificate route
 │   ├── sat-smt-plan.md                # finite abstraction plan
-│   └── literature-risk.md             # what has/has not been checked
+│   ├── literature-risk.md             # what has/has not been checked
+│   └── verification-contract.md       # candidate acceptance requirements
 ├── data/
 │   ├── patterns/candidate_patterns.json
 │   └── runs/best_B12_slsqp_m1e-6.json
@@ -99,6 +116,7 @@ Use these labels consistently:
 python -m venv .venv
 source .venv/bin/activate
 pip install -e .[dev]
+python scripts/check_text_clean.py
 pytest -q
 erdos97-search --list-patterns
 erdos97-search --verify data/runs/best_B12_slsqp_m1e-6.json --tol 1e-6
@@ -146,9 +164,10 @@ Code is licensed under the MIT License. Research notes, documentation, data arti
 
 If you use this repository, please cite it using [`CITATION.cff`](CITATION.cff).
 
-## Before public release
+## Maintenance checklist
 
 - Run `pytest -q`.
+- Run `python scripts/check_text_clean.py`.
 - Confirm this README still says no proof and no counterexample are claimed.
 - Create labels matching `.github/labels.yml`.
 - Open the seed issues listed in `docs/initial-issues.md`.
