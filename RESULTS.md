@@ -1,7 +1,12 @@
 # Results Ledger
 
-This file is the compact source of truth for what this repository currently
-claims, what it has only tested numerically, and what remains open.
+This file is the compact results ledger for what this repository currently
+claims, what it has only tested numerically, and what remains open. For the
+long-form canonical synthesis and claim reconciliation, read
+`docs/canonical-synthesis.md`.
+
+Overall status: Erdős Problem #97 remains open. This repository claims no
+proof and no counterexample.
 
 ## Certified Results
 
@@ -76,7 +81,9 @@ search-history artifacts, not as live candidates.
 
 ## Open Subproblems
 
-1. Prove or refute degeneration for `B12_3x4_danzer_lift`.
-2. Run a `B20_4x5_FR_lift` anti-clustering margin sweep.
-3. Add interval-arithmetic verification for convexity and distance equations.
-4. Strengthen the incidence SAT/SMT abstraction beyond the pairwise cap.
+1. Close `n=8` by exhaustive selected-witness pattern analysis; the cube
+   witness obstruction is not a complete `n=8` proof.
+2. Prove or refute degeneration for `B12_3x4_danzer_lift`.
+3. Run a `B20_4x5_FR_lift` anti-clustering margin sweep.
+4. Add interval-arithmetic verification for convexity and distance equations.
+5. Strengthen the incidence SAT/SMT abstraction beyond the pairwise cap.

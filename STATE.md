@@ -2,6 +2,11 @@
 
 Status: no proof and no counterexample are claimed.
 
+This is the short working dashboard. For the long-form canonical synthesis,
+claim taxonomy, failed-route reconciliation, and source/hash inventory, read
+`docs/canonical-synthesis.md` before adding new claims, search branches, or
+proof attempts.
+
 ## Target
 
 Find, or rule out, a strictly convex polygon with vertices
@@ -18,11 +23,19 @@ rows share exactly two witnesses, and the incidence count forcing `n >= 7`.
 At `n=7`, the equality case forces a chord permutation on 21 chords, and odd
 cycle parity contradicts alternating perpendicularity.[^small]
 
+Thus `n=5,6,7` are proved impossible in this selected-witness framework. The
+`n=8` case remains open: the cube witness pattern is obstructed, but no
+complete `n=8` classification or proof is claimed.
+
 ## Best saved near-miss
 
 The best saved near-miss remains `B12_3x4_danzer_lift`. It is numerical only
 and is rejected as proof or counterexample because the residual improves toward
 a clustered boundary degeneration.[^repo]
+
+Numerical near-misses are not counterexamples. Any solution claim needs exact
+coordinates, or an exact algebraic/interval certificate, for both the selected
+distance equalities and strict convexity.
 
 ```text
 n: 12
@@ -54,6 +67,10 @@ verification threshold and the other collapses to a non-strict configuration.[^c
    targets, violating the two-circle cap.[^n39]
 3. Generic rank obstruction: rank `2n-3` at non-solutions is only diagnostic;
    exact solutions have an extra scaling kernel.[^rank]
+4. Cube witness pattern as an `n=8` proof: the pattern is obstructed, but this
+   is not an exhaustive `n=8` argument.[^syn]
+5. Uniform-radius shortcut via `2n-7`: this is a direction-of-bound error; the
+   cited result is a lower-bound construction, not the needed upper bound.[^canon]
 
 ## Exactification frontier
 
@@ -71,6 +88,8 @@ ear-orderable selected witness pattern.[^alg][^rank]
 - Pin exact citations and statements for the Fishburn--Reeds 20-point
   unit-distance `k=3` example.[^digest]
 - Keep convex unit-distance bounds separate from the variable-radius problem.[^syn]
+- In particular, do not cite the `2n-7` unit-distance construction as an upper
+  bound resolving the uniform-radius subcase.[^canon]
 - Search related work on repeated distances, order-k Voronoi degeneracies, and
   metric oriented-matroid realizability before paper-style claims.[^repo]
 
@@ -83,3 +102,4 @@ ear-orderable selected witness pattern.[^alg][^rank]
 [^alg]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/04_algebraic_and_semicircle_corrections.md`.
 [^digest]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md`.
 [^syn]: Source file: `erd archive/outputs/erdos97_synthesis.md`.
+[^canon]: Source file: `docs/canonical-synthesis.md`.

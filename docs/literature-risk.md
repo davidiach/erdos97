@@ -13,6 +13,9 @@ claimed here.
 - Common-radius or unit-distance reductions belong to a stricter subcase.
   Convex unit-distance bounds may settle that subcase without touching the
   full variable-radius problem.[^syn]
+- The canonical synthesis corrects a prior uniform-radius shortcut: Furedi's
+  `2n-7` result is a lower-bound construction, not an upper bound resolving
+  the subcase.[^canon]
 
 ## Current risks
 
@@ -22,6 +25,8 @@ claimed here.
   using them in a paper-style introduction.[^digest]
 - Keep the uniform-radius literature separate from the selected-witness problem
   where each center may have its own radius.[^syn]
+- Check `docs/canonical-synthesis.md` before using unit-distance literature in
+  any proof program or solution announcement.[^canon]
 - Before claiming a new obstruction, search related work on repeated distances
   in convex polygons, convex unit distances, Delaunay/order-k Voronoi
   degeneracies, and oriented-matroid realizability with metric constraints.[^repo]
@@ -31,3 +36,4 @@ claimed here.
 [^digest]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md`.
 [^syn]: Source file: `erd archive/outputs/erdos97_synthesis.md`.
 [^repo]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md`.
+[^canon]: Source file: `docs/canonical-synthesis.md`.
