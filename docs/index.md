@@ -19,6 +19,10 @@ put detailed reconciliation in the canonical synthesis.
   selected-witness obstruction.
 - [`n7-fano-obstruction.md`](n7-fano-obstruction.md): proof note for the
   Fano obstruction.
+- [`n8-incidence-enumeration.md`](n8-incidence-enumeration.md): reproducible
+  `n=8` incidence-completeness enumeration.
+- [`n8-exact-survivors.md`](n8-exact-survivors.md): exact obstruction pass for
+  the 15 `n=8` incidence survivor classes.
 - [`failed-ideas.md`](failed-ideas.md): rejected proof routes and stale claims
   that should not be retried without a genuinely new idea.
 

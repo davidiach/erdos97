@@ -6,7 +6,7 @@ long-form canonical synthesis and claim reconciliation, read
 `docs/canonical-synthesis.md`.
 
 Overall status: Erdős Problem #97 remains open. This repository claims no
-proof and no counterexample.
+general proof and no counterexample.
 
 ## Certified Results
 
@@ -41,23 +41,23 @@ radical-axis perpendicularity constraints contain odd cycles. This obstructs
 all `n=7` selected-witness equality patterns. See
 `docs/n7-fano-enumeration.md`.
 
-### Conditional exactification artifact: reconstructed n=8 survivor classes
+### Theorem artifact: selected-witness incidence rules out n = 8
 
-Status: `EXACTIFICATION`, `CONDITIONAL`.
+Status: `THEOREM` in repo-local, machine-checked finite-case sense. External
+review is still recommended before paper-style or public theorem claims.
 
-A reconstructed canonical list of 15 `n=8` incidence survivor classes was tested
-by exact cyclic-order and perpendicular-bisector filters. The cyclic-order
+The incidence-completeness checker derives `n=8` indegree regularity from the
+column-pair cap, exhaustively enumerates all selected-witness systems satisfying
+the necessary incidence filters, and reduces the survivors to 15 canonical
+classes up to simultaneous relabeling.
+
+The exact obstruction checker then kills all 15 classes. The cyclic-order
 noncrossing filter kills 1 class. The remaining 14 classes are killed by exact
 perpendicular-bisector algebra, full equal-distance algebra where needed, or
 strict-convexity failure. No floating-point equality or numerical search is
-used.
-
-This is not promoted to an unconditional theorem in the ledger because the
-reconstructed JSON must still be tied to the original survivor-enumeration
-provenance. In this workspace, the reconstructed classes were matched up to
-simultaneous relabeling against the archived
-`erd archive/outputs/data/n8_exact_geometry_filter_results.json` artifact. See
-`docs/n8-exact-survivors.md` and `certificates/n8_exact_analysis.json`.
+used. See `docs/n8-incidence-enumeration.md`,
+`docs/n8-exact-survivors.md`, `data/incidence/n8_incidence_completeness.json`,
+and `certificates/n8_exact_analysis.json`.
 
 ## Numerical Attempts
 
@@ -99,9 +99,10 @@ search-history artifacts, not as live candidates.
 
 ## Open Subproblems
 
-1. Confirm the `n=8` archive provenance and independently review the class
-   `3`, `4`, and `14` exact certificates.
-2. Prove or refute degeneration for `B12_3x4_danzer_lift`.
-3. Run a `B20_4x5_FR_lift` anti-clustering margin sweep.
-4. Add interval-arithmetic verification for convexity and distance equations.
-5. Strengthen the incidence SAT/SMT abstraction beyond the pairwise cap.
+1. Independently review the `n=8` incidence checker and the class `3`, `4`,
+   and `14` exact certificates.
+2. Push the finite incidence/exact pipeline toward `n=9`, or identify the first
+   survivor class that blocks scaling.
+3. Prove or refute degeneration for `B12_3x4_danzer_lift`.
+4. Run a `B20_4x5_FR_lift` anti-clustering margin sweep.
+5. Add interval-arithmetic verification for convexity and distance equations.

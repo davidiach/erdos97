@@ -57,7 +57,13 @@ def run_artifact_script(repo: Path, *args: str) -> dict:
 
 def test_n8_exact_survivor_artifact_checks() -> None:
     repo = Path(__file__).resolve().parents[1]
-    summary = run_artifact_script(repo)
+    summary = run_artifact_script(
+        repo,
+        "--check-compatible-orders-data",
+        str(repo / "data" / "incidence" / "n8_compatible_orders.json"),
+        "--check-exact-analysis-data",
+        str(repo / "certificates" / "n8_exact_analysis.json"),
+    )
     assert summary["survivor_classes"] == 15
     assert summary["cyclic_order_killed_ids"] == [12]
     assert summary["cyclic_order_remaining_count"] == 14
@@ -67,6 +73,8 @@ def test_n8_exact_survivor_artifact_checks() -> None:
     assert summary["class14_pb_ed_groebner_basis_verified"] is True
     assert summary["class14_solution_branches_solve_pb_ed"] is True
     assert summary["class14_strict_interior_certificate_verified"] is True
+    assert summary["compatible_orders_artifact"]["verified"] is True
+    assert summary["exact_analysis_artifact"]["verified"] is True
 
 
 def test_n8_archive_id_mapping_check(tmp_path: Path) -> None:
