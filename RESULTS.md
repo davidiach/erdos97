@@ -90,6 +90,20 @@ used. See `docs/n8-incidence-enumeration.md`,
 `docs/n8-exact-survivors.md`, `data/incidence/n8_incidence_completeness.json`,
 and `certificates/n8_exact_analysis.json`.
 
+### Proof-note draft: geometric exclusion of n <= 8
+
+Status: proof-note draft; independent review requested.
+
+A short geometric note in `docs/n8-geometric-proof.md` gives an independent
+human-readable route to the `n <= 8` exclusion: a base-apex lemma bounds the
+number of isosceles triangles by `n(n-2)`, badness gives at least `6n`, and the
+saturated octagon case forces an equilateral octagon whose length-3 diagonals
+require at least four exterior turns of size `2*pi/3`, contradicting total
+turn `2*pi`.
+
+This note does not alter the global status of Erdos Problem #97 and does not
+replace the existing machine-checked `n=8` finite-case artifact.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

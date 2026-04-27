@@ -26,6 +26,8 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/n8-incidence-enumeration.md`](docs/n8-incidence-enumeration.md).
 - For the `n=8` exact survivor obstruction artifact, read
   [`docs/n8-exact-survivors.md`](docs/n8-exact-survivors.md).
+- For a compact human-readable proof-note draft excluding bad convex octagons,
+  read [`docs/n8-geometric-proof.md`](docs/n8-geometric-proof.md).
 - For the crossing-bisector, mutual-rhombus, and vertex-circle fixed-pattern
   filters, read [`docs/mutual-rhombus-filter.md`](docs/mutual-rhombus-filter.md)
   and [`docs/vertex-circle-order-filter.md`](docs/vertex-circle-order-filter.md).
