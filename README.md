@@ -71,6 +71,8 @@ are equal. The radius may depend on `i`; the selected set may depend on `i`; the
 
 ## Current status in this repo
 
+Official/global status remains falsifiable/open.
+
 No general proof and no counterexample are claimed.
 
 The selected-witness incidence method rules out `n <= 8` in this repo-local,
@@ -146,9 +148,12 @@ Use these labels consistently:
 
 ```text
 .
+├── AGENTS.md                         # repository-level Codex guidance
 ├── README.md
 ├── RESULTS.md
 ├── STATE.md
+├── metadata/
+│   └── erdos97.yaml                  # canonical status metadata snapshot
 ├── pyproject.toml
 ├── requirements.txt
 ├── src/erdos97/search.py              # main search/verification engine
@@ -158,6 +163,10 @@ Use these labels consistently:
 ├── tests/                             # smoke tests and incidence checks
 ├── docs/
 │   ├── index.md                       # documentation navigation
+│   ├── upstream-alignment.md          # relation to teorth/erdosproblems
+│   ├── reviewer-guide.md              # independent audit instructions
+│   ├── formalization.md               # Lean/formalization alignment
+│   ├── oeis-possibilities.md          # exploratory OEIS notes
 │   ├── canonical-synthesis.md         # long-form canonical project synthesis
 │   ├── claims.md                      # proved vs heuristic statements
 │   ├── candidate-patterns.md          # ranked incidence patterns
@@ -176,7 +185,9 @@ Use these labels consistently:
 │   ├── patterns/candidate_patterns.json
 │   └── runs/best_B12_slsqp_m1e-6.json
 └── certificates/
-    └── best_B12_certificate_template.json
+    ├── best_B12_certificate_template.json
+    ├── n8_exact_analysis.json
+    └── n8_polynomial_systems.txt
 ```
 
 ## Quick start

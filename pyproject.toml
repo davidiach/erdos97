@@ -16,6 +16,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
   "pytest>=7",
+  "PyYAML>=6",
   "sympy>=1.12",
   "z3-solver>=4.12"
 ]

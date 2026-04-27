@@ -30,6 +30,7 @@ Run these after documentation or code changes:
 ```bash
 python scripts/check_text_clean.py
 python scripts/check_status_consistency.py
+git diff --check
 pytest -q
 ```
 
