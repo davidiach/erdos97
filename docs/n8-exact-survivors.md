@@ -1,6 +1,6 @@
-# Conditional n=8 exact survivor obstruction artifact
+# n=8 Exact Survivor Obstruction Artifact
 
-Status: `EXACTIFICATION`, `CONDITIONAL`.
+Status: `EXACT_OBSTRUCTION`.
 
 This note records an exact obstruction pass over a reconstructed canonical list of
 15 `n=8` selected-witness incidence classes. The list was reconstructed from the
@@ -17,9 +17,10 @@ known incidence filters:
 The reconstruction produced exactly 15 simultaneous-relabeling classes. In this
 workspace, these classes were compared against the archived
 `erd archive/outputs/data/n8_exact_geometry_filter_results.json` artifact and
-matched exactly up to simultaneous relabeling. The result still remains
-conditional until that archived provenance is accepted as the original survivor
-enumeration source and the certificate is independently reviewed.
+matched exactly up to simultaneous relabeling. The independent incidence
+enumerator in `docs/n8-incidence-enumeration.md` now reproduces the same 15
+classes from the strong selected-witness convention and necessary incidence
+filters.
 
 The archived IDs map to reconstructed IDs as follows:
 
@@ -187,13 +188,14 @@ Run from the repository root after installing the development dependencies:
 ```bash
 pip install -e .[dev]
 python scripts/analyze_n8_exact_survivors.py --check --json
+python scripts/analyze_n8_exact_survivors.py --check --json --check-compatible-orders-data data/incidence/n8_compatible_orders.json --check-exact-analysis-data certificates/n8_exact_analysis.json
 pytest -q
 ```
 
 When the archive artifact is available, also run:
 
 ```bash
-python scripts/analyze_n8_exact_survivors.py --check --json --provenance-json "C:\Users\User\Desktop\code\erd archive\outputs\data\n8_exact_geometry_filter_results.json"
+python scripts/analyze_n8_exact_survivors.py --check --json --provenance-json "<path-to-archive>/n8_exact_geometry_filter_results.json"
 ```
 
 The script performs no numerical optimization and uses no floating-point equality.
@@ -212,10 +214,10 @@ certificates/n8_exact_analysis.json
 certificates/n8_polynomial_systems.txt
 ```
 
-## Remaining open gap
+## Remaining review gap
 
-The local archive comparison removes the immediate reconstructed-list mismatch
-risk against `n8_exact_geometry_filter_results.json`. The remaining gap is
-provenance: confirm that this archived file is the original survivor JSON from
-the prior search, and independently review the class `3`, `4`, and `14` exact
-certificates before promoting this artifact to a theorem.
+The incidence-completeness gap is closed in this repository by
+`data/incidence/n8_incidence_completeness.json`. The remaining risk is ordinary
+computer-assisted-proof review: independently review the class `3`, `4`, and
+`14` exact certificates and the checker implementation before making an
+external theorem claim.

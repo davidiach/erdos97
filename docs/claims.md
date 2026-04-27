@@ -5,7 +5,7 @@ candidate/failed-route docs, not as proofs of equality.
 
 ## Theorems
 
-### No selected-witness counterexample for n <= 7
+### No selected-witness counterexample for n <= 8
 
 For `n=5`, every selected witness set is `V \ {i}`. Two distinct rows
 therefore share three vertices, contradicting the two-circle cap below.[^small]
@@ -24,6 +24,14 @@ labelled Fano planes and 720 pointed complement families, then quotients them
 to 54 cyclic-dihedral classes. Every class has common-witness chord-cycle type
 `7+7+7`, so every class contains odd perpendicularity cycles. See
 `docs/n7-fano-enumeration.md`.
+
+For `n=8`, the column-pair cap below forces every witness indegree to equal 4.
+The checked incidence enumerator then exhausts all selected-witness systems
+under the necessary incidence and forced-perpendicularity filters, obtaining 15
+canonical survivor classes. The exact obstruction checker kills all 15 by
+cyclic-order noncrossing, perpendicular-bisector algebra, equal-distance
+algebra, duplicate vertices, collinearity, or strict-convexity failure. See
+`docs/n8-incidence-enumeration.md` and `docs/n8-exact-survivors.md`.
 
 ## Lemmas
 
@@ -62,6 +70,14 @@ meets a strictly convex polygon boundary in at most two vertices.[^digest]
 
 Any noncollinear triple of vertices can appear together in at most one selected
 witness set, because three noncollinear points have a unique circumcenter.[^digest]
+
+### n=8 witness indegree regularity
+
+For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a
+fixed vertex `v` occurs in `d` selected witness rows, those occurrences contain
+`3d` pairs `{v,a}`. There are 7 possible partners `a`, and each pair can occur
+in at most two rows, so `3d <= 14` and `d <= 4`. Since the total indegree is
+`4n = 32`, all 8 indegrees are exactly 4.
 
 ### Vertex cone and chord order
 
@@ -116,16 +132,6 @@ circle. The center of the circle therefore need not lie inside the convex hull
 of the witnesses.[^alg]
 
 ## Conjectures / Conditional Programs
-
-### Conditional n=8 exact survivor obstruction artifact
-
-For the reconstructed canonical list of 15 `n=8` survivor classes, exact
-cyclic-order and perpendicular-bisector/equal-distance checks leave no strictly
-convex realization. This remains conditional until the reconstructed JSON is
-tied to the original survivor-enumeration provenance and the certificate is
-independently reviewed. In this workspace, the reconstructed classes match the
-archived `n8_exact_geometry_filter_results.json` classes up to simultaneous
-relabeling. See `docs/n8-exact-survivors.md`.
 
 ### Ear-orderable bridge
 

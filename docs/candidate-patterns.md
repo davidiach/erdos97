@@ -39,7 +39,7 @@ row-overlap failure that killed the n=39 branch.[^n39]
 
 | Rank | Name | n | Formula | Type | Current status |
 |---:|---|---:|---|---|---|
-| A1 | `Q8_cube_witness` | 8 | vertices `{0,1}^3`, witnesses at Hamming distance at least 2 | cube pattern | unrealizable by orthocenter obstruction, but not a proof for all `n=8`[^syn] |
+| A1 | `Q8_cube_witness` | 8 | vertices `{0,1}^3`, witnesses at Hamming distance at least 2 | cube pattern | unrealizable by orthocenter obstruction; the full `n=8` case is now covered by the incidence/exact pipeline |
 | A2 | `C39_pm_18_19` | 39 | `S_i={i+18,i-18,i+19,i-19}` mod 39 | circulant | impossible: adjacent rows share three targets, violating the two-circle cap[^n39] |
 
 [^repo]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md`.

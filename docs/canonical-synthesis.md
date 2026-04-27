@@ -4,6 +4,12 @@
 
 *Last revised: 2026-04-27. Full source files retained as detail backstops.*
 
+**Update note:** the repo now contains checked `n=8` incidence-completeness
+and exact-obstruction artifacts. This long synthesis is retained as provenance
+for earlier gaps and failed arguments; use `STATE.md`, `RESULTS.md`,
+`docs/n8-incidence-enumeration.md`, and `docs/n8-exact-survivors.md` for the
+current finite-case status.
+
 ## What is new in this canonical version
 
 Relative to `erdos97_final_consolidated.md`:

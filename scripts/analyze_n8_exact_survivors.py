@@ -7,10 +7,9 @@ This script is intentionally proof-hygiene oriented:
 - cyclic-order tests are purely finite combinatorics;
 - polynomial checks use SymPy over QQ when SymPy is available.
 
-The bundled JSON list is a reconstructed canonical list of 15 classes up to
-simultaneous relabeling. The mathematical claim should remain conditional until
-that reconstructed list is tied to the original survivor-enumeration provenance
-and independently reviewed.
+The bundled JSON list is the 15-class survivor list produced by the n=8
+incidence-completeness checker, up to simultaneous relabeling. External
+paper-style claims should still receive independent review.
 """
 from __future__ import annotations
 
@@ -18,6 +17,7 @@ import argparse
 import itertools
 import json
 from collections import defaultdict, deque
+from functools import lru_cache
 from pathlib import Path
 from typing import Iterable
 
@@ -188,6 +188,7 @@ def load_survivors(root: Path) -> list[dict]:
         return json.load(f)
 
 
+@lru_cache(maxsize=1)
 def sympy_context():
     try:
         import sympy as sp
@@ -245,6 +246,27 @@ def ed_equations(rows: list[list[int]]):
     return eqs
 
 
+def ed_equation_records(rows: list[list[int]]) -> list[dict]:
+    sp, _symbols, p, _vars = sympy_context()
+    records = []
+    for i in range(N):
+        w = witnesses(rows, i)
+        base = w[0]
+        pix, piy = p[i]
+        pbx, pby = p[base]
+        base_dist = (pix - pbx) ** 2 + (piy - pby) ** 2
+        for other in w[1:]:
+            pox, poy = p[other]
+            equation = sp.expand((pix - pox) ** 2 + (piy - poy) ** 2 - base_dist)
+            records.append({
+                "center": i,
+                "base": base,
+                "other": other,
+                "equation": str(equation),
+            })
+    return records
+
+
 def in_rational_span(polys, target) -> bool:
     sp, _symbols, _coords, var_list = sympy_context()
     all_polys = list(polys) + [target]
@@ -277,6 +299,97 @@ def check_cyclic_counts(survivors: list[dict]) -> dict[int, int]:
     for cls in survivors:
         counts[int(cls["id"])] = len(compatible_orders(cls["rows"]))
     return counts
+
+
+def compatible_orders_artifact(survivors: list[dict]) -> dict:
+    orders_by_class_id = {}
+    counts = {}
+    for cls in survivors:
+        class_id = str(int(cls["id"]))
+        orders = [list(order) for order in compatible_orders(cls["rows"])]
+        counts[class_id] = len(orders)
+        orders_by_class_id[class_id] = orders
+    return {
+        "normalization": "order[0]=0, order[1]<order[-1]; modulo rotation and reversal",
+        "counts": counts,
+        "orders_by_class_id": orders_by_class_id,
+    }
+
+
+def system_record(cls: dict) -> dict:
+    rows = cls["rows"]
+    pb_map = pb_equation_map(rows)
+    orders = [list(order) for order in compatible_orders(rows)]
+    return {
+        "class_id": int(cls["id"]),
+        "rows": rows,
+        "W": {str(i): witnesses(rows, i) for i in range(N)},
+        "compatible_cyclic_orders_count": len(orders),
+        "compatible_cyclic_orders": orders,
+        "phi_edges_count": len(pb_map),
+        "phi_edges_with_perpendicular_bisector_equations": [
+            {
+                "source": list(source),
+                "target": list(target),
+                "dot_equation": str(dot),
+                "bisector_midpoint_equation": str(bisector),
+            }
+            for (source, target), (dot, bisector) in pb_map.items()
+        ],
+        "full_equal_distance_equations": ed_equation_records(rows),
+    }
+
+
+def check_exact_analysis_artifact(survivors: list[dict], path: Path, counts: dict[int, int]) -> dict:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    killed = sorted(class_id for class_id, count in counts.items() if count == 0)
+    remaining = sorted(class_id for class_id, count in counts.items() if count != 0)
+
+    cyclic_filter_ok = data.get("cyclic_filter") == {
+        "total_classes": len(survivors),
+        "killed_count": len(killed),
+        "killed_ids": killed,
+        "remaining_count": len(remaining),
+        "remaining_ids": remaining,
+        "compatible_order_counts": {str(k): v for k, v in counts.items()},
+    }
+
+    systems = data.get("systems_for_remaining_after_cyclic", {})
+    regenerated_systems = {
+        str(int(cls["id"])): system_record(cls)
+        for cls in survivors
+        if counts[int(cls["id"])] != 0
+    }
+    systems_ok = systems == regenerated_systems
+
+    contradictions = data.get("contradictions", {})
+    contradiction_ids_ok = (
+        contradictions.get("cyclic_order_noncrossing", {}).get("killed_ids") == killed
+        and contradictions.get("pb_linear_span_y2_zero", {}).get("killed_ids")
+        == sorted(Y2_SPAN_CLASS_IDS)
+        and contradictions.get("class_3", {}).get("killed_ids") == [3]
+        and contradictions.get("class_4", {}).get("killed_ids") == [4]
+        and contradictions.get("class_5", {}).get("killed_ids") == [5]
+        and contradictions.get("class_14", {}).get("killed_ids") == [14]
+    )
+    final_status_ok = data.get("final_status") == {
+        "remaining_after_exact_geometry": [],
+        "all_reconstructed_15_rejected": True,
+        "numerical_search_used": False,
+    }
+    return {
+        "path": str(path),
+        "cyclic_filter_verified": cyclic_filter_ok,
+        "systems_verified": systems_ok,
+        "contradiction_ids_verified": contradiction_ids_ok,
+        "final_status_verified": final_status_ok,
+        "verified": (
+            cyclic_filter_ok
+            and systems_ok
+            and contradiction_ids_ok
+            and final_status_ok
+        ),
+    }
 
 
 def check_y2_span(survivors: list[dict]) -> dict[int, bool]:
@@ -632,6 +745,16 @@ def main() -> int:
         type=Path,
         help="optional archived survivor JSON to compare up to simultaneous relabeling",
     )
+    parser.add_argument(
+        "--check-compatible-orders-data",
+        type=Path,
+        help="compare checked-in compatible-order JSON against regenerated data",
+    )
+    parser.add_argument(
+        "--check-exact-analysis-data",
+        type=Path,
+        help="check regenerated exact-analysis fields against the checked-in JSON",
+    )
     args = parser.parse_args()
 
     root = repo_root()
@@ -644,6 +767,18 @@ def main() -> int:
     class5 = check_class5_groebner(survivors)
     class14 = check_class14_certificate(survivors)
     provenance = check_provenance_mapping(survivors, args.provenance_json) if args.provenance_json else None
+    compatible_orders_check = None
+    if args.check_compatible_orders_data:
+        checked_in_compatible_orders = json.loads(args.check_compatible_orders_data.read_text(encoding="utf-8"))
+        compatible_orders_check = {
+            "path": str(args.check_compatible_orders_data),
+            "verified": checked_in_compatible_orders == compatible_orders_artifact(survivors),
+        }
+    exact_analysis_check = (
+        check_exact_analysis_artifact(survivors, args.check_exact_analysis_data, counts)
+        if args.check_exact_analysis_data
+        else None
+    )
 
     summary = {
         "survivor_classes": len(survivors),
@@ -658,10 +793,12 @@ def main() -> int:
         "class14_solution_branches_solve_pb_ed": class14["branches_solve_pb_ed"],
         "class14_strict_interior_certificate_verified": class14["all_branches_have_four_hull_vertices"],
         "provenance_identity": provenance,
-        "status": "conditional_exactification_artifact_pending_provenance_and_independent_review",
+        "compatible_orders_artifact": compatible_orders_check,
+        "exact_analysis_artifact": exact_analysis_check,
+        "status": "exact_obstruction_artifact_pending_independent_review",
     }
     if provenance and provenance["verified"]:
-        summary["status"] = "conditional_exactification_artifact_archive_identity_verified_pending_independent_review"
+        summary["status"] = "exact_obstruction_artifact_archive_identity_verified_pending_independent_review"
 
     if args.check:
         assert len(survivors) == 15, len(survivors)
@@ -675,6 +812,10 @@ def main() -> int:
         assert all(class14.values()), f"class 14 certificate mismatch: {class14}"
         if provenance is not None:
             assert provenance["verified"], provenance
+        if compatible_orders_check is not None:
+            assert compatible_orders_check["verified"], compatible_orders_check
+        if exact_analysis_check is not None:
+            assert exact_analysis_check["verified"], exact_analysis_check
 
     if args.json:
         print(json.dumps(summary, indent=2, sort_keys=True))

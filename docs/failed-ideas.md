@@ -70,8 +70,8 @@ cube-pattern uniqueness do not follow.[^syn]
 
 Failure mode: the cube witness pattern is ruled out by an orthocenter
 obstruction, but the archive does not prove that it is the only possible
-`n=8` selected-witness incidence pattern. The `n=8` case remains open in this
-ledger.[^syn]
+`n=8` selected-witness incidence pattern. This failed route is now superseded
+by the checked `n=8` incidence-completeness and exact-obstruction pipeline.
 
 ## 12. Direct counting rules out n<=12
 

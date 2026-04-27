@@ -1,6 +1,6 @@
 # STATE.md - Erdos Problem #97 working state
 
-Status: no proof and no counterexample are claimed.
+Status: no general proof and no counterexample are claimed.
 
 This is the short working dashboard. For the long-form canonical synthesis,
 claim taxonomy, failed-route reconciliation, and source/hash inventory, read
@@ -17,24 +17,19 @@ the directed incidence graph need not be symmetric.[^repo]
 
 ## Strongest proved state
 
-The selected-witness method rules out `n <= 7`. The core filters are the
+The selected-witness method rules out `n <= 8` in this repo-local,
+machine-checked finite-case sense. The core filters are the
 two-circle cap `|S_a cap S_b| <= 2`, radical-axis perpendicularity when two
-rows share exactly two witnesses, and the incidence count forcing `n >= 7`.
+rows share exactly two witnesses, the incidence count forcing `n >= 7`, and
+the `n=8` column-pair cap forcing all witness indegrees to equal 4.
 At `n=7`, the equality case forces a chord permutation on 21 chords, and odd
 cycle parity contradicts alternating perpendicularity.[^small]
 
-Thus `n=5,6,7` are proved impossible in this selected-witness framework. The
-`n=8` case remains open: the cube witness pattern is obstructed, but no
-complete `n=8` classification or proof is claimed.
-
-For `n=8`, the repo now records a conditional exactification artifact for a
-reconstructed canonical 15-class survivor list. Exact cyclic-order noncrossing
-kills 1 class and exact perpendicular-bisector / equal-distance algebra kills
-the other 14. This is not a theorem yet: the live gap is provenance against the
-original survivor enumeration and independent review of the exact certificates.
-In this workspace the reconstructed classes match the archived
-`n8_exact_geometry_filter_results.json` classes up to simultaneous relabeling.
-See `docs/n8-exact-survivors.md`.
+For `n=8`, `scripts/enumerate_n8_incidence.py` enumerates all necessary
+selected-witness incidence survivors and reduces them to 15 canonical classes.
+Exact cyclic-order noncrossing kills 1 class, and exact perpendicular-bisector /
+equal-distance algebra kills the other 14. See
+`docs/n8-incidence-enumeration.md` and `docs/n8-exact-survivors.md`.
 
 ## Best saved near-miss
 
@@ -90,11 +85,11 @@ promising only as a conditional program: repair the ear-orderable rank proof,
 then prove or refute the bridge that every realizable counterexample admits an
 ear-orderable selected witness pattern.[^alg][^rank]
 
-The new `n=8` artifact is the sharpest exactification target in the repo. Its
-checker verifies the reconstructed-class obstruction, the class `3` duplicate
-certificate, the class `4` collinearity certificate, the class `14`
-strict-interior certificate, and an optional archived-ID provenance mapping when
-the archive JSON is available.
+The `n=8` artifacts are now the sharpest computer-assisted proof objects in the
+repo. The incidence checker proves completeness of the 15 survivor classes, and
+the exact checker verifies the class `3` duplicate certificate, the class `4`
+collinearity certificate, the class `14` strict-interior certificate, and the
+archived-ID provenance mapping when the archive JSON is available.
 
 ## Open literature questions
 

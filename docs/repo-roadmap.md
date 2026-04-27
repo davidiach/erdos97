@@ -13,6 +13,9 @@
 - Enumerate `n=7` Fano labelings up to dihedral cyclic order.
 - Encode forced perpendicularities.
 - Add exact/interval infeasibility checks for small fixed patterns.
+- Maintain the checked `n=8` incidence-completeness and exact-obstruction
+  artifacts.
+- Use the `n=8` pipeline as the model for the first `n=9` frontier attempt.
 
 ## Phase 3: numerical exploration
 
@@ -23,3 +26,6 @@
 ## Phase 4: exactification
 
 Only attempt exactification for robust candidates with tiny residual and nondegenerate convexity margins.
+
+For finite obstruction work, exactification may also start from a complete
+incidence survivor list, as in the checked `n=8` pipeline.

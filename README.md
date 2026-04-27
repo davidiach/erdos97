@@ -4,7 +4,7 @@
 
 This repository is a public research log and reproducibility workspace for Erdős Problem #97.
 
-**Status:** No proof and no counterexample are claimed. This repo records reproducible searches, obstruction lemmas, failed approaches, and exact-certification attempts.
+**Status:** No general proof and no counterexample are claimed. This repo records reproducible searches, obstruction lemmas, failed approaches, finite-case proofs, and exact-certification attempts.
 
 ## Where to start
 
@@ -16,7 +16,9 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the compact results ledger, read [`RESULTS.md`](RESULTS.md).
 - For proved local facts, read [`docs/claims.md`](docs/claims.md).
 - For the reproducible `n=7` Fano enumeration, read [`docs/n7-fano-enumeration.md`](docs/n7-fano-enumeration.md).
-- For the conditional `n=8` exact survivor obstruction artifact, read
+- For the reproducible `n=8` incidence-completeness enumeration, read
+  [`docs/n8-incidence-enumeration.md`](docs/n8-incidence-enumeration.md).
+- For the `n=8` exact survivor obstruction artifact, read
   [`docs/n8-exact-survivors.md`](docs/n8-exact-survivors.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).
 - For known bad proof routes, read [`docs/failed-ideas.md`](docs/failed-ideas.md).
@@ -57,23 +59,24 @@ are equal. The radius may depend on `i`; the selected set may depend on `i`; the
 
 ## Current status in this repo
 
-No proof and no counterexample are claimed.
+No general proof and no counterexample are claimed.
 
-The selected-witness incidence method rules out `n <= 7`. In the `n=7`
+The selected-witness incidence method rules out `n <= 8` in this repo-local,
+machine-checked finite-case sense. In the `n=7`
 equality case, the 720 pointed Fano patterns fall into 54 cyclic-dihedral
 classes; in every case the common-witness chord map has cycle type `7+7+7`,
 so the required perpendicularity relation has an odd cycle. See
 [`docs/n7-fano-enumeration.md`](docs/n7-fano-enumeration.md).
 
-This proves the `n=5,6,7` cases only. The `n=8` case remains open: the cube
-witness pattern is obstructed, but that is not a complete `n=8` proof.
-
-A conditional `n=8` exactification artifact is recorded for a reconstructed
-canonical 15-class survivor list. Exact cyclic-order and
-perpendicular-bisector/equal-distance checks leave no strictly convex
-realization for that list. This is not promoted to a theorem here: the remaining
-gap is provenance and independent review, not numerical optimization. See
-[`docs/n8-exact-survivors.md`](docs/n8-exact-survivors.md).
+For `n=8`, [`scripts/enumerate_n8_incidence.py`](scripts/enumerate_n8_incidence.py)
+derives indegree regularity from the column-pair cap, enumerates all necessary
+incidence survivors, and reduces them to 15 canonical classes. Exact
+cyclic-order and perpendicular-bisector/equal-distance checks then leave no
+strictly convex realization for those classes. See
+[`docs/n8-incidence-enumeration.md`](docs/n8-incidence-enumeration.md) and
+[`docs/n8-exact-survivors.md`](docs/n8-exact-survivors.md). External/public
+theorem claims should still get independent review of the computer-assisted
+artifacts.
 
 The current best numerical object is a near-miss for the pattern `B12_3x4_danzer_lift`. It has small residual but appears to degenerate toward three tight clusters near an equilateral triangle. It is therefore recorded as useful evidence about a failed route, **not** as a solution.
 
@@ -109,6 +112,8 @@ Use these labels consistently:
 - **NUMERICAL_EVIDENCE**: floating-point result; never a proof of equality.
 - **FAILED_APPROACH**: route that currently appears invalid or degenerate.
 - **LITERATURE_RISK**: reference or missing reference that could change the project status.
+- **INCIDENCE_COMPLETENESS**: exhaustive finite enumeration under proved incidence constraints.
+- **EXACT_OBSTRUCTION**: exact arithmetic, algebraic, interval, SMT, or formal certificate killing a pattern.
 - **EXACTIFICATION**: algebraic, interval, SMT, or certificate work.
 - **SAT_SMT**: finite abstraction or solver encoding.
 - **INCIDENCE_PATTERN**: directed 4-neighbor pattern proposal or enumeration.
@@ -134,11 +139,15 @@ Use these labels consistently:
 │   ├── candidate-patterns.md          # ranked incidence patterns
 │   ├── failed-ideas.md                # failed arguments to avoid repeating
 │   ├── exactification-plan.md         # numerical-to-exact certificate route
+│   ├── n8-incidence-enumeration.md    # n=8 incidence-completeness proof
+│   ├── n8-exact-survivors.md          # n=8 exact survivor obstructions
 │   ├── sat-smt-plan.md                # finite abstraction plan
 │   ├── literature-risk.md             # what has/has not been checked
 │   └── verification-contract.md       # candidate acceptance requirements
 ├── data/
 │   ├── incidence/n7_fano_dihedral_representatives.json
+│   ├── incidence/n8_incidence_completeness.json
+│   ├── incidence/n8_reconstructed_15_survivors.json
 │   ├── patterns/candidate_patterns.json
 │   └── runs/best_B12_slsqp_m1e-6.json
 └── certificates/
@@ -153,6 +162,8 @@ source .venv/bin/activate
 pip install -e .[dev]
 python scripts/check_text_clean.py
 pytest -q
+python scripts/enumerate_n8_incidence.py --summary
+python scripts/analyze_n8_exact_survivors.py --check --json
 erdos97-search --list-patterns
 erdos97-search --verify data/runs/best_B12_slsqp_m1e-6.json --tol 1e-6
 ```
@@ -203,6 +214,6 @@ If you use this repository, please cite it using [`CITATION.cff`](CITATION.cff).
 
 - Run `pytest -q`.
 - Run `python scripts/check_text_clean.py`.
-- Confirm this README still says no proof and no counterexample are claimed.
+- Confirm this README still says no general proof and no counterexample are claimed.
 - Create labels matching `.github/labels.yml`.
 - Open the seed issues listed in `docs/initial-issues.md`.

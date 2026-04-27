@@ -1,7 +1,7 @@
 # Literature-risk notes
 
-The baseline is intentionally modest: no proof and no counterexample are
-claimed here.
+The baseline is intentionally modest: no general proof and no counterexample
+are claimed here.
 
 ## Nearby facts to track
 
