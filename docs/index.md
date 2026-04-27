@@ -15,6 +15,8 @@ put detailed reconciliation in the canonical synthesis.
 
 - [`claims.md`](claims.md): proved local facts, conditional programs, and
   proof-facing caveats.
+- [`mutual-rhombus-filter.md`](mutual-rhombus-filter.md): crossing-bisector and
+  mutual-midpoint filters for fixed selected-witness patterns.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`
   selected-witness obstruction.
 - [`n7-fano-obstruction.md`](n7-fano-obstruction.md): proof note for the

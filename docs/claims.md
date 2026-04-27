@@ -25,12 +25,18 @@ to 54 cyclic-dihedral classes. Every class has common-witness chord-cycle type
 `7+7+7`, so every class contains odd perpendicularity cycles. See
 `docs/n7-fano-enumeration.md`.
 
-For `n=8`, the column-pair cap below forces every witness indegree to equal 4.
-The checked incidence enumerator then exhausts all selected-witness systems
-under the necessary incidence and forced-perpendicularity filters, obtaining 15
-canonical survivor classes. The exact obstruction checker kills all 15 by
-cyclic-order noncrossing, perpendicular-bisector algebra, equal-distance
-algebra, duplicate vertices, collinearity, or strict-convexity failure. See
+The crossing/bisection lemma below gives a shorter independent exclusion of
+`n <= 7`. The repo still keeps the Fano enumeration because it is structurally
+useful and reproducible.
+
+For `n=8`, the sharpened count saturates: all witness indegrees equal 4,
+adjacent row-pairs meet in exactly one selected witness, and nonadjacent
+row-pairs meet in exactly two. The checked incidence enumerator then exhausts
+all selected-witness systems under the necessary incidence and
+forced-perpendicularity filters, obtaining 15 canonical survivor classes. The
+exact obstruction checker kills all 15 by cyclic-order noncrossing,
+perpendicular-bisector algebra, equal-distance algebra, duplicate vertices,
+collinearity, or strict-convexity failure. See
 `docs/n8-incidence-enumeration.md` and `docs/n8-exact-survivors.md`.
 
 ## Lemmas
@@ -45,22 +51,126 @@ In any selected-witness counterexample, for distinct centers `a,b`,
 
 Otherwise two distinct Euclidean circles would share at least three points.[^small]
 
-### Radical-axis perpendicularity
+### Radical-axis crossing / bisection
 
-If `S_i cap S_j = {a,b}`, then `p_i p_j` is perpendicular to `p_a p_b`.
-Both centers lie on the perpendicular bisector of the common chord.[^small]
-
-### Incidence counting lower bound
-
-Let `d_j = #{i : j in S_i}`. Then `sum_j d_j = 4n`, and the cap gives
+If
 
 ```text
-sum_j binom(d_j,2) <= 2 binom(n,2).
+S_x cap S_y = {a,b}
 ```
 
-Convexity of `binom(d,2)` with average indegree 4 gives
-`sum_j binom(d_j,2) >= 6n`, so any selected-witness counterexample has
-`n >= 7`.[^repo]
+for distinct centers `x,y`, then the line `p_x p_y` is the perpendicular
+bisector of segment `p_a p_b`; the segment `p_x p_y` contains the midpoint of
+segment `p_a p_b`; chords `{x,y}` and `{a,b}` cross in the cyclic order; and
+neither chord is a polygon edge.
+
+Both centers are equidistant from `p_a` and `p_b`, so they lie on the
+perpendicular bisector of `p_a p_b`. Let `m = (p_a + p_b)/2`. The point `m`
+lies on segment `ab`, hence in `conv(P)`, and also on the line `xy`.
+
+If `xy` were a polygon edge, its line would support the strictly convex polygon,
+but `a` and `b` lie on opposite sides of their perpendicular bisector. Thus
+`xy` is a diagonal. A line through two nonadjacent vertices of a strictly convex
+polygon meets the polygon in exactly the chord segment between them, so
+`m in [p_x,p_y]`. Since `m` is also in the relative interior of `[p_a,p_b]`,
+the two chords cross at `m`. A crossed chord cannot be a boundary edge, so
+`ab` is not an edge either.
+
+Consequently, adjacent centers satisfy
+
+```text
+|S_x cap S_y| <= 1,
+```
+
+and any proposed cyclic order must make every source chord with two common
+witnesses cross its common-witness chord. See
+`docs/mutual-rhombus-filter.md` for the fixed-pattern filters built from this
+lemma.
+
+### Sharpened incidence counting lower bound
+
+Let `d_j = #{i : j in S_i}`. Then `sum_j d_j = 4n`, and convexity of
+`binom(d,2)` with average indegree 4 gives
+
+```text
+sum_j binom(d_j,2) >= 6n.
+```
+
+Also
+
+```text
+sum_j binom(d_j,2) = sum_{i<j} |S_i cap S_j|.
+```
+
+The two-circle cap gives intersection size at most `2` for every row-pair. The
+crossing/bisection lemma improves the `n` adjacent row-pairs to size at most
+`1`. Hence
+
+```text
+sum_{i<j} |S_i cap S_j|
+  <= n + 2*(binom(n,2) - n)
+  = n(n-2).
+```
+
+Thus `6n <= n(n-2)`, so any selected-witness counterexample has `n >= 8`.
+This gives a shorter exact proof excluding `n <= 7`; it does not replace the
+separate `n=8` exact pipeline.[^repo]
+
+### n=8 crossing-permutation compression
+
+If a selected-witness counterexample had `n=8`, equality would hold throughout
+the sharpened incidence count. Therefore:
+
+```text
+d_v = 4 for every label v,
+|S_i cap S_j| = 1 for adjacent row-pairs {i,j},
+|S_i cap S_j| = 2 for nonadjacent row-pairs {i,j}.
+```
+
+The map
+
+```text
+phi({i,j}) = S_i cap S_j
+```
+
+is consequently defined on all 20 diagonals of the octagon and on no boundary
+edges. The crossing/bisection lemma says every source diagonal crosses its
+image. The pair-sharing cap makes `phi` injective on these diagonals: a witness
+pair `{a,b}` can occur together in at most two selected rows, hence can be the
+common-witness pair of at most one row-pair. Since there are 20 source
+diagonals and 20 target diagonals, `phi` is a crossing permutation of the
+octagon diagonals.
+
+This is a compression of the hypothetical `n=8` case, not a replacement for the
+checked `n=8` exact survivor pipeline.
+
+### Mutual-rhombus midpoint obstruction
+
+Define
+
+```text
+phi({x,y}) = S_x cap S_y
+```
+
+whenever the intersection has size exactly `2`. If `phi(e) = f` and
+`phi(f) = e` for unordered chords `e={x,y}` and `f={a,b}`, then the two chords
+are mutual perpendicular bisectors. Therefore they share a midpoint:
+
+```text
+p_x + p_y = p_a + p_b.
+```
+
+For each coordinate this is the exact integer linear equation
+
+```text
+X_x + X_y - X_a - X_b = 0.
+```
+
+If exact rational row reduction of all such midpoint equations forces
+`X_u = X_v` for distinct labels `u,v`, then every realization has
+`p_u = p_v`, impossible in a strictly convex polygon. This is a fixed
+selected-witness pattern obstruction, not a proof against other possible
+4-subset selections on the same hypothetical coordinate set.
 
 ### Pair and triple sharing
 
@@ -70,6 +180,25 @@ meets a strictly convex polygon boundary in at most two vertices.[^digest]
 
 Any noncollinear triple of vertices can appear together in at most one selected
 witness set, because three noncollinear points have a unique circumcenter.[^digest]
+
+### Minimal-counterexample critical tie
+
+In a counterexample with the minimum possible number of vertices, every deleted
+vertex is essential to some remaining vertex's badness. More precisely, for
+each vertex `x`, there is a vertex `y != x` such that `x` belongs to the unique
+distance class of size exactly 4 at `y`.
+
+Proof. Delete `x`. By minimality, the remaining polygon is not a counterexample,
+so some remaining vertex `y` has `E(y) <= 3` after deletion. In the original
+polygon, any distance class at `y` of size at least 4 must have contained `x`;
+otherwise it would still have size at least 4 after deletion. Since `x` lies at
+only one distance from `y`, there is at most one such class. Its size cannot
+exceed 4, because a class of size at least 5 containing `x` would still have
+size at least 4 after deletion. Thus `x` lies in a unique critical 4-tie at
+`y`.
+
+This is structural information about minimal counterexamples; by itself it is
+not a contradiction.
 
 ### n=8 witness indegree regularity
 

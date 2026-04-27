@@ -7,19 +7,21 @@ designs only; geometric realization is a separate problem.
 
 | Rank | Name | n | Formula | Type | Current status |
 |---:|---|---:|---|---|---|
-| 1 | `B12_3x4_danzer_lift` | 12 | `(a,b) -> {(a+1,b),(a+2,b),(a+1,b+1),(a+2,b-1)}` mod `(3,4)` | block/symmetric | best saved near-miss; rejected as proof/counterexample because it degenerates toward three tight clusters[^repo] |
-| 2 | `B20_4x5_FR_lift` | 20 | `(a,b) -> {(a+1,b),(a+3,b),(a+1,b+2),(a+3,b-2)}` mod `(4,5)` | block/symmetric | next margin sweep with anti-clustering diagnostics[^repo] |
-| 3 | `P18_parity_balanced` | 18 | even: `{-7,-2,4,8}`, odd: `{-8,-4,2,7}` | period-2 | worth basin-hopping / differential-evolution testing[^repo] |
-| 4 | `P24_parity_balanced` | 24 | even: `{-10,-3,5,11}`, odd: `{-11,-5,3,10}` | period-2 | more variables, harder search[^repo] |
-| 5 | `C19_skew` | 19 | offsets `{-8,-3,5,9}` | skew circulant | sparse common-neighbor overlap[^repo] |
-| 6 | `C17_skew` | 17 | offsets `{-7,-2,4,8}` | skew circulant | overdetermined but useful[^repo] |
-| 7 | `C20_pm_4_9` | 20 | offsets `{-9,-4,4,9}` | palindromic circulant | do not impose coordinate symmetry[^repo] |
-| 8 | `C16_pm_1_6` | 16 | offsets `{-6,-1,1,6}` | palindromic circulant | may encourage local edge collapse[^repo] |
-| 9 | `C13_pm_3_5` | 13 | offsets `{-5,-3,3,5}` | palindromic circulant | small smoke test[^repo] |
-| 10 | `C9_pm_2_4` | 9 | offsets `{-4,-2,2,4}` | palindromic circulant | likely too constrained[^repo] |
+| 1 | `C19_skew` | 19 | offsets `{-8,-3,5,9}` | skew circulant | sparse common-neighbor overlap; not killed by the current mutual-rhombus filter[^repo] |
 
-All live patterns above should pass the row-overlap filter
+The live pattern above should pass the row-overlap filter
 `|S_i cap S_j| <= 2` before numerical optimization.[^comp]
+
+## Natural-order killed / cyclic-order unresolved patterns
+
+These patterns are killed if the natural label order `0,1,...,n-1` is the
+cyclic order. As abstract incidence patterns, they require a cyclic-order
+search if arbitrary cyclic orders are allowed.
+
+| Rank | Name | n | Formula | Type | Current status |
+|---:|---|---:|---|---|---|
+| U1 | `P18_parity_balanced` | 18 | even: `{-7,-2,4,8}`, odd: `{-8,-4,2,7}` | period-2 | natural-order status: killed by adjacent-row two-overlap via crossing-bisector; abstract-incidence status: requires cyclic-order search |
+| U2 | `P24_parity_balanced` | 24 | even: `{-10,-3,5,11}`, odd: `{-11,-5,3,10}` | period-2 | natural-order status: killed by adjacent-row two-overlap via crossing-bisector; abstract-incidence status: requires cyclic-order search |
 
 ## Speculative extensions
 
@@ -41,6 +43,13 @@ row-overlap failure that killed the n=39 branch.[^n39]
 |---:|---|---:|---|---|---|
 | A1 | `Q8_cube_witness` | 8 | vertices `{0,1}^3`, witnesses at Hamming distance at least 2 | cube pattern | unrealizable by orthocenter obstruction; the full `n=8` case is now covered by the incidence/exact pipeline |
 | A2 | `C39_pm_18_19` | 39 | `S_i={i+18,i-18,i+19,i-19}` mod 39 | circulant | impossible: adjacent rows share three targets, violating the two-circle cap[^n39] |
+| A3 | `B12_3x4_danzer_lift` | 12 | `(a,b) -> {(a+1,b),(a+2,b),(a+1,b+1),(a+2,b-1)}` mod `(3,4)` | block/symmetric | exactly killed as a fixed selected pattern by mutual-rhombus midpoint equations; numerical near-miss remains useful as a degeneration diagnostic |
+| A4 | `B20_4x5_FR_lift` | 20 | `(a,b) -> {(a+1,b),(a+3,b),(a+1,b+2),(a+3,b-2)}` mod `(4,5)` | block/symmetric | exactly killed as a fixed selected pattern by mutual-rhombus midpoint equations |
+| A5 | `C17_skew` | 17 | offsets `{-7,-2,4,8}` | skew circulant | exactly killed by an odd forced-perpendicularity cycle |
+| A6 | `C20_pm_4_9` | 20 | offsets `{-9,-4,4,9}` | palindromic circulant | exactly killed by mutual-rhombus midpoint equations; residue mod 4 collapse |
+| A7 | `C16_pm_1_6` | 16 | offsets `{-6,-1,1,6}` | palindromic circulant | exactly killed by mutual-rhombus midpoint equations; parity collapse |
+| A8 | `C13_pm_3_5` | 13 | offsets `{-5,-3,3,5}` | palindromic circulant | exactly killed by mutual-rhombus midpoint equations; all labels collapse |
+| A9 | `C9_pm_2_4` | 9 | offsets `{-4,-2,2,4}` | palindromic circulant | exactly killed by mutual-rhombus midpoint equations; all labels collapse |
 
 [^repo]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md`.
 [^comp]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/04_COMPUTATIONAL_FINDINGS.md`.
