@@ -30,7 +30,12 @@ Relative to `erdos97_four_stage_consolidation.md`:
 
 **Problem (Erdős #97).** For a strictly convex polygon with vertex set $V \subset \mathbb{R}^2$, define $E(i) = \max_{r > 0} \#\{j \ne i : \|p_i - p_j\| = r\}$. Does every strictly convex polygon have some vertex with $E(i) \le 3$?
 
-**Status: OPEN.** Listed open on erdosproblems.com/97 (last edited 2025-10-27); \$100 prize.
+**Official/global status: FALSIFIABLE/OPEN.** Listed open on
+erdosproblems.com/97 (last edited 2025-10-27); \$100 prize.
+
+**Local repo status:** no general proof and no counterexample are claimed.
+The strongest local result is the selected-witness finite-case obstruction
+through `n <= 8`, in the repo-local machine-checked sense.
 
 | `n` | Current repo-local status | Method |
 |---|---|---|
