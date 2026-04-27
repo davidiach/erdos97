@@ -1,0 +1,36 @@
+{
+  "pattern_id": "B12_3x4_danzer_lift",
+  "input": "data/obstructions/three_fold_cluster_runs.json",
+  "n_runs": 158,
+  "overall_fit": {
+    "n_points": 158,
+    "slope": 0.4253358043762082,
+    "intercept": 0.010445976035840642,
+    "r_squared": 0.9910860748028859,
+    "alpha_estimate": 0.4253358043762082,
+    "C1_estimate": 1.0105007257153928
+  },
+  "fit_by_regime": {
+    "generic": {
+      "n_points": 158,
+      "slope": 0.4253358043762082,
+      "intercept": 0.010445976035840642,
+      "r_squared": 0.9910860748028859,
+      "alpha_estimate": 0.4253358043762082,
+      "C1_estimate": 1.0105007257153928
+    },
+    "orthogonal": {
+      "n_points": 0
+    }
+  },
+  "min_observed_ratio": 0.6123017689570945,
+  "median_observed_ratio": 1.003808822209419,
+  "decision_rule": {
+    "analytic_alpha_options": [
+      0.3333333333333333,
+      0.6666666666666666
+    ],
+    "tolerance": 0.05,
+    "verdict": "alpha disagrees with both analytic options by more than 0.05; downgrade lemma to NUMERICAL_EVIDENCE + CONJECTURE"
+  }
+}
