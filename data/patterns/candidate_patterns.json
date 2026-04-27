@@ -23,8 +23,8 @@
     "n": 18,
     "formula": "even offsets {-7,-2,4,8}; odd offsets {-8,-4,2,7}",
     "type": "period-2",
-    "status": "killed under natural cyclic order by adjacent-row two-overlap via crossing-bisector; unresolved as an abstract incidence pattern if arbitrary cyclic orders are allowed",
-    "trust": "EXACT_OBSTRUCTION"
+    "status": "natural-order status: killed by adjacent-row two-overlap via crossing-bisector; abstract-incidence status: survives current crossing filters, with a compatible cyclic order recorded",
+    "trust": "INCIDENCE_PATTERN"
   },
   {
     "rank": 4,
@@ -32,7 +32,7 @@
     "n": 24,
     "formula": "even offsets {-10,-3,5,11}; odd offsets {-11,-5,3,10}",
     "type": "period-2",
-    "status": "killed under natural cyclic order by adjacent-row two-overlap via crossing-bisector; unresolved as an abstract incidence pattern if arbitrary cyclic orders are allowed",
+    "status": "natural-order status: killed by adjacent-row two-overlap via crossing-bisector; abstract-incidence status: killed by exact finite crossing-CSP; no cyclic order satisfies all 36 required crossings",
     "trust": "EXACT_OBSTRUCTION"
   },
   {
@@ -41,7 +41,7 @@
     "n": 19,
     "formula": "offsets {-8,-3,5,9}",
     "type": "skew circulant",
-    "status": "sparse common-neighbor overlap; not killed by current mutual-rhombus filter",
+    "status": "natural-order status: exactly killed by Altman diagonal-order sums; abstract-incidence status: live/sparse with no phi edges and no mutual-rhombus or forced-perpendicularity obstruction",
     "trust": "INCIDENCE_PATTERN"
   },
   {

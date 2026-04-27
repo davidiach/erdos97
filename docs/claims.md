@@ -39,6 +39,21 @@ perpendicular-bisector algebra, equal-distance algebra, duplicate vertices,
 collinearity, or strict-convexity failure. See
 `docs/n8-incidence-enumeration.md` and `docs/n8-exact-survivors.md`.
 
+### Altman diagonal-order sums
+
+For a strict convex `n`-gon in cyclic order, the sums `U_k` of chord lengths of
+cyclic order `k` satisfy
+
+```text
+U_1 < U_2 < ... < U_floor(n/2).
+```
+
+Therefore a natural-order cyclic-offset selected pattern that forces
+`U_a = U_b` for distinct chord orders `a,b` is impossible. This is a
+natural-order obstruction only; it does not apply to arbitrary cyclic
+relabelings of the same incidence pattern. See
+`docs/altman-diagonal-sums.md`.
+
 ## Lemmas
 
 ### Circle-intersection cap

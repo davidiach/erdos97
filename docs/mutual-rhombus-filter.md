@@ -192,9 +192,16 @@ Under the natural cyclic order `0,1,...,n-1`, the parity patterns
 two common witnesses. The crossing-bisector lemma therefore kills them under
 that cyclic order.
 
-Their abstract-incidence status remains separate: if arbitrary cyclic orders
-are allowed, they require a cyclic-order search before they can be globally
-archived as killed incidence patterns.
+Their abstract-incidence status remains separate. The exact crossing CSP in
+`docs/cyclic-crossing-csp.md` records that `P18_parity_balanced` has compatible
+arbitrary cyclic orders, while `P24_parity_balanced` has no cyclic order
+satisfying all 36 crossing constraints.
+
+The sparse pattern `C19_skew` has no `phi` edges, so it is invisible to the
+mutual-rhombus and forced-perpendicularity filters. It is nevertheless killed
+in natural cyclic order by Altman's diagonal-order sums; see
+`docs/altman-diagonal-sums.md`. This does not kill the same abstract incidence
+pattern under arbitrary cyclic relabeling.
 
 ## Reproduction
 
