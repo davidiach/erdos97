@@ -72,6 +72,34 @@ def test_verify_json_rejects_duplicate_self_witness_rows(tmp_path: pathlib.Path)
     assert any("own center" in err for err in diag["validation_errors"])
 
 
+def test_verify_json_rejects_non_integer_witness_targets(tmp_path: pathlib.Path) -> None:
+    path = tmp_path / "bad_float_witness.json"
+    write_candidate(
+        path,
+        regular_ngon(5),
+        [[1.9, 2, 3, 4], [0, 2, 3, 4], [0, 1, 3, 4], [0, 1, 2, 4], [0, 1, 2, 3]],
+    )
+
+    diag = verify_json(str(path), tol=1e-8)
+
+    assert not diag["ok_at_tol"]
+    assert any("non-integer targets" in err for err in diag["validation_errors"])
+
+
+def test_verify_json_rejects_boolean_witness_targets(tmp_path: pathlib.Path) -> None:
+    path = tmp_path / "bad_boolean_witness.json"
+    write_candidate(
+        path,
+        regular_ngon(5),
+        [[True, 2, 3, 4], [0, 2, 3, 4], [0, 1, 3, 4], [0, 1, 2, 4], [0, 1, 2, 3]],
+    )
+
+    diag = verify_json(str(path), tol=1e-8)
+
+    assert not diag["ok_at_tol"]
+    assert any("non-integer targets" in err for err in diag["validation_errors"])
+
+
 def test_verify_json_normalizes_before_acceptance(tmp_path: pathlib.Path) -> None:
     path = tmp_path / "tiny_regular_pentagon.json"
     witnesses = [[j for j in range(5) if j != i] for i in range(5)]

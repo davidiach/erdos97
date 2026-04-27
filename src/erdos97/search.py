@@ -28,7 +28,7 @@ import json
 import math
 import random
 import time
-from typing import Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 import numpy as np
 from numpy.typing import NDArray
@@ -294,7 +294,7 @@ def min_pair_distance(P: Array) -> float:
     return float(np.min(D[iu]))
 
 
-def validate_candidate_shape(P: Array, S: Pattern) -> List[str]:
+def validate_candidate_shape(P: Array, S: Any) -> List[str]:
     """Validate the structural contract for a numerical k=4 candidate."""
     errors: List[str] = []
 
@@ -309,13 +309,24 @@ def validate_candidate_shape(P: Array, S: Pattern) -> List[str]:
     if n < 5:
         errors.append(f"n must be at least 5, got {n}")
 
+    if not isinstance(S, list):
+        errors.append("S must be a list of witness rows")
+        return errors
+
     if len(S) != n:
         errors.append(f"expected {n} witness rows, got {len(S)}")
         return errors
 
     for i, row in enumerate(S):
+        if not isinstance(row, list):
+            errors.append(f"row {i} must be a list of 4 integer targets")
+            continue
         if len(row) != 4:
             errors.append(f"row {i} has length {len(row)}, expected 4")
+        non_integer_targets = [j for j in row if not isinstance(j, int) or isinstance(j, bool)]
+        if non_integer_targets:
+            errors.append(f"row {i} contains non-integer targets: {non_integer_targets}")
+            continue
         if len(set(row)) != len(row):
             errors.append(f"row {i} contains duplicate targets: {row}")
         if i in row:
@@ -608,17 +619,26 @@ def result_to_json(result: SearchResult) -> Dict[str, object]:
     return dataclasses.asdict(result)
 
 
-def load_json_result(path: str) -> Tuple[Array, Pattern]:
+def load_json_result(path: str) -> Tuple[Array, Any]:
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
     P = np.array(data["coordinates"], dtype=float)
-    S = [[int(j) for j in row] for row in data["S"]]
-    return P, S
+    return P, data["S"]
 
 
 def verify_json(path: str, tol: float = 1e-8, min_margin: float = 1e-8) -> Dict[str, object]:
-    P_raw, S = load_json_result(path)
-    validation_errors = validate_candidate_shape(P_raw, S)
+    try:
+        P_raw, S_raw = load_json_result(path)
+    except (KeyError, TypeError, ValueError, json.JSONDecodeError) as e:
+        return {
+            "ok_at_tol": False,
+            "tol": tol,
+            "min_margin": min_margin,
+            "validation_errors": [f"could not load candidate JSON: {e}"],
+            "empirical_E_values": [],
+        }
+
+    validation_errors = validate_candidate_shape(P_raw, S_raw)
 
     if validation_errors:
         return {
@@ -628,6 +648,8 @@ def verify_json(path: str, tol: float = 1e-8, min_margin: float = 1e-8) -> Dict[
             "validation_errors": validation_errors,
             "empirical_E_values": [],
         }
+
+    S: Pattern = [[int(j) for j in row] for row in S_raw]
 
     # Distance equalities are scale invariant; normalize before applying any
     # absolute spread tolerance so tiny malformed inputs cannot pass.
