@@ -7,21 +7,22 @@ designs only; geometric realization is a separate problem.
 
 | Rank | Name | n | Formula | Type | Current status |
 |---:|---|---:|---|---|---|
-| 1 | `C19_skew` | 19 | offsets `{-8,-3,5,9}` | skew circulant | sparse common-neighbor overlap; not killed by the current mutual-rhombus filter[^repo] |
+| 1 | `C19_skew` | 19 | offsets `{-8,-3,5,9}` | skew circulant | natural-order status: exactly killed by Altman diagonal-order sums; abstract-incidence status: live/sparse, with no `phi` edges and no mutual-rhombus or forced-perpendicularity obstruction[^repo] |
 
-The live pattern above should pass the row-overlap filter
-`|S_i cap S_j| <= 2` before numerical optimization.[^comp]
+The live abstract-incidence pattern above should pass the row-overlap filter
+`|S_i cap S_j| <= 2` before numerical optimization. Its natural-order
+realization is already exactly obstructed.[^comp]
 
-## Natural-order killed / cyclic-order unresolved patterns
+## Natural-order killed / abstract-order status patterns
 
 These patterns are killed if the natural label order `0,1,...,n-1` is the
-cyclic order. As abstract incidence patterns, they require a cyclic-order
-search if arbitrary cyclic orders are allowed.
+cyclic order. Their abstract-incidence status is tracked separately when
+arbitrary cyclic orders are allowed.
 
 | Rank | Name | n | Formula | Type | Current status |
 |---:|---|---:|---|---|---|
-| U1 | `P18_parity_balanced` | 18 | even: `{-7,-2,4,8}`, odd: `{-8,-4,2,7}` | period-2 | natural-order status: killed by adjacent-row two-overlap via crossing-bisector; abstract-incidence status: requires cyclic-order search |
-| U2 | `P24_parity_balanced` | 24 | even: `{-10,-3,5,11}`, odd: `{-11,-5,3,10}` | period-2 | natural-order status: killed by adjacent-row two-overlap via crossing-bisector; abstract-incidence status: requires cyclic-order search |
+| U1 | `P18_parity_balanced` | 18 | even: `{-7,-2,4,8}`, odd: `{-8,-4,2,7}` | period-2 | natural-order status: killed by adjacent-row two-overlap via crossing-bisector; abstract-incidence status: survives current crossing filters, with a compatible cyclic order recorded |
+| U2 | `P24_parity_balanced` | 24 | even: `{-10,-3,5,11}`, odd: `{-11,-5,3,10}` | period-2 | natural-order status: killed by adjacent-row two-overlap via crossing-bisector; abstract-incidence status: killed by exact finite crossing-CSP; no cyclic order satisfies all 36 required crossings |
 
 ## Speculative extensions
 

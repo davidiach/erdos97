@@ -23,6 +23,10 @@ put detailed reconciliation in the canonical synthesis.
   proof-facing caveats.
 - [`mutual-rhombus-filter.md`](mutual-rhombus-filter.md): crossing-bisector and
   mutual-midpoint filters for fixed selected-witness patterns.
+- [`altman-diagonal-sums.md`](altman-diagonal-sums.md): natural-order
+  diagonal-sum obstruction for cyclic-offset patterns.
+- [`cyclic-crossing-csp.md`](cyclic-crossing-csp.md): exact cyclic-order
+  crossing CSP for two-overlap patterns.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`
   selected-witness obstruction.
 - [`n7-fano-obstruction.md`](n7-fano-obstruction.md): proof note for the

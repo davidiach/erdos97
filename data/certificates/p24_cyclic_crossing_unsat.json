@@ -1,0 +1,5073 @@
+{
+  "constraint_count": 36,
+  "constraints": [
+    {
+      "source": [
+        0,
+        1
+      ],
+      "target": [
+        11,
+        14
+      ]
+    },
+    {
+      "source": [
+        0,
+        11
+      ],
+      "target": [
+        14,
+        21
+      ]
+    },
+    {
+      "source": [
+        0,
+        19
+      ],
+      "target": [
+        5,
+        14
+      ]
+    },
+    {
+      "source": [
+        1,
+        6
+      ],
+      "target": [
+        11,
+        20
+      ]
+    },
+    {
+      "source": [
+        1,
+        14
+      ],
+      "target": [
+        4,
+        11
+      ]
+    },
+    {
+      "source": [
+        2,
+        3
+      ],
+      "target": [
+        13,
+        16
+      ]
+    },
+    {
+      "source": [
+        2,
+        13
+      ],
+      "target": [
+        16,
+        23
+      ]
+    },
+    {
+      "source": [
+        2,
+        21
+      ],
+      "target": [
+        7,
+        16
+      ]
+    },
+    {
+      "source": [
+        3,
+        8
+      ],
+      "target": [
+        13,
+        22
+      ]
+    },
+    {
+      "source": [
+        3,
+        16
+      ],
+      "target": [
+        6,
+        13
+      ]
+    },
+    {
+      "source": [
+        4,
+        5
+      ],
+      "target": [
+        15,
+        18
+      ]
+    },
+    {
+      "source": [
+        4,
+        15
+      ],
+      "target": [
+        1,
+        18
+      ]
+    },
+    {
+      "source": [
+        4,
+        23
+      ],
+      "target": [
+        9,
+        18
+      ]
+    },
+    {
+      "source": [
+        5,
+        10
+      ],
+      "target": [
+        0,
+        15
+      ]
+    },
+    {
+      "source": [
+        5,
+        18
+      ],
+      "target": [
+        8,
+        15
+      ]
+    },
+    {
+      "source": [
+        6,
+        7
+      ],
+      "target": [
+        17,
+        20
+      ]
+    },
+    {
+      "source": [
+        6,
+        17
+      ],
+      "target": [
+        3,
+        20
+      ]
+    },
+    {
+      "source": [
+        7,
+        12
+      ],
+      "target": [
+        2,
+        17
+      ]
+    },
+    {
+      "source": [
+        7,
+        20
+      ],
+      "target": [
+        10,
+        17
+      ]
+    },
+    {
+      "source": [
+        8,
+        9
+      ],
+      "target": [
+        19,
+        22
+      ]
+    },
+    {
+      "source": [
+        8,
+        19
+      ],
+      "target": [
+        5,
+        22
+      ]
+    },
+    {
+      "source": [
+        9,
+        14
+      ],
+      "target": [
+        4,
+        19
+      ]
+    },
+    {
+      "source": [
+        9,
+        22
+      ],
+      "target": [
+        12,
+        19
+      ]
+    },
+    {
+      "source": [
+        10,
+        11
+      ],
+      "target": [
+        0,
+        21
+      ]
+    },
+    {
+      "source": [
+        10,
+        21
+      ],
+      "target": [
+        0,
+        7
+      ]
+    },
+    {
+      "source": [
+        11,
+        16
+      ],
+      "target": [
+        6,
+        21
+      ]
+    },
+    {
+      "source": [
+        12,
+        13
+      ],
+      "target": [
+        2,
+        23
+      ]
+    },
+    {
+      "source": [
+        12,
+        23
+      ],
+      "target": [
+        2,
+        9
+      ]
+    },
+    {
+      "source": [
+        13,
+        18
+      ],
+      "target": [
+        8,
+        23
+      ]
+    },
+    {
+      "source": [
+        14,
+        15
+      ],
+      "target": [
+        1,
+        4
+      ]
+    },
+    {
+      "source": [
+        15,
+        20
+      ],
+      "target": [
+        1,
+        10
+      ]
+    },
+    {
+      "source": [
+        16,
+        17
+      ],
+      "target": [
+        3,
+        6
+      ]
+    },
+    {
+      "source": [
+        17,
+        22
+      ],
+      "target": [
+        3,
+        12
+      ]
+    },
+    {
+      "source": [
+        18,
+        19
+      ],
+      "target": [
+        5,
+        8
+      ]
+    },
+    {
+      "source": [
+        20,
+        21
+      ],
+      "target": [
+        7,
+        10
+      ]
+    },
+    {
+      "source": [
+        22,
+        23
+      ],
+      "target": [
+        9,
+        12
+      ]
+    }
+  ],
+  "max_depth": 21,
+  "n": 24,
+  "nodes_visited": 56,
+  "order": null,
+  "pattern": "P24_parity_balanced",
+  "result": "UNSAT",
+  "sat": false,
+  "symmetry_normalization": [
+    [
+      0,
+      11,
+      1,
+      14
+    ],
+    [
+      0,
+      14,
+      1,
+      11
+    ]
+  ],
+  "terminal_conflicts": [
+    {
+      "blocked_label": 2,
+      "partial_order": [
+        0,
+        10,
+        20,
+        6,
+        16,
+        3,
+        17,
+        7,
+        21,
+        11,
+        1,
+        15,
+        5,
+        19,
+        9,
+        12,
+        22,
+        8,
+        18,
+        4,
+        14
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 20,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 6,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              7,
+              12
+            ],
+            "target": [
+              2,
+              17
+            ]
+          },
+          "gap_after": 16,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              7,
+              12
+            ],
+            "target": [
+              2,
+              17
+            ]
+          },
+          "gap_after": 3,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              7,
+              12
+            ],
+            "target": [
+              2,
+              17
+            ]
+          },
+          "gap_after": 17,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 7,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 11
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 12
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 13
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 14
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 9,
+          "insert_position": 15
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 12,
+          "insert_position": 16
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 22,
+          "insert_position": 17
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 8,
+          "insert_position": 18
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 19
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 20
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 21
+        }
+      ]
+    },
+    {
+      "blocked_label": 17,
+      "partial_order": [
+        0,
+        10,
+        20,
+        7,
+        6,
+        21,
+        11,
+        1,
+        15,
+        5,
+        19,
+        9,
+        22,
+        8,
+        18,
+        4,
+        14
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 20,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              7,
+              20
+            ],
+            "target": [
+              10,
+              17
+            ]
+          },
+          "gap_after": 7,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 6,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 11
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 9,
+          "insert_position": 12
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 22,
+          "insert_position": 13
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 8,
+          "insert_position": 14
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 15
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 16
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 17
+        }
+      ]
+    },
+    {
+      "blocked_label": 17,
+      "partial_order": [
+        0,
+        10,
+        20,
+        7,
+        21,
+        6,
+        11,
+        1,
+        15,
+        5,
+        19,
+        9,
+        22,
+        8,
+        18,
+        4,
+        14
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 20,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              7,
+              20
+            ],
+            "target": [
+              10,
+              17
+            ]
+          },
+          "gap_after": 7,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              7,
+              20
+            ],
+            "target": [
+              10,
+              17
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 6,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 11
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 9,
+          "insert_position": 12
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 22,
+          "insert_position": 13
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 8,
+          "insert_position": 14
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 15
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 16
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 17
+        }
+      ]
+    },
+    {
+      "blocked_label": 7,
+      "partial_order": [
+        0,
+        10,
+        21,
+        20,
+        11,
+        1,
+        15,
+        5,
+        19,
+        9,
+        22,
+        8,
+        18,
+        4,
+        14
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              20,
+              21
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 20,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 9,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 22,
+          "insert_position": 11
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 8,
+          "insert_position": 12
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 13
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 14
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 15
+        }
+      ]
+    },
+    {
+      "blocked_label": 7,
+      "partial_order": [
+        0,
+        10,
+        21,
+        11,
+        20,
+        1,
+        15,
+        5,
+        19,
+        9,
+        22,
+        8,
+        18,
+        4,
+        14
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              20,
+              21
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 20,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 9,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 22,
+          "insert_position": 11
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 8,
+          "insert_position": 12
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 13
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 14
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 15
+        }
+      ]
+    },
+    {
+      "blocked_label": 22,
+      "partial_order": [
+        0,
+        10,
+        21,
+        11,
+        1,
+        15,
+        5,
+        19,
+        8,
+        9,
+        18,
+        4,
+        14
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              19
+            ],
+            "target": [
+              5,
+              22
+            ]
+          },
+          "gap_after": 8,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 9,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 11
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 12
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 13
+        }
+      ]
+    },
+    {
+      "blocked_label": 22,
+      "partial_order": [
+        0,
+        10,
+        21,
+        11,
+        1,
+        15,
+        5,
+        19,
+        8,
+        18,
+        9,
+        4,
+        14
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              19
+            ],
+            "target": [
+              5,
+              22
+            ]
+          },
+          "gap_after": 8,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              19
+            ],
+            "target": [
+              5,
+              22
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 9,
+          "insert_position": 11
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 12
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 13
+        }
+      ]
+    },
+    {
+      "blocked_label": 8,
+      "partial_order": [
+        0,
+        10,
+        21,
+        11,
+        1,
+        15,
+        5,
+        18,
+        19,
+        4,
+        14
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              18,
+              19
+            ],
+            "target": [
+              5,
+              8
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 11
+        }
+      ]
+    },
+    {
+      "blocked_label": 8,
+      "partial_order": [
+        0,
+        10,
+        21,
+        11,
+        1,
+        15,
+        5,
+        18,
+        4,
+        19,
+        14
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              18,
+              19
+            ],
+            "target": [
+              5,
+              8
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 11
+        }
+      ]
+    },
+    {
+      "blocked_label": 21,
+      "partial_order": [
+        0,
+        11,
+        10,
+        1,
+        15,
+        5,
+        18,
+        4,
+        14
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              10,
+              11
+            ],
+            "target": [
+              0,
+              21
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 9
+        }
+      ]
+    },
+    {
+      "blocked_label": 21,
+      "partial_order": [
+        0,
+        11,
+        1,
+        10,
+        15,
+        5,
+        18,
+        4,
+        14
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              10,
+              11
+            ],
+            "target": [
+              0,
+              21
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 9
+        }
+      ]
+    },
+    {
+      "blocked_label": 21,
+      "partial_order": [
+        0,
+        14,
+        4,
+        18,
+        5,
+        15,
+        10,
+        1,
+        11
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              11
+            ],
+            "target": [
+              0,
+              21
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 9
+        }
+      ]
+    },
+    {
+      "blocked_label": 21,
+      "partial_order": [
+        0,
+        14,
+        4,
+        18,
+        5,
+        15,
+        1,
+        10,
+        11
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              14,
+              21
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              11
+            ],
+            "target": [
+              0,
+              21
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 9
+        }
+      ]
+    },
+    {
+      "blocked_label": 8,
+      "partial_order": [
+        0,
+        14,
+        19,
+        4,
+        18,
+        5,
+        15,
+        1,
+        11,
+        21,
+        10
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              18,
+              19
+            ],
+            "target": [
+              5,
+              8
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 11
+        }
+      ]
+    },
+    {
+      "blocked_label": 8,
+      "partial_order": [
+        0,
+        14,
+        4,
+        19,
+        18,
+        5,
+        15,
+        1,
+        11,
+        21,
+        10
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              18,
+              19
+            ],
+            "target": [
+              5,
+              8
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              5,
+              18
+            ],
+            "target": [
+              8,
+              15
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 11
+        }
+      ]
+    },
+    {
+      "blocked_label": 22,
+      "partial_order": [
+        0,
+        14,
+        4,
+        9,
+        18,
+        8,
+        19,
+        5,
+        15,
+        1,
+        11,
+        21,
+        10
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              19
+            ],
+            "target": [
+              5,
+              22
+            ]
+          },
+          "gap_after": 9,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              19
+            ],
+            "target": [
+              5,
+              22
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 8,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 11
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 12
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 13
+        }
+      ]
+    },
+    {
+      "blocked_label": 22,
+      "partial_order": [
+        0,
+        14,
+        4,
+        18,
+        9,
+        8,
+        19,
+        5,
+        15,
+        1,
+        11,
+        21,
+        10
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              19
+            ],
+            "target": [
+              5,
+              22
+            ]
+          },
+          "gap_after": 9,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 8,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 11
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 12
+        },
+        {
+          "constraint": {
+            "source": [
+              8,
+              9
+            ],
+            "target": [
+              19,
+              22
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 13
+        }
+      ]
+    },
+    {
+      "blocked_label": 7,
+      "partial_order": [
+        0,
+        14,
+        4,
+        18,
+        8,
+        22,
+        9,
+        19,
+        5,
+        15,
+        1,
+        20,
+        11,
+        21,
+        10
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 8,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 22,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 9,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 11
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 20,
+          "insert_position": 12
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 13
+        },
+        {
+          "constraint": {
+            "source": [
+              20,
+              21
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 14
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 15
+        }
+      ]
+    },
+    {
+      "blocked_label": 7,
+      "partial_order": [
+        0,
+        14,
+        4,
+        18,
+        8,
+        22,
+        9,
+        19,
+        5,
+        15,
+        1,
+        11,
+        20,
+        21,
+        10
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 8,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 22,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 9,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 11
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 12
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 20,
+          "insert_position": 13
+        },
+        {
+          "constraint": {
+            "source": [
+              20,
+              21
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 14
+        },
+        {
+          "constraint": {
+            "source": [
+              10,
+              21
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 15
+        }
+      ]
+    },
+    {
+      "blocked_label": 17,
+      "partial_order": [
+        0,
+        14,
+        4,
+        18,
+        8,
+        22,
+        9,
+        19,
+        5,
+        15,
+        1,
+        11,
+        6,
+        21,
+        7,
+        20,
+        10
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 8,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 22,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 9,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 11
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 12
+        },
+        {
+          "constraint": {
+            "source": [
+              7,
+              20
+            ],
+            "target": [
+              10,
+              17
+            ]
+          },
+          "gap_after": 6,
+          "insert_position": 13
+        },
+        {
+          "constraint": {
+            "source": [
+              7,
+              20
+            ],
+            "target": [
+              10,
+              17
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 14
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 7,
+          "insert_position": 15
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 20,
+          "insert_position": 16
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 17
+        }
+      ]
+    },
+    {
+      "blocked_label": 17,
+      "partial_order": [
+        0,
+        14,
+        4,
+        18,
+        8,
+        22,
+        9,
+        19,
+        5,
+        15,
+        1,
+        11,
+        21,
+        6,
+        7,
+        20,
+        10
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 8,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 22,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 9,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 11
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 12
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 13
+        },
+        {
+          "constraint": {
+            "source": [
+              7,
+              20
+            ],
+            "target": [
+              10,
+              17
+            ]
+          },
+          "gap_after": 6,
+          "insert_position": 14
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 7,
+          "insert_position": 15
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 20,
+          "insert_position": 16
+        },
+        {
+          "constraint": {
+            "source": [
+              6,
+              7
+            ],
+            "target": [
+              17,
+              20
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 17
+        }
+      ]
+    },
+    {
+      "blocked_label": 2,
+      "partial_order": [
+        0,
+        14,
+        4,
+        18,
+        8,
+        22,
+        12,
+        9,
+        19,
+        5,
+        15,
+        1,
+        11,
+        21,
+        7,
+        17,
+        3,
+        16,
+        6,
+        20,
+        10
+      ],
+      "reasons": [
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 0,
+          "insert_position": 1
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 14,
+          "insert_position": 2
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 4,
+          "insert_position": 3
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 18,
+          "insert_position": 4
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 8,
+          "insert_position": 5
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 22,
+          "insert_position": 6
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 12,
+          "insert_position": 7
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 9,
+          "insert_position": 8
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 19,
+          "insert_position": 9
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 5,
+          "insert_position": 10
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 15,
+          "insert_position": 11
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 1,
+          "insert_position": 12
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 11,
+          "insert_position": 13
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 21,
+          "insert_position": 14
+        },
+        {
+          "constraint": {
+            "source": [
+              7,
+              12
+            ],
+            "target": [
+              2,
+              17
+            ]
+          },
+          "gap_after": 7,
+          "insert_position": 15
+        },
+        {
+          "constraint": {
+            "source": [
+              7,
+              12
+            ],
+            "target": [
+              2,
+              17
+            ]
+          },
+          "gap_after": 17,
+          "insert_position": 16
+        },
+        {
+          "constraint": {
+            "source": [
+              7,
+              12
+            ],
+            "target": [
+              2,
+              17
+            ]
+          },
+          "gap_after": 3,
+          "insert_position": 17
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 16,
+          "insert_position": 18
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 6,
+          "insert_position": 19
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 20,
+          "insert_position": 20
+        },
+        {
+          "constraint": {
+            "source": [
+              2,
+              21
+            ],
+            "target": [
+              7,
+              16
+            ]
+          },
+          "gap_after": 10,
+          "insert_position": 21
+        }
+      ]
+    }
+  ],
+  "terminal_conflicts_truncated": false
+}
