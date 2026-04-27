@@ -35,6 +35,9 @@ put detailed reconciliation in the canonical synthesis.
   `n=8` incidence-completeness enumeration.
 - [`n8-exact-survivors.md`](n8-exact-survivors.md): exact obstruction pass for
   the 15 `n=8` incidence survivor classes.
+- [`n8-geometric-proof.md`](n8-geometric-proof.md): proof-note draft giving a
+  compact geometric obstruction for bad convex octagons via isosceles-triangle
+  counting and exterior-turn angles.
 - [`failed-ideas.md`](failed-ideas.md): rejected proof routes and stale claims
   that should not be retried without a genuinely new idea.
 

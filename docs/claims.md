@@ -39,6 +39,14 @@ perpendicular-bisector algebra, equal-distance algebra, duplicate vertices,
 collinearity, or strict-convexity failure. See
 `docs/n8-incidence-enumeration.md` and `docs/n8-exact-survivors.md`.
 
+### Proof-note draft: geometric no-go for n <= 8
+
+A separate proof-note draft in `docs/n8-geometric-proof.md` gives a compact
+human-readable obstruction for bad convex polygons with `n <= 8`. It uses a
+base-apex lemma to count isosceles triangles and then analyzes the equality
+case for octagons. Independent review is still requested before promoting this
+note beyond the repository's local proof-facing ledger.
+
 ### Altman diagonal-order sums
 
 For a strict convex `n`-gon in cyclic order, the sums `U_k` of chord lengths of
