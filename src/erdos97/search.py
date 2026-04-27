@@ -392,7 +392,6 @@ def polygon_from_polar_x(x: Array, n: int) -> Array:
     theta[1:] = np.cumsum(gaps[:-1])
     r = np.exp(np.clip(logr, -20, 20))
     P = np.column_stack([r * np.cos(theta), r * np.sin(theta)])
-    # If orientation flipped after centering/gauge, keep order but reverse to CCW for diagnostics only.
     return normalize_points(P)
 
 
@@ -480,9 +479,6 @@ def residual_vector(x: Array, n: int, S: Pattern, mode: str, weights: LossWeight
                     convex_margin: float = 1e-3, min_edge: float = 1e-3,
                     min_pair: float = 1e-3) -> Array:
     P = polygon_from_x(x, n, mode)
-    if polygon_area2(P) < 0:
-        # preserve cyclic labels if orientation is wrong? For penalties we use signed orientations as is.
-        pass
     D2 = pairwise_sqdist(P)
     res: List[Array] = []
 
