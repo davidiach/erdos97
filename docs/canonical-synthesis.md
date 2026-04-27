@@ -32,11 +32,11 @@ Relative to `erdos97_four_stage_consolidation.md`:
 
 **Status: OPEN.** Listed open on erdosproblems.com/97 (last edited 2025-10-27); \$100 prize.
 
-| $n$ | Status | Method |
+| `n` | Current repo-local status | Method |
 |---|---|---|
-| $5, 6, 7$ | **Proved.** No 4-bad polygon exists. | §3 — selected-witness incidence + L5 (n=5,6); parity of permutation on 21 chords (n=7). |
-| $8$ | **Open.** | §4 — orthocenter obstruction settles only the cube witness pattern. |
-| $\ge 9$ | Open. | — |
+| `5, 6, 7` | Proved locally; no selected-witness counterexample. | Incidence counting and `n=7` Fano/parity obstruction. |
+| `8` | Ruled out in repo-local, machine-checked finite-case sense; external review recommended. | Incidence-completeness enumeration to 15 canonical classes plus exact survivor obstruction. |
+| `>= 9` | Open. | No general proof or counterexample claimed. |
 
 **Background.** The $k=3$ analogue is **false**: Danzer (1963) constructed a convex 9-gon with $E(i) = 3$ everywhere; Fishburn–Reeds (1992) did the same with a uniform radius. So $k = 4$ is the boundary case Erdős conjectured.
 
@@ -52,7 +52,7 @@ Relative to `erdos97_four_stage_consolidation.md`:
 
 **Single highest-leverage open task:** **Bridge Lemma A′** — if every realizable counterexample admits an ear-orderable witness selection, #97 falls to the rigidity argument that's already proved (mod the gauge-fixing repair).
 
-**Single highest-leverage *concrete* next task:** rigorously close $n = 8$ by enumerating the finitely many witness patterns and applying L5/L6/orthocenter case-by-case (§9.2).
+**Single highest-leverage *concrete* next task:** independently audit the `n=8` incidence-completeness checker and exact obstruction certificates, then push the finite pipeline toward `n = 9`.
 
 ---
 
@@ -190,9 +190,13 @@ The Step 1 conclusion "every $d_a = 4$" is a Jensen-saturation phenomenon: $7 \b
 
 ---
 
-## §4. $n = 8$: open, with partial obstructions
+## §4. Archived pre-`n=8` state with partial obstructions
 
-Three legacy source files (`erdos_97_complete_notes.md`, `erdos_97_analysis.md`, `erdos_97_summary.md`) claim $n = 8$ is settled. The careful review files catch specific gaps in each. **Resolution: $n = 8$ is open.**
+This section records the pre-`n=8` snapshot retained for provenance. It is
+superseded by the current finite-case artifacts in `RESULTS.md`,
+`docs/n8-incidence-enumeration.md`, and `docs/n8-exact-survivors.md`.
+
+Three legacy source files (`erdos_97_complete_notes.md`, `erdos_97_analysis.md`, `erdos_97_summary.md`) claim $n = 8$ is settled. The careful review files catch specific gaps in each. In this archived snapshot, the resolution was to keep $n = 8$ open.
 
 ### §4.1 The orthocenter obstruction (real but partial)
 
@@ -218,7 +222,9 @@ Sources disagree on whether the obstruction is "rank $= 2n-3$" or "rank $\le 2n-
 
 ### §4.6 Resolution
 
-$n = 8$ is **open**. The cube *witness pattern* is provably unrealizable; that is a useful conditional obstruction, not a complete proof.
+At the time of this archived snapshot, $n = 8$ was treated as **open**. The
+cube *witness pattern* was provably unrealizable, but that was only a useful
+conditional obstruction, not a complete proof.
 
 ---
 
@@ -902,7 +908,7 @@ def constraints(p, triples):
 | Rank | Task | Why | Tractability |
 |---|---|---|---|
 | 1 | **Bridge Lemma A′** at $n = 8, 9, 10$ (computational) | Settles whether the ear-elimination program (§5.2) terminates. Same recipe as §8.6: enumerate 4-regular witness patterns satisfying L5 ∧ L6, check ear-orderability, run least-squares geometric realizability. Cost: a few CPU-days per $n$. If the Bridge Lemma fails at any $n$, the §5.2 program is dead. | High — finite cases. |
-| 2 | **Rigorously close $n = 8$** | Removes the largest disputed claim. Concrete program: enumerate all 4-regular witness systems on 8 vertices satisfying L5 ∧ L6; use the involution structure $\phi(\{i, j\}) = W_i \cap W_j$ on intersection-2 pairs; for each system derive the perpendicularity constraints and check whether any 4-tuple forms an orthocentric system. Combined with convexity, finite case analysis. SAT/SMT formulation should make this a few-hour computer-assisted proof. | Medium-high. |
+| 2 | **Independently audit the `n=8` finite artifacts** | The current repo-local claim rests on the incidence-completeness checker, the 15 survivor classes, and exact obstruction certificates. Independent reproduction and alternative certificate checkers would make the result safer to cite. | Medium-high. |
 | 3 | **Endpoint Control Auxiliary Claim** (§5.1) | The Lemma 12 program is otherwise complete. Open sub-questions are concrete: asymmetric vs symmetric statement, dependence of $m$ on $n$ ($m \le O(\sqrt n)$ would help), boundary-chain structure. | Medium. |
 | 4 | **Three-Cap Bridge Lemma** (§5.4) | Diameter case is done; this is the remaining geometric case. Possibly tractable using cyclic-order arguments inside the opposite cap alone. | Medium. |
 | 5 | **Canonical-chord injectivity** (§5.3) | Cleanest reduction; conjecture is sharp. For each bad $i$: take the smallest $r_i$ with $|S_i(r_i)| \ge 4$, then the closest pair in $S_i(r_i)$. Conjecturally injective; no obvious counterexample. | Lower (combinatorial geometry, hard). |
@@ -920,7 +926,7 @@ What the prior synthesis documents disagreed about, and what this document adopt
 
 | Disagreement | Source disagreement | Resolution adopted |
 |---|---|---|
-| $n = 8$ status | `erdos_97_complete_notes.md` & `erdos_97_analysis.md` claim "proved"; `erdos97_conversation_useful_notes (1).md` & `erdos97_review_notes.md` flag gaps | **Open.** The orthocenter obstruction handles only the cube witness pattern; uniqueness-of-cube is unjustified. (§4.1, §4.6) |
+| $n = 8$ status | `erdos_97_complete_notes.md` & `erdos_97_analysis.md` claim "proved"; `erdos97_conversation_useful_notes (1).md` & `erdos97_review_notes.md` flag gaps | Archived synthesis resolution: **Open.** This is superseded by the current `n=8` incidence-completeness and exact-obstruction artifacts. (§4.1, §4.6; current status in `RESULTS.md`) |
 | $n = 7$ "weak" vs "strong" definition | `vertex_equidistance_complete_analysis.md` §2 explicit; some notes use weak definition silently | **Strong (cocircular) definition only.** The parity proof and $K_4$ proof both require it. (§1.2, §3.3) |
 | "$n \le 12$ proven by counting" | `erdos_97_summary.md` "Lemma 6" arithmetic | **Wrong by a factor of 2.** Correct bound is $n \ge 7$. (§4.3) |
 | Forced double regularity | Multiple files implicitly assume this; one source's Cauchy–Schwarz argument is circular | **Available only at $n = 7$.** Not generally usable. (§3.4, §6.4) |
@@ -969,7 +975,9 @@ The full classification is preserved in `useful_research_findings/generated_summ
 
 **Problem.** Strictly convex polygon, every vertex has $\ge 4$ other vertices on some circle around it — does this exist?
 
-**Status.** Open. Proved impossible for $n \in \{5, 6, 7\}$.
+**Status.** Official/global status is open. Repo-local finite-case artifacts rule
+out selected-witness counterexamples for `n <= 8`, with independent review
+recommended before public theorem-style claims.
 
 **Three workhorse lemmas.**
 - **L5:** $|W_i \cap W_j| \le 2$ (two-circle bound).
@@ -984,8 +992,8 @@ The full classification is preserved in `useful_research_findings/generated_summ
 5. Distance-bound — both subcases open. Uniform-radius needs Erdős–Fishburn ($< 2n$, open since 1992); variable-radius is the actual problem at $n \ge 8$.
 
 **Highest-leverage next moves.**
-- (computational) Bridge Lemma at $n = 8, 9, 10$.
-- (analytic) Rigorously close $n = 8$.
+- Independently audit the `n=8` incidence and exact-obstruction artifacts.
+- Push the finite incidence/exact pipeline toward `n = 9`.
 
 **Hard rules for any new attempt.**
 - Strong (cocircular) witness definition only.

@@ -12,6 +12,12 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the long-form canonical synthesis and claim reconciliation, read
   [`docs/canonical-synthesis.md`](docs/canonical-synthesis.md) before adding
   new claims, search branches, or proof attempts.
+- For upstream alignment with `teorth/erdosproblems`, read
+  [`docs/upstream-alignment.md`](docs/upstream-alignment.md).
+- For independent audit instructions, read
+  [`docs/reviewer-guide.md`](docs/reviewer-guide.md).
+- For canonical status metadata, see
+  [`metadata/erdos97.yaml`](metadata/erdos97.yaml).
 - For documentation navigation, read [`docs/index.md`](docs/index.md).
 - For the compact results ledger, read [`RESULTS.md`](RESULTS.md).
 - For proved local facts, read [`docs/claims.md`](docs/claims.md).
@@ -26,6 +32,10 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For archive synthesis provenance, read [`inventory.json`](inventory.json),
   [`kernels.json`](kernels.json), [`contradictions.md`](contradictions.md),
   and [`dropped_kernels.md`](dropped_kernels.md).
+- For formalization alignment, read [`docs/formalization.md`](docs/formalization.md).
+- For possible OEIS connections, read
+  [`docs/oeis-possibilities.md`](docs/oeis-possibilities.md).
+- For repository-level Codex guidance, read [`AGENTS.md`](AGENTS.md).
 - For runnable verification, start with [`scripts/verify_candidate.py`](scripts/verify_candidate.py).
 - For current work items, see [Issues #1-#7](https://github.com/davidiach/erdos97/issues).
 
@@ -161,6 +171,7 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -e .[dev]
 python scripts/check_text_clean.py
+python scripts/check_status_consistency.py
 pytest -q
 python scripts/enumerate_n8_incidence.py --summary
 python scripts/analyze_n8_exact_survivors.py --check --json
@@ -214,6 +225,7 @@ If you use this repository, please cite it using [`CITATION.cff`](CITATION.cff).
 
 - Run `pytest -q`.
 - Run `python scripts/check_text_clean.py`.
+- Run `python scripts/check_status_consistency.py`.
 - Confirm this README still says no general proof and no counterexample are claimed.
 - Create labels matching `.github/labels.yml`.
 - Open the seed issues listed in `docs/initial-issues.md`.
