@@ -26,6 +26,8 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/n8-incidence-enumeration.md`](docs/n8-incidence-enumeration.md).
 - For the `n=8` exact survivor obstruction artifact, read
   [`docs/n8-exact-survivors.md`](docs/n8-exact-survivors.md).
+- For the crossing-bisector and mutual-rhombus fixed-pattern filters, read
+  [`docs/mutual-rhombus-filter.md`](docs/mutual-rhombus-filter.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).
 - For known bad proof routes, read [`docs/failed-ideas.md`](docs/failed-ideas.md).
 - For the verification standard, read [`docs/verification-contract.md`](docs/verification-contract.md).
@@ -88,9 +90,20 @@ strictly convex realization for those classes. See
 theorem claims should still get independent review of the computer-assisted
 artifacts.
 
-The current best numerical object is a near-miss for the pattern `B12_3x4_danzer_lift`. It has small residual but appears to degenerate toward three tight clusters near an equilateral triangle. It is therefore recorded as useful evidence about a failed route, **not** as a solution.
+The crossing-bisector and mutual-rhombus filters now exactly kill several
+previously live fixed selected-witness patterns, including
+`B12_3x4_danzer_lift`, `B20_4x5_FR_lift`, `C17_skew`, `C20_pm_4_9`,
+`C16_pm_1_6`, `C13_pm_3_5`, and `C9_pm_2_4`. These are fixed-pattern
+obstructions, not a general proof of the problem.
 
-The best saved B12 object is **not** a counterexample: its max selected-distance spread is about `0.0068`, and its convexity margin is about `1e-6`.
+The previous best numerical near-miss was `B12_3x4_danzer_lift`. It remains a
+useful degeneration diagnostic, but the fixed selected pattern is now exactly
+killed by the mutual-rhombus midpoint filter. The saved numerical artifact is
+still retained as provenance for the failed route, **not** as a solution.
+
+The best saved B12 object is **not** a counterexample: its max
+selected-distance spread is about `0.0068`, and its convexity margin is about
+`1e-6`.
 
 Any claimed counterexample needs exact coordinates, or an exact algebraic
 certificate, verifying the distance equalities and strict convexity.
@@ -104,7 +117,7 @@ max squared-distance spread: 0.006806368780585714
 RMS equality residual:       0.0019599509549614457
 convexity margin:            9.999999943508973e-07
 minimum edge length:         0.0007465865604262556
-status: numerical only, rejected as proof/counterexample
+status: numerical artifact only; fixed selected pattern exactly killed
 ```
 
 See [`STATE.md`](STATE.md) for the most compact working summary and
@@ -139,6 +152,7 @@ Use these labels consistently:
 ├── pyproject.toml
 ├── requirements.txt
 ├── src/erdos97/search.py              # main search/verification engine
+├── src/erdos97/incidence_filters.py   # exact incidence obstruction filters
 ├── src/erdos97/n7_fano.py             # exact n=7 Fano enumeration
 ├── scripts/                           # thin CLI helpers
 ├── tests/                             # smoke tests and incidence checks
@@ -151,6 +165,7 @@ Use these labels consistently:
 │   ├── exactification-plan.md         # numerical-to-exact certificate route
 │   ├── n8-incidence-enumeration.md    # n=8 incidence-completeness proof
 │   ├── n8-exact-survivors.md          # n=8 exact survivor obstructions
+│   ├── mutual-rhombus-filter.md       # exact fixed-pattern filters
 │   ├── sat-smt-plan.md                # finite abstraction plan
 │   ├── literature-risk.md             # what has/has not been checked
 │   └── verification-contract.md       # candidate acceptance requirements
@@ -177,6 +192,7 @@ python scripts/enumerate_n8_incidence.py --summary
 python scripts/analyze_n8_exact_survivors.py --check --json
 erdos97-search --list-patterns
 erdos97-search --verify data/runs/best_B12_slsqp_m1e-6.json --tol 1e-6
+python scripts/check_mutual_rhombus_filter.py --assert-expected
 ```
 
 Run a small search:

@@ -5,7 +5,8 @@
     "n": 12,
     "formula": "i=(a,b) mod (3,4); S_i={(a+1,b),(a+2,b),(a+1,b+1),(a+2,b-1)}",
     "type": "block/symmetric",
-    "status": "best near-miss; degenerates toward three clusters"
+    "status": "exactly killed as a fixed selected pattern by mutual-rhombus midpoint equations; numerical near-miss retained as a degeneration diagnostic",
+    "trust": "EXACT_OBSTRUCTION"
   },
   {
     "rank": 2,
@@ -13,7 +14,8 @@
     "n": 20,
     "formula": "i=(a,b) mod (4,5); S_i={(a+1,b),(a+3,b),(a+1,b+2),(a+3,b-2)}",
     "type": "block/symmetric",
-    "status": "promising next margin sweep"
+    "status": "exactly killed as a fixed selected pattern by mutual-rhombus midpoint equations",
+    "trust": "EXACT_OBSTRUCTION"
   },
   {
     "rank": 3,
@@ -21,7 +23,8 @@
     "n": 18,
     "formula": "even offsets {-7,-2,4,8}; odd offsets {-8,-4,2,7}",
     "type": "period-2",
-    "status": "worth numerical search"
+    "status": "killed under natural cyclic order by adjacent-row two-overlap via crossing-bisector; unresolved as an abstract incidence pattern if arbitrary cyclic orders are allowed",
+    "trust": "EXACT_OBSTRUCTION"
   },
   {
     "rank": 4,
@@ -29,7 +32,8 @@
     "n": 24,
     "formula": "even offsets {-10,-3,5,11}; odd offsets {-11,-5,3,10}",
     "type": "period-2",
-    "status": "higher-dimensional search"
+    "status": "killed under natural cyclic order by adjacent-row two-overlap via crossing-bisector; unresolved as an abstract incidence pattern if arbitrary cyclic orders are allowed",
+    "trust": "EXACT_OBSTRUCTION"
   },
   {
     "rank": 5,
@@ -37,7 +41,8 @@
     "n": 19,
     "formula": "offsets {-8,-3,5,9}",
     "type": "skew circulant",
-    "status": "sparse common-neighbor overlap"
+    "status": "sparse common-neighbor overlap; not killed by current mutual-rhombus filter",
+    "trust": "INCIDENCE_PATTERN"
   },
   {
     "rank": 6,
@@ -45,7 +50,8 @@
     "n": 17,
     "formula": "offsets {-7,-2,4,8}",
     "type": "skew circulant",
-    "status": "overdetermined but useful"
+    "status": "exactly killed by an odd forced-perpendicularity cycle",
+    "trust": "EXACT_OBSTRUCTION"
   },
   {
     "rank": 7,
@@ -53,7 +59,8 @@
     "n": 20,
     "formula": "offsets {-9,-4,4,9}",
     "type": "palindromic circulant",
-    "status": "do not impose coordinate symmetry"
+    "status": "exactly killed by mutual-rhombus midpoint equations; residue mod 4 collapse",
+    "trust": "EXACT_OBSTRUCTION"
   },
   {
     "rank": 8,
@@ -61,7 +68,8 @@
     "n": 16,
     "formula": "offsets {-6,-1,1,6}",
     "type": "palindromic circulant",
-    "status": "may encourage local edge collapse"
+    "status": "exactly killed by mutual-rhombus midpoint equations; parity collapse",
+    "trust": "EXACT_OBSTRUCTION"
   },
   {
     "rank": 9,
@@ -69,7 +77,8 @@
     "n": 13,
     "formula": "offsets {-5,-3,3,5}",
     "type": "palindromic circulant",
-    "status": "small smoke test"
+    "status": "exactly killed by mutual-rhombus midpoint equations; all labels collapse",
+    "trust": "EXACT_OBSTRUCTION"
   },
   {
     "rank": 10,
@@ -77,6 +86,7 @@
     "n": 9,
     "formula": "offsets {-4,-2,2,4}",
     "type": "palindromic circulant",
-    "status": "likely too constrained"
+    "status": "exactly killed by mutual-rhombus midpoint equations; all labels collapse",
+    "trust": "EXACT_OBSTRUCTION"
   }
 ]

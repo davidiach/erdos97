@@ -89,7 +89,8 @@ det(p_j - p_i, p_a + p_b - 2 p_i) = 0.
 ```
 
 The second equation is twice the midpoint-line condition, so no denominators are
-introduced.
+introduced. It is the algebraic form of the crossing/bisection lemma recorded
+in `claims.md` and `mutual-rhombus-filter.md`.
 
 The gauge is
 

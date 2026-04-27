@@ -26,6 +26,32 @@ The directed 4-out incidence pattern and the pairwise cap imply no
 counterexample can have `n <= 6`; the convexity-of-indegree count gives
 `n >= 7`.
 
+### Lemma: crossing-bisector and sharpened count
+
+Status: `EXACT_OBSTRUCTION`.
+
+If two selected witness rows share exactly two labels, the source chord is the
+perpendicular bisector of the common-witness chord and the two chords cross at
+the common-witness midpoint. Adjacent row-pairs therefore have intersection
+size at most `1`, improving the incidence count to `n >= 8`.
+
+This gives a short independent exclusion of `n <= 7`. The Fano enumeration is
+still retained because it is structurally useful and reproducible.
+
+For a hypothetical `n=8` counterexample, equality holds throughout: witness
+indegrees are all 4, adjacent row-pairs meet in exactly one selected witness,
+nonadjacent row-pairs meet in exactly two, and the common-witness map is a
+crossing permutation of the 20 octagon diagonals.
+
+### Lemma: minimal-counterexample critical tie
+
+Status: proved.
+
+In a counterexample with the minimum possible number of vertices, every vertex
+`x` is essential to some remaining vertex `y`: deleting `x` makes `y` good, so
+`x` lies in the unique distance class of size exactly 4 at `y`. This is a
+structural condition on minimal counterexamples, not a contradiction by itself.
+
 ### Theorem: selected-witness incidence rules out n <= 7
 
 Status: proved and reproducible.
@@ -59,11 +85,29 @@ used. See `docs/n8-incidence-enumeration.md`,
 `docs/n8-exact-survivors.md`, `data/incidence/n8_incidence_completeness.json`,
 and `certificates/n8_exact_analysis.json`.
 
+### Fixed-pattern mutual-rhombus obstructions
+
+Status: `EXACT_OBSTRUCTION`.
+
+The mutual-rhombus midpoint filter kills the fixed selected patterns
+`B12_3x4_danzer_lift`, `B20_4x5_FR_lift`, `C20_pm_4_9`, `C16_pm_1_6`,
+`C13_pm_3_5`, and `C9_pm_2_4`. The pattern `C17_skew` is killed by an odd
+forced-perpendicularity cycle.
+
+Under the natural cyclic order, `P18_parity_balanced` and
+`P24_parity_balanced` are killed by adjacent-row two-overlap via the
+crossing-bisector lemma. They remain cyclic-order search questions if treated
+as abstract incidence patterns with arbitrary cyclic order.
+
+See `docs/mutual-rhombus-filter.md` and
+`scripts/check_mutual_rhombus_filter.py`.
+
 ## Numerical Attempts
 
 ### B12_3x4_danzer_lift
 
-Status: near-miss degeneration, rejected as counterexample.
+Status: historical near-miss degeneration; fixed selected pattern exactly
+killed.
 
 Diagnostics:
 
@@ -76,7 +120,9 @@ Diagnostics:
 Interpretation:
 
 The residual improves as the polygon approaches a three-cluster degeneration.
-This is evidence about a failed route, not a solution.
+This is evidence about a failed route, not a solution. The fixed selected
+pattern is now exactly killed by the mutual-rhombus midpoint equations, while
+the numerical artifact remains useful as a degeneration diagnostic.
 
 ### Archived C12 artifacts
 
@@ -103,6 +149,8 @@ search-history artifacts, not as live candidates.
    and `14` exact certificates.
 2. Push the finite incidence/exact pipeline toward `n=9`, or identify the first
    survivor class that blocks scaling.
-3. Prove or refute degeneration for `B12_3x4_danzer_lift`.
-4. Run a `B20_4x5_FR_lift` anti-clustering margin sweep.
+3. Investigate `C19_skew`, which is not killed by the current mutual-rhombus
+   filter.
+4. Run cyclic-order searches for `P18_parity_balanced` and
+   `P24_parity_balanced` if they are treated as abstract incidence patterns.
 5. Add interval-arithmetic verification for convexity and distance equations.

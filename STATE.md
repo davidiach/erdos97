@@ -23,11 +23,12 @@ the directed incidence graph need not be symmetric.[^repo]
 
 The selected-witness method rules out `n <= 8` in this repo-local,
 machine-checked finite-case sense. The core filters are the
-two-circle cap `|S_a cap S_b| <= 2`, radical-axis perpendicularity when two
-rows share exactly two witnesses, the incidence count forcing `n >= 7`, and
+two-circle cap `|S_a cap S_b| <= 2`, radical-axis crossing/bisection when two
+rows share exactly two witnesses, the sharpened incidence count forcing
+`n >= 8`, and
 the `n=8` column-pair cap forcing all witness indegrees to equal 4.
-At `n=7`, the equality case forces a chord permutation on 21 chords, and odd
-cycle parity contradicts alternating perpendicularity.[^small]
+The older `n=7` Fano enumeration remains in the repo because it is a useful
+independent reproduction of the equality-case obstruction.[^small]
 
 For `n=8`, `scripts/enumerate_n8_incidence.py` enumerates all necessary
 selected-witness incidence survivors and reduces them to 15 canonical classes.
@@ -35,11 +36,24 @@ Exact cyclic-order noncrossing kills 1 class, and exact perpendicular-bisector /
 equal-distance algebra kills the other 14. See
 `docs/n8-incidence-enumeration.md` and `docs/n8-exact-survivors.md`.
 
+## New exact fixed-pattern obstructions
+
+The crossing-bisector and mutual-rhombus filters now exactly kill several
+previously live fixed selected-witness patterns. In particular,
+`B12_3x4_danzer_lift` is no longer live as a fixed selected pattern: its
+mutual-rhombus midpoint equations force labels `[0,4,8]`, `[1,5,9]`,
+`[2,6,10]`, and `[3,7,11]` to coincide. The old numerical near-miss remains
+useful as a degeneration diagnostic, but not as a counterexample candidate.
+
+Also killed as fixed selected patterns: `B20_4x5_FR_lift`, `C17_skew`,
+`C20_pm_4_9`, `C16_pm_1_6`, `C13_pm_3_5`, and `C9_pm_2_4`.
+
 ## Best saved near-miss
 
-The best saved near-miss remains `B12_3x4_danzer_lift`. It is numerical only
-and is rejected as proof or counterexample because the residual improves toward
-a clustered boundary degeneration.[^repo]
+The best saved near-miss is still the historical `B12_3x4_danzer_lift`
+artifact. It is numerical only, rejected as proof or counterexample, and now
+also attached to a fixed selected pattern that is exactly killed by the
+mutual-rhombus midpoint filter.[^repo]
 
 Numerical near-misses are not counterexamples. Any solution claim needs exact
 coordinates, or an exact algebraic/interval certificate, for both the selected
@@ -52,20 +66,21 @@ max squared-distance spread: 0.006806368780585714
 RMS equality residual:       0.0019599509549614457
 convexity margin:            9.999999943508973e-07
 minimum edge length:         0.0007465865604262556
-status: numerical only, rejected as proof/counterexample
+status: numerical artifact only; fixed selected pattern exactly killed
 ```
 
 The archive also contained two C12 numerical artifacts. They were normalized
 under `data/runs/`, but excluded from this dashboard: one fails the `1e-6`
 verification threshold and the other collapses to a non-strict configuration.[^comp]
 
-## Top live patterns
+## Top remaining live / unresolved patterns
 
-1. `B12_3x4_danzer_lift`: leading saved degeneration diagnostic, not a
-   counterexample candidate in its current form.[^repo]
-2. `B20_4x5_FR_lift`: next block/symmetric margin sweep with anti-clustering
-   diagnostics.[^repo]
-3. `P18_parity_balanced`: period-2 pattern worth broader numerical search.[^repo]
+1. `C19_skew`: sparse common-neighbor overlap; not killed by the current
+   mutual-rhombus filter.[^repo]
+2. `P18_parity_balanced`: killed under natural cyclic order; still needs a
+   cyclic-order search if arbitrary cyclic order is allowed.[^repo]
+3. `P24_parity_balanced`: killed under natural cyclic order; still needs a
+   cyclic-order search if arbitrary cyclic order is allowed.[^repo]
 
 ## Top killed approaches
 
