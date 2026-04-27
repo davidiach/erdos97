@@ -65,6 +65,17 @@ def main() -> int:
     parser.add_argument("--assert-sat", action="store_true", help="assert selected pattern is SAT")
     parser.add_argument("--assert-unsat", action="store_true", help="assert selected pattern is UNSAT")
     parser.add_argument("--write-certificate", help="write a JSON certificate/result file")
+    parser.add_argument(
+        "--max-terminal-conflicts",
+        type=int,
+        default=128,
+        help="maximum UNSAT terminal conflicts to retain; use --full-conflicts for no cap",
+    )
+    parser.add_argument(
+        "--full-conflicts",
+        action="store_true",
+        help="retain every terminal conflict in UNSAT output",
+    )
     args = parser.parse_args()
 
     patterns = built_in_patterns()
@@ -77,7 +88,12 @@ def main() -> int:
 
     rows: list[dict[str, object]] = []
     for pattern in selected:
-        result = find_cyclic_crossing_order(pattern.S, pattern.name)
+        max_conflicts = None if args.full_conflicts else args.max_terminal_conflicts
+        result = find_cyclic_crossing_order(
+            pattern.S,
+            pattern.name,
+            max_terminal_conflicts=max_conflicts,
+        )
         row = result_to_json(result)
         if result.order is not None:
             constraints = crossing_constraints(pattern.S)

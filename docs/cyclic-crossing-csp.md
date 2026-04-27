@@ -34,8 +34,16 @@ reversal, then recursively inserts unplaced labels into circular gaps. A branch
 is rejected only when all four endpoints of a crossing constraint have been
 placed and the source and target chords do not cross.
 
+The first constraint is chosen by deterministic tuple ordering of the `phi`
+constraints. A crossing of two disjoint chords has exactly two circular endpoint
+embeddings up to rotation and reversal, so the two seeded orders cover all
+symmetry classes for any satisfying cyclic order.
+
 The search uses exact finite combinatorics only. It does not use coordinates or
 floating point.
+
+Routine JSON output caps retained terminal conflict traces by default. Certificate
+runs may pass `--full-conflicts` when a full deterministic trace is desired.
 
 ## P18_parity_balanced
 

@@ -34,3 +34,19 @@ def test_p24_crossing_csp_unsat() -> None:
     assert result.order is None
     assert result.nodes_visited > 0
     assert result.terminal_conflicts
+    conflict = result.terminal_conflicts[0]
+    assert set(conflict) == {"partial_order", "blocked_label", "reasons"}
+    assert conflict["reasons"]
+
+
+def test_terminal_conflicts_can_be_capped() -> None:
+    pattern = built_in_patterns()["P24_parity_balanced"]
+    result = find_cyclic_crossing_order(
+        pattern.S,
+        pattern.name,
+        max_terminal_conflicts=1,
+    )
+
+    assert not result.sat
+    assert len(result.terminal_conflicts) == 1
+    assert result.terminal_conflicts_truncated

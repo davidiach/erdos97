@@ -21,10 +21,15 @@ class CyclicCrossingResult:
     nodes_visited: int
     max_depth: int
     terminal_conflicts: list[dict[str, object]]
+    terminal_conflicts_truncated: bool
 
 
 def crossing_constraints(S: Sequence[Sequence[int]]) -> list[Constraint]:
-    """Return all phi crossing constraints source -> target."""
+    """Return all phi crossing constraints source -> target.
+
+    The tuple sort is deterministic and fixes the first constraint used for
+    symmetry normalization in the search.
+    """
     return sorted(phi_map(S).items())
 
 
@@ -50,8 +55,10 @@ def _json_constraint(constraint: Constraint) -> dict[str, list[int]]:
 
 def _initial_orders(constraints: Sequence[Constraint], n: int) -> list[list[int]]:
     if not constraints:
-        return [[0]] if n else [[]]
+        return [[0] if n else []]
     source, target = constraints[0]
+    # A crossing of two disjoint chords has exactly these two endpoint
+    # embeddings up to circular rotation and reversal.
     return [
         [source[0], target[0], source[1], target[1]],
         [source[0], target[1], source[1], target[0]],
@@ -61,6 +68,7 @@ def _initial_orders(constraints: Sequence[Constraint], n: int) -> list[list[int]
 def find_cyclic_crossing_order(
     S: Sequence[Sequence[int]],
     pattern: str = "",
+    max_terminal_conflicts: int | None = 128,
 ) -> CyclicCrossingResult:
     """
     Search for a cyclic order satisfying all crossing-bisection constraints.
@@ -71,6 +79,9 @@ def find_cyclic_crossing_order(
     constraint fails.
     """
     n = len(S)
+    if max_terminal_conflicts is not None and max_terminal_conflicts < 0:
+        raise ValueError("max_terminal_conflicts must be nonnegative or None")
+
     constraints = crossing_constraints(S)
     labels = set(range(n))
     constraint_label_sets = [_constraint_labels(constraint) for constraint in constraints]
@@ -82,6 +93,7 @@ def find_cyclic_crossing_order(
     nodes_visited = 0
     max_depth = 0
     terminal_conflicts: list[dict[str, object]] = []
+    terminal_conflicts_truncated = False
 
     def completed_failure(
         order: Sequence[int],
@@ -119,7 +131,7 @@ def find_cyclic_crossing_order(
         return max(labels - placed, key=score)
 
     def search(order: list[int], placed: set[int]) -> list[int] | None:
-        nonlocal nodes_visited, max_depth
+        nonlocal nodes_visited, max_depth, terminal_conflicts_truncated
         nodes_visited += 1
         max_depth = max(max_depth, len(placed))
         if len(placed) == n:
@@ -147,6 +159,12 @@ def find_cyclic_crossing_order(
                 return found
 
         if not tried_valid_child:
+            if (
+                max_terminal_conflicts is not None
+                and len(terminal_conflicts) >= max_terminal_conflicts
+            ):
+                terminal_conflicts_truncated = True
+                return None
             terminal_conflicts.append(
                 {
                     "partial_order": [int(label) for label in order],
@@ -170,6 +188,7 @@ def find_cyclic_crossing_order(
                 nodes_visited=nodes_visited,
                 max_depth=max_depth,
                 terminal_conflicts=[],
+                terminal_conflicts_truncated=False,
             )
 
     return CyclicCrossingResult(
@@ -182,6 +201,7 @@ def find_cyclic_crossing_order(
         nodes_visited=nodes_visited,
         max_depth=max_depth,
         terminal_conflicts=terminal_conflicts,
+        terminal_conflicts_truncated=terminal_conflicts_truncated,
     )
 
 
@@ -199,4 +219,5 @@ def result_to_json(result: CyclicCrossingResult) -> dict[str, object]:
         "nodes_visited": result.nodes_visited,
         "max_depth": result.max_depth,
         "terminal_conflicts": result.terminal_conflicts,
+        "terminal_conflicts_truncated": result.terminal_conflicts_truncated,
     }

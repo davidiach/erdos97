@@ -18,7 +18,6 @@ def test_c19_natural_order_altman_kill() -> None:
     assert result.chord_orders == [8, 3, 5, 9]
     assert set(result.forced_equal_U) == {3, 5, 8, 9}
     assert result.altman_contradiction
-    assert result.abstract_incidence_status == "LIVE"
 
 
 def test_c17_is_also_natural_order_altman_killed() -> None:

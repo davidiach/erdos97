@@ -22,7 +22,6 @@ class AltmanDiagonalSumResult:
     forced_equal_U: list[int]
     altman_contradiction: bool
     status: str
-    abstract_incidence_status: str
 
 
 def chord_order(n: int, offset: int) -> int:
@@ -34,7 +33,11 @@ def chord_order(n: int, offset: int) -> int:
 
 
 def signed_offset(n: int, residue: int) -> int:
-    """Return a canonical signed representative for a nonzero residue mod n."""
+    """Return a canonical signed representative for a nonzero residue mod n.
+
+    Callers pass target-center residues. A zero residue is rejected because it
+    would select the center itself rather than a witness.
+    """
     residue %= n
     if residue == 0:
         raise ValueError("zero offset would select the center")
@@ -74,13 +77,11 @@ def check_altman(pattern: PatternInfo) -> AltmanDiagonalSumResult:
             forced_equal_U=[],
             altman_contradiction=False,
             status="NOT_APPLIED_NONCONSTANT_OFFSETS",
-            abstract_incidence_status="UNTOUCHED",
         )
 
     chord_orders = [chord_order(pattern.n, offset) for offset in offsets]
     forced_equal_U = sorted(set(chord_orders))
     contradiction = len(forced_equal_U) >= 2
-    abstract_status = "LIVE" if pattern.name == "C19_skew" else "UNTOUCHED"
     return AltmanDiagonalSumResult(
         pattern=pattern.name,
         n=pattern.n,
@@ -94,5 +95,4 @@ def check_altman(pattern: PatternInfo) -> AltmanDiagonalSumResult:
             if contradiction
             else "NO_NATURAL_ORDER_ALTMAN_OBSTRUCTION"
         ),
-        abstract_incidence_status=abstract_status,
     )

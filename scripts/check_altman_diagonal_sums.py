@@ -17,6 +17,7 @@ if str(SRC) not in sys.path:
 from erdos97.altman_diagonal_sums import check_altman  # noqa: E402
 from erdos97.search import built_in_patterns  # noqa: E402
 
+PATTERN_LEDGER = ROOT / "data" / "patterns" / "candidate_patterns.json"
 
 EXPECTED: dict[str, dict[str, object]] = {
     "C19_skew": {
@@ -30,11 +31,39 @@ EXPECTED: dict[str, dict[str, object]] = {
 }
 
 
+def abstract_status_from_ledger(pattern_name: str) -> str:
+    data = json.loads(PATTERN_LEDGER.read_text(encoding="utf-8"))
+    by_name = {str(row["name"]): row for row in data}
+    if pattern_name not in by_name:
+        return "UNTOUCHED"
+    status = str(by_name[pattern_name].get("status", ""))
+    marker = "abstract-incidence status:"
+    if marker not in status:
+        return "UNTOUCHED"
+    abstract_status = status.split(marker, 1)[1].strip()
+    normalized = abstract_status.lower()
+    if normalized.startswith("live"):
+        return "LIVE"
+    if normalized.startswith("survives"):
+        return "SURVIVES_CURRENT_FILTERS"
+    if normalized.startswith("killed"):
+        return "EXACT_OBSTRUCTION"
+    return abstract_status or "UNTOUCHED"
+
+
+def decorate_row(row: dict[str, object]) -> dict[str, object]:
+    return {
+        **row,
+        "abstract_incidence_status": abstract_status_from_ledger(str(row["pattern"])),
+    }
+
+
 def assert_expected(rows: list[dict[str, object]]) -> None:
     by_pattern = {str(row["pattern"]): row for row in rows}
+    missing = sorted(set(EXPECTED) - set(by_pattern))
+    if missing:
+        raise AssertionError(f"missing expected pattern(s): {', '.join(missing)}")
     for pattern, expected in EXPECTED.items():
-        if pattern not in by_pattern:
-            continue
         row = by_pattern[pattern]
         for key, value in expected.items():
             if row[key] != value:
@@ -75,7 +104,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json", action="store_true", help="print JSON instead of a table")
     parser.add_argument("--pattern", help="limit checks to one built-in pattern")
-    parser.add_argument("--assert-expected", action="store_true", help="assert C19 expected output")
+    parser.add_argument(
+        "--assert-expected",
+        action="store_true",
+        help="assert every registered expected output is selected and correct",
+    )
     parser.add_argument(
         "--assert-natural-killed",
         action="store_true",
@@ -91,7 +124,7 @@ def main() -> int:
     else:
         selected = list(patterns.values())
 
-    rows = [dataclasses.asdict(check_altman(pattern)) for pattern in selected]
+    rows = [decorate_row(dataclasses.asdict(check_altman(pattern))) for pattern in selected]
     if args.assert_expected:
         assert_expected(rows)
     if args.assert_natural_killed:
