@@ -40,15 +40,20 @@ claims.
 
 ## New exact fixed-pattern obstructions
 
-The crossing-bisector and mutual-rhombus filters now exactly kill several
-previously live fixed selected-witness patterns. In particular,
+The crossing-bisector, mutual-rhombus, cyclic crossing-CSP, and vertex-circle
+order filters now exactly kill several previously live fixed selected-witness
+patterns. In particular,
 `B12_3x4_danzer_lift` is no longer live as a fixed selected pattern: its
 mutual-rhombus midpoint equations force labels `[0,4,8]`, `[1,5,9]`,
 `[2,6,10]`, and `[3,7,11]` to coincide. The old numerical near-miss remains
 useful as a degeneration diagnostic, but not as a counterexample candidate.
 
 Also killed as fixed selected patterns: `B20_4x5_FR_lift`, `C17_skew`,
-`C20_pm_4_9`, `C16_pm_1_6`, `C13_pm_3_5`, and `C9_pm_2_4`.
+`C20_pm_4_9`, `C16_pm_1_6`, `C13_pm_3_5`, `C9_pm_2_4`,
+`P18_parity_balanced`, and `P24_parity_balanced`. The `P18_parity_balanced`
+abstract-incidence obstruction uses the crossing constraints plus the
+vertex-circle order strict-cycle filter; `P24_parity_balanced` is already
+killed by the finite cyclic crossing CSP.
 
 ## Best saved near-miss
 
@@ -78,11 +83,8 @@ verification threshold and the other collapses to a non-strict configuration.[^c
 ## Top remaining live / unresolved patterns
 
 1. `C19_skew`: sparse common-neighbor overlap; not killed by the current
-   mutual-rhombus filter.[^repo]
-2. `P18_parity_balanced`: killed under natural cyclic order; still needs a
-   cyclic-order search if arbitrary cyclic order is allowed.[^repo]
-3. `P24_parity_balanced`: killed under natural cyclic order; still needs a
-   cyclic-order search if arbitrary cyclic order is allowed.[^repo]
+   mutual-rhombus filter, and not killed by the vertex-circle filter for the
+   known acyclic abstract order.[^repo]
 
 ## Top killed approaches
 

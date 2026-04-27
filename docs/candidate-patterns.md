@@ -7,7 +7,7 @@ designs only; geometric realization is a separate problem.
 
 | Rank | Name | n | Formula | Type | Current status |
 |---:|---|---:|---|---|---|
-| 1 | `C19_skew` | 19 | offsets `{-8,-3,5,9}` | skew circulant | natural-order status: exactly killed by Altman diagonal-order sums; abstract-incidence status: live/sparse, with no `phi` edges and no mutual-rhombus or forced-perpendicularity obstruction[^repo] |
+| 1 | `C19_skew` | 19 | offsets `{-8,-3,5,9}` | skew circulant | natural-order status: exactly killed by Altman diagonal-order sums; abstract-incidence status: live/sparse, with no `phi` edges and no mutual-rhombus, forced-perpendicularity, or vertex-circle obstruction currently known[^repo] |
 
 The live abstract-incidence pattern above should pass the row-overlap filter
 `|S_i cap S_j| <= 2` before numerical optimization. Its natural-order
@@ -21,7 +21,7 @@ arbitrary cyclic orders are allowed.
 
 | Rank | Name | n | Formula | Type | Current status |
 |---:|---|---:|---|---|---|
-| U1 | `P18_parity_balanced` | 18 | even: `{-7,-2,4,8}`, odd: `{-8,-4,2,7}` | period-2 | natural-order status: killed by adjacent-row two-overlap via crossing-bisector; abstract-incidence status: survives current crossing filters, with a compatible cyclic order recorded |
+| U1 | `P18_parity_balanced` | 18 | even: `{-7,-2,4,8}`, odd: `{-8,-4,2,7}` | period-2 | natural-order status: killed by adjacent-row two-overlap via crossing-bisector; abstract-incidence status: killed by exact crossing plus vertex-circle order strict-cycle search |
 | U2 | `P24_parity_balanced` | 24 | even: `{-10,-3,5,11}`, odd: `{-11,-5,3,10}` | period-2 | natural-order status: killed by adjacent-row two-overlap via crossing-bisector; abstract-incidence status: killed by exact finite crossing-CSP; no cyclic order satisfies all 36 required crossings |
 
 ## Speculative extensions

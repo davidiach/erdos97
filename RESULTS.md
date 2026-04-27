@@ -90,7 +90,7 @@ used. See `docs/n8-incidence-enumeration.md`,
 `docs/n8-exact-survivors.md`, `data/incidence/n8_incidence_completeness.json`,
 and `certificates/n8_exact_analysis.json`.
 
-### Fixed-pattern mutual-rhombus obstructions
+### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.
 
@@ -101,11 +101,16 @@ forced-perpendicularity cycle.
 
 Under the natural cyclic order, `P18_parity_balanced` and
 `P24_parity_balanced` are killed by adjacent-row two-overlap via the
-crossing-bisector lemma. They remain cyclic-order search questions if treated
-as abstract incidence patterns with arbitrary cyclic order.
+crossing-bisector lemma. As abstract incidence patterns with arbitrary cyclic
+order, `P24_parity_balanced` is killed by the exact finite crossing CSP, and
+`P18_parity_balanced` is killed by crossing constraints plus the vertex-circle
+order strict-cycle filter.
 
 See `docs/mutual-rhombus-filter.md` and
-`scripts/check_mutual_rhombus_filter.py`.
+`scripts/check_mutual_rhombus_filter.py`. See also
+`docs/cyclic-crossing-csp.md`, `docs/vertex-circle-order-filter.md`,
+`data/certificates/p24_cyclic_crossing_unsat.json`, and
+`data/certificates/p18_vertex_circle_order_unsat.json`.
 
 ## Numerical Attempts
 
@@ -155,7 +160,5 @@ search-history artifacts, not as live candidates.
 2. Push the finite incidence/exact pipeline toward `n=9`, or identify the first
    survivor class that blocks scaling.
 3. Investigate `C19_skew`, which is not killed by the current mutual-rhombus
-   filter.
-4. Run cyclic-order searches for `P18_parity_balanced` and
-   `P24_parity_balanced` if they are treated as abstract incidence patterns.
-5. Add interval-arithmetic verification for convexity and distance equations.
+   or vertex-circle filters as an abstract incidence pattern.
+4. Add interval-arithmetic verification for convexity and distance equations.

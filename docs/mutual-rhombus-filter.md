@@ -194,13 +194,17 @@ that cyclic order.
 
 Their abstract-incidence status remains separate. The exact crossing CSP in
 `docs/cyclic-crossing-csp.md` records that `P18_parity_balanced` has compatible
-arbitrary cyclic orders, while `P24_parity_balanced` has no cyclic order
-satisfying all 36 crossing constraints.
+arbitrary cyclic orders under crossing constraints alone, while
+`P24_parity_balanced` has no cyclic order satisfying all 36 crossing
+constraints. The stronger vertex-circle order filter then kills
+`P18_parity_balanced` when combined with the crossing constraints; see
+`docs/vertex-circle-order-filter.md`.
 
 The sparse pattern `C19_skew` has no `phi` edges, so it is invisible to the
 mutual-rhombus and forced-perpendicularity filters. It is nevertheless killed
 in natural cyclic order by Altman's diagonal-order sums; see
-`docs/altman-diagonal-sums.md`. This does not kill the same abstract incidence
+`docs/altman-diagonal-sums.md`. It also passes the known vertex-circle
+acyclic-order sanity check. This does not kill the same abstract incidence
 pattern under arbitrary cyclic relabeling.
 
 ## Reproduction
@@ -209,6 +213,7 @@ pattern under arbitrary cyclic relabeling.
 pip install -e .[dev]
 python scripts/check_mutual_rhombus_filter.py --assert-expected
 python scripts/check_mutual_rhombus_filter.py --json
+python scripts/check_vertex_circle_order_filter.py --pattern P18_parity_balanced --search --assert-obstructed
 pytest -q
 ```
 

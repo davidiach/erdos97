@@ -68,7 +68,7 @@ def pattern_status(summary: dict[str, object]) -> str:
     if classes:
         return "exactly killed: mutual-rhombus midpoint equations"
     if summary["adjacent_two_overlap_violations"]:
-        return "killed under natural cyclic order; abstract order unresolved"
+        return "killed under natural cyclic order; abstract status tracked separately"
     if summary["crossing_bisector_violations"]:
         return "incompatible with natural cyclic order crossing-bisector filter"
     return "not killed by these filters"
