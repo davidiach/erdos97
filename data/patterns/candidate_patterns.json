@@ -5,8 +5,9 @@
     "n": 12,
     "formula": "i=(a,b) mod (3,4); S_i={(a+1,b),(a+2,b),(a+1,b+1),(a+2,b-1)}",
     "type": "block/symmetric",
-    "status": "exactly killed as a fixed selected pattern by mutual-rhombus midpoint equations; numerical near-miss retained as a degeneration diagnostic",
-    "trust": "EXACT_OBSTRUCTION"
+    "status": "RULED OUT: exactly killed as a fixed selected pattern by mutual-rhombus midpoint equations, and quantitatively obstructed by the 3-fold cluster lemma (no zero-residual strictly convex realization); numerical near-miss retained as a degeneration diagnostic only",
+    "trust": "EXACT_OBSTRUCTION",
+    "retired_by": "lemmas/no_3fold_cluster_obstruction.md"
   },
   {
     "rank": 2,

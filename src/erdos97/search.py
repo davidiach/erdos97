@@ -722,6 +722,28 @@ def z3_incidence_search(n: int, max_pair_common: int = 2, balance_indegree: bool
     return [[j for j in range(n) if bool(m.evaluate(X[i][j]))] for i in range(n)]
 
 
+def _load_catalog_status() -> Dict[str, Dict[str, object]]:
+    """Best-effort load of pattern status from data/patterns/candidate_patterns.json.
+
+    Returns ``{}`` if the file is absent or malformed; the caller treats
+    missing entries as having no recorded status.
+    """
+    import os
+    here = os.path.dirname(os.path.abspath(__file__))
+    candidates = [
+        os.path.normpath(os.path.join(here, "..", "..", "data", "patterns", "candidate_patterns.json")),
+        os.path.normpath(os.path.join(os.getcwd(), "data", "patterns", "candidate_patterns.json")),
+    ]
+    for path in candidates:
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                entries = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            continue
+        return {entry["name"]: entry for entry in entries if "name" in entry}
+    return {}
+
+
 def write_certificate_template(path: str, result: SearchResult) -> None:
     """Write a machine-readable certificate skeleton for later exactification."""
     cert = {
@@ -773,10 +795,18 @@ def main() -> None:
 
     pats = built_in_patterns()
     if args.list_patterns:
+        catalog_status = _load_catalog_status()
         for p in pats.values():
             stats = incidence_obstruction_stats(p.S)
             print(f"{p.name}: n={p.n}, family={p.family}, formula={p.formula}")
             print(f"  stats: max_common={stats['max_common_selected_neighbors']}, indeg=[{stats['indegree_min']},{stats['indegree_max']}], cluster_gap_mean={stats['max_cluster_gap_mean']:.2f}")
+            entry = catalog_status.get(p.name)
+            if entry is not None:
+                retired_by = entry.get("retired_by")
+                tag = "RETIRED" if retired_by else entry.get("trust", "live")
+                print(f"  status: {tag} - {entry.get('status', '')}")
+                if retired_by:
+                    print(f"  retired_by: {retired_by}")
         return
 
     if args.verify:

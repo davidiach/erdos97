@@ -159,6 +159,40 @@ octagon diagonals.
 This is a compression of the hypothetical `n=8` case, not a replacement for the
 checked `n=8` exact survivor pipeline.
 
+### 3-fold cluster obstruction (B12_3x4_danzer_lift)
+
+For the fixed selected pattern ``B12_3x4_danzer_lift`` and the canonical
+block-(3,4) cluster partition ``A = {0..3}``, ``B = {4..7}``,
+``C = {8..11}``, every realization with strict convexity margin
+``gamma > 0`` and RMS equality residual ``r`` satisfies the explicit
+lower bound
+
+```text
+r >= 0.05 * gamma^{1/3}.
+```
+
+The constants are stored in
+``erdos97.obstructions.DEFAULT_THREEFOLD_OBSTRUCTION``.  See
+``docs/lemmas/no_3fold_cluster_obstruction.md`` for the proof sketch
+(parabolic-arc model giving ``alpha = 1/3`` in the generic orientation
+regime), the explicit constants, and the empirical sweep that verifies
+the bound across 158 SLSQP restarts.
+
+Consequence: no realization has both ``r = 0`` and ``gamma > 0``; the
+only zero-residual limit is the non-strictly-convex equilateral
+3-cluster collapse.  The historical near-miss
+``data/runs/best_B12_slsqp_m1e-6.json`` is the motivating numerical
+witness; the pattern is retired from active search.
+
+The empirically tight scaling ``r approx gamma^{0.43}`` (R^2 ≈ 0.99
+across 9 decades of ``gamma``) is recorded in the lemma doc as
+**NUMERICAL_EVIDENCE + CONJECTURE** only: the analytic argument as
+written explains ``alpha = 1/3``, not the tighter empirical exponent.
+
+This lemma applies only to ``B12_3x4_danzer_lift`` and the canonical
+3-cluster partition.  It does not extend to other patterns or other
+``n``; see the follow-ups list in the lemma doc.
+
 ### Mutual-rhombus midpoint obstruction
 
 Define

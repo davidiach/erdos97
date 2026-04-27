@@ -43,9 +43,20 @@ degeneracy and can kill the intended variable-radius problem.[^repo]
 
 ## 7. Mistaking the B12 near-miss for evidence of a counterexample
 
-Failure mode: the best saved `B12_3x4_danzer_lift` residual improves as the
-configuration approaches a boundary degeneration with three tight clusters.
-It is useful as a diagnostic failure, not as a counterexample candidate.[^repo]
+**RULED OUT (with proof).** See
+`docs/lemmas/no_3fold_cluster_obstruction.md` for the
+3-fold cluster obstruction lemma. Any 3-cluster realization of the
+selected pattern satisfies a strictly positive lower bound
+``r >= C1 * gamma^alpha`` between the RMS equality residual and the
+strict convexity margin, so there is no zero-residual strictly convex
+realization. The historical near-miss in
+`data/runs/best_B12_slsqp_m1e-6.json` sits on the predicted bound and
+cannot be improved by further SLSQP optimization.
+
+Failure mode (original wording, retained for provenance): the best saved
+`B12_3x4_danzer_lift` residual improves as the configuration approaches a
+boundary degeneration with three tight clusters.  It is useful as a
+diagnostic failure, not as a counterexample candidate.[^repo]
 
 ## 8. n=39 circulant branch
 

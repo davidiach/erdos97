@@ -44,8 +44,14 @@ The crossing-bisector and mutual-rhombus filters now exactly kill several
 previously live fixed selected-witness patterns. In particular,
 `B12_3x4_danzer_lift` is no longer live as a fixed selected pattern: its
 mutual-rhombus midpoint equations force labels `[0,4,8]`, `[1,5,9]`,
-`[2,6,10]`, and `[3,7,11]` to coincide. The old numerical near-miss remains
-useful as a degeneration diagnostic, but not as a counterexample candidate.
+`[2,6,10]`, and `[3,7,11]` to coincide. `B12_3x4_danzer_lift` is now also
+**RULED OUT via the 3-fold cluster obstruction lemma** in
+`docs/lemmas/no_3fold_cluster_obstruction.md`: any 3-cluster realization
+satisfies a strictly positive lower bound on the equality residual in
+terms of the strict convexity margin, so the only zero-residual limit is
+a non-strictly-convex degeneration. The old numerical near-miss is
+retained as the motivating diagnostic, but not as a counterexample
+candidate.
 
 Also killed as fixed selected patterns: `B20_4x5_FR_lift`, `C17_skew`,
 `C20_pm_4_9`, `C16_pm_1_6`, `C13_pm_3_5`, and `C9_pm_2_4`.
@@ -55,7 +61,8 @@ Also killed as fixed selected patterns: `B20_4x5_FR_lift`, `C17_skew`,
 The best saved near-miss is still the historical `B12_3x4_danzer_lift`
 artifact. It is numerical only, rejected as proof or counterexample, and now
 also attached to a fixed selected pattern that is exactly killed by the
-mutual-rhombus midpoint filter.[^repo]
+mutual-rhombus midpoint filter and quantitatively obstructed by the 3-fold
+cluster lemma in `docs/lemmas/no_3fold_cluster_obstruction.md`.[^repo]
 
 Numerical near-misses are not counterexamples. Any solution claim needs exact
 coordinates, or an exact algebraic/interval certificate, for both the selected
