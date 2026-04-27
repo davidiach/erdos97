@@ -30,6 +30,9 @@ are claimed here.
 - Before claiming a new obstruction, search related work on repeated distances
   in convex polygons, convex unit distances, Delaunay/order-k Voronoi
   degeneracies, and oriented-matroid realizability with metric constraints.[^repo]
+- Before using the base-apex lemma from `docs/n8-geometric-proof.md` in
+  paper-style prose, pin an external literature reference or state it as a
+  self-contained elementary lemma.
 - Treat any numerical near-equality as only numerical evidence unless it has an
   exact or certified verification artifact.[^repo]
 

@@ -85,6 +85,8 @@ Therefore a bad convex `n`-gon would satisfy
 ```
 
 so `n >= 8`. In particular, no bad convex polygon exists with `n <= 7`.
+For the selected-witness incidence-count counterpart, see the sharpened
+incidence counting lower bound in `docs/claims.md`.
 
 This is an independent human proof of the small-case exclusion. The repository
 still retains the incidence and Fano material because those artifacts are
@@ -105,6 +107,8 @@ so equality holds everywhere. Thus:
 1. Every polygon side is the base of exactly one isosceles triangle.
 2. Every diagonal is the base of exactly two isosceles triangles, one apex on
    each side of the diagonal.
+3. At every vertex, the distance-class sizes among the other seven vertices
+   are exactly `(4,1,1,1)`.
 
 For the length-2 diagonal `v_i v_{i+2}`, one side contains only `v_{i+1}`.
 Since the diagonal must have an apex on each side, `v_{i+1}` must be the apex
