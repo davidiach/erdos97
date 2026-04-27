@@ -1,13 +1,20 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 from erdos97.search import built_in_patterns
 from erdos97.vertex_circle_order_filter import (
     find_cyclic_order_with_vertex_circle_filter,
     pair,
+    search_result_to_json,
     vertex_circle_order_obstruction,
     vertex_circle_strict_inequalities,
 )
 
+
+ROOT = Path(__file__).resolve().parents[1]
+P18_CERTIFICATE = ROOT / "data" / "certificates" / "p18_vertex_circle_order_unsat.json"
 
 P18_CROSSING_COMPATIBLE_ORDER = [
     0,
@@ -101,6 +108,18 @@ def test_p18_crossing_plus_vertex_circle_search_unsat() -> None:
     assert result.nodes_visited > 0
     assert result.crossing_prunes > 0
     assert result.vertex_circle_prunes > 0
+
+
+def test_p18_certificate_matches_generator_with_documented_conflict_cap() -> None:
+    pattern = built_in_patterns()["P18_parity_balanced"]
+    result = find_cyclic_order_with_vertex_circle_filter(
+        pattern.S,
+        pattern.name,
+        max_terminal_conflicts=16,
+    )
+
+    checked_in = json.loads(P18_CERTIFICATE.read_text(encoding="utf-8"))
+    assert search_result_to_json(result) == checked_in
 
 
 def test_c19_supplied_order_passes_vertex_circle_filter() -> None:

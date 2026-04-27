@@ -122,6 +122,7 @@ python scripts/check_vertex_circle_order_filter.py \
   --pattern P18_parity_balanced \
   --search \
   --assert-obstructed \
+  --max-terminal-conflicts 16 \
   --write-certificate data/certificates/p18_vertex_circle_order_unsat.json
 ```
 
@@ -144,7 +145,9 @@ P18_parity_balanced, crossing + vertex-circle nesting filter:
 ```
 
 The result artifact is stored at
-`data/certificates/p18_vertex_circle_order_unsat.json`.
+`data/certificates/p18_vertex_circle_order_unsat.json`. It retains 16 terminal
+conflict traces to keep the checked-in diagnostic log compact; the UNSAT result
+and search counters are unchanged by retaining more terminal conflicts.
 
 Safe claim:
 
