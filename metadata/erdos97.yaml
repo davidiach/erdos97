@@ -1,0 +1,44 @@
+problem:
+  number: "97"
+  official_page: "https://www.erdosproblems.com/97"
+  official_statement: "Does every convex polygon have a vertex with no other 4 vertices equidistant from it?"
+  official_status: "falsifiable/open"
+  official_prize: "$100"
+  official_tags:
+    - geometry
+    - distances
+    - convex
+  official_page_last_edited: "2025-10-27"
+  official_status_last_checked: "2026-04-27"
+
+upstream_database:
+  repository: "https://github.com/teorth/erdosproblems"
+  source_of_truth: "data/problems.yaml"
+  contribution_guidance: "Use upstream PRs for metadata/database fields; use erdosproblems.com #97 for mathematical discussion."
+
+formalization:
+  repository: "https://github.com/google-deepmind/formal-conjectures"
+  path: "FormalConjectures/ErdosProblems/97.lean"
+  statement_formalized: true
+  proof_formalized: false
+  lean_status: "research open"
+  local_alignment_note: "Compare strict-convex-polygon language with ConvexIndep A in the Lean statement."
+
+local_repo:
+  repository: "https://github.com/davidiach/erdos97"
+  overall_claim: "No general proof and no counterexample are claimed."
+  strongest_result: "No selected-witness counterexample for n <= 8, in the repo-local machine-checked finite-case sense."
+  strongest_result_review_status: "External independent review recommended before public theorem-style claims."
+  best_numerical_object: "B12_3x4_danzer_lift near-miss; rejected as proof/counterexample."
+  main_entry_points:
+    - "STATE.md"
+    - "RESULTS.md"
+    - "docs/n8-incidence-enumeration.md"
+    - "docs/n8-exact-survivors.md"
+    - "docs/verification-contract.md"
+
+trust_policy:
+  no_overclaiming: true
+  numerical_evidence_is_not_proof: true
+  exact_certificates_required_for_counterexamples: true
+  independent_review_required_for_public_theorem_claims: true

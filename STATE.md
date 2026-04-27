@@ -7,6 +7,10 @@ claim taxonomy, failed-route reconciliation, and source/hash inventory, read
 `docs/canonical-synthesis.md` before adding new claims, search branches, or
 proof attempts.
 
+Canonical status metadata is recorded in `metadata/erdos97.yaml`. It separates
+the official/global falsifiable-open status from this repo's local finite-case
+artifacts.
+
 ## Target
 
 Find, or rule out, a strictly convex polygon with vertices

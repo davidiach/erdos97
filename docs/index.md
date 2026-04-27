@@ -6,6 +6,12 @@ put detailed reconciliation in the canonical synthesis.
 ## Core state
 
 - [`../STATE.md`](../STATE.md): short working dashboard.
+- [`../metadata/erdos97.yaml`](../metadata/erdos97.yaml): canonical status
+  metadata separating official/global status from local repo claims.
+- [`upstream-alignment.md`](upstream-alignment.md): alignment notes for
+  `teorth/erdosproblems` and the official problem page.
+- [`reviewer-guide.md`](reviewer-guide.md): audit route for finite-case
+  artifacts and exact certificates.
 - [`canonical-synthesis.md`](canonical-synthesis.md): long-form canonical
   synthesis, claim taxonomy, failed-route reconciliation, and source/hash
   inventory.
@@ -35,6 +41,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`exactification-plan.md`](exactification-plan.md): route from numerical
   artifacts to exact or certified verification.
 - [`sat-smt-plan.md`](sat-smt-plan.md): finite abstraction and solver plan.
+- [`formalization.md`](formalization.md): Lean/formalization alignment and
+  near-term formal targets.
+- [`oeis-possibilities.md`](oeis-possibilities.md): exploratory OEIS sequence
+  ideas and submission policy.
 - [`../data/runs/README.md`](../data/runs/README.md): numerical artifact
   conventions.
 
@@ -44,3 +54,4 @@ put detailed reconciliation in the canonical synthesis.
   unit-distance caveats.
 - [`repo-roadmap.md`](repo-roadmap.md): staged repository plan.
 - [`initial-issues.md`](initial-issues.md): seed issue list.
+- [`../AGENTS.md`](../AGENTS.md): repository-level Codex guidance.
