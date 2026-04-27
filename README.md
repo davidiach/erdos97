@@ -158,7 +158,6 @@ Use these labels consistently:
 ├── metadata/
 │   └── erdos97.yaml                  # canonical status metadata snapshot
 ├── pyproject.toml
-├── requirements.txt
 ├── src/erdos97/search.py              # main search/verification engine
 ├── src/erdos97/incidence_filters.py   # exact incidence obstruction filters
 ├── src/erdos97/n7_fano.py             # exact n=7 Fano enumeration
