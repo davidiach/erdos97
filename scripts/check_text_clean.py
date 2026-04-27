@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import subprocess
 import sys
+import unicodedata
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -48,6 +49,8 @@ HIDDEN_CHARS = {
     "\u2069": "POP DIRECTIONAL ISOLATE",
     "\ufeff": "BYTE ORDER MARK",
 }
+
+BIDI_CONTROL_CLASSES = {"LRE", "RLE", "LRO", "RLO", "PDF", "LRI", "RLI", "FSI", "PDI"}
 
 
 def tracked_files() -> list[Path]:
@@ -102,6 +105,16 @@ def display_path(path: Path) -> str:
         return str(path)
 
 
+def hidden_char_description(char: str) -> str | None:
+    if char in HIDDEN_CHARS:
+        return HIDDEN_CHARS[char]
+    # Policy: tracked text files should contain no Unicode format controls.
+    # They are invisible in review and too easy to mistake for ordinary text.
+    if unicodedata.category(char) == "Cf" or unicodedata.bidirectional(char) in BIDI_CONTROL_CLASSES:
+        return unicodedata.name(char, "FORMAT OR BIDI CONTROL")
+    return None
+
+
 def main() -> int:
     errors: list[str] = []
     for path in tracked_files():
@@ -117,13 +130,11 @@ def main() -> int:
             errors.append(f"{shown}: not valid UTF-8: {exc}")
             continue
         for index, char in enumerate(text):
-            if char in HIDDEN_CHARS:
+            description = hidden_char_description(char)
+            if description is not None:
                 line, col = line_col(text, index)
                 codepoint = f"U+{ord(char):04X}"
-                errors.append(
-                    f"{shown}:{line}:{col}: hidden character {codepoint} "
-                    f"({HIDDEN_CHARS[char]})"
-                )
+                errors.append(f"{shown}:{line}:{col}: hidden character {codepoint} ({description})")
     if errors:
         print("\n".join(errors), file=sys.stderr)
         return 1

@@ -25,6 +25,31 @@ python scripts/enumerate_n8_incidence.py --summary
 python scripts/analyze_n8_exact_survivors.py --check --json
 ```
 
+## Expected `n=8` outputs
+
+For `python scripts/enumerate_n8_incidence.py --summary`, expected invariants:
+
+- status is `INCIDENCE_COMPLETENESS`;
+- `canonical_survivor_class_count` is `15`;
+- `matches_existing_reconstructed_survivors` is `true`;
+- all necessary incidence survivors are reduced to the 15 canonical classes in
+  `data/incidence/n8_incidence_completeness.json` and
+  `data/incidence/n8_reconstructed_15_survivors.json`.
+
+For `python scripts/analyze_n8_exact_survivors.py --check --json`, expected
+invariants:
+
+- status is `exact_obstruction_artifact_pending_independent_review`;
+- `survivor_classes` is `15`;
+- `cyclic_order_remaining_count` is `14`, with class `12` killed by cyclic
+  order noncrossing;
+- classes `3`, `4`, `5`, and `14` report their named exact certificates as
+  verified;
+- the `pb_y2_span_ids_verified` list contains ten classes;
+- the final obstruction pass is exact and does not rely on floating-point
+  equality;
+- certificate data agrees with `certificates/n8_exact_analysis.json`.
+
 ## Files to inspect first
 
 1. `STATE.md`

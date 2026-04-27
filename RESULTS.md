@@ -5,8 +5,13 @@ claims, what it has only tested numerically, and what remains open. For the
 long-form canonical synthesis and claim reconciliation, read
 `docs/canonical-synthesis.md`.
 
-Overall status: Erdős Problem #97 remains open. This repository claims no
-general proof and no counterexample.
+Official/global status: falsifiable/open. This repository claims no general
+proof and no counterexample.
+
+Strongest local finite-case artifact: the selected-witness method rules out
+`n <= 8` in a repo-local, machine-checked finite-case sense. External
+independent review is still recommended before paper-style or public
+theorem-style claims.
 
 ## Certified Results
 
@@ -67,9 +72,9 @@ radical-axis perpendicularity constraints contain odd cycles. This obstructs
 all `n=7` selected-witness equality patterns. See
 `docs/n7-fano-enumeration.md`.
 
-### Theorem artifact: selected-witness incidence rules out n = 8
+### Machine-checked finite-case artifact: selected-witness incidence rules out n = 8
 
-Status: `THEOREM` in repo-local, machine-checked finite-case sense. External
+Status: `MACHINE_CHECKED_FINITE_CASE_ARTIFACT` in repo-local sense. External
 review is still recommended before paper-style or public theorem claims.
 
 The incidence-completeness checker derives `n=8` indegree regularity from the

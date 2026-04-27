@@ -8,7 +8,7 @@ claim taxonomy, failed-route reconciliation, and source/hash inventory, read
 proof attempts.
 
 Canonical status metadata is recorded in `metadata/erdos97.yaml`. It separates
-the official/global falsifiable-open status from this repo's local finite-case
+the official/global falsifiable/open status from this repo's local finite-case
 artifacts.
 
 ## Target
@@ -35,6 +35,8 @@ selected-witness incidence survivors and reduces them to 15 canonical classes.
 Exact cyclic-order noncrossing kills 1 class, and exact perpendicular-bisector /
 equal-distance algebra kills the other 14. See
 `docs/n8-incidence-enumeration.md` and `docs/n8-exact-survivors.md`.
+External independent review remains recommended before public theorem-style
+claims.
 
 ## New exact fixed-pattern obstructions
 

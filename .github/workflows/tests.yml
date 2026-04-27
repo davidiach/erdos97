@@ -20,4 +20,5 @@ jobs:
       - run: pip install -e .[dev]
       - run: python scripts/check_text_clean.py
       - run: python scripts/check_status_consistency.py
+      - run: git diff --check
       - run: pytest -q

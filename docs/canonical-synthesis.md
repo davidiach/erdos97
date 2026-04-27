@@ -1023,7 +1023,7 @@ This document was produced via the four-stage protocol requested:
 **Stage 2 — Cluster and dedupe.** Identified content clusters across documents:
 - Lemma library (in all 5 main docs) — kept one canonical version.
 - Small-case proofs $n = 5, 6, 7$ (identical across all) — kept canonical versions.
-- $n = 8$ status (all docs reach "open" but with different framings) — merged, with disagreement table.
+- Archived/pre-current-artifact $n = 8$ source-corpus status — older source documents treated `n=8` as open or gap-bearing. This is superseded by the current `n=8` incidence-completeness and exact-obstruction artifacts.
 - Failed routes (most thorough in `standalone` §C) — kept and supplemented with consensus framings.
 - Active proof programs (cleanest in `synthesis` §5; more detail in `standalone` §F) — merged.
 - Counterexamples to intermediate claims (most polished in `standalone` §D) — kept verbatim.
@@ -1036,7 +1036,7 @@ This document was produced via the four-stage protocol requested:
 
 **Stage 4 — Verification.** Cross-checked critical claims against multiple sources:
 - $n = 5, 6, 7$ proofs — consistent across all 5 main docs and source notes (modulo the weak-vs-strong witness distinction at $n = 7$).
-- $n = 8$ status — all 5 main docs agree on "open" (after the disagreement was resolved).
+- $n = 8$ source-corpus status — the older synthesis corpus predated the current finite-case artifact. Do not use this archived source-corpus status as the current repo-local status.
 - L10 rank value at solutions — consistent at $\le 2n - 4$ across `synthesis`, `standalone`, `research_state`, `consolidated_private`.
 - Counterexample coordinates — preserved verbatim from `standalone` §D and verified to be cited identically in source notes.
 - $n = 39$ circulant impossibility proof — independently confirmed by `source_notes/12_n39_circulant_degeneracy.md` and the linearized-system blow-up in `source_notes/13_n39_raw_search_notes_and_code.md`.
