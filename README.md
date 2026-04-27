@@ -26,8 +26,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/n8-incidence-enumeration.md`](docs/n8-incidence-enumeration.md).
 - For the `n=8` exact survivor obstruction artifact, read
   [`docs/n8-exact-survivors.md`](docs/n8-exact-survivors.md).
-- For the crossing-bisector and mutual-rhombus fixed-pattern filters, read
-  [`docs/mutual-rhombus-filter.md`](docs/mutual-rhombus-filter.md).
+- For the crossing-bisector, mutual-rhombus, and vertex-circle fixed-pattern
+  filters, read [`docs/mutual-rhombus-filter.md`](docs/mutual-rhombus-filter.md)
+  and [`docs/vertex-circle-order-filter.md`](docs/vertex-circle-order-filter.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).
 - For known bad proof routes, read [`docs/failed-ideas.md`](docs/failed-ideas.md).
 - For the verification standard, read [`docs/verification-contract.md`](docs/verification-contract.md).
@@ -92,11 +93,13 @@ strictly convex realization for those classes. See
 theorem claims should still get independent review of the computer-assisted
 artifacts.
 
-The crossing-bisector and mutual-rhombus filters now exactly kill several
-previously live fixed selected-witness patterns, including
+The crossing-bisector, mutual-rhombus, cyclic crossing-CSP, and vertex-circle
+order filters now exactly kill several previously live fixed selected-witness
+patterns, including
 `B12_3x4_danzer_lift`, `B20_4x5_FR_lift`, `C17_skew`, `C20_pm_4_9`,
-`C16_pm_1_6`, `C13_pm_3_5`, and `C9_pm_2_4`. These are fixed-pattern
-obstructions, not a general proof of the problem.
+`C16_pm_1_6`, `C13_pm_3_5`, `C9_pm_2_4`, `P18_parity_balanced`, and
+`P24_parity_balanced`. These are fixed-pattern obstructions, not a general
+proof of the problem.
 
 The previous best numerical near-miss was `B12_3x4_danzer_lift`. It remains a
 useful degeneration diagnostic, but the fixed selected pattern is now exactly
@@ -175,6 +178,7 @@ Use these labels consistently:
 │   ├── n8-incidence-enumeration.md    # n=8 incidence-completeness proof
 │   ├── n8-exact-survivors.md          # n=8 exact survivor obstructions
 │   ├── mutual-rhombus-filter.md       # exact fixed-pattern filters
+│   ├── vertex-circle-order-filter.md  # exact cyclic-order distance filter
 │   ├── sat-smt-plan.md                # finite abstraction plan
 │   ├── literature-risk.md             # what has/has not been checked
 │   └── verification-contract.md       # candidate acceptance requirements
@@ -204,6 +208,7 @@ python scripts/analyze_n8_exact_survivors.py --check --json
 erdos97-search --list-patterns
 erdos97-search --verify data/runs/best_B12_slsqp_m1e-6.json --tol 1e-6
 python scripts/check_mutual_rhombus_filter.py --assert-expected
+python scripts/check_vertex_circle_order_filter.py --pattern P18_parity_balanced --search --assert-obstructed
 ```
 
 Run a small search:

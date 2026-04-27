@@ -27,6 +27,8 @@ put detailed reconciliation in the canonical synthesis.
   diagonal-sum obstruction for cyclic-offset patterns.
 - [`cyclic-crossing-csp.md`](cyclic-crossing-csp.md): exact cyclic-order
   crossing CSP for two-overlap patterns.
+- [`vertex-circle-order-filter.md`](vertex-circle-order-filter.md): exact
+  row-wise convexity-distance filter for cyclic orders.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`
   selected-witness obstruction.
 - [`n7-fano-obstruction.md`](n7-fano-obstruction.md): proof note for the

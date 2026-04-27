@@ -48,16 +48,18 @@ runs may pass `--full-conflicts` when a full deterministic trace is desired.
 ## P18_parity_balanced
 
 `P18_parity_balanced` is killed in natural order by adjacent-row two-overlap via
-the crossing-bisection lemma. It survives the current arbitrary-order crossing
-filters. One compatible cyclic order is:
+the crossing-bisection lemma. It survives the arbitrary-order crossing-only
+filter. One compatible cyclic order is:
 
 ```text
 0,8,4,15,1,5,11,9,3,7,17,13,2,6,14,10,16,12
 ```
 
-Thus the abstract-incidence status remains unresolved
-algebraically/geometrically; `P18_parity_balanced` is not globally archived as
-killed.
+Thus crossing constraints alone do not kill the abstract incidence pattern.
+The stronger crossing plus vertex-circle strict-cycle search now kills it as a
+fixed selected-witness abstract incidence pattern; see
+`docs/vertex-circle-order-filter.md` and
+`data/certificates/p18_vertex_circle_order_unsat.json`.
 
 ## P24_parity_balanced
 

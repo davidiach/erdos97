@@ -23,8 +23,8 @@
     "n": 18,
     "formula": "even offsets {-7,-2,4,8}; odd offsets {-8,-4,2,7}",
     "type": "period-2",
-    "status": "natural-order status: killed by adjacent-row two-overlap via crossing-bisector; abstract-incidence status: survives current crossing filters, with a compatible cyclic order recorded",
-    "trust": "INCIDENCE_PATTERN"
+    "status": "natural-order status: killed by adjacent-row two-overlap via crossing-bisector; abstract-incidence status: killed by exact crossing plus vertex-circle order strict-cycle search",
+    "trust": "EXACT_OBSTRUCTION"
   },
   {
     "rank": 4,
@@ -41,7 +41,7 @@
     "n": 19,
     "formula": "offsets {-8,-3,5,9}",
     "type": "skew circulant",
-    "status": "natural-order status: exactly killed by Altman diagonal-order sums; abstract-incidence status: live/sparse with no phi edges and no mutual-rhombus or forced-perpendicularity obstruction",
+    "status": "natural-order status: exactly killed by Altman diagonal-order sums; abstract-incidence status: live/sparse with no phi edges and no mutual-rhombus, forced-perpendicularity, or vertex-circle obstruction currently known",
     "trust": "INCIDENCE_PATTERN"
   },
   {

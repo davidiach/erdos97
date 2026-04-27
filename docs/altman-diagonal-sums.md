@@ -79,4 +79,4 @@ Thus `C19_skew` is exactly obstructed in natural cyclic order.
 - Altman's diagonal-order obstruction is natural-cyclic-order only.
 - It does not kill abstract-incidence versions with arbitrary cyclic relabeling.
 - `C19_skew` remains an abstract-incidence sparse survivor of the current
-  `phi`, midpoint, and forced-perpendicularity filters.
+  `phi`, midpoint, forced-perpendicularity, and vertex-circle filters.
