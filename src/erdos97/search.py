@@ -23,10 +23,8 @@ from __future__ import annotations
 
 import argparse
 import dataclasses
-import itertools
 import json
 import math
-import random
 import time
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
@@ -125,51 +123,6 @@ def block_pattern(m: int, q: int, offsets: Sequence[Tuple[int, int]], name: str)
     return PatternInfo(name=name, n=n, S=S, family=f"block-{m}x{q}", formula=f"i=(a,b), S_i=(a,b)+{list(offsets)} mod ({m},{q})")
 
 
-def random_pattern(n: int, rng: random.Random, max_pair_common: int = 2, balanced: bool = True,
-                   max_tries: int = 100000, name: str = "random") -> PatternInfo:
-    """Generate a random 4-out pattern with pairwise |S_a cap S_b| <= max_pair_common.
-
-    If balanced=True, keep indegrees near 4 using a soft greedy objective.
-    """
-    if max_tries <= 0:
-        raise ValueError(f"max_tries must be positive, got {max_tries}")
-
-    for _ in range(max_tries):
-        S: Pattern = [[] for _ in range(n)]
-        indeg = [0] * n
-        failed = False
-        for i in range(n):
-            candidates = [j for j in range(n) if j != i]
-            ok_sets = []
-            for comb in itertools.combinations(candidates, 4):
-                ss = set(comb)
-                if all(len(ss.intersection(S[a])) <= max_pair_common for a in range(i)):
-                    score = sum((indeg[j] + 1 - 4) ** 2 - (indeg[j] - 4) ** 2 for j in comb) if balanced else 0
-                    # Discourage four clustered choices on one side in cyclic order.
-                    gaps = cyclic_gaps(sorted(comb), n)
-                    cluster_penalty = max(gaps)  # if max gap huge, selected points are clustered
-                    ok_sets.append((score + 0.02 * cluster_penalty + rng.random() * 1e-3, list(comb)))
-            if not ok_sets:
-                failed = True
-                break
-            ok_sets.sort(key=lambda t: t[0])
-            # Pick from a small elite set for diversity.
-            chosen = rng.choice(ok_sets[: min(50, len(ok_sets))])[1]
-            S[i] = sorted(chosen)
-            for j in chosen:
-                indeg[j] += 1
-        if not failed:
-            return PatternInfo(
-                name=name,
-                n=n,
-                S=S,
-                family="random-greedy",
-                formula="greedy random 4-out, pairwise common-neighbor cap",
-            )
-
-    raise RuntimeError(f"random_pattern failed after {max_tries} attempts; try larger n or max_pair_common")
-
-
 def cyclic_gaps(vals: Sequence[int], n: int) -> List[int]:
     vals = sorted(vals)
     return [((vals[(k + 1) % len(vals)] - vals[k]) % n) for k in range(len(vals))]
@@ -207,7 +160,8 @@ def softmax(z: Array) -> Array:
 def softplus(x: Array, beta: float = 20.0) -> Array:
     # stable softplus(x) / beta approx max(x, 0)
     bx = beta * x
-    return np.where(bx > 40, x, np.log1p(np.exp(bx)) / beta)
+    safe_bx = np.minimum(bx, 40.0)
+    return np.where(bx > 40, x, np.log1p(np.exp(safe_bx)) / beta)
 
 
 def rotate_points(P: Array, theta: float) -> Array:
@@ -516,15 +470,6 @@ def residual_vector(x: Array, n: int, S: Pattern, mode: str, weights: LossWeight
     return np.concatenate(res) if res else np.zeros(0)
 
 
-def equality_only_loss(P: Array, S: Pattern) -> float:
-    D2 = pairwise_sqdist(P)
-    terms = []
-    for i, Si in enumerate(S):
-        vals = np.array([D2[i, j] for j in Si])
-        terms.extend((vals - vals.mean()).tolist())
-    return float(np.mean(np.square(terms))) if terms else 0.0
-
-
 # ------------------------------ search --------------------------------------
 
 def search_pattern(pat: PatternInfo, mode: str = "polar", restarts: int = 20,
@@ -574,8 +519,6 @@ def search_pattern(pat: PatternInfo, mode: str = "polar", restarts: int = 20,
     if best is None or best_x is None:
         raise RuntimeError("all restarts failed")
     P = polygon_from_x(best_x, n, mode)
-    # If overall orientation is clockwise, flip coordinates and relabel S accordingly? We do not relabel;
-    # the generated polar order should be CCW unless centering causes numerical area flip. Report as is.
     diag = independent_diagnostics(P, pat.S)
     elapsed = time.time() - start
     return SearchResult(
@@ -689,6 +632,9 @@ def z3_incidence_search(n: int, max_pair_common: int = 2, balance_indegree: bool
     matrix satisfying the chosen finite constraints; it says nothing directly about
     Euclidean realizability.
     """
+    if n < 5:
+        raise ValueError(f"z3_incidence_search requires n >= 5, got {n}")
+
     try:
         import z3  # type: ignore
     except Exception as e:
