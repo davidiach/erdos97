@@ -239,9 +239,8 @@ class N7Analysis:
 def analyze_n7_witness_pattern(pattern: Sequence[Sequence[int]]) -> N7Analysis:
     """Analyze an n=7 witness pattern satisfying the circle-intersection cap.
 
-    The returned ``geometrically_realizable`` field is always ``False`` for a
-    cap-satisfying n=7 pattern, because the induced chord permutation must have
-    an odd perpendicularity cycle.
+    For a cap-satisfying n=7 equality pattern, the induced chord permutation has
+    21 chords and therefore an odd perpendicularity cycle.
     """
 
     W = validate_witness_pattern(pattern, n=7)
@@ -265,12 +264,19 @@ def analyze_n7_witness_pattern(pattern: Sequence[Sequence[int]]) -> N7Analysis:
     cycles = permutation_cycles(mapping)
     cycle_lengths = tuple(len(cycle) for cycle in cycles)
     has_odd = any(length % 2 for length in cycle_lengths)
-    obstruction = (
-        "The common-witness chord map is a permutation of the 21 chords. "
-        "It has an odd cycle, but each map edge would impose perpendicularity; "
-        "alternating perpendicularity around an odd cycle is impossible for "
-        "nonzero Euclidean chords."
-    )
+    if has_odd:
+        obstruction = (
+            "The common-witness chord map is a permutation of the 21 chords. "
+            "It has an odd cycle, but each map edge would impose perpendicularity; "
+            "alternating perpendicularity around an odd cycle is impossible for "
+            "nonzero Euclidean chords."
+        )
+    else:
+        obstruction = (
+            "The common-witness chord map has no odd cycle in this input, so "
+            "this helper does not derive the odd-cycle perpendicularity "
+            "obstruction."
+        )
     return N7Analysis(
         witness_pattern=W,
         complement_pattern=complements_from_witnesses(W),

@@ -1,12 +1,13 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "erdos97-research"
 version = "0.1.0"
 description = "Research tooling for Erdős Problem #97"
-license = { text = "MIT" }
+license = "MIT"
+license-files = ["LICENSE-CODE.md"]
 requires-python = ">=3.10"
 dependencies = [
   "numpy>=1.24",
