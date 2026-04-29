@@ -12,8 +12,8 @@ spread plateaus near 3.4 across four orders of magnitude in margin. This is
 qualitatively different from the `B12_3x4_danzer_lift` cluster-degeneration
 signature, where residual decays monotonically as the margin tightens and the
 optimum collapses toward a degenerate equilateral-triangle skeleton. Both
-outcomes are informative; for `C13_sidon_1_2_4_10` the outcome is a positive
-residual lower bound, consistent with the LLM-run conjecture that Sidon-type
+outcomes are informative; for `C13_sidon_1_2_4_10` the outcome is an apparent
+positive residual plateau, consistent with the LLM-run conjecture that Sidon-type
 cohort patterns form a structural wall against the row-4 matrix bound but are
 not realisable by any strictly convex 13-gon. This is numerical evidence
 only.
@@ -104,7 +104,7 @@ squared radius is 1; squared-distance spreads are in those units.)
 1. **Residual plateaus, not decreases monotonically.** Tightening the
    margin by three orders of magnitude moves `eq_rms` from `0.848` to
    `0.838`. Differences are at the third decimal; the equality residual
-   is essentially flat at a positive lower bound. This contrasts with
+   is essentially flat at an apparent positive residual floor. This contrasts with
    the B12 archive (`best_B12_slsqp_m1e-6.json`), where `eq_rms` decays
    to `~2e-3` and `max_spread` to `~7e-3` as the margin tightens, with
    the optimum collapsing toward four near-equilateral clusters.
@@ -143,7 +143,7 @@ numerics are consistent with one.
 - Try `--optimizer trf` on the same pattern with strong convex-margin
   weight as an independent crosscheck of the plateau.
 - Try the `direct` and `support` parameterisations to confirm the residual
-  lower bound is not an artefact of polar gauge fixing.
+  plateau is not an artefact of polar gauge fixing.
 - Increase restarts beyond 20 and seeds beyond `2026`.
 - If the plateau survives all three of those, attempt an exact-rank
   argument or a vertex-circle / mutual-rhombus extension targeted at the

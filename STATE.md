@@ -103,7 +103,7 @@ RMS equality residual at each margin:  0.848, 0.841, 0.839, 0.838
 max squared-distance spread:           3.38, 3.37, 3.37, 3.37
 convexity margin achieved:             1e-3, 1e-4, 1e-5, 1e-6 (hits bound)
 min edge length:                       3.3e-2, 1.1e-2, 3.3e-3, 1.0e-3
-status: equality residual plateaus at a positive lower bound; not a
+status: equality residual shows an apparent positive plateau; not a
         cluster-collapse signature; numerical only, not a proof
 ```
 
