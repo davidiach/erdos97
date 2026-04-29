@@ -29,6 +29,8 @@ put detailed reconciliation in the canonical synthesis.
   crossing CSP for two-overlap patterns.
 - [`vertex-circle-order-filter.md`](vertex-circle-order-filter.md): exact
   row-wise convexity-distance filter for cyclic orders.
+- [`two-orbit-radius-propagation.md`](two-orbit-radius-propagation.md): exact
+  obstruction for a half-step two-orbit near-regular ansatz.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`
   selected-witness obstruction.
 - [`n8-incidence-enumeration.md`](n8-incidence-enumeration.md): reproducible
