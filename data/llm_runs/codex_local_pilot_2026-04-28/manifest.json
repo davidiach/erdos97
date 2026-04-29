@@ -1,0 +1,31 @@
+{
+  "run_set": "codex_local_pilot_2026-04-28",
+  "created_date": "2026-04-28",
+  "source_prompt_pack": "C:\\Users\\User\\Desktop\\code\\erd archive\\outputs\\data\\erdos97_prompt_pack_comparison_and_v3.md",
+  "runner": "Codex local conversation, not isolated API batch runs",
+  "status": "research_artifact_only",
+  "interpretation_warning": "These outputs are not independent fresh GPT-5.5 Pro runs and must not be treated as proof, disproof, or official status evidence.",
+  "primary_prompts_run": [0, 1, 2, 3],
+  "runs": [
+    {
+      "run_id": "p00_codex_local_01",
+      "prompt_id": 0,
+      "output_file": "p00_method_free_control.md"
+    },
+    {
+      "run_id": "p01_codex_local_01",
+      "prompt_id": 1,
+      "output_file": "p01_centered_circle_matrix.md"
+    },
+    {
+      "run_id": "p02_codex_local_01",
+      "prompt_id": 2,
+      "output_file": "p02_affine_circuit_rank.md"
+    },
+    {
+      "run_id": "p03_codex_local_01",
+      "prompt_id": 3,
+      "output_file": "p03_minimal_counterexample_fragility.md"
+    }
+  ]
+}

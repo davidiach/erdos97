@@ -1,0 +1,11 @@
+{
+  "run_set": "ten_prompt_review_2026-04-29",
+  "created_date": "2026-04-29",
+  "source": "User-supplied ten local prompt outputs and GPT Pro review",
+  "status": "reviewed_research_artifact_only",
+  "interpretation_warning": "No complete proof or counterexample is claimed. This artifact records reliable partial lemmas, rejected claims, and next obstructions from the ten outputs.",
+  "files": [
+    "corrected_synthesis.md",
+    "audit.md"
+  ]
+}
