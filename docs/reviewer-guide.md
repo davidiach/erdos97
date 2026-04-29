@@ -25,6 +25,13 @@ python scripts/enumerate_n8_incidence.py --summary
 python scripts/analyze_n8_exact_survivors.py --check --json
 ```
 
+For a version-matched reproduction run, replace `pip install -e .[dev]` with:
+
+```bash
+pip install -r requirements-lock.txt
+pip install -e . --no-deps
+```
+
 ## Expected `n=8` outputs
 
 For `python scripts/enumerate_n8_incidence.py --summary`, expected invariants:
@@ -58,6 +65,8 @@ invariants:
 4. `docs/n8-incidence-enumeration.md`
 5. `docs/n8-exact-survivors.md`
 6. `docs/verification-contract.md`
+7. `docs/n8-geometric-proof.md`
+8. `docs/review-priorities.md`
 
 ## Review target A - `n=7`
 
@@ -87,11 +96,24 @@ Check:
 - the strict-convexity obstruction cases;
 - the archived-ID provenance mapping.
 
+## Review target D - `n=8` geometric proof note
+
+Check:
+
+- the base-apex lemma and its strict-convexity hypothesis;
+- the isosceles-triangle count and octagon equality saturation;
+- the length-2 diagonal argument forcing equal side lengths;
+- the length-3 diagonal argument forcing a cover of adjacent turn-angle pairs;
+- the exterior-turn contradiction.
+
 ## Known weak points / independent review requests
 
 - Independent audit of `scripts/enumerate_n8_incidence.py`.
 - Independent audit of exact certificates, especially classes `3`, `4`, and
   `14` if those remain singled out in `RESULTS.md`.
+- A minimal standalone class `14` checker would be especially valuable because
+  that obstruction combines Groebner reasoning with a strict-interior
+  conclusion.
 - Independent reproduction of `certificates/n8_exact_analysis.json`.
 - A Lean, SMT, interval, or algebraic certificate checker would be high value.
 

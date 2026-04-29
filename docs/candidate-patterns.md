@@ -7,7 +7,7 @@ designs only; geometric realization is a separate problem.
 
 | Rank | Name | n | Formula | Type | Current status |
 |---:|---|---:|---|---|---|
-| 1 | `C19_skew` | 19 | offsets `{-8,-3,5,9}` | skew circulant | natural-order status: exactly killed by Altman diagonal-order sums; abstract-incidence status: live/sparse, with no `phi` edges and no mutual-rhombus, forced-perpendicularity, or vertex-circle obstruction currently known[^repo] |
+| 1 | `C19_skew` | 19 | offsets `{-8,-3,5,9}` | skew circulant | natural-order status: exactly killed by Altman diagonal-order sums; abstract-incidence status: live/sparse, with no `phi` edges and no mutual-rhombus, forced-perpendicularity, vertex-circle, or minimum-radius obstruction currently known[^repo] |
 | 11 | `C13_sidon_1_2_4_10` | 13 | offsets `{1,2,4,10}` | Sidon circulant | Singer `(13,4,1)` planar-difference-set circulant; `|S_a cap S_b| = 1` for every `a != b`; SLSQP evidence plateaus at `eq_rms ~ 0.84` under strict convexity margins; NUMERICAL_EVIDENCE only |
 | 12 | `C25_sidon_2_5_9_14` | 25 | offsets `{2,5,9,14}` | Sidon circulant | Sidon incidence pattern with `|S_a cap S_b| in {0,1}`; cataloged but not yet run numerically |
 | 13 | `C29_sidon_1_3_7_15` | 29 | offsets `{1,3,7,15}` | Sidon circulant | Sidon incidence pattern with `|S_a cap S_b| in {0,1}`; cataloged but not yet run numerically |
@@ -16,7 +16,9 @@ The live abstract-incidence patterns above pass the row-overlap filter
 `|S_i cap S_j| <= 2` before numerical optimization. `C19_skew`'s natural-order
 realization is already exactly obstructed; its abstract-order status is tracked
 separately.[^comp] The Sidon entries are incidence-pattern leads, not
-geometric realizability claims.
+geometric realizability claims. The minimum-radius short-chord filter is also
+recorded as a weak exact necessary test, but it does not kill `C19_skew` in
+natural order or as currently implemented; see `docs/minimum-radius-filter.md`.
 
 ## Natural-order killed / abstract-order status patterns
 

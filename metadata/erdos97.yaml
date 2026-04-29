@@ -33,9 +33,17 @@ local_repo:
   main_entry_points:
     - "STATE.md"
     - "RESULTS.md"
+    - "docs/review-priorities.md"
     - "docs/n8-incidence-enumeration.md"
     - "docs/n8-exact-survivors.md"
+    - "docs/n8-geometric-proof.md"
     - "docs/verification-contract.md"
+
+reproducibility:
+  known_good_dependency_snapshot: "requirements-lock.txt"
+  known_good_python: "3.12.2"
+  snapshot_date: "2026-04-29"
+  note: "Dependency snapshot records a reproduced local environment only; it is not a mathematical certificate."
 
 trust_policy:
   no_overclaiming: true
