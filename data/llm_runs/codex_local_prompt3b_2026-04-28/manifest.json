@@ -1,0 +1,22 @@
+{
+  "run_set": "codex_local_prompt3b_2026-04-28",
+  "created_date": "2026-04-28",
+  "source": "Follow-up to codex_local_pilot_2026-04-28 Prompt 3 output",
+  "runner": "Codex local conversation, not isolated API batch runs",
+  "status": "research_artifact_only",
+  "interpretation_warning": "This artifact proves only the fragile-cover lemma from the stated definitions. It does not prove Erdos Problem #97 and does not change the repository's global/open status.",
+  "outputs": [
+    {
+      "run_id": "p03b_codex_local_proof_01",
+      "output_file": "run_a_fragile_cover_repair.md"
+    },
+    {
+      "run_id": "p03b_codex_local_audit_01",
+      "output_file": "run_b_obstruction_audit.md"
+    },
+    {
+      "run_id": "p03b_codex_local_consequence_01",
+      "output_file": "run_c_hypergraph_consequences.md"
+    }
+  ]
+}
