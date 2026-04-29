@@ -233,9 +233,10 @@ in at most two rows, so `3d <= 14` and `d <= 4`. Since the total indegree is
 
 ### Vertex cone and chord order
 
-At a vertex of a strictly convex polygon, all other vertices lie in the open
-cone between the two incident edges. Boundary order therefore agrees with
-angular order around that vertex.[^digest]
+At a vertex of a strictly convex polygon, all other vertices lie in the closed
+cone spanned by the two incident edges. Only the two adjacent vertices lie on
+the boundary rays, and all non-adjacent vertices lie in the open cone. Boundary
+order therefore agrees with angular order around that vertex.[^digest]
 
 For witnesses on a circle centered at that vertex, chord length is
 `2r sin(theta/2)` and is monotone while the angular separation is below `pi`.
