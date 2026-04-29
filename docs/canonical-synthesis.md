@@ -128,7 +128,7 @@ These are used everywhere downstream and are not in dispute.
 
 | ID | Statement | Why |
 |---|---|---|
-| **L1** | Cone containment. All other vertices of $P$ lie inside an open cone $K_i$ at $v_i$ with opening angle $\alpha_i \in (0, \pi)$; the angular span of $W_i$ around $v_i$ is $< \pi$. | Strict convexity + vertex on hull. |
+| **L1** | Cone containment. All other vertices of $P$ lie in the closed cone spanned by the two incident edges at $v_i$; only adjacent vertices lie on the boundary rays, all non-adjacent vertices lie in the open cone, and the angular span of $W_i$ around $v_i$ is $< \pi$. | Strict convexity + vertex on hull. |
 | **L2** | No three polygon vertices are collinear. | Strict convexity. |
 | **L3** | Boundary cyclic order matches angular order at any vertex. | L1 + L2. |
 | **L4** | Perpendicular-bisector vertex bound. For any unordered pair $\{a, b\}$, at most 2 polygon vertices $v$ satisfy $\|v - a\| = \|v - b\|$. | The locus is one line; intersects a strictly convex polygon in at most 2 points. |
