@@ -102,6 +102,21 @@ settles the uniform-radius subcase. The canonical synthesis records this as a
 direction-of-bound error: `2n-7` is a lower-bound construction, not the needed
 `< 2n` upper bound.[^canon]
 
+## 16. Metric-linear rank obstruction without convexity
+
+Failure mode: exact selected-distance equations, the strong linear row
+condition `|S_i cap S_j| <= 1`, and local Jacobian rigidity modulo
+similarities do not by themselves force a strictly convex polygon. The
+24-point radial-alternating construction checked by
+`scripts/verify_p24_metric_linear_nonconvex.py` satisfies every selected
+equal-distance row and has exact Jacobian rank `44` in `48` coordinate
+variables, but its signed turns alternate and it is not convex.
+
+Use this as a negative control: a proof route based only on metric equations,
+lifted affine circuits, row-linearity, or rank must fail on this construction.
+Any successful impossibility proof must use strict convexity, cyclic-order
+signs, one-sidedness, or another convexity-specific ingredient.[^p24]
+
 [^lit]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md`.
 [^forest]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/11_forest_lemma_counterexample_review.md`.
 [^rank]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/03_RANK_AND_BRIDGE_STATUS.md`.
@@ -111,3 +126,4 @@ direction-of-bound error: `2n-7` is a lower-bound construction, not the needed
 [^paper]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/05_rank_scaling_and_verifier_review.md`.
 [^syn]: Source file: `erd archive/outputs/erdos97_synthesis.md`.
 [^canon]: Source file: `docs/canonical-synthesis.md`.
+[^p24]: Source files: `erd archive/outputs/data/1/linear_case_geometry_handoff.md` and `erd archive/outputs/data/1/verify_24_point_near_counterexample.py`.
