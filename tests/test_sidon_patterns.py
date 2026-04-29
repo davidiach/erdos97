@@ -7,8 +7,11 @@ import numpy as np
 
 from erdos97.search import (
     built_in_patterns,
+    convexity_margin,
+    convexity_margins,
     circulant_pattern,
     incidence_obstruction_stats,
+    orient_margins,
     polygon_from_x,
     slsqp_search,
 )
@@ -71,6 +74,23 @@ def test_catalog_json_contains_sidon_entries() -> None:
         assert name in names
 
 
+def test_full_convexity_margin_rejects_local_turn_false_positive() -> None:
+    """A locally left-turning cyclic chain need not be strictly convex."""
+    P = np.array(
+        [
+            [-1.9442649759855442, -1.3077531969011476],
+            [1.0868307847683634, -0.050604063111342405],
+            [-0.2831250656795347, 1.643251614242697],
+            [-1.2826492440738984, -0.5856577998413593],
+            [-0.47258767675848407, 0.5863372815313004],
+        ],
+        dtype=float,
+    )
+    assert orient_margins(P).min() > 0.0
+    assert convexity_margins(P).min() < 0.0
+    assert convexity_margin(P) < 0.0
+
+
 def test_slsqp_search_runs_and_returns_feasible_polygon() -> None:
     pat = built_in_patterns()["C13_sidon_1_2_4_10"]
     margin = 1e-3
@@ -79,7 +99,6 @@ def test_slsqp_search_runs_and_returns_feasible_polygon() -> None:
     P = polygon_from_x(x, pat.n, "polar")
     # Hard-margin feasibility on the returned configuration.
     from erdos97.search import (
-        convexity_margin,
         min_edge_length,
         min_pair_distance,
     )

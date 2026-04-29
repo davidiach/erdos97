@@ -214,19 +214,19 @@ def pairwise_sqdist(P: Array) -> Array:
     return np.sum(D * D, axis=2)
 
 
-def convexity_margin(P: Array) -> float:
-    """Return the strict convexity margin for the supplied cyclic order.
+def convexity_margins(P: Array) -> Array:
+    """Return all strict-convexity edge-vs-vertex margins.
 
-    The margin is the minimum signed area over every directed boundary edge and
-    every non-incident vertex. Positive margin means every other vertex lies
-    strictly to the same side of each oriented edge.
+    The entries are signed areas over every directed boundary edge and every
+    non-incident vertex, with the sign normalized by the polygon orientation.
+    Positive entries mean every non-incident vertex lies strictly to the same
+    side of every oriented edge.
     """
     Q = np.asarray(P, dtype=float)
     n = len(Q)
     if n < 3:
-        return float("-inf")
-    if polygon_area2(Q) < 0:
-        Q = Q[::-1]
+        return np.array([float("-inf")], dtype=float)
+    sign = -1.0 if polygon_area2(Q) < 0 else 1.0
     margins: List[float] = []
     for i in range(n):
         a = Q[i]
@@ -236,8 +236,20 @@ def convexity_margin(P: Array) -> float:
             if j == i or j == (i + 1) % n:
                 continue
             v = Q[j] - a
-            margins.append(float(edge[0] * v[1] - edge[1] * v[0]))
-    return min(margins) if margins else float("-inf")
+            margins.append(float(sign * (edge[0] * v[1] - edge[1] * v[0])))
+    if not margins:
+        return np.array([float("-inf")], dtype=float)
+    return np.array(margins, dtype=float)
+
+
+def convexity_margin(P: Array) -> float:
+    """Return the strict convexity margin for the supplied cyclic order.
+
+    The margin is the minimum signed area over every directed boundary edge and
+    every non-incident vertex. Positive margin means every other vertex lies
+    strictly to the same side of each oriented edge.
+    """
+    return float(np.min(convexity_margins(P)))
 
 
 def min_edge_length(P: Array) -> float:
@@ -448,11 +460,10 @@ def residual_vector(x: Array, n: int, S: Pattern, mode: str, weights: LossWeight
     if eq_terms:
         res.append(math.sqrt(weights.eq) * np.concatenate(eq_terms))
 
-    # Strict convexity: all consecutive orientation determinants positive.
-    ori = orient_margins(P)
-    if polygon_area2(P) < 0:
-        ori = -ori
-    res.append(math.sqrt(weights.convex) * softplus(convex_margin - ori))
+    # Strict convexity: every non-incident vertex stays on the same side of
+    # every polygon edge, matching the verifier-grade convexity_margin.
+    conv = convexity_margins(P)
+    res.append(math.sqrt(weights.convex) * softplus(convex_margin - conv))
 
     # Edge and pair separation.
     ed = np.linalg.norm(np.roll(P, -1, axis=0) - P, axis=1)
@@ -506,12 +517,9 @@ def slsqp_search(pat: PatternInfo, mode: str, restarts: int, seed: int,
         r = equality_residual(x, n, S, mode)
         return float(np.dot(r, r))
 
-    def orient_constraint(x: Array) -> Array:
+    def convexity_constraint(x: Array) -> Array:
         P = polygon_from_x(x, n, mode)
-        ori = orient_margins(P)
-        if polygon_area2(P) < 0:
-            ori = -ori
-        return ori - margin
+        return convexity_margins(P) - margin
 
     def edge_constraint(x: Array) -> Array:
         P = polygon_from_x(x, n, mode)
@@ -525,7 +533,7 @@ def slsqp_search(pat: PatternInfo, mode: str, restarts: int, seed: int,
         return D[iu] - margin
 
     constraints = [
-        {"type": "ineq", "fun": orient_constraint},
+        {"type": "ineq", "fun": convexity_constraint},
         {"type": "ineq", "fun": edge_constraint},
         {"type": "ineq", "fun": pair_constraint},
     ]
@@ -549,7 +557,7 @@ def slsqp_search(pat: PatternInfo, mode: str, restarts: int, seed: int,
         if not np.all(np.isfinite(res.x)):
             continue
         # Reject restarts that violate the hard margins; keep only feasible local optima.
-        if (orient_constraint(res.x).min() < -1e-9
+        if (convexity_constraint(res.x).min() < -1e-9
                 or edge_constraint(res.x).min() < -1e-9
                 or pair_constraint(res.x).min() < -1e-9):
             if verbose:

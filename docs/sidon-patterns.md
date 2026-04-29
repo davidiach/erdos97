@@ -6,7 +6,7 @@ Trust label: NUMERICAL_EVIDENCE. No proof, no counterexample claim.
 
 For `C13_sidon_1_2_4_10` -- the (13,4,1) Singer planar-difference-set
 circulant -- constrained SLSQP under strict convexity does **not** drive the
-equality residual toward zero as the convexity / edge margin is tightened.
+equality residual toward zero as the convexity margin is tightened.
 The RMS equality residual plateaus near 0.84 and the per-row squared-distance
 spread plateaus near 3.4 across four orders of magnitude in margin. This is
 qualitatively different from the `B12_3x4_danzer_lift` cluster-degeneration
@@ -57,8 +57,10 @@ with soft barrier penalties. The Sidon test requires hard-margin strict
 convexity, so an SLSQP path was added:
 
 - `--optimizer slsqp`: minimise the squared distance-equality residual
-  subject to inequality constraints `orient_margin >= margin`,
-  `edge_length >= margin`, `pair_distance >= margin`.
+  subject to inequality constraints `convexity_margin >= margin`,
+  `edge_length >= margin`, `pair_distance >= margin`. Here
+  `convexity_margin` is the verifier-grade full edge-vs-vertex margin, not
+  just consecutive-turn orientation.
 - `--margin <value>`: numerical convexity / edge / pair margin enforced as
   a hard SLSQP constraint (and used as a soft margin under `--optimizer trf`).
 
@@ -106,11 +108,12 @@ squared radius is 1; squared-distance spreads are in those units.)
    the B12 archive (`best_B12_slsqp_m1e-6.json`), where `eq_rms` decays
    to `~2e-3` and `max_spread` to `~7e-3` as the margin tightens, with
    the optimum collapsing toward four near-equilateral clusters.
-2. **Min edge length tracks the imposed margin almost exactly.**
+2. **The full convexity margin hits the imposed bound.**
    `min_edge` shrinks from `3.3e-2` at `m=1e-3` to `1.0e-3` at `m=1e-6`,
-   essentially hitting the imposed bound. The optimiser is fighting the
-   convexity / edge wall; relaxing it just lets the polygon get
-   marginally thinner, not closer to satisfying the equality system.
+   but remains well above the imposed edge and pair-distance floor. The
+   optimiser is primarily fighting the convexity wall; relaxing that wall
+   lets the polygon get marginally thinner, not closer to satisfying the
+   equality system.
 3. **No cluster collapse.** Radii vary from `~0.55` to `~1.76` with
    `std ~ 0.39`. Vertices are spread, not bunched. The B12 signature of
    four-cluster collapse near an equilateral skeleton is absent here.
