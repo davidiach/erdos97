@@ -85,6 +85,46 @@ verification threshold and the other collapses to a non-strict configuration.[^c
 1. `C19_skew`: sparse common-neighbor overlap; not killed by the current
    mutual-rhombus filter, and not killed by the vertex-circle filter for the
    known acyclic abstract order.[^repo]
+2. `C13_sidon_1_2_4_10`: (13,4,1) Singer planar-difference-set circulant.
+   `|S_a cap S_b| = 1` for every distinct pair. No exact filter currently
+   kills it. NUMERICAL_EVIDENCE only: see below.
+
+## Numerical status: C13 Sidon-type circulant
+
+NUMERICAL_EVIDENCE. Constrained SLSQP under hard strict-convexity / edge /
+pair margins, polar parameterisation, 20 restarts, seed `2026`, on
+`C13_sidon_1_2_4_10`:
+
+```text
+n: 13
+pattern: C13_sidon_1_2_4_10
+margin schedule: 1e-3, 1e-4, 1e-5, 1e-6
+RMS equality residual at each margin:  0.848, 0.841, 0.839, 0.838
+max squared-distance spread:           3.38, 3.37, 3.37, 3.37
+convexity margin achieved:             1e-3, 1e-4, 1e-5, 1e-6 (hits bound)
+min edge length:                       3.3e-2, 1.1e-2, 3.3e-3, 1.0e-3
+status: equality residual plateaus at a positive lower bound; not a
+        cluster-collapse signature; numerical only, not a proof
+```
+
+The residual does not decrease monotonically as the margin tightens
+(`eq_rms` moves only from `0.848` to `0.838` over three orders of
+magnitude in margin), and the optimum does not cluster. This is
+qualitatively different from the B12 cluster degeneration. It is
+consistent with the prior LLM-run conjecture that Sidon-type cohort
+patterns form a structural wall against the row-4 matrix bound but are
+not realisable by a strictly convex polygon. **It is not a proof.** The
+trust label is NUMERICAL_EVIDENCE; the pattern is not promoted to
+COUNTEREXAMPLE_CANDIDATE because the simultaneous criteria
+(`residual < 1e-10`, `convexity margin > 1e-3`, `min edge length > 1e-3`)
+are not met, and -- the opposite reading -- a positive residual does not
+by itself constitute an obstruction proof. Independent verification with
+different parameterisations (`direct`, `support`) and more restarts is
+recommended before any structural claim. See
+`docs/sidon-patterns.md` and `data/runs/C13_sidon_m{1e-3,1e-4,1e-5,1e-6}.json`.
+
+The catalog also contains `C25_sidon_2_5_9_14` and `C29_sidon_1_3_7_15`
+as cheap-to-define INCIDENCE_PATTERN entries. They have not been run.
 
 ## Top killed approaches
 
