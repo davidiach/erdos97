@@ -29,3 +29,16 @@ Only attempt exactification for robust candidates with tiny residual and nondege
 
 For finite obstruction work, exactification may also start from a complete
 incidence survivor list, as in the checked `n=8` pipeline.
+
+## Near-term review push
+
+- Treat `docs/n8-geometric-proof.md` as the main human-readable small-case proof
+  target, pending independent review.
+- Build a minimal independent checker for the checked `n=8` incidence and exact
+  obstruction data.
+- Isolate the class `14` PB+ED and strict-interior certificate into a small
+  standalone verifier.
+- Extend the minimum-radius short-chord idea only if it grows into
+  radius-inequality propagation or cyclic-order search; by itself it does not
+  kill `C19_skew`.
+- Keep `n >= 9` exploration separate from the repo-local `n <= 8` artifact.

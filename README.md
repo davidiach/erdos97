@@ -16,6 +16,8 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/upstream-alignment.md`](docs/upstream-alignment.md).
 - For independent audit instructions, read
   [`docs/reviewer-guide.md`](docs/reviewer-guide.md).
+- For current review priorities, read
+  [`docs/review-priorities.md`](docs/review-priorities.md).
 - For canonical status metadata, see
   [`metadata/erdos97.yaml`](metadata/erdos97.yaml).
 - For documentation navigation, read [`docs/index.md`](docs/index.md).
@@ -31,6 +33,8 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the crossing-bisector, mutual-rhombus, and vertex-circle fixed-pattern
   filters, read [`docs/mutual-rhombus-filter.md`](docs/mutual-rhombus-filter.md)
   and [`docs/vertex-circle-order-filter.md`](docs/vertex-circle-order-filter.md).
+- For the weak exact minimum-radius short-chord filter, read
+  [`docs/minimum-radius-filter.md`](docs/minimum-radius-filter.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).
 - For known bad proof routes, read [`docs/failed-ideas.md`](docs/failed-ideas.md).
 - For the verification standard, read [`docs/verification-contract.md`](docs/verification-contract.md).
@@ -210,6 +214,17 @@ erdos97-search --list-patterns
 erdos97-search --verify data/runs/best_B12_slsqp_m1e-6.json --tol 1e-6
 python scripts/check_mutual_rhombus_filter.py --assert-expected
 python scripts/check_vertex_circle_order_filter.py --pattern P18_parity_balanced --search --assert-obstructed
+python scripts/check_min_radius_filter.py --pattern C19_skew --assert-pass
+```
+
+For a version-matched reproduction environment, install the checked snapshot
+before installing this package:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements-lock.txt
+pip install -e . --no-deps
 ```
 
 Run a small search:

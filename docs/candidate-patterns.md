@@ -7,11 +7,14 @@ designs only; geometric realization is a separate problem.
 
 | Rank | Name | n | Formula | Type | Current status |
 |---:|---|---:|---|---|---|
-| 1 | `C19_skew` | 19 | offsets `{-8,-3,5,9}` | skew circulant | natural-order status: exactly killed by Altman diagonal-order sums; abstract-incidence status: live/sparse, with no `phi` edges and no mutual-rhombus, forced-perpendicularity, or vertex-circle obstruction currently known[^repo] |
+| 1 | `C19_skew` | 19 | offsets `{-8,-3,5,9}` | skew circulant | natural-order status: exactly killed by Altman diagonal-order sums; abstract-incidence status: live/sparse, with no `phi` edges and no mutual-rhombus, forced-perpendicularity, vertex-circle, or minimum-radius obstruction currently known[^repo] |
 
 The live abstract-incidence pattern above should pass the row-overlap filter
 `|S_i cap S_j| <= 2` before numerical optimization. Its natural-order
-realization is already exactly obstructed.[^comp]
+realization is already exactly obstructed.[^comp] The minimum-radius
+short-chord filter is also recorded as a weak exact necessary test, but it does
+not kill `C19_skew` in natural order or as currently implemented; see
+`docs/minimum-radius-filter.md`.
 
 ## Natural-order killed / abstract-order status patterns
 

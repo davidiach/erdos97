@@ -12,6 +12,8 @@ put detailed reconciliation in the canonical synthesis.
   `teorth/erdosproblems` and the official problem page.
 - [`reviewer-guide.md`](reviewer-guide.md): audit route for finite-case
   artifacts and exact certificates.
+- [`review-priorities.md`](review-priorities.md): current independent-review
+  priorities; planning guidance only, not mathematical evidence.
 - [`canonical-synthesis.md`](canonical-synthesis.md): long-form canonical
   synthesis, claim taxonomy, failed-route reconciliation, and source/hash
   inventory.
@@ -29,6 +31,9 @@ put detailed reconciliation in the canonical synthesis.
   crossing CSP for two-overlap patterns.
 - [`vertex-circle-order-filter.md`](vertex-circle-order-filter.md): exact
   row-wise convexity-distance filter for cyclic orders.
+- [`minimum-radius-filter.md`](minimum-radius-filter.md): weak exact
+  minimum-radius short-chord filter; records why it does not kill `C19_skew`
+  by itself.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`
   selected-witness obstruction.
 - [`n8-incidence-enumeration.md`](n8-incidence-enumeration.md): reproducible
@@ -47,6 +52,8 @@ put detailed reconciliation in the canonical synthesis.
   killed incidence patterns.
 - [`verification-contract.md`](verification-contract.md): requirements for
   numerical candidates and certified counterexamples.
+- [`../requirements-lock.txt`](../requirements-lock.txt): known-good direct
+  dependency snapshot for reproduction.
 - [`exactification-plan.md`](exactification-plan.md): route from numerical
   artifacts to exact or certified verification.
 - [`sat-smt-plan.md`](sat-smt-plan.md): finite abstraction and solver plan.
