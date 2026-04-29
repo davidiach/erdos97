@@ -64,6 +64,27 @@ current exactification frontier is to understand special rank-drop loci for
 fixed patterns, especially whether an ear-orderable pattern can be ruled out
 by combining a repaired rank theorem with the scaling-kernel lemma.[^rank]
 
+## Affine-circuit quotient checker
+
+The Prompt 2 affine-circuit reduction is implemented as an exact SymPy checker
+in `src/erdos97/affine_circuit_certificates.py`, with a CLI smoke test in
+`scripts/check_affine_circuit_certificates.py`.
+
+For a fixed coordinate set and chosen four-cohorts, the checker builds the
+signed affine-circuit matrix `L`, verifies the lifted kernel
+`span(1,x,y,x^2+y^2)`, quotients by a nonsingular four-point lifted base,
+peels singleton rows to a weighted two-core, and searches for minimal cofactor
+certificates. This is an exact finite diagnostic for a selected cohort system,
+not a proof of the general problem.
+
+Example commands:
+
+```bash
+python scripts/check_affine_circuit_certificates.py --example single-circle-row --assert-expected
+python scripts/check_affine_circuit_certificates.py --example golden-decagon --assert-expected
+python scripts/check_affine_circuit_certificates.py --example golden-decagon --json
+```
+
 ## Certificate format
 
 A certificate should contain:

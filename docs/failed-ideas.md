@@ -117,6 +117,16 @@ lifted affine circuits, row-linearity, or rank must fail on this construction.
 Any successful impossibility proof must use strict convexity, cyclic-order
 signs, one-sidedness, or another convexity-specific ingredient.[^p24]
 
+## 17. Half-step two-orbit near-regular ansatz
+
+Failure mode: the two concentric half-step-offset orbit construction can make
+the selected four-distance equations hold exactly, but the same equations force
+the inner radius below the alternating convexity threshold. In the notation of
+`docs/two-orbit-radius-propagation.md`, the equations force
+`S/R = sqrt(1 + sin^2 h) - sin h < cos h`, while strict convexity requires
+`S/R > cos h`. This is a useful perturbative base, not a live counterexample
+candidate.
+
 [^lit]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md`.
 [^forest]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/11_forest_lemma_counterexample_review.md`.
 [^rank]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/03_RANK_AND_BRIDGE_STATUS.md`.
