@@ -1,0 +1,9 @@
+# Known-good direct dependency snapshot for finite-artifact reproduction.
+# Generated from the local environment on 2026-04-29 with Python 3.12.2.
+# This is a reproducibility aid, not a mathematical certificate.
+numpy==2.4.4
+scipy==1.17.1
+pytest==9.0.3
+PyYAML==6.0.3
+sympy==1.14.0
+z3-solver==4.16.0.0
