@@ -23,8 +23,9 @@ Let `P` be a strict convex polygon in cyclic order. Fix a vertex `i`, and let
 
 The angular order of the vertices around `p_i` is the polygon boundary order
 with `i` removed, up to reversal. All angular separations among those vertices
-lie in `(0, pi)`, because all other polygon vertices lie in the open angle
-formed by the two boundary edges incident to the hull vertex `i`.
+lie in `(0, pi)`: the other polygon vertices lie in the closed angle formed by
+the two boundary edges incident to the hull vertex `i`, only adjacent vertices
+can lie on the boundary rays, and the opening angle is less than `pi`.
 
 If the angular interval from `a_r` to `a_s` properly contains the angular
 interval from `a_u` to `a_v`, then
