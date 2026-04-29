@@ -30,7 +30,7 @@ from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
 import numpy as np
 from numpy.typing import NDArray
-from scipy.optimize import least_squares, differential_evolution
+from scipy.optimize import least_squares, differential_evolution, minimize
 
 Array = NDArray[np.float64]
 Pattern = List[List[int]]
@@ -145,6 +145,11 @@ def built_in_patterns() -> Dict[str, PatternInfo]:
     # Multi-orbit/block patterns inspired by Danzer-style layered configurations.
     pats.append(block_pattern(3, 4, [(1, 0), (2, 0), (1, 1), (2, -1)], "B12_3x4_danzer_lift"))
     pats.append(block_pattern(4, 5, [(1, 0), (3, 0), (1, 2), (3, -2)], "B20_4x5_FR_lift"))
+    # Sidon-type circulants: D is a Sidon set, so |S_a cap S_b| in {0,1}.
+    # Including the (13,4,1) Singer planar difference set translated off zero.
+    pats.append(circulant_pattern(13, [1, 2, 4, 10], "C13_sidon_1_2_4_10"))
+    pats.append(circulant_pattern(25, [2, 5, 9, 14], "C25_sidon_2_5_9_14"))
+    pats.append(circulant_pattern(29, [1, 3, 7, 15], "C29_sidon_1_3_7_15"))
     return {p.name: p for p in pats}
 
 
@@ -209,19 +214,19 @@ def pairwise_sqdist(P: Array) -> Array:
     return np.sum(D * D, axis=2)
 
 
-def convexity_margin(P: Array) -> float:
-    """Return the strict convexity margin for the supplied cyclic order.
+def convexity_margins(P: Array) -> Array:
+    """Return all strict-convexity edge-vs-vertex margins.
 
-    The margin is the minimum signed area over every directed boundary edge and
-    every non-incident vertex. Positive margin means every other vertex lies
-    strictly to the same side of each oriented edge.
+    The entries are signed areas over every directed boundary edge and every
+    non-incident vertex, with the sign normalized by the polygon orientation.
+    Positive entries mean every non-incident vertex lies strictly to the same
+    side of every oriented edge.
     """
     Q = np.asarray(P, dtype=float)
     n = len(Q)
     if n < 3:
-        return float("-inf")
-    if polygon_area2(Q) < 0:
-        Q = Q[::-1]
+        return np.array([float("-inf")], dtype=float)
+    sign = -1.0 if polygon_area2(Q) < 0 else 1.0
     margins: List[float] = []
     for i in range(n):
         a = Q[i]
@@ -231,8 +236,20 @@ def convexity_margin(P: Array) -> float:
             if j == i or j == (i + 1) % n:
                 continue
             v = Q[j] - a
-            margins.append(float(edge[0] * v[1] - edge[1] * v[0]))
-    return min(margins) if margins else float("-inf")
+            margins.append(float(sign * (edge[0] * v[1] - edge[1] * v[0])))
+    if not margins:
+        return np.array([float("-inf")], dtype=float)
+    return np.array(margins, dtype=float)
+
+
+def convexity_margin(P: Array) -> float:
+    """Return the strict convexity margin for the supplied cyclic order.
+
+    The margin is the minimum signed area over every directed boundary edge and
+    every non-incident vertex. Positive margin means every other vertex lies
+    strictly to the same side of each oriented edge.
+    """
+    return float(np.min(convexity_margins(P)))
 
 
 def min_edge_length(P: Array) -> float:
@@ -443,11 +460,10 @@ def residual_vector(x: Array, n: int, S: Pattern, mode: str, weights: LossWeight
     if eq_terms:
         res.append(math.sqrt(weights.eq) * np.concatenate(eq_terms))
 
-    # Strict convexity: all consecutive orientation determinants positive.
-    ori = orient_margins(P)
-    if polygon_area2(P) < 0:
-        ori = -ori
-    res.append(math.sqrt(weights.convex) * softplus(convex_margin - ori))
+    # Strict convexity: every non-incident vertex stays on the same side of
+    # every polygon edge, matching the verifier-grade convexity_margin.
+    conv = convexity_margins(P)
+    res.append(math.sqrt(weights.convex) * softplus(convex_margin - conv))
 
     # Edge and pair separation.
     ed = np.linalg.norm(np.roll(P, -1, axis=0) - P, axis=1)
@@ -472,10 +488,97 @@ def residual_vector(x: Array, n: int, S: Pattern, mode: str, weights: LossWeight
 
 # ------------------------------ search --------------------------------------
 
+def equality_residual(x: Array, n: int, S: Pattern, mode: str) -> Array:
+    """Pure distance-equality residual (no convexity / edge / pair penalties)."""
+    P = polygon_from_x(x, n, mode)
+    D2 = pairwise_sqdist(P)
+    terms = []
+    for i, Si in enumerate(S):
+        vals = np.array([D2[i, j] for j in Si], dtype=float)
+        terms.append(vals - vals.mean())
+    return np.concatenate(terms) if terms else np.zeros(0)
+
+
+def slsqp_search(pat: PatternInfo, mode: str, restarts: int, seed: int,
+                 max_nfev: int, margin: float, verbose: bool = False) -> Tuple[float, Array, int]:
+    """Constrained SLSQP: minimise ||eq_residual||^2 subject to strict-convexity,
+    edge-length, and pair-distance margins, all >= margin > 0.
+
+    Returns (best_loss, best_x, best_seed_offset). The polygon parameterisation
+    is governed by `mode` exactly as for the trust-region path; no coordinate
+    symmetry is imposed on cyclic patterns -- the parameterization gives free
+    angles and free radii.
+    """
+    rng = np.random.default_rng(seed)
+    n = pat.n
+    S = pat.S
+
+    def loss(x: Array) -> float:
+        r = equality_residual(x, n, S, mode)
+        return float(np.dot(r, r))
+
+    def convexity_constraint(x: Array) -> Array:
+        P = polygon_from_x(x, n, mode)
+        return convexity_margins(P) - margin
+
+    def edge_constraint(x: Array) -> Array:
+        P = polygon_from_x(x, n, mode)
+        ed = np.linalg.norm(np.roll(P, -1, axis=0) - P, axis=1)
+        return ed - margin
+
+    def pair_constraint(x: Array) -> Array:
+        P = polygon_from_x(x, n, mode)
+        D = pairwise_distances(P)
+        iu = np.triu_indices(n, 1)
+        return D[iu] - margin
+
+    constraints = [
+        {"type": "ineq", "fun": convexity_constraint},
+        {"type": "ineq", "fun": edge_constraint},
+        {"type": "ineq", "fun": pair_constraint},
+    ]
+
+    best_loss = float("inf")
+    best_x: Optional[Array] = None
+    for r in range(restarts):
+        x0 = init_x(n, rng, mode, jitter=0.45 if r else 0.10)
+        try:
+            res = minimize(
+                loss,
+                x0,
+                method="SLSQP",
+                constraints=constraints,
+                options={"maxiter": max(50, max_nfev // 10), "ftol": 1e-12, "disp": False},
+            )
+        except Exception as e:
+            if verbose:
+                print(f"slsqp restart {r} failed: {e}", flush=True)
+            continue
+        if not np.all(np.isfinite(res.x)):
+            continue
+        # Reject restarts that violate the hard margins; keep only feasible local optima.
+        if (convexity_constraint(res.x).min() < -1e-9
+                or edge_constraint(res.x).min() < -1e-9
+                or pair_constraint(res.x).min() < -1e-9):
+            if verbose:
+                print(f"slsqp restart {r}: infeasible at termination", flush=True)
+            continue
+        if res.fun < best_loss:
+            best_loss = float(res.fun)
+            best_x = np.asarray(res.x, dtype=float).copy()
+            if verbose:
+                print(f"slsqp restart {r}: loss={res.fun:.3e}", flush=True)
+
+    if best_x is None:
+        raise RuntimeError("all SLSQP restarts produced infeasible or failed solutions")
+    return best_loss, best_x, seed
+
+
 def search_pattern(pat: PatternInfo, mode: str = "polar", restarts: int = 20,
                    seed: int = 0, max_nfev: int = 3000,
                    weights: Optional[LossWeights] = None,
-                   use_de: bool = False, verbose: bool = False) -> SearchResult:
+                   use_de: bool = False, verbose: bool = False,
+                   optimizer: str = "trf", margin: float = 1e-3) -> SearchResult:
     rng = np.random.default_rng(seed)
     weights = weights or LossWeights()
     n = pat.n
@@ -483,8 +586,35 @@ def search_pattern(pat: PatternInfo, mode: str = "polar", restarts: int = 20,
     best_x = None
     start = time.time()
 
+    if optimizer == "slsqp":
+        loss_value, best_x, _ = slsqp_search(pat, mode, restarts, seed, max_nfev, margin, verbose)
+        P = polygon_from_x(best_x, n, mode)
+        diag = independent_diagnostics(P, pat.S)
+        elapsed = time.time() - start
+        return SearchResult(
+            pattern_name=pat.name,
+            n=n,
+            mode=f"{mode}_slsqp_m{margin:.0e}",
+            loss=float(loss_value),
+            eq_rms=float(diag["eq_rms"]),
+            max_spread=float(diag["max_spread"]),
+            max_rel_spread=float(diag["max_rel_spread"]),
+            convexity_margin=float(diag["convexity_margin"]),
+            min_edge_length=float(diag["min_edge_length"]),
+            min_pair_distance=float(diag["min_pair_distance"]),
+            success=True,
+            message="SLSQP terminated; reported best feasible restart",
+            elapsed_sec=float(elapsed),
+            seed=int(seed),
+            x=[float(v) for v in best_x],
+            coordinates=[[float(a), float(b)] for a, b in P],
+            S=[[int(j) for j in row] for row in pat.S],
+            distance_table=diag["distance_table"],
+        )
+
     def fun(x: Array) -> Array:
-        return residual_vector(x, n, pat.S, mode, weights)
+        return residual_vector(x, n, pat.S, mode, weights,
+                               convex_margin=margin, min_edge=margin, min_pair=margin)
 
     # Optional global pre-search on a modest box. Often too slow for n>16, but useful for smoke tests.
     if use_de:
@@ -711,6 +841,10 @@ def main() -> None:
     ap.add_argument("--verify", default="")
     ap.add_argument("--tol", type=float, default=1e-8)
     ap.add_argument("--min-margin", type=float, default=1e-8)
+    ap.add_argument("--optimizer", choices=["trf", "slsqp"], default="trf",
+                    help="trf = least_squares trust region (legacy); slsqp = constrained SLSQP with hard margins")
+    ap.add_argument("--margin", type=float, default=1e-3,
+                    help="strict-convexity, edge-length and pair-distance margin enforced as a hard constraint under slsqp (and as a soft margin under trf)")
     args = ap.parse_args()
 
     pats = built_in_patterns()
@@ -730,7 +864,8 @@ def main() -> None:
         raise SystemExit(f"unknown pattern {args.pattern}; use --list-patterns")
     pat = pats[args.pattern]
     result = search_pattern(pat, mode=args.mode, restarts=args.restarts, seed=args.seed,
-                            max_nfev=args.max_nfev, use_de=args.use_de, verbose=args.verbose)
+                            max_nfev=args.max_nfev, use_de=args.use_de, verbose=args.verbose,
+                            optimizer=args.optimizer, margin=args.margin)
     data = result_to_json(result)
     print(json.dumps({k: data[k] for k in [
         "pattern_name", "n", "mode", "loss", "eq_rms", "max_spread", "max_rel_spread",

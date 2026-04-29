@@ -88,5 +88,32 @@
     "type": "palindromic circulant",
     "status": "exactly killed by mutual-rhombus midpoint equations; all labels collapse",
     "trust": "EXACT_OBSTRUCTION"
+  },
+  {
+    "rank": 11,
+    "name": "C13_sidon_1_2_4_10",
+    "n": 13,
+    "formula": "offsets {1,2,4,10} (Singer (13,4,1) planar difference set)",
+    "type": "Sidon circulant",
+    "status": "every nonzero residue appears exactly once as a difference of D, so |S_a cap S_b| = 1 for every a != b; LLM-run conjecture: structural wall against the row-4 matrix bound; numerical realizability under strict convexity tested by SLSQP",
+    "trust": "INCIDENCE_PATTERN"
+  },
+  {
+    "rank": 12,
+    "name": "C25_sidon_2_5_9_14",
+    "n": 25,
+    "formula": "offsets {2,5,9,14}",
+    "type": "Sidon circulant",
+    "status": "D = {2,5,9,14} is Sidon: 12 pairwise differences distinct mod 25; |S_a cap S_b| in {0,1} for every a != b; defined for catalog completeness, not yet run numerically",
+    "trust": "INCIDENCE_PATTERN"
+  },
+  {
+    "rank": 13,
+    "name": "C29_sidon_1_3_7_15",
+    "n": 29,
+    "formula": "offsets {1,3,7,15}",
+    "type": "Sidon circulant",
+    "status": "D = {1,3,7,15} is Sidon: 12 pairwise differences distinct mod 29; |S_a cap S_b| in {0,1} for every a != b; defined for catalog completeness, not yet run numerically",
+    "trust": "INCIDENCE_PATTERN"
   }
 ]

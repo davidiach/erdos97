@@ -128,6 +128,27 @@ See `docs/mutual-rhombus-filter.md` and
 
 ## Numerical Attempts
 
+### C13_sidon_1_2_4_10
+
+Status: Sidon-type incidence-pattern lead; numerical evidence only.
+
+Diagnostics from constrained SLSQP with polar parameterization, 20 restarts,
+seed `2026`, and hard verifier-grade convexity / edge / pair margins:
+
+- margins tested: `1e-3`, `1e-4`, `1e-5`, `1e-6`
+- RMS equality residuals: `0.848`, `0.841`, `0.839`, `0.838`
+- max selected-distance spreads: about `3.37` to `3.38`
+- achieved convexity margins: approximately the requested margin in each run
+- minimum edge lengths: `3.3e-2`, `1.1e-2`, `3.3e-3`, `1.0e-3`
+
+Interpretation:
+
+The runs do not produce a near-miss counterexample. The equality residual stays
+large in normalized coordinates and is best read as a plateau in the SLSQP basin,
+not as an exact obstruction. The pattern remains an `INCIDENCE_PATTERN`, and the
+run artifacts are `NUMERICAL_EVIDENCE` only. See `docs/sidon-patterns.md` and
+`data/runs/C13_sidon_m{1e-3,1e-4,1e-5,1e-6}.json`.
+
 ### B12_3x4_danzer_lift
 
 Status: historical near-miss degeneration; fixed selected pattern exactly
