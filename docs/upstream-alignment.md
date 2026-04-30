@@ -9,9 +9,21 @@ Problem #97. It is not a replacement for the public Erdos problem database.
 
 - Official page: <https://www.erdosproblems.com/97>
 - Status: falsifiable/open
+- Status checked: 2026-04-30
+- Page last edited: 2025-10-27
+- Comment solution claims: none partial or complete
 - Prize: $100
 - Tags: geometry, distances, convex
-- Formalised statement: yes
+- Formalised statement: yes, but not a formal proof
+
+## Formalization note
+
+The Google DeepMind Formal Conjectures entry
+`FormalConjectures/ErdosProblems/97.lean` is useful for statement alignment:
+it encodes the variable-radius `HasNEquidistantProperty 4` statement and marks
+`erdos_97` as `research open`. The theorem body uses `sorry`, and the nearby
+Danzer and Fishburn--Reeds `k=3` variants also use `sorry`; do not cite those
+Lean entries as proof certificates.
 
 ## Local repository status
 
