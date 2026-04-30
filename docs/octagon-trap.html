@@ -83,6 +83,21 @@
       line-height: 1.35;
     }
 
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 7px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .link-row a {
+      color: var(--teal);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
     .badge {
       flex: 0 0 auto;
       border: 1px solid #d6cda5;
@@ -309,9 +324,14 @@
       accent-color: var(--blue);
     }
 
+    input[type="range"]:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
     .button-row {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
       gap: 6px;
     }
 
@@ -404,7 +424,12 @@
     <header class="topbar">
       <div class="brand">
         <h1>Octagon Trap</h1>
-        <div class="subtitle">An interactive view of the small-case obstruction for Erdos Problem #97.</div>
+        <div class="subtitle">An interactive view of a proof-note draft for the small-case obstruction in Erdos Problem #97; independent review is still pending.</div>
+        <nav class="link-row" aria-label="Reference links">
+          <a href="./n8-geometric-proof.md">Proof note</a>
+          <a href="https://www.erdosproblems.com/97">Official #97 page</a>
+          <a href="https://github.com/davidiach/erdos97">Repository</a>
+        </nav>
       </div>
       <div class="badge">Small-case result only: not a proof of the full problem</div>
     </header>
@@ -418,12 +443,12 @@
             <button class="segment" data-step="payoff" aria-pressed="false">First payoff</button>
             <button class="segment" data-step="octagon" aria-pressed="false">Octagon trap</button>
           </div>
-          <button class="reset" id="resetBtn">Reset shape</button>
+          <button class="reset" id="resetBtn">New shape</button>
         </div>
 
         <div class="board-shell">
           <canvas id="board" aria-label="Draggable convex polygon visualization"></canvas>
-          <div class="status-pill" id="convexStatus">
+          <div class="status-pill" id="convexStatus" role="status" aria-live="polite">
             <span class="dot" id="convexDot"></span>
             <span id="convexText">Strictly convex polygon</span>
           </div>
@@ -469,7 +494,7 @@
 
           <div class="control">
             <label>Base type</label>
-            <div class="button-row">
+            <div class="button-row" id="baseButtons">
               <button class="mini" data-offset="1" aria-pressed="true">Side</button>
               <button class="mini" data-offset="2" aria-pressed="false">Length 2</button>
               <button class="mini" data-offset="3" aria-pressed="false">Length 3</button>
@@ -500,6 +525,7 @@
     const resetBtn = document.getElementById("resetBtn");
     const convexDot = document.getElementById("convexDot");
     const convexText = document.getElementById("convexText");
+    const baseButtons = document.getElementById("baseButtons");
 
     const colors = {
       ink: "#0b1538",
@@ -533,14 +559,14 @@
       payoff: {
         number: "3",
         title: "First payoff",
-        copy: "Combining the lower count and upper count forces 6n <= n(n-2). That immediately rules out every bad polygon with seven or fewer vertices.",
+        copy: "In the draft proof note, combining the lower count and upper count forces 6n <= n(n-2). Subject to independent review, this rules out every bad polygon with seven or fewer vertices.",
         formula: "6n <= n(n - 2)",
         formulaCopy: "The inequality starts being possible only at n = 8."
       },
       octagon: {
         number: "4",
         title: "Octagon trap",
-        copy: "At n = 8 the count is exactly tight. Saturation forces equal side lengths, then length-3 diagonals force a vertex cover of 120 degree exterior turns.",
+        copy: "At n = 8 the draft proof note says the count is exactly tight. Saturation forces equal side lengths, then length-3 diagonals force a vertex cover of 120 degree exterior turns.",
         formula: "4 x 120deg = 480deg",
         formulaCopy: "But exterior turns in a convex polygon sum to 360 degrees."
       }
@@ -628,8 +654,7 @@
       return state.vertices
         .map((v, i) => ({ i, d: i === state.center ? Infinity : distance(p, v) }))
         .sort((a, b) => a.d - b.d)
-        .slice(0, Math.min(4, state.n - 1))
-        .map(item => item.i);
+        .slice(0, Math.min(4, state.n - 1));
     }
 
     function basePair() {
@@ -691,17 +716,22 @@
     function drawApexStep() {
       const p = toScreen(state.vertices[state.center]);
       const witnesses = witnessIndices();
-      const avg = witnesses.reduce((sum, i) => sum + distance(state.vertices[state.center], state.vertices[i]), 0) / witnesses.length;
+      const witnessIds = witnesses.map(item => item.i);
+      const avg = witnesses.reduce((sum, item) => sum + item.d, 0) / witnesses.length;
+      const spread = Math.max(...witnesses.map(item => item.d)) - Math.min(...witnesses.map(item => item.d));
+      const nearlyCocircular = spread < 0.045;
 
       ctx.save();
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, avg * state.bounds.scale, 0, Math.PI * 2);
-      lineDash(true);
-      ctx.strokeStyle = colors.blue;
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
+      if (nearlyCocircular) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, avg * state.bounds.scale, 0, Math.PI * 2);
+        lineDash(true);
+        ctx.strokeStyle = colors.blue;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
 
-      witnesses.forEach((i, idx) => {
+      witnessIds.forEach((i, idx) => {
         const w = toScreen(state.vertices[i]);
         ctx.beginPath();
         ctx.moveTo(p.x, p.y);
@@ -709,9 +739,20 @@
         ctx.strokeStyle = colors.blue;
         ctx.lineWidth = 1.2;
         ctx.stroke();
+        if (!nearlyCocircular) {
+          const angle = Math.atan2(w.y - p.y, w.x - p.x);
+          const tx = w.x - Math.cos(angle) * 18;
+          const ty = w.y - Math.sin(angle) * 18;
+          ctx.beginPath();
+          ctx.moveTo(tx - Math.sin(angle) * 5, ty + Math.cos(angle) * 5);
+          ctx.lineTo(tx + Math.sin(angle) * 5, ty - Math.cos(angle) * 5);
+          ctx.strokeStyle = colors.blue;
+          ctx.lineWidth = 2;
+          ctx.stroke();
+        }
         if (idx < witnesses.length - 1) {
           for (let j = idx + 1; j < witnesses.length; j += 1) {
-            const q = toScreen(state.vertices[witnesses[j]]);
+            const q = toScreen(state.vertices[witnessIds[j]]);
             ctx.beginPath();
             ctx.moveTo(w.x, w.y);
             ctx.lineTo(q.x, q.y);
@@ -726,7 +767,7 @@
 
       const extra = {};
       extra[state.center] = { fill: colors.blue, radius: 10, label: "p" };
-      witnesses.forEach(i => extra[i] = { fill: colors.orange, radius: 8 });
+      witnessIds.forEach(i => extra[i] = { fill: colors.orange, radius: 8 });
       drawAllVertices(extra);
     }
 
@@ -831,8 +872,47 @@
       ctx.restore();
     }
 
+    function drawForcedTurnMarker(point, startAngle, radius, label) {
+      const sweep = (2 * Math.PI) / 3;
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, radius, startAngle, startAngle + sweep, false);
+      ctx.strokeStyle = colors.orange;
+      ctx.lineWidth = 5;
+      ctx.stroke();
+      const mid = startAngle + sweep / 2;
+      ctx.font = "800 13px ui-sans-serif, system-ui";
+      ctx.fillStyle = colors.orange;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(label, point.x + Math.cos(mid) * (radius + 24), point.y + Math.sin(mid) * (radius + 24));
+      ctx.restore();
+    }
+
     function drawOctagonStep() {
-      if (state.n !== 8) return;
+      if (state.n !== 8) {
+        ctx.save();
+        ctx.fillStyle = "rgba(255, 255, 255, 0.92)";
+        ctx.strokeStyle = colors.line;
+        ctx.lineWidth = 1.5;
+        const boxW = Math.min(360, state.bounds.width - 48);
+        const boxH = 104;
+        const x = (state.bounds.width - boxW) / 2;
+        const y = (state.bounds.height - boxH) / 2;
+        ctx.beginPath();
+        ctx.roundRect(x, y, boxW, boxH, 8);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = colors.ink;
+        ctx.font = "800 18px ui-sans-serif, system-ui";
+        ctx.textAlign = "center";
+        ctx.fillText("Octagon step is n = 8 only", state.bounds.width / 2, y + 40);
+        ctx.fillStyle = colors.muted;
+        ctx.font = "600 13px ui-sans-serif, system-ui";
+        ctx.fillText("Switch back to earlier steps to explore other vertex counts.", state.bounds.width / 2, y + 68);
+        ctx.restore();
+        return;
+      }
       const forced = [0, 2, 4, 6];
       ctx.save();
       for (let i = 0; i < state.n; i += 1) {
@@ -857,14 +937,31 @@
       }
       ctx.restore();
 
-      forced.forEach(i => {
-        drawArcMarker(
-          state.vertices[i],
-          state.vertices[mod(i - 1)],
-          state.vertices[mod(i + 1)],
-          32,
-          "120deg"
-        );
+      const cx = state.bounds.width - 104;
+      const cy = 96;
+      const turnRadius = 42;
+      ctx.save();
+      ctx.fillStyle = "rgba(255, 255, 255, 0.88)";
+      ctx.strokeStyle = colors.line;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(cx - 76, cy - 60, 152, 132, 8);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = colors.muted;
+      ctx.font = "800 12px ui-sans-serif, system-ui";
+      ctx.textAlign = "center";
+      ctx.fillText("forced turn budget", cx, cy - 38);
+      ctx.strokeStyle = "rgba(21, 86, 192, 0.2)";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(cx, cy + 8, turnRadius, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+
+      forced.forEach((i, idx) => {
+        const start = -Math.PI / 2 + idx * (Math.PI / 2);
+        drawForcedTurnMarker({ x: cx, y: cy + 8 }, start, turnRadius, "120deg");
       });
 
       const extra = {};
@@ -923,13 +1020,13 @@
       baseValue.textContent = String(state.baseStart);
       centerRange.max = String(state.n - 1);
       baseRange.max = String(state.n - 1);
+      nRange.disabled = state.step === "octagon";
+      nRange.setAttribute("aria-disabled", state.step === "octagon" ? "true" : "false");
 
       document.querySelectorAll(".segment").forEach(btn => {
         btn.setAttribute("aria-pressed", btn.dataset.step === state.step ? "true" : "false");
       });
-      document.querySelectorAll(".mini").forEach(btn => {
-        btn.setAttribute("aria-pressed", Number(btn.dataset.offset) === state.baseOffset ? "true" : "false");
-      });
+      updateBaseButtons();
 
       const lower = 6 * state.n;
       const upper = state.n * (state.n - 2);
@@ -939,7 +1036,8 @@
         apex: [
           ["Every bad center contributes at least six triples.", "orange"],
           [`Current count preview: lower bound 6n = ${lower}.`, ""],
-          ["The highlighted vertices are a proof sketch layer, not a certificate that the dragged shape is bad.", ""]
+          ["The highlighted vertices are a proof sketch layer, not a certificate that the dragged shape is bad.", ""],
+          ["When the four nearest vertices are not nearly cocircular, the canvas shows ticked rays instead of a witness circle.", ""]
         ],
         base: [
           [`Selected base capacity: at most ${baseCap} apex${baseCap === 1 ? "" : "es"}.`, ""],
@@ -947,12 +1045,13 @@
         ],
         payoff: [
           [`For n = ${state.n}: 6n = ${lower}, while n(n-2) = ${upper}.`, canPass ? "" : "red"],
-          [canPass ? "The double count does not rule this n out by itself." : "The double count rules this n out immediately.", canPass ? "orange" : "red"]
+          [canPass ? "The double count does not rule this n out by itself." : "The draft proof note's double count rules this n out immediately.", canPass ? "orange" : "red"]
         ],
         octagon: [
+          ["This step is specific to n = 8; the vertex-count slider is locked while this tab is active.", ""],
           ["In the equality case, every side and diagonal must hit its maximum base capacity.", ""],
           ["Length-2 diagonals force equal sides; length-3 diagonals force a vertex cover by 120 degree turns.", "orange"],
-          ["The 120 degree markers show the forced-cover contradiction, not measured angles of the draggable sketch.", ""],
+          ["The 120 degree markers are drawn in the forced-turn budget inset, not as measured angles of the draggable sketch.", ""],
           ["Four forced 120 degree turns already exceed the 360 degree exterior-turn budget.", "red"]
         ]
       }[state.step];
@@ -970,12 +1069,36 @@
       state.n = n;
       state.center = Math.min(state.center, n - 1);
       state.baseStart = Math.min(state.baseStart, n - 1);
+      state.baseOffset = Math.min(state.baseOffset, maxBaseOffset(n));
       state.vertices = makeShape(n);
       nRange.value = String(n);
       centerRange.value = String(state.center);
       baseRange.value = String(state.baseStart);
       updatePanel();
       draw();
+    }
+
+    function maxBaseOffset(n = state.n) {
+      return Math.floor(n / 2);
+    }
+
+    function baseOffsetLabel(offset) {
+      return offset === 1 ? "Side" : `Length ${offset}`;
+    }
+
+    function updateBaseButtons() {
+      const maxOffset = maxBaseOffset();
+      if (state.baseOffset > maxOffset) state.baseOffset = maxOffset;
+      baseButtons.innerHTML = "";
+      for (let offset = 1; offset <= maxOffset; offset += 1) {
+        const btn = document.createElement("button");
+        btn.className = "mini";
+        btn.type = "button";
+        btn.dataset.offset = String(offset);
+        btn.setAttribute("aria-pressed", offset === state.baseOffset ? "true" : "false");
+        btn.textContent = baseOffsetLabel(offset);
+        baseButtons.appendChild(btn);
+      }
     }
 
     function pointerPos(event) {
@@ -1046,15 +1169,21 @@
       });
     });
 
-    document.querySelectorAll(".mini").forEach(btn => {
-      btn.addEventListener("click", () => {
-        state.baseOffset = Number(btn.dataset.offset);
-        updatePanel();
-        draw();
-      });
+    baseButtons.addEventListener("click", event => {
+      const btn = event.target.closest(".mini");
+      if (!btn) return;
+      state.baseOffset = Number(btn.dataset.offset);
+      updatePanel();
+      draw();
     });
 
-    nRange.addEventListener("input", () => setN(Number(nRange.value)));
+    nRange.addEventListener("input", () => {
+      if (state.step === "octagon") {
+        nRange.value = "8";
+        return;
+      }
+      setN(Number(nRange.value));
+    });
     centerRange.addEventListener("input", () => {
       state.center = Number(centerRange.value);
       updatePanel();
