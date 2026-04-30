@@ -31,6 +31,8 @@ def generated_n8_incidence_data() -> dict:
     return enumeration_data(reconstructed)
 
 
+@pytest.mark.slow
+@pytest.mark.exhaustive
 def test_n8_incidence_enumeration_counts_and_matches_reconstructed_survivors(
     generated_n8_incidence_data: dict,
 ) -> None:
@@ -40,6 +42,8 @@ def test_n8_incidence_enumeration_counts_and_matches_reconstructed_survivors(
     assert generated_n8_incidence_data["matches_existing_reconstructed_survivors"] is True
 
 
+@pytest.mark.slow
+@pytest.mark.exhaustive
 def test_checked_in_n8_incidence_artifact_matches_generator(
     generated_n8_incidence_data: dict,
 ) -> None:
@@ -50,6 +54,8 @@ def test_checked_in_n8_incidence_artifact_matches_generator(
     assert checked_in == generated_n8_incidence_data
 
 
+@pytest.mark.slow
+@pytest.mark.exhaustive
 def test_checked_in_reconstructed_survivors_are_exactly_the_incidence_survivors() -> None:
     root = Path(__file__).resolve().parents[1]
     artifact = root / "data" / "incidence" / "n8_incidence_completeness.json"
@@ -81,11 +87,12 @@ def brute_force_canonical_key(rows: tuple[int, ...]) -> tuple[int, ...]:
     return best
 
 
-def test_fast_canonical_key_matches_full_permutation_search_for_sample_classes() -> None:
+@pytest.mark.artifact
+def test_fast_canonical_key_matches_full_permutation_search_for_all_survivor_classes() -> None:
     root = Path(__file__).resolve().parents[1]
     reconstructed = root / "data" / "incidence" / "n8_reconstructed_15_survivors.json"
     classes = json.loads(reconstructed.read_text(encoding="utf-8"))
 
-    for record in [classes[0], classes[5], classes[14]]:
+    for record in classes:
         rows = matrix_to_row_masks(record["rows"])
         assert canonical_key(rows) == brute_force_canonical_key(rows)

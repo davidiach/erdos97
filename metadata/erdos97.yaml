@@ -9,7 +9,7 @@ problem:
     - distances
     - convex
   official_page_last_edited: "2025-10-27"
-  official_status_last_checked: "2026-04-27"
+  official_status_last_checked: "2026-04-30"
 
 upstream_database:
   repository: "https://github.com/teorth/erdosproblems"
@@ -37,6 +37,7 @@ local_repo:
     - "docs/n8-incidence-enumeration.md"
     - "docs/n8-exact-survivors.md"
     - "docs/n8-geometric-proof.md"
+    - "docs/reproduction-log.md"
     - "docs/verification-contract.md"
 
 reproducibility:

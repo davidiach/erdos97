@@ -5,6 +5,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
+pytestmark = pytest.mark.artifact
+
 ARCHIVE_TO_RECONSTRUCTED = {
     2: 12,
     7: 11,

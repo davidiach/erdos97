@@ -2,10 +2,11 @@
 
 Status: proof-note draft; independent review requested.
 
-This note gives a human-readable geometric proof that no bad convex polygon
-exists with `n <= 8`. It is independent of the selected-witness incidence
-enumeration retained in `docs/n8-incidence-enumeration.md` and
-`docs/n8-exact-survivors.md`.
+This note records a proposed human-readable geometric proof that no bad convex
+polygon exists with `n <= 8`. It is independent of the selected-witness
+incidence enumeration retained in `docs/n8-incidence-enumeration.md` and
+`docs/n8-exact-survivors.md`, but it should still be treated as a proof-note
+draft until it has independent mathematical review.
 
 It does not prove Erdos Problem #97. The case `n >= 9` remains open.
 
@@ -88,9 +89,9 @@ so `n >= 8`. In particular, no bad convex polygon exists with `n <= 7`.
 For the selected-witness incidence-count counterpart, see the sharpened
 incidence counting lower bound in `docs/claims.md`.
 
-This is an independent human proof of the small-case exclusion. The repository
-still retains the incidence and Fano material because those artifacts are
-structurally useful and reproducible.
+This count is the independent geometric small-case exclusion for `n <= 7`.
+The repository still retains the incidence and Fano material because those
+artifacts are structurally useful and reproducible.
 
 ## No bad convex octagon
 
@@ -102,7 +103,34 @@ T(A) >= 48
 T(A) <= 48,
 ```
 
-so equality holds everywhere. Thus:
+so equality holds in both sums. Since each vertex contribution to the lower
+bound is at least `6`, every vertex contribution is exactly `6`. Equivalently,
+if the distance-class sizes from a vertex are
+
+```text
+m_1, m_2, ..., m_r
+```
+
+with `sum m_k = 7`, then
+
+```text
+sum_k binom(m_k,2) = 6.
+```
+
+Because the octagon is bad, some `m_k >= 4`. The only partition of the seven
+other vertices with this property and with exactly six equal-distance base
+pairs is
+
+```text
+4,1,1,1.
+```
+
+Any class of size at least `5`, or any second nontrivial distance class, would
+make the sum exceed `6`.
+
+Equality also holds in the base-apex upper bound. Each base-pair capacity is an
+individual upper bound, so no side or diagonal can fall short: otherwise the
+total would be less than `48`. Thus:
 
 1. Every polygon side is the base of exactly one isosceles triangle.
 2. Every diagonal is the base of exactly two isosceles triangles, one apex on

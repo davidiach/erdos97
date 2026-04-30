@@ -3,9 +3,19 @@
 This file is proof-facing. Numerical near-misses live in `data/runs/` and in the
 candidate/failed-route docs, not as proofs of equality.
 
-## Theorems
+## Proof-facing claims
+
+This ledger records local proof-facing claims and their current trust posture.
+It is not a paper-style theorem list. In particular, the `n <= 8`
+selected-witness result is a repo-local machine-checked finite-case artifact
+pending independent review, and the global Erdos #97 problem remains
+falsifiable/open.
 
 ### No selected-witness counterexample for n <= 8
+
+Status: `MACHINE_CHECKED_FINITE_CASE_ARTIFACT` in the repo-local sense;
+independent review is required before paper-style or public theorem-style
+claims.
 
 For `n=5`, every selected witness set is `V \ {i}`. Two distinct rows
 therefore share three vertices, contradicting the two-circle cap below.[^small]
@@ -36,7 +46,8 @@ all selected-witness systems under the necessary incidence and
 forced-perpendicularity filters, obtaining 15 canonical survivor classes. The
 exact obstruction checker kills all 15 by cyclic-order noncrossing,
 perpendicular-bisector algebra, equal-distance algebra, duplicate vertices,
-collinearity, or strict-convexity failure. See
+collinearity, or strict-convexity failure. These are machine-checked
+repo-local artifacts, not standalone public proof certificates. See
 `docs/n8-incidence-enumeration.md` and `docs/n8-exact-survivors.md`.
 
 ### Proof-note draft: geometric no-go for n <= 8

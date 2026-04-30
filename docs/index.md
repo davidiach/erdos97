@@ -45,6 +45,8 @@ put detailed reconciliation in the canonical synthesis.
 - [`n8-geometric-proof.md`](n8-geometric-proof.md): proof-note draft giving a
   compact geometric obstruction for bad convex octagons via isosceles-triangle
   counting and exterior-turn angles.
+- [`reproduction-log.md`](reproduction-log.md): fast, artifact, and exhaustive
+  check commands with current environment notes.
 - [`failed-ideas.md`](failed-ideas.md): rejected proof routes and stale claims
   that should not be retried without a genuinely new idea.
 
