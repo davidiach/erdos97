@@ -97,10 +97,12 @@ Failure mode: requiring one global radius solves only a stricter subcase. The
 actual problem allows each center to choose its own radius, so common-radius
 or unit-distance bounds must stay in a separate literature-risk lane.[^syn]
 
-A related rejected shortcut claimed that Furedi's `2n-7` unit-distance result
+A related rejected shortcut claimed that the `2n-7` unit-distance construction
 settles the uniform-radius subcase. The canonical synthesis records this as a
-direction-of-bound error: `2n-7` is a lower-bound construction, not the needed
-`< 2n` upper bound.[^canon]
+direction-of-bound error: `2n-7` is an Edelsbrunner--Hajnal lower-bound
+construction, not the needed `< 2n` upper bound. Furedi's separate
+convex-`n`-gon unit-distance work belongs to the upper-bound side of the
+common-radius problem.[^canon]
 
 ## 16. Metric-linear rank obstruction without convexity
 

@@ -158,6 +158,8 @@ archived-ID provenance mapping when the archive JSON is available.
 
 - Recheck the public Erdos Problems listing before any solution claim.[^repo]
 - Pin exact citations and statements for Danzer's 9-point `k=3` example.[^digest]
+- Treat the Erdos 1975 unpublished all-`k` Danzer statement as unverified
+  literature risk unless a primary construction or exact certificate is found.
 - Pin exact citations and statements for the Fishburn--Reeds 20-point
   unit-distance `k=3` example.[^digest]
 - Keep convex unit-distance bounds separate from the variable-radius problem.[^syn]

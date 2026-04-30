@@ -24,6 +24,53 @@ formalization:
   lean_status: "research open"
   local_alignment_note: "Compare strict-convex-polygon language with ConvexIndep A in the Lean statement."
 
+nearby_literature:
+  last_swept: "2026-04-30"
+  entries:
+    - key: "danzer_9_point_k3"
+      title: "Danzer 9-point construction"
+      status: "nearby k=3 variable-radius construction; not a k=4 counterexample"
+      citation:
+        authors:
+          - "P. Erdos"
+        year: 1987
+        source: "Some combinatorial and metric problems in geometry"
+        url: "https://www.renyi.hu/~p_erdos/1987-27.pdf"
+    - key: "erdos_1975_all_k_danzer_report"
+      title: "Unpublished all-k Danzer report"
+      status: "unverified literature risk; official #97 page says presumably mistaken"
+      citation:
+        authors:
+          - "P. Erdos"
+        year: 1975
+        source: "On some problems of elementary and combinatorial geometry"
+        url: "https://www.renyi.hu/~p_erdos/1975-25.pdf"
+    - key: "fishburn_reeds_20_point_k3_unit"
+      title: "Unit distances between vertices of a convex polygon"
+      status: "nearby k=3 common-radius/unit-distance construction; not a k=4 result"
+      citation:
+        authors:
+          - "P. C. Fishburn"
+          - "J. A. Reeds"
+        year: 1992
+        source: "Unit distances between vertices of a convex polygon"
+        doi: "10.1016/0925-7721(92)90026-O"
+        url: "https://doi.org/10.1016/0925-7721(92)90026-O"
+    - key: "unit_distance_common_radius_caveat"
+      title: "Convex polygon unit-distance literature"
+      status: "common-radius/global pair-count literature; not interchangeable with variable-radius selected witnesses"
+      citation:
+        authors:
+          - "H. Edelsbrunner"
+          - "P. Hajnal"
+          - "Z. Furedi"
+          - "A. Aggarwal"
+        source: "Convex polygon unit-distance lower- and upper-bound literature"
+        url: "docs/canonical-synthesis.md"
+      notes:
+        - "Edelsbrunner--Hajnal 2n-7 is a lower-bound construction."
+        - "Furedi's convex n-gon unit-distance work belongs to the upper-bound side."
+
 local_repo:
   repository: "https://github.com/davidiach/erdos97"
   overall_claim: "No general proof and no counterexample are claimed."

@@ -14,7 +14,7 @@ current finite-case status.
 
 Relative to `erdos97_final_consolidated.md`:
 
-1. **Corrected the uniform-radius reduction (§5.5).** The prior synthesis claimed the uniform-radius subcase of #97 was "folklore-resolved by Füredi's $2n-7$ bound for all $n \ge 7$." This was a direction-of-bound error: $2n-7$ is a lower-bound *construction* (Edelsbrunner–Hajnal 1991, Füredi 1990), not an upper bound. The needed $< 2n$ upper bound is the open Erdős–Fishburn conjecture. The uniform-radius subcase is therefore **open**, conditional on Erdős–Fishburn. The correction propagates to §1.5, §10, the TL;DR table, and Appendix A.
+1. **Corrected the uniform-radius reduction (§5.5).** The prior synthesis claimed the uniform-radius subcase of #97 was "folklore-resolved by Füredi's $2n-7$ bound for all $n \ge 7$." This was a direction-of-bound error: $2n-7$ is an Edelsbrunner--Hajnal lower-bound *construction*, not an upper bound. Füredi's separate convex-`n`-gon unit-distance work belongs to the upper-bound side. The needed $< 2n$ upper bound is the open Erdős–Fishburn conjecture. The uniform-radius subcase is therefore **open**, conditional on Erdős–Fishburn. The correction propagates to §1.5, §10, the TL;DR table, and Appendix A.
 2. **Added external citation anchors** as footnotes to all background literature claims (Aggarwal 2010, Edelsbrunner–Hajnal 1991, Fishburn–Reeds 1992, Nivasch et al. 2013, the erdosproblems.com #97 entry, the DeepMind `formal-conjectures` Lean file). Background numbers no longer rely on archive-internal cross-talk.
 3. **Added a claim taxonomy** (Appendix C) tagging top-level claims as `VERIFIED`, `CONDITIONAL`, `EVIDENCE`, `REJECTED`, or `PROVENANCE-WARNING`.
 4. **Added SHA-256 source inventory** (Appendix D) from the four-stage consolidation, for reproducibility.
@@ -118,7 +118,7 @@ A 4-bad $n$-gon imposes $3n$ scalar equality constraints on $2n$ coordinates. Af
 - $k = 3$ analogue is FALSE: Danzer (1963) — convex 9-gon with $M(i) = 3$ everywhere (variable radii); Fishburn–Reeds (1992) — convex 20-gon with $M(i) = 3$ at one global radius.[^fishburn-reeds]
 - Erdős's 1975 statement asks whether every convex $n$-gon, $n \ge n_0$, has a vertex with at most $k$ others at any single distance, *for every $k$*. The boundary now known is $k = 4$: this is #97. (The "every $k$" framing is recorded on erdosproblems.com[^erdos97-page] as likely mistaken — Erdős did not repeat it later. `PROVENANCE-WARNING`.)
 - Distinct-distance bounds from a vertex of a convex polygon: Nivasch–Pach–Pinchasi–Zerbib (2013) give $\ge (13/36 + \varepsilon)n - O(1)$.[^nivasch]
-- **Unit-distance bounds in convex position.** *Upper:* $n \log_2 n + O(n)$ (Aggarwal 2010, improving Füredi's earlier $2\pi n \log_2 n + O(n)$).[^aggarwal] *Lower:* there exist convex $n$-gons achieving $\ge 2n - 7$ unit distances (Edelsbrunner–Hajnal 1991, Füredi 1990).[^edels-hajnal] **Direction-of-bound note:** $2n-7$ is a lower-bound *construction*; it does **not** upper-bound the unit distances in a convex polygon. The Erdős–Fishburn conjecture posits an upper bound of $< 2n$; it is open. (See §5.5 for why this matters to #97.)
+- **Unit-distance bounds in convex position.** *Upper:* $n \log_2 n + O(n)$ (Aggarwal 2010, improving Füredi's earlier $2\pi n \log_2 n + O(n)$).[^aggarwal] *Lower:* there exist convex $n$-gons achieving $\ge 2n - 7$ unit distances (Edelsbrunner--Hajnal 1991).[^edels-hajnal] **Direction-of-bound note:** $2n-7$ is a lower-bound *construction*; it does **not** upper-bound the unit distances in a convex polygon. The Erdős–Fishburn conjecture posits an upper bound of $< 2n$; it is open. (See §5.5 for why this matters to #97.)
 
 ---
 
@@ -315,7 +315,7 @@ This is a global "outside-of-$A$" control statement. Three sub-questions:
 
 **Best known bounds (verified externally; see §1.5 footnotes).**
 - *Upper:* $n \log_2 n + O(n)$ (Aggarwal 2010), improving Füredi's earlier $2\pi n \log_2 n + O(n)$.[^aggarwal]
-- *Lower:* there exist convex $n$-gons with $\ge 2n - 7$ unit distances (Edelsbrunner–Hajnal 1991, Füredi 1990).[^edels-hajnal]
+- *Lower:* there exist convex $n$-gons with $\ge 2n - 7$ unit distances (Edelsbrunner--Hajnal 1991).[^edels-hajnal]
 
 **Uniform-radius subcase of #97.** If a 4-bad polygon has all $r_i$ equal to a common $r$, then the distance-$r$ graph has $\ge 2n$ edges (each vertex has 4 neighbors at distance $r$, divide by 2). To rule this out via distance bounds, one would need an *upper* bound of the form "convex $n$-gon has $< 2n$ pairs at any single distance" — which is exactly the Erdős–Fishburn conjecture.
 
@@ -942,7 +942,7 @@ What the prior synthesis documents disagreed about, and what this document adopt
 | "Erdős Problem #97" name provenance | Various | Numbering from erdosproblems.com; the 4-equidistant problem appears under that label there (last edited 2025-10-27). |
 | $n = 6$ status under uniform-radius framing | `erdos97_useful_findings.md` §A.11 appears to suggest $n = 6$ remains open in the variable-radius case | **Closed.** The clean proof in §3.2 uses only L5 directly and works regardless of radius pattern. The useful-findings phrasing is misleading; it conflates the uniform-radius proof method with the actual case status. |
 | $k = 3$ "solved" framing | Some sources call it "solved" | More precisely: $k = 3$ has explicit counterexamples (Danzer; Fishburn–Reeds), so the natural conjecture is *false* there. Erdős #97 ($k = 4$) is the boundary and is open. |
-| **Uniform-radius case "folklore-resolved by Füredi $2n-7$"** (NEW in canonical merge) | `erdos97_final_consolidated.md` §5.5; `erdos97_useful_findings.md` §A.11; `zip/source_notes/17_uniform_radius_related_case.md` | **Open, not resolved.** The cited $2n-7$ is a lower-bound *construction* (Edelsbrunner–Hajnal 1991, Füredi 1990), not an upper bound; saying $\ge 2n$ unit edges is *consistent* with $\ge 2n-7$, not in conflict with it. The needed $< 2n$ upper bound is the Erdős–Fishburn conjecture, still open. Verified externally via Aggarwal arXiv:1009.2216.[^aggarwal][^edels-hajnal] (§5.5.) |
+| **Uniform-radius case "folklore-resolved by Füredi $2n-7$"** (NEW in canonical merge) | `erdos97_final_consolidated.md` §5.5; `erdos97_useful_findings.md` §A.11; `zip/source_notes/17_uniform_radius_related_case.md` | **Open, not resolved.** The cited $2n-7$ is an Edelsbrunner--Hajnal lower-bound *construction*, not an upper bound; Füredi's separate convex-`n`-gon unit-distance work belongs to the upper-bound side. Saying $\ge 2n$ unit edges is *consistent* with $\ge 2n-7$, not in conflict with it. The needed $< 2n$ upper bound is the Erdős–Fishburn conjecture, still open. Verified externally via Aggarwal arXiv:1009.2216.[^aggarwal][^edels-hajnal] (§5.5.) |
 
 ---
 
@@ -1168,6 +1168,6 @@ Imported from `erdos97_four_stage_consolidation.md` for traceability. Hashes are
 
 [^aggarwal]: A. Aggarwal, "On Unit Distances in a Convex Polygon," arXiv:1009.2216 (2010). The abstract states Füredi's earlier upper bound of $2\pi n \log_2 n + O(n)$ and Aggarwal's improvement to $n \log_2 n + O(n)$. **This is the relevant external check that the prior synthesis's "Füredi $2n-7$" claim was a direction-of-bound error.** <https://arxiv.org/abs/1009.2216>
 
-[^edels-hajnal]: H. Edelsbrunner and P. Hajnal, "A lower bound on the number of unit distances between the points of a convex polygon," *JCTA* 56 (1991), 312–316. Provides the lower-bound *construction* with $\ge 2n - 7$ unit-distance pairs in some convex $n$-gons. **Not an upper bound.** <https://pub.ista.ac.at/~edels/Papers/1991-03-UnitDistancesConvexPolygon.pdf>
+[^edels-hajnal]: H. Edelsbrunner and P. Hajnal, "A lower bound on the number of unit distances between the points of a convex polygon," *JCTA* 56 (1991), 312–316. Provides the lower-bound *construction* with $\ge 2n - 7$ unit-distance pairs in some convex $n$-gons. **Not an upper bound.** Füredi's separate convex-`n`-gon unit-distance work is cited under [^aggarwal] on the upper-bound side. <https://pub.ista.ac.at/~edels/Papers/1991-03-UnitDistancesConvexPolygon.pdf>
 
 [^nivasch]: G. Nivasch, J. Pach, R. Pinchasi, and S. Zerbib, "The number of distinct distances from a vertex of a convex polygon," *Journal of Computational Geometry* 4(1):1–12, 2013 / arXiv:1207.1266. Lower bound $\ge (13/36 + \varepsilon)n - O(1)$ on the number of distinct distances from a vertex of a convex polygon. <https://arxiv.org/abs/1207.1266>

@@ -53,6 +53,7 @@ METADATA_EXPECTED_TRUE = (
     "exact_certificates_required_for_counterexamples",
     "independent_review_required_for_public_theorem_claims",
 )
+DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}\Z")
 
 
 def fail(msg: str) -> None:
@@ -83,6 +84,15 @@ def metadata_value(metadata: dict[str, object], path: tuple[str, ...]) -> object
             fail(f"metadata/erdos97.yaml is missing {'.'.join(path)}")
         current = current[key]
     return current
+
+
+def require_string_field(mapping: object, key: str, label: str) -> str:
+    if not isinstance(mapping, dict):
+        fail(f"{label} should be a mapping")
+    value = mapping.get(key)
+    if not isinstance(value, str) or not value.strip():
+        fail(f"{label}.{key} should be a non-empty string")
+    return value
 
 
 def require_pattern(label: str, text: str, pattern: re.Pattern[str], detail: str) -> None:
@@ -136,6 +146,37 @@ def validate_metadata() -> None:
     for key in METADATA_EXPECTED_TRUE:
         if metadata_value(metadata, ("trust_policy", key)) is not True:
             fail(f"metadata trust_policy.{key} should be true")
+
+    validate_nearby_literature(metadata)
+
+
+def validate_nearby_literature(metadata: dict[str, object]) -> None:
+    nearby = metadata_value(metadata, ("nearby_literature",))
+    if not isinstance(nearby, dict):
+        fail("metadata nearby_literature should be a mapping")
+
+    last_swept = require_string_field(nearby, "last_swept", "metadata nearby_literature")
+    if not DATE_RE.fullmatch(last_swept):
+        fail("metadata nearby_literature.last_swept should be YYYY-MM-DD")
+
+    entries = nearby.get("entries")
+    if not isinstance(entries, list) or not entries:
+        fail("metadata nearby_literature.entries should be a non-empty list")
+
+    for index, entry in enumerate(entries):
+        label = f"metadata nearby_literature.entries[{index}]"
+        require_string_field(entry, "key", label)
+        require_string_field(entry, "title", label)
+        require_string_field(entry, "status", label)
+        if not isinstance(entry, dict) or not isinstance(entry.get("citation"), dict):
+            fail(f"{label}.citation should be a mapping")
+        citation = entry["citation"]
+        has_reference = any(
+            isinstance(citation.get(field), str) and citation.get(field).strip()
+            for field in ("source", "doi", "url")
+        )
+        if not has_reference:
+            fail(f"{label}.citation should include a non-empty source, doi, or url")
 
 
 def validate_top_level_status() -> None:
