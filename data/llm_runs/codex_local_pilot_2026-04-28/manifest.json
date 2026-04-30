@@ -1,7 +1,7 @@
 {
   "run_set": "codex_local_pilot_2026-04-28",
   "created_date": "2026-04-28",
-  "source_prompt_pack": "C:\\Users\\User\\Desktop\\code\\erd archive\\outputs\\data\\erdos97_prompt_pack_comparison_and_v3.md",
+  "source_prompt_pack": "local archived prompt pack: erdos97_prompt_pack_comparison_and_v3.md",
   "runner": "Codex local conversation, not isolated API batch runs",
   "status": "research_artifact_only",
   "interpretation_warning": "These outputs are not independent fresh GPT-5.5 Pro runs and must not be treated as proof, disproof, or official status evidence.",
