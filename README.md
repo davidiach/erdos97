@@ -251,7 +251,7 @@ pip install sympy z3-solver
 
 The 3-neighbor version is false: Danzer produced a 9-point convex polygon where every vertex has 3 equidistant vertices, and Fishburn--Reeds produced a 20-point convex polygon where every vertex has 3 equidistant vertices at a common radius. These do not automatically extend to the 4-neighbor target.
 
-A 1975 Erdos paper reports an unpublished all-`k` Danzer claim, but the official #97 page says this was not repeated later and was presumably mistaken. This repository treats that statement as unverified literature risk, not as a `k=4` counterexample.
+A 1975 Erdos paper reports an unpublished all-`k` Danzer claim, but the official #97 page says this was not repeated later and was presumably mistaken. This repository treats that statement as unverified literature risk, not as a `k=4` counterexample; see [`docs/literature-risk.md`](docs/literature-risk.md).
 
 ## Contribution policy
 

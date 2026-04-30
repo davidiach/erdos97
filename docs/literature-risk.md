@@ -17,7 +17,7 @@ are claimed here.
   Edelsbrunner--Hajnal's `2n-7` unit-distance result is a lower-bound
   construction, not an upper bound resolving the subcase. Furedi's separate
   convex-`n`-gon unit-distance work belongs to the upper-bound side of the
-  common-radius problem.[^canon]
+  common-radius problem.[^edels-hajnal][^aggarwal][^canon]
 
 ## Checked external anchors, 2026-04-30
 
@@ -68,3 +68,5 @@ are claimed here.
 [^erdos1975]: P. Erdos, "On some problems of elementary and combinatorial geometry," Annali di Matematica Pura ed Applicata 103, 99--108, 1975. <https://www.renyi.hu/~p_erdos/1975-25.pdf>
 [^fishburn-reeds]: P. C. Fishburn and J. A. Reeds, "Unit distances between vertices of a convex polygon," Computational Geometry 2(2), 81--91, 1992. DOI: `10.1016/0925-7721(92)90026-O`.
 [^formal97]: `google-deepmind/formal-conjectures`, `FormalConjectures/ErdosProblems/97.lean`, accessed 2026-04-30. <https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/97.lean>
+[^edels-hajnal]: H. Edelsbrunner and P. Hajnal, "A lower bound on the number of unit distances between the points of a convex polygon," Journal of Combinatorial Theory, Series A 56(2), 312--316, 1991. DOI: `10.1016/0097-3165(91)90042-F`.
+[^aggarwal]: A. Aggarwal, "On Unit Distances in a Convex Polygon," Discrete Mathematics 338(3), 88--92, 2015; arXiv:1009.2216. DOI: `10.1016/j.disc.2014.10.009`.
