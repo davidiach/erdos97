@@ -1,0 +1,1077 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Octagon Trap - Erdos Problem 97</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #0b1538;
+      --muted: #526070;
+      --paper: #fbfbf7;
+      --panel: #ffffff;
+      --line: #d5dde8;
+      --blue: #1556c0;
+      --blue-soft: #e8f0ff;
+      --teal: #0b6f73;
+      --teal-soft: #e5f5f2;
+      --orange: #f26c22;
+      --orange-soft: #fff0e7;
+      --red: #b3261e;
+      --green: #2f7d32;
+      --shadow: 0 18px 45px rgba(12, 24, 50, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: #f3f5f0;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+    }
+
+    button,
+    input {
+      font: inherit;
+      letter-spacing: 0;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px clamp(16px, 3vw, 36px);
+      border-bottom: 1px solid var(--line);
+      background: rgba(251, 251, 247, 0.96);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    .brand {
+      min-width: 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(22px, 3.5vw, 42px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .badge {
+      flex: 0 0 auto;
+      border: 1px solid #d6cda5;
+      background: #fff8dc;
+      color: #6b5600;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(420px, 1fr) minmax(310px, 420px);
+      gap: 18px;
+      padding: 18px clamp(16px, 3vw, 36px) 28px;
+      min-height: 0;
+    }
+
+    .stage,
+    .side {
+      min-width: 0;
+    }
+
+    .stage {
+      display: grid;
+      grid-template-rows: auto minmax(420px, 1fr);
+      gap: 14px;
+    }
+
+    .toolbar,
+    .side,
+    .board-shell,
+    .formula-strip {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .toolbar {
+      padding: 12px;
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .segments {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .segment {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: #f7f9fc;
+      border-radius: 6px;
+      padding: 10px 8px;
+      cursor: pointer;
+      font-weight: 800;
+      min-height: 42px;
+    }
+
+    .segment[aria-pressed="true"] {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .reset {
+      border: 1px solid var(--teal);
+      background: var(--teal-soft);
+      color: var(--teal);
+      border-radius: 6px;
+      padding: 10px 12px;
+      cursor: pointer;
+      font-weight: 800;
+      min-height: 42px;
+    }
+
+    .board-shell {
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+      background: var(--paper);
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      cursor: grab;
+      touch-action: none;
+    }
+
+    canvas.dragging {
+      cursor: grabbing;
+    }
+
+    .status-pill {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: min(520px, calc(100% - 28px));
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 999px;
+      padding: 9px 12px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      flex: 0 0 auto;
+    }
+
+    .dot.warn {
+      background: var(--red);
+    }
+
+    .side {
+      padding: 16px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .panel-title h2 {
+      margin: 0;
+      font-size: clamp(20px, 2vw, 26px);
+      line-height: 1.1;
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .lede {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 15px;
+    }
+
+    .formula-strip {
+      box-shadow: none;
+      border-color: #bfd4ec;
+      background: #f4f9ff;
+      padding: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .formula {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color: #09225a;
+      font-size: clamp(20px, 2.6vw, 32px);
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    .small {
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .controls {
+      display: grid;
+      gap: 12px;
+    }
+
+    .control {
+      display: grid;
+      gap: 7px;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .value {
+      color: var(--ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--blue);
+    }
+
+    .button-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .mini {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #f9fafb;
+      color: var(--ink);
+      min-height: 38px;
+      padding: 7px 8px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .mini[aria-pressed="true"] {
+      border-color: var(--teal);
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .facts {
+      display: grid;
+      gap: 8px;
+    }
+
+    .fact {
+      border-left: 4px solid var(--teal);
+      background: #f8fbfb;
+      padding: 9px 10px;
+      color: #1b3440;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .fact.orange {
+      border-color: var(--orange);
+      background: var(--orange-soft);
+    }
+
+    .fact.red {
+      border-color: var(--red);
+      background: #fff1f0;
+    }
+
+    @media (max-width: 900px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .badge {
+        white-space: normal;
+      }
+
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .stage {
+        grid-template-rows: auto minmax(360px, 62vh);
+      }
+    }
+
+    @media (max-width: 620px) {
+      main {
+        padding: 12px;
+      }
+
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .segments {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .button-row {
+        grid-template-columns: 1fr;
+      }
+
+      .board-shell,
+      canvas {
+        min-height: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <h1>Octagon Trap</h1>
+        <div class="subtitle">An interactive view of the small-case obstruction for Erdos Problem #97.</div>
+      </div>
+      <div class="badge">Small-case result only: not a proof of the full problem</div>
+    </header>
+
+    <main>
+      <section class="stage" aria-label="Interactive geometry board">
+        <div class="toolbar">
+          <div class="segments" role="group" aria-label="Proof step">
+            <button class="segment" data-step="apex" aria-pressed="true">Apex count</button>
+            <button class="segment" data-step="base" aria-pressed="false">Base cap</button>
+            <button class="segment" data-step="payoff" aria-pressed="false">First payoff</button>
+            <button class="segment" data-step="octagon" aria-pressed="false">Octagon trap</button>
+          </div>
+          <button class="reset" id="resetBtn">Reset shape</button>
+        </div>
+
+        <div class="board-shell">
+          <canvas id="board" aria-label="Draggable convex polygon visualization"></canvas>
+          <div class="status-pill" id="convexStatus">
+            <span class="dot" id="convexDot"></span>
+            <span id="convexText">Strictly convex polygon</span>
+          </div>
+        </div>
+      </section>
+
+      <aside class="side" aria-label="Proof controls and current count">
+        <div class="panel-title">
+          <h2 id="stepTitle">Apex count</h2>
+          <div class="step-number" id="stepNumber">1</div>
+        </div>
+        <p class="lede" id="stepCopy"></p>
+
+        <div class="formula-strip">
+          <div class="formula" id="formula">C(4,2) = 6</div>
+          <div class="small" id="formulaCopy"></div>
+        </div>
+
+        <div class="controls">
+          <div class="control">
+            <label for="nRange">
+              Vertex count
+              <span class="value" id="nValue">8</span>
+            </label>
+            <input id="nRange" type="range" min="5" max="10" value="8" step="1">
+          </div>
+
+          <div class="control">
+            <label for="centerRange">
+              Marked vertex p
+              <span class="value" id="centerValue">0</span>
+            </label>
+            <input id="centerRange" type="range" min="0" max="7" value="0" step="1">
+          </div>
+
+          <div class="control">
+            <label for="baseRange">
+              Base start
+              <span class="value" id="baseValue">0</span>
+            </label>
+            <input id="baseRange" type="range" min="0" max="7" value="0" step="1">
+          </div>
+
+          <div class="control">
+            <label>Base type</label>
+            <div class="button-row">
+              <button class="mini" data-offset="1" aria-pressed="true">Side</button>
+              <button class="mini" data-offset="2" aria-pressed="false">Length 2</button>
+              <button class="mini" data-offset="3" aria-pressed="false">Length 3</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="facts" id="facts"></div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("board");
+    const ctx = canvas.getContext("2d");
+    const nRange = document.getElementById("nRange");
+    const centerRange = document.getElementById("centerRange");
+    const baseRange = document.getElementById("baseRange");
+    const nValue = document.getElementById("nValue");
+    const centerValue = document.getElementById("centerValue");
+    const baseValue = document.getElementById("baseValue");
+    const stepTitle = document.getElementById("stepTitle");
+    const stepNumber = document.getElementById("stepNumber");
+    const stepCopy = document.getElementById("stepCopy");
+    const formula = document.getElementById("formula");
+    const formulaCopy = document.getElementById("formulaCopy");
+    const facts = document.getElementById("facts");
+    const resetBtn = document.getElementById("resetBtn");
+    const convexDot = document.getElementById("convexDot");
+    const convexText = document.getElementById("convexText");
+
+    const colors = {
+      ink: "#0b1538",
+      muted: "#526070",
+      line: "#d5dde8",
+      blue: "#1556c0",
+      blueSoft: "#dfeaff",
+      teal: "#0b6f73",
+      orange: "#f26c22",
+      red: "#b3261e",
+      green: "#2f7d32",
+      black: "#111827",
+      paper: "#fbfbf7"
+    };
+
+    const stepData = {
+      apex: {
+        number: "1",
+        title: "Apex count",
+        copy: "At a bad vertex, four witnesses on one distance circle would create six unordered bases. Summed over n vertices, that gives at least 6n isosceles triples.",
+        formula: "C(4,2) = 6",
+        formulaCopy: "Lower bound: T(A) >= 6n."
+      },
+      base: {
+        number: "2",
+        title: "Base cap",
+        copy: "For a fixed base {a,b}, all apices lie on the perpendicular bisector. Strict convexity permits at most one apex on each side of the base line.",
+        formula: "T(A) <= n(n - 2)",
+        formulaCopy: "Sides have capacity 1; diagonals have capacity 2."
+      },
+      payoff: {
+        number: "3",
+        title: "First payoff",
+        copy: "Combining the lower count and upper count forces 6n <= n(n-2). That immediately rules out every bad polygon with seven or fewer vertices.",
+        formula: "6n <= n(n - 2)",
+        formulaCopy: "The inequality starts being possible only at n = 8."
+      },
+      octagon: {
+        number: "4",
+        title: "Octagon trap",
+        copy: "At n = 8 the count is exactly tight. Saturation forces equal side lengths, then length-3 diagonals force a vertex cover of 120 degree exterior turns.",
+        formula: "4 x 120deg = 480deg",
+        formulaCopy: "But exterior turns in a convex polygon sum to 360 degrees."
+      }
+    };
+
+    const state = {
+      n: 8,
+      step: "apex",
+      center: 0,
+      baseStart: 0,
+      baseOffset: 1,
+      vertices: [],
+      dragIndex: -1,
+      dpr: 1,
+      bounds: { width: 0, height: 0, scale: 1, ox: 0, oy: 0 }
+    };
+
+    function makeShape(n) {
+      const vertices = [];
+      const start = -Math.PI / 2;
+      for (let i = 0; i < n; i += 1) {
+        const angle = start + (i * 2 * Math.PI) / n;
+        const wobble = n === 8 ? 0.08 * Math.sin(i * 1.7) : 0.06 * Math.cos(i * 2.1);
+        const radius = 0.78 + wobble;
+        vertices.push({ x: Math.cos(angle) * radius, y: Math.sin(angle) * radius });
+      }
+      return vertices;
+    }
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      state.dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.round(rect.width * state.dpr));
+      canvas.height = Math.max(1, Math.round(rect.height * state.dpr));
+      ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+      state.bounds.width = rect.width;
+      state.bounds.height = rect.height;
+      const pad = Math.min(rect.width, rect.height) * 0.12;
+      state.bounds.scale = Math.max(120, (Math.min(rect.width, rect.height) - pad * 2) / 2);
+      state.bounds.ox = rect.width / 2;
+      state.bounds.oy = rect.height / 2;
+      draw();
+    }
+
+    function toScreen(p) {
+      return {
+        x: state.bounds.ox + p.x * state.bounds.scale,
+        y: state.bounds.oy + p.y * state.bounds.scale
+      };
+    }
+
+    function fromScreen(x, y) {
+      return {
+        x: (x - state.bounds.ox) / state.bounds.scale,
+        y: (y - state.bounds.oy) / state.bounds.scale
+      };
+    }
+
+    function mod(i, n = state.n) {
+      return ((i % n) + n) % n;
+    }
+
+    function cross(a, b, c) {
+      return (b.x - a.x) * (c.y - b.y) - (b.y - a.y) * (c.x - b.x);
+    }
+
+    function isStrictlyConvex() {
+      let sign = 0;
+      for (let i = 0; i < state.n; i += 1) {
+        const z = cross(state.vertices[i], state.vertices[mod(i + 1)], state.vertices[mod(i + 2)]);
+        if (Math.abs(z) < 0.015) return false;
+        const s = Math.sign(z);
+        if (sign === 0) sign = s;
+        if (s !== sign) return false;
+      }
+      return true;
+    }
+
+    function distance(a, b) {
+      return Math.hypot(a.x - b.x, a.y - b.y);
+    }
+
+    function witnessIndices() {
+      const p = state.vertices[state.center];
+      return state.vertices
+        .map((v, i) => ({ i, d: i === state.center ? Infinity : distance(p, v) }))
+        .sort((a, b) => a.d - b.d)
+        .slice(0, Math.min(4, state.n - 1))
+        .map(item => item.i);
+    }
+
+    function basePair() {
+      const a = mod(state.baseStart);
+      let b = mod(state.baseStart + state.baseOffset);
+      if (b === a) b = mod(a + 1);
+      return [a, b];
+    }
+
+    function lineDash(on = true) {
+      ctx.setLineDash(on ? [6, 6] : []);
+    }
+
+    function drawPolygon() {
+      const pts = state.vertices.map(toScreen);
+      ctx.save();
+      ctx.beginPath();
+      pts.forEach((p, i) => i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y));
+      ctx.closePath();
+      ctx.fillStyle = "rgba(232, 240, 255, 0.62)";
+      ctx.strokeStyle = colors.black;
+      ctx.lineWidth = 2.5;
+      ctx.shadowColor = "rgba(12, 24, 50, 0.14)";
+      ctx.shadowBlur = 18;
+      ctx.shadowOffsetY = 12;
+      ctx.fill();
+      ctx.shadowColor = "transparent";
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawVertex(i, opts = {}) {
+      const p = toScreen(state.vertices[i]);
+      const r = opts.radius || 6;
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = opts.fill || colors.black;
+      ctx.strokeStyle = opts.stroke || "#ffffff";
+      ctx.lineWidth = opts.lineWidth || 2;
+      ctx.fill();
+      ctx.stroke();
+      if (opts.label) {
+        ctx.font = "700 15px ui-sans-serif, system-ui";
+        ctx.fillStyle = opts.fill || colors.ink;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "bottom";
+        ctx.fillText(opts.label, p.x, p.y - r - 8);
+      }
+      ctx.restore();
+    }
+
+    function drawAllVertices(extra = {}) {
+      for (let i = 0; i < state.n; i += 1) {
+        drawVertex(i, extra[i] || {});
+      }
+    }
+
+    function drawApexStep() {
+      const p = toScreen(state.vertices[state.center]);
+      const witnesses = witnessIndices();
+      const avg = witnesses.reduce((sum, i) => sum + distance(state.vertices[state.center], state.vertices[i]), 0) / witnesses.length;
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, avg * state.bounds.scale, 0, Math.PI * 2);
+      lineDash(true);
+      ctx.strokeStyle = colors.blue;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      witnesses.forEach((i, idx) => {
+        const w = toScreen(state.vertices[i]);
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(w.x, w.y);
+        ctx.strokeStyle = colors.blue;
+        ctx.lineWidth = 1.2;
+        ctx.stroke();
+        if (idx < witnesses.length - 1) {
+          for (let j = idx + 1; j < witnesses.length; j += 1) {
+            const q = toScreen(state.vertices[witnesses[j]]);
+            ctx.beginPath();
+            ctx.moveTo(w.x, w.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = "rgba(242, 108, 34, 0.32)";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      });
+      lineDash(false);
+      ctx.restore();
+
+      const extra = {};
+      extra[state.center] = { fill: colors.blue, radius: 10, label: "p" };
+      witnesses.forEach(i => extra[i] = { fill: colors.orange, radius: 8 });
+      drawAllVertices(extra);
+    }
+
+    function drawBaseStep() {
+      const [ai, bi] = basePair();
+      const a = state.vertices[ai];
+      const b = state.vertices[bi];
+      const as = toScreen(a);
+      const bs = toScreen(b);
+      const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+      const mids = toScreen(mid);
+      const dx = b.x - a.x;
+      const dy = b.y - a.y;
+      const len = Math.hypot(dx, dy) || 1;
+      const nx = -dy / len;
+      const ny = dx / len;
+      const far1 = toScreen({ x: mid.x + nx * 1.7, y: mid.y + ny * 1.7 });
+      const far2 = toScreen({ x: mid.x - nx * 1.7, y: mid.y - ny * 1.7 });
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(as.x, as.y);
+      ctx.lineTo(bs.x, bs.y);
+      ctx.strokeStyle = colors.orange;
+      ctx.lineWidth = 4;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(far1.x, far1.y);
+      ctx.lineTo(far2.x, far2.y);
+      lineDash(true);
+      ctx.strokeStyle = colors.blue;
+      ctx.lineWidth = 1.8;
+      ctx.stroke();
+      lineDash(false);
+
+      ctx.beginPath();
+      ctx.arc(mids.x, mids.y, 4, 0, Math.PI * 2);
+      ctx.fillStyle = colors.blue;
+      ctx.fill();
+
+      state.vertices.forEach((v, i) => {
+        if (i === ai || i === bi) return;
+        const side = Math.sign((v.x - a.x) * (b.y - a.y) - (v.y - a.y) * (b.x - a.x));
+        const proj = toScreen({ x: v.x, y: v.y });
+        const alpha = side > 0 ? "rgba(11, 111, 115, 0.16)" : "rgba(21, 86, 192, 0.14)";
+        ctx.beginPath();
+        ctx.moveTo(mids.x, mids.y);
+        ctx.lineTo(proj.x, proj.y);
+        ctx.strokeStyle = alpha;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      });
+      ctx.restore();
+
+      const extra = {};
+      extra[ai] = { fill: colors.orange, radius: 9, label: "a" };
+      extra[bi] = { fill: colors.orange, radius: 9, label: "b" };
+      drawAllVertices(extra);
+    }
+
+    function drawPayoffStep() {
+      drawAllVertices();
+      const y = 42;
+      const startX = 38;
+      const gap = 68;
+      ctx.save();
+      ctx.font = "800 15px ui-sans-serif, system-ui";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      for (let n = 3; n <= 8; n += 1) {
+        const x = startX + (n - 3) * gap;
+        const possible = n >= 8;
+        ctx.fillStyle = possible ? colors.teal : colors.red;
+        ctx.beginPath();
+        ctx.arc(x, y, 20, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#fff";
+        ctx.fillText(String(n), x, y);
+        ctx.fillStyle = colors.muted;
+        ctx.font = "700 11px ui-sans-serif, system-ui";
+        ctx.fillText(possible ? "first possible" : "ruled out", x, y + 34);
+        ctx.font = "800 15px ui-sans-serif, system-ui";
+      }
+      ctx.restore();
+    }
+
+    function drawArcMarker(center, prev, next, radius, label) {
+      const c = toScreen(center);
+      const a1 = Math.atan2(prev.y - center.y, prev.x - center.x);
+      const a2 = Math.atan2(next.y - center.y, next.x - center.x);
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(c.x, c.y, radius, a1, a2, false);
+      ctx.strokeStyle = colors.orange;
+      ctx.lineWidth = 5;
+      ctx.stroke();
+      ctx.font = "800 13px ui-sans-serif, system-ui";
+      ctx.fillStyle = colors.orange;
+      ctx.textAlign = "center";
+      ctx.fillText(label, c.x, c.y - radius - 8);
+      ctx.restore();
+    }
+
+    function drawOctagonStep() {
+      if (state.n !== 8) return;
+      const forced = [0, 2, 4, 6];
+      ctx.save();
+      for (let i = 0; i < state.n; i += 1) {
+        const a = toScreen(state.vertices[i]);
+        const b = toScreen(state.vertices[mod(i + 2)]);
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = "rgba(21, 86, 192, 0.2)";
+        ctx.lineWidth = 1.2;
+        ctx.stroke();
+      }
+      for (let i = 0; i < state.n; i += 1) {
+        const a = toScreen(state.vertices[i]);
+        const b = toScreen(state.vertices[mod(i + 3)]);
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = "rgba(242, 108, 34, 0.18)";
+        ctx.lineWidth = 1.1;
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      forced.forEach(i => {
+        drawArcMarker(
+          state.vertices[i],
+          state.vertices[mod(i - 1)],
+          state.vertices[mod(i + 1)],
+          32,
+          "120deg"
+        );
+      });
+
+      const extra = {};
+      forced.forEach(i => extra[i] = { fill: colors.orange, radius: 9 });
+      drawAllVertices(extra);
+    }
+
+    function draw() {
+      const w = state.bounds.width;
+      const h = state.bounds.height;
+      ctx.clearRect(0, 0, w, h);
+
+      ctx.save();
+      ctx.fillStyle = colors.paper;
+      ctx.fillRect(0, 0, w, h);
+      ctx.strokeStyle = "rgba(82, 96, 112, 0.14)";
+      ctx.lineWidth = 1;
+      for (let x = 0; x < w; x += 42) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+      for (let y = 0; y < h; y += 42) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      drawPolygon();
+      if (state.step === "apex") drawApexStep();
+      if (state.step === "base") drawBaseStep();
+      if (state.step === "payoff") drawPayoffStep();
+      if (state.step === "octagon") drawOctagonStep();
+      if (state.step !== "apex" && state.step !== "base" && state.step !== "octagon") drawAllVertices();
+      updateConvexStatus();
+    }
+
+    function updateConvexStatus() {
+      const ok = isStrictlyConvex();
+      convexDot.classList.toggle("warn", !ok);
+      convexText.textContent = ok ? "Strictly convex polygon" : "Strict convexity assumption broken";
+    }
+
+    function updatePanel() {
+      const data = stepData[state.step];
+      stepTitle.textContent = data.title;
+      stepNumber.textContent = data.number;
+      stepCopy.textContent = data.copy;
+      formula.textContent = data.formula;
+      formulaCopy.textContent = data.formulaCopy;
+      nValue.textContent = String(state.n);
+      centerValue.textContent = String(state.center);
+      baseValue.textContent = String(state.baseStart);
+      centerRange.max = String(state.n - 1);
+      baseRange.max = String(state.n - 1);
+
+      document.querySelectorAll(".segment").forEach(btn => {
+        btn.setAttribute("aria-pressed", btn.dataset.step === state.step ? "true" : "false");
+      });
+      document.querySelectorAll(".mini").forEach(btn => {
+        btn.setAttribute("aria-pressed", Number(btn.dataset.offset) === state.baseOffset ? "true" : "false");
+      });
+
+      const lower = 6 * state.n;
+      const upper = state.n * (state.n - 2);
+      const canPass = lower <= upper;
+      const baseCap = state.baseOffset === 1 || state.baseOffset === state.n - 1 ? 1 : 2;
+      const list = {
+        apex: [
+          ["Every bad center contributes at least six triples.", "orange"],
+          [`Current count preview: lower bound 6n = ${lower}.`, ""],
+          ["The highlighted vertices are a proof sketch layer, not a certificate that the dragged shape is bad.", ""]
+        ],
+        base: [
+          [`Selected base capacity: at most ${baseCap} apex${baseCap === 1 ? "" : "es"}.`, ""],
+          ["The cap distinguishes the two sides of the base line; the dashed line is the perpendicular bisector where equal-distance apices would lie.", "orange"]
+        ],
+        payoff: [
+          [`For n = ${state.n}: 6n = ${lower}, while n(n-2) = ${upper}.`, canPass ? "" : "red"],
+          [canPass ? "The double count does not rule this n out by itself." : "The double count rules this n out immediately.", canPass ? "orange" : "red"]
+        ],
+        octagon: [
+          ["In the equality case, every side and diagonal must hit its maximum base capacity.", ""],
+          ["Length-2 diagonals force equal sides; length-3 diagonals force a vertex cover by 120 degree turns.", "orange"],
+          ["The 120 degree markers show the forced-cover contradiction, not measured angles of the draggable sketch.", ""],
+          ["Four forced 120 degree turns already exceed the 360 degree exterior-turn budget.", "red"]
+        ]
+      }[state.step];
+
+      facts.innerHTML = "";
+      list.forEach(([text, tone]) => {
+        const div = document.createElement("div");
+        div.className = `fact ${tone}`.trim();
+        div.textContent = text;
+        facts.appendChild(div);
+      });
+    }
+
+    function setN(n) {
+      state.n = n;
+      state.center = Math.min(state.center, n - 1);
+      state.baseStart = Math.min(state.baseStart, n - 1);
+      state.vertices = makeShape(n);
+      nRange.value = String(n);
+      centerRange.value = String(state.center);
+      baseRange.value = String(state.baseStart);
+      updatePanel();
+      draw();
+    }
+
+    function pointerPos(event) {
+      const rect = canvas.getBoundingClientRect();
+      return { x: event.clientX - rect.left, y: event.clientY - rect.top };
+    }
+
+    function nearestVertex(pos) {
+      let best = -1;
+      let bestDist = Infinity;
+      state.vertices.forEach((v, i) => {
+        const p = toScreen(v);
+        const d = Math.hypot(p.x - pos.x, p.y - pos.y);
+        if (d < bestDist) {
+          best = i;
+          bestDist = d;
+        }
+      });
+      return bestDist < 24 ? best : -1;
+    }
+
+    canvas.addEventListener("pointerdown", event => {
+      const pos = pointerPos(event);
+      const hit = nearestVertex(pos);
+      if (hit >= 0) {
+        state.dragIndex = hit;
+        state.center = hit;
+        centerRange.value = String(hit);
+        canvas.classList.add("dragging");
+        canvas.setPointerCapture(event.pointerId);
+        updatePanel();
+        draw();
+      }
+    });
+
+    canvas.addEventListener("pointermove", event => {
+      if (state.dragIndex < 0) return;
+      const pos = pointerPos(event);
+      const p = fromScreen(pos.x, pos.y);
+      state.vertices[state.dragIndex] = {
+        x: Math.max(-1.08, Math.min(1.08, p.x)),
+        y: Math.max(-1.08, Math.min(1.08, p.y))
+      };
+      draw();
+    });
+
+    canvas.addEventListener("pointerup", event => {
+      state.dragIndex = -1;
+      canvas.classList.remove("dragging");
+      try {
+        canvas.releasePointerCapture(event.pointerId);
+      } catch (err) {
+        // Pointer capture may already be released on some browsers.
+      }
+    });
+
+    canvas.addEventListener("pointercancel", () => {
+      state.dragIndex = -1;
+      canvas.classList.remove("dragging");
+    });
+
+    document.querySelectorAll(".segment").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state.step = btn.dataset.step;
+        if (state.step === "octagon" && state.n !== 8) setN(8);
+        updatePanel();
+        draw();
+      });
+    });
+
+    document.querySelectorAll(".mini").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state.baseOffset = Number(btn.dataset.offset);
+        updatePanel();
+        draw();
+      });
+    });
+
+    nRange.addEventListener("input", () => setN(Number(nRange.value)));
+    centerRange.addEventListener("input", () => {
+      state.center = Number(centerRange.value);
+      updatePanel();
+      draw();
+    });
+    baseRange.addEventListener("input", () => {
+      state.baseStart = Number(baseRange.value);
+      updatePanel();
+      draw();
+    });
+    resetBtn.addEventListener("click", () => setN(state.step === "octagon" ? 8 : state.n));
+
+    window.addEventListener("resize", resize);
+
+    state.vertices = makeShape(state.n);
+    updatePanel();
+    resize();
+  </script>
+</body>
+</html>
