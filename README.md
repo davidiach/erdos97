@@ -37,6 +37,8 @@ This repository is a public research log and reproducibility workspace for Erdő
   and [`docs/vertex-circle-order-filter.md`](docs/vertex-circle-order-filter.md).
 - For the weak exact minimum-radius short-chord filter, read
   [`docs/minimum-radius-filter.md`](docs/minimum-radius-filter.md).
+- For fixed-selection stuck-set mining around the bridge/peeling program, read
+  [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).
 - For known bad proof routes, read [`docs/failed-ideas.md`](docs/failed-ideas.md).
 - For the verification standard, read [`docs/verification-contract.md`](docs/verification-contract.md).
@@ -168,6 +170,10 @@ Use these labels consistently:
 ├── pyproject.toml
 ├── src/erdos97/search.py              # main search/verification engine
 ├── src/erdos97/incidence_filters.py   # exact incidence obstruction filters
+├── src/erdos97/stuck_sets.py          # fixed-selection stuck-set miner core
+├── src/erdos97/motif_fingerprint.py   # cyclic/dihedral motif fingerprints
+├── src/erdos97/stuck_motif_search.py  # bounded SMT stuck-motif search
+├── src/erdos97/stuck_motif_sweep.py   # motif sweep and geometry smoke tests
 ├── src/erdos97/n7_fano.py             # exact n=7 Fano enumeration
 ├── scripts/                           # thin CLI helpers
 ├── tests/                             # smoke tests and incidence checks
@@ -182,6 +188,7 @@ Use these labels consistently:
 │   ├── candidate-patterns.md          # ranked incidence patterns
 │   ├── failed-ideas.md                # failed arguments to avoid repeating
 │   ├── exactification-plan.md         # numerical-to-exact certificate route
+│   ├── stuck-set-miner.md             # bridge/peeling obstruction tooling
 │   ├── n8-incidence-enumeration.md    # n=8 incidence-completeness proof
 │   ├── n8-exact-survivors.md          # n=8 exact survivor obstructions
 │   ├── mutual-rhombus-filter.md       # exact fixed-pattern filters
