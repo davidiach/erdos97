@@ -36,6 +36,8 @@ put detailed reconciliation in the canonical synthesis.
 - [`minimum-radius-filter.md`](minimum-radius-filter.md): weak exact
   minimum-radius short-chord filter; records why it does not kill `C19_skew`
   by itself.
+- [`stuck-set-miner.md`](stuck-set-miner.md): fixed-selection stuck-set mining
+  for the bridge/peeling program.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`
   selected-witness obstruction.
 - [`n8-incidence-enumeration.md`](n8-incidence-enumeration.md): reproducible

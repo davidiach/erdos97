@@ -247,6 +247,7 @@ def covering_subsets(
     n: int,
     rows: Mapping[int, Sequence[int]],
     max_examples: int = 8,
+    max_size: int | None = None,
 ) -> dict[str, object]:
     """Return small-n cover statistics for possible fragile centers.
 
@@ -257,6 +258,10 @@ def covering_subsets(
     _validate_labels(n, rows)
     if max_examples < 0:
         raise ValueError("max_examples must be nonnegative")
+    if max_size is None:
+        max_size = len(rows)
+    if max_size < 0:
+        raise ValueError("max_size must be nonnegative")
 
     centers = sorted(rows)
     row_sets = {center: set(row) for center, row in rows.items()}
@@ -265,7 +270,7 @@ def covering_subsets(
     min_size: int | None = None
     total = 0
 
-    for size in range(len(centers) + 1):
+    for size in range(min(max_size, len(centers)) + 1):
         for subset in combinations(centers, size):
             covered: set[int] = set()
             for center in subset:
@@ -282,6 +287,8 @@ def covering_subsets(
 
     return {
         "cover_exists": total > 0,
+        "searched_up_to_size": min(max_size, len(centers)),
+        "search_complete": max_size >= len(centers),
         "min_cover_size": min_size,
         "total_cover_subsets": total,
         "cover_counts_by_size": {
