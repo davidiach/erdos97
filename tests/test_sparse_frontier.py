@@ -5,6 +5,7 @@ from erdos97.sparse_frontier import (
     normalize_cyclic_order,
     sample_empty_gap_orders,
     sample_radius_propagation_orders,
+    search_adversarial_orders,
     sparse_frontier_summary,
     sparse_row_profiles,
 )
@@ -107,6 +108,26 @@ def test_sample_radius_propagation_orders_distinguishes_empty_gap_failures() -> 
     example = sample["examples_without_empty_choice"][0]
     assert example["trivial_empty_radius_choice_exists"] is False
     assert example["radius_propagation"]["status"] == "PASS_ACYCLIC_CHOICE"
+
+
+def test_adversarial_order_search_finds_stronger_c13_order() -> None:
+    pattern = built_in_patterns()["C13_sidon_1_2_4_10"]
+
+    result = search_adversarial_orders(
+        pattern.name,
+        pattern.S,
+        random_samples=20,
+        seed=0,
+        restarts=4,
+        local_steps=40,
+    )
+
+    assert result["orders_evaluated"] == 170
+    assert result["min_rows_with_uncovered_consecutive_pair"] == 5
+    assert result["radius_status_histogram"] == {"PASS_ACYCLIC_CHOICE": 170}
+    best = result["best_examples"][0]
+    assert len(best["rows_with_uncovered_consecutive_pair"]) == 5
+    assert best["radius_propagation"]["acyclic_edge_count"] == 8
 
 
 def test_normalize_cyclic_order_quotients_rotation_and_reversal() -> None:
