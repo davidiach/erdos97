@@ -887,6 +887,12 @@ def pattern_filter_snapshot(
         ],
         "minimum_radius_obstructed_in_order": min_radius.obstructed,
         "minimum_radius_possible_centers": min_radius.possible_min_centers,
+        "minimum_radius_order_free_blocked_centers": (
+            min_radius.order_free_blocked_centers
+        ),
+        "minimum_radius_order_free_empty_gap_centers": (
+            min_radius.order_free_empty_gap_centers
+        ),
         "radius_propagation": radius_result_to_json(radius),
         "fragile_cover": fragile_cover_snapshot(
             S,

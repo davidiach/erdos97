@@ -39,17 +39,20 @@ def parse_order(raw: str) -> list[int]:
 def print_summary(rows: list[dict[str, object]]) -> None:
     print(
         "pattern  n  all-pair-sources  consecutive-sources  "
-        "uncovered-consecutive-rows  order-free-blocked  empty-radius-choice"
+        "uncovered-consecutive-rows  order-free-blocked  "
+        "order-free-empty-gap  empty-radius-choice"
     )
     for row in rows:
         n = int(row["n"])
         uncovered = len(row["rows_with_uncovered_consecutive_pair"])
         blocked = len(row["order_free_blocked_rows"])
+        empty_gap = len(row["order_free_empty_gap_rows"])
         print(
             f"{row['pattern']}  {n}  "
             f"{row['all_pair_source_count_histogram']}  "
             f"{row['consecutive_pair_source_count_histogram']}  "
             f"{uncovered}/{n}  {blocked}  "
+            f"{empty_gap}/{n}  "
             f"{row['trivial_empty_radius_choice_exists']}"
         )
 

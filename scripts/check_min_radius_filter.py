@@ -41,13 +41,14 @@ def print_summary(row: dict[str, object]) -> None:
     result = "OBSTRUCTED" if row["obstructed"] else "PASS"
     print(
         "pattern  n  result      blocked centers  possible minimum centers  "
-        "order-free blocked"
+        "order-free blocked  order-free empty-gap"
     )
     print(
         f"{row['pattern']}  {row['n']}  {result:<10}  "
         f"{len(row['blocked_centers'])}  "
         f"{len(row['possible_min_centers'])}  "
-        f"{len(row['order_free_blocked_centers'])}"
+        f"{len(row['order_free_blocked_centers'])}  "
+        f"{len(row['order_free_empty_gap_centers'])}"
     )
 
 
