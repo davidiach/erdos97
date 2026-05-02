@@ -41,7 +41,7 @@
     "n": 19,
     "formula": "offsets {-8,-3,5,9}",
     "type": "skew circulant",
-    "status": "natural-order status: exactly killed by Altman diagonal-order sums; abstract-incidence status: live/sparse with no phi edges and no mutual-rhombus, forced-perpendicularity, or vertex-circle obstruction currently known",
+    "status": "natural-order status: exactly killed by Altman diagonal-order sums; registered non-natural cyclic order [18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1] killed by exact round-two Kalmanson/Farkas fixed-order certificate; abstract-incidence status across all cyclic orders remains live/unresolved",
     "trust": "INCIDENCE_PATTERN"
   },
   {

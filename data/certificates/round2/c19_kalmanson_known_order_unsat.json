@@ -1,0 +1,986 @@
+{
+  "certificate_type": "kalmanson_strict_inequality_farkas",
+  "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+  "pattern": {
+    "name": "C19_skew",
+    "n": 19,
+    "circulant_offsets": [
+      -8,
+      -3,
+      5,
+      9
+    ]
+  },
+  "cyclic_order": [
+    18,
+    10,
+    7,
+    17,
+    6,
+    3,
+    5,
+    9,
+    14,
+    11,
+    2,
+    13,
+    4,
+    16,
+    12,
+    15,
+    0,
+    8,
+    1
+  ],
+  "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+  "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+  "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+  "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+  "num_inequalities": 94,
+  "weight_sum": 6283316065,
+  "inequalities": [
+    {
+      "weight": 8464622,
+      "quad": [
+        18,
+        10,
+        7,
+        8
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 5034817,
+      "quad": [
+        18,
+        10,
+        17,
+        16
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 19108718,
+      "quad": [
+        18,
+        10,
+        5,
+        12
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 40899862,
+      "quad": [
+        18,
+        10,
+        4,
+        12
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 16895901,
+      "quad": [
+        18,
+        7,
+        3,
+        14
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 2272007,
+      "quad": [
+        18,
+        7,
+        11,
+        0
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 19353615,
+      "quad": [
+        18,
+        7,
+        11,
+        8
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 170706001,
+      "quad": [
+        18,
+        7,
+        4,
+        1
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 5034817,
+      "quad": [
+        18,
+        17,
+        5,
+        13
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 195358916,
+      "quad": [
+        18,
+        6,
+        13,
+        4
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 165522,
+      "quad": [
+        18,
+        3,
+        11,
+        2
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 16730379,
+      "quad": [
+        18,
+        3,
+        2,
+        15
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 287026939,
+      "quad": [
+        18,
+        5,
+        4,
+        15
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 24143535,
+      "quad": [
+        18,
+        5,
+        12,
+        8
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 16895901,
+      "quad": [
+        18,
+        9,
+        14,
+        13
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 107727047,
+      "quad": [
+        18,
+        14,
+        15,
+        0
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 77047039,
+      "quad": [
+        18,
+        11,
+        2,
+        4
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 21791144,
+      "quad": [
+        18,
+        11,
+        12,
+        1
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 5034817,
+      "quad": [
+        18,
+        13,
+        16,
+        12
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 107727047,
+      "quad": [
+        18,
+        13,
+        0,
+        1
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 5034817,
+      "quad": [
+        10,
+        7,
+        17,
+        8
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 90551950,
+      "quad": [
+        10,
+        7,
+        5,
+        12
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 7566728,
+      "quad": [
+        10,
+        7,
+        9,
+        16
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 16183714,
+      "quad": [
+        10,
+        7,
+        13,
+        0
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 30543370,
+      "quad": [
+        10,
+        17,
+        6,
+        0
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 202925644,
+      "quad": [
+        10,
+        17,
+        5,
+        9
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 195358916,
+      "quad": [
+        10,
+        6,
+        9,
+        13
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 2531911,
+      "quad": [
+        10,
+        6,
+        14,
+        2
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 30543370,
+      "quad": [
+        10,
+        6,
+        12,
+        1
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 37470057,
+      "quad": [
+        10,
+        3,
+        4,
+        15
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 124036915,
+      "quad": [
+        10,
+        5,
+        2,
+        1
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 2531911,
+      "quad": [
+        10,
+        14,
+        16,
+        8
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 28843241,
+      "quad": [
+        10,
+        2,
+        13,
+        15
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 3429805,
+      "quad": [
+        10,
+        2,
+        4,
+        8
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 114281270,
+      "quad": [
+        7,
+        17,
+        6,
+        9
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 16895901,
+      "quad": [
+        7,
+        17,
+        3,
+        8
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 16895901,
+      "quad": [
+        7,
+        17,
+        5,
+        14
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 18455721,
+      "quad": [
+        7,
+        17,
+        11,
+        0
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 73656049,
+      "quad": [
+        7,
+        6,
+        5,
+        1
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 151067475,
+      "quad": [
+        7,
+        6,
+        9,
+        1
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 897894,
+      "quad": [
+        7,
+        6,
+        11,
+        2
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 39727327,
+      "quad": [
+        7,
+        6,
+        2,
+        8
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 27131057,
+      "quad": [
+        7,
+        5,
+        13,
+        8
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 66394708,
+      "quad": [
+        7,
+        9,
+        4,
+        15
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 29219477,
+      "quad": [
+        7,
+        9,
+        15,
+        8
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 27131057,
+      "quad": [
+        7,
+        14,
+        2,
+        13
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 19638526,
+      "quad": [
+        7,
+        14,
+        8,
+        1
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 210380163,
+      "quad": [
+        17,
+        6,
+        4,
+        15
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 219821545,
+      "quad": [
+        17,
+        3,
+        5,
+        1
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 95205333,
+      "quad": [
+        17,
+        3,
+        14,
+        1
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 223602679,
+      "quad": [
+        17,
+        9,
+        14,
+        4
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 26174813,
+      "quad": [
+        17,
+        9,
+        11,
+        16
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 161381072,
+      "quad": [
+        17,
+        9,
+        15,
+        1
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 7719092,
+      "quad": [
+        17,
+        11,
+        13,
+        8
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 12753909,
+      "quad": [
+        17,
+        13,
+        4,
+        0
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 223134072,
+      "quad": [
+        17,
+        4,
+        12,
+        15
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 48999091,
+      "quad": [
+        17,
+        12,
+        15,
+        0
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 151231890,
+      "quad": [
+        6,
+        3,
+        5,
+        12
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 19638526,
+      "quad": [
+        6,
+        3,
+        14,
+        1
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 82683837,
+      "quad": [
+        6,
+        3,
+        11,
+        12
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 22631056,
+      "quad": [
+        6,
+        3,
+        15,
+        8
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 122793770,
+      "quad": [
+        6,
+        5,
+        9,
+        11
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 45569286,
+      "quad": [
+        6,
+        5,
+        14,
+        0
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 28438120,
+      "quad": [
+        6,
+        5,
+        4,
+        8
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 13416873,
+      "quad": [
+        6,
+        9,
+        14,
+        4
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 3429805,
+      "quad": [
+        6,
+        2,
+        12,
+        0
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 79254032,
+      "quad": [
+        6,
+        4,
+        12,
+        8
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 45569286,
+      "quad": [
+        6,
+        12,
+        0,
+        8
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 107727047,
+      "quad": [
+        6,
+        0,
+        8,
+        1
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 31569380,
+      "quad": [
+        3,
+        5,
+        11,
+        15
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 123871393,
+      "quad": [
+        3,
+        5,
+        2,
+        4
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 334665404,
+      "quad": [
+        3,
+        5,
+        13,
+        1
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 29170949,
+      "quad": [
+        3,
+        9,
+        11,
+        13
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 36179563,
+      "quad": [
+        3,
+        9,
+        4,
+        0
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 125161887,
+      "quad": [
+        3,
+        14,
+        4,
+        0
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 124036915,
+      "quad": [
+        3,
+        2,
+        13,
+        1
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 148914857,
+      "quad": [
+        5,
+        9,
+        12,
+        1
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 77047039,
+      "quad": [
+        5,
+        11,
+        4,
+        15
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 91224390,
+      "quad": [
+        5,
+        11,
+        4,
+        0
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 16309868,
+      "quad": [
+        5,
+        13,
+        4,
+        1
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 21425751,
+      "quad": [
+        5,
+        4,
+        12,
+        8
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 229140186,
+      "quad": [
+        5,
+        4,
+        15,
+        0
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 56350534,
+      "quad": [
+        9,
+        14,
+        11,
+        2
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 95614185,
+      "quad": [
+        9,
+        14,
+        11,
+        15
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 29219477,
+      "quad": [
+        9,
+        14,
+        2,
+        8
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 26174813,
+      "quad": [
+        9,
+        2,
+        13,
+        16
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 29219477,
+      "quad": [
+        9,
+        2,
+        15,
+        8
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 72241663,
+      "quad": [
+        9,
+        13,
+        4,
+        8
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 12112862,
+      "quad": [
+        14,
+        2,
+        15,
+        8
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 10235156,
+      "quad": [
+        14,
+        13,
+        4,
+        15
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 18608085,
+      "quad": [
+        11,
+        13,
+        16,
+        15
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 58438954,
+      "quad": [
+        11,
+        15,
+        0,
+        8
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 3429805,
+      "quad": [
+        2,
+        13,
+        4,
+        0
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 5034817,
+      "quad": [
+        2,
+        13,
+        12,
+        8
+      ],
+      "kind": "K2_diag_gt_other"
+    }
+  ],
+  "role": "PROMOTED_ROUND2_RESULT",
+  "claim_strength": "Exact obstruction for this fixed selected-witness pattern and this fixed cyclic order only; does not kill abstract C19_skew.",
+  "handoff_note": "Merged package promotes this artifact as the round-two deliverable that moves live fixed-order status."
+}

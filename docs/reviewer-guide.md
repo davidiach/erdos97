@@ -11,6 +11,8 @@
 - It does not claim to solve Erdos Problem #97.
 - It does not claim that numerical near-misses are counterexamples.
 - It does not claim the `n=8` artifact has had independent external review.
+- It does not claim that the round-two `C19_skew` Kalmanson certificate kills
+  all cyclic orders of the abstract pattern.
 
 ## Minimal reproduction commands
 
@@ -21,6 +23,7 @@ pip install -e .[dev]
 python scripts/check_text_clean.py
 python scripts/check_status_consistency.py
 pytest -q
+python scripts/check_round2_certificates.py
 python scripts/enumerate_n8_incidence.py --summary
 python scripts/analyze_n8_exact_survivors.py --check --json
 ```
@@ -64,9 +67,10 @@ invariants:
 3. `docs/n7-fano-enumeration.md`
 4. `docs/n8-incidence-enumeration.md`
 5. `docs/n8-exact-survivors.md`
-6. `docs/verification-contract.md`
-7. `docs/n8-geometric-proof.md`
-8. `docs/review-priorities.md`
+6. `docs/round2/round2_merged_report.md`
+7. `docs/verification-contract.md`
+8. `docs/n8-geometric-proof.md`
+9. `docs/review-priorities.md`
 
 ## Review target A - `n=7`
 
@@ -105,6 +109,17 @@ Check:
 - the length-2 diagonal argument forcing equal side lengths;
 - the length-3 diagonal argument forcing a cover of adjacent turn-angle pairs;
 - the exterior-turn contradiction.
+
+## Review target E - round-two fixed-order Kalmanson certificate
+
+Check:
+
+- that `scripts/check_kalmanson_certificate.py` reconstructs the selected
+  distance quotient from the declared `C19_skew` offsets;
+- that every listed quadrilateral is in the declared cyclic order;
+- that all 94 weights are positive integers;
+- that the weighted coefficient sum is exactly zero;
+- that the result is recorded only as a fixed-order obstruction.
 
 ## Known weak points / independent review requests
 

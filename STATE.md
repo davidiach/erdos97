@@ -55,6 +55,14 @@ abstract-incidence obstruction uses the crossing constraints plus the
 vertex-circle order strict-cycle filter; `P24_parity_balanced` is already
 killed by the finite cyclic crossing CSP.
 
+Round two adds an exact Kalmanson/Farkas fixed-order obstruction for the
+registered `C19_skew` selected-witness pattern with offsets `[-8,-3,5,9]` and
+cyclic order `[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]`. The
+certificate is a positive integer combination of 94 strict convex Kalmanson
+distance inequalities whose coefficient vector is exactly zero after
+selected-distance quotienting. This kills only that fixed order; it is not an
+abstract `C19_skew` impossibility proof. See `docs/round2/round2_merged_report.md`.
+
 The phi 4-cycle rectangle-trap filter kills a registered fixed `n=9`
 selected-witness pattern with directed cycle
 `{0,6}->{2,8}->{1,5}->{4,7}->{0,6}`. The obstruction is the exact determinant
@@ -90,9 +98,10 @@ verification threshold and the other collapses to a non-strict configuration.[^c
 
 ## Top remaining live / unresolved patterns
 
-1. `C19_skew`: sparse common-neighbor overlap; not killed by the current
-   mutual-rhombus filter, and not killed by the vertex-circle filter for the
-   known acyclic abstract order.[^repo]
+1. Abstract `C19_skew`: sparse common-neighbor overlap. The natural order is
+   exactly killed by Altman diagonal-order sums, and the registered non-natural
+   order above is now exactly killed by the round-two Kalmanson certificate.
+   The abstract pattern across all cyclic orders is still not closed.
 2. `C13_sidon_1_2_4_10`: (13,4,1) Singer planar-difference-set circulant.
    `|S_a cap S_b| = 1` for every distinct pair. No exact filter currently
    kills it. NUMERICAL_EVIDENCE only: see below.

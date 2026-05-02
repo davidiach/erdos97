@@ -7,15 +7,16 @@ designs only; geometric realization is a separate problem.
 
 | Rank | Name | n | Formula | Type | Current status |
 |---:|---|---:|---|---|---|
-| 1 | `C19_skew` | 19 | offsets `{-8,-3,5,9}` | skew circulant | natural-order status: exactly killed by Altman diagonal-order sums; abstract-incidence status: live/sparse, with no `phi` edges and no mutual-rhombus, forced-perpendicularity, vertex-circle, or minimum-radius obstruction currently known; the registered non-natural order has negative SLSQP evidence at `eq_rms = 0.9031`, not a near-miss[^repo] |
+| 1 | `C19_skew` | 19 | offsets `{-8,-3,5,9}` | skew circulant | natural-order status: exactly killed by Altman diagonal-order sums; one registered non-natural order `[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]` is killed by the round-two Kalmanson/Farkas certificate; abstract-incidence status across all cyclic orders remains open |
 | 11 | `C13_sidon_1_2_4_10` | 13 | offsets `{1,2,4,10}` | Sidon circulant | natural-order status: exactly killed by Altman linear certificate; abstract-incidence status: Sidon sparse-overlap lead, not settled by current filters; SLSQP evidence plateaus at `eq_rms ~ 0.84` under strict convexity margins |
 | 12 | `C25_sidon_2_5_9_14` | 25 | offsets `{2,5,9,14}` | Sidon circulant | natural-order status: exactly killed by Altman linear certificate; abstract-incidence status: Sidon sparse-overlap lead, not settled by current filters; cataloged but not yet run numerically |
 | 13 | `C29_sidon_1_3_7_15` | 29 | offsets `{1,3,7,15}` | Sidon circulant | natural-order status: exactly killed by Altman linear certificate; abstract-incidence status: Sidon sparse-overlap lead, not settled by current filters; cataloged but not yet run numerically |
 
 The live abstract-incidence patterns above pass the row-overlap filter
 `|S_i cap S_j| <= 2` before numerical optimization. `C19_skew`'s natural-order
-realization is already exactly obstructed; its abstract-order status is tracked
-separately.[^comp] The Sidon natural orders are also exactly obstructed by
+realization and one registered non-natural order are already exactly obstructed;
+its all-orders abstract status is tracked separately.[^comp] The Sidon natural
+orders are also exactly obstructed by
 Altman linear certificates, but their arbitrary abstract-order status remains
 separate. A registered non-natural `C13_sidon_1_2_4_10` order survives the
 current fixed-order exact filters; see `docs/sparse-frontier-diagnostic.md`.

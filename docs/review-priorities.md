@@ -72,11 +72,20 @@ Recheck the official Erdos Problems page before any status update.
 
 ## Priority 5 - keep the frontier separate
 
-Keep `n >= 9`, `C19_skew`, and broader SAT/SMT work separate from the small-case
-claim. They are research-frontier workstreams, not prerequisites for the
-repo-local `n <= 8` artifact.
+Keep `n >= 9`, abstract `C19_skew`, and broader SAT/SMT work separate from the
+small-case claim. The round-two Kalmanson certificate kills one fixed
+`C19_skew` cyclic order, not the abstract pattern over all orders. These are
+research-frontier workstreams, not prerequisites for the repo-local `n <= 8`
+artifact.
 
-## Priority 6 - strengthen only productive filters
+## Priority 6 - pilot Kalmanson order search on C13
+
+Before attempting exhaustive `C19_skew` cyclic-order search, build a smaller
+Kalmanson cyclic-order CSP pilot on `C13`: normalize by dihedral symmetry,
+prune partial orders cheaply, run LP dual checks on closed branches, and emit
+exact integer certificates for branches that close.
+
+## Priority 7 - strengthen only productive filters
 
 The minimum-radius short-chord filter in `docs/minimum-radius-filter.md` is a
 valid exact necessary condition, but it is weak: it does not kill `C19_skew`.

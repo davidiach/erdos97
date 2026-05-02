@@ -10,6 +10,11 @@ for earlier gaps and failed arguments; use `STATE.md`, `RESULTS.md`,
 `docs/n8-incidence-enumeration.md`, and `docs/n8-exact-survivors.md` for the
 current finite-case status.
 
+**Round-two note:** a later handoff adds an exact Kalmanson/Farkas certificate
+killing one fixed `C19_skew` cyclic order. This does not change the global/open
+status and does not kill abstract `C19_skew` over all cyclic orders. Use
+`docs/round2/round2_merged_report.md` for that fixed-order artifact.
+
 ## What is new in this canonical version
 
 Relative to `erdos97_final_consolidated.md`:
