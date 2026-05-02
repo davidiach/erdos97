@@ -34,6 +34,19 @@ python scripts/analyze_sparse_frontier.py \
 Sampling is not exhaustive; it is a smoke test for whether the natural-order
 empty-gap escape is robust under order changes.
 
+To additionally run the full radius-propagation filter on each sampled order:
+
+```bash
+python scripts/analyze_sparse_frontier.py \
+  --frontier \
+  --sample-orders 200 \
+  --sample-seed 0 \
+  --sample-radius-propagation
+```
+
+This distinguishes orders with an all-empty short-gap choice from orders that
+still admit an acyclic strict-radius inequality choice.
+
 ## Snapshot
 
 | Pattern | n | all witness-pair sources | consecutive-pair sources | rows with uncovered consecutive pair | order-free blocked rows | empty radius choice |
@@ -63,6 +76,20 @@ This separates `C13` from the larger sparse frontier. The natural order of
 `C13_sidon_1_2_4_10` has an empty radius choice, but many sampled orders do
 not. In contrast, all sampled orders for `C19`, `C25`, and `C29` kept the empty
 choice. This is still sampling only, not an abstract-order theorem.
+
+With the same order sample and `--sample-radius-propagation`:
+
+| Pattern | radius status histogram | no-empty-choice radius status histogram | maximum explored nodes |
+|---|---|---|---:|
+| `C19_skew` | `{PASS_ACYCLIC_CHOICE: 201}` | `{}` | 20 |
+| `C13_sidon_1_2_4_10` | `{PASS_ACYCLIC_CHOICE: 201}` | `{PASS_ACYCLIC_CHOICE: 176}` | 14 |
+| `C25_sidon_2_5_9_14` | `{PASS_ACYCLIC_CHOICE: 201}` | `{}` | 26 |
+| `C29_sidon_1_3_7_15` | `{PASS_ACYCLIC_CHOICE: 201}` | `{}` | 30 |
+
+Thus this sampled run found no strict radius-cycle obstruction. In particular,
+the 176 sampled `C13` orders without an all-empty choice still passed by an
+acyclic radius-inequality assignment. This is negative evidence about the
+current radius-propagation filter, not evidence for geometric realizability.
 
 ## Interpretation
 

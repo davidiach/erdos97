@@ -19,7 +19,11 @@ from erdos97.min_radius_filter import (
     row_is_order_free_blocked,
     selected_pair_sources,
 )
-from erdos97.stuck_sets import validate_selected_pattern
+from erdos97.stuck_sets import (
+    RadiusPropagationResult,
+    radius_propagation_obstruction,
+    validate_selected_pattern,
+)
 
 Pair = tuple[int, int]
 Pattern = Sequence[Sequence[int]]
@@ -53,6 +57,39 @@ def _source_profile(S: Pattern, pair: Pair) -> PairSourceProfile:
 
 def _histogram(values: Sequence[int]) -> dict[str, int]:
     return {str(key): count for key, count in sorted(Counter(values).items())}
+
+
+def _sample_cyclic_orders(
+    n: int,
+    random_samples: int,
+    seed: int,
+    include_natural: bool,
+) -> list[list[int]]:
+    if random_samples < 0:
+        raise ValueError("random_samples must be nonnegative")
+    rng = random.Random(seed)
+    orders: list[list[int]] = []
+    seen: set[tuple[int, ...]] = set()
+
+    def add_order(order: Sequence[int]) -> None:
+        normalized = tuple(normalize_cyclic_order(order))
+        if normalized not in seen:
+            seen.add(normalized)
+            orders.append(list(normalized))
+
+    if include_natural:
+        add_order(list(range(n)))
+    attempts = 0
+    max_attempts = max(100, random_samples * 20)
+    while (
+        len(orders) < random_samples + int(include_natural)
+        and attempts < max_attempts
+    ):
+        attempts += 1
+        order = list(range(n))
+        rng.shuffle(order)
+        add_order(order)
+    return orders
 
 
 def normalize_cyclic_order(order: Sequence[int]) -> list[int]:
@@ -217,28 +254,7 @@ def sample_empty_gap_orders(
         raise ValueError("max_examples must be nonnegative")
     validate_selected_pattern(S)
     n = len(S)
-    rng = random.Random(seed)
-    orders: list[list[int]] = []
-    seen: set[tuple[int, ...]] = set()
-
-    def add_order(order: Sequence[int]) -> None:
-        normalized = tuple(normalize_cyclic_order(order))
-        if normalized not in seen:
-            seen.add(normalized)
-            orders.append(list(normalized))
-
-    if include_natural:
-        add_order(list(range(n)))
-    attempts = 0
-    max_attempts = max(100, random_samples * 20)
-    while (
-        len(orders) < random_samples + int(include_natural)
-        and attempts < max_attempts
-    ):
-        attempts += 1
-        order = list(range(n))
-        rng.shuffle(order)
-        add_order(order)
+    orders = _sample_cyclic_orders(n, random_samples, seed, include_natural)
 
     row_counts: list[int] = []
     empty_choice_orders = 0
@@ -297,5 +313,133 @@ def sample_empty_gap_orders(
             "Random cyclic-order sampling only, quotienting rotation and "
             "reversal for reporting. Failing to find an order without the "
             "empty-gap escape is not an exhaustive abstract-order theorem."
+        ),
+    }
+
+
+def _radius_summary(order_result: RadiusPropagationResult) -> dict[str, object]:
+    acyclic_choice = order_result.acyclic_choice
+    return {
+        "status": order_result.status,
+        "obstructed": order_result.obstructed,
+        "explored_nodes": order_result.explored_nodes,
+        "acyclic_edge_count": (
+            None
+            if acyclic_choice is None
+            else sum(len(choice.smaller_centers) for choice in acyclic_choice)
+        ),
+    }
+
+
+def sample_radius_propagation_orders(
+    pattern_name: str,
+    S: Pattern,
+    random_samples: int = 100,
+    seed: int = 0,
+    include_natural: bool = True,
+    max_examples: int = 3,
+    node_limit: int = 100_000,
+) -> dict[str, object]:
+    """Sample cyclic orders and run the full radius-propagation filter."""
+
+    if random_samples < 0:
+        raise ValueError("random_samples must be nonnegative")
+    if max_examples < 0:
+        raise ValueError("max_examples must be nonnegative")
+    if node_limit <= 0:
+        raise ValueError("node_limit must be positive")
+    validate_selected_pattern(S)
+    n = len(S)
+    orders = _sample_cyclic_orders(n, random_samples, seed, include_natural)
+
+    row_counts: list[int] = []
+    empty_choice_orders = 0
+    status_counts: Counter[str] = Counter()
+    empty_choice_status_counts: Counter[str] = Counter()
+    no_empty_choice_status_counts: Counter[str] = Counter()
+    explored_nodes: list[int] = []
+    natural_order_result: dict[str, object] | None = None
+    examples_without_empty_choice: list[dict[str, object]] = []
+    examples_obstructed_or_unknown: list[dict[str, object]] = []
+
+    for order in orders:
+        summary = sparse_frontier_summary(
+            pattern_name,
+            S,
+            order=order,
+            max_row_examples=0,
+        )
+        rows = list(summary["rows_with_uncovered_consecutive_pair"])
+        row_count = len(rows)
+        row_counts.append(row_count)
+        missing = [center for center in range(n) if center not in rows]
+        has_empty_choice = row_count == n
+        radius = radius_propagation_obstruction(
+            S,
+            order=order,
+            node_limit=node_limit,
+        )
+        status_counts[radius.status] += 1
+        if has_empty_choice:
+            empty_choice_orders += 1
+            empty_choice_status_counts[radius.status] += 1
+        else:
+            no_empty_choice_status_counts[radius.status] += 1
+        explored_nodes.append(radius.explored_nodes)
+        item = {
+            "order": order,
+            "rows_with_uncovered_consecutive_pair": rows,
+            "rows_without_uncovered_consecutive_pair": missing,
+            "trivial_empty_radius_choice_exists": has_empty_choice,
+            "radius_propagation": _radius_summary(radius),
+        }
+        if order == list(range(n)):
+            natural_order_result = item
+        if (
+            not has_empty_choice
+            and len(examples_without_empty_choice) < max_examples
+        ):
+            examples_without_empty_choice.append(item)
+        if (
+            radius.obstructed is not False
+            and len(examples_obstructed_or_unknown) < max_examples
+        ):
+            examples_obstructed_or_unknown.append(item)
+
+    return {
+        "type": "sparse_frontier_radius_order_sample",
+        "pattern": pattern_name,
+        "n": n,
+        "random_samples_requested": random_samples,
+        "seed": seed,
+        "include_natural": include_natural,
+        "orders_checked": len(orders),
+        "unique_orders_generated": len(orders),
+        "node_limit": node_limit,
+        "empty_choice_orders": empty_choice_orders,
+        "empty_choice_fraction": (
+            empty_choice_orders / len(orders) if orders else None
+        ),
+        "rows_with_uncovered_consecutive_histogram": _histogram(row_counts),
+        "min_rows_with_uncovered_consecutive_pair": (
+            min(row_counts) if row_counts else None
+        ),
+        "radius_status_histogram": dict(sorted(status_counts.items())),
+        "empty_choice_radius_status_histogram": dict(
+            sorted(empty_choice_status_counts.items())
+        ),
+        "no_empty_choice_radius_status_histogram": dict(
+            sorted(no_empty_choice_status_counts.items())
+        ),
+        "max_explored_nodes": max(explored_nodes) if explored_nodes else None,
+        "natural_order": natural_order_result,
+        "examples_without_empty_choice": examples_without_empty_choice,
+        "examples_obstructed_or_unknown": examples_obstructed_or_unknown,
+        "semantics": (
+            "Random cyclic-order sampling only. The radius-propagation status "
+            "is an exact fixed-order necessary filter for each sampled order. "
+            "PASS_ACYCLIC_CHOICE is not evidence of geometric realizability; "
+            "it only means that this radius-cycle filter did not obstruct "
+            "that order."
         ),
     }

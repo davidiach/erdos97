@@ -16,6 +16,7 @@ if str(SRC) not in sys.path:
 from erdos97.search import built_in_patterns  # noqa: E402
 from erdos97.sparse_frontier import (  # noqa: E402
     sample_empty_gap_orders,
+    sample_radius_propagation_orders,
     sparse_frontier_summary,
 )
 
@@ -53,10 +54,18 @@ def print_summary(rows: list[dict[str, object]]) -> None:
 
 
 def print_sample_summary(rows: list[dict[str, object]]) -> None:
-    print(
-        "pattern  n  orders  empty-choice  min-uncovered-rows  "
-        "row-count-histogram  natural-empty-choice"
-    )
+    has_radius = bool(rows and "radius_status_histogram" in rows[0])
+    if has_radius:
+        print(
+            "pattern  n  orders  empty-choice  min-uncovered-rows  "
+            "row-count-histogram  radius-status  no-empty-radius-status  "
+            "natural-empty-choice  natural-radius-status"
+        )
+    else:
+        print(
+            "pattern  n  orders  empty-choice  min-uncovered-rows  "
+            "row-count-histogram  natural-empty-choice"
+        )
     for row in rows:
         natural = row["natural_order"]
         natural_empty = (
@@ -64,13 +73,29 @@ def print_sample_summary(rows: list[dict[str, object]]) -> None:
             if isinstance(natural, dict)
             else None
         )
-        print(
-            f"{row['pattern']}  {row['n']}  {row['orders_checked']}  "
-            f"{row['empty_choice_orders']}  "
-            f"{row['min_rows_with_uncovered_consecutive_pair']}  "
-            f"{row['rows_with_uncovered_consecutive_histogram']}  "
-            f"{natural_empty}"
-        )
+        if has_radius:
+            natural_radius = (
+                natural["radius_propagation"]["status"]
+                if isinstance(natural, dict)
+                else None
+            )
+            print(
+                f"{row['pattern']}  {row['n']}  {row['orders_checked']}  "
+                f"{row['empty_choice_orders']}  "
+                f"{row['min_rows_with_uncovered_consecutive_pair']}  "
+                f"{row['rows_with_uncovered_consecutive_histogram']}  "
+                f"{row['radius_status_histogram']}  "
+                f"{row['no_empty_choice_radius_status_histogram']}  "
+                f"{natural_empty}  {natural_radius}"
+            )
+        else:
+            print(
+                f"{row['pattern']}  {row['n']}  {row['orders_checked']}  "
+                f"{row['empty_choice_orders']}  "
+                f"{row['min_rows_with_uncovered_consecutive_pair']}  "
+                f"{row['rows_with_uncovered_consecutive_histogram']}  "
+                f"{natural_empty}"
+            )
 
 
 def main() -> int:
@@ -106,6 +131,17 @@ def main() -> int:
         help="sample this many random cyclic orders in addition to natural order",
     )
     parser.add_argument("--sample-seed", type=int, default=0)
+    parser.add_argument(
+        "--sample-radius-propagation",
+        action="store_true",
+        help="with --sample-orders, run the full radius-propagation filter per order",
+    )
+    parser.add_argument(
+        "--radius-node-limit",
+        type=int,
+        default=100_000,
+        help="node limit for the sampled radius-propagation filter",
+    )
     args = parser.parse_args()
 
     patterns = built_in_patterns()
@@ -120,6 +156,8 @@ def main() -> int:
 
     if args.sample_orders is not None and args.order is not None:
         raise SystemExit("--sample-orders cannot be combined with --order")
+    if args.sample_radius_propagation and args.sample_orders is None:
+        raise SystemExit("--sample-radius-propagation requires --sample-orders")
 
     if args.sample_orders is None:
         rows = [
@@ -128,6 +166,19 @@ def main() -> int:
                 patterns[name].S,
                 order=args.order,
                 max_row_examples=args.max_row_examples,
+            )
+            for name in names
+        ]
+    elif args.sample_radius_propagation:
+        rows = [
+            sample_radius_propagation_orders(
+                name,
+                patterns[name].S,
+                random_samples=args.sample_orders,
+                seed=args.sample_seed,
+                include_natural=True,
+                max_examples=args.max_row_examples,
+                node_limit=args.radius_node_limit,
             )
             for name in names
         ]

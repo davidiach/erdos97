@@ -4,6 +4,7 @@ from erdos97.search import built_in_patterns
 from erdos97.sparse_frontier import (
     normalize_cyclic_order,
     sample_empty_gap_orders,
+    sample_radius_propagation_orders,
     sparse_frontier_summary,
     sparse_row_profiles,
 )
@@ -84,6 +85,28 @@ def test_sample_empty_gap_orders_records_counterexamples() -> None:
     assert sample["orders_checked"] == 21
     assert sample["empty_choice_orders"] < sample["orders_checked"]
     assert sample["examples_without_empty_choice"]
+
+
+def test_sample_radius_propagation_orders_distinguishes_empty_gap_failures() -> None:
+    pattern = built_in_patterns()["C13_sidon_1_2_4_10"]
+
+    sample = sample_radius_propagation_orders(
+        pattern.name,
+        pattern.S,
+        random_samples=20,
+        seed=0,
+    )
+
+    assert sample["orders_checked"] == 21
+    assert sample["empty_choice_orders"] == 3
+    assert sample["radius_status_histogram"] == {"PASS_ACYCLIC_CHOICE": 21}
+    assert sample["no_empty_choice_radius_status_histogram"] == {
+        "PASS_ACYCLIC_CHOICE": 18
+    }
+    assert sample["examples_without_empty_choice"]
+    example = sample["examples_without_empty_choice"][0]
+    assert example["trivial_empty_radius_choice_exists"] is False
+    assert example["radius_propagation"]["status"] == "PASS_ACYCLIC_CHOICE"
 
 
 def test_normalize_cyclic_order_quotients_rotation_and_reversal() -> None:
