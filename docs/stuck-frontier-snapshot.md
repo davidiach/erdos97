@@ -76,7 +76,10 @@ forces a different witness choice.
 The current radius-propagation filter does not kill any of the four patterns.
 In these sparse-overlap cases there are many consecutive witness pairs whose
 selected-pair source list is empty, so the disjunctive strict-radius graph can
-choose acyclic local gaps.
+choose acyclic local gaps. The sharper witness-pair source diagnostic in
+`docs/sparse-frontier-diagnostic.md` records that, in natural order, every
+frontier row has an uncovered consecutive pair and the radius-propagation
+filter admits an all-empty radius choice.
 
 The fragile-cover snapshot is also not decisive. `C13` and `C19` have complete
 incidence-level covers of sizes `4` and `7`, respectively. `C25` and `C29` have
