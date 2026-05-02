@@ -15,9 +15,9 @@ This script is deliberately research-oriented:
 Dependencies: numpy, scipy. Optional: sympy, z3-solver.
 
 Example:
-  python erdos97_search.py --pattern C12_pm_2_5 --restarts 50 --mode polar --out best.json
-  python erdos97_search.py --list-patterns
-  python erdos97_search.py --verify best.json
+  erdos97-search --pattern C12_pm_2_5 --restarts 50 --mode polar --out best.json
+  erdos97-search --list-patterns
+  python -m erdos97.search --verify best.json
 """
 from __future__ import annotations
 
@@ -26,7 +26,7 @@ import dataclasses
 import json
 import math
 import time
-from typing import Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 from numpy.typing import NDArray
@@ -352,6 +352,16 @@ def validate_candidate_shape(P: Array, S: Pattern) -> List[str]:
         bad = [j for j in row if j < 0 or j >= n]
         if bad:
             errors.append(f"row {i} contains out-of-range targets: {bad}")
+
+    for a in range(n):
+        targets_a = set(S[a])
+        for b in range(a + 1, n):
+            common = targets_a.intersection(S[b])
+            if len(common) > 2:
+                errors.append(
+                    f"rows {a} and {b} share {len(common)} selected targets, "
+                    "exceeding the pairwise cap of 2"
+                )
 
     return errors
 
@@ -748,7 +758,10 @@ def result_to_json(result: SearchResult) -> Dict[str, object]:
 def load_json_result(path: str) -> Tuple[Array, Pattern]:
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
-    P = np.array(data["coordinates"], dtype=float)
+    coordinates = data.get("coordinates", data.get("coordinates_float"))
+    if coordinates is None:
+        raise KeyError("candidate JSON must contain coordinates or coordinates_float")
+    P = np.array(coordinates, dtype=float)
     S = [[int(j) for j in row] for row in data["S"]]
     return P, S
 

@@ -40,9 +40,9 @@ claims.
 
 ## New exact fixed-pattern obstructions
 
-The crossing-bisector, mutual-rhombus, cyclic crossing-CSP, and vertex-circle
-order filters now exactly kill several previously live fixed selected-witness
-patterns. In particular,
+The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic
+crossing-CSP, and vertex-circle order filters now exactly kill several
+previously live fixed selected-witness patterns. In particular,
 `B12_3x4_danzer_lift` is no longer live as a fixed selected pattern: its
 mutual-rhombus midpoint equations force labels `[0,4,8]`, `[1,5,9]`,
 `[2,6,10]`, and `[3,7,11]` to coincide. The old numerical near-miss remains
@@ -54,6 +54,14 @@ Also killed as fixed selected patterns: `B20_4x5_FR_lift`, `C17_skew`,
 abstract-incidence obstruction uses the crossing constraints plus the
 vertex-circle order strict-cycle filter; `P24_parity_balanced` is already
 killed by the finite cyclic crossing CSP.
+
+The phi 4-cycle rectangle-trap filter kills a registered fixed `n=9`
+selected-witness pattern with directed cycle
+`{0,6}->{2,8}->{1,5}->{4,7}->{0,6}`. The obstruction is the exact determinant
+identity `D1 + D3 + D5 + D7 = -4*a*b` under cyclic-order signs `a,b > 0`.
+See `docs/phi4-rectangle-trap.md` and
+`data/certificates/n9_phi4_rectangle_trap.json`. This is not an `n=9`
+completeness result.
 
 ## Best saved near-miss
 

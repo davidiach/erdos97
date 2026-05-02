@@ -3,12 +3,28 @@ from __future__ import annotations
 from erdos97.incidence_filters import (
     adjacent_two_overlap_violations,
     chords_cross_in_order,
+    crossing_bisector_violations,
     forced_equal_classes_from_matrix,
     mutual_midpoint_matrix,
     odd_forced_perpendicular_cycle,
+    phi4_rectangle_trap_certificates,
+    phi_directed_4_cycles,
     phi_map,
 )
 from erdos97.search import built_in_patterns
+
+
+N9_RECTANGLE_TRAP_PATTERN = [
+    [1, 2, 3, 8],
+    [0, 2, 4, 7],
+    [1, 3, 5, 7],
+    [1, 4, 6, 8],
+    [0, 2, 5, 6],
+    [3, 4, 6, 7],
+    [2, 5, 7, 8],
+    [0, 3, 6, 8],
+    [0, 1, 4, 5],
+]
 
 
 def test_chords_cross_in_order() -> None:
@@ -104,6 +120,76 @@ def test_c17_skew_has_odd_forced_perpendicularity_cycle() -> None:
 
     assert cycle is not None
     assert len(cycle) % 2 == 1
+
+
+def test_n9_rectangle_trap_survives_older_phi_filters() -> None:
+    matrix = mutual_midpoint_matrix(N9_RECTANGLE_TRAP_PATTERN)
+
+    assert odd_forced_perpendicular_cycle(N9_RECTANGLE_TRAP_PATTERN) is None
+    assert matrix.rank() == 0
+    assert forced_equal_classes_from_matrix(matrix, 9) == []
+    assert adjacent_two_overlap_violations(N9_RECTANGLE_TRAP_PATTERN) == []
+    assert crossing_bisector_violations(N9_RECTANGLE_TRAP_PATTERN, list(range(9))) == []
+
+
+def test_n9_rectangle_trap_has_exact_phi4_certificate() -> None:
+    cycles = phi_directed_4_cycles(N9_RECTANGLE_TRAP_PATTERN)
+    certs = phi4_rectangle_trap_certificates(N9_RECTANGLE_TRAP_PATTERN)
+
+    assert cycles == [((0, 6), (2, 8), (1, 5), (4, 7))]
+    assert len(certs) == 1
+    cert = certs[0]
+    assert cert["status"] == "EXACT_OBSTRUCTION"
+    assert cert["phi_cycle"] == [[0, 6], [2, 8], [1, 5], [4, 7]]
+    assert cert["cyclic_subsequence"] == [0, 1, 2, 4, 5, 6, 7, 8]
+    assert cert["determinant_identity"] == {
+        "left": "D1 + D3 + D5 + D7",
+        "right": "-4*a*b",
+        "contradiction": (
+            "Strict convexity requires D1,D3,D5,D7 > 0, "
+            "but a,b > 0 makes their sum negative."
+        ),
+    }
+
+
+def test_n9_rectangle_trap_accepts_reversed_cyclic_order() -> None:
+    certs = phi4_rectangle_trap_certificates(
+        N9_RECTANGLE_TRAP_PATTERN,
+        list(reversed(range(9))),
+    )
+
+    assert len(certs) == 1
+    assert certs[0]["cyclic_order_orientation"] == "reversed"
+
+
+def test_phi4_rectangle_trap_determinant_identity_expands_exactly() -> None:
+    import sympy as sp
+
+    a, b, L0, L1, L2, L3 = sp.symbols("a b L0 L1 L2 L3")
+    points = [
+        (L0, 0),
+        (a + L2, b),
+        (a, L1),
+        (0, b + L3),
+        (a - L2, b),
+        (-L0, 0),
+        (0, b - L3),
+        (a, -L1),
+    ]
+
+    def orient(i: int):
+        p = sp.Matrix(points[i])
+        q = sp.Matrix(points[(i + 1) % len(points)])
+        r = sp.Matrix(points[(i + 2) % len(points)])
+        v = q - p
+        w = r - q
+        return sp.expand(v[0] * w[1] - v[1] * w[0])
+
+    determinants = [orient(i) for i in range(len(points))]
+
+    odd_sum = determinants[1] + determinants[3] + determinants[5] + determinants[7]
+
+    assert sp.factor(odd_sum) == -4 * a * b
 
 
 def test_parity_patterns_have_natural_order_adjacent_two_overlap_violations() -> None:

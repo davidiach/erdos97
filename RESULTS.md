@@ -113,6 +113,17 @@ The mutual-rhombus midpoint filter kills the fixed selected patterns
 `C13_pm_3_5`, and `C9_pm_2_4`. The pattern `C17_skew` is killed by an odd
 forced-perpendicularity cycle.
 
+The phi 4-cycle rectangle-trap filter kills a registered fixed `n=9`
+selected-witness pattern with directed cycle
+`{0,6}->{2,8}->{1,5}->{4,7}->{0,6}`. The cycle is not a reciprocal 2-cycle and
+not an odd perpendicularity cycle. The exact obstruction uses the cyclic
+subsequence `0,1,2,4,5,6,7,8`, a midpoint-rectangle normalization, and the
+identity `D1 + D3 + D5 + D7 = -4*a*b` with cyclic-order signs `a,b > 0`. This
+is a fixed-pattern obstruction only, not an `n=9` completeness theorem. See
+`docs/phi4-rectangle-trap.md`,
+`scripts/check_phi4_rectangle_trap.py`, and
+`data/certificates/n9_phi4_rectangle_trap.json`.
+
 Under the natural cyclic order, `P18_parity_balanced` and
 `P24_parity_balanced` are killed by adjacent-row two-overlap via the
 crossing-bisector lemma. As abstract incidence patterns with arbitrary cyclic

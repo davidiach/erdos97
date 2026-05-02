@@ -26,6 +26,10 @@ def write_candidate(path: pathlib.Path, coordinates: list[list[float]], S: list[
     path.write_text(json.dumps({"coordinates": coordinates, "S": S}), encoding="utf-8")
 
 
+def circulant_witnesses(n: int, offsets: list[int]) -> list[list[int]]:
+    return [[(i + offset) % n for offset in offsets] for i in range(n)]
+
+
 def test_built_in_patterns_have_outdegree_four_and_no_loops() -> None:
     for pattern in built_in_patterns().values():
         assert len(pattern.S) == pattern.n
@@ -74,14 +78,39 @@ def test_verify_json_rejects_duplicate_self_witness_rows(tmp_path: pathlib.Path)
 
 def test_verify_json_normalizes_before_acceptance(tmp_path: pathlib.Path) -> None:
     path = tmp_path / "tiny_regular_pentagon.json"
-    witnesses = [[j for j in range(5) if j != i] for i in range(5)]
-    write_candidate(path, regular_ngon(5, scale=1e-12), witnesses)
+    witnesses = circulant_witnesses(7, [1, 2, 3, 5])
+    write_candidate(path, regular_ngon(7, scale=1e-12), witnesses)
 
     diag = verify_json(str(path), tol=1e-8)
 
     assert not diag["ok_at_tol"]
     assert diag["validation_errors"] == []
     assert diag["max_spread"] > 1.0
+
+
+def test_verify_json_accepts_certificate_template_coordinate_key(tmp_path: pathlib.Path) -> None:
+    path = tmp_path / "certificate_template.json"
+    witnesses = circulant_witnesses(7, [1, 2, 3, 5])
+    path.write_text(
+        json.dumps({"coordinates_float": regular_ngon(7), "S": witnesses}),
+        encoding="utf-8",
+    )
+
+    diag = verify_json(str(path), tol=1e-8)
+
+    assert not diag["ok_at_tol"]
+    assert diag["validation_errors"] == []
+
+
+def test_verify_json_rejects_pairwise_common_neighbor_cap_violation(tmp_path: pathlib.Path) -> None:
+    path = tmp_path / "bad_pairwise_cap.json"
+    witnesses = [[j for j in range(5) if j != i] for i in range(5)]
+    write_candidate(path, regular_ngon(5), witnesses)
+
+    diag = verify_json(str(path), tol=1e-8)
+
+    assert not diag["ok_at_tol"]
+    assert any("pairwise cap of 2" in err for err in diag["validation_errors"])
 
 
 def test_min_pair_distance_detects_duplicate_points() -> None:

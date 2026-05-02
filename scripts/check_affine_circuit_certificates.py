@@ -18,7 +18,6 @@ from erdos97.affine_circuit_certificates import (  # noqa: E402
     analysis_to_json,
     golden_decagon_example,
     lifted_matrix,
-    matrix_is_zero,
     minimal_cofactor_certificates,
     pair_gain_components,
     quotient_matrix,

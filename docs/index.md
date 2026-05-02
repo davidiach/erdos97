@@ -25,6 +25,8 @@ put detailed reconciliation in the canonical synthesis.
   proof-facing caveats.
 - [`mutual-rhombus-filter.md`](mutual-rhombus-filter.md): crossing-bisector and
   mutual-midpoint filters for fixed selected-witness patterns.
+- [`phi4-rectangle-trap.md`](phi4-rectangle-trap.md): exact even
+  perpendicularity 4-cycle obstruction for fixed selected-witness patterns.
 - [`altman-diagonal-sums.md`](altman-diagonal-sums.md): natural-order
   diagonal-sum obstruction for cyclic-offset patterns.
 - [`cyclic-crossing-csp.md`](cyclic-crossing-csp.md): exact cyclic-order
