@@ -14,7 +14,10 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from erdos97.search import built_in_patterns  # noqa: E402
-from erdos97.sparse_frontier import sparse_frontier_summary  # noqa: E402
+from erdos97.sparse_frontier import (  # noqa: E402
+    sample_empty_gap_orders,
+    sparse_frontier_summary,
+)
 
 FRONTIER_PATTERNS = (
     "C19_skew",
@@ -49,6 +52,27 @@ def print_summary(rows: list[dict[str, object]]) -> None:
         )
 
 
+def print_sample_summary(rows: list[dict[str, object]]) -> None:
+    print(
+        "pattern  n  orders  empty-choice  min-uncovered-rows  "
+        "row-count-histogram  natural-empty-choice"
+    )
+    for row in rows:
+        natural = row["natural_order"]
+        natural_empty = (
+            natural["trivial_empty_radius_choice_exists"]
+            if isinstance(natural, dict)
+            else None
+        )
+        print(
+            f"{row['pattern']}  {row['n']}  {row['orders_checked']}  "
+            f"{row['empty_choice_orders']}  "
+            f"{row['min_rows_with_uncovered_consecutive_pair']}  "
+            f"{row['rows_with_uncovered_consecutive_histogram']}  "
+            f"{natural_empty}"
+        )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     target = parser.add_mutually_exclusive_group(required=True)
@@ -76,6 +100,12 @@ def main() -> int:
     )
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--assert-empty-choice", action="store_true")
+    parser.add_argument(
+        "--sample-orders",
+        type=int,
+        help="sample this many random cyclic orders in addition to natural order",
+    )
+    parser.add_argument("--sample-seed", type=int, default=0)
     args = parser.parse_args()
 
     patterns = built_in_patterns()
@@ -88,19 +118,39 @@ def main() -> int:
     else:
         names = list(patterns)
 
-    rows = [
-        sparse_frontier_summary(
-            name,
-            patterns[name].S,
-            order=args.order,
-            max_row_examples=args.max_row_examples,
-        )
-        for name in names
-    ]
+    if args.sample_orders is not None and args.order is not None:
+        raise SystemExit("--sample-orders cannot be combined with --order")
+
+    if args.sample_orders is None:
+        rows = [
+            sparse_frontier_summary(
+                name,
+                patterns[name].S,
+                order=args.order,
+                max_row_examples=args.max_row_examples,
+            )
+            for name in names
+        ]
+    else:
+        rows = [
+            sample_empty_gap_orders(
+                name,
+                patterns[name].S,
+                random_samples=args.sample_orders,
+                seed=args.sample_seed,
+                include_natural=True,
+                max_examples=args.max_row_examples,
+            )
+            for name in names
+        ]
 
     if args.assert_empty_choice:
         for row in rows:
-            if not row["trivial_empty_radius_choice_exists"]:
+            if args.sample_orders is None:
+                ok = row["trivial_empty_radius_choice_exists"]
+            else:
+                ok = row["empty_choice_orders"] == row["orders_checked"]
+            if not ok:
                 raise AssertionError(f"{row['pattern']}: expected empty radius choice")
 
     payload: dict[str, object] | list[dict[str, object]]
@@ -108,7 +158,10 @@ def main() -> int:
     if args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     else:
-        print_summary(rows)
+        if args.sample_orders is None:
+            print_summary(rows)
+        else:
+            print_sample_summary(rows)
         if args.assert_empty_choice:
             print("OK: empty radius choice verified")
     return 0
