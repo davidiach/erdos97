@@ -8,6 +8,7 @@ geometric realization tests.
 
 from __future__ import annotations
 
+import random
 from collections import Counter
 from dataclasses import dataclass
 from itertools import combinations
@@ -52,6 +53,25 @@ def _source_profile(S: Pattern, pair: Pair) -> PairSourceProfile:
 
 def _histogram(values: Sequence[int]) -> dict[str, int]:
     return {str(key): count for key, count in sorted(Counter(values).items())}
+
+
+def normalize_cyclic_order(order: Sequence[int]) -> list[int]:
+    """Return a rotation/reversal canonical representative of a cyclic order."""
+
+    if not order:
+        raise ValueError("cyclic order must be nonempty")
+    n = len(order)
+    seen = set(order)
+    if seen != set(range(n)):
+        missing = sorted(set(range(n)) - seen)
+        extra = sorted(seen - set(range(n)))
+        raise ValueError(
+            f"cyclic order is not a permutation; missing={missing}, extra={extra}"
+        )
+    pos0 = list(order).index(0)
+    rotated = list(order[pos0:]) + list(order[:pos0])
+    reversed_order = [rotated[0], *reversed(rotated[1:])]
+    return min(rotated, reversed_order)
 
 
 def sparse_row_profiles(
@@ -177,5 +197,105 @@ def sparse_frontier_summary(
             "can choose those pairs and force no strict radius inequalities. "
             "This is a blindness certificate for that filter, not evidence of "
             "geometric realizability."
+        ),
+    }
+
+
+def sample_empty_gap_orders(
+    pattern_name: str,
+    S: Pattern,
+    random_samples: int = 100,
+    seed: int = 0,
+    include_natural: bool = True,
+    max_examples: int = 3,
+) -> dict[str, object]:
+    """Sample cyclic orders and test for all-row uncovered short-gap choices."""
+
+    if random_samples < 0:
+        raise ValueError("random_samples must be nonnegative")
+    if max_examples < 0:
+        raise ValueError("max_examples must be nonnegative")
+    validate_selected_pattern(S)
+    n = len(S)
+    rng = random.Random(seed)
+    orders: list[list[int]] = []
+    seen: set[tuple[int, ...]] = set()
+
+    def add_order(order: Sequence[int]) -> None:
+        normalized = tuple(normalize_cyclic_order(order))
+        if normalized not in seen:
+            seen.add(normalized)
+            orders.append(list(normalized))
+
+    if include_natural:
+        add_order(list(range(n)))
+    attempts = 0
+    max_attempts = max(100, random_samples * 20)
+    while (
+        len(orders) < random_samples + int(include_natural)
+        and attempts < max_attempts
+    ):
+        attempts += 1
+        order = list(range(n))
+        rng.shuffle(order)
+        add_order(order)
+
+    row_counts: list[int] = []
+    empty_choice_orders = 0
+    natural_order_result: dict[str, object] | None = None
+    examples_without_empty_choice: list[dict[str, object]] = []
+    examples_with_empty_choice: list[dict[str, object]] = []
+
+    for order in orders:
+        summary = sparse_frontier_summary(
+            pattern_name,
+            S,
+            order=order,
+            max_row_examples=0,
+        )
+        rows = list(summary["rows_with_uncovered_consecutive_pair"])
+        row_count = len(rows)
+        row_counts.append(row_count)
+        missing = [center for center in range(n) if center not in rows]
+        has_empty_choice = row_count == n
+        if has_empty_choice:
+            empty_choice_orders += 1
+        item = {
+            "order": order,
+            "rows_with_uncovered_consecutive_pair": rows,
+            "rows_without_uncovered_consecutive_pair": missing,
+            "trivial_empty_radius_choice_exists": has_empty_choice,
+        }
+        if order == list(range(n)):
+            natural_order_result = item
+        if has_empty_choice and len(examples_with_empty_choice) < max_examples:
+            examples_with_empty_choice.append(item)
+        if not has_empty_choice and len(examples_without_empty_choice) < max_examples:
+            examples_without_empty_choice.append(item)
+
+    return {
+        "type": "sparse_frontier_empty_gap_order_sample",
+        "pattern": pattern_name,
+        "n": n,
+        "random_samples_requested": random_samples,
+        "seed": seed,
+        "include_natural": include_natural,
+        "orders_checked": len(orders),
+        "unique_orders_generated": len(orders),
+        "empty_choice_orders": empty_choice_orders,
+        "empty_choice_fraction": (
+            empty_choice_orders / len(orders) if orders else None
+        ),
+        "rows_with_uncovered_consecutive_histogram": _histogram(row_counts),
+        "min_rows_with_uncovered_consecutive_pair": (
+            min(row_counts) if row_counts else None
+        ),
+        "natural_order": natural_order_result,
+        "examples_with_empty_choice": examples_with_empty_choice,
+        "examples_without_empty_choice": examples_without_empty_choice,
+        "semantics": (
+            "Random cyclic-order sampling only, quotienting rotation and "
+            "reversal for reporting. Failing to find an order without the "
+            "empty-gap escape is not an exhaustive abstract-order theorem."
         ),
     }

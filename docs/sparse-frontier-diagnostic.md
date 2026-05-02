@@ -22,6 +22,18 @@ python scripts/analyze_sparse_frontier.py --frontier --assert-empty-choice
 This prints a compact table and asserts that every live frontier row has at
 least one uncovered consecutive witness pair in the natural order.
 
+To sample other cyclic orders:
+
+```bash
+python scripts/analyze_sparse_frontier.py \
+  --frontier \
+  --sample-orders 200 \
+  --sample-seed 0
+```
+
+Sampling is not exhaustive; it is a smoke test for whether the natural-order
+empty-gap escape is robust under order changes.
+
 ## Snapshot
 
 | Pattern | n | all witness-pair sources | consecutive-pair sources | rows with uncovered consecutive pair | order-free blocked rows | empty radius choice |
@@ -34,6 +46,23 @@ least one uncovered consecutive witness pair in the natural order.
 Here `{0: 76, 1: 38}` means 76 row-local witness pairs have no endpoint source,
 and 38 have exactly one endpoint source. No pair in this table has two endpoint
 sources.
+
+## Order Sampling
+
+With `--sample-orders 200 --sample-seed 0`, including natural order for 201
+checked orders:
+
+| Pattern | orders checked | empty-choice orders | minimum rows with an uncovered consecutive pair | row-count histogram |
+|---|---:|---:|---:|---|
+| `C19_skew` | 201 | 201 | 19 | `{19: 201}` |
+| `C13_sidon_1_2_4_10` | 201 | 25 | 7 | `{7: 4, 8: 6, 9: 23, 10: 52, 11: 52, 12: 39, 13: 25}` |
+| `C25_sidon_2_5_9_14` | 201 | 201 | 25 | `{25: 201}` |
+| `C29_sidon_1_3_7_15` | 201 | 201 | 29 | `{29: 201}` |
+
+This separates `C13` from the larger sparse frontier. The natural order of
+`C13_sidon_1_2_4_10` has an empty radius choice, but many sampled orders do
+not. In contrast, all sampled orders for `C19`, `C25`, and `C29` kept the empty
+choice. This is still sampling only, not an abstract-order theorem.
 
 ## Interpretation
 
