@@ -345,6 +345,14 @@ tight global Ptolemy rows, 19 row-circle equality rows, and the SLSQP
 multiplier summary. It is numerical support data only, intended to make a later
 exact certificate search reproducible.
 
+The companion multiplier-reduction artifact
+`data/certificates/c19_row_circle_multiplier_reduction.json` pairs every
+row-circle equality with the duplicate tight global Ptolemy row on the same
+four witnesses. Combining those duplicate multipliers reduces the maximum
+absolute multiplier from about `2.95e17` to `24`, so the huge weights in the raw
+snapshot should be treated as redundancy noise, not as a stable exact
+certificate.
+
 ## Interpretation
 
 The radius-propagation filter chooses one possible short consecutive witness
