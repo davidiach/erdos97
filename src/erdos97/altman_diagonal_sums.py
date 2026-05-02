@@ -38,6 +38,21 @@ class AltmanOrderResult:
     status: str
 
 
+@dataclass(frozen=True)
+class AltmanLPResult:
+    pattern: str
+    n: int
+    order: list[int]
+    trust_label: str
+    status: str
+    obstructed: bool | None
+    distance_class_count: int
+    inequality_count: int
+    max_margin: float | None
+    tolerance: float
+    message: str
+
+
 class UnionFind:
     """Small deterministic union-find over unordered vertex pairs."""
 
@@ -194,6 +209,99 @@ def altman_order_obstruction(
     )
 
 
+def altman_order_lp_diagnostic(
+    S: Sequence[Sequence[int]],
+    order: Sequence[int] | None = None,
+    pattern: str = "",
+    tolerance: float = 1e-9,
+) -> AltmanLPResult:
+    """Numerically test Altman's strict chain over distance classes.
+
+    This maximizes ``gamma`` subject to ``sum(x)=1``, ``x >= 0``, and
+    ``U_{k+1}(x)-U_k(x) >= gamma`` for every adjacent diagonal order.  A
+    positive optimum means the selected-distance classes can pass this
+    necessary Altman-chain relaxation.  A nonpositive optimum is a numerical
+    obstruction for the supplied order.
+    """
+
+    if tolerance < 0:
+        raise ValueError("tolerance must be nonnegative")
+    np, linprog = _linear_programming()
+    n = len(S)
+    if order is None:
+        order = list(range(n))
+    order = list(order)
+    _validate_order(order, n)
+    class_reps, coefficient_rows = _diagonal_coefficient_rows(S, order)
+    inequality_count = max(0, len(coefficient_rows) - 1)
+    if inequality_count == 0:
+        return AltmanLPResult(
+            pattern=pattern,
+            n=n,
+            order=order,
+            trust_label="NUMERICAL_LINEAR_DIAGNOSTIC",
+            status="NO_ALTMAN_INEQUALITIES",
+            obstructed=False,
+            distance_class_count=len(class_reps),
+            inequality_count=0,
+            max_margin=None,
+            tolerance=float(tolerance),
+            message="fewer than two diagonal orders",
+        )
+
+    class_count = len(class_reps)
+    objective = np.zeros(class_count + 1)
+    objective[-1] = -1.0
+    constraints = []
+    for left, right in zip(coefficient_rows, coefficient_rows[1:]):
+        gap = right - left
+        row = np.zeros(class_count + 1)
+        row[:class_count] = -gap
+        row[-1] = 1.0
+        constraints.append(row)
+    result = linprog(
+        c=objective,
+        A_ub=np.vstack(constraints),
+        b_ub=np.zeros(inequality_count),
+        A_eq=np.array([[*([1.0] * class_count), 0.0]]),
+        b_eq=np.array([1.0]),
+        bounds=[(0.0, None)] * class_count + [(None, None)],
+        method="highs",
+    )
+    if not result.success:
+        return AltmanLPResult(
+            pattern=pattern,
+            n=n,
+            order=order,
+            trust_label="NUMERICAL_LINEAR_DIAGNOSTIC",
+            status="UNKNOWN_LP_FAILURE",
+            obstructed=None,
+            distance_class_count=class_count,
+            inequality_count=inequality_count,
+            max_margin=None,
+            tolerance=float(tolerance),
+            message=str(result.message),
+        )
+
+    max_margin = float(result.x[-1])
+    obstructed = max_margin <= tolerance
+    return AltmanLPResult(
+        pattern=pattern,
+        n=n,
+        order=order,
+        trust_label="NUMERICAL_LINEAR_DIAGNOSTIC",
+        status=(
+            "NUMERICAL_ALTMAN_LP_OBSTRUCTION"
+            if obstructed
+            else "PASS_ALTMAN_LP_RELAXATION"
+        ),
+        obstructed=obstructed,
+        distance_class_count=class_count,
+        inequality_count=inequality_count,
+        max_margin=max_margin,
+        tolerance=float(tolerance),
+        message=str(result.message),
+    )
 def _validate_order(order: Sequence[int], n: int) -> None:
     seen = set(order)
     if len(order) != n or seen != set(range(n)):
@@ -241,3 +349,35 @@ def _diagonal_signature(
         distance_class = uf.find(pair(source, target))
         counts[distance_class] = counts.get(distance_class, 0) + 1
     return tuple(sorted(counts.items()))
+
+
+def _diagonal_coefficient_rows(
+    S: Sequence[Sequence[int]],
+    order: Sequence[int],
+):
+    np, _ = _linear_programming()
+    uf = _distance_class_union_find(S)
+    class_reps = sorted(
+        {uf.find(pair(u, v)) for u in range(len(S)) for v in range(u + 1, len(S))}
+    )
+    class_index = {distance_class: idx for idx, distance_class in enumerate(class_reps)}
+    rows = []
+    for diagonal_order in range(1, len(S) // 2 + 1):
+        row = np.zeros(len(class_reps))
+        for idx, source in enumerate(order):
+            target = order[(idx + diagonal_order) % len(order)]
+            distance_class = uf.find(pair(source, target))
+            row[class_index[distance_class]] += 1.0
+        rows.append(row)
+    return class_reps, rows
+
+
+def _linear_programming():
+    try:
+        import numpy as np  # type: ignore
+        from scipy.optimize import linprog  # type: ignore
+    except ImportError as exc:  # pragma: no cover - depends on dev deps
+        raise RuntimeError(
+            "NumPy and SciPy are required for Altman LP diagnostics"
+        ) from exc
+    return np, linprog

@@ -117,3 +117,33 @@ python scripts/check_altman_diagonal_sums.py \
 
 So the order-dependent signature filter is useful bookkeeping but does not
 close the `C19_skew` abstract-order gap.
+
+## Altman LP Relaxation
+
+There is also a numerical linear diagnostic:
+
+```bash
+python scripts/check_altman_diagonal_sums.py \
+  --pattern C19_skew \
+  --order 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 \
+  --lp-diagnostic \
+  --assert-natural-killed
+```
+
+It assigns one nonnegative variable to each selected-distance class, normalizes
+their sum to `1`, and maximizes `gamma` subject to
+
+```text
+U_{k+1} - U_k >= gamma
+```
+
+for every adjacent diagonal order. A positive optimum means the selected
+distance classes can satisfy Altman's strict chain at this relaxation level. A
+nonpositive optimum is a `NUMERICAL_LINEAR_DIAGNOSTIC` obstruction for the
+fixed order.
+
+For natural-order `C19_skew`, the optimum is `-0.0`, matching the exact
+signature obstruction above. For the known abstract `C19_skew` order, the
+optimum is `0.08333333333333333`, so this broader relaxation still does not
+kill that order. This is useful negative information, not evidence of
+geometric realizability.

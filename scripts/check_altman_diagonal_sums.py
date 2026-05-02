@@ -15,6 +15,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from erdos97.altman_diagonal_sums import (  # noqa: E402
+    altman_order_lp_diagnostic,
     altman_order_obstruction,
     check_altman,
 )
@@ -120,6 +121,11 @@ def main() -> int:
         help="comma-separated cyclic order for the order-dependent signature filter",
     )
     parser.add_argument(
+        "--lp-diagnostic",
+        action="store_true",
+        help="with --order, run the numerical Altman-chain LP relaxation",
+    )
+    parser.add_argument(
         "--assert-expected",
         action="store_true",
         help="assert every registered expected output is selected and correct",
@@ -143,21 +149,39 @@ def main() -> int:
         if len(selected) != 1:
             raise SystemExit("--order requires exactly one --pattern")
         pattern = selected[0]
-        row = dataclasses.asdict(
-            altman_order_obstruction(pattern.S, args.order, pattern.name)
-        )
-        if args.assert_natural_killed and not row["altman_contradiction"]:
-            raise AssertionError(f"{pattern.name}: expected an Altman contradiction")
+        if args.lp_diagnostic:
+            row = dataclasses.asdict(
+                altman_order_lp_diagnostic(pattern.S, args.order, pattern.name)
+            )
+        else:
+            row = dataclasses.asdict(
+                altman_order_obstruction(pattern.S, args.order, pattern.name)
+            )
+        if args.assert_natural_killed:
+            obstructed = (
+                bool(row.get("obstructed"))
+                if args.lp_diagnostic
+                else bool(row["altman_contradiction"])
+            )
+            if not obstructed:
+                raise AssertionError(f"{pattern.name}: expected an Altman obstruction")
         if args.assert_expected:
             assert_expected([decorate_row(dataclasses.asdict(check_altman(pattern)))])
         if args.json:
             print(json.dumps(row, indent=2, sort_keys=True))
         else:
-            print("pattern  n  status                    equal diagonal groups")
-            print(
-                f"{row['pattern']}  {row['n']}  {row['status']}  "
-                f"{row['equal_diagonal_order_groups']}"
-            )
+            if args.lp_diagnostic:
+                print("pattern  n  status                           max margin")
+                print(
+                    f"{row['pattern']}  {row['n']}  {row['status']}  "
+                    f"{row['max_margin']}"
+                )
+            else:
+                print("pattern  n  status                    equal diagonal groups")
+                print(
+                    f"{row['pattern']}  {row['n']}  {row['status']}  "
+                    f"{row['equal_diagonal_order_groups']}"
+                )
             if args.assert_expected or args.assert_natural_killed:
                 print("OK: Altman order expectation verified")
         return 0
