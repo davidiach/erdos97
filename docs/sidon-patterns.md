@@ -145,14 +145,33 @@ numerics are consistent with one.
 
 ## Suggested next steps (not done in this PR)
 
-- Try `--optimizer trf` on the same pattern with strong convex-margin
+- Try `--optimizer trf` on the natural pattern with strong convex-margin
   weight as an independent crosscheck of the plateau.
-- Try the `direct` and `support` parameterisations to confirm the residual
-  plateau is not an artefact of polar gauge fixing.
+- Try the `direct` and `support` parameterisations on both the natural pattern
+  and the registered non-natural survivor order from
+  `data/certificates/sparse_order_survivors.json`.
 - Increase restarts beyond 20 and seeds beyond `2026`.
-- If the plateau survives all three of those, attempt an exact-rank
-  argument or a vertex-circle / mutual-rhombus extension targeted at the
-  Sidon class.
+- If the plateau survives all three of those, attempt an exact-rank argument
+  or a sparse-overlap extension targeted at the Sidon class.
 
 The C25 and C29 pattern definitions are in the catalog but should not be
 run before the C13 plateau signature is independently understood.
+
+## Non-natural C13 survivor order
+
+The current exact fixed-order filters miss the registered order
+
+```text
+5,0,10,8,9,7,4,6,2,11,12,3,1
+```
+
+for `C13_sidon_1_2_4_10`; see
+`data/certificates/sparse_order_survivors.json`. The search engine supports
+this directly via `--cyclic-order`, relabelling the incidence pattern so the
+supplied order becomes the natural boundary order.
+
+The first constrained SLSQP run on this non-natural order is stored in
+`data/runs/C13_sidon_order_survivor_slsqp_m1e-4_seed20260502.json`. It reports
+`eq_rms = 0.6569` and `max_spread = 2.728` at convexity margin `1e-4`.
+This is lower than the natural-order C13 plateau but still far from an exact
+candidate.

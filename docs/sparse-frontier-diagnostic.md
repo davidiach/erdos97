@@ -253,6 +253,26 @@ counterexamples. In particular, the `C13` order only says the present exact
 filters miss this abstract order; numerical optimization remains separate and
 does not certify realizability.
 
+The first constrained numerical run on the registered `C13` survivor order is:
+
+```bash
+python -m erdos97.search \
+  --pattern C13_sidon_1_2_4_10 \
+  --cyclic-order 5,0,10,8,9,7,4,6,2,11,12,3,1 \
+  --ordered-name C13_sidon_order_survivor_20260502 \
+  --optimizer slsqp \
+  --mode polar \
+  --restarts 20 \
+  --max-nfev 2000 \
+  --margin 1e-4 \
+  --seed 20260502 \
+  --out data/runs/C13_sidon_order_survivor_slsqp_m1e-4_seed20260502.json
+```
+
+It returns `eq_rms = 0.6569` and `max_spread = 2.728` with convexity margin
+`1e-4`. This is still a large residual, so it is negative numerical evidence
+for this particular order as a counterexample target, not a near-miss.
+
 ## Interpretation
 
 The radius-propagation filter chooses one possible short consecutive witness
