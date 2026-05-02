@@ -162,3 +162,44 @@ If this first-order obstruction exists, it becomes a reusable
 radius-propagation-versus-convexity filter. If it fails, the escaping tangent
 direction gives a much better perturbative ansatz than another symmetric
 guess.
+
+## Linearized escape diagnostic
+
+The first-order Farkas obstruction does not appear in the checked small
+two-orbit cases. The command
+
+```bash
+python scripts/check_two_orbit_radius_propagation.py \
+  --linearized-escape \
+  --t 1 \
+  --t-max 5 \
+  --assert-linearized-escape
+```
+
+solves the numerical LP
+
+```text
+J v = 0,
+d(turn_q)(v) >= 1 for every currently concave alternating turn q,
+minimize ||v||_1.
+```
+
+Here `J` is the selected squared-distance equality Jacobian at the exact
+symmetric ansatz. The reproducible snapshot is:
+
+```text
+t  n   status                   rank  kernel  concave turns
+1  8   LINEARIZED_ESCAPE_FOUND  12    4       4
+2  16  LINEARIZED_ESCAPE_FOUND  26    6       8
+3  24  LINEARIZED_ESCAPE_FOUND  40    8       12
+4  32  LINEARIZED_ESCAPE_FOUND  54    10      16
+5  40  LINEARIZED_ESCAPE_FOUND  68    12      20
+```
+
+This is a `NUMERICAL_LINEARIZED_DIAGNOSTIC`, not an exact proof certificate and
+not a counterexample. Its useful interpretation is negative: the symmetric
+two-orbit ansatz is not blocked by a first-order tangent-cone certificate of
+the simplest kind. Any proof route based on this ansatz needs second-order
+information, a stronger convexity cone, or an exact nonlinear obstruction. Any
+counterexample route should treat the LP direction as a targeted perturbative
+seed rather than as evidence of realizability.
