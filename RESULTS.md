@@ -141,7 +141,8 @@ exactification before it can be used as an obstruction. The registered
 obstruction. The follow-up active-set artifact
 `data/certificates/c19_row_circle_ptolemy_active_set.json` records the
 optimized C19 distance classes and tight numerical constraints for
-exactification work; it is not an exact certificate.
+exactification work, including a SciPy SLSQP multiplier summary; it is not an
+exact certificate.
 
 Under the natural cyclic order, `P18_parity_balanced` and
 `P24_parity_balanced` are killed by adjacent-row two-overlap via the

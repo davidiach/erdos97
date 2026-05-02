@@ -52,6 +52,7 @@ class RowCirclePtolemyNLPResult:
     ptolemy_indices: list[tuple[int, int, int, int, int, int]] | None = None
     row_ptolemy_quadruples: list[tuple[int, int, int, int, int]] | None = None
     row_ptolemy_indices: list[tuple[int, int, int, int, int, int]] | None = None
+    optimizer_multipliers: list[float] | None = None
 
 
 def _ptolemy_value(x, indices: tuple[int, int, int, int, int, int]) -> float:
@@ -228,6 +229,11 @@ def row_circle_ptolemy_nlp_diagnostic(
             if include_solution
             else None
         ),
+        optimizer_multipliers=(
+            _json_vector(getattr(result, "multipliers", None))
+            if include_solution
+            else None
+        ),
     )
 
 
@@ -254,6 +260,12 @@ def _json_pairs(pairs: Sequence[tuple[int, int]]) -> list[tuple[int, int]]:
 
 def _json_matrix(matrix) -> list[list[float]]:
     return [[float(value) for value in row] for row in matrix]
+
+
+def _json_vector(vector) -> list[float] | None:
+    if vector is None:
+        return None
+    return [float(value) for value in vector]
 
 
 def solution_snapshot_to_json(
@@ -289,17 +301,11 @@ def solution_snapshot_to_json(
         _linear_row_to_json(idx, row, result.distance_classes, x, gamma)
         for idx, row in enumerate(result.linear_rows)
     ]
-    tight_linear_rows = [
-        row for row in linear_rows if row["slack"] <= tight_tolerance
-    ]
     ptolemy_rows = [
         _ptolemy_row_to_json(idx, quad, indices, x, result.distance_classes)
         for idx, (quad, indices) in enumerate(
             zip(result.ptolemy_quadruples, result.ptolemy_indices)
         )
-    ]
-    tight_ptolemy_rows = [
-        row for row in ptolemy_rows if row["slack"] <= tight_tolerance
     ]
     row_ptolemy_rows = [
         _row_ptolemy_row_to_json(quad, indices, x, result.distance_classes)
@@ -307,6 +313,19 @@ def solution_snapshot_to_json(
             result.row_ptolemy_quadruples,
             result.row_ptolemy_indices,
         )
+    ]
+    multipliers = _attach_multiplier_data(
+        result,
+        linear_rows,
+        ptolemy_rows,
+        row_ptolemy_rows,
+        tight_tolerance,
+    )
+    tight_linear_rows = [
+        row for row in linear_rows if row["slack"] <= tight_tolerance
+    ]
+    tight_ptolemy_rows = [
+        row for row in ptolemy_rows if row["slack"] <= tight_tolerance
     ]
 
     return {
@@ -337,6 +356,7 @@ def solution_snapshot_to_json(
         "tight_linear_rows": tight_linear_rows,
         "tight_ptolemy_rows": tight_ptolemy_rows,
         "row_ptolemy_rows": row_ptolemy_rows,
+        "multipliers": multipliers,
         "counts": {
             "distance_classes": class_count,
             "linear_rows": result.linear_inequality_count,
@@ -352,6 +372,63 @@ def solution_snapshot_to_json(
             "Floating-point active sets and distances are not exact certificates.",
         ],
     }
+
+
+def _attach_multiplier_data(
+    result: RowCirclePtolemyNLPResult,
+    linear_rows: list[dict[str, object]],
+    ptolemy_rows: list[dict[str, object]],
+    row_ptolemy_rows: list[dict[str, object]],
+    tolerance: float,
+) -> dict[str, object] | None:
+    multipliers = result.optimizer_multipliers
+    if multipliers is None:
+        return None
+    row_count = result.row_ptolemy_equality_count
+    equality_count = 1 + row_count
+    linear_count = result.linear_inequality_count
+    ptolemy_count = result.ptolemy_inequality_count
+    expected_count = equality_count + linear_count + ptolemy_count
+    if len(multipliers) != expected_count:
+        return {
+            "type": "slsqp_multipliers_unparsed",
+            "message": (
+                f"expected {expected_count} multipliers but got "
+                f"{len(multipliers)}"
+            ),
+            "values": multipliers,
+        }
+
+    row_multipliers = multipliers[1:equality_count]
+    linear_multipliers = multipliers[equality_count : equality_count + linear_count]
+    ptolemy_multipliers = multipliers[equality_count + linear_count :]
+    for row, multiplier in zip(row_ptolemy_rows, row_multipliers):
+        row["multiplier"] = float(multiplier)
+    for row, multiplier in zip(linear_rows, linear_multipliers):
+        row["multiplier"] = float(multiplier)
+    for row, multiplier in zip(ptolemy_rows, ptolemy_multipliers):
+        row["multiplier"] = float(multiplier)
+
+    return {
+        "type": "scipy_slsqp_multipliers_v1",
+        "semantics": (
+            "SciPy SLSQP multipliers are numerical optimizer diagnostics. "
+            "Equality multipliers are listed first: normalization, then "
+            "row-circle Ptolemy equalities. Inequality multipliers follow: "
+            "linear rows, then global Ptolemy rows."
+        ),
+        "total_count": len(multipliers),
+        "normalization_equality": float(multipliers[0]),
+        "row_ptolemy_nonzero_count": _nonzero_count(row_multipliers, tolerance),
+        "linear_nonzero_count": _nonzero_count(linear_multipliers, tolerance),
+        "ptolemy_nonzero_count": _nonzero_count(ptolemy_multipliers, tolerance),
+        "max_abs_multiplier": max(abs(value) for value in multipliers),
+        "tolerance": tolerance,
+    }
+
+
+def _nonzero_count(values: Sequence[float], tolerance: float) -> int:
+    return sum(1 for value in values if abs(value) > tolerance)
 
 
 def _linear_row_to_json(

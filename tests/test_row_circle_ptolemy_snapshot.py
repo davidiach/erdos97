@@ -32,6 +32,11 @@ def test_c19_row_circle_ptolemy_snapshot_records_active_set() -> None:
     assert len(artifact["tight_linear_rows"]) == 22
     assert len(artifact["tight_ptolemy_rows"]) == 74
     assert len(artifact["row_ptolemy_rows"]) == 19
+    assert artifact["multipliers"]["type"] == "scipy_slsqp_multipliers_v1"
+    assert artifact["multipliers"]["total_count"] == 6982
+    assert artifact["multipliers"]["linear_nonzero_count"] == 19
+    assert artifact["multipliers"]["ptolemy_nonzero_count"] == 57
+    assert artifact["multipliers"]["row_ptolemy_nonzero_count"] == 19
     assert any("not exact certificates" in note for note in artifact["notes"])
 
 
