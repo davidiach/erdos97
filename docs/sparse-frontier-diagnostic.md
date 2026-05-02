@@ -59,6 +59,20 @@ This branch-and-bound search fixes label `0` to quotient cyclic rotations. It
 does not quotient reversal. The objective is still only the current
 minimum-radius/radius-propagation filter's empty-gap row count.
 
+To certify that the sparse single-target frontier always passes the current
+radius-propagation cycle filter:
+
+```bash
+python scripts/analyze_sparse_frontier.py \
+  --frontier \
+  --certify-single-target-radius-pass
+```
+
+This uses the fact that every covered row-local witness pair in these sparse
+patterns has at most one endpoint source. In that single-target setting, a
+fixed cyclic order is radius-cycle obstructed only if it realizes a nonempty
+closed target set.
+
 ## Snapshot
 
 | Pattern | n | all witness-pair sources | consecutive-pair sources | rows with uncovered consecutive pair | order-free blocked rows | order-free empty-gap rows | empty radius choice |
@@ -177,6 +191,28 @@ The three rows retaining an uncovered consecutive pair in that order are
 the radius-propagation optimizer still finds an acyclic choice with 10 strict
 radius edges. This is an exact benchmark for this filter, not a realization
 claim.
+
+## Single-Target Radius Pass
+
+With `--certify-single-target-radius-pass`:
+
+| Pattern | status | all orders pass radius filter | active rows | checked subsets | candidate closed subsets | compatibility nodes | compatible closed target set |
+|---|---|---|---:|---:|---:|---:|---|
+| `C19_skew` | `CERTIFIED_PASS_ALL_ORDERS` | yes | 0 | 0 | 0 | 0 | none |
+| `C13_sidon_1_2_4_10` | `CERTIFIED_PASS_ALL_ORDERS` | yes | 13 | 8191 | 1 | 429 | none |
+| `C25_sidon_2_5_9_14` | `CERTIFIED_PASS_ALL_ORDERS` | yes | 0 | 0 | 0 | 0 | none |
+| `C29_sidon_1_3_7_15` | `CERTIFIED_PASS_ALL_ORDERS` | yes | 0 | 0 | 0 | 0 | none |
+
+For `C19`, `C25`, and `C29`, no row has a covered local witness path, so the
+empty-radius escape already proves the pass. For `C13`, all 13 rows are active.
+The subset scan finds one row-local closed target candidate, the full vertex
+set, but a 429-node cyclic-order compatibility search proves that candidate is
+not realizable by any cyclic order. Therefore no cyclic order of `C13` can be
+obstructed by the current single-target radius-cycle filter.
+
+This closes the radius-propagation route for the sparse frontier as currently
+implemented. A proof or counterexample must use additional geometry or a
+strictly stronger sparse-overlap mechanism.
 
 ## Interpretation
 
