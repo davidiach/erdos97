@@ -19,9 +19,11 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from itertools import combinations, permutations
+from math import prod
 from typing import Sequence
 
 Pair = tuple[int, int]
+DirectedEdge = tuple[int, int]
 Pattern = Sequence[Sequence[int]]
 
 
@@ -50,6 +52,32 @@ class MinRadiusOrderResult:
     order_free_blocked_centers: list[int]
     order_free_empty_gap_centers: list[int]
     obstructed: bool
+
+
+@dataclass(frozen=True)
+class RadiusPropagationChoice:
+    """One selected short-gap choice and its forced radius inequalities."""
+
+    center: int
+    consecutive_pair: Pair
+    selected_sources: list[int]
+    inequality_edges: list[DirectedEdge]
+
+
+@dataclass(frozen=True)
+class RadiusPropagationResult:
+    """Exact fixed-order radius-propagation search result."""
+
+    pattern: str
+    n: int
+    order: list[int]
+    status: str
+    obstructed: bool | None
+    short_gap_choice_count: int
+    nodes_visited: int
+    max_depth: int
+    search_truncated: bool
+    acyclic_choice: list[RadiusPropagationChoice] | None
 
 
 def pair(a: int, b: int) -> Pair:
@@ -308,6 +336,134 @@ def minimum_radius_order_obstruction(
     )
 
 
+def radius_propagation_order_obstruction(
+    S: Pattern,
+    order: Sequence[int] | None = None,
+    pattern: str = "",
+    max_nodes: int | None = None,
+) -> RadiusPropagationResult:
+    """Search fixed-order short-gap choices for unavoidable radius cycles.
+
+    For each row, the minimum-radius lemma guarantees at least one consecutive
+    witness pair is a short chord. If that pair is selected by one or both
+    endpoints, it forces a strict inequality ``r_source < r_center``. A strict
+    directed cycle in these inequalities is impossible. This routine searches
+    all choices of one consecutive pair per row, pruning whenever a cycle is
+    already forced.
+
+    A returned acyclic choice is only an escape from this filter, not evidence
+    for geometric realizability.
+    """
+
+    _validate_pattern(S)
+    if max_nodes is not None and max_nodes <= 0:
+        raise ValueError("max_nodes must be positive or None")
+    n = len(S)
+    if order is None:
+        order = list(range(n))
+    order = list(order)
+    pos = _positions(order, n, require_full=True)
+    rows = [_minimum_radius_row_result(S, pos, center) for center in range(n)]
+    row_choices = [
+        [
+            (short_pair, _selected_pair_sources(S, *short_pair))
+            for short_pair in row.consecutive_pairs
+        ]
+        for row in rows
+    ]
+    choice_count = prod(len(choices) for choices in row_choices)
+    nodes_visited = 0
+    max_depth = 0
+    search_truncated = False
+    edges: list[DirectedEdge] = []
+    choice_stack: list[RadiusPropagationChoice] = []
+
+    def search(row_idx: int) -> list[RadiusPropagationChoice] | None:
+        nonlocal nodes_visited, max_depth, search_truncated
+        if max_nodes is not None and nodes_visited >= max_nodes:
+            search_truncated = True
+            return None
+        nodes_visited += 1
+        max_depth = max(max_depth, row_idx)
+        if row_idx == len(rows):
+            return list(choice_stack)
+
+        center = rows[row_idx].center
+        # Try uncovered gaps first; they are the most direct escape from the
+        # propagation filter and make surviving orders cheap to certify.
+        choices = sorted(
+            row_choices[row_idx],
+            key=lambda item: (len(item[1]), item[0]),
+        )
+        for short_pair, sources in choices:
+            new_edges = [(source, center) for source in sources]
+            old_edge_count = len(edges)
+            edges.extend(new_edges)
+            if not _directed_cycle_exists(n, edges):
+                choice_stack.append(
+                    RadiusPropagationChoice(
+                        center=center,
+                        consecutive_pair=short_pair,
+                        selected_sources=list(sources),
+                        inequality_edges=list(new_edges),
+                    )
+                )
+                found = search(row_idx + 1)
+                if found is not None:
+                    return found
+                choice_stack.pop()
+            del edges[old_edge_count:]
+            if search_truncated:
+                return None
+        return None
+
+    acyclic_choice = search(0)
+    if acyclic_choice is not None:
+        status = "PASS_RADIUS_PROPAGATION"
+        obstructed: bool | None = False
+    elif search_truncated:
+        status = "UNKNOWN_RADIUS_PROPAGATION_NODE_LIMIT"
+        obstructed = None
+    else:
+        status = "EXACT_RADIUS_PROPAGATION_OBSTRUCTION"
+        obstructed = True
+
+    return RadiusPropagationResult(
+        pattern=pattern,
+        n=n,
+        order=order,
+        status=status,
+        obstructed=obstructed,
+        short_gap_choice_count=choice_count,
+        nodes_visited=nodes_visited,
+        max_depth=max_depth,
+        search_truncated=search_truncated,
+        acyclic_choice=acyclic_choice,
+    )
+
+
+def _directed_cycle_exists(n: int, edges: Sequence[DirectedEdge]) -> bool:
+    graph: list[list[int]] = [[] for _ in range(n)]
+    for source, target in edges:
+        graph[source].append(target)
+    color = [0] * n
+
+    def visit(node: int) -> bool:
+        color[node] = 1
+        for target in graph[node]:
+            if color[target] == 1:
+                return True
+            if color[target] == 0 and visit(target):
+                return True
+        color[node] = 2
+        return False
+
+    for node in range(n):
+        if color[node] == 0 and visit(node):
+            return True
+    return False
+
+
 def _json_pair(item: Pair) -> list[int]:
     return [int(item[0]), int(item[1])]
 
@@ -320,6 +476,18 @@ def _json_row(row: MinRadiusRowResult) -> dict[str, object]:
         "covered_consecutive_pairs": [_json_pair(item) for item in row.covered_consecutive_pairs],
         "uncovered_consecutive_pairs": [_json_pair(item) for item in row.uncovered_consecutive_pairs],
         "blocked": row.blocked,
+    }
+
+
+def _json_choice(choice: RadiusPropagationChoice) -> dict[str, object]:
+    return {
+        "center": int(choice.center),
+        "consecutive_pair": _json_pair(choice.consecutive_pair),
+        "selected_sources": [int(source) for source in choice.selected_sources],
+        "inequality_edges": [
+            {"source": int(source), "target": int(target)}
+            for source, target in choice.inequality_edges
+        ],
     }
 
 
@@ -340,4 +508,27 @@ def result_to_json(result: MinRadiusOrderResult) -> dict[str, object]:
             int(center) for center in result.order_free_empty_gap_centers
         ],
         "rows": [_json_row(row) for row in result.rows],
+    }
+
+
+def radius_result_to_json(result: RadiusPropagationResult) -> dict[str, object]:
+    """Return a JSON-serializable form of a radius-propagation result."""
+
+    return {
+        "type": "radius_propagation_order_result",
+        "pattern": result.pattern,
+        "n": int(result.n),
+        "order": [int(label) for label in result.order],
+        "status": result.status,
+        "result": result.status,
+        "obstructed": result.obstructed,
+        "short_gap_choice_count": int(result.short_gap_choice_count),
+        "nodes_visited": int(result.nodes_visited),
+        "max_depth": int(result.max_depth),
+        "search_truncated": result.search_truncated,
+        "acyclic_choice": (
+            None
+            if result.acyclic_choice is None
+            else [_json_choice(choice) for choice in result.acyclic_choice]
+        ),
     }

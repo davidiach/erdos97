@@ -97,11 +97,44 @@ escape persists for every cyclic order. The `C13_sidon_1_2_4_10` pattern does
 not have this order-free escape certificate, which is why adversarial cyclic
 orders remain useful for it. See `docs/sparse-frontier-diagnostic.md`.
 
+## Radius-Propagation Search
+
+The strengthened fixed-order diagnostic searches all choices of one
+consecutive witness pair per row. Choosing pair `{a,b}` for center `i` means
+that pair is allowed to be the short chord guaranteed by the lemma. If `b in
+S_a`, the choice forces `r_a < r_i`; if `a in S_b`, it forces `r_b < r_i`.
+A directed cycle of strict radius inequalities is impossible.
+
+The search is exact finite combinatorics for the supplied order:
+
+- `EXACT_RADIUS_PROPAGATION_OBSTRUCTION` means every short-gap choice forces a
+  directed strict-radius cycle.
+- `PASS_RADIUS_PROPAGATION` returns one acyclic short-gap assignment. This is
+  only an escape from this filter, not evidence for realizability.
+- `UNKNOWN_RADIUS_PROPAGATION_NODE_LIMIT` is reported only when an explicit
+  node cap stops the search.
+
+Reproduction:
+
+```bash
+python scripts/check_min_radius_filter.py \
+  --pattern C13_sidon_1_2_4_10 \
+  --radius-propagation \
+  --assert-pass
+```
+
+For natural-order `C13_sidon_1_2_4_10`, the propagation search passes quickly:
+it chooses an uncovered short gap for every row and therefore forces no strict
+radius inequalities. Natural-order `C19_skew` also passes. The toy `n=5`
+all-other-vertices pattern is obstructed by the propagation search, matching
+the original minimum-radius filter.
+
 ## Reproducible check
 
 ```bash
 python scripts/check_min_radius_filter.py --pattern C19_skew --assert-pass
 python scripts/check_min_radius_filter.py --pattern C19_skew --json
+python scripts/check_min_radius_filter.py --pattern C19_skew --radius-propagation --assert-pass
 ```
 
 The first command should report `PASS`, with all 19 centers still possible as
