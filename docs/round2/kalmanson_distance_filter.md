@@ -49,6 +49,17 @@ Strict inequalities: 94
 Distance classes: 114
 ```
 
+The same certificate format now also checks the C13 pilot certificate:
+
+```text
+File: data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json
+Pattern: C13_sidon_1_2_4_10
+Offsets: [1,2,4,10]
+Cyclic order: [5,0,10,8,9,7,4,6,2,11,12,3,1]
+Strict inequalities: 34
+Distance classes: 39
+```
+
 Safe claim:
 
 ```text

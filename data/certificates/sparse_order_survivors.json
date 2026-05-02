@@ -17,6 +17,16 @@
         "constraint_count": 0,
         "passes": true
       },
+      "kalmanson_certificate": {
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "max_weight": 1322,
+        "obstructed": true,
+        "path": "data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json",
+        "positive_inequalities": 34,
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 17463
+      },
       "minimum_radius": {
         "blocked_center_count": 4,
         "obstructed": false,
@@ -63,7 +73,8 @@
         "rows_with_uncovered_consecutive_pair_count": 9,
         "trivial_empty_radius_choice_exists": false
       },
-      "survives_current_exact_filters": true,
+      "survives_current_exact_filters": false,
+      "survives_pre_kalmanson_filters": true,
       "vertex_circle": {
         "cycle": false,
         "obstructed": false,
@@ -87,6 +98,16 @@
       "crossing": {
         "constraint_count": 0,
         "passes": true
+      },
+      "kalmanson_certificate": {
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and this fixed cyclic order only; does not kill abstract C19_skew.",
+        "distance_classes_after_selected_equalities": 114,
+        "max_weight": 334665404,
+        "obstructed": true,
+        "path": "data/certificates/round2/c19_kalmanson_known_order_unsat.json",
+        "positive_inequalities": 94,
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 6283316065
       },
       "minimum_radius": {
         "blocked_center_count": 0,
@@ -150,7 +171,8 @@
         "rows_with_uncovered_consecutive_pair_count": 19,
         "trivial_empty_radius_choice_exists": true
       },
-      "survives_current_exact_filters": true,
+      "survives_current_exact_filters": false,
+      "survives_pre_kalmanson_filters": true,
       "vertex_circle": {
         "cycle": false,
         "obstructed": false,
@@ -162,8 +184,9 @@
   "notes": [
     "No general proof of Erdos Problem #97 is claimed.",
     "No counterexample is claimed.",
-    "Surviving all listed filters is not evidence of realizability."
+    "The registered C13 and C19 orders survive the older sparse-frontier filters but are killed by fixed-order Kalmanson/Farkas certificates.",
+    "A fixed-order Kalmanson obstruction is not an abstract all-order obstruction."
   ],
   "trust": "FIXED_ORDER_EXACT_FILTER_DIAGNOSTIC",
-  "type": "sparse_order_survivor_filter_sweep_v1"
+  "type": "sparse_order_survivor_filter_sweep_v2"
 }

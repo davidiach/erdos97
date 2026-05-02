@@ -37,15 +37,17 @@ put detailed reconciliation in the canonical synthesis.
   row-wise convexity-distance filter for cyclic orders.
 - [`metric-order-lp.md`](metric-order-lp.md): combined fixed-order LP
   diagnostic using Altman gaps, vertex-circle inequalities, and triangle
-  inequalities; records a miss on the registered sparse-order survivors.
+  inequalities; records a relaxation miss on the registered sparse orders.
 - [`round2/round2_merged_report.md`](round2/round2_merged_report.md):
   round-two fixed-order `C19_skew` Kalmanson/Farkas certificate and C17 method
   note summary.
 - [`round2/kalmanson_distance_filter.md`](round2/kalmanson_distance_filter.md):
   exact Kalmanson distance certificate format for fixed cyclic orders.
+- [`kalmanson-c13-pilot.md`](kalmanson-c13-pilot.md): exact fixed-order
+  Kalmanson/Farkas certificate for the registered non-natural C13 Sidon order.
 - [`ptolemy-order-nlp.md`](ptolemy-order-nlp.md): numerical nonlinear
-  diagnostic adding Ptolemy inequalities for cyclic quadrilaterals; still a
-  miss on the registered sparse-order survivors.
+  diagnostic adding Ptolemy inequalities for cyclic quadrilaterals; records a
+  relaxation miss on the registered sparse orders.
 - [`two-orbit-radius-propagation.md`](two-orbit-radius-propagation.md): exact
   obstruction for a half-step two-orbit near-regular ansatz.
 - [`minimum-radius-filter.md`](minimum-radius-filter.md): weak exact

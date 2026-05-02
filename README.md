@@ -125,6 +125,12 @@ is `data/certificates/round2/c19_kalmanson_known_order_unsat.json`. This is a
 fixed-order obstruction only; it does not kill abstract `C19_skew` across all
 cyclic orders.
 
+A C13 Kalmanson pilot kills one registered non-natural
+`C13_sidon_1_2_4_10` order `[5,0,10,8,9,7,4,6,2,11,12,3,1]` by the exact
+certificate `data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json`.
+This is also fixed-order only; it does not settle the abstract Sidon pattern
+over all cyclic orders.
+
 The previous best numerical near-miss was `B12_3x4_danzer_lift`. It remains a
 useful degeneration diagnostic, but the fixed selected pattern is now exactly
 killed by the mutual-rhombus midpoint filter. The saved numerical artifact is

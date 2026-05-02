@@ -1,0 +1,378 @@
+{
+  "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+  "certificate_type": "kalmanson_strict_inequality_farkas",
+  "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+  "cyclic_order": [
+    5,
+    0,
+    10,
+    8,
+    9,
+    7,
+    4,
+    6,
+    2,
+    11,
+    12,
+    3,
+    1
+  ],
+  "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+  "inequalities": [
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        5,
+        0,
+        8,
+        7
+      ],
+      "weight": 384
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        5,
+        10,
+        9,
+        4
+      ],
+      "weight": 539
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        5,
+        8,
+        6,
+        3
+      ],
+      "weight": 900
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        5,
+        7,
+        4,
+        2
+      ],
+      "weight": 1172
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        5,
+        7,
+        12,
+        3
+      ],
+      "weight": 517
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        5,
+        4,
+        6,
+        3
+      ],
+      "weight": 117
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        5,
+        12,
+        3,
+        1
+      ],
+      "weight": 517
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        0,
+        10,
+        8,
+        4
+      ],
+      "weight": 384
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        10,
+        4,
+        2
+      ],
+      "weight": 923
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        9,
+        4,
+        1
+      ],
+      "weight": 623
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        9,
+        11,
+        12
+      ],
+      "weight": 388
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        0,
+        7,
+        4,
+        1
+      ],
+      "weight": 384
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        7,
+        6,
+        12
+      ],
+      "weight": 133
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        4,
+        11,
+        12
+      ],
+      "weight": 549
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        0,
+        4,
+        11,
+        1
+      ],
+      "weight": 133
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        0,
+        6,
+        2,
+        1
+      ],
+      "weight": 133
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        10,
+        8,
+        9,
+        11
+      ],
+      "weight": 112
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        10,
+        8,
+        12,
+        1
+      ],
+      "weight": 192
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        10,
+        9,
+        7,
+        4
+      ],
+      "weight": 413
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        10,
+        9,
+        6,
+        3
+      ],
+      "weight": 493
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        10,
+        4,
+        6,
+        2
+      ],
+      "weight": 923
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        10,
+        4,
+        3,
+        1
+      ],
+      "weight": 493
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        8,
+        9,
+        7,
+        2
+      ],
+      "weight": 1172
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        8,
+        9,
+        12,
+        1
+      ],
+      "weight": 192
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        8,
+        2,
+        12,
+        3
+      ],
+      "weight": 900
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        9,
+        7,
+        4,
+        3
+      ],
+      "weight": 759
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        9,
+        4,
+        6,
+        11
+      ],
+      "weight": 549
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        9,
+        4,
+        12,
+        1
+      ],
+      "weight": 549
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        9,
+        6,
+        2,
+        11
+      ],
+      "weight": 150
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        9,
+        6,
+        3,
+        1
+      ],
+      "weight": 266
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        9,
+        2,
+        11,
+        1
+      ],
+      "weight": 1322
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        7,
+        11,
+        12,
+        1
+      ],
+      "weight": 384
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        6,
+        2,
+        11,
+        12
+      ],
+      "weight": 399
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        6,
+        11,
+        12,
+        1
+      ],
+      "weight": 399
+    }
+  ],
+  "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+  "num_inequalities": 34,
+  "pattern": {
+    "circulant_offsets": [
+      1,
+      2,
+      4,
+      10
+    ],
+    "n": 13,
+    "name": "C13_sidon_1_2_4_10"
+  },
+  "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+  "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+  "weight_sum": 17463
+}

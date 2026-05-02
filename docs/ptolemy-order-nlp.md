@@ -34,9 +34,10 @@ python scripts/check_ptolemy_order_nlp.py \
 | `C13_sidon_1_2_4_10:sample_full_filter_survivor` | 13 | `PASS_PTOLEMY_ORDER_NLP_RELAXATION` | `0.00176461` | 980 | 715 |
 | `C19_skew:vertex_circle_survivor` | 19 | `PASS_PTOLEMY_ORDER_NLP_RELAXATION` | `0.00106142` | 3086 | 3876 |
 
-Thus Ptolemy constraints alone still do not close the registered sparse-order
-survivors. This is a miss of the current nonlinear relaxation, not evidence
-that either abstract order is realizable.
+Thus Ptolemy constraints alone still do not close the registered sparse orders.
+This is a miss of this nonlinear relaxation, not evidence that either abstract
+order is realizable. The registered fixed orders are killed separately by
+Kalmanson/Farkas certificates.
 
 ## Interpretation
 

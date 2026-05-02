@@ -159,16 +159,19 @@ run before the C13 plateau signature is independently understood.
 
 ## Non-natural C13 survivor order
 
-The current exact fixed-order filters miss the registered order
+The older sparse-frontier fixed-order filters missed the registered order
 
 ```text
 5,0,10,8,9,7,4,6,2,11,12,3,1
 ```
 
 for `C13_sidon_1_2_4_10`; see
-`data/certificates/sparse_order_survivors.json`. The search engine supports
-this directly via `--cyclic-order`, relabelling the incidence pattern so the
-supplied order becomes the natural boundary order.
+`data/certificates/sparse_order_survivors.json`. The C13 Kalmanson pilot now
+kills this same fixed order by an exact 34-inequality certificate; see
+`docs/kalmanson-c13-pilot.md`. This does not settle the abstract pattern across
+all cyclic orders. The search engine supports this order directly via
+`--cyclic-order`, relabelling the incidence pattern so the supplied order
+becomes the natural boundary order.
 
 The first constrained SLSQP run on this non-natural order is stored in
 `data/runs/C13_sidon_order_survivor_slsqp_m1e-4_seed20260502.json`. It reports

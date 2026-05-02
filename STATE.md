@@ -63,6 +63,12 @@ distance inequalities whose coefficient vector is exactly zero after
 selected-distance quotienting. This kills only that fixed order; it is not an
 abstract `C19_skew` impossibility proof. See `docs/round2/round2_merged_report.md`.
 
+A C13 Kalmanson pilot also kills the registered non-natural
+`C13_sidon_1_2_4_10` order `[5,0,10,8,9,7,4,6,2,11,12,3,1]` by an exact
+34-inequality Kalmanson/Farkas certificate. This is again a fixed-order
+obstruction only; it does not settle the abstract Sidon pattern across all
+cyclic orders. See `docs/kalmanson-c13-pilot.md`.
+
 The phi 4-cycle rectangle-trap filter kills a registered fixed `n=9`
 selected-witness pattern with directed cycle
 `{0,6}->{2,8}->{1,5}->{4,7}->{0,6}`. The obstruction is the exact determinant
@@ -103,8 +109,11 @@ verification threshold and the other collapses to a non-strict configuration.[^c
    order above is now exactly killed by the round-two Kalmanson certificate.
    The abstract pattern across all cyclic orders is still not closed.
 2. `C13_sidon_1_2_4_10`: (13,4,1) Singer planar-difference-set circulant.
-   `|S_a cap S_b| = 1` for every distinct pair. No exact filter currently
-   kills it. NUMERICAL_EVIDENCE only: see below.
+   `|S_a cap S_b| = 1` for every distinct pair. The natural order is killed by
+   Altman linear certificates, and the registered non-natural sparse-filter
+   survivor is killed by the exact C13 Kalmanson pilot. The abstract pattern
+   across all cyclic orders is still not closed. NUMERICAL_EVIDENCE only: see
+   below.
 
 ## Numerical status: C13 Sidon-type circulant
 

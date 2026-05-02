@@ -225,16 +225,19 @@ This closes the radius-propagation route for the sparse frontier as currently
 implemented. A proof or counterexample must use additional geometry or a
 strictly stronger sparse-overlap mechanism.
 
-## Registered Exact-Filter Survivors
+## Registered Sparse-Filter Survivors
 
 The combined exact-filter sweep is checked in at
-`data/certificates/sparse_order_survivors.json`. It currently records two
-non-natural cyclic orders that survive every listed fixed-order exact filter:
+`data/certificates/sparse_order_survivors.json`. It records two non-natural
+cyclic orders that survive the older sparse-frontier fixed-order filters
+(crossing, Altman, vertex-circle, minimum-radius, and radius-propagation). Both
+registered orders are now killed when fixed-order Kalmanson/Farkas certificates
+are included.
 
-| Pattern | Order label | n | Vertex-circle | Altman linear | Radius propagation | Empty radius choice |
-|---|---|---:|---|---|---|---|
-| `C13_sidon_1_2_4_10` | `sample_full_filter_survivor` | 13 | pass | no certificate found | pass with 4 strict edges | no |
-| `C19_skew` | `vertex_circle_survivor` | 19 | pass | no certificate found | pass with 0 strict edges | yes |
+| Pattern | Order label | n | Pre-Kalmanson filters | Kalmanson status |
+|---|---|---:|---|---|
+| `C13_sidon_1_2_4_10` | `sample_full_filter_survivor` | 13 | pass | exact fixed-order obstruction, 34 inequalities |
+| `C19_skew` | `vertex_circle_survivor` | 19 | pass | exact fixed-order obstruction, 94 inequalities |
 
 The `C13` order is:
 
@@ -248,12 +251,12 @@ The `C19` order is:
 18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1
 ```
 
-These are adversarial objects for the current proof search, not
-counterexamples. In particular, the `C13` order only says the present exact
-filters miss this abstract order; numerical optimization remains separate and
-does not certify realizability.
+These remain adversarial objects for filter development, not counterexamples.
+In particular, the fixed-order Kalmanson kills do not prove either abstract
+incidence pattern impossible across all cyclic orders.
 
-The first constrained numerical run on the registered `C13` survivor order is:
+The first constrained numerical run on the registered `C13` sparse-filter order
+is:
 
 ```bash
 python -m erdos97.search \
@@ -273,7 +276,8 @@ It returns `eq_rms = 0.6569` and `max_spread = 2.728` with convexity margin
 `1e-4`. This is still a large residual, so it is negative numerical evidence
 for this particular order as a counterexample target, not a near-miss.
 
-The first constrained numerical run on the registered `C19` survivor order is:
+The first constrained numerical run on the registered `C19` sparse-filter order
+is:
 
 ```bash
 python -m erdos97.search \
@@ -301,7 +305,8 @@ a proof of non-realizability and not a counterexample.
 
 The combined fixed-order LP diagnostic in `docs/metric-order-lp.md` adds all
 ordinary triangle inequalities to the Altman adjacent-gap and vertex-circle
-strict inequalities. It still passes both registered sparse-order survivors:
+strict inequalities. It still passes both registered sparse orders before
+Kalmanson/Farkas certificates are included:
 
 | Pattern order | Max margin | Distance classes | Inequalities |
 |---|---:|---:|---:|
@@ -314,7 +319,7 @@ constraints.
 
 The Ptolemy-strengthened nonlinear diagnostic in `docs/ptolemy-order-nlp.md`
 adds every cyclic-quadrilateral Ptolemy inequality. It still passes both
-registered sparse-order survivors:
+registered sparse orders before Kalmanson/Farkas certificates are included:
 
 | Pattern order | Max margin | Linear inequalities | Ptolemy inequalities |
 |---|---:|---:|---:|
