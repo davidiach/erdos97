@@ -36,6 +36,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`minimum-radius-filter.md`](minimum-radius-filter.md): weak exact
   minimum-radius short-chord filter; records why it does not kill `C19_skew`
   by itself.
+- [`sparse-frontier-diagnostic.md`](sparse-frontier-diagnostic.md): exact
+  fixed-order witness-pair source diagnostic explaining the sparse/Sidon
+  radius-propagation blind spot.
 - [`stuck-set-miner.md`](stuck-set-miner.md): fixed-selection stuck-set mining
   for the bridge/peeling program.
 - [`stuck-frontier-snapshot.md`](stuck-frontier-snapshot.md): first stuck-set,

@@ -78,6 +78,11 @@ Thus the minimum-radius idea does not by itself kill `C19_skew`. It should be
 recorded as a weak exact filter, not promoted as a central route unless it is
 combined with additional cyclic-order or radius-inequality propagation.
 
+For the sparse/Sidon frontier, the issue is sharper: in the natural order every
+frontier row has at least one uncovered consecutive witness pair, so the current
+radius-propagation filter can choose an all-empty set of short gaps and force no
+strict radius inequalities. See `docs/sparse-frontier-diagnostic.md`.
+
 ## Reproducible check
 
 ```bash
