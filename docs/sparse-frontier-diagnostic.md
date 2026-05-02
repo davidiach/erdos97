@@ -273,6 +273,30 @@ It returns `eq_rms = 0.6569` and `max_spread = 2.728` with convexity margin
 `1e-4`. This is still a large residual, so it is negative numerical evidence
 for this particular order as a counterexample target, not a near-miss.
 
+The first constrained numerical run on the registered `C19` survivor order is:
+
+```bash
+python -m erdos97.search \
+  --pattern C19_skew \
+  --cyclic-order 18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1 \
+  --ordered-name C19_skew_order_survivor_20260502 \
+  --optimizer slsqp \
+  --mode polar \
+  --restarts 20 \
+  --max-nfev 2000 \
+  --margin 1e-4 \
+  --seed 20260502 \
+  --out data/runs/C19_skew_order_survivor_slsqp_m1e-4_seed20260502.json
+```
+
+It returns `eq_rms = 0.9031` and `max_spread = 4.149` with convexity margin
+`1e-4`. The verifier reports `ok_at_tol = false`, no validation errors, and
+all empirical `E` values equal to `1` at tolerance `1e-8`. Light direct and
+support-parameter SLSQP probes at the same margin found no feasible restart,
+while a trust-region polar probe only improved the residual by becoming
+nonconvex. This is again negative numerical evidence for this fixed order, not
+a proof of non-realizability and not a counterexample.
+
 ## Interpretation
 
 The radius-propagation filter chooses one possible short consecutive witness
