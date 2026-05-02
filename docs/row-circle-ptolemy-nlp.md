@@ -38,8 +38,8 @@ row equalities, and combines:
 The generated artifact is
 `data/certificates/row_circle_ptolemy_nlp_sparse_orders.json`.
 
-For the registered `C19_skew` abstract-order survivor, SLSQP terminates
-successfully with a negative strictness margin:
+For the registered `C19_skew` order, SLSQP terminates successfully with a
+negative strictness margin:
 
 ```text
 max_margin = -0.00264843
@@ -51,15 +51,16 @@ obstruction. It should be treated as a promising target for exactification.
 
 For the registered `C13_sidon_1_2_4_10` order, SLSQP reports incompatible
 inequality constraints from the LP-based start and leaves small but nonzero
-Ptolemy/row-equality residuals. That is recorded as optimizer failure, not as
-an obstruction.
+Ptolemy/row-equality residuals. That is recorded as optimizer failure in this
+diagnostic, not as a row-circle Ptolemy obstruction. The same fixed order is
+killed separately by the exact C13 Kalmanson pilot.
 
 ## C19 Active-Set Snapshot
 
 The exactification helper
 `scripts/dump_row_circle_ptolemy_snapshot.py` records the optimized
 distance-class vector and the active numerical constraints for the registered
-`C19_skew` survivor. The generated artifact is
+`C19_skew` order. The generated artifact is
 `data/certificates/c19_row_circle_ptolemy_active_set.json`.
 
 It records:

@@ -89,12 +89,14 @@ small-case claim. The round-two Kalmanson certificate kills one fixed
 research-frontier workstreams, not prerequisites for the repo-local `n <= 8`
 artifact.
 
-## Priority 6 - pilot Kalmanson order search on C13
+## Priority 6 - extend the C13 Kalmanson pilot
 
-Before attempting exhaustive `C19_skew` cyclic-order search, build a smaller
-Kalmanson cyclic-order CSP pilot on `C13`: normalize by dihedral symmetry,
-prune partial orders cheaply, run LP dual checks on closed branches, and emit
-exact integer certificates for branches that close.
+The first C13 Kalmanson pilot now kills the registered non-natural
+`C13_sidon_1_2_4_10` order with an exact 34-inequality certificate. Before
+attempting exhaustive `C19_skew` cyclic-order search, extend the smaller C13
+pilot toward all cyclic orders: normalize by dihedral symmetry, prune partial
+orders cheaply, run LP dual checks on closed branches, and emit exact integer
+certificates for branches that close.
 
 ## Priority 7 - strengthen only productive filters
 

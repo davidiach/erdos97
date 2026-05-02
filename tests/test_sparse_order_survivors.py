@@ -32,8 +32,12 @@ def test_registered_sparse_order_survivors_match_artifact() -> None:
     c13 = by_case["C13_sidon_1_2_4_10:sample_full_filter_survivor"]
     c19 = by_case["C19_skew:vertex_circle_survivor"]
 
-    assert c13["survives_current_exact_filters"] is True
+    assert c13["survives_pre_kalmanson_filters"] is True
+    assert c13["survives_current_exact_filters"] is False
     assert c13["vertex_circle"]["obstructed"] is False
     assert c13["radius_propagation"]["acyclic_choice_edge_count"] == 4
-    assert c19["survives_current_exact_filters"] is True
+    assert c13["kalmanson_certificate"]["positive_inequalities"] == 34
+    assert c19["survives_pre_kalmanson_filters"] is True
+    assert c19["survives_current_exact_filters"] is False
+    assert c19["kalmanson_certificate"]["positive_inequalities"] == 94
     assert c19["sparse_frontier"]["trivial_empty_radius_choice_exists"] is True

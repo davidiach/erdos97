@@ -109,7 +109,10 @@ Round three should try to decompose or explain the C19 certificate by grouping i
 
 ## Recommended round-three priority
 
-The next major task is an exhaustive Kalmanson cyclic-order CSP/search, but it should be piloted on C13 before C19.
+The first C13 pilot killed the registered non-natural `C13_sidon_1_2_4_10` order
+by an exact 34-inequality Kalmanson/Farkas certificate. The next major task is
+an exhaustive Kalmanson cyclic-order CSP/search, still scaling from C13 before
+C19.
 
 Suggested sequence:
 

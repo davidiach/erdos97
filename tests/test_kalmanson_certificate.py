@@ -11,6 +11,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "check_kalmanson_certificate.py"
 C19 = ROOT / "data" / "certificates" / "round2" / "c19_kalmanson_known_order_unsat.json"
 C17_TRANSLATION = ROOT / "data" / "certificates" / "round2" / "c17_skew_kalmanson_from_ptolemy_method_note.json"
+C13 = ROOT / "data" / "certificates" / "c13_sidon_order_survivor_kalmanson_unsat.json"
 
 
 def load_module():
@@ -48,6 +49,43 @@ def test_c17_ptolemy_translation_is_valid_kalmanson_certificate() -> None:
     assert summary.positive_inequalities == 17
     assert summary.max_weight == 1
     assert summary.distance_classes_after_selected_equalities == 85
+
+
+def test_c13_sidon_survivor_kalmanson_certificate() -> None:
+    module = load_module()
+    summary = module.check_certificate_file(C13)
+    assert summary.pattern == "C13_sidon_1_2_4_10"
+    assert summary.positive_inequalities == 34
+    assert summary.distance_classes_after_selected_equalities == 39
+    assert summary.weight_sum == 17463
+    assert summary.max_weight == 1322
+
+
+def test_find_kalmanson_certificate_reproduces_c13_summary() -> None:
+    finder = ROOT / "scripts" / "find_kalmanson_certificate.py"
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(finder),
+            "--name",
+            "C13_sidon_1_2_4_10",
+            "--n",
+            "13",
+            "--offsets",
+            "1,2,4,10",
+            "--order",
+            "5,0,10,8,9,7,4,6,2,11,12,3,1",
+            "--assert-found",
+            "--summary-json",
+        ],
+        check=True,
+        text=True,
+        capture_output=True,
+    )
+    summary = json.loads(result.stdout)
+    assert summary["pattern"] == "C13_sidon_1_2_4_10"
+    assert summary["positive_inequalities"] == 34
+    assert summary["zero_sum_verified"] is True
 
 
 def test_kalmanson_checker_rejects_wrong_weight_sum() -> None:

@@ -26,8 +26,10 @@ python scripts/check_metric_order_lp.py \
   --out data/certificates/metric_order_lp_survivors.json
 ```
 
-The checked-in artifact covers the registered sparse-order survivors from
-`data/certificates/sparse_order_survivors.json`.
+The checked-in artifact covers the registered sparse orders from
+`data/certificates/sparse_order_survivors.json`. These orders survive this
+metric LP relaxation, but they are killed by separate fixed-order
+Kalmanson/Farkas certificates.
 
 ## Snapshot
 
@@ -37,9 +39,10 @@ The checked-in artifact covers the registered sparse-order survivors from
 | `C19_skew:vertex_circle_survivor` | 19 | `PASS_METRIC_ORDER_LP_RELAXATION` | `0.00143164` | 114 | 3086 | 2907 |
 
 Thus this combined relaxation still does not kill the two registered
-non-natural sparse survivors. In particular, adding all triangle inequalities
-to the Altman and vertex-circle linear constraints leaves positive-margin
-solutions.
+non-natural sparse orders. In particular, adding all triangle inequalities to
+the Altman and vertex-circle linear constraints leaves positive-margin
+solutions; the later Kalmanson/Farkas certificates use stronger strict
+convex-quadrilateral distance inequalities.
 
 ## Interpretation
 

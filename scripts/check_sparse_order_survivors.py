@@ -13,6 +13,7 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
+from check_kalmanson_certificate import check_certificate_file  # noqa: E402
 from erdos97.altman_diagonal_sums import (  # noqa: E402
     altman_order_linear_certificate,
     altman_order_obstruction,
@@ -58,6 +59,19 @@ REGISTERED_ORDERS: dict[str, dict[str, list[int]]] = {
     },
 }
 
+KALMANSON_CERTIFICATES: dict[str, Path] = {
+    "C13_sidon_1_2_4_10:sample_full_filter_survivor": (
+        ROOT / "data" / "certificates" / "c13_sidon_order_survivor_kalmanson_unsat.json"
+    ),
+    "C19_skew:vertex_circle_survivor": (
+        ROOT
+        / "data"
+        / "certificates"
+        / "round2"
+        / "c19_kalmanson_known_order_unsat.json"
+    ),
+}
+
 
 def parse_order(raw: str) -> list[int]:
     try:
@@ -71,6 +85,7 @@ def evaluate_order(
     order: list[int],
     order_label: str,
 ) -> dict[str, object]:
+    case = f"{pattern.name}:{order_label}"
     constraints = crossing_constraints(pattern.S)
     crossing_ok = all_constraints_cross(order, constraints)
     altman_signature = altman_order_obstruction(pattern.S, order, pattern.name)
@@ -84,7 +99,7 @@ def evaluate_order(
         order=order,
         max_row_examples=0,
     )
-    survives = (
+    survives_pre_kalmanson = (
         crossing_ok
         and not altman_signature.altman_contradiction
         and altman_linear.obstructed is False
@@ -92,12 +107,15 @@ def evaluate_order(
         and not min_radius.obstructed
         and radius.obstructed is False
     )
+    kalmanson = kalmanson_status(case, pattern, order)
+    survives = survives_pre_kalmanson and not kalmanson["obstructed"]
     return {
-        "case": f"{pattern.name}:{order_label}",
+        "case": case,
         "pattern": pattern.name,
         "n": pattern.n,
         "order_label": order_label,
         "order": order,
+        "survives_pre_kalmanson_filters": survives_pre_kalmanson,
         "survives_current_exact_filters": survives,
         "crossing": {
             "constraint_count": len(constraints),
@@ -138,6 +156,7 @@ def evaluate_order(
                 else sum(len(choice.inequality_edges) for choice in radius.acyclic_choice)
             ),
         },
+        "kalmanson_certificate": kalmanson,
         "sparse_frontier": {
             "rows_with_uncovered_consecutive_pair": (
                 sparse["rows_with_uncovered_consecutive_pair"]
@@ -153,6 +172,41 @@ def evaluate_order(
             "Fixed-order exact-filter diagnostic only. Surviving all listed "
             "filters is not evidence of geometric realizability."
         ),
+    }
+
+
+def kalmanson_status(
+    case: str,
+    pattern: PatternInfo,
+    order: list[int],
+) -> dict[str, object]:
+    path = KALMANSON_CERTIFICATES.get(case)
+    if path is None:
+        return {
+            "status": "NO_REGISTERED_KALMANSON_CERTIFICATE",
+            "obstructed": False,
+        }
+
+    result = check_certificate_file(path)
+    certificate = json.loads(path.read_text(encoding="utf-8"))
+    if result.pattern != pattern.name:
+        raise ValueError(f"{path} pattern {result.pattern} does not match {pattern.name}")
+    if result.n != pattern.n:
+        raise ValueError(f"{path} n {result.n} does not match {pattern.n}")
+    if certificate.get("cyclic_order") != order:
+        raise ValueError(f"{path} cyclic order does not match registered {case}")
+
+    return {
+        "status": result.status,
+        "obstructed": result.zero_sum_verified,
+        "path": path.relative_to(ROOT).as_posix(),
+        "positive_inequalities": result.positive_inequalities,
+        "distance_classes_after_selected_equalities": (
+            result.distance_classes_after_selected_equalities
+        ),
+        "weight_sum": result.weight_sum,
+        "max_weight": result.max_weight,
+        "claim_strength": result.claim_strength,
     }
 
 
@@ -175,18 +229,24 @@ def assert_expected(rows: list[dict[str, object]]) -> None:
     if missing:
         raise AssertionError(f"missing expected case(s): {', '.join(missing)}")
     for case in sorted(expected):
-        if by_case[case]["survives_current_exact_filters"] is not True:
-            raise AssertionError(f"{case} did not survive current exact filters")
+        if by_case[case]["survives_pre_kalmanson_filters"] is not True:
+            raise AssertionError(f"{case} did not survive pre-Kalmanson filters")
+        kalmanson = by_case[case]["kalmanson_certificate"]
+        if not isinstance(kalmanson, dict) or kalmanson["obstructed"] is not True:
+            raise AssertionError(f"{case} is missing its Kalmanson obstruction")
+        if by_case[case]["survives_current_exact_filters"] is not False:
+            raise AssertionError(f"{case} unexpectedly survived current exact filters")
 
 
 def payload(rows: list[dict[str, object]]) -> dict[str, object]:
     return {
-        "type": "sparse_order_survivor_filter_sweep_v1",
+        "type": "sparse_order_survivor_filter_sweep_v2",
         "trust": "FIXED_ORDER_EXACT_FILTER_DIAGNOSTIC",
         "notes": [
             "No general proof of Erdos Problem #97 is claimed.",
             "No counterexample is claimed.",
-            "Surviving all listed filters is not evidence of realizability.",
+            "The registered C13 and C19 orders survive the older sparse-frontier filters but are killed by fixed-order Kalmanson/Farkas certificates.",
+            "A fixed-order Kalmanson obstruction is not an abstract all-order obstruction.",
         ],
         "cases": rows,
     }
@@ -197,6 +257,7 @@ def print_table(rows: list[dict[str, object]]) -> None:
         "case",
         "n",
         "survives",
+        "kalmanson",
         "vertex",
         "altman",
         "radius",
@@ -207,6 +268,7 @@ def print_table(rows: list[dict[str, object]]) -> None:
             str(row["case"]),
             str(row["n"]),
             str(row["survives_current_exact_filters"]),
+            str(row["kalmanson_certificate"]["obstructed"]),
             str(row["vertex_circle"]["obstructed"]),
             str(row["altman_linear_certificate"]["status"]),
             str(row["radius_propagation"]["status"]),

@@ -142,6 +142,16 @@ equalities. This is a fixed-order obstruction only; it does not kill abstract
 `scripts/check_kalmanson_certificate.py`, and
 `data/certificates/round2/c19_kalmanson_known_order_unsat.json`.
 
+The C13 Kalmanson pilot kills the registered non-natural
+`C13_sidon_1_2_4_10` order `[5,0,10,8,9,7,4,6,2,11,12,3,1]`. The certificate is
+a positive integer sum of 34 strict Kalmanson distance inequalities whose total
+coefficient vector is exactly zero after selected-distance quotienting. This is
+also a fixed-order obstruction only; it does not kill abstract
+`C13_sidon_1_2_4_10` over all cyclic orders. See
+`docs/kalmanson-c13-pilot.md`, `scripts/find_kalmanson_certificate.py`,
+`scripts/check_kalmanson_certificate.py`, and
+`data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json`.
+
 The bounded `n=9` incidence/CSP frontier scan in
 `data/certificates/n9_incidence_frontier_bounded.json` fixes the natural order
 and row `0` to the registered seed row `{1,2,3,8}`. In that row0-fixed slice,
@@ -158,8 +168,9 @@ selected witness quadruple being concyclic around its center. It numerically
 obstructs the registered `C19_skew` abstract order with margin about
 `-0.00264843`; this is `NUMERICAL_NONLINEAR_DIAGNOSTIC` only and requires
 exactification before it can be used as an obstruction. The registered
-`C13_sidon_1_2_4_10` order currently records optimizer failure, not a clean
-obstruction. The follow-up active-set artifact
+`C13_sidon_1_2_4_10` order records optimizer failure in this row-circle
+Ptolemy diagnostic, but it is now killed by the separate fixed-order Kalmanson
+certificate above. The follow-up active-set artifact
 `data/certificates/c19_row_circle_ptolemy_active_set.json` records the
 optimized C19 distance classes and tight numerical constraints for
 exactification work, including a SciPy SLSQP multiplier summary; it is not an
@@ -249,6 +260,7 @@ search-history artifacts, not as live candidates.
    and `14` exact certificates.
 2. Push the finite incidence/exact pipeline toward `n=9`, or identify the first
    survivor class that blocks scaling.
-3. Investigate abstract `C19_skew` beyond the natural-order Altman obstruction
-   and the single fixed-order round-two Kalmanson certificate.
+3. Investigate abstract `C19_skew` and `C13_sidon_1_2_4_10` beyond their
+   natural-order Altman obstructions and registered fixed-order Kalmanson
+   certificates.
 4. Add interval-arithmetic verification for convexity and distance equations.
