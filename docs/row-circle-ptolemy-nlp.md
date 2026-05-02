@@ -68,11 +68,15 @@ It records:
 - the 22 tight linear rows from the Altman / vertex-circle / triangle
   relaxation;
 - the 74 tight global Ptolemy inequalities;
-- all 19 row-circle Ptolemy equality residuals and their witness orders.
+- all 19 row-circle Ptolemy equality residuals and their witness orders;
+- the SciPy SLSQP multiplier summary for the normalization equality, row
+  equalities, linear inequalities, and global Ptolemy inequalities.
 
 This is still only a floating-point active set. It is useful because it exposes
 the likely certificate support for a later rational or algebraic
-exactification attempt.
+exactification attempt. In the current snapshot, the nonzero multiplier counts
+are 19 linear inequalities, 57 global Ptolemy inequalities, and all 19
+row-circle equalities.
 
 ## Reproduction
 
