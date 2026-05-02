@@ -46,6 +46,17 @@ Suggested checks:
   certificate data;
 - the checker reports only `EXACT_OBSTRUCTION` or explicit uncertainty.
 
+Current audit entrypoint:
+
+```bash
+python scripts/independent_check_n8_artifacts.py --check --json
+```
+
+This command checks the checked-in survivor, completeness, compatible-order,
+and exact-analysis artifacts as input data. It is an artifact-consistency and
+exact-obstruction audit entrypoint, not an independent regeneration of the full
+incidence enumeration.
+
 ## Priority 3 - isolate class 14
 
 Class `14` is the most delicate current survivor obstruction because it uses

@@ -188,6 +188,7 @@ Run from the repository root after installing the development dependencies:
 
 ```bash
 pip install -e .[dev]
+python scripts/independent_check_n8_artifacts.py --check --json
 python scripts/analyze_n8_exact_survivors.py --check --json
 python scripts/analyze_n8_exact_survivors.py --check --json --check-compatible-orders-data data/incidence/n8_compatible_orders.json --check-exact-analysis-data certificates/n8_exact_analysis.json
 pytest -q
@@ -204,6 +205,12 @@ It recomputes the cyclic-order counts, the rational linear-span kills, the class
 `3` duplicate-vertex certificate, the class `4` collinearity certificate, the
 class `5` Groebner contradiction, the class `14` Groebner and strict-interior
 certificate, and the optional archived-ID mapping.
+
+The `independent_check_n8_artifacts.py` entrypoint additionally checks that the
+survivor JSON, incidence-completeness artifact, compatible-order artifact, and
+exact-analysis artifact agree with each other. It reports this as a repo-local
+artifact audit pending external review, not as a standalone public theorem
+claim.
 
 The expanded polynomial systems and full compatible cyclic-order lists are stored
 as reproducibility artifacts:
