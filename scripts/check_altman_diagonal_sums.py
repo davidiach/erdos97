@@ -14,7 +14,10 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from erdos97.altman_diagonal_sums import check_altman  # noqa: E402
+from erdos97.altman_diagonal_sums import (  # noqa: E402
+    altman_order_obstruction,
+    check_altman,
+)
 from erdos97.search import built_in_patterns  # noqa: E402
 
 PATTERN_LEDGER = ROOT / "data" / "patterns" / "candidate_patterns.json"
@@ -49,6 +52,13 @@ def abstract_status_from_ledger(pattern_name: str) -> str:
     if normalized.startswith("killed"):
         return "EXACT_OBSTRUCTION"
     return abstract_status or "UNTOUCHED"
+
+
+def parse_order(raw: str) -> list[int]:
+    try:
+        return [int(item.strip()) for item in raw.split(",") if item.strip()]
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError(f"invalid comma-separated order: {raw}") from exc
 
 
 def decorate_row(row: dict[str, object]) -> dict[str, object]:
@@ -105,6 +115,11 @@ def main() -> int:
     parser.add_argument("--json", action="store_true", help="print JSON instead of a table")
     parser.add_argument("--pattern", help="limit checks to one built-in pattern")
     parser.add_argument(
+        "--order",
+        type=parse_order,
+        help="comma-separated cyclic order for the order-dependent signature filter",
+    )
+    parser.add_argument(
         "--assert-expected",
         action="store_true",
         help="assert every registered expected output is selected and correct",
@@ -123,6 +138,29 @@ def main() -> int:
         selected = [patterns[args.pattern]]
     else:
         selected = list(patterns.values())
+
+    if args.order is not None:
+        if len(selected) != 1:
+            raise SystemExit("--order requires exactly one --pattern")
+        pattern = selected[0]
+        row = dataclasses.asdict(
+            altman_order_obstruction(pattern.S, args.order, pattern.name)
+        )
+        if args.assert_natural_killed and not row["altman_contradiction"]:
+            raise AssertionError(f"{pattern.name}: expected an Altman contradiction")
+        if args.assert_expected:
+            assert_expected([decorate_row(dataclasses.asdict(check_altman(pattern)))])
+        if args.json:
+            print(json.dumps(row, indent=2, sort_keys=True))
+        else:
+            print("pattern  n  status                    equal diagonal groups")
+            print(
+                f"{row['pattern']}  {row['n']}  {row['status']}  "
+                f"{row['equal_diagonal_order_groups']}"
+            )
+            if args.assert_expected or args.assert_natural_killed:
+                print("OK: Altman order expectation verified")
+        return 0
 
     rows = [decorate_row(dataclasses.asdict(check_altman(pattern))) for pattern in selected]
     if args.assert_expected:
