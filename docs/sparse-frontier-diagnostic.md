@@ -312,6 +312,19 @@ This is another negative diagnostic: the sparse-overlap wall is not removed by
 combining the current Altman, vertex-circle, and metric-triangle linear
 constraints.
 
+The Ptolemy-strengthened nonlinear diagnostic in `docs/ptolemy-order-nlp.md`
+adds every cyclic-quadrilateral Ptolemy inequality. It still passes both
+registered sparse-order survivors:
+
+| Pattern order | Max margin | Linear inequalities | Ptolemy inequalities |
+|---|---:|---:|---:|
+| `C13_sidon_1_2_4_10:sample_full_filter_survivor` | `0.00176461` | 980 | 715 |
+| `C19_skew:vertex_circle_survivor` | `0.00106142` | 3086 | 3876 |
+
+This is a numerical nonlinear diagnostic only. It shows that Ptolemy
+constraints by themselves are still too weak, not that either order is
+realizable.
+
 ## Interpretation
 
 The radius-propagation filter chooses one possible short consecutive witness

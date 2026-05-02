@@ -34,6 +34,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`metric-order-lp.md`](metric-order-lp.md): combined fixed-order LP
   diagnostic using Altman gaps, vertex-circle inequalities, and triangle
   inequalities; records a miss on the registered sparse-order survivors.
+- [`ptolemy-order-nlp.md`](ptolemy-order-nlp.md): numerical nonlinear
+  diagnostic adding Ptolemy inequalities for cyclic quadrilaterals; still a
+  miss on the registered sparse-order survivors.
 - [`two-orbit-radius-propagation.md`](two-orbit-radius-propagation.md): exact
   obstruction for a half-step two-orbit near-regular ansatz.
 - [`minimum-radius-filter.md`](minimum-radius-filter.md): weak exact
