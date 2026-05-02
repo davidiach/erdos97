@@ -95,7 +95,7 @@
     "n": 13,
     "formula": "offsets {1,2,4,10} (Singer (13,4,1) planar difference set)",
     "type": "Sidon circulant",
-    "status": "every nonzero residue appears exactly once as a difference of D, so |S_a cap S_b| = 1 for every a != b; LLM-run conjecture: structural wall against the row-4 matrix bound; numerical realizability under strict convexity tested by SLSQP",
+    "status": "natural-order status: exactly killed by Altman linear certificate; abstract-incidence status: Sidon sparse-overlap lead, not settled by current filters; every nonzero residue appears exactly once as a difference of D, so |S_a cap S_b| = 1 for every a != b; SLSQP strict-convexity plateau retained as numerical evidence",
     "trust": "INCIDENCE_PATTERN"
   },
   {
@@ -104,7 +104,7 @@
     "n": 25,
     "formula": "offsets {2,5,9,14}",
     "type": "Sidon circulant",
-    "status": "D = {2,5,9,14} is Sidon: 12 pairwise differences distinct mod 25; |S_a cap S_b| in {0,1} for every a != b; defined for catalog completeness, not yet run numerically",
+    "status": "natural-order status: exactly killed by Altman linear certificate; abstract-incidence status: Sidon sparse-overlap lead, not settled by current filters; D = {2,5,9,14} is Sidon: 12 pairwise differences distinct mod 25; |S_a cap S_b| in {0,1} for every a != b; defined for catalog completeness, not yet run numerically",
     "trust": "INCIDENCE_PATTERN"
   },
   {
@@ -113,7 +113,7 @@
     "n": 29,
     "formula": "offsets {1,3,7,15}",
     "type": "Sidon circulant",
-    "status": "D = {1,3,7,15} is Sidon: 12 pairwise differences distinct mod 29; |S_a cap S_b| in {0,1} for every a != b; defined for catalog completeness, not yet run numerically",
+    "status": "natural-order status: exactly killed by Altman linear certificate; abstract-incidence status: Sidon sparse-overlap lead, not settled by current filters; D = {1,3,7,15} is Sidon: 12 pairwise differences distinct mod 29; |S_a cap S_b| in {0,1} for every a != b; defined for catalog completeness, not yet run numerically",
     "trust": "INCIDENCE_PATTERN"
   }
 ]

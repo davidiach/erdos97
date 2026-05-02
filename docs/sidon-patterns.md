@@ -1,6 +1,8 @@
 # Sidon-type circulant patterns: empirical realizability
 
-Trust label: NUMERICAL_EVIDENCE. No proof, no counterexample claim.
+Trust labels: `EXACT_OBSTRUCTION` for the natural cyclic orders under Altman
+linear certificates; `NUMERICAL_EVIDENCE` for the SLSQP plateau. No general
+proof, abstract-order obstruction, or counterexample claim.
 
 ## Headline finding
 
@@ -34,10 +36,10 @@ The three Sidon-type circulant incidence patterns added to the catalog are:
 
 In all three the witness in-degree is constantly 4 and the two-circle
 common-selected-neighbour cap `|S_a cap S_b| <= 2` is satisfied with margin
-to spare. None of the engine's existing exact filters
-(mutual-rhombus midpoint, perpendicular-bisector cycles, vertex-circle order
-strict-cycle, cyclic crossing-CSP) currently kill these patterns; they are
-INCIDENCE_PATTERN until further notice.
+to spare. The natural cyclic orders are now exactly killed by Altman linear
+certificates; see `data/certificates/altman_linear_certificate_sweep.json`.
+The arbitrary abstract-order versions remain incidence-pattern leads until a
+separate order search or exact filter kills them.
 
 ## LLM-run provenance
 
@@ -52,7 +54,8 @@ test of the conjecture.
 
 ## Engine extension
 
-The legacy search engine used a least-squares trust-region (TRF) solver
+Before the Altman certificate sweep, the legacy search engine used a
+least-squares trust-region (TRF) solver
 with soft barrier penalties. The Sidon test requires hard-margin strict
 convexity, so an SLSQP path was added:
 
@@ -130,8 +133,10 @@ numerics are consistent with one.
 
 ## What this is not
 
-- It is not a proof of non-realisability. Twenty SLSQP restarts in a
-  particular polar basin do not exhaust the configuration space.
+- It is not a proof of abstract-order non-realisability. Twenty SLSQP
+  restarts in a particular polar basin do not exhaust the configuration
+  space, and the exact Altman certificate currently applies only to the
+  natural label order.
 - It is not a counterexample to anything. The pattern is INCIDENCE_PATTERN;
   the run is NUMERICAL_EVIDENCE.
 - It is not a verdict on `C25_sidon_2_5_9_14` or `C29_sidon_1_3_7_15`.

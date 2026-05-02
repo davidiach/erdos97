@@ -178,3 +178,21 @@ so Altman's strict inequality `U_8 < U_9` is impossible. The known abstract
 `C19_skew` order has no such rational certificate with denominator at most
 `1000` under the current search. That is only a certificate-search miss, not a
 realizability claim.
+
+## Sweep
+
+The checked-in sweep generator applies the exact certificate search to every
+built-in natural order plus the registered non-natural `C19_skew` survivor:
+
+```bash
+python scripts/sweep_altman_linear_certificates.py \
+  --assert-expected \
+  --out data/certificates/altman_linear_certificate_sweep.json
+```
+
+The artifact records that the natural orders of `C13_sidon_1_2_4_10`,
+`C25_sidon_2_5_9_14`, and `C29_sidon_1_3_7_15` are all exactly killed by
+Altman linear certificates. The registered abstract `C19_skew` order remains
+a certificate-search miss. This narrows the sparse-overlap wall to non-natural
+cyclic orders; it does not prove or disprove realizability of any abstract
+survivor.
