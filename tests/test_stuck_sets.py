@@ -14,6 +14,18 @@ from erdos97.stuck_sets import (
     result_to_json,
 )
 
+N9_RECTANGLE_TRAP_PATTERN = [
+    [1, 2, 3, 8],
+    [0, 2, 4, 7],
+    [1, 3, 5, 7],
+    [1, 4, 6, 8],
+    [0, 2, 5, 6],
+    [3, 4, 6, 7],
+    [2, 5, 7, 8],
+    [0, 3, 6, 8],
+    [0, 1, 4, 5],
+]
+
 
 def test_detects_fixed_selection_stuck_subset() -> None:
     S = [
@@ -97,6 +109,18 @@ def test_c19_skew_snapshot_records_sparse_filter_wall() -> None:
     assert stuck.examples[0].vertices == list(range(8))
     assert not greedy.success
     assert len(greedy.terminal_vertices) >= 4
+
+
+def test_pattern_snapshot_records_phi4_rectangle_trap() -> None:
+    filters = pattern_filter_snapshot(N9_RECTANGLE_TRAP_PATTERN)
+
+    assert filters["rectangle_trap_4_cycles"] == 1
+    assert filters["rectangle_trap_certificates"][0]["phi_cycle"] == [
+        [0, 6],
+        [2, 8],
+        [1, 5],
+        [4, 7],
+    ]
 
 
 def test_large_sidon_fragile_cover_window_is_truncated() -> None:

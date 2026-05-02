@@ -40,6 +40,7 @@ def main() -> int:
         help="base prefix; n, stuck size, and seed are appended for each item",
     )
     parser.add_argument("--require-no-forward-ear-order", action="store_true")
+    parser.add_argument("--allow-rectangle-trap", action="store_true")
     parser.add_argument("--fragile-cover-max-size", type=int)
     parser.add_argument("--radius-node-limit", type=int, default=100_000)
     parser.add_argument("--run-geometry", action="store_true")
@@ -69,6 +70,7 @@ def main() -> int:
             solver_seed=args.solver_seed,
             variable_prefix=args.variable_prefix,
             require_no_forward_ear_order=args.require_no_forward_ear_order,
+            require_no_rectangle_trap=not args.allow_rectangle_trap,
             radius_node_limit=args.radius_node_limit,
             fragile_cover_max_size=args.fragile_cover_max_size,
             run_geometry=args.run_geometry,
