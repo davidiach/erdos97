@@ -18,6 +18,7 @@ def test_mine_stuck_motif_finds_strict_small_model() -> None:
     assert payload["motif"]["key_peeling_status"] == "STUCK_SET_FOUND"
     assert payload["motif"]["filters"]["adjacent_two_overlap_violations"] == []
     assert payload["motif"]["filters"]["crossing_bisector_violations"] == []
+    assert payload["motif"]["filters"]["rectangle_trap_4_cycles"] == 0
     assert payload["motif"]["filters"]["radius_propagation"]["status"] == "PASS_ACYCLIC_CHOICE"
     assert payload["motif"]["filters"]["fragile_cover"]["cover_stats"]["cover_exists"] is True
 
@@ -30,6 +31,7 @@ def test_mine_stuck_motif_relaxed_model_records_search_contract() -> None:
         require_adjacent_overlap=False,
         require_crossing=False,
         require_no_odd_cycle=False,
+        require_no_rectangle_trap=False,
         require_radius_pass=False,
         require_fragile_cover=False,
     )
@@ -39,6 +41,7 @@ def test_mine_stuck_motif_relaxed_model_records_search_contract() -> None:
     assert payload["status"] == "FOUND"
     assert payload["fixed_stuck_vertices"] == [0, 1, 2, 3]
     assert payload["filters_required"]["require_crossing"] is False
+    assert payload["filters_required"]["require_no_rectangle_trap"] is False
     assert payload["motif"]["motif_search"]["stuck_vertices_forced"] == [0, 1, 2, 3]
 
 

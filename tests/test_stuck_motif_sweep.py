@@ -50,5 +50,6 @@ def test_sweep_records_stable_item_variable_prefix() -> None:
     )
 
     assert sweep["config"]["variable_prefix"] == "sweep_contract"
+    assert sweep["config"]["require_no_rectangle_trap"] is True
     assert sweep["items"][0]["variable_prefix"] == "sweep_contract_9_4_0"
     assert sweep["items"][0]["status"] == "FOUND"

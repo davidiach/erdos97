@@ -29,6 +29,7 @@ from erdos97.incidence_filters import (
     adjacent_two_overlap_violations,
     crossing_bisector_violations,
     odd_forced_perpendicular_cycle,
+    phi4_rectangle_trap_certificates,
     phi_map,
 )
 from erdos97.min_radius_filter import (
@@ -863,6 +864,7 @@ def pattern_filter_snapshot(
     odd_cycle = odd_forced_perpendicular_cycle(S)
     adjacent = adjacent_two_overlap_violations(S, order)
     crossing = crossing_bisector_violations(S, order)
+    rectangle_traps = phi4_rectangle_trap_certificates(S, order)
     min_radius = minimum_radius_order_obstruction(S, order=order)
     radius = radius_propagation_obstruction(S, order=order, node_limit=radius_node_limit)
     covered = sorted({label for row in S for label in row})
@@ -877,6 +879,8 @@ def pattern_filter_snapshot(
         "column_pair_cap_violations": column_violations,
         "phi_edges": len(phi_map(S)),
         "odd_forced_perpendicular_cycle_length": len(odd_cycle) if odd_cycle else None,
+        "rectangle_trap_4_cycles": len(rectangle_traps),
+        "rectangle_trap_certificates": rectangle_traps,
         "adjacent_two_overlap_violations": [
             [[int(a), int(b)] for a, b in pair] for pair in adjacent
         ],

@@ -21,6 +21,7 @@ class SweepConfig:
     solver_seed: int = 0
     variable_prefix: str = "sweep"
     require_no_forward_ear_order: bool = False
+    require_no_rectangle_trap: bool = True
     radius_node_limit: int = 100_000
     fragile_cover_max_size: int | None = None
     run_geometry: bool = False
@@ -107,6 +108,7 @@ def sweep_stuck_motifs(config: SweepConfig) -> dict[str, object]:
                 variable_prefix=resolved_prefix,
                 radius_node_limit=config.radius_node_limit,
                 require_no_forward_ear_order=config.require_no_forward_ear_order,
+                require_no_rectangle_trap=config.require_no_rectangle_trap,
                 fragile_cover_max_size=config.fragile_cover_max_size,
             )
         )
@@ -149,6 +151,7 @@ def sweep_stuck_motifs(config: SweepConfig) -> dict[str, object]:
             "solver_seed": config.solver_seed,
             "variable_prefix": config.variable_prefix,
             "require_no_forward_ear_order": config.require_no_forward_ear_order,
+            "require_no_rectangle_trap": config.require_no_rectangle_trap,
             "run_geometry": config.run_geometry,
             "geometry_optimizer": config.geometry_optimizer,
             "geometry_mode": config.geometry_mode,

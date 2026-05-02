@@ -41,6 +41,7 @@ def main() -> int:
     parser.add_argument("--allow-adjacent-two-overlap", action="store_true", help="do not reject adjacent source rows with two overlaps")
     parser.add_argument("--allow-crossing-violations", action="store_true", help="do not reject two-overlap crossing violations")
     parser.add_argument("--allow-odd-cycle", action="store_true", help="do not reject odd forced-perpendicularity cycles")
+    parser.add_argument("--allow-rectangle-trap", action="store_true", help="do not reject phi 4-cycle rectangle-trap certificates")
     parser.add_argument("--allow-radius-obstruction", action="store_true", help="do not reject radius-cycle obstructions")
     parser.add_argument("--allow-no-fragile-cover", action="store_true", help="do not require incidence-level fragile cover")
     parser.add_argument(
@@ -63,6 +64,7 @@ def main() -> int:
         require_adjacent_overlap=not args.allow_adjacent_two_overlap,
         require_crossing=not args.allow_crossing_violations,
         require_no_odd_cycle=not args.allow_odd_cycle,
+        require_no_rectangle_trap=not args.allow_rectangle_trap,
         require_radius_pass=not args.allow_radius_obstruction,
         require_fragile_cover=not args.allow_no_fragile_cover,
         require_no_forward_ear_order=args.require_no_forward_ear_order,

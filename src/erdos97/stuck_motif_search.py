@@ -37,6 +37,7 @@ class MotifSearchConfig:
     require_adjacent_overlap: bool = True
     require_crossing: bool = True
     require_no_odd_cycle: bool = True
+    require_no_rectangle_trap: bool = True
     require_radius_pass: bool = True
     require_fragile_cover: bool = True
     require_no_forward_ear_order: bool = False
@@ -120,6 +121,8 @@ def _candidate_rejection(
         and snapshot["odd_forced_perpendicular_cycle_length"] is not None
     ):
         return "odd_forced_perpendicular_cycle"
+    if config.require_no_rectangle_trap and snapshot["rectangle_trap_4_cycles"]:
+        return "phi4_rectangle_trap"
 
     radius = snapshot["radius_propagation"]
     if config.require_radius_pass and radius["obstructed"] is not False:
@@ -289,6 +292,7 @@ def filters_required_to_json(config: MotifSearchConfig) -> dict[str, object]:
         "require_adjacent_overlap": config.require_adjacent_overlap,
         "require_crossing": config.require_crossing,
         "require_no_odd_cycle": config.require_no_odd_cycle,
+        "require_no_rectangle_trap": config.require_no_rectangle_trap,
         "require_radius_pass": config.require_radius_pass,
         "require_fragile_cover": config.require_fragile_cover,
         "require_no_forward_ear_order": config.require_no_forward_ear_order,

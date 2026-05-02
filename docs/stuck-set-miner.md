@@ -73,8 +73,8 @@ python scripts/find_minimal_stuck_sets.py \
 
 The JSON output includes cheap exact filter diagnostics for the full fixed
 pattern: row-pair cap, column-pair cap, `phi` edge count, odd forced
-perpendicularity cycles, natural-order crossing violations, and the current
-minimum-radius short-chord filter result.
+perpendicularity cycles, phi 4-cycle rectangle traps, natural-order crossing
+violations, and the current minimum-radius short-chord filter result.
 
 ## Mining New Motifs
 
@@ -97,9 +97,10 @@ By default, the solver enforces:
 - adjacent-row overlap at most `1` in natural order;
 - two-overlap crossing compatibility in natural order.
 
-The post-solver filters also require no odd forced-perpendicularity cycle,
-radius-propagation survival, and incidence-level fragile-cover compatibility.
-Each of these can be relaxed with a named `--allow-*` flag.
+The post-solver filters also require no odd forced-perpendicularity cycle, no
+phi 4-cycle rectangle trap, radius-propagation survival, and incidence-level
+fragile-cover compatibility. Each of these can be relaxed with a named
+`--allow-*` flag.
 
 For motifs that are genuinely adversarial to the ear-orderable rank program,
 add:
@@ -133,6 +134,11 @@ n=10, stuck_size=4: found a surviving no-forward fixed-selection motif
 n=11, stuck_size=4: found a surviving no-forward fixed-selection motif
 n=12, stuck_size=4: found a surviving no-forward fixed-selection motif
 ```
+
+For the same `n=9`, `stuck_size=4`, `--max-models 220` run, the search
+exhausts after 90 inspected models. The rejection counts include
+`phi4_rectangle_trap: 22`, so the rectangle-trap filter is now an active part
+of the small no-forward motif screen.
 
 These are search diagnostics, not finite-case theorems.
 
