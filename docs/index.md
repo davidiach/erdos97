@@ -27,6 +27,8 @@ put detailed reconciliation in the canonical synthesis.
   mutual-midpoint filters for fixed selected-witness patterns.
 - [`phi4-rectangle-trap.md`](phi4-rectangle-trap.md): exact even
   perpendicularity 4-cycle obstruction for fixed selected-witness patterns.
+- [`phi4-frontier-scan.md`](phi4-frontier-scan.md): reusable phi4
+  rectangle-trap sweep over registered fixed patterns and sparse orders.
 - [`altman-diagonal-sums.md`](altman-diagonal-sums.md): natural-order
   diagonal-sum obstruction for cyclic-offset patterns.
 - [`cyclic-crossing-csp.md`](cyclic-crossing-csp.md): exact cyclic-order

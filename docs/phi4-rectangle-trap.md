@@ -129,11 +129,21 @@ and cyclic subsequence
 The machine-readable certificate is
 `data/certificates/n9_phi4_rectangle_trap.json`.
 
+## Frontier scan
+
+The reusable scanner
+`scripts/check_phi4_frontier_scan.py` applies this filter to the registered
+positive `n=9` case, all built-in natural-order candidate patterns, and the
+registered sparse non-natural orders. The generated artifact is
+`data/certificates/phi4_frontier_scan.json`; see
+`docs/phi4-frontier-scan.md`.
+
 ## Reproduction
 
 ```bash
 python scripts/check_phi4_rectangle_trap.py --assert-expected
 python scripts/check_phi4_rectangle_trap.py --assert-expected --write
+python scripts/check_phi4_frontier_scan.py --assert-expected
 pytest tests/test_incidence_filters.py -q
 ```
 
