@@ -73,6 +73,17 @@ patterns has at most one endpoint source. In that single-target setting, a
 fixed cyclic order is radius-cycle obstructed only if it realizes a nonempty
 closed target set.
 
+To check registered abstract-order survivors against the current exact
+fixed-order filters:
+
+```bash
+python scripts/check_sparse_order_survivors.py --assert-expected
+```
+
+This combines crossing constraints, Altman signature and linear-certificate
+filters, vertex-circle strict-cycle checks, minimum-radius checks, and
+radius-propagation checks for each registered order.
+
 ## Snapshot
 
 | Pattern | n | all witness-pair sources | consecutive-pair sources | rows with uncovered consecutive pair | order-free blocked rows | order-free empty-gap rows | empty radius choice |
@@ -213,6 +224,34 @@ obstructed by the current single-target radius-cycle filter.
 This closes the radius-propagation route for the sparse frontier as currently
 implemented. A proof or counterexample must use additional geometry or a
 strictly stronger sparse-overlap mechanism.
+
+## Registered Exact-Filter Survivors
+
+The combined exact-filter sweep is checked in at
+`data/certificates/sparse_order_survivors.json`. It currently records two
+non-natural cyclic orders that survive every listed fixed-order exact filter:
+
+| Pattern | Order label | n | Vertex-circle | Altman linear | Radius propagation | Empty radius choice |
+|---|---|---:|---|---|---|---|
+| `C13_sidon_1_2_4_10` | `sample_full_filter_survivor` | 13 | pass | no certificate found | pass with 4 strict edges | no |
+| `C19_skew` | `vertex_circle_survivor` | 19 | pass | no certificate found | pass with 0 strict edges | yes |
+
+The `C13` order is:
+
+```text
+5,0,10,8,9,7,4,6,2,11,12,3,1
+```
+
+The `C19` order is:
+
+```text
+18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1
+```
+
+These are adversarial objects for the current proof search, not
+counterexamples. In particular, the `C13` order only says the present exact
+filters miss this abstract order; numerical optimization remains separate and
+does not certify realizability.
 
 ## Interpretation
 

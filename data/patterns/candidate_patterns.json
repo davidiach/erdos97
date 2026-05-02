@@ -95,7 +95,7 @@
     "n": 13,
     "formula": "offsets {1,2,4,10} (Singer (13,4,1) planar difference set)",
     "type": "Sidon circulant",
-    "status": "natural-order status: exactly killed by Altman linear certificate; abstract-incidence status: Sidon sparse-overlap lead, not settled by current filters; every nonzero residue appears exactly once as a difference of D, so |S_a cap S_b| = 1 for every a != b; SLSQP strict-convexity plateau retained as numerical evidence",
+    "status": "natural-order status: exactly killed by Altman linear certificate; abstract-incidence status: registered non-natural order survives current fixed-order exact filters; every nonzero residue appears exactly once as a difference of D, so |S_a cap S_b| = 1 for every a != b; SLSQP strict-convexity plateau retained as numerical evidence",
     "trust": "INCIDENCE_PATTERN"
   },
   {

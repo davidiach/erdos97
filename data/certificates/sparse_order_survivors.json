@@ -1,0 +1,169 @@
+{
+  "cases": [
+    {
+      "altman_linear_certificate": {
+        "certificate_method": "none",
+        "nonzero_gap_orders": [],
+        "obstructed": false,
+        "status": "NO_EXACT_ALTMAN_LINEAR_CERTIFICATE_FOUND"
+      },
+      "altman_signature": {
+        "equal_diagonal_order_groups": [],
+        "obstructed": false,
+        "status": "NO_ORDER_ALTMAN_SIGNATURE_OBSTRUCTION"
+      },
+      "case": "C13_sidon_1_2_4_10:sample_full_filter_survivor",
+      "crossing": {
+        "constraint_count": 0,
+        "passes": true
+      },
+      "minimum_radius": {
+        "blocked_center_count": 4,
+        "obstructed": false,
+        "possible_min_center_count": 9
+      },
+      "n": 13,
+      "order": [
+        5,
+        0,
+        10,
+        8,
+        9,
+        7,
+        4,
+        6,
+        2,
+        11,
+        12,
+        3,
+        1
+      ],
+      "order_label": "sample_full_filter_survivor",
+      "pattern": "C13_sidon_1_2_4_10",
+      "radius_propagation": {
+        "acyclic_choice_edge_count": 4,
+        "max_depth": 13,
+        "nodes_visited": 14,
+        "obstructed": false,
+        "status": "PASS_RADIUS_PROPAGATION"
+      },
+      "semantics": "Fixed-order exact-filter diagnostic only. Surviving all listed filters is not evidence of geometric realizability.",
+      "sparse_frontier": {
+        "rows_with_uncovered_consecutive_pair": [
+          0,
+          1,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          11
+        ],
+        "rows_with_uncovered_consecutive_pair_count": 9,
+        "trivial_empty_radius_choice_exists": false
+      },
+      "survives_current_exact_filters": true,
+      "vertex_circle": {
+        "cycle": false,
+        "obstructed": false,
+        "self_edge_count": 0,
+        "strict_edge_count": 117
+      }
+    },
+    {
+      "altman_linear_certificate": {
+        "certificate_method": "none",
+        "nonzero_gap_orders": [],
+        "obstructed": false,
+        "status": "NO_EXACT_ALTMAN_LINEAR_CERTIFICATE_FOUND"
+      },
+      "altman_signature": {
+        "equal_diagonal_order_groups": [],
+        "obstructed": false,
+        "status": "NO_ORDER_ALTMAN_SIGNATURE_OBSTRUCTION"
+      },
+      "case": "C19_skew:vertex_circle_survivor",
+      "crossing": {
+        "constraint_count": 0,
+        "passes": true
+      },
+      "minimum_radius": {
+        "blocked_center_count": 0,
+        "obstructed": false,
+        "possible_min_center_count": 19
+      },
+      "n": 19,
+      "order": [
+        18,
+        10,
+        7,
+        17,
+        6,
+        3,
+        5,
+        9,
+        14,
+        11,
+        2,
+        13,
+        4,
+        16,
+        12,
+        15,
+        0,
+        8,
+        1
+      ],
+      "order_label": "vertex_circle_survivor",
+      "pattern": "C19_skew",
+      "radius_propagation": {
+        "acyclic_choice_edge_count": 0,
+        "max_depth": 19,
+        "nodes_visited": 20,
+        "obstructed": false,
+        "status": "PASS_RADIUS_PROPAGATION"
+      },
+      "semantics": "Fixed-order exact-filter diagnostic only. Surviving all listed filters is not evidence of geometric realizability.",
+      "sparse_frontier": {
+        "rows_with_uncovered_consecutive_pair": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "rows_with_uncovered_consecutive_pair_count": 19,
+        "trivial_empty_radius_choice_exists": true
+      },
+      "survives_current_exact_filters": true,
+      "vertex_circle": {
+        "cycle": false,
+        "obstructed": false,
+        "self_edge_count": 0,
+        "strict_edge_count": 171
+      }
+    }
+  ],
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "Surviving all listed filters is not evidence of realizability."
+  ],
+  "trust": "FIXED_ORDER_EXACT_FILTER_DIAGNOSTIC",
+  "type": "sparse_order_survivor_filter_sweep_v1"
+}

@@ -17,8 +17,10 @@ The live abstract-incidence patterns above pass the row-overlap filter
 realization is already exactly obstructed; its abstract-order status is tracked
 separately.[^comp] The Sidon natural orders are also exactly obstructed by
 Altman linear certificates, but their arbitrary abstract-order status remains
-separate. The Sidon entries are incidence-pattern leads, not geometric
-realizability claims. The minimum-radius short-chord filter is also
+separate. A registered non-natural `C13_sidon_1_2_4_10` order survives the
+current fixed-order exact filters; see `docs/sparse-frontier-diagnostic.md`.
+The Sidon entries are incidence-pattern leads, not geometric realizability
+claims. The minimum-radius short-chord filter is also
 recorded as a weak exact necessary test, but it does not kill `C19_skew` in
 natural order or as currently implemented; see `docs/minimum-radius-filter.md`.
 For the first fixed-selection stuck-set/radius/fragile-cover pass over this
