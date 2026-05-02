@@ -3,6 +3,7 @@ from __future__ import annotations
 from erdos97.search import built_in_patterns
 from erdos97.sparse_frontier import (
     certify_min_uncovered_consecutive_rows,
+    certify_single_target_radius_pass,
     normalize_cyclic_order,
     sample_empty_gap_orders,
     sample_radius_propagation_orders,
@@ -89,6 +90,42 @@ def test_c13_empty_gap_order_bound_certifies_three_rows() -> None:
     assert result["best_radius_propagation"]["status"] == "PASS_ACYCLIC_CHOICE"
     assert result["best_radius_choice_minimization"]["edge_count"] == 10
     assert result["best_radius_choice_minimization"]["optimality_certified"] is True
+
+
+def test_sparse_frontier_single_target_radius_pass_certificate() -> None:
+    patterns = built_in_patterns()
+
+    for name in FRONTIER_PATTERNS:
+        result = certify_single_target_radius_pass(name, patterns[name].S)
+
+        assert result["status"] == "CERTIFIED_PASS_ALL_ORDERS"
+        assert result["search_complete"] is True
+        assert result["radius_pass_all_orders"] is True
+        assert result["closed_target_set"] is None
+
+
+def test_c13_single_target_radius_pass_checks_all_target_subsets() -> None:
+    pattern = built_in_patterns()["C13_sidon_1_2_4_10"]
+
+    result = certify_single_target_radius_pass(pattern.name, pattern.S)
+
+    assert result["active_rows"] == list(range(13))
+    assert result["active_row_count"] == 13
+    assert result["checked_subsets"] == 8191
+    assert result["candidate_closed_subsets"] == 1
+    assert result["compatibility_nodes"] == 429
+    assert result["target_set_counts_by_center"] == [2] * 13
+
+
+def test_single_target_radius_certificate_rejects_multi_source_pairs() -> None:
+    S = [[j for j in range(5) if j != i] for i in range(5)]
+
+    result = certify_single_target_radius_pass("K5_all_other", S)
+
+    assert result["status"] == "UNSUPPORTED_MULTI_TARGET_PAIR"
+    assert result["search_complete"] is False
+    assert result["radius_pass_all_orders"] is None
+    assert result["multi_source_pair_examples"]
 
 
 def test_sparse_row_profile_records_uncovered_consecutive_pairs() -> None:

@@ -89,6 +89,27 @@ def _blocked_rows_in_order(S: Pattern, order: Sequence[int]) -> list[int]:
     ]
 
 
+def _row_pair_source_histogram(S: Pattern) -> tuple[dict[str, int], list[dict[str, object]]]:
+    """Return source-count histogram for row-local witness pairs."""
+
+    counts: Counter[int] = Counter()
+    multi_source_pairs: list[dict[str, object]] = []
+    for center, row in enumerate(S):
+        for a, b in combinations(row, 2):
+            pair = (min(a, b), max(a, b))
+            sources = selected_pair_sources(S, *pair)
+            counts[len(sources)] += 1
+            if len(sources) > 1:
+                multi_source_pairs.append(
+                    {
+                        "center": center,
+                        "pair": [pair[0], pair[1]],
+                        "sources": sources,
+                    }
+                )
+    return _histogram(list(counts.elements())), multi_source_pairs
+
+
 def _covered_local_cycles(S: Pattern, center: int) -> list[tuple[int, ...]]:
     """Return local five-label cycles that make ``center`` row-blocked."""
 
@@ -100,6 +121,93 @@ def _covered_local_cycles(S: Pattern, center: int) -> list[tuple[int, ...]]:
         ):
             cycles.append((center, *witness_order))
     return cycles
+
+
+def _covered_local_target_sets(S: Pattern, center: int) -> list[tuple[int, ...]]:
+    """Return target sets for all-covered local witness orders."""
+
+    target_sets: set[tuple[int, ...]] = set()
+    for witness_order in permutations(S[center]):
+        targets = []
+        for a, b in zip(witness_order, witness_order[1:]):
+            sources = selected_pair_sources(S, a, b)
+            if len(sources) != 1:
+                break
+            targets.append(sources[0])
+        else:
+            target_sets.add(tuple(sorted(set(targets))))
+    return sorted(target_sets)
+
+
+def _closed_target_subset_order(
+    S: Pattern,
+    subset: set[int],
+    node_limit: int,
+) -> tuple[list[int] | None, int, bool]:
+    """Return a compatible cyclic order for a closed target subset, if any."""
+
+    constraints = []
+    for center in sorted(subset):
+        rotations = []
+        for witness_order in permutations(S[center]):
+            targets = []
+            for a, b in zip(witness_order, witness_order[1:]):
+                sources = selected_pair_sources(S, a, b)
+                if len(sources) != 1:
+                    break
+                targets.append(sources[0])
+            else:
+                if set(targets) <= subset:
+                    rotations.extend(_cycle_rotations((center, *witness_order)))
+        rotations = sorted(set(rotations))
+        if not rotations:
+            return None, 0, False
+        constraints.append((set(rotations[0]), rotations))
+
+    explored_nodes = 0
+    hit_limit = False
+
+    def compatible(
+        rotations: Sequence[tuple[int, ...]],
+        involved: set[int],
+        prefix: Sequence[int],
+    ) -> bool:
+        placed = tuple(label for label in prefix if label in involved)
+        return any(placed == rotation[: len(placed)] for rotation in rotations)
+
+    def search(prefix: list[int], remaining: set[int]) -> list[int] | None:
+        nonlocal explored_nodes, hit_limit
+        explored_nodes += 1
+        if explored_nodes > node_limit:
+            hit_limit = True
+            return None
+        if not all(
+            compatible(rotations, involved, prefix)
+            for involved, rotations in constraints
+        ):
+            return None
+        if not remaining:
+            return list(prefix)
+
+        candidates = []
+        for label in remaining:
+            next_prefix = [*prefix, label]
+            alive = sum(
+                compatible(rotations, involved, next_prefix)
+                for involved, rotations in constraints
+            )
+            candidates.append((-alive, label))
+        for _, label in sorted(candidates):
+            next_remaining = set(remaining)
+            next_remaining.remove(label)
+            result = search([*prefix, label], next_remaining)
+            if result is not None:
+                return result
+            if hit_limit:
+                return None
+        return None
+
+    return search([0], set(range(len(S))) - {0}), explored_nodes, hit_limit
 
 
 def _cycle_rotations(cycle: Sequence[int]) -> list[tuple[int, ...]]:
@@ -527,6 +635,142 @@ def certify_min_uncovered_consecutive_rows(
             "true. The objective is only the row-local empty-gap count for the "
             "minimum-radius/radius-propagation filter; it is not a geometric "
             "realizability test."
+        ),
+    }
+
+
+def certify_single_target_radius_pass(
+    pattern_name: str,
+    S: Pattern,
+    max_active_rows: int = 24,
+    compatibility_node_limit: int = 100_000,
+) -> dict[str, object]:
+    """Certify all-order radius-propagation pass in the single-target case.
+
+    When every covered row-local witness pair has exactly one endpoint source,
+    a fixed-order radius obstruction is equivalent to a nonempty closed target
+    set: every row in the set is blocked, and all of its possible radius targets
+    stay inside the set.  If no such target set exists even before imposing a
+    global cyclic order, every cyclic order passes this radius-cycle filter.
+    """
+
+    validate_selected_pattern(S)
+    if max_active_rows <= 0:
+        raise ValueError("max_active_rows must be positive")
+    if compatibility_node_limit <= 0:
+        raise ValueError("compatibility_node_limit must be positive")
+    n = len(S)
+    source_histogram, multi_source_pairs = _row_pair_source_histogram(S)
+    if multi_source_pairs:
+        return {
+            "type": "sparse_frontier_single_target_radius_pass_certificate",
+            "pattern": pattern_name,
+            "n": n,
+            "status": "UNSUPPORTED_MULTI_TARGET_PAIR",
+            "search_complete": False,
+            "radius_pass_all_orders": None,
+            "row_pair_source_count_histogram": source_histogram,
+            "multi_source_pair_examples": multi_source_pairs[:8],
+            "semantics": (
+                "This certificate only applies when every row-local covered "
+                "witness pair has at most one endpoint source."
+            ),
+        }
+
+    target_sets_by_center = [
+        _covered_local_target_sets(S, center) for center in range(n)
+    ]
+    active_rows = [
+        center for center, target_sets in enumerate(target_sets_by_center)
+        if target_sets
+    ]
+    if len(active_rows) > max_active_rows:
+        return {
+            "type": "sparse_frontier_single_target_radius_pass_certificate",
+            "pattern": pattern_name,
+            "n": n,
+            "status": "UNKNOWN_TOO_MANY_ACTIVE_ROWS",
+            "search_complete": False,
+            "radius_pass_all_orders": None,
+            "max_active_rows": max_active_rows,
+            "active_rows": active_rows,
+            "active_row_count": len(active_rows),
+            "row_pair_source_count_histogram": source_histogram,
+        }
+
+    checked_subsets = 0
+    candidate_closed_subsets = 0
+    compatibility_nodes = 0
+    closed_target_set: list[int] | None = None
+    closed_target_order: list[int] | None = None
+    hit_limit = False
+    active_count = len(active_rows)
+    for mask in range(1, 1 << active_count):
+        checked_subsets += 1
+        subset = {
+            active_rows[index]
+            for index in range(active_count)
+            if mask & (1 << index)
+        }
+        if all(
+            any(set(targets) <= subset for targets in target_sets_by_center[center])
+            for center in subset
+        ):
+            candidate_closed_subsets += 1
+            order, nodes, subset_hit_limit = _closed_target_subset_order(
+                S,
+                subset,
+                compatibility_node_limit,
+            )
+            compatibility_nodes += nodes
+            if subset_hit_limit:
+                hit_limit = True
+                break
+            if order is not None:
+                closed_target_set = sorted(subset)
+                closed_target_order = order
+                break
+
+    no_closed_set = closed_target_set is None and not hit_limit
+    return {
+        "type": "sparse_frontier_single_target_radius_pass_certificate",
+        "pattern": pattern_name,
+        "n": n,
+        "status": (
+            "CERTIFIED_PASS_ALL_ORDERS"
+            if no_closed_set
+            else (
+                "UNKNOWN_COMPATIBILITY_NODE_LIMIT"
+                if hit_limit
+                else "COMPATIBLE_CLOSED_TARGET_SET_FOUND"
+            )
+        ),
+        "search_complete": not hit_limit,
+        "radius_pass_all_orders": (
+            True if no_closed_set else False if closed_target_set is not None else None
+        ),
+        "row_pair_source_count_histogram": source_histogram,
+        "active_rows": active_rows,
+        "active_row_count": active_count,
+        "checked_subsets": checked_subsets,
+        "candidate_closed_subsets": candidate_closed_subsets,
+        "compatibility_node_limit": compatibility_node_limit,
+        "compatibility_nodes": compatibility_nodes,
+        "closed_target_set": closed_target_set,
+        "closed_target_order": closed_target_order,
+        "target_set_counts_by_center": [
+            len(target_sets) for target_sets in target_sets_by_center
+        ],
+        "target_set_examples_by_center": [
+            [list(targets) for targets in target_sets[:4]]
+            for target_sets in target_sets_by_center
+        ],
+        "semantics": (
+            "Exact row-local certificate for the single-target radius-choice "
+            "case, plus a cyclic-order compatibility check for any closed "
+            "target-set candidate. If radius_pass_all_orders is true, no "
+            "cyclic order can be obstructed by the current radius-propagation "
+            "cycle filter. This does not test geometric realizability."
         ),
     }
 

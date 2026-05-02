@@ -16,6 +16,7 @@ if str(SRC) not in sys.path:
 from erdos97.search import built_in_patterns  # noqa: E402
 from erdos97.sparse_frontier import (  # noqa: E402
     certify_min_uncovered_consecutive_rows,
+    certify_single_target_radius_pass,
     sample_empty_gap_orders,
     sample_radius_propagation_orders,
     search_adversarial_orders,
@@ -150,6 +151,24 @@ def print_bound_summary(rows: list[dict[str, object]]) -> None:
         )
 
 
+def print_single_target_radius_summary(rows: list[dict[str, object]]) -> None:
+    print(
+        "pattern  n  status  radius-pass-all-orders  active-rows  "
+        "checked-subsets  candidate-subsets  compatibility-nodes  "
+        "closed-target-set"
+    )
+    for row in rows:
+        print(
+            f"{row['pattern']}  {row['n']}  {row['status']}  "
+            f"{row['radius_pass_all_orders']}  "
+            f"{row.get('active_row_count')}  "
+            f"{row.get('checked_subsets')}  "
+            f"{row.get('candidate_closed_subsets')}  "
+            f"{row.get('compatibility_nodes')}  "
+            f"{row.get('closed_target_set')}"
+        )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     target = parser.add_mutually_exclusive_group(required=True)
@@ -192,6 +211,11 @@ def main() -> int:
         action="store_true",
         help="exactly optimize the empty-gap row count over cyclic orders",
     )
+    parser.add_argument(
+        "--certify-single-target-radius-pass",
+        action="store_true",
+        help="certify all-order radius pass via the single-target closed-set test",
+    )
     parser.add_argument("--sample-seed", type=int, default=0)
     parser.add_argument(
         "--sample-radius-propagation",
@@ -209,6 +233,18 @@ def main() -> int:
         type=int,
         default=1_000_000,
         help="node limit for --certify-empty-gap-bound",
+    )
+    parser.add_argument(
+        "--single-target-max-active-rows",
+        type=int,
+        default=24,
+        help="active-row limit for --certify-single-target-radius-pass",
+    )
+    parser.add_argument(
+        "--single-target-compatibility-node-limit",
+        type=int,
+        default=100_000,
+        help="per-subset node limit for --certify-single-target-radius-pass",
     )
     parser.add_argument("--adversarial-restarts", type=int, default=8)
     parser.add_argument("--adversarial-steps", type=int, default=200)
@@ -230,19 +266,49 @@ def main() -> int:
         raise SystemExit("--adversarial-orders cannot be combined with --order")
     if args.certify_empty_gap_bound and args.order is not None:
         raise SystemExit("--certify-empty-gap-bound cannot be combined with --order")
+    if args.certify_single_target_radius_pass and args.order is not None:
+        raise SystemExit(
+            "--certify-single-target-radius-pass cannot be combined with --order"
+        )
     if args.sample_orders is not None and args.adversarial_orders is not None:
         raise SystemExit("--sample-orders cannot be combined with --adversarial-orders")
     if args.certify_empty_gap_bound and args.sample_orders is not None:
         raise SystemExit("--certify-empty-gap-bound cannot be combined with --sample-orders")
+    if args.certify_single_target_radius_pass and args.sample_orders is not None:
+        raise SystemExit(
+            "--certify-single-target-radius-pass cannot be combined with --sample-orders"
+        )
     if args.certify_empty_gap_bound and args.adversarial_orders is not None:
         raise SystemExit(
             "--certify-empty-gap-bound cannot be combined with --adversarial-orders"
+        )
+    if args.certify_single_target_radius_pass and args.adversarial_orders is not None:
+        raise SystemExit(
+            "--certify-single-target-radius-pass cannot be combined with "
+            "--adversarial-orders"
+        )
+    if args.certify_empty_gap_bound and args.certify_single_target_radius_pass:
+        raise SystemExit(
+            "--certify-empty-gap-bound cannot be combined with "
+            "--certify-single-target-radius-pass"
         )
     if args.sample_radius_propagation and args.sample_orders is None:
         raise SystemExit("--sample-radius-propagation requires --sample-orders")
 
     if args.sample_orders is None:
-        if args.certify_empty_gap_bound:
+        if args.certify_single_target_radius_pass:
+            rows = [
+                certify_single_target_radius_pass(
+                    name,
+                    patterns[name].S,
+                    max_active_rows=args.single_target_max_active_rows,
+                    compatibility_node_limit=(
+                        args.single_target_compatibility_node_limit
+                    ),
+                )
+                for name in names
+            ]
+        elif args.certify_empty_gap_bound:
             rows = [
                 certify_min_uncovered_consecutive_rows(
                     name,
@@ -304,7 +370,9 @@ def main() -> int:
 
     if args.assert_empty_choice:
         for row in rows:
-            if args.certify_empty_gap_bound:
+            if args.certify_single_target_radius_pass:
+                ok = row["radius_pass_all_orders"] is True
+            elif args.certify_empty_gap_bound:
                 ok = (
                     row["certified_min_rows_with_uncovered_consecutive_pair"]
                     == row["n"]
@@ -321,7 +389,9 @@ def main() -> int:
     if args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     else:
-        if args.certify_empty_gap_bound:
+        if args.certify_single_target_radius_pass:
+            print_single_target_radius_summary(rows)
+        elif args.certify_empty_gap_bound:
             print_bound_summary(rows)
         elif args.adversarial_orders is not None:
             print_adversarial_summary(rows)
