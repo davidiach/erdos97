@@ -90,12 +90,13 @@ def _model_to_rows(model, variables: Sequence[Sequence[object]]) -> Pattern:
 
 def _block_model(solver, variables: Sequence[Sequence[object]], rows: Pattern) -> None:
     z3 = _z3()
+    ctx = variables[0][0].ctx
     differences = []
     row_sets = [set(row) for row in rows]
     for center, row in enumerate(variables):
         for label, variable in enumerate(row):
             value = label in row_sets[center]
-            differences.append(variable != z3.BoolVal(value))
+            differences.append(variable != z3.BoolVal(value, ctx=ctx))
     solver.add(z3.Or(differences))
 
 
@@ -159,8 +160,12 @@ def mine_stuck_motif(config: MotifSearchConfig) -> MotifSearchResult:
     n = config.n
     stuck_vertices = list(range(config.stuck_size))
     prefix = config.variable_prefix
-    X = [[z3.Bool(f"{prefix}_{i}_{j}") for j in range(n)] for i in range(n)]
-    solver = z3.Solver()
+    ctx = z3.Context()
+    X = [
+        [z3.Bool(f"{prefix}_{i}_{j}", ctx=ctx) for j in range(n)]
+        for i in range(n)
+    ]
+    solver = z3.Solver(ctx=ctx)
     solver.set("random_seed", int(config.solver_seed))
 
     for i in range(n):

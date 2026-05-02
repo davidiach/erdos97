@@ -19,6 +19,7 @@ class SweepConfig:
     stuck_sizes: Sequence[int]
     max_models: int = 100
     solver_seed: int = 0
+    variable_prefix: str = "sweep"
     require_no_forward_ear_order: bool = False
     radius_node_limit: int = 100_000
     fragile_cover_max_size: int | None = None
@@ -91,18 +92,19 @@ def sweep_stuck_motifs(config: SweepConfig) -> dict[str, object]:
     """Run a bounded stuck-motif sweep and return JSON-ready data."""
 
     items: list[dict[str, object]] = []
-    for item_index, (n, stuck_size) in enumerate(
+    for n, stuck_size in (
         (int(n), int(stuck_size))
         for n in config.n_values
         for stuck_size in config.stuck_sizes
     ):
+        resolved_prefix = f"{config.variable_prefix}_{n}_{stuck_size}_{config.solver_seed}"
         result = mine_stuck_motif(
             MotifSearchConfig(
                 n=n,
                 stuck_size=stuck_size,
                 max_models=config.max_models,
                 solver_seed=config.solver_seed,
-                variable_prefix=f"sweep_{item_index}_{n}_{stuck_size}_{config.solver_seed}",
+                variable_prefix=resolved_prefix,
                 radius_node_limit=config.radius_node_limit,
                 require_no_forward_ear_order=config.require_no_forward_ear_order,
                 fragile_cover_max_size=config.fragile_cover_max_size,
@@ -127,6 +129,7 @@ def sweep_stuck_motifs(config: SweepConfig) -> dict[str, object]:
                 "motif_minimal_stuck_size": (
                     motif["stuck_search"]["minimal_size"] if isinstance(motif, dict) else None
                 ),
+                "variable_prefix": resolved_prefix,
                 "radius_status": (
                     motif["filters"]["radius_propagation"]["status"]
                     if isinstance(motif, dict)
@@ -144,6 +147,7 @@ def sweep_stuck_motifs(config: SweepConfig) -> dict[str, object]:
             "stuck_sizes": [int(size) for size in config.stuck_sizes],
             "max_models": config.max_models,
             "solver_seed": config.solver_seed,
+            "variable_prefix": config.variable_prefix,
             "require_no_forward_ear_order": config.require_no_forward_ear_order,
             "run_geometry": config.run_geometry,
             "geometry_optimizer": config.geometry_optimizer,

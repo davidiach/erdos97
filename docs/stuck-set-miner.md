@@ -192,7 +192,12 @@ python scripts/sweep_stuck_motifs.py \
 ```
 
 Model counts are solver diagnostics. They are useful for reproducibility with a
-fixed seed, but they should not be read as mathematical thresholds.
+fixed seed, but they should not be read as mathematical thresholds. Sweep runs
+use a stable SMT variable prefix derived from the base prefix, `n`, stuck size,
+and solver seed. This keeps a parameter item independent of its position in a
+larger sweep while avoiding symbol reuse between different items. Each motif
+search also uses a fresh Z3 context. Use `--variable-prefix` when a
+pytest/regression context needs a distinct symbol namespace.
 
 ## Radius Propagation
 
