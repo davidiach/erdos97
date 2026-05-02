@@ -34,6 +34,11 @@ def main() -> int:
     parser.add_argument("--stuck-sizes", type=parse_csv_ints, default=[4], help="comma-separated stuck sizes")
     parser.add_argument("--max-models", type=int, default=100)
     parser.add_argument("--solver-seed", type=int, default=0)
+    parser.add_argument(
+        "--variable-prefix",
+        default="sweep",
+        help="base prefix; n, stuck size, and seed are appended for each item",
+    )
     parser.add_argument("--require-no-forward-ear-order", action="store_true")
     parser.add_argument("--fragile-cover-max-size", type=int)
     parser.add_argument("--radius-node-limit", type=int, default=100_000)
@@ -62,6 +67,7 @@ def main() -> int:
             stuck_sizes=args.stuck_sizes,
             max_models=args.max_models,
             solver_seed=args.solver_seed,
+            variable_prefix=args.variable_prefix,
             require_no_forward_ear_order=args.require_no_forward_ear_order,
             radius_node_limit=args.radius_node_limit,
             fragile_cover_max_size=args.fragile_cover_max_size,

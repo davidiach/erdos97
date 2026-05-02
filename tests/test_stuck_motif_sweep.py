@@ -36,3 +36,19 @@ def test_sweep_can_run_geometry_smoke() -> None:
     assert item["status"] == "FOUND"
     assert item["geometry"]["status"] == "RAN"
     assert "eq_rms" in item["geometry"]
+
+
+def test_sweep_records_stable_item_variable_prefix() -> None:
+    sweep = sweep_stuck_motifs(
+        SweepConfig(
+            n_values=[9],
+            stuck_sizes=[4],
+            max_models=5,
+            solver_seed=0,
+            variable_prefix="sweep_contract",
+        )
+    )
+
+    assert sweep["config"]["variable_prefix"] == "sweep_contract"
+    assert sweep["items"][0]["variable_prefix"] == "sweep_contract_9_4_0"
+    assert sweep["items"][0]["status"] == "FOUND"

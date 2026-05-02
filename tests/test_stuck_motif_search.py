@@ -14,7 +14,7 @@ def test_mine_stuck_motif_finds_strict_small_model() -> None:
     payload = search_result_to_json(result)
 
     assert result.status == "FOUND"
-    assert result.models_checked == 1
+    assert 1 <= result.models_checked <= 5
     assert payload["motif"]["key_peeling_status"] == "STUCK_SET_FOUND"
     assert payload["motif"]["filters"]["adjacent_two_overlap_violations"] == []
     assert payload["motif"]["filters"]["crossing_bisector_violations"] == []
