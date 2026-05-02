@@ -19,6 +19,8 @@ separately.[^comp] The Sidon entries are incidence-pattern leads, not
 geometric realizability claims. The minimum-radius short-chord filter is also
 recorded as a weak exact necessary test, but it does not kill `C19_skew` in
 natural order or as currently implemented; see `docs/minimum-radius-filter.md`.
+For the first fixed-selection stuck-set/radius/fragile-cover pass over this
+frontier, see `docs/stuck-frontier-snapshot.md`.
 
 ## Natural-order killed / abstract-order status patterns
 

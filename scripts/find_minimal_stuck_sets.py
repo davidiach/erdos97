@@ -90,6 +90,22 @@ def assert_expectations(rows: list[dict[str, object]], assert_stuck: bool, asser
             raise AssertionError(f"{row['pattern']}: expected no stuck sets, got {status}")
 
 
+def fragile_cover_label(fragile_stats: dict[str, object]) -> str:
+    """Return a compact cover label without overstating truncated searches."""
+
+    if fragile_stats["status"] == "SKIPPED_LARGE_N":
+        return "SKIP"
+    if fragile_stats["cover_exists"]:
+        min_size = fragile_stats["min_cover_size"]
+        return f"YES({min_size})" if min_size is not None else "YES"
+    if fragile_stats.get("search_complete"):
+        return "NO"
+    searched = fragile_stats.get("searched_up_to_size")
+    if searched is not None:
+        return f"NONE<={searched}"
+    return "UNKNOWN"
+
+
 def print_summary(rows: list[dict[str, object]]) -> None:
     print(
         "pattern  n  forward-ear  greedy-terminal  key-peeling  radius  "
@@ -102,10 +118,7 @@ def print_summary(rows: list[dict[str, object]]) -> None:
         filters = row["filters"]
         radius = filters["radius_propagation"]["status"]
         fragile_stats = filters["fragile_cover"]["cover_stats"]
-        if fragile_stats["status"] == "SKIPPED_LARGE_N":
-            fragile = "SKIP"
-        else:
-            fragile = "YES" if fragile_stats["cover_exists"] else "NO"
+        fragile = fragile_cover_label(fragile_stats)
         search = row["stuck_search"]
         min_size = search["minimal_size"]
         min_text = "-" if min_size is None else str(min_size)

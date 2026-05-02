@@ -32,6 +32,9 @@ The tool separately reports:
 If the search starts above size `4`, or stops before `n` without finding a
 stuck set, the status is `UNKNOWN_TRUNCATED_SEARCH`.
 
+For the first run on the current live sparse/Sidon frontier, see
+`docs/stuck-frontier-snapshot.md`.
+
 ## Usage
 
 Analyze one built-in pattern:
@@ -210,4 +213,7 @@ vertices. Actual fragility requires metric uniqueness of an exact four-cohort,
 which this tool does not certify.
 
 For `n > 20`, exact cover-subset enumeration is skipped by default. Use
-`--fragile-cover-max-size` to search a bounded cover-size window.
+`--fragile-cover-max-size` to search a bounded cover-size window. A CLI summary
+label such as `NONE<=7` means no incidence cover was found through size `7`;
+it is not a complete no-cover certificate unless the JSON field
+`search_complete` is true.
