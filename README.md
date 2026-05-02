@@ -32,9 +32,11 @@ This repository is a public research log and reproducibility workspace for Erdő
   read [`docs/n8-geometric-proof.md`](docs/n8-geometric-proof.md).
 - For an interactive visualization of that proof idea, open
   [`docs/octagon-trap.html`](docs/octagon-trap.html).
-- For the crossing-bisector, mutual-rhombus, and vertex-circle fixed-pattern
-  filters, read [`docs/mutual-rhombus-filter.md`](docs/mutual-rhombus-filter.md)
-  and [`docs/vertex-circle-order-filter.md`](docs/vertex-circle-order-filter.md).
+- For the crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, and
+  vertex-circle fixed-pattern filters, read
+  [`docs/mutual-rhombus-filter.md`](docs/mutual-rhombus-filter.md),
+  [`docs/phi4-rectangle-trap.md`](docs/phi4-rectangle-trap.md), and
+  [`docs/vertex-circle-order-filter.md`](docs/vertex-circle-order-filter.md).
 - For the weak exact minimum-radius short-chord filter, read
   [`docs/minimum-radius-filter.md`](docs/minimum-radius-filter.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
@@ -103,13 +105,15 @@ strictly convex realization for those classes. See
 theorem claims should still get independent review of the computer-assisted
 artifacts.
 
-The crossing-bisector, mutual-rhombus, cyclic crossing-CSP, and vertex-circle
-order filters now exactly kill several previously live fixed selected-witness
-patterns, including
+The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic
+crossing-CSP, and vertex-circle order filters now exactly kill several
+previously live fixed selected-witness patterns, including
 `B12_3x4_danzer_lift`, `B20_4x5_FR_lift`, `C17_skew`, `C20_pm_4_9`,
 `C16_pm_1_6`, `C13_pm_3_5`, `C9_pm_2_4`, `P18_parity_balanced`, and
-`P24_parity_balanced`. These are fixed-pattern obstructions, not a general
-proof of the problem.
+`P24_parity_balanced`. The phi 4-cycle rectangle-trap filter also kills a
+registered fixed `n=9` selected-witness pattern containing
+`{0,6}->{2,8}->{1,5}->{4,7}->{0,6}`. These are fixed-pattern obstructions, not
+a general proof of the problem.
 
 The previous best numerical near-miss was `B12_3x4_danzer_lift`. It remains a
 useful degeneration diagnostic, but the fixed selected pattern is now exactly

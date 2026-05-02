@@ -64,6 +64,8 @@ EXPECTED: dict[str, dict[str, object]] = {
 def pattern_status(summary: dict[str, object]) -> str:
     if summary["odd_cycle_length"]:
         return "exactly killed: odd forced-perpendicularity cycle"
+    if summary["rectangle_trap_4_cycles"]:
+        return "exactly killed: phi 4-cycle rectangle trap"
     classes = summary["forced_equality_classes"]
     if classes:
         return "exactly killed: mutual-rhombus midpoint equations"
@@ -101,6 +103,7 @@ def print_table(rows: list[dict[str, object]]) -> None:
         "phi",
         "odd",
         "mutual",
+        "rect4",
         "rank",
         "eq classes",
         "adj",
@@ -116,6 +119,7 @@ def print_table(rows: list[dict[str, object]]) -> None:
                 str(row["phi_edges"]),
                 str(row["odd_cycle_length"] or "-"),
                 str(row["mutual_phi_2_cycles"]),
+                str(row["rectangle_trap_4_cycles"]),
                 str(row["midpoint_matrix_rank"]),
                 compact_classes(row["forced_equality_classes"]),
                 str(len(row["adjacent_two_overlap_violations"])),  # type: ignore[arg-type]
