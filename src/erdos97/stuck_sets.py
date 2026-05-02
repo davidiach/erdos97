@@ -303,7 +303,6 @@ def forward_ear_order(S: Pattern, threshold: int = 3) -> ForwardEarOrderResult:
     masks = rows_to_masks(S)
     best_seed: tuple[int, ...] | None = None
     best_closure_mask = 0
-    best_order: list[int] = []
 
     for seed in combinations(range(n), threshold):
         closure_mask = mask_from_vertices(seed)
@@ -321,7 +320,6 @@ def forward_ear_order(S: Pattern, threshold: int = 3) -> ForwardEarOrderResult:
         if closure_mask.bit_count() > best_closure_mask.bit_count():
             best_seed = seed
             best_closure_mask = closure_mask
-            best_order = order
         if closure_mask.bit_count() == n:
             return ForwardEarOrderResult(
                 exists=True,

@@ -84,6 +84,7 @@ local_repo:
     - "docs/n8-incidence-enumeration.md"
     - "docs/n8-exact-survivors.md"
     - "docs/n8-geometric-proof.md"
+    - "docs/phi4-rectangle-trap.md"
     - "docs/reproduction-log.md"
     - "docs/verification-contract.md"
 
