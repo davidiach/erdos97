@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from erdos97.altman_diagonal_sums import (
+    altman_order_lp_diagnostic,
     altman_order_obstruction,
     check_altman,
     chord_order,
@@ -55,3 +56,25 @@ def test_c19_known_abstract_order_passes_signature_filter() -> None:
     assert result.status == "NO_ORDER_ALTMAN_SIGNATURE_OBSTRUCTION"
     assert not result.altman_contradiction
     assert result.equal_diagonal_order_groups == []
+
+
+def test_c19_natural_order_fails_altman_lp_relaxation() -> None:
+    pattern = built_in_patterns()["C19_skew"]
+    result = altman_order_lp_diagnostic(pattern.S, list(range(pattern.n)), pattern.name)
+
+    assert result.status == "NUMERICAL_ALTMAN_LP_OBSTRUCTION"
+    assert result.trust_label == "NUMERICAL_LINEAR_DIAGNOSTIC"
+    assert result.obstructed is True
+    assert result.max_margin is not None
+    assert result.max_margin <= result.tolerance
+
+
+def test_c19_known_abstract_order_passes_altman_lp_relaxation() -> None:
+    pattern = built_in_patterns()["C19_skew"]
+    order = [18, 10, 7, 17, 6, 3, 5, 9, 14, 11, 2, 13, 4, 16, 12, 15, 0, 8, 1]
+    result = altman_order_lp_diagnostic(pattern.S, order, pattern.name)
+
+    assert result.status == "PASS_ALTMAN_LP_RELAXATION"
+    assert result.obstructed is False
+    assert result.max_margin is not None
+    assert result.max_margin > result.tolerance
