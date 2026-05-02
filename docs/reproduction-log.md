@@ -42,6 +42,9 @@ Run checked-in artifact and certificate validators explicitly:
 
 ```bash
 pytest -q -m artifact
+python scripts/check_round2_certificates.py
+python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_unsat.json
+python scripts/check_ptolemy_log_filter.py --certificate data/certificates/round2/c17_skew_ptolemy_log_certificate.json --summary-json
 python scripts/independent_check_n8_incidence_json.py --json
 python scripts/analyze_n8_exact_survivors.py --check --json
 python scripts/analyze_n8_exact_survivors.py --check --json \

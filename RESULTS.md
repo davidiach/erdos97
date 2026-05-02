@@ -131,6 +131,17 @@ cases, and confirms that the registered sparse non-natural orders remain
 invisible to phi4 traps because they have no `phi` edges. This is negative
 filter information only, not evidence of realizability.
 
+The round-two Kalmanson/Farkas certificate kills the fixed `C19_skew`
+selected-witness pattern with offsets `[-8,-3,5,9]` in the cyclic order
+`[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]`. The certificate is a
+positive integer sum of 94 strict Kalmanson distance inequalities whose total
+coefficient vector is exactly zero after quotienting by the selected-distance
+equalities. This is a fixed-order obstruction only; it does not kill abstract
+`C19_skew` over all cyclic orders. See `docs/round2/round2_merged_report.md`,
+`docs/round2/kalmanson_distance_filter.md`,
+`scripts/check_kalmanson_certificate.py`, and
+`data/certificates/round2/c19_kalmanson_known_order_unsat.json`.
+
 The bounded `n=9` incidence/CSP frontier scan in
 `data/certificates/n9_incidence_frontier_bounded.json` fixes the natural order
 and row `0` to the registered seed row `{1,2,3,8}`. In that row0-fixed slice,
@@ -238,6 +249,6 @@ search-history artifacts, not as live candidates.
    and `14` exact certificates.
 2. Push the finite incidence/exact pipeline toward `n=9`, or identify the first
    survivor class that blocks scaling.
-3. Investigate `C19_skew`, which is not killed by the current mutual-rhombus
-   or vertex-circle filters as an abstract incidence pattern.
+3. Investigate abstract `C19_skew` beyond the natural-order Altman obstruction
+   and the single fixed-order round-two Kalmanson certificate.
 4. Add interval-arithmetic verification for convexity and distance equations.

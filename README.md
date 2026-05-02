@@ -37,6 +37,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/mutual-rhombus-filter.md`](docs/mutual-rhombus-filter.md),
   [`docs/phi4-rectangle-trap.md`](docs/phi4-rectangle-trap.md), and
   [`docs/vertex-circle-order-filter.md`](docs/vertex-circle-order-filter.md).
+- For the round-two fixed-order Kalmanson/Farkas certificate, read
+  [`docs/round2/round2_merged_report.md`](docs/round2/round2_merged_report.md)
+  and [`docs/round2/kalmanson_distance_filter.md`](docs/round2/kalmanson_distance_filter.md).
 - For the weak exact minimum-radius short-chord filter, read
   [`docs/minimum-radius-filter.md`](docs/minimum-radius-filter.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
@@ -114,6 +117,13 @@ previously live fixed selected-witness patterns, including
 registered fixed `n=9` selected-witness pattern containing
 `{0,6}->{2,8}->{1,5}->{4,7}->{0,6}`. These are fixed-pattern obstructions, not
 a general proof of the problem.
+
+Round two adds an exact Kalmanson/Farkas certificate for one fixed
+`C19_skew` selected-witness pattern and one fixed cyclic order:
+`[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]`. The checked certificate
+is `data/certificates/round2/c19_kalmanson_known_order_unsat.json`. This is a
+fixed-order obstruction only; it does not kill abstract `C19_skew` across all
+cyclic orders.
 
 The previous best numerical near-miss was `B12_3x4_danzer_lift`. It remains a
 useful degeneration diagnostic, but the fixed selected pattern is now exactly
@@ -221,6 +231,7 @@ pip install -e .[dev]
 python scripts/check_text_clean.py
 python scripts/check_status_consistency.py
 pytest -q
+python scripts/check_round2_certificates.py
 python scripts/enumerate_n8_incidence.py --summary
 python scripts/analyze_n8_exact_survivors.py --check --json
 erdos97-search --list-patterns

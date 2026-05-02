@@ -1,0 +1,39 @@
+{
+  "c17_kalmanson_translation_regression": {
+    "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; included only to document that the current Ptolemy-log zero-sum certificate sits inside the Kalmanson linear certificate format.",
+    "distance_classes_after_selected_equalities": 85,
+    "max_weight": 1,
+    "n": 17,
+    "path": "data/certificates/round2/c17_skew_kalmanson_from_ptolemy_method_note.json",
+    "pattern": "C17_skew",
+    "positive_inequalities": 17,
+    "status": "METHOD_NOTE_TRANSLATION_OF_C17_PTOLEMY_LOG_CERTIFICATE",
+    "weight_sum": 17,
+    "zero_sum_verified": true
+  },
+  "c17_ptolemy_method_note": {
+    "certificate_support_size": 17,
+    "claim_strength": "fixed selected-witness pattern plus fixed cyclic order only",
+    "distance_class_count": 85,
+    "max_abs_certificate_sum": 0,
+    "n": 17,
+    "offset_selected_sets_match": true,
+    "pattern": "C17_skew",
+    "ptolemy_log_inequality_count": 34,
+    "role": "METHOD_NOTE_REGRESSION",
+    "schema": "erdos97.round2.ptolemy_log_certificate.v1",
+    "verified_zero_sum": true
+  },
+  "c19_kalmanson_promoted": {
+    "claim_strength": "Exact obstruction for this fixed selected-witness pattern and this fixed cyclic order only; does not kill abstract C19_skew.",
+    "distance_classes_after_selected_equalities": 114,
+    "max_weight": 334665404,
+    "n": 19,
+    "path": "data/certificates/round2/c19_kalmanson_known_order_unsat.json",
+    "pattern": "C19_skew",
+    "positive_inequalities": 94,
+    "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+    "weight_sum": 6283316065,
+    "zero_sum_verified": true
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "certificate": "data/certificates/round2/c19_kalmanson_known_order_unsat.json",
+  "pattern": "C19_skew",
+  "n": 19,
+  "cyclic_order": [
+    18,
+    10,
+    7,
+    17,
+    6,
+    3,
+    5,
+    9,
+    14,
+    11,
+    2,
+    13,
+    4,
+    16,
+    12,
+    15,
+    0,
+    8,
+    1
+  ],
+  "claim_strength": "fixed selected-witness pattern plus fixed cyclic order only",
+  "inequality_count": 94,
+  "distance_class_count": 114,
+  "kind_counts": {
+    "K2_diag_gt_other": 54,
+    "K1_diag_gt_sides": 40
+  },
+  "weight_sum": 6283316065,
+  "max_weight": 334665404,
+  "min_weight": 165522,
+  "distinct_weight_count": 72,
+  "support_rank_mod_primes": {
+    "1000003": 93,
+    "1000033": 93,
+    "1000037": 93
+  },
+  "support_nullity_over_checked_prime_fields": {
+    "1000003": 1,
+    "1000033": 1,
+    "1000037": 1
+  },
+  "max_abs_weighted_sum_coefficient": 0,
+  "top_quad_gap_patterns_by_cyclic_order_positions": [
+    {
+      "gaps": [
+        2,
+        1,
+        12,
+        4
+      ],
+      "count": 2
+    },
+    {
+      "gaps": [
+        3,
+        3,
+        4,
+        9
+      ],
+      "count": 2
+    },
+    {
+      "gaps": [
+        2,
+        2,
+        2,
+        13
+      ],
+      "count": 2
+    },
+    {
+      "gaps": [
+        1,
+        1,
+        15,
+        2
+      ],
+      "count": 1
+    },
+    {
+      "gaps": [
+        1,
+        2,
+        10,
+        6
+      ],
+      "count": 1
+    },
+    {
+      "gaps": [
+        1,
+        5,
+        8,
+        5
+      ],
+      "count": 1
+    },
+    {
+      "gaps": [
+        1,
+        11,
+        2,
+        5
+      ],
+      "count": 1
+    },
+    {
+      "gaps": [
+        2,
+        3,
+        3,
+        11
+      ],
+      "count": 1
+    },
+    {
+      "gaps": [
+        2,
+        7,
+        7,
+        3
+      ],
+      "count": 1
+    },
+    {
+      "gaps": [
+        2,
+        7,
+        8,
+        2
+      ],
+      "count": 1
+    },
+    {
+      "gaps": [
+        2,
+        10,
+        6,
+        1
+      ],
+      "count": 1
+    },
+    {
+      "gaps": [
+        3,
+        3,
+        5,
+        8
+      ],
+      "count": 1
+    }
+  ],
+  "interpretation_note": "Large primitive integer weights are a readability/structure flag, not a verifier weakness. The mod-prime ranks indicate the 94-row support has a one-dimensional dependency over the checked prime fields."
+}

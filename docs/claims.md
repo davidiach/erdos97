@@ -73,6 +73,34 @@ natural-order obstruction only; it does not apply to arbitrary cyclic
 relabelings of the same incidence pattern. See
 `docs/altman-diagonal-sums.md`.
 
+### Fixed-order Kalmanson/Farkas obstruction for C19_skew
+
+Status: `EXACT_OBSTRUCTION` for one fixed selected-witness pattern and one
+fixed cyclic order only.
+
+For the `C19_skew` selected-witness pattern with offsets `[-8,-3,5,9]` and
+cyclic order
+
+```text
+[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]
+```
+
+the checked certificate
+`data/certificates/round2/c19_kalmanson_known_order_unsat.json` gives a
+positive integer combination of 94 strict Kalmanson distance inequalities whose
+total coefficient vector is exactly zero after quotienting by the
+selected-distance equalities. Summing the strict inequalities gives `0 > 0`.
+
+This is not a proof that abstract `C19_skew` is impossible across all cyclic
+orders, and it is not a proof of Erdos #97. See
+`docs/round2/kalmanson_distance_filter.md` and
+`scripts/check_kalmanson_certificate.py`.
+
+The related `C17_skew` Ptolemy-log artifact in
+`data/certificates/round2/c17_skew_ptolemy_log_certificate.json` is retained as
+a method note and verifier regression. It does not move the live wall, because
+`C17_skew` was already exactly killed by earlier fixed-pattern filters.
+
 ## Lemmas
 
 ### Circle-intersection cap

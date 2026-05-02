@@ -1,0 +1,123 @@
+# Erdős Problem #97 — merged round-two handoff report
+
+## Executive conclusion
+
+The round-two package should be integrated with one promoted deliverable:
+
+```text
+C19_skew known survivor order killed by an exact Kalmanson/Farkas certificate.
+```
+
+The Ptolemy-log C17 artifact should be retained as a method note and regression test, not as a co-equal promoted lead.
+
+## Promoted result: C19 Kalmanson fixed-order obstruction
+
+Certificate:
+
+```text
+data/certificates/round2/c19_kalmanson_known_order_unsat.json
+```
+
+Pattern:
+
+```text
+C19_skew
+n = 19
+offsets = [-8,-3,5,9]
+cyclic order = [18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]
+```
+
+Verifier:
+
+```text
+scripts/check_kalmanson_certificate.py
+```
+
+The checker confirms:
+
+```text
+positive inequalities = 94
+distance classes after selected equalities = 114
+weight sum = 6,283,316,065
+max weight = 334,665,404
+weighted coefficient sum = 0 exactly
+```
+
+This is an exact obstruction for the fixed selected-witness pattern plus fixed cyclic order only. It is not an abstract-order proof for all `C19_skew` realizations.
+
+## Lemma used by the Kalmanson certificate
+
+For a strictly convex quadrilateral with vertices `a,b,c,d` in cyclic order,
+ordinary distances satisfy:
+
+```text
+d(a,c) + d(b,d) > d(a,b) + d(c,d)
+d(a,c) + d(b,d) > d(a,d) + d(b,c)
+```
+
+The diagonals cross in their interiors. Applying strict triangle inequality to the four small triangles formed by the crossing point gives both inequalities. Selected squared-distance equalities imply ordinary-distance equalities because all distances between distinct vertices are positive, so quotienting ordinary distance variables by selected witness equalities is sound.
+
+The JSON certificate lists a positive integer combination of these strict inequalities. After quotienting by the selected-distance equalities, the total coefficient vector is exactly zero. Summing the strict inequalities therefore gives `0 > 0`, contradiction.
+
+## Method note: C17 Ptolemy-log certificate
+
+Certificate:
+
+```text
+data/certificates/round2/c17_skew_ptolemy_log_certificate.json
+```
+
+The C17 certificate uses the natural order and offsets:
+
+```text
+[-7,-2,4,8]
+```
+
+It has 17 support inequalities, all weights 1, and 85 distance classes. It is clean and useful for audit because the support telescopes visibly. But it is an alternate certificate for a pattern already killed by existing exact repo filters; it does not move the live wall.
+
+The Ptolemy verifier in this merged package includes one improvement over the original handoff: when `offsets` are declared, it verifies that `selected_witness_sets` match those offsets. This prevents a certificate from being relabeled as a different circulant pattern.
+
+## Relationship between Ptolemy-log and Kalmanson in this package
+
+The package includes:
+
+```text
+data/certificates/round2/c17_skew_kalmanson_from_ptolemy_method_note.json
+```
+
+This is a 17-inequality, all-weights-1 Kalmanson certificate reproducing the same C17 zero-sum support. It documents the precise containment claim:
+
+```text
+For the current zero-sum linear certificate format after selected-distance quotienting, this Ptolemy-log certificate is subsumed by Kalmanson.
+```
+
+Do not overstate this as a universal claim about every future nonlinear or multiplicative use of Ptolemy.
+
+## Diagnostics on the C19 certificate
+
+The C19 certificate is exact, but not structurally transparent. The weight magnitudes are large, with max weight `334,665,404` and 72 distinct weights among 94 inequalities. This is a readability/structure flag, not a validity problem.
+
+The diagnostic file:
+
+```text
+reports/c19_kalmanson_diagnostics.json
+```
+
+records kind counts, weight statistics, cyclic gap patterns, and mod-prime support ranks. The 94-row support has rank 93 over three checked prime fields, consistent with a one-dimensional dependency for this support.
+
+Round three should try to decompose or explain the C19 certificate by grouping inequalities by cyclic-order gap pattern, row interactions, distance-class cancellations, or other natural structure.
+
+## Recommended round-three priority
+
+The next major task is an exhaustive Kalmanson cyclic-order CSP/search, but it should be piloted on C13 before C19.
+
+Suggested sequence:
+
+1. Implement cyclic-order normalization by rotation/reflection.
+2. Build a partial-order brancher that can add Kalmanson rows incrementally.
+3. Add cheap pruning before LP calls.
+4. Periodically run nonnegative dual LP checks.
+5. Exactify closed branches into positive integer certificates.
+6. Start on C13, then scale to C19 only if C13 closes cleanly.
+
+Sampling results such as 200/200 killed random C19 orders are useful evidence for search viability, not proof of abstract-pattern impossibility.

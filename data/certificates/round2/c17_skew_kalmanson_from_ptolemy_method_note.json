@@ -1,0 +1,214 @@
+{
+  "certificate_type": "kalmanson_strict_inequality_farkas",
+  "status": "METHOD_NOTE_TRANSLATION_OF_C17_PTOLEMY_LOG_CERTIFICATE",
+  "role": "METHOD_NOTE_REGRESSION",
+  "pattern": {
+    "name": "C17_skew",
+    "n": 17,
+    "circulant_offsets": [
+      -7,
+      -2,
+      4,
+      8
+    ]
+  },
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+  "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+  "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+  "certificate_logic": "the C17 Ptolemy-log zero-sum support is reproduced by Kalmanson inequalities; weights are all 1 and the coefficient sum is zero after selected-distance quotienting",
+  "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; included only to document that the current Ptolemy-log zero-sum certificate sits inside the Kalmanson linear certificate format.",
+  "source_ptolemy_certificate": "data/certificates/round2/c17_skew_ptolemy_log_certificate.json",
+  "num_inequalities": 17,
+  "weight_sum": 17,
+  "inequalities": [
+    {
+      "weight": 1,
+      "quad": [
+        4,
+        8,
+        10,
+        15
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        5,
+        9,
+        11,
+        16
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        0,
+        6,
+        10,
+        12
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        1,
+        7,
+        11,
+        13
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        2,
+        8,
+        12,
+        14
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        3,
+        9,
+        13,
+        15
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        4,
+        10,
+        14,
+        16
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        0,
+        5,
+        11,
+        15
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        1,
+        6,
+        12,
+        16
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        0,
+        2,
+        7,
+        13
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        1,
+        3,
+        8,
+        14
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        2,
+        4,
+        9,
+        15
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        3,
+        5,
+        10,
+        16
+      ],
+      "kind": "K1_diag_gt_sides"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        0,
+        4,
+        6,
+        11
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        1,
+        5,
+        7,
+        12
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        2,
+        6,
+        8,
+        13
+      ],
+      "kind": "K2_diag_gt_other"
+    },
+    {
+      "weight": 1,
+      "quad": [
+        3,
+        7,
+        9,
+        14
+      ],
+      "kind": "K2_diag_gt_other"
+    }
+  ]
+}

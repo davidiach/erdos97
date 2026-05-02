@@ -76,6 +76,13 @@ local_repo:
   overall_claim: "No general proof and no counterexample are claimed."
   strongest_result: "No selected-witness counterexample for n <= 8, in the repo-local machine-checked finite-case sense."
   strongest_result_review_status: "External independent review recommended before public theorem-style claims."
+  notable_fixed_order_obstructions:
+    - pattern: "C19_skew"
+      status: "exact fixed-order Kalmanson/Farkas obstruction"
+      cyclic_order: "[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]"
+      certificate: "data/certificates/round2/c19_kalmanson_known_order_unsat.json"
+      verifier: "scripts/check_kalmanson_certificate.py"
+      claim_scope: "fixed selected-witness pattern plus fixed cyclic order only; does not kill abstract C19_skew across all cyclic orders"
   best_numerical_object: "B12_3x4_danzer_lift near-miss; rejected as proof/counterexample."
   main_entry_points:
     - "STATE.md"
@@ -84,6 +91,7 @@ local_repo:
     - "docs/n8-incidence-enumeration.md"
     - "docs/n8-exact-survivors.md"
     - "docs/n8-geometric-proof.md"
+    - "docs/round2/round2_merged_report.md"
     - "docs/phi4-rectangle-trap.md"
     - "docs/reproduction-log.md"
     - "docs/verification-contract.md"
