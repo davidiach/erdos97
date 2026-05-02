@@ -20,7 +20,10 @@ from erdos97.min_radius_filter import (
     selected_pair_sources,
 )
 from erdos97.stuck_sets import (
+    RadiusChoice,
+    RadiusChoiceOptimizationResult,
     RadiusPropagationResult,
+    optimize_radius_choice_edges,
     radius_propagation_obstruction,
     validate_selected_pattern,
 )
@@ -331,6 +334,37 @@ def _radius_summary(order_result: RadiusPropagationResult) -> dict[str, object]:
     }
 
 
+def _choice_summary(choice: RadiusChoice) -> dict[str, object]:
+    return {
+        "center": choice.center,
+        "consecutive_pair": [
+            choice.consecutive_pair[0],
+            choice.consecutive_pair[1],
+        ],
+        "smaller_centers": choice.smaller_centers,
+    }
+
+
+def _radius_optimization_summary(
+    result: RadiusChoiceOptimizationResult,
+) -> dict[str, object]:
+    return {
+        "status": result.status,
+        "obstructed": result.obstructed,
+        "objective": result.objective,
+        "optimality_certified": result.optimality_certified,
+        "edge_count": result.edge_count,
+        "edge_lower_bound": result.edge_lower_bound,
+        "edge_upper_bound": result.edge_upper_bound,
+        "explored_nodes": result.explored_nodes,
+        "acyclic_choice": (
+            None
+            if result.acyclic_choice is None
+            else [_choice_summary(choice) for choice in result.acyclic_choice]
+        ),
+    }
+
+
 def _order_radius_item(
     pattern_name: str,
     S: Pattern,
@@ -581,7 +615,19 @@ def search_adversarial_orders(
         str(item["radius_propagation"]["status"]) for item in evaluated
     )
     best = sorted(evaluated, key=lambda item: (_adversarial_score(item), item["order"]))
-    best_examples = best[:max_examples]
+    best_examples: list[dict[str, object]] = []
+    for item in best[:max_examples]:
+        enriched = dict(item)
+        minimization = optimize_radius_choice_edges(
+            S,
+            order=list(item["order"]),
+            objective="min",
+            node_limit=node_limit,
+        )
+        enriched["radius_choice_minimization"] = _radius_optimization_summary(
+            minimization
+        )
+        best_examples.append(enriched)
     best_score = _adversarial_score(best[0]) if best else None
 
     return {

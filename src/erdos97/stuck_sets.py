@@ -118,6 +118,23 @@ class RadiusPropagationResult:
     choices_by_center: list[list[RadiusChoice]]
 
 
+@dataclass(frozen=True)
+class RadiusChoiceOptimizationResult:
+    n: int
+    order: list[int]
+    objective: str
+    status: str
+    obstructed: bool | None
+    optimality_certified: bool
+    edge_count: int | None
+    edge_lower_bound: int
+    edge_upper_bound: int
+    explored_nodes: int
+    node_limit: int
+    acyclic_choice: list[RadiusChoice] | None
+    choices_by_center: list[list[RadiusChoice]]
+
+
 def validate_selected_pattern(S: Pattern) -> None:
     """Validate the fixed selected-witness contract."""
 
@@ -542,6 +559,221 @@ def radius_result_to_json(result: RadiusPropagationResult) -> dict[str, object]:
             "Exact fixed-order necessary filter. PASS means there exists a "
             "choice of short witness gaps whose implied strict radius "
             "inequalities are acyclic; it is not evidence of realizability."
+        ),
+    }
+
+
+def optimize_radius_choice_edges(
+    S: Pattern,
+    order: Sequence[int] | None = None,
+    objective: str = "min",
+    node_limit: int = 100_000,
+) -> RadiusChoiceOptimizationResult:
+    """Optimize acyclic short-chord radius choices by edge count.
+
+    The objective is over choices that pass the fixed-order radius-propagation
+    necessary filter.  A certified optimum is still only a statement about this
+    incidence/order filter, not about geometric realizability.
+    """
+
+    validate_selected_pattern(S)
+    if objective not in {"min", "max"}:
+        raise ValueError("objective must be 'min' or 'max'")
+    if node_limit <= 0:
+        raise ValueError("node_limit must be positive")
+
+    n = len(S)
+    if order is None:
+        order = list(range(n))
+    order = list(order)
+    choices_by_center = short_chord_radius_choices(S, order=order)
+    row_order = sorted(
+        range(n),
+        key=lambda center: (
+            min(len(choice.smaller_centers) for choice in choices_by_center[center]),
+            len(choices_by_center[center]),
+            center,
+        ),
+    )
+    if objective == "max":
+        row_order = sorted(
+            range(n),
+            key=lambda center: (
+                -max(
+                    len(choice.smaller_centers)
+                    for choice in choices_by_center[center]
+                ),
+                len(choices_by_center[center]),
+                center,
+            ),
+        )
+
+    def choice_sort_key(choice: RadiusChoice) -> tuple[int, tuple[int, int]]:
+        edge_count = len(choice.smaller_centers)
+        if objective == "min":
+            return (edge_count, choice.consecutive_pair)
+        return (-edge_count, choice.consecutive_pair)
+
+    sorted_choices = {
+        center: sorted(
+            choices_by_center[center],
+            key=choice_sort_key,
+        )
+        for center in range(n)
+    }
+    min_edges_by_center = [
+        min(len(choice.smaller_centers) for choice in choices_by_center[center])
+        for center in row_order
+    ]
+    max_edges_by_center = [
+        max(len(choice.smaller_centers) for choice in choices_by_center[center])
+        for center in row_order
+    ]
+    edge_lower_bound = sum(min_edges_by_center)
+    edge_upper_bound = sum(max_edges_by_center)
+    suffix_min = [0] * (len(row_order) + 1)
+    suffix_max = [0] * (len(row_order) + 1)
+    for idx in range(len(row_order) - 1, -1, -1):
+        suffix_min[idx] = suffix_min[idx + 1] + min_edges_by_center[idx]
+        suffix_max[idx] = suffix_max[idx + 1] + max_edges_by_center[idx]
+
+    adjacency: list[set[int]] = [set() for _ in range(n)]
+    selected: list[RadiusChoice] = []
+    best_choice: list[RadiusChoice] | None = None
+    best_edge_count: int | None = None
+    explored = 0
+    hit_limit = False
+    optimality_certified = False
+
+    def improves(edge_count: int) -> bool:
+        if best_edge_count is None:
+            return True
+        if objective == "min":
+            return edge_count < best_edge_count
+        return edge_count > best_edge_count
+
+    def best_possible(depth: int, edge_count: int) -> int:
+        if objective == "min":
+            return edge_count + suffix_min[depth]
+        return edge_count + suffix_max[depth]
+
+    def cannot_improve(depth: int, edge_count: int) -> bool:
+        if best_edge_count is None:
+            return False
+        possible = best_possible(depth, edge_count)
+        if objective == "min":
+            return possible >= best_edge_count
+        return possible <= best_edge_count
+
+    def search(depth: int, edge_count: int) -> None:
+        nonlocal best_choice, best_edge_count, explored, hit_limit, optimality_certified
+        if optimality_certified:
+            return
+        explored += 1
+        if explored > node_limit:
+            hit_limit = True
+            return
+        if cannot_improve(depth, edge_count):
+            return
+        if depth == len(row_order):
+            if improves(edge_count):
+                best_edge_count = edge_count
+                best_choice = list(selected)
+                if (
+                    (objective == "min" and edge_count == edge_lower_bound)
+                    or (objective == "max" and edge_count == edge_upper_bound)
+                ):
+                    optimality_certified = True
+            return
+
+        center = row_order[depth]
+        for choice in sorted_choices[center]:
+            added: list[tuple[int, int]] = []
+            creates_cycle = False
+            for smaller in choice.smaller_centers:
+                if smaller == center or _reaches(adjacency, smaller, center):
+                    creates_cycle = True
+                    break
+                if smaller not in adjacency[center]:
+                    adjacency[center].add(smaller)
+                    added.append((center, smaller))
+            if creates_cycle:
+                for source, target in added:
+                    adjacency[source].remove(target)
+                continue
+            selected.append(choice)
+            search(depth + 1, edge_count + len(choice.smaller_centers))
+            selected.pop()
+            for source, target in added:
+                adjacency[source].remove(target)
+            if optimality_certified or hit_limit:
+                break
+
+    search(0, 0)
+    if best_choice is not None:
+        if optimality_certified or not hit_limit:
+            status = "PASS_OPTIMAL_CHOICE"
+            obstructed: bool | None = False
+            optimality_certified = True
+        else:
+            status = "UNKNOWN_NODE_LIMIT"
+            obstructed = None
+    elif hit_limit:
+        status = "UNKNOWN_NODE_LIMIT"
+        obstructed = None
+    else:
+        status = "RADIUS_CYCLE_OBSTRUCTED"
+        obstructed = True
+        optimality_certified = True
+
+    return RadiusChoiceOptimizationResult(
+        n=n,
+        order=order,
+        objective=objective,
+        status=status,
+        obstructed=obstructed,
+        optimality_certified=optimality_certified,
+        edge_count=best_edge_count,
+        edge_lower_bound=edge_lower_bound,
+        edge_upper_bound=edge_upper_bound,
+        explored_nodes=explored,
+        node_limit=node_limit,
+        acyclic_choice=best_choice,
+        choices_by_center=choices_by_center,
+    )
+
+
+def radius_choice_optimization_to_json(
+    result: RadiusChoiceOptimizationResult,
+) -> dict[str, object]:
+    """Return a JSON-serializable radius choice optimization result."""
+
+    return {
+        "type": "radius_choice_edge_optimization_result",
+        "n": result.n,
+        "order": result.order,
+        "objective": result.objective,
+        "status": result.status,
+        "obstructed": result.obstructed,
+        "optimality_certified": result.optimality_certified,
+        "edge_count": result.edge_count,
+        "edge_lower_bound": result.edge_lower_bound,
+        "edge_upper_bound": result.edge_upper_bound,
+        "explored_nodes": result.explored_nodes,
+        "node_limit": result.node_limit,
+        "acyclic_choice": (
+            None
+            if result.acyclic_choice is None
+            else [_choice_json(choice) for choice in result.acyclic_choice]
+        ),
+        "choices_by_center": [
+            [_choice_json(choice) for choice in choices]
+            for choices in result.choices_by_center
+        ],
+        "interpretation": (
+            "Exact fixed-order optimization over this radius-propagation "
+            "necessary filter when optimality_certified is true. PASS is not "
+            "evidence of geometric realizability."
         ),
     }
 

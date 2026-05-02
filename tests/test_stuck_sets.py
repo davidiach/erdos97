@@ -7,8 +7,10 @@ from erdos97.stuck_sets import (
     forward_ear_order,
     greedy_peeling_run,
     is_stuck_subset,
+    optimize_radius_choice_edges,
     pattern_filter_snapshot,
     radius_propagation_obstruction,
+    radius_choice_optimization_to_json,
     result_to_json,
 )
 
@@ -105,3 +107,19 @@ def test_large_sidon_fragile_cover_window_is_truncated() -> None:
     assert stats["cover_exists"] is False
     assert stats["search_complete"] is False
     assert stats["searched_up_to_size"] == 7
+
+
+def test_radius_choice_optimization_certifies_c13_adversarial_minimum() -> None:
+    pattern = built_in_patterns()["C13_sidon_1_2_4_10"]
+    order = [0, 1, 3, 7, 4, 10, 6, 2, 12, 8, 5, 9, 11]
+
+    result = optimize_radius_choice_edges(pattern.S, order=order)
+    payload = radius_choice_optimization_to_json(result)
+
+    assert result.status == "PASS_OPTIMAL_CHOICE"
+    assert result.obstructed is False
+    assert result.optimality_certified is True
+    assert result.edge_count == 8
+    assert result.edge_lower_bound == 8
+    assert result.edge_upper_bound == 13
+    assert payload["edge_count"] == 8

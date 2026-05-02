@@ -110,7 +110,7 @@ same fixed-order necessary filter.
 
 With that deterministic run:
 
-| Pattern | orders evaluated | minimum rows with an uncovered consecutive pair | radius status histogram | best acyclic edge count |
+| Pattern | orders evaluated | minimum rows with an uncovered consecutive pair | radius status histogram | certified minimum acyclic edge count |
 |---|---:|---:|---|---:|
 | `C19_skew` | 529 | 19 | `{PASS_ACYCLIC_CHOICE: 529}` | 0 |
 | `C13_sidon_1_2_4_10` | 496 | 5 | `{PASS_ACYCLIC_CHOICE: 496}` | 8 |
@@ -119,9 +119,10 @@ With that deterministic run:
 
 For `C13`, this produces much more adversarial cyclic orders than passive
 sampling: only 5 of 13 rows retain an uncovered consecutive pair in the best
-found orders. Even then, the radius-propagation filter still finds an acyclic
-choice. For `C19`, `C25`, and `C29`, the same heuristic did not break the
-all-empty escape.
+found orders. The minimum acyclic radius choice is certified at 8 strict
+radius edges, matching the 8 rows without an uncovered consecutive pair. Even
+then, the radius-propagation filter still finds an acyclic choice. For `C19`,
+`C25`, and `C29`, the same heuristic did not break the all-empty escape.
 
 ## Interpretation
 
