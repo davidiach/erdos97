@@ -29,6 +29,17 @@ def test_frontier_patterns_have_trivial_empty_radius_choice() -> None:
         assert summary["order_free_blocked_rows"] == []
 
 
+def test_larger_sparse_frontier_has_order_free_empty_gap_certificate() -> None:
+    patterns = built_in_patterns()
+
+    for name in ("C19_skew", "C25_sidon_2_5_9_14", "C29_sidon_1_3_7_15"):
+        summary = sparse_frontier_summary(name, patterns[name].S)
+
+        assert summary["all_rows_order_free_empty_gap"] is True
+        assert summary["trivial_empty_radius_choice_all_orders"] is True
+        assert len(summary["order_free_empty_gap_rows"]) == patterns[name].n
+
+
 def test_c13_sidon_all_witness_pairs_have_at_most_one_source() -> None:
     pattern = built_in_patterns()["C13_sidon_1_2_4_10"]
 
@@ -36,6 +47,8 @@ def test_c13_sidon_all_witness_pairs_have_at_most_one_source() -> None:
 
     assert summary["all_pair_source_count_histogram"] == {"0": 26, "1": 52}
     assert summary["consecutive_pair_source_count_histogram"] == {"0": 13, "1": 26}
+    assert summary["all_rows_order_free_empty_gap"] is False
+    assert summary["order_free_empty_gap_rows"] == []
 
 
 def test_sparse_row_profile_records_uncovered_consecutive_pairs() -> None:
@@ -53,6 +66,8 @@ def test_sparse_row_profile_records_uncovered_consecutive_pairs() -> None:
         (5, 9),
         (9, 11),
     ]
+    assert row0.order_free_empty_gap is True
+    assert row0.covered_witness_path_orders == []
 
 
 def test_c13_has_sampled_order_without_empty_choice() -> None:

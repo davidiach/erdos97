@@ -18,7 +18,7 @@ It is useful mainly as a cheap way to record and test the minimum-radius idea.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from itertools import combinations
+from itertools import combinations, permutations
 from typing import Sequence
 
 Pair = tuple[int, int]
@@ -48,6 +48,7 @@ class MinRadiusOrderResult:
     blocked_centers: list[int]
     possible_min_centers: list[int]
     order_free_blocked_centers: list[int]
+    order_free_empty_gap_centers: list[int]
     obstructed: bool
 
 
@@ -227,6 +228,53 @@ def _row_is_order_free_blocked(S: Pattern, center: int) -> bool:
     return all(_selected_pair_sources(S, a, b) for a, b in combinations(S[center], 2))
 
 
+def covered_witness_path_orders(S: Pattern, center: int) -> list[list[int]]:
+    """Return witness orders whose three consecutive pairs are all covered.
+
+    Equivalently, these are Hamiltonian paths in the covered-pair graph on the
+    four witnesses of ``center``.  Reversed paths are identified.
+    """
+
+    _validate_pattern(S)
+    if center < 0 or center >= len(S):
+        raise ValueError(f"center out of range: {center}")
+    return _covered_witness_path_orders(S, center)
+
+
+def _covered_witness_path_orders(S: Pattern, center: int) -> list[list[int]]:
+    """Return all-covered local witness orders for a validated pattern."""
+
+    paths: set[tuple[int, ...]] = set()
+    for raw in permutations(sorted(S[center])):
+        if all(
+            _selected_pair_sources(S, a, b)
+            for a, b in zip(raw, raw[1:])
+        ):
+            path = tuple(int(label) for label in raw)
+            paths.add(min(path, tuple(reversed(path))))
+    return [list(path) for path in sorted(paths)]
+
+
+def row_has_order_free_empty_gap(S: Pattern, center: int) -> bool:
+    """Return True iff every local witness order has an uncovered short gap.
+
+    This is the exact row-level complement of having an all-covered witness
+    path.  It certifies that the row can never be blocked by the minimum-radius
+    short-chord test, whatever the ambient cyclic order is.
+    """
+
+    _validate_pattern(S)
+    if center < 0 or center >= len(S):
+        raise ValueError(f"center out of range: {center}")
+    return _row_has_order_free_empty_gap(S, center)
+
+
+def _row_has_order_free_empty_gap(S: Pattern, center: int) -> bool:
+    """Return order-free empty-gap status for a validated pattern."""
+
+    return not _covered_witness_path_orders(S, center)
+
+
 def minimum_radius_order_obstruction(
     S: Pattern,
     order: Sequence[int] | None = None,
@@ -244,6 +292,9 @@ def minimum_radius_order_obstruction(
     blocked = [row.center for row in rows if row.blocked]
     possible = [row.center for row in rows if not row.blocked]
     order_free = [center for center in range(n) if _row_is_order_free_blocked(S, center)]
+    order_free_empty_gap = [
+        center for center in range(n) if _row_has_order_free_empty_gap(S, center)
+    ]
     return MinRadiusOrderResult(
         pattern=pattern,
         n=n,
@@ -252,6 +303,7 @@ def minimum_radius_order_obstruction(
         blocked_centers=blocked,
         possible_min_centers=possible,
         order_free_blocked_centers=order_free,
+        order_free_empty_gap_centers=order_free_empty_gap,
         obstructed=not possible,
     )
 
@@ -284,5 +336,8 @@ def result_to_json(result: MinRadiusOrderResult) -> dict[str, object]:
         "blocked_centers": [int(center) for center in result.blocked_centers],
         "possible_min_centers": [int(center) for center in result.possible_min_centers],
         "order_free_blocked_centers": [int(center) for center in result.order_free_blocked_centers],
+        "order_free_empty_gap_centers": [
+            int(center) for center in result.order_free_empty_gap_centers
+        ],
         "rows": [_json_row(row) for row in result.rows],
     }

@@ -58,6 +58,16 @@ for every possible cyclic order. If every center is order-free blocked, the
 fixed selected pattern is impossible. The complete `n=5` all-other-vertices
 pattern is a toy example killed this way.
 
+There is also an order-free escape certificate in the other direction. Build
+the covered-pair graph on the four witnesses of row `i`, joining two witnesses
+when at least one endpoint selects the other. The row can be blocked in some
+local witness order exactly when this covered-pair graph has a Hamiltonian path.
+If it has no such path, every possible local witness order has an uncovered
+consecutive pair, so that row always survives the minimum-radius short-chord
+test. If every row has this property, then every cyclic order admits the
+all-empty radius-propagation choice. This certifies a blind spot of the filter,
+not geometric realizability.
+
 ## Current impact on built-in patterns
 
 The current built-in candidate patterns all pass the natural-order version of
@@ -81,7 +91,11 @@ combined with additional cyclic-order or radius-inequality propagation.
 For the sparse/Sidon frontier, the issue is sharper: in the natural order every
 frontier row has at least one uncovered consecutive witness pair, so the current
 radius-propagation filter can choose an all-empty set of short gaps and force no
-strict radius inequalities. See `docs/sparse-frontier-diagnostic.md`.
+strict radius inequalities. For `C19_skew`, `C25_sidon_2_5_9_14`, and
+`C29_sidon_1_3_7_15`, the new covered-path test certifies that this all-empty
+escape persists for every cyclic order. The `C13_sidon_1_2_4_10` pattern does
+not have this order-free escape certificate, which is why adversarial cyclic
+orders remain useful for it. See `docs/sparse-frontier-diagnostic.md`.
 
 ## Reproducible check
 

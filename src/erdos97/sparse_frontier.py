@@ -16,7 +16,9 @@ from typing import Sequence
 
 from erdos97.min_radius_filter import (
     consecutive_witness_pairs,
+    covered_witness_path_orders,
     row_is_order_free_blocked,
+    row_has_order_free_empty_gap,
     selected_pair_sources,
 )
 from erdos97.stuck_sets import (
@@ -44,6 +46,12 @@ class SparseRowProfile:
     all_pairs: list[PairSourceProfile]
     consecutive_pairs: list[PairSourceProfile]
     order_free_blocked: bool
+    order_free_empty_gap: bool
+    covered_witness_path_orders: list[list[int]]
+
+    @property
+    def covered_pairs(self) -> list[PairSourceProfile]:
+        return [item for item in self.all_pairs if item.sources]
 
     @property
     def uncovered_pairs(self) -> list[PairSourceProfile]:
@@ -140,6 +148,8 @@ def sparse_row_profiles(
                 all_pairs=all_pairs,
                 consecutive_pairs=consecutive,
                 order_free_blocked=row_is_order_free_blocked(S, center),
+                order_free_empty_gap=row_has_order_free_empty_gap(S, center),
+                covered_witness_path_orders=covered_witness_path_orders(S, center),
             )
         )
     return profiles
@@ -184,6 +194,9 @@ def sparse_frontier_summary(
     order_free_blocked = [
         row.center for row in profiles if row.order_free_blocked
     ]
+    order_free_empty_gap = [
+        row.center for row in profiles if row.order_free_empty_gap
+    ]
     empty_choice = [
         _pair_json(row.uncovered_consecutive_pairs[0])
         for row in profiles
@@ -199,10 +212,14 @@ def sparse_frontier_summary(
                     _pair_json(pair) for pair in row.consecutive_pairs
                 ],
                 "uncovered_pair_count": len(row.uncovered_pairs),
+                "covered_pair_count": len(row.covered_pairs),
                 "uncovered_consecutive_pair_count": len(
                     row.uncovered_consecutive_pairs
                 ),
                 "order_free_blocked": row.order_free_blocked,
+                "order_free_empty_gap": row.order_free_empty_gap,
+                "covered_witness_path_count": len(row.covered_witness_path_orders),
+                "covered_witness_path_examples": row.covered_witness_path_orders[:3],
             }
         )
 
@@ -221,12 +238,15 @@ def sparse_frontier_summary(
         "rows_with_uncovered_pair": rows_with_uncovered_pair,
         "rows_with_uncovered_consecutive_pair": rows_with_uncovered_consecutive,
         "order_free_blocked_rows": order_free_blocked,
+        "order_free_empty_gap_rows": order_free_empty_gap,
         "all_rows_have_uncovered_consecutive_pair": (
             all_rows_have_empty_consecutive_choice
         ),
+        "all_rows_order_free_empty_gap": len(order_free_empty_gap) == n,
         "trivial_empty_radius_choice_exists": (
             all_rows_have_empty_consecutive_choice
         ),
+        "trivial_empty_radius_choice_all_orders": len(order_free_empty_gap) == n,
         "empty_radius_choice": (
             empty_choice if all_rows_have_empty_consecutive_choice else None
         ),
@@ -235,6 +255,9 @@ def sparse_frontier_summary(
             "Exact fixed-order incidence diagnostic. If every row has an "
             "uncovered consecutive witness pair, the radius-propagation filter "
             "can choose those pairs and force no strict radius inequalities. "
+            "If all_rows_order_free_empty_gap is true, the same empty-choice "
+            "escape holds for every cyclic order by a row-local covered-path "
+            "certificate. "
             "This is a blindness certificate for that filter, not evidence of "
             "geometric realizability."
         ),

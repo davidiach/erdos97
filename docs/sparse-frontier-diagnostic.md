@@ -49,16 +49,24 @@ still admit an acyclic strict-radius inequality choice.
 
 ## Snapshot
 
-| Pattern | n | all witness-pair sources | consecutive-pair sources | rows with uncovered consecutive pair | order-free blocked rows | empty radius choice |
-|---|---:|---|---|---:|---:|---|
-| `C19_skew` | 19 | `{0: 76, 1: 38}` | `{0: 38, 1: 19}` | 19/19 | 0 | yes |
-| `C13_sidon_1_2_4_10` | 13 | `{0: 26, 1: 52}` | `{0: 13, 1: 26}` | 13/13 | 0 | yes |
-| `C25_sidon_2_5_9_14` | 25 | `{0: 100, 1: 50}` | `{0: 50, 1: 25}` | 25/25 | 0 | yes |
-| `C29_sidon_1_3_7_15` | 29 | `{0: 145, 1: 29}` | `{0: 87}` | 29/29 | 0 | yes |
+| Pattern | n | all witness-pair sources | consecutive-pair sources | rows with uncovered consecutive pair | order-free blocked rows | order-free empty-gap rows | empty radius choice |
+|---|---:|---|---|---:|---:|---:|---|
+| `C19_skew` | 19 | `{0: 76, 1: 38}` | `{0: 38, 1: 19}` | 19/19 | 0 | 19/19 | yes |
+| `C13_sidon_1_2_4_10` | 13 | `{0: 26, 1: 52}` | `{0: 13, 1: 26}` | 13/13 | 0 | 0/13 | yes |
+| `C25_sidon_2_5_9_14` | 25 | `{0: 100, 1: 50}` | `{0: 50, 1: 25}` | 25/25 | 0 | 25/25 | yes |
+| `C29_sidon_1_3_7_15` | 29 | `{0: 145, 1: 29}` | `{0: 87}` | 29/29 | 0 | 29/29 | yes |
 
 Here `{0: 76, 1: 38}` means 76 row-local witness pairs have no endpoint source,
 and 38 have exactly one endpoint source. No pair in this table has two endpoint
 sources.
+
+The order-free empty-gap column is an exact row-local certificate. For a row,
+form the covered-pair graph on its four witnesses. If that graph has no
+Hamiltonian path, then every possible local witness order has at least one
+uncovered consecutive pair. Thus the `C19`, `C25`, and `C29` entries certify
+that the all-empty radius choice exists for every cyclic order. The `C13` entry
+does not have this certificate: every `C13` row has covered witness paths, so
+some cyclic orders can block its empty-gap escape in selected rows.
 
 ## Order Sampling
 
@@ -75,7 +83,9 @@ checked orders:
 This separates `C13` from the larger sparse frontier. The natural order of
 `C13_sidon_1_2_4_10` has an empty radius choice, but many sampled orders do
 not. In contrast, all sampled orders for `C19`, `C25`, and `C29` kept the empty
-choice. This is still sampling only, not an abstract-order theorem.
+choice; the order-free empty-gap certificate above upgrades that observation
+for those three patterns to an exact abstract-order statement about the
+current radius-propagation filter.
 
 With the same order sample and `--sample-radius-propagation`:
 
@@ -122,7 +132,8 @@ sampling: only 5 of 13 rows retain an uncovered consecutive pair in the best
 found orders. The minimum acyclic radius choice is certified at 8 strict
 radius edges, matching the 8 rows without an uncovered consecutive pair. Even
 then, the radius-propagation filter still finds an acyclic choice. For `C19`,
-`C25`, and `C29`, the same heuristic did not break the all-empty escape.
+`C25`, and `C29`, the exact order-free empty-gap certificate explains why this
+heuristic cannot break the all-empty escape.
 
 ## Interpretation
 

@@ -89,6 +89,8 @@ def test_c19_skew_snapshot_records_sparse_filter_wall() -> None:
     assert filters["phi_edges"] == 0
     assert filters["odd_forced_perpendicular_cycle_length"] is None
     assert filters["minimum_radius_obstructed_in_order"] is False
+    assert filters["minimum_radius_order_free_blocked_centers"] == []
+    assert filters["minimum_radius_order_free_empty_gap_centers"] == list(range(19))
     assert filters["radius_propagation"]["status"] == "PASS_ACYCLIC_CHOICE"
     assert filters["fragile_cover"]["cover_stats"]["cover_exists"] is True
     assert stuck.minimal_size == 8
