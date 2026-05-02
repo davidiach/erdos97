@@ -131,6 +131,15 @@ cases, and confirms that the registered sparse non-natural orders remain
 invisible to phi4 traps because they have no `phi` edges. This is negative
 filter information only, not evidence of realizability.
 
+The row-circle Ptolemy diagnostic in
+`docs/row-circle-ptolemy-nlp.md` adds the Ptolemy equality forced by each
+selected witness quadruple being concyclic around its center. It numerically
+obstructs the registered `C19_skew` abstract order with margin about
+`-0.00264843`; this is `NUMERICAL_NONLINEAR_DIAGNOSTIC` only and requires
+exactification before it can be used as an obstruction. The registered
+`C13_sidon_1_2_4_10` order currently records optimizer failure, not a clean
+obstruction.
+
 Under the natural cyclic order, `P18_parity_balanced` and
 `P24_parity_balanced` are killed by adjacent-row two-overlap via the
 crossing-bisector lemma. As abstract incidence patterns with arbitrary cyclic

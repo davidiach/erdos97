@@ -325,6 +325,19 @@ This is a numerical nonlinear diagnostic only. It shows that Ptolemy
 constraints by themselves are still too weak, not that either order is
 realizable.
 
+The row-circle Ptolemy diagnostic in `docs/row-circle-ptolemy-nlp.md` adds the
+Ptolemy equality forced by each selected witness quadruple lying on a circle
+around its center. This is the first current distance-class diagnostic to
+numerically obstruct one registered sparse-order survivor:
+
+| Pattern order | Status | Max margin | Row Ptolemy residual |
+|---|---|---:|---:|
+| `C13_sidon_1_2_4_10:sample_full_filter_survivor` | optimizer failed | `-0.0225187` | `0.000244748` |
+| `C19_skew:vertex_circle_survivor` | numerical obstruction | `-0.00264843` | `2.98e-19` |
+
+This is not an exact obstruction. The `C19` result is an exactification target;
+the `C13` result is only an optimizer-failure diagnostic.
+
 ## Interpretation
 
 The radius-propagation filter chooses one possible short consecutive witness
