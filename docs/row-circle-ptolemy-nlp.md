@@ -54,6 +54,26 @@ inequality constraints from the LP-based start and leaves small but nonzero
 Ptolemy/row-equality residuals. That is recorded as optimizer failure, not as
 an obstruction.
 
+## C19 Active-Set Snapshot
+
+The exactification helper
+`scripts/dump_row_circle_ptolemy_snapshot.py` records the optimized
+distance-class vector and the active numerical constraints for the registered
+`C19_skew` survivor. The generated artifact is
+`data/certificates/c19_row_circle_ptolemy_active_set.json`.
+
+It records:
+
+- all 114 quotient distance classes and their normalized numerical values;
+- the 22 tight linear rows from the Altman / vertex-circle / triangle
+  relaxation;
+- the 74 tight global Ptolemy inequalities;
+- all 19 row-circle Ptolemy equality residuals and their witness orders.
+
+This is still only a floating-point active set. It is useful because it exposes
+the likely certificate support for a later rational or algebraic
+exactification attempt.
+
 ## Reproduction
 
 ```bash
@@ -67,6 +87,11 @@ python scripts/check_row_circle_ptolemy_nlp.py \
 python scripts/check_row_circle_ptolemy_nlp.py \
   --maxiter 500 \
   --out data/certificates/row_circle_ptolemy_nlp_sparse_orders.json \
+  --assert-expected
+
+python scripts/dump_row_circle_ptolemy_snapshot.py \
+  --out data/certificates/c19_row_circle_ptolemy_active_set.json \
+  --maxiter 500 \
   --assert-expected
 ```
 
