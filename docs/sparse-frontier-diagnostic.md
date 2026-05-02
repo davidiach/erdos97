@@ -297,6 +297,21 @@ while a trust-region polar probe only improved the residual by becoming
 nonconvex. This is again negative numerical evidence for this fixed order, not
 a proof of non-realizability and not a counterexample.
 
+## Metric LP Combination
+
+The combined fixed-order LP diagnostic in `docs/metric-order-lp.md` adds all
+ordinary triangle inequalities to the Altman adjacent-gap and vertex-circle
+strict inequalities. It still passes both registered sparse-order survivors:
+
+| Pattern order | Max margin | Distance classes | Inequalities |
+|---|---:|---:|---:|
+| `C13_sidon_1_2_4_10:sample_full_filter_survivor` | `0.0021978` | 39 | 980 |
+| `C19_skew:vertex_circle_survivor` | `0.00143164` | 114 | 3086 |
+
+This is another negative diagnostic: the sparse-overlap wall is not removed by
+combining the current Altman, vertex-circle, and metric-triangle linear
+constraints.
+
 ## Interpretation
 
 The radius-propagation filter chooses one possible short consecutive witness
