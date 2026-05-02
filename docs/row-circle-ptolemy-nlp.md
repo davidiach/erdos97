@@ -78,6 +78,13 @@ exactification attempt. In the current snapshot, the nonzero multiplier counts
 are 19 linear inequalities, 57 global Ptolemy inequalities, and all 19
 row-circle equalities.
 
+The reduction artifact
+`data/certificates/c19_row_circle_multiplier_reduction.json` matches each
+row-circle equality with the duplicate global Ptolemy inequality on the same
+four witnesses. All 19 rows match. After combining each duplicate pair, the
+largest absolute multiplier drops from about `2.95e17` to `24`, showing that
+most of the enormous multipliers are redundant-constraint cancellation noise.
+
 ## Reproduction
 
 ```bash

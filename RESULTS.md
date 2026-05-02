@@ -152,7 +152,10 @@ obstruction. The follow-up active-set artifact
 `data/certificates/c19_row_circle_ptolemy_active_set.json` records the
 optimized C19 distance classes and tight numerical constraints for
 exactification work, including a SciPy SLSQP multiplier summary; it is not an
-exact certificate.
+exact certificate. The companion multiplier-reduction artifact pairs all 19
+row-circle equalities with their duplicate global Ptolemy rows and reduces the
+largest absolute combined multiplier to `24`, clarifying that the largest raw
+weights are redundancy noise.
 
 Under the natural cyclic order, `P18_parity_balanced` and
 `P24_parity_balanced` are killed by adjacent-row two-overlap via the
