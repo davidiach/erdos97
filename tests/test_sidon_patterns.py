@@ -13,8 +13,10 @@ from erdos97.search import (
     incidence_obstruction_stats,
     orient_margins,
     polygon_from_x,
+    relabel_pattern_by_cyclic_order,
     slsqp_search,
 )
+from erdos97.vertex_circle_order_filter import vertex_circle_order_obstruction
 
 
 CATALOG_NAMES = ("C13_sidon_1_2_4_10", "C25_sidon_2_5_9_14", "C29_sidon_1_3_7_15")
@@ -72,6 +74,29 @@ def test_catalog_json_contains_sidon_entries() -> None:
     names = {entry["name"] for entry in data}
     for name in CATALOG_NAMES:
         assert name in names
+
+
+def test_relabel_pattern_by_cyclic_order_preserves_fixed_order_filters() -> None:
+    pat = built_in_patterns()["C13_sidon_1_2_4_10"]
+    order = [5, 0, 10, 8, 9, 7, 4, 6, 2, 11, 12, 3, 1]
+
+    relabelled = relabel_pattern_by_cyclic_order(
+        pat,
+        order,
+        name="C13_sidon_ordered_test",
+    )
+
+    assert relabelled.name == "C13_sidon_ordered_test"
+    assert relabelled.n == pat.n
+    assert sorted(relabelled.S[0]) == [4, 5, 7, 8]
+    original = vertex_circle_order_obstruction(pat.S, order, pat.name)
+    transformed = vertex_circle_order_obstruction(
+        relabelled.S,
+        list(range(relabelled.n)),
+        relabelled.name,
+    )
+    assert transformed.obstructed == original.obstructed
+    assert transformed.strict_edge_count == original.strict_edge_count
 
 
 def test_full_convexity_margin_rejects_local_turn_false_positive() -> None:

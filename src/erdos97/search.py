@@ -44,6 +44,8 @@ class PatternInfo:
     family: str = ""
     formula: str = ""
     notes: str = ""
+    source_pattern_name: str = ""
+    cyclic_order: Optional[List[int]] = None
 
 
 @dataclasses.dataclass
@@ -76,6 +78,11 @@ class SearchResult:
     coordinates: List[List[float]]
     S: Pattern
     distance_table: List[Dict[str, object]]
+    pattern_family: str = ""
+    pattern_formula: str = ""
+    pattern_notes: str = ""
+    source_pattern_name: str = ""
+    cyclic_order: Optional[List[int]] = None
 
 
 # ----------------------------- pattern helpers -----------------------------
@@ -126,6 +133,57 @@ def block_pattern(m: int, q: int, offsets: Sequence[Tuple[int, int]], name: str)
 def cyclic_gaps(vals: Sequence[int], n: int) -> List[int]:
     vals = sorted(vals)
     return [((vals[(k + 1) % len(vals)] - vals[k]) % n) for k in range(len(vals))]
+
+
+def parse_cyclic_order(raw: str) -> List[int]:
+    """Parse a comma-separated cyclic order."""
+
+    try:
+        return [int(item.strip()) for item in raw.split(",") if item.strip()]
+    except ValueError as exc:
+        raise ValueError(f"invalid comma-separated cyclic order: {raw}") from exc
+
+
+def relabel_pattern_by_cyclic_order(
+    pat: PatternInfo,
+    order: Sequence[int],
+    name: Optional[str] = None,
+) -> PatternInfo:
+    """Return an equivalent pattern whose labels follow the supplied order.
+
+    The input ``order`` lists the original vertex labels in boundary order.
+    The returned pattern uses boundary positions ``0..n-1`` as labels, so it
+    can be fed to natural-order geometric searches.
+    """
+
+    order = [int(label) for label in order]
+    expected = set(range(pat.n))
+    seen = set(order)
+    if len(order) != pat.n or seen != expected:
+        missing = sorted(expected - seen)
+        extra = sorted(seen - expected)
+        raise ValueError(
+            f"cyclic order is not a permutation; missing={missing}, extra={extra}"
+        )
+    pos = {label: idx for idx, label in enumerate(order)}
+    S: Pattern = [[] for _ in range(pat.n)]
+    for old_center, row in enumerate(pat.S):
+        new_center = pos[old_center]
+        S[new_center] = sorted(pos[witness] for witness in row)
+    if name is None:
+        name = f"{pat.name}_ordered"
+    return PatternInfo(
+        name=name,
+        n=pat.n,
+        S=S,
+        family=f"{pat.family}/ordered",
+        formula=f"{pat.formula}; cyclic_order={order}",
+        notes=(
+            f"Relabelled from {pat.name} so supplied cyclic order is natural."
+        ),
+        source_pattern_name=pat.name,
+        cyclic_order=list(order),
+    )
 
 
 def built_in_patterns() -> Dict[str, PatternInfo]:
@@ -610,6 +668,11 @@ def search_pattern(pat: PatternInfo, mode: str = "polar", restarts: int = 20,
             coordinates=[[float(a), float(b)] for a, b in P],
             S=[[int(j) for j in row] for row in pat.S],
             distance_table=diag["distance_table"],
+            pattern_family=pat.family,
+            pattern_formula=pat.formula,
+            pattern_notes=pat.notes,
+            source_pattern_name=pat.source_pattern_name,
+            cyclic_order=pat.cyclic_order,
         )
 
     def fun(x: Array) -> Array:
@@ -670,6 +733,11 @@ def search_pattern(pat: PatternInfo, mode: str = "polar", restarts: int = 20,
         coordinates=[[float(a), float(b)] for a, b in P],
         S=[[int(j) for j in row] for row in pat.S],
         distance_table=diag["distance_table"],
+        pattern_family=pat.family,
+        pattern_formula=pat.formula,
+        pattern_notes=pat.notes,
+        source_pattern_name=pat.source_pattern_name,
+        cyclic_order=pat.cyclic_order,
     )
 
 
@@ -830,6 +898,16 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--list-patterns", action="store_true")
     ap.add_argument("--pattern", default="C12_pm_2_5")
+    ap.add_argument(
+        "--cyclic-order",
+        default="",
+        help="comma-separated original labels in boundary order; relabels pattern before search",
+    )
+    ap.add_argument(
+        "--ordered-name",
+        default="",
+        help="optional pattern name after applying --cyclic-order",
+    )
     ap.add_argument("--mode", choices=["polar", "direct", "support"], default="polar")
     ap.add_argument("--restarts", type=int, default=20)
     ap.add_argument("--seed", type=int, default=0)
@@ -863,6 +941,16 @@ def main() -> None:
     if args.pattern not in pats:
         raise SystemExit(f"unknown pattern {args.pattern}; use --list-patterns")
     pat = pats[args.pattern]
+    if args.cyclic_order:
+        try:
+            order = parse_cyclic_order(args.cyclic_order)
+            pat = relabel_pattern_by_cyclic_order(
+                pat,
+                order,
+                name=args.ordered_name or None,
+            )
+        except ValueError as exc:
+            raise SystemExit(str(exc)) from exc
     result = search_pattern(pat, mode=args.mode, restarts=args.restarts, seed=args.seed,
                             max_nfev=args.max_nfev, use_de=args.use_de, verbose=args.verbose,
                             optimizer=args.optimizer, margin=args.margin)
@@ -871,8 +959,9 @@ def main() -> None:
         "pattern_name", "n", "mode", "loss", "eq_rms", "max_spread", "max_rel_spread",
         "convexity_margin", "min_edge_length", "min_pair_distance", "success", "elapsed_sec"]}, indent=2))
     if args.out:
-        with open(args.out, "w", encoding="utf-8") as f:
+        with open(args.out, "w", encoding="utf-8", newline="\n") as f:
             json.dump(data, f, indent=2)
+            f.write("\n")
         print(f"wrote {args.out}")
     if args.certificate:
         write_certificate_template(args.certificate, result)
