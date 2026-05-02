@@ -103,7 +103,7 @@ def print_adversarial_summary(rows: list[dict[str, object]]) -> None:
     print(
         "pattern  n  evaluated  min-uncovered-rows  "
         "row-count-histogram  radius-status  best-radius-status  "
-        "best-edges  best-explored"
+        "best-edges  optimized-min-edges  best-explored"
     )
     for row in rows:
         examples = row["best_examples"]
@@ -113,12 +113,18 @@ def print_adversarial_summary(rows: list[dict[str, object]]) -> None:
             if isinstance(best, dict)
             else {"status": None, "acyclic_edge_count": None, "explored_nodes": None}
         )
+        optimized = (
+            best["radius_choice_minimization"]
+            if isinstance(best, dict) and "radius_choice_minimization" in best
+            else {"edge_count": None}
+        )
         print(
             f"{row['pattern']}  {row['n']}  {row['orders_evaluated']}  "
             f"{row['min_rows_with_uncovered_consecutive_pair']}  "
             f"{row['rows_with_uncovered_consecutive_histogram']}  "
             f"{row['radius_status_histogram']}  "
             f"{radius['status']}  {radius['acyclic_edge_count']}  "
+            f"{optimized['edge_count']}  "
             f"{radius['explored_nodes']}"
         )
 

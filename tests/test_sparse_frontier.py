@@ -128,6 +128,8 @@ def test_adversarial_order_search_finds_stronger_c13_order() -> None:
     best = result["best_examples"][0]
     assert len(best["rows_with_uncovered_consecutive_pair"]) == 5
     assert best["radius_propagation"]["acyclic_edge_count"] == 8
+    assert best["radius_choice_minimization"]["edge_count"] == 8
+    assert best["radius_choice_minimization"]["optimality_certified"] is True
 
 
 def test_normalize_cyclic_order_quotients_rotation_and_reversal() -> None:
