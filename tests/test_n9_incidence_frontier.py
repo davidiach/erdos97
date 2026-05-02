@@ -56,6 +56,10 @@ def test_bounded_scan_can_stop_on_full_pattern_limit() -> None:
     assert sum(payload["full_classification_counts"].values()) == 1
 
 
-def test_invalid_row0_witnesses_are_rejected() -> None:
+@pytest.mark.parametrize(
+    "row0_witnesses",
+    ([0, 1, 2, 3], [1, 2, 3, 9], [-1, 1, 2, 3], [1, 1, 2, 3]),
+)
+def test_invalid_row0_witnesses_are_rejected(row0_witnesses: list[int]) -> None:
     with pytest.raises(ValueError, match="row0_witnesses"):
-        run_bounded_scan(row0_witnesses=[0, 1, 2, 3])
+        run_bounded_scan(row0_witnesses=row0_witnesses)

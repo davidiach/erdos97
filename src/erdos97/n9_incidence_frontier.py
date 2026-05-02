@@ -425,8 +425,9 @@ def run_bounded_scan(
         len(row0_witnesses) != ROW_SIZE
         or len(set(row0_witnesses)) != ROW_SIZE
         or 0 in row0_witnesses
+        or any(target < 0 or target >= N for target in row0_witnesses)
     ):
-        raise ValueError("row0_witnesses must contain four nonzero labels")
+        raise ValueError("row0_witnesses must contain four distinct labels from 1..8")
 
     if preferred_pattern is not None:
         validate_selected_pattern(preferred_pattern, n=N)
