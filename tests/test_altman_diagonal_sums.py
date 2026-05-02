@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from erdos97.altman_diagonal_sums import (
+    altman_order_linear_certificate,
     altman_order_lp_diagnostic,
     altman_order_obstruction,
     check_altman,
@@ -69,6 +70,22 @@ def test_c19_natural_order_fails_altman_lp_relaxation() -> None:
     assert result.max_margin <= result.tolerance
 
 
+def test_c19_natural_order_has_exact_altman_linear_certificate() -> None:
+    pattern = built_in_patterns()["C19_skew"]
+    result = altman_order_linear_certificate(
+        pattern.S, list(range(pattern.n)), pattern.name
+    )
+
+    assert result.status == "EXACT_ALTMAN_LINEAR_OBSTRUCTION"
+    assert result.trust_label == "EXACT_LINEAR_CERTIFICATE"
+    assert result.obstructed is True
+    assert result.certificate_method == "interval_dominance"
+    assert result.nonzero_gap_orders == [8]
+    assert result.positive_coefficient_count == 0
+    assert result.combined_nonzero_coefficients == []
+    assert result.weights == ["0", "0", "0", "0", "0", "0", "0", "1"]
+
+
 def test_c19_known_abstract_order_passes_altman_lp_relaxation() -> None:
     pattern = built_in_patterns()["C19_skew"]
     order = [18, 10, 7, 17, 6, 3, 5, 9, 14, 11, 2, 13, 4, 16, 12, 15, 0, 8, 1]
@@ -78,3 +95,13 @@ def test_c19_known_abstract_order_passes_altman_lp_relaxation() -> None:
     assert result.obstructed is False
     assert result.max_margin is not None
     assert result.max_margin > result.tolerance
+
+
+def test_c19_known_abstract_order_has_no_altman_linear_certificate() -> None:
+    pattern = built_in_patterns()["C19_skew"]
+    order = [18, 10, 7, 17, 6, 3, 5, 9, 14, 11, 2, 13, 4, 16, 12, 15, 0, 8, 1]
+    result = altman_order_linear_certificate(pattern.S, order, pattern.name)
+
+    assert result.status == "NO_EXACT_ALTMAN_LINEAR_CERTIFICATE_FOUND"
+    assert result.obstructed is False
+    assert result.weights == []

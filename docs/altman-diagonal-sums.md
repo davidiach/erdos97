@@ -147,3 +147,34 @@ signature obstruction above. For the known abstract `C19_skew` order, the
 optimum is `0.08333333333333333`, so this broader relaxation still does not
 kill that order. This is useful negative information, not evidence of
 geometric realizability.
+
+## Exact Linear Certificates
+
+The same adjacent-gap bookkeeping can emit an exact rational certificate:
+
+```bash
+python scripts/check_altman_diagonal_sums.py \
+  --pattern C19_skew \
+  --order 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 \
+  --rational-certificate \
+  --assert-natural-killed
+```
+
+A certificate is a nonnegative rational combination of adjacent Altman gaps
+`U_{k+1} - U_k` whose selected-distance-class coefficients are all
+nonpositive. If all adjacent Altman gaps were strictly positive, every
+nonzero nonnegative combination would be positive. The verified nonpositive
+coefficient vector is therefore an exact fixed-order obstruction.
+
+For natural-order `C19_skew`, the shortest certificate found uses the single
+adjacent gap
+
+```text
+U_9-U_8.
+```
+
+The selected rows force the formal coefficient vector to be identically zero,
+so Altman's strict inequality `U_8 < U_9` is impossible. The known abstract
+`C19_skew` order has no such rational certificate with denominator at most
+`1000` under the current search. That is only a certificate-search miss, not a
+realizability claim.
