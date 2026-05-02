@@ -47,6 +47,18 @@ python scripts/analyze_sparse_frontier.py \
 This distinguishes orders with an all-empty short-gap choice from orders that
 still admit an acyclic strict-radius inequality choice.
 
+To exactly optimize the row-local empty-gap count over cyclic orders:
+
+```bash
+python scripts/analyze_sparse_frontier.py \
+  --frontier \
+  --certify-empty-gap-bound
+```
+
+This branch-and-bound search fixes label `0` to quotient cyclic rotations. It
+does not quotient reversal. The objective is still only the current
+minimum-radius/radius-propagation filter's empty-gap row count.
+
 ## Snapshot
 
 | Pattern | n | all witness-pair sources | consecutive-pair sources | rows with uncovered consecutive pair | order-free blocked rows | order-free empty-gap rows | empty radius choice |
@@ -134,6 +146,37 @@ radius edges, matching the 8 rows without an uncovered consecutive pair. Even
 then, the radius-propagation filter still finds an acyclic choice. For `C19`,
 `C25`, and `C29`, the exact order-free empty-gap certificate explains why this
 heuristic cannot break the all-empty escape.
+
+The exact empty-gap bound below supersedes this heuristic as the sharp
+row-local benchmark for `C13`; the heuristic remains useful as a cheap stress
+test.
+
+## Exact Empty-Gap Bound
+
+With `--certify-empty-gap-bound`:
+
+| Pattern | status | explored nodes | certified minimum rows with an uncovered consecutive pair | certified maximum blocked rows | best radius status | optimized minimum acyclic edge count |
+|---|---|---:|---:|---:|---|---:|
+| `C19_skew` | `CERTIFIED_OPTIMUM` | 1 | 19 | 0 | `PASS_ACYCLIC_CHOICE` | 0 |
+| `C13_sidon_1_2_4_10` | `CERTIFIED_OPTIMUM` | 39610 | 3 | 10 | `PASS_ACYCLIC_CHOICE` | 10 |
+| `C25_sidon_2_5_9_14` | `CERTIFIED_OPTIMUM` | 1 | 25 | 0 | `PASS_ACYCLIC_CHOICE` | 0 |
+| `C29_sidon_1_3_7_15` | `CERTIFIED_OPTIMUM` | 1 | 29 | 0 | `PASS_ACYCLIC_CHOICE` | 0 |
+
+For `C19`, `C25`, and `C29`, the one-node certificate comes from the
+order-free empty-gap row certificates above: no row can be blocked in any
+cyclic order. For `C13`, the exact search proves that at least 3 rows must
+retain an uncovered consecutive pair in every cyclic order, and gives this
+extremal order:
+
+```text
+0, 1, 3, 11, 7, 5, 8, 10, 12, 2, 6, 4, 9
+```
+
+The three rows retaining an uncovered consecutive pair in that order are
+`0, 1, 7`. The remaining 10 rows are blocked for the local empty-gap test, but
+the radius-propagation optimizer still finds an acyclic choice with 10 strict
+radius edges. This is an exact benchmark for this filter, not a realization
+claim.
 
 ## Interpretation
 
