@@ -4,6 +4,8 @@ import sympy as sp
 
 from erdos97.two_orbit_radius_propagation import (
     alternating_turns,
+    linearized_escape_summary,
+    linearized_escape_to_json,
     selected_distance_residuals,
     summary_to_json,
     two_orbit_summary,
@@ -54,3 +56,26 @@ def test_json_summary_keeps_claim_boundary_explicit() -> None:
 
     assert row["status"] == "exact_ansatz_obstruction_not_general_proof"
     assert row["forced_concave"] is True
+
+
+def test_linearized_escape_exists_for_small_two_orbit_cases() -> None:
+    for t in (1, 2, 3):
+        summary = linearized_escape_summary(t)
+
+        assert summary.status == "LINEARIZED_ESCAPE_FOUND"
+        assert summary.trust_label == "NUMERICAL_LINEARIZED_DIAGNOSTIC"
+        assert summary.concave_turn_count == 4 * t
+        assert summary.kernel_dimension == 2 * t + 2
+        assert summary.min_concave_turn_derivative is not None
+        assert summary.min_concave_turn_derivative >= 1 - 1e-8
+        assert summary.max_abs_equality_jacobian_residual is not None
+        assert summary.max_abs_equality_jacobian_residual <= 1e-8
+
+
+def test_linearized_escape_json_keeps_claim_boundary_explicit() -> None:
+    row = linearized_escape_to_json(linearized_escape_summary(2))
+
+    assert row["type"] == "two_orbit_linearized_escape"
+    assert row["status"] == "LINEARIZED_ESCAPE_FOUND"
+    assert row["trust_label"] == "NUMERICAL_LINEARIZED_DIAGNOSTIC"
+    assert "not a counterexample" in str(row["interpretation"])
