@@ -15,6 +15,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from erdos97.altman_diagonal_sums import (  # noqa: E402
+    altman_order_linear_certificate,
     altman_order_lp_diagnostic,
     altman_order_obstruction,
     check_altman,
@@ -126,6 +127,17 @@ def main() -> int:
         help="with --order, run the numerical Altman-chain LP relaxation",
     )
     parser.add_argument(
+        "--rational-certificate",
+        action="store_true",
+        help="with --order, search for an exact rational Altman-chain certificate",
+    )
+    parser.add_argument(
+        "--max-denominator",
+        type=int,
+        default=1000,
+        help="maximum denominator for rationalized LP-dual certificate weights",
+    )
+    parser.add_argument(
         "--assert-expected",
         action="store_true",
         help="assert every registered expected output is selected and correct",
@@ -136,6 +148,10 @@ def main() -> int:
         help="assert every selected pattern has an Altman contradiction",
     )
     args = parser.parse_args()
+    if args.lp_diagnostic and args.rational_certificate:
+        raise SystemExit(
+            "--lp-diagnostic and --rational-certificate are mutually exclusive"
+        )
 
     patterns = built_in_patterns()
     if args.pattern:
@@ -149,7 +165,16 @@ def main() -> int:
         if len(selected) != 1:
             raise SystemExit("--order requires exactly one --pattern")
         pattern = selected[0]
-        if args.lp_diagnostic:
+        if args.rational_certificate:
+            row = dataclasses.asdict(
+                altman_order_linear_certificate(
+                    pattern.S,
+                    args.order,
+                    pattern.name,
+                    max_denominator=args.max_denominator,
+                )
+            )
+        elif args.lp_diagnostic:
             row = dataclasses.asdict(
                 altman_order_lp_diagnostic(pattern.S, args.order, pattern.name)
             )
@@ -160,7 +185,7 @@ def main() -> int:
         if args.assert_natural_killed:
             obstructed = (
                 bool(row.get("obstructed"))
-                if args.lp_diagnostic
+                if args.lp_diagnostic or args.rational_certificate
                 else bool(row["altman_contradiction"])
             )
             if not obstructed:
@@ -170,7 +195,13 @@ def main() -> int:
         if args.json:
             print(json.dumps(row, indent=2, sort_keys=True))
         else:
-            if args.lp_diagnostic:
+            if args.rational_certificate:
+                print("pattern  n  status                            nonzero gaps")
+                print(
+                    f"{row['pattern']}  {row['n']}  {row['status']}  "
+                    f"{row['nonzero_gap_orders']}"
+                )
+            elif args.lp_diagnostic:
                 print("pattern  n  status                           max margin")
                 print(
                     f"{row['pattern']}  {row['n']}  {row['status']}  "
