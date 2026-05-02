@@ -11,7 +11,7 @@ from __future__ import annotations
 import random
 from collections import Counter
 from dataclasses import dataclass
-from itertools import combinations
+from itertools import combinations, permutations
 from typing import Sequence
 
 from erdos97.min_radius_filter import (
@@ -68,6 +68,58 @@ def _source_profile(S: Pattern, pair: Pair) -> PairSourceProfile:
 
 def _histogram(values: Sequence[int]) -> dict[str, int]:
     return {str(key): count for key, count in sorted(Counter(values).items())}
+
+
+def _row_blocked_in_order(S: Pattern, order: Sequence[int], center: int) -> bool:
+    """Return True iff every short witness gap for ``center`` is covered."""
+
+    return all(
+        selected_pair_sources(S, *pair)
+        for pair in consecutive_witness_pairs(order, center, S[center])
+    )
+
+
+def _blocked_rows_in_order(S: Pattern, order: Sequence[int]) -> list[int]:
+    """Return centers with no uncovered consecutive witness pair."""
+
+    return [
+        center
+        for center in range(len(S))
+        if _row_blocked_in_order(S, order, center)
+    ]
+
+
+def _covered_local_cycles(S: Pattern, center: int) -> list[tuple[int, ...]]:
+    """Return local five-label cycles that make ``center`` row-blocked."""
+
+    cycles: list[tuple[int, ...]] = []
+    for witness_order in permutations(S[center]):
+        if all(
+            selected_pair_sources(S, a, b)
+            for a, b in zip(witness_order, witness_order[1:])
+        ):
+            cycles.append((center, *witness_order))
+    return cycles
+
+
+def _cycle_rotations(cycle: Sequence[int]) -> list[tuple[int, ...]]:
+    return [
+        tuple(cycle[offset:]) + tuple(cycle[:offset])
+        for offset in range(len(cycle))
+    ]
+
+
+def _prefix_can_still_block(
+    rotations: Sequence[tuple[int, ...]],
+    involved: set[int],
+    prefix: Sequence[int],
+) -> bool:
+    """Return whether future appended labels could make one row blocked."""
+
+    if not rotations:
+        return False
+    placed = tuple(label for label in prefix if label in involved)
+    return any(placed == rotation[: len(placed)] for rotation in rotations)
 
 
 def _sample_cyclic_orders(
@@ -339,6 +391,142 @@ def sample_empty_gap_orders(
             "Random cyclic-order sampling only, quotienting rotation and "
             "reversal for reporting. Failing to find an order without the "
             "empty-gap escape is not an exhaustive abstract-order theorem."
+        ),
+    }
+
+
+def certify_min_uncovered_consecutive_rows(
+    pattern_name: str,
+    S: Pattern,
+    node_limit: int = 1_000_000,
+    initial_order: Sequence[int] | None = None,
+) -> dict[str, object]:
+    """Certify the best possible empty-gap row count over cyclic orders.
+
+    The objective is row-local: minimize the number of centers whose four
+    witnesses have at least one uncovered consecutive pair.  Equivalently, this
+    maximizes rows that are blocked by the minimum-radius short-chord test.
+    The search fixes label 0 first, which quotients cyclic rotations but not
+    reversal.
+    """
+
+    validate_selected_pattern(S)
+    if node_limit <= 0:
+        raise ValueError("node_limit must be positive")
+    n = len(S)
+    if initial_order is None:
+        initial_order = list(range(n))
+    initial_order = normalize_cyclic_order(initial_order)
+    if len(initial_order) != n:
+        raise ValueError("initial order has wrong length")
+
+    local_cycles = [_covered_local_cycles(S, center) for center in range(n)]
+    row_rotations = []
+    row_involved = []
+    for cycles in local_cycles:
+        rotations = sorted(
+            {
+                rotation
+                for cycle in cycles
+                for rotation in _cycle_rotations(cycle)
+            }
+        )
+        row_rotations.append(rotations)
+        row_involved.append(set(rotations[0]) if rotations else set())
+
+    def possible_blocked_rows(prefix: Sequence[int]) -> list[int]:
+        return [
+            center
+            for center in range(n)
+            if _prefix_can_still_block(
+                row_rotations[center],
+                row_involved[center],
+                prefix,
+            )
+        ]
+
+    best_order = list(initial_order)
+    best_blocked_rows = _blocked_rows_in_order(S, best_order)
+    best_blocked_count = len(best_blocked_rows)
+    explored_nodes = 0
+    pruned_nodes = 0
+    hit_limit = False
+
+    def search(prefix: list[int], remaining: set[int]) -> None:
+        nonlocal best_order, best_blocked_rows, best_blocked_count
+        nonlocal explored_nodes, pruned_nodes, hit_limit
+
+        if hit_limit:
+            return
+        explored_nodes += 1
+        if explored_nodes > node_limit:
+            hit_limit = True
+            return
+
+        possible = possible_blocked_rows(prefix)
+        if len(possible) <= best_blocked_count:
+            pruned_nodes += 1
+            return
+        if not remaining:
+            blocked = _blocked_rows_in_order(S, prefix)
+            if len(blocked) > best_blocked_count:
+                best_blocked_count = len(blocked)
+                best_blocked_rows = blocked
+                best_order = list(prefix)
+            return
+
+        candidates = []
+        for label in remaining:
+            next_prefix = [*prefix, label]
+            candidates.append((len(possible_blocked_rows(next_prefix)), label))
+        for _, label in sorted(candidates):
+            next_remaining = set(remaining)
+            next_remaining.remove(label)
+            search([*prefix, label], next_remaining)
+
+    search([0], set(range(1, n)))
+
+    search_complete = not hit_limit
+    rows_with_uncovered = [
+        center for center in range(n) if center not in set(best_blocked_rows)
+    ]
+    radius = radius_propagation_obstruction(S, order=best_order)
+    minimization = optimize_radius_choice_edges(S, order=best_order, objective="min")
+    status = "CERTIFIED_OPTIMUM" if search_complete else "UNKNOWN_NODE_LIMIT"
+    return {
+        "type": "sparse_frontier_empty_gap_order_bound",
+        "pattern": pattern_name,
+        "n": n,
+        "status": status,
+        "search_complete": search_complete,
+        "node_limit": node_limit,
+        "explored_nodes": explored_nodes,
+        "pruned_nodes": pruned_nodes,
+        "rotation_quotient_fixed_label": 0,
+        "reversal_quotiented": False,
+        "best_order": best_order,
+        "best_rows_with_uncovered_consecutive_pair": rows_with_uncovered,
+        "best_rows_without_uncovered_consecutive_pair": best_blocked_rows,
+        "best_rows_with_uncovered_consecutive_pair_count": len(rows_with_uncovered),
+        "max_blocked_rows_found": best_blocked_count,
+        "certified_min_rows_with_uncovered_consecutive_pair": (
+            len(rows_with_uncovered) if search_complete else None
+        ),
+        "certified_max_blocked_rows": (
+            best_blocked_count if search_complete else None
+        ),
+        "covered_local_cycle_counts": [
+            len(cycles) for cycles in local_cycles
+        ],
+        "best_radius_propagation": _radius_summary(radius),
+        "best_radius_choice_minimization": _radius_optimization_summary(
+            minimization
+        ),
+        "semantics": (
+            "Exact branch-and-bound over cyclic orders when search_complete is "
+            "true. The objective is only the row-local empty-gap count for the "
+            "minimum-radius/radius-propagation filter; it is not a geometric "
+            "realizability test."
         ),
     }
 

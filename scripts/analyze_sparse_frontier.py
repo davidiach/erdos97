@@ -15,6 +15,7 @@ if str(SRC) not in sys.path:
 
 from erdos97.search import built_in_patterns  # noqa: E402
 from erdos97.sparse_frontier import (  # noqa: E402
+    certify_min_uncovered_consecutive_rows,
     sample_empty_gap_orders,
     sample_radius_propagation_orders,
     search_adversarial_orders,
@@ -132,6 +133,23 @@ def print_adversarial_summary(rows: list[dict[str, object]]) -> None:
         )
 
 
+def print_bound_summary(rows: list[dict[str, object]]) -> None:
+    print(
+        "pattern  n  status  explored  pruned  certified-min-uncovered  "
+        "certified-max-blocked  best-radius-status  optimized-min-edges"
+    )
+    for row in rows:
+        radius = row["best_radius_propagation"]
+        optimization = row["best_radius_choice_minimization"]
+        print(
+            f"{row['pattern']}  {row['n']}  {row['status']}  "
+            f"{row['explored_nodes']}  {row['pruned_nodes']}  "
+            f"{row['certified_min_rows_with_uncovered_consecutive_pair']}  "
+            f"{row['certified_max_blocked_rows']}  "
+            f"{radius['status']}  {optimization['edge_count']}"
+        )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     target = parser.add_mutually_exclusive_group(required=True)
@@ -169,6 +187,11 @@ def main() -> int:
         type=int,
         help="sample this many random starts and hill-climb adversarial cyclic orders",
     )
+    parser.add_argument(
+        "--certify-empty-gap-bound",
+        action="store_true",
+        help="exactly optimize the empty-gap row count over cyclic orders",
+    )
     parser.add_argument("--sample-seed", type=int, default=0)
     parser.add_argument(
         "--sample-radius-propagation",
@@ -180,6 +203,12 @@ def main() -> int:
         type=int,
         default=100_000,
         help="node limit for the sampled radius-propagation filter",
+    )
+    parser.add_argument(
+        "--empty-gap-bound-node-limit",
+        type=int,
+        default=1_000_000,
+        help="node limit for --certify-empty-gap-bound",
     )
     parser.add_argument("--adversarial-restarts", type=int, default=8)
     parser.add_argument("--adversarial-steps", type=int, default=200)
@@ -199,13 +228,30 @@ def main() -> int:
         raise SystemExit("--sample-orders cannot be combined with --order")
     if args.adversarial_orders is not None and args.order is not None:
         raise SystemExit("--adversarial-orders cannot be combined with --order")
+    if args.certify_empty_gap_bound and args.order is not None:
+        raise SystemExit("--certify-empty-gap-bound cannot be combined with --order")
     if args.sample_orders is not None and args.adversarial_orders is not None:
         raise SystemExit("--sample-orders cannot be combined with --adversarial-orders")
+    if args.certify_empty_gap_bound and args.sample_orders is not None:
+        raise SystemExit("--certify-empty-gap-bound cannot be combined with --sample-orders")
+    if args.certify_empty_gap_bound and args.adversarial_orders is not None:
+        raise SystemExit(
+            "--certify-empty-gap-bound cannot be combined with --adversarial-orders"
+        )
     if args.sample_radius_propagation and args.sample_orders is None:
         raise SystemExit("--sample-radius-propagation requires --sample-orders")
 
     if args.sample_orders is None:
-        if args.adversarial_orders is None:
+        if args.certify_empty_gap_bound:
+            rows = [
+                certify_min_uncovered_consecutive_rows(
+                    name,
+                    patterns[name].S,
+                    node_limit=args.empty_gap_bound_node_limit,
+                )
+                for name in names
+            ]
+        elif args.adversarial_orders is None:
             rows = [
                 sparse_frontier_summary(
                     name,
@@ -258,7 +304,12 @@ def main() -> int:
 
     if args.assert_empty_choice:
         for row in rows:
-            if args.sample_orders is None:
+            if args.certify_empty_gap_bound:
+                ok = (
+                    row["certified_min_rows_with_uncovered_consecutive_pair"]
+                    == row["n"]
+                )
+            elif args.sample_orders is None:
                 ok = row["trivial_empty_radius_choice_exists"]
             else:
                 ok = row["empty_choice_orders"] == row["orders_checked"]
@@ -270,7 +321,9 @@ def main() -> int:
     if args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     else:
-        if args.adversarial_orders is not None:
+        if args.certify_empty_gap_bound:
+            print_bound_summary(rows)
+        elif args.adversarial_orders is not None:
             print_adversarial_summary(rows)
         elif args.sample_orders is None:
             print_summary(rows)
