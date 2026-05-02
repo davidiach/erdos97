@@ -15,6 +15,8 @@ if str(SRC) not in sys.path:
 
 from erdos97.min_radius_filter import (  # noqa: E402
     minimum_radius_order_obstruction,
+    radius_propagation_order_obstruction,
+    radius_result_to_json,
     result_to_json,
 )
 from erdos97.search import built_in_patterns  # noqa: E402
@@ -28,16 +30,29 @@ def parse_order(raw: str) -> list[int]:
 
 
 def assert_obstructed(row: dict[str, object]) -> None:
-    if not row["obstructed"]:
+    if row["obstructed"] is not True:
         raise AssertionError(f"{row['pattern']}: expected obstruction")
 
 
 def assert_pass(row: dict[str, object]) -> None:
-    if row["obstructed"]:
+    if row["obstructed"] is not False:
         raise AssertionError(f"{row['pattern']}: expected pass")
 
 
 def print_summary(row: dict[str, object]) -> None:
+    if row["type"] == "radius_propagation_order_result":
+        print(
+            "pattern  n  result                         nodes  max depth  "
+            "choice count  acyclic choice"
+        )
+        print(
+            f"{row['pattern']}  {row['n']}  {row['status']}  "
+            f"{row['nodes_visited']}  {row['max_depth']}  "
+            f"{row['short_gap_choice_count']}  "
+            f"{row['acyclic_choice'] is not None}"
+        )
+        return
+
     result = "OBSTRUCTED" if row["obstructed"] else "PASS"
     print(
         "pattern  n  result      blocked centers  possible minimum centers  "
@@ -63,6 +78,16 @@ def main() -> int:
     parser.add_argument("--json", action="store_true", help="print JSON instead of a summary")
     parser.add_argument("--assert-obstructed", action="store_true", help="assert obstruction")
     parser.add_argument("--assert-pass", action="store_true", help="assert no obstruction")
+    parser.add_argument(
+        "--radius-propagation",
+        action="store_true",
+        help="run the stronger fixed-order radius-propagation cycle search",
+    )
+    parser.add_argument(
+        "--max-nodes",
+        type=int,
+        help="optional node cap for the radius-propagation search",
+    )
     parser.add_argument("--write-certificate", help="write JSON result to this path")
     args = parser.parse_args()
 
@@ -71,12 +96,21 @@ def main() -> int:
         raise SystemExit(f"unknown pattern {args.pattern}; known: {', '.join(patterns)}")
     pattern = patterns[args.pattern]
 
-    result = minimum_radius_order_obstruction(
-        pattern.S,
-        order=args.order,
-        pattern=pattern.name,
-    )
-    row = result_to_json(result)
+    if args.radius_propagation:
+        result = radius_propagation_order_obstruction(
+            pattern.S,
+            order=args.order,
+            pattern=pattern.name,
+            max_nodes=args.max_nodes,
+        )
+        row = radius_result_to_json(result)
+    else:
+        result = minimum_radius_order_obstruction(
+            pattern.S,
+            order=args.order,
+            pattern=pattern.name,
+        )
+        row = result_to_json(result)
 
     if args.assert_obstructed:
         assert_obstructed(row)
