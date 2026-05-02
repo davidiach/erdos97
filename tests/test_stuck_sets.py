@@ -93,3 +93,15 @@ def test_c19_skew_snapshot_records_sparse_filter_wall() -> None:
     assert stuck.examples[0].vertices == list(range(8))
     assert not greedy.success
     assert len(greedy.terminal_vertices) >= 4
+
+
+def test_large_sidon_fragile_cover_window_is_truncated() -> None:
+    pattern = built_in_patterns()["C25_sidon_2_5_9_14"]
+
+    fragile = fragile_cover_snapshot(pattern.S, max_cover_size=7)
+    stats = fragile["cover_stats"]
+
+    assert stats["status"] == "SEARCHED"
+    assert stats["cover_exists"] is False
+    assert stats["search_complete"] is False
+    assert stats["searched_up_to_size"] == 7

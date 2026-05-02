@@ -128,8 +128,10 @@ def _candidate_rejection(
     if config.require_fragile_cover:
         if fragile["status"] != "SEARCHED":
             return "fragile_cover_not_searched"
-        if not fragile["cover_exists"]:
+        if not fragile["cover_exists"] and fragile.get("search_complete"):
             return "fragile_cover"
+        if not fragile["cover_exists"]:
+            return "fragile_cover_not_found_in_window"
 
     if config.require_no_forward_ear_order and forward_ear_order(rows).exists:
         return "forward_ear_order"
