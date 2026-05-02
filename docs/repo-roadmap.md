@@ -15,7 +15,9 @@
 - Add exact/interval infeasibility checks for small fixed patterns.
 - Maintain the checked `n=8` incidence-completeness and exact-obstruction
   artifacts.
-- Use the `n=8` pipeline as the model for the first `n=9` frontier attempt.
+- Use the `n=8` pipeline as the model for the first `n=9` frontier attempt,
+  starting from the corrected profile-excess / capacity-deficit ledger in
+  `docs/n9-base-apex-frontier.md`.
 
 ## Phase 3: numerical exploration
 

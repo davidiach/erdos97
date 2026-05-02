@@ -131,6 +131,16 @@ cases, and confirms that the registered sparse non-natural orders remain
 invisible to phi4 traps because they have no `phi` edges. This is negative
 filter information only, not evidence of realizability.
 
+The bounded `n=9` incidence/CSP frontier scan in
+`data/certificates/n9_incidence_frontier_bounded.json` fixes the natural order
+and row `0` to the registered seed row `{1,2,3,8}`. In that row0-fixed slice,
+the default run completes before its explicit limits: it checks 3 full patterns,
+killing 1 by an odd forced-perpendicularity cycle and 1 by the phi4
+rectangle-trap filter, leaving 1 `accepted_frontier` incidence/order pattern
+for later filters. This is a bounded diagnostic slice only, not an `n=9`
+completeness theorem. See `docs/n9-incidence-frontier.md` and
+`scripts/check_n9_incidence_frontier.py`.
+
 The row-circle Ptolemy diagnostic in
 `docs/row-circle-ptolemy-nlp.md` adds the Ptolemy equality forced by each
 selected witness quadruple being concyclic around its center. It numerically
@@ -138,7 +148,10 @@ obstructs the registered `C19_skew` abstract order with margin about
 `-0.00264843`; this is `NUMERICAL_NONLINEAR_DIAGNOSTIC` only and requires
 exactification before it can be used as an obstruction. The registered
 `C13_sidon_1_2_4_10` order currently records optimizer failure, not a clean
-obstruction.
+obstruction. The follow-up active-set artifact
+`data/certificates/c19_row_circle_ptolemy_active_set.json` records the
+optimized C19 distance classes and tight numerical constraints for
+exactification work; it is not an exact certificate.
 
 Under the natural cyclic order, `P18_parity_balanced` and
 `P24_parity_balanced` are killed by adjacent-row two-overlap via the

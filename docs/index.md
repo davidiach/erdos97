@@ -94,6 +94,8 @@ put detailed reconciliation in the canonical synthesis.
 - [`prompt-roadmap.md`](prompt-roadmap.md): prompt-derived planning roadmap and
   next recommended workstreams; heuristic guidance only, not mathematical
   evidence.
+- [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
+  slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`repo-roadmap.md`](repo-roadmap.md): staged repository plan.
 - [`initial-issues.md`](initial-issues.md): seed issue list.
 - [`../AGENTS.md`](../AGENTS.md): repository-level Codex guidance.

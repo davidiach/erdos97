@@ -338,6 +338,13 @@ numerically obstruct one registered sparse-order survivor:
 This is not an exact obstruction. The `C19` result is an exactification target;
 the `C13` result is only an optimizer-failure diagnostic.
 
+The follow-up active-set snapshot
+`data/certificates/c19_row_circle_ptolemy_active_set.json` records the
+optimized C19 quotient distances together with the 22 tight linear rows, 74
+tight global Ptolemy rows, and 19 row-circle equality rows. It is numerical
+support data only, intended to make a later exact certificate search
+reproducible.
+
 ## Interpretation
 
 The radius-propagation filter chooses one possible short consecutive witness

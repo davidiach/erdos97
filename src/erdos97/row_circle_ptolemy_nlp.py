@@ -45,6 +45,13 @@ class RowCirclePtolemyNLPResult:
     row_ptolemy_rms_residual: float | None
     tight_linear_count: int
     tight_ptolemy_count: int
+    solution: list[float] | None = None
+    distance_classes: list[tuple[int, int]] | None = None
+    linear_rows: list[list[float]] | None = None
+    ptolemy_quadruples: list[tuple[int, int, int, int]] | None = None
+    ptolemy_indices: list[tuple[int, int, int, int, int, int]] | None = None
+    row_ptolemy_quadruples: list[tuple[int, int, int, int, int]] | None = None
+    row_ptolemy_indices: list[tuple[int, int, int, int, int, int]] | None = None
 
 
 def _ptolemy_value(x, indices: tuple[int, int, int, int, int, int]) -> float:
@@ -59,6 +66,7 @@ def row_circle_ptolemy_nlp_diagnostic(
     *,
     tolerance: float = 1e-8,
     maxiter: int = 3000,
+    include_solution: bool = False,
 ) -> RowCirclePtolemyNLPResult:
     """Run the row-circle Ptolemy nonlinear diagnostic for one fixed order."""
 
@@ -100,33 +108,22 @@ def row_circle_ptolemy_nlp_diagnostic(
             row_ptolemy_rms_residual=None,
             tight_linear_count=0,
             tight_ptolemy_count=0,
+            distance_classes=_json_pairs(class_reps) if include_solution else None,
+            linear_rows=_json_matrix(linear_rows) if include_solution else None,
         )
 
     _, minimize = _optimization()
+    ptolemy_quadruples = [tuple(item) for item in combinations(order, 4)]
     ptolemy_indices = [
-        (
-            class_idx(a, c),
-            class_idx(b, d),
-            class_idx(a, b),
-            class_idx(c, d),
-            class_idx(b, c),
-            class_idx(a, d),
-        )
-        for a, b, c, d in combinations(order, 4)
+        _ptolemy_indices(class_idx, a, b, c, d)
+        for a, b, c, d in ptolemy_quadruples
     ]
+    row_ptolemy_quadruples = []
     row_ptolemy_indices = []
     for center in range(n):
         a, b, c, d = angular_witness_order(order, center, S[center])
-        row_ptolemy_indices.append(
-            (
-                class_idx(a, c),
-                class_idx(b, d),
-                class_idx(a, b),
-                class_idx(c, d),
-                class_idx(b, c),
-                class_idx(a, d),
-            )
-        )
+        row_ptolemy_quadruples.append((center, a, b, c, d))
+        row_ptolemy_indices.append(_ptolemy_indices(class_idx, a, b, c, d))
 
     def linear_slacks(variables):
         return -linear_rows @ variables
@@ -208,7 +205,247 @@ def row_circle_ptolemy_nlp_diagnostic(
         row_ptolemy_rms_residual=row_rms,
         tight_linear_count=int((lin <= tolerance).sum()),
         tight_ptolemy_count=int((ptolemy <= tolerance).sum()),
+        solution=[float(value) for value in result.x] if include_solution else None,
+        distance_classes=_json_pairs(class_reps) if include_solution else None,
+        linear_rows=_json_matrix(linear_rows) if include_solution else None,
+        ptolemy_quadruples=(
+            [tuple(int(label) for label in item) for item in ptolemy_quadruples]
+            if include_solution
+            else None
+        ),
+        ptolemy_indices=(
+            [tuple(int(idx) for idx in item) for item in ptolemy_indices]
+            if include_solution
+            else None
+        ),
+        row_ptolemy_quadruples=(
+            [tuple(int(label) for label in item) for item in row_ptolemy_quadruples]
+            if include_solution
+            else None
+        ),
+        row_ptolemy_indices=(
+            [tuple(int(idx) for idx in item) for item in row_ptolemy_indices]
+            if include_solution
+            else None
+        ),
     )
+
+
+def _ptolemy_indices(
+    class_idx,
+    a: int,
+    b: int,
+    c: int,
+    d: int,
+) -> tuple[int, int, int, int, int, int]:
+    return (
+        class_idx(a, c),
+        class_idx(b, d),
+        class_idx(a, b),
+        class_idx(c, d),
+        class_idx(b, c),
+        class_idx(a, d),
+    )
+
+
+def _json_pairs(pairs: Sequence[tuple[int, int]]) -> list[tuple[int, int]]:
+    return [tuple(int(label) for label in pair) for pair in pairs]
+
+
+def _json_matrix(matrix) -> list[list[float]]:
+    return [[float(value) for value in row] for row in matrix]
+
+
+def solution_snapshot_to_json(
+    result: RowCirclePtolemyNLPResult,
+    *,
+    tight_tolerance: float | None = None,
+) -> dict[str, object]:
+    """Return an active-set snapshot for exactification work.
+
+    The snapshot records the numerical solution and the active linear/Ptolemy
+    constraints. It is diagnostic data only, not an exact certificate.
+    """
+
+    if tight_tolerance is None:
+        tight_tolerance = result.tolerance
+    if tight_tolerance < 0:
+        raise ValueError("tight_tolerance must be nonnegative")
+    if (
+        result.solution is None
+        or result.distance_classes is None
+        or result.linear_rows is None
+        or result.ptolemy_quadruples is None
+        or result.ptolemy_indices is None
+        or result.row_ptolemy_quadruples is None
+        or result.row_ptolemy_indices is None
+    ):
+        raise ValueError("run diagnostic with include_solution=True before snapshotting")
+
+    class_count = result.distance_class_count
+    x = result.solution[:class_count]
+    gamma = result.solution[class_count]
+    linear_rows = [
+        _linear_row_to_json(idx, row, result.distance_classes, x, gamma)
+        for idx, row in enumerate(result.linear_rows)
+    ]
+    tight_linear_rows = [
+        row for row in linear_rows if row["slack"] <= tight_tolerance
+    ]
+    ptolemy_rows = [
+        _ptolemy_row_to_json(idx, quad, indices, x, result.distance_classes)
+        for idx, (quad, indices) in enumerate(
+            zip(result.ptolemy_quadruples, result.ptolemy_indices)
+        )
+    ]
+    tight_ptolemy_rows = [
+        row for row in ptolemy_rows if row["slack"] <= tight_tolerance
+    ]
+    row_ptolemy_rows = [
+        _row_ptolemy_row_to_json(quad, indices, x, result.distance_classes)
+        for quad, indices in zip(
+            result.row_ptolemy_quadruples,
+            result.row_ptolemy_indices,
+        )
+    ]
+
+    return {
+        "type": "row_circle_ptolemy_nlp_solution_snapshot_v1",
+        "trust": result.trust_label,
+        "status": result.status,
+        "pattern": result.pattern,
+        "n": result.n,
+        "order": result.order,
+        "tolerance": result.tolerance,
+        "tight_tolerance": tight_tolerance,
+        "optimizer_success": result.optimizer_success,
+        "optimizer_iterations": result.optimizer_iterations,
+        "optimizer_message": result.optimizer_message,
+        "max_margin": result.max_margin,
+        "gamma": gamma,
+        "linear_min_slack": result.linear_min_slack,
+        "ptolemy_min_slack": result.ptolemy_min_slack,
+        "row_ptolemy_max_abs_residual": result.row_ptolemy_max_abs_residual,
+        "distance_classes": [
+            {
+                "index": idx,
+                "pair": list(pair),
+                "value": float(value),
+            }
+            for idx, (pair, value) in enumerate(zip(result.distance_classes, x))
+        ],
+        "tight_linear_rows": tight_linear_rows,
+        "tight_ptolemy_rows": tight_ptolemy_rows,
+        "row_ptolemy_rows": row_ptolemy_rows,
+        "counts": {
+            "distance_classes": class_count,
+            "linear_rows": result.linear_inequality_count,
+            "tight_linear_rows": len(tight_linear_rows),
+            "ptolemy_rows": result.ptolemy_inequality_count,
+            "tight_ptolemy_rows": len(tight_ptolemy_rows),
+            "row_ptolemy_rows": result.row_ptolemy_equality_count,
+        },
+        "notes": [
+            "No general proof of Erdos Problem #97 is claimed.",
+            "No counterexample is claimed.",
+            "This is a numerical active-set snapshot for exactification work.",
+            "Floating-point active sets and distances are not exact certificates.",
+        ],
+    }
+
+
+def _linear_row_to_json(
+    idx: int,
+    row: Sequence[float],
+    distance_classes: Sequence[tuple[int, int]],
+    x: Sequence[float],
+    gamma: float,
+) -> dict[str, object]:
+    class_count = len(distance_classes)
+    slack = -sum(row[col] * x[col] for col in range(class_count))
+    slack -= row[class_count] * gamma
+    support = [
+        {
+            "class_index": col,
+            "pair": list(distance_classes[col]),
+            "coefficient": _small_int_or_float(row[col]),
+        }
+        for col in range(class_count)
+        if row[col] != 0.0
+    ]
+    return {
+        "index": idx,
+        "slack": float(slack),
+        "gamma_coefficient": _small_int_or_float(row[class_count]),
+        "support": support,
+    }
+
+
+def _ptolemy_row_to_json(
+    idx: int,
+    quadruple: Sequence[int],
+    indices: tuple[int, int, int, int, int, int],
+    x: Sequence[float],
+    distance_classes: Sequence[tuple[int, int]],
+) -> dict[str, object]:
+    value = _ptolemy_value(x, indices)
+    return {
+        "index": idx,
+        "vertices": [int(label) for label in quadruple],
+        "slack": float(value),
+        "classes": _ptolemy_class_json(indices, distance_classes),
+        "terms": _ptolemy_terms_json(indices, x),
+    }
+
+
+def _row_ptolemy_row_to_json(
+    quadruple: Sequence[int],
+    indices: tuple[int, int, int, int, int, int],
+    x: Sequence[float],
+    distance_classes: Sequence[tuple[int, int]],
+) -> dict[str, object]:
+    center, a, b, c, d = quadruple
+    value = _ptolemy_value(x, indices)
+    return {
+        "center": int(center),
+        "witnesses": [int(a), int(b), int(c), int(d)],
+        "residual": float(value),
+        "classes": _ptolemy_class_json(indices, distance_classes),
+        "terms": _ptolemy_terms_json(indices, x),
+    }
+
+
+def _ptolemy_class_json(
+    indices: tuple[int, int, int, int, int, int],
+    distance_classes: Sequence[tuple[int, int]],
+) -> dict[str, object]:
+    labels = ["ac", "bd", "ab", "cd", "bc", "ad"]
+    return {
+        label: {
+            "class_index": int(class_index),
+            "pair": list(distance_classes[class_index]),
+        }
+        for label, class_index in zip(labels, indices)
+    }
+
+
+def _ptolemy_terms_json(
+    indices: tuple[int, int, int, int, int, int],
+    x: Sequence[float],
+) -> dict[str, float]:
+    ac, bd, ab, cd, bc, ad = indices
+    return {
+        "ab_cd": float(x[ab] * x[cd]),
+        "bc_ad": float(x[bc] * x[ad]),
+        "ac_bd": float(x[ac] * x[bd]),
+    }
+
+
+def _small_int_or_float(value: float) -> int | float:
+    rounded = round(value)
+    if abs(value - rounded) < 1e-12:
+        return int(rounded)
+    return float(value)
 
 
 def result_to_json(result: RowCirclePtolemyNLPResult) -> dict[str, object]:
