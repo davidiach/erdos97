@@ -124,6 +124,13 @@ is a fixed-pattern obstruction only, not an `n=9` completeness theorem. See
 `scripts/check_phi4_rectangle_trap.py`, and
 `data/certificates/n9_phi4_rectangle_trap.json`.
 
+The reusable frontier scan in `data/certificates/phi4_frontier_scan.json`
+applies the same filter to registered fixed-order cases. It records the
+registered `n=9` pattern as the only current positive hit among the scanned
+cases, and confirms that the registered sparse non-natural orders remain
+invisible to phi4 traps because they have no `phi` edges. This is negative
+filter information only, not evidence of realizability.
+
 Under the natural cyclic order, `P18_parity_balanced` and
 `P24_parity_balanced` are killed by adjacent-row two-overlap via the
 crossing-bisector lemma. As abstract incidence patterns with arbitrary cyclic
