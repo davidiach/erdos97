@@ -91,6 +91,38 @@ the 176 sampled `C13` orders without an all-empty choice still passed by an
 acyclic radius-inequality assignment. This is negative evidence about the
 current radius-propagation filter, not evidence for geometric realizability.
 
+## Adversarial Order Search
+
+The random sampler can also seed a heuristic swap hill-climb that looks for
+cyclic orders with fewer rows admitting uncovered consecutive witness pairs:
+
+```bash
+python scripts/analyze_sparse_frontier.py \
+  --frontier \
+  --adversarial-orders 50 \
+  --sample-seed 0 \
+  --adversarial-restarts 6 \
+  --adversarial-steps 80
+```
+
+This is not exhaustive. It is a way to produce better stress tests for the
+same fixed-order necessary filter.
+
+With that deterministic run:
+
+| Pattern | orders evaluated | minimum rows with an uncovered consecutive pair | radius status histogram | best acyclic edge count |
+|---|---:|---:|---|---:|
+| `C19_skew` | 529 | 19 | `{PASS_ACYCLIC_CHOICE: 529}` | 0 |
+| `C13_sidon_1_2_4_10` | 496 | 5 | `{PASS_ACYCLIC_CHOICE: 496}` | 8 |
+| `C25_sidon_2_5_9_14` | 530 | 25 | `{PASS_ACYCLIC_CHOICE: 530}` | 0 |
+| `C29_sidon_1_3_7_15` | 531 | 29 | `{PASS_ACYCLIC_CHOICE: 531}` | 0 |
+
+For `C13`, this produces much more adversarial cyclic orders than passive
+sampling: only 5 of 13 rows retain an uncovered consecutive pair in the best
+found orders. Even then, the radius-propagation filter still finds an acyclic
+choice. For `C19`, `C25`, and `C29`, the same heuristic did not break the
+all-empty escape.
+
 ## Interpretation
 
 The radius-propagation filter chooses one possible short consecutive witness

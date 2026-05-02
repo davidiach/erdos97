@@ -17,6 +17,7 @@ from erdos97.search import built_in_patterns  # noqa: E402
 from erdos97.sparse_frontier import (  # noqa: E402
     sample_empty_gap_orders,
     sample_radius_propagation_orders,
+    search_adversarial_orders,
     sparse_frontier_summary,
 )
 
@@ -98,6 +99,30 @@ def print_sample_summary(rows: list[dict[str, object]]) -> None:
             )
 
 
+def print_adversarial_summary(rows: list[dict[str, object]]) -> None:
+    print(
+        "pattern  n  evaluated  min-uncovered-rows  "
+        "row-count-histogram  radius-status  best-radius-status  "
+        "best-edges  best-explored"
+    )
+    for row in rows:
+        examples = row["best_examples"]
+        best = examples[0] if isinstance(examples, list) and examples else None
+        radius = (
+            best["radius_propagation"]
+            if isinstance(best, dict)
+            else {"status": None, "acyclic_edge_count": None, "explored_nodes": None}
+        )
+        print(
+            f"{row['pattern']}  {row['n']}  {row['orders_evaluated']}  "
+            f"{row['min_rows_with_uncovered_consecutive_pair']}  "
+            f"{row['rows_with_uncovered_consecutive_histogram']}  "
+            f"{row['radius_status_histogram']}  "
+            f"{radius['status']}  {radius['acyclic_edge_count']}  "
+            f"{radius['explored_nodes']}"
+        )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     target = parser.add_mutually_exclusive_group(required=True)
@@ -130,6 +155,11 @@ def main() -> int:
         type=int,
         help="sample this many random cyclic orders in addition to natural order",
     )
+    parser.add_argument(
+        "--adversarial-orders",
+        type=int,
+        help="sample this many random starts and hill-climb adversarial cyclic orders",
+    )
     parser.add_argument("--sample-seed", type=int, default=0)
     parser.add_argument(
         "--sample-radius-propagation",
@@ -142,6 +172,8 @@ def main() -> int:
         default=100_000,
         help="node limit for the sampled radius-propagation filter",
     )
+    parser.add_argument("--adversarial-restarts", type=int, default=8)
+    parser.add_argument("--adversarial-steps", type=int, default=200)
     args = parser.parse_args()
 
     patterns = built_in_patterns()
@@ -156,19 +188,39 @@ def main() -> int:
 
     if args.sample_orders is not None and args.order is not None:
         raise SystemExit("--sample-orders cannot be combined with --order")
+    if args.adversarial_orders is not None and args.order is not None:
+        raise SystemExit("--adversarial-orders cannot be combined with --order")
+    if args.sample_orders is not None and args.adversarial_orders is not None:
+        raise SystemExit("--sample-orders cannot be combined with --adversarial-orders")
     if args.sample_radius_propagation and args.sample_orders is None:
         raise SystemExit("--sample-radius-propagation requires --sample-orders")
 
     if args.sample_orders is None:
-        rows = [
-            sparse_frontier_summary(
-                name,
-                patterns[name].S,
-                order=args.order,
-                max_row_examples=args.max_row_examples,
-            )
-            for name in names
-        ]
+        if args.adversarial_orders is None:
+            rows = [
+                sparse_frontier_summary(
+                    name,
+                    patterns[name].S,
+                    order=args.order,
+                    max_row_examples=args.max_row_examples,
+                )
+                for name in names
+            ]
+        else:
+            rows = [
+                search_adversarial_orders(
+                    name,
+                    patterns[name].S,
+                    random_samples=args.adversarial_orders,
+                    seed=args.sample_seed,
+                    include_natural=True,
+                    restarts=args.adversarial_restarts,
+                    local_steps=args.adversarial_steps,
+                    max_examples=args.max_row_examples,
+                    node_limit=args.radius_node_limit,
+                )
+                for name in names
+            ]
     elif args.sample_radius_propagation:
         rows = [
             sample_radius_propagation_orders(
@@ -209,7 +261,9 @@ def main() -> int:
     if args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     else:
-        if args.sample_orders is None:
+        if args.adversarial_orders is not None:
+            print_adversarial_summary(rows)
+        elif args.sample_orders is None:
             print_summary(rows)
         else:
             print_sample_summary(rows)

@@ -331,6 +331,57 @@ def _radius_summary(order_result: RadiusPropagationResult) -> dict[str, object]:
     }
 
 
+def _order_radius_item(
+    pattern_name: str,
+    S: Pattern,
+    order: Sequence[int],
+    node_limit: int,
+) -> dict[str, object]:
+    n = len(S)
+    summary = sparse_frontier_summary(
+        pattern_name,
+        S,
+        order=order,
+        max_row_examples=0,
+    )
+    rows = list(summary["rows_with_uncovered_consecutive_pair"])
+    missing = [center for center in range(n) if center not in rows]
+    radius = radius_propagation_obstruction(
+        S,
+        order=order,
+        node_limit=node_limit,
+    )
+    return {
+        "order": list(order),
+        "rows_with_uncovered_consecutive_pair": rows,
+        "rows_without_uncovered_consecutive_pair": missing,
+        "trivial_empty_radius_choice_exists": len(rows) == n,
+        "radius_propagation": _radius_summary(radius),
+    }
+
+
+def _adversarial_score(item: dict[str, object]) -> tuple[int, int, int, int]:
+    rows = item["rows_with_uncovered_consecutive_pair"]
+    radius = item["radius_propagation"]
+    if not isinstance(rows, list) or not isinstance(radius, dict):
+        raise TypeError("invalid adversarial item")
+    status = radius["status"]
+    if status == "RADIUS_CYCLE_OBSTRUCTED":
+        status_rank = 0
+    elif status == "UNKNOWN_NODE_LIMIT":
+        status_rank = 1
+    else:
+        status_rank = 2
+    edge_count = radius["acyclic_edge_count"]
+    explored = radius["explored_nodes"]
+    return (
+        len(rows),
+        status_rank,
+        -(int(edge_count) if edge_count is not None else -1),
+        -int(explored),
+    )
+
+
 def sample_radius_propagation_orders(
     pattern_name: str,
     S: Pattern,
@@ -441,5 +492,130 @@ def sample_radius_propagation_orders(
             "PASS_ACYCLIC_CHOICE is not evidence of geometric realizability; "
             "it only means that this radius-cycle filter did not obstruct "
             "that order."
+        ),
+    }
+
+
+def search_adversarial_orders(
+    pattern_name: str,
+    S: Pattern,
+    random_samples: int = 100,
+    seed: int = 0,
+    include_natural: bool = True,
+    restarts: int = 8,
+    local_steps: int = 200,
+    max_examples: int = 5,
+    node_limit: int = 100_000,
+) -> dict[str, object]:
+    """Heuristically search for cyclic orders stressing radius propagation."""
+
+    if random_samples < 0:
+        raise ValueError("random_samples must be nonnegative")
+    if restarts < 0:
+        raise ValueError("restarts must be nonnegative")
+    if local_steps < 0:
+        raise ValueError("local_steps must be nonnegative")
+    if max_examples < 0:
+        raise ValueError("max_examples must be nonnegative")
+    if node_limit <= 0:
+        raise ValueError("node_limit must be positive")
+    validate_selected_pattern(S)
+    n = len(S)
+    rng = random.Random(seed)
+    initial_orders = _sample_cyclic_orders(n, random_samples, seed, include_natural)
+
+    cache: dict[tuple[int, ...], dict[str, object]] = {}
+    evaluated: list[dict[str, object]] = []
+
+    def evaluate(order: Sequence[int]) -> dict[str, object]:
+        normalized = tuple(normalize_cyclic_order(order))
+        if normalized in cache:
+            return cache[normalized]
+        item = _order_radius_item(pattern_name, S, normalized, node_limit)
+        cache[normalized] = item
+        evaluated.append(item)
+        return item
+
+    for order in initial_orders:
+        evaluate(order)
+
+    if not evaluated:
+        return {
+            "type": "sparse_frontier_adversarial_order_search",
+            "pattern": pattern_name,
+            "n": n,
+            "random_samples_requested": random_samples,
+            "seed": seed,
+            "include_natural": include_natural,
+            "restarts": restarts,
+            "local_steps": local_steps,
+            "node_limit": node_limit,
+            "orders_evaluated": 0,
+            "best_examples": [],
+            "semantics": (
+                "Heuristic cyclic-order search only. No exhaustive abstract-order "
+                "claim is made."
+            ),
+        }
+
+    starts = sorted(evaluated, key=lambda item: (_adversarial_score(item), item["order"]))
+    for restart in range(restarts):
+        current = starts[restart % len(starts)]
+        current_order = list(current["order"])
+        current_score = _adversarial_score(current)
+        for _ in range(local_steps):
+            trial = list(current_order)
+            left, right = rng.sample(range(n), 2)
+            trial[left], trial[right] = trial[right], trial[left]
+            trial_item = evaluate(trial)
+            trial_score = _adversarial_score(trial_item)
+            if trial_score <= current_score:
+                current = trial_item
+                current_order = list(current["order"])
+                current_score = trial_score
+
+    row_counts = [
+        len(item["rows_with_uncovered_consecutive_pair"]) for item in evaluated
+    ]
+    status_counts: Counter[str] = Counter(
+        str(item["radius_propagation"]["status"]) for item in evaluated
+    )
+    best = sorted(evaluated, key=lambda item: (_adversarial_score(item), item["order"]))
+    best_examples = best[:max_examples]
+    best_score = _adversarial_score(best[0]) if best else None
+
+    return {
+        "type": "sparse_frontier_adversarial_order_search",
+        "pattern": pattern_name,
+        "n": n,
+        "random_samples_requested": random_samples,
+        "seed": seed,
+        "include_natural": include_natural,
+        "restarts": restarts,
+        "local_steps": local_steps,
+        "node_limit": node_limit,
+        "orders_evaluated": len(evaluated),
+        "rows_with_uncovered_consecutive_histogram": _histogram(row_counts),
+        "min_rows_with_uncovered_consecutive_pair": (
+            min(row_counts) if row_counts else None
+        ),
+        "radius_status_histogram": dict(sorted(status_counts.items())),
+        "best_score": (
+            None
+            if best_score is None
+            else {
+                "rows_with_uncovered_consecutive_pair": best_score[0],
+                "radius_status_rank": best_score[1],
+                "negative_acyclic_edge_count": best_score[2],
+                "negative_explored_nodes": best_score[3],
+            }
+        ),
+        "best_examples": best_examples,
+        "semantics": (
+            "Heuristic cyclic-order search only, using random starts plus "
+            "swap hill-climbing. It looks for orders with fewer rows admitting "
+            "uncovered consecutive witness pairs, then for stronger "
+            "radius-propagation stress. Failure to find an obstruction is not "
+            "an exhaustive abstract-order theorem."
         ),
     }
