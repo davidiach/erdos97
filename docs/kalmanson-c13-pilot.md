@@ -74,3 +74,9 @@ certificates are included.
 The remaining C13 question is all-order: whether every cyclic order of this
 fixed abstract incidence pattern has an exact obstruction, or whether some
 other order can survive stronger Euclidean constraints.
+
+A bounded follow-up pilot over seven explicit fixed cyclic orders is recorded
+in `docs/c13-kalmanson-order-pilot.md` and
+`data/certificates/c13_kalmanson_bounded_order_pilot.json`. It closes those
+seven fixed orders by exact Kalmanson/Farkas certificates, but it is not an
+all-order search.

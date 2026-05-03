@@ -219,3 +219,59 @@ Rationale:
   reconcile carefully before the next local push attempt.
 - Next mathematical iteration: use the support diagnostics to guide a bounded
   C13 cyclic-order pilot with exact certificates for closed branches.
+
+## Session 2026-05-03, Iteration 2
+
+### Branch and Local State
+
+- Current branch: `codex/goal-erdos97-proof-or-counterexample`.
+- `git fetch origin codex/goal-erdos97-proof-or-counterexample` succeeded.
+- Local HEAD tree and `origin/codex/goal-erdos97-proof-or-counterexample` tree
+  matched after the fetch, even though commit histories differ.
+- The pre-existing unstaged edit in `tests/test_metric_order_lp.py` is still
+  present and is still treated as out of scope for this iteration.
+
+### Focus
+
+Bounded C13 Kalmanson cyclic-order pilot.
+
+This is a direct follow-up to open issue #81 and to the previous Kalmanson
+certificate diagnostics checkpoint. The goal is not to prove the all-order C13
+case, but to make the first small fixed-order pilot reproducible and
+independently checkable.
+
+### Work Performed
+
+- Added `scripts/pilot_c13_kalmanson_orders.py`.
+- Added `data/certificates/c13_kalmanson_bounded_order_pilot.json`.
+- Added `tests/test_c13_kalmanson_order_pilot.py`.
+- Added `docs/c13-kalmanson-order-pilot.md`.
+- Linked the pilot from `docs/index.md` and `docs/kalmanson-c13-pilot.md`.
+
+The pilot normalizes seven pinned cyclic orders by rotation/reflection and
+runs the fixed-order Kalmanson/Farkas certificate finder on each unique order.
+All seven unique orders close by exact positive-integer certificates. The
+committed artifact stores compact checked summaries; the script can emit the
+full certificate objects by omitting `--summary-only`.
+
+### Verification Commands
+
+- `.venv/bin/python scripts/pilot_c13_kalmanson_orders.py --assert-expected --summary-only --out data/certificates/c13_kalmanson_bounded_order_pilot.json`:
+  passed.
+- `.venv/bin/python scripts/pilot_c13_kalmanson_orders.py --assert-expected`:
+  passed and emitted full certificate objects to stdout/table mode.
+- `.venv/bin/python scripts/pilot_c13_kalmanson_orders.py --assert-expected --summary-only`:
+  passed.
+- `.venv/bin/python -m pytest tests/test_c13_kalmanson_order_pilot.py tests/test_kalmanson_certificate.py`:
+  passed, `7 passed`.
+- `.venv/bin/python scripts/check_text_clean.py`: passed.
+- `.venv/bin/python scripts/check_status_consistency.py`: passed.
+- `git diff --check`: passed.
+- `.venv/bin/python -m pytest -q`: passed, `174 passed, 8 deselected`.
+
+### Claim Boundary
+
+- Trust label: `EXACT_CERTIFICATE_DIAGNOSTIC`.
+- This kills only the seven fixed cyclic orders encoded in the artifact.
+- No general proof, no counterexample, and no all-order C13 obstruction are
+  claimed.
