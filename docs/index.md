@@ -45,6 +45,9 @@ put detailed reconciliation in the canonical synthesis.
   exact Kalmanson distance certificate format for fixed cyclic orders.
 - [`kalmanson-c13-pilot.md`](kalmanson-c13-pilot.md): exact fixed-order
   Kalmanson/Farkas certificate for the registered non-natural C13 Sidon order.
+- [`kalmanson-certificate-diagnostics.md`](kalmanson-certificate-diagnostics.md):
+  deterministic support diagnostics for the checked C13 and C19 fixed-order
+  Kalmanson/Farkas certificates.
 - [`ptolemy-order-nlp.md`](ptolemy-order-nlp.md): numerical nonlinear
   diagnostic adding Ptolemy inequalities for cyclic quadrilaterals; records a
   relaxation miss on the registered sparse orders.
