@@ -275,3 +275,16 @@ full certificate objects by omitting `--summary-only`.
 - This kills only the seven fixed cyclic orders encoded in the artifact.
 - No general proof, no counterexample, and no all-order C13 obstruction are
   claimed.
+
+### Publish / PR Checkpoint
+
+- Local commit: `e07a6b1 research: add bounded c13 kalmanson order pilot`.
+- `git push -u origin codex/goal-erdos97-proof-or-counterexample`: failed with
+  GitHub `403` permission denial for account `oskarasi`.
+- Fallback publication used the GitHub connector to update draft PR #86:
+  `https://github.com/davidiach/erdos97/pull/86`.
+- A connector-side bad script blob was detected by fetching the PR branch and
+  comparing tree hashes; the PR branch was repaired through a follow-up
+  connector commit before updating the PR body.
+- After the repair fetch, the local `HEAD` tree and
+  `origin/codex/goal-erdos97-proof-or-counterexample` tree matched.
