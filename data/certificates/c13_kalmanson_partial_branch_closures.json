@@ -1,0 +1,357 @@
+{
+  "branch_accounting": {
+    "canonical_boundary_state_count": 5940,
+    "exhaustive_all_orders": false,
+    "exhaustive_two_pair_boundary_scan": true,
+    "partial_branch_certified_count": 5108,
+    "raw_boundary_state_count": 11880,
+    "scanned_boundary_state_count": 5940,
+    "unclosed_branch_count": 832
+  },
+  "closed_certificate_examples": [
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 170,
+        "max_weight": 1,
+        "positive_inequalities": 3,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 3,
+        "zero_sum_verified": true
+      },
+      "label": "partial_branch_0000"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        5
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 170,
+        "max_weight": 1,
+        "positive_inequalities": 6,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 6,
+        "zero_sum_verified": true
+      },
+      "label": "partial_branch_0001"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        6
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 170,
+        "max_weight": 2,
+        "positive_inequalities": 7,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 9,
+        "zero_sum_verified": true
+      },
+      "label": "partial_branch_0002"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        7
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 170,
+        "max_weight": 1,
+        "positive_inequalities": 5,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 5,
+        "zero_sum_verified": true
+      },
+      "label": "partial_branch_0003"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        8
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 170,
+        "max_weight": 1,
+        "positive_inequalities": 5,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 5,
+        "zero_sum_verified": true
+      },
+      "label": "partial_branch_0004"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        9
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 170,
+        "max_weight": 2,
+        "positive_inequalities": 7,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 8,
+        "zero_sum_verified": true
+      },
+      "label": "partial_branch_0005"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        10
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 170,
+        "max_weight": 2,
+        "positive_inequalities": 6,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 7,
+        "zero_sum_verified": true
+      },
+      "label": "partial_branch_0006"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        11
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 170,
+        "max_weight": 3,
+        "positive_inequalities": 8,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 11,
+        "zero_sum_verified": true
+      },
+      "label": "partial_branch_0007"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        12
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 170,
+        "max_weight": 1,
+        "positive_inequalities": 5,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 5,
+        "zero_sum_verified": true
+      },
+      "label": "partial_branch_0008"
+    },
+    {
+      "boundary_left": [
+        1,
+        4
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        3
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 170,
+        "max_weight": 1,
+        "positive_inequalities": 2,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 2,
+        "zero_sum_verified": true
+      },
+      "label": "partial_branch_0009"
+    },
+    {
+      "boundary_left": [
+        1,
+        4
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        5
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 170,
+        "max_weight": 1,
+        "positive_inequalities": 2,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 2,
+        "zero_sum_verified": true
+      },
+      "label": "partial_branch_0010"
+    },
+    {
+      "boundary_left": [
+        1,
+        4
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        6
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 170,
+        "max_weight": 2,
+        "positive_inequalities": 5,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 6,
+        "zero_sum_verified": true
+      },
+      "label": "partial_branch_0011"
+    }
+  ],
+  "closed_support_size_histogram": {
+    "10": 103,
+    "11": 56,
+    "12": 28,
+    "13": 7,
+    "15": 2,
+    "2": 884,
+    "3": 864,
+    "4": 871,
+    "5": 660,
+    "6": 615,
+    "7": 462,
+    "8": 332,
+    "9": 224
+  },
+  "forced_row_count_histogram": {
+    "170": 5940
+  },
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "This is not an exhaustive all-order cyclic-order search.",
+    "Each closed branch is certified using only Kalmanson inequalities whose order is forced by the recorded boundary prefix.",
+    "Unclosed branches are not counterexamples and are not numerical evidence of realizability."
+  ],
+  "parameters": {
+    "anchor_label": 0,
+    "boundary_pairs": 2,
+    "closed_example_count": 12,
+    "include_certificates_in_examples": false,
+    "lp_support_tolerance": 1e-09,
+    "max_branches": null
+  },
+  "pattern": {
+    "circulant_offsets": [
+      1,
+      2,
+      4,
+      10
+    ],
+    "n": 13,
+    "name": "C13_sidon_1_2_4_10"
+  },
+  "trust": "EXACT_OBSTRUCTION",
+  "type": "c13_kalmanson_partial_branch_closures_v1",
+  "unclosed_branch_label_digest": "94ef5e480813402fdef3d31a9f48f2a48680695564ab504c8374e2395c3b1893",
+  "unclosed_branch_label_examples": {
+    "first": [
+      "partial_branch_0012",
+      "partial_branch_0014",
+      "partial_branch_0016",
+      "partial_branch_0020",
+      "partial_branch_0021",
+      "partial_branch_0023",
+      "partial_branch_0025",
+      "partial_branch_0065",
+      "partial_branch_0075",
+      "partial_branch_0077",
+      "partial_branch_0121",
+      "partial_branch_0135",
+      "partial_branch_0144",
+      "partial_branch_0153",
+      "partial_branch_0159",
+      "partial_branch_0162",
+      "partial_branch_0165",
+      "partial_branch_0174",
+      "partial_branch_0175",
+      "partial_branch_0177"
+    ],
+    "last": [
+      "partial_branch_5787",
+      "partial_branch_5789",
+      "partial_branch_5801",
+      "partial_branch_5805",
+      "partial_branch_5814",
+      "partial_branch_5815",
+      "partial_branch_5842",
+      "partial_branch_5843",
+      "partial_branch_5844",
+      "partial_branch_5845",
+      "partial_branch_5865",
+      "partial_branch_5866",
+      "partial_branch_5883",
+      "partial_branch_5884",
+      "partial_branch_5887",
+      "partial_branch_5901",
+      "partial_branch_5902",
+      "partial_branch_5905",
+      "partial_branch_5910",
+      "partial_branch_5915"
+    ]
+  }
+}

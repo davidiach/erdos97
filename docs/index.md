@@ -45,9 +45,24 @@ put detailed reconciliation in the canonical synthesis.
   exact Kalmanson distance certificate format for fixed cyclic orders.
 - [`kalmanson-c13-pilot.md`](kalmanson-c13-pilot.md): exact fixed-order
   Kalmanson/Farkas certificate for the registered non-natural C13 Sidon order.
+- [`kalmanson-certificate-diagnostics.md`](kalmanson-certificate-diagnostics.md):
+  deterministic support diagnostics for the checked C13 and C19 fixed-order
+  Kalmanson/Farkas certificates.
 - [`kalmanson-two-order-search.md`](kalmanson-two-order-search.md): exact
   all-cyclic-order two-inequality Kalmanson obstruction for the fixed C13 Sidon
   pattern.
+- [`c13-kalmanson-order-pilot.md`](c13-kalmanson-order-pilot.md): bounded
+  C13 fixed-order Kalmanson pilot over seven explicit cyclic orders; not an
+  all-order search.
+- [`c13-kalmanson-prefix-branch-pilot.md`](c13-kalmanson-prefix-branch-pilot.md):
+  bounded C13 prefix brancher with reflection pruning and twelve sampled exact
+  fixed-order Kalmanson closures; not an all-order search.
+- [`c13-kalmanson-partial-branch-closures.md`](c13-kalmanson-partial-branch-closures.md):
+  exact prefix-forced Kalmanson certificates for 5,108 of 5,940 canonical
+  two-boundary-pair C13 branches; not an all-order search.
+- [`c13-kalmanson-third-pair-refinement.md`](c13-kalmanson-third-pair-refinement.md):
+  exact prefix-forced Kalmanson certificates for 46,567 of 46,592 third-pair
+  refinements of the remaining C13 two-pair frontier; not an all-order search.
 - [`ptolemy-order-nlp.md`](ptolemy-order-nlp.md): numerical nonlinear
   diagnostic adding Ptolemy inequalities for cyclic quadrilaterals; records a
   relaxation miss on the registered sparse orders.

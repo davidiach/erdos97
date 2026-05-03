@@ -1,0 +1,486 @@
+{
+  "branch_accounting": {
+    "canonical_boundary_state_count": 5940,
+    "closed_by_kalmanson_certificate_count": 12,
+    "exhaustive_all_orders": false,
+    "extensions_considered_count": 6072,
+    "lp_call_count": 12,
+    "prefix_pruned_extension_count": 66,
+    "raw_boundary_state_count": 11880,
+    "reflection_pruned_boundary_state_count": 5940,
+    "unclosed_lp_call_count": 0
+  },
+  "cases": [
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4
+      ],
+      "canonical_completion_order": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        4,
+        2
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "max_weight": 750,
+        "positive_inequalities": 38,
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 9019,
+        "zero_sum_verified": true
+      },
+      "label": "prefix_branch_0000",
+      "middle_completion_strategy": "ascending remaining labels",
+      "status": "EXACT_KALMANSON_CERTIFICATE_FOUND"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        5
+      ],
+      "canonical_completion_order": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        5,
+        2
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "max_weight": 1653,
+        "positive_inequalities": 37,
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 24608,
+        "zero_sum_verified": true
+      },
+      "label": "prefix_branch_0001",
+      "middle_completion_strategy": "ascending remaining labels",
+      "status": "EXACT_KALMANSON_CERTIFICATE_FOUND"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        6
+      ],
+      "canonical_completion_order": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        6,
+        2
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "max_weight": 1139,
+        "positive_inequalities": 37,
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 12766,
+        "zero_sum_verified": true
+      },
+      "label": "prefix_branch_0002",
+      "middle_completion_strategy": "ascending remaining labels",
+      "status": "EXACT_KALMANSON_CERTIFICATE_FOUND"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        7
+      ],
+      "canonical_completion_order": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        7,
+        2
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "max_weight": 534,
+        "positive_inequalities": 32,
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 3755,
+        "zero_sum_verified": true
+      },
+      "label": "prefix_branch_0003",
+      "middle_completion_strategy": "ascending remaining labels",
+      "status": "EXACT_KALMANSON_CERTIFICATE_FOUND"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        8
+      ],
+      "canonical_completion_order": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        8,
+        2
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "max_weight": 3374,
+        "positive_inequalities": 38,
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 38889,
+        "zero_sum_verified": true
+      },
+      "label": "prefix_branch_0004",
+      "middle_completion_strategy": "ascending remaining labels",
+      "status": "EXACT_KALMANSON_CERTIFICATE_FOUND"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        9
+      ],
+      "canonical_completion_order": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        9,
+        2
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "max_weight": 2539,
+        "positive_inequalities": 38,
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 31781,
+        "zero_sum_verified": true
+      },
+      "label": "prefix_branch_0005",
+      "middle_completion_strategy": "ascending remaining labels",
+      "status": "EXACT_KALMANSON_CERTIFICATE_FOUND"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        10
+      ],
+      "canonical_completion_order": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        10,
+        2
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "max_weight": 4609,
+        "positive_inequalities": 38,
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 58306,
+        "zero_sum_verified": true
+      },
+      "label": "prefix_branch_0006",
+      "middle_completion_strategy": "ascending remaining labels",
+      "status": "EXACT_KALMANSON_CERTIFICATE_FOUND"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        11
+      ],
+      "canonical_completion_order": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        11,
+        2
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "max_weight": 2801,
+        "positive_inequalities": 39,
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 30942,
+        "zero_sum_verified": true
+      },
+      "label": "prefix_branch_0007",
+      "middle_completion_strategy": "ascending remaining labels",
+      "status": "EXACT_KALMANSON_CERTIFICATE_FOUND"
+    },
+    {
+      "boundary_left": [
+        1,
+        3
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        12
+      ],
+      "canonical_completion_order": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        2
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "max_weight": 1490,
+        "positive_inequalities": 36,
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 11327,
+        "zero_sum_verified": true
+      },
+      "label": "prefix_branch_0008",
+      "middle_completion_strategy": "ascending remaining labels",
+      "status": "EXACT_KALMANSON_CERTIFICATE_FOUND"
+    },
+    {
+      "boundary_left": [
+        1,
+        4
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        3
+      ],
+      "canonical_completion_order": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        3,
+        2
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "max_weight": 583,
+        "positive_inequalities": 37,
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 7272,
+        "zero_sum_verified": true
+      },
+      "label": "prefix_branch_0009",
+      "middle_completion_strategy": "ascending remaining labels",
+      "status": "EXACT_KALMANSON_CERTIFICATE_FOUND"
+    },
+    {
+      "boundary_left": [
+        1,
+        4
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        5
+      ],
+      "canonical_completion_order": [
+        0,
+        1,
+        4,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        5,
+        2
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "max_weight": 3724,
+        "positive_inequalities": 35,
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 19804,
+        "zero_sum_verified": true
+      },
+      "label": "prefix_branch_0010",
+      "middle_completion_strategy": "ascending remaining labels",
+      "status": "EXACT_KALMANSON_CERTIFICATE_FOUND"
+    },
+    {
+      "boundary_left": [
+        1,
+        4
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        6
+      ],
+      "canonical_completion_order": [
+        0,
+        1,
+        4,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        6,
+        2
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "max_weight": 1207,
+        "positive_inequalities": 37,
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 18059,
+        "zero_sum_verified": true
+      },
+      "label": "prefix_branch_0011",
+      "middle_completion_strategy": "ascending remaining labels",
+      "status": "EXACT_KALMANSON_CERTIFICATE_FOUND"
+    }
+  ],
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "This is a bounded prefix-branch pilot, not an exhaustive all-order cyclic-order search.",
+    "Reflection-pruned prefix counts are search accounting, not geometric obstructions.",
+    "Every closed sampled completion was produced by an exact positive-integer Kalmanson/Farkas certificate checked by scripts/check_kalmanson_certificate.py."
+  ],
+  "parameters": {
+    "anchor_label": 0,
+    "boundary_pairs": 2,
+    "completion_strategy_for_sampled_states": "ascending remaining labels",
+    "include_certificates": false,
+    "lp_support_tolerance": 1e-09,
+    "max_lp_calls": 12
+  },
+  "pattern": {
+    "circulant_offsets": [
+      1,
+      2,
+      4,
+      10
+    ],
+    "n": 13,
+    "name": "C13_sidon_1_2_4_10"
+  },
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+  "type": "c13_kalmanson_prefix_branch_pilot_v1"
+}

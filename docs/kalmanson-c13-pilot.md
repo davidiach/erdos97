@@ -79,3 +79,29 @@ certificates are included.
 The C13 all-order question for this fixed abstract incidence pattern is now
 closed by the exact two-certificate order search. The analogous `C19_skew`
 all-order question remains open.
+
+The bounded follow-up pilot over seven explicit fixed cyclic orders remains
+recorded as provenance in `docs/c13-kalmanson-order-pilot.md` and
+`data/certificates/c13_kalmanson_bounded_order_pilot.json`. It closes those
+seven fixed orders by exact Kalmanson/Farkas certificates, but it is not an
+all-order search.
+
+A subsequent prefix-branch pilot remains recorded in
+`docs/c13-kalmanson-prefix-branch-pilot.md` and
+`data/certificates/c13_kalmanson_prefix_branch_pilot.json`. It adds
+reflection pruning before LP calls and closes twelve sampled fixed
+completions, but it is also not an all-order search.
+
+The first partial-branch closure pass remains recorded in
+`docs/c13-kalmanson-partial-branch-closures.md` and
+`data/certificates/c13_kalmanson_partial_branch_closures.json`. It uses only
+Kalmanson inequalities forced by each two-sided boundary prefix and closes
+5,108 of the 5,940 canonical two-boundary-pair prefixes. The remaining 832
+prefixes are unresolved by this pass.
+
+A third-pair refinement remains recorded in
+`docs/c13-kalmanson-third-pair-refinement.md` and
+`data/certificates/c13_kalmanson_third_pair_refinement.json`. It appends one
+more forced left/right boundary pair to those 832 prefixes and closes 46,567
+of 46,592 child branches by exact prefix-forced Kalmanson certificates. The
+remaining 25 child branches are unresolved by that pass.

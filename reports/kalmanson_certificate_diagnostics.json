@@ -1,0 +1,1242 @@
+{
+  "certificates": [
+    {
+      "circulant_offsets": [
+        1,
+        2,
+        4,
+        10
+      ],
+      "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+      "cyclic_order": [
+        5,
+        0,
+        10,
+        8,
+        9,
+        7,
+        4,
+        6,
+        2,
+        11,
+        12,
+        3,
+        1
+      ],
+      "distance_class_size_histogram": {
+        "1": 26,
+        "4": 13
+      },
+      "distance_classes_after_selected_equalities": 39,
+      "interpretation_note": "This is a structural diagnostic for one checked fixed-order Kalmanson/Farkas certificate. Rank/nullity and cancellation summaries do not imply an abstract all-order obstruction.",
+      "kind_counts": {
+        "K1_diag_gt_sides": 12,
+        "K2_diag_gt_other": 22
+      },
+      "kind_weight_sums": {
+        "K1_diag_gt_sides": 6488,
+        "K2_diag_gt_other": 10975
+      },
+      "label_frequencies": [
+        {
+          "count": 10,
+          "label": 0,
+          "weight_sum": 4034
+        },
+        {
+          "count": 13,
+          "label": 1,
+          "weight_sum": 5587
+        },
+        {
+          "count": 9,
+          "label": 2,
+          "weight_sum": 7094
+        },
+        {
+          "count": 9,
+          "label": 3,
+          "weight_sum": 4962
+        },
+        {
+          "count": 15,
+          "label": 4,
+          "weight_sum": 8510
+        },
+        {
+          "count": 7,
+          "label": 5,
+          "weight_sum": 4146
+        },
+        {
+          "count": 11,
+          "label": 6,
+          "weight_sum": 4462
+        },
+        {
+          "count": 9,
+          "label": 7,
+          "weight_sum": 5318
+        },
+        {
+          "count": 8,
+          "label": 8,
+          "weight_sum": 4236
+        },
+        {
+          "count": 14,
+          "label": 9,
+          "weight_sum": 7527
+        },
+        {
+          "count": 9,
+          "label": 10,
+          "weight_sum": 4472
+        },
+        {
+          "count": 10,
+          "label": 11,
+          "weight_sum": 4385
+        },
+        {
+          "count": 12,
+          "label": 12,
+          "weight_sum": 5119
+        }
+      ],
+      "max_abs_weighted_sum_coefficient": 0,
+      "n": 13,
+      "nonzero_weighted_sum_class_count": 0,
+      "path": "data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json",
+      "pattern": "C13_sidon_1_2_4_10",
+      "positive_inequalities": 34,
+      "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+      "support_nullity_mod_primes": {
+        "1000003": 1,
+        "1000033": 1,
+        "1000037": 1
+      },
+      "support_rank_mod_primes": {
+        "1000003": 33,
+        "1000033": 33,
+        "1000037": 33
+      },
+      "top_distance_class_cancellations": [
+        {
+          "class_id": 10,
+          "negative_weight": 2347,
+          "pair_count": 4,
+          "positive_weight": 2347,
+          "representative_pairs": [
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            4
+          ],
+          "signed_total": 0,
+          "term_count": 9
+        },
+        {
+          "class_id": 16,
+          "negative_weight": 2222,
+          "pair_count": 4,
+          "positive_weight": 2222,
+          "representative_pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              12
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            2
+          ],
+          "signed_total": 0,
+          "term_count": 6
+        },
+        {
+          "class_id": 9,
+          "negative_weight": 2105,
+          "pair_count": 4,
+          "positive_weight": 2105,
+          "representative_pairs": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              11
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            1
+          ],
+          "signed_total": 0,
+          "term_count": 7
+        },
+        {
+          "class_id": 0,
+          "negative_weight": 2063,
+          "pair_count": 4,
+          "positive_weight": 2063,
+          "representative_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              10
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            0
+          ],
+          "signed_total": 0,
+          "term_count": 8
+        },
+        {
+          "class_id": 6,
+          "negative_weight": 1983,
+          "pair_count": 4,
+          "positive_weight": 1983,
+          "representative_pairs": [
+            [
+              0,
+              9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              9,
+              10
+            ],
+            [
+              9,
+              11
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            9
+          ],
+          "signed_total": 0,
+          "term_count": 8
+        },
+        {
+          "class_id": 1,
+          "negative_weight": 1910,
+          "pair_count": 4,
+          "positive_weight": 1910,
+          "representative_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            3
+          ],
+          "signed_total": 0,
+          "term_count": 7
+        },
+        {
+          "class_id": 17,
+          "negative_weight": 1556,
+          "pair_count": 4,
+          "positive_weight": 1556,
+          "representative_pairs": [
+            [
+              2,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              9
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            5
+          ],
+          "signed_total": 0,
+          "term_count": 5
+        },
+        {
+          "class_id": 32,
+          "negative_weight": 1476,
+          "pair_count": 4,
+          "positive_weight": 1476,
+          "representative_pairs": [
+            [
+              5,
+              8
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              8,
+              10
+            ],
+            [
+              8,
+              12
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            8
+          ],
+          "signed_total": 0,
+          "term_count": 6
+        },
+        {
+          "class_id": 8,
+          "negative_weight": 1454,
+          "pair_count": 4,
+          "positive_weight": 1454,
+          "representative_pairs": [
+            [
+              0,
+              12
+            ],
+            [
+              1,
+              12
+            ],
+            [
+              3,
+              12
+            ],
+            [
+              9,
+              12
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            12
+          ],
+          "signed_total": 0,
+          "term_count": 8
+        },
+        {
+          "class_id": 22,
+          "negative_weight": 1416,
+          "pair_count": 4,
+          "positive_weight": 1416,
+          "representative_pairs": [
+            [
+              3,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              6,
+              10
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            6
+          ],
+          "signed_total": 0,
+          "term_count": 6
+        },
+        {
+          "class_id": 20,
+          "negative_weight": 1322,
+          "pair_count": 1,
+          "positive_weight": 1322,
+          "representative_pairs": [
+            [
+              2,
+              9
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [],
+          "signed_total": 0,
+          "term_count": 3
+        },
+        {
+          "class_id": 7,
+          "negative_weight": 1182,
+          "pair_count": 4,
+          "positive_weight": 1182,
+          "representative_pairs": [
+            [
+              0,
+              11
+            ],
+            [
+              2,
+              11
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              11,
+              12
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            11
+          ],
+          "signed_total": 0,
+          "term_count": 7
+        }
+      ],
+      "top_gap_patterns_by_count": [
+        {
+          "count": 3,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            2,
+            3,
+            4,
+            4
+          ],
+          "weight_sum": 1526
+        },
+        {
+          "count": 3,
+          "kind": "K1_diag_gt_sides",
+          "normalized_cyclic_gaps": [
+            1,
+            4,
+            2,
+            6
+          ],
+          "weight_sum": 634
+        },
+        {
+          "count": 2,
+          "kind": "K1_diag_gt_sides",
+          "normalized_cyclic_gaps": [
+            1,
+            1,
+            3,
+            8
+          ],
+          "weight_sum": 1556
+        },
+        {
+          "count": 2,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            1,
+            2,
+            5,
+            5
+          ],
+          "weight_sum": 1417
+        },
+        {
+          "count": 2,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            1,
+            4,
+            2,
+            6
+          ],
+          "weight_sum": 1115
+        },
+        {
+          "count": 2,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            1,
+            1,
+            5,
+            6
+          ],
+          "weight_sum": 871
+        },
+        {
+          "count": 2,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            1,
+            4,
+            3,
+            5
+          ],
+          "weight_sum": 654
+        },
+        {
+          "count": 1,
+          "kind": "K1_diag_gt_sides",
+          "normalized_cyclic_gaps": [
+            1,
+            3,
+            5,
+            4
+          ],
+          "weight_sum": 1322
+        },
+        {
+          "count": 1,
+          "kind": "K1_diag_gt_sides",
+          "normalized_cyclic_gaps": [
+            1,
+            2,
+            5,
+            5
+          ],
+          "weight_sum": 1172
+        },
+        {
+          "count": 1,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            1,
+            1,
+            4,
+            7
+          ],
+          "weight_sum": 923
+        },
+        {
+          "count": 1,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            2,
+            3,
+            2,
+            6
+          ],
+          "weight_sum": 623
+        },
+        {
+          "count": 1,
+          "kind": "K1_diag_gt_sides",
+          "normalized_cyclic_gaps": [
+            1,
+            2,
+            8,
+            2
+          ],
+          "weight_sum": 549
+        }
+      ],
+      "weight_stats": {
+        "distinct_count": 20,
+        "gcd": 1,
+        "max": 1322,
+        "min": 112,
+        "sum": 17463
+      }
+    },
+    {
+      "circulant_offsets": [
+        -8,
+        -3,
+        5,
+        9
+      ],
+      "claim_strength": "Exact obstruction for this fixed selected-witness pattern and this fixed cyclic order only; does not kill abstract C19_skew.",
+      "cyclic_order": [
+        18,
+        10,
+        7,
+        17,
+        6,
+        3,
+        5,
+        9,
+        14,
+        11,
+        2,
+        13,
+        4,
+        16,
+        12,
+        15,
+        0,
+        8,
+        1
+      ],
+      "distance_class_size_histogram": {
+        "1": 95,
+        "4": 19
+      },
+      "distance_classes_after_selected_equalities": 114,
+      "interpretation_note": "This is a structural diagnostic for one checked fixed-order Kalmanson/Farkas certificate. Rank/nullity and cancellation summaries do not imply an abstract all-order obstruction.",
+      "kind_counts": {
+        "K1_diag_gt_sides": 40,
+        "K2_diag_gt_other": 54
+      },
+      "kind_weight_sums": {
+        "K1_diag_gt_sides": 2518668989,
+        "K2_diag_gt_other": 3764647076
+      },
+      "label_frequencies": [
+        {
+          "count": 18,
+          "label": 0,
+          "weight_sum": 1090532115
+        },
+        {
+          "count": 17,
+          "label": 1,
+          "weight_sum": 1926867094
+        },
+        {
+          "count": 20,
+          "label": 2,
+          "weight_sum": 733420988
+        },
+        {
+          "count": 18,
+          "label": 3,
+          "weight_sum": 1484025438
+        },
+        {
+          "count": 26,
+          "label": 4,
+          "weight_sum": 2475579876
+        },
+        {
+          "count": 24,
+          "label": 5,
+          "weight_sum": 2512534404
+        },
+        {
+          "count": 23,
+          "label": 6,
+          "weight_sum": 1766730189
+        },
+        {
+          "count": 22,
+          "label": 7,
+          "weight_sum": 938421718
+        },
+        {
+          "count": 24,
+          "label": 8,
+          "weight_sum": 714602227
+        },
+        {
+          "count": 22,
+          "label": 9,
+          "weight_sum": 1854164844
+        },
+        {
+          "count": 18,
+          "label": 10,
+          "weight_sum": 851060368
+        },
+        {
+          "count": 19,
+          "label": 11,
+          "weight_sum": 837377970
+        },
+        {
+          "count": 17,
+          "label": 12,
+          "weight_sum": 1041750834
+        },
+        {
+          "count": 22,
+          "label": 13,
+          "weight_sum": 1285079959
+        },
+        {
+          "count": 19,
+          "label": 14,
+          "weight_sum": 936374953
+        },
+        {
+          "count": 21,
+          "label": 15,
+          "weight_sum": 1801922626
+        },
+        {
+          "count": 7,
+          "label": 16,
+          "weight_sum": 91125984
+        },
+        {
+          "count": 19,
+          "label": 17,
+          "weight_sum": 1644274027
+        },
+        {
+          "count": 20,
+          "label": 18,
+          "weight_sum": 1147418646
+        }
+      ],
+      "max_abs_weighted_sum_coefficient": 0,
+      "n": 19,
+      "nonzero_weighted_sum_class_count": 0,
+      "path": "data/certificates/round2/c19_kalmanson_known_order_unsat.json",
+      "pattern": "C19_skew",
+      "positive_inequalities": 94,
+      "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+      "support_nullity_mod_primes": {
+        "1000003": 1,
+        "1000033": 1,
+        "1000037": 1
+      },
+      "support_rank_mod_primes": {
+        "1000003": 93,
+        "1000033": 93,
+        "1000037": 93
+      },
+      "top_distance_class_cancellations": [
+        {
+          "class_id": 47,
+          "negative_weight": 699088190,
+          "pair_count": 4,
+          "positive_weight": 699088190,
+          "representative_pairs": [
+            [
+              3,
+              13
+            ],
+            [
+              5,
+              13
+            ],
+            [
+              10,
+              13
+            ],
+            [
+              13,
+              18
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            13
+          ],
+          "signed_total": 0,
+          "term_count": 11
+        },
+        {
+          "class_id": 50,
+          "negative_weight": 652910827,
+          "pair_count": 4,
+          "positive_weight": 652910827,
+          "representative_pairs": [
+            [
+              3,
+              17
+            ],
+            [
+              7,
+              17
+            ],
+            [
+              9,
+              17
+            ],
+            [
+              14,
+              17
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            17
+          ],
+          "signed_total": 0,
+          "term_count": 11
+        },
+        {
+          "class_id": 60,
+          "negative_weight": 606359849,
+          "pair_count": 4,
+          "positive_weight": 606359849,
+          "representative_pairs": [
+            [
+              4,
+              18
+            ],
+            [
+              8,
+              18
+            ],
+            [
+              10,
+              18
+            ],
+            [
+              15,
+              18
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            18
+          ],
+          "signed_total": 0,
+          "term_count": 10
+        },
+        {
+          "class_id": 26,
+          "negative_weight": 576955982,
+          "pair_count": 4,
+          "positive_weight": 576955982,
+          "representative_pairs": [
+            [
+              1,
+              15
+            ],
+            [
+              5,
+              15
+            ],
+            [
+              7,
+              15
+            ],
+            [
+              12,
+              15
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            15
+          ],
+          "signed_total": 0,
+          "term_count": 9
+        },
+        {
+          "class_id": 17,
+          "negative_weight": 532395287,
+          "pair_count": 4,
+          "positive_weight": 532395287,
+          "representative_pairs": [
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              4,
+              13
+            ],
+            [
+              4,
+              15
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            4
+          ],
+          "signed_total": 0,
+          "term_count": 11
+        },
+        {
+          "class_id": 18,
+          "negative_weight": 458702319,
+          "pair_count": 1,
+          "positive_weight": 458702319,
+          "representative_pairs": [
+            [
+              1,
+              5
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [],
+          "signed_total": 0,
+          "term_count": 6
+        },
+        {
+          "class_id": 22,
+          "negative_weight": 433089699,
+          "pair_count": 4,
+          "positive_weight": 433089699,
+          "representative_pairs": [
+            [
+              1,
+              9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              9,
+              14
+            ],
+            [
+              9,
+              18
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            9
+          ],
+          "signed_total": 0,
+          "term_count": 8
+        },
+        {
+          "class_id": 16,
+          "negative_weight": 334665404,
+          "pair_count": 1,
+          "positive_weight": 334665404,
+          "representative_pairs": [
+            [
+              1,
+              3
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [],
+          "signed_total": 0,
+          "term_count": 4
+        },
+        {
+          "class_id": 11,
+          "negative_weight": 321748775,
+          "pair_count": 4,
+          "positive_weight": 321748775,
+          "representative_pairs": [
+            [
+              0,
+              14
+            ],
+            [
+              4,
+              14
+            ],
+            [
+              6,
+              14
+            ],
+            [
+              11,
+              14
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            14
+          ],
+          "signed_total": 0,
+          "term_count": 9
+        },
+        {
+          "class_id": 43,
+          "negative_weight": 315695056,
+          "pair_count": 4,
+          "positive_weight": 315695056,
+          "representative_pairs": [
+            [
+              3,
+              6
+            ],
+            [
+              6,
+              11
+            ],
+            [
+              6,
+              15
+            ],
+            [
+              6,
+              17
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            6
+          ],
+          "signed_total": 0,
+          "term_count": 7
+        },
+        {
+          "class_id": 52,
+          "negative_weight": 308452690,
+          "pair_count": 1,
+          "positive_weight": 308452690,
+          "representative_pairs": [
+            [
+              4,
+              5
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [],
+          "signed_total": 0,
+          "term_count": 6
+        },
+        {
+          "class_id": 31,
+          "negative_weight": 293477594,
+          "pair_count": 4,
+          "positive_weight": 293477594,
+          "representative_pairs": [
+            [
+              2,
+              5
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              5,
+              14
+            ],
+            [
+              5,
+              16
+            ]
+          ],
+          "representative_pairs_truncated": false,
+          "selected_centers": [
+            5
+          ],
+          "signed_total": 0,
+          "term_count": 5
+        }
+      ],
+      "top_gap_patterns_by_count": [
+        {
+          "count": 4,
+          "kind": "K1_diag_gt_sides",
+          "normalized_cyclic_gaps": [
+            1,
+            4,
+            5,
+            9
+          ],
+          "weight_sum": 66983621
+        },
+        {
+          "count": 3,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            1,
+            5,
+            7,
+            6
+          ],
+          "weight_sum": 369430993
+        },
+        {
+          "count": 3,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            1,
+            3,
+            6,
+            9
+          ],
+          "weight_sum": 280348092
+        },
+        {
+          "count": 2,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            1,
+            7,
+            4,
+            7
+          ],
+          "weight_sum": 344273773
+        },
+        {
+          "count": 2,
+          "kind": "K1_diag_gt_sides",
+          "normalized_cyclic_gaps": [
+            3,
+            4,
+            4,
+            8
+          ],
+          "weight_sum": 286542959
+        },
+        {
+          "count": 2,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            1,
+            3,
+            2,
+            13
+          ],
+          "weight_sum": 219821545
+        },
+        {
+          "count": 2,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            1,
+            1,
+            6,
+            11
+          ],
+          "weight_sum": 144613276
+        },
+        {
+          "count": 2,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            1,
+            1,
+            3,
+            14
+          ],
+          "weight_sum": 119316087
+        },
+        {
+          "count": 2,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            1,
+            2,
+            7,
+            9
+          ],
+          "weight_sum": 106266516
+        },
+        {
+          "count": 2,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            2,
+            2,
+            7,
+            8
+          ],
+          "weight_sum": 64922901
+        },
+        {
+          "count": 2,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            1,
+            2,
+            10,
+            6
+          ],
+          "weight_sum": 50604103
+        },
+        {
+          "count": 2,
+          "kind": "K2_diag_gt_other",
+          "normalized_cyclic_gaps": [
+            2,
+            2,
+            2,
+            13
+          ],
+          "weight_sum": 47779034
+        }
+      ],
+      "weight_stats": {
+        "distinct_count": 72,
+        "gcd": 1,
+        "max": 334665404,
+        "min": 165522,
+        "sum": 6283316065
+      }
+    }
+  ],
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "Each entry first verifies an existing fixed-order Kalmanson/Farkas certificate exactly.",
+    "These diagnostics summarize certificate support; they are not all-order cyclic-order searches."
+  ],
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+  "type": "kalmanson_certificate_diagnostics_v1"
+}

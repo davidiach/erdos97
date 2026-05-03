@@ -1,0 +1,1089 @@
+{
+  "branch_accounting": {
+    "canonical_two_pair_boundary_state_count": 5940,
+    "child_extensions_per_parent": 56,
+    "exhaustive_all_orders": false,
+    "exhaustive_refinement_of_two_pair_frontier": true,
+    "raw_two_pair_boundary_state_count": 11880,
+    "scanned_parent_count": 832,
+    "third_pair_child_branch_count": 46592,
+    "third_pair_child_certified_count": 46567,
+    "two_pair_unclosed_parent_count": 832,
+    "unclosed_child_branch_count": 25
+  },
+  "child_label_digest": "4dfb8111a92c9c8d429fa349acd109d413a586dc6876848ea7a04cd1fd9f8c32",
+  "closed_certificate_examples": [
+    {
+      "added_left": 3,
+      "added_right_reflection_side": 5,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 490,
+        "max_weight": 5,
+        "positive_inequalities": 13,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 27,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        4,
+        3
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        7,
+        5
+      ],
+      "label": "third_pair_child_00000",
+      "parent_boundary_left": [
+        1,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        7
+      ],
+      "parent_label": "partial_branch_0012"
+    },
+    {
+      "added_left": 3,
+      "added_right_reflection_side": 6,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 490,
+        "max_weight": 47,
+        "positive_inequalities": 24,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 432,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        4,
+        3
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        7,
+        6
+      ],
+      "label": "third_pair_child_00001",
+      "parent_boundary_left": [
+        1,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        7
+      ],
+      "parent_label": "partial_branch_0012"
+    },
+    {
+      "added_left": 3,
+      "added_right_reflection_side": 8,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 490,
+        "max_weight": 3,
+        "positive_inequalities": 18,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 28,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        4,
+        3
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        7,
+        8
+      ],
+      "label": "third_pair_child_00002",
+      "parent_boundary_left": [
+        1,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        7
+      ],
+      "parent_label": "partial_branch_0012"
+    },
+    {
+      "added_left": 3,
+      "added_right_reflection_side": 9,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 490,
+        "max_weight": 19,
+        "positive_inequalities": 17,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 104,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        4,
+        3
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        7,
+        9
+      ],
+      "label": "third_pair_child_00003",
+      "parent_boundary_left": [
+        1,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        7
+      ],
+      "parent_label": "partial_branch_0012"
+    },
+    {
+      "added_left": 3,
+      "added_right_reflection_side": 10,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 490,
+        "max_weight": 27,
+        "positive_inequalities": 23,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 229,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        4,
+        3
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        7,
+        10
+      ],
+      "label": "third_pair_child_00004",
+      "parent_boundary_left": [
+        1,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        7
+      ],
+      "parent_label": "partial_branch_0012"
+    },
+    {
+      "added_left": 3,
+      "added_right_reflection_side": 11,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 490,
+        "max_weight": 3,
+        "positive_inequalities": 12,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 22,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        4,
+        3
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        7,
+        11
+      ],
+      "label": "third_pair_child_00005",
+      "parent_boundary_left": [
+        1,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        7
+      ],
+      "parent_label": "partial_branch_0012"
+    },
+    {
+      "added_left": 3,
+      "added_right_reflection_side": 12,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 490,
+        "max_weight": 19,
+        "positive_inequalities": 16,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 69,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        4,
+        3
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        7,
+        12
+      ],
+      "label": "third_pair_child_00006",
+      "parent_boundary_left": [
+        1,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        7
+      ],
+      "parent_label": "partial_branch_0012"
+    },
+    {
+      "added_left": 5,
+      "added_right_reflection_side": 3,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 490,
+        "max_weight": 16,
+        "positive_inequalities": 19,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 66,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        4,
+        5
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        7,
+        3
+      ],
+      "label": "third_pair_child_00007",
+      "parent_boundary_left": [
+        1,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        7
+      ],
+      "parent_label": "partial_branch_0012"
+    },
+    {
+      "added_left": 5,
+      "added_right_reflection_side": 6,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 490,
+        "max_weight": 5,
+        "positive_inequalities": 14,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 33,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        4,
+        5
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        7,
+        6
+      ],
+      "label": "third_pair_child_00008",
+      "parent_boundary_left": [
+        1,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        7
+      ],
+      "parent_label": "partial_branch_0012"
+    },
+    {
+      "added_left": 5,
+      "added_right_reflection_side": 8,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 490,
+        "max_weight": 42,
+        "positive_inequalities": 24,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 282,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        4,
+        5
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        7,
+        8
+      ],
+      "label": "third_pair_child_00009",
+      "parent_boundary_left": [
+        1,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        7
+      ],
+      "parent_label": "partial_branch_0012"
+    },
+    {
+      "added_left": 5,
+      "added_right_reflection_side": 9,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 490,
+        "max_weight": 14,
+        "positive_inequalities": 20,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 77,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        4,
+        5
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        7,
+        9
+      ],
+      "label": "third_pair_child_00010",
+      "parent_boundary_left": [
+        1,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        7
+      ],
+      "parent_label": "partial_branch_0012"
+    },
+    {
+      "added_left": 5,
+      "added_right_reflection_side": 10,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed two-sided boundary prefix; not an all-order C13 obstruction.",
+        "distance_classes_after_selected_equalities": 39,
+        "forced_inequalities_available": 490,
+        "max_weight": 30,
+        "positive_inequalities": 20,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 210,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        4,
+        5
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        7,
+        10
+      ],
+      "label": "third_pair_child_00011",
+      "parent_boundary_left": [
+        1,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        7
+      ],
+      "parent_label": "partial_branch_0012"
+    }
+  ],
+  "closed_support_size_histogram": {
+    "10": 1266,
+    "11": 1571,
+    "12": 2055,
+    "13": 2535,
+    "14": 2845,
+    "15": 3351,
+    "16": 3872,
+    "17": 4039,
+    "18": 4190,
+    "19": 3957,
+    "2": 298,
+    "20": 3623,
+    "21": 2912,
+    "22": 2227,
+    "23": 1505,
+    "24": 910,
+    "25": 472,
+    "26": 219,
+    "27": 85,
+    "28": 24,
+    "29": 8,
+    "3": 356,
+    "30": 1,
+    "4": 439,
+    "5": 526,
+    "6": 608,
+    "7": 761,
+    "8": 901,
+    "9": 1011
+  },
+  "forced_row_count_histogram": {
+    "490": 46592
+  },
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "This refines only the two-boundary-pair prefixes left open by the previous prefix-forced Kalmanson pass.",
+    "Each closed child branch is certified using only Kalmanson inequalities whose order is forced by the recorded third-pair boundary prefix.",
+    "Unclosed children are not counterexamples and are not numerical evidence of realizability."
+  ],
+  "parameters": {
+    "anchor_label": 0,
+    "child_boundary_pairs": 3,
+    "closed_example_count": 12,
+    "include_certificates_in_examples": false,
+    "lp_support_tolerance": 1e-09,
+    "max_parents": null,
+    "parent_boundary_pairs": 2
+  },
+  "pattern": {
+    "circulant_offsets": [
+      1,
+      2,
+      4,
+      10
+    ],
+    "n": 13,
+    "name": "C13_sidon_1_2_4_10"
+  },
+  "trust": "EXACT_OBSTRUCTION",
+  "type": "c13_kalmanson_third_pair_refinement_v1",
+  "unclosed_child_branches": [
+    {
+      "added_left": 12,
+      "added_right_reflection_side": 6,
+      "child_boundary_left": [
+        2,
+        11,
+        12
+      ],
+      "child_boundary_right_reflection_side": [
+        5,
+        4,
+        6
+      ],
+      "label": "third_pair_child_07723",
+      "parent_boundary_left": [
+        2,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        5,
+        4
+      ],
+      "parent_label": "partial_branch_1244"
+    },
+    {
+      "added_left": 10,
+      "added_right_reflection_side": 9,
+      "child_boundary_left": [
+        2,
+        1,
+        10
+      ],
+      "child_boundary_right_reflection_side": [
+        6,
+        8,
+        9
+      ],
+      "label": "third_pair_child_07935",
+      "parent_boundary_left": [
+        2,
+        1
+      ],
+      "parent_boundary_right_reflection_side": [
+        6,
+        8
+      ],
+      "parent_label": "partial_branch_1264"
+    },
+    {
+      "added_left": 7,
+      "added_right_reflection_side": 12,
+      "child_boundary_left": [
+        3,
+        4,
+        7
+      ],
+      "child_boundary_right_reflection_side": [
+        5,
+        10,
+        12
+      ],
+      "label": "third_pair_child_11395",
+      "parent_boundary_left": [
+        3,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        5,
+        10
+      ],
+      "parent_label": "partial_branch_2004"
+    },
+    {
+      "added_left": 4,
+      "added_right_reflection_side": 12,
+      "child_boundary_left": [
+        3,
+        9,
+        4
+      ],
+      "child_boundary_right_reflection_side": [
+        5,
+        11,
+        12
+      ],
+      "label": "third_pair_child_11836",
+      "parent_boundary_left": [
+        3,
+        9
+      ],
+      "parent_boundary_right_reflection_side": [
+        5,
+        11
+      ],
+      "parent_label": "partial_branch_2041"
+    },
+    {
+      "added_left": 4,
+      "added_right_reflection_side": 9,
+      "child_boundary_left": [
+        3,
+        11,
+        4
+      ],
+      "child_boundary_right_reflection_side": [
+        5,
+        12,
+        9
+      ],
+      "label": "third_pair_child_12171",
+      "parent_boundary_left": [
+        3,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        5,
+        12
+      ],
+      "parent_label": "partial_branch_2060"
+    },
+    {
+      "added_left": 6,
+      "added_right_reflection_side": 9,
+      "child_boundary_left": [
+        3,
+        11,
+        6
+      ],
+      "child_boundary_right_reflection_side": [
+        5,
+        12,
+        9
+      ],
+      "label": "third_pair_child_12178",
+      "parent_boundary_left": [
+        3,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        5,
+        12
+      ],
+      "parent_label": "partial_branch_2060"
+    },
+    {
+      "added_left": 12,
+      "added_right_reflection_side": 1,
+      "child_boundary_left": [
+        4,
+        10,
+        12
+      ],
+      "child_boundary_right_reflection_side": [
+        7,
+        5,
+        1
+      ],
+      "label": "third_pair_child_19089",
+      "parent_boundary_left": [
+        4,
+        10
+      ],
+      "parent_boundary_right_reflection_side": [
+        7,
+        5
+      ],
+      "parent_label": "partial_branch_2946"
+    },
+    {
+      "added_left": 3,
+      "added_right_reflection_side": 10,
+      "child_boundary_left": [
+        4,
+        8,
+        3
+      ],
+      "child_boundary_right_reflection_side": [
+        9,
+        5,
+        10
+      ],
+      "label": "third_pair_child_20514",
+      "parent_boundary_left": [
+        4,
+        8
+      ],
+      "parent_boundary_right_reflection_side": [
+        9,
+        5
+      ],
+      "parent_label": "partial_branch_3117"
+    },
+    {
+      "added_left": 7,
+      "added_right_reflection_side": 4,
+      "child_boundary_left": [
+        5,
+        2,
+        7
+      ],
+      "child_boundary_right_reflection_side": [
+        6,
+        9,
+        4
+      ],
+      "label": "third_pair_child_22535",
+      "parent_boundary_left": [
+        5,
+        2
+      ],
+      "parent_boundary_right_reflection_side": [
+        6,
+        9
+      ],
+      "parent_label": "partial_branch_3434"
+    },
+    {
+      "added_left": 12,
+      "added_right_reflection_side": 4,
+      "child_boundary_left": [
+        5,
+        2,
+        12
+      ],
+      "child_boundary_right_reflection_side": [
+        6,
+        9,
+        4
+      ],
+      "label": "third_pair_child_22563",
+      "parent_boundary_left": [
+        5,
+        2
+      ],
+      "parent_boundary_right_reflection_side": [
+        6,
+        9
+      ],
+      "parent_label": "partial_branch_3434"
+    },
+    {
+      "added_left": 4,
+      "added_right_reflection_side": 3,
+      "child_boundary_left": [
+        5,
+        10,
+        4
+      ],
+      "child_boundary_right_reflection_side": [
+        7,
+        12,
+        3
+      ],
+      "label": "third_pair_child_24943",
+      "parent_boundary_left": [
+        5,
+        10
+      ],
+      "parent_boundary_right_reflection_side": [
+        7,
+        12
+      ],
+      "parent_label": "partial_branch_3581"
+    },
+    {
+      "added_left": 2,
+      "added_right_reflection_side": 10,
+      "child_boundary_left": [
+        5,
+        3,
+        2
+      ],
+      "child_boundary_right_reflection_side": [
+        8,
+        1,
+        10
+      ],
+      "label": "third_pair_child_25764",
+      "parent_boundary_left": [
+        5,
+        3
+      ],
+      "parent_boundary_right_reflection_side": [
+        8,
+        1
+      ],
+      "parent_label": "partial_branch_3618"
+    },
+    {
+      "added_left": 3,
+      "added_right_reflection_side": 11,
+      "child_boundary_left": [
+        5,
+        12,
+        3
+      ],
+      "child_boundary_right_reflection_side": [
+        8,
+        10,
+        11
+      ],
+      "label": "third_pair_child_26956",
+      "parent_boundary_left": [
+        5,
+        12
+      ],
+      "parent_boundary_right_reflection_side": [
+        8,
+        10
+      ],
+      "parent_label": "partial_branch_3688"
+    },
+    {
+      "added_left": 8,
+      "added_right_reflection_side": 1,
+      "child_boundary_left": [
+        6,
+        10,
+        8
+      ],
+      "child_boundary_right_reflection_side": [
+        7,
+        3,
+        1
+      ],
+      "label": "third_pair_child_30268",
+      "parent_boundary_left": [
+        6,
+        10
+      ],
+      "parent_boundary_right_reflection_side": [
+        7,
+        3
+      ],
+      "parent_label": "partial_branch_4115"
+    },
+    {
+      "added_left": 12,
+      "added_right_reflection_side": 5,
+      "child_boundary_left": [
+        6,
+        10,
+        12
+      ],
+      "child_boundary_right_reflection_side": [
+        7,
+        3,
+        5
+      ],
+      "label": "third_pair_child_30292",
+      "parent_boundary_left": [
+        6,
+        10
+      ],
+      "parent_boundary_right_reflection_side": [
+        7,
+        3
+      ],
+      "parent_label": "partial_branch_4115"
+    },
+    {
+      "added_left": 10,
+      "added_right_reflection_side": 9,
+      "child_boundary_left": [
+        6,
+        1,
+        10
+      ],
+      "child_boundary_right_reflection_side": [
+        8,
+        3,
+        9
+      ],
+      "label": "third_pair_child_30727",
+      "parent_boundary_left": [
+        6,
+        1
+      ],
+      "parent_boundary_right_reflection_side": [
+        8,
+        3
+      ],
+      "parent_label": "partial_branch_4141"
+    },
+    {
+      "added_left": 12,
+      "added_right_reflection_side": 1,
+      "child_boundary_left": [
+        6,
+        8,
+        12
+      ],
+      "child_boundary_right_reflection_side": [
+        9,
+        3,
+        1
+      ],
+      "label": "third_pair_child_33425",
+      "parent_boundary_left": [
+        6,
+        8
+      ],
+      "parent_boundary_right_reflection_side": [
+        9,
+        3
+      ],
+      "parent_label": "partial_branch_4286"
+    },
+    {
+      "added_left": 9,
+      "added_right_reflection_side": 1,
+      "child_boundary_left": [
+        7,
+        4,
+        9
+      ],
+      "child_boundary_right_reflection_side": [
+        8,
+        11,
+        1
+      ],
+      "label": "third_pair_child_37163",
+      "parent_boundary_left": [
+        7,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        8,
+        11
+      ],
+      "parent_label": "partial_branch_4624"
+    },
+    {
+      "added_left": 9,
+      "added_right_reflection_side": 6,
+      "child_boundary_left": [
+        7,
+        4,
+        9
+      ],
+      "child_boundary_right_reflection_side": [
+        8,
+        11,
+        6
+      ],
+      "label": "third_pair_child_37167",
+      "parent_boundary_left": [
+        7,
+        4
+      ],
+      "parent_boundary_right_reflection_side": [
+        8,
+        11
+      ],
+      "parent_label": "partial_branch_4624"
+    },
+    {
+      "added_left": 4,
+      "added_right_reflection_side": 3,
+      "child_boundary_left": [
+        7,
+        5,
+        4
+      ],
+      "child_boundary_right_reflection_side": [
+        11,
+        12,
+        3
+      ],
+      "label": "third_pair_child_39391",
+      "parent_boundary_left": [
+        7,
+        5
+      ],
+      "parent_boundary_right_reflection_side": [
+        11,
+        12
+      ],
+      "parent_label": "partial_branch_4904"
+    },
+    {
+      "added_left": 4,
+      "added_right_reflection_side": 7,
+      "child_boundary_left": [
+        8,
+        1,
+        4
+      ],
+      "child_boundary_right_reflection_side": [
+        10,
+        2,
+        7
+      ],
+      "label": "third_pair_child_41002",
+      "parent_boundary_left": [
+        8,
+        1
+      ],
+      "parent_boundary_right_reflection_side": [
+        10,
+        2
+      ],
+      "parent_label": "partial_branch_5130"
+    },
+    {
+      "added_left": 4,
+      "added_right_reflection_side": 9,
+      "child_boundary_left": [
+        8,
+        1,
+        4
+      ],
+      "child_boundary_right_reflection_side": [
+        10,
+        2,
+        9
+      ],
+      "label": "third_pair_child_41003",
+      "parent_boundary_left": [
+        8,
+        1
+      ],
+      "parent_boundary_right_reflection_side": [
+        10,
+        2
+      ],
+      "parent_label": "partial_branch_5130"
+    },
+    {
+      "added_left": 1,
+      "added_right_reflection_side": 9,
+      "child_boundary_left": [
+        8,
+        2,
+        1
+      ],
+      "child_boundary_right_reflection_side": [
+        10,
+        4,
+        9
+      ],
+      "label": "third_pair_child_41220",
+      "parent_boundary_left": [
+        8,
+        2
+      ],
+      "parent_boundary_right_reflection_side": [
+        10,
+        4
+      ],
+      "parent_label": "partial_branch_5141"
+    },
+    {
+      "added_left": 1,
+      "added_right_reflection_side": 6,
+      "child_boundary_left": [
+        8,
+        3,
+        1
+      ],
+      "child_boundary_right_reflection_side": [
+        10,
+        9,
+        6
+      ],
+      "label": "third_pair_child_41443",
+      "parent_boundary_left": [
+        8,
+        3
+      ],
+      "parent_boundary_right_reflection_side": [
+        10,
+        9
+      ],
+      "parent_label": "partial_branch_5154"
+    },
+    {
+      "added_left": 7,
+      "added_right_reflection_side": 1,
+      "child_boundary_left": [
+        8,
+        9,
+        7
+      ],
+      "child_boundary_right_reflection_side": [
+        11,
+        2,
+        1
+      ],
+      "label": "third_pair_child_42595",
+      "parent_boundary_left": [
+        8,
+        9
+      ],
+      "parent_boundary_right_reflection_side": [
+        11,
+        2
+      ],
+      "parent_label": "partial_branch_5284"
+    }
+  ]
+}
