@@ -29,6 +29,21 @@ machine-checked selected-witness `n <= 8` artifact.
 | `verify_erdos97_n9.py` | `1aa05135de87771adc64c26e1b2e89239388e7583dfa2da50950fddeb8ca677e` | Raw 184-pattern/16-orbit verifier variant; preserved for review. |
 | `verify_erdos97_n9_output.txt` | `b57e51c297c2fd6bda0f101100fab6f21458576a71c4164c86242f0ce73cf137` | Reproduced by the raw verifier variant; not the canonical repo check. |
 
+## Late external files reviewed
+
+These additional files were also checked from the same external archive
+directory. They are not copied here verbatim. Their stable hashes and distilled
+counts are recorded in
+`data/certificates/n9_late_archive_provenance.json`.
+
+| File | SHA256 | Disposition |
+| --- | --- | --- |
+| `erdos97_n9_vertex_circle_certificate.json` | `142d25283fe114c05863f66515e21c1e2b76c0c8dade22b3b545c97ab5248b5a` | Generated sequential vertex-circle certificate; not imported verbatim because it includes timing fields and a stronger trust label than this repo should accept before independent review. |
+| `n9_vertex_circle_exclusion.py` | `c2283900fb16aeb3b96ae245f57571721d86a35dd506357b9362ab616f8fc819` | Standalone sequential row-order vertex-circle checker; locally rerun with `--assert-closed`, but not imported because the repo-native checker already covers the canonical executable path. |
+| `erdos97_n9_exclusion_report.md` | `ed16eae27bb6423d797c5b2b1294023844bd98e372475b0288685851ab3a8f27` | Raw report; superseded by repo documentation with review-pending language. |
+| `erdos97_n9_certificates_and_scripts.zip` | `09ce587b10801f1854bf769a30bd0b904b2f67998bd34179f61fcab76ccb1a92` | Binary certificate/script bundle; static JSON summaries were inspected, but embedded verifier code was not executed during this integration. |
+| `erdos97_result (4).md` | `bdc2b70ae784fcdde32c94ef421013472b5ab799293170dddfdb4522b5a1e5f8` | Raw row0 quotient report; not imported verbatim because it uses stronger conclusion language than the repo should publish before review. |
+
 ## Review notes
 
 The n=9 material has three related but distinct computational stories:
@@ -36,7 +51,9 @@ The n=9 material has three related but distinct computational stories:
 - a vertex-circle exhaustive search whose cross-check leaves 184 full
   assignments before the vertex-circle filter and kills all 184;
 - a 184-labelled-pattern / 16-dihedral-class Kalmanson-gap verifier;
-- a 102-row0-reflection-representative Kalmanson/Farkas certificate verifier.
+- a 102-row0-reflection-representative obstruction bundle combining
+  Kalmanson/Farkas certificates, phi4 rectangle traps, and odd forced
+  perpendicularity cycles.
 
 The repo-native integration currently promotes only the first item as a
 review-pending executable artifact. The other two are kept here because their

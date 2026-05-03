@@ -76,10 +76,27 @@ python -m pytest tests/test_n9_vertex_circle_exhaustive.py -q
 
 The raw incoming bundle is preserved under
 `incoming/archive-output-2026-05-03/`. That folder includes two additional n=9
-Kalmanson verifier variants with different symmetry/count conventions:
-184 labelled patterns / 16 dihedral classes, and 102 row-0 reflection
-representatives with positive Kalmanson/Farkas certificates. Those are useful
-audit material, but they are not the canonical repo check introduced here.
+Kalmanson verifier variants with different symmetry/count conventions, plus a
+later external batch summarized in
+`data/certificates/n9_late_archive_provenance.json`. Those are useful audit
+material, but they are not the canonical repo check introduced here.
+
+## Later archive cross-checks
+
+A later external batch added two corroborating n=9 stories:
+
+- a sequential row-order vertex-circle checker, locally rerun with
+  `--assert-closed`, closes all 70 row0 choices with 37,614 visited nodes,
+  2,628,150 row options considered, and zero full patterns reached;
+- a row0-reflection-quotient certificate bundle reports 38 canonical row0
+  classes, 102 full patterns, and classifications into 70 Kalmanson/Farkas
+  certificates, 21 phi4 rectangle traps, and 11 odd forced-perpendicularity
+  cycles, with no accepted frontier.
+
+The zip bundle's embedded verifier was not executed during integration because
+it is unreviewed external code. Its static JSON summaries and hashes are
+recorded only as review-pending provenance; the verifier should be ported or
+reviewed in-repo before those counts become a canonical check.
 
 ## Review standard
 
@@ -93,3 +110,6 @@ artifact, an independent review should check:
   rows and selected-distance equalities that are already fixed;
 - that the raw 184/16 and 102-certificate archive variants agree with the
   repo-native checker once their symmetry conventions are made explicit.
+- that the sequential vertex-circle script and row0-quotient bundle in the
+  late archive are independent enough to count as corroboration rather than
+  just differently packaged output from the same search.
