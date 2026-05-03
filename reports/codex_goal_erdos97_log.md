@@ -151,6 +151,26 @@ GitHub issue context, via the GitHub connector:
 - `git diff --check`: passed.
 - `.venv/bin/python -m pytest -q`: passed, `173 passed, 8 deselected`.
 
+### Publish / PR Checkpoint
+
+- Local commit: `d2a64e7 research: add kalmanson certificate diagnostics`.
+- `gh --version`: available, `gh version 2.87.3`.
+- `gh auth status`: failed because the stored token for account `oskarasi` is
+  invalid.
+- `git push -u origin codex/goal-erdos97-proof-or-counterexample`: failed with
+  GitHub `403` permission denial for account `oskarasi`.
+- Fallback publication used the GitHub connector:
+  - created remote branch `codex/goal-erdos97-proof-or-counterexample` from
+    `origin/main` at `f4b30cd722ceadd36a864feafcb37cb600e655d6`;
+  - wrote the checkpoint files to that branch;
+  - opened draft PR #86:
+    `https://github.com/davidiach/erdos97/pull/86`.
+- Remote PR head after connector publication:
+  `2cc8ceb3a4224871dcb1910aa552e154b591f53a`.
+- Note: because local `git push` was blocked and the GitHub connector created
+  commits through the API, the local branch commit SHA and the remote PR head
+  SHA differ even though the intended file diff is the same.
+
 ### Chosen Research Direction
 
 Checkpoint direction: exact Kalmanson certificate diagnostics supporting open
@@ -195,8 +215,7 @@ Rationale:
 
 - Keep the pre-existing `tests/test_metric_order_lp.py` edit separate unless it
   is intentionally adopted after review.
-- Re-run repository text/status checks and the relevant test subset, then full
-  `.venv/bin/python -m pytest` if runtime remains reasonable.
-- Before committing, decide whether the pre-existing
-  `tests/test_metric_order_lp.py` edit should be included in this checkpoint
-  or left unstaged.
+- The local branch is not tracking the connector-published remote branch state;
+  reconcile carefully before the next local push attempt.
+- Next mathematical iteration: use the support diagnostics to guide a bounded
+  C13 cyclic-order pilot with exact certificates for closed branches.
