@@ -68,3 +68,8 @@ The next exact extension is to replace deterministic sampled completions with
 branch certificates that are valid for every completion of a partial boundary
 state, or to continue the brancher with additional exact pruning before each
 LP/certificate call.
+
+That extension is started in
+`docs/c13-kalmanson-partial-branch-closures.md`: prefix-forced Kalmanson
+certificates close 5,108 of the 5,940 canonical two-boundary-pair states,
+leaving 832 prefixes for deeper exact search.

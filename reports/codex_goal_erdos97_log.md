@@ -363,3 +363,62 @@ closed by exact positive-integer certificates.
   HEAD..origin/codex/goal-erdos97-proof-or-counterexample` was empty.
 - PR title/body updated to cover the prefix-branch pilot and its claim
   boundary.
+
+## Session 2026-05-03, Iteration 4
+
+### Branch and Local State
+
+- Current branch: `codex/goal-erdos97-proof-or-counterexample`.
+- `git fetch origin` succeeded before this iteration.
+- The pre-existing unstaged edit in `tests/test_metric_order_lp.py` is still
+  present and is still treated as out of scope.
+
+### Focus
+
+Partial-branch C13 Kalmanson closures.
+
+This strengthens the previous prefix-branch pilot by replacing sampled full
+cyclic-order completions with certificates that use only Kalmanson
+inequalities forced by a two-sided boundary prefix. A closed prefix branch is
+therefore killed for every completion of that prefix.
+
+### Work Performed
+
+- Added `scripts/certify_c13_kalmanson_partial_branches.py`.
+- Added `data/certificates/c13_kalmanson_partial_branch_closures.json`.
+- Added `tests/test_c13_kalmanson_partial_branches.py`.
+- Added `docs/c13-kalmanson-partial-branch-closures.md`.
+- Linked the partial-branch pass from `docs/index.md`,
+  `docs/c13-kalmanson-prefix-branch-pilot.md`,
+  `docs/c13-kalmanson-order-pilot.md`, and `docs/kalmanson-c13-pilot.md`.
+
+The scan uses the 5,940 canonical two-boundary-pair states. For each branch,
+it keeps only the 170 Kalmanson inequalities whose quadrilateral order is
+forced by the prefix. Exact positive-integer Farkas certificates close 5,108
+branches; 832 two-boundary-pair prefixes remain unclosed by this pass. The
+compact artifact records closure counts, support-size histograms, twelve
+checked certificate examples, and a digest plus first/last windows for the
+832 unclosed branch labels.
+
+### Verification Commands
+
+- `.venv/bin/python scripts/certify_c13_kalmanson_partial_branches.py --assert-expected --out data/certificates/c13_kalmanson_partial_branch_closures.json`:
+  passed.
+- `.venv/bin/python -m pytest tests/test_c13_kalmanson_partial_branches.py`:
+  passed, `2 passed`.
+- `.venv/bin/python -m pytest tests/test_c13_kalmanson_partial_branches.py tests/test_c13_kalmanson_prefix_branch_pilot.py tests/test_c13_kalmanson_order_pilot.py tests/test_kalmanson_certificate.py`:
+  passed, `10 passed`.
+- `.venv/bin/python scripts/check_text_clean.py`: passed.
+- `.venv/bin/python scripts/check_status_consistency.py`: passed.
+- `git diff --check`: passed.
+- `.venv/bin/python -m pytest -q`: passed, `177 passed, 8 deselected`.
+
+### Claim Boundary
+
+- Trust label: `EXACT_OBSTRUCTION` for the 5,108 certified partial branches.
+- Each closure applies only to one fixed two-sided boundary prefix and all its
+  completions.
+- The remaining 832 prefixes are not counterexamples and are not evidence of
+  realizability.
+- No general proof, no counterexample, and no all-order C13 obstruction are
+  claimed.

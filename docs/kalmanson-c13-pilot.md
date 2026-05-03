@@ -86,3 +86,10 @@ A subsequent prefix-branch pilot is recorded in
 `data/certificates/c13_kalmanson_prefix_branch_pilot.json`. It adds
 reflection pruning before LP calls and closes twelve sampled fixed
 completions, but it is also not an all-order search.
+
+The first partial-branch closure pass is recorded in
+`docs/c13-kalmanson-partial-branch-closures.md` and
+`data/certificates/c13_kalmanson_partial_branch_closures.json`. It uses only
+Kalmanson inequalities forced by each two-sided boundary prefix and closes
+5,108 of the 5,940 canonical two-boundary-pair prefixes. The remaining 832
+prefixes are unresolved by this pass.

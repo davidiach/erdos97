@@ -73,3 +73,10 @@ A first bounded prefix-branch follow-up is recorded in
 `data/certificates/c13_kalmanson_prefix_branch_pilot.json`. It adds
 reflection pruning before LP calls and closes twelve sampled fixed completions,
 but it is still not an all-order search.
+
+A stronger partial-branch follow-up is recorded in
+`docs/c13-kalmanson-partial-branch-closures.md` and
+`data/certificates/c13_kalmanson_partial_branch_closures.json`. It closes
+5,108 of 5,940 canonical two-boundary-pair prefixes using only
+prefix-forced Kalmanson inequalities; 832 prefixes remain unclosed by that
+pass.
