@@ -30,7 +30,6 @@ from certify_c13_kalmanson_partial_branches import (
     OFFSETS,
     PATTERN_NAME,
     branch_label,
-    branch_record,
     partial_certificate_payload,
     partial_kalmanson_rows,
     summarize_certificate,
