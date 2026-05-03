@@ -28,6 +28,11 @@ self-edge equality path lengths: 92 length-3, 41 length-4, 14 length-5,
 The checked-in diagnostic artifact is
 `data/certificates/n9_vertex_circle_obstruction_shapes.json`.
 
+The companion family diagnostic
+`docs/n9-vertex-circle-motif-families.md` canonicalizes the same 184 labelled
+assignments under dihedral cyclic symmetry. It finds 16 full selected-witness
+incidence families: 13 self-edge families and 3 strict-cycle families.
+
 ## Why this matters
 
 The obstruction shapes are small enough to point at a plausible general proof
@@ -79,6 +84,8 @@ python -m pytest tests/test_n9_vertex_circle_obstruction_shapes.py -q
   are they merely shortest paths in a dense selected-distance equality graph?
 - Can the length-2 and length-3 strict cycles be described by a small set of
   cyclic-order templates?
+- Can the 16 dihedral incidence families be replaced by local lemmas that do
+  not enumerate all n=9 row systems?
 - Which extra condition rules out the known `C19_skew` vertex-circle survivor:
   Altman diagonal sums, Kalmanson inequalities, radius propagation, or a
   sharper vertex-circle inequality?
