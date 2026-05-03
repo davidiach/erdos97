@@ -1,0 +1,245 @@
+{
+  "exact_core_embedding_results": [
+    {
+      "checked_core_count": 16,
+      "cyclic_order_preserving_maps_tested": 13127400,
+      "exact_core_embedding_hits": 0,
+      "hits": [],
+      "order": [
+        0,
+        8,
+        4,
+        15,
+        1,
+        5,
+        11,
+        9,
+        3,
+        7,
+        17,
+        13,
+        2,
+        6,
+        14,
+        10,
+        16,
+        12
+      ],
+      "pattern": "P18_parity_balanced"
+    },
+    {
+      "checked_core_count": 16,
+      "cyclic_order_preserving_maps_tested": 24337404,
+      "exact_core_embedding_hits": 0,
+      "hits": [],
+      "order": [
+        18,
+        10,
+        7,
+        17,
+        6,
+        3,
+        5,
+        9,
+        14,
+        11,
+        2,
+        13,
+        4,
+        16,
+        12,
+        15,
+        0,
+        8,
+        1
+      ],
+      "pattern": "C19_skew"
+    }
+  ],
+  "interpretation": [
+    "No n=9 local core embeds exactly into the recorded P18 or C19 row systems under this strict row-preserving test.",
+    "P18 is still killed by a local strict-cycle core of size 6, and its span signature matches an n=9 strict-cycle shape bucket.",
+    "The recorded C19 order still passes the vertex-circle filter, so any global route needs an additional exact ingredient or a sharper vertex-circle condition."
+  ],
+  "n9_local_core_artifact": "data/certificates/n9_vertex_circle_local_cores.json",
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "The official/global status remains falsifiable/open.",
+    "Exact core embeddings require a cyclic-order-preserving injection whose selected rows match exactly."
+  ],
+  "pattern_vertex_circle_results": [
+    {
+      "core_rows": [
+        2,
+        9,
+        12,
+        13,
+        16,
+        17
+      ],
+      "core_size": 6,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              16
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  9,
+                  16
+                ],
+                "row": 9
+              },
+              {
+                "next_pair": [
+                  2,
+                  16
+                ],
+                "row": 16
+              }
+            ],
+            "start_pair": [
+              1,
+              9
+            ]
+          },
+          "inner_pair": [
+            1,
+            9
+          ],
+          "inner_span": 1,
+          "outer_pair": [
+            9,
+            13
+          ],
+          "outer_span": 3,
+          "strict_row": 17
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              9,
+              13
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  2,
+                  13
+                ],
+                "row": 2
+              },
+              {
+                "next_pair": [
+                  9,
+                  13
+                ],
+                "row": 13
+              }
+            ],
+            "start_pair": [
+              2,
+              10
+            ]
+          },
+          "inner_pair": [
+            2,
+            10
+          ],
+          "inner_span": 1,
+          "outer_pair": [
+            2,
+            16
+          ],
+          "outer_span": 2,
+          "strict_row": 12
+        }
+      ],
+      "matching_n9_strict_cycle_span_bucket_count": 8,
+      "obstructed": true,
+      "order": [
+        0,
+        8,
+        4,
+        15,
+        1,
+        5,
+        11,
+        9,
+        3,
+        7,
+        17,
+        13,
+        2,
+        6,
+        14,
+        10,
+        16,
+        12
+      ],
+      "pattern": "P18_parity_balanced",
+      "span_signature": [
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "status": "strict_cycle",
+      "vertex_support": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "vertex_support_size": 14
+    },
+    {
+      "obstructed": false,
+      "order": [
+        18,
+        10,
+        7,
+        17,
+        6,
+        3,
+        5,
+        9,
+        14,
+        11,
+        2,
+        13,
+        4,
+        16,
+        12,
+        15,
+        0,
+        8,
+        1
+      ],
+      "pattern": "C19_skew",
+      "status": "passes_vertex_circle_filter"
+    }
+  ],
+  "scope": "Compare exact n=9 local cores with P18 and C19 frontier vertex-circle behavior.",
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "type": "n9_vertex_circle_frontier_comparison_v1"
+}

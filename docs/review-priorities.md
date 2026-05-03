@@ -123,6 +123,9 @@ Next steps:
   to keep those lemmas small;
 - test whether the same motifs appear in the P18 obstruction and fail in the
   known `C19_skew` vertex-circle survivor;
+- use `docs/n9-vertex-circle-frontier-comparison.md` as the current guardrail:
+  exact n=9 cores do not embed into P18 or C19, although P18 shares a loose
+  strict-cycle span shape;
 - identify the extra exact ingredient needed for `C19_skew`, likely
   Altman/Kalmanson or stronger radius propagation.
 
