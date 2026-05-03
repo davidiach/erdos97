@@ -103,7 +103,8 @@ mathematical or implementation gap.
 
 ## Priority 6 - mine a reusable vertex-circle lemma
 
-Target: `docs/n9-vertex-circle-obstruction-shapes.md`.
+Target: `docs/n9-vertex-circle-obstruction-shapes.md` and
+`docs/n9-vertex-circle-motif-families.md`.
 
 The n=9 obstruction-shape diagnostic shows that the 184 pre-vertex-circle
 frontier assignments are killed by 158 self-edges and 26 strict cycles, all
@@ -115,8 +116,9 @@ be irreflexive and acyclic.
 
 Next steps:
 
-- classify the self-edge equality paths into incidence motifs;
-- normalize the length-2 and length-3 strict cycles up to dihedral relabeling;
+- classify the 13 self-edge dihedral incidence families into local lemmas;
+- classify the 3 strict-cycle dihedral incidence families into directed
+  quotient-cycle templates;
 - test whether the same motifs appear in the P18 obstruction and fail in the
   known `C19_skew` vertex-circle survivor;
 - identify the extra exact ingredient needed for `C19_skew`, likely
