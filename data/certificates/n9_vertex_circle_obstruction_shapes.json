@@ -1,0 +1,377 @@
+{
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "interpretation": [
+    "All strict-cycle obstructions found here have length 2 or 3.",
+    "All self-edge obstructions found here have distance-equality paths of length at most 8.",
+    "This suggests a general proof target: force a self-edge or directed cycle in the quotient graph whose vertices are selected-distance classes and whose directed edges come from vertex-circle interval containment.",
+    "The existing C19 caveat shows this quotient-graph obstruction alone is not yet a global solution route."
+  ],
+  "n": 9,
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "The official/global status remains falsifiable/open.",
+    "This diagnostic identifies obstruction shapes; it is not a separate n=9 proof path."
+  ],
+  "obstruction_status_counts": {
+    "self_edge": 158,
+    "strict_cycle": 26
+  },
+  "pre_vertex_circle_search": {
+    "full_assignments": 184,
+    "nodes_visited": 100817,
+    "row0_choices": 70
+  },
+  "representatives": {
+    "self_edge": {
+      "conflict": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          1,
+          2
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          0,
+          1
+        ],
+        "outer_interval": [
+          0,
+          3
+        ],
+        "outer_pair": [
+          1,
+          8
+        ],
+        "outer_span": 3,
+        "row": 0,
+        "witness_order": [
+          1,
+          2,
+          3,
+          8
+        ]
+      },
+      "distance_equality_path": [
+        {
+          "next_pair": [
+            0,
+            8
+          ],
+          "row": 8
+        },
+        {
+          "next_pair": [
+            0,
+            1
+          ],
+          "row": 0
+        },
+        {
+          "next_pair": [
+            1,
+            2
+          ],
+          "row": 1
+        }
+      ],
+      "selected_rows": [
+        [
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          3,
+          4,
+          6,
+          7
+        ],
+        [
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          5
+        ]
+      ]
+    },
+    "strict_cycle": {
+      "cycle_edges": [
+        {
+          "inner_class": [
+            0,
+            3
+          ],
+          "inner_interval": [
+            1,
+            3
+          ],
+          "inner_pair": [
+            0,
+            3
+          ],
+          "inner_span": 2,
+          "outer_class": [
+            0,
+            1
+          ],
+          "outer_interval": [
+            0,
+            3
+          ],
+          "outer_pair": [
+            0,
+            2
+          ],
+          "outer_span": 3,
+          "row": 1,
+          "witness_order": [
+            2,
+            3,
+            5,
+            0
+          ]
+        },
+        {
+          "inner_class": [
+            0,
+            5
+          ],
+          "inner_interval": [
+            2,
+            3
+          ],
+          "inner_pair": [
+            0,
+            5
+          ],
+          "inner_span": 1,
+          "outer_class": [
+            0,
+            3
+          ],
+          "outer_interval": [
+            1,
+            3
+          ],
+          "outer_pair": [
+            0,
+            3
+          ],
+          "outer_span": 2,
+          "row": 1,
+          "witness_order": [
+            2,
+            3,
+            5,
+            0
+          ]
+        },
+        {
+          "inner_class": [
+            0,
+            1
+          ],
+          "inner_interval": [
+            2,
+            3
+          ],
+          "inner_pair": [
+            1,
+            5
+          ],
+          "inner_span": 1,
+          "outer_class": [
+            0,
+            5
+          ],
+          "outer_interval": [
+            0,
+            3
+          ],
+          "outer_pair": [
+            5,
+            7
+          ],
+          "outer_span": 3,
+          "row": 6,
+          "witness_order": [
+            7,
+            8,
+            1,
+            5
+          ]
+        }
+      ],
+      "selected_rows": [
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ]
+      ]
+    }
+  },
+  "row_size": 4,
+  "scope": "Diagnostic mining of the 184 complete n=9 selected-witness assignments that survive pair/crossing/count filters before vertex-circle obstruction.",
+  "self_edge_summary": {
+    "assignments": 158,
+    "equality_path_length_counts": {
+      "3": 92,
+      "4": 41,
+      "5": 14,
+      "6": 6,
+      "7": 4,
+      "8": 1
+    },
+    "first_conflict_row_counts": {
+      "0": 118,
+      "1": 14,
+      "2": 8,
+      "3": 6,
+      "4": 4,
+      "5": 2,
+      "6": 2,
+      "7": 2,
+      "8": 2
+    },
+    "max_equality_path_length": 8,
+    "shared_endpoint_counts": {
+      "0": 11,
+      "1": 147
+    }
+  },
+  "strict_cycle_summary": {
+    "assignments": 26,
+    "cycle_edge_row_participation_counts": {
+      "0": 14,
+      "1": 16,
+      "2": 13,
+      "3": 2,
+      "4": 4,
+      "5": 1,
+      "6": 2,
+      "7": 2,
+      "8": 2
+    },
+    "cycle_length_counts": {
+      "2": 22,
+      "3": 4
+    },
+    "span_signature_counts": {
+      "((2, 1), (2, 1))": 2,
+      "((2, 1), (2, 1), (3, 2))": 1,
+      "((2, 1), (3, 1))": 8,
+      "((2, 1), (3, 1), (3, 2))": 1,
+      "((2, 1), (3, 2))": 3,
+      "((3, 1), (3, 1))": 6,
+      "((3, 1), (3, 1), (3, 1))": 2,
+      "((3, 1), (3, 2))": 3
+    }
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "type": "n9_vertex_circle_obstruction_shapes_v1"
+}

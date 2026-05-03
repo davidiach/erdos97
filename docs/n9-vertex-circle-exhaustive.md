@@ -54,6 +54,11 @@ filters from the vertex-circle filter: 184 complete selected-witness systems
 survive before vertex-circle reasoning, and every one is killed by an exact
 vertex-circle obstruction.
 
+The companion diagnostic `docs/n9-vertex-circle-obstruction-shapes.md` mines
+those 184 obstructions. It finds 158 self-edge contradictions and 26 strict
+directed cycles; every strict cycle has length 2 or 3. That diagnostic is meant
+to guide a possible general lemma, not to strengthen the repo claim by itself.
+
 ## Commands
 
 Run the stable checker and assert the expected counts:
@@ -113,3 +118,5 @@ artifact, an independent review should check:
 - that the sequential vertex-circle script and row0-quotient bundle in the
   late archive are independent enough to count as corroboration rather than
   just differently packaged output from the same search.
+- that the obstruction-shape diagnostic really reflects reusable templates
+  rather than artifacts of the first conflict selected by the miner.

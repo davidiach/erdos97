@@ -101,7 +101,32 @@ Acceptance standard: a written review should either promote the checker to the
 same repo-local finite-case status as `n <= 8`, or identify the exact
 mathematical or implementation gap.
 
-## Priority 6 - keep the frontier separate
+## Priority 6 - mine a reusable vertex-circle lemma
+
+Target: `docs/n9-vertex-circle-obstruction-shapes.md`.
+
+The n=9 obstruction-shape diagnostic shows that the 184 pre-vertex-circle
+frontier assignments are killed by 158 self-edges and 26 strict cycles, all
+strict cycles having length 2 or 3. This makes the most promising proof push a
+quotient-graph lemma: selected-distance equalities collapse ordinary pair
+distances into classes, vertex-circle interval containment orients strict
+edges between classes, and realizability requires the resulting strict graph to
+be irreflexive and acyclic.
+
+Next steps:
+
+- classify the self-edge equality paths into incidence motifs;
+- normalize the length-2 and length-3 strict cycles up to dihedral relabeling;
+- test whether the same motifs appear in the P18 obstruction and fail in the
+  known `C19_skew` vertex-circle survivor;
+- identify the extra exact ingredient needed for `C19_skew`, likely
+  Altman/Kalmanson or stronger radius propagation.
+
+Acceptance standard: a reusable lemma should state precise incidence/order
+hypotheses and produce a self-edge or strict cycle without enumerating all n=9
+selected-witness assignments.
+
+## Priority 7 - keep the frontier separate
 
 Keep `n >= 9`, abstract `C19_skew`, and broader SAT/SMT work separate from the
 small-case claim. The round-two Kalmanson certificate kills one fixed
@@ -109,7 +134,7 @@ small-case claim. The round-two Kalmanson certificate kills one fixed
 research-frontier workstreams, not prerequisites for the repo-local `n <= 8`
 artifact.
 
-## Priority 7 - extend the C13 Kalmanson pilot
+## Priority 8 - extend the C13 Kalmanson pilot
 
 The first C13 Kalmanson pilot now kills the registered non-natural
 `C13_sidon_1_2_4_10` order with an exact 34-inequality certificate. Before
@@ -118,7 +143,7 @@ pilot toward all cyclic orders: normalize by dihedral symmetry, prune partial
 orders cheaply, run LP dual checks on closed branches, and emit exact integer
 certificates for branches that close.
 
-## Priority 8 - strengthen only productive filters
+## Priority 9 - strengthen only productive filters
 
 The minimum-radius short-chord filter in `docs/minimum-radius-filter.md` is a
 valid exact necessary condition, but it is weak: it does not kill `C19_skew`.
