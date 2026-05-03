@@ -119,6 +119,8 @@ Next steps:
 - classify the 13 self-edge dihedral incidence families into local lemmas;
 - classify the 3 strict-cycle dihedral incidence families into directed
   quotient-cycle templates;
+- use `docs/n9-vertex-circle-local-cores.md` as the row-local certificate list
+  to keep those lemmas small;
 - test whether the same motifs appear in the P18 obstruction and fail in the
   known `C19_skew` vertex-circle survivor;
 - identify the extra exact ingredient needed for `C19_skew`, likely
