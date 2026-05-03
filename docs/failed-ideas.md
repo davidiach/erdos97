@@ -129,6 +129,14 @@ the inner radius below the alternating convexity threshold. In the notation of
 `S/R > cos h`. This is a useful perturbative base, not a live counterexample
 candidate.
 
+A later incoming note broadened the lesson: even without the quarter-turn
+selected-distance equations, the strictly convex alternating two-radius regular
+family has strictly ordered paired distances at every vertex, so it cannot
+produce four equal-distance witnesses. The same note also records that the
+fixed selected-witness pattern of the exact concave alternating decagon has no
+cyclic order satisfying the two-overlap crossing filter. See
+`docs/two-orbit-radius-propagation.md`.
+
 [^lit]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md`.
 [^forest]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/11_forest_lemma_counterexample_review.md`.
 [^rank]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/03_RANK_AND_BRIDGE_STATUS.md`.

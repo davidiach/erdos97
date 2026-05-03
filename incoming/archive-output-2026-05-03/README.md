@@ -21,6 +21,7 @@ machine-checked selected-witness `n <= 8` artifact.
 | `erdos97_n9_result.md` | `acef027ba26f63a650dfe47155b322b3ebd72bd8d552ca76a8aad6a400989652` | Raw n=9 report variant; not imported as a tracked artifact because it uses theorem-style language before independent review. |
 | `erdos97_result (1).md` | `e30673ff9ac2e2037a3adff4fdd47404625b0cbcf22e53ddbc8a313e1e014f` | Raw mixed attempt report; not imported as a tracked artifact because the C13 material is already covered by existing Kalmanson notes. |
 | `erdos97_result.md` | `ee9c38ed2b0dd24fe5f7cd4a952d3f99a97b8ad07f4f4832253053053c28b171` | Raw mixed attempt report; not imported as a tracked artifact because the C13 material is already covered by existing Kalmanson notes. |
+| `erdos97_result (2).md` | `c9962bbc1f05939d46889fc0249894cf6562d687430156b2003b8f9af3a30ebe` | Raw alternating two-radius / concave decagon report; distilled into `docs/two-orbit-radius-propagation.md` and checker tests rather than imported verbatim. |
 | `n9_vertex_circle_crosscheck_output.txt` | `51333a65d8b80a3f7c2c99ccbdc39d3eb9818f4b0d58927a004884b013785c20` | Reproduced by the repo-native n=9 vertex-circle checker. |
 | `n9_vertex_circle_exhaustive.py` | `49c98e01cab3d0292ebb0fdb37b9d4ea46dccd0cd595ce7fb25a799a674bfb61` | Raw standalone n=9 exhaustive script; refactored into `src/erdos97/n9_vertex_circle_exhaustive.py`. |
 | `n9_vertex_circle_exhaustive_output.txt` | `7043c238fac825bd5706c53351705f45dcd133309cc56c777e01380ea837430a` | Reproduced by the repo-native n=9 vertex-circle checker. |
