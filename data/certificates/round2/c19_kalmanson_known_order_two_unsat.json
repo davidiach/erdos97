@@ -1,0 +1,67 @@
+{
+  "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+  "certificate_type": "kalmanson_strict_inequality_farkas",
+  "certificate_variant": "kalmanson_two_inequality_inverse_pair",
+  "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+  "cyclic_order": [
+    18,
+    10,
+    7,
+    17,
+    6,
+    3,
+    5,
+    9,
+    14,
+    11,
+    2,
+    13,
+    4,
+    16,
+    12,
+    15,
+    0,
+    8,
+    1
+  ],
+  "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+  "finder": "scripts/find_kalmanson_two_certificate.py",
+  "inequalities": [
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        18,
+        10,
+        7,
+        2
+      ],
+      "weight": 1
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        7,
+        5,
+        2,
+        16
+      ],
+      "weight": 1
+    }
+  ],
+  "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+  "num_inequalities": 2,
+  "pattern": {
+    "circulant_offsets": [
+      -8,
+      -3,
+      5,
+      9
+    ],
+    "n": 19,
+    "name": "C19_skew"
+  },
+  "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+  "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+  "support_selection": "Among exact inverse row pairs, prefer fewer nonzero distance classes, then larger selected-distance class support, then deterministic row order.",
+  "weight_sum": 2
+}
