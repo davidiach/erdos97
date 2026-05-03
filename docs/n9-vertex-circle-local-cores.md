@@ -69,6 +69,11 @@ This is still not a solution. The next question is whether those local cores
 are forced by general incidence and cyclic-order constraints, or whether they
 are special to the n=9 enumeration.
 
+The comparison in `docs/n9-vertex-circle-frontier-comparison.md` shows the
+caution needed here: the n=9 cores do not embed exactly into the recorded P18
+or C19 patterns. P18 is killed by a related loose strict-cycle shape, while the
+recorded C19 order still passes the vertex-circle filter.
+
 ## Reproduction
 
 Generate and check the local-core artifact:
