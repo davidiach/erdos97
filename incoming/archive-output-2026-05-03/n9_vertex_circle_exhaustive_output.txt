@@ -1,0 +1,6 @@
+n=9 exhaustive selected-witness search with vertex-circle pruning
+row0 choices: 70
+nodes visited: 16752
+full assignments surviving all filters: 0
+prune counts: {'partial_self_edge': 11271, 'partial_strict_cycle': 11011}
+elapsed_seconds: 7.800856

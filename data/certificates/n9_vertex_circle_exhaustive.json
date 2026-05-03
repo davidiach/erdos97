@@ -1,0 +1,52 @@
+{
+  "conclusion": "No n=9 selected-witness assignment survives these exact necessary filters in this checker.",
+  "cross_check_without_vertex_circle_pruning": {
+    "counts": {
+      "self_edge": 158,
+      "strict_cycle": 26
+    },
+    "full_assignments": 184,
+    "nodes_visited": 100817,
+    "row0_choices": 70,
+    "vertex_circle_pruning": false
+  },
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "filters": [
+    "two selected rows share at most two witnesses",
+    "two-overlap source and witness chords cross in the cyclic order",
+    "each witness pair occurs in at most two selected rows",
+    "selected indegree is at most floor(2*(n-1)/(row_size-1))",
+    "vertex-circle nested witness chords create no self-edge or strict cycle after selected-distance quotienting"
+  ],
+  "main_search": {
+    "counts": {
+      "partial_self_edge": 11271,
+      "partial_strict_cycle": 11011
+    },
+    "full_assignments": 0,
+    "nodes_visited": 16752,
+    "row0_choices": 70,
+    "vertex_circle_pruning": true
+  },
+  "n": 9,
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "This review-pending artifact checks only the n=9 selected-witness finite case.",
+    "Public theorem-style use requires independent review of the computer-assisted enumeration."
+  ],
+  "row_size": 4,
+  "scope": "Candidate repo-local machine-checked finite-case extension only; does not update the official/global falsifiable-open status.",
+  "trust": "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING",
+  "type": "n9_vertex_circle_exhaustive_v1"
+}
