@@ -1,8 +1,10 @@
 # Sidon-type circulant patterns: empirical realizability
 
 Trust labels: `EXACT_OBSTRUCTION` for the natural cyclic orders under Altman
-linear certificates; `NUMERICAL_EVIDENCE` for the SLSQP plateau. No general
-proof, abstract-order obstruction, or counterexample claim.
+linear certificates, and for the fixed `C13_sidon_1_2_4_10` pattern across all
+cyclic orders under the Kalmanson two-certificate order search;
+`NUMERICAL_EVIDENCE` for the SLSQP plateau. No general proof or counterexample
+claim.
 
 ## Headline finding
 
@@ -38,8 +40,10 @@ In all three the witness in-degree is constantly 4 and the two-circle
 common-selected-neighbour cap `|S_a cap S_b| <= 2` is satisfied with margin
 to spare. The natural cyclic orders are now exactly killed by Altman linear
 certificates; see `data/certificates/altman_linear_certificate_sweep.json`.
-The arbitrary abstract-order versions remain incidence-pattern leads until a
-separate order search or exact filter kills them.
+The fixed C13 abstract-order version is now exactly killed by the Kalmanson
+two-certificate order search. The C25 and C29 abstract-order versions remain
+incidence-pattern leads until a separate order search or exact filter kills
+them.
 
 ## LLM-run provenance
 
@@ -154,8 +158,9 @@ numerics are consistent with one.
 - If the plateau survives all three of those, attempt an exact-rank argument
   or a sparse-overlap extension targeted at the Sidon class.
 
-The C25 and C29 pattern definitions are in the catalog but should not be
-run before the C13 plateau signature is independently understood.
+The C25 and C29 pattern definitions are in the catalog. Since C13 is now
+exactly killed by the Kalmanson two-certificate order search, future Sidon work
+should either scale that search or first find stronger pruning templates.
 
 ## Non-natural C13 survivor order
 
@@ -166,10 +171,11 @@ The older sparse-frontier fixed-order filters missed the registered order
 ```
 
 for `C13_sidon_1_2_4_10`; see
-`data/certificates/sparse_order_survivors.json`. The C13 Kalmanson pilot now
-kills this same fixed order by an exact 34-inequality certificate; see
-`docs/kalmanson-c13-pilot.md`. This does not settle the abstract pattern across
-all cyclic orders. The search engine supports this order directly via
+`data/certificates/sparse_order_survivors.json`. The compact C13 Kalmanson
+pilot kills this same fixed order by an exact 2-inequality certificate; see
+`docs/kalmanson-c13-pilot.md`. The follow-up search in
+`docs/kalmanson-two-order-search.md` kills the fixed C13 abstract pattern
+across all cyclic orders. The search engine supports this order directly via
 `--cyclic-order`, relabelling the incidence pattern so the supplied order
 becomes the natural boundary order.
 

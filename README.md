@@ -128,18 +128,21 @@ obstructions. This is not yet promoted to the source-of-truth strongest local
 result; independent review is required before any public theorem-style claim.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
-Round two adds an exact Kalmanson/Farkas certificate for one fixed
+Round two adds an exact compact Kalmanson/Farkas certificate for one fixed
 `C19_skew` selected-witness pattern and one fixed cyclic order:
 `[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]`. The checked certificate
-is `data/certificates/round2/c19_kalmanson_known_order_unsat.json`. This is a
-fixed-order obstruction only; it does not kill abstract `C19_skew` across all
-cyclic orders.
+is `data/certificates/round2/c19_kalmanson_known_order_two_unsat.json`. This is
+a fixed-order obstruction only; it does not kill abstract `C19_skew` across all
+cyclic orders. The earlier 94-inequality certificate remains checked as
+provenance.
 
 A C13 Kalmanson pilot kills one registered non-natural
 `C13_sidon_1_2_4_10` order `[5,0,10,8,9,7,4,6,2,11,12,3,1]` by the exact
-certificate `data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json`.
-This is also fixed-order only; it does not settle the abstract Sidon pattern
-over all cyclic orders.
+certificate
+`data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json`.
+The follow-up exact order search now kills this fixed C13 Sidon pattern across
+all cyclic orders; see `docs/kalmanson-two-order-search.md`. This does not
+settle the larger sparse frontier or prove Erdos #97.
 
 The previous best numerical near-miss was `B12_3x4_danzer_lift`. It remains a
 useful degeneration diagnostic, but the fixed selected pattern is now exactly

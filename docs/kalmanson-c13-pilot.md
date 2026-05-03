@@ -1,14 +1,15 @@
 # C13 Kalmanson Pilot
 
-Status: `EXACT_OBSTRUCTION` for one fixed selected-witness pattern and one
-fixed cyclic order only.
+Status: superseded fixed-order pilot.
 
 This note records a small Kalmanson/Farkas pilot on the registered non-natural
 `C13_sidon_1_2_4_10` order that previously survived the sparse-frontier fixed
 filters.
 
-It does not prove the abstract `C13_sidon_1_2_4_10` pattern impossible across
-all cyclic orders, and it does not prove Erdos Problem #97.
+The fixed-order certificate below is now superseded by
+`docs/kalmanson-two-order-search.md`, which checks that every cyclic order of
+this fixed C13 pattern has a two-inequality Kalmanson obstruction. Neither
+result proves Erdos Problem #97.
 
 ## Fixed Order Killed
 
@@ -70,11 +71,11 @@ certificate with `scripts/check_kalmanson_certificate.py`.
 
 ## Frontier Impact
 
-The registered C13 order still remains useful as a benchmark: it survives the
-older crossing, Altman, vertex-circle, minimum-radius, and radius-propagation
-filters, but it is no longer a live fixed-order survivor once Kalmanson/Farkas
+The registered C13 order remains useful as a benchmark: it survives the older
+crossing, Altman, vertex-circle, minimum-radius, and radius-propagation
+filters, but it is not a live fixed-order survivor once Kalmanson/Farkas
 certificates are included.
 
-The remaining C13 question is all-order: whether every cyclic order of this
-fixed abstract incidence pattern has an exact obstruction, or whether some
-other order can survive stronger Euclidean constraints.
+The C13 all-order question for this fixed abstract incidence pattern is now
+closed by the exact two-certificate order search. The analogous `C19_skew`
+all-order question remains open.
