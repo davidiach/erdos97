@@ -51,6 +51,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`c13-kalmanson-order-pilot.md`](c13-kalmanson-order-pilot.md): bounded
   C13 fixed-order Kalmanson pilot over seven explicit cyclic orders; not an
   all-order search.
+- [`c13-kalmanson-prefix-branch-pilot.md`](c13-kalmanson-prefix-branch-pilot.md):
+  bounded C13 prefix brancher with reflection pruning and twelve sampled exact
+  fixed-order Kalmanson closures; not an all-order search.
 - [`ptolemy-order-nlp.md`](ptolemy-order-nlp.md): numerical nonlinear
   diagnostic adding Ptolemy inequalities for cyclic quadrilaterals; records a
   relaxation miss on the registered sparse orders.

@@ -288,3 +288,62 @@ full certificate objects by omitting `--summary-only`.
   connector commit before updating the PR body.
 - After the repair fetch, the local `HEAD` tree and
   `origin/codex/goal-erdos97-proof-or-counterexample` tree matched.
+
+## Session 2026-05-03, Iteration 3
+
+### Branch and Local State
+
+- Current branch: `codex/goal-erdos97-proof-or-counterexample`.
+- `git fetch origin` succeeded.
+- Local `HEAD` tree and
+  `origin/codex/goal-erdos97-proof-or-counterexample` tree matched before
+  starting this iteration.
+- The pre-existing unstaged edit in `tests/test_metric_order_lp.py` is still
+  present and is still treated as out of scope.
+
+### Focus
+
+Bounded C13 Kalmanson prefix brancher.
+
+This follows open issue #81 more closely than the pinned-order pilot by adding
+reflection-prefix pruning before LP/certificate calls. It is still a bounded
+pilot, not an all-order C13 search.
+
+### Work Performed
+
+- Added `scripts/branch_c13_kalmanson_prefix_pilot.py`.
+- Added `data/certificates/c13_kalmanson_prefix_branch_pilot.json`.
+- Added `tests/test_c13_kalmanson_prefix_branch_pilot.py`.
+- Added `docs/c13-kalmanson-prefix-branch-pilot.md`.
+- Linked the brancher from `docs/index.md`, `docs/c13-kalmanson-order-pilot.md`,
+  and `docs/kalmanson-c13-pilot.md`.
+
+The brancher fixes label `0`, branches on two labels from each side of the
+cyclic order, prunes reflection duplicates as soon as the boundary prefix is
+decided, and then runs a deterministic budget of twelve fixed-order
+Kalmanson/Farkas certificate searches on ascending completions. The default
+run has 11,880 raw boundary states, 5,940 canonical states after reflection
+pruning, 66 prefix extensions pruned before LP, and 12/12 sampled completions
+closed by exact positive-integer certificates.
+
+### Verification Commands
+
+- `.venv/bin/python scripts/branch_c13_kalmanson_prefix_pilot.py --assert-expected --out data/certificates/c13_kalmanson_prefix_branch_pilot.json`:
+  passed.
+- `.venv/bin/python scripts/branch_c13_kalmanson_prefix_pilot.py --assert-expected --include-certificates --out /tmp/c13_prefix_branch_full_certificates.json`:
+  passed.
+- `.venv/bin/python -m pytest tests/test_c13_kalmanson_prefix_branch_pilot.py tests/test_c13_kalmanson_order_pilot.py tests/test_kalmanson_certificate.py`:
+  passed, `8 passed`.
+- `.venv/bin/python scripts/check_text_clean.py`: passed.
+- `.venv/bin/python scripts/check_status_consistency.py`: passed.
+- `git diff --check`: passed.
+- `.venv/bin/python -m pytest -q`: passed, `175 passed, 8 deselected`.
+
+### Claim Boundary
+
+- Trust label: `EXACT_CERTIFICATE_DIAGNOSTIC`.
+- Reflection pruning is search accounting, not a geometric obstruction.
+- Exact obstructions apply only to the twelve sampled fixed cyclic orders in
+  the artifact.
+- No general proof, no counterexample, and no all-order C13 obstruction are
+  claimed.

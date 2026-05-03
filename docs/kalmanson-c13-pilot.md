@@ -80,3 +80,9 @@ in `docs/c13-kalmanson-order-pilot.md` and
 `data/certificates/c13_kalmanson_bounded_order_pilot.json`. It closes those
 seven fixed orders by exact Kalmanson/Farkas certificates, but it is not an
 all-order search.
+
+A subsequent prefix-branch pilot is recorded in
+`docs/c13-kalmanson-prefix-branch-pilot.md` and
+`data/certificates/c13_kalmanson_prefix_branch_pilot.json`. It adds
+reflection pruning before LP calls and closes twelve sampled fixed
+completions, but it is also not an all-order search.

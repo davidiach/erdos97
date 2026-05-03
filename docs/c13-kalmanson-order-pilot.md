@@ -67,3 +67,9 @@ orders, add cheap pruning before LP calls, run dual checks only on closed
 branches, and emit exact integer certificates for each closure. Until every
 normalized cyclic order is covered, the abstract C13 Sidon pattern remains
 unsettled.
+
+A first bounded prefix-branch follow-up is recorded in
+`docs/c13-kalmanson-prefix-branch-pilot.md` and
+`data/certificates/c13_kalmanson_prefix_branch_pilot.json`. It adds
+reflection pruning before LP calls and closes twelve sampled fixed completions,
+but it is still not an all-order search.
