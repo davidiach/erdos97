@@ -1,0 +1,2285 @@
+{
+  "certificates": [
+    {
+      "core_rows": [
+        0,
+        1,
+        8
+      ],
+      "core_selected_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            2,
+            3,
+            8
+          ]
+        },
+        {
+          "row": 1,
+          "witnesses": [
+            0,
+            2,
+            4,
+            7
+          ]
+        },
+        {
+          "row": 8,
+          "witnesses": [
+            0,
+            1,
+            4,
+            5
+          ]
+        }
+      ],
+      "core_size": 3,
+      "distance_equality": {
+        "end_pair": [
+          1,
+          2
+        ],
+        "path": [
+          {
+            "next_pair": [
+              0,
+              8
+            ],
+            "row": 8
+          },
+          {
+            "next_pair": [
+              0,
+              1
+            ],
+            "row": 0
+          },
+          {
+            "next_pair": [
+              1,
+              2
+            ],
+            "row": 1
+          }
+        ],
+        "start_pair": [
+          1,
+          8
+        ]
+      },
+      "family_id": "F01",
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_inequality": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          1,
+          2
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          0,
+          1
+        ],
+        "outer_interval": [
+          0,
+          3
+        ],
+        "outer_pair": [
+          1,
+          8
+        ],
+        "outer_span": 3,
+        "row": 0,
+        "witness_order": [
+          1,
+          2,
+          3,
+          8
+        ]
+      }
+    },
+    {
+      "core_rows": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        7
+      ],
+      "core_selected_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            2,
+            3,
+            8
+          ]
+        },
+        {
+          "row": 1,
+          "witnesses": [
+            0,
+            3,
+            4,
+            7
+          ]
+        },
+        {
+          "row": 2,
+          "witnesses": [
+            1,
+            3,
+            5,
+            6
+          ]
+        },
+        {
+          "row": 5,
+          "witnesses": [
+            2,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "row": 6,
+          "witnesses": [
+            1,
+            5,
+            7,
+            8
+          ]
+        },
+        {
+          "row": 7,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        }
+      ],
+      "core_size": 6,
+      "distance_equality": {
+        "end_pair": [
+          1,
+          2
+        ],
+        "path": [
+          {
+            "next_pair": [
+              1,
+              7
+            ],
+            "row": 1
+          },
+          {
+            "next_pair": [
+              6,
+              7
+            ],
+            "row": 7
+          },
+          {
+            "next_pair": [
+              5,
+              6
+            ],
+            "row": 6
+          },
+          {
+            "next_pair": [
+              2,
+              5
+            ],
+            "row": 5
+          },
+          {
+            "next_pair": [
+              1,
+              2
+            ],
+            "row": 2
+          }
+        ],
+        "start_pair": [
+          1,
+          3
+        ]
+      },
+      "family_id": "F02",
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_inequality": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          1,
+          2
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          0,
+          1
+        ],
+        "outer_interval": [
+          0,
+          2
+        ],
+        "outer_pair": [
+          1,
+          3
+        ],
+        "outer_span": 2,
+        "row": 0,
+        "witness_order": [
+          1,
+          2,
+          3,
+          8
+        ]
+      }
+    },
+    {
+      "core_rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        8
+      ],
+      "core_selected_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            2,
+            3,
+            8
+          ]
+        },
+        {
+          "row": 1,
+          "witnesses": [
+            0,
+            3,
+            5,
+            7
+          ]
+        },
+        {
+          "row": 2,
+          "witnesses": [
+            1,
+            3,
+            4,
+            6
+          ]
+        },
+        {
+          "row": 3,
+          "witnesses": [
+            2,
+            4,
+            5,
+            8
+          ]
+        },
+        {
+          "row": 4,
+          "witnesses": [
+            0,
+            3,
+            6,
+            8
+          ]
+        },
+        {
+          "row": 8,
+          "witnesses": [
+            0,
+            1,
+            4,
+            7
+          ]
+        }
+      ],
+      "core_size": 6,
+      "distance_equality": {
+        "end_pair": [
+          1,
+          2
+        ],
+        "path": [
+          {
+            "next_pair": [
+              0,
+              1
+            ],
+            "row": 1
+          },
+          {
+            "next_pair": [
+              0,
+              8
+            ],
+            "row": 0
+          },
+          {
+            "next_pair": [
+              4,
+              8
+            ],
+            "row": 8
+          },
+          {
+            "next_pair": [
+              3,
+              4
+            ],
+            "row": 4
+          },
+          {
+            "next_pair": [
+              2,
+              3
+            ],
+            "row": 3
+          },
+          {
+            "next_pair": [
+              1,
+              2
+            ],
+            "row": 2
+          }
+        ],
+        "start_pair": [
+          1,
+          3
+        ]
+      },
+      "family_id": "F03",
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_inequality": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          1,
+          2
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          0,
+          1
+        ],
+        "outer_interval": [
+          0,
+          2
+        ],
+        "outer_pair": [
+          1,
+          3
+        ],
+        "outer_span": 2,
+        "row": 0,
+        "witness_order": [
+          1,
+          2,
+          3,
+          8
+        ]
+      }
+    },
+    {
+      "core_rows": [
+        0,
+        1,
+        2
+      ],
+      "core_selected_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            2,
+            4,
+            6
+          ]
+        },
+        {
+          "row": 1,
+          "witnesses": [
+            0,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "row": 2,
+          "witnesses": [
+            1,
+            3,
+            4,
+            8
+          ]
+        }
+      ],
+      "core_size": 3,
+      "distance_equality": {
+        "end_pair": [
+          2,
+          3
+        ],
+        "path": [
+          {
+            "next_pair": [
+              0,
+              1
+            ],
+            "row": 0
+          },
+          {
+            "next_pair": [
+              1,
+              2
+            ],
+            "row": 1
+          },
+          {
+            "next_pair": [
+              2,
+              3
+            ],
+            "row": 2
+          }
+        ],
+        "start_pair": [
+          0,
+          2
+        ]
+      },
+      "family_id": "F04",
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_inequality": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          2,
+          3
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          0,
+          1
+        ],
+        "outer_interval": [
+          0,
+          3
+        ],
+        "outer_pair": [
+          0,
+          2
+        ],
+        "outer_span": 3,
+        "row": 1,
+        "witness_order": [
+          2,
+          3,
+          5,
+          0
+        ]
+      }
+    },
+    {
+      "core_rows": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "core_selected_rows": [
+        {
+          "row": 1,
+          "witnesses": [
+            2,
+            5,
+            7,
+            8
+          ]
+        },
+        {
+          "row": 2,
+          "witnesses": [
+            1,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "row": 3,
+          "witnesses": [
+            0,
+            2,
+            4,
+            7
+          ]
+        },
+        {
+          "row": 6,
+          "witnesses": [
+            1,
+            3,
+            5,
+            7
+          ]
+        }
+      ],
+      "core_size": 4,
+      "distance_equality": {
+        "end_pair": [
+          1,
+          7
+        ],
+        "path": [
+          {
+            "next_pair": [
+              2,
+              3
+            ],
+            "row": 3
+          },
+          {
+            "next_pair": [
+              1,
+              2
+            ],
+            "row": 2
+          },
+          {
+            "next_pair": [
+              1,
+              7
+            ],
+            "row": 1
+          }
+        ],
+        "start_pair": [
+          3,
+          7
+        ]
+      },
+      "family_id": "F05",
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_inequality": {
+        "inner_class": [
+          0,
+          3
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          1,
+          7
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          0,
+          3
+        ],
+        "outer_interval": [
+          0,
+          2
+        ],
+        "outer_pair": [
+          3,
+          7
+        ],
+        "outer_span": 2,
+        "row": 6,
+        "witness_order": [
+          7,
+          1,
+          3,
+          5
+        ]
+      }
+    },
+    {
+      "core_rows": [
+        0,
+        2,
+        4,
+        5,
+        6
+      ],
+      "core_selected_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            2,
+            4,
+            7
+          ]
+        },
+        {
+          "row": 2,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "row": 4,
+          "witnesses": [
+            1,
+            3,
+            5,
+            7
+          ]
+        },
+        {
+          "row": 5,
+          "witnesses": [
+            3,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "row": 6,
+          "witnesses": [
+            0,
+            2,
+            5,
+            7
+          ]
+        }
+      ],
+      "core_size": 5,
+      "distance_equality": {
+        "end_pair": [
+          1,
+          2
+        ],
+        "path": [
+          {
+            "next_pair": [
+              4,
+              5
+            ],
+            "row": 4
+          },
+          {
+            "next_pair": [
+              5,
+              6
+            ],
+            "row": 5
+          },
+          {
+            "next_pair": [
+              2,
+              6
+            ],
+            "row": 6
+          },
+          {
+            "next_pair": [
+              1,
+              2
+            ],
+            "row": 2
+          }
+        ],
+        "start_pair": [
+          1,
+          4
+        ]
+      },
+      "family_id": "F06",
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_inequality": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          1,
+          2
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          0,
+          1
+        ],
+        "outer_interval": [
+          0,
+          2
+        ],
+        "outer_pair": [
+          1,
+          4
+        ],
+        "outer_span": 2,
+        "row": 0,
+        "witness_order": [
+          1,
+          2,
+          4,
+          7
+        ]
+      }
+    },
+    {
+      "core_rows": [
+        0,
+        1,
+        5,
+        6
+      ],
+      "core_selected_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            2,
+            4,
+            8
+          ]
+        },
+        {
+          "row": 1,
+          "witnesses": [
+            0,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "row": 5,
+          "witnesses": [
+            0,
+            3,
+            4,
+            7
+          ]
+        },
+        {
+          "row": 6,
+          "witnesses": [
+            1,
+            5,
+            7,
+            8
+          ]
+        }
+      ],
+      "core_size": 4,
+      "cycle_length": 3,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              3
+            ],
+            "path": [],
+            "start_pair": [
+              0,
+              3
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              3
+            ],
+            "inner_interval": [
+              1,
+              3
+            ],
+            "inner_pair": [
+              0,
+              3
+            ],
+            "inner_span": 2,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              2
+            ],
+            "outer_span": 3,
+            "row": 1,
+            "witness_order": [
+              2,
+              3,
+              5,
+              0
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              5,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  5,
+                  7
+                ],
+                "row": 5
+              }
+            ],
+            "start_pair": [
+              0,
+              5
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              5
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              5
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              3
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              0,
+              3
+            ],
+            "outer_span": 2,
+            "row": 1,
+            "witness_order": [
+              2,
+              3,
+              5,
+              0
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              2
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  1
+                ],
+                "row": 1
+              },
+              {
+                "next_pair": [
+                  0,
+                  2
+                ],
+                "row": 0
+              }
+            ],
+            "start_pair": [
+              1,
+              5
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              1,
+              5
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              5
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              5,
+              7
+            ],
+            "outer_span": 3,
+            "row": 6,
+            "witness_order": [
+              7,
+              8,
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "family_id": "F07",
+      "orbit_size": 6,
+      "status": "strict_cycle"
+    },
+    {
+      "core_rows": [
+        0,
+        1,
+        8
+      ],
+      "core_selected_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            2,
+            4,
+            8
+          ]
+        },
+        {
+          "row": 1,
+          "witnesses": [
+            0,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "row": 8,
+          "witnesses": [
+            0,
+            1,
+            3,
+            7
+          ]
+        }
+      ],
+      "core_size": 3,
+      "distance_equality": {
+        "end_pair": [
+          1,
+          2
+        ],
+        "path": [
+          {
+            "next_pair": [
+              0,
+              8
+            ],
+            "row": 8
+          },
+          {
+            "next_pair": [
+              0,
+              1
+            ],
+            "row": 0
+          },
+          {
+            "next_pair": [
+              1,
+              2
+            ],
+            "row": 1
+          }
+        ],
+        "start_pair": [
+          1,
+          8
+        ]
+      },
+      "family_id": "F08",
+      "orbit_size": 2,
+      "status": "self_edge",
+      "strict_inequality": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          1,
+          2
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          0,
+          1
+        ],
+        "outer_interval": [
+          0,
+          3
+        ],
+        "outer_pair": [
+          1,
+          8
+        ],
+        "outer_span": 3,
+        "row": 0,
+        "witness_order": [
+          1,
+          2,
+          4,
+          8
+        ]
+      }
+    },
+    {
+      "core_rows": [
+        0,
+        1,
+        2
+      ],
+      "core_selected_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            2,
+            4,
+            8
+          ]
+        },
+        {
+          "row": 1,
+          "witnesses": [
+            0,
+            3,
+            5,
+            8
+          ]
+        },
+        {
+          "row": 2,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        }
+      ],
+      "core_size": 3,
+      "distance_equality": {
+        "end_pair": [
+          1,
+          2
+        ],
+        "path": [
+          {
+            "next_pair": [
+              0,
+              1
+            ],
+            "row": 1
+          },
+          {
+            "next_pair": [
+              0,
+              2
+            ],
+            "row": 0
+          },
+          {
+            "next_pair": [
+              1,
+              2
+            ],
+            "row": 2
+          }
+        ],
+        "start_pair": [
+          1,
+          8
+        ]
+      },
+      "family_id": "F09",
+      "orbit_size": 6,
+      "status": "self_edge",
+      "strict_inequality": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          1,
+          2
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          0,
+          1
+        ],
+        "outer_interval": [
+          0,
+          3
+        ],
+        "outer_pair": [
+          1,
+          8
+        ],
+        "outer_span": 3,
+        "row": 0,
+        "witness_order": [
+          1,
+          2,
+          4,
+          8
+        ]
+      }
+    },
+    {
+      "core_rows": [
+        0,
+        2,
+        7,
+        8
+      ],
+      "core_selected_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            2,
+            4,
+            8
+          ]
+        },
+        {
+          "row": 2,
+          "witnesses": [
+            1,
+            3,
+            4,
+            7
+          ]
+        },
+        {
+          "row": 7,
+          "witnesses": [
+            2,
+            5,
+            6,
+            8
+          ]
+        },
+        {
+          "row": 8,
+          "witnesses": [
+            0,
+            1,
+            6,
+            7
+          ]
+        }
+      ],
+      "core_size": 4,
+      "distance_equality": {
+        "end_pair": [
+          1,
+          2
+        ],
+        "path": [
+          {
+            "next_pair": [
+              7,
+              8
+            ],
+            "row": 8
+          },
+          {
+            "next_pair": [
+              2,
+              7
+            ],
+            "row": 7
+          },
+          {
+            "next_pair": [
+              1,
+              2
+            ],
+            "row": 2
+          }
+        ],
+        "start_pair": [
+          1,
+          8
+        ]
+      },
+      "family_id": "F10",
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_inequality": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          1,
+          2
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          0,
+          1
+        ],
+        "outer_interval": [
+          0,
+          3
+        ],
+        "outer_pair": [
+          1,
+          8
+        ],
+        "outer_span": 3,
+        "row": 0,
+        "witness_order": [
+          1,
+          2,
+          4,
+          8
+        ]
+      }
+    },
+    {
+      "core_rows": [
+        1,
+        5,
+        6,
+        7,
+        8
+      ],
+      "core_selected_rows": [
+        {
+          "row": 1,
+          "witnesses": [
+            0,
+            3,
+            5,
+            8
+          ]
+        },
+        {
+          "row": 5,
+          "witnesses": [
+            0,
+            3,
+            4,
+            7
+          ]
+        },
+        {
+          "row": 6,
+          "witnesses": [
+            2,
+            5,
+            7,
+            8
+          ]
+        },
+        {
+          "row": 7,
+          "witnesses": [
+            0,
+            1,
+            5,
+            6
+          ]
+        },
+        {
+          "row": 8,
+          "witnesses": [
+            2,
+            3,
+            6,
+            7
+          ]
+        }
+      ],
+      "core_size": 5,
+      "distance_equality": {
+        "end_pair": [
+          3,
+          5
+        ],
+        "path": [
+          {
+            "next_pair": [
+              6,
+              8
+            ],
+            "row": 8
+          },
+          {
+            "next_pair": [
+              6,
+              7
+            ],
+            "row": 6
+          },
+          {
+            "next_pair": [
+              5,
+              7
+            ],
+            "row": 7
+          },
+          {
+            "next_pair": [
+              3,
+              5
+            ],
+            "row": 5
+          }
+        ],
+        "start_pair": [
+          3,
+          8
+        ]
+      },
+      "family_id": "F11",
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_inequality": {
+        "inner_class": [
+          0,
+          5
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          3,
+          5
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          0,
+          5
+        ],
+        "outer_interval": [
+          0,
+          2
+        ],
+        "outer_pair": [
+          3,
+          8
+        ],
+        "outer_span": 2,
+        "row": 1,
+        "witness_order": [
+          3,
+          5,
+          8,
+          0
+        ]
+      }
+    },
+    {
+      "core_rows": [
+        0,
+        3,
+        6,
+        8
+      ],
+      "core_selected_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            2,
+            5,
+            6
+          ]
+        },
+        {
+          "row": 3,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "row": 6,
+          "witnesses": [
+            1,
+            3,
+            4,
+            7
+          ]
+        },
+        {
+          "row": 8,
+          "witnesses": [
+            0,
+            3,
+            6,
+            7
+          ]
+        }
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              6
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  3,
+                  6
+                ],
+                "row": 3
+              },
+              {
+                "next_pair": [
+                  1,
+                  6
+                ],
+                "row": 6
+              }
+            ],
+            "start_pair": [
+              0,
+              3
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              3
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              0,
+              3
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              0,
+              6
+            ],
+            "outer_span": 2,
+            "row": 8,
+            "witness_order": [
+              0,
+              3,
+              6,
+              7
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              6
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  6
+                ],
+                "row": 0
+              }
+            ],
+            "start_pair": [
+              0,
+              1
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              1
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              3
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              1,
+              6
+            ],
+            "outer_span": 2,
+            "row": 3,
+            "witness_order": [
+              4,
+              6,
+              0,
+              1
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "orbit_size": 18,
+      "status": "strict_cycle"
+    },
+    {
+      "core_rows": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "core_selected_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            2,
+            5,
+            7
+          ]
+        },
+        {
+          "row": 1,
+          "witnesses": [
+            2,
+            3,
+            6,
+            8
+          ]
+        },
+        {
+          "row": 3,
+          "witnesses": [
+            1,
+            4,
+            5,
+            8
+          ]
+        },
+        {
+          "row": 5,
+          "witnesses": [
+            1,
+            3,
+            6,
+            7
+          ]
+        }
+      ],
+      "core_size": 4,
+      "distance_equality": {
+        "end_pair": [
+          1,
+          2
+        ],
+        "path": [
+          {
+            "next_pair": [
+              3,
+              5
+            ],
+            "row": 5
+          },
+          {
+            "next_pair": [
+              1,
+              3
+            ],
+            "row": 3
+          },
+          {
+            "next_pair": [
+              1,
+              2
+            ],
+            "row": 1
+          }
+        ],
+        "start_pair": [
+          1,
+          5
+        ]
+      },
+      "family_id": "F13",
+      "orbit_size": 2,
+      "status": "self_edge",
+      "strict_inequality": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          1,
+          2
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          0,
+          1
+        ],
+        "outer_interval": [
+          0,
+          2
+        ],
+        "outer_pair": [
+          1,
+          5
+        ],
+        "outer_span": 2,
+        "row": 0,
+        "witness_order": [
+          1,
+          2,
+          5,
+          7
+        ]
+      }
+    },
+    {
+      "core_rows": [
+        0,
+        1,
+        8
+      ],
+      "core_selected_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            2,
+            6,
+            8
+          ]
+        },
+        {
+          "row": 1,
+          "witnesses": [
+            0,
+            2,
+            3,
+            7
+          ]
+        },
+        {
+          "row": 8,
+          "witnesses": [
+            0,
+            1,
+            5,
+            7
+          ]
+        }
+      ],
+      "core_size": 3,
+      "distance_equality": {
+        "end_pair": [
+          1,
+          2
+        ],
+        "path": [
+          {
+            "next_pair": [
+              0,
+              8
+            ],
+            "row": 8
+          },
+          {
+            "next_pair": [
+              0,
+              1
+            ],
+            "row": 0
+          },
+          {
+            "next_pair": [
+              1,
+              2
+            ],
+            "row": 1
+          }
+        ],
+        "start_pair": [
+          1,
+          8
+        ]
+      },
+      "family_id": "F14",
+      "orbit_size": 2,
+      "status": "self_edge",
+      "strict_inequality": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          1,
+          2
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          0,
+          1
+        ],
+        "outer_interval": [
+          0,
+          3
+        ],
+        "outer_pair": [
+          1,
+          8
+        ],
+        "outer_span": 3,
+        "row": 0,
+        "witness_order": [
+          1,
+          2,
+          6,
+          8
+        ]
+      }
+    },
+    {
+      "core_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "core_selected_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "row": 1,
+          "witnesses": [
+            0,
+            2,
+            4,
+            5
+          ]
+        },
+        {
+          "row": 2,
+          "witnesses": [
+            1,
+            3,
+            5,
+            6
+          ]
+        },
+        {
+          "row": 3,
+          "witnesses": [
+            2,
+            4,
+            6,
+            7
+          ]
+        }
+      ],
+      "core_size": 4,
+      "distance_equality": {
+        "end_pair": [
+          3,
+          4
+        ],
+        "path": [
+          {
+            "next_pair": [
+              1,
+              2
+            ],
+            "row": 1
+          },
+          {
+            "next_pair": [
+              2,
+              3
+            ],
+            "row": 2
+          },
+          {
+            "next_pair": [
+              3,
+              4
+            ],
+            "row": 3
+          }
+        ],
+        "start_pair": [
+          1,
+          4
+        ]
+      },
+      "family_id": "F15",
+      "orbit_size": 2,
+      "status": "self_edge",
+      "strict_inequality": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          1,
+          2
+        ],
+        "inner_pair": [
+          3,
+          4
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          0,
+          1
+        ],
+        "outer_interval": [
+          0,
+          2
+        ],
+        "outer_pair": [
+          1,
+          4
+        ],
+        "outer_span": 2,
+        "row": 0,
+        "witness_order": [
+          1,
+          3,
+          4,
+          8
+        ]
+      }
+    },
+    {
+      "core_rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        8
+      ],
+      "core_selected_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            3,
+            6,
+            7
+          ]
+        },
+        {
+          "row": 1,
+          "witnesses": [
+            2,
+            4,
+            7,
+            8
+          ]
+        },
+        {
+          "row": 2,
+          "witnesses": [
+            0,
+            3,
+            5,
+            8
+          ]
+        },
+        {
+          "row": 3,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "row": 4,
+          "witnesses": [
+            1,
+            2,
+            5,
+            7
+          ]
+        },
+        {
+          "row": 8,
+          "witnesses": [
+            0,
+            2,
+            5,
+            6
+          ]
+        }
+      ],
+      "core_size": 6,
+      "cycle_length": 3,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              8
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  2,
+                  8
+                ],
+                "row": 8
+              }
+            ],
+            "start_pair": [
+              0,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              2
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              3
+            ],
+            "outer_span": 3,
+            "row": 2,
+            "witness_order": [
+              3,
+              5,
+              8,
+              0
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  1,
+                  4
+                ],
+                "row": 4
+              },
+              {
+                "next_pair": [
+                  1,
+                  7
+                ],
+                "row": 1
+              }
+            ],
+            "start_pair": [
+              2,
+              4
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              2
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              2,
+              4
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              2
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              8
+            ],
+            "outer_span": 3,
+            "row": 1,
+            "witness_order": [
+              2,
+              4,
+              7,
+              8
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              3
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  3
+                ],
+                "row": 3
+              }
+            ],
+            "start_pair": [
+              1,
+              3
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              3
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              2
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              7
+            ],
+            "outer_span": 3,
+            "row": 0,
+            "witness_order": [
+              1,
+              3,
+              6,
+              7
+            ]
+          }
+        }
+      ],
+      "family_id": "F16",
+      "orbit_size": 2,
+      "status": "strict_cycle"
+    }
+  ],
+  "core_size_counts": {
+    "3": 5,
+    "4": 6,
+    "5": 2,
+    "6": 3
+  },
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "family_count": 16,
+  "interpretation": [
+    "Every dihedral n=9 motif family has a local vertex-circle certificate using at most 6 selected rows.",
+    "The self-edge cores are one strict chord-containment inequality plus a selected-distance equality path.",
+    "The strict-cycle cores are directed cycles of strict inequalities, with selected-distance equality paths connecting each inner chord to the next outer chord.",
+    "These are promising lemma candidates, but they still cover only the n=9 motif representatives."
+  ],
+  "max_core_size": 6,
+  "n": 9,
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "The official/global status remains falsifiable/open.",
+    "Each core verifies only a representative n=9 motif family under the recorded cyclic order."
+  ],
+  "row_size": 4,
+  "scope": "Local row-core certificates for the 16 dihedral n=9 vertex-circle motif families.",
+  "status_core_size_counts": {
+    "self_edge": {
+      "3": 5,
+      "4": 4,
+      "5": 2,
+      "6": 2
+    },
+    "strict_cycle": {
+      "4": 2,
+      "6": 1
+    }
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "type": "n9_vertex_circle_local_cores_v1"
+}

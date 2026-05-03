@@ -15,7 +15,7 @@ The Ptolemy-log C17 artifact should be retained as a method note and regression 
 Certificate:
 
 ```text
-data/certificates/round2/c19_kalmanson_known_order_unsat.json
+data/certificates/round2/c19_kalmanson_known_order_two_unsat.json
 ```
 
 Pattern:
@@ -36,12 +36,15 @@ scripts/check_kalmanson_certificate.py
 The checker confirms:
 
 ```text
-positive inequalities = 94
+positive inequalities = 2
 distance classes after selected equalities = 114
-weight sum = 6,283,316,065
-max weight = 334,665,404
+weight sum = 2
+max weight = 1
 weighted coefficient sum = 0 exactly
 ```
+
+The earlier 94-inequality certificate remains checked as provenance at
+`data/certificates/round2/c19_kalmanson_known_order_unsat.json`.
 
 This is an exact obstruction for the fixed selected-witness pattern plus fixed cyclic order only. It is not an abstract-order proof for all `C19_skew` realizations.
 
@@ -120,18 +123,17 @@ Round three should try to decompose or explain the C19 certificate by grouping i
 
 ## Recommended round-three priority
 
-The first C13 pilot killed the registered non-natural `C13_sidon_1_2_4_10` order
-by an exact 34-inequality Kalmanson/Farkas certificate. The next major task is
-an exhaustive Kalmanson cyclic-order CSP/search, still scaling from C13 before
-C19.
+The C13 pilot has now been extended: the fixed
+`C13_sidon_1_2_4_10` abstract pattern is killed across all cyclic orders by an
+exact two-inequality Kalmanson inverse-pair search. The next major task is to
+scale that order-search idea toward `C19_skew`.
 
 Suggested sequence:
 
-1. Implement cyclic-order normalization by rotation/reflection.
-2. Build a partial-order brancher that can add Kalmanson rows incrementally.
-3. Add cheap pruning before LP calls.
-4. Periodically run nonnegative dual LP checks.
+1. Classify the inverse-pair templates that prune the C13 search.
+2. Run bounded `C19_skew` prefix searches and record long surviving prefixes.
+3. Add cheap pruning before any LP calls.
+4. Periodically run nonnegative dual LP checks on hard prefixes.
 5. Exactify closed branches into positive integer certificates.
-6. Start on C13, then scale to C19 only if C13 closes cleanly.
 
 Sampling results such as 200/200 killed random C19 orders are useful evidence for search viability, not proof of abstract-pattern impossibility.

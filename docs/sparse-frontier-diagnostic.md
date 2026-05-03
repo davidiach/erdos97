@@ -236,8 +236,17 @@ are included.
 
 | Pattern | Order label | n | Pre-Kalmanson filters | Kalmanson status |
 |---|---|---:|---|---|
-| `C13_sidon_1_2_4_10` | `sample_full_filter_survivor` | 13 | pass | exact fixed-order obstruction, 34 inequalities |
-| `C19_skew` | `vertex_circle_survivor` | 19 | pass | exact fixed-order obstruction, 94 inequalities |
+| `C13_sidon_1_2_4_10` | `sample_full_filter_survivor` | 13 | pass | exact fixed-order obstruction, 2 inequalities |
+| `C19_skew` | `vertex_circle_survivor` | 19 | pass | exact fixed-order obstruction, 2 inequalities |
+
+Both compact Kalmanson certificates are inverse pairs with weights `1,1`.
+The earlier 34- and 94-inequality certificates remain checked as provenance,
+but the two-inequality versions are the preferred review targets.
+
+The C13 fixed-order entry is now superseded by
+`docs/kalmanson-two-order-search.md`, which proves the fixed
+`C13_sidon_1_2_4_10` abstract pattern is killed by such inverse pairs across
+all cyclic orders. The C19 entry remains fixed-order only.
 
 The `C13` order is:
 

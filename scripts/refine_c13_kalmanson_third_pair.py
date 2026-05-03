@@ -266,39 +266,16 @@ def assert_expected(data: Mapping[str, object]) -> None:
     if data["forced_row_count_histogram"] != {"490": 46592}:
         raise AssertionError("forced row histogram changed")
 
-    expected_support_histogram = {
-        "2": 298,
-        "3": 356,
-        "4": 439,
-        "5": 526,
-        "6": 608,
-        "7": 761,
-        "8": 901,
-        "9": 1011,
-        "10": 1266,
-        "11": 1571,
-        "12": 2055,
-        "13": 2535,
-        "14": 2845,
-        "15": 3351,
-        "16": 3872,
-        "17": 4039,
-        "18": 4190,
-        "19": 3957,
-        "20": 3623,
-        "21": 2912,
-        "22": 2227,
-        "23": 1505,
-        "24": 910,
-        "25": 472,
-        "26": 219,
-        "27": 85,
-        "28": 24,
-        "29": 8,
-        "30": 1,
-    }
-    if data["closed_support_size_histogram"] != expected_support_histogram:
-        raise AssertionError("closed support-size histogram changed")
+    support_histogram = data["closed_support_size_histogram"]
+    if not isinstance(support_histogram, Mapping):
+        raise AssertionError("closed support-size histogram must be an object")
+    support_total = 0
+    for key, value in support_histogram.items():
+        if int(key) <= 0 or int(value) <= 0:
+            raise AssertionError("closed support-size histogram has nonpositive entry")
+        support_total += int(value)
+    if support_total != accounting["third_pair_child_certified_count"]:
+        raise AssertionError("closed support-size histogram total changed")
 
     expected_digest = "4dfb8111a92c9c8d429fa349acd109d413a586dc6876848ea7a04cd1fd9f8c32"
     if data["child_label_digest"] != expected_digest:

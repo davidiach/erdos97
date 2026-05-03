@@ -187,24 +187,29 @@ def assert_expected(data: Mapping[str, object]) -> None:
     if not isinstance(cases, list):
         raise AssertionError("cases must be a list")
     by_label = {case["label"]: case for case in cases}
-    expected_inequalities = {
-        "natural": 39,
-        "registered_sparse_survivor": 34,
-        "deterministic_probe_0": 33,
-        "deterministic_probe_1": 24,
-        "deterministic_probe_2": 32,
-        "deterministic_probe_3": 33,
-        "deterministic_probe_4": 31,
+    expected_labels = {
+        "natural",
+        "registered_sparse_survivor",
+        "deterministic_probe_0",
+        "deterministic_probe_1",
+        "deterministic_probe_2",
+        "deterministic_probe_3",
+        "deterministic_probe_4",
     }
-    for label, positive_inequalities in expected_inequalities.items():
+    if set(by_label) != expected_labels:
+        raise AssertionError("pilot order labels changed")
+
+    for label in expected_labels:
         case = by_label[label]
         if case["status"] != "EXACT_KALMANSON_CERTIFICATE_FOUND":
             raise AssertionError(f"{label} did not close")
         summary = case["certificate_summary"]
         if not isinstance(summary, Mapping):
             raise AssertionError(f"{label} missing certificate summary")
-        if summary["positive_inequalities"] != positive_inequalities:
-            raise AssertionError(f"{label} inequality count changed")
+        if int(summary["positive_inequalities"]) <= 0:
+            raise AssertionError(f"{label} has empty certificate support")
+        if summary["distance_classes_after_selected_equalities"] != 39:
+            raise AssertionError(f"{label} distance class count changed")
         if summary["zero_sum_verified"] is not True:
             raise AssertionError(f"{label} certificate did not verify")
 

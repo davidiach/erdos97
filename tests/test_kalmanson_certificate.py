@@ -10,8 +10,10 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "check_kalmanson_certificate.py"
 C19 = ROOT / "data" / "certificates" / "round2" / "c19_kalmanson_known_order_unsat.json"
+C19_TWO = ROOT / "data" / "certificates" / "round2" / "c19_kalmanson_known_order_two_unsat.json"
 C17_TRANSLATION = ROOT / "data" / "certificates" / "round2" / "c17_skew_kalmanson_from_ptolemy_method_note.json"
 C13 = ROOT / "data" / "certificates" / "c13_sidon_order_survivor_kalmanson_unsat.json"
+C13_TWO = ROOT / "data" / "certificates" / "c13_sidon_order_survivor_kalmanson_two_unsat.json"
 
 
 def load_module():
@@ -42,6 +44,18 @@ def test_c19_kalmanson_certificate_exact_summary() -> None:
     assert summary.zero_sum_verified is True
 
 
+def test_c19_compact_two_inequality_kalmanson_certificate() -> None:
+    module = load_module()
+    summary = module.check_certificate_file(C19_TWO)
+    assert summary.pattern == "C19_skew"
+    assert summary.n == 19
+    assert summary.positive_inequalities == 2
+    assert summary.distance_classes_after_selected_equalities == 114
+    assert summary.weight_sum == 2
+    assert summary.max_weight == 1
+    assert summary.zero_sum_verified is True
+
+
 def test_c17_ptolemy_translation_is_valid_kalmanson_certificate() -> None:
     module = load_module()
     summary = module.check_certificate_file(C17_TRANSLATION)
@@ -59,6 +73,16 @@ def test_c13_sidon_survivor_kalmanson_certificate() -> None:
     assert summary.distance_classes_after_selected_equalities == 39
     assert summary.weight_sum == 17463
     assert summary.max_weight == 1322
+
+
+def test_c13_compact_two_inequality_kalmanson_certificate() -> None:
+    module = load_module()
+    summary = module.check_certificate_file(C13_TWO)
+    assert summary.pattern == "C13_sidon_1_2_4_10"
+    assert summary.positive_inequalities == 2
+    assert summary.distance_classes_after_selected_equalities == 39
+    assert summary.weight_sum == 2
+    assert summary.max_weight == 1
 
 
 def test_find_kalmanson_certificate_reproduces_c13_summary() -> None:
@@ -85,6 +109,34 @@ def test_find_kalmanson_certificate_reproduces_c13_summary() -> None:
     summary = json.loads(result.stdout)
     assert summary["pattern"] == "C13_sidon_1_2_4_10"
     assert summary["positive_inequalities"] == 34
+    assert summary["zero_sum_verified"] is True
+
+
+def test_find_kalmanson_two_certificate_reproduces_c19_summary() -> None:
+    finder = ROOT / "scripts" / "find_kalmanson_two_certificate.py"
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(finder),
+            "--name",
+            "C19_skew",
+            "--n",
+            "19",
+            "--offsets=-8,-3,5,9",
+            "--order",
+            "18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1",
+            "--assert-found",
+            "--summary-json",
+        ],
+        check=True,
+        text=True,
+        capture_output=True,
+    )
+    summary = json.loads(result.stdout)
+    assert summary["pattern"] == "C19_skew"
+    assert summary["positive_inequalities"] == 2
+    assert summary["max_weight"] == 1
+    assert summary["inverse_pair_candidates"] >= 1
     assert summary["zero_sum_verified"] is True
 
 

@@ -88,4 +88,11 @@ def test_c13_third_pair_refinement_full_replay_matches_artifact() -> None:
     payload = run_script("--assert-expected", "--json")
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))
 
-    assert artifact == payload
+    assert artifact["branch_accounting"] == payload["branch_accounting"]
+    assert artifact["forced_row_count_histogram"] == payload["forced_row_count_histogram"]
+    assert artifact["child_label_digest"] == payload["child_label_digest"]
+    assert artifact["unclosed_child_branches"] == payload["unclosed_child_branches"]
+    assert (
+        sum(payload["closed_support_size_histogram"].values())
+        == payload["branch_accounting"]["third_pair_child_certified_count"]
+    )

@@ -81,24 +81,86 @@ references and negative search results in `docs/literature-risk.md`.
 Do not use unchecked literature summaries to alter the official/global status.
 Recheck the official Erdos Problems page before any status update.
 
-## Priority 5 - keep the frontier separate
+## Priority 5 - audit the n=9 vertex-circle exhaustive checker
+
+Target: `docs/n9-vertex-circle-exhaustive.md`.
+
+The 2026-05-03 archive bundle has been refactored into a repo-native checker
+that leaves 0 full `n=9` selected-witness assignments after exact
+vertex-circle pruning. Treat this as review-pending until an independent audit
+checks:
+
+- the necessity of the two-overlap crossing, witness-pair cap, indegree cap,
+  and vertex-circle strict-cycle filters;
+- the absence of a hidden symmetry quotient in the 70 row0 choices;
+- that minimum-remaining-options branching changes only search order;
+- that the raw 184/16 and 102-certificate archive variants agree with the
+  repo-native counts after their conventions are documented.
+
+Acceptance standard: a written review should either promote the checker to the
+same repo-local finite-case status as `n <= 8`, or identify the exact
+mathematical or implementation gap.
+
+## Priority 6 - mine a reusable vertex-circle lemma
+
+Target: `docs/n9-vertex-circle-obstruction-shapes.md` and
+`docs/n9-vertex-circle-motif-families.md`.
+
+The n=9 obstruction-shape diagnostic shows that the 184 pre-vertex-circle
+frontier assignments are killed by 158 self-edges and 26 strict cycles, all
+strict cycles having length 2 or 3. This makes the most promising proof push a
+quotient-graph lemma: selected-distance equalities collapse ordinary pair
+distances into classes, vertex-circle interval containment orients strict
+edges between classes, and realizability requires the resulting strict graph to
+be irreflexive and acyclic.
+
+Next steps:
+
+- classify the 13 self-edge dihedral incidence families into local lemmas;
+- classify the 3 strict-cycle dihedral incidence families into directed
+  quotient-cycle templates;
+- use `docs/n9-vertex-circle-local-cores.md` as the row-local certificate list
+  to keep those lemmas small;
+- test whether the same motifs appear in the P18 obstruction and fail in the
+  known `C19_skew` vertex-circle survivor;
+- use `docs/n9-vertex-circle-frontier-comparison.md` as the current guardrail:
+  exact n=9 cores do not embed into P18 or C19, although P18 shares a loose
+  strict-cycle span shape;
+- identify the extra exact ingredient needed for `C19_skew`, likely
+  Altman/Kalmanson or stronger radius propagation.
+
+Acceptance standard: a reusable lemma should state precise incidence/order
+hypotheses and produce a self-edge or strict cycle without enumerating all n=9
+selected-witness assignments.
+
+## Priority 7 - keep the frontier separate
 
 Keep `n >= 9`, abstract `C19_skew`, and broader SAT/SMT work separate from the
-small-case claim. The round-two Kalmanson certificate kills one fixed
-`C19_skew` cyclic order, not the abstract pattern over all orders. These are
+small-case claim. The compact round-two Kalmanson certificate kills one fixed
+`C19_skew` cyclic order with two strict inequalities, not the abstract pattern
+over all orders. These are
 research-frontier workstreams, not prerequisites for the repo-local `n <= 8`
 artifact.
 
-## Priority 6 - extend the C13 Kalmanson pilot
+The C13 pilot has now been pushed through an exact all-order avoidance search.
+Next exact frontier step: attempt the same inverse-pair search strategy on
+`C19_skew`, or extract a smaller family of unavoidable inverse-pair templates
+before attempting a full C19 cyclic-order search.
 
-The first C13 Kalmanson pilot now kills the registered non-natural
-`C13_sidon_1_2_4_10` order with an exact 34-inequality certificate. Before
-attempting exhaustive `C19_skew` cyclic-order search, extend the smaller C13
-pilot toward all cyclic orders: normalize by dihedral symmetry, prune partial
-orders cheaply, run LP dual checks on closed branches, and emit exact integer
-certificates for branches that close.
+## Priority 8 - extend the two-certificate search beyond C13
 
-## Priority 7 - strengthen only productive filters
+The C13 Sidon pattern is now killed across all cyclic orders by an exact
+two-inequality Kalmanson inverse-pair search. Use it as the benchmark for the
+larger sparse frontier:
+
+- try bounded `C19_skew` avoidance searches and record whether long survivor
+  prefixes exist;
+- classify the inverse-pair templates that prune C13, especially templates that
+  also appear in C19 random or registered orders;
+- only attempt a full C19 all-order replay after the prefix search has a
+  credible pruning story.
+
+## Priority 9 - strengthen only productive filters
 
 The minimum-radius short-chord filter in `docs/minimum-radius-filter.md` is a
 valid exact necessary condition, but it is weak: it does not kill `C19_skew`.

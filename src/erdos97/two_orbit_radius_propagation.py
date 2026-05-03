@@ -16,7 +16,10 @@ than ``cos(h)``, so this symmetric ansatz is exactly concave.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from itertools import combinations, permutations
 from typing import Sequence
+
+from erdos97.incidence_filters import chords_cross_in_order, normalize_chord
 
 
 def _sympy():
@@ -67,9 +70,51 @@ class TwoOrbitLinearizedEscapeSummary:
     direction: list[list[float]] | None
 
 
+@dataclass(frozen=True)
+class AlternatingTwoRadiusGapCertificate:
+    """One adjacent paired-distance gap certificate for the alternating family."""
+
+    k: int
+    parity: str
+    endpoint: str
+    gap_at_endpoint: object
+    positive: bool
+
+
+@dataclass(frozen=True)
+class AlternatingTwoRadiusFamilySummary:
+    """Exact monotonicity summary for the alternating two-radius regular family."""
+
+    m: int
+    n: int
+    h: object
+    convexity_lower: object
+    convexity_upper: object
+    gap_certificates: list[AlternatingTwoRadiusGapCertificate]
+    all_gap_certificates_positive: bool
+    status: str
+
+
+@dataclass(frozen=True)
+class CyclicCrossingSearchSummary:
+    """Finite cyclic-order crossing search summary for one fixed pattern."""
+
+    pattern: str
+    n: int
+    constraint_count: int
+    normalized_order_count: int
+    survivor: tuple[int, ...] | None
+    status: str
+
+
 def _check_t(t: int) -> None:
     if not isinstance(t, int) or t < 1:
         raise ValueError("t must be a positive integer")
+
+
+def _check_m(m: int) -> None:
+    if not isinstance(m, int) or m < 4:
+        raise ValueError("m must be an integer >= 4")
 
 
 def forced_ratio(t: int):
@@ -311,6 +356,133 @@ def linearized_escape_summary(
     )
 
 
+def alternating_two_radius_family_summary(
+    m: int,
+) -> AlternatingTwoRadiusFamilySummary:
+    """Return exact endpoint certificates for the alternating two-radius family.
+
+    The family has vertices on equally spaced rays with radii alternating
+    between ``1`` and ``b``. In the strict-convexity interval
+    ``cos(pi/m) < b < sec(pi/m)``, the paired distances from each vertex are
+    strictly ordered, so no paired-offset collision can create four equal
+    distances.
+    """
+
+    _check_m(m)
+    sp = _sympy()
+    h = sp.pi / m
+    s = sp.sin(h)
+    c = sp.cos(h)
+    certificates: list[AlternatingTwoRadiusGapCertificate] = []
+    for k in range(1, m - 1):
+        if k % 2 == 0:
+            gap = sp.simplify(s * (2 * sp.sin((k + 1) * h) - s))
+            certificates.append(
+                AlternatingTwoRadiusGapCertificate(
+                    k=k,
+                    parity="even",
+                    endpoint="b=cos(pi/m)",
+                    gap_at_endpoint=gap,
+                    positive=_is_positive(gap),
+                )
+            )
+        else:
+            gap = sp.simplify(
+                s * (2 * c * sp.sin((k + 1) * h) - s) / (c * c)
+            )
+            certificates.append(
+                AlternatingTwoRadiusGapCertificate(
+                    k=k,
+                    parity="odd",
+                    endpoint="b=sec(pi/m)",
+                    gap_at_endpoint=gap,
+                    positive=_is_positive(gap),
+                )
+            )
+    all_positive = all(item.positive for item in certificates)
+    return AlternatingTwoRadiusFamilySummary(
+        m=m,
+        n=2 * m,
+        h=h,
+        convexity_lower=c,
+        convexity_upper=sp.simplify(1 / c),
+        gap_certificates=certificates,
+        all_gap_certificates_positive=all_positive,
+        status=(
+            "exact_family_obstruction_not_general_proof"
+            if all_positive
+            else "certificate_check_failed"
+        ),
+    )
+
+
+ALTERNATING_DECAGON_PATTERN: list[list[int]] = [
+    [2, 3, 7, 8],
+    [0, 2, 5, 7],
+    [0, 4, 5, 9],
+    [2, 4, 7, 9],
+    [1, 2, 6, 7],
+    [1, 4, 6, 9],
+    [3, 4, 8, 9],
+    [1, 3, 6, 8],
+    [0, 1, 5, 6],
+    [0, 3, 5, 8],
+]
+
+
+def two_overlap_crossing_constraints(
+    pattern: Sequence[Sequence[int]],
+) -> list[tuple[tuple[int, int], tuple[int, int]]]:
+    """Return source/witness chord crossings forced by two-row overlaps."""
+
+    witness_sets = [set(row) for row in pattern]
+    constraints: list[tuple[tuple[int, int], tuple[int, int]]] = []
+    for i, j in combinations(range(len(pattern)), 2):
+        common = sorted(witness_sets[i] & witness_sets[j])
+        if len(common) == 2:
+            constraints.append(
+                (
+                    normalize_chord(i, j),
+                    normalize_chord(common[0], common[1]),
+                )
+            )
+        elif len(common) > 2:
+            raise ValueError(f"rows {i} and {j} share more than two witnesses")
+    return constraints
+
+
+def alternating_decagon_crossing_search() -> CyclicCrossingSearchSummary:
+    """Exhaustively check cyclic orders for the concave alternating decagon pattern."""
+
+    n = len(ALTERNATING_DECAGON_PATTERN)
+    constraints = two_overlap_crossing_constraints(ALTERNATING_DECAGON_PATTERN)
+    count = 0
+    survivor: tuple[int, ...] | None = None
+    for perm in permutations(range(1, n)):
+        order = (0,) + perm
+        if order[1] > order[-1]:
+            continue
+        count += 1
+        if all(
+            chords_cross_in_order(source, target, order)
+            for source, target in constraints
+        ):
+            survivor = order
+            break
+    return CyclicCrossingSearchSummary(
+        pattern="alternating_concave_decagon",
+        n=n,
+        constraint_count=len(constraints),
+        normalized_order_count=count,
+        survivor=survivor,
+        status=(
+            "NO_CYCLIC_ORDER"
+            if survivor is None
+            else "CYCLIC_ORDER_SURVIVOR_FOUND"
+        ),
+    )
+
+
 def summary_to_json(summary: TwoOrbitSummary) -> dict[str, object]:
     """Return a JSON-friendly exact summary."""
     return {
@@ -333,6 +505,60 @@ def summary_to_json(summary: TwoOrbitSummary) -> dict[str, object]:
         "interpretation": (
             "The equality equations force S/R below cos(h), while strict "
             "convexity of the alternating polygon requires S/R > cos(h)."
+        ),
+    }
+
+
+def alternating_two_radius_family_to_json(
+    summary: AlternatingTwoRadiusFamilySummary,
+) -> dict[str, object]:
+    """Return a JSON-friendly alternating-family summary."""
+
+    return {
+        "type": "alternating_two_radius_regular_family",
+        "status": summary.status,
+        "m": summary.m,
+        "n": summary.n,
+        "h": str(summary.h),
+        "convexity_interval": {
+            "lower": str(summary.convexity_lower),
+            "upper": str(summary.convexity_upper),
+        },
+        "gap_certificates": [
+            {
+                "k": item.k,
+                "parity": item.parity,
+                "endpoint": item.endpoint,
+                "gap_at_endpoint": str(item.gap_at_endpoint),
+                "positive": item.positive,
+            }
+            for item in summary.gap_certificates
+        ],
+        "all_gap_certificates_positive": summary.all_gap_certificates_positive,
+        "interpretation": (
+            "Inside the strict-convexity interval, adjacent paired-distance "
+            "gaps are positive, so paired offsets are strictly ordered. The "
+            "family cannot give four equal-distance witnesses at a vertex."
+        ),
+    }
+
+
+def cyclic_crossing_search_to_json(
+    summary: CyclicCrossingSearchSummary,
+) -> dict[str, object]:
+    """Return a JSON-friendly cyclic crossing search summary."""
+
+    return {
+        "type": "fixed_pattern_cyclic_crossing_search",
+        "pattern": summary.pattern,
+        "status": summary.status,
+        "n": summary.n,
+        "constraint_count": summary.constraint_count,
+        "normalized_order_count": summary.normalized_order_count,
+        "survivor": None if summary.survivor is None else list(summary.survivor),
+        "interpretation": (
+            "This is a fixed selected-witness pattern obstruction only; it is "
+            "not an n=10 completeness theorem and not a counterexample."
         ),
     }
 

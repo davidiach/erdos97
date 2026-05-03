@@ -3,7 +3,11 @@ from __future__ import annotations
 import sympy as sp
 
 from erdos97.two_orbit_radius_propagation import (
+    alternating_decagon_crossing_search,
+    alternating_two_radius_family_summary,
+    alternating_two_radius_family_to_json,
     alternating_turns,
+    cyclic_crossing_search_to_json,
     linearized_escape_summary,
     linearized_escape_to_json,
     selected_distance_residuals,
@@ -79,3 +83,44 @@ def test_linearized_escape_json_keeps_claim_boundary_explicit() -> None:
     assert row["status"] == "LINEARIZED_ESCAPE_FOUND"
     assert row["trust_label"] == "NUMERICAL_LINEARIZED_DIAGNOSTIC"
     assert "not a counterexample" in str(row["interpretation"])
+
+
+def test_alternating_two_radius_family_has_positive_gap_certificates() -> None:
+    for m in range(4, 13):
+        summary = alternating_two_radius_family_summary(m)
+
+        assert summary.status == "exact_family_obstruction_not_general_proof"
+        assert summary.n == 2 * m
+        assert len(summary.gap_certificates) == m - 2
+        assert summary.all_gap_certificates_positive
+        assert all(item.positive for item in summary.gap_certificates)
+
+
+def test_alternating_two_radius_family_json_keeps_scope_narrow() -> None:
+    row = alternating_two_radius_family_to_json(
+        alternating_two_radius_family_summary(5)
+    )
+
+    assert row["type"] == "alternating_two_radius_regular_family"
+    assert row["status"] == "exact_family_obstruction_not_general_proof"
+    assert row["all_gap_certificates_positive"] is True
+    assert "family cannot give four equal-distance witnesses" in str(row["interpretation"])
+
+
+def test_alternating_decagon_pattern_has_no_cyclic_crossing_order() -> None:
+    summary = alternating_decagon_crossing_search()
+
+    assert summary.pattern == "alternating_concave_decagon"
+    assert summary.status == "NO_CYCLIC_ORDER"
+    assert summary.constraint_count == 30
+    assert summary.normalized_order_count == 181_440
+    assert summary.survivor is None
+
+
+def test_alternating_decagon_crossing_json_keeps_scope_narrow() -> None:
+    row = cyclic_crossing_search_to_json(alternating_decagon_crossing_search())
+
+    assert row["type"] == "fixed_pattern_cyclic_crossing_search"
+    assert row["status"] == "NO_CYCLIC_ORDER"
+    assert row["survivor"] is None
+    assert "not an n=10 completeness theorem" in str(row["interpretation"])

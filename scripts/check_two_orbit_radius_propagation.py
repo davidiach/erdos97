@@ -14,7 +14,11 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from erdos97.two_orbit_radius_propagation import (  # noqa: E402
+    alternating_decagon_crossing_search,
     alternating_turns,
+    alternating_two_radius_family_summary,
+    alternating_two_radius_family_to_json,
+    cyclic_crossing_search_to_json,
     linearized_escape_summary,
     linearized_escape_to_json,
     selected_distance_residuals,
@@ -83,6 +87,26 @@ def assert_linearized_escape(t: int) -> None:
         raise AssertionError("linearized escape does not preserve equalities")
 
 
+def assert_alternating_family(m: int) -> None:
+    summary = alternating_two_radius_family_summary(m)
+    if summary.status != "exact_family_obstruction_not_general_proof":
+        raise AssertionError(f"unexpected alternating-family status for m={m}")
+    if not summary.all_gap_certificates_positive:
+        raise AssertionError(f"not all adjacent gap certificates are positive for m={m}")
+
+
+def assert_decagon_crossing() -> None:
+    summary = alternating_decagon_crossing_search()
+    if summary.status != "NO_CYCLIC_ORDER":
+        raise AssertionError(f"unexpected decagon crossing status: {summary.status}")
+    if summary.constraint_count != 30:
+        raise AssertionError(f"unexpected decagon constraint count: {summary.constraint_count}")
+    if summary.normalized_order_count != 181_440:
+        raise AssertionError(
+            f"unexpected normalized order count: {summary.normalized_order_count}"
+        )
+
+
 def print_summary(t: int) -> None:
     summary = two_orbit_summary(t)
     print("t  m  n  distance_eq  A_gap  B_gap  turn_B<0  turn_A>0  forced_concave")
@@ -94,6 +118,27 @@ def print_summary(t: int) -> None:
     )
     print(f"S/R = {summary.ratio}")
     print(f"cos(h) - S/R = {summary.cos_minus_ratio}")
+
+
+def print_alternating_family_summary(m: int, *, m_max: int | None) -> None:
+    rows = [
+        alternating_two_radius_family_summary(current_m)
+        for current_m in range(m, (m_max or m) + 1)
+    ]
+    print("m  n  status                                      gap certificates")
+    for row in rows:
+        print(
+            f"{row.m}  {row.n}  {row.status:<42}  "
+            f"{len(row.gap_certificates)} positive={row.all_gap_certificates_positive}"
+        )
+
+
+def print_decagon_crossing_summary() -> None:
+    summary = alternating_decagon_crossing_search()
+    print("alternating concave decagon crossing search")
+    print(f"constraints: {summary.constraint_count}")
+    print(f"normalized orders checked: {summary.normalized_order_count}")
+    print(f"status: {summary.status}")
 
 
 def print_linearized_escape_summary(t: int, *, t_max: int | None) -> None:
@@ -126,8 +171,34 @@ def print_linearized_escape_summary(t: int, *, t_max: int | None) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--t", type=int, default=2, help="positive integer with m=4t")
+    parser.add_argument("--m", type=int, default=5, help="integer m >= 4 for alternating-family checks")
     parser.add_argument("--json", action="store_true", help="print JSON")
     parser.add_argument("--assert-expected", action="store_true")
+    parser.add_argument(
+        "--alternating-family",
+        action="store_true",
+        help="check the broader alternating two-radius regular 2m-gon family",
+    )
+    parser.add_argument(
+        "--m-max",
+        type=int,
+        help="with --alternating-family, scan every m from --m through --m-max",
+    )
+    parser.add_argument(
+        "--assert-alternating-family",
+        action="store_true",
+        help="assert that selected alternating-family m values have positive gap certificates",
+    )
+    parser.add_argument(
+        "--decagon-crossing",
+        action="store_true",
+        help="check cyclic-order crossings for the fixed concave alternating decagon pattern",
+    )
+    parser.add_argument(
+        "--assert-decagon-crossing",
+        action="store_true",
+        help="assert the fixed concave decagon pattern has no cyclic order",
+    )
     parser.add_argument(
         "--linearized-escape",
         action="store_true",
@@ -157,8 +228,17 @@ def main() -> int:
 
     if args.t_max is not None and args.t_max < args.t:
         raise SystemExit("--t-max must be at least --t")
+    if args.m_max is not None and args.m_max < args.m:
+        raise SystemExit("--m-max must be at least --m")
     if args.assert_linearized_escape and not args.linearized_escape:
         raise SystemExit("--assert-linearized-escape requires --linearized-escape")
+    if args.assert_alternating_family and not args.alternating_family:
+        raise SystemExit("--assert-alternating-family requires --alternating-family")
+    if args.assert_decagon_crossing and not args.decagon_crossing:
+        raise SystemExit("--assert-decagon-crossing requires --decagon-crossing")
+    modes = [args.linearized_escape, args.alternating_family, args.decagon_crossing]
+    if sum(bool(mode) for mode in modes) > 1:
+        raise SystemExit("choose only one special mode")
 
     if args.linearized_escape:
         t_values = range(args.t, (args.t_max or args.t) + 1)
@@ -181,6 +261,38 @@ def main() -> int:
             print_linearized_escape_summary(args.t, t_max=args.t_max)
             if args.assert_linearized_escape:
                 print("OK: linearized escape expectation verified")
+        return 0
+
+    if args.alternating_family:
+        m_values = range(args.m, (args.m_max or args.m) + 1)
+        rows = [
+            alternating_two_radius_family_to_json(
+                alternating_two_radius_family_summary(current_m)
+            )
+            for current_m in m_values
+        ]
+        if args.assert_alternating_family:
+            for current_m in m_values:
+                assert_alternating_family(current_m)
+        if args.json:
+            output: object = rows[0] if args.m_max is None else rows
+            print(json.dumps(output, indent=2, sort_keys=True))
+        else:
+            print_alternating_family_summary(args.m, m_max=args.m_max)
+            if args.assert_alternating_family:
+                print("OK: alternating-family expectation verified")
+        return 0
+
+    if args.decagon_crossing:
+        summary = alternating_decagon_crossing_search()
+        if args.assert_decagon_crossing:
+            assert_decagon_crossing()
+        if args.json:
+            print(json.dumps(cyclic_crossing_search_to_json(summary), indent=2, sort_keys=True))
+        else:
+            print_decagon_crossing_summary()
+            if args.assert_decagon_crossing:
+                print("OK: decagon crossing expectation verified")
         return 0
 
     if args.assert_expected:

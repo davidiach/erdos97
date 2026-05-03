@@ -1,0 +1,93 @@
+{
+  "type": "n9_late_archive_provenance_v1",
+  "trust": "REVIEW_PENDING_PROVENANCE",
+  "scope": "External n=9 archive material reviewed as corroborating provenance only; this file does not promote the n=9 claim to source-of-truth status.",
+  "reviewed_on": "2026-05-03",
+  "source_directory": "C:\\Users\\User\\Desktop\\code\\erd archive\\outputs\\data\\1\\2",
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "The official/global status remains falsifiable/open.",
+    "The repo-native review-pending n=9 checker remains data/certificates/n9_vertex_circle_exhaustive.json.",
+    "Elapsed timings from generated artifacts are intentionally excluded from these stable counts.",
+    "The zip verifier was not executed during integration; only static zip members and JSON summaries were inspected."
+  ],
+  "files": [
+    {
+      "file": "erdos97_n9_vertex_circle_certificate.json",
+      "bytes": 311904,
+      "sha256": "142d25283fe114c05863f66515e21c1e2b76c0c8dade22b3b545c97ab5248b5a",
+      "disposition": "Not imported verbatim; generated certificate with timing fields and a stronger trust label than this repo should accept before independent review."
+    },
+    {
+      "file": "n9_vertex_circle_exclusion.py",
+      "bytes": 15721,
+      "sha256": "c2283900fb16aeb3b96ae245f57571721d86a35dd506357b9362ab616f8fc819",
+      "disposition": "Not imported verbatim; useful independent sequential row-order cross-check of the repo-native vertex-circle checker."
+    },
+    {
+      "file": "erdos97_n9_exclusion_report.md",
+      "bytes": 10036,
+      "sha256": "ed16eae27bb6423d797c5b2b1294023844bd98e372475b0288685851ab3a8f27",
+      "disposition": "Not imported verbatim; raw report text is superseded by repo documentation with review-pending status language."
+    },
+    {
+      "file": "erdos97_n9_certificates_and_scripts.zip",
+      "bytes": 31563,
+      "sha256": "09ce587b10801f1854bf769a30bd0b904b2f67998bd34179f61fcab76ccb1a92",
+      "disposition": "Not imported verbatim; binary archive with unreviewed scripts. Static JSON summaries were inspected, but embedded code was not executed."
+    },
+    {
+      "file": "erdos97_result (4).md",
+      "bytes": 12113,
+      "sha256": "bdc2b70ae784fcdde32c94ef421013472b5ab799293170dddfdb4522b5a1e5f8",
+      "disposition": "Not imported verbatim; raw row0 quotient report uses stronger conclusion language than this repo should publish before review."
+    }
+  ],
+  "summaries": {
+    "sequential_vertex_circle_exclusion": {
+      "source_script": "n9_vertex_circle_exclusion.py",
+      "verified_by_local_run": true,
+      "command": "python n9_vertex_circle_exclusion.py --assert-closed",
+      "n": 9,
+      "row_size": 4,
+      "row0_case_count": 70,
+      "all_row0_closed": true,
+      "total_nodes_visited": 37614,
+      "total_row_options_considered": 2628150,
+      "total_full_patterns_reached": 0,
+      "total_rejection_counts": {
+        "adjacent_two_overlap": 255354,
+        "crossing_bisector": 1163137,
+        "row_pair_intersection_cap": 1102641,
+        "vertex_circle_self_edge": 34445,
+        "vertex_circle_strict_cycle": 35029
+      },
+      "relationship_to_repo_native_checker": "Corroborates the same n=9 selected-witness vertex-circle obstruction with a natural row-order search and different pruning counts."
+    },
+    "row0_quotient_certificate_bundle": {
+      "source_archive": "erdos97_n9_certificates_and_scripts.zip",
+      "zip_member_count": 25,
+      "row_certificate_files": 17,
+      "static_json_summaries_read": [
+        "n9_certificate_bundle_summary.json",
+        "n9_scan_summary_38.json"
+      ],
+      "embedded_verifier_executed_during_integration": false,
+      "n": 9,
+      "canonical_row0_count": 38,
+      "row_count_with_full_patterns": 17,
+      "full_patterns": 102,
+      "classification_counts": {
+        "accepted_frontier": 0,
+        "kalmanson_certificate": 70,
+        "mutual_midpoint_collapse": 0,
+        "odd_forced_perpendicular_cycle": 11,
+        "phi4_rectangle_trap": 21
+      },
+      "max_kalmanson_inequalities": 12,
+      "max_kalmanson_weight": 9,
+      "relationship_to_repo_native_checker": "Uses a row0 reflection quotient and mixed exact obstruction certificates; count conventions differ from the 70-row0 vertex-circle exhaustive checker."
+    }
+  }
+}

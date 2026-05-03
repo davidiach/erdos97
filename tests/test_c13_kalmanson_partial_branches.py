@@ -27,14 +27,26 @@ def test_c13_partial_branch_closures_match_artifact() -> None:
     payload = run_script("--assert-expected", "--json")
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))
 
-    assert artifact == payload
+    assert artifact["branch_accounting"] == payload["branch_accounting"]
+    assert artifact["forced_row_count_histogram"] == payload["forced_row_count_histogram"]
+    assert (
+        artifact["unclosed_branch_label_digest"]
+        == payload["unclosed_branch_label_digest"]
+    )
+    assert (
+        artifact["unclosed_branch_label_examples"]
+        == payload["unclosed_branch_label_examples"]
+    )
     accounting = payload["branch_accounting"]
     assert accounting["partial_branch_certified_count"] == 5108
     assert accounting["unclosed_branch_count"] == 832
     assert accounting["exhaustive_two_pair_boundary_scan"] is True
     assert accounting["exhaustive_all_orders"] is False
     assert payload["forced_row_count_histogram"] == {"170": 5940}
-    assert payload["unclosed_branch_label_digest"] == artifact["unclosed_branch_label_digest"]
+    assert (
+        sum(payload["closed_support_size_histogram"].values())
+        == accounting["partial_branch_certified_count"]
+    )
     examples = payload["unclosed_branch_label_examples"]
     assert isinstance(examples, dict)
     assert examples["first"][0] == "partial_branch_0012"

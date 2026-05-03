@@ -1,0 +1,2459 @@
+{
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "dihedral_incidence_families": {
+    "families": [
+      {
+        "family_id": "F01",
+        "orbit_size": 18,
+        "representative_obstruction": {
+          "conflict": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              8
+            ],
+            "outer_span": 3,
+            "row": 0,
+            "witness_order": [
+              1,
+              2,
+              3,
+              8
+            ]
+          },
+          "distance_equality_path": [
+            {
+              "next_pair": [
+                0,
+                8
+              ],
+              "row": 8
+            },
+            {
+              "next_pair": [
+                0,
+                1
+              ],
+              "row": 0
+            },
+            {
+              "next_pair": [
+                1,
+                2
+              ],
+              "row": 1
+            }
+          ],
+          "status": "self_edge"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            2,
+            3,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            4,
+            6,
+            8
+          ],
+          [
+            0,
+            2,
+            5,
+            6
+          ],
+          [
+            3,
+            4,
+            6,
+            7
+          ],
+          [
+            2,
+            5,
+            7,
+            8
+          ],
+          [
+            0,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            5
+          ]
+        ],
+        "status": "self_edge",
+        "status_counts": {
+          "self_edge": 18
+        }
+      },
+      {
+        "family_id": "F02",
+        "orbit_size": 18,
+        "representative_obstruction": {
+          "conflict": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              1,
+              3
+            ],
+            "outer_span": 2,
+            "row": 0,
+            "witness_order": [
+              1,
+              2,
+              3,
+              8
+            ]
+          },
+          "distance_equality_path": [
+            {
+              "next_pair": [
+                1,
+                7
+              ],
+              "row": 1
+            },
+            {
+              "next_pair": [
+                6,
+                7
+              ],
+              "row": 7
+            },
+            {
+              "next_pair": [
+                5,
+                6
+              ],
+              "row": 6
+            },
+            {
+              "next_pair": [
+                2,
+                5
+              ],
+              "row": 5
+            },
+            {
+              "next_pair": [
+                1,
+                2
+              ],
+              "row": 2
+            }
+          ],
+          "status": "self_edge"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            2,
+            3,
+            8
+          ],
+          [
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            6
+          ],
+          [
+            2,
+            4,
+            5,
+            8
+          ],
+          [
+            0,
+            3,
+            6,
+            8
+          ],
+          [
+            2,
+            4,
+            6,
+            7
+          ],
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            0,
+            2,
+            5,
+            7
+          ]
+        ],
+        "status": "self_edge",
+        "status_counts": {
+          "self_edge": 18
+        }
+      },
+      {
+        "family_id": "F03",
+        "orbit_size": 18,
+        "representative_obstruction": {
+          "conflict": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              1,
+              3
+            ],
+            "outer_span": 2,
+            "row": 0,
+            "witness_order": [
+              1,
+              2,
+              3,
+              8
+            ]
+          },
+          "distance_equality_path": [
+            {
+              "next_pair": [
+                0,
+                1
+              ],
+              "row": 1
+            },
+            {
+              "next_pair": [
+                0,
+                8
+              ],
+              "row": 0
+            },
+            {
+              "next_pair": [
+                4,
+                8
+              ],
+              "row": 8
+            },
+            {
+              "next_pair": [
+                3,
+                4
+              ],
+              "row": 4
+            },
+            {
+              "next_pair": [
+                2,
+                3
+              ],
+              "row": 3
+            },
+            {
+              "next_pair": [
+                1,
+                2
+              ],
+              "row": 2
+            }
+          ],
+          "status": "self_edge"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            2,
+            3,
+            8
+          ],
+          [
+            0,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            3,
+            4,
+            6
+          ],
+          [
+            2,
+            4,
+            5,
+            8
+          ],
+          [
+            0,
+            3,
+            6,
+            8
+          ],
+          [
+            2,
+            4,
+            6,
+            7
+          ],
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          [
+            0,
+            2,
+            5,
+            6
+          ],
+          [
+            0,
+            1,
+            4,
+            7
+          ]
+        ],
+        "status": "self_edge",
+        "status_counts": {
+          "self_edge": 18
+        }
+      },
+      {
+        "family_id": "F04",
+        "orbit_size": 18,
+        "representative_obstruction": {
+          "conflict": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              2,
+              3
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              2
+            ],
+            "outer_span": 3,
+            "row": 1,
+            "witness_order": [
+              2,
+              3,
+              5,
+              0
+            ]
+          },
+          "distance_equality_path": [
+            {
+              "next_pair": [
+                0,
+                1
+              ],
+              "row": 0
+            },
+            {
+              "next_pair": [
+                1,
+                2
+              ],
+              "row": 1
+            },
+            {
+              "next_pair": [
+                2,
+                3
+              ],
+              "row": 2
+            }
+          ],
+          "status": "self_edge"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            1,
+            3,
+            4,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            2,
+            5,
+            6,
+            8
+          ],
+          [
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            4,
+            5,
+            7,
+            8
+          ],
+          [
+            0,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            1,
+            5,
+            7
+          ]
+        ],
+        "status": "self_edge",
+        "status_counts": {
+          "self_edge": 18
+        }
+      },
+      {
+        "family_id": "F05",
+        "orbit_size": 18,
+        "representative_obstruction": {
+          "conflict": {
+            "inner_class": [
+              0,
+              3
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              7
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              3
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              3,
+              7
+            ],
+            "outer_span": 2,
+            "row": 6,
+            "witness_order": [
+              7,
+              1,
+              3,
+              5
+            ]
+          },
+          "distance_equality_path": [
+            {
+              "next_pair": [
+                2,
+                3
+              ],
+              "row": 3
+            },
+            {
+              "next_pair": [
+                1,
+                2
+              ],
+              "row": 2
+            },
+            {
+              "next_pair": [
+                1,
+                7
+              ],
+              "row": 1
+            }
+          ],
+          "status": "self_edge"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            2,
+            4,
+            6
+          ],
+          [
+            2,
+            5,
+            7,
+            8
+          ],
+          [
+            1,
+            3,
+            4,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            0,
+            1,
+            5,
+            6
+          ],
+          [
+            2,
+            3,
+            6,
+            8
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            0,
+            4,
+            5,
+            8
+          ],
+          [
+            0,
+            3,
+            6,
+            7
+          ]
+        ],
+        "status": "self_edge",
+        "status_counts": {
+          "self_edge": 18
+        }
+      },
+      {
+        "family_id": "F06",
+        "orbit_size": 18,
+        "representative_obstruction": {
+          "conflict": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              1,
+              4
+            ],
+            "outer_span": 2,
+            "row": 0,
+            "witness_order": [
+              1,
+              2,
+              4,
+              7
+            ]
+          },
+          "distance_equality_path": [
+            {
+              "next_pair": [
+                4,
+                5
+              ],
+              "row": 4
+            },
+            {
+              "next_pair": [
+                5,
+                6
+              ],
+              "row": 5
+            },
+            {
+              "next_pair": [
+                2,
+                6
+              ],
+              "row": 6
+            },
+            {
+              "next_pair": [
+                1,
+                2
+              ],
+              "row": 2
+            }
+          ],
+          "status": "self_edge"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            2,
+            4,
+            7
+          ],
+          [
+            0,
+            2,
+            3,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            2,
+            4,
+            5,
+            8
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            3,
+            4,
+            6,
+            8
+          ],
+          [
+            0,
+            2,
+            5,
+            7
+          ],
+          [
+            1,
+            5,
+            6,
+            8
+          ],
+          [
+            0,
+            3,
+            6,
+            7
+          ]
+        ],
+        "status": "self_edge",
+        "status_counts": {
+          "self_edge": 18
+        }
+      },
+      {
+        "family_id": "F07",
+        "orbit_size": 6,
+        "representative_obstruction": {
+          "cycle_edges": [
+            {
+              "inner_class": [
+                0,
+                3
+              ],
+              "inner_interval": [
+                1,
+                3
+              ],
+              "inner_pair": [
+                0,
+                3
+              ],
+              "inner_span": 2,
+              "outer_class": [
+                0,
+                1
+              ],
+              "outer_interval": [
+                0,
+                3
+              ],
+              "outer_pair": [
+                0,
+                2
+              ],
+              "outer_span": 3,
+              "row": 1,
+              "witness_order": [
+                2,
+                3,
+                5,
+                0
+              ]
+            },
+            {
+              "inner_class": [
+                0,
+                5
+              ],
+              "inner_interval": [
+                2,
+                3
+              ],
+              "inner_pair": [
+                0,
+                5
+              ],
+              "inner_span": 1,
+              "outer_class": [
+                0,
+                3
+              ],
+              "outer_interval": [
+                1,
+                3
+              ],
+              "outer_pair": [
+                0,
+                3
+              ],
+              "outer_span": 2,
+              "row": 1,
+              "witness_order": [
+                2,
+                3,
+                5,
+                0
+              ]
+            },
+            {
+              "inner_class": [
+                0,
+                1
+              ],
+              "inner_interval": [
+                2,
+                3
+              ],
+              "inner_pair": [
+                1,
+                5
+              ],
+              "inner_span": 1,
+              "outer_class": [
+                0,
+                5
+              ],
+              "outer_interval": [
+                0,
+                3
+              ],
+              "outer_pair": [
+                5,
+                7
+              ],
+              "outer_span": 3,
+              "row": 6,
+              "witness_order": [
+                7,
+                8,
+                1,
+                5
+              ]
+            }
+          ],
+          "status": "strict_cycle"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            2,
+            4,
+            8
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            2,
+            4,
+            5,
+            7
+          ],
+          [
+            3,
+            5,
+            6,
+            8
+          ],
+          [
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          [
+            0,
+            2,
+            6,
+            8
+          ],
+          [
+            1,
+            3,
+            6,
+            7
+          ]
+        ],
+        "status": "strict_cycle",
+        "status_counts": {
+          "strict_cycle": 6
+        }
+      },
+      {
+        "family_id": "F08",
+        "orbit_size": 2,
+        "representative_obstruction": {
+          "conflict": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              8
+            ],
+            "outer_span": 3,
+            "row": 0,
+            "witness_order": [
+              1,
+              2,
+              4,
+              8
+            ]
+          },
+          "distance_equality_path": [
+            {
+              "next_pair": [
+                0,
+                8
+              ],
+              "row": 8
+            },
+            {
+              "next_pair": [
+                0,
+                1
+              ],
+              "row": 0
+            },
+            {
+              "next_pair": [
+                1,
+                2
+              ],
+              "row": 1
+            }
+          ],
+          "status": "self_edge"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            2,
+            4,
+            8
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            1,
+            3,
+            4,
+            6
+          ],
+          [
+            2,
+            4,
+            5,
+            7
+          ],
+          [
+            3,
+            5,
+            6,
+            8
+          ],
+          [
+            0,
+            4,
+            6,
+            7
+          ],
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          [
+            0,
+            2,
+            6,
+            8
+          ],
+          [
+            0,
+            1,
+            3,
+            7
+          ]
+        ],
+        "status": "self_edge",
+        "status_counts": {
+          "self_edge": 2
+        }
+      },
+      {
+        "family_id": "F09",
+        "orbit_size": 6,
+        "representative_obstruction": {
+          "conflict": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              8
+            ],
+            "outer_span": 3,
+            "row": 0,
+            "witness_order": [
+              1,
+              2,
+              4,
+              8
+            ]
+          },
+          "distance_equality_path": [
+            {
+              "next_pair": [
+                0,
+                1
+              ],
+              "row": 1
+            },
+            {
+              "next_pair": [
+                0,
+                2
+              ],
+              "row": 0
+            },
+            {
+              "next_pair": [
+                1,
+                2
+              ],
+              "row": 2
+            }
+          ],
+          "status": "self_edge"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            2,
+            4,
+            8
+          ],
+          [
+            0,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            2,
+            4,
+            5,
+            7
+          ],
+          [
+            2,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          [
+            0,
+            2,
+            5,
+            6
+          ],
+          [
+            1,
+            3,
+            6,
+            7
+          ]
+        ],
+        "status": "self_edge",
+        "status_counts": {
+          "self_edge": 6
+        }
+      },
+      {
+        "family_id": "F10",
+        "orbit_size": 18,
+        "representative_obstruction": {
+          "conflict": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              8
+            ],
+            "outer_span": 3,
+            "row": 0,
+            "witness_order": [
+              1,
+              2,
+              4,
+              8
+            ]
+          },
+          "distance_equality_path": [
+            {
+              "next_pair": [
+                7,
+                8
+              ],
+              "row": 8
+            },
+            {
+              "next_pair": [
+                2,
+                7
+              ],
+              "row": 7
+            },
+            {
+              "next_pair": [
+                1,
+                2
+              ],
+              "row": 2
+            }
+          ],
+          "status": "self_edge"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            2,
+            4,
+            8
+          ],
+          [
+            0,
+            3,
+            5,
+            8
+          ],
+          [
+            1,
+            3,
+            4,
+            7
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            2,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            4,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            6,
+            8
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ]
+        ],
+        "status": "self_edge",
+        "status_counts": {
+          "self_edge": 18
+        }
+      },
+      {
+        "family_id": "F11",
+        "orbit_size": 18,
+        "representative_obstruction": {
+          "conflict": {
+            "inner_class": [
+              0,
+              5
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              3,
+              5
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              5
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              3,
+              8
+            ],
+            "outer_span": 2,
+            "row": 1,
+            "witness_order": [
+              3,
+              5,
+              8,
+              0
+            ]
+          },
+          "distance_equality_path": [
+            {
+              "next_pair": [
+                6,
+                8
+              ],
+              "row": 8
+            },
+            {
+              "next_pair": [
+                6,
+                7
+              ],
+              "row": 6
+            },
+            {
+              "next_pair": [
+                5,
+                7
+              ],
+              "row": 7
+            },
+            {
+              "next_pair": [
+                3,
+                5
+              ],
+              "row": 5
+            }
+          ],
+          "status": "self_edge"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            2,
+            4,
+            8
+          ],
+          [
+            0,
+            3,
+            5,
+            8
+          ],
+          [
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            1,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            2,
+            5,
+            7,
+            8
+          ],
+          [
+            0,
+            1,
+            5,
+            6
+          ],
+          [
+            2,
+            3,
+            6,
+            7
+          ]
+        ],
+        "status": "self_edge",
+        "status_counts": {
+          "self_edge": 18
+        }
+      },
+      {
+        "family_id": "F12",
+        "orbit_size": 18,
+        "representative_obstruction": {
+          "cycle_edges": [
+            {
+              "inner_class": [
+                0,
+                3
+              ],
+              "inner_interval": [
+                0,
+                1
+              ],
+              "inner_pair": [
+                0,
+                3
+              ],
+              "inner_span": 1,
+              "outer_class": [
+                0,
+                1
+              ],
+              "outer_interval": [
+                0,
+                2
+              ],
+              "outer_pair": [
+                0,
+                6
+              ],
+              "outer_span": 2,
+              "row": 8,
+              "witness_order": [
+                0,
+                3,
+                6,
+                7
+              ]
+            },
+            {
+              "inner_class": [
+                0,
+                1
+              ],
+              "inner_interval": [
+                2,
+                3
+              ],
+              "inner_pair": [
+                0,
+                1
+              ],
+              "inner_span": 1,
+              "outer_class": [
+                0,
+                3
+              ],
+              "outer_interval": [
+                1,
+                3
+              ],
+              "outer_pair": [
+                1,
+                6
+              ],
+              "outer_span": 2,
+              "row": 3,
+              "witness_order": [
+                4,
+                6,
+                0,
+                1
+              ]
+            }
+          ],
+          "status": "strict_cycle"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            2,
+            5,
+            6
+          ],
+          [
+            2,
+            4,
+            7,
+            8
+          ],
+          [
+            1,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            0,
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            3,
+            6,
+            8
+          ],
+          [
+            1,
+            3,
+            4,
+            7
+          ],
+          [
+            0,
+            4,
+            5,
+            8
+          ],
+          [
+            0,
+            3,
+            6,
+            7
+          ]
+        ],
+        "status": "strict_cycle",
+        "status_counts": {
+          "strict_cycle": 18
+        }
+      },
+      {
+        "family_id": "F13",
+        "orbit_size": 2,
+        "representative_obstruction": {
+          "conflict": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              1,
+              5
+            ],
+            "outer_span": 2,
+            "row": 0,
+            "witness_order": [
+              1,
+              2,
+              5,
+              7
+            ]
+          },
+          "distance_equality_path": [
+            {
+              "next_pair": [
+                3,
+                5
+              ],
+              "row": 5
+            },
+            {
+              "next_pair": [
+                1,
+                3
+              ],
+              "row": 3
+            },
+            {
+              "next_pair": [
+                1,
+                2
+              ],
+              "row": 1
+            }
+          ],
+          "status": "self_edge"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            0,
+            2,
+            5,
+            6
+          ],
+          [
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            7,
+            8
+          ],
+          [
+            0,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ]
+        ],
+        "status": "self_edge",
+        "status_counts": {
+          "self_edge": 2
+        }
+      },
+      {
+        "family_id": "F14",
+        "orbit_size": 2,
+        "representative_obstruction": {
+          "conflict": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              8
+            ],
+            "outer_span": 3,
+            "row": 0,
+            "witness_order": [
+              1,
+              2,
+              6,
+              8
+            ]
+          },
+          "distance_equality_path": [
+            {
+              "next_pair": [
+                0,
+                8
+              ],
+              "row": 8
+            },
+            {
+              "next_pair": [
+                0,
+                1
+              ],
+              "row": 0
+            },
+            {
+              "next_pair": [
+                1,
+                2
+              ],
+              "row": 1
+            }
+          ],
+          "status": "self_edge"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            2,
+            6,
+            8
+          ],
+          [
+            0,
+            2,
+            3,
+            7
+          ],
+          [
+            1,
+            3,
+            4,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            1,
+            3,
+            5,
+            6
+          ],
+          [
+            2,
+            4,
+            6,
+            7
+          ],
+          [
+            3,
+            5,
+            7,
+            8
+          ],
+          [
+            0,
+            4,
+            6,
+            8
+          ],
+          [
+            0,
+            1,
+            5,
+            7
+          ]
+        ],
+        "status": "self_edge",
+        "status_counts": {
+          "self_edge": 2
+        }
+      },
+      {
+        "family_id": "F15",
+        "orbit_size": 2,
+        "representative_obstruction": {
+          "conflict": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              3,
+              4
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              1,
+              4
+            ],
+            "outer_span": 2,
+            "row": 0,
+            "witness_order": [
+              1,
+              3,
+              4,
+              8
+            ]
+          },
+          "distance_equality_path": [
+            {
+              "next_pair": [
+                1,
+                2
+              ],
+              "row": 1
+            },
+            {
+              "next_pair": [
+                2,
+                3
+              ],
+              "row": 2
+            },
+            {
+              "next_pair": [
+                3,
+                4
+              ],
+              "row": 3
+            }
+          ],
+          "status": "self_edge"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            3,
+            4,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            1,
+            3,
+            5,
+            6
+          ],
+          [
+            2,
+            4,
+            6,
+            7
+          ],
+          [
+            3,
+            5,
+            7,
+            8
+          ],
+          [
+            0,
+            4,
+            6,
+            8
+          ],
+          [
+            0,
+            1,
+            5,
+            7
+          ],
+          [
+            1,
+            2,
+            6,
+            8
+          ],
+          [
+            0,
+            2,
+            3,
+            7
+          ]
+        ],
+        "status": "self_edge",
+        "status_counts": {
+          "self_edge": 2
+        }
+      },
+      {
+        "family_id": "F16",
+        "orbit_size": 2,
+        "representative_obstruction": {
+          "cycle_edges": [
+            {
+              "inner_class": [
+                0,
+                2
+              ],
+              "inner_interval": [
+                2,
+                3
+              ],
+              "inner_pair": [
+                0,
+                8
+              ],
+              "inner_span": 1,
+              "outer_class": [
+                0,
+                1
+              ],
+              "outer_interval": [
+                0,
+                3
+              ],
+              "outer_pair": [
+                0,
+                3
+              ],
+              "outer_span": 3,
+              "row": 2,
+              "witness_order": [
+                3,
+                5,
+                8,
+                0
+              ]
+            },
+            {
+              "inner_class": [
+                1,
+                2
+              ],
+              "inner_interval": [
+                0,
+                1
+              ],
+              "inner_pair": [
+                2,
+                4
+              ],
+              "inner_span": 1,
+              "outer_class": [
+                0,
+                2
+              ],
+              "outer_interval": [
+                0,
+                3
+              ],
+              "outer_pair": [
+                2,
+                8
+              ],
+              "outer_span": 3,
+              "row": 1,
+              "witness_order": [
+                2,
+                4,
+                7,
+                8
+              ]
+            },
+            {
+              "inner_class": [
+                0,
+                1
+              ],
+              "inner_interval": [
+                0,
+                1
+              ],
+              "inner_pair": [
+                1,
+                3
+              ],
+              "inner_span": 1,
+              "outer_class": [
+                1,
+                2
+              ],
+              "outer_interval": [
+                0,
+                3
+              ],
+              "outer_pair": [
+                1,
+                7
+              ],
+              "outer_span": 3,
+              "row": 0,
+              "witness_order": [
+                1,
+                3,
+                6,
+                7
+              ]
+            }
+          ],
+          "status": "strict_cycle"
+        },
+        "representative_selected_rows": [
+          [
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            7,
+            8
+          ],
+          [
+            0,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            0,
+            2,
+            5,
+            6
+          ]
+        ],
+        "status": "strict_cycle",
+        "status_counts": {
+          "strict_cycle": 2
+        }
+      }
+    ],
+    "family_count": 16,
+    "orbit_size_counts": {
+      "18": 9,
+      "2": 5,
+      "6": 2
+    },
+    "status_family_counts": {
+      "self_edge": 13,
+      "strict_cycle": 3
+    }
+  },
+  "interpretation": [
+    "The 184 labelled pre-vertex-circle assignments collapse to 16 full selected-witness row-system orbits under dihedral cyclic symmetry.",
+    "Those 16 orbits split into 13 self-edge families and 3 strict-cycle families.",
+    "Literal first-conflict paths are still too detailed to be theorem templates; the useful next compression is to classify the representative family obstructions by incidence motifs.",
+    "This narrows the next proof-search task, but it does not prove a general vertex-circle lemma."
+  ],
+  "loose_obstruction_shapes": {
+    "self_edge_shape_buckets": [
+      {
+        "count": 41,
+        "equality_path_length": 3,
+        "inner_span": 1,
+        "outer_span": 2,
+        "shared_endpoints": 1
+      },
+      {
+        "count": 37,
+        "equality_path_length": 3,
+        "inner_span": 1,
+        "outer_span": 3,
+        "shared_endpoints": 1
+      },
+      {
+        "count": 22,
+        "equality_path_length": 4,
+        "inner_span": 1,
+        "outer_span": 2,
+        "shared_endpoints": 1
+      },
+      {
+        "count": 16,
+        "equality_path_length": 4,
+        "inner_span": 1,
+        "outer_span": 3,
+        "shared_endpoints": 1
+      },
+      {
+        "count": 7,
+        "equality_path_length": 3,
+        "inner_span": 1,
+        "outer_span": 3,
+        "shared_endpoints": 0
+      },
+      {
+        "count": 7,
+        "equality_path_length": 3,
+        "inner_span": 2,
+        "outer_span": 3,
+        "shared_endpoints": 1
+      },
+      {
+        "count": 7,
+        "equality_path_length": 5,
+        "inner_span": 1,
+        "outer_span": 2,
+        "shared_endpoints": 1
+      },
+      {
+        "count": 6,
+        "equality_path_length": 5,
+        "inner_span": 1,
+        "outer_span": 3,
+        "shared_endpoints": 1
+      },
+      {
+        "count": 3,
+        "equality_path_length": 4,
+        "inner_span": 1,
+        "outer_span": 3,
+        "shared_endpoints": 0
+      },
+      {
+        "count": 3,
+        "equality_path_length": 6,
+        "inner_span": 1,
+        "outer_span": 2,
+        "shared_endpoints": 1
+      },
+      {
+        "count": 3,
+        "equality_path_length": 7,
+        "inner_span": 1,
+        "outer_span": 2,
+        "shared_endpoints": 1
+      },
+      {
+        "count": 2,
+        "equality_path_length": 6,
+        "inner_span": 2,
+        "outer_span": 3,
+        "shared_endpoints": 1
+      },
+      {
+        "count": 1,
+        "equality_path_length": 5,
+        "inner_span": 1,
+        "outer_span": 3,
+        "shared_endpoints": 0
+      },
+      {
+        "count": 1,
+        "equality_path_length": 6,
+        "inner_span": 1,
+        "outer_span": 3,
+        "shared_endpoints": 1
+      },
+      {
+        "count": 1,
+        "equality_path_length": 7,
+        "inner_span": 1,
+        "outer_span": 3,
+        "shared_endpoints": 1
+      },
+      {
+        "count": 1,
+        "equality_path_length": 8,
+        "inner_span": 1,
+        "outer_span": 2,
+        "shared_endpoints": 1
+      }
+    ],
+    "self_edge_shape_family_count": 16,
+    "strict_cycle_span_buckets": [
+      {
+        "count": 8,
+        "cycle_length": 2,
+        "span_signature": [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      {
+        "count": 6,
+        "cycle_length": 2,
+        "span_signature": [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      {
+        "count": 3,
+        "cycle_length": 2,
+        "span_signature": [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      },
+      {
+        "count": 3,
+        "cycle_length": 2,
+        "span_signature": [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      },
+      {
+        "count": 2,
+        "cycle_length": 2,
+        "span_signature": [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "count": 2,
+        "cycle_length": 3,
+        "span_signature": [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      {
+        "count": 1,
+        "cycle_length": 3,
+        "span_signature": [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      },
+      {
+        "count": 1,
+        "cycle_length": 3,
+        "span_signature": [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      }
+    ],
+    "strict_cycle_span_family_count": 8
+  },
+  "n": 9,
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "The official/global status remains falsifiable/open.",
+    "Dihedral incidence families are selected-witness row-system orbits under rotations and reflections of the cyclic labels.",
+    "Loose obstruction shapes intentionally discard labels; they are proof-search hints, not complete certificates."
+  ],
+  "obstruction_status_counts": {
+    "self_edge": 158,
+    "strict_cycle": 26
+  },
+  "pre_vertex_circle_search": {
+    "full_assignments": 184,
+    "nodes_visited": 100817,
+    "row0_choices": 70
+  },
+  "row_size": 4,
+  "scope": "Canonicalized diagnostic families for the 184 complete n=9 selected-witness assignments before vertex-circle obstruction.",
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "type": "n9_vertex_circle_motif_families_v1"
+}

@@ -1,0 +1,6 @@
+n=9 cross-check without vertex-circle pruning
+row0 choices: 70
+nodes visited: 100817
+full assignments passing pair/crossing/count filters: 184
+vertex-circle status of those full assignments: {'self_edge': 158, 'strict_cycle': 26}
+elapsed_seconds: 26.467862
