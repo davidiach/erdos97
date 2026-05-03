@@ -29,6 +29,11 @@ EXPECTED_DIHEDRAL_INCIDENCE_ORBIT_SIZE_COUNTS = {2: 5, 6: 2, 18: 9}
 EXPECTED_DIHEDRAL_STATUS_FAMILY_COUNTS = {"self_edge": 13, "strict_cycle": 3}
 EXPECTED_SELF_EDGE_LOOSE_SHAPE_FAMILIES = 16
 EXPECTED_STRICT_CYCLE_SPAN_SHAPE_FAMILIES = 8
+EXPECTED_LOCAL_CORE_SIZE_COUNTS = {3: 5, 4: 6, 5: 2, 6: 3}
+EXPECTED_LOCAL_CORE_STATUS_SIZE_COUNTS = {
+    "self_edge": {3: 5, 4: 4, 5: 2, 6: 2},
+    "strict_cycle": {4: 2, 6: 1},
+}
 
 
 Assignment = dict[int, int]
@@ -40,8 +45,21 @@ def _json_pair(item: Pair) -> list[int]:
     return [int(item[0]), int(item[1])]
 
 
+def _pair_from_json(item: Sequence[int]) -> Pair:
+    if len(item) != 2:
+        raise AssertionError(f"expected pair, got {item}")
+    return pair(int(item[0]), int(item[1]))
+
+
 def _json_counter(counter: Counter[int] | Counter[str]) -> dict[str, int]:
     return {str(key): int(counter[key]) for key in sorted(counter)}
+
+
+def _json_nested_counter(counter: Counter[tuple[str, int]]) -> dict[str, dict[str, int]]:
+    nested: dict[str, Counter[int]] = defaultdict(Counter)
+    for (status, size), count in counter.items():
+        nested[status][size] = int(count)
+    return {status: _json_counter(nested[status]) for status in sorted(nested)}
 
 
 def _rows_from_assignment(assign: Assignment) -> list[list[int]]:
@@ -75,6 +93,16 @@ def canonical_dihedral_rows(rows: Sequence[Sequence[int]]) -> CanonicalRows:
 
 def _rows_to_json(rows: Sequence[Sequence[int]]) -> Rows:
     return [[int(value) for value in row] for row in rows]
+
+
+def _core_rows_to_json(
+    rows: Sequence[Sequence[int]],
+    centers: Sequence[int],
+) -> list[dict[str, object]]:
+    return [
+        {"row": int(center), "witnesses": [int(witness) for witness in rows[center]]}
+        for center in sorted(centers)
+    ]
 
 
 def pre_vertex_circle_assignments() -> tuple[list[Assignment], int]:
@@ -203,6 +231,10 @@ def _json_inequality(edge: StrictInequality) -> dict[str, object]:
     }
 
 
+def _path_rows(path: Sequence[dict[str, object]]) -> set[int]:
+    return {int(step["row"]) for step in path}
+
+
 def _self_edge_representative(
     rows: Sequence[Sequence[int]],
     edge: StrictInequality,
@@ -251,7 +283,9 @@ def _loose_self_edge_key(
     )
 
 
-def _cycle_span_key(edges: Sequence[StrictInequality]) -> tuple[int, tuple[tuple[int, int], ...]]:
+def _cycle_span_key(
+    edges: Sequence[StrictInequality],
+) -> tuple[int, tuple[tuple[int, int], ...]]:
     return (
         len(edges),
         tuple(
@@ -316,6 +350,219 @@ def _json_cycle_span_shapes(
             row["span_signature"],
         ),
     )
+
+
+def _self_edge_core_certificate(
+    family_id: str,
+    orbit_size: int,
+    rows: Sequence[Sequence[int]],
+    edge: StrictInequality,
+) -> dict[str, object]:
+    equality_path = _distance_equality_path(rows, edge.outer_pair, edge.inner_pair)
+    core_rows = {edge.row} | _path_rows(equality_path)
+    return {
+        "family_id": family_id,
+        "orbit_size": int(orbit_size),
+        "status": "self_edge",
+        "core_size": len(core_rows),
+        "core_rows": [int(row) for row in sorted(core_rows)],
+        "core_selected_rows": _core_rows_to_json(rows, sorted(core_rows)),
+        "strict_inequality": _json_inequality(edge),
+        "distance_equality": {
+            "start_pair": _json_pair(edge.outer_pair),
+            "end_pair": _json_pair(edge.inner_pair),
+            "path": equality_path,
+        },
+    }
+
+
+def _strict_cycle_core_certificate(
+    family_id: str,
+    orbit_size: int,
+    rows: Sequence[Sequence[int]],
+    edges: Sequence[StrictInequality],
+) -> dict[str, object]:
+    cycle_steps = []
+    core_rows = {edge.row for edge in edges}
+    for idx, edge in enumerate(edges):
+        next_edge = edges[(idx + 1) % len(edges)]
+        equality_path = _distance_equality_path(
+            rows,
+            edge.inner_pair,
+            next_edge.outer_pair,
+        )
+        core_rows.update(_path_rows(equality_path))
+        cycle_steps.append(
+            {
+                "strict_inequality": _json_inequality(edge),
+                "equality_to_next_outer_pair": {
+                    "start_pair": _json_pair(edge.inner_pair),
+                    "end_pair": _json_pair(next_edge.outer_pair),
+                    "path": equality_path,
+                },
+            }
+        )
+    return {
+        "family_id": family_id,
+        "orbit_size": int(orbit_size),
+        "status": "strict_cycle",
+        "core_size": len(core_rows),
+        "core_rows": [int(row) for row in sorted(core_rows)],
+        "core_selected_rows": _core_rows_to_json(rows, sorted(core_rows)),
+        "cycle_length": len(edges),
+        "cycle_steps": cycle_steps,
+    }
+
+
+def _local_core_certificate(
+    family_id: str,
+    orbit_size: int,
+    rows: Sequence[Sequence[int]],
+) -> dict[str, object]:
+    result = vertex_circle_order_obstruction(rows, list(n9.ORDER), "n9")
+    if result.self_edge_conflicts:
+        return _self_edge_core_certificate(
+            family_id,
+            orbit_size,
+            rows,
+            result.self_edge_conflicts[0],
+        )
+    if result.cycle_edges:
+        return _strict_cycle_core_certificate(
+            family_id,
+            orbit_size,
+            rows,
+            result.cycle_edges,
+        )
+    raise AssertionError("pre-vertex-circle survivor was not obstructed")
+
+
+def _core_row_map(certificate: dict[str, object]) -> dict[int, list[int]]:
+    rows: dict[int, list[int]] = {}
+    for item in certificate["core_selected_rows"]:
+        if not isinstance(item, dict):
+            raise AssertionError("malformed core row")
+        center = int(item["row"])
+        witnesses = [int(witness) for witness in item["witnesses"]]
+        if len(witnesses) != n9.ROW_SIZE:
+            raise AssertionError(f"row {center} has {len(witnesses)} witnesses")
+        if center in witnesses:
+            raise AssertionError(f"row {center} selects itself")
+        if center in rows:
+            raise AssertionError(f"duplicate core row {center}")
+        rows[center] = sorted(witnesses)
+    return rows
+
+
+def _selected_pairs_for_core_row(rows: dict[int, list[int]], center: int) -> set[Pair]:
+    return {pair(center, witness) for witness in rows[center]}
+
+
+def _validate_strict_inequality(
+    rows: dict[int, list[int]],
+    edge: dict[str, object],
+) -> None:
+    center = int(edge["row"])
+    if center not in rows:
+        raise AssertionError(f"strict row {center} missing from core")
+    witness_order = [int(label) for label in edge["witness_order"]]
+    expected_order = sorted(
+        rows[center],
+        key=lambda witness: (witness - center) % n9.N,
+    )
+    if witness_order != expected_order:
+        raise AssertionError(f"bad witness order in row {center}")
+
+    outer_interval = [int(idx) for idx in edge["outer_interval"]]
+    inner_interval = [int(idx) for idx in edge["inner_interval"]]
+    outer_start, outer_end = outer_interval
+    inner_start, inner_end = inner_interval
+    contains = (
+        outer_start <= inner_start
+        and inner_end <= outer_end
+        and (outer_start < inner_start or inner_end < outer_end)
+    )
+    if not contains:
+        raise AssertionError("strict inequality intervals are not nested")
+    outer_pair = pair(witness_order[outer_start], witness_order[outer_end])
+    inner_pair = pair(witness_order[inner_start], witness_order[inner_end])
+    if outer_pair != _pair_from_json(edge["outer_pair"]):
+        raise AssertionError("outer pair does not match interval endpoints")
+    if inner_pair != _pair_from_json(edge["inner_pair"]):
+        raise AssertionError("inner pair does not match interval endpoints")
+
+
+def _validate_equality_path(
+    rows: dict[int, list[int]],
+    start_pair: Pair,
+    end_pair: Pair,
+    path: Sequence[dict[str, object]],
+) -> None:
+    current = start_pair
+    for step in path:
+        row = int(step["row"])
+        if row not in rows:
+            raise AssertionError(f"equality path row {row} missing from core")
+        next_pair = _pair_from_json(step["next_pair"])
+        selected_pairs = _selected_pairs_for_core_row(rows, row)
+        if current not in selected_pairs or next_pair not in selected_pairs:
+            raise AssertionError(
+                f"row {row} does not equate {current} and {next_pair}"
+            )
+        current = next_pair
+    if current != end_pair:
+        raise AssertionError(f"equality path ends at {current}, expected {end_pair}")
+
+
+def verify_local_core_certificate(certificate: dict[str, object]) -> None:
+    """Verify a local self-edge or strict-cycle core certificate."""
+    rows = _core_row_map(certificate)
+    if sorted(rows) != [int(row) for row in certificate["core_rows"]]:
+        raise AssertionError("core row list does not match core_selected_rows")
+    if len(rows) != int(certificate["core_size"]):
+        raise AssertionError("core_size does not match core_selected_rows")
+    status = certificate["status"]
+    if status == "self_edge":
+        edge = certificate["strict_inequality"]
+        if not isinstance(edge, dict):
+            raise AssertionError("malformed strict inequality")
+        _validate_strict_inequality(rows, edge)
+        equality = certificate["distance_equality"]
+        if not isinstance(equality, dict):
+            raise AssertionError("malformed distance equality")
+        start_pair = _pair_from_json(equality["start_pair"])
+        end_pair = _pair_from_json(equality["end_pair"])
+        if start_pair != _pair_from_json(edge["outer_pair"]):
+            raise AssertionError("self-edge equality must start at outer pair")
+        if end_pair != _pair_from_json(edge["inner_pair"]):
+            raise AssertionError("self-edge equality must end at inner pair")
+        _validate_equality_path(rows, start_pair, end_pair, equality["path"])
+        return
+    if status == "strict_cycle":
+        cycle_steps = certificate["cycle_steps"]
+        if len(cycle_steps) != int(certificate["cycle_length"]):
+            raise AssertionError("cycle_length does not match cycle_steps")
+        for step in cycle_steps:
+            edge = step["strict_inequality"]
+            equality = step["equality_to_next_outer_pair"]
+            if not isinstance(edge, dict) or not isinstance(equality, dict):
+                raise AssertionError("malformed cycle step")
+            _validate_strict_inequality(rows, edge)
+            start_pair = _pair_from_json(equality["start_pair"])
+            end_pair = _pair_from_json(equality["end_pair"])
+            if start_pair != _pair_from_json(edge["inner_pair"]):
+                raise AssertionError("cycle equality must start at inner pair")
+            _validate_equality_path(rows, start_pair, end_pair, equality["path"])
+        edges = [step["strict_inequality"] for step in cycle_steps]
+        for idx, edge in enumerate(edges):
+            equality = cycle_steps[idx]["equality_to_next_outer_pair"]
+            next_edge = edges[(idx + 1) % len(edges)]
+            if _pair_from_json(equality["end_pair"]) != _pair_from_json(
+                next_edge["outer_pair"]
+            ):
+                raise AssertionError("cycle equality does not reach next outer pair")
+        return
+    raise AssertionError(f"unknown local core status {status!r}")
 
 
 def obstruction_shape_summary() -> dict[str, object]:
@@ -522,6 +769,56 @@ def motif_family_summary() -> dict[str, object]:
     return payload
 
 
+def local_core_summary() -> dict[str, object]:
+    """Return local row-core certificates for the 16 n=9 motif families."""
+    motif_payload = motif_family_summary()
+    certificates = []
+    core_size_counts: Counter[int] = Counter()
+    status_core_size_counts: Counter[tuple[str, int]] = Counter()
+    for family in motif_payload["dihedral_incidence_families"]["families"]:
+        if not isinstance(family, dict):
+            raise AssertionError("malformed family row")
+        certificate = _local_core_certificate(
+            str(family["family_id"]),
+            int(family["orbit_size"]),
+            family["representative_selected_rows"],
+        )
+        verify_local_core_certificate(certificate)
+        certificates.append(certificate)
+        core_size = int(certificate["core_size"])
+        status = str(certificate["status"])
+        core_size_counts[core_size] += 1
+        status_core_size_counts[(status, core_size)] += 1
+
+    payload = {
+        "type": "n9_vertex_circle_local_cores_v1",
+        "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        "scope": "Local row-core certificates for the 16 dihedral n=9 vertex-circle motif families.",
+        "notes": [
+            "No general proof of Erdos Problem #97 is claimed.",
+            "No counterexample is claimed.",
+            "The official/global status remains falsifiable/open.",
+            "Each core verifies only a representative n=9 motif family under the recorded cyclic order.",
+        ],
+        "n": n9.N,
+        "row_size": n9.ROW_SIZE,
+        "cyclic_order": list(n9.ORDER),
+        "family_count": len(certificates),
+        "core_size_counts": _json_counter(core_size_counts),
+        "status_core_size_counts": _json_nested_counter(status_core_size_counts),
+        "max_core_size": max(core_size_counts),
+        "certificates": certificates,
+        "interpretation": [
+            "Every dihedral n=9 motif family has a local vertex-circle certificate using at most 6 selected rows.",
+            "The self-edge cores are one strict chord-containment inequality plus a selected-distance equality path.",
+            "The strict-cycle cores are directed cycles of strict inequalities, with selected-distance equality paths connecting each inner chord to the next outer chord.",
+            "These are promising lemma candidates, but they still cover only the n=9 motif representatives.",
+        ],
+    }
+    assert_expected_local_core_counts(payload)
+    return payload
+
+
 def assert_expected_counts(payload: dict[str, object]) -> None:
     """Assert that the diagnostic still matches the checked n=9 frontier."""
     search = payload["pre_vertex_circle_search"]
@@ -582,3 +879,28 @@ def assert_expected_motif_family_counts(payload: dict[str, object]) -> None:
         != EXPECTED_STRICT_CYCLE_SPAN_SHAPE_FAMILIES
     ):
         raise AssertionError("unexpected strict-cycle span shape count")
+
+
+def assert_expected_local_core_counts(payload: dict[str, object]) -> None:
+    """Assert that local core diagnostics match the checked n=9 motifs."""
+    if payload["family_count"] != EXPECTED_DIHEDRAL_INCIDENCE_FAMILIES:
+        raise AssertionError(f"unexpected family count: {payload['family_count']}")
+    if payload["core_size_counts"] != _json_counter(
+        Counter(EXPECTED_LOCAL_CORE_SIZE_COUNTS)
+    ):
+        raise AssertionError("unexpected local core size counts")
+    expected_status_sizes = {
+        status: _json_counter(Counter(counts))
+        for status, counts in sorted(EXPECTED_LOCAL_CORE_STATUS_SIZE_COUNTS.items())
+    }
+    if payload["status_core_size_counts"] != expected_status_sizes:
+        raise AssertionError("unexpected local core status/size counts")
+    if payload["max_core_size"] != max(EXPECTED_LOCAL_CORE_SIZE_COUNTS):
+        raise AssertionError(f"unexpected max core size: {payload['max_core_size']}")
+    certificates = payload["certificates"]
+    if len(certificates) != EXPECTED_DIHEDRAL_INCIDENCE_FAMILIES:
+        raise AssertionError("unexpected local core certificate count")
+    for certificate in certificates:
+        if not isinstance(certificate, dict):
+            raise AssertionError("malformed local core certificate")
+        verify_local_core_certificate(certificate)

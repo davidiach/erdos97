@@ -30,6 +30,10 @@ after cyclic symmetry.
 The checked-in artifact is
 `data/certificates/n9_vertex_circle_motif_families.json`.
 
+The local-core follow-up in `docs/n9-vertex-circle-local-cores.md` shows that
+each of the 16 family representatives has a vertex-circle certificate using at
+most 6 selected rows.
+
 ## Loose Obstruction Shapes
 
 As a deliberately coarse diagnostic, the artifact also buckets the first
@@ -59,6 +63,9 @@ A promising route is to classify the 13 self-edge families by the equality
 path that brings an outer and inner vertex-circle chord into the same selected
 distance class, and classify the 3 strict-cycle families by the directed
 quotient-cycle template.
+
+The local-core diagnostic reduces this to a row-local problem: the family
+representatives need only 3 to 6 rows to certify the contradiction.
 
 The current result still does not solve the global problem. The known
 `C19_skew` order that survives the vertex-circle filter remains the guardrail:
