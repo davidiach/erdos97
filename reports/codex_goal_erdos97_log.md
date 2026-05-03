@@ -422,3 +422,19 @@ checked certificate examples, and a digest plus first/last windows for the
   realizability.
 - No general proof, no counterexample, and no all-order C13 obstruction are
   claimed.
+
+### Publish / PR Checkpoint
+
+- Local commit: `6fd42a2 research: certify c13 partial prefix branches`.
+- `git push -u origin codex/goal-erdos97-proof-or-counterexample`: failed with
+  GitHub `403` permission denial for account `oskarasi`.
+- Fallback publication used the GitHub connector to update draft PR #86:
+  `https://github.com/davidiach/erdos97/pull/86`.
+- Connector-side commit:
+  `d3cdec5a0d72147dfbf06eb9579d282c1c475d22`.
+- After fetching the PR branch, local `HEAD` tree and
+  `origin/codex/goal-erdos97-proof-or-counterexample` tree both resolved to
+  `4976f20a5d6da0cd4bbc8634aa5f36063a806ef1`; `git diff --stat
+  HEAD..origin/codex/goal-erdos97-proof-or-counterexample` was empty.
+- PR title/body updated to cover the partial-branch closures and remaining
+  832-prefix risk.
