@@ -57,6 +57,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`c13-kalmanson-partial-branch-closures.md`](c13-kalmanson-partial-branch-closures.md):
   exact prefix-forced Kalmanson certificates for 5,108 of 5,940 canonical
   two-boundary-pair C13 branches; not an all-order search.
+- [`c13-kalmanson-third-pair-refinement.md`](c13-kalmanson-third-pair-refinement.md):
+  exact prefix-forced Kalmanson certificates for 46,567 of 46,592 third-pair
+  refinements of the remaining C13 two-pair frontier; not an all-order search.
 - [`ptolemy-order-nlp.md`](ptolemy-order-nlp.md): numerical nonlinear
   diagnostic adding Ptolemy inequalities for cyclic quadrilaterals; records a
   relaxation miss on the registered sparse orders.

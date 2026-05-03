@@ -77,7 +77,9 @@ prove Erdos Problem #97.
 
 ## Next Step
 
-The next exact extension is to attack the 832 unclosed two-boundary-pair
-prefixes by adding deeper forced prefixes, additional exact inequality
-families, or a branch-and-bound verifier that emits a certificate for each
-covered sub-branch.
+A third-pair refinement is recorded in
+`docs/c13-kalmanson-third-pair-refinement.md` and
+`data/certificates/c13_kalmanson_third_pair_refinement.json`. It attacks the
+832 unclosed two-boundary-pair prefixes by adding one more forced left/right
+boundary pair, closing 46,567 of 46,592 child branches and leaving 25 child
+branches unresolved by that pass.

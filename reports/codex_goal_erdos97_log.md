@@ -438,3 +438,77 @@ checked certificate examples, and a digest plus first/last windows for the
   HEAD..origin/codex/goal-erdos97-proof-or-counterexample` was empty.
 - PR title/body updated to cover the partial-branch closures and remaining
   832-prefix risk.
+
+## Session 2026-05-03, Iteration 5
+
+### Branch and Local State
+
+- Current branch: `codex/goal-erdos97-proof-or-counterexample`.
+- `git fetch origin` initially failed inside the sandbox with
+  `cannot open '.git/FETCH_HEAD': Operation not permitted`; the escalated
+  retry succeeded.
+- The pre-existing unstaged edit in `tests/test_metric_order_lp.py` is still
+  present and is still treated as out of scope.
+
+### Focus
+
+C13 Kalmanson third-pair refinement.
+
+This follows the 832-prefix frontier left by the two-boundary-pair pass. The
+goal is to replace a large unresolved frontier with a smaller exact frontier by
+adding one more forced left/right boundary pair and using only Kalmanson
+inequalities forced by that deeper prefix.
+
+### Work Performed
+
+- Added `scripts/refine_c13_kalmanson_third_pair.py`.
+- Added `data/certificates/c13_kalmanson_third_pair_refinement.json`.
+- Added `tests/test_c13_kalmanson_third_pair_refinement.py`.
+- Added `docs/c13-kalmanson-third-pair-refinement.md`.
+- Linked the refinement from `docs/index.md`,
+  `docs/c13-kalmanson-partial-branch-closures.md`,
+  `docs/c13-kalmanson-order-pilot.md`, and `docs/kalmanson-c13-pilot.md`.
+
+The scan recomputes the 832 unclosed canonical two-boundary-pair parents,
+adds one ordered left/right boundary pair to each parent, and checks each
+third-pair child using only prefix-forced Kalmanson rows. Each parent has 56
+children. The full pass scans 46,592 child branches, closes 46,567 by exact
+positive-integer Farkas certificates, and leaves 25 child branches unclosed by
+this pass.
+
+### Verification Commands
+
+- `.venv/bin/python scripts/refine_c13_kalmanson_third_pair.py --max-parents 2 --json`:
+  passed; scanned 112 child branches, closed all 112, and left 0 unclosed.
+- `.venv/bin/python scripts/refine_c13_kalmanson_third_pair.py --out data/certificates/c13_kalmanson_third_pair_refinement.json`:
+  passed; scanned 46,592 child branches, closed 46,567, and left 25 unclosed.
+- `.venv/bin/python scripts/refine_c13_kalmanson_third_pair.py --assert-expected --out data/certificates/c13_kalmanson_third_pair_refinement.json`:
+  passed and printed `OK: C13 third-pair refinement matched expected frontier`.
+- `.venv/bin/python scripts/refine_c13_kalmanson_third_pair.py --assert-expected`:
+  passed; recomputed the full 46,592-child refinement and matched the
+  expected 46,567 closed / 25 unclosed frontier.
+- `.venv/bin/python -m pytest tests/test_c13_kalmanson_third_pair_refinement.py`:
+  passed, `2 passed, 1 deselected`.
+- `.venv/bin/python -m pytest tests/test_c13_kalmanson_third_pair_refinement.py tests/test_c13_kalmanson_partial_branches.py tests/test_c13_kalmanson_prefix_branch_pilot.py tests/test_c13_kalmanson_order_pilot.py tests/test_kalmanson_certificate.py`:
+  passed, `12 passed, 1 deselected`.
+- `.venv/bin/python scripts/check_text_clean.py`: passed.
+- `.venv/bin/python scripts/check_status_consistency.py`: passed.
+- `git diff --check`: passed.
+- `.venv/bin/python -m pytest -q`: passed, `179 passed, 9 deselected`.
+
+### Claim Boundary
+
+- Trust label: `EXACT_OBSTRUCTION` for the 46,567 certified third-pair child
+  branches.
+- Each closure applies only to one fixed three-pair boundary prefix and all
+  its completions.
+- The remaining 25 child branches are not counterexamples and are not evidence
+  of realizability.
+- No general proof, no counterexample, and no all-order C13 obstruction are
+  claimed.
+
+### Open Risks and Next Steps
+
+- Commit only the intended third-pair refinement files; keep
+  `tests/test_metric_order_lp.py` unstaged.
+- Publish the checkpoint to draft PR #86.

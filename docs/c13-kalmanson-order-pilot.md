@@ -80,3 +80,10 @@ A stronger partial-branch follow-up is recorded in
 5,108 of 5,940 canonical two-boundary-pair prefixes using only
 prefix-forced Kalmanson inequalities; 832 prefixes remain unclosed by that
 pass.
+
+A third-pair refinement is recorded in
+`docs/c13-kalmanson-third-pair-refinement.md` and
+`data/certificates/c13_kalmanson_third_pair_refinement.json`. It refines those
+832 remaining prefixes into 46,592 child branches and closes 46,567 of them
+by exact prefix-forced Kalmanson certificates; 25 child branches remain
+unclosed by that pass.
