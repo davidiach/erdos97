@@ -134,23 +134,25 @@ filter information only, not evidence of realizability.
 The round-two Kalmanson/Farkas certificate kills the fixed `C19_skew`
 selected-witness pattern with offsets `[-8,-3,5,9]` in the cyclic order
 `[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]`. The certificate is a
-positive integer sum of 94 strict Kalmanson distance inequalities whose total
+positive integer sum of 2 strict Kalmanson distance inequalities whose total
 coefficient vector is exactly zero after quotienting by the selected-distance
 equalities. This is a fixed-order obstruction only; it does not kill abstract
 `C19_skew` over all cyclic orders. See `docs/round2/round2_merged_report.md`,
 `docs/round2/kalmanson_distance_filter.md`,
 `scripts/check_kalmanson_certificate.py`, and
-`data/certificates/round2/c19_kalmanson_known_order_unsat.json`.
+`data/certificates/round2/c19_kalmanson_known_order_two_unsat.json`. The
+earlier 94-inequality certificate remains checked as provenance.
 
 The C13 Kalmanson pilot kills the registered non-natural
 `C13_sidon_1_2_4_10` order `[5,0,10,8,9,7,4,6,2,11,12,3,1]`. The certificate is
-a positive integer sum of 34 strict Kalmanson distance inequalities whose total
-coefficient vector is exactly zero after selected-distance quotienting. This is
-also a fixed-order obstruction only; it does not kill abstract
-`C13_sidon_1_2_4_10` over all cyclic orders. See
-`docs/kalmanson-c13-pilot.md`, `scripts/find_kalmanson_certificate.py`,
-`scripts/check_kalmanson_certificate.py`, and
-`data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json`.
+a positive integer sum of 2 strict Kalmanson distance inequalities whose total
+coefficient vector is exactly zero after selected-distance quotienting. A
+follow-up exact order search now kills the fixed abstract
+`C13_sidon_1_2_4_10` pattern across all cyclic orders: every cyclic order
+contains a two-inequality inverse-pair obstruction. See
+`docs/kalmanson-two-order-search.md`,
+`scripts/check_kalmanson_two_order_search.py`, and
+`data/certificates/c13_sidon_all_orders_kalmanson_two_search.json`.
 
 The bounded `n=9` incidence/CSP frontier scan in
 `data/certificates/n9_incidence_frontier_bounded.json` fixes the natural order
@@ -161,6 +163,26 @@ rectangle-trap filter, leaving 1 `accepted_frontier` incidence/order pattern
 for later filters. This is a bounded diagnostic slice only, not an `n=9`
 completeness theorem. See `docs/n9-incidence-frontier.md` and
 `scripts/check_n9_incidence_frontier.py`.
+
+### Review-pending exhaustive n=9 vertex-circle check
+
+Status: `MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING`.
+
+The new repo-native checker in `scripts/check_n9_vertex_circle_exhaustive.py`
+enumerates all 70 row-0 selected-witness choices for a cyclically labelled
+nonagon. With vertex-circle pruning enabled it visits 16,752 nodes and leaves
+0 full assignments. Its cross-check disables vertex-circle pruning during
+branching, finds 184 full assignments passing the pair/crossing/count filters,
+then classifies all 184 as exact vertex-circle obstructions: 158 self-edges and
+26 strict cycles.
+
+This is a candidate extension of the repo-local finite-case pipeline to `n=9`,
+but it is not yet the source-of-truth strongest result. The raw incoming bundle
+also contains 184-pattern/16-orbit and 102-certificate Kalmanson verifier
+variants whose symmetry conventions need separate review. See
+`docs/n9-vertex-circle-exhaustive.md`,
+`data/certificates/n9_vertex_circle_exhaustive.json`, and
+`incoming/archive-output-2026-05-03/`.
 
 The row-circle Ptolemy diagnostic in
 `docs/row-circle-ptolemy-nlp.md` adds the Ptolemy equality forced by each
@@ -196,7 +218,11 @@ See `docs/mutual-rhombus-filter.md` and
 
 ### C13_sidon_1_2_4_10
 
-Status: Sidon-type incidence-pattern lead; numerical evidence only.
+Status: exact all-cyclic-order obstruction for this fixed selected-witness
+pattern by two-inequality Kalmanson inverse-pair search.
+
+The numerical runs below are retained as historical diagnostic data only. The
+fixed abstract C13 pattern is no longer a live sparse-frontier lead.
 
 Diagnostics from constrained SLSQP with polar parameterization, 20 restarts,
 seed `2026`, and hard verifier-grade convexity / edge / pair margins:
@@ -258,9 +284,9 @@ search-history artifacts, not as live candidates.
 
 1. Independently review the `n=8` incidence checker and the class `3`, `4`,
    and `14` exact certificates.
-2. Push the finite incidence/exact pipeline toward `n=9`, or identify the first
-   survivor class that blocks scaling.
-3. Investigate abstract `C19_skew` and `C13_sidon_1_2_4_10` beyond their
-   natural-order Altman obstructions and registered fixed-order Kalmanson
-   certificates.
+2. Independently review the review-pending exhaustive `n=9` vertex-circle
+   checker before promoting it to source-of-truth finite-case status.
+3. Investigate abstract `C19_skew` beyond its natural-order Altman obstruction
+   and registered fixed-order Kalmanson certificate; apply the C13
+   two-certificate order-search method where possible.
 4. Add interval-arithmetic verification for convexity and distance equations.

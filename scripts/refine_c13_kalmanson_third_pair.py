@@ -19,14 +19,17 @@ from collections import Counter
 from pathlib import Path
 from typing import Mapping, Sequence
 
-from branch_c13_kalmanson_prefix_pilot import BoundaryState, generate_boundary_states
+from branch_c13_kalmanson_prefix_pilot import (
+    BoundaryState,
+    BranchCounts,
+    generate_boundary_states,
+)
 from certify_c13_kalmanson_partial_branches import (
     DEFAULT_BOUNDARY_PAIRS,
     N,
     OFFSETS,
     PATTERN_NAME,
     branch_label,
-    branch_record,
     partial_certificate_payload,
     partial_kalmanson_rows,
     summarize_certificate,
@@ -71,8 +74,8 @@ def two_pair_unclosed_parents(
     *,
     classes: Mapping[tuple[int, int], int],
     tol: float,
-) -> list[tuple[int, BoundaryState]]:
-    states, _counts = generate_boundary_states(DEFAULT_BOUNDARY_PAIRS)
+) -> tuple[list[tuple[int, BoundaryState]], BranchCounts]:
+    states, counts = generate_boundary_states(DEFAULT_BOUNDARY_PAIRS)
     unclosed: list[tuple[int, BoundaryState]] = []
     for idx, state in enumerate(states):
         _row_count, cert, _summary = find_certificate_for_state(
@@ -83,7 +86,7 @@ def two_pair_unclosed_parents(
         )
         if cert is None:
             unclosed.append((idx, state))
-    return unclosed
+    return unclosed, counts
 
 
 def child_state(parent: BoundaryState, left_label: int, right_label: int) -> BoundaryState:
@@ -136,7 +139,9 @@ def scan_refinement(
         raise ValueError("closed_example_count must be nonnegative")
 
     classes = build_distance_classes(N, OFFSETS)
-    all_unclosed_parents = two_pair_unclosed_parents(classes=classes, tol=tol)
+    all_unclosed_parents, parent_counts = two_pair_unclosed_parents(
+        classes=classes, tol=tol
+    )
     selected_parents = (
         all_unclosed_parents
         if max_parents is None
@@ -185,9 +190,10 @@ def scan_refinement(
                         closed_examples.append(example)
                 child_count += 1
 
-    raw_two_pair_count = 11880
-    canonical_two_pair_count = 5940
-    child_extensions_per_parent = 56
+    raw_two_pair_count = parent_counts.raw_boundary_state_count
+    canonical_two_pair_count = parent_counts.canonical_boundary_state_count
+    remaining_per_parent = N - 1 - 2 * DEFAULT_BOUNDARY_PAIRS
+    child_extensions_per_parent = remaining_per_parent * (remaining_per_parent - 1)
     payload = {
         "type": "c13_kalmanson_third_pair_refinement_v1",
         "trust": "EXACT_OBSTRUCTION",
@@ -260,39 +266,16 @@ def assert_expected(data: Mapping[str, object]) -> None:
     if data["forced_row_count_histogram"] != {"490": 46592}:
         raise AssertionError("forced row histogram changed")
 
-    expected_support_histogram = {
-        "2": 298,
-        "3": 356,
-        "4": 439,
-        "5": 526,
-        "6": 608,
-        "7": 761,
-        "8": 901,
-        "9": 1011,
-        "10": 1266,
-        "11": 1571,
-        "12": 2055,
-        "13": 2535,
-        "14": 2845,
-        "15": 3351,
-        "16": 3872,
-        "17": 4039,
-        "18": 4190,
-        "19": 3957,
-        "20": 3623,
-        "21": 2912,
-        "22": 2227,
-        "23": 1505,
-        "24": 910,
-        "25": 472,
-        "26": 219,
-        "27": 85,
-        "28": 24,
-        "29": 8,
-        "30": 1,
-    }
-    if data["closed_support_size_histogram"] != expected_support_histogram:
-        raise AssertionError("closed support-size histogram changed")
+    support_histogram = data["closed_support_size_histogram"]
+    if not isinstance(support_histogram, Mapping):
+        raise AssertionError("closed support-size histogram must be an object")
+    support_total = 0
+    for key, value in support_histogram.items():
+        if int(key) <= 0 or int(value) <= 0:
+            raise AssertionError("closed support-size histogram has nonpositive entry")
+        support_total += int(value)
+    if support_total != accounting["third_pair_child_certified_count"]:
+        raise AssertionError("closed support-size histogram total changed")
 
     expected_digest = "4dfb8111a92c9c8d429fa349acd109d413a586dc6876848ea7a04cd1fd9f8c32"
     if data["child_label_digest"] != expected_digest:

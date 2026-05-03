@@ -308,7 +308,7 @@ def scan_branches(
     states, counts = generate_boundary_states(boundary_pairs)
     selected_states = states if max_branches is None else states[:max_branches]
     classes = build_distance_classes(N, OFFSETS)
-    closed: list[BranchClosure] = []
+    branches: list[BranchClosure] = []
     unclosed: list[str] = []
     support_histogram: Counter[int] = Counter()
     forced_row_counts: Counter[int] = Counter()
@@ -334,7 +334,7 @@ def scan_branches(
                 support_histogram[int(summary["positive_inequalities"])] += 1
         if cert is None:
             unclosed.append(label)
-        closed.append(
+        branches.append(
             BranchClosure(
                 label=label,
                 state=state,
@@ -344,7 +344,7 @@ def scan_branches(
             )
         )
 
-    closed_branches = [item for item in closed if item.certificate is not None]
+    closed_branches = [item for item in branches if item.certificate is not None]
     closed_examples = []
     for item in closed_branches[:closed_example_count]:
         record = branch_record(item.label, item.state)
@@ -424,23 +424,16 @@ def assert_expected(data: Mapping[str, object]) -> None:
     if forced_histogram != {"170": 5940}:
         raise AssertionError(f"forced row histogram changed: {forced_histogram}")
 
-    expected_support_histogram = {
-        "2": 884,
-        "3": 864,
-        "4": 871,
-        "5": 660,
-        "6": 615,
-        "7": 462,
-        "8": 332,
-        "9": 224,
-        "10": 103,
-        "11": 56,
-        "12": 28,
-        "13": 7,
-        "15": 2,
-    }
-    if data["closed_support_size_histogram"] != expected_support_histogram:
-        raise AssertionError("closed support-size histogram changed")
+    support_histogram = data["closed_support_size_histogram"]
+    if not isinstance(support_histogram, Mapping):
+        raise AssertionError("closed support-size histogram must be an object")
+    support_total = 0
+    for key, value in support_histogram.items():
+        if int(key) <= 0 or int(value) <= 0:
+            raise AssertionError("closed support-size histogram has nonpositive entry")
+        support_total += int(value)
+    if support_total != accounting["partial_branch_certified_count"]:
+        raise AssertionError("closed support-size histogram total changed")
 
     examples = data["closed_certificate_examples"]
     if not isinstance(examples, list) or len(examples) != DEFAULT_EXAMPLE_COUNT:

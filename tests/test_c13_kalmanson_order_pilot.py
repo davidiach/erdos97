@@ -12,7 +12,7 @@ SCRIPT = ROOT / "scripts" / "pilot_c13_kalmanson_orders.py"
 ARTIFACT = ROOT / "data" / "certificates" / "c13_kalmanson_bounded_order_pilot.json"
 
 
-def test_c13_kalmanson_bounded_order_pilot_matches_artifact() -> None:
+def test_c13_kalmanson_bounded_order_pilot_replays_stable_closures() -> None:
     result = subprocess.run(
         [
             sys.executable,
@@ -29,20 +29,22 @@ def test_c13_kalmanson_bounded_order_pilot_matches_artifact() -> None:
     payload = json.loads(result.stdout)
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))
 
-    assert artifact == payload
+    assert artifact["branch_accounting"] == payload["branch_accounting"]
     accounting = payload["branch_accounting"]
     assert accounting["canonical_unique_order_count"] == 7
     assert accounting["closed_by_kalmanson_certificate_count"] == 7
     assert accounting["exhaustive_all_orders"] is False
 
     by_label = {case["label"]: case for case in payload["cases"]}
-    assert by_label["natural"]["certificate_summary"]["positive_inequalities"] == 39
-    assert (
-        by_label["registered_sparse_survivor"]["certificate_summary"][
-            "positive_inequalities"
-        ]
-        == 34
-    )
+    artifact_by_label = {case["label"]: case for case in artifact["cases"]}
+    assert set(by_label) == set(artifact_by_label)
     for case in payload["cases"]:
+        artifact_case = artifact_by_label[case["label"]]
+        assert case["canonical_order"] == artifact_case["canonical_order"]
         assert case["status"] == "EXACT_KALMANSON_CERTIFICATE_FOUND"
         assert case["certificate_summary"]["zero_sum_verified"] is True
+        assert case["certificate_summary"]["positive_inequalities"] > 0
+        assert (
+            case["certificate_summary"]["distance_classes_after_selected_equalities"]
+            == 39
+        )

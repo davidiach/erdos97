@@ -20,12 +20,12 @@
       "kalmanson_certificate": {
         "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
         "distance_classes_after_selected_equalities": 39,
-        "max_weight": 1322,
+        "max_weight": 1,
         "obstructed": true,
-        "path": "data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json",
-        "positive_inequalities": 34,
+        "path": "data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json",
+        "positive_inequalities": 2,
         "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
-        "weight_sum": 17463
+        "weight_sum": 2
       },
       "minimum_radius": {
         "blocked_center_count": 4,
@@ -100,14 +100,14 @@
         "passes": true
       },
       "kalmanson_certificate": {
-        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and this fixed cyclic order only; does not kill abstract C19_skew.",
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
         "distance_classes_after_selected_equalities": 114,
-        "max_weight": 334665404,
+        "max_weight": 1,
         "obstructed": true,
-        "path": "data/certificates/round2/c19_kalmanson_known_order_unsat.json",
-        "positive_inequalities": 94,
+        "path": "data/certificates/round2/c19_kalmanson_known_order_two_unsat.json",
+        "positive_inequalities": 2,
         "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
-        "weight_sum": 6283316065
+        "weight_sum": 2
       },
       "minimum_radius": {
         "blocked_center_count": 0,

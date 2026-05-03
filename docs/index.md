@@ -48,6 +48,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`kalmanson-certificate-diagnostics.md`](kalmanson-certificate-diagnostics.md):
   deterministic support diagnostics for the checked C13 and C19 fixed-order
   Kalmanson/Farkas certificates.
+- [`kalmanson-two-order-search.md`](kalmanson-two-order-search.md): exact
+  all-cyclic-order two-inequality Kalmanson obstruction for the fixed C13 Sidon
+  pattern.
 - [`c13-kalmanson-order-pilot.md`](c13-kalmanson-order-pilot.md): bounded
   C13 fixed-order Kalmanson pilot over seven explicit cyclic orders; not an
   all-order search.
@@ -84,6 +87,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n8-geometric-proof.md`](n8-geometric-proof.md): proof-note draft giving a
   compact geometric obstruction for bad convex octagons via isosceles-triangle
   counting and exterior-turn angles.
+- [`n9-vertex-circle-exhaustive.md`](n9-vertex-circle-exhaustive.md):
+  review-pending exhaustive `n=9` selected-witness checker using the
+  vertex-circle strict-chord filter.
 - [`octagon-trap.html`](octagon-trap.html): interactive visualization of the
   isosceles-triangle count and octagon equality trap.
 - [`reproduction-log.md`](reproduction-log.md): fast, artifact, and exhaustive

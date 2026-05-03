@@ -38,26 +38,47 @@ K2_diag_gt_other: d(a,c)+d(b,d) > d(a,d)+d(b,c)
 
 The checker builds selected-distance equivalence classes, expands each inequality as an integer vector over those classes, and verifies that the positive weighted sum is exactly zero. The contradiction is then `0 > 0`.
 
-## Promoted certificate
+## Promoted compact certificate
 
 ```text
-File: data/certificates/round2/c19_kalmanson_known_order_unsat.json
+File: data/certificates/round2/c19_kalmanson_known_order_two_unsat.json
 Pattern: C19_skew
 Offsets: [-8,-3,5,9]
 Cyclic order: [18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]
-Strict inequalities: 94
+Strict inequalities: 2
 Distance classes: 114
+Max weight: 1
 ```
 
-The same certificate format now also checks the C13 pilot certificate:
+The same certificate format now also checks the compact C13 pilot certificate:
 
 ```text
-File: data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json
+File: data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json
 Pattern: C13_sidon_1_2_4_10
 Offsets: [1,2,4,10]
 Cyclic order: [5,0,10,8,9,7,4,6,2,11,12,3,1]
-Strict inequalities: 34
+Strict inequalities: 2
 Distance classes: 39
+Max weight: 1
+```
+
+The earlier larger certificates remain checked as provenance:
+`data/certificates/round2/c19_kalmanson_known_order_unsat.json` has 94
+inequalities, and
+`data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json` has 34.
+The compact files are preferred for review because each is just an inverse pair
+of strict Kalmanson rows whose coefficient vectors cancel exactly.
+
+Regenerate the compact C19 certificate with:
+
+```bash
+python scripts/find_kalmanson_two_certificate.py \
+  --name C19_skew \
+  --n 19 \
+  --offsets=-8,-3,5,9 \
+  --order 18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1 \
+  --assert-found \
+  --out data/certificates/round2/c19_kalmanson_known_order_two_unsat.json
 ```
 
 Safe claim:

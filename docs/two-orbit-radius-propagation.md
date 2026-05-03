@@ -129,6 +129,92 @@ cos h = 1 - h^2/2 + O(h^4).
 The first-order inward term in `x` is the obstruction. Convexity needs only a
 quadratic radial drop, while the equality equations force a linear radial drop.
 
+## Broader alternating two-radius family
+
+A related incoming note checked the full alternating two-radius regular family,
+without imposing the quarter-turn selected-distance equations above. Let
+`m >= 4`, `h = pi/m`, and place vertices on equally spaced rays with radii
+alternating between `1` and `b`:
+
+```text
+p_{2j}   = exp(2ijh),
+p_{2j+1} = b exp((2j+1)ih).
+```
+
+The same consecutive-turn calculation gives strict convexity in the natural
+alternating order exactly when
+
+```text
+cos h < b < sec h.
+```
+
+For an even vertex, paired offsets have squared distances
+
+```text
+D_k(b) =
+  2 - 2 cos(kh)                 if k is even,
+  1 + b^2 - 2b cos(kh)          if k is odd.
+```
+
+The exact checker records endpoint certificates proving
+`D_1 < D_2 < ... < D_{m-1}` throughout the strict-convexity interval:
+
+- for even `k`, `D_{k+1} - D_k` is increasing in `b`, so its minimum is at
+  `b = cos h` and equals `sin h * (2 sin((k+1)h) - sin h) > 0`;
+- for odd `k`, `D_{k+1} - D_k` is decreasing in `b`, so its minimum is at
+  `b = sec h` and equals
+  `sin h * (2 cos h sin((k+1)h) - sin h) / cos^2 h > 0`.
+
+Odd vertices reduce to the same check by replacing `b` with `1/b` and scaling
+distances by `b^2`. Thus this alternating two-radius regular family has no
+four-equal-distance vertex while it is strictly convex. This is an exact killed
+family, not a proof of Erdos Problem #97.
+
+The command
+
+```bash
+python scripts/check_two_orbit_radius_propagation.py \
+  --alternating-family \
+  --m 4 \
+  --m-max 12 \
+  --assert-alternating-family
+```
+
+checks the stored endpoint certificates for the listed `m` values.
+
+## Concave decagon fixed pattern
+
+The exact concave alternating decagon behind this family has selected rows
+
+```text
+0: 2 3 7 8
+1: 0 2 5 7
+2: 0 4 5 9
+3: 2 4 7 9
+4: 1 2 6 7
+5: 1 4 6 9
+6: 3 4 8 9
+7: 1 3 6 8
+8: 0 1 5 6
+9: 0 3 5 8
+```
+
+This fixed selected-witness pattern passes the two-circle row-overlap cap, but
+it fails the cyclic-order crossing filter. The finite search has 30 forced
+two-overlap crossings and checks all `10!/20 = 181440` cyclic orders modulo
+rotation and reversal. No cyclic order satisfies all crossings.
+
+Run:
+
+```bash
+python scripts/check_two_orbit_radius_propagation.py \
+  --decagon-crossing \
+  --assert-decagon-crossing
+```
+
+This kills only the fixed selected-witness pattern above. It is not an `n=10`
+completeness theorem.
+
 ## Reproducible checker
 
 The exact checker is implemented in
@@ -140,6 +226,8 @@ Useful commands:
 python scripts/check_two_orbit_radius_propagation.py --t 2 --assert-expected
 python scripts/check_two_orbit_radius_propagation.py --t 2 --assert-expected --verify-all-rows
 python scripts/check_two_orbit_radius_propagation.py --t 3 --json
+python scripts/check_two_orbit_radius_propagation.py --alternating-family --m 5 --assert-alternating-family
+python scripts/check_two_orbit_radius_propagation.py --decagon-crossing --assert-decagon-crossing
 ```
 
 The checker reports `status: exact_ansatz_obstruction_not_general_proof`.

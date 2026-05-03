@@ -81,6 +81,8 @@ def exact_positive_weights(
     rows: Sequence[InequalityRow],
     support: Sequence[int],
 ) -> list[int] | None:
+    if not support:
+        return None
     class_count = len(rows[0].vector)
     matrix = sp.Matrix([[rows[idx].vector[col] for idx in support] for col in range(class_count)])
     nullspace = matrix.nullspace()
