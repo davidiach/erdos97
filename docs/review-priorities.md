@@ -142,20 +142,23 @@ over all orders. These are
 research-frontier workstreams, not prerequisites for the repo-local `n <= 8`
 artifact.
 
-Next exact frontier step: turn the two-inequality Kalmanson inverse-pair
-finder into an all-order avoidance search. A positive result would show every
-cyclic order of a fixed sparse pattern contains some inverse-pair obstruction;
-a negative result would produce a new registered order that needs stronger
-geometry.
+The C13 pilot has now been pushed through an exact all-order avoidance search.
+Next exact frontier step: attempt the same inverse-pair search strategy on
+`C19_skew`, or extract a smaller family of unavoidable inverse-pair templates
+before attempting a full C19 cyclic-order search.
 
-## Priority 8 - extend the C13 Kalmanson pilot
+## Priority 8 - extend the two-certificate search beyond C13
 
-The first C13 Kalmanson pilot now kills the registered non-natural
-`C13_sidon_1_2_4_10` order with an exact 34-inequality certificate. Before
-attempting exhaustive `C19_skew` cyclic-order search, extend the smaller C13
-pilot toward all cyclic orders: normalize by dihedral symmetry, prune partial
-orders cheaply, run LP dual checks on closed branches, and emit exact integer
-certificates for branches that close.
+The C13 Sidon pattern is now killed across all cyclic orders by an exact
+two-inequality Kalmanson inverse-pair search. Use it as the benchmark for the
+larger sparse frontier:
+
+- try bounded `C19_skew` avoidance searches and record whether long survivor
+  prefixes exist;
+- classify the inverse-pair templates that prune C13, especially templates that
+  also appear in C19 random or registered orders;
+- only attempt a full C19 all-order replay after the prefix search has a
+  credible pruning story.
 
 ## Priority 9 - strengthen only productive filters
 

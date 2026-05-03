@@ -103,10 +103,27 @@ The related `C17_skew` Ptolemy-log artifact in
 a method note and verifier regression. It does not move the live wall, because
 `C17_skew` was already exactly killed by earlier fixed-pattern filters.
 
-### Fixed-order Kalmanson/Farkas obstruction for C13_sidon_1_2_4_10
+### All-order Kalmanson/Farkas obstruction for C13_sidon_1_2_4_10
 
-Status: `EXACT_OBSTRUCTION` for one fixed selected-witness pattern and one
-fixed cyclic order only.
+Status: `EXACT_OBSTRUCTION` for one fixed selected-witness pattern across all
+cyclic orders.
+
+For the `C13_sidon_1_2_4_10` selected-witness pattern with offsets
+`[1,2,4,10]`, the checked exhaustive order-search artifact
+`data/certificates/c13_sidon_all_orders_kalmanson_two_search.json` verifies
+that every cyclic order contains a two-inequality Kalmanson inverse-pair
+certificate. The search fixes label `0` first using circulant translation
+symmetry, visits `1496677` surviving-prefix nodes, prunes `6192576` branches by
+completed two-certificates, and finds no survivor order.
+
+This kills the fixed abstract C13 Sidon selected-witness pattern across all
+cyclic orders. It is not a proof of Erdos #97. See
+`docs/kalmanson-two-order-search.md` and
+`scripts/check_kalmanson_two_order_search.py`.
+
+### Fixed-order Kalmanson/Farkas pilot for C13_sidon_1_2_4_10
+
+Status: superseded fixed-order certificate, retained as provenance.
 
 For the `C13_sidon_1_2_4_10` selected-witness pattern with offsets
 `[1,2,4,10]` and cyclic order
@@ -123,10 +140,8 @@ selected-distance equalities. Summing the strict inequalities gives `0 > 0`.
 The earlier 34-inequality certificate remains checked as provenance at
 `data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json`.
 
-This is not a proof that abstract `C13_sidon_1_2_4_10` is impossible across all
-cyclic orders, and it is not a proof of Erdos #97. See
-`docs/kalmanson-c13-pilot.md`, `docs/round2/kalmanson_distance_filter.md`, and
-`scripts/check_kalmanson_certificate.py`.
+See `docs/kalmanson-c13-pilot.md`, `docs/round2/kalmanson_distance_filter.md`,
+and `scripts/check_kalmanson_certificate.py`.
 
 ## Lemmas
 

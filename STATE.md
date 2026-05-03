@@ -58,16 +58,19 @@ killed by the finite cyclic crossing CSP.
 Round two adds an exact Kalmanson/Farkas fixed-order obstruction for the
 registered `C19_skew` selected-witness pattern with offsets `[-8,-3,5,9]` and
 cyclic order `[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]`. The
-certificate is a positive integer combination of 94 strict convex Kalmanson
-distance inequalities whose coefficient vector is exactly zero after
-selected-distance quotienting. This kills only that fixed order; it is not an
-abstract `C19_skew` impossibility proof. See `docs/round2/round2_merged_report.md`.
+preferred compact certificate is a positive integer combination of 2 strict
+convex Kalmanson distance inequalities whose coefficient vector is exactly zero
+after selected-distance quotienting. This kills only that fixed order; it is
+not an abstract `C19_skew` impossibility proof. The earlier 94-inequality
+certificate remains checked as provenance. See
+`docs/round2/kalmanson_distance_filter.md`.
 
 A C13 Kalmanson pilot also kills the registered non-natural
 `C13_sidon_1_2_4_10` order `[5,0,10,8,9,7,4,6,2,11,12,3,1]` by an exact
-34-inequality Kalmanson/Farkas certificate. This is again a fixed-order
-obstruction only; it does not settle the abstract Sidon pattern across all
-cyclic orders. See `docs/kalmanson-c13-pilot.md`.
+2-inequality Kalmanson/Farkas certificate. The follow-up exact order search now
+kills this fixed C13 Sidon pattern across all cyclic orders by proving that
+every cyclic order contains a two-inequality inverse-pair obstruction. See
+`docs/kalmanson-two-order-search.md`.
 
 The phi 4-cycle rectangle-trap filter kills a registered fixed `n=9`
 selected-witness pattern with directed cycle
@@ -117,12 +120,11 @@ verification threshold and the other collapses to a non-strict configuration.[^c
    exactly killed by Altman diagonal-order sums, and the registered non-natural
    order above is now exactly killed by the round-two Kalmanson certificate.
    The abstract pattern across all cyclic orders is still not closed.
-2. `C13_sidon_1_2_4_10`: (13,4,1) Singer planar-difference-set circulant.
-   `|S_a cap S_b| = 1` for every distinct pair. The natural order is killed by
-   Altman linear certificates, and the registered non-natural sparse-filter
-   survivor is killed by the exact C13 Kalmanson pilot. The abstract pattern
-   across all cyclic orders is still not closed. NUMERICAL_EVIDENCE only: see
-   below.
+
+Retired sparse lead: `C13_sidon_1_2_4_10`, a (13,4,1)
+Singer planar-difference-set circulant, is now killed across all cyclic orders
+by the exact two-certificate Kalmanson order search. The older numerical
+evidence below is retained as historical diagnostic data only.
 
 ## Numerical status: C13 Sidon-type circulant
 
