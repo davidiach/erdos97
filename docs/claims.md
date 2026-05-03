@@ -86,10 +86,12 @@ cyclic order
 ```
 
 the checked certificate
-`data/certificates/round2/c19_kalmanson_known_order_unsat.json` gives a
-positive integer combination of 94 strict Kalmanson distance inequalities whose
+`data/certificates/round2/c19_kalmanson_known_order_two_unsat.json` gives a
+positive integer combination of 2 strict Kalmanson distance inequalities whose
 total coefficient vector is exactly zero after quotienting by the
 selected-distance equalities. Summing the strict inequalities gives `0 > 0`.
+The earlier 94-inequality certificate remains checked as provenance at
+`data/certificates/round2/c19_kalmanson_known_order_unsat.json`.
 
 This is not a proof that abstract `C19_skew` is impossible across all cyclic
 orders, and it is not a proof of Erdos #97. See
@@ -114,10 +116,12 @@ For the `C13_sidon_1_2_4_10` selected-witness pattern with offsets
 ```
 
 the checked certificate
-`data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json` gives a
-positive integer combination of 34 strict Kalmanson distance inequalities whose
+`data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json` gives a
+positive integer combination of 2 strict Kalmanson distance inequalities whose
 total coefficient vector is exactly zero after quotienting by the
 selected-distance equalities. Summing the strict inequalities gives `0 > 0`.
+The earlier 34-inequality certificate remains checked as provenance at
+`data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json`.
 
 This is not a proof that abstract `C13_sidon_1_2_4_10` is impossible across all
 cyclic orders, and it is not a proof of Erdos #97. See

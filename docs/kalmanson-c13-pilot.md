@@ -24,7 +24,7 @@ cyclic order = [5,0,10,8,9,7,4,6,2,11,12,3,1]
 Certificate:
 
 ```text
-data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json
+data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json
 ```
 
 The certificate is a positive integer combination of strict convex-quadrilateral
@@ -35,18 +35,23 @@ exactly zero, giving the contradiction `0 > 0`.
 Checked summary:
 
 ```text
-positive inequalities: 34
+positive inequalities: 2
 distance classes after selected equalities: 39
-weight sum: 17463
-max weight: 1322
+weight sum: 2
+max weight: 1
 ```
+
+The earlier 34-inequality certificate remains checked at
+`data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json` as
+provenance, but the two-inequality inverse-pair certificate is the preferred
+review target.
 
 ## Reproduction
 
 Generate and check the certificate:
 
 ```bash
-python scripts/find_kalmanson_certificate.py \
+python scripts/find_kalmanson_two_certificate.py \
   --name C13_sidon_1_2_4_10 \
   --n 13 \
   --offsets 1,2,4,10 \
@@ -55,14 +60,13 @@ python scripts/find_kalmanson_certificate.py \
   --summary-json
 
 python scripts/check_kalmanson_certificate.py \
-  data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json \
+  data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json \
   --summary-json
 ```
 
-The finder uses a numerical LP only to locate a support. It then recovers the
-one-dimensional rational nullspace on that support, clears denominators, and
-checks the resulting exact integer certificate with
-`scripts/check_kalmanson_certificate.py`.
+The compact finder does not use numerical optimization. It scans the exact
+Kalmanson rows for an inverse pair and checks the resulting weight-`1,1`
+certificate with `scripts/check_kalmanson_certificate.py`.
 
 ## Frontier Impact
 

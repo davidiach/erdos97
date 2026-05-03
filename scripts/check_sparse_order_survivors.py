@@ -61,14 +61,17 @@ REGISTERED_ORDERS: dict[str, dict[str, list[int]]] = {
 
 KALMANSON_CERTIFICATES: dict[str, Path] = {
     "C13_sidon_1_2_4_10:sample_full_filter_survivor": (
-        ROOT / "data" / "certificates" / "c13_sidon_order_survivor_kalmanson_unsat.json"
+        ROOT
+        / "data"
+        / "certificates"
+        / "c13_sidon_order_survivor_kalmanson_two_unsat.json"
     ),
     "C19_skew:vertex_circle_survivor": (
         ROOT
         / "data"
         / "certificates"
         / "round2"
-        / "c19_kalmanson_known_order_unsat.json"
+        / "c19_kalmanson_known_order_two_unsat.json"
     ),
 }
 

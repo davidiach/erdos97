@@ -136,10 +136,17 @@ selected-witness assignments.
 ## Priority 7 - keep the frontier separate
 
 Keep `n >= 9`, abstract `C19_skew`, and broader SAT/SMT work separate from the
-small-case claim. The round-two Kalmanson certificate kills one fixed
-`C19_skew` cyclic order, not the abstract pattern over all orders. These are
+small-case claim. The compact round-two Kalmanson certificate kills one fixed
+`C19_skew` cyclic order with two strict inequalities, not the abstract pattern
+over all orders. These are
 research-frontier workstreams, not prerequisites for the repo-local `n <= 8`
 artifact.
+
+Next exact frontier step: turn the two-inequality Kalmanson inverse-pair
+finder into an all-order avoidance search. A positive result would show every
+cyclic order of a fixed sparse pattern contains some inverse-pair obstruction;
+a negative result would produce a new registered order that needs stronger
+geometry.
 
 ## Priority 8 - extend the C13 Kalmanson pilot
 
