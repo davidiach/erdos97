@@ -162,6 +162,26 @@ for later filters. This is a bounded diagnostic slice only, not an `n=9`
 completeness theorem. See `docs/n9-incidence-frontier.md` and
 `scripts/check_n9_incidence_frontier.py`.
 
+### Review-pending exhaustive n=9 vertex-circle check
+
+Status: `MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING`.
+
+The new repo-native checker in `scripts/check_n9_vertex_circle_exhaustive.py`
+enumerates all 70 row-0 selected-witness choices for a cyclically labelled
+nonagon. With vertex-circle pruning enabled it visits 16,752 nodes and leaves
+0 full assignments. Its cross-check disables vertex-circle pruning during
+branching, finds 184 full assignments passing the pair/crossing/count filters,
+then classifies all 184 as exact vertex-circle obstructions: 158 self-edges and
+26 strict cycles.
+
+This is a candidate extension of the repo-local finite-case pipeline to `n=9`,
+but it is not yet the source-of-truth strongest result. The raw incoming bundle
+also contains 184-pattern/16-orbit and 102-certificate Kalmanson verifier
+variants whose symmetry conventions need separate review. See
+`docs/n9-vertex-circle-exhaustive.md`,
+`data/certificates/n9_vertex_circle_exhaustive.json`, and
+`incoming/archive-output-2026-05-03/`.
+
 The row-circle Ptolemy diagnostic in
 `docs/row-circle-ptolemy-nlp.md` adds the Ptolemy equality forced by each
 selected witness quadruple being concyclic around its center. It numerically
@@ -258,8 +278,8 @@ search-history artifacts, not as live candidates.
 
 1. Independently review the `n=8` incidence checker and the class `3`, `4`,
    and `14` exact certificates.
-2. Push the finite incidence/exact pipeline toward `n=9`, or identify the first
-   survivor class that blocks scaling.
+2. Independently review the review-pending exhaustive `n=9` vertex-circle
+   checker before promoting it to source-of-truth finite-case status.
 3. Investigate abstract `C19_skew` and `C13_sidon_1_2_4_10` beyond their
    natural-order Altman obstructions and registered fixed-order Kalmanson
    certificates.

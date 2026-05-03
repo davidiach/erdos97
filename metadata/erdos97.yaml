@@ -76,6 +76,14 @@ local_repo:
   overall_claim: "No general proof and no counterexample are claimed."
   strongest_result: "No selected-witness counterexample for n <= 8, in the repo-local machine-checked finite-case sense."
   strongest_result_review_status: "External independent review recommended before public theorem-style claims."
+  review_pending_finite_case_artifacts:
+    - name: "n9_vertex_circle_exhaustive"
+      status: "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING"
+      artifact: "data/certificates/n9_vertex_circle_exhaustive.json"
+      verifier: "scripts/check_n9_vertex_circle_exhaustive.py"
+      archive_provenance: "incoming/archive-output-2026-05-03/"
+      claim_scope: "candidate repo-local selected-witness n=9 finite-case obstruction only; does not alter official/global status"
+      review_note: "Promote only after independent review reconciles the exhaustive vertex-circle counts with the raw 184/16 and 102-certificate archive variants."
   notable_fixed_order_obstructions:
     - pattern: "C19_skew"
       status: "exact fixed-order Kalmanson/Farkas obstruction"

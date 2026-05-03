@@ -81,7 +81,27 @@ references and negative search results in `docs/literature-risk.md`.
 Do not use unchecked literature summaries to alter the official/global status.
 Recheck the official Erdos Problems page before any status update.
 
-## Priority 5 - keep the frontier separate
+## Priority 5 - audit the n=9 vertex-circle exhaustive checker
+
+Target: `docs/n9-vertex-circle-exhaustive.md`.
+
+The 2026-05-03 archive bundle has been refactored into a repo-native checker
+that leaves 0 full `n=9` selected-witness assignments after exact
+vertex-circle pruning. Treat this as review-pending until an independent audit
+checks:
+
+- the necessity of the two-overlap crossing, witness-pair cap, indegree cap,
+  and vertex-circle strict-cycle filters;
+- the absence of a hidden symmetry quotient in the 70 row0 choices;
+- that minimum-remaining-options branching changes only search order;
+- that the raw 184/16 and 102-certificate archive variants agree with the
+  repo-native counts after their conventions are documented.
+
+Acceptance standard: a written review should either promote the checker to the
+same repo-local finite-case status as `n <= 8`, or identify the exact
+mathematical or implementation gap.
+
+## Priority 6 - keep the frontier separate
 
 Keep `n >= 9`, abstract `C19_skew`, and broader SAT/SMT work separate from the
 small-case claim. The round-two Kalmanson certificate kills one fixed
@@ -89,7 +109,7 @@ small-case claim. The round-two Kalmanson certificate kills one fixed
 research-frontier workstreams, not prerequisites for the repo-local `n <= 8`
 artifact.
 
-## Priority 6 - extend the C13 Kalmanson pilot
+## Priority 7 - extend the C13 Kalmanson pilot
 
 The first C13 Kalmanson pilot now kills the registered non-natural
 `C13_sidon_1_2_4_10` order with an exact 34-inequality certificate. Before
@@ -98,7 +118,7 @@ pilot toward all cyclic orders: normalize by dihedral symmetry, prune partial
 orders cheaply, run LP dual checks on closed branches, and emit exact integer
 certificates for branches that close.
 
-## Priority 7 - strengthen only productive filters
+## Priority 8 - strengthen only productive filters
 
 The minimum-radius short-chord filter in `docs/minimum-radius-filter.md` is a
 valid exact necessary condition, but it is weak: it does not kill `C19_skew`.

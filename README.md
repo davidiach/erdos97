@@ -28,6 +28,8 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/n8-incidence-enumeration.md`](docs/n8-incidence-enumeration.md).
 - For the `n=8` exact survivor obstruction artifact, read
   [`docs/n8-exact-survivors.md`](docs/n8-exact-survivors.md).
+- For the review-pending exhaustive `n=9` vertex-circle finite-case checker,
+  read [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 - For a compact human-readable proof-note draft excluding bad convex octagons,
   read [`docs/n8-geometric-proof.md`](docs/n8-geometric-proof.md).
 - For an interactive visualization of that proof idea, open
@@ -117,6 +119,14 @@ previously live fixed selected-witness patterns, including
 registered fixed `n=9` selected-witness pattern containing
 `{0,6}->{2,8}->{1,5}->{4,7}->{0,6}`. These are fixed-pattern obstructions, not
 a general proof of the problem.
+
+A review-pending exhaustive `n=9` vertex-circle checker now records a candidate
+repo-local finite-case extension: the cross-check leaves 184 full
+selected-witness assignments after the pair/crossing/count filters, and the
+vertex-circle filter kills all 184 by exact self-edge or strict-cycle
+obstructions. This is not yet promoted to the source-of-truth strongest local
+result; independent review is required before any public theorem-style claim.
+See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
 Round two adds an exact Kalmanson/Farkas certificate for one fixed
 `C19_skew` selected-witness pattern and one fixed cyclic order:

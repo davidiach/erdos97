@@ -77,6 +77,15 @@ See `docs/phi4-rectangle-trap.md` and
 `data/certificates/n9_phi4_rectangle_trap.json`. This is not an `n=9`
 completeness result.
 
+A review-pending exhaustive `n=9` vertex-circle checker has been imported from
+the 2026-05-03 archive bundle and refactored into
+`scripts/check_n9_vertex_circle_exhaustive.py`. It records 184 full
+selected-witness systems after the pair/crossing/count filters and kills all
+184 by exact vertex-circle self-edge or strict-cycle obstructions. This is a
+candidate repo-local finite-case extension only; it does not change the
+official/global falsifiable/open status, and it is not promoted beyond the
+current `n <= 8` source-of-truth result until independent review.
+
 ## Best saved near-miss
 
 The best saved near-miss is still the historical `B12_3x4_danzer_lift`

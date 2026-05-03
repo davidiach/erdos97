@@ -50,6 +50,7 @@ python scripts/analyze_n8_exact_survivors.py --check --json
 python scripts/analyze_n8_exact_survivors.py --check --json \
   --check-compatible-orders-data data/incidence/n8_compatible_orders.json \
   --check-exact-analysis-data certificates/n8_exact_analysis.json
+python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected
 ```
 
 The independent incidence JSON checker validates the 15 stored survivor
@@ -65,8 +66,14 @@ pytest -q -m "slow or exhaustive"
 python scripts/enumerate_n8_incidence.py --summary
 python scripts/enumerate_n8_incidence.py --summary \
   --check-data data/incidence/n8_incidence_completeness.json
+python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --write
 ```
 
 The `n=8` incidence enumeration is the expensive part of the current local
 pipeline. Its checked-in result should eventually be supplemented with a compact
 branch-count or independent completeness certificate.
+
+The `n=9` vertex-circle exhaustive checker is review-pending. It is faster than
+the fresh `n=8` incidence enumeration on the current machine, but it is still a
+full replay and should be reviewed before it changes the source-of-truth local
+finite-case status.
