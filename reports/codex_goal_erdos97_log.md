@@ -347,3 +347,19 @@ closed by exact positive-integer certificates.
   the artifact.
 - No general proof, no counterexample, and no all-order C13 obstruction are
   claimed.
+
+### Publish / PR Checkpoint
+
+- Local commit: `96400f9 research: add c13 kalmanson prefix branch pilot`.
+- `git push -u origin codex/goal-erdos97-proof-or-counterexample`: failed with
+  GitHub `403` permission denial for account `oskarasi`.
+- Fallback publication used the GitHub connector to update draft PR #86:
+  `https://github.com/davidiach/erdos97/pull/86`.
+- Connector-side commit:
+  `83154407c7ffabed38d0018a2fa4fb5c34a54091`.
+- After fetching the PR branch, local `HEAD` tree and
+  `origin/codex/goal-erdos97-proof-or-counterexample` tree both resolved to
+  `5ea9cacb9e71cc53edf900068f6fcacddf22d475`; `git diff --stat
+  HEAD..origin/codex/goal-erdos97-proof-or-counterexample` was empty.
+- PR title/body updated to cover the prefix-branch pilot and its claim
+  boundary.
