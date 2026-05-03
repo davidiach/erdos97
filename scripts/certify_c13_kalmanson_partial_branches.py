@@ -308,7 +308,7 @@ def scan_branches(
     states, counts = generate_boundary_states(boundary_pairs)
     selected_states = states if max_branches is None else states[:max_branches]
     classes = build_distance_classes(N, OFFSETS)
-    closed: list[BranchClosure] = []
+    branches: list[BranchClosure] = []
     unclosed: list[str] = []
     support_histogram: Counter[int] = Counter()
     forced_row_counts: Counter[int] = Counter()
@@ -334,7 +334,7 @@ def scan_branches(
                 support_histogram[int(summary["positive_inequalities"])] += 1
         if cert is None:
             unclosed.append(label)
-        closed.append(
+        branches.append(
             BranchClosure(
                 label=label,
                 state=state,
@@ -344,7 +344,7 @@ def scan_branches(
             )
         )
 
-    closed_branches = [item for item in closed if item.certificate is not None]
+    closed_branches = [item for item in branches if item.certificate is not None]
     closed_examples = []
     for item in closed_branches[:closed_example_count]:
         record = branch_record(item.label, item.state)

@@ -19,7 +19,11 @@ from collections import Counter
 from pathlib import Path
 from typing import Mapping, Sequence
 
-from branch_c13_kalmanson_prefix_pilot import BoundaryState, generate_boundary_states
+from branch_c13_kalmanson_prefix_pilot import (
+    BoundaryState,
+    BranchCounts,
+    generate_boundary_states,
+)
 from certify_c13_kalmanson_partial_branches import (
     DEFAULT_BOUNDARY_PAIRS,
     N,
@@ -71,8 +75,8 @@ def two_pair_unclosed_parents(
     *,
     classes: Mapping[tuple[int, int], int],
     tol: float,
-) -> list[tuple[int, BoundaryState]]:
-    states, _counts = generate_boundary_states(DEFAULT_BOUNDARY_PAIRS)
+) -> tuple[list[tuple[int, BoundaryState]], BranchCounts]:
+    states, counts = generate_boundary_states(DEFAULT_BOUNDARY_PAIRS)
     unclosed: list[tuple[int, BoundaryState]] = []
     for idx, state in enumerate(states):
         _row_count, cert, _summary = find_certificate_for_state(
@@ -83,7 +87,7 @@ def two_pair_unclosed_parents(
         )
         if cert is None:
             unclosed.append((idx, state))
-    return unclosed
+    return unclosed, counts
 
 
 def child_state(parent: BoundaryState, left_label: int, right_label: int) -> BoundaryState:
@@ -136,7 +140,9 @@ def scan_refinement(
         raise ValueError("closed_example_count must be nonnegative")
 
     classes = build_distance_classes(N, OFFSETS)
-    all_unclosed_parents = two_pair_unclosed_parents(classes=classes, tol=tol)
+    all_unclosed_parents, parent_counts = two_pair_unclosed_parents(
+        classes=classes, tol=tol
+    )
     selected_parents = (
         all_unclosed_parents
         if max_parents is None
@@ -185,9 +191,10 @@ def scan_refinement(
                         closed_examples.append(example)
                 child_count += 1
 
-    raw_two_pair_count = 11880
-    canonical_two_pair_count = 5940
-    child_extensions_per_parent = 56
+    raw_two_pair_count = parent_counts.raw_boundary_state_count
+    canonical_two_pair_count = parent_counts.canonical_boundary_state_count
+    remaining_per_parent = N - 1 - 2 * DEFAULT_BOUNDARY_PAIRS
+    child_extensions_per_parent = remaining_per_parent * (remaining_per_parent - 1)
     payload = {
         "type": "c13_kalmanson_third_pair_refinement_v1",
         "trust": "EXACT_OBSTRUCTION",
