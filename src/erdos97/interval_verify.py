@@ -106,6 +106,10 @@ def parse_exact_coordinates(data: dict[str, Any]) -> list[list[Fraction]] | None
     return parsed
 
 
+def exact_coordinates_to_float(points: list[list[Fraction]]) -> np.ndarray:
+    return np.array([[float(x), float(y)] for x, y in points], dtype=float)
+
+
 def coordinate_intervals(
     coordinates: np.ndarray,
     *,
@@ -260,7 +264,12 @@ def verify_interval_json(
     data = load_candidate(path)
     try:
         S = parse_pattern(data)
-        raw_coordinates = parse_float_coordinates(data)
+        exact_coordinates = parse_exact_coordinates(data)
+        raw_coordinates = (
+            exact_coordinates_to_float(exact_coordinates)
+            if exact_coordinates is not None
+            else parse_float_coordinates(data)
+        )
     except (KeyError, TypeError, ValueError) as exc:
         return {
             "ok": False,
@@ -278,13 +287,16 @@ def verify_interval_json(
             "claim_strength": "MALFORMED_INPUT",
         }
 
-    exact_coordinates = parse_exact_coordinates(data)
     if exact_coordinates is not None:
         exact = exact_verification(exact_coordinates, S)
         return {
             "ok": exact["failure_mode"] == "exact_algebraic_candidate_accepted",
             "validation_errors": [],
             "eq_bound": eq_bound,
+            "does_not_claim": [
+                "general proof of Erdos Problem #97",
+                "counterexample without independent review",
+            ],
             "claim_strength": (
                 "EXACT_OR_ALGEBRAIC_CANDIDATE_ACCEPTED_PENDING_REVIEW"
                 if exact["failure_mode"] == "exact_algebraic_candidate_accepted"

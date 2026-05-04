@@ -42,6 +42,28 @@ def test_malformed_candidate_is_reported(tmp_path: Path) -> None:
     assert result["validation_errors"]
 
 
+def test_exact_coordinates_do_not_require_float_coordinates(tmp_path: Path) -> None:
+    candidate = tmp_path / "exact.json"
+    n = 9
+    payload = {
+        "coordinates_exact": [
+            [str(i), str(i * i)]
+            for i in range(n)
+        ],
+        "S": [
+            sorted((i + offset) % n for offset in (-4, -2, 2, 4))
+            for i in range(n)
+        ],
+    }
+    candidate.write_text(json.dumps(payload), encoding="utf-8")
+
+    result = verify_interval_json(candidate)
+
+    assert result["ok"] is False
+    assert result["failure_mode"] == "exact_algebraic_rejected"
+    assert result["claim_strength"] == "EXACT_OR_ALGEBRAIC_INPUT_REJECTED"
+
+
 def test_convex_float_without_equalities_is_not_certified(tmp_path: Path) -> None:
     candidate = tmp_path / "c9.json"
     n = 9
