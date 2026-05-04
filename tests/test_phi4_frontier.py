@@ -14,9 +14,11 @@ from erdos97.phi4_frontier import (
 )
 from erdos97.search import built_in_patterns
 
+ROOT = Path(__file__).resolve().parents[1]
+
 
 def sparse_order_payload() -> dict[str, object]:
-    path = Path("data/certificates/sparse_order_survivors.json")
+    path = ROOT / "data" / "certificates" / "sparse_order_survivors.json"
     loaded = json.loads(path.read_text(encoding="utf-8"))
     assert isinstance(loaded, dict)
     return loaded

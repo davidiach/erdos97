@@ -252,6 +252,11 @@ pip install -e .[dev]
 make verify-fast
 ```
 
+`make verify-lint` runs the sub-minute text/status/provenance/ruff tier
+without pytest. The default pytest configuration excludes tests marked
+`artifact`, `slow`, or `exhaustive`; run `python -m pytest -q -m ""` when you
+intentionally want the full marker set.
+
 If `make` is not available, run the fast tier directly:
 
 ```bash
@@ -272,21 +277,24 @@ make verify-artifacts
 
 The manual/scheduled artifact-audit workflow runs the same artifact commands
 with command, commit, Python version, dependency snapshot, elapsed-time, and
-output-hash metadata:
+output-hash metadata. It also includes the dated official-status consistency
+check:
 
 ```bash
-python scripts/check_status_consistency.py --max-official-status-age-days 90
 make audit-artifacts
 ```
 
 Equivalent raw commands:
 
 ```bash
+python scripts/check_status_consistency.py --max-official-status-age-days 90
+python scripts/check_artifact_provenance.py
 python scripts/independent_check_n8_artifacts.py --check --json
-python scripts/check_round2_certificates.py
 python scripts/enumerate_n8_incidence.py --summary
 python scripts/analyze_n8_exact_survivors.py --check --json
+python scripts/check_round2_certificates.py
 python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json
+python scripts/check_kalmanson_certificate.py data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json --summary-json
 python scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n 13 --offsets 1,2,4,10 --assert-obstructed --assert-c13-expected --json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 ```
@@ -361,6 +369,8 @@ If you use this repository, please cite it using [`CITATION.cff`](CITATION.cff).
 - Run `make verify-fast` or the equivalent raw fast-tier commands.
 - Run `make verify-artifacts` before finite-case, certificate, or public
   theorem-style updates, or record why a command could not be run.
+- Run `make audit-artifacts` for audit metadata; it includes the dated
+  official-status consistency check.
 - Run `python scripts/check_text_clean.py`.
 - Run `python scripts/check_status_consistency.py`.
 - Confirm this README still says no general proof and no counterexample are claimed.

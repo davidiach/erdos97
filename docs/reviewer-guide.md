@@ -47,21 +47,30 @@ make verify-artifacts
 For CI-style audit metadata, run:
 
 ```bash
-python scripts/check_status_consistency.py --max-official-status-age-days 90
 make audit-artifacts
 ```
+
+The `audit-artifacts` target includes the dated official-status consistency
+check, so this audit path is stricter than the default fast tier.
 
 Equivalent raw commands:
 
 ```bash
+python scripts/check_status_consistency.py --max-official-status-age-days 90
+python scripts/check_artifact_provenance.py
 python scripts/independent_check_n8_artifacts.py --check --json
 python scripts/enumerate_n8_incidence.py --summary
 python scripts/analyze_n8_exact_survivors.py --check --json
 python scripts/check_round2_certificates.py
 python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json
+python scripts/check_kalmanson_certificate.py data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json --summary-json
 python scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n 13 --offsets 1,2,4,10 --assert-obstructed --assert-c13-expected --json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 ```
+
+The default pytest configuration excludes tests marked `artifact`, `slow`, or
+`exhaustive`. Use `python -m pytest -q -m ""` when intentionally replaying the
+full marker set.
 
 For a version-matched reproduction run, replace `pip install -e .[dev]` with:
 
@@ -108,6 +117,8 @@ invariants:
 9. `docs/review-priorities.md`
 
 ## Review target A - `n=7`
+
+Primary reference: `docs/n7-fano-enumeration.md`.
 
 Check:
 

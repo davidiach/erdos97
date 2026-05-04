@@ -1,13 +1,15 @@
 PYTHON ?= python
 
-.PHONY: verify-fast verify-n8 verify-kalmanson verify-n9-review verify-artifacts audit-artifacts verify-all
+.PHONY: verify-lint verify-fast verify-n8 verify-kalmanson verify-n9-review verify-artifacts audit-artifacts verify-all
 
-verify-fast:
+verify-lint:
 	$(PYTHON) scripts/check_text_clean.py
 	$(PYTHON) scripts/check_status_consistency.py
 	$(PYTHON) scripts/check_artifact_provenance.py
 	git diff --check
 	$(PYTHON) -m ruff check .
+
+verify-fast: verify-lint
 	$(PYTHON) -m pytest -q
 
 verify-n8:
@@ -27,6 +29,7 @@ verify-n9-review:
 verify-artifacts: verify-n8 verify-kalmanson verify-n9-review
 
 audit-artifacts:
+	$(PYTHON) scripts/check_status_consistency.py --max-official-status-age-days 90
 	$(PYTHON) scripts/check_artifact_provenance.py
 	$(PYTHON) scripts/run_artifact_audit.py --output-dir artifact-audit-results
 

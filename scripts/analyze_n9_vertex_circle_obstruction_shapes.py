@@ -17,6 +17,7 @@ from erdos97.n9_vertex_circle_obstruction_shapes import (  # noqa: E402
     assert_expected_counts,
     obstruction_shape_summary,
 )
+from erdos97.path_display import display_path  # noqa: E402
 
 DEFAULT_OUT = ROOT / "data" / "certificates" / "n9_vertex_circle_obstruction_shapes.json"
 
@@ -56,7 +57,7 @@ def main() -> int:
         if args.assert_expected:
             print("OK: obstruction shape counts verified")
         if args.write:
-            print(f"wrote {Path(args.out).resolve().relative_to(ROOT)}")
+            print(f"wrote {display_path(args.out, ROOT)}")
     return 0
 
 

@@ -16,7 +16,6 @@ import argparse
 import itertools
 import json
 import sys
-import time
 from collections import Counter
 from pathlib import Path
 from typing import Sequence
@@ -32,7 +31,7 @@ from check_kalmanson_certificate import (  # noqa: E402
     build_distance_classes,
     inequality_terms,
 )
-from find_kalmanson_certificate import parse_int_list  # noqa: E402
+from kalmanson_order_utils import parse_int_list  # noqa: E402
 
 KINDS = ("K1_diag_gt_sides", "K2_diag_gt_other")
 
@@ -96,7 +95,6 @@ def search_avoiding_order(
     if node_limit is not None and node_limit <= 0:
         raise ValueError("node_limit must be positive when supplied")
 
-    started = time.perf_counter()
     quad_ids, inverse_id = _prepare_vector_tables(n, offsets)
     counts = [0] * len(inverse_id)
     nodes_visited = 0
@@ -144,7 +142,6 @@ def search_avoiding_order(
         return None
 
     survivor = dfs([0], list(range(1, n)))
-    elapsed = time.perf_counter() - started
     if survivor is not None:
         status = "FOUND_ORDER_WITHOUT_TWO_INEQUALITY_KALMANSON_CERTIFICATE"
         trust = "EXACT_COUNTEREXAMPLE_TO_THIS_FILTER_ONLY"
@@ -175,7 +172,6 @@ def search_avoiding_order(
         "max_surviving_prefix_depth": len(max_surviving_prefix),
         "max_surviving_prefix": max_surviving_prefix,
         "survivor_order": survivor,
-        "elapsed_seconds": elapsed,
         "semantics": (
             "If status is EXACT_ALL_ORDER_TWO_INEQUALITY_KALMANSON_OBSTRUCTION, "
             "every cyclic order of this fixed abstract pattern contains some "
@@ -232,9 +228,7 @@ def main() -> int:
         assert_c13_expected(payload)
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
-        stored = dict(payload)
-        stored["elapsed_seconds"] = round(float(stored["elapsed_seconds"]), 6)
-        args.out.write_text(json.dumps(stored, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        args.out.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     if args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     else:

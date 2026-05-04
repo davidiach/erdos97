@@ -190,15 +190,21 @@ def kalmanson_status(
             "obstructed": False,
         }
 
-    result = check_certificate_file(path)
     certificate = json.loads(path.read_text(encoding="utf-8"))
-    if result.pattern != pattern.name:
-        raise ValueError(f"{path} pattern {result.pattern} does not match {pattern.name}")
-    if result.n != pattern.n:
-        raise ValueError(f"{path} n {result.n} does not match {pattern.n}")
+    certificate_pattern = certificate.get("pattern", {})
+    if not isinstance(certificate_pattern, dict):
+        raise ValueError(f"{path} pattern metadata should be an object")
+    if certificate_pattern.get("name") != pattern.name:
+        raise ValueError(f"{path} pattern {certificate_pattern.get('name')} does not match {pattern.name}")
+    if certificate_pattern.get("n") != pattern.n:
+        raise ValueError(f"{path} n {certificate_pattern.get('n')} does not match {pattern.n}")
+    certificate_offsets = certificate_pattern.get("circulant_offsets")
+    if normalize_offsets(certificate_offsets, pattern.n) != circulant_offsets(pattern):
+        raise ValueError(f"{path} circulant offsets do not match registered {case}")
     if certificate.get("cyclic_order") != order:
         raise ValueError(f"{path} cyclic order does not match registered {case}")
 
+    result = check_certificate_file(path)
     return {
         "status": result.status,
         "obstructed": result.zero_sum_verified,
@@ -211,6 +217,21 @@ def kalmanson_status(
         "max_weight": result.max_weight,
         "claim_strength": result.claim_strength,
     }
+
+
+def circulant_offsets(pattern: PatternInfo) -> list[int]:
+    row0 = sorted(int(witness) % pattern.n for witness in pattern.S[0])
+    for center, witnesses in enumerate(pattern.S):
+        offsets = sorted((int(witness) - center) % pattern.n for witness in witnesses)
+        if offsets != row0:
+            raise ValueError(f"{pattern.name} is not a circulant row pattern")
+    return row0
+
+
+def normalize_offsets(raw_offsets: object, n: int) -> list[int]:
+    if not isinstance(raw_offsets, list):
+        raise ValueError("circulant_offsets should be a list")
+    return sorted(int(offset) % n for offset in raw_offsets)
 
 
 def registered_rows(patterns: dict[str, PatternInfo]) -> list[dict[str, object]]:

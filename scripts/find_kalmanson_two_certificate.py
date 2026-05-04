@@ -29,7 +29,7 @@ from check_kalmanson_certificate import (  # noqa: E402
     build_distance_classes,
     check_certificate_dict,
 )
-from find_kalmanson_certificate import (  # noqa: E402
+from kalmanson_order_utils import (  # noqa: E402
     InequalityRow,
     all_kalmanson_rows,
     certificate_payload,

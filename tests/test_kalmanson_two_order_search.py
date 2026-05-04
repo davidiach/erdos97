@@ -26,6 +26,7 @@ def test_c13_all_orders_kalmanson_two_search_artifact() -> None:
     assert payload["branches_pruned_by_completed_two_certificate"] == 6192576
     assert payload["max_surviving_prefix_depth"] == 11
     assert payload["survivor_order"] is None
+    assert "elapsed_seconds" not in payload
     assert "does not prove Erdos Problem #97" in payload["semantics"]
 
 
@@ -39,6 +40,32 @@ def test_kalmanson_two_order_search_cli_help() -> None:
     )
 
     assert "Search cyclic orders" in result.stdout
+
+
+def test_kalmanson_two_order_search_json_is_deterministic_shape() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_kalmanson_two_order_search.py",
+            "--name",
+            "toy",
+            "--n",
+            "5",
+            "--offsets",
+            "1,2,3,4",
+            "--node-limit",
+            "1",
+            "--json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    payload = json.loads(result.stdout)
+    assert "elapsed_seconds" not in payload
+    assert payload["status"] == "UNKNOWN_NODE_LIMIT_REACHED"
 
 
 @pytest.mark.slow
