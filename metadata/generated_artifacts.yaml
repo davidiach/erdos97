@@ -1,0 +1,148 @@
+schema: erdos97.generated_artifacts.v1
+claim_scope: >
+  Manifest for generated or generator-owned artifacts. This is provenance and
+  edit-policy metadata only; it does not prove Erdos Problem #97 and does not
+  claim a counterexample.
+
+artifacts:
+  - id: n8_reconstructed_survivors
+    path: data/incidence/n8_reconstructed_15_survivors.json
+    kind: finite_case_artifact
+    generator: scripts/enumerate_n8_incidence.py
+    command: python scripts/enumerate_n8_incidence.py --summary
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: INCIDENCE_COMPLETENESS
+    claim_scope: Repo-local n=8 selected-witness survivor classes only.
+    json_top_level_type: list
+    forbidden_claims:
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
+  - id: n8_incidence_completeness
+    path: data/incidence/n8_incidence_completeness.json
+    kind: finite_case_artifact
+    generator: scripts/enumerate_n8_incidence.py
+    command: python scripts/enumerate_n8_incidence.py --summary
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: INCIDENCE_COMPLETENESS
+    claim_scope: Repo-local n=8 incidence completeness artifact.
+    json_top_level_type: object
+    expected_json:
+      n: 8
+      status: INCIDENCE_COMPLETENESS
+      canonical_survivor_class_count: 15
+      matches_existing_reconstructed_survivors: true
+    forbidden_claims:
+      - public theorem
+      - general proof of Erdos Problem #97
+
+  - id: n8_compatible_orders
+    path: data/incidence/n8_compatible_orders.json
+    kind: finite_case_artifact
+    generator: scripts/analyze_n8_exact_survivors.py
+    command: python scripts/analyze_n8_exact_survivors.py --check --json --check-compatible-orders-data data/incidence/n8_compatible_orders.json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: EXACT_OBSTRUCTION
+    claim_scope: Repo-local n=8 compatible cyclic-order audit data.
+    json_top_level_type: object
+    forbidden_claims:
+      - independent external review
+      - general proof of Erdos Problem #97
+
+  - id: n8_exact_analysis
+    path: certificates/n8_exact_analysis.json
+    kind: certificate_artifact
+    generator: scripts/analyze_n8_exact_survivors.py
+    command: python scripts/analyze_n8_exact_survivors.py --check --json --check-exact-analysis-data certificates/n8_exact_analysis.json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: EXACT_OBSTRUCTION
+    claim_scope: Repo-local n=8 exact survivor obstruction artifact pending external review.
+    json_top_level_type: object
+    forbidden_claims:
+      - public theorem
+      - counterexample to Erdos Problem #97
+
+  - id: c19_fixed_order_two_kalmanson
+    path: data/certificates/round2/c19_kalmanson_known_order_two_unsat.json
+    kind: certificate_artifact
+    generator: scripts/find_kalmanson_two_certificate.py
+    command: python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: EXACT_OBSTRUCTION
+    claim_scope: Exact obstruction for one fixed C19_skew cyclic order only.
+    json_top_level_type: object
+    expected_json:
+      certificate_type: kalmanson_strict_inequality_farkas
+      certificate_variant: kalmanson_two_inequality_inverse_pair
+      pattern.name: C19_skew
+      status: EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER
+      weight_sum: 2
+    forbidden_claims:
+      - all cyclic orders of C19 are killed
+      - C19_skew is impossible
+      - general proof of Erdos Problem #97
+
+  - id: c13_fixed_order_two_kalmanson
+    path: data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json
+    kind: certificate_artifact
+    generator: scripts/find_kalmanson_two_certificate.py
+    command: python scripts/check_kalmanson_certificate.py data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json --summary-json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: EXACT_OBSTRUCTION
+    claim_scope: Exact obstruction for one fixed C13 selected-witness cyclic order only.
+    json_top_level_type: object
+    expected_json:
+      certificate_type: kalmanson_strict_inequality_farkas
+      certificate_variant: kalmanson_two_inequality_inverse_pair
+      pattern.name: C13_sidon_1_2_4_10
+      status: EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER
+      weight_sum: 2
+    forbidden_claims:
+      - C13 proves the method works for C19
+      - general proof of Erdos Problem #97
+
+  - id: c13_all_orders_kalmanson_two_search
+    path: data/certificates/c13_sidon_all_orders_kalmanson_two_search.json
+    kind: exhaustive_search_artifact
+    generator: scripts/check_kalmanson_two_order_search.py
+    command: python scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n 13 --offsets 1,2,4,10 --assert-obstructed --assert-c13-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN
+    claim_scope: All-order obstruction for one fixed abstract C13 selected-witness pattern only.
+    json_top_level_type: object
+    expected_json:
+      pattern.name: C13_sidon_1_2_4_10
+      status: EXACT_ALL_ORDER_TWO_INEQUALITY_KALMANSON_OBSTRUCTION
+      trust: EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN
+      survivor_order: null
+    forbidden_claims:
+      - C13 proves the method works for C19
+      - this is evidence of a general proof
+      - general proof of Erdos Problem #97
+
+  - id: n9_vertex_circle_exhaustive
+    path: data/certificates/n9_vertex_circle_exhaustive.json
+    kind: finite_case_artifact
+    generator: scripts/check_n9_vertex_circle_exhaustive.py
+    command: python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    claim_scope: Review-pending n=9 selected-witness finite-case checker output only.
+    json_top_level_type: object
+    expected_json:
+      n: 9
+      row_size: 4
+      trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+      main_search.full_assignments: 0
+    forbidden_claims:
+      - n=9 is proved
+      - official/global status update
+      - general proof of Erdos Problem #97

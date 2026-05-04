@@ -8,6 +8,9 @@ claimed, the official/global status remains falsifiable/open, and the local
 `n <= 8` selected-witness result remains repo-local and machine-checked pending
 independent review.
 
+For a Codex-ready task list with issue links, commands, acceptance criteria,
+trust deltas, and forbidden overclaiming text, see `docs/codex-backlog.md`.
+
 ## Priority 1 - review the octagon proof note
 
 Target: `docs/n8-geometric-proof.md`.

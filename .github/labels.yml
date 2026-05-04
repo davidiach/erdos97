@@ -22,6 +22,15 @@
 - name: EXACTIFICATION
   color: "006b75"
   description: Algebraic, interval, SMT, or certificate work.
+- name: ARTIFACT_AUDIT
+  color: "1f883d"
+  description: Reproducibility checks for generated or checked-in artifacts.
+- name: FRONTIER
+  color: "6f42c1"
+  description: Research-frontier work that must not change global status by itself.
+- name: DOC_SYNC
+  color: "d4c5f9"
+  description: Documentation, metadata, or source-of-truth alignment.
 - name: SAT_SMT
   color: "0052cc"
   description: Finite abstraction or solver encoding.

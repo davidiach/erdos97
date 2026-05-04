@@ -1,0 +1,33 @@
+PYTHON ?= python
+
+.PHONY: verify-fast verify-n8 verify-kalmanson verify-n9-review verify-artifacts audit-artifacts verify-all
+
+verify-fast:
+	$(PYTHON) scripts/check_text_clean.py
+	$(PYTHON) scripts/check_status_consistency.py
+	$(PYTHON) scripts/check_artifact_provenance.py
+	git diff --check
+	$(PYTHON) -m ruff check .
+	$(PYTHON) -m pytest -q
+
+verify-n8:
+	$(PYTHON) scripts/independent_check_n8_artifacts.py --check --json
+	$(PYTHON) scripts/enumerate_n8_incidence.py --summary
+	$(PYTHON) scripts/analyze_n8_exact_survivors.py --check --json
+
+verify-kalmanson:
+	$(PYTHON) scripts/check_round2_certificates.py
+	$(PYTHON) scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json
+	$(PYTHON) scripts/check_kalmanson_certificate.py data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json --summary-json
+	$(PYTHON) scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n 13 --offsets 1,2,4,10 --assert-obstructed --assert-c13-expected --json
+
+verify-n9-review:
+	$(PYTHON) scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
+
+verify-artifacts: verify-n8 verify-kalmanson verify-n9-review
+
+audit-artifacts:
+	$(PYTHON) scripts/check_artifact_provenance.py
+	$(PYTHON) scripts/run_artifact_audit.py --output-dir artifact-audit-results
+
+verify-all: verify-fast verify-artifacts

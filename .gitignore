@@ -12,4 +12,5 @@ dist/
 # Large or transient search outputs
 outputs/
 runs/tmp/
+artifact-audit-results/
 *.log
