@@ -28,12 +28,13 @@ Acceptance standard: a written review should identify every accepted lemma and
 any exact gap. If the note survives review, keep it as the main human-readable
 small-case proof route, with the computational pipeline as an audit appendix.
 
-## Priority 2 - build an independent n=8 checker
+## Priority 2 - audit and extend the n=8 checker
 
-Build a minimal checker for the `n=8` finite artifact that treats the checked-in
-JSON and certificate data as inputs, not as generated truth. It should avoid
-reusing the current canonicalization and algebra-helper code except where the
-input format forces it.
+Audit the current checker, and extend it toward a more independent `n=8`
+finite-artifact check that treats the checked-in JSON and certificate data as
+inputs, not as generated truth. Any extension should avoid reusing the current
+canonicalization and algebra-helper code except where the input format forces
+it.
 
 Suggested inputs:
 

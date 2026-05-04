@@ -19,6 +19,7 @@ from erdos97.n9_vertex_circle_exhaustive import (  # noqa: E402
     exhaustive_search,
     summary_payload,
 )
+from erdos97.path_display import display_path  # noqa: E402
 
 DEFAULT_OUT = ROOT / "data" / "certificates" / "n9_vertex_circle_exhaustive.json"
 
@@ -100,7 +101,7 @@ def main() -> int:
         if args.assert_expected:
             print("OK: n=9 vertex-circle exhaustive counts verified")
         if args.write:
-            print(f"wrote {Path(args.out).resolve().relative_to(ROOT)}")
+            print(f"wrote {display_path(args.out, ROOT)}")
     return 0
 
 

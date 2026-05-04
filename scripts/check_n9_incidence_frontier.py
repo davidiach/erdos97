@@ -14,6 +14,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from erdos97.n9_incidence_frontier import run_bounded_scan  # noqa: E402
+from erdos97.path_display import display_path  # noqa: E402
 
 DEFAULT_OUT = ROOT / "data" / "certificates" / "n9_incidence_frontier_bounded.json"
 
@@ -76,7 +77,7 @@ def main() -> int:
         if args.assert_expected:
             print("OK: bounded n=9 frontier expectations verified")
         if args.write:
-            print(f"wrote {Path(args.out).relative_to(ROOT)}")
+            print(f"wrote {display_path(args.out, ROOT)}")
     return 0
 
 

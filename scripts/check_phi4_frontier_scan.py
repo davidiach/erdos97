@@ -20,6 +20,7 @@ from erdos97.phi4_frontier import (  # noqa: E402
     scan_payload,
     sparse_order_cases_from_payload,
 )
+from erdos97.path_display import display_path  # noqa: E402
 from erdos97.search import built_in_patterns  # noqa: E402
 
 DEFAULT_SPARSE_ORDERS = ROOT / "data" / "certificates" / "sparse_order_survivors.json"
@@ -124,7 +125,7 @@ def main() -> int:
         if args.assert_expected:
             print("OK: phi4 frontier scan expectations verified")
         if args.write:
-            print(f"wrote {Path(args.out).relative_to(ROOT)}")
+            print(f"wrote {display_path(args.out, ROOT)}")
     return 0
 
 
