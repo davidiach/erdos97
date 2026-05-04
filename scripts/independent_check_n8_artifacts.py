@@ -237,6 +237,16 @@ def check_all(root: Path) -> dict[str, Any]:
             "does not claim a general proof of Erdos Problem #97 or a "
             "standalone public theorem."
         ),
+        "does_not_check": [
+            "full independent regeneration of the n=8 incidence enumeration",
+            "independent external mathematical review",
+            "general Erdos Problem #97 proof",
+            "counterexample to Erdos Problem #97",
+        ],
+        "dependencies_imported": [
+            "scripts/analyze_n8_exact_survivors.py",
+            "scripts/independent_check_n8_incidence_json.py",
+        ],
     }
 
 
