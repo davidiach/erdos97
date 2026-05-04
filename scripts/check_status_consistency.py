@@ -2,9 +2,12 @@
 """Check top-level status text for stale or overclaiming contradictions."""
 from __future__ import annotations
 
+import argparse
 import re
 import sys
+from datetime import date, datetime
 from pathlib import Path
+from typing import Sequence
 
 try:
     import yaml
@@ -95,6 +98,12 @@ def require_string_field(mapping: object, key: str, label: str) -> str:
     return value
 
 
+def parse_iso_date(value: str, label: str) -> date:
+    if not DATE_RE.fullmatch(value):
+        fail(f"{label} should be YYYY-MM-DD")
+    return datetime.strptime(value, "%Y-%m-%d").date()
+
+
 def require_pattern(label: str, text: str, pattern: re.Pattern[str], detail: str) -> None:
     if not pattern.search(text):
         fail(f"{label} should state {detail}")
@@ -118,7 +127,7 @@ def stale_line_is_archived(lines: list[str], index: int) -> bool:
     return any(marker in window for marker in ARCHIVAL_MARKERS)
 
 
-def validate_metadata() -> None:
+def validate_metadata(max_official_status_age_days: int | None = None) -> None:
     path = ROOT / "metadata" / "erdos97.yaml"
     if not path.exists():
         fail("metadata/erdos97.yaml is missing")
@@ -127,6 +136,14 @@ def validate_metadata() -> None:
     official_status = metadata_value(metadata, ("problem", "official_status"))
     if not isinstance(official_status, str) or official_status.lower() != "falsifiable/open":
         fail("metadata official_status should be falsifiable/open")
+    official = metadata_value(metadata, ("problem",))
+    if not isinstance(official, dict):
+        fail("metadata problem should be a mapping")
+    parse_iso_date(
+        require_string_field(official, "official_page_last_edited", "metadata problem"),
+        "metadata problem.official_page_last_edited",
+    )
+    validate_official_status_freshness(official, max_official_status_age_days)
     require_pattern(
         "metadata local_repo.overall_claim",
         str(metadata_value(metadata, ("local_repo", "overall_claim"))),
@@ -148,6 +165,30 @@ def validate_metadata() -> None:
             fail(f"metadata trust_policy.{key} should be true")
 
     validate_nearby_literature(metadata)
+
+
+def validate_official_status_freshness(
+    official: dict[str, object],
+    max_age_days: int | None,
+    today: date | None = None,
+) -> None:
+    checked = parse_iso_date(
+        require_string_field(official, "official_status_last_checked", "metadata problem"),
+        "metadata problem.official_status_last_checked",
+    )
+    if max_age_days is None:
+        return
+    if max_age_days < 0:
+        fail("--max-official-status-age-days should be nonnegative")
+    today = today or date.today()
+    age_days = (today - checked).days
+    if age_days < 0:
+        fail("metadata problem.official_status_last_checked is in the future")
+    if age_days > max_age_days:
+        fail(
+            "metadata problem.official_status_last_checked is "
+            f"{age_days} days old, above the {max_age_days}-day limit"
+        )
 
 
 def validate_nearby_literature(metadata: dict[str, object]) -> None:
@@ -205,8 +246,23 @@ def validate_archived_synthesis() -> None:
             fail(f"unarchived stale n=8 Open wording at {synthesis}:{i + 1}")
 
 
-def main() -> None:
-    validate_metadata()
+def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--max-official-status-age-days",
+        type=int,
+        default=None,
+        help=(
+            "Fail if metadata problem.official_status_last_checked is older "
+            "than this many days. Intended for artifact-audit or release paths."
+        ),
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv: Sequence[str] | None = None) -> None:
+    args = parse_args(argv)
+    validate_metadata(args.max_official_status_age_days)
     validate_top_level_status()
     validate_archived_synthesis()
 

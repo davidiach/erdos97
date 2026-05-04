@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+from datetime import date
 from pathlib import Path
 
 
@@ -67,3 +68,29 @@ trust_policy:
 
     assert checker.metadata_value(parsed, ("problem", "official_status")) == "falsifiable/open"
     assert checker.metadata_value(parsed, ("trust_policy", "no_overclaiming")) is True
+
+
+def test_official_status_freshness_is_opt_in() -> None:
+    checker = load_checker()
+    official = {
+        "official_page_last_edited": "2025-10-27",
+        "official_status_last_checked": "2026-04-30",
+    }
+
+    checker.validate_official_status_freshness(official, None, today=date(2026, 8, 1))
+    checker.validate_official_status_freshness(official, 10, today=date(2026, 5, 4))
+
+
+def test_official_status_freshness_can_fail() -> None:
+    checker = load_checker()
+    official = {
+        "official_page_last_edited": "2025-10-27",
+        "official_status_last_checked": "2026-04-30",
+    }
+
+    try:
+        checker.validate_official_status_freshness(official, 10, today=date(2026, 5, 20))
+    except SystemExit as exc:
+        assert exc.code == 1
+    else:  # pragma: no cover
+        raise AssertionError("freshness check should fail")

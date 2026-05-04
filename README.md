@@ -57,7 +57,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/oeis-possibilities.md`](docs/oeis-possibilities.md).
 - For repository-level Codex guidance, read [`AGENTS.md`](AGENTS.md).
 - For runnable verification, start with [`scripts/verify_candidate.py`](scripts/verify_candidate.py).
-- For current work items, see [Issues #1-#7](https://github.com/davidiach/erdos97/issues).
+- For current work items, see [`docs/review-priorities.md`](docs/review-priorities.md),
+  [`docs/codex-backlog.md`](docs/codex-backlog.md), and the live
+  [open GitHub issues](https://github.com/davidiach/erdos97/issues).
 
 ## Problem
 
@@ -247,14 +249,54 @@ Use these labels consistently:
 python -m venv .venv
 source .venv/bin/activate
 pip install -e .[dev]
+make verify-fast
+```
+
+If `make` is not available, run the fast tier directly:
+
+```bash
 python scripts/check_text_clean.py
 python scripts/check_status_consistency.py
-pytest -q
+python scripts/check_artifact_provenance.py
+git diff --check
+python -m ruff check .
+python -m pytest -q
+```
+
+Artifact and frontier checks are slower and should be run before finite-case,
+certificate, or public theorem-style updates:
+
+```bash
+make verify-artifacts
+```
+
+The manual/scheduled artifact-audit workflow runs the same artifact commands
+with command, commit, Python version, dependency snapshot, elapsed-time, and
+output-hash metadata:
+
+```bash
+python scripts/check_status_consistency.py --max-official-status-age-days 90
+make audit-artifacts
+```
+
+Equivalent raw commands:
+
+```bash
+python scripts/independent_check_n8_artifacts.py --check --json
 python scripts/check_round2_certificates.py
 python scripts/enumerate_n8_incidence.py --summary
 python scripts/analyze_n8_exact_survivors.py --check --json
+python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json
+python scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n 13 --offsets 1,2,4,10 --assert-obstructed --assert-c13-expected --json
+python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
+```
+
+Useful exploratory commands:
+
+```bash
 erdos97-search --list-patterns
 erdos97-search --verify data/runs/best_B12_slsqp_m1e-6.json --tol 1e-6
+python scripts/interval_verify_candidate.py data/runs/best_B12_slsqp_m1e-6.json
 python scripts/check_mutual_rhombus_filter.py --assert-expected
 python scripts/check_vertex_circle_order_filter.py --pattern P18_parity_balanced --search --assert-obstructed
 python scripts/check_min_radius_filter.py --pattern C19_skew --assert-pass
@@ -316,9 +358,12 @@ If you use this repository, please cite it using [`CITATION.cff`](CITATION.cff).
 
 ## Maintenance checklist
 
-- Run `pytest -q`.
+- Run `make verify-fast` or the equivalent raw fast-tier commands.
+- Run `make verify-artifacts` before finite-case, certificate, or public
+  theorem-style updates, or record why a command could not be run.
 - Run `python scripts/check_text_clean.py`.
 - Run `python scripts/check_status_consistency.py`.
 - Confirm this README still says no general proof and no counterexample are claimed.
 - Create labels matching `.github/labels.yml`.
-- Open the seed issues listed in `docs/initial-issues.md`.
+- Keep current-work pointers aligned with `docs/review-priorities.md`,
+  `docs/codex-backlog.md`, and the live GitHub issue list.

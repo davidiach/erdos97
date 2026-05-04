@@ -88,7 +88,11 @@ def tracked_files() -> list[Path]:
 
 
 def is_text_target(path: Path) -> bool:
-    return path.suffix in TEXT_SUFFIXES or path.name.startswith("LICENSE")
+    return (
+        path.suffix in TEXT_SUFFIXES
+        or path.name == "Makefile"
+        or path.name.startswith("LICENSE")
+    )
 
 
 def line_col(text: str, index: int) -> tuple[int, int]:

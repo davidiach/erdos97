@@ -22,6 +22,7 @@ jobs:
       - run: pip install -e .[dev]
       - run: python scripts/check_text_clean.py
       - run: python scripts/check_status_consistency.py
+      - run: python scripts/check_artifact_provenance.py
       - run: git diff --check
-      - run: ruff check .
-      - run: pytest -q
+      - run: python -m ruff check .
+      - run: python -m pytest -q

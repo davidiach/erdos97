@@ -13,19 +13,54 @@
 - It does not claim the `n=8` artifact has had independent external review.
 - It does not claim that the round-two `C19_skew` Kalmanson certificate kills
   all cyclic orders of the abstract pattern.
+- It does not claim that the exact all-order C13 result proves Erdos Problem
+  #97; that result is only for one fixed abstract selected-witness pattern.
 
-## Minimal reproduction commands
+## Fast reproduction commands
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -e .[dev]
+make verify-fast
+```
+
+If `make` is not available, run:
+
+```bash
 python scripts/check_text_clean.py
 python scripts/check_status_consistency.py
-pytest -q
-python scripts/check_round2_certificates.py
+python scripts/check_artifact_provenance.py
+git diff --check
+python -m ruff check .
+python -m pytest -q
+```
+
+## Artifact audit commands
+
+Run these before finite-case, certificate, or public theorem-style updates:
+
+```bash
+make verify-artifacts
+```
+
+For CI-style audit metadata, run:
+
+```bash
+python scripts/check_status_consistency.py --max-official-status-age-days 90
+make audit-artifacts
+```
+
+Equivalent raw commands:
+
+```bash
+python scripts/independent_check_n8_artifacts.py --check --json
 python scripts/enumerate_n8_incidence.py --summary
 python scripts/analyze_n8_exact_survivors.py --check --json
+python scripts/check_round2_certificates.py
+python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json
+python scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n 13 --offsets 1,2,4,10 --assert-obstructed --assert-c13-expected --json
+python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 ```
 
 For a version-matched reproduction run, replace `pip install -e .[dev]` with:
@@ -117,9 +152,21 @@ Check:
 - that `scripts/check_kalmanson_certificate.py` reconstructs the selected
   distance quotient from the declared `C19_skew` offsets;
 - that every listed quadrilateral is in the declared cyclic order;
-- that all 94 weights are positive integers;
+- that the compact two-inequality certificate has positive integer weights and
+  zero total coefficient sum;
+- that the earlier 94-inequality certificate remains valid as provenance;
 - that the weighted coefficient sum is exactly zero;
 - that the result is recorded only as a fixed-order obstruction.
+
+## Review target F - C13 all-order two-certificate search
+
+Check:
+
+- that `scripts/check_kalmanson_two_order_search.py` fixes label `0` only by
+  translation symmetry for the circulant pattern;
+- that the search result is an all-order statement only for the fixed abstract
+  `C13_sidon_1_2_4_10` selected-witness pattern;
+- that the result is not described as a general proof of Erdos Problem #97.
 
 ## Known weak points / independent review requests
 
