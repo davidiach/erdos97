@@ -10,7 +10,7 @@ import subprocess
 import sys
 import time
 from dataclasses import dataclass
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Sequence
 
@@ -94,7 +94,7 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
 
 
 def utc_now() -> str:
-    return datetime.now(UTC).isoformat(timespec="seconds").replace("+00:00", "Z")
+    return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
 
 
 def sha256_bytes(data: bytes) -> str:
