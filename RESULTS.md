@@ -104,6 +104,18 @@ turn `2*pi`.
 This note does not alter the global status of Erdos Problem #97 and does not
 replace the existing machine-checked `n=8` finite-case artifact.
 
+### Minimal fragile-cover bridge
+
+Status: `LEMMA` / partial bridge theorem.
+
+Every minimal counterexample admits a partial fragile-cover witness system:
+for each deleted vertex `x`, minimality produces a remaining center `y` whose
+unique exact 4-tie contains `x`; retaining these exact 4-ties gives a cover of
+all vertices by fragile rows. The rows satisfy the two-circle cap and the
+radical-axis crossing rule for two-overlaps. This is a necessary structural
+bridge only, not a contradiction and not the open ear-orderable bridge. See
+`docs/minimal-fragile-cover-bridge.md`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

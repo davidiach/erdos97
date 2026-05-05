@@ -323,6 +323,20 @@ size at least 4 after deletion. Thus `x` lies in a unique critical 4-tie at
 This is structural information about minimal counterexamples; by itself it is
 not a contradiction.
 
+### Minimal fragile-cover bridge
+
+Every minimal counterexample admits a partial fragile-cover witness system:
+some exact critical 4-tie rows cover all vertices, and each vertex is assigned
+to a fragile center whose exact 4-tie contains it.
+
+This follows by applying the minimal-counterexample critical-tie lemma to each
+deleted vertex and retaining one copy of each resulting exact 4-tie. The rows
+also satisfy the two-circle cap and the radical-axis crossing rule for
+two-overlaps. This is a necessary bridge theorem only; the block-6 abstract
+family checked by `scripts/check_fragile_hypergraph.py --blocks 2 --assert-ok`
+shows that fragile-cover hypergraph constraints alone are too weak to prove
+the problem. See `docs/minimal-fragile-cover-bridge.md`.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

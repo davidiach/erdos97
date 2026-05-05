@@ -44,6 +44,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   and [`docs/round2/kalmanson_distance_filter.md`](docs/round2/kalmanson_distance_filter.md).
 - For the weak exact minimum-radius short-chord filter, read
   [`docs/minimum-radius-filter.md`](docs/minimum-radius-filter.md).
+- For a partial bridge theorem from minimality to fragile-cover witness
+  systems, read
+  [`docs/minimal-fragile-cover-bridge.md`](docs/minimal-fragile-cover-bridge.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).

@@ -71,6 +71,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`minimum-radius-filter.md`](minimum-radius-filter.md): weak exact
   minimum-radius short-chord filter; records why it does not kill `C19_skew`
   by itself.
+- [`minimal-fragile-cover-bridge.md`](minimal-fragile-cover-bridge.md):
+  partial bridge theorem showing that every minimal counterexample admits a
+  fragile-cover witness system; also records why this is not sufficient.
 - [`sparse-frontier-diagnostic.md`](sparse-frontier-diagnostic.md): exact
   fixed-order witness-pair source diagnostic explaining the sparse/Sidon
   radius-propagation blind spot.
