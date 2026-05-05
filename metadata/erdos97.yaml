@@ -108,6 +108,15 @@ local_repo:
       certificate: "data/certificates/c13_sidon_all_orders_kalmanson_two_search.json"
       verifier: "scripts/check_kalmanson_two_order_search.py"
       claim_scope: "kills this fixed abstract C13 selected-witness pattern across all cyclic orders; does not prove Erdos #97"
+  notable_frontier_diagnostics:
+    - pattern: "C25_sidon_2_5_9_14"
+      status: "fixed-order Kalmanson-filter survivor killed by vertex-circle and Altman filters"
+      artifact: "data/certificates/c25_c29_sparse_frontier_probe.json"
+      claim_scope: "fixed-order diagnostic only; not a counterexample and not an all-order obstruction for the abstract pattern"
+    - pattern: "C29_sidon_1_3_7_15"
+      status: "one fixed order survives current lightweight filters and is a stress test for stronger exactification"
+      artifact: "data/certificates/c25_c29_sparse_frontier_probe.json"
+      claim_scope: "fixed-order diagnostic only; surviving filters is not evidence of geometric realizability"
   best_numerical_object: "B12_3x4_danzer_lift near-miss; rejected as proof/counterexample."
   main_entry_points:
     - "STATE.md"

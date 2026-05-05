@@ -9,8 +9,8 @@ designs only; geometric realization is a separate problem.
 |---:|---|---:|---|---|---|
 | 1 | `C19_skew` | 19 | offsets `{-8,-3,5,9}` | skew circulant | abstract-incidence status: exactly killed across all cyclic orders by the Z3 two-inequality Kalmanson inverse-pair certificate; earlier natural-order Altman and registered non-natural fixed-order Kalmanson certificates retained as provenance |
 | 11 | `C13_sidon_1_2_4_10` | 13 | offsets `{1,2,4,10}` | Sidon circulant | abstract-incidence status: exactly killed across all cyclic orders by the two-inequality Kalmanson inverse-pair order search; earlier natural-order Altman and registered non-natural fixed-order Kalmanson certificates retained as provenance; SLSQP evidence plateaus at `eq_rms ~ 0.84` under strict convexity margins |
-| 12 | `C25_sidon_2_5_9_14` | 25 | offsets `{2,5,9,14}` | Sidon circulant | natural-order status: exactly killed by Altman linear certificate; abstract-incidence status: Sidon sparse-overlap lead, not settled by current filters; cataloged but not yet run numerically |
-| 13 | `C29_sidon_1_3_7_15` | 29 | offsets `{1,3,7,15}` | Sidon circulant | natural-order status: exactly killed by Altman linear certificate; abstract-incidence status: Sidon sparse-overlap lead, not settled by current filters; cataloged but not yet run numerically |
+| 12 | `C25_sidon_2_5_9_14` | 25 | offsets `{2,5,9,14}` | Sidon circulant | natural-order status: exactly killed by Altman linear certificate; abstract-order diagnostic: a Kalmanson Z3 probe found the step-7 fixed order `[0,7,14,21,3,10,17,24,6,13,20,2,9,16,23,5,12,19,1,8,15,22,4,11,18]` with no two-inequality Kalmanson inverse-pair obstruction, but that order is exactly killed by vertex-circle and Altman filters |
+| 13 | `C29_sidon_1_3_7_15` | 29 | offsets `{1,3,7,15}` | Sidon circulant | natural-order status: exactly killed by Altman linear certificate; abstract-order diagnostic: the fixed order `[0,27,11,4,19,5,26,12,6,21,13,28,14,2,20,18,7,24,10,25,17,3,9,15,1,22,8,23,16]` survives the current lightweight fixed-order exact sweep, the two-inequality Kalmanson inverse-pair search, the metric LP, and a global Ptolemy NLP diagnostic; row-circle Ptolemy was too slow to complete |
 
 The ranked abstract-incidence patterns above pass the row-overlap filter
 `|S_i cap S_j| <= 2` before numerical optimization. `C19_skew` and
@@ -18,9 +18,13 @@ The ranked abstract-incidence patterns above pass the row-overlap filter
 two-certificate Kalmanson order methods; see
 `docs/kalmanson-two-order-search.md`. The Sidon natural orders are also exactly
 obstructed by Altman linear certificates. The larger Sidon entries remain
-incidence-pattern leads, not geometric realizability claims. The minimum-radius
-short-chord filter is also recorded as a weak exact necessary test, but it does
-not by itself kill `C19_skew`; see `docs/minimum-radius-filter.md`.
+incidence-pattern leads, not geometric realizability claims. The new C25/C29
+probe is recorded in
+`data/certificates/c25_c29_sparse_frontier_probe.json`: it retires the tested
+C25 fixed order as a dead end and promotes the tested C29 fixed order only to a
+stress test for stronger filters. The minimum-radius short-chord filter is also
+recorded as a weak exact necessary test, but it does not by itself kill
+`C19_skew`; see `docs/minimum-radius-filter.md`.
 For the first fixed-selection stuck-set/radius/fragile-cover pass over this
 frontier, see `docs/stuck-frontier-snapshot.md`.
 

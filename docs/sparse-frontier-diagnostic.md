@@ -266,6 +266,46 @@ These remain adversarial objects for filter development, not counterexamples.
 In particular, the fixed-order Kalmanson kills do not prove either abstract
 incidence pattern impossible across all cyclic orders.
 
+## C25/C29 Frontier Probe
+
+The later C25/C29 probe is recorded at
+`data/certificates/c25_c29_sparse_frontier_probe.json`. It extends the sparse
+frontier log beyond the retired C13/C19 registered orders, but it does not add
+any proof-facing global claim.
+
+For `C25_sidon_2_5_9_14`, the Kalmanson Z3 refinement found the fixed step-7
+cyclic order
+
+```text
+0,7,14,21,3,10,17,24,6,13,20,2,9,16,23,5,12,19,1,8,15,22,4,11,18
+```
+
+with no two-inequality Kalmanson inverse-pair obstruction. That is only a
+counterexample to the Kalmanson inverse-pair filter. The same order is exactly
+killed by the vertex-circle order filter and by an Altman linear certificate,
+so it is a useful control case rather than a live target.
+
+For `C29_sidon_1_3_7_15`, the same Kalmanson Z3 refinement found the fixed
+cyclic order
+
+```text
+0,27,11,4,19,5,26,12,6,21,13,28,14,2,20,18,7,24,10,25,17,3,9,15,1,22,8,23,16
+```
+
+This order survives the current lightweight fixed-order exact filter sweep:
+crossing, Altman signature and exact linear-certificate checks,
+vertex-circle, minimum-radius, radius propagation, and the two-inequality
+Kalmanson inverse-pair check all fail to obstruct it. It also passes the
+metric-order LP diagnostic with max margin about `0.00128257`. A slow global
+Ptolemy NLP diagnostic printed a positive-margin pass around `0.00092602`, but
+this remains numerical and is not part of the fast verification tier.
+
+The row-circle Ptolemy NLP, which is the next stronger distance-class
+diagnostic, was too slow to complete interactively on this C29 order. That
+makes the order a stress test for either reducing the row-circle active set or
+building a stronger exact filter. It is not evidence of geometric
+realizability.
+
 The first constrained numerical run on the registered `C13` sparse-filter order
 is:
 
