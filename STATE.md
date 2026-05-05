@@ -55,15 +55,22 @@ abstract-incidence obstruction uses the crossing constraints plus the
 vertex-circle order strict-cycle filter; `P24_parity_balanced` is already
 killed by the finite cyclic crossing CSP.
 
-Round two adds an exact Kalmanson/Farkas fixed-order obstruction for the
+Round two first added an exact Kalmanson/Farkas fixed-order obstruction for the
 registered `C19_skew` selected-witness pattern with offsets `[-8,-3,5,9]` and
-cyclic order `[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]`. The
-preferred compact certificate is a positive integer combination of 2 strict
-convex Kalmanson distance inequalities whose coefficient vector is exactly zero
-after selected-distance quotienting. This kills only that fixed order; it is
-not an abstract `C19_skew` impossibility proof. The earlier 94-inequality
-certificate remains checked as provenance. See
-`docs/round2/kalmanson_distance_filter.md`.
+cyclic order `[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]`. The preferred
+compact certificate is a positive integer combination of 2 strict convex
+Kalmanson distance inequalities whose coefficient vector is exactly zero after
+selected-distance quotienting. The earlier 94-inequality certificate remains
+checked as provenance. See `docs/round2/kalmanson_distance_filter.md`.
+
+A follow-up Z3 refinement certificate now kills the fixed abstract `C19_skew`
+pattern across all cyclic orders. The certificate stores 7,981 exact forbidden
+ordered-quadrilateral pairs; each pair is checked to be a Kalmanson inverse
+pair after selected-distance quotienting, and Z3 verifies that the accumulated
+cyclic-order constraints are unsatisfiable. See
+`docs/kalmanson-two-order-search.md`,
+`scripts/check_kalmanson_two_order_z3.py`, and
+`data/certificates/c19_skew_all_orders_kalmanson_z3.json`.
 
 A C13 Kalmanson pilot also kills the registered non-natural
 `C13_sidon_1_2_4_10` order `[5,0,10,8,9,7,4,6,2,11,12,3,1]` by an exact
@@ -116,10 +123,15 @@ verification threshold and the other collapses to a non-strict configuration.[^c
 
 ## Top remaining live / unresolved patterns
 
-1. Abstract `C19_skew`: sparse common-neighbor overlap. The natural order is
-   exactly killed by Altman diagonal-order sums, and the registered non-natural
-   order above is now exactly killed by the round-two Kalmanson certificate.
-   The abstract pattern across all cyclic orders is still not closed.
+The registered sparse circulant leads `C13_sidon_1_2_4_10` and `C19_skew` are
+now both killed across all cyclic orders by exact two-certificate Kalmanson
+order obstructions. This retires those fixed selected-witness patterns as live
+counterexample leads.
+
+The global problem remains open: a counterexample could use a different
+selected-witness incidence pattern, and the current repository still has no
+bridge proving that arbitrary counterexamples reduce to the registered sparse
+families.
 
 Retired sparse lead: `C13_sidon_1_2_4_10`, a (13,4,1)
 Singer planar-difference-set circulant, is now killed across all cyclic orders

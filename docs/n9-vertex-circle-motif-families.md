@@ -68,9 +68,11 @@ The local-core diagnostic reduces this to a row-local problem: the family
 representatives need only 3 to 6 rows to certify the contradiction.
 
 The current result still does not solve the global problem. The known
-`C19_skew` order that survives the vertex-circle filter remains the guardrail:
-any general lemma must either add hypotheses that exclude that survivor or
-combine vertex-circle structure with an extra exact ingredient.
+`C19_skew` order that survives the vertex-circle filter remains a useful
+guardrail for vertex-circle-only lemmas, although the fixed abstract
+`C19_skew` pattern is now killed by the separate Z3 Kalmanson certificate.
+Any general lemma must either add hypotheses that exclude such vertex-circle
+survivors or combine vertex-circle structure with an extra exact ingredient.
 
 ## Reproduction
 

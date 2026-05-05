@@ -79,8 +79,10 @@ Thus `C19_skew` is exactly obstructed in natural cyclic order.
 - The constant-offset application above is natural-cyclic-order only.
 - The order-dependent signature extension below can check any supplied cyclic
   order, but it is not a complete abstract-order search.
-- `C19_skew` remains an abstract-incidence sparse survivor of the current
-  `phi`, midpoint, forced-perpendicularity, and vertex-circle filters.
+- `C19_skew` is not killed by the current `phi`, midpoint,
+  forced-perpendicularity, or vertex-circle filters, but it is now killed
+  across all cyclic orders by the separate Z3 Kalmanson inverse-pair
+  certificate in `docs/kalmanson-two-order-search.md`.
 
 ## Order-Dependent Signature Filter
 
@@ -193,6 +195,6 @@ python scripts/sweep_altman_linear_certificates.py \
 The artifact records that the natural orders of `C13_sidon_1_2_4_10`,
 `C25_sidon_2_5_9_14`, and `C29_sidon_1_3_7_15` are all exactly killed by
 Altman linear certificates. The registered abstract `C19_skew` order remains
-a certificate-search miss. This narrows the sparse-overlap wall to non-natural
-cyclic orders; it does not prove or disprove realizability of any abstract
-survivor.
+an Altman certificate-search miss, but it is killed by the separate
+Kalmanson/Farkas certificate stack. This does not prove or disprove
+realizability of other abstract selected-witness patterns.

@@ -16,16 +16,19 @@ Read first:
 
 - `docs/round2/round2_merged_report.md`
 - `docs/round2/kalmanson_distance_filter.md`
+- `docs/kalmanson-two-order-search.md`
 - `docs/kalmanson-certificate-diagnostics.md`
 - `reports/c19_kalmanson_diagnostics.json`
 - `data/certificates/round2/c19_kalmanson_known_order_unsat.json`
 - `data/certificates/round2/c19_kalmanson_known_order_two_unsat.json`
+- `data/certificates/c19_skew_all_orders_kalmanson_z3.json`
 
 Commands:
 
 ```bash
 python scripts/check_round2_certificates.py
 python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json
+python scripts/check_kalmanson_two_order_z3.py --certificate data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat
 python scripts/analyze_kalmanson_certificates.py
 ```
 
@@ -37,20 +40,22 @@ Expected artifacts:
 
 Acceptance criteria:
 
-- The compact two-inequality certificate and the earlier 94-inequality
-  certificate both remain valid.
+- The compact fixed-order two-inequality certificate, the earlier
+  94-inequality certificate, and the all-order Z3 refinement certificate all
+  remain valid.
 - Any structural decomposition is reproducible without notebooks.
-- Documentation keeps one fixed `C19_skew` cyclic order separate from abstract
-  `C19_skew` over all orders.
+- Documentation keeps the fixed-order certificate, the all-order fixed-pattern
+  obstruction, and the global Erdos #97 status separate.
 
-Trust delta: may improve fixed-order certificate understanding or produce a
-new fixed-order exact obstruction. It may not promote abstract `C19_skew`, any
-`n >= 9` finite case, or Erdos Problem #97.
+Trust delta: may improve C19 certificate understanding. The all-order
+fixed-pattern obstruction is already exact if the stored Z3 certificate
+replays, but this may not promote any `n >= 9` finite case or Erdos Problem
+#97.
 
 Forbidden overclaiming text:
 
-- "C19_skew is impossible"
-- "all cyclic orders of C19 are killed"
+- "C19_skew proves Erdos #97"
+- "all C19-like patterns are impossible"
 - "this closes the frontier"
 
 ## Task CB-82 - Attack n=9 Base-Apex Low-Excess Ledgers

@@ -87,8 +87,10 @@ Safe claim:
 This fixed order of this fixed selected-witness pattern is impossible.
 ```
 
-Unsafe claim:
+All-order follow-up:
 
 ```text
-Do not claim an all-order C19_skew obstruction.
+The fixed abstract C19_skew pattern is now killed across all cyclic orders by
+data/certificates/c19_skew_all_orders_kalmanson_z3.json; see
+docs/kalmanson-two-order-search.md.
 ```

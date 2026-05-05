@@ -83,8 +83,29 @@ artifacts:
       status: EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER
       weight_sum: 2
     forbidden_claims:
-      - all cyclic orders of C19 are killed
-      - C19_skew is impossible
+      - this fixed-order certificate alone kills all cyclic orders
+      - C19_skew proves Erdos Problem #97
+      - general proof of Erdos Problem #97
+
+  - id: c19_all_orders_kalmanson_z3
+    path: data/certificates/c19_skew_all_orders_kalmanson_z3.json
+    kind: smt_certificate_artifact
+    generator: scripts/check_kalmanson_two_order_z3.py
+    command: python scripts/check_kalmanson_two_order_z3.py --certificate data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: SMT_EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN
+    claim_scope: All-order obstruction for one fixed abstract C19 selected-witness pattern only.
+    json_top_level_type: object
+    expected_json:
+      pattern.name: C19_skew
+      status: EXACT_ALL_ORDER_TWO_INEQUALITY_KALMANSON_OBSTRUCTION
+      trust: SMT_EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN
+      solver_result: unsat
+      forbidden_clause_count: 7981
+    forbidden_claims:
+      - C19_skew proves Erdos Problem #97
+      - all sparse patterns are impossible
       - general proof of Erdos Problem #97
 
   - id: c13_fixed_order_two_kalmanson

@@ -137,32 +137,42 @@ Acceptance standard: a reusable lemma should state precise incidence/order
 hypotheses and produce a self-edge or strict cycle without enumerating all n=9
 selected-witness assignments.
 
-## Priority 7 - keep the frontier separate
+## Priority 7 - review the C19 all-order Kalmanson SMT certificate
 
-Keep `n >= 9`, abstract `C19_skew`, and broader SAT/SMT work separate from the
-small-case claim. The compact round-two Kalmanson certificate kills one fixed
-`C19_skew` cyclic order with two strict inequalities, not the abstract pattern
-over all orders. These are
-research-frontier workstreams, not prerequisites for the repo-local `n <= 8`
-artifact.
+Target: `data/certificates/c19_skew_all_orders_kalmanson_z3.json` and
+`scripts/check_kalmanson_two_order_z3.py`.
 
-The C13 pilot has now been pushed through an exact all-order avoidance search.
-Next exact frontier step: attempt the same inverse-pair search strategy on
-`C19_skew`, or extract a smaller family of unavoidable inverse-pair templates
-before attempting a full C19 cyclic-order search.
+The C19 sparse fixed-pattern lead is now killed across all cyclic orders by a
+Z3 refinement certificate. Keep this separate from the small-case claim and
+from the global Erdos #97 status.
 
-## Priority 8 - extend the two-certificate search beyond C13
+Review checklist:
 
-The C13 Sidon pattern is now killed across all cyclic orders by an exact
-two-inequality Kalmanson inverse-pair search. Use it as the benchmark for the
-larger sparse frontier:
+- every stored forbidden ordered-quadrilateral pair is validated as a genuine
+  inverse pair of Kalmanson row vectors after selected-distance quotienting;
+- label `0` at position `0` is only a cyclic-order representation choice, not a
+  hidden loss of cases;
+- the Z3 constraints encode exactly "not both ordered quadrilaterals occur";
+- replaying the stored clauses gives UNSAT without relying on the refinement
+  search history;
+- the claim remains scoped to the fixed abstract `C19_skew` selected-witness
+  pattern.
 
-- try bounded `C19_skew` avoidance searches and record whether long survivor
-  prefixes exist;
-- classify the inverse-pair templates that prune C13, especially templates that
-  also appear in C19 random or registered orders;
-- only attempt a full C19 all-order replay after the prefix search has a
-  credible pruning story.
+Acceptance standard: a reviewer should either accept the certificate as an
+exact all-order obstruction for fixed abstract `C19_skew`, or identify a
+specific encoding or verifier gap.
+
+## Priority 8 - extend the two-certificate search beyond retired sparse leads
+
+The C13 Sidon pattern and C19 skew pattern are now both killed across all cyclic
+orders by exact two-inequality Kalmanson inverse-pair methods. Use them as
+benchmarks for the larger frontier:
+
+- classify the inverse-pair templates that prune C13 and C19;
+- test whether the same templates appear in any newly mined sparse incidence
+  patterns;
+- look for a bridge from arbitrary selected-witness counterexamples to a
+  classified family where Kalmanson/SMT certificates can be applied.
 
 ## Priority 9 - strengthen only productive filters
 
