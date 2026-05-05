@@ -38,6 +38,12 @@ equal-distance algebra kills the other 14. See
 External independent review remains recommended before public theorem-style
 claims.
 
+For the general bridge problem, minimality now gives a small proved foothold:
+every minimal counterexample admits a partial fragile-cover witness system made
+from exact critical 4-ties. This is necessary structure only; the block-6
+abstract family shows that fragile-cover hypergraph constraints alone are too
+weak. See `docs/minimal-fragile-cover-bridge.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

@@ -117,6 +117,11 @@ local_repo:
       status: "one fixed order survives current lightweight filters and is a stress test for stronger exactification"
       artifact: "data/certificates/c25_c29_sparse_frontier_probe.json"
       claim_scope: "fixed-order diagnostic only; surviving filters is not evidence of geometric realizability"
+  notable_bridge_lemmas:
+    - name: "minimal_fragile_cover_bridge"
+      status: "proved necessary structure for a minimal counterexample"
+      document: "docs/minimal-fragile-cover-bridge.md"
+      claim_scope: "partial bridge theorem only; not a contradiction, not the open ear-orderable bridge, and not a proof of Erdos #97"
   best_numerical_object: "B12_3x4_danzer_lift near-miss; rejected as proof/counterexample."
   main_entry_points:
     - "STATE.md"
@@ -127,6 +132,7 @@ local_repo:
     - "docs/n8-geometric-proof.md"
     - "docs/round2/round2_merged_report.md"
     - "docs/phi4-rectangle-trap.md"
+    - "docs/minimal-fragile-cover-bridge.md"
     - "docs/reproduction-log.md"
     - "docs/verification-contract.md"
 

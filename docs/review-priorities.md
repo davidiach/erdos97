@@ -178,6 +178,26 @@ benchmarks for the larger frontier:
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 
+## Priority 8b - strengthen the fragile-cover bridge
+
+Target: `docs/minimal-fragile-cover-bridge.md` and
+`src/erdos97/fragile_hypergraph.py`.
+
+Minimality proves that every minimal counterexample has a fragile-cover
+witness system, but the block-6 abstract family shows the current hypergraph
+axioms are too weak. The next useful bridge work is to add a geometric
+condition that the block-6 family does not automatically satisfy:
+
+- dependency-cycle restrictions for the witness map `pi`;
+- critical-radius ordering or deletion-dependency inequalities;
+- exact row-circle constraints on the fragile rows;
+- interaction between fragile-cover rows and stuck-set/ear-orderability
+  failures.
+
+Acceptance standard: a strengthened bridge should be stated as a necessary
+condition for minimal counterexamples and should reject at least one abstract
+fragile-cover family that passes the current pairwise/crossing checks.
+
 ## Priority 9 - strengthen only productive filters
 
 The minimum-radius short-chord filter in `docs/minimum-radius-filter.md` is a
