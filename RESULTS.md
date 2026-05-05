@@ -313,8 +313,9 @@ Interpretation:
 
 The runs do not produce a near-miss counterexample. The equality residual stays
 large in normalized coordinates and is best read as a plateau in the SLSQP basin,
-not as an exact obstruction. The pattern remains an `INCIDENCE_PATTERN`, and the
-run artifacts are `NUMERICAL_EVIDENCE` only. See `docs/sidon-patterns.md` and
+not as an exact obstruction. The fixed abstract pattern is now retired by the
+all-order Kalmanson search; these older run artifacts are
+`NUMERICAL_EVIDENCE` only. See `docs/sidon-patterns.md` and
 `data/runs/C13_sidon_m{1e-3,1e-4,1e-5,1e-6}.json`.
 
 ### B12_3x4_danzer_lift

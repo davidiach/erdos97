@@ -3,6 +3,10 @@ claim_scope: >
   Manifest for generated or generator-owned artifacts. This is provenance and
   edit-policy metadata only; it does not prove Erdos Problem #97 and does not
   claim a counterexample.
+path_convention: >
+  New generated checked artifacts live under data/certificates/. The top-level
+  certificates/ directory is legacy/path-stable space for early n=8 artifacts
+  and manual templates retained at their historical paths.
 
 artifacts:
   - id: n8_reconstructed_survivors
@@ -49,7 +53,7 @@ artifacts:
     claim_scope: Repo-local n=8 compatible cyclic-order audit data.
     json_top_level_type: object
     forbidden_claims:
-      - independent external review
+      - external independent review has been completed
       - general proof of Erdos Problem #97
 
   - id: n8_exact_analysis

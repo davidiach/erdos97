@@ -29,6 +29,10 @@ JSON_TOP_LEVEL_TYPES = {
     "object": dict,
     "list": list,
 }
+AMBIGUOUS_FORBIDDEN_CLAIMS = {
+    "external independent review",
+    "independent external review",
+}
 
 
 def repo_path(raw_path: str) -> Path:
@@ -141,6 +145,12 @@ def validate_artifact(
         for phrase in forbidden_claims:
             if not isinstance(phrase, str) or not phrase.strip():
                 errors.append(f"{label}.forbidden_claims entries must be nonempty strings")
+                continue
+            if phrase.strip().lower() in AMBIGUOUS_FORBIDDEN_CLAIMS:
+                errors.append(
+                    f"{label}.forbidden_claims entry {phrase!r} is ambiguous; "
+                    "name a false completed-review claim instead"
+                )
 
     if payload is not None:
         errors.extend(validate_json_payload(artifact, payload, label))

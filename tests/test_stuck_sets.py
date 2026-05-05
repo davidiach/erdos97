@@ -10,6 +10,7 @@ from erdos97.stuck_sets import (
     optimize_radius_choice_edges,
     pattern_filter_snapshot,
     radius_propagation_obstruction,
+    radius_result_to_json,
     radius_choice_optimization_to_json,
     result_to_json,
 )
@@ -77,6 +78,7 @@ def test_all_other_pentagon_has_complete_no_stuck_certificate() -> None:
     result = find_minimal_stuck_sets(S)
     shifted = find_minimal_stuck_sets(S, min_size=5)
     radius = radius_propagation_obstruction(S)
+    radius_payload = radius_result_to_json(radius)
     fragile = fragile_cover_snapshot(S)
 
     assert not result.found
@@ -85,6 +87,9 @@ def test_all_other_pentagon_has_complete_no_stuck_certificate() -> None:
     assert shifted.search_complete
     assert shifted.key_peeling_ok is None
     assert radius.obstructed is True
+    assert radius_payload["type"] == "stuck_radius_propagation_short_chord_result"
+    assert radius_payload["radius_propagation_status"] == "EXACT_RADIUS_PROPAGATION_OBSTRUCTION"
+    assert radius_payload["edge_direction"] == "center -> smaller_center means r_smaller_center < r_center"
     assert fragile["cover_stats"]["cover_exists"] is True
     assert fragile["cover_stats"]["min_cover_size"] == 2
 

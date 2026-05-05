@@ -140,12 +140,11 @@ numerics are consistent with one.
 
 ## What this is not
 
-- It is not a proof of abstract-order non-realisability. Twenty SLSQP
-  restarts in a particular polar basin do not exhaust the configuration
-  space, and the exact Altman certificate currently applies only to the
-  natural label order.
-- It is not a counterexample to anything. The pattern is INCIDENCE_PATTERN;
-  the run is NUMERICAL_EVIDENCE.
+- It is not the proof of abstract-order non-realisability. The later
+  Kalmanson two-certificate order search supplies that exact obstruction;
+  these numerical runs are retained only as historical diagnostics.
+- It is not a counterexample to anything. The fixed abstract C13 pattern is
+  now an exact fixed-pattern obstruction; the run is NUMERICAL_EVIDENCE.
 - It is not an all-order verdict on `C25_sidon_2_5_9_14` or
   `C29_sidon_1_3_7_15`. Later fixed-order diagnostics killed one C25 order by
   vertex-circle and Altman filters and one C29 order by a full

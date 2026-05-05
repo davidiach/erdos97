@@ -108,7 +108,15 @@ class RadiusChoice:
 
 
 @dataclass(frozen=True)
-class RadiusPropagationResult:
+class StuckRadiusPropagationResult:
+    """Stuck-set radius diagnostic.
+
+    This intentionally uses center -> smaller-center edges, the reverse of the
+    min_radius_filter JSON convention. Cycle existence is unchanged by a global
+    reversal, but the serializer exposes both the local and normalized status
+    vocabulary to keep downstream artifacts auditable.
+    """
+
     n: int
     order: list[int]
     status: str
@@ -117,6 +125,9 @@ class RadiusPropagationResult:
     node_limit: int
     acyclic_choice: list[RadiusChoice] | None
     choices_by_center: list[list[RadiusChoice]]
+
+
+RadiusPropagationResult = StuckRadiusPropagationResult
 
 
 @dataclass(frozen=True)
@@ -437,7 +448,7 @@ def radius_propagation_obstruction(
     S: Pattern,
     order: Sequence[int] | None = None,
     node_limit: int = 100_000,
-) -> RadiusPropagationResult:
+) -> StuckRadiusPropagationResult:
     """Search for an acyclic assignment of short-chord radius inequalities.
 
     A strict directed cycle among selected radii is impossible.  The filter is
@@ -522,7 +533,7 @@ def radius_propagation_obstruction(
         obstructed = True
         acyclic_choice = None
 
-    return RadiusPropagationResult(
+    return StuckRadiusPropagationResult(
         n=n,
         order=order,
         status=status,
@@ -534,14 +545,25 @@ def radius_propagation_obstruction(
     )
 
 
-def radius_result_to_json(result: RadiusPropagationResult) -> dict[str, object]:
+def _normalized_radius_status(status: str) -> str:
+    return {
+        "PASS_ACYCLIC_CHOICE": "PASS_RADIUS_PROPAGATION",
+        "UNKNOWN_NODE_LIMIT": "UNKNOWN_RADIUS_PROPAGATION_NODE_LIMIT",
+        "RADIUS_CYCLE_OBSTRUCTED": "EXACT_RADIUS_PROPAGATION_OBSTRUCTION",
+    }.get(status, status)
+
+
+def radius_result_to_json(result: StuckRadiusPropagationResult) -> dict[str, object]:
     """Return a JSON-serializable radius propagation result."""
 
     return {
-        "type": "radius_propagation_short_chord_result",
+        "type": "stuck_radius_propagation_short_chord_result",
+        "status_schema": "stuck_sets.v1",
+        "edge_direction": "center -> smaller_center means r_smaller_center < r_center",
         "n": result.n,
         "order": result.order,
         "status": result.status,
+        "radius_propagation_status": _normalized_radius_status(result.status),
         "obstructed": result.obstructed,
         "explored_nodes": result.explored_nodes,
         "node_limit": result.node_limit,
@@ -749,6 +771,8 @@ def radius_choice_optimization_to_json(
 
     return {
         "type": "radius_choice_edge_optimization_result",
+        "status_schema": "stuck_sets.radius_choice_optimization.v1",
+        "edge_direction": "center -> smaller_center means r_smaller_center < r_center",
         "n": result.n,
         "order": result.order,
         "objective": result.objective,

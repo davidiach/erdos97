@@ -76,6 +76,15 @@ def test_catalog_json_contains_sidon_entries() -> None:
         assert name in names
 
 
+def test_catalog_metadata_decorates_built_in_patterns() -> None:
+    pats = built_in_patterns()
+
+    assert pats["C13_sidon_1_2_4_10"].trust == "EXACT_OBSTRUCTION"
+    assert pats["C13_sidon_1_2_4_10"].lifecycle == "retired_all_order_obstruction"
+    assert "exactly killed across all cyclic orders" in pats["C13_sidon_1_2_4_10"].status
+    assert pats["C29_sidon_1_3_7_15"].lifecycle == "fixed_order_diagnostic"
+
+
 def test_relabel_pattern_by_cyclic_order_preserves_fixed_order_filters() -> None:
     pat = built_in_patterns()["C13_sidon_1_2_4_10"]
     order = [5, 0, 10, 8, 9, 7, 4, 6, 2, 11, 12, 3, 1]

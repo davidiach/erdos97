@@ -26,6 +26,7 @@ import dataclasses
 import json
 import math
 import time
+from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
@@ -44,6 +45,9 @@ class PatternInfo:
     family: str = ""
     formula: str = ""
     notes: str = ""
+    status: str = ""
+    trust: str = ""
+    lifecycle: str = ""
     source_pattern_name: str = ""
     cyclic_order: Optional[List[int]] = None
 
@@ -181,9 +185,44 @@ def relabel_pattern_by_cyclic_order(
         notes=(
             f"Relabelled from {pat.name} so supplied cyclic order is natural."
         ),
+        status=pat.status,
+        trust=pat.trust,
+        lifecycle=pat.lifecycle,
         source_pattern_name=pat.name,
         cyclic_order=list(order),
     )
+
+
+def _catalog_path() -> Path:
+    return Path(__file__).resolve().parents[2] / "data" / "patterns" / "candidate_patterns.json"
+
+
+def _apply_catalog_metadata(patterns: Dict[str, PatternInfo]) -> None:
+    """Decorate built-in patterns with source-of-truth catalog metadata when available."""
+
+    path = _catalog_path()
+    try:
+        rows = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return
+    if not isinstance(rows, list):
+        return
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        name = row.get("name")
+        if not isinstance(name, str) or name not in patterns:
+            continue
+        pattern = patterns[name]
+        status = row.get("status")
+        trust = row.get("trust")
+        lifecycle = row.get("lifecycle")
+        if isinstance(status, str):
+            pattern.status = status
+        if isinstance(trust, str):
+            pattern.trust = trust
+        if isinstance(lifecycle, str):
+            pattern.lifecycle = lifecycle
 
 
 def built_in_patterns() -> Dict[str, PatternInfo]:
@@ -208,7 +247,9 @@ def built_in_patterns() -> Dict[str, PatternInfo]:
     pats.append(circulant_pattern(13, [1, 2, 4, 10], "C13_sidon_1_2_4_10"))
     pats.append(circulant_pattern(25, [2, 5, 9, 14], "C25_sidon_2_5_9_14"))
     pats.append(circulant_pattern(29, [1, 3, 7, 15], "C29_sidon_1_3_7_15"))
-    return {p.name: p for p in pats}
+    by_name = {p.name: p for p in pats}
+    _apply_catalog_metadata(by_name)
+    return by_name
 
 
 # -------------------------- geometry and diagnostics -------------------------
@@ -943,6 +984,15 @@ def main() -> None:
         for p in pats.values():
             stats = incidence_obstruction_stats(p.S)
             print(f"{p.name}: n={p.n}, family={p.family}, formula={p.formula}")
+            metadata = []
+            if p.trust:
+                metadata.append(f"trust={p.trust}")
+            if p.lifecycle:
+                metadata.append(f"lifecycle={p.lifecycle}")
+            if metadata:
+                print(f"  metadata: {', '.join(metadata)}")
+            if p.status:
+                print(f"  status: {p.status}")
             print(f"  stats: max_common={stats['max_common_selected_neighbors']}, indeg=[{stats['indegree_min']},{stats['indegree_max']}], cluster_gap_mean={stats['max_cluster_gap_mean']:.2f}")
         return
 

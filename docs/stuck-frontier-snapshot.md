@@ -4,7 +4,7 @@ Status: exact fixed-selection diagnostics plus bounded search windows. No
 general proof and no counterexample are claimed.
 
 This note records the first pass of the fixed-selection stuck-set miner on the
-currently live sparse frontier:
+sparse frontier benchmarks that were live when this diagnostic was written:
 
 - `C19_skew`
 - `C13_sidon_1_2_4_10`
@@ -86,6 +86,9 @@ incidence-level covers of sizes `4` and `7`, respectively. `C25` and `C29` have
 no cover through the first nontrivial windows checked, but those are bounded
 negative results only.
 
-The useful conclusion is narrower: the live sparse/Sidon patterns remain a
-good target for a new sparse-overlap exact filter. The current two-overlap,
-minimum-radius, and radius-propagation filters do not see them.
+The useful conclusion is narrower: these sparse/Sidon patterns remain good
+benchmarks for sparse-overlap exact filters. Later Kalmanson certificates retire
+the fixed abstract `C19_skew` and `C13_sidon_1_2_4_10` patterns, and a separate
+fixed-order certificate retires the tested C29 order; the two-overlap,
+minimum-radius, and radius-propagation filters themselves do not see those
+obstructions.
