@@ -14,7 +14,7 @@ Suppose phi(v_i) = phi(v_j) = (p, q) for distinct bad vertices v_i, v_j. Then:
 - (p, q) is the smallest-angular-gap pair in S_i(r_i) at v_i (gap 2*theta_i)
 - (p, q) is the smallest-angular-gap pair in S_j(r_j) at v_j (gap 2*theta_j)
 - By L6: v_iv_j perp pq
-- By L5: |S_i(r_i) ∩ S_j(r_j)| ≤ 2, hence the additional witnesses x_1, x_2 (in S_i \ S_j) 
+- By L5: |S_i(r_i) ∩ S_j(r_j)| ≤ 2, hence the additional witnesses x_1, x_2 (in S_i \ S_j)
   and y_1, y_2 (in S_j \ S_i) are all distinct from p, q and from each other.
 
 ### Forced angular constraints
@@ -41,7 +41,7 @@ Computational evidence (broad parameter sweep):
 | 6-vertex hull check (asymmetric, full sweep) | 168,725 | 454 (~0.27%) |
 | 8-vertex {full skeleton} hull check (full sweep) | 287,208 | 0 |
 
-**Conclusion of computational analysis:** 
+**Conclusion of computational analysis:**
 Out of 287,208 parameter combinations (theta in (0, pi/6), phi_i in valid angular ranges,
 r_j in [0.3, 3.0], etc.) satisfying ALL the canonical-chord constraints, ZERO produced
 a configuration where all 8 of {v_i, v_j, p, q, x_1, x_2, y_1, y_2} are vertices of their
@@ -82,17 +82,17 @@ A complete analytic proof would require analyzing all four cases (each x and eac
 ## 2. Computational test on n=8 survivors
 
 The 15 reconstructed n=8 incidence patterns (from data/incidence/n8_reconstructed_15_survivors.json)
-are KNOWN-UNREALIZABLE as strictly convex polygons (via §4.1 orthocenter obstruction etc.). 
+are KNOWN-UNREALIZABLE as strictly convex polygons (via §4.1 orthocenter obstruction etc.).
 Hence the canonical chord rule cannot be DIRECTLY computed on them: there's no geometry.
 
-We attempted least-squares realizations: each survivor optimizes to error ~ 1e-16 with NON-CONVEX 
-realizations, where indeed phi has collisions and crossings. This is consistent: in non-convex 
-realizations, the canonical chord rule fails, but in strictly convex polygons (which don't exist 
+We attempted least-squares realizations: each survivor optimizes to error ~ 1e-16 with NON-CONVEX
+realizations, where indeed phi has collisions and crossings. This is consistent: in non-convex
+realizations, the canonical chord rule fails, but in strictly convex polygons (which don't exist
 for these patterns) it would succeed.
 
 ## 3. Computational test on near-bad random polygons
 
-Tested 1,935 random convex polygons with relaxed tolerance to simulate "approximate bad" vertices 
+Tested 1,935 random convex polygons with relaxed tolerance to simulate "approximate bad" vertices
 (where M(i) is close to 4 within tolerance):
 
 | Outcome | Count | Percentage |
@@ -103,7 +103,7 @@ Tested 1,935 random convex polygons with relaxed tolerance to simulate "approxim
 
 The non-injectivity at LOOSE tolerance is expected: lumping multiple distance classes into one
 fuzzy class will produce S_i(r_i) sets that include "almost-cocircular" vertices, breaking the
-exact cocircularity that L4-L8 require. With actual EXACT cocircularity (small tolerance), only 
+exact cocircularity that L4-L8 require. With actual EXACT cocircularity (small tolerance), only
 genuinely-bad configurations would arise — but those don't exist in random convex polygons.
 
 The crossing result is striking: **even with collisions, no crossings**. This suggests:
@@ -111,8 +111,8 @@ The crossing result is striking: **even with collisions, no crossings**. This su
 ## 4. Noncrossing analysis
 
 The canonical-chord-rule chord set appears to be ALWAYS noncrossing (zero failures in 1,935 tests
-including the 1,530 with collisions). This makes sense geometrically: each chord is "short" 
-(under r_i, by short-base lemma) and lies near one bad vertex. Two short chords at different 
+including the 1,530 with collisions). This makes sense geometrically: each chord is "short"
+(under r_i, by short-base lemma) and lies near one bad vertex. Two short chords at different
 vertices have limited geometric room to cross.
 
 A potential proof of noncrossing:
@@ -137,7 +137,7 @@ A potential proof of noncrossing:
    - Complete analytic proof for asymmetric kites (extend the symmetric proof, or use a different
      argument such as monotonicity of distances).
    - Formalize the noncrossing argument.
-   - Address edge cases: what if multiple bad vertices share TWO common cocircular witnesses but 
+   - Address edge cases: what if multiple bad vertices share TWO common cocircular witnesses but
      not the chord pair (p, q)? (Likely covered, but needs careful case analysis.)
 
 4. **If both injectivity + noncrossing are proven**, the Selection Lemma yields:
@@ -154,4 +154,3 @@ A potential proof of noncrossing:
 - proof_attempt.py, proof_attempt2.py, proof_complete.py: analytic + numerical proofs
 - finalize.py, finalize2.py: comprehensive parameter sweeps
 - noncrossing.py: noncrossing verification
-

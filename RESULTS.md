@@ -218,9 +218,10 @@ variants whose symmetry conventions need separate review. See
 `data/certificates/n9_vertex_circle_exhaustive.json`, and
 `incoming/archive-output-2026-05-03/`.
 
-### Review-pending second-source proof: n=8 and n=9 Gröbner basis
+### Review-pending n=8 proof and n=9 Gröbner pruning
 
-Status: `MACHINE_CHECKED_ALGEBRAIC_PROOF_REVIEW_PENDING`.
+Status: `MACHINE_CHECKED_ALGEBRAIC_PROOF_REVIEW_PENDING` for `n=8`;
+`PARTIAL_EXACT_PRUNING_REVIEW_PENDING` for `n=9`.
 
 The 2026-05-05 multi-agent attack (see `docs/erdos97-attack-2026-05-05.md`)
 adds an independent algebraic-geometry verification at n=8 and n=9 using
@@ -238,22 +239,18 @@ Gröbner-basis-only proof of n=8 (≈3.4 s wall-clock total). Artifact:
 For n=9 (184 surviving witness assignments collapsed to 16 dihedral
 families): 11 of 16 families (150 / 184 labelled assignments) have
 grevlex Gröbner basis equal to {1}. Family F12 (orbit 18) has a Gröbner
-generator `y_8^2 + 1/4 = 0` ruling out real solutions. Families F07, F08,
-F09, F13 (orbit total 16) have nontrivial zero-dimensional ideals; every
-real solution sympy returns has 5+ vertices coinciding, reducing to only
-4 distinct points `{(0,0), (1,0), (±1/2, ±sqrt(3)/2)}` — no
-non-degenerate Euclidean realization. Combined: all 184 labelled n=9
-assignments are unrealizable as strictly-convex 9-gons by algebraic
-geometry alone (≈32 s wall-clock total). Artifact:
+generator `y_8^2 + 1/4 = 0` ruling out real solutions. These committed
+artifacts therefore exactly kill 168 / 184 labelled assignments. Families
+F07, F08, F09, F13 (orbit total 16) have nontrivial zero-dimensional ideals;
+the exploratory notes report only degenerate real solutions, but this PR does
+not yet include replayable real-root / non-degeneracy decoders for those
+families. Artifact:
 `data/certificates/2026-05-05/n9_groebner_results.json`.
 
 This complements the existing vertex-circle filter — which independently
-kills all 184 n=9 patterns by geometric strict-monotonicity arguments —
-and gives the n=9 selected-witness result two-source verification. The
-overall n=9 finite case is the strongest multi-source local result in
-this repository, conditional on independent reviewer audit of both the
-vertex-circle implementation and the Gröbner real-root / non-degeneracy
-decoders.
+kills all 184 n=9 patterns by geometric strict-monotonicity arguments — but
+does not yet give a complete algebraic second-source proof. The remaining
+F07/F08/F09/F13 decoders are explicit follow-up audit targets.
 
 ### Review-pending n=10 vertex-circle singleton-slice draft
 

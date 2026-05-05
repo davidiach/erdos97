@@ -33,17 +33,18 @@ The official/global status of Erdős #97 (erdosproblems.com/97, last edited
      strict convexity around their centroid.
    Total Gröbner wall-clock: 3.4 s.
    Univariate elimination polynomial for class 14 (in the chosen gauge):
-   `y_7^4 - (7/2) y_7^2 + 1/16 = 0`, roots `y_7 ∈ {±1, ±√3/2}`.
+   `y_7^4 - (7/2) y_7^2 + 1/16 = 0`, with roots
+   `y_7 = ±(1 + sqrt(3)/2), ±(1 - sqrt(3)/2)`.
    This gives a **second, independent, machine-checked proof that no
    strictly-convex 4-bad 8-gon exists**, complementing the existing
    incidence-completeness + perpendicular-bisector / collinearity certificate
    at `docs/n8-exact-survivors.md`.
    Artifact: `data/certificates/2026-05-05/n8_groebner_results.json`.
 
-3. **Independent Gröbner basis verification at n = 9: ALL 184 patterns
-   unrealizable as strictly-convex 9-gons.** The 184 selected-witness
-   assignments collapse into 16 dihedral families. The Gröbner basis
-   stratification:
+3. **Independent Gröbner basis verification at n = 9: partial exact
+   pruning, with decoder follow-up needed.** The 184 selected-witness
+   assignments collapse into 16 dihedral families. The committed Gröbner
+   artifacts currently provide the following review-pending stratification:
    - 11 / 16 families (150 / 184 labelled assignments): grevlex GB = {1}.
      No complex solutions, no real solutions, no Euclidean realization.
    - 1 / 16 (F12, orbit 18, covering 18 assignments): grevlex GB has 14
@@ -51,19 +52,17 @@ The official/global status of Erdős #97 (erdosproblems.com/97, last edited
      Real-root infeasibility is immediate: `y_8 = ±i/2` has no real
      value, so no real solutions exist.
    - 4 / 16 (F07, F08, F09, F13; orbits 6, 2, 6, 2; total 16 assignments):
-     grevlex GB has 62 generators each. `sympy.solve` finds 20 real
-     solutions per family; every solution has 5+ vertices coinciding,
-     reducing to only 4 distinct points `{(0,0), (1,0), (±1/2, ±√3/2)}`,
-     so no non-degenerate Euclidean realization is possible — let alone a
-     strictly-convex 9-gon.
+     grevlex GB has 62 generators each. The exploratory run notes report
+     that `sympy.solve` finds only degenerate real solutions, but this PR
+     does not yet include replayable real-root / non-degeneracy decoders for
+     those four families.
 
-   **Combined: all 184 labelled n = 9 assignments are unrealizable as
-   strictly-convex 9-gons by algebraic geometry alone (≈32 s wall-clock in
-   pure sympy).** This is an independent, machine-checked, second-source
-   proof of the n = 9 finite case, complementing the vertex-circle filter
-   (which independently kills all 184 via geometric strict-monotonicity).
-   Total Gröbner wall-clock at n = 9: ~19 s for grevlex; ~13 s for the
-   real-root / non-degeneracy decoders.
+   **Combined: the committed n = 9 Gröbner artifacts exactly kill 168 / 184
+   labelled assignments** (150 by GB = {1}, 18 by F12's no-real univariate
+   relation) and leave 16 labelled assignments in F07/F08/F09/F13 needing a
+   replayable decoder or certificate before the algebraic route can be called
+   a second-source proof of the full n = 9 finite case. The vertex-circle
+   filter remains the current complete n = 9 review-pending obstruction.
    Artifact: `data/certificates/2026-05-05/n9_groebner_results.json`.
 
 4. **Bridge Lemma A' computational consistency at n = 8 and n = 9.** Of the
@@ -206,7 +205,7 @@ The official/global status of Erdős #97 (erdosproblems.com/97, last edited
 | ≤ 6 | Direct (§3.1, §3.2)     | trivial                   | proved |
 | 7   | Fano parity (§3.3)      | trivial                   | proved |
 | 8   | Incidence-completeness + cyclic-order + perp-bisector / collinearity (15 classes) | **GB = {1} for 14 / 15; one zero-dim variety with 4 real configs all failing strict convexity** | proved (multi-source) |
-| 9   | Vertex-circle + L4 + L5 + L6-crossing (184 → 0) | **All 184 unrealizable: GB = {1} for 150; F12 has `y₈² + 1/4 = 0` (no real); F07/F08/F09/F13 have real solutions but only 4 distinct points (degenerate)** | proved-locally (multi-source, review-pending) |
+| 9   | Vertex-circle + L4 + L5 + L6-crossing (184 → 0) | **GB = {1} for 150; F12 has `y₈² + 1/4 = 0` (no real); F07/F08/F09/F13 remain decoder/certificate follow-up** | vertex-circle proved-locally (review-pending); Gröbner partial |
 | 10  | Vertex-circle singleton slices (0 surviving, 4.1M nodes); independent secondary checker matches bit-for-bit on tested rows | n/a (no surviving system to feed) | proved-locally (review-pending) |
 | 11  | Single row-0 singleton: 0 full assignments after 300 s timeout × 8 row 0's tested | n/a | exploratory only |
 | ≥ 12 | open                  | open                      | open   |
@@ -251,11 +250,12 @@ The official/global status of Erdős #97 (erdosproblems.com/97, last edited
 
 ## Suggested next steps (ranked)
 
-1. **Promote the n = 9 selected-witness result to source-of-truth status,
-   conditional on independent reviewer audit.** The audit in this report
-   found no soundness defects in the vertex-circle exhaustive checker.
-   The Gröbner basis attack independently kills 150 / 184 patterns, so
-   the n = 9 finite-case result is now multi-source verified.
+1. **Audit the n = 9 selected-witness result before any promotion.** The
+   audit in this report found no soundness defects in the vertex-circle
+   exhaustive checker. The Gröbner basis attack independently kills 168 / 184
+   labelled assignments, so it is useful corroboration, but it is not yet a
+   complete second-source proof until F07/F08/F09/F13 get replayable
+   real-root / non-degeneracy decoders.
 
 2. **Independently audit the Gröbner attack at n = 9.** All 5
    nontrivial families (F07, F08, F09, F12, F13) admit short-form
@@ -292,17 +292,17 @@ The official/global status of Erdős #97 (erdosproblems.com/97, last edited
     Gröbner-basis-only proof (no convexity-specific filter required for
     14 of 15 classes; class 14 needs a real-root + strict-convexity
     check, both explicit).
-  - n = 9 selected-witness 4-bad polygon non-existence has multi-source
-    verification: vertex-circle filter kills all 184 (geometric); Gröbner
-    basis + real-root + non-degeneracy kills all 184 independently
-    (algebraic).
+  - n = 9 selected-witness 4-bad polygon non-existence remains a
+    vertex-circle review-pending finite-case artifact. The Gröbner route
+    independently kills 168 / 184 labelled assignments and leaves
+    F07/F08/F09/F13 as algebraic decoder/certificate follow-up.
 - `INCIDENCE_COMPLETENESS`: vertex-circle filter at n = 9, n = 10
   singleton-slice (audit confirms soundness).
-- `EXACT_OBSTRUCTION`: Gröbner-basis kills all 184 n = 9 selected-witness
+- `EXACT_OBSTRUCTION`: Gröbner-basis kills 168 / 184 n = 9 selected-witness
   assignments via GB = {1} (150) + univariate real-root infeasibility
-  (18 in F12: `y_8^2 + 1/4 = 0`) + non-degeneracy fail (16 in F07/F08/F09/F13:
-  every real solution coalesces to the 4 distinct points
-  `{(0,0), (1,0), (±1/2, ±√3/2)}`).
+  (18 in F12: `y_8^2 + 1/4 = 0`). The remaining 16 labelled assignments in
+  F07/F08/F09/F13 are `EXACTIFICATION` targets until a replayable decoder or
+  certificate is committed.
 - `EVIDENCE`: Bridge Lemma A' consistent with n = 8 and n = 9 ear-orderability
   data.
 - `EXACTIFICATION`: Q-L9 (scale-invariant near-cyclic deviation lower bound).
@@ -344,10 +344,10 @@ Erdős #97 problem. What it did produce:
   finding no soundness defects;
 - A second-source proof of the n = 8 finite case via Gröbner basis
   alone, with explicit algebraic certificates;
-- A second-source proof of the n = 9 finite case via Gröbner basis +
-  real-root infeasibility + non-degeneracy: all 184 surviving
-  selected-witness assignments are unrealizable as strictly-convex
-  9-gons in pure-algebraic terms, in ~32 s of sympy compute;
+- A partial second-source algebraic check of the n = 9 finite case:
+  168 / 184 labelled assignments are killed by the committed Gröbner
+  artifacts, while F07/F08/F09/F13 remain follow-up targets for replayable
+  real-root / non-degeneracy decoding;
 - Bit-for-bit cross-validation of the n = 10 singleton-slice artifact
   against an independent from-scratch reimplementation on the first 5
   row 0 choices;
@@ -359,8 +359,8 @@ Erdős #97 problem. What it did produce:
 - A literature confirmation that no new construction or partial result
   has been published since the prior repo sweep.
 
-The cumulative effect is to make the n ≤ 9 finite-case results
-**substantially more robust** than the prior n ≤ 8 single-source claim,
-and to identify two concrete attackable sub-steps for general n
-(mixed-side endpoint control, n = 9 three-cap rigid case). The
-official/global status of #97 is unchanged.
+The cumulative effect is to make the n = 8 finite-case result more robust and
+to provide useful, incomplete algebraic corroboration for the review-pending
+n = 9 finite-case pipeline. It also identifies two concrete attackable
+sub-steps for general n (mixed-side endpoint control, n = 9 three-cap rigid
+case). The official/global status of #97 is unchanged.
