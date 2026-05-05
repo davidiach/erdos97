@@ -208,6 +208,19 @@ The official/global status of Erdős #97 (erdosproblems.com/97, last edited
   in the time budget. The B12_3x4_danzer_lift cluster basin remains the
   closest documented numerical near-miss, and is exactly killed by the
   mutual-rhombus filter.
+
+- **First-order perturbation around regular n-gon** at n ∈ {12, 14, 16, 18,
+  20, 24}. For every choice of "chord-class merge" pair (k_1, k_2), the
+  linearised system has positive kernel-mod-rigid dimension (e.g. 12 free
+  parameters for n=24, (k_1, k_2)=(3, 9)), but Newton iteration on the
+  full nonlinear merge-equation system always converges to **degenerate
+  configurations** (vertex coalescence). A `D_m`-symmetric two-orbit
+  Danzer-style 2m-gon search at m ∈ {6, 7, 8, 9, 10, 12} finds no
+  inner-radius `r_b` solution to the merge equations inside the convex
+  window `(cos(π/m), 1/cos(π/m))`. The natural perturbation ansatz is
+  thus definitively ruled out for n ≤ 24. Memo:
+  `data/runs/2026-05-05/perturbation_analysis.py` and
+  `data/runs/2026-05-05/perturbation_results.json`.
 - **Direct attack on Bridge Lemma A'.** Combinatorial counting on stuck
   sets reproduces the |S| ≤ (n − |S|)(n − |S| − 1) bound from L4/L5 at
   n = 8, 9, 10, which does not rule out stuck sets of size 4. Pure
