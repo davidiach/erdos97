@@ -89,3 +89,11 @@ Run the targeted artifact test:
 ```bash
 python -m pytest tests/test_n9_vertex_circle_local_cores.py -q
 ```
+
+Replay the 16 local quotient certificates with the small proof-facing kernel:
+
+```bash
+python scripts/replay_vertex_circle_quotient.py \
+  data/certificates/n9_vertex_circle_local_cores.json \
+  --assert-expected
+```

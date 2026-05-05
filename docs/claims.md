@@ -162,6 +162,30 @@ The earlier 34-inequality certificate remains checked as provenance at
 See `docs/kalmanson-c13-pilot.md`, `docs/round2/kalmanson_distance_filter.md`,
 and `scripts/check_kalmanson_certificate.py`.
 
+### Fixed-order Kalmanson/Farkas obstruction for C29_sidon_1_3_7_15
+
+Status: `EXACT_OBSTRUCTION` for one fixed selected-witness pattern and one
+fixed cyclic order only.
+
+For the `C29_sidon_1_3_7_15` selected-witness pattern with offsets
+`[1,3,7,15]` and cyclic order
+
+```text
+[0,27,11,4,19,5,26,12,6,21,13,28,14,2,20,18,7,24,10,25,17,3,9,15,1,22,8,23,16]
+```
+
+the checked certificate
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json` gives a
+positive integer combination of 165 strict Kalmanson distance inequalities
+whose total coefficient vector is exactly zero after quotienting by the
+selected-distance equalities. Summing the strict inequalities gives `0 > 0`.
+
+This retires the fixed C29 order recorded as a stress test in
+`data/certificates/c25_c29_sparse_frontier_probe.json`. It is not an all-order
+obstruction for the abstract C29 Sidon selected-witness pattern, and it is not
+a proof of Erdos #97. Check it with
+`python scripts/check_kalmanson_certificate.py data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json --summary-json`.
+
 ## Lemmas
 
 ### Circle-intersection cap
@@ -362,6 +386,39 @@ For witnesses on a circle centered at that vertex, chord length is
 `2r sin(theta/2)` and is monotone while the angular separation is below `pi`.
 This supports endpoint and short-base reductions, but those reductions still
 need their global bridge claims.[^digest]
+
+### Low-angle ascent for middle witnesses
+
+Let `alpha_p` be the interior angle at a bad vertex `p`, and let
+`q_1,q_2,q_3,q_4` be a selected equidistant witness row in angular order around
+`p`. Write
+
+```text
+delta_1 = angle(q_1,p,q_2),
+delta_2 = angle(q_2,p,q_3),
+delta_3 = angle(q_3,p,q_4).
+```
+
+Because the witnesses lie on a circle centered at `p`, the inscribed-angle
+theorem gives
+
+```text
+angle(q_1,q_2,q_3) = pi - (delta_1 + delta_2)/2,
+angle(q_2,q_3,q_4) = pi - (delta_2 + delta_3)/2.
+```
+
+Convexity places the two chord rays used in each displayed angle inside the
+corresponding polygon interior angle, so
+
+```text
+alpha_{q_2} >= pi - (delta_1 + delta_2)/2,
+alpha_{q_3} >= pi - (delta_2 + delta_3)/2.
+```
+
+In particular, if `alpha_p < 2*pi/3`, then the two middle witnesses in any
+selected 4-row have strictly larger interior angle than `p`. This is a local
+angle-ascent lemma only; by itself it gives no global angle-sum contradiction
+for large polygons.
 
 ### Cyclic polygon subcase
 

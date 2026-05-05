@@ -2,7 +2,9 @@
 
 Trust labels: `EXACT_OBSTRUCTION` for the natural cyclic orders under Altman
 linear certificates, and for the fixed `C13_sidon_1_2_4_10` pattern across all
-cyclic orders under the Kalmanson two-certificate order search;
+cyclic orders under the Kalmanson two-certificate order search, and for one
+fixed `C29_sidon_1_3_7_15` cyclic order under the full Kalmanson/Farkas
+certificate;
 `NUMERICAL_EVIDENCE` for the SLSQP plateau. No general proof or counterexample
 claim.
 
@@ -42,8 +44,9 @@ to spare. The natural cyclic orders are now exactly killed by Altman linear
 certificates; see `data/certificates/altman_linear_certificate_sweep.json`.
 The fixed C13 abstract-order version is now exactly killed by the Kalmanson
 two-certificate order search. The C25 and C29 abstract-order versions remain
-incidence-pattern leads until a separate order search or exact filter kills
-them.
+incidence-pattern leads at the all-order level, but one recorded non-natural
+C29 order is now exactly killed by
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`.
 
 ## LLM-run provenance
 
@@ -143,9 +146,11 @@ numerics are consistent with one.
   natural label order.
 - It is not a counterexample to anything. The pattern is INCIDENCE_PATTERN;
   the run is NUMERICAL_EVIDENCE.
-- It is not a verdict on `C25_sidon_2_5_9_14` or `C29_sidon_1_3_7_15`.
-  Those pattern definitions are committed to the catalog but have not been
-  run; whether to run them is a follow-up decision after C13.
+- It is not an all-order verdict on `C25_sidon_2_5_9_14` or
+  `C29_sidon_1_3_7_15`. Later fixed-order diagnostics killed one C25 order by
+  vertex-circle and Altman filters and one C29 order by a full
+  Kalmanson/Farkas certificate, but neither result settles the corresponding
+  abstract Sidon pattern across all cyclic orders.
 
 ## Suggested next steps (not done in this PR)
 

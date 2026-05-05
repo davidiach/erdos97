@@ -157,12 +157,14 @@ settle the larger sparse frontier or prove Erdos #97.
 
 A later sparse-frontier probe tested the larger Sidon entries
 `C25_sidon_2_5_9_14` and `C29_sidon_1_3_7_15`. The C25 Kalmanson-filter
-survivor is exactly killed by vertex-circle and Altman filters. One fixed C29
-order survives the current lightweight fixed-order exact sweep, the
+survivor is exactly killed by vertex-circle and Altman filters. The recorded
+C29 order first survived the lightweight fixed-order exact sweep, the
 two-inequality Kalmanson inverse-pair search, the metric LP diagnostic, and a
-slow global Ptolemy NLP diagnostic; the row-circle Ptolemy diagnostic was too
-slow to complete. This makes the C29 order a stress test for stronger filters,
-not a counterexample candidate. See
+slow global Ptolemy NLP diagnostic, but it is now exactly killed by the
+165-inequality fixed-order Kalmanson/Farkas certificate
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`. This is
+still only a fixed selected-witness pattern plus fixed cyclic-order
+obstruction, not an all-order C29 result and not a counterexample claim. See
 [`data/certificates/c25_c29_sparse_frontier_probe.json`](data/certificates/c25_c29_sparse_frontier_probe.json)
 and [`docs/sparse-frontier-diagnostic.md`](docs/sparse-frontier-diagnostic.md).
 

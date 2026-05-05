@@ -113,7 +113,7 @@
     "n": 29,
     "formula": "offsets {1,3,7,15}",
     "type": "Sidon circulant",
-    "status": "natural-order status: exactly killed by Altman linear certificate; abstract-incidence status: Sidon sparse-overlap lead, not settled by current filters; D = {1,3,7,15} is Sidon: 12 pairwise differences distinct mod 29; |S_a cap S_b| in {0,1} for every a != b; defined for catalog completeness, not yet run numerically",
+    "status": "natural-order status: exactly killed by Altman linear certificate; one recorded non-natural fixed order is exactly killed by a 165-inequality Kalmanson/Farkas certificate; abstract all-order status remains unresolved; D = {1,3,7,15} is Sidon: 12 pairwise differences distinct mod 29; |S_a cap S_b| in {0,1} for every a != b",
     "trust": "INCIDENCE_PATTERN"
   }
 ]

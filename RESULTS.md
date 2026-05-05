@@ -178,6 +178,16 @@ contains a two-inequality inverse-pair obstruction. See
 `scripts/check_kalmanson_two_order_search.py`, and
 `data/certificates/c13_sidon_all_orders_kalmanson_two_search.json`.
 
+The C29 sparse-frontier fixed order
+`[0,27,11,4,19,5,26,12,6,21,13,28,14,2,20,18,7,24,10,25,17,3,9,15,1,22,8,23,16]`
+is killed by the exact certificate
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`. This is a
+positive integer sum of 165 strict Kalmanson distance inequalities whose total
+coefficient vector is exactly zero after quotienting by the selected-distance
+equalities for offsets `[1,3,7,15]`. It retires this one fixed-order stress
+test, but it is not an all-order obstruction for the abstract C29 Sidon pattern
+and not a proof of Erdos #97.
+
 The bounded `n=9` incidence/CSP frontier scan in
 `data/certificates/n9_incidence_frontier_bounded.json` fixes the natural order
 and row `0` to the registered seed row `{1,2,3,8}`. In that row0-fixed slice,
@@ -250,12 +260,13 @@ two-inequality Kalmanson inverse-pair obstruction, but the same order is
 exactly killed by vertex-circle and Altman filters.
 
 For `C29_sidon_1_3_7_15`, the refinement found one fixed cyclic order that
-survives the current lightweight fixed-order exact filter sweep and the
-two-inequality Kalmanson inverse-pair search. It also passes the metric-order
-LP and a slow global Ptolemy NLP diagnostic with positive margins. The
-row-circle Ptolemy NLP was too slow to complete interactively. This C29 order
-is a stress test for stronger filters only; it is not evidence of geometric
-realizability and not a counterexample claim.
+survived the lightweight fixed-order exact filter sweep and the two-inequality
+Kalmanson inverse-pair search. It also passed the metric-order LP and a slow
+global Ptolemy NLP diagnostic with positive margins. The row-circle Ptolemy NLP
+was too slow to complete interactively. The fixed order is now exactly killed
+by the separate 165-inequality Kalmanson/Farkas certificate
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`. The
+original probe remains useful as a record of which weaker filters failed.
 
 ## Numerical Attempts
 

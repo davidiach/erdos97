@@ -193,6 +193,19 @@ python scripts/check_vertex_circle_order_filter.py \
 The corresponding regression tests are in
 `tests/test_vertex_circle_order_filter.py`.
 
+For certificate-style replay without running a cyclic-order search, use the
+smaller quotient checker:
+
+```bash
+python scripts/replay_vertex_circle_quotient.py \
+  data/certificates/n9_vertex_circle_local_cores.json \
+  --assert-expected
+```
+
+This script rebuilds the selected-distance quotient and strict graph from the
+supplied rows and cyclic order. It is meant for small local certificates and
+audit fixtures, not for exhaustive enumeration.
+
 ## Caveats
 
 - This is a fixed selected-pattern obstruction, not a global proof.
