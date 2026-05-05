@@ -61,6 +61,17 @@ and exact-analysis artifacts as input data. It is an artifact-consistency and
 exact-obstruction audit entrypoint, not an independent regeneration of the full
 incidence enumeration.
 
+Partial SymPy-free independent cross-check:
+
+```bash
+python scripts/independent_n8_obstruction_recheck.py --check --json
+```
+
+This command independently replays the compatible cyclic-order counts, the
+class `12` cyclic-order kill, and the `y_2`-in-PB-span kill for ten classes
+using pure-Python rational arithmetic. It does not verify the Groebner-based
+classes `3`, `4`, `5`, or `14`.
+
 ## Priority 3 - isolate class 14
 
 Class `14` is the most delicate current survivor obstruction because it uses

@@ -11,7 +11,7 @@ theorem-style claim.
 
 Coverage:
 - Cyclic-order compatible-orbit count for every class (independent
-  enumeration; 11/11 expected counts confirmed).
+  enumeration; 15/15 expected counts confirmed).
 - Cyclic-order kill for class 12.
 - y_2-in-PB-span kill for classes 0, 1, 2, 6, 7, 8, 9, 10, 11, 13.
 - Squared-distance / Cayley-Menger linear diagnostic for every class.

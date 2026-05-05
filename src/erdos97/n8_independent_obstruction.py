@@ -9,14 +9,14 @@ Scope:
 - Independent y2-span linear-span kill (classes 0, 1, 2, 6, 7, 8, 9, 10,
   11, 13) using a from-scratch multivariate polynomial implementation
   and a from-scratch rational Gauss-Jordan rank computation.
-- Independent class 3 duplicate-vertex certificate via rational
-  substitution.
-- Independent class 4 three-collinear-vertices certificate via rational
-  substitution.
+- First-stage linear identities that appear in the class 3 and class 4
+  substitution chains, recorded as diagnostics only.
 - Auxiliary squared-distance / Cayley-Menger linear diagnostic that is
   not by itself a kill but provides an independent structural fingerprint.
 
 NOT covered here (requires Groebner-basis machinery beyond this scope):
+- Class 3 duplicate-vertex full kill.
+- Class 4 collinearity full kill.
 - Class 5 Groebner contradiction.
 - Class 14 four-branch strict-interior obstruction.
 
