@@ -102,6 +102,18 @@ candidate repo-local finite-case extension only; it does not change the
 official/global falsifiable/open status, and it is not promoted beyond the
 current `n <= 8` source-of-truth result until independent review.
 
+A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
+at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)
+and at n=9 (all 184 surviving selected-witness assignments unrealizable by
+algebra alone: 150 by GB={1}, 18 by F12's `y_8^2 + 1/4 = 0`, 16 by
+non-degeneracy collapse to 4 distinct points in F07/F08/F09/F13). The same
+audit confirms the vertex-circle checker filters are sound (every filter is
+necessary). Together this is multi-source verification of the n=9
+selected-witness finite case. See
+`docs/erdos97-attack-2026-05-05.md` and
+`data/certificates/2026-05-05/n9_groebner_results.json`. Independent
+reviewer audit is still required.
+
 A later incoming `n=10` continuation is now recorded as a
 `MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING` artifact at
 `data/certificates/n10_vertex_circle_singleton_slices.json`. It covers all 126

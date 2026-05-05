@@ -1,0 +1,259 @@
+{
+  "n8": {
+    "total_survivors": 15,
+    "ear_orderable_count": 11,
+    "non_ear_orderable_count": 4,
+    "per_survivor": [
+      {
+        "id": 0,
+        "n": 8,
+        "ear_orderable": false,
+        "one_order": null
+      },
+      {
+        "id": 1,
+        "n": 8,
+        "ear_orderable": false,
+        "one_order": null
+      },
+      {
+        "id": 2,
+        "n": 8,
+        "ear_orderable": false,
+        "one_order": null
+      },
+      {
+        "id": 3,
+        "n": 8,
+        "ear_orderable": false,
+        "one_order": null
+      },
+      {
+        "id": 4,
+        "n": 8,
+        "ear_orderable": true,
+        "one_order": [
+          1,
+          5,
+          7,
+          3,
+          6,
+          4,
+          2,
+          0
+        ]
+      },
+      {
+        "id": 5,
+        "n": 8,
+        "ear_orderable": true,
+        "one_order": [
+          2,
+          5,
+          6,
+          7,
+          3,
+          4,
+          1,
+          0
+        ]
+      },
+      {
+        "id": 6,
+        "n": 8,
+        "ear_orderable": true,
+        "one_order": [
+          3,
+          5,
+          6,
+          7,
+          4,
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "id": 7,
+        "n": 8,
+        "ear_orderable": true,
+        "one_order": [
+          3,
+          6,
+          7,
+          4,
+          5,
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "id": 8,
+        "n": 8,
+        "ear_orderable": true,
+        "one_order": [
+          3,
+          5,
+          6,
+          7,
+          4,
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "id": 9,
+        "n": 8,
+        "ear_orderable": true,
+        "one_order": [
+          3,
+          5,
+          7,
+          4,
+          6,
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "id": 10,
+        "n": 8,
+        "ear_orderable": true,
+        "one_order": [
+          5,
+          6,
+          7,
+          4,
+          3,
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "id": 11,
+        "n": 8,
+        "ear_orderable": true,
+        "one_order": [
+          5,
+          6,
+          7,
+          4,
+          3,
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "id": 12,
+        "n": 8,
+        "ear_orderable": true,
+        "one_order": [
+          5,
+          6,
+          7,
+          4,
+          3,
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "id": 13,
+        "n": 8,
+        "ear_orderable": true,
+        "one_order": [
+          3,
+          4,
+          5,
+          7,
+          6,
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "id": 14,
+        "n": 8,
+        "ear_orderable": true,
+        "one_order": [
+          4,
+          6,
+          7,
+          5,
+          2,
+          3,
+          1,
+          0
+        ]
+      }
+    ],
+    "non_ear_ids": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "n9": {
+    "total_full_assignments": 184,
+    "ear_orderable_count": 182,
+    "non_ear_orderable_count": 2,
+    "vertex_circle_breakdown": {
+      "self_edge": 158,
+      "strict_cycle": 26,
+      "ok": 0
+    },
+    "cross_tabulation": {
+      "ear|self_edge": 158,
+      "ear|strict_cycle": 24,
+      "ear|ok": 0,
+      "non_ear|self_edge": 0,
+      "non_ear|strict_cycle": 2,
+      "non_ear|ok": 0
+    },
+    "non_ear_indices": [
+      {
+        "idx": 81,
+        "witness": {
+          "note": "circulant on Z/9, offsets {1,3,6,7} = {\u00b13, +1, -2}"
+        }
+      },
+      {
+        "idx": 151,
+        "witness": {
+          "note": "circulant on Z/9, offsets {2,3,6,8} = {\u00b13, -1, +2} (image of idx=81 under v->-v)"
+        }
+      }
+    ]
+  },
+  "summary": {
+    "n8_total": 15,
+    "n8_ear_orderable": 11,
+    "n8_non_ear_orderable": 4,
+    "n8_non_ear_ids": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "n9_total": 184,
+    "n9_ear_orderable": 182,
+    "n9_non_ear_orderable": 2,
+    "n9_vertex_circle_filter_kills_all_184": true,
+    "cross_tabulation": {
+      "ear|self_edge": 158,
+      "ear|strict_cycle": 24,
+      "ear|ok": 0,
+      "non_ear|self_edge": 0,
+      "non_ear|strict_cycle": 2,
+      "non_ear|ok": 0
+    }
+  }
+}

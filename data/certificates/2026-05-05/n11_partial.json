@@ -1,0 +1,86 @@
+{
+  "type": "n11_vertex_circle_extension_probe_v0",
+  "trust": "EXPLORATORY_TIMINGS_NOT_AN_ARTIFACT",
+  "n": 11,
+  "row_size": 4,
+  "pair_cap": 2,
+  "max_indegree": 6,
+  "row0_choice_count_total": 210,
+  "driver": "/tmp/n11_search.py",
+  "reference": "src/erdos97/n9_vertex_circle_exhaustive.py",
+  "baseline_n9_total_nodes": 16752,
+  "baseline_n10_total_nodes": 4142738,
+  "observation_n9_to_n10_per_row0_ratio": 109.9,
+  "naive_extrapolated_n11_per_row0_nodes": 3613726,
+  "naive_extrapolated_n11_total_nodes": 758882439,
+  "measured_row0_0": {
+    "time_budget_seconds": 300.0,
+    "nodes_visited": 404480,
+    "full_assignments": 0,
+    "counts": {
+      "partial_self_edge": 403978,
+      "partial_strict_cycle": 511631
+    },
+    "timed_out": true,
+    "elapsed_sec": 300.19,
+    "reached_depth_at_progress_marker": 8,
+    "single_core_throughput_nodes_per_sec": 1348
+  },
+  "extrapolated_per_row0_seconds_single_core": 2680,
+  "extrapolated_total_n11_wallclock_4_core_hours": 39.1,
+  "cyclic_pattern_screen": {
+    "description": "Tested all 4-subsets S of Z/11* with cyclic shift assignment row(c)=c+S; also QR_11/NR_11 derived 4-subsets and twisted variants (row(c)=c+g^c*S0).",
+    "cyclic_4_subsets_with_pair_cap_at_most_2": 175,
+    "cyclic_assignments_evading_all_filters": 0,
+    "qr11_drop_one_assignments": [
+      {
+        "S": [
+          3,
+          4,
+          5,
+          9
+        ],
+        "first_failure": "cross_fail"
+      },
+      {
+        "S": [
+          1,
+          4,
+          5,
+          9
+        ],
+        "first_failure": "cross_fail"
+      },
+      {
+        "S": [
+          1,
+          3,
+          5,
+          9
+        ],
+        "first_failure": "cross_fail"
+      },
+      {
+        "S": [
+          1,
+          3,
+          4,
+          9
+        ],
+        "first_failure": "strict_cycle"
+      },
+      {
+        "S": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "first_failure": "cross_fail"
+      }
+    ],
+    "twisted_cyclic_evading": 0
+  },
+  "parallel_run_status": "row0 indices 1..7 running with 280s wallclock budget; 4 cores -> ~50% throughput each",
+  "preliminary_conclusion": "Single row0 singleton is not feasible at 300s budget. Naive scaling predicts ~3.6M nodes per row0 -> ~40 hours wallclock for full n=11 coverage on 4 cores. No cyclic-shift family evades the necessary filters, so a hypothetical n=11 counterexample would have to be aperiodic."
+}
