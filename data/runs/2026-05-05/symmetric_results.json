@@ -1,0 +1,1479 @@
+{
+  "summary": {
+    "ns_targeted": [
+      18,
+      24,
+      30,
+      36,
+      42,
+      48,
+      60
+    ],
+    "key_finding_1": "Two-interlaced m-gons admit MANY \u03c1 values where vertex-0 (outer) and vertex-m (inner) are simultaneously 4-bad. By rotational symmetry C_m, these give 4-bad polygons. They pass the L5 cap and indegree-uniform-4 filters.",
+    "key_finding_2": "However, all such \u03c1 values lie OUTSIDE the strict-convex window (cos(\u03c0/m), 1) \u222a (1, sec(\u03c0/m)). So all 4-bad/L5-passing two-interlaced configurations FAIL strict convexity (the inner ring is inside the convex hull of the outer ring).",
+    "key_finding_3": "Affine-stretched n-gons P_j = (\u221a\u03bb cos(2\u03c0j/n), sin(2\u03c0j/n)) have only reflection symmetry j \u2194 -j. At resonance \u03bb values, vertex 0 (and possibly vertex n/2) are 4-bad, but no other vertex is. So affine-stretched can NEVER be globally 4-bad.",
+    "key_finding_4": "Three-interlaced m-gons on uniform 2D \u03c1-grid found NO 4-bad configurations at all (no resonance enforced).",
+    "conclusion": "No symmetric construction of types tried produces a strictly convex globally 4-bad polygon. The geometric obstruction is: the resonance conditions force the inner ring to be 'too small', breaking convexity.",
+    "total_candidates": 34,
+    "passing_4bad_and_L5": 34,
+    "passing_all_filters": 0
+  },
+  "affine_stretched": {
+    "18": {
+      "n": 18,
+      "candidate_count": 20,
+      "global_4bad_count": 0,
+      "vertex_0_4bad_count": 12,
+      "examples": []
+    },
+    "24": {
+      "n": 24,
+      "candidate_count": 32,
+      "global_4bad_count": 0,
+      "vertex_0_4bad_count": 22,
+      "examples": []
+    },
+    "30": {
+      "n": 30,
+      "candidate_count": 47,
+      "global_4bad_count": 0,
+      "vertex_0_4bad_count": 36,
+      "examples": []
+    },
+    "36": {
+      "n": 36,
+      "candidate_count": 74,
+      "global_4bad_count": 0,
+      "vertex_0_4bad_count": 58,
+      "examples": []
+    },
+    "48": {
+      "n": 48,
+      "candidate_count": 134,
+      "global_4bad_count": 0,
+      "vertex_0_4bad_count": 112,
+      "examples": []
+    }
+  },
+  "two_interlaced_simultaneous": {
+    "12": [
+      {
+        "m": 12,
+        "n": 24,
+        "rho": 0.424402445,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          3,
+          9,
+          17,
+          18
+        ],
+        "witness_vertex_m": [
+          0,
+          1,
+          15,
+          21
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9659258262890683,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 12,
+        "n": 24,
+        "rho": 0.51763809,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          1,
+          11,
+          12,
+          23
+        ],
+        "witness_vertex_m": [
+          0,
+          1,
+          14,
+          22
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9659258262890683,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 12,
+        "n": 24,
+        "rho": 0.774131727,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          3,
+          9,
+          15,
+          20
+        ],
+        "witness_vertex_m": [
+          3,
+          10,
+          15,
+          21
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9659258262890683,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 12,
+        "n": 24,
+        "rho": 1.291769818,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          3,
+          9,
+          14,
+          21
+        ],
+        "witness_vertex_m": [
+          4,
+          9,
+          15,
+          21
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9659258262890683,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 12,
+        "n": 24,
+        "rho": 1.931851653,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          2,
+          10,
+          12,
+          23
+        ],
+        "witness_vertex_m": [
+          0,
+          1,
+          13,
+          23
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9659258262890683,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 12,
+        "n": 24,
+        "rho": 2.356254098,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          3,
+          9,
+          12,
+          23
+        ],
+        "witness_vertex_m": [
+          6,
+          7,
+          15,
+          21
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9659258262890683,
+        "in_strict_convex_window": false
+      }
+    ],
+    "15": [
+      {
+        "m": 15,
+        "n": 30,
+        "rho": 0.381966011,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          3,
+          12,
+          19,
+          25
+        ],
+        "witness_vertex_m": [
+          2,
+          14,
+          21,
+          24
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9781476007338057,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 15,
+        "n": 30,
+        "rho": 2.618033989,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          9,
+          16,
+          28
+        ],
+        "witness_vertex_m": [
+          5,
+          11,
+          18,
+          27
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9781476007338057,
+        "in_strict_convex_window": false
+      }
+    ],
+    "18": [],
+    "21": [
+      {
+        "m": 21,
+        "n": 42,
+        "rho": 0.445041868,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 1,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          3,
+          18,
+          24,
+          38
+        ],
+        "witness_vertex_m": [
+          4,
+          18,
+          30,
+          33
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9888308262251285,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 21,
+        "n": 42,
+        "rho": 0.554958132,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 1,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          3,
+          18,
+          24,
+          38
+        ],
+        "witness_vertex_m": [
+          4,
+          18,
+          27,
+          36
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9888308262251285,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 21,
+        "n": 42,
+        "rho": 1.801937736,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 1,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          15,
+          24,
+          38
+        ],
+        "witness_vertex_m": [
+          4,
+          18,
+          24,
+          39
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9888308262251285,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 21,
+        "n": 42,
+        "rho": 2.246979604,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 1,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          9,
+          12,
+          24,
+          38
+        ],
+        "witness_vertex_m": [
+          4,
+          18,
+          24,
+          39
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9888308262251285,
+        "in_strict_convex_window": false
+      }
+    ],
+    "24": [
+      {
+        "m": 24,
+        "n": 48,
+        "rho": 0.416732298,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          18,
+          35,
+          36
+        ],
+        "witness_vertex_m": [
+          0,
+          1,
+          30,
+          42
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9914448613738104,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 24,
+        "n": 48,
+        "rho": 0.437573144,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          18,
+          34,
+          37
+        ],
+        "witness_vertex_m": [
+          2,
+          23,
+          30,
+          42
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9914448613738104,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 24,
+        "n": 48,
+        "rho": 0.483129923,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          18,
+          33,
+          38
+        ],
+        "witness_vertex_m": [
+          3,
+          22,
+          30,
+          42
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9914448613738104,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 24,
+        "n": 48,
+        "rho": 0.561960774,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          18,
+          32,
+          39
+        ],
+        "witness_vertex_m": [
+          4,
+          21,
+          30,
+          42
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9914448613738104,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 24,
+        "n": 48,
+        "rho": 0.688039038,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          18,
+          31,
+          40
+        ],
+        "witness_vertex_m": [
+          5,
+          20,
+          30,
+          42
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9914448613738104,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 24,
+        "n": 48,
+        "rho": 0.877956374,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          18,
+          30,
+          41
+        ],
+        "witness_vertex_m": [
+          6,
+          19,
+          30,
+          42
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9914448613738104,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 24,
+        "n": 48,
+        "rho": 1.139008759,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          18,
+          29,
+          42
+        ],
+        "witness_vertex_m": [
+          7,
+          18,
+          30,
+          42
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9914448613738104,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 24,
+        "n": 48,
+        "rho": 1.453405903,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          18,
+          28,
+          43
+        ],
+        "witness_vertex_m": [
+          8,
+          17,
+          30,
+          42
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9914448613738104,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 24,
+        "n": 48,
+        "rho": 1.779483632,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          18,
+          27,
+          44
+        ],
+        "witness_vertex_m": [
+          9,
+          16,
+          30,
+          42
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9914448613738104,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 24,
+        "n": 48,
+        "rho": 2.069836604,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          18,
+          26,
+          45
+        ],
+        "witness_vertex_m": [
+          10,
+          15,
+          30,
+          42
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9914448613738104,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 24,
+        "n": 48,
+        "rho": 2.285332209,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          18,
+          25,
+          46
+        ],
+        "witness_vertex_m": [
+          11,
+          14,
+          30,
+          42
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9914448613738104,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 24,
+        "n": 48,
+        "rho": 2.399622021,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          18,
+          24,
+          47
+        ],
+        "witness_vertex_m": [
+          12,
+          13,
+          30,
+          42
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9914448613738104,
+        "in_strict_convex_window": false
+      }
+    ],
+    "30": [
+      {
+        "m": 30,
+        "n": 60,
+        "rho": 0.415823382,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 1,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          3,
+          27,
+          31,
+          58
+        ],
+        "witness_vertex_m": [
+          2,
+          29,
+          38,
+          52
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9945218953682733,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 30,
+        "n": 60,
+        "rho": 0.50275414,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          3,
+          27,
+          32,
+          57
+        ],
+        "witness_vertex_m": [
+          0,
+          1,
+          35,
+          55
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9945218953682733,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 30,
+        "n": 60,
+        "rho": 0.618033989,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          6,
+          24,
+          37,
+          52
+        ],
+        "witness_vertex_m": [
+          8,
+          23,
+          42,
+          48
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9945218953682733,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 30,
+        "n": 60,
+        "rho": 0.672816365,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 1,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          2,
+          28,
+          31,
+          58
+        ],
+        "witness_vertex_m": [
+          2,
+          29,
+          33,
+          57
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9945218953682733,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 30,
+        "n": 60,
+        "rho": 0.813473286,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          1,
+          29,
+          30,
+          59
+        ],
+        "witness_vertex_m": [
+          2,
+          29,
+          32,
+          58
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9945218953682733,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 30,
+        "n": 60,
+        "rho": 1.229296668,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          2,
+          28,
+          31,
+          58
+        ],
+        "witness_vertex_m": [
+          0,
+          1,
+          31,
+          59
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9945218953682733,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 30,
+        "n": 60,
+        "rho": 1.486289651,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 1,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          3,
+          27,
+          31,
+          58
+        ],
+        "witness_vertex_m": [
+          2,
+          29,
+          32,
+          58
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9945218953682733,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 30,
+        "n": 60,
+        "rho": 1.618033989,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          12,
+          18,
+          37,
+          52
+        ],
+        "witness_vertex_m": [
+          8,
+          23,
+          36,
+          54
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9945218953682733,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 30,
+        "n": 60,
+        "rho": 1.989043791,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 2,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          5,
+          25,
+          30,
+          59
+        ],
+        "witness_vertex_m": [
+          3,
+          28,
+          33,
+          57
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9945218953682733,
+        "in_strict_convex_window": false
+      },
+      {
+        "m": 30,
+        "n": 60,
+        "rho": 2.404867172,
+        "is_4_bad": true,
+        "is_strictly_convex": false,
+        "max_pairwise_intersection": 1,
+        "L5_cap_filter_ok": true,
+        "indegree_min_max": [
+          4,
+          4
+        ],
+        "all_indegree_4": true,
+        "witness_vertex_0": [
+          8,
+          22,
+          31,
+          58
+        ],
+        "witness_vertex_m": [
+          2,
+          29,
+          33,
+          57
+        ],
+        "convexity_threshold_cos_pi_over_m": 0.9945218953682733,
+        "in_strict_convex_window": false
+      }
+    ]
+  },
+  "two_interlaced_general_offset": {
+    "12": [],
+    "15": [],
+    "18": [],
+    "21": [],
+    "24": []
+  },
+  "three_interlaced": {
+    "8": [],
+    "10": [],
+    "12": []
+  },
+  "filter_status_table": [
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 24,
+      "m": 12,
+      "rho": 0.424402445,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 24,
+      "m": 12,
+      "rho": 0.51763809,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 24,
+      "m": 12,
+      "rho": 0.774131727,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 24,
+      "m": 12,
+      "rho": 1.291769818,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 24,
+      "m": 12,
+      "rho": 1.931851653,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 24,
+      "m": 12,
+      "rho": 2.356254098,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 30,
+      "m": 15,
+      "rho": 0.381966011,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 30,
+      "m": 15,
+      "rho": 2.618033989,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 42,
+      "m": 21,
+      "rho": 0.445041868,
+      "is_4_bad": true,
+      "L5_cap_max": 1,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 42,
+      "m": 21,
+      "rho": 0.554958132,
+      "is_4_bad": true,
+      "L5_cap_max": 1,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 42,
+      "m": 21,
+      "rho": 1.801937736,
+      "is_4_bad": true,
+      "L5_cap_max": 1,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 42,
+      "m": 21,
+      "rho": 2.246979604,
+      "is_4_bad": true,
+      "L5_cap_max": 1,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 48,
+      "m": 24,
+      "rho": 0.416732298,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 48,
+      "m": 24,
+      "rho": 0.437573144,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 48,
+      "m": 24,
+      "rho": 0.483129923,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 48,
+      "m": 24,
+      "rho": 0.561960774,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 48,
+      "m": 24,
+      "rho": 0.688039038,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 48,
+      "m": 24,
+      "rho": 0.877956374,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 48,
+      "m": 24,
+      "rho": 1.139008759,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 48,
+      "m": 24,
+      "rho": 1.453405903,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 48,
+      "m": 24,
+      "rho": 1.779483632,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 48,
+      "m": 24,
+      "rho": 2.069836604,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 48,
+      "m": 24,
+      "rho": 2.285332209,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 48,
+      "m": 24,
+      "rho": 2.399622021,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 60,
+      "m": 30,
+      "rho": 0.415823382,
+      "is_4_bad": true,
+      "L5_cap_max": 1,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 60,
+      "m": 30,
+      "rho": 0.50275414,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 60,
+      "m": 30,
+      "rho": 0.618033989,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 60,
+      "m": 30,
+      "rho": 0.672816365,
+      "is_4_bad": true,
+      "L5_cap_max": 1,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 60,
+      "m": 30,
+      "rho": 0.813473286,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 60,
+      "m": 30,
+      "rho": 1.229296668,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 60,
+      "m": 30,
+      "rho": 1.486289651,
+      "is_4_bad": true,
+      "L5_cap_max": 1,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 60,
+      "m": 30,
+      "rho": 1.618033989,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 60,
+      "m": 30,
+      "rho": 1.989043791,
+      "is_4_bad": true,
+      "L5_cap_max": 2,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    },
+    {
+      "construction": "two_interlaced_m_gons",
+      "n": 60,
+      "m": 30,
+      "rho": 2.404867172,
+      "is_4_bad": true,
+      "L5_cap_max": 1,
+      "L5_cap_ok": true,
+      "indegree_uniform_4": true,
+      "is_strictly_convex": false,
+      "in_strict_convex_window": false,
+      "passes_all_filters": false
+    }
+  ]
+}
