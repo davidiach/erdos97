@@ -10,10 +10,12 @@ for earlier gaps and failed arguments; use `STATE.md`, `RESULTS.md`,
 `docs/n8-incidence-enumeration.md`, and `docs/n8-exact-survivors.md` for the
 current finite-case status.
 
-**Round-two note:** a later handoff adds an exact Kalmanson/Farkas certificate
-killing one fixed `C19_skew` cyclic order. This does not change the global/open
-status and does not kill abstract `C19_skew` over all cyclic orders. Use
-`docs/round2/round2_merged_report.md` for that fixed-order artifact.
+**Round-two note:** later handoffs add exact Kalmanson/Farkas certificates for
+`C19_skew`: first one fixed cyclic order, then a Z3 refinement certificate
+killing the fixed abstract `C19_skew` selected-witness pattern across all
+cyclic orders. This does not change the global/open status. Use
+`docs/round2/round2_merged_report.md` for the fixed-order artifact and
+`docs/kalmanson-two-order-search.md` for the all-order fixed-pattern artifact.
 
 ## What is new in this canonical version
 

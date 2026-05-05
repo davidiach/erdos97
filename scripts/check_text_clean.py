@@ -14,6 +14,7 @@ TEXT_SUFFIXES = {
     ".json",
     ".md",
     ".py",
+    ".rs",
     ".toml",
     ".txt",
     ".yaml",

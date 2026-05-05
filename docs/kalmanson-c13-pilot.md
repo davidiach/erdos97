@@ -78,7 +78,8 @@ certificates are included.
 
 The C13 all-order question for this fixed abstract incidence pattern is now
 closed by the exact two-certificate order search. The analogous `C19_skew`
-all-order question remains open.
+all-order question is also now closed by the Z3 Kalmanson refinement artifact
+recorded in `docs/kalmanson-two-order-search.md`.
 
 The bounded follow-up pilot over seven explicit fixed cyclic orders remains
 recorded as provenance in `docs/c13-kalmanson-order-pilot.md` and

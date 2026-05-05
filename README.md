@@ -130,13 +130,19 @@ obstructions. This is not yet promoted to the source-of-truth strongest local
 result; independent review is required before any public theorem-style claim.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
-Round two adds an exact compact Kalmanson/Farkas certificate for one fixed
-`C19_skew` selected-witness pattern and one fixed cyclic order:
-`[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]`. The checked certificate
-is `data/certificates/round2/c19_kalmanson_known_order_two_unsat.json`. This is
-a fixed-order obstruction only; it does not kill abstract `C19_skew` across all
-cyclic orders. The earlier 94-inequality certificate remains checked as
-provenance.
+Round two first added an exact compact Kalmanson/Farkas certificate for one
+fixed `C19_skew` selected-witness pattern and one fixed cyclic order:
+`[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]`. The checked certificate is
+`data/certificates/round2/c19_kalmanson_known_order_two_unsat.json`; the earlier
+94-inequality certificate remains checked as provenance.
+
+A follow-up SMT refinement now kills the fixed abstract `C19_skew` pattern
+across all cyclic orders: every cyclic order contains a two-inequality
+Kalmanson inverse-pair obstruction after selected-distance quotienting. The
+checked certificate is
+`data/certificates/c19_skew_all_orders_kalmanson_z3.json`, and the verifier is
+`scripts/check_kalmanson_two_order_z3.py`. This retires the registered sparse
+`C19_skew` fixed-pattern lead, but it is still not a proof of Erdos #97.
 
 A C13 Kalmanson pilot kills one registered non-natural
 `C13_sidon_1_2_4_10` order `[5,0,10,8,9,7,4,6,2,11,12,3,1]` by the exact
@@ -296,6 +302,7 @@ python scripts/check_round2_certificates.py
 python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json
 python scripts/check_kalmanson_certificate.py data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json --summary-json
 python scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n 13 --offsets 1,2,4,10 --assert-obstructed --assert-c13-expected --json
+python scripts/check_kalmanson_two_order_z3.py --certificate data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 ```
 

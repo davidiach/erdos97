@@ -103,6 +103,25 @@ The related `C17_skew` Ptolemy-log artifact in
 a method note and verifier regression. It does not move the live wall, because
 `C17_skew` was already exactly killed by earlier fixed-pattern filters.
 
+### All-order Kalmanson/Farkas obstruction for C19_skew
+
+Status: `EXACT_OBSTRUCTION` for one fixed selected-witness pattern across all
+cyclic orders.
+
+For the `C19_skew` selected-witness pattern with offsets `[-8,-3,5,9]`, the
+checked SMT refinement artifact
+`data/certificates/c19_skew_all_orders_kalmanson_z3.json` verifies that every
+cyclic order contains a two-inequality Kalmanson inverse-pair certificate. The
+artifact stores 7,981 exact forbidden ordered-quadrilateral pairs. The verifier
+checks that each stored pair is an inverse pair of strict Kalmanson row vectors
+after selected-distance quotienting, then asks Z3 to replay the accumulated
+cyclic-order constraints as UNSAT.
+
+This kills the fixed abstract C19 selected-witness pattern across all cyclic
+orders. It is not a proof of Erdos #97. See
+`docs/kalmanson-two-order-search.md` and
+`scripts/check_kalmanson_two_order_z3.py`.
+
 ### All-order Kalmanson/Farkas obstruction for C13_sidon_1_2_4_10
 
 Status: `EXACT_OBSTRUCTION` for one fixed selected-witness pattern across all

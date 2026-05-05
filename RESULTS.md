@@ -136,12 +136,21 @@ selected-witness pattern with offsets `[-8,-3,5,9]` in the cyclic order
 `[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]`. The certificate is a
 positive integer sum of 2 strict Kalmanson distance inequalities whose total
 coefficient vector is exactly zero after quotienting by the selected-distance
-equalities. This is a fixed-order obstruction only; it does not kill abstract
-`C19_skew` over all cyclic orders. See `docs/round2/round2_merged_report.md`,
+equalities. See `docs/round2/round2_merged_report.md`,
 `docs/round2/kalmanson_distance_filter.md`,
 `scripts/check_kalmanson_certificate.py`, and
-`data/certificates/round2/c19_kalmanson_known_order_two_unsat.json`. The
-earlier 94-inequality certificate remains checked as provenance.
+`data/certificates/round2/c19_kalmanson_known_order_two_unsat.json`. The earlier
+94-inequality certificate remains checked as provenance.
+
+The follow-up Z3 Kalmanson order certificate kills the fixed abstract
+`C19_skew` selected-witness pattern across all cyclic orders. The artifact
+`data/certificates/c19_skew_all_orders_kalmanson_z3.json` stores 7,981 exact
+forbidden ordered-quadrilateral pairs; the verifier checks that every stored
+pair is a two-inequality Kalmanson inverse pair after selected-distance
+quotienting and then replays the accumulated cyclic-order constraints as Z3
+UNSAT. This is an exact obstruction for this fixed abstract pattern only, not a
+proof of Erdos #97. See `docs/kalmanson-two-order-search.md` and
+`scripts/check_kalmanson_two_order_z3.py`.
 
 The C13 Kalmanson pilot kills the registered non-natural
 `C13_sidon_1_2_4_10` order `[5,0,10,8,9,7,4,6,2,11,12,3,1]`. The certificate is
@@ -286,7 +295,7 @@ search-history artifacts, not as live candidates.
    and `14` exact certificates.
 2. Independently review the review-pending exhaustive `n=9` vertex-circle
    checker before promoting it to source-of-truth finite-case status.
-3. Investigate abstract `C19_skew` beyond its natural-order Altman obstruction
-   and registered fixed-order Kalmanson certificate; apply the C13
-   two-certificate order-search method where possible.
+3. Use the retired `C13_sidon_1_2_4_10` and `C19_skew` sparse patterns as
+   benchmarks while searching for new incidence families or a bridge from
+   arbitrary counterexamples to a classified selected-witness family.
 4. Add interval-arithmetic verification for convexity and distance equations.

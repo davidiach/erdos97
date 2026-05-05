@@ -3,8 +3,11 @@
 Status: exact fixed-order incidence diagnostic. No general proof and no
 counterexample are claimed.
 
-This note explains why the current minimum-radius and radius-propagation
-filters do not see the live sparse/Sidon frontier in natural cyclic order.
+This note explains why the minimum-radius and radius-propagation filters did
+not see the sparse/Sidon frontier in natural cyclic order. The registered C13
+and C19 sparse leads discussed here are now retired by separate all-order
+Kalmanson inverse-pair certificates; this note remains useful as provenance for
+the weaker filters.
 
 For a row `i` and a witness pair `{a,b}` inside `S_i`, call the pair
 **covered** if `b in S_a` or `a in S_b`. A covered short witness gap would force
@@ -243,10 +246,9 @@ Both compact Kalmanson certificates are inverse pairs with weights `1,1`.
 The earlier 34- and 94-inequality certificates remain checked as provenance,
 but the two-inequality versions are the preferred review targets.
 
-The C13 fixed-order entry is now superseded by
-`docs/kalmanson-two-order-search.md`, which proves the fixed
-`C13_sidon_1_2_4_10` abstract pattern is killed by such inverse pairs across
-all cyclic orders. The C19 entry remains fixed-order only.
+The C13 and C19 fixed-order entries are now superseded by
+`docs/kalmanson-two-order-search.md`, which proves the fixed abstract patterns
+are killed by inverse pairs across all cyclic orders.
 
 The `C13` order is:
 

@@ -160,16 +160,16 @@ constraints plus the vertex-circle order strict-cycle filter.
 
 ## C19 caveat
 
-This filter does not kill abstract-incidence `C19_skew`. The order
+This filter does not kill abstract-incidence `C19_skew` by itself. The order
 
 ```text
 18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1
 ```
 
 has no vertex-circle self-edge or strict directed cycle under this filter.
-Thus `C19_skew` remains the main sparse abstract-incidence survivor of the
-current fixed-pattern filters, even though its natural cyclic order is killed
-by Altman's diagonal-order sums.
+The fixed abstract `C19_skew` pattern is nevertheless killed across all cyclic
+orders by the separate Z3 Kalmanson inverse-pair certificate; see
+`docs/kalmanson-two-order-search.md`.
 
 ## Reproduction
 
@@ -197,5 +197,5 @@ The corresponding regression tests are in
 
 - This is a fixed selected-pattern obstruction, not a global proof.
 - It does not certify a counterexample.
-- It does not kill abstract-incidence `C19_skew`.
+- It does not by itself kill abstract-incidence `C19_skew`.
 - Numerical near-misses remain numerical evidence only.
