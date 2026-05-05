@@ -112,9 +112,12 @@ Every minimal counterexample admits a partial fragile-cover witness system:
 for each deleted vertex `x`, minimality produces a remaining center `y` whose
 unique exact 4-tie contains `x`; retaining these exact 4-ties gives a cover of
 all vertices by fragile rows. The rows satisfy the two-circle cap and the
-radical-axis crossing rule for two-overlaps. This is a necessary structural
-bridge only, not a contradiction and not the open ear-orderable bridge. See
-`docs/minimal-fragile-cover-bridge.md`.
+radical-axis crossing rule for two-overlaps, and they must extend to a full
+selected-witness incidence system because every vertex in the original
+counterexample is bad. The optional full-extension checker rejects the single
+block-6 fragile cover but still permits two disjoint blocks, so this is a
+necessary structural bridge only, not a contradiction and not the open
+ear-orderable bridge. See `docs/minimal-fragile-cover-bridge.md`.
 
 ### Fixed-pattern exact obstructions
 

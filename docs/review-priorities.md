@@ -185,8 +185,10 @@ Target: `docs/minimal-fragile-cover-bridge.md` and
 
 Minimality proves that every minimal counterexample has a fragile-cover
 witness system, but the block-6 abstract family shows the current hypergraph
-axioms are too weak. The next useful bridge work is to add a geometric
-condition that the block-6 family does not automatically satisfy:
+axioms are too weak. The current checker now also has an optional full-row
+extension diagnostic: it rejects the single six-vertex block but still permits
+two disjoint blocks. The next useful bridge work is to add a geometric
+condition that the surviving multi-block family does not automatically satisfy:
 
 - dependency-cycle restrictions for the witness map `pi`;
 - critical-radius ordering or deletion-dependency inequalities;

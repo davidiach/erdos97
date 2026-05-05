@@ -52,6 +52,18 @@ class FragileHypergraphCheck:
         )
 
 
+@dataclass(frozen=True)
+class FullSelectedExtensionCheck:
+    n: int
+    fixed_centers: list[int]
+    ok: bool
+    search_exhausted: bool
+    nodes_visited: int
+    max_nodes: int
+    full_rows: Rows | None
+    failure_reason: str | None
+
+
 def _validate_labels(n: int, rows: Mapping[int, Sequence[int]]) -> None:
     if n <= 0:
         raise ValueError(f"n must be positive, got {n}")
@@ -117,6 +129,152 @@ def essential_row_matching(
     }
     unmatched = [center for center in centers if center not in center_to_vertex]
     return center_to_vertex, unmatched
+
+
+def _normalize_rows(rows: Mapping[int, Sequence[int]]) -> Rows:
+    return {int(center): sorted({int(v) for v in row}) for center, row in rows.items()}
+
+
+def _selected_pair_ok(
+    left: int,
+    left_row: Sequence[int],
+    right: int,
+    right_row: Sequence[int],
+    order: Sequence[int],
+) -> bool:
+    inter = sorted(set(left_row) & set(right_row))
+    if len(inter) > 2:
+        return False
+    if len(inter) == 2:
+        source = normalize_chord(left, right)
+        target = normalize_chord(inter[0], inter[1])
+        return chords_cross_in_order(source, target, order)
+    return True
+
+
+def full_selected_extension(
+    n: int,
+    rows: Mapping[int, Sequence[int]],
+    order: Sequence[int] | None = None,
+    max_nodes: int = 100_000,
+) -> FullSelectedExtensionCheck:
+    """Try to extend fragile rows to a full selected-witness incidence system.
+
+    Any counterexample has at least one selected four-neighbor row at every
+    center. If a fragile center is used by the minimality bridge, its retained
+    critical row is the unique size-at-least-four class at that center, so the
+    full selected system can be chosen to extend the fragile rows.
+
+    This remains an incidence/order necessary condition only: an extension is
+    not a Euclidean realization certificate.
+    """
+
+    _validate_labels(n, rows)
+    if order is None:
+        order = list(range(n))
+    if sorted(order) != list(range(n)):
+        raise ValueError("order must be a permutation of range(n)")
+    if max_nodes <= 0:
+        raise ValueError(f"max_nodes must be positive, got {max_nodes}")
+
+    fixed_rows = _normalize_rows(rows)
+    centers = list(range(n))
+
+    for center, row in fixed_rows.items():
+        if len(row) != 4:
+            return FullSelectedExtensionCheck(
+                n=n,
+                fixed_centers=sorted(fixed_rows),
+                ok=False,
+                search_exhausted=True,
+                nodes_visited=0,
+                max_nodes=max_nodes,
+                full_rows=None,
+                failure_reason=f"fixed row {center} is not a four-set",
+            )
+        if center in row:
+            return FullSelectedExtensionCheck(
+                n=n,
+                fixed_centers=sorted(fixed_rows),
+                ok=False,
+                search_exhausted=True,
+                nodes_visited=0,
+                max_nodes=max_nodes,
+                full_rows=None,
+                failure_reason=f"fixed row {center} contains its center",
+            )
+
+    candidates: dict[int, list[tuple[int, ...]]] = {}
+    for center in centers:
+        if center in fixed_rows:
+            candidates[center] = [tuple(fixed_rows[center])]
+        else:
+            labels = [label for label in centers if label != center]
+            candidates[center] = [tuple(row) for row in combinations(labels, 4)]
+
+    assigned: dict[int, tuple[int, ...]] = {}
+    nodes_visited = 0
+    hit_limit = False
+
+    def candidate_ok(center: int, row: Sequence[int]) -> bool:
+        return all(
+            _selected_pair_ok(center, row, other, other_row, order)
+            for other, other_row in assigned.items()
+        )
+
+    def choose_center() -> tuple[int | None, list[tuple[int, ...]]]:
+        best_center: int | None = None
+        best_candidates: list[tuple[int, ...]] = []
+        for center in centers:
+            if center in assigned:
+                continue
+            viable = [row for row in candidates[center] if candidate_ok(center, row)]
+            if best_center is None or len(viable) < len(best_candidates):
+                best_center = center
+                best_candidates = viable
+            if not viable:
+                break
+        return best_center, best_candidates
+
+    def search() -> bool:
+        nonlocal hit_limit, nodes_visited
+        if len(assigned) == n:
+            return True
+        if nodes_visited >= max_nodes:
+            hit_limit = True
+            return False
+        center, viable = choose_center()
+        if center is None:
+            return True
+        for row in viable:
+            nodes_visited += 1
+            assigned[center] = row
+            if search():
+                return True
+            del assigned[center]
+            if hit_limit:
+                return False
+        return False
+
+    ok = search()
+    full_rows = (
+        {center: list(row) for center, row in sorted(assigned.items())}
+        if ok
+        else None
+    )
+    failure_reason = None
+    if not ok:
+        failure_reason = "node limit reached" if hit_limit else "no extension exists"
+    return FullSelectedExtensionCheck(
+        n=n,
+        fixed_centers=sorted(fixed_rows),
+        ok=ok,
+        search_exhausted=not hit_limit,
+        nodes_visited=nodes_visited,
+        max_nodes=max_nodes,
+        full_rows=full_rows,
+        failure_reason=failure_reason,
+    )
 
 
 def check_fragile_hypergraph(
@@ -300,6 +458,25 @@ def check_to_json(result: FragileHypergraphCheck) -> dict[str, object]:
             result.essential_matching_unmatched_centers
         ),
         "witness_map_violations": result.witness_map_violations,
+    }
+
+
+def full_extension_to_json(result: FullSelectedExtensionCheck) -> dict[str, object]:
+    """Return a JSON-serializable full-extension check result."""
+    return {
+        "type": "fragile_full_selected_extension_check",
+        "n": result.n,
+        "fixed_centers": result.fixed_centers,
+        "ok": result.ok,
+        "search_exhausted": result.search_exhausted,
+        "nodes_visited": result.nodes_visited,
+        "max_nodes": result.max_nodes,
+        "failure_reason": result.failure_reason,
+        "full_rows": (
+            {str(center): row for center, row in sorted(result.full_rows.items())}
+            if result.full_rows is not None
+            else None
+        ),
     }
 
 

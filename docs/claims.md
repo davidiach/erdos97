@@ -333,8 +333,11 @@ is assigned at least one vertex.
 This follows by applying the minimal-counterexample critical-tie lemma to each
 deleted vertex and retaining one copy of each resulting exact 4-tie. The row
 usage condition is equivalently a matching from retained fragile centers to
-distinct vertices they cover. The rows also satisfy the two-circle cap and the
-radical-axis crossing rule for
+distinct vertices they cover. Since every vertex in a counterexample is bad,
+the retained fragile rows can also be extended to a full selected-witness
+incidence system by choosing one 4-neighbor row at every non-fragile center and
+using the retained critical row at each fragile center. The rows also satisfy
+the two-circle cap and the radical-axis crossing rule for
 two-overlaps. This is a necessary bridge theorem only; the block-6 abstract
 family checked by `scripts/check_fragile_hypergraph.py --blocks 2 --assert-ok`
 shows that fragile-cover hypergraph constraints alone are too weak to prove
