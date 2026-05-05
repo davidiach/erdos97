@@ -27,12 +27,15 @@ class FragileHypergraphCheck:
     uniformity_ok: bool
     pairwise_intersection_ok: bool
     crossing_ok: bool
+    essential_cover_ok: bool
     witness_map_ok: bool | None
     cover_missing: list[int]
     self_exclusion_violations: list[int]
     uniformity_violations: list[dict[str, object]]
     pairwise_intersection_violations: list[dict[str, object]]
     crossing_violations: list[dict[str, object]]
+    essential_matching: dict[int, int]
+    essential_matching_unmatched_centers: list[int]
     witness_map_violations: list[dict[str, object]]
 
     @property
@@ -44,6 +47,7 @@ class FragileHypergraphCheck:
             and self.uniformity_ok
             and self.pairwise_intersection_ok
             and self.crossing_ok
+            and self.essential_cover_ok
             and witness_ok
         )
 
@@ -79,6 +83,42 @@ def canonical_witness_map(n: int, rows: Mapping[int, Sequence[int]]) -> WitnessM
     return witnesses
 
 
+def essential_row_matching(
+    n: int,
+    rows: Mapping[int, Sequence[int]],
+) -> tuple[dict[int, int], list[int]]:
+    """Match each fragile row to a distinct vertex it covers, when possible.
+
+    Minimality supplies a deleted vertex for every retained fragile row.  After
+    duplicate rows are removed, those generating vertices are distinct, so a
+    fragile-cover system from a minimal counterexample has this matching.
+    """
+
+    _validate_labels(n, rows)
+    centers = sorted(rows)
+    vertex_to_center: dict[int, int] = {}
+
+    def augment(center: int, seen: set[int]) -> bool:
+        for vertex in sorted(set(rows[center])):
+            if vertex in seen:
+                continue
+            seen.add(vertex)
+            current = vertex_to_center.get(vertex)
+            if current is None or augment(current, seen):
+                vertex_to_center[vertex] = center
+                return True
+        return False
+
+    for center in centers:
+        augment(center, set())
+
+    center_to_vertex = {
+        center: vertex for vertex, center in sorted(vertex_to_center.items())
+    }
+    unmatched = [center for center in centers if center not in center_to_vertex]
+    return center_to_vertex, unmatched
+
+
 def check_fragile_hypergraph(
     n: int,
     rows: Mapping[int, Sequence[int]],
@@ -97,6 +137,10 @@ def check_fragile_hypergraph(
 
     cover = covered_vertices(normalized_rows)
     cover_missing = [vertex for vertex in range(n) if vertex not in cover]
+    essential_matching, essential_unmatched = essential_row_matching(
+        n,
+        normalized_rows,
+    )
 
     self_exclusion_violations = [
         center for center, row in normalized_rows.items() if center in row
@@ -145,6 +189,7 @@ def check_fragile_hypergraph(
         witness_map_ok = None
     else:
         witness_map_ok = True
+        used_centers: set[int] = set()
         for vertex in range(n):
             if vertex not in witness_map:
                 witness_map_ok = False
@@ -171,6 +216,18 @@ def check_fragile_hypergraph(
                         "reason": "witness center does not cover vertex",
                     }
                 )
+            else:
+                used_centers.add(center)
+        unused_centers = sorted(set(centers) - used_centers)
+        if unused_centers:
+            witness_map_ok = False
+            for center in unused_centers:
+                witness_map_violations.append(
+                    {
+                        "center": center,
+                        "reason": "fragile center is not assigned any vertex",
+                    }
+                )
 
     return FragileHypergraphCheck(
         n=n,
@@ -180,12 +237,15 @@ def check_fragile_hypergraph(
         uniformity_ok=not uniformity_violations,
         pairwise_intersection_ok=not pairwise_intersection_violations,
         crossing_ok=not crossing_violations,
+        essential_cover_ok=not essential_unmatched,
         witness_map_ok=witness_map_ok,
         cover_missing=cover_missing,
         self_exclusion_violations=self_exclusion_violations,
         uniformity_violations=uniformity_violations,
         pairwise_intersection_violations=pairwise_intersection_violations,
         crossing_violations=crossing_violations,
+        essential_matching=essential_matching,
+        essential_matching_unmatched_centers=essential_unmatched,
         witness_map_violations=witness_map_violations,
     )
 
@@ -225,12 +285,20 @@ def check_to_json(result: FragileHypergraphCheck) -> dict[str, object]:
         "uniformity_ok": result.uniformity_ok,
         "pairwise_intersection_ok": result.pairwise_intersection_ok,
         "crossing_ok": result.crossing_ok,
+        "essential_cover_ok": result.essential_cover_ok,
         "witness_map_ok": result.witness_map_ok,
         "cover_missing": result.cover_missing,
         "self_exclusion_violations": result.self_exclusion_violations,
         "uniformity_violations": result.uniformity_violations,
         "pairwise_intersection_violations": result.pairwise_intersection_violations,
         "crossing_violations": result.crossing_violations,
+        "essential_matching": {
+            str(center): vertex
+            for center, vertex in sorted(result.essential_matching.items())
+        },
+        "essential_matching_unmatched_centers": (
+            result.essential_matching_unmatched_centers
+        ),
         "witness_map_violations": result.witness_map_violations,
     }
 

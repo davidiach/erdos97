@@ -4,6 +4,7 @@ from erdos97.fragile_hypergraph import (
     block6_family,
     canonical_witness_map,
     check_fragile_hypergraph,
+    essential_row_matching,
 )
 
 
@@ -14,6 +15,7 @@ def test_block6_family_satisfies_fragile_hypergraph_axioms() -> None:
     result = check_fragile_hypergraph(n, rows, witness_map=witness_map)
 
     assert result.ok
+    assert result.essential_cover_ok
     assert result.fragile_centers == [0, 3, 6, 9]
     assert witness_map[0] == 3
     assert witness_map[5] == 3
@@ -54,3 +56,52 @@ def test_witness_map_must_choose_a_covering_fragile_center() -> None:
         "center": 0,
         "reason": "witness center does not cover vertex",
     } in result.witness_map_violations
+
+
+def test_witness_map_must_use_every_fragile_center() -> None:
+    rows = {
+        0: [1, 2, 3, 4],
+        1: [0, 5, 6, 7],
+        2: [0, 1, 3, 5],
+    }
+    witness_map = {
+        0: 1,
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 1,
+        6: 1,
+        7: 1,
+    }
+
+    result = check_fragile_hypergraph(8, rows, witness_map=witness_map)
+
+    assert not result.ok
+    assert result.witness_map_ok is False
+    assert {
+        "center": 2,
+        "reason": "fragile center is not assigned any vertex",
+    } in result.witness_map_violations
+
+
+def test_essential_row_matching_detects_hall_defect() -> None:
+    rows = {
+        0: [1, 2, 3, 4],
+        1: [2, 3, 4, 5],
+        2: [3, 4, 5, 6],
+        3: [4, 5, 6, 7],
+        4: [0, 5, 6, 7],
+        5: [0, 1, 6, 7],
+        6: [0, 1, 2, 7],
+        7: [0, 1, 2, 3],
+        8: [0, 1, 2, 3],
+    }
+
+    matching, unmatched = essential_row_matching(9, rows)
+    result = check_fragile_hypergraph(9, rows)
+
+    assert len(matching) == 8
+    assert unmatched
+    assert not result.essential_cover_ok
+    assert result.essential_matching_unmatched_centers == unmatched

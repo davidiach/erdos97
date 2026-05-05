@@ -326,12 +326,15 @@ not a contradiction.
 ### Minimal fragile-cover bridge
 
 Every minimal counterexample admits a partial fragile-cover witness system:
-some exact critical 4-tie rows cover all vertices, and each vertex is assigned
-to a fragile center whose exact 4-tie contains it.
+some exact critical 4-tie rows cover all vertices, each vertex is assigned to
+a fragile center whose exact 4-tie contains it, and every retained fragile row
+is assigned at least one vertex.
 
 This follows by applying the minimal-counterexample critical-tie lemma to each
-deleted vertex and retaining one copy of each resulting exact 4-tie. The rows
-also satisfy the two-circle cap and the radical-axis crossing rule for
+deleted vertex and retaining one copy of each resulting exact 4-tie. The row
+usage condition is equivalently a matching from retained fragile centers to
+distinct vertices they cover. The rows also satisfy the two-circle cap and the
+radical-axis crossing rule for
 two-overlaps. This is a necessary bridge theorem only; the block-6 abstract
 family checked by `scripts/check_fragile_hypergraph.py --blocks 2 --assert-ok`
 shows that fragile-cover hypergraph constraints alone are too weak to prove
