@@ -1,0 +1,1707 @@
+{
+  "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not a proof of Erdos Problem #97 and not an all-order obstruction for C29_sidon_1_3_7_15.",
+  "cyclic_order": [
+    0,
+    27,
+    11,
+    4,
+    19,
+    5,
+    26,
+    12,
+    6,
+    21,
+    13,
+    28,
+    14,
+    2,
+    20,
+    18,
+    7,
+    24,
+    10,
+    25,
+    17,
+    3,
+    9,
+    15,
+    1,
+    22,
+    8,
+    23,
+    16
+  ],
+  "inequalities": [
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        27,
+        10,
+        1
+      ],
+      "weight": 6671437
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        11,
+        4,
+        5
+      ],
+      "weight": 3369092
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        11,
+        26,
+        10
+      ],
+      "weight": 8848104
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        11,
+        3,
+        15
+      ],
+      "weight": 1869885
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        0,
+        4,
+        5,
+        1
+      ],
+      "weight": 3301695
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        4,
+        2,
+        18
+      ],
+      "weight": 1270120
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        0,
+        4,
+        20,
+        16
+      ],
+      "weight": 67397
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        4,
+        18,
+        7
+      ],
+      "weight": 1270120
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        19,
+        5,
+        9
+      ],
+      "weight": 67397
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        19,
+        12,
+        2
+      ],
+      "weight": 3327444
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        19,
+        2,
+        25
+      ],
+      "weight": 427406
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        19,
+        25,
+        15
+      ],
+      "weight": 427406
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        19,
+        3,
+        9
+      ],
+      "weight": 67806
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        5,
+        12,
+        14
+      ],
+      "weight": 1325522
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        5,
+        28,
+        7
+      ],
+      "weight": 4496158
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        0,
+        12,
+        6,
+        15
+      ],
+      "weight": 1570447
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        0,
+        12,
+        13,
+        28
+      ],
+      "weight": 3082519
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        0,
+        6,
+        10,
+        16
+      ],
+      "weight": 1570447
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        6,
+        17,
+        3
+      ],
+      "weight": 674026
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        21,
+        17,
+        9
+      ],
+      "weight": 955892
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        21,
+        1,
+        22
+      ],
+      "weight": 14880029
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        0,
+        13,
+        28,
+        2
+      ],
+      "weight": 3082519
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        28,
+        2,
+        7
+      ],
+      "weight": 1408688
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        0,
+        14,
+        2,
+        1
+      ],
+      "weight": 221230
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        2,
+        24,
+        9
+      ],
+      "weight": 9363167
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        0,
+        2,
+        10,
+        17
+      ],
+      "weight": 1629918
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        0,
+        20,
+        10,
+        23
+      ],
+      "weight": 67397
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        0,
+        24,
+        10,
+        25
+      ],
+      "weight": 9363167
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        0,
+        10,
+        9,
+        16
+      ],
+      "weight": 10454262
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        27,
+        11,
+        4,
+        3
+      ],
+      "weight": 7893419
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        27,
+        11,
+        10,
+        22
+      ],
+      "weight": 955892
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        4,
+        19,
+        18
+      ],
+      "weight": 99226
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        4,
+        5,
+        14
+      ],
+      "weight": 1325522
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        4,
+        6,
+        16
+      ],
+      "weight": 410022
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        4,
+        13,
+        3
+      ],
+      "weight": 3841324
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        4,
+        3,
+        23
+      ],
+      "weight": 2217325
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        27,
+        19,
+        18,
+        25
+      ],
+      "weight": 2598574
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        19,
+        18,
+        23
+      ],
+      "weight": 99226
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        5,
+        12,
+        25
+      ],
+      "weight": 8472581
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        5,
+        28,
+        16
+      ],
+      "weight": 1903094
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        27,
+        5,
+        25,
+        8
+      ],
+      "weight": 3554466
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        26,
+        13,
+        2
+      ],
+      "weight": 1589263
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        26,
+        10,
+        23
+      ],
+      "weight": 5715545
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        6,
+        13,
+        2
+      ],
+      "weight": 410022
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        27,
+        6,
+        20,
+        18
+      ],
+      "weight": 2038816
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        28,
+        8,
+        23
+      ],
+      "weight": 3554466
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        20,
+        24,
+        1
+      ],
+      "weight": 2241054
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        20,
+        3,
+        23
+      ],
+      "weight": 3865573
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        18,
+        24,
+        9
+      ],
+      "weight": 658984
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        27,
+        25,
+        3,
+        1
+      ],
+      "weight": 1810521
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        27,
+        25,
+        22,
+        23
+      ],
+      "weight": 955892
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        11,
+        4,
+        19,
+        7
+      ],
+      "weight": 97062
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        11,
+        19,
+        5,
+        6
+      ],
+      "weight": 97062
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        11,
+        19,
+        26,
+        18
+      ],
+      "weight": 7851985
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        11,
+        19,
+        12,
+        3
+      ],
+      "weight": 3597163
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        11,
+        19,
+        13,
+        25
+      ],
+      "weight": 4888419
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        11,
+        19,
+        14,
+        3
+      ],
+      "weight": 796453
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        11,
+        19,
+        14,
+        22
+      ],
+      "weight": 1776867
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        11,
+        5,
+        20,
+        15
+      ],
+      "weight": 1869885
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        11,
+        5,
+        8,
+        16
+      ],
+      "weight": 3466154
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        11,
+        26,
+        13,
+        25
+      ],
+      "weight": 4140420
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        11,
+        26,
+        28,
+        10
+      ],
+      "weight": 273176
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        11,
+        12,
+        6,
+        25
+      ],
+      "weight": 986172
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        11,
+        6,
+        13,
+        22
+      ],
+      "weight": 986172
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        11,
+        13,
+        28,
+        17
+      ],
+      "weight": 1629918
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        11,
+        13,
+        28,
+        16
+      ],
+      "weight": 7421485
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        11,
+        13,
+        14,
+        3
+      ],
+      "weight": 2593526
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        11,
+        28,
+        18,
+        16
+      ],
+      "weight": 9324579
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        11,
+        14,
+        20,
+        1
+      ],
+      "weight": 4113892
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        11,
+        20,
+        10,
+        16
+      ],
+      "weight": 5983777
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        11,
+        7,
+        22,
+        8
+      ],
+      "weight": 820975
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        11,
+        10,
+        17,
+        3
+      ],
+      "weight": 1629918
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        4,
+        19,
+        5,
+        25
+      ],
+      "weight": 4918115
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        4,
+        5,
+        7,
+        1
+      ],
+      "weight": 4902830
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        4,
+        5,
+        1,
+        16
+      ],
+      "weight": 477419
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        4,
+        26,
+        2,
+        10
+      ],
+      "weight": 1270120
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        4,
+        26,
+        10,
+        9
+      ],
+      "weight": 1479571
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        4,
+        12,
+        13,
+        18
+      ],
+      "weight": 5487444
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        4,
+        12,
+        3,
+        1
+      ],
+      "weight": 6634768
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        4,
+        6,
+        1,
+        23
+      ],
+      "weight": 2217325
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        4,
+        13,
+        14,
+        3
+      ],
+      "weight": 1247798
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        4,
+        13,
+        10,
+        25
+      ],
+      "weight": 4239646
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        4,
+        14,
+        18,
+        25
+      ],
+      "weight": 2573320
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        4,
+        18,
+        7,
+        16
+      ],
+      "weight": 5089561
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        4,
+        24,
+        9,
+        1
+      ],
+      "weight": 1479571
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        4,
+        10,
+        1,
+        8
+      ],
+      "weight": 5719217
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        4,
+        3,
+        1,
+        23
+      ],
+      "weight": 6082898
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        19,
+        5,
+        13,
+        9
+      ],
+      "weight": 465547
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        19,
+        26,
+        13,
+        3
+      ],
+      "weight": 4325810
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        19,
+        26,
+        14,
+        18
+      ],
+      "weight": 2573320
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        19,
+        12,
+        18,
+        25
+      ],
+      "weight": 13460226
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        19,
+        12,
+        24,
+        9
+      ],
+      "weight": 4198369
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        19,
+        12,
+        9,
+        15
+      ],
+      "weight": 427406
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        19,
+        6,
+        13,
+        22
+      ],
+      "weight": 97062
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        19,
+        21,
+        20,
+        24
+      ],
+      "weight": 6142515
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        19,
+        21,
+        7,
+        9
+      ],
+      "weight": 97062
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        19,
+        13,
+        25,
+        15
+      ],
+      "weight": 99226
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        19,
+        13,
+        15,
+        23
+      ],
+      "weight": 99226
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        19,
+        2,
+        24,
+        10
+      ],
+      "weight": 2900038
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        19,
+        2,
+        10,
+        16
+      ],
+      "weight": 2900038
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        19,
+        24,
+        25,
+        23
+      ],
+      "weight": 955892
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        5,
+        26,
+        2,
+        9
+      ],
+      "weight": 1589263
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        5,
+        26,
+        10,
+        15
+      ],
+      "weight": 3016844
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        5,
+        26,
+        15,
+        23
+      ],
+      "weight": 63725
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        5,
+        12,
+        28,
+        15
+      ],
+      "weight": 4496158
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        5,
+        6,
+        13,
+        17
+      ],
+      "weight": 465547
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        5,
+        6,
+        2,
+        7
+      ],
+      "weight": 2610172
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        5,
+        6,
+        15,
+        8
+      ],
+      "weight": 1083234
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        5,
+        13,
+        23,
+        16
+      ],
+      "weight": 5846667
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        5,
+        28,
+        7,
+        10
+      ],
+      "weight": 3016844
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        5,
+        2,
+        9,
+        1
+      ],
+      "weight": 15192520
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        5,
+        10,
+        8,
+        23
+      ],
+      "weight": 5782942
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        5,
+        9,
+        1,
+        16
+      ],
+      "weight": 14068804
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        26,
+        12,
+        28,
+        3
+      ],
+      "weight": 4325810
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        26,
+        12,
+        18,
+        16
+      ],
+      "weight": 273176
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        26,
+        12,
+        25,
+        9
+      ],
+      "weight": 3068834
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        26,
+        6,
+        13,
+        18
+      ],
+      "weight": 4325810
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        26,
+        28,
+        14,
+        25
+      ],
+      "weight": 2573320
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        26,
+        28,
+        18,
+        9
+      ],
+      "weight": 1479314
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        26,
+        28,
+        10,
+        15
+      ],
+      "weight": 2953119
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        12,
+        6,
+        28,
+        3
+      ],
+      "weight": 1243291
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        12,
+        6,
+        18,
+        25
+      ],
+      "weight": 6364626
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        12,
+        6,
+        7,
+        1
+      ],
+      "weight": 1608156
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        12,
+        6,
+        15,
+        1
+      ],
+      "weight": 1370652
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        12,
+        6,
+        15,
+        16
+      ],
+      "weight": 273176
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        12,
+        28,
+        2,
+        7
+      ],
+      "weight": 1608156
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        12,
+        2,
+        20,
+        16
+      ],
+      "weight": 1608156
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        12,
+        20,
+        18,
+        1
+      ],
+      "weight": 1608156
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        12,
+        7,
+        3,
+        1
+      ],
+      "weight": 3655960
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        12,
+        10,
+        25,
+        3
+      ],
+      "weight": 3459643
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        12,
+        25,
+        3,
+        9
+      ],
+      "weight": 3355932
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        6,
+        21,
+        7,
+        22
+      ],
+      "weight": 1083234
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        6,
+        21,
+        9,
+        23
+      ],
+      "weight": 1052954
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        6,
+        13,
+        28,
+        20
+      ],
+      "weight": 816931
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        6,
+        13,
+        2,
+        8
+      ],
+      "weight": 1083234
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        6,
+        13,
+        2,
+        23
+      ],
+      "weight": 1116916
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        6,
+        13,
+        17,
+        1
+      ],
+      "weight": 1164371
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        6,
+        13,
+        1,
+        23
+      ],
+      "weight": 1164371
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        6,
+        28,
+        9,
+        15
+      ],
+      "weight": 1543039
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        6,
+        14,
+        3,
+        9
+      ],
+      "weight": 493798
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        6,
+        14,
+        9,
+        15
+      ],
+      "weight": 493798
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        6,
+        18,
+        25,
+        17
+      ],
+      "weight": 955892
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        6,
+        7,
+        3,
+        16
+      ],
+      "weight": 1433601
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        6,
+        24,
+        9,
+        1
+      ],
+      "weight": 761483
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        6,
+        25,
+        15,
+        1
+      ],
+      "weight": 6334346
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        21,
+        13,
+        20,
+        10
+      ],
+      "weight": 5089561
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        21,
+        28,
+        14,
+        23
+      ],
+      "weight": 1052954
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        21,
+        18,
+        17,
+        1
+      ],
+      "weight": 955892
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        21,
+        7,
+        10,
+        3
+      ],
+      "weight": 5089561
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        21,
+        25,
+        1,
+        22
+      ],
+      "weight": 15835921
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        13,
+        15,
+        22,
+        8
+      ],
+      "weight": 1083234
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        13,
+        8,
+        23,
+        16
+      ],
+      "weight": 3466154
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        28,
+        18,
+        25,
+        23
+      ],
+      "weight": 4607420
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        28,
+        10,
+        25,
+        8
+      ],
+      "weight": 63725
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        28,
+        25,
+        9,
+        8
+      ],
+      "weight": 63725
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        14,
+        25,
+        3,
+        1
+      ],
+      "weight": 4335122
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        2,
+        20,
+        1,
+        23
+      ],
+      "weight": 3391278
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        2,
+        18,
+        3,
+        9
+      ],
+      "weight": 8237910
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        2,
+        18,
+        23,
+        16
+      ],
+      "weight": 4508194
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        20,
+        18,
+        15,
+        1
+      ],
+      "weight": 652264
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        20,
+        7,
+        1,
+        16
+      ],
+      "weight": 3655960
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        20,
+        15,
+        1,
+        23
+      ],
+      "weight": 652264
+    },
+    {
+      "kind": "K2_diag_gt_other",
+      "quad": [
+        20,
+        15,
+        23,
+        16
+      ],
+      "weight": 652264
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        18,
+        9,
+        15,
+        8
+      ],
+      "weight": 7417580
+    },
+    {
+      "kind": "K1_diag_gt_sides",
+      "quad": [
+        25,
+        9,
+        1,
+        8
+      ],
+      "weight": 3355932
+    }
+  ],
+  "max_weight": 15835921,
+  "notes": [
+    "For vertices a,b,c,d in the supplied cyclic order, K1 is d(a,c)+d(b,d)>d(a,b)+d(c,d).",
+    "K2 is d(a,c)+d(b,d)>d(a,d)+d(b,c).",
+    "The checker quotients ordinary pair-distance variables by selected equal-distance rows and verifies that the positive weighted sum is exactly zero.",
+    "Summing the listed strict inequalities gives 0>0, so this fixed order cannot be realized by a strictly convex polygon with the selected C29 Sidon witness pattern."
+  ],
+  "num_inequalities": 165,
+  "pattern": {
+    "circulant_offsets": [
+      1,
+      3,
+      7,
+      15
+    ],
+    "n": 29,
+    "name": "C29_sidon_1_3_7_15"
+  },
+  "status": "EXACT_FIXED_ORDER_OBSTRUCTION",
+  "type": "kalmanson_farkas_certificate_v1",
+  "weight_sum": 504300794
+}

@@ -128,6 +128,28 @@ artifacts:
       - C13 proves the method works for C19
       - general proof of Erdos Problem #97
 
+  - id: c29_fixed_order_full_kalmanson
+    path: data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json
+    kind: certificate_artifact
+    generator: scripts/find_kalmanson_certificate.py
+    command: python scripts/check_kalmanson_certificate.py data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json --summary-json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: EXACT_OBSTRUCTION
+    claim_scope: Exact obstruction for one fixed C29 Sidon selected-witness cyclic order only.
+    json_top_level_type: object
+    expected_json:
+      pattern.name: C29_sidon_1_3_7_15
+      pattern.n: 29
+      status: EXACT_FIXED_ORDER_OBSTRUCTION
+      num_inequalities: 165
+      weight_sum: 504300794
+      max_weight: 15835921
+    forbidden_claims:
+      - this fixed-order certificate kills all C29 cyclic orders
+      - C29_sidon_1_3_7_15 proves Erdos Problem #97
+      - general proof of Erdos Problem #97
+
   - id: c13_all_orders_kalmanson_two_search
     path: data/certificates/c13_sidon_all_orders_kalmanson_two_search.json
     kind: exhaustive_search_artifact

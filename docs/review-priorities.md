@@ -170,11 +170,13 @@ benchmarks for the larger frontier:
 
 - classify the inverse-pair templates that prune C13 and C19;
 - test whether the same templates appear in newly mined sparse incidence
-  patterns, especially the recorded C29 fixed order in
-  `data/certificates/c25_c29_sparse_frontier_probe.json`;
-- make the row-circle Ptolemy diagnostic practical for that C29 order, either
-  by reducing the active set or by extracting a smaller exact certificate
-  target;
+  patterns;
+- use the recorded C29 fixed-order certificate
+  `data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json` as the
+  benchmark for full-cone Kalmanson/Farkas certificates that are not visible to
+  the two-inequality inverse-pair filter;
+- try to turn full-cone fixed-order certificates into reusable order-search
+  clauses for larger sparse/Sidon patterns;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 

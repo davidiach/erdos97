@@ -271,7 +271,9 @@ incidence pattern impossible across all cyclic orders.
 The later C25/C29 probe is recorded at
 `data/certificates/c25_c29_sparse_frontier_probe.json`. It extends the sparse
 frontier log beyond the retired C13/C19 registered orders, but it does not add
-any proof-facing global claim.
+any proof-facing global claim. The C29 entry in that probe is now historical:
+it records a fixed order that escaped weaker filters before the later full
+Kalmanson/Farkas certificate killed the same fixed order exactly.
 
 For `C25_sidon_2_5_9_14`, the Kalmanson Z3 refinement found the fixed step-7
 cyclic order
@@ -292,19 +294,21 @@ cyclic order
 0,27,11,4,19,5,26,12,6,21,13,28,14,2,20,18,7,24,10,25,17,3,9,15,1,22,8,23,16
 ```
 
-This order survives the current lightweight fixed-order exact filter sweep:
-crossing, Altman signature and exact linear-certificate checks,
-vertex-circle, minimum-radius, radius propagation, and the two-inequality
-Kalmanson inverse-pair check all fail to obstruct it. It also passes the
-metric-order LP diagnostic with max margin about `0.00128257`. A slow global
-Ptolemy NLP diagnostic printed a positive-margin pass around `0.00092602`, but
-this remains numerical and is not part of the fast verification tier.
+This order survived the lightweight fixed-order exact filter sweep: crossing,
+Altman signature and exact linear-certificate checks, vertex-circle,
+minimum-radius, radius propagation, and the two-inequality Kalmanson
+inverse-pair check all failed to obstruct it. It also passed the metric-order
+LP diagnostic with max margin about `0.00128257`. A slow global Ptolemy NLP
+diagnostic printed a positive-margin pass around `0.00092602`, but this remains
+numerical and is not part of the fast verification tier.
 
-The row-circle Ptolemy NLP, which is the next stronger distance-class
-diagnostic, was too slow to complete interactively on this C29 order. That
-makes the order a stress test for either reducing the row-circle active set or
-building a stronger exact filter. It is not evidence of geometric
-realizability.
+The fixed order is now killed by the exact 165-inequality Kalmanson/Farkas
+certificate
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`. That
+certificate shows the full Kalmanson cone is stronger than the two-inequality
+inverse-pair filter on this instance. It still proves only this fixed
+selected-witness pattern plus this fixed cyclic order, not all cyclic orders of
+the abstract C29 pattern.
 
 The first constrained numerical run on the registered `C13` sparse-filter order
 is:

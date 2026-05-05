@@ -14,6 +14,7 @@ C19_TWO = ROOT / "data" / "certificates" / "round2" / "c19_kalmanson_known_order
 C17_TRANSLATION = ROOT / "data" / "certificates" / "round2" / "c17_skew_kalmanson_from_ptolemy_method_note.json"
 C13 = ROOT / "data" / "certificates" / "c13_sidon_order_survivor_kalmanson_unsat.json"
 C13_TWO = ROOT / "data" / "certificates" / "c13_sidon_order_survivor_kalmanson_two_unsat.json"
+C29 = ROOT / "data" / "certificates" / "c29_sidon_fixed_order_kalmanson_165_unsat.json"
 
 
 def load_module():
@@ -83,6 +84,18 @@ def test_c13_compact_two_inequality_kalmanson_certificate() -> None:
     assert summary.distance_classes_after_selected_equalities == 39
     assert summary.weight_sum == 2
     assert summary.max_weight == 1
+
+
+def test_c29_fixed_order_kalmanson_certificate() -> None:
+    module = load_module()
+    summary = module.check_certificate_file(C29)
+    assert summary.pattern == "C29_sidon_1_3_7_15"
+    assert summary.n == 29
+    assert summary.positive_inequalities == 165
+    assert summary.distance_classes_after_selected_equalities == 319
+    assert summary.weight_sum == 504300794
+    assert summary.max_weight == 15835921
+    assert summary.zero_sum_verified is True
 
 
 def test_find_kalmanson_certificate_reproduces_c13_summary() -> None:
