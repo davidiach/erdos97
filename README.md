@@ -152,6 +152,17 @@ The follow-up exact order search now kills this fixed C13 Sidon pattern across
 all cyclic orders; see `docs/kalmanson-two-order-search.md`. This does not
 settle the larger sparse frontier or prove Erdos #97.
 
+A later sparse-frontier probe tested the larger Sidon entries
+`C25_sidon_2_5_9_14` and `C29_sidon_1_3_7_15`. The C25 Kalmanson-filter
+survivor is exactly killed by vertex-circle and Altman filters. One fixed C29
+order survives the current lightweight fixed-order exact sweep, the
+two-inequality Kalmanson inverse-pair search, the metric LP diagnostic, and a
+slow global Ptolemy NLP diagnostic; the row-circle Ptolemy diagnostic was too
+slow to complete. This makes the C29 order a stress test for stronger filters,
+not a counterexample candidate. See
+[`data/certificates/c25_c29_sparse_frontier_probe.json`](data/certificates/c25_c29_sparse_frontier_probe.json)
+and [`docs/sparse-frontier-diagnostic.md`](docs/sparse-frontier-diagnostic.md).
+
 The previous best numerical near-miss was `B12_3x4_danzer_lift`. It remains a
 useful degeneration diagnostic, but the fixed selected pattern is now exactly
 killed by the mutual-rhombus midpoint filter. The saved numerical artifact is

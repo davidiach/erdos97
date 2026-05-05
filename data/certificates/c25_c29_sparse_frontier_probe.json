@@ -1,0 +1,180 @@
+{
+  "cases": [
+    {
+      "altman_linear_certificate": {
+        "certificate_method": "interval_dominance",
+        "nonzero_gap_orders": [
+          10
+        ],
+        "obstructed": true,
+        "status": "EXACT_ALTMAN_LINEAR_OBSTRUCTION"
+      },
+      "case": "C25_sidon_2_5_9_14:kalmanson_z3_step7_survivor",
+      "conclusion": "dead_end_for_this_order",
+      "direct_kalmanson_inverse_pair_check": {
+        "first_conflict": [],
+        "inverse_pair_conflicts": 0,
+        "rows_seen": 25025
+      },
+      "kalmanson_two_order_z3_probe": {
+        "conflict_cap": 1024,
+        "forbidden_clause_count": 13246,
+        "iterations": 357,
+        "solver_result": "sat",
+        "status": "FOUND_ORDER_WITHOUT_TWO_INEQUALITY_KALMANSON_CERTIFICATE",
+        "trust": "EXACT_COUNTEREXAMPLE_TO_THIS_FILTER_ONLY"
+      },
+      "n": 25,
+      "notes": [
+        "The order escapes the two-inequality Kalmanson inverse-pair filter.",
+        "The same fixed order is exactly killed by the vertex-circle filter and by an Altman linear certificate."
+      ],
+      "order": [
+        0,
+        7,
+        14,
+        21,
+        3,
+        10,
+        17,
+        24,
+        6,
+        13,
+        20,
+        2,
+        9,
+        16,
+        23,
+        5,
+        12,
+        19,
+        1,
+        8,
+        15,
+        22,
+        4,
+        11,
+        18
+      ],
+      "pattern": "C25_sidon_2_5_9_14",
+      "sparse_order_filter_sweep": {
+        "survives_current_exact_filters": false,
+        "survives_pre_kalmanson_filters": false
+      },
+      "vertex_circle": {
+        "cycle": true,
+        "obstructed": true,
+        "self_edge_count": 0,
+        "strict_edge_count": 225
+      }
+    },
+    {
+      "altman_linear_certificate": {
+        "certificate_method": "none",
+        "nonzero_gap_orders": [],
+        "obstructed": false,
+        "status": "NO_EXACT_ALTMAN_LINEAR_CERTIFICATE_FOUND"
+      },
+      "case": "C29_sidon_1_3_7_15:z3_kalmanson_survivor",
+      "conclusion": "fixed_order_stress_test_for_stronger_filters",
+      "direct_kalmanson_inverse_pair_check": {
+        "first_conflict": [],
+        "inverse_pair_conflicts": 0,
+        "rows_seen": 47259
+      },
+      "global_ptolemy_order_nlp": {
+        "linear_inequality_count": 11236,
+        "max_margin": 0.000926019965531504,
+        "optimizer_iterations": 15,
+        "optimizer_success": true,
+        "ptolemy_inequality_count": 23751,
+        "status": "PASS_PTOLEMY_ORDER_NLP_RELAXATION",
+        "trust": "NUMERICAL_NONLINEAR_DIAGNOSTIC"
+      },
+      "kalmanson_two_order_z3_probe": {
+        "conflict_cap": 1024,
+        "forbidden_clause_count": 20274,
+        "iterations": 412,
+        "solver_result": "sat",
+        "status": "FOUND_ORDER_WITHOUT_TWO_INEQUALITY_KALMANSON_CERTIFICATE",
+        "trust": "EXACT_COUNTEREXAMPLE_TO_THIS_FILTER_ONLY"
+      },
+      "metric_order_lp": {
+        "distance_class_count": 319,
+        "max_margin": 0.0012825717948999307,
+        "status": "PASS_METRIC_ORDER_LP_RELAXATION",
+        "total_inequality_count": 11236,
+        "trust": "NUMERICAL_LINEAR_DIAGNOSTIC"
+      },
+      "n": 29,
+      "notes": [
+        "This is a fixed cyclic order that survives the current lightweight exact filter sweep.",
+        "A positive diagnostic margin is not evidence of geometric realizability.",
+        "The row-circle Ptolemy NLP was attempted interactively and was too slow to treat as a completed diagnostic."
+      ],
+      "order": [
+        0,
+        27,
+        11,
+        4,
+        19,
+        5,
+        26,
+        12,
+        6,
+        21,
+        13,
+        28,
+        14,
+        2,
+        20,
+        18,
+        7,
+        24,
+        10,
+        25,
+        17,
+        3,
+        9,
+        15,
+        1,
+        22,
+        8,
+        23,
+        16
+      ],
+      "pattern": "C29_sidon_1_3_7_15",
+      "row_circle_ptolemy_nlp": {
+        "status": "NOT_COMPLETED_TOO_SLOW",
+        "trust": "NO_RESULT"
+      },
+      "sparse_order_filter_sweep": {
+        "survives_current_exact_filters": true,
+        "survives_pre_kalmanson_filters": true
+      },
+      "vertex_circle": {
+        "cycle": false,
+        "obstructed": false,
+        "self_edge_count": 0,
+        "strict_edge_count": 261
+      }
+    }
+  ],
+  "date": "2026-05-05",
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "These are fixed-order diagnostics for sparse/Sidon selected-witness patterns.",
+    "A Kalmanson filter survivor is only a counterexample to that filter, not to the geometric problem."
+  ],
+  "reproduction": {
+    "c25_exact_filter_sweep": "python scripts/check_sparse_order_survivors.py --pattern C25_sidon_2_5_9_14 --order 0,7,14,21,3,10,17,24,6,13,20,2,9,16,23,5,12,19,1,8,15,22,4,11,18 --order-label kalmanson_z3_step7_survivor --json",
+    "c25_kalmanson_probe": "python scripts/check_kalmanson_two_order_z3.py --name C25_sidon_2_5_9_14 --n 25 --offsets=2,5,9,14 --max-iterations 1000 --conflict-cap 1024",
+    "c29_exact_filter_sweep": "python scripts/check_sparse_order_survivors.py --pattern C29_sidon_1_3_7_15 --order 0,27,11,4,19,5,26,12,6,21,13,28,14,2,20,18,7,24,10,25,17,3,9,15,1,22,8,23,16 --order-label z3_kalmanson_survivor --json",
+    "c29_kalmanson_probe": "python scripts/check_kalmanson_two_order_z3.py --name C29_sidon_1_3_7_15 --n 29 --offsets=1,3,7,15 --max-iterations 1000 --conflict-cap 1024",
+    "c29_metric_lp": "python scripts/check_metric_order_lp.py --pattern C29_sidon_1_3_7_15 --order 0,27,11,4,19,5,26,12,6,21,13,28,14,2,20,18,7,24,10,25,17,3,9,15,1,22,8,23,16 --order-label z3_kalmanson_survivor --json",
+    "c29_ptolemy_nlp": "python scripts/check_ptolemy_order_nlp.py --pattern C29_sidon_1_3_7_15 --order 0,27,11,4,19,5,26,12,6,21,13,28,14,2,20,18,7,24,10,25,17,3,9,15,1,22,8,23,16 --order-label z3_kalmanson_survivor --maxiter 500 --json"
+  },
+  "trust": "FIXED_ORDER_DIAGNOSTIC",
+  "type": "c25_c29_sparse_frontier_probe_v1"
+}

@@ -173,7 +173,15 @@ recommended before any structural claim. See
 `docs/sidon-patterns.md` and `data/runs/C13_sidon_m{1e-3,1e-4,1e-5,1e-6}.json`.
 
 The catalog also contains `C25_sidon_2_5_9_14` and `C29_sidon_1_3_7_15`
-as cheap-to-define INCIDENCE_PATTERN entries. They have not been run.
+as cheap-to-define INCIDENCE_PATTERN entries. A 2026-05-05 sparse-frontier
+probe found that a C25 Kalmanson-filter survivor is exactly killed by
+vertex-circle and Altman filters. The same probe found one fixed C29 cyclic
+order that survives the current lightweight fixed-order exact filters, the
+two-inequality Kalmanson inverse-pair search, the metric LP diagnostic, and a
+slow global Ptolemy NLP diagnostic. This C29 order is only a filter stress
+test; it is not a counterexample candidate, and the row-circle Ptolemy
+diagnostic did not complete. See
+`data/certificates/c25_c29_sparse_frontier_probe.json`.
 
 ## Top killed approaches
 

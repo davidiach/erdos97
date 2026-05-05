@@ -223,6 +223,25 @@ See `docs/mutual-rhombus-filter.md` and
 `data/certificates/p24_cyclic_crossing_unsat.json`, and
 `data/certificates/p18_vertex_circle_order_unsat.json`.
 
+### Sparse frontier fixed-order diagnostics
+
+Status: `FIXED_ORDER_DIAGNOSTIC`.
+
+The C25/C29 sparse-frontier probe in
+`data/certificates/c25_c29_sparse_frontier_probe.json` records two fixed-order
+stress tests for the larger Sidon entries. For `C25_sidon_2_5_9_14`, the
+Kalmanson Z3 refinement found a step-7 fixed cyclic order with no
+two-inequality Kalmanson inverse-pair obstruction, but the same order is
+exactly killed by vertex-circle and Altman filters.
+
+For `C29_sidon_1_3_7_15`, the refinement found one fixed cyclic order that
+survives the current lightweight fixed-order exact filter sweep and the
+two-inequality Kalmanson inverse-pair search. It also passes the metric-order
+LP and a slow global Ptolemy NLP diagnostic with positive margins. The
+row-circle Ptolemy NLP was too slow to complete interactively. This C29 order
+is a stress test for stronger filters only; it is not evidence of geometric
+realizability and not a counterexample claim.
+
 ## Numerical Attempts
 
 ### C13_sidon_1_2_4_10
