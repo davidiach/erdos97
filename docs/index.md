@@ -93,6 +93,8 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-exhaustive.md`](n9-vertex-circle-exhaustive.md):
   review-pending exhaustive `n=9` selected-witness checker using the
   vertex-circle strict-chord filter.
+- [`n10-vertex-circle-singleton-slices.md`](n10-vertex-circle-singleton-slices.md):
+  review-pending `n=10` singleton-slice finite-case draft and audit target.
 - [`octagon-trap.html`](octagon-trap.html): interactive visualization of the
   isosceles-triangle count and octagon equality trap.
 - [`reproduction-log.md`](reproduction-log.md): fast, artifact, and exhaustive

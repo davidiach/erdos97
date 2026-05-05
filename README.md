@@ -30,6 +30,8 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/n8-exact-survivors.md`](docs/n8-exact-survivors.md).
 - For the review-pending exhaustive `n=9` vertex-circle finite-case checker,
   read [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
+- For the review-pending `n=10` singleton-slice finite-case draft, read
+  [`docs/n10-vertex-circle-singleton-slices.md`](docs/n10-vertex-circle-singleton-slices.md).
 - For a compact human-readable proof-note draft excluding bad convex octagons,
   read [`docs/n8-geometric-proof.md`](docs/n8-geometric-proof.md).
 - For an interactive visualization of that proof idea, open
@@ -132,6 +134,13 @@ vertex-circle filter kills all 184 by exact self-edge or strict-cycle
 obstructions. This is not yet promoted to the source-of-truth strongest local
 result; independent review is required before any public theorem-style claim.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
+
+An incoming `n=10` singleton-slice continuation is now recorded as a
+review-pending finite-case draft: all 126 row0 singleton slices report zero
+full assignments, with 4,142,738 total visited nodes and no aborted slices.
+The artifact is an audit target only and is not promoted to the source-of-truth
+strongest local result. See
+[`docs/n10-vertex-circle-singleton-slices.md`](docs/n10-vertex-circle-singleton-slices.md).
 
 Round two first added an exact compact Kalmanson/Farkas certificate for one
 fixed `C19_skew` selected-witness pattern and one fixed cyclic order:

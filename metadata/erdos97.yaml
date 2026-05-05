@@ -84,6 +84,13 @@ local_repo:
       archive_provenance: "incoming/archive-output-2026-05-03/"
       claim_scope: "candidate repo-local selected-witness n=9 finite-case obstruction only; does not alter official/global status"
       review_note: "Promote only after independent review reconciles the exhaustive vertex-circle counts with the raw 184/16 and 102-certificate archive variants."
+    - name: "n10_vertex_circle_singleton_slices"
+      status: "MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING"
+      artifact: "data/certificates/n10_vertex_circle_singleton_slices.json"
+      verifier: "scripts/check_n10_vertex_circle_singletons.py"
+      archive_provenance: "erd archive/outputs/data/1/3/10/"
+      claim_scope: "draft selected-witness n=10 singleton-slice finite-case obstruction only; does not alter official/global status or the source-of-truth strongest local result"
+      review_note: "Promote only after independent code review or a compact replayable certificate validates the generic checker and all 126 row0 singleton slices."
   notable_fixed_order_obstructions:
     - pattern: "C19_skew"
       status: "exact fixed-order Kalmanson/Farkas obstruction"

@@ -189,3 +189,28 @@ artifacts:
       - n=9 is proved
       - official/global status update
       - general proof of Erdos Problem #97
+
+  - id: n10_vertex_circle_singleton_slices
+    path: data/certificates/n10_vertex_circle_singleton_slices.json
+    kind: finite_case_draft_artifact
+    generator: scripts/check_n10_vertex_circle_singletons.py
+    command: python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-generic
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING
+    claim_scope: Review-pending draft n=10 selected-witness singleton-slice finite-case artifact only.
+    json_top_level_type: object
+    expected_json:
+      n: 10
+      row_size: 4
+      trust: MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING
+      row0_choice_count_expected: 126
+      row0_choices_covered: 126
+      total_full: 0
+      total_nodes: 4142738
+      aborted_any: false
+    forbidden_claims:
+      - n=10 is proved
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97

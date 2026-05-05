@@ -99,6 +99,47 @@ Forbidden overclaiming text:
 - "the vertex-circle checker is independently reviewed"
 - "this updates the official Erdos #97 status"
 
+## Task CB-N10 - Audit n=10 Singleton Slices
+
+Issue: none yet.
+
+Read first:
+
+- `docs/n10-vertex-circle-singleton-slices.md`
+- `src/erdos97/generic_vertex_search.py`
+- `src/erdos97/n10_vertex_circle_singletons.py`
+- `scripts/check_n10_vertex_circle_singletons.py`
+- `data/certificates/n10_vertex_circle_singleton_slices.json`
+
+Commands:
+
+```bash
+python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-generic
+python -m pytest tests/test_n10_vertex_circle_singletons.py -q -m "artifact"
+```
+
+Expected artifacts:
+
+- independent review notes for the generic checker and the imported singleton rows;
+- optional second-implementation counts or a replayable terminal-conflict certificate.
+
+Acceptance criteria:
+
+- Row0 singleton coverage is exactly `[0,126)` with no hidden symmetry quotient.
+- Partial vertex-circle pruning is verified to use only fixed rows/equalities.
+- A second implementation or certificate replay checks all 126 slices.
+- The result remains scoped as a draft review-pending n=10 finite-case artifact.
+
+Trust delta: may promote the n=10 package from draft to review-pending finite
+case artifact. It may not update the official/global status or the repo
+source-of-truth strongest result by itself.
+
+Forbidden overclaiming text:
+
+- "n=10 is proved"
+- "no bad decagon exists" without the review qualifier
+- "this updates the official Erdos #97 status"
+
 ## Task CB-81 - Pilot Kalmanson Cyclic-Order CSP On C13
 
 Issue: <https://github.com/davidiach/erdos97/issues/81>

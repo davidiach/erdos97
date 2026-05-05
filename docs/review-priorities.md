@@ -137,6 +137,29 @@ Acceptance standard: a reusable lemma should state precise incidence/order
 hypotheses and produce a self-edge or strict cycle without enumerating all n=9
 selected-witness assignments.
 
+## Priority 6b - audit the n=10 singleton-slice draft
+
+Target: `docs/n10-vertex-circle-singleton-slices.md` and
+`data/certificates/n10_vertex_circle_singleton_slices.json`.
+
+The incoming n=10 continuation covers all 126 row0 singleton slices and records
+zero full selected-witness assignments under the pair/crossing/count plus
+vertex-circle filters. Treat this as a draft until an independent audit checks:
+
+- the generic checker source against the exact pruning lemmas;
+- the row0 singleton coverage `[0,126)` and absence of hidden symmetry
+  quotienting;
+- that minimum-remaining-options branching changes only search order;
+- that partial vertex-circle pruning uses only already-fixed selected rows and
+  selected-distance equalities;
+- that a second implementation or replayable terminal-conflict certificate
+  agrees with all 126 slices, not only the current row0 `0` spot-check.
+
+Acceptance standard: a reviewer should either promote the artifact to the same
+review-pending finite-case status as n=9, or identify the exact implementation,
+coverage, or certificate gap. This may not update the official/global status or
+the repo source-of-truth strongest result without a broader review decision.
+
 ## Priority 7 - review the C19 all-order Kalmanson SMT certificate
 
 Target: `data/certificates/c19_skew_all_orders_kalmanson_z3.json` and

@@ -218,6 +218,28 @@ variants whose symmetry conventions need separate review. See
 `data/certificates/n9_vertex_circle_exhaustive.json`, and
 `incoming/archive-output-2026-05-03/`.
 
+### Review-pending n=10 vertex-circle singleton-slice draft
+
+Status: `MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING`.
+
+An incoming generic checker continuation is recorded as
+`data/certificates/n10_vertex_circle_singleton_slices.json`. It covers all
+126 row0 singleton slices for a cyclically labelled decagon, reports 4,142,738
+total visited nodes, 0 full assignments, and no aborted slices. The imported
+counts are:
+
+```text
+partial self-edge prunes:   4,467,592
+partial strict-cycle prunes: 5,318,250
+```
+
+This is a draft audit target only. The repo-native generic checker reproduces
+the n=9 vertex-circle counts and reruns row0 singleton `0`, but the full n=10
+search still needs independent implementation review or a compact replayable
+certificate format before any public theorem-style use. It is not promoted to
+the source-of-truth strongest result. See
+`docs/n10-vertex-circle-singleton-slices.md`.
+
 The row-circle Ptolemy diagnostic in
 `docs/row-circle-ptolemy-nlp.md` adds the Ptolemy equality forced by each
 selected witness quadruple being concyclic around its center. It numerically
@@ -340,7 +362,10 @@ search-history artifacts, not as live candidates.
    and `14` exact certificates.
 2. Independently review the review-pending exhaustive `n=9` vertex-circle
    checker before promoting it to source-of-truth finite-case status.
-3. Use the retired `C13_sidon_1_2_4_10` and `C19_skew` sparse patterns as
+3. Audit the draft `n=10` singleton-slice package with an independent checker
+   or replayable terminal-conflict certificate before promoting it beyond
+   draft review-pending status.
+4. Use the retired `C13_sidon_1_2_4_10` and `C19_skew` sparse patterns as
    benchmarks while searching for new incidence families or a bridge from
    arbitrary counterexamples to a classified selected-witness family.
-4. Add interval-arithmetic verification for convexity and distance equations.
+5. Add interval-arithmetic verification for convexity and distance equations.
