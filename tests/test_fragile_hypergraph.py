@@ -5,6 +5,7 @@ from erdos97.fragile_hypergraph import (
     canonical_witness_map,
     check_fragile_hypergraph,
     essential_row_matching,
+    full_selected_extension,
 )
 
 
@@ -105,3 +106,26 @@ def test_essential_row_matching_detects_hall_defect() -> None:
     assert unmatched
     assert not result.essential_cover_ok
     assert result.essential_matching_unmatched_centers == unmatched
+
+
+def test_single_block6_has_no_full_selected_extension() -> None:
+    n, rows = block6_family(1)
+
+    extension = full_selected_extension(n, rows)
+
+    assert not extension.ok
+    assert extension.search_exhausted
+    assert extension.failure_reason == "no extension exists"
+
+
+def test_two_block6_still_has_full_selected_extension() -> None:
+    n, rows = block6_family(2)
+
+    extension = full_selected_extension(n, rows)
+
+    assert extension.ok
+    assert extension.full_rows is not None
+    assert extension.full_rows[0] == rows[0]
+    assert extension.full_rows[3] == rows[3]
+    assert extension.full_rows[6] == rows[6]
+    assert extension.full_rows[9] == rows[9]

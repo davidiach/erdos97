@@ -53,6 +53,14 @@ generating vertex, so the retained rows can be matched to distinct covered
 vertices. The retained exact 4-ties cover all vertices by construction, giving
 the desired partial witness system and witness map.
 
+There is one more incidence-level consequence. Since every vertex of the
+original polygon is bad, choose one selected 4-neighbor row at every
+non-fragile center. At a retained fragile center, use its critical row: because
+that row is used by some deleted vertex, the critical-tie proof shows it is the
+unique distance class of size at least `4` at that center. Thus every minimal
+counterexample also gives a full selected-witness incidence system extending
+the fragile rows.
+
 ## Immediate Geometric Constraints
 
 Any fragile-cover witness system coming from a minimal counterexample also
@@ -67,6 +75,17 @@ These are exactly the checks implemented by
 `src/erdos97/fragile_hypergraph.py` and exposed through
 `scripts/check_fragile_hypergraph.py`. The checker also reports the row-use
 matching condition above as `essential_cover_ok`.
+
+The same script can optionally test the full-row extension condition:
+
+```bash
+python scripts/check_fragile_hypergraph.py --blocks 1 --check-full-extension --json
+```
+
+This searches for a full selected-witness incidence system extending the
+fragile rows, subject to self-exclusion, four-uniformity, the two-circle cap,
+and the two-overlap crossing rule. Passing this extension check is still not a
+Euclidean realization certificate.
 
 ## What This Does Not Prove
 
@@ -88,6 +107,12 @@ The two fragile rows in a block cover the six vertices, intersect in
 `{b+2,b+4}`, and satisfy the cyclic crossing rule. Disjoint copies preserve
 the same abstract checks. Therefore pure fragile-cover hypergraph constraints
 cannot prove Erdos #97.
+
+The full-extension diagnostic rejects the single six-vertex block: it cannot be
+extended to full selected rows satisfying the pair and crossing constraints.
+However, two disjoint blocks still pass the full-extension diagnostic. Thus
+full-row extendability is a real strengthening, but it is still far from a
+proof.
 
 ## Research Use
 
