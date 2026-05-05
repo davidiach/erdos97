@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from datetime import date, datetime
@@ -17,6 +18,9 @@ except ImportError:  # pragma: no cover - exercised only without dev dependencie
 ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED_STATUS_FILES = ["README.md", "STATE.md", "RESULTS.md"]
+PATTERN_CATALOG = ROOT / "data" / "patterns" / "candidate_patterns.json"
+PATTERN_DOC = "docs/candidate-patterns.md"
+ALL_ORDER_PATTERN_NAMES = ("C19_skew", "C13_sidon_1_2_4_10")
 
 NO_OVERCLAIM_RE = re.compile(r"no\s+general\s+proof\s+and\s+no\s+counterexample", re.I)
 OFFICIAL_OPEN_RE = re.compile(r"falsifiable\s*[/ -]\s*open", re.I)
@@ -30,6 +34,15 @@ LOCAL_N8_RE = re.compile(
 REVIEW_RE = re.compile(
     r"(?:independent\s+(?:external\s+)?review|external\s+independent\s+review)"
     r"|(?:before\s+(?:paper-style|public\s+theorem-style|public theorem-style))",
+    re.I,
+)
+ALL_ORDER_OBSTRUCTION_RE = re.compile(
+    r"(?:exactly\s+killed|obstruction)[^.\n;|]*\bacross\s+all\s+cyclic\s+orders\b"
+    r"|\ball-cyclic-order\b",
+    re.I,
+)
+STALE_PATTERN_CATALOG_RE = re.compile(
+    r"\b(?:remains\s+live|live/unresolved|survives\s+current\s+fixed-order\s+exact\s+filters)\b",
     re.I,
 )
 
@@ -78,6 +91,23 @@ def load_metadata(path: Path) -> dict[str, object]:
     if not isinstance(loaded, dict):
         fail("metadata/erdos97.yaml should parse as a mapping")
     return loaded
+
+
+def load_pattern_catalog() -> list[dict[str, object]]:
+    if not PATTERN_CATALOG.exists():
+        fail(f"{PATTERN_CATALOG.relative_to(ROOT)} is missing")
+    try:
+        loaded = json.loads(PATTERN_CATALOG.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        fail(f"{PATTERN_CATALOG.relative_to(ROOT)} is not valid JSON: {exc}")
+    if not isinstance(loaded, list):
+        fail(f"{PATTERN_CATALOG.relative_to(ROOT)} should parse as a list")
+    rows: list[dict[str, object]] = []
+    for index, row in enumerate(loaded):
+        if not isinstance(row, dict):
+            fail(f"{PATTERN_CATALOG.relative_to(ROOT)}[{index}] should be an object")
+        rows.append(row)
+    return rows
 
 
 def metadata_value(metadata: dict[str, object], path: tuple[str, ...]) -> object:
@@ -165,6 +195,7 @@ def validate_metadata(max_official_status_age_days: int | None = None) -> None:
             fail(f"metadata trust_policy.{key} should be true")
 
     validate_nearby_literature(metadata)
+    validate_pattern_catalog(metadata)
 
 
 def validate_official_status_freshness(
@@ -218,6 +249,53 @@ def validate_nearby_literature(metadata: dict[str, object]) -> None:
         )
         if not has_reference:
             fail(f"{label}.citation should include a non-empty source, doi, or url")
+
+
+def validate_pattern_catalog(metadata: dict[str, object]) -> None:
+    """Keep the machine-readable pattern catalog aligned with canonical status."""
+
+    catalog = load_pattern_catalog()
+    by_name: dict[str, dict[str, object]] = {}
+    for row in catalog:
+        name = row.get("name")
+        if not isinstance(name, str) or not name.strip():
+            fail("data/patterns/candidate_patterns.json entries should have nonempty names")
+        if name in by_name:
+            fail(f"data/patterns/candidate_patterns.json has duplicate pattern {name!r}")
+        by_name[name] = row
+
+    all_order = metadata_value(metadata, ("local_repo", "notable_all_order_obstructions"))
+    if not isinstance(all_order, list):
+        fail("metadata local_repo.notable_all_order_obstructions should be a list")
+    all_order_patterns = {
+        str(item.get("pattern"))
+        for item in all_order
+        if isinstance(item, dict) and isinstance(item.get("pattern"), str)
+    }
+
+    candidate_doc = read_text(PATTERN_DOC)
+    doc_lines = candidate_doc.splitlines()
+    for pattern_name in ALL_ORDER_PATTERN_NAMES:
+        if pattern_name not in all_order_patterns:
+            fail(f"metadata should list {pattern_name} under notable_all_order_obstructions")
+        if pattern_name not in by_name:
+            fail(f"pattern catalog is missing {pattern_name}")
+
+        row = by_name[pattern_name]
+        status = str(row.get("status", ""))
+        trust = str(row.get("trust", ""))
+        if STALE_PATTERN_CATALOG_RE.search(status):
+            fail(f"pattern catalog has stale live/survivor wording for {pattern_name}")
+        if not ALL_ORDER_OBSTRUCTION_RE.search(status):
+            fail(f"pattern catalog should mark {pattern_name} as killed across all cyclic orders")
+        if trust == "INCIDENCE_PATTERN":
+            fail(f"pattern catalog trust for {pattern_name} should not remain INCIDENCE_PATTERN")
+
+        matching_lines = [line for line in doc_lines if f"`{pattern_name}`" in line]
+        if not matching_lines:
+            fail(f"{PATTERN_DOC} is missing {pattern_name}")
+        if not any(ALL_ORDER_OBSTRUCTION_RE.search(line) for line in matching_lines):
+            fail(f"{PATTERN_DOC} should mark {pattern_name} as killed across all cyclic orders")
 
 
 def validate_top_level_status() -> None:

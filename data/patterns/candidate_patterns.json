@@ -41,8 +41,9 @@
     "n": 19,
     "formula": "offsets {-8,-3,5,9}",
     "type": "skew circulant",
-    "status": "natural-order status: exactly killed by Altman diagonal-order sums; registered non-natural cyclic order [18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1] killed by exact round-two Kalmanson/Farkas fixed-order certificate; abstract-incidence status across all cyclic orders remains live/unresolved",
-    "trust": "INCIDENCE_PATTERN"
+    "status": "abstract-incidence status: exactly killed across all cyclic orders by the Z3 two-inequality Kalmanson inverse-pair certificate; natural-order Altman and registered non-natural fixed-order Kalmanson/Farkas certificates retained as provenance",
+    "trust": "EXACT_OBSTRUCTION",
+    "lifecycle": "retired_all_order_obstruction"
   },
   {
     "rank": 6,
@@ -95,8 +96,9 @@
     "n": 13,
     "formula": "offsets {1,2,4,10} (Singer (13,4,1) planar difference set)",
     "type": "Sidon circulant",
-    "status": "natural-order status: exactly killed by Altman linear certificate; abstract-incidence status: registered non-natural order survives current fixed-order exact filters; every nonzero residue appears exactly once as a difference of D, so |S_a cap S_b| = 1 for every a != b; SLSQP strict-convexity plateau retained as numerical evidence",
-    "trust": "INCIDENCE_PATTERN"
+    "status": "abstract-incidence status: exactly killed across all cyclic orders by the two-inequality Kalmanson inverse-pair order search; natural-order Altman and registered non-natural fixed-order Kalmanson/Farkas certificates retained as provenance; every nonzero residue appears exactly once as a difference of D, so |S_a cap S_b| = 1 for every a != b; SLSQP strict-convexity plateau retained as historical numerical evidence",
+    "trust": "EXACT_OBSTRUCTION",
+    "lifecycle": "retired_all_order_obstruction"
   },
   {
     "rank": 12,
@@ -104,8 +106,9 @@
     "n": 25,
     "formula": "offsets {2,5,9,14}",
     "type": "Sidon circulant",
-    "status": "natural-order status: exactly killed by Altman linear certificate; abstract-incidence status: Sidon sparse-overlap lead, not settled by current filters; D = {2,5,9,14} is Sidon: 12 pairwise differences distinct mod 25; |S_a cap S_b| in {0,1} for every a != b; defined for catalog completeness, not yet run numerically",
-    "trust": "INCIDENCE_PATTERN"
+    "status": "natural-order status: exactly killed by Altman linear certificate; abstract-order diagnostic: the step-7 Kalmanson-filter survivor is exactly killed by vertex-circle and Altman filters; no all-order obstruction for the abstract C25 pattern is claimed; D = {2,5,9,14} is Sidon: 12 pairwise differences distinct mod 25; |S_a cap S_b| in {0,1} for every a != b",
+    "trust": "INCIDENCE_PATTERN",
+    "lifecycle": "fixed_order_diagnostic"
   },
   {
     "rank": 13,
@@ -113,7 +116,8 @@
     "n": 29,
     "formula": "offsets {1,3,7,15}",
     "type": "Sidon circulant",
-    "status": "natural-order status: exactly killed by Altman linear certificate; one recorded non-natural fixed order is exactly killed by a 165-inequality Kalmanson/Farkas certificate; abstract all-order status remains unresolved; D = {1,3,7,15} is Sidon: 12 pairwise differences distinct mod 29; |S_a cap S_b| in {0,1} for every a != b",
-    "trust": "INCIDENCE_PATTERN"
+    "status": "natural-order status: exactly killed by Altman linear certificate; abstract-order diagnostic: the fixed order [0,27,11,4,19,5,26,12,6,21,13,28,14,2,20,18,7,24,10,25,17,3,9,15,1,22,8,23,16] escaped weaker filters but is now exactly killed by the 165-row Kalmanson/Farkas fixed-order certificate; no all-order obstruction for the abstract C29 pattern is claimed; D = {1,3,7,15} is Sidon: 12 pairwise differences distinct mod 29; |S_a cap S_b| in {0,1} for every a != b",
+    "trust": "INCIDENCE_PATTERN",
+    "lifecycle": "fixed_order_diagnostic"
   }
 ]

@@ -72,8 +72,9 @@ not geometric realizability.
 
 The current built-in candidate patterns all pass the natural-order version of
 this filter; every center remains compatible with being the minimum-radius
-center under this filter alone. This includes the main live abstract-incidence
-pattern `C19_skew`.
+center under this filter alone. This includes the retired sparse benchmark
+pattern `C19_skew`, which is killed only by stronger Kalmanson all-order
+certificates.
 
 For `C19_skew` in the natural order, row `0` has
 
@@ -113,6 +114,12 @@ The search is exact finite combinatorics for the supplied order:
   only an escape from this filter, not evidence for realizability.
 - `UNKNOWN_RADIUS_PROPAGATION_NODE_LIMIT` is reported only when an explicit
   node cap stops the search.
+
+In JSON emitted by `min_radius_filter`, inequality edges are serialized as
+`source -> target`, meaning `r_source < r_target`; the target is the row center.
+The stuck-set miner has a separate diagnostic serializer whose local edge
+direction is `center -> smaller_center`, and it records a normalized
+`radius_propagation_status` field for audit tooling.
 
 Reproduction:
 

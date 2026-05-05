@@ -80,7 +80,7 @@ put detailed reconciliation in the canonical synthesis.
 - [`stuck-set-miner.md`](stuck-set-miner.md): fixed-selection stuck-set mining
   for the bridge/peeling program.
 - [`stuck-frontier-snapshot.md`](stuck-frontier-snapshot.md): first stuck-set,
-  radius-propagation, and fragile-cover pass over the live sparse frontier.
+  radius-propagation, and fragile-cover pass over sparse frontier benchmarks.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`
   selected-witness obstruction.
 - [`n8-incidence-enumeration.md`](n8-incidence-enumeration.md): reproducible

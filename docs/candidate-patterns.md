@@ -10,7 +10,7 @@ designs only; geometric realization is a separate problem.
 | 1 | `C19_skew` | 19 | offsets `{-8,-3,5,9}` | skew circulant | abstract-incidence status: exactly killed across all cyclic orders by the Z3 two-inequality Kalmanson inverse-pair certificate; earlier natural-order Altman and registered non-natural fixed-order Kalmanson certificates retained as provenance |
 | 11 | `C13_sidon_1_2_4_10` | 13 | offsets `{1,2,4,10}` | Sidon circulant | abstract-incidence status: exactly killed across all cyclic orders by the two-inequality Kalmanson inverse-pair order search; earlier natural-order Altman and registered non-natural fixed-order Kalmanson certificates retained as provenance; SLSQP evidence plateaus at `eq_rms ~ 0.84` under strict convexity margins |
 | 12 | `C25_sidon_2_5_9_14` | 25 | offsets `{2,5,9,14}` | Sidon circulant | natural-order status: exactly killed by Altman linear certificate; abstract-order diagnostic: a Kalmanson Z3 probe found the step-7 fixed order `[0,7,14,21,3,10,17,24,6,13,20,2,9,16,23,5,12,19,1,8,15,22,4,11,18]` with no two-inequality Kalmanson inverse-pair obstruction, but that order is exactly killed by vertex-circle and Altman filters |
-| 13 | `C29_sidon_1_3_7_15` | 29 | offsets `{1,3,7,15}` | Sidon circulant | natural-order status: exactly killed by Altman linear certificate; fixed-order diagnostic: the order `[0,27,11,4,19,5,26,12,6,21,13,28,14,2,20,18,7,24,10,25,17,3,9,15,1,22,8,23,16]` escaped the two-inequality Kalmanson inverse-pair search, metric LP, and global Ptolemy NLP diagnostic, but is now exactly killed by the 165-inequality fixed-order Kalmanson/Farkas certificate; abstract all-order status remains unresolved |
+| 13 | `C29_sidon_1_3_7_15` | 29 | offsets `{1,3,7,15}` | Sidon circulant | natural-order status: exactly killed by Altman linear certificate; fixed-order diagnostic: the order `[0,27,11,4,19,5,26,12,6,21,13,28,14,2,20,18,7,24,10,25,17,3,9,15,1,22,8,23,16]` escaped the two-inequality Kalmanson inverse-pair search, metric LP, and global Ptolemy NLP diagnostic, but is now exactly killed by the 165-row fixed-order Kalmanson/Farkas certificate; no all-order C29 obstruction is claimed |
 
 The ranked abstract-incidence patterns above pass the row-overlap filter
 `|S_i cap S_j| <= 2` before numerical optimization. `C19_skew` and
@@ -18,7 +18,7 @@ The ranked abstract-incidence patterns above pass the row-overlap filter
 two-certificate Kalmanson order methods; see
 `docs/kalmanson-two-order-search.md`. The Sidon natural orders are also exactly
 obstructed by Altman linear certificates. The larger Sidon entries remain
-incidence-pattern leads, not geometric realizability claims. The new C25/C29
+incidence-pattern benchmarks, not geometric realizability claims. The new C25/C29
 probe is recorded in
 `data/certificates/c25_c29_sparse_frontier_probe.json`: it retires the tested
 C25 fixed order as a dead end and records the weaker-filter survival of the

@@ -274,6 +274,11 @@ Use these labels consistently:
     └── n8_polynomial_systems.txt
 ```
 
+New generated checked certificates should normally live under
+`data/certificates/`. The top-level `certificates/` directory is retained for
+legacy n=8 artifacts and manual templates whose paths are already referenced by
+docs, tests, and manifests.
+
 ## Quick start
 
 ```bash

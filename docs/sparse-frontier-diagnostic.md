@@ -22,7 +22,7 @@ on the three consecutive witness pairs in the supplied cyclic order.
 python scripts/analyze_sparse_frontier.py --frontier --assert-empty-choice
 ```
 
-This prints a compact table and asserts that every live frontier row has at
+This prints a compact table and asserts that every sparse benchmark row has at
 least one uncovered consecutive witness pair in the natural order.
 
 To sample other cyclic orders:
@@ -263,8 +263,8 @@ The `C19` order is:
 ```
 
 These remain adversarial objects for filter development, not counterexamples.
-In particular, the fixed-order Kalmanson kills do not prove either abstract
-incidence pattern impossible across all cyclic orders.
+They are superseded as live leads by the later all-order Kalmanson inverse-pair
+certificates for the fixed abstract C13 and C19 patterns.
 
 ## C25/C29 Frontier Probe
 

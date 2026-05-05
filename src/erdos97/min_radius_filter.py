@@ -516,6 +516,8 @@ def radius_result_to_json(result: RadiusPropagationResult) -> dict[str, object]:
 
     return {
         "type": "radius_propagation_order_result",
+        "status_schema": "min_radius_filter.v1",
+        "edge_direction": "source -> target means r_source < r_target; here target is the row center",
         "pattern": result.pattern,
         "n": int(result.n),
         "order": [int(label) for label in result.order],

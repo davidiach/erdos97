@@ -94,3 +94,13 @@ def test_official_status_freshness_can_fail() -> None:
         assert exc.code == 1
     else:  # pragma: no cover
         raise AssertionError("freshness check should fail")
+
+
+def test_pattern_catalog_all_order_status_is_distinct_from_stale_live_wording() -> None:
+    checker = load_checker()
+
+    current = "abstract-incidence status: exactly killed across all cyclic orders by a certificate"
+    stale = "abstract-incidence status across all cyclic orders remains live/unresolved"
+
+    assert checker.ALL_ORDER_OBSTRUCTION_RE.search(current)
+    assert checker.STALE_PATTERN_CATALOG_RE.search(stale)

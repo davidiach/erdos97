@@ -4,6 +4,7 @@ from erdos97.min_radius_filter import (
     covered_witness_path_orders,
     minimum_radius_order_obstruction,
     radius_propagation_order_obstruction,
+    radius_result_to_json,
     row_is_order_free_blocked,
     row_has_order_free_empty_gap,
     selected_pair_sources,
@@ -27,6 +28,9 @@ def test_min_radius_filter_kills_all_other_pentagon_pattern() -> None:
     assert propagation.status == "EXACT_RADIUS_PROPAGATION_OBSTRUCTION"
     assert propagation.obstructed is True
     assert propagation.acyclic_choice is None
+    payload = radius_result_to_json(propagation)
+    assert payload["status_schema"] == "min_radius_filter.v1"
+    assert payload["edge_direction"] == "source -> target means r_source < r_target; here target is the row center"
 
 
 def test_min_radius_filter_c19_survives_natural_order() -> None:

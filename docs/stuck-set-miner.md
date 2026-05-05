@@ -32,7 +32,7 @@ The tool separately reports:
 If the search starts above size `4`, or stops before `n` without finding a
 stuck set, the status is `UNKNOWN_TRUNCATED_SEARCH`.
 
-For the first run on the current live sparse/Sidon frontier, see
+For the first run on sparse/Sidon frontier benchmarks, see
 `docs/stuck-frontier-snapshot.md`.
 
 ## Usage
@@ -215,6 +215,12 @@ The implementation therefore searches over the disjunction of possible short
 pairs, one per row. The status `RADIUS_CYCLE_OBSTRUCTED` means every such
 choice forces a strict radius cycle. The status `PASS_ACYCLIC_CHOICE` means the
 pattern survives this necessary filter; it is not evidence of realizability.
+
+This is intentionally serialized as a stuck-set diagnostic:
+`stuck_radius_propagation_short_chord_result`. Its local edge convention is
+`center -> smaller_center`, meaning `r_smaller_center < r_center`. For
+cross-tool comparison, the JSON also records a normalized
+`radius_propagation_status` using the `min_radius_filter` status names.
 
 ## Fragile Cover
 

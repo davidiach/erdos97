@@ -31,7 +31,7 @@ EXPECTED: dict[str, dict[str, object]] = {
         "forced_equal_U": [3, 5, 8, 9],
         "altman_contradiction": True,
         "status": "NATURAL_ORDER_EXACT_OBSTRUCTION",
-        "abstract_incidence_status": "LIVE",
+        "abstract_incidence_status": "EXACT_OBSTRUCTION",
     }
 }
 
@@ -51,7 +51,7 @@ def abstract_status_from_ledger(pattern_name: str) -> str:
         return "LIVE"
     if normalized.startswith("survives"):
         return "SURVIVES_CURRENT_FILTERS"
-    if normalized.startswith("killed"):
+    if normalized.startswith("killed") or normalized.startswith("exactly killed"):
         return "EXACT_OBSTRUCTION"
     return abstract_status or "UNTOUCHED"
 
