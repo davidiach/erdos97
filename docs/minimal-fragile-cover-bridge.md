@@ -28,6 +28,7 @@ consisting of some centers `y` and exact 4-sets `F_y`, with:
 - `|F_y| = 4`;
 - the sets `F_y` cover every vertex of `P`;
 - there is a witness map `pi: V -> {fragile centers}` with `x in F_{pi(x)}`.
+- every retained fragile center is used by at least one vertex under `pi`.
 
 ## Lemma
 
@@ -47,9 +48,10 @@ after deleting `x` it would still have size at least `4`. Thus `x` belongs to
 a unique exact 4-tie at `y`.
 
 Do this for every vertex `x`. If several vertices choose the same center and
-the same exact 4-tie, keep one copy. The retained exact 4-ties cover all
-vertices by construction, giving the desired partial witness system and
-witness map.
+the same exact 4-tie, keep one copy. Every retained row has at least one
+generating vertex, so the retained rows can be matched to distinct covered
+vertices. The retained exact 4-ties cover all vertices by construction, giving
+the desired partial witness system and witness map.
 
 ## Immediate Geometric Constraints
 
@@ -63,7 +65,8 @@ satisfies the usual exact selected-witness constraints:
 
 These are exactly the checks implemented by
 `src/erdos97/fragile_hypergraph.py` and exposed through
-`scripts/check_fragile_hypergraph.py`.
+`scripts/check_fragile_hypergraph.py`. The checker also reports the row-use
+matching condition above as `essential_cover_ok`.
 
 ## What This Does Not Prove
 
