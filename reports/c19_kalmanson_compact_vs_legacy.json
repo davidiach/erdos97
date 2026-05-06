@@ -1,0 +1,1124 @@
+{
+  "compact": {
+    "circulant_offsets": [
+      -8,
+      -3,
+      5,
+      9
+    ],
+    "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+    "cyclic_order": [
+      18,
+      10,
+      7,
+      17,
+      6,
+      3,
+      5,
+      9,
+      14,
+      11,
+      2,
+      13,
+      4,
+      16,
+      12,
+      15,
+      0,
+      8,
+      1
+    ],
+    "distance_class_size_histogram": {
+      "1": 95,
+      "4": 19
+    },
+    "distance_classes_after_selected_equalities": 114,
+    "kind_counts": {
+      "K2_diag_gt_other": 2
+    },
+    "kind_weight_sums": {
+      "K2_diag_gt_other": 2
+    },
+    "max_abs_weighted_sum_coefficient": 0,
+    "n": 19,
+    "path": "data/certificates/round2/c19_kalmanson_known_order_two_unsat.json",
+    "pattern": "C19_skew",
+    "positive_inequalities": 2,
+    "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+    "support_nullity_mod_primes": {
+      "1000003": 1,
+      "1000033": 1,
+      "1000037": 1
+    },
+    "support_rank_mod_primes": {
+      "1000003": 1,
+      "1000033": 1,
+      "1000037": 1
+    },
+    "support_signatures": [
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          18,
+          10,
+          7,
+          2
+        ],
+        "weight": 1
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          7,
+          5,
+          2,
+          16
+        ],
+        "weight": 1
+      }
+    ],
+    "weight_stats": {
+      "distinct_count": 1,
+      "gcd": 1,
+      "max": 1,
+      "min": 1,
+      "sum": 2
+    },
+    "zero_sum_verified": true
+  },
+  "comparison": {
+    "common_support_signatures": [],
+    "compact_inequality_count": 2,
+    "compact_max_weight": 1,
+    "compact_support_subset_of_legacy": false,
+    "compact_weight_sum": 2,
+    "legacy_inequality_count": 94,
+    "legacy_max_weight": 334665404,
+    "legacy_weight_sum": 6283316065,
+    "same_cyclic_order": true,
+    "same_distance_class_count": true,
+    "same_pattern": true,
+    "same_status": true,
+    "support_signature_overlap_count": 0
+  },
+  "interpretation_note": "The compact two-inequality certificate and the legacy 94-inequality certificate obstruct the same fixed C19_skew cyclic order after the same selected-distance quotienting. Their supports are not literally nested, so this report should not be read as a derivation of one certificate from the other.",
+  "legacy": {
+    "circulant_offsets": [
+      -8,
+      -3,
+      5,
+      9
+    ],
+    "claim_strength": "Exact obstruction for this fixed selected-witness pattern and this fixed cyclic order only; does not kill abstract C19_skew.",
+    "cyclic_order": [
+      18,
+      10,
+      7,
+      17,
+      6,
+      3,
+      5,
+      9,
+      14,
+      11,
+      2,
+      13,
+      4,
+      16,
+      12,
+      15,
+      0,
+      8,
+      1
+    ],
+    "distance_class_size_histogram": {
+      "1": 95,
+      "4": 19
+    },
+    "distance_classes_after_selected_equalities": 114,
+    "kind_counts": {
+      "K1_diag_gt_sides": 40,
+      "K2_diag_gt_other": 54
+    },
+    "kind_weight_sums": {
+      "K1_diag_gt_sides": 2518668989,
+      "K2_diag_gt_other": 3764647076
+    },
+    "max_abs_weighted_sum_coefficient": 0,
+    "n": 19,
+    "path": "data/certificates/round2/c19_kalmanson_known_order_unsat.json",
+    "pattern": "C19_skew",
+    "positive_inequalities": 94,
+    "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+    "support_nullity_mod_primes": {
+      "1000003": 1,
+      "1000033": 1,
+      "1000037": 1
+    },
+    "support_rank_mod_primes": {
+      "1000003": 93,
+      "1000033": 93,
+      "1000037": 93
+    },
+    "support_signatures": [
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          18,
+          10,
+          7,
+          8
+        ],
+        "weight": 8464622
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          18,
+          10,
+          17,
+          16
+        ],
+        "weight": 5034817
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          18,
+          10,
+          5,
+          12
+        ],
+        "weight": 19108718
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          18,
+          10,
+          4,
+          12
+        ],
+        "weight": 40899862
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          18,
+          7,
+          3,
+          14
+        ],
+        "weight": 16895901
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          18,
+          7,
+          11,
+          0
+        ],
+        "weight": 2272007
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          18,
+          7,
+          11,
+          8
+        ],
+        "weight": 19353615
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          18,
+          7,
+          4,
+          1
+        ],
+        "weight": 170706001
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          18,
+          17,
+          5,
+          13
+        ],
+        "weight": 5034817
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          18,
+          6,
+          13,
+          4
+        ],
+        "weight": 195358916
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          18,
+          3,
+          11,
+          2
+        ],
+        "weight": 165522
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          18,
+          3,
+          2,
+          15
+        ],
+        "weight": 16730379
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          18,
+          5,
+          4,
+          15
+        ],
+        "weight": 287026939
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          18,
+          5,
+          12,
+          8
+        ],
+        "weight": 24143535
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          18,
+          9,
+          14,
+          13
+        ],
+        "weight": 16895901
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          18,
+          14,
+          15,
+          0
+        ],
+        "weight": 107727047
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          18,
+          11,
+          2,
+          4
+        ],
+        "weight": 77047039
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          18,
+          11,
+          12,
+          1
+        ],
+        "weight": 21791144
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          18,
+          13,
+          16,
+          12
+        ],
+        "weight": 5034817
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          18,
+          13,
+          0,
+          1
+        ],
+        "weight": 107727047
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          10,
+          7,
+          17,
+          8
+        ],
+        "weight": 5034817
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          10,
+          7,
+          5,
+          12
+        ],
+        "weight": 90551950
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          10,
+          7,
+          9,
+          16
+        ],
+        "weight": 7566728
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          10,
+          7,
+          13,
+          0
+        ],
+        "weight": 16183714
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          10,
+          17,
+          6,
+          0
+        ],
+        "weight": 30543370
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          10,
+          17,
+          5,
+          9
+        ],
+        "weight": 202925644
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          10,
+          6,
+          9,
+          13
+        ],
+        "weight": 195358916
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          10,
+          6,
+          14,
+          2
+        ],
+        "weight": 2531911
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          10,
+          6,
+          12,
+          1
+        ],
+        "weight": 30543370
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          10,
+          3,
+          4,
+          15
+        ],
+        "weight": 37470057
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          10,
+          5,
+          2,
+          1
+        ],
+        "weight": 124036915
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          10,
+          14,
+          16,
+          8
+        ],
+        "weight": 2531911
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          10,
+          2,
+          13,
+          15
+        ],
+        "weight": 28843241
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          10,
+          2,
+          4,
+          8
+        ],
+        "weight": 3429805
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          7,
+          17,
+          6,
+          9
+        ],
+        "weight": 114281270
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          7,
+          17,
+          3,
+          8
+        ],
+        "weight": 16895901
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          7,
+          17,
+          5,
+          14
+        ],
+        "weight": 16895901
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          7,
+          17,
+          11,
+          0
+        ],
+        "weight": 18455721
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          7,
+          6,
+          5,
+          1
+        ],
+        "weight": 73656049
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          7,
+          6,
+          9,
+          1
+        ],
+        "weight": 151067475
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          7,
+          6,
+          11,
+          2
+        ],
+        "weight": 897894
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          7,
+          6,
+          2,
+          8
+        ],
+        "weight": 39727327
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          7,
+          5,
+          13,
+          8
+        ],
+        "weight": 27131057
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          7,
+          9,
+          4,
+          15
+        ],
+        "weight": 66394708
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          7,
+          9,
+          15,
+          8
+        ],
+        "weight": 29219477
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          7,
+          14,
+          2,
+          13
+        ],
+        "weight": 27131057
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          7,
+          14,
+          8,
+          1
+        ],
+        "weight": 19638526
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          17,
+          6,
+          4,
+          15
+        ],
+        "weight": 210380163
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          17,
+          3,
+          5,
+          1
+        ],
+        "weight": 219821545
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          17,
+          3,
+          14,
+          1
+        ],
+        "weight": 95205333
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          17,
+          9,
+          14,
+          4
+        ],
+        "weight": 223602679
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          17,
+          9,
+          11,
+          16
+        ],
+        "weight": 26174813
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          17,
+          9,
+          15,
+          1
+        ],
+        "weight": 161381072
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          17,
+          11,
+          13,
+          8
+        ],
+        "weight": 7719092
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          17,
+          13,
+          4,
+          0
+        ],
+        "weight": 12753909
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          17,
+          4,
+          12,
+          15
+        ],
+        "weight": 223134072
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          17,
+          12,
+          15,
+          0
+        ],
+        "weight": 48999091
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          6,
+          3,
+          5,
+          12
+        ],
+        "weight": 151231890
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          6,
+          3,
+          14,
+          1
+        ],
+        "weight": 19638526
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          6,
+          3,
+          11,
+          12
+        ],
+        "weight": 82683837
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          6,
+          3,
+          15,
+          8
+        ],
+        "weight": 22631056
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          6,
+          5,
+          9,
+          11
+        ],
+        "weight": 122793770
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          6,
+          5,
+          14,
+          0
+        ],
+        "weight": 45569286
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          6,
+          5,
+          4,
+          8
+        ],
+        "weight": 28438120
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          6,
+          9,
+          14,
+          4
+        ],
+        "weight": 13416873
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          6,
+          2,
+          12,
+          0
+        ],
+        "weight": 3429805
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          6,
+          4,
+          12,
+          8
+        ],
+        "weight": 79254032
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          6,
+          12,
+          0,
+          8
+        ],
+        "weight": 45569286
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          6,
+          0,
+          8,
+          1
+        ],
+        "weight": 107727047
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          3,
+          5,
+          11,
+          15
+        ],
+        "weight": 31569380
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          3,
+          5,
+          2,
+          4
+        ],
+        "weight": 123871393
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          3,
+          5,
+          13,
+          1
+        ],
+        "weight": 334665404
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          3,
+          9,
+          11,
+          13
+        ],
+        "weight": 29170949
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          3,
+          9,
+          4,
+          0
+        ],
+        "weight": 36179563
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          3,
+          14,
+          4,
+          0
+        ],
+        "weight": 125161887
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          3,
+          2,
+          13,
+          1
+        ],
+        "weight": 124036915
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          5,
+          9,
+          12,
+          1
+        ],
+        "weight": 148914857
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          5,
+          11,
+          4,
+          15
+        ],
+        "weight": 77047039
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          5,
+          11,
+          4,
+          0
+        ],
+        "weight": 91224390
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          5,
+          13,
+          4,
+          1
+        ],
+        "weight": 16309868
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          5,
+          4,
+          12,
+          8
+        ],
+        "weight": 21425751
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          5,
+          4,
+          15,
+          0
+        ],
+        "weight": 229140186
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          9,
+          14,
+          11,
+          2
+        ],
+        "weight": 56350534
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          9,
+          14,
+          11,
+          15
+        ],
+        "weight": 95614185
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          9,
+          14,
+          2,
+          8
+        ],
+        "weight": 29219477
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          9,
+          2,
+          13,
+          16
+        ],
+        "weight": 26174813
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          9,
+          2,
+          15,
+          8
+        ],
+        "weight": 29219477
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          9,
+          13,
+          4,
+          8
+        ],
+        "weight": 72241663
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          14,
+          2,
+          15,
+          8
+        ],
+        "weight": 12112862
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          14,
+          13,
+          4,
+          15
+        ],
+        "weight": 10235156
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          11,
+          13,
+          16,
+          15
+        ],
+        "weight": 18608085
+      },
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          11,
+          15,
+          0,
+          8
+        ],
+        "weight": 58438954
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          2,
+          13,
+          4,
+          0
+        ],
+        "weight": 3429805
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          2,
+          13,
+          12,
+          8
+        ],
+        "weight": 5034817
+      }
+    ],
+    "weight_stats": {
+      "distinct_count": 72,
+      "gcd": 1,
+      "max": 334665404,
+      "min": 165522,
+      "sum": 6283316065
+    },
+    "zero_sum_verified": true
+  },
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "Both inputs are checked fixed-order C19_skew Kalmanson/Farkas certificates.",
+    "This report compares support shape only; it does not derive the compact certificate from the legacy certificate.",
+    "The all-order C19_skew Z3 certificate is a separate artifact and is not replayed here."
+  ],
+  "status": "FIXED_ORDER_CERTIFICATE_COMPARISON_ONLY",
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+  "type": "c19_kalmanson_compact_vs_legacy_diagnostic_v1"
+}
