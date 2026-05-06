@@ -254,6 +254,38 @@ def classify_float_result(
     return "uncertified"
 
 
+def malformed_result(message: str) -> dict[str, Any]:
+    """Return the standard malformed-input result shape."""
+
+    return {
+        "ok": False,
+        "failure_mode": "malformed",
+        "validation_errors": [message],
+        "claim_strength": "MALFORMED_INPUT",
+    }
+
+
+def validate_interval_parameters(
+    *,
+    eq_bound: float,
+    coord_abs_radius: float,
+    coord_rel_radius: float,
+) -> list[str]:
+    """Return validation errors for interval verifier parameters."""
+
+    errors = []
+    for name, value in [
+        ("eq_bound", eq_bound),
+        ("coord_abs_radius", coord_abs_radius),
+        ("coord_rel_radius", coord_rel_radius),
+    ]:
+        if not math.isfinite(value):
+            errors.append(f"{name} must be finite, got {value!r}")
+        elif value < 0.0:
+            errors.append(f"{name} must be nonnegative, got {value!r}")
+    return errors
+
+
 def verify_interval_json(
     path: str | Path,
     *,
@@ -261,6 +293,14 @@ def verify_interval_json(
     coord_abs_radius: float = 1e-12,
     coord_rel_radius: float = 1e-12,
 ) -> dict[str, Any]:
+    parameter_errors = validate_interval_parameters(
+        eq_bound=eq_bound,
+        coord_abs_radius=coord_abs_radius,
+        coord_rel_radius=coord_rel_radius,
+    )
+    if parameter_errors:
+        return malformed_result("; ".join(parameter_errors))
+
     data = load_candidate(path)
     try:
         S = parse_pattern(data)
@@ -271,12 +311,7 @@ def verify_interval_json(
             else parse_float_coordinates(data)
         )
     except (KeyError, TypeError, ValueError) as exc:
-        return {
-            "ok": False,
-            "failure_mode": "malformed",
-            "validation_errors": [str(exc)],
-            "claim_strength": "MALFORMED_INPUT",
-        }
+        return malformed_result(str(exc))
 
     validation_errors = validate_candidate_shape(raw_coordinates, S)
     if validation_errors:
