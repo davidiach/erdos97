@@ -141,6 +141,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_frontier_motif_classification",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_frontier_motif_classification.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Classification of the 184 n=9 pre-vertex-circle assignments by "
+            "motif family and local-core template; not a proof of n=9 or "
+            "independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_base_apex_low_excess_ledgers",
         command=("python", "scripts/check_n9_base_apex_low_excess_ledgers.py", "--check", "--json"),
         claim_scope=(

@@ -55,6 +55,7 @@ python scripts/analyze_n8_exact_survivors.py --check --json \
   --check-compatible-orders-data data/incidence/n8_compatible_orders.json \
   --check-exact-analysis-data certificates/n8_exact_analysis.json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected
+python scripts/check_n9_vertex_circle_frontier_motif_classification.py --check --assert-expected --json
 python scripts/check_n9_row_ptolemy_admissible_gap_replay.py --check --assert-expected --json
 python scripts/check_n9_row_ptolemy_gap_self_edge_cores.py --check --assert-expected --json
 python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-generic
