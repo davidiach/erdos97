@@ -32,7 +32,10 @@ The checked-in artifact is
 
 The local-core follow-up in `docs/n9-vertex-circle-local-cores.md` shows that
 each of the 16 family representatives has a vertex-circle certificate using at
-most 6 selected rows.
+most 6 selected rows. Its template diagnostic groups those 16 local cores into
+12 replay-derived shape buckets: 9 self-edge templates and 3 strict-cycle
+templates. These buckets are review aids for lemma mining; they are not an
+independent n=9 proof path.
 
 ## Loose Obstruction Shapes
 
@@ -66,6 +69,9 @@ quotient-cycle template.
 
 The local-core diagnostic reduces this to a row-local problem: the family
 representatives need only 3 to 6 rows to certify the contradiction.
+The template diagnostic is a first pass at that classification, but it only
+records replay shapes for the listed n=9 representatives. Any reusable lemma
+still needs precise incidence/order hypotheses and separate proof.
 
 The current result still does not solve the global problem. The known
 `C19_skew` order that survives the vertex-circle filter remains a useful

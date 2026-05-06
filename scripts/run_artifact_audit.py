@@ -127,6 +127,20 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_core_templates",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_core_templates.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Template diagnostic for n=9 vertex-circle local-core motif "
+            "representatives; not a proof of n=9 or independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_base_apex_low_excess_ledgers",
         command=("python", "scripts/check_n9_base_apex_low_excess_ledgers.py", "--check", "--json"),
         claim_scope=(
