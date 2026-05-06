@@ -142,6 +142,14 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_base_apex_d3_escape_slice",
+        command=("python", "scripts/check_n9_d3_escape_slice.py", "--check", "--json"),
+        claim_scope=(
+            "Exploratory n=9 base-apex D=3,r=3 coupled escape-slice bookkeeping; "
+            "not a proof of n=9, counterexample, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",

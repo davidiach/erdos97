@@ -94,6 +94,10 @@ Expected artifacts:
   compare the escape-budget motif map with the 184 pre-vertex-circle
   selected-witness assignments without treating selected-baseline empty slots
   as actual geometric capacity deficits;
+- optional sharp low-excess slices such as
+  `data/certificates/n9_base_apex_d3_escape_slice.json` that couple the
+  `E=6, D=3, r=3` profile/escape bookkeeping under common dihedral symmetry
+  without claiming the slice is impossible or realizable;
 - checker updates that independently replay generated ledger arithmetic and
   motif counts from stored JSON.
 

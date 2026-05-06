@@ -50,3 +50,4 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_n9_selected_baseline_escape_budget_overlay.py --check --json"
         in command_texts
     )
+    assert "python scripts/check_n9_d3_escape_slice.py --check --json" in command_texts

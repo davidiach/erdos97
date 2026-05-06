@@ -1,0 +1,2539 @@
+{
+  "capacity_deficit": 3,
+  "claim_scope": "Focused n=9 base-apex D=3,r=3 coupled escape-slice bookkeeping; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.",
+  "coupled_slice": {
+    "common_dihedral_pair_class_count": 18088,
+    "common_dihedral_pair_orbit_size_counts": {
+      "18": 17948,
+      "9": 140
+    },
+    "labelled_profile_escape_pair_count": 324324,
+    "pair_class_count_by_escape_class": [
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            3
+          ]
+        },
+        "common_dihedral_pair_class_count": 3003
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 1519
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            3
+          ],
+          "spoiled_length3": [
+            1
+          ]
+        },
+        "common_dihedral_pair_class_count": 1519
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            4
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 3003
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 3003
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 1519
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            4
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 1519
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 3003
+      }
+    ],
+    "pair_class_count_by_profile_multiset": [
+      {
+        "common_dihedral_pair_class_count": 56,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "common_dihedral_pair_class_count": 432,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          5
+        ]
+      },
+      {
+        "common_dihedral_pair_class_count": 432,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "common_dihedral_pair_class_count": 224,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "common_dihedral_pair_class_count": 1520,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "common_dihedral_pair_class_count": 3024,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "common_dihedral_pair_class_count": 512,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "common_dihedral_pair_class_count": 3024,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "common_dihedral_pair_class_count": 4560,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "common_dihedral_pair_class_count": 3792,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "common_dihedral_pair_class_count": 512,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "pair_class_count_by_profile_multiset_and_escape_class": [
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            3
+          ]
+        },
+        "common_dihedral_pair_class_count": 9,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 5,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            3
+          ],
+          "spoiled_length3": [
+            1
+          ]
+        },
+        "common_dihedral_pair_class_count": 5,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            4
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 9,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 9,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 5,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            4
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 5,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 9,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            3
+          ]
+        },
+        "common_dihedral_pair_class_count": 72,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          5
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 36,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          5
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            3
+          ],
+          "spoiled_length3": [
+            1
+          ]
+        },
+        "common_dihedral_pair_class_count": 36,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          5
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            4
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 72,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          5
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 72,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          5
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 36,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          5
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            4
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 36,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          5
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 72,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          5
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            3
+          ]
+        },
+        "common_dihedral_pair_class_count": 72,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 36,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            3
+          ],
+          "spoiled_length3": [
+            1
+          ]
+        },
+        "common_dihedral_pair_class_count": 36,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            4
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 72,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 72,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 36,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            4
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 36,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 72,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            3
+          ]
+        },
+        "common_dihedral_pair_class_count": 36,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 20,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            3
+          ],
+          "spoiled_length3": [
+            1
+          ]
+        },
+        "common_dihedral_pair_class_count": 20,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            4
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 36,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 36,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 20,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            4
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 20,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 36,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            3
+          ]
+        },
+        "common_dihedral_pair_class_count": 252,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 128,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            3
+          ],
+          "spoiled_length3": [
+            1
+          ]
+        },
+        "common_dihedral_pair_class_count": 128,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            4
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 252,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 252,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 128,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            4
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 128,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 252,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            3
+          ]
+        },
+        "common_dihedral_pair_class_count": 504,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 252,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            3
+          ],
+          "spoiled_length3": [
+            1
+          ]
+        },
+        "common_dihedral_pair_class_count": 252,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            4
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 504,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 504,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 252,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            4
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 252,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 504,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            3
+          ]
+        },
+        "common_dihedral_pair_class_count": 84,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 44,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            3
+          ],
+          "spoiled_length3": [
+            1
+          ]
+        },
+        "common_dihedral_pair_class_count": 44,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            4
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 84,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 84,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 44,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            4
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 44,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 84,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            3
+          ]
+        },
+        "common_dihedral_pair_class_count": 504,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 252,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            3
+          ],
+          "spoiled_length3": [
+            1
+          ]
+        },
+        "common_dihedral_pair_class_count": 252,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            4
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 504,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 504,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 252,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            4
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 252,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 504,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            3
+          ]
+        },
+        "common_dihedral_pair_class_count": 756,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 384,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            3
+          ],
+          "spoiled_length3": [
+            1
+          ]
+        },
+        "common_dihedral_pair_class_count": 384,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            4
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 756,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 756,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 384,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            4
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 384,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 756,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            3
+          ]
+        },
+        "common_dihedral_pair_class_count": 630,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 318,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            3
+          ],
+          "spoiled_length3": [
+            1
+          ]
+        },
+        "common_dihedral_pair_class_count": 318,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            4
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 630,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 630,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 318,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            4
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 318,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 630,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            3
+          ]
+        },
+        "common_dihedral_pair_class_count": 84,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 44,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            3
+          ],
+          "spoiled_length3": [
+            1
+          ]
+        },
+        "common_dihedral_pair_class_count": 44,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            4
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "common_dihedral_pair_class_count": 84,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 84,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 44,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            4
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 44,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "common_dihedral_pair_class_count": 84,
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "escape_slice": {
+    "contradiction_threshold": 3,
+    "dihedral_escape_class_count": 8,
+    "dihedral_escape_orbit_size_counts": {
+      "18": 4,
+      "9": 4
+    },
+    "escape_classes": [
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            3
+          ]
+        },
+        "labelled_placement_count": 18
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "labelled_placement_count": 9
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            3
+          ],
+          "spoiled_length3": [
+            1
+          ]
+        },
+        "labelled_placement_count": 9
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            4
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "labelled_placement_count": 18
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3
+          ],
+          "spoiled_length3": []
+        },
+        "labelled_placement_count": 18
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "labelled_placement_count": 9
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            4
+          ],
+          "spoiled_length3": []
+        },
+        "labelled_placement_count": 9
+      },
+      {
+        "canonical_escape_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            5
+          ],
+          "spoiled_length3": []
+        },
+        "labelled_placement_count": 18
+      }
+    ],
+    "labelled_escape_placement_count": 108,
+    "relevant_deficit_count": 3
+  },
+  "interpretation": [
+    "This is the sharp strict-threshold D=3 slice where no leftover budget remains after the minimum relevant escape.",
+    "Profile-excess sequences record labelled vertex excesses only, not actual geometric distance-class realizations.",
+    "Escape placements record length-2/length-3 deficits in the current turn-cover diagnostic only.",
+    "Common-dihedral pair classes couple those two labelled structures under the same cyclic relabeling action.",
+    "No proof of the n=9 case is claimed."
+  ],
+  "n": 9,
+  "profile_slice": {
+    "capacity_deficit": 3,
+    "dihedral_profile_orbit_count": 185,
+    "dihedral_profile_orbit_size_counts": {
+      "18": 150,
+      "3": 2,
+      "9": 33
+    },
+    "labelled_profile_sequence_count": 3003,
+    "profile_multiset_counts": [
+      {
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ],
+        "labelled_sequence_count": 9
+      },
+      {
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          5
+        ],
+        "labelled_sequence_count": 72
+      },
+      {
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          4
+        ],
+        "labelled_sequence_count": 72
+      },
+      {
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3
+        ],
+        "labelled_sequence_count": 36
+      },
+      {
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          4
+        ],
+        "labelled_sequence_count": 252
+      },
+      {
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          3
+        ],
+        "labelled_sequence_count": 504
+      },
+      {
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2
+        ],
+        "labelled_sequence_count": 84
+      },
+      {
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          3
+        ],
+        "labelled_sequence_count": 504
+      },
+      {
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ],
+        "labelled_sequence_count": 756
+      },
+      {
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "labelled_sequence_count": 630
+      },
+      {
+        "excess_multiset": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "labelled_sequence_count": 84
+      }
+    ],
+    "total_profile_excess": 6,
+    "unlabeled_profile_ledger_count": 11
+  },
+  "provenance": {
+    "command": "python scripts/analyze_n9_d3_escape_slice.py --assert-expected --out data/certificates/n9_base_apex_d3_escape_slice.json",
+    "generator": "scripts/analyze_n9_d3_escape_slice.py"
+  },
+  "relevant_deficit_count": 3,
+  "schema": "erdos97.n9_base_apex_d3_escape_slice.v1",
+  "source_artifacts": {
+    "escape_budget": "data/certificates/n9_base_apex_escape_budget_report.json",
+    "low_excess_ledgers": "data/certificates/n9_base_apex_low_excess_ledgers.json",
+    "selected_baseline_overlay": "data/certificates/n9_selected_baseline_escape_budget_overlay.json"
+  },
+  "status": "EXPLORATORY_LEDGER_ONLY",
+  "total_profile_excess": 6,
+  "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
+  "witness_size": 4
+}
