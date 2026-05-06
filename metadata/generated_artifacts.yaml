@@ -220,6 +220,8 @@ artifacts:
     kind: exploratory_ledger_artifact
     generator: scripts/explore_n9_base_apex.py
     command: python scripts/explore_n9_base_apex.py --low-excess-report --out data/certificates/n9_base_apex_low_excess_ledgers.json
+    checker: scripts/check_n9_base_apex_low_excess_ledgers.py
+    check_command: python scripts/check_n9_base_apex_low_excess_ledgers.py --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: FINITE_BOOKKEEPING_NOT_A_PROOF
