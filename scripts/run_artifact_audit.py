@@ -90,6 +90,19 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         command=("python", "scripts/check_n9_vertex_circle_exhaustive.py", "--assert-expected", "--json"),
         claim_scope="Review-pending n=9 selected-witness finite-case checker; not an official/global status update.",
     ),
+    AuditCommand(
+        ident="n10_vertex_circle_singleton_draft",
+        command=(
+            "python",
+            "scripts/check_n10_vertex_circle_singletons.py",
+            "--assert-expected",
+            "--spot-check-generic",
+        ),
+        claim_scope=(
+            "Draft review-pending n=10 singleton-slice artifact spot-check; "
+            "not a source-of-truth finite-case result or official/global status update."
+        ),
+    ),
 )
 
 
