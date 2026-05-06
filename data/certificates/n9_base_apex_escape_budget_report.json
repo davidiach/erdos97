@@ -1,0 +1,1202 @@
+{
+  "base_apex_slack": 9,
+  "capacity_deficit_distribution": [
+    {
+      "capacity_deficit": 0,
+      "profile_ledger_count": 29,
+      "total_profile_excess": 9
+    },
+    {
+      "capacity_deficit": 1,
+      "profile_ledger_count": 21,
+      "total_profile_excess": 8
+    },
+    {
+      "capacity_deficit": 2,
+      "profile_ledger_count": 15,
+      "total_profile_excess": 7
+    },
+    {
+      "capacity_deficit": 3,
+      "profile_ledger_count": 11,
+      "total_profile_excess": 6
+    },
+    {
+      "capacity_deficit": 4,
+      "profile_ledger_count": 7,
+      "total_profile_excess": 5
+    },
+    {
+      "capacity_deficit": 5,
+      "profile_ledger_count": 5,
+      "total_profile_excess": 4
+    },
+    {
+      "capacity_deficit": 6,
+      "profile_ledger_count": 3,
+      "total_profile_excess": 3
+    },
+    {
+      "capacity_deficit": 7,
+      "profile_ledger_count": 2,
+      "total_profile_excess": 2
+    },
+    {
+      "capacity_deficit": 8,
+      "profile_ledger_count": 1,
+      "total_profile_excess": 1
+    },
+    {
+      "capacity_deficit": 9,
+      "profile_ledger_count": 1,
+      "total_profile_excess": 0
+    }
+  ],
+  "claim_scope": "Focused n=9 base-apex escape-budget bookkeeping; not a proof of n=9, not a counterexample, and not a global status update.",
+  "interpretation": [
+    "Capacity deficit D is the total unused base-apex capacity in E + D = 9.",
+    "Relevant deficits are only deficits placed on length-2 or length-3 bases.",
+    "Extra budget not spent on relevant deficits is not assigned to sides or length-4 bases here.",
+    "The counts are finite turn-cover escape bookkeeping, not geometric realizability counts.",
+    "No proof of the n=9 case is claimed."
+  ],
+  "n": 9,
+  "provenance": {
+    "command": "python scripts/explore_n9_base_apex.py --escape-budget-report --out data/certificates/n9_base_apex_escape_budget_report.json",
+    "generator": "scripts/explore_n9_base_apex.py"
+  },
+  "relevant_cyclic_lengths": [
+    2,
+    3
+  ],
+  "schema": "erdos97.n9_base_apex_escape_budget_report.v1",
+  "status": "EXPLORATORY_LEDGER_ONLY",
+  "strict_positive_threshold": {
+    "budget_rows": [
+      {
+        "available_relevant_deficit_counts": [],
+        "can_spoil_turn_cover_with_relevant_deficits": false,
+        "capacity_deficit_budget": 0,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {},
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {},
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {},
+        "minimum_relevant_deficit_count_to_spoil": null,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": null,
+        "unresolved_profile_ledger_count_at_budget": 0
+      },
+      {
+        "available_relevant_deficit_counts": [],
+        "can_spoil_turn_cover_with_relevant_deficits": false,
+        "capacity_deficit_budget": 1,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {},
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {},
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {},
+        "minimum_relevant_deficit_count_to_spoil": null,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": null,
+        "unresolved_profile_ledger_count_at_budget": 0
+      },
+      {
+        "available_relevant_deficit_counts": [],
+        "can_spoil_turn_cover_with_relevant_deficits": false,
+        "capacity_deficit_budget": 2,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {},
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {},
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {},
+        "minimum_relevant_deficit_count_to_spoil": null,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": null,
+        "unresolved_profile_ledger_count_at_budget": 0
+      },
+      {
+        "available_relevant_deficit_counts": [
+          3
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 3,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "3": 8
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "3": 108
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "3": {
+            "2": 108
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 3,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153,
+          "3": 816
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 0,
+        "unresolved_profile_ledger_count_at_budget": 11
+      },
+      {
+        "available_relevant_deficit_counts": [
+          3,
+          4
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 4,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "3": 8,
+          "4": 80
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "3": 108,
+          "4": 1278
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "3": {
+            "2": 108
+          },
+          "4": {
+            "1": 72,
+            "2": 1206
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 3,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153,
+          "3": 816,
+          "4": 3060
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 1,
+        "unresolved_profile_ledger_count_at_budget": 7
+      },
+      {
+        "available_relevant_deficit_counts": [
+          3,
+          4,
+          5
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 5,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "3": 8,
+          "4": 80,
+          "5": 354
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "3": 108,
+          "4": 1278,
+          "5": 6030
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "3": {
+            "2": 108
+          },
+          "4": {
+            "1": 72,
+            "2": 1206
+          },
+          "5": {
+            "0": 18,
+            "1": 1044,
+            "2": 4968
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 3,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153,
+          "3": 816,
+          "4": 3060,
+          "5": 8568
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 2,
+        "unresolved_profile_ledger_count_at_budget": 5
+      },
+      {
+        "available_relevant_deficit_counts": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 6,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "3": 8,
+          "4": 80,
+          "5": 354,
+          "6": 951
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "3": 108,
+          "4": 1278,
+          "5": 6030,
+          "6": 16449
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "3": {
+            "2": 108
+          },
+          "4": {
+            "1": 72,
+            "2": 1206
+          },
+          "5": {
+            "0": 18,
+            "1": 1044,
+            "2": 4968
+          },
+          "6": {
+            "0": 321,
+            "1": 5544,
+            "2": 10584
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 3,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153,
+          "3": 816,
+          "4": 3060,
+          "5": 8568,
+          "6": 18564
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 3,
+        "unresolved_profile_ledger_count_at_budget": 3
+      },
+      {
+        "available_relevant_deficit_counts": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 7,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "3": 8,
+          "4": 80,
+          "5": 354,
+          "6": 951,
+          "7": 1762
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "3": 108,
+          "4": 1278,
+          "5": 6030,
+          "6": 16449,
+          "7": 30798
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "3": {
+            "2": 108
+          },
+          "4": {
+            "1": 72,
+            "2": 1206
+          },
+          "5": {
+            "0": 18,
+            "1": 1044,
+            "2": 4968
+          },
+          "6": {
+            "0": 321,
+            "1": 5544,
+            "2": 10584
+          },
+          "7": {
+            "0": 2088,
+            "1": 15372,
+            "2": 13338
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 3,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153,
+          "3": 816,
+          "4": 3060,
+          "5": 8568,
+          "6": 18564,
+          "7": 31824
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 4,
+        "unresolved_profile_ledger_count_at_budget": 2
+      },
+      {
+        "available_relevant_deficit_counts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 8,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "3": 8,
+          "4": 80,
+          "5": 354,
+          "6": 951,
+          "7": 1762,
+          "8": 2478
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "3": 108,
+          "4": 1278,
+          "5": 6030,
+          "6": 16449,
+          "7": 30798,
+          "8": 43488
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "3": {
+            "2": 108
+          },
+          "4": {
+            "1": 72,
+            "2": 1206
+          },
+          "5": {
+            "0": 18,
+            "1": 1044,
+            "2": 4968
+          },
+          "6": {
+            "0": 321,
+            "1": 5544,
+            "2": 10584
+          },
+          "7": {
+            "0": 2088,
+            "1": 15372,
+            "2": 13338
+          },
+          "8": {
+            "0": 7146,
+            "1": 25758,
+            "2": 10584
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 3,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153,
+          "3": 816,
+          "4": 3060,
+          "5": 8568,
+          "6": 18564,
+          "7": 31824,
+          "8": 43758
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 5,
+        "unresolved_profile_ledger_count_at_budget": 1
+      },
+      {
+        "available_relevant_deficit_counts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 9,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "3": 8,
+          "4": 80,
+          "5": 354,
+          "6": 951,
+          "7": 1762,
+          "8": 2478,
+          "9": 2771
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "3": 108,
+          "4": 1278,
+          "5": 6030,
+          "6": 16449,
+          "7": 30798,
+          "8": 43488,
+          "9": 48590
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "3": {
+            "2": 108
+          },
+          "4": {
+            "1": 72,
+            "2": 1206
+          },
+          "5": {
+            "0": 18,
+            "1": 1044,
+            "2": 4968
+          },
+          "6": {
+            "0": 321,
+            "1": 5544,
+            "2": 10584
+          },
+          "7": {
+            "0": 2088,
+            "1": 15372,
+            "2": 13338
+          },
+          "8": {
+            "0": 7146,
+            "1": 25758,
+            "2": 10584
+          },
+          "9": {
+            "0": 14984,
+            "1": 28206,
+            "2": 5400
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 3,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153,
+          "3": 816,
+          "4": 3060,
+          "5": 8568,
+          "6": 18564,
+          "7": 31824,
+          "8": 43758,
+          "9": 48620
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 6,
+        "unresolved_profile_ledger_count_at_budget": 1
+      }
+    ],
+    "contradiction_threshold": 3,
+    "minimum_escape_motif_classes": [
+      {
+        "contradiction_threshold": 3,
+        "n": 9,
+        "placement_count": 18,
+        "relevant_deficit_count": 3,
+        "remaining_minimum_forced_turns": 2,
+        "remaining_turn_clause_count": 4,
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          3
+        ]
+      },
+      {
+        "contradiction_threshold": 3,
+        "n": 9,
+        "placement_count": 9,
+        "relevant_deficit_count": 3,
+        "remaining_minimum_forced_turns": 2,
+        "remaining_turn_clause_count": 4,
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      {
+        "contradiction_threshold": 3,
+        "n": 9,
+        "placement_count": 9,
+        "relevant_deficit_count": 3,
+        "remaining_minimum_forced_turns": 2,
+        "remaining_turn_clause_count": 4,
+        "spoiled_length2": [
+          0,
+          3
+        ],
+        "spoiled_length3": [
+          1
+        ]
+      },
+      {
+        "contradiction_threshold": 3,
+        "n": 9,
+        "placement_count": 18,
+        "relevant_deficit_count": 3,
+        "remaining_minimum_forced_turns": 2,
+        "remaining_turn_clause_count": 4,
+        "spoiled_length2": [
+          0,
+          4
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      {
+        "contradiction_threshold": 3,
+        "n": 9,
+        "placement_count": 18,
+        "relevant_deficit_count": 3,
+        "remaining_minimum_forced_turns": 2,
+        "remaining_turn_clause_count": 4,
+        "spoiled_length2": [
+          0,
+          1,
+          3
+        ],
+        "spoiled_length3": []
+      },
+      {
+        "contradiction_threshold": 3,
+        "n": 9,
+        "placement_count": 9,
+        "relevant_deficit_count": 3,
+        "remaining_minimum_forced_turns": 2,
+        "remaining_turn_clause_count": 4,
+        "spoiled_length2": [
+          0,
+          1,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      {
+        "contradiction_threshold": 3,
+        "n": 9,
+        "placement_count": 9,
+        "relevant_deficit_count": 3,
+        "remaining_minimum_forced_turns": 2,
+        "remaining_turn_clause_count": 3,
+        "spoiled_length2": [
+          0,
+          2,
+          4
+        ],
+        "spoiled_length3": []
+      },
+      {
+        "contradiction_threshold": 3,
+        "n": 9,
+        "placement_count": 18,
+        "relevant_deficit_count": 3,
+        "remaining_minimum_forced_turns": 2,
+        "remaining_turn_clause_count": 3,
+        "spoiled_length2": [
+          0,
+          2,
+          5
+        ],
+        "spoiled_length3": []
+      }
+    ],
+    "minimum_relevant_deficit_count_to_spoil": 3
+  },
+  "sum_exceeds_threshold": {
+    "budget_rows": [
+      {
+        "available_relevant_deficit_counts": [],
+        "can_spoil_turn_cover_with_relevant_deficits": false,
+        "capacity_deficit_budget": 0,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {},
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {},
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {},
+        "minimum_relevant_deficit_count_to_spoil": null,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": null,
+        "unresolved_profile_ledger_count_at_budget": 0
+      },
+      {
+        "available_relevant_deficit_counts": [],
+        "can_spoil_turn_cover_with_relevant_deficits": false,
+        "capacity_deficit_budget": 1,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {},
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {},
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {},
+        "minimum_relevant_deficit_count_to_spoil": null,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": null,
+        "unresolved_profile_ledger_count_at_budget": 0
+      },
+      {
+        "available_relevant_deficit_counts": [
+          2
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 2,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "2": 6
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "2": 72
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "2": {
+            "3": 72
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 2,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 0,
+        "unresolved_profile_ledger_count_at_budget": 15
+      },
+      {
+        "available_relevant_deficit_counts": [
+          2,
+          3
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 3,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "2": 6,
+          "3": 44
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "2": 72,
+          "3": 672
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "2": {
+            "3": 72
+          },
+          "3": {
+            "2": 108,
+            "3": 564
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 2,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153,
+          "3": 816
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 1,
+        "unresolved_profile_ledger_count_at_budget": 11
+      },
+      {
+        "available_relevant_deficit_counts": [
+          2,
+          3,
+          4
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 4,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "2": 6,
+          "3": 44,
+          "4": 179
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "2": 72,
+          "3": 672,
+          "4": 2934
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "2": {
+            "3": 72
+          },
+          "3": {
+            "2": 108,
+            "3": 564
+          },
+          "4": {
+            "1": 72,
+            "2": 1206,
+            "3": 1656
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 2,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153,
+          "3": 816,
+          "4": 3060
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 2,
+        "unresolved_profile_ledger_count_at_budget": 7
+      },
+      {
+        "available_relevant_deficit_counts": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 5,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "2": 6,
+          "3": 44,
+          "4": 179,
+          "5": 500
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "2": 72,
+          "3": 672,
+          "4": 2934,
+          "5": 8514
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "2": {
+            "3": 72
+          },
+          "3": {
+            "2": 108,
+            "3": 564
+          },
+          "4": {
+            "1": 72,
+            "2": 1206,
+            "3": 1656
+          },
+          "5": {
+            "0": 18,
+            "1": 1044,
+            "2": 4968,
+            "3": 2484
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 2,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153,
+          "3": 816,
+          "4": 3060,
+          "5": 8568
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 3,
+        "unresolved_profile_ledger_count_at_budget": 5
+      },
+      {
+        "available_relevant_deficit_counts": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 6,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "2": 6,
+          "3": 44,
+          "4": 179,
+          "5": 500,
+          "6": 1074
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "2": 72,
+          "3": 672,
+          "4": 2934,
+          "5": 8514,
+          "6": 18555
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "2": {
+            "3": 72
+          },
+          "3": {
+            "2": 108,
+            "3": 564
+          },
+          "4": {
+            "1": 72,
+            "2": 1206,
+            "3": 1656
+          },
+          "5": {
+            "0": 18,
+            "1": 1044,
+            "2": 4968,
+            "3": 2484
+          },
+          "6": {
+            "0": 321,
+            "1": 5544,
+            "2": 10584,
+            "3": 2106
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 2,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153,
+          "3": 816,
+          "4": 3060,
+          "5": 8568,
+          "6": 18564
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 4,
+        "unresolved_profile_ledger_count_at_budget": 3
+      },
+      {
+        "available_relevant_deficit_counts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 7,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "2": 6,
+          "3": 44,
+          "4": 179,
+          "5": 500,
+          "6": 1074,
+          "7": 1824
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "2": 72,
+          "3": 672,
+          "4": 2934,
+          "5": 8514,
+          "6": 18555,
+          "7": 31824
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "2": {
+            "3": 72
+          },
+          "3": {
+            "2": 108,
+            "3": 564
+          },
+          "4": {
+            "1": 72,
+            "2": 1206,
+            "3": 1656
+          },
+          "5": {
+            "0": 18,
+            "1": 1044,
+            "2": 4968,
+            "3": 2484
+          },
+          "6": {
+            "0": 321,
+            "1": 5544,
+            "2": 10584,
+            "3": 2106
+          },
+          "7": {
+            "0": 2088,
+            "1": 15372,
+            "2": 13338,
+            "3": 1026
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 2,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153,
+          "3": 816,
+          "4": 3060,
+          "5": 8568,
+          "6": 18564,
+          "7": 31824
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 5,
+        "unresolved_profile_ledger_count_at_budget": 2
+      },
+      {
+        "available_relevant_deficit_counts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 8,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "2": 6,
+          "3": 44,
+          "4": 179,
+          "5": 500,
+          "6": 1074,
+          "7": 1824,
+          "8": 2494
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "2": 72,
+          "3": 672,
+          "4": 2934,
+          "5": 8514,
+          "6": 18555,
+          "7": 31824,
+          "8": 43758
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "2": {
+            "3": 72
+          },
+          "3": {
+            "2": 108,
+            "3": 564
+          },
+          "4": {
+            "1": 72,
+            "2": 1206,
+            "3": 1656
+          },
+          "5": {
+            "0": 18,
+            "1": 1044,
+            "2": 4968,
+            "3": 2484
+          },
+          "6": {
+            "0": 321,
+            "1": 5544,
+            "2": 10584,
+            "3": 2106
+          },
+          "7": {
+            "0": 2088,
+            "1": 15372,
+            "2": 13338,
+            "3": 1026
+          },
+          "8": {
+            "0": 7146,
+            "1": 25758,
+            "2": 10584,
+            "3": 270
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 2,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153,
+          "3": 816,
+          "4": 3060,
+          "5": 8568,
+          "6": 18564,
+          "7": 31824,
+          "8": 43758
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 6,
+        "unresolved_profile_ledger_count_at_budget": 1
+      },
+      {
+        "available_relevant_deficit_counts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "can_spoil_turn_cover_with_relevant_deficits": true,
+        "capacity_deficit_budget": 9,
+        "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+          "2": 6,
+          "3": 44,
+          "4": 179,
+          "5": 500,
+          "6": 1074,
+          "7": 1824,
+          "8": 2494,
+          "9": 2774
+        },
+        "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+          "2": 72,
+          "3": 672,
+          "4": 2934,
+          "5": 8514,
+          "6": 18555,
+          "7": 31824,
+          "8": 43758,
+          "9": 48620
+        },
+        "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+          "2": {
+            "3": 72
+          },
+          "3": {
+            "2": 108,
+            "3": 564
+          },
+          "4": {
+            "1": 72,
+            "2": 1206,
+            "3": 1656
+          },
+          "5": {
+            "0": 18,
+            "1": 1044,
+            "2": 4968,
+            "3": 2484
+          },
+          "6": {
+            "0": 321,
+            "1": 5544,
+            "2": 10584,
+            "3": 2106
+          },
+          "7": {
+            "0": 2088,
+            "1": 15372,
+            "2": 13338,
+            "3": 1026
+          },
+          "8": {
+            "0": 7146,
+            "1": 25758,
+            "2": 10584,
+            "3": 270
+          },
+          "9": {
+            "0": 14984,
+            "1": 28206,
+            "2": 5400,
+            "3": 30
+          }
+        },
+        "minimum_relevant_deficit_count_to_spoil": 2,
+        "total_relevant_placement_count_by_relevant_deficit": {
+          "0": 1,
+          "1": 18,
+          "2": 153,
+          "3": 816,
+          "4": 3060,
+          "5": 8568,
+          "6": 18564,
+          "7": 31824,
+          "8": 43758,
+          "9": 48620
+        },
+        "unassigned_capacity_after_minimum_relevant_escape": 7,
+        "unresolved_profile_ledger_count_at_budget": 1
+      }
+    ],
+    "contradiction_threshold": 4,
+    "minimum_escape_motif_classes": [
+      {
+        "contradiction_threshold": 4,
+        "n": 9,
+        "placement_count": 18,
+        "relevant_deficit_count": 2,
+        "remaining_minimum_forced_turns": 3,
+        "remaining_turn_clause_count": 6,
+        "spoiled_length2": [
+          0
+        ],
+        "spoiled_length3": [
+          1
+        ]
+      },
+      {
+        "contradiction_threshold": 4,
+        "n": 9,
+        "placement_count": 18,
+        "relevant_deficit_count": 2,
+        "remaining_minimum_forced_turns": 3,
+        "remaining_turn_clause_count": 6,
+        "spoiled_length2": [
+          0
+        ],
+        "spoiled_length3": [
+          3
+        ]
+      },
+      {
+        "contradiction_threshold": 4,
+        "n": 9,
+        "placement_count": 9,
+        "relevant_deficit_count": 2,
+        "remaining_minimum_forced_turns": 3,
+        "remaining_turn_clause_count": 6,
+        "spoiled_length2": [
+          0,
+          1
+        ],
+        "spoiled_length3": []
+      },
+      {
+        "contradiction_threshold": 4,
+        "n": 9,
+        "placement_count": 9,
+        "relevant_deficit_count": 2,
+        "remaining_minimum_forced_turns": 3,
+        "remaining_turn_clause_count": 5,
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": []
+      },
+      {
+        "contradiction_threshold": 4,
+        "n": 9,
+        "placement_count": 9,
+        "relevant_deficit_count": 2,
+        "remaining_minimum_forced_turns": 3,
+        "remaining_turn_clause_count": 5,
+        "spoiled_length2": [
+          0,
+          3
+        ],
+        "spoiled_length3": []
+      },
+      {
+        "contradiction_threshold": 4,
+        "n": 9,
+        "placement_count": 9,
+        "relevant_deficit_count": 2,
+        "remaining_minimum_forced_turns": 3,
+        "remaining_turn_clause_count": 5,
+        "spoiled_length2": [
+          0,
+          4
+        ],
+        "spoiled_length3": []
+      }
+    ],
+    "minimum_relevant_deficit_count_to_spoil": 2
+  },
+  "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
+  "witness_size": 4
+}

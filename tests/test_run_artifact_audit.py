@@ -3,7 +3,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-from scripts.run_artifact_audit import AuditCommand, run_audit_command, sha256_bytes
+from scripts.run_artifact_audit import AUDIT_COMMANDS, AuditCommand, command_text, run_audit_command, sha256_bytes
 
 
 def test_sha256_bytes_is_stable() -> None:
@@ -26,3 +26,13 @@ def test_run_audit_command_records_metadata(tmp_path: Path) -> None:
     assert (tmp_path / record["stdout_path"]).read_bytes() == b"ok\n"
     assert (tmp_path / record["stderr_path"]).read_bytes() == b""
     assert len(record["combined_output_sha256"]) == 64
+
+
+def test_audit_commands_include_n9_base_apex_ledgers() -> None:
+    command_texts = {command_text(command.command) for command in AUDIT_COMMANDS}
+
+    assert (
+        "python scripts/check_n9_base_apex_low_excess_ledgers.py --check --json"
+        in command_texts
+    )
+    assert "python scripts/check_n9_base_apex_escape_budget.py --check --json" in command_texts

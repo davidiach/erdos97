@@ -8,6 +8,7 @@ claim a proof of the n=9 case.
 from __future__ import annotations
 
 import itertools
+import math
 from collections import Counter
 from dataclasses import dataclass
 from functools import lru_cache
@@ -574,6 +575,213 @@ def minimum_escape_motif_summary(
             }
             for row in classes
         ],
+    }
+
+
+@lru_cache(maxsize=None)
+def escape_relevant_deficit_counts(
+    n: int = 9,
+    *,
+    relevant_deficit_count: int,
+    contradiction_threshold: int = 3,
+) -> dict[str, object]:
+    """Count relevant length-2/length-3 deficit placements that escape.
+
+    The count is only over deficits placed on length-2 and length-3 bases,
+    because those are the bases used by the turn-cover diagnostic. A total
+    capacity deficit budget may be larger than this relevant count; any extra
+    deficit is not assigned by this bookkeeping row.
+    """
+
+    classes = deficit_placement_classes(
+        n,
+        relevant_deficit_count=relevant_deficit_count,
+        contradiction_threshold=contradiction_threshold,
+    )
+    remaining_forced_counts: Counter[int] = Counter()
+    for row in classes:
+        remaining_forced_counts[row.remaining_minimum_forced_turns] += row.placement_count
+    return {
+        "total_relevant_placement_count": math.comb(2 * n, relevant_deficit_count),
+        "labelled_placement_count": sum(row.placement_count for row in classes),
+        "dihedral_class_count": len(classes),
+        "remaining_minimum_forced_turn_count": {
+            str(forced_turns): remaining_forced_counts[forced_turns]
+            for forced_turns in sorted(remaining_forced_counts)
+        },
+    }
+
+
+def escape_budget_rows(
+    n: int = 9,
+    witness_size: int = 4,
+    *,
+    contradiction_threshold: int = 3,
+) -> list[dict[str, object]]:
+    """Summarize relevant deficit escape counts available under each budget."""
+
+    slack = base_apex_slack(n, witness_size)
+    minimum_escape = minimum_capacity_deficit_to_escape_turn_cover(
+        n,
+        contradiction_threshold=contradiction_threshold,
+    ).minimum_capacity_deficit
+    unresolved = profile_ledger_cases(
+        n,
+        witness_size,
+        contradiction_threshold=contradiction_threshold,
+        forced_by_turn_cover=False,
+    )
+    unresolved_counts = Counter(row.capacity_deficit for row in unresolved)
+    counts_by_relevant_deficit = {
+        relevant_deficit_count: escape_relevant_deficit_counts(
+            n,
+            relevant_deficit_count=relevant_deficit_count,
+            contradiction_threshold=contradiction_threshold,
+        )
+        for relevant_deficit_count in range(slack + 1)
+    }
+
+    rows = []
+    for capacity_deficit_budget in range(slack + 1):
+        available_counts = [
+            relevant_deficit_count
+            for relevant_deficit_count in range(capacity_deficit_budget + 1)
+            if counts_by_relevant_deficit[relevant_deficit_count][
+                "labelled_placement_count"
+            ]
+            > 0
+        ]
+        rows.append(
+            {
+                "capacity_deficit_budget": capacity_deficit_budget,
+                "unresolved_profile_ledger_count_at_budget": unresolved_counts[
+                    capacity_deficit_budget
+                ],
+                "can_spoil_turn_cover_with_relevant_deficits": bool(
+                    available_counts
+                ),
+                "unassigned_capacity_after_minimum_relevant_escape": (
+                    capacity_deficit_budget - minimum_escape
+                    if available_counts
+                    else None
+                ),
+                "minimum_relevant_deficit_count_to_spoil": (
+                    min(available_counts) if available_counts else None
+                ),
+                "available_relevant_deficit_counts": available_counts,
+                "escaping_labelled_relevant_placement_count_by_relevant_deficit": {
+                    str(relevant_deficit_count): counts_by_relevant_deficit[
+                        relevant_deficit_count
+                    ]["labelled_placement_count"]
+                    for relevant_deficit_count in available_counts
+                },
+                "total_relevant_placement_count_by_relevant_deficit": {
+                    str(relevant_deficit_count): counts_by_relevant_deficit[
+                        relevant_deficit_count
+                    ]["total_relevant_placement_count"]
+                    for relevant_deficit_count in range(capacity_deficit_budget + 1)
+                },
+                "escaping_dihedral_relevant_class_count_by_relevant_deficit": {
+                    str(relevant_deficit_count): counts_by_relevant_deficit[
+                        relevant_deficit_count
+                    ]["dihedral_class_count"]
+                    for relevant_deficit_count in available_counts
+                },
+                "escaping_remaining_forced_turn_counts_by_relevant_deficit": {
+                    str(relevant_deficit_count): counts_by_relevant_deficit[
+                        relevant_deficit_count
+                    ]["remaining_minimum_forced_turn_count"]
+                    for relevant_deficit_count in available_counts
+                },
+            }
+        )
+    return rows
+
+
+def escape_budget_section(
+    n: int = 9,
+    witness_size: int = 4,
+    *,
+    contradiction_threshold: int = 3,
+) -> dict[str, object]:
+    """Return one threshold section for the escape-budget report."""
+
+    escape = minimum_capacity_deficit_to_escape_turn_cover(
+        n,
+        contradiction_threshold=contradiction_threshold,
+    )
+    return {
+        "contradiction_threshold": contradiction_threshold,
+        "minimum_relevant_deficit_count_to_spoil": (
+            escape.minimum_capacity_deficit
+        ),
+        "budget_rows": escape_budget_rows(
+            n,
+            witness_size,
+            contradiction_threshold=contradiction_threshold,
+        ),
+        "minimum_escape_motif_classes": [
+            deficit_placement_payload(row)
+            for row in deficit_placement_classes(
+                n,
+                relevant_deficit_count=escape.minimum_capacity_deficit,
+                contradiction_threshold=contradiction_threshold,
+            )
+        ],
+    }
+
+
+def escape_budget_report(n: int = 9, witness_size: int = 4) -> dict[str, object]:
+    """Return the focused escape-budget report for n=9 base-apex ledgers."""
+
+    slack = base_apex_slack(n, witness_size)
+    distribution_counts = Counter(
+        row.capacity_deficit for row in excess_distributions(n, witness_size)
+    )
+    return {
+        "schema": "erdos97.n9_base_apex_escape_budget_report.v1",
+        "status": "EXPLORATORY_LEDGER_ONLY",
+        "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
+        "claim_scope": (
+            "Focused n=9 base-apex escape-budget bookkeeping; not a proof of "
+            "n=9, not a counterexample, and not a global status update."
+        ),
+        "n": n,
+        "witness_size": witness_size,
+        "base_apex_slack": slack,
+        "relevant_cyclic_lengths": [2, 3],
+        "capacity_deficit_distribution": [
+            {
+                "capacity_deficit": capacity_deficit,
+                "total_profile_excess": slack - capacity_deficit,
+                "profile_ledger_count": distribution_counts[capacity_deficit],
+            }
+            for capacity_deficit in range(slack + 1)
+        ],
+        "strict_positive_threshold": escape_budget_section(
+            n,
+            witness_size,
+            contradiction_threshold=3,
+        ),
+        "sum_exceeds_threshold": escape_budget_section(
+            n,
+            witness_size,
+            contradiction_threshold=4,
+        ),
+        "interpretation": [
+            "Capacity deficit D is the total unused base-apex capacity in E + D = 9.",
+            "Relevant deficits are only deficits placed on length-2 or length-3 bases.",
+            "Extra budget not spent on relevant deficits is not assigned to sides or length-4 bases here.",
+            "The counts are finite turn-cover escape bookkeeping, not geometric realizability counts.",
+            "No proof of the n=9 case is claimed.",
+        ],
+        "provenance": {
+            "generator": "scripts/explore_n9_base_apex.py",
+            "command": (
+                "python scripts/explore_n9_base_apex.py --escape-budget-report "
+                "--out data/certificates/n9_base_apex_escape_budget_report.json"
+            ),
+        },
     }
 
 

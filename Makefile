@@ -27,6 +27,7 @@ verify-kalmanson:
 verify-n9-review:
 	$(PYTHON) scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 	$(PYTHON) scripts/check_n9_base_apex_low_excess_ledgers.py --check --json
+	$(PYTHON) scripts/check_n9_base_apex_escape_budget.py --check --json
 
 verify-n10-review:
 	$(PYTHON) scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-generic
