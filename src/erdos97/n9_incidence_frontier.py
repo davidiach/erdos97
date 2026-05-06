@@ -22,6 +22,7 @@ from erdos97.incidence_filters import (
     phi4_rectangle_trap_certificates,
     phi_directed_4_cycles,
     phi_map,
+    row_ptolemy_product_cancellation_certificates,
 )
 
 N = 9
@@ -52,6 +53,7 @@ FULL_CLASSIFICATION_STATUSES = (
     "odd_forced_perpendicular_cycle",
     "mutual_midpoint_collapse",
     "phi4_rectangle_trap",
+    "row_ptolemy_product_cancellation",
     "accepted_frontier",
 )
 
@@ -247,6 +249,7 @@ def classify_pattern(
     matrix = mutual_midpoint_matrix(S)
     forced_classes = forced_equal_classes_from_matrix(matrix, N)
     rectangle_traps = phi4_rectangle_trap_certificates(S, order)
+    row_ptolemy_certificates = row_ptolemy_product_cancellation_certificates(S, order)
     phis = phi_map(S)
     directed_phi4 = phi_directed_4_cycles(S)
 
@@ -267,6 +270,8 @@ def classify_pattern(
         status = "mutual_midpoint_collapse"
     elif rectangle_traps:
         status = "phi4_rectangle_trap"
+    elif row_ptolemy_certificates:
+        status = "row_ptolemy_product_cancellation"
 
     return {
         "status": status,
@@ -280,6 +285,7 @@ def classify_pattern(
         "phi_edges": len(phis),
         "directed_phi_4_cycle_count": len(directed_phi4),
         "rectangle_trap_4_cycles": len(rectangle_traps),
+        "row_ptolemy_product_cancellation_count": len(row_ptolemy_certificates),
         "midpoint_matrix_rank": int(matrix.rank()),
         "row_pair_intersection_cap_violations": row_pair_violations[:max_details],
         "adjacent_two_overlap_violations": adjacent_violations[:max_details],
@@ -296,6 +302,9 @@ def classify_pattern(
         ),
         "forced_equality_classes": forced_classes[:max_details],
         "rectangle_trap_certificates": rectangle_traps[:max_details],
+        "row_ptolemy_product_cancellation_certificates": row_ptolemy_certificates[
+            :max_details
+        ],
     }
 
 
@@ -513,6 +522,7 @@ def run_bounded_scan(
             "No counterexample is claimed.",
             "The row0-fixed search is bounded by explicit node and full-pattern limits.",
             "An accepted_frontier item only means the listed necessary filters did not obstruct it.",
+            "The row-Ptolemy classifier is a fixed supplied-order obstruction only, not an orderless abstract-incidence obstruction.",
         ],
         "n": N,
         "row_size": ROW_SIZE,
@@ -562,6 +572,7 @@ def run_bounded_scan(
             "odd_forced_perpendicular_cycle",
             "mutual_midpoint_collapse",
             "phi4_rectangle_trap",
+            "row_ptolemy_product_cancellation",
             "accepted_frontier",
         ],
     }
