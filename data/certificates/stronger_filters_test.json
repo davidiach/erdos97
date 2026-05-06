@@ -1,0 +1,190 @@
+{
+  "n11_row0_slice": [
+    {
+      "aborted": true,
+      "counts": {
+        "partial_self_edge": 4413,
+        "partial_strict_cycle": 6989
+      },
+      "elapsed_seconds": 18.28,
+      "full": 0,
+      "kwargs": {
+        "use_mutual_rhombus": false,
+        "use_perp_2color": false,
+        "use_triple_unique": false,
+        "use_vertex_circle": true
+      },
+      "label": "baseline_vc",
+      "node_limit": 5000,
+      "nodes": 5000,
+      "nodes_per_sec": 273.5,
+      "partial_prune_events": 11402
+    },
+    {
+      "aborted": true,
+      "counts": {
+        "partial_self_edge": 4413,
+        "partial_strict_cycle": 6989
+      },
+      "elapsed_seconds": 21.085,
+      "full": 0,
+      "kwargs": {
+        "use_mutual_rhombus": false,
+        "use_perp_2color": false,
+        "use_triple_unique": true,
+        "use_vertex_circle": true
+      },
+      "label": "vc_F1",
+      "node_limit": 5000,
+      "nodes": 5000,
+      "nodes_per_sec": 237.1,
+      "partial_prune_events": 11402
+    },
+    {
+      "aborted": true,
+      "counts": {
+        "partial_self_edge": 4413,
+        "partial_strict_cycle": 6989
+      },
+      "elapsed_seconds": 19.174,
+      "full": 0,
+      "kwargs": {
+        "use_mutual_rhombus": false,
+        "use_perp_2color": true,
+        "use_triple_unique": true,
+        "use_vertex_circle": true
+      },
+      "label": "vc_F1_F2",
+      "node_limit": 5000,
+      "nodes": 5000,
+      "nodes_per_sec": 260.8,
+      "partial_prune_events": 11402
+    },
+    {
+      "aborted": true,
+      "counts": {
+        "partial_self_edge": 4413,
+        "partial_strict_cycle": 6989
+      },
+      "elapsed_seconds": 20.664,
+      "full": 0,
+      "kwargs": {
+        "use_mutual_rhombus": true,
+        "use_perp_2color": true,
+        "use_triple_unique": true,
+        "use_vertex_circle": true
+      },
+      "label": "vc_F1_F2_F3",
+      "node_limit": 5000,
+      "nodes": 5000,
+      "nodes_per_sec": 242.0,
+      "partial_prune_events": 11402
+    }
+  ],
+  "n9_kill_check": [
+    {
+      "aborted": false,
+      "counts": {
+        "partial_self_edge": 11271,
+        "partial_strict_cycle": 11011
+      },
+      "elapsed_seconds": 28.733,
+      "full": 0,
+      "kwargs": {
+        "use_mutual_rhombus": false,
+        "use_perp_2color": false,
+        "use_triple_unique": false,
+        "use_vertex_circle": true
+      },
+      "label": "baseline_vc",
+      "node_limit": null,
+      "nodes": 16752
+    },
+    {
+      "aborted": false,
+      "counts": {
+        "partial_self_edge": 11271,
+        "partial_strict_cycle": 11011
+      },
+      "elapsed_seconds": 27.793,
+      "full": 0,
+      "kwargs": {
+        "use_mutual_rhombus": false,
+        "use_perp_2color": false,
+        "use_triple_unique": true,
+        "use_vertex_circle": true
+      },
+      "label": "vc_F1",
+      "node_limit": null,
+      "nodes": 16752
+    },
+    {
+      "aborted": false,
+      "counts": {
+        "partial_perp_odd_cycle": 4,
+        "partial_self_edge": 11271,
+        "partial_strict_cycle": 11011
+      },
+      "elapsed_seconds": 25.43,
+      "full": 0,
+      "kwargs": {
+        "use_mutual_rhombus": false,
+        "use_perp_2color": true,
+        "use_triple_unique": true,
+        "use_vertex_circle": true
+      },
+      "label": "vc_F1_F2",
+      "node_limit": null,
+      "nodes": 16748
+    },
+    {
+      "aborted": false,
+      "counts": {
+        "partial_perp_odd_cycle": 4,
+        "partial_self_edge": 11271,
+        "partial_strict_cycle": 11011
+      },
+      "elapsed_seconds": 25.437,
+      "full": 0,
+      "kwargs": {
+        "use_mutual_rhombus": true,
+        "use_perp_2color": true,
+        "use_triple_unique": true,
+        "use_vertex_circle": true
+      },
+      "label": "vc_F1_F2_F3",
+      "node_limit": null,
+      "nodes": 16748
+    },
+    {
+      "aborted": true,
+      "counts": {
+        "partial_mutual_rhombus": 3,
+        "partial_perp_odd_cycle": 62,
+        "self_edge": 42,
+        "strict_cycle": 6
+      },
+      "elapsed_seconds": 20.337,
+      "full": 48,
+      "kwargs": {
+        "use_mutual_rhombus": true,
+        "use_perp_2color": true,
+        "use_triple_unique": true,
+        "use_vertex_circle": false
+      },
+      "label": "F1_F2_F3_only",
+      "node_limit": 20000,
+      "nodes": 20000
+    }
+  ],
+  "notes": [
+    "Benchmarks new partial-assignment incidence filters versus baseline.",
+    "Baseline is vertex-circle pruning only.",
+    "F1 = triple uniqueness; F2 = forced-perp 2-coloring; F3 = mutual-rhombus rational closure.",
+    "n=9 kill check confirms each combo still yields 0 full assignments.",
+    "n=11 row0=0 slice shows node count under a fixed node budget.",
+    "Public claim status of Erdos #97 is unchanged."
+  ],
+  "trust": "DEVELOPMENT_BENCHMARK_NOT_AN_ARTIFACT",
+  "type": "stronger_filters_test_v1"
+}

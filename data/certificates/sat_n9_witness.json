@@ -1,0 +1,28 @@
+{
+  "elapsed_seconds": 54.354,
+  "encoding_version": "v2_vertex_witness",
+  "filters": [
+    "exactly_one_row_per_center",
+    "pair_intersection_cap_2_with_cyclic_cross",
+    "adjacent_rows_share_at_most_one",
+    "witness_pair_indegree_cap_2",
+    "vertex_circle_v_check_via_cegar_no_good_loop"
+  ],
+  "n": 9,
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "UNSAT proves: under these necessary combinatorial filters, no n vertex-witness assignment exists.",
+    "SAT returns an incidence pattern; geometric realizability is NOT implied by SAT.",
+    "Independent reviewer audit required before any theorem-style claim."
+  ],
+  "result": "unsat",
+  "solver": "pysat",
+  "trust": "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING",
+  "v_ok_count": 0,
+  "v_rejected_count": 172,
+  "v_rejection_breakdown": {
+    "self_edge": 147,
+    "strict_cycle": 25
+  }
+}

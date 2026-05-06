@@ -1,0 +1,190 @@
+{
+  "agreement_with_canonical_artifact": {
+    "expected_ear_orderable": 182,
+    "expected_full_survivors": 0,
+    "expected_leaves": 184,
+    "expected_non_ear_orderable": 2,
+    "expected_self_edge": 158,
+    "expected_strict_cycle": 26,
+    "match_ear_orderable": true,
+    "match_full_survivors": true,
+    "match_leaves": true,
+    "match_non_ear_orderable": true,
+    "match_self_edge": true,
+    "match_strict_cycle": true
+  },
+  "brute_force_cross_check": {
+    "leaves": 184,
+    "nodes_visited": 520783,
+    "row0_choices": 70,
+    "vertex_circle_full_survivors": 0,
+    "vertex_circle_self_edge": 158,
+    "vertex_circle_strict_cycle": 26
+  },
+  "ear_orderability_bonus": {
+    "cross_tabulation_with_vertex_circle": {
+      "ear|ok": 0,
+      "ear|self_edge": 158,
+      "ear|strict_cycle": 24,
+      "non_ear|ok": 0,
+      "non_ear|self_edge": 0,
+      "non_ear|strict_cycle": 2
+    },
+    "ear_orderable": 182,
+    "elapsed_seconds": 0.0005828740002016275,
+    "non_ear_examples": [
+      {
+        "index": 83,
+        "rows": [
+          [
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            7,
+            8
+          ],
+          [
+            0,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            0,
+            2,
+            5,
+            6
+          ]
+        ]
+      },
+      {
+        "index": 151,
+        "rows": [
+          [
+            2,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            0,
+            2,
+            5,
+            6
+          ],
+          [
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            7,
+            8
+          ],
+          [
+            0,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ]
+        ]
+      }
+    ],
+    "non_ear_orderable": 2,
+    "total": 184
+  },
+  "indegree_cap": 5,
+  "main_search": {
+    "elapsed_seconds_brute_force": 166.261845235,
+    "elapsed_seconds_generator": 181.31894904199999,
+    "elapsed_seconds_vertex_circle": 0.029931412999985696,
+    "filter_1to4_leaves": 184,
+    "vertex_circle_full_survivors": 0,
+    "vertex_circle_self_edge": 158,
+    "vertex_circle_strict_cycle": 26
+  },
+  "n": 9,
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "This is an INDEPENDENT cross-check of the n=9 vertex-circle exhaustive checker, run from a different angle to build confidence.",
+    "Search structure (sequential row order vs minimum-remaining-options) provably visits the same leaf set; only ordering and node counts differ.",
+    "The 70 row0 choices are NOT quotiented by any symmetry. C(8,4) = 70 already. Any cyclic-shift / dihedral quotient would only REDUCE the count; the search runs the full 70.",
+    "184 -> 0 split (158 self_edge + 26 strict_cycle) is reproduced from a freshly written vertex-circle predicate.",
+    "Ear-orderable count (182/2) reproduces the 2026-05-05 attack report under the simple 'row digraph is a DAG' definition."
+  ],
+  "pair_cap": 2,
+  "row0_choices": 70,
+  "row_size": 4,
+  "search_strategy": [
+    "sequential row order 0..8 (NOT min-remaining-options)",
+    "vertex-circle applied at LEAVES only (NOT incrementally)",
+    "two independent enumerations: recursive generator + brute force",
+    "all geometric primitives reimplemented from scratch",
+    "no import of src/erdos97/n9_vertex_circle_exhaustive.py"
+  ],
+  "trust": "INDEPENDENT_REREDERIVED_FINITE_CASE_REVIEW_PENDING",
+  "type": "n9_independent_check_v1"
+}

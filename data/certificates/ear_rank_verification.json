@@ -1,0 +1,277 @@
+{
+  "description": "Symbolic verification of the Ear-Elimination Rank Theorem (Erdos #97, Route B explicit minor; see docs/ear-rank-theorem-route-B.md and docs/canonical-synthesis.md \u00a75.2, \u00a76.5). For each test n we build a hand-crafted ear-orderable witness pattern, assemble the symbolic Jacobian R_W(p) of the equidistance equations f_{i;t}, and exhibit a (2n-3) x (2n-3) submatrix whose determinant factors as a block-triangular product of small symbolic determinants, each verifiably nonzero at a generic rational evaluation point.",
+  "evaluation_point_recipe": "Vertex i is placed at a deterministic rational point with x and y components chosen to avoid common low-degree relations; see evaluation_point() in scripts/verify_ear_rank.py. A polynomial evaluating to a nonzero rational on this point is identically nonzero, since the polynomial's vanishing locus is Zariski-closed in C^{2n} of strictly lower dimension than the ambient space.",
+  "results": [
+    {
+      "n": 4,
+      "reason": "n=4 admits no ear-orderable witness pattern: ear-orderability requires |W_3 cap {0,1,2}| >= 3, hence |W_3| >= 3, but |W_k|=4 and v_3 not in W_3 means W_3 has 4 distinct elements drawn from a 3-element predecessor set {0,1,2}, impossible.",
+      "status": "skipped"
+    },
+    {
+      "g1_block_dets_at_eval_point": [
+        "-710/429",
+        "-710/429"
+      ],
+      "g1_block_dets_symbolic": [
+        "4*x0*y1 - 4*x0*y2 - 4*x1*y0 + 4*x1*y2 + 4*x2*y0 - 4*x2*y1",
+        "4*x0*y1 - 4*x0*y2 - 4*x1*y0 + 4*x1*y2 + 4*x2*y0 - 4*x2*y1"
+      ],
+      "g1_block_product_at_eval_point": "504100/184041",
+      "g1_choices": [
+        {
+          "a": 1,
+          "b": 2,
+          "base": 0,
+          "block_det_at_eval_point": "-710/429",
+          "k": 3
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "base": 0,
+          "block_det_at_eval_point": "-710/429",
+          "k": 4
+        }
+      ],
+      "g2_block_det_at_eval_point": "0",
+      "g2_block_det_symbolic": "0",
+      "g2_choices": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          1,
+          4
+        ]
+      ],
+      "is_ear_orderable": true,
+      "jacobian_shape": [
+        15,
+        10
+      ],
+      "minor_col_indices": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "minor_det_at_eval_point": "12878495732302/1026396657",
+      "minor_row_indices": [
+        0,
+        1,
+        2,
+        9,
+        10,
+        12,
+        13
+      ],
+      "minor_shape": [
+        7,
+        7
+      ],
+      "n": 5,
+      "rank_at_eval_point": 7,
+      "removed_columns_indices": [
+        0,
+        1,
+        3
+      ],
+      "removed_columns_labels": [
+        "x_0",
+        "y_0",
+        "y_1"
+      ],
+      "schur_factor_S_det_at_eval_point": "6439247866151/1405682850",
+      "schur_factorisation_check": true,
+      "status": "ok",
+      "success": true,
+      "target_rank_2n_minus_3": 7,
+      "witness_pattern": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "g1_block_dets_at_eval_point": [
+        "-710/429",
+        "-710/429",
+        "-710/429"
+      ],
+      "g1_block_dets_symbolic": [
+        "4*x0*y1 - 4*x0*y2 - 4*x1*y0 + 4*x1*y2 + 4*x2*y0 - 4*x2*y1",
+        "4*x0*y1 - 4*x0*y2 - 4*x1*y0 + 4*x1*y2 + 4*x2*y0 - 4*x2*y1",
+        "4*x0*y1 - 4*x0*y2 - 4*x1*y0 + 4*x1*y2 + 4*x2*y0 - 4*x2*y1"
+      ],
+      "g1_block_product_at_eval_point": "-357911000/78953589",
+      "g1_choices": [
+        {
+          "a": 1,
+          "b": 2,
+          "base": 0,
+          "block_det_at_eval_point": "-710/429",
+          "k": 3
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "base": 0,
+          "block_det_at_eval_point": "-710/429",
+          "k": 4
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "base": 0,
+          "block_det_at_eval_point": "-710/429",
+          "k": 5
+        }
+      ],
+      "g2_block_det_at_eval_point": "0",
+      "g2_block_det_symbolic": "0",
+      "g2_choices": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          1,
+          4
+        ]
+      ],
+      "is_ear_orderable": true,
+      "jacobian_shape": [
+        18,
+        12
+      ],
+      "minor_col_indices": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "minor_det_at_eval_point": "-9143731969934420/440324165853",
+      "minor_row_indices": [
+        0,
+        1,
+        2,
+        9,
+        10,
+        12,
+        13,
+        15,
+        16
+      ],
+      "minor_shape": [
+        9,
+        9
+      ],
+      "n": 6,
+      "rank_at_eval_point": 9,
+      "removed_columns_indices": [
+        0,
+        1,
+        3
+      ],
+      "removed_columns_labels": [
+        "x_0",
+        "y_0",
+        "y_1"
+      ],
+      "schur_factor_S_det_at_eval_point": "6439247866151/1405682850",
+      "schur_factorisation_check": true,
+      "status": "ok",
+      "success": true,
+      "target_rank_2n_minus_3": 9,
+      "witness_pattern": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ]
+    }
+  ],
+  "schema": "ear_rank_route_b_v1"
+}

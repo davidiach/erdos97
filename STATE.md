@@ -2,6 +2,16 @@
 
 Status: no general proof and no counterexample are claimed.
 
+The 2026-05-06 multi-agent round (`docs/erdos97-attack-2026-05-06.md`) closed
+the asymmetric-kite case of canonical-chord injectivity (§5.3 Selection
+Lemma program), completing the injectivity half of that program. The
+remaining sub-claim — noncrossing of canonical φ-chords — is supported by
+0/1935 numerical violations but remains analytically open. A proof of the
+noncrossing claim would settle Erdős #97 outright. See
+`docs/asymmetric-kite-closure.md` for the asymmetric-kite proof. This is
+review-pending; the official/global FALSIFIABLE/OPEN status of Erdős #97
+is unchanged.
+
 This is the short working dashboard. For the long-form canonical synthesis,
 claim taxonomy, failed-route reconciliation, and source/hash inventory, read
 `docs/canonical-synthesis.md` before adding new claims, search branches, or
@@ -105,10 +115,15 @@ current `n <= 8` source-of-truth result until independent review.
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)
 and partial n=9 algebraic corroboration: 150 labelled assignments are killed
-by GB={1}, and 18 more by F12's `y_8^2 + 1/4 = 0`. The remaining 16 labelled
-assignments in F07/F08/F09/F13 still need replayable real-root /
-non-degeneracy decoders before the algebraic route becomes a complete
-second-source proof. The same audit reports no soundness defect in the
+by GB={1}, and 18 more by F12's `y_8^2 + 1/4 = 0`. A 2026-05-06 follow-up
+adds explicit Gröbner real-root decoders for the remaining 16 labelled
+assignments in F07/F08/F09/F13 (`docs/n9-groebner-decoders.md`,
+`data/certificates/n9_groebner_real_root_decoders.json`): all 80 real
+algebraic configurations across the four families collapse to coincident
+vertices on a hexagonal lattice, so no strictly convex 9-gon exists in any
+of those varieties. **Combined, all 184 / 184 labelled n = 9 selected-witness
+assignments are exactly killed by Gröbner-basis methods alone**, completing
+the second-source algebraic proof of n = 9 (review-pending). The same audit reports no soundness defect in the
 vertex-circle checker filters. See
 `docs/erdos97-attack-2026-05-05.md` and
 `data/certificates/2026-05-05/n9_groebner_results.json`. Independent

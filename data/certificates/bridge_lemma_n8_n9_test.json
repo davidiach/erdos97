@@ -1,0 +1,2065 @@
+{
+  "type": "bridge_lemma_a_prime_n8_n9_finite_test_v0",
+  "trust": "REPO_LOCAL_EXPLORATORY_FINITE_TEST",
+  "scope": "Empirical test of Bridge Lemma A' (canonical-synthesis.md, Section 5.2) at n=8, n=9 only.  Does not prove or disprove Bridge Lemma A' or Erdos Problem #97.  Reports ear-orderability, mutual K_k cores, and least-squares realization residuals.",
+  "n8": {
+    "n": 8,
+    "total_classes": 15,
+    "ear_orderable_count": 11,
+    "non_ear_orderable_count": 4,
+    "non_ear_ids": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "k4_core_ids": [
+      0,
+      1,
+      2
+    ],
+    "non_ear_subset_of_k4_cores": false,
+    "k4_core_subset_of_non_ear": true,
+    "per_class": [
+      {
+        "id": 0,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            1,
+            3,
+            6
+          ],
+          [
+            0,
+            1,
+            2,
+            7
+          ],
+          [
+            0,
+            5,
+            6,
+            7
+          ],
+          [
+            1,
+            4,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            5,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "ear_orderable": false,
+        "ear_order": null,
+        "largest_closure_from_3_seed": 5,
+        "k_cores": {
+          "3": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              3
+            ],
+            [
+              0,
+              2,
+              3
+            ],
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              4,
+              5,
+              6
+            ],
+            [
+              4,
+              5,
+              7
+            ],
+            [
+              4,
+              6,
+              7
+            ],
+            [
+              5,
+              6,
+              7
+            ]
+          ],
+          "4": [
+            [
+              0,
+              1,
+              2,
+              3
+            ],
+            [
+              4,
+              5,
+              6,
+              7
+            ]
+          ]
+        },
+        "k4_core_count": 2,
+        "k3_core_count": 8,
+        "reverse_peel_terminal_sizes": [
+          4
+        ],
+        "reverse_peel_terminal_count": 30
+      },
+      {
+        "id": 1,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            1,
+            3,
+            6
+          ],
+          [
+            0,
+            1,
+            2,
+            7
+          ],
+          [
+            1,
+            5,
+            6,
+            7
+          ],
+          [
+            0,
+            4,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            7
+          ],
+          [
+            2,
+            4,
+            5,
+            6
+          ]
+        ],
+        "ear_orderable": false,
+        "ear_order": null,
+        "largest_closure_from_3_seed": 5,
+        "k_cores": {
+          "3": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              3
+            ],
+            [
+              0,
+              2,
+              3
+            ],
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              4,
+              5,
+              6
+            ],
+            [
+              4,
+              5,
+              7
+            ],
+            [
+              4,
+              6,
+              7
+            ],
+            [
+              5,
+              6,
+              7
+            ]
+          ],
+          "4": [
+            [
+              0,
+              1,
+              2,
+              3
+            ],
+            [
+              4,
+              5,
+              6,
+              7
+            ]
+          ]
+        },
+        "k4_core_count": 2,
+        "k3_core_count": 8,
+        "reverse_peel_terminal_sizes": [
+          4
+        ],
+        "reverse_peel_terminal_count": 34
+      },
+      {
+        "id": 2,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            1,
+            3,
+            6
+          ],
+          [
+            0,
+            1,
+            2,
+            7
+          ],
+          [
+            1,
+            5,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            7
+          ],
+          [
+            0,
+            4,
+            5,
+            6
+          ]
+        ],
+        "ear_orderable": false,
+        "ear_order": null,
+        "largest_closure_from_3_seed": 5,
+        "k_cores": {
+          "3": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              3
+            ],
+            [
+              0,
+              2,
+              3
+            ],
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              4,
+              5,
+              6
+            ],
+            [
+              4,
+              5,
+              7
+            ],
+            [
+              4,
+              6,
+              7
+            ],
+            [
+              5,
+              6,
+              7
+            ]
+          ],
+          "4": [
+            [
+              0,
+              1,
+              2,
+              3
+            ],
+            [
+              4,
+              5,
+              6,
+              7
+            ]
+          ]
+        },
+        "k4_core_count": 2,
+        "k3_core_count": 8,
+        "reverse_peel_terminal_sizes": [
+          4
+        ],
+        "reverse_peel_terminal_count": 36
+      },
+      {
+        "id": 3,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            0,
+            1,
+            5,
+            7
+          ],
+          [
+            0,
+            2,
+            6,
+            7
+          ],
+          [
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            5,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "ear_orderable": false,
+        "ear_order": null,
+        "largest_closure_from_3_seed": 5,
+        "k_cores": {
+          "3": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              3
+            ],
+            [
+              0,
+              2,
+              4
+            ],
+            [
+              1,
+              3,
+              5
+            ],
+            [
+              2,
+              4,
+              6
+            ],
+            [
+              3,
+              5,
+              7
+            ],
+            [
+              4,
+              6,
+              7
+            ],
+            [
+              5,
+              6,
+              7
+            ]
+          ]
+        },
+        "k4_core_count": 0,
+        "k3_core_count": 8,
+        "reverse_peel_terminal_sizes": [
+          4,
+          5
+        ],
+        "reverse_peel_terminal_count": 44
+      },
+      {
+        "id": 4,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            0,
+            1,
+            5,
+            7
+          ],
+          [
+            1,
+            2,
+            6,
+            7
+          ],
+          [
+            0,
+            3,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            7
+          ],
+          [
+            2,
+            4,
+            5,
+            6
+          ]
+        ],
+        "ear_orderable": true,
+        "ear_order": [
+          0,
+          1,
+          6,
+          2,
+          4,
+          7,
+          3,
+          5
+        ],
+        "largest_closure_from_3_seed": 8,
+        "k_cores": {
+          "3": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              3
+            ],
+            [
+              4,
+              6,
+              7
+            ],
+            [
+              5,
+              6,
+              7
+            ]
+          ]
+        },
+        "k4_core_count": 0,
+        "k3_core_count": 4,
+        "reverse_peel_terminal_sizes": [
+          4,
+          5
+        ],
+        "reverse_peel_terminal_count": 44
+      },
+      {
+        "id": 5,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            2,
+            4,
+            6,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            0,
+            3,
+            6,
+            7
+          ],
+          [
+            0,
+            4,
+            5,
+            7
+          ],
+          [
+            1,
+            2,
+            5,
+            6
+          ]
+        ],
+        "ear_orderable": true,
+        "ear_order": [
+          0,
+          1,
+          6,
+          2,
+          7,
+          3,
+          4,
+          5
+        ],
+        "largest_closure_from_3_seed": 8,
+        "k_cores": {
+          "3": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              5,
+              6,
+              7
+            ]
+          ]
+        },
+        "k4_core_count": 0,
+        "k3_core_count": 2,
+        "reverse_peel_terminal_sizes": [
+          4,
+          5
+        ],
+        "reverse_peel_terminal_count": 40
+      },
+      {
+        "id": 6,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            3,
+            4,
+            6
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ],
+          [
+            0,
+            5,
+            6,
+            7
+          ],
+          [
+            1,
+            4,
+            6,
+            7
+          ],
+          [
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            6
+          ]
+        ],
+        "ear_orderable": true,
+        "ear_order": [
+          0,
+          2,
+          5,
+          1,
+          3,
+          7,
+          4,
+          6
+        ],
+        "largest_closure_from_3_seed": 8,
+        "k_cores": {},
+        "k4_core_count": 0,
+        "k3_core_count": 0,
+        "reverse_peel_terminal_sizes": [
+          4
+        ],
+        "reverse_peel_terminal_count": 40
+      },
+      {
+        "id": 7,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            3,
+            4,
+            6
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ],
+          [
+            3,
+            5,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            6,
+            7
+          ],
+          [
+            0,
+            1,
+            4,
+            7
+          ],
+          [
+            0,
+            1,
+            5,
+            6
+          ]
+        ],
+        "ear_orderable": true,
+        "ear_order": [
+          0,
+          1,
+          4,
+          6,
+          7,
+          2,
+          3,
+          5
+        ],
+        "largest_closure_from_3_seed": 8,
+        "k_cores": {},
+        "k4_core_count": 0,
+        "k3_core_count": 0,
+        "reverse_peel_terminal_sizes": [
+          4
+        ],
+        "reverse_peel_terminal_count": 43
+      },
+      {
+        "id": 8,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            3,
+            4,
+            6
+          ],
+          [
+            1,
+            2,
+            6,
+            7
+          ],
+          [
+            0,
+            5,
+            6,
+            7
+          ],
+          [
+            0,
+            1,
+            4,
+            7
+          ],
+          [
+            2,
+            4,
+            5,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            6
+          ]
+        ],
+        "ear_orderable": true,
+        "ear_order": [
+          0,
+          1,
+          7,
+          5,
+          4,
+          6,
+          2,
+          3
+        ],
+        "largest_closure_from_3_seed": 8,
+        "k_cores": {},
+        "k4_core_count": 0,
+        "k3_core_count": 0,
+        "reverse_peel_terminal_sizes": [
+          4,
+          5
+        ],
+        "reverse_peel_terminal_count": 47
+      },
+      {
+        "id": 9,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            3,
+            4,
+            6
+          ],
+          [
+            1,
+            2,
+            6,
+            7
+          ],
+          [
+            3,
+            5,
+            6,
+            7
+          ],
+          [
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            0,
+            1,
+            5,
+            6
+          ]
+        ],
+        "ear_orderable": true,
+        "ear_order": [
+          0,
+          1,
+          5,
+          7,
+          6,
+          3,
+          4,
+          2
+        ],
+        "largest_closure_from_3_seed": 8,
+        "k_cores": {},
+        "k4_core_count": 0,
+        "k3_core_count": 0,
+        "reverse_peel_terminal_sizes": [
+          4
+        ],
+        "reverse_peel_terminal_count": 40
+      },
+      {
+        "id": 10,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            4,
+            5,
+            7
+          ],
+          [
+            3,
+            5,
+            6,
+            7
+          ],
+          [
+            1,
+            2,
+            6,
+            7
+          ],
+          [
+            0,
+            1,
+            4,
+            7
+          ],
+          [
+            0,
+            1,
+            3,
+            6
+          ]
+        ],
+        "ear_orderable": true,
+        "ear_order": [
+          0,
+          1,
+          3,
+          7,
+          6,
+          4,
+          5,
+          2
+        ],
+        "largest_closure_from_3_seed": 8,
+        "k_cores": {},
+        "k4_core_count": 0,
+        "k3_core_count": 0,
+        "reverse_peel_terminal_sizes": [
+          4,
+          5
+        ],
+        "reverse_peel_terminal_count": 43
+      },
+      {
+        "id": 11,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            4,
+            5,
+            7
+          ],
+          [
+            0,
+            5,
+            6,
+            7
+          ],
+          [
+            1,
+            4,
+            6,
+            7
+          ],
+          [
+            0,
+            1,
+            2,
+            7
+          ],
+          [
+            0,
+            1,
+            3,
+            6
+          ]
+        ],
+        "ear_orderable": true,
+        "ear_order": [
+          0,
+          1,
+          2,
+          6,
+          7,
+          4,
+          5,
+          3
+        ],
+        "largest_closure_from_3_seed": 8,
+        "k_cores": {},
+        "k4_core_count": 0,
+        "k3_core_count": 0,
+        "reverse_peel_terminal_sizes": [
+          4
+        ],
+        "reverse_peel_terminal_count": 36
+      },
+      {
+        "id": 12,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            4,
+            5,
+            7
+          ],
+          [
+            1,
+            5,
+            6,
+            7
+          ],
+          [
+            0,
+            4,
+            6,
+            7
+          ],
+          [
+            0,
+            1,
+            3,
+            7
+          ],
+          [
+            0,
+            1,
+            2,
+            6
+          ]
+        ],
+        "ear_orderable": true,
+        "ear_order": [
+          0,
+          1,
+          2,
+          7,
+          6,
+          4,
+          5,
+          3
+        ],
+        "largest_closure_from_3_seed": 8,
+        "k_cores": {},
+        "k4_core_count": 0,
+        "k3_core_count": 0,
+        "reverse_peel_terminal_sizes": [
+          4
+        ],
+        "reverse_peel_terminal_count": 40
+      },
+      {
+        "id": 13,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            3,
+            6,
+            7
+          ],
+          [
+            1,
+            2,
+            6,
+            7
+          ],
+          [
+            0,
+            1,
+            5,
+            6
+          ],
+          [
+            0,
+            1,
+            4,
+            7
+          ],
+          [
+            2,
+            4,
+            5,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "ear_orderable": true,
+        "ear_order": [
+          0,
+          1,
+          6,
+          4,
+          5,
+          7,
+          2,
+          3
+        ],
+        "largest_closure_from_3_seed": 8,
+        "k_cores": {},
+        "k4_core_count": 0,
+        "k3_core_count": 0,
+        "reverse_peel_terminal_sizes": [
+          4
+        ],
+        "reverse_peel_terminal_count": 40
+      },
+      {
+        "id": 14,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            5,
+            6
+          ],
+          [
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ],
+          [
+            0,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            4,
+            6,
+            7
+          ],
+          [
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            0,
+            1,
+            3,
+            6
+          ]
+        ],
+        "ear_orderable": true,
+        "ear_order": [
+          0,
+          1,
+          3,
+          7,
+          4,
+          5,
+          6,
+          2
+        ],
+        "largest_closure_from_3_seed": 8,
+        "k_cores": {},
+        "k4_core_count": 0,
+        "k3_core_count": 0,
+        "reverse_peel_terminal_sizes": [
+          4
+        ],
+        "reverse_peel_terminal_count": 36
+      }
+    ]
+  },
+  "n9": {
+    "n": 9,
+    "total_full_assignments": 184,
+    "ear_orderable_count": 182,
+    "non_ear_orderable_count": 2,
+    "non_ear_indices": [
+      81,
+      151
+    ],
+    "k4_core_indices": [],
+    "k3_core_only_count": 62,
+    "no_k_core_count": 122,
+    "non_ear_subset_of_k4_cores": false,
+    "k4_core_subset_of_non_ear": true,
+    "non_ear_or_k4_records": [
+      {
+        "idx": 81,
+        "ear_orderable": false,
+        "k4_core_count": 0,
+        "k3_core_count": 3,
+        "largest_closure_from_3_seed": 5,
+        "rows": [
+          [
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            7,
+            8
+          ],
+          [
+            0,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            0,
+            2,
+            5,
+            6
+          ]
+        ],
+        "k_cores": {
+          "3": [
+            [
+              0,
+              3,
+              6
+            ],
+            [
+              1,
+              4,
+              7
+            ],
+            [
+              2,
+              5,
+              8
+            ]
+          ]
+        }
+      },
+      {
+        "idx": 151,
+        "ear_orderable": false,
+        "k4_core_count": 0,
+        "k3_core_count": 3,
+        "largest_closure_from_3_seed": 5,
+        "rows": [
+          [
+            2,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            0,
+            2,
+            5,
+            6
+          ],
+          [
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            7,
+            8
+          ],
+          [
+            0,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ]
+        ],
+        "k_cores": {
+          "3": [
+            [
+              0,
+              3,
+              6
+            ],
+            [
+              1,
+              4,
+              7
+            ],
+            [
+              2,
+              5,
+              8
+            ]
+          ]
+        }
+      }
+    ],
+    "elapsed_sec_enumeration": 115.15508884299993
+  },
+  "realization_tests": {
+    "n8_non_ear_realization": [
+      {
+        "mode": "direct",
+        "loss": 15.529576218962022,
+        "eq_rms": 0.6672853524143576,
+        "max_spread": 2.393941519740871,
+        "max_rel_spread": 1.4635163496413974,
+        "convexity_margin": -0.033763566081979085,
+        "min_edge_length": 0.03249454577804411,
+        "min_pair_distance": 0.03249454577804411,
+        "success": true,
+        "elapsed_sec": 25.63740110397339,
+        "restarts": 12,
+        "max_nfev": 2500,
+        "id": 0,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            1,
+            3,
+            6
+          ],
+          [
+            0,
+            1,
+            2,
+            7
+          ],
+          [
+            0,
+            5,
+            6,
+            7
+          ],
+          [
+            1,
+            4,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            5,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "k4_cores": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ]
+      },
+      {
+        "mode": "polar",
+        "loss": 15.452054906748884,
+        "eq_rms": 0.6676469320411709,
+        "max_spread": 2.425600425984695,
+        "max_rel_spread": 1.4847076837517739,
+        "convexity_margin": -0.02894663255270543,
+        "min_edge_length": 0.03679507211927188,
+        "min_pair_distance": 0.03679507211927188,
+        "success": true,
+        "elapsed_sec": 20.33046245574951,
+        "restarts": 12,
+        "max_nfev": 2500,
+        "id": 1,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            1,
+            3,
+            6
+          ],
+          [
+            0,
+            1,
+            2,
+            7
+          ],
+          [
+            1,
+            5,
+            6,
+            7
+          ],
+          [
+            0,
+            4,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            7
+          ],
+          [
+            2,
+            4,
+            5,
+            6
+          ]
+        ],
+        "k4_cores": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ]
+      },
+      {
+        "mode": "direct",
+        "loss": 14.957276405942558,
+        "eq_rms": 0.6585514469251418,
+        "max_spread": 2.3447773866231256,
+        "max_rel_spread": 1.907549180758947,
+        "convexity_margin": -0.02434785523875801,
+        "min_edge_length": 0.034498264768530365,
+        "min_pair_distance": 0.034498264768530365,
+        "success": true,
+        "elapsed_sec": 19.170185804367065,
+        "restarts": 12,
+        "max_nfev": 2500,
+        "id": 2,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            1,
+            3,
+            6
+          ],
+          [
+            0,
+            1,
+            2,
+            7
+          ],
+          [
+            1,
+            5,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            7
+          ],
+          [
+            0,
+            4,
+            5,
+            6
+          ]
+        ],
+        "k4_cores": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ]
+      },
+      {
+        "mode": "polar",
+        "loss": 15.382424465124231,
+        "eq_rms": 0.6634005678802845,
+        "max_spread": 2.4511260811362376,
+        "max_rel_spread": 1.5016113924757002,
+        "convexity_margin": -0.031965325595477524,
+        "min_edge_length": 0.027903751584429846,
+        "min_pair_distance": 0.027903751584429846,
+        "success": true,
+        "elapsed_sec": 24.566139698028564,
+        "restarts": 12,
+        "max_nfev": 2500,
+        "id": 3,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            0,
+            1,
+            5,
+            7
+          ],
+          [
+            0,
+            2,
+            6,
+            7
+          ],
+          [
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            5,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "k4_cores": []
+      }
+    ],
+    "n9_non_ear_realization": [
+      {
+        "mode": "direct",
+        "loss": 29.347800126312688,
+        "eq_rms": 0.8882496935020454,
+        "max_spread": 3.1786773475571906,
+        "max_rel_spread": 1.7533039917581024,
+        "convexity_margin": -0.01352156393290374,
+        "min_edge_length": 0.013947657331310913,
+        "min_pair_distance": 0.013947657331310913,
+        "success": true,
+        "elapsed_sec": 31.770898580551147,
+        "restarts": 12,
+        "max_nfev": 3000,
+        "idx": 81,
+        "rows": [
+          [
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            7,
+            8
+          ],
+          [
+            0,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            0,
+            2,
+            5,
+            6
+          ]
+        ],
+        "k4_cores": []
+      },
+      {
+        "mode": "direct",
+        "loss": 29.34780012639222,
+        "eq_rms": 0.8882497468761984,
+        "max_spread": 3.17869426214943,
+        "max_rel_spread": 1.7533042729530561,
+        "convexity_margin": -0.013522373509744792,
+        "min_edge_length": 0.013948088975157478,
+        "min_pair_distance": 0.013948088975157478,
+        "success": true,
+        "elapsed_sec": 30.717719554901123,
+        "restarts": 12,
+        "max_nfev": 3000,
+        "idx": 151,
+        "rows": [
+          [
+            2,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            0,
+            2,
+            5,
+            6
+          ],
+          [
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            2,
+            4,
+            7,
+            8
+          ],
+          [
+            0,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ]
+        ],
+        "k4_cores": []
+      }
+    ]
+  },
+  "summary": {
+    "key_findings": [
+      "At n=8: non-ear ids = [0, 1, 2, 3], K4-core ids = [0, 1, 2]. Overlap = [0, 1, 2]; non-ear without K4 = [3]; K4 without non-ear = [].",
+      "n=8 non-ear realization eq_rms: id=0 rms=6.673e-01, id=1 rms=6.676e-01, id=2 rms=6.586e-01, id=3 rms=6.634e-01",
+      "n=9 non-ear realization eq_rms: idx=81 rms=8.882e-01, idx=151 rms=8.882e-01",
+      "Geometric obstruction for K_4-core (ids 0,1,2 at n=8): if {a,b,c,d} is a mutually-witnessed K_4-core, then for each x in {a,b,c,d} the other three vertices lie at a common distance r_x from x.  Symmetry forces r_a=r_b=r_c=r_d=d (a single common distance), yielding 6 pairwise equidistances on 4 points -- impossible in R^2 (would require a regular tetrahedron in R^3).  This rules out ids 0, 1, 2 directly.",
+      "id 3 has NO K_4 core but IS non-ear-orderable.  Largest mutually-witnessed clique is K_3.  Closure from 3-seed reaches at most 5 of 8 vertices, so the bridge fails for id 3 by a different mechanism (the Groebner basis of the squared-distance polynomial system collapses to {1}; see data/certificates/2026-05-05/n8_groebner_results.json id 3).",
+      "Sub-conjecture refinement: at n=8, the non-ear set strictly contains the K_4-core set.  The K_4-core sub-conjecture (\"K_4-cores are geometrically unrealizable\") is provable directly (above), but it does NOT cover all non-ear cases.",
+      "At n=9: non-ear indices = [81, 151], K4-core indices = []. No K_4-cores at n=9 among the surviving 184 patterns.",
+      "At n=9, the only non-ear-orderable patterns are circulants on Z/9 with offsets {1,3,6,7} (idx 81) and its v->-v image {2,3,6,8} (idx 151); both are killed by the strict-cycle vertex-circle obstruction (per bridge_lemma_check.json) and have largest mutually-witnessed clique = K_3 only."
+    ],
+    "n8": {
+      "non_ear_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "k4_core_ids": [
+        0,
+        1,
+        2
+      ],
+      "non_ear_subset_of_k4_cores": false,
+      "k4_core_subset_of_non_ear": true,
+      "non_ear_realization_eq_rms": [
+        {
+          "id": 0,
+          "eq_rms": 0.6672853524143576
+        },
+        {
+          "id": 1,
+          "eq_rms": 0.6676469320411709
+        },
+        {
+          "id": 2,
+          "eq_rms": 0.6585514469251418
+        },
+        {
+          "id": 3,
+          "eq_rms": 0.6634005678802845
+        }
+      ]
+    },
+    "n9": {
+      "non_ear_indices": [
+        81,
+        151
+      ],
+      "k4_core_indices": [],
+      "non_ear_realization_eq_rms": [
+        {
+          "idx": 81,
+          "eq_rms": 0.8882496935020454
+        },
+        {
+          "idx": 151,
+          "eq_rms": 0.8882497468761984
+        }
+      ]
+    },
+    "bridge_lemma_a_prime_status": "EVIDENCE_AT_N8_AND_N9_NO_PROOF: All non-ear patterns at n=8, n=9 exhibit non-trivial residuals under least-squares geometric realization, and at n=8 are independently killed by Groebner basis = {1}; at n=9 they are killed by strict-cycle vertex-circle obstruction.  This is empirical evidence for Bridge Lemma A' at the finite cases checked, but no general proof.",
+    "k4_core_sub_conjecture": "PARTIAL: K_4 mutually-witnessed cores ARE geometrically unrealizable (would-be regular tetrahedron in R^2).  However, this does NOT subsume all non-ear-orderable n=8 patterns: id 3 is non-ear without a K_4 core.  So Bridge Lemma A' does NOT reduce to the K_4-core obstruction alone."
+  },
+  "n10_n11_status": {
+    "n10": {
+      "path": "/home/user/erdos97/data/certificates/n10_vertex_circle_singleton_slices.json",
+      "exists": true,
+      "counts": {
+        "partial_self_edge": 4467592,
+        "partial_strict_cycle": 5318250
+      },
+      "aborted_any": false,
+      "row0_choices_covered": 126,
+      "elapsed_sum_seconds": 131.530355,
+      "full_assignments": "0 (vertex-circle filter eliminates all)"
+    },
+    "n11": {
+      "path": "/home/user/erdos97/data/certificates/2026-05-05/n11_partial.json",
+      "exists": true,
+      "measured_row0_0": {
+        "time_budget_seconds": 300.0,
+        "nodes_visited": 404480,
+        "full_assignments": 0,
+        "counts": {
+          "partial_self_edge": 403978,
+          "partial_strict_cycle": 511631
+        },
+        "timed_out": true,
+        "elapsed_sec": 300.19,
+        "reached_depth_at_progress_marker": 8,
+        "single_core_throughput_nodes_per_sec": 1348
+      },
+      "preliminary_conclusion": "Single row0 singleton is not feasible at 300s budget. Naive scaling predicts ~3.6M nodes per row0 -> ~40 hours wallclock for full n=11 coverage on 4 cores. No cyclic-shift family evades the necessary filters, so a hypothetical n=11 counterexample would have to be aperiodic.",
+      "extrapolated_total_n11_wallclock_4_core_hours": 39.1,
+      "cyclic_pattern_screen_evading": 0
+    },
+    "interpretation": "At n=10, vertex-circle pruning eliminates every full assignment, so the Bridge Lemma A' question reduces vacuously: there are no geometric counterexamples reaching the geometric realization stage. The pre-vertex-circle survivors are NOT computed in this script due to the multi-day enumeration cost (cf. n11_partial.json: 40+ core-hours for n=11).  This deferred enumeration is recorded as a follow-up task; the n=8, n=9 evidence is the actual contribution."
+  },
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "Bridge Lemma A' is not proved here; empirical evidence at n=8, n=9 only.",
+    "The K_4-core obstruction (regular tetrahedron impossibility in R^2) is a clean geometric fact, but does NOT close all non-ear cases at n=8."
+  ]
+}
