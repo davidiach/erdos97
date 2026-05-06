@@ -113,6 +113,25 @@ This is still only bookkeeping. The report does not place any remaining budget
 on sides or length-4 diagonals, does not test geometric realizability of the
 escape placements, and does not close `n = 9`.
 
+A later selected-baseline overlay
+`data/certificates/n9_selected_baseline_escape_budget_overlay.json` compares
+the same turn-cover budget against the 184 complete selected-witness
+assignments that survive the pair/crossing/count filters before vertex-circle
+pruning. In those row systems, the selected 4-witness rows use 54 base-apex
+incidences against total cyclic capacity 63, leaving 9 selected-baseline empty
+capacity units in every case. Under the strict threshold, the selected-baseline
+deficits still force the current turn-cover contradiction in 44 of the 184
+assignments; under the conservative threshold, they force it in 2. The one
+`accepted_frontier` row system from
+`data/certificates/n9_incidence_frontier_bounded.json` has selected-baseline
+deficits on length-2 indices `{0,3,6}` and length-3 indices `{1,7}`, leaving
+only one forced turn, so it is a genuine escape for this diagnostic.
+
+This overlay is not a geometric realizability test. Actual unselected
+equal-distance triples or profile excess could fill selected-baseline empty
+capacity slots, so the artifact is only a finite bookkeeping map for where the
+current turn-cover method does and does not bite.
+
 ## Turn-cover diagnostic
 
 Index the length-2 diagonal `{v_i,v_{i+2}}` by `i`. If it is fully saturated,

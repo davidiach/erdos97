@@ -46,3 +46,7 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert "python scripts/check_n9_base_apex_escape_budget.py --check --json" in command_texts
+    assert (
+        "python scripts/check_n9_selected_baseline_escape_budget_overlay.py --check --json"
+        in command_texts
+    )

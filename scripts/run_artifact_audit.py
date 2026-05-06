@@ -129,6 +129,19 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_selected_baseline_escape_budget_overlay",
+        command=(
+            "python",
+            "scripts/check_n9_selected_baseline_escape_budget_overlay.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Exploratory n=9 selected-baseline escape-budget overlay bookkeeping; "
+            "not a proof of n=9, counterexample, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",
