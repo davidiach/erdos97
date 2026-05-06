@@ -17,6 +17,7 @@ if str(SRC) not in sys.path:
 from erdos97.n9_base_apex import (  # noqa: E402
     distance_profiles,
     deficit_placement_classes,
+    escape_budget_report,
     excess_distributions,
     guaranteed_full_bases,
     ledger_summary,
@@ -37,7 +38,7 @@ def emit_json(payload: object, out: Path | None = None) -> None:
         return
     path = out if out.is_absolute() else ROOT / out
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(text, encoding="utf-8")
+    path.write_text(text, encoding="utf-8", newline="\n")
 
 
 def main() -> int:
@@ -48,6 +49,11 @@ def main() -> int:
         "--low-excess-report",
         action="store_true",
         help="emit the focused low-excess unresolved-ledger report",
+    )
+    parser.add_argument(
+        "--escape-budget-report",
+        action="store_true",
+        help="emit the focused turn-cover escape-budget report",
     )
     parser.add_argument(
         "--out",
@@ -83,6 +89,9 @@ def main() -> int:
 
     if args.low_excess_report:
         emit_json(low_excess_ledger_report(), args.out)
+        return 0
+    if args.escape_budget_report:
+        emit_json(escape_budget_report(), args.out)
         return 0
 
     payload = ledger_summary()

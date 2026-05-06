@@ -91,6 +91,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         claim_scope="Review-pending n=9 selected-witness finite-case checker; not an official/global status update.",
     ),
     AuditCommand(
+        ident="n9_base_apex_low_excess_ledgers",
+        command=("python", "scripts/check_n9_base_apex_low_excess_ledgers.py", "--check", "--json"),
+        claim_scope=(
+            "Exploratory n=9 base-apex low-excess bookkeeping; "
+            "not a proof of n=9 or official/global status update."
+        ),
+    ),
+    AuditCommand(
+        ident="n9_base_apex_escape_budget",
+        command=("python", "scripts/check_n9_base_apex_escape_budget.py", "--check", "--json"),
+        claim_scope=(
+            "Exploratory n=9 base-apex escape-budget bookkeeping; "
+            "not a proof of n=9, counterexample, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",

@@ -10,6 +10,7 @@ from erdos97.n9_base_apex import (
     cyclic_base_families,
     deficit_placement_classes,
     distance_profiles,
+    escape_budget_report,
     excess_distributions,
     guaranteed_full_bases,
     ledger_summary,
@@ -274,6 +275,59 @@ def test_low_excess_ledger_report_records_unresolved_counts() -> None:
     assert "No proof of the n=9 case is claimed." in report["notes"]
 
 
+def test_escape_budget_report_records_budget_compatible_escape_counts() -> None:
+    report = escape_budget_report()
+
+    assert report["schema"] == "erdos97.n9_base_apex_escape_budget_report.v1"
+    assert report["status"] == "EXPLORATORY_LEDGER_ONLY"
+    assert report["trust"] == "FINITE_BOOKKEEPING_NOT_A_PROOF"
+    assert report["relevant_cyclic_lengths"] == [2, 3]
+    assert report["capacity_deficit_distribution"] == [
+        {"capacity_deficit": 0, "profile_ledger_count": 29, "total_profile_excess": 9},
+        {"capacity_deficit": 1, "profile_ledger_count": 21, "total_profile_excess": 8},
+        {"capacity_deficit": 2, "profile_ledger_count": 15, "total_profile_excess": 7},
+        {"capacity_deficit": 3, "profile_ledger_count": 11, "total_profile_excess": 6},
+        {"capacity_deficit": 4, "profile_ledger_count": 7, "total_profile_excess": 5},
+        {"capacity_deficit": 5, "profile_ledger_count": 5, "total_profile_excess": 4},
+        {"capacity_deficit": 6, "profile_ledger_count": 3, "total_profile_excess": 3},
+        {"capacity_deficit": 7, "profile_ledger_count": 2, "total_profile_excess": 2},
+        {"capacity_deficit": 8, "profile_ledger_count": 1, "total_profile_excess": 1},
+        {"capacity_deficit": 9, "profile_ledger_count": 1, "total_profile_excess": 0},
+    ]
+
+    strict = report["strict_positive_threshold"]
+    strict_rows = strict["budget_rows"]
+    assert strict["minimum_relevant_deficit_count_to_spoil"] == 3
+    assert strict_rows[2]["can_spoil_turn_cover_with_relevant_deficits"] is False
+    assert strict_rows[3]["minimum_relevant_deficit_count_to_spoil"] == 3
+    assert strict_rows[3]["unassigned_capacity_after_minimum_relevant_escape"] == 0
+    assert strict_rows[3]["unresolved_profile_ledger_count_at_budget"] == 11
+    assert strict_rows[3]["total_relevant_placement_count_by_relevant_deficit"]["3"] == 816
+    assert (
+        strict_rows[3]["escaping_labelled_relevant_placement_count_by_relevant_deficit"]["3"]
+        == 108
+    )
+    assert strict_rows[9]["escaping_dihedral_relevant_class_count_by_relevant_deficit"]["9"] == 2771
+    assert (
+        strict_rows[9]["escaping_labelled_relevant_placement_count_by_relevant_deficit"]["9"]
+        == 48590
+    )
+    assert len(strict["minimum_escape_motif_classes"]) == 8
+
+    conservative = report["sum_exceeds_threshold"]
+    conservative_rows = conservative["budget_rows"]
+    assert conservative["minimum_relevant_deficit_count_to_spoil"] == 2
+    assert conservative_rows[1]["can_spoil_turn_cover_with_relevant_deficits"] is False
+    assert conservative_rows[2]["minimum_relevant_deficit_count_to_spoil"] == 2
+    assert conservative_rows[2]["unresolved_profile_ledger_count_at_budget"] == 15
+    assert (
+        conservative_rows[2]["escaping_labelled_relevant_placement_count_by_relevant_deficit"]["2"]
+        == 72
+    )
+    assert len(conservative["minimum_escape_motif_classes"]) == 6
+    assert "No proof of the n=9 case is claimed." in report["interpretation"]
+
+
 def test_checked_low_excess_ledger_artifact_matches_generator() -> None:
     repo = Path(__file__).resolve().parents[1]
     artifact = repo / "data" / "certificates" / "n9_base_apex_low_excess_ledgers.json"
@@ -281,3 +335,12 @@ def test_checked_low_excess_ledger_artifact_matches_generator() -> None:
     payload = json.loads(artifact.read_text(encoding="utf-8"))
 
     assert payload == low_excess_ledger_report()
+
+
+def test_checked_escape_budget_artifact_matches_generator() -> None:
+    repo = Path(__file__).resolve().parents[1]
+    artifact = repo / "data" / "certificates" / "n9_base_apex_escape_budget_report.json"
+
+    payload = json.loads(artifact.read_text(encoding="utf-8"))
+
+    assert payload == escape_budget_report()

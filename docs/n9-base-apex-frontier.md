@@ -88,6 +88,8 @@ python scripts/explore_n9_base_apex.py --turn-cover
 python scripts/explore_n9_base_apex.py --motifs
 python scripts/explore_n9_base_apex.py --low-excess-report --out data/certificates/n9_base_apex_low_excess_ledgers.json
 python scripts/check_n9_base_apex_low_excess_ledgers.py --check --json
+python scripts/explore_n9_base_apex.py --escape-budget-report --out data/certificates/n9_base_apex_escape_budget_report.json
+python scripts/check_n9_base_apex_escape_budget.py --check --json
 ```
 
 The focused generated report
@@ -97,6 +99,19 @@ the minimum relevant length-2/length-3 deficit motif classes. It is
 `FINITE_BOOKKEEPING_NOT_A_PROOF`, not a claim that `n=9` is closed. The
 checker command independently replays the partition table, ledger arithmetic,
 turn-cover summaries, and minimum escape motif classes from the stored JSON.
+
+The companion generated report
+`data/certificates/n9_base_apex_escape_budget_report.json` records a coarser
+budget map for the same diagnostic. For each capacity-deficit budget `D`, it
+counts how many labelled and dihedral placements of `r <= D` relevant deficits
+on length-2 and length-3 bases can escape the current turn-cover closure. It
+also records the total number `binom(18,r)` of such relevant placements, so the
+escaping counts are visibly scoped to the two cyclic base families used by this
+turn-cover mechanism.
+
+This is still only bookkeeping. The report does not place any remaining budget
+on sides or length-4 diagonals, does not test geometric realizability of the
+escape placements, and does not close `n = 9`.
 
 ## Turn-cover diagnostic
 
