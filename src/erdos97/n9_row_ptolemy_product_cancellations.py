@@ -1,0 +1,261 @@
+"""n=9 row-Ptolemy product-cancellation diagnostics.
+
+This module sweeps the 184 complete n=9 selected-witness assignments that
+survive the pair/crossing/count filters before vertex-circle obstruction. It
+records where a fixed-row-order Ptolemy cancellation gives an independent exact
+obstruction. It does not prove the n=9 case and does not claim a
+counterexample.
+"""
+
+from __future__ import annotations
+
+from collections import Counter, defaultdict
+from typing import Sequence
+
+from erdos97 import n9_vertex_circle_exhaustive as n9
+from erdos97.incidence_filters import row_ptolemy_product_cancellation_certificates
+from erdos97.n9_vertex_circle_obstruction_shapes import (
+    _rows_from_assignment,
+    canonical_dihedral_rows,
+    pre_vertex_circle_assignments,
+)
+
+SCHEMA = "erdos97.n9_row_ptolemy_product_cancellations.v1"
+STATUS = "EXPLORATORY_LEDGER_ONLY"
+TRUST = "FINITE_BOOKKEEPING_NOT_A_PROOF"
+CLAIM_SCOPE = (
+    "Focused n=9 row-Ptolemy product-cancellation bookkeeping for the "
+    "fixed natural cyclic order; not a proof of n=9, not a counterexample, "
+    "not a geometric realizability test, and not a global status update."
+)
+PROVENANCE = {
+    "generator": "scripts/analyze_n9_row_ptolemy_product_cancellations.py",
+    "command": (
+        "python scripts/analyze_n9_row_ptolemy_product_cancellations.py "
+        "--assert-expected --out "
+        "data/certificates/n9_row_ptolemy_product_cancellations.json"
+    ),
+}
+
+EXPECTED_PRE_VERTEX_CIRCLE_NODES = 100_817
+EXPECTED_PRE_VERTEX_CIRCLE_ASSIGNMENTS = 184
+EXPECTED_HIT_ASSIGNMENTS = 26
+EXPECTED_HIT_CERTIFICATES = 216
+EXPECTED_HIT_FAMILIES = 3
+EXPECTED_HIT_ASSIGNMENT_STATUS_COUNTS = {"self_edge": 26}
+EXPECTED_HIT_FAMILY_COUNTS = {"F02": 18, "F09": 6, "F13": 2}
+EXPECTED_CERTIFICATE_COUNT_BY_CENTER = {str(center): 24 for center in range(n9.N)}
+EXPECTED_CERTIFICATES_PER_HIT_ASSIGNMENT = {"6": 18, "12": 6, "18": 2}
+
+
+def _json_counter(counter: Counter[int] | Counter[str]) -> dict[str, int]:
+    return {str(key): int(counter[key]) for key in sorted(counter)}
+
+
+def _family_labels(
+    rows_by_assignment: Sequence[Sequence[Sequence[int]]],
+) -> tuple[dict[tuple[tuple[int, ...], ...], str], dict[str, int]]:
+    families: dict[tuple[tuple[int, ...], ...], int] = defaultdict(int)
+    for rows in rows_by_assignment:
+        families[canonical_dihedral_rows(rows)] += 1
+
+    key_to_family: dict[tuple[tuple[int, ...], ...], str] = {}
+    family_orbit_sizes: dict[str, int] = {}
+    for family_index, (family_key, orbit_size) in enumerate(
+        sorted(families.items()),
+        start=1,
+    ):
+        family_id = f"F{family_index:02d}"
+        key_to_family[family_key] = family_id
+        family_orbit_sizes[family_id] = int(orbit_size)
+    return key_to_family, family_orbit_sizes
+
+
+def _hit_record(
+    assignment_index: int,
+    rows: Sequence[Sequence[int]],
+    family_id: str,
+    family_orbit_size: int,
+    status: str,
+    certificates: Sequence[dict[str, object]],
+) -> dict[str, object]:
+    return {
+        "assignment_index": int(assignment_index),
+        "family_id": family_id,
+        "family_orbit_size": int(family_orbit_size),
+        "vertex_circle_status": status,
+        "selected_rows": [[int(label) for label in row] for row in rows],
+        "certificate_count": len(certificates),
+        "certificates": list(certificates),
+    }
+
+
+def row_ptolemy_product_cancellation_report() -> dict[str, object]:
+    """Return the stable n=9 row-Ptolemy product-cancellation artifact."""
+
+    assignments, nodes = pre_vertex_circle_assignments()
+    rows_by_assignment = [_rows_from_assignment(assign) for assign in assignments]
+    family_labels, family_orbit_sizes = _family_labels(rows_by_assignment)
+
+    hit_records: list[dict[str, object]] = []
+    status_counts: Counter[str] = Counter()
+    family_hit_counts: Counter[str] = Counter()
+    certificate_count_by_center: Counter[int] = Counter()
+    certificates_per_hit: Counter[int] = Counter()
+    total_certificates = 0
+
+    for assignment_index, (assign, rows) in enumerate(
+        zip(assignments, rows_by_assignment),
+    ):
+        certificates = row_ptolemy_product_cancellation_certificates(
+            rows,
+            n9.ORDER,
+        )
+        if not certificates:
+            continue
+
+        family_key = canonical_dihedral_rows(rows)
+        family_id = family_labels[family_key]
+        status = n9.vertex_circle_status(assign)
+        status_counts[status] += 1
+        family_hit_counts[family_id] += 1
+        certificates_per_hit[len(certificates)] += 1
+        total_certificates += len(certificates)
+        for certificate in certificates:
+            certificate_count_by_center[int(certificate["row"])] += 1
+        hit_records.append(
+            _hit_record(
+                assignment_index,
+                rows,
+                family_id,
+                family_orbit_sizes[family_id],
+                status,
+                certificates,
+            )
+        )
+
+    hit_family_rows = [
+        {
+            "family_id": family_id,
+            "hit_assignment_count": int(family_hit_counts[family_id]),
+            "family_orbit_size": int(family_orbit_sizes[family_id]),
+        }
+        for family_id in sorted(family_hit_counts)
+    ]
+
+    payload = {
+        "schema": SCHEMA,
+        "status": STATUS,
+        "trust": TRUST,
+        "claim_scope": CLAIM_SCOPE,
+        "n": n9.N,
+        "witness_size": n9.ROW_SIZE,
+        "cyclic_order": list(n9.ORDER),
+        "source_frontier": {
+            "description": (
+                "Complete n=9 assignments after pair/crossing/count filters "
+                "and before vertex-circle obstruction."
+            ),
+            "row0_choices": len(n9.OPTIONS[0]),
+            "nodes_visited": int(nodes),
+            "assignment_count": len(assignments),
+            "dihedral_family_count": len(family_orbit_sizes),
+        },
+        "filter": {
+            "name": "row_ptolemy_product_cancel",
+            "historical_alias": "F15 row-Ptolemy symmetric quad",
+            "fixed_order_requirement": (
+                "The row witness cyclic order must be supplied or certified; "
+                "the selected-distance quotient alone is not an orderless "
+                "abstract-incidence obstruction."
+            ),
+            "trigger": "d02=d23 and d13=d01 for row witnesses w0,w1,w2,w3",
+            "ptolemy_identity": "d02*d13 = d01*d23 + d03*d12",
+            "cancellation_conclusion": "d03*d12 = 0",
+        },
+        "hit_summary": {
+            "hit_assignment_count": len(hit_records),
+            "hit_certificate_count": int(total_certificates),
+            "hit_family_count": len(family_hit_counts),
+            "hit_assignment_vertex_circle_status_counts": dict(
+                sorted(status_counts.items()),
+            ),
+            "hit_family_counts": hit_family_rows,
+            "certificate_count_by_center": _json_counter(certificate_count_by_center),
+            "certificates_per_hit_assignment_counts": _json_counter(
+                certificates_per_hit,
+            ),
+        },
+        "hit_records": hit_records,
+        "interpretation": [
+            "Each recorded hit is an exact obstruction for one fixed selected-witness assignment under the natural cyclic order.",
+            "The proof uses Ptolemy on a row witness circle plus exact selected-distance quotient equalities.",
+            "The filter kills 26 of the 184 n=9 pre-vertex-circle assignments, covering 3 of the 16 deterministic dihedral family labels.",
+            "For this n=9 frontier, every hit is also a vertex-circle self-edge case; this diagnostic does not dominate or replace the vertex-circle checker.",
+            "The row order must be supplied or certified. This is not an orderless abstract-incidence obstruction.",
+            "No proof of the n=9 case is claimed.",
+        ],
+        "source_artifacts": [
+            {
+                "path": "data/certificates/n9_vertex_circle_exhaustive.json",
+                "role": "review-pending source frontier count target",
+            },
+            {
+                "path": "data/certificates/n9_vertex_circle_motif_families.json",
+                "role": "deterministic family-id convention used for F02/F09/F13 labels",
+            },
+            {
+                "path": "data/runs/2026-05-05/new_obstructions.md",
+                "role": "archived exploratory memo for the historical F15 alias",
+            },
+        ],
+        "provenance": PROVENANCE,
+    }
+    assert_expected_counts(payload)
+    return payload
+
+
+def assert_expected_counts(payload: dict[str, object]) -> None:
+    """Assert stable headline counts for the n=9 cancellation report."""
+
+    source = payload["source_frontier"]
+    summary = payload["hit_summary"]
+    if not isinstance(source, dict) or not isinstance(summary, dict):
+        raise AssertionError("malformed row-Ptolemy product-cancellation payload")
+
+    if source["nodes_visited"] != EXPECTED_PRE_VERTEX_CIRCLE_NODES:
+        raise AssertionError(f"unexpected source nodes: {source['nodes_visited']}")
+    if source["assignment_count"] != EXPECTED_PRE_VERTEX_CIRCLE_ASSIGNMENTS:
+        raise AssertionError(
+            f"unexpected source assignments: {source['assignment_count']}",
+        )
+    if summary["hit_assignment_count"] != EXPECTED_HIT_ASSIGNMENTS:
+        raise AssertionError(
+            f"unexpected hit assignments: {summary['hit_assignment_count']}",
+        )
+    if summary["hit_certificate_count"] != EXPECTED_HIT_CERTIFICATES:
+        raise AssertionError(
+            f"unexpected hit certificates: {summary['hit_certificate_count']}",
+        )
+    if summary["hit_family_count"] != EXPECTED_HIT_FAMILIES:
+        raise AssertionError(f"unexpected hit families: {summary['hit_family_count']}")
+    if (
+        summary["hit_assignment_vertex_circle_status_counts"]
+        != EXPECTED_HIT_ASSIGNMENT_STATUS_COUNTS
+    ):
+        raise AssertionError("unexpected hit status counts")
+
+    actual_family_counts = {
+        str(row["family_id"]): int(row["hit_assignment_count"])
+        for row in summary["hit_family_counts"]
+        if isinstance(row, dict)
+    }
+    if actual_family_counts != EXPECTED_HIT_FAMILY_COUNTS:
+        raise AssertionError(f"unexpected hit family counts: {actual_family_counts}")
+    if summary["certificate_count_by_center"] != EXPECTED_CERTIFICATE_COUNT_BY_CENTER:
+        raise AssertionError("unexpected certificate center counts")
+    if (
+        summary["certificates_per_hit_assignment_counts"]
+        != EXPECTED_CERTIFICATES_PER_HIT_ASSIGNMENT
+    ):
+        raise AssertionError("unexpected certificate-per-hit histogram")

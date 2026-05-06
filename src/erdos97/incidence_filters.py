@@ -341,6 +341,174 @@ def phi4_rectangle_trap_certificates(
     return out
 
 
+def _row_witness_order(
+    order: Sequence[int],
+    center: int,
+    witnesses: Sequence[int],
+) -> list[int]:
+    """Return witnesses in boundary order around a convex-hull vertex."""
+    positions = _positions(order)
+    if center not in positions:
+        raise ValueError(f"center {center} is missing from cyclic order")
+    missing = [witness for witness in witnesses if witness not in positions]
+    if missing:
+        raise ValueError(f"witness {missing[0]} is missing from cyclic order")
+    n = len(order)
+    center_pos = positions[center]
+    return sorted(witnesses, key=lambda witness: (positions[witness] - center_pos) % n)
+
+
+def _selected_distance_pair_classes(
+    S: Sequence[Sequence[int]],
+) -> tuple[dict[Chord, int], tuple[tuple[Chord, ...], ...]]:
+    n = len(S)
+    all_pairs = [normalize_chord(left, right) for left, right in combinations(range(n), 2)]
+    parent = {item: item for item in all_pairs}
+
+    def find(item: Chord) -> Chord:
+        while parent[item] != item:
+            parent[item] = parent[parent[item]]
+            item = parent[item]
+        return item
+
+    def union(left: Chord, right: Chord) -> None:
+        root_left = find(left)
+        root_right = find(right)
+        if root_left == root_right:
+            return
+        if root_right < root_left:
+            root_left, root_right = root_right, root_left
+        parent[root_right] = root_left
+
+    for center, row in enumerate(S):
+        if len(row) != 4:
+            raise ValueError(f"row {center} has length {len(row)}, expected 4")
+        if center in row:
+            raise ValueError(f"row {center} selects itself")
+        if len(set(row)) != 4:
+            raise ValueError(f"row {center} has repeated witnesses")
+        base = normalize_chord(center, int(row[0]))
+        for witness in row[1:]:
+            union(base, normalize_chord(center, int(witness)))
+
+    root_index: dict[Chord, int] = {}
+    pair_class: dict[Chord, int] = {}
+    members: dict[int, list[Chord]] = {}
+    for item in all_pairs:
+        root = find(item)
+        class_index = root_index.setdefault(root, len(root_index))
+        pair_class[item] = class_index
+        members.setdefault(class_index, []).append(item)
+    return pair_class, tuple(tuple(members[idx]) for idx in range(len(members)))
+
+
+def row_ptolemy_product_cancellation_certificates(
+    S: Sequence[Sequence[int]],
+    order: Sequence[int] | None = None,
+) -> list[dict[str, object]]:
+    """
+    Return row-Ptolemy product-cancellation obstruction certificates.
+
+    For row witnesses ``w0,w1,w2,w3`` in the supplied/certified row order,
+    Ptolemy gives ``d02*d13 = d01*d23 + d03*d12``. If selected-distance
+    quotienting forces ``d02=d23`` and ``d13=d01``, then the equality forces
+    ``d03*d12=0``. Distinct strictly convex vertices have positive distances,
+    so the fixed selected-witness pattern and order are obstructed.
+    """
+    n = len(S)
+    if order is None:
+        order = list(range(n))
+    if len(order) != n:
+        raise ValueError(f"cyclic order has length {len(order)}, expected {n}")
+
+    pair_class, class_members = _selected_distance_pair_classes(S)
+    out: list[dict[str, object]] = []
+    for center, row in enumerate(S):
+        witnesses = _row_witness_order(order, center, row)
+        w0, w1, w2, w3 = witnesses
+        pairs = {
+            "d01": normalize_chord(w0, w1),
+            "d02": normalize_chord(w0, w2),
+            "d03": normalize_chord(w0, w3),
+            "d12": normalize_chord(w1, w2),
+            "d13": normalize_chord(w1, w3),
+            "d23": normalize_chord(w2, w3),
+        }
+        classes = {name: pair_class[item] for name, item in pairs.items()}
+        variants = (
+            (
+                "cancel_d01_d23_via_d02_eq_d23_and_d13_eq_d01",
+                (("d02", "d23"), ("d13", "d01")),
+                "d01*d23",
+                ("d03", "d12"),
+            ),
+            (
+                "cancel_d01_d23_via_d02_eq_d01_and_d13_eq_d23",
+                (("d02", "d01"), ("d13", "d23")),
+                "d01*d23",
+                ("d03", "d12"),
+            ),
+            (
+                "cancel_d03_d12_via_d02_eq_d12_and_d13_eq_d03",
+                (("d02", "d12"), ("d13", "d03")),
+                "d03*d12",
+                ("d01", "d23"),
+            ),
+            (
+                "cancel_d03_d12_via_d02_eq_d03_and_d13_eq_d12",
+                (("d02", "d03"), ("d13", "d12")),
+                "d03*d12",
+                ("d01", "d23"),
+            ),
+        )
+        for variant, equalities, cancelled_product, zero_factors in variants:
+            if any(classes[left] != classes[right] for left, right in equalities):
+                continue
+            out.append(
+                {
+                    "type": "row_ptolemy_product_cancellation",
+                    "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_ROW_ORDER",
+                    "variant": variant,
+                    "row": int(center),
+                    "witness_order": [int(label) for label in witnesses],
+                    "ptolemy_identity": "d02*d13 = d01*d23 + d03*d12",
+                    "cancelled_product": cancelled_product,
+                    "forced_equalities": [
+                        {
+                            "left": left,
+                            "left_pair": _json_chord(pairs[left]),
+                            "right": right,
+                            "right_pair": _json_chord(pairs[right]),
+                            "distance_class": int(classes[left]),
+                            "class_member_count": len(class_members[classes[left]]),
+                        }
+                        for left, right in equalities
+                    ],
+                    "zero_product": {
+                        "expression": "*".join(zero_factors),
+                        "factors": [
+                            {
+                                "name": factor,
+                                "pair": _json_chord(pairs[factor]),
+                                "distance_class": int(classes[factor]),
+                            }
+                            for factor in zero_factors
+                        ],
+                    },
+                    "contradiction": (
+                        "Ptolemy cancellation forces a product of two "
+                        "ordinary distances to be zero, but distinct strictly "
+                        "convex vertices have positive Euclidean distances."
+                    ),
+                    "scope": (
+                        "Exact obstruction for this fixed selected-witness row "
+                        "under the supplied/certified row order only."
+                    ),
+                }
+            )
+    return out
+
+
 def mutual_phi_pairs(S: Sequence[Sequence[int]]) -> list[tuple[Chord, Chord]]:
     """Return unordered reciprocal pairs (e,f) with phi(e)=f and phi(f)=e."""
     phis = phi_map(S)
