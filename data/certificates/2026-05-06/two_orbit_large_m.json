@@ -1,0 +1,360 @@
+{
+  "task": "Two-orbit ansatz at large m (Erd\u0151s Problem #97)",
+  "date": "2026-05-06",
+  "m_values": [
+    14,
+    15,
+    16,
+    18,
+    20,
+    25,
+    30
+  ],
+  "setup": {
+    "outer_radius_R": 1.0,
+    "inner_radius": "r_b",
+    "offset": "pi/m + phi",
+    "free_parameters": [
+      "r_b",
+      "phi"
+    ],
+    "convex_window": "(cos(pi/m), sec(pi/m))",
+    "natural_cyclic_order": "A_0, B_0, A_1, B_1, ..., A_{m-1}, B_{m-1}"
+  },
+  "patterns_tested": {
+    "Oa": "2 outer + 2 inner at A_0 (pair-classes (a, m-a) and (b, -1-b))",
+    "Ob": "0 outer + 4 inner at A_0 (two distinct inner pair-classes)",
+    "Ia": "2 inner + 2 outer at B_0 (pair-classes (a, m-a) and (b, 1-b))",
+    "Ib": "0 inner + 4 outer at B_0 (two distinct outer pair-classes)",
+    "combinations": "Oa+Ia, Ob+Ia, Oa+Ib, Ob+Ib all enumerated."
+  },
+  "results": {
+    "14": {
+      "m": 14,
+      "n": 28,
+      "convex_window": [
+        0.9749279121818236,
+        1.025716863272554
+      ],
+      "n_candidates": 94,
+      "n_in_convex_window": 0,
+      "n_strictly_convex": 0,
+      "survivors": [],
+      "near_misses_in_window": [],
+      "best_record_in_window": null,
+      "best_residual_in_window": null,
+      "grid_scan_hits": [],
+      "grid_scan_best_near_miss": {
+        "r": 0.9759279121818236,
+        "phi": -0.04487540706177762,
+        "min_mult": 2
+      }
+    },
+    "15": {
+      "m": 15,
+      "n": 30,
+      "convex_window": [
+        0.9781476007338057,
+        1.0223405948650293
+      ],
+      "n_candidates": 115,
+      "n_in_convex_window": 0,
+      "n_strictly_convex": 0,
+      "survivors": [],
+      "near_misses_in_window": [],
+      "best_record_in_window": null,
+      "best_residual_in_window": null,
+      "grid_scan_hits": [],
+      "grid_scan_best_near_miss": {
+        "r": 0.9791476007338057,
+        "phi": -0.04188371325765913,
+        "min_mult": 2
+      }
+    },
+    "16": {
+      "m": 16,
+      "n": 32,
+      "convex_window": [
+        0.9807852804032304,
+        1.0195911582083184
+      ],
+      "n_candidates": 290,
+      "n_in_convex_window": 4,
+      "n_strictly_convex": 0,
+      "survivors": [],
+      "near_misses_in_window": [],
+      "best_record_in_window": {
+        "outer_pattern": [
+          "Oa",
+          4,
+          4,
+          11
+        ],
+        "inner_pattern": [
+          "Ia",
+          4,
+          4,
+          13
+        ],
+        "r": 0.9863774285928621,
+        "phi": -0.18263247060025778,
+        "phi_unnormalized": -0.18263247060025778,
+        "Ia_residual": -1.1102230246251565e-16,
+        "m": 16,
+        "n": 32,
+        "in_convex_window": true,
+        "strictly_convex_alternating": false,
+        "all_vertex_4bad": false,
+        "convexity_window": [
+          0.9807852804032304,
+          1.0195911582083184
+        ],
+        "witness_residual_spread": 0.7028102272822825
+      },
+      "best_residual_in_window": 0.7028102272822825,
+      "grid_scan_hits": [],
+      "grid_scan_best_near_miss": {
+        "r": 0.9817852804032304,
+        "phi": -0.039265981179055415,
+        "min_mult": 2
+      }
+    },
+    "18": {
+      "m": 18,
+      "n": 36,
+      "convex_window": [
+        0.984807753012208,
+        1.0154266118857451
+      ],
+      "n_candidates": 981,
+      "n_in_convex_window": 0,
+      "n_strictly_convex": 0,
+      "survivors": [],
+      "near_misses_in_window": [],
+      "best_record_in_window": null,
+      "best_residual_in_window": null,
+      "grid_scan_hits": [],
+      "grid_scan_best_near_miss": {
+        "r": 0.985807753012208,
+        "phi": -0.03490309438138259,
+        "min_mult": 2
+      }
+    },
+    "20": {
+      "m": 20,
+      "n": 40,
+      "convex_window": [
+        0.9876883405951378,
+        1.0124651257880029
+      ],
+      "n_candidates": 563,
+      "n_in_convex_window": 4,
+      "n_strictly_convex": 0,
+      "survivors": [],
+      "near_misses_in_window": [],
+      "best_record_in_window": {
+        "outer_pattern": [
+          "Oa",
+          5,
+          5,
+          14
+        ],
+        "inner_pattern": [
+          "Ia",
+          5,
+          5,
+          16
+        ],
+        "r": 0.9890867703786905,
+        "phi": -0.14610597648020623,
+        "phi_unnormalized": -0.14610597648020623,
+        "Ia_residual": 2.220446049250313e-16,
+        "m": 20,
+        "n": 40,
+        "in_convex_window": true,
+        "strictly_convex_alternating": false,
+        "all_vertex_4bad": false,
+        "convexity_window": [
+          0.9876883405951378,
+          1.0124651257880029
+        ],
+        "witness_residual_spread": 0.5689001487446201
+      },
+      "best_residual_in_window": 0.5689001487446201,
+      "grid_scan_hits": [],
+      "grid_scan_best_near_miss": {
+        "r": 0.9886883405951378,
+        "phi": -0.04188371325765912,
+        "min_mult": 2
+      }
+    },
+    "25": {
+      "m": 25,
+      "n": 50,
+      "convex_window": [
+        0.9921147013144779,
+        1.0079479708092973
+      ],
+      "n_candidates": 708,
+      "n_in_convex_window": 0,
+      "n_strictly_convex": 0,
+      "survivors": [],
+      "near_misses_in_window": [],
+      "best_record_in_window": null,
+      "best_residual_in_window": null,
+      "grid_scan_hits": [],
+      "grid_scan_best_near_miss": {
+        "r": 0.9931147013144779,
+        "phi": -0.04188371325765913,
+        "min_mult": 2
+      }
+    },
+    "30": {
+      "m": 30,
+      "n": 60,
+      "convex_window": [
+        0.9945218953682733,
+        1.0055082795635164
+      ],
+      "n_candidates": 4484,
+      "n_in_convex_window": 0,
+      "n_strictly_convex": 0,
+      "survivors": [],
+      "near_misses_in_window": [],
+      "best_record_in_window": null,
+      "best_residual_in_window": null,
+      "grid_scan_hits": [],
+      "grid_scan_best_near_miss": {
+        "r": 0.9955218953682733,
+        "phi": -0.04188371325765912,
+        "min_mult": 2
+      }
+    }
+  },
+  "wall_time_sec": 127.86237025260925,
+  "summary": {
+    "total_survivors_over_all_m": 0,
+    "total_near_misses_in_window": 0,
+    "per_m": {
+      "14": {
+        "n_candidates": 94,
+        "n_in_convex_window": 0,
+        "n_strictly_convex": 0,
+        "survivors": 0,
+        "best_residual_in_window": null,
+        "best_in_window": null
+      },
+      "15": {
+        "n_candidates": 115,
+        "n_in_convex_window": 0,
+        "n_strictly_convex": 0,
+        "survivors": 0,
+        "best_residual_in_window": null,
+        "best_in_window": null
+      },
+      "16": {
+        "n_candidates": 290,
+        "n_in_convex_window": 4,
+        "n_strictly_convex": 0,
+        "survivors": 0,
+        "best_residual_in_window": 0.7028102272822825,
+        "best_in_window": {
+          "outer_pattern": [
+            "Oa",
+            4,
+            4,
+            11
+          ],
+          "inner_pattern": [
+            "Ia",
+            4,
+            4,
+            13
+          ],
+          "r": 0.9863774285928621,
+          "phi": -0.18263247060025778,
+          "phi_unnormalized": -0.18263247060025778,
+          "Ia_residual": -1.1102230246251565e-16,
+          "m": 16,
+          "n": 32,
+          "in_convex_window": true,
+          "strictly_convex_alternating": false,
+          "all_vertex_4bad": false,
+          "convexity_window": [
+            0.9807852804032304,
+            1.0195911582083184
+          ],
+          "witness_residual_spread": 0.7028102272822825
+        }
+      },
+      "18": {
+        "n_candidates": 981,
+        "n_in_convex_window": 0,
+        "n_strictly_convex": 0,
+        "survivors": 0,
+        "best_residual_in_window": null,
+        "best_in_window": null
+      },
+      "20": {
+        "n_candidates": 563,
+        "n_in_convex_window": 4,
+        "n_strictly_convex": 0,
+        "survivors": 0,
+        "best_residual_in_window": 0.5689001487446201,
+        "best_in_window": {
+          "outer_pattern": [
+            "Oa",
+            5,
+            5,
+            14
+          ],
+          "inner_pattern": [
+            "Ia",
+            5,
+            5,
+            16
+          ],
+          "r": 0.9890867703786905,
+          "phi": -0.14610597648020623,
+          "phi_unnormalized": -0.14610597648020623,
+          "Ia_residual": 2.220446049250313e-16,
+          "m": 20,
+          "n": 40,
+          "in_convex_window": true,
+          "strictly_convex_alternating": false,
+          "all_vertex_4bad": false,
+          "convexity_window": [
+            0.9876883405951378,
+            1.0124651257880029
+          ],
+          "witness_residual_spread": 0.5689001487446201
+        }
+      },
+      "25": {
+        "n_candidates": 708,
+        "n_in_convex_window": 0,
+        "n_strictly_convex": 0,
+        "survivors": 0,
+        "best_residual_in_window": null,
+        "best_in_window": null
+      },
+      "30": {
+        "n_candidates": 4484,
+        "n_in_convex_window": 0,
+        "n_strictly_convex": 0,
+        "survivors": 0,
+        "best_residual_in_window": null,
+        "best_in_window": null
+      }
+    },
+    "verdict": "two-orbit ansatz is dead at large m as well; the obstruction at m <= 12 is generic, not finite-size.",
+    "key_findings": [
+      "Zero survivors at every tested m in {14,15,16,18,20,25,30}.",
+      "Closed-form Oa+Ia 2-eq solutions exist (94-4484 per m) but only at m in {16, 20} did any land inside the convex window (4 each), and all of them violate strict convexity.",
+      "For all such convex-window candidates, the chosen 4-witness sets have witness_residual_spread ~ 0.5-0.7, meaning the 4 chosen distances are far from equal: the additional D_AB(b1)=D_AB(b2) and D_BA(b1)=D_BA(b2) constraints needed for actual 4-bad are not satisfied.",
+      "A brute-force 60x31 grid scan over (r,phi) in (cos(pi/m), sec(pi/m)) x (-pi/m, pi/m) finds: every strictly-convex point has vertex multiplicity at most 2 (not even 3-bad). No (r,phi) is even close to all-vertex 4-bad.",
+      "The Ob+Ia and Oa+Ib combinations yield essentially no convex-window candidates; the Ob+Ib combination forces phi to discrete values (mostly phi=0) leaving r unconstrained, but no r in the convex window gives global 4-bad.",
+      "Same structural failure as m <= 12: in the convex window, the inner-orbit constraint forces r_b too close to 1; outside the convex window solutions exist but are concave."
+    ]
+  }
+}
