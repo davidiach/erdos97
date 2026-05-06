@@ -1,7 +1,8 @@
 """Optimized selected-witness search with vertex-circle pruning.
 
-This is a faster, bitset-based reimplementation of
-``GenericVertexSearch`` intended for n = 11 exhaustive coverage.
+This is an experimental bitset-based reimplementation of
+``GenericVertexSearch`` for larger vertex-circle searches.  It is not wired
+into the finite-case source-of-truth pipeline.
 
 Key optimizations versus ``generic_vertex_search.py``:
 
@@ -24,8 +25,9 @@ Key optimizations versus ``generic_vertex_search.py``:
 5. Dihedral (reflection) symmetry is applied at row 0: only the canonical
    representative under x -> -x mod n is searched; the orbit factor is 2.
 
-The artifacts agree with ``GenericVertexSearch`` on full-assignment counts
-across all tested cases (every n=9 row0; every spot-checked n=10 row0).
+Before this module is used for claim-bearing artifacts, compare full counts
+against ``GenericVertexSearch`` on the relevant n=9/n=10 slices and audit the
+incremental union-find rollback.
 """
 
 from __future__ import annotations
