@@ -55,6 +55,15 @@ assignment's original labels. The checker replays the transformed cores, so
 the file is useful for reviewing the family classification without treating
 template ids as theorem names.
 
+`data/certificates/n9_vertex_circle_self_edge_path_join.json` adds a narrower
+self-edge replay join for the 158 self-edge frontier assignments. It transforms
+each family representative selected-distance equality path back into the
+labelled assignment coordinates, preserves the dihedral map used for that
+assignment, and replays the matching vertex-circle strict inequality from the
+compact core rows. This is a lemma-mining and reviewer-navigation diagnostic
+only; it is not an independent proof of `n=9` and does not promote the
+exhaustive checker.
+
 `data/certificates/n9_row_ptolemy_product_cancellations.json` contains a
 dependent crosswalk from the row-Ptolemy hit families to these template labels:
 `F02 -> T08`, `F09 -> T01`, and `F13 -> T04`. All three are self-edge
@@ -156,6 +165,19 @@ python scripts/check_n9_vertex_circle_frontier_motif_classification.py \
   --json
 ```
 
+Generate and check the self-edge equality-path join:
+
+```bash
+python scripts/check_n9_vertex_circle_self_edge_path_join.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_vertex_circle_self_edge_path_join.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
 Run the targeted artifact test:
 
 ```bash
@@ -163,6 +185,7 @@ python -m pytest \
   tests/test_n9_vertex_circle_local_cores.py \
   tests/test_n9_vertex_circle_core_templates.py \
   tests/test_n9_vertex_circle_frontier_motif_classification.py \
+  tests/test_n9_vertex_circle_self_edge_path_join.py \
   -q
 ```
 

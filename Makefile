@@ -29,6 +29,7 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_core_templates.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_frontier_motif_classification.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_self_edge_path_join.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_row_ptolemy_product_cancellations.py --check --json
 	$(PYTHON) scripts/check_n9_row_ptolemy_family_signatures.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_row_ptolemy_order_sensitivity.py --check --assert-expected --json

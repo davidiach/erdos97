@@ -40,6 +40,15 @@ both the full assignment and the transformed compact core. This is a
 review-pending diagnostic classification, not an independent proof and not a
 promotion of the n=9 finite-case status.
 
+The self-edge equality-path join
+`data/certificates/n9_vertex_circle_self_edge_path_join.json` then restricts
+to the 158 self-edge assignments and stores the transformed equality path that
+identifies the outer and inner chord distances in each labelled core. Its
+checker verifies the source classification, the source local-core
+certificates, the stored label maps, the transformed core rows, and the
+replayed strict inequality. This is a review-pending diagnostic for lemma
+mining only; the path join is not an independent proof of `n=9`.
+
 The local-core follow-up in `docs/n9-vertex-circle-local-cores.md` shows that
 each of the 16 family representatives has a vertex-circle certificate using at
 most 6 selected rows. Its template diagnostic groups those 16 local cores into
@@ -113,11 +122,25 @@ python scripts/check_n9_vertex_circle_frontier_motif_classification.py \
   --json
 ```
 
+Generate and check the self-edge equality-path join:
+
+```bash
+python scripts/check_n9_vertex_circle_self_edge_path_join.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_vertex_circle_self_edge_path_join.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
 Run the targeted artifact test:
 
 ```bash
 python -m pytest \
   tests/test_n9_vertex_circle_motif_families.py \
   tests/test_n9_vertex_circle_frontier_motif_classification.py \
+  tests/test_n9_vertex_circle_self_edge_path_join.py \
   -q
 ```
