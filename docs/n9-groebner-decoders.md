@@ -7,11 +7,11 @@ a general proof of Erdős #97. It does **not** promote the n = 9 finite case
 past `MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING`. The official /
 global status of #97 (erdosproblems.com/97) remains FALSIFIABLE / OPEN.
 
-The established second-source local result for n = 9 remains the
+The current repo-local n = 9 selected-witness audit target remains the
 vertex-circle exhaustive checker
 (`docs/n9-vertex-circle-exhaustive.md`,
 `data/certificates/n9_vertex_circle_exhaustive.json`). The decoders documented
-here are an *independent* algebraic certificate for the 16 labelled
+here are an *independent* algebraic audit artifact for the 16 labelled
 selected-witness assignments that vertex-circle already kills via self-edge or
 strict-cycle filtering.
 
@@ -191,8 +191,8 @@ checks should additionally re-derive the 16 families from
 ## Honest caveats
 
 * **Not a proof of #97.** The decoder closes 16 / 184 labelled assignments at
-  n = 9 — the same 16 already closed by vertex-circle. It is a second-source
-  algebraic check, not a primary obstruction.
+  n = 9 — the same 16 already closed by vertex-circle. It is a review-pending
+  algebraic check, not a source-of-truth obstruction.
 * **Gauge dependence.** A different gauge fix (different choice of three
   rigid-motion + scale constants) would change the GB and the univariate
   elimination polynomial. The decoder only proves the chosen gauge has no
