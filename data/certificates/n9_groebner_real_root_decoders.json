@@ -6,7 +6,7 @@
     "F09",
     "F13"
   ],
-  "wall_time_seconds": 29.25,
+  "wall_time_seconds": 14.093999999997322,
   "sympy_version": "1.14.0",
   "gauge_fix": "x0=y0=0, x1=1, y1=0",
   "definition": "For each labelled selected-witness assignment in F07/F08/F09/F13 we encode the 27 squared-distance equality polynomials, compute a grevlex Gr\u00f6bner basis over QQ, derive a univariate elimination polynomial in y_2, and check strict convexity for every real algebraic configuration.",
@@ -130,7 +130,7 @@
         "-x7**2 + 2*x7*x8 - 2*x8 - y7**2 + 2*y7*y8 + 1"
       ],
       "grevlex_basis_size": 62,
-      "grevlex_basis_seconds": 2.187000000005355,
+      "grevlex_basis_seconds": 1.9839999999967404,
       "grevlex_basis": [
         "y2**2 - 3/4",
         "x3*y2 - 3*y3/2",
@@ -204,7 +204,7 @@
           "sqrt(3)/2"
         ],
         "lex_basis_size": 26,
-        "lex_basis_seconds": 8.5
+        "lex_basis_seconds": 4.014999999999418
       },
       "real_solutions_count": 20,
       "convexity_audit": [
@@ -1340,7 +1340,7 @@
         "-x7**2 + 2*x7*x8 - y7**2 + 2*y7*y8"
       ],
       "grevlex_basis_size": 62,
-      "grevlex_basis_seconds": 1.1719999999913853,
+      "grevlex_basis_seconds": 0.5149999999994179,
       "grevlex_basis": [
         "y2**2 - 3/4",
         "x3*y2 - 3*y3/2",
@@ -1414,7 +1414,7 @@
           "sqrt(3)/2"
         ],
         "lex_basis_size": 26,
-        "lex_basis_seconds": 0.0629999999946449
+        "lex_basis_seconds": 0.031000000002677552
       },
       "real_solutions_count": 20,
       "convexity_audit": [
@@ -2550,7 +2550,7 @@
         "-x7**2 + 2*x7*x8 - 2*x8 - y7**2 + 2*y7*y8 + 1"
       ],
       "grevlex_basis_size": 62,
-      "grevlex_basis_seconds": 1.0470000000059372,
+      "grevlex_basis_seconds": 0.5160000000032596,
       "grevlex_basis": [
         "y2**2 - 3/4",
         "x3*y2 - 3*y3/2",
@@ -2624,7 +2624,7 @@
           "sqrt(3)/2"
         ],
         "lex_basis_size": 26,
-        "lex_basis_seconds": 0.046999999991385266
+        "lex_basis_seconds": 0.031000000002677552
       },
       "real_solutions_count": 20,
       "convexity_audit": [
@@ -3760,7 +3760,7 @@
         "-x6**2 + 2*x6*x8 - y6**2 + 2*y6*y8"
       ],
       "grevlex_basis_size": 62,
-      "grevlex_basis_seconds": 1.0469999999913853,
+      "grevlex_basis_seconds": 0.5310000000026776,
       "grevlex_basis": [
         "y2**2 - 3/4",
         "x3*y2 - 3*y3/2",
@@ -3834,7 +3834,7 @@
           "sqrt(3)/2"
         ],
         "lex_basis_size": 26,
-        "lex_basis_seconds": 0.5620000000053551
+        "lex_basis_seconds": 0.23399999999674037
       },
       "real_solutions_count": 20,
       "convexity_audit": [
@@ -4862,5 +4862,5 @@
       "any_strictly_convex": false
     }
   ],
-  "honest_caveat": "REVIEW_PENDING. This artifact is one of two independent n=9 selected-witness obstructions (the other is the vertex-circle exhaustive checker). Neither promotes the official/global FALSIFIABLE/OPEN status of Erd\u0151s #97. The lex Gr\u00f6bner basis and univariate elimination polynomial are computed online; reviewers should re-run scripts/decode_n9_groebner_f07_f13.py with sympy 1.14.0 (or a comparable 1.x build) to reproduce the artifact bit-for-bit."
+  "honest_caveat": "REVIEW_PENDING. This artifact is a repo-local algebraic audit for n=9 selected-witness families already covered by the vertex-circle exhaustive checker. Neither artifact promotes the official/global FALSIFIABLE/OPEN status of Erd\u0151s #97. The lex Gr\u00f6bner basis and univariate elimination polynomial are computed online; reviewers should re-run scripts/decode_n9_groebner_f07_f13.py with sympy 1.14.0 (or a comparable 1.x build) to reproduce the artifact bit-for-bit."
 }

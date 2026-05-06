@@ -25,10 +25,9 @@ This script
 The artifact ``data/certificates/n9_groebner_real_root_decoders.json`` records,
 per family: the list of 27 polynomial generators, the 62-element grevlex basis,
 the univariate elimination polynomial in y_2, all real roots, and the
-strict-convexity outcome for every reconstructed configuration. None of the
-configurations is strictly convex, providing a second-source algebraic
-certificate that complements the vertex-circle exhaustive checker for the 16
-labelled n=9 assignments in F07/F08/F09/F13.
+strict-convexity outcome for every reconstructed configuration. It records no
+strictly convex configuration and serves as a review-pending algebraic audit
+artifact for the 16 labelled n=9 assignments in F07/F08/F09/F13.
 
 The committed Gröbner artifact at ``data/certificates/2026-05-05/n9_groebner_results.json``
 is unchanged. This script is *added*, not a replacement.
@@ -103,7 +102,7 @@ def infer_constraint_set(gb_polys: Iterable[sp.Expr], free: list[Symbol]):
         x7*y2 - y2 + 3*y7/2 = 0      => y7 = (2/3) y2 (1 - x7)
 
     which means the variety is fully parametrised by the 7 free roots
-    (y2, y5, y8, x3, x6, x4, x7).  The remaining 55 generators of the GB express
+    (y2, y5, y8, x3, x6, x4, x7).  The remaining 48 generators of the GB express
     consistency conditions among these seven roots; each candidate tuple is
     subsequently *verified* against the full polynomial system in
     :func:`enumerate_real_solutions`.
@@ -126,7 +125,8 @@ def infer_constraint_set(gb_polys: Iterable[sp.Expr], free: list[Symbol]):
     }
     for var in free:
         constraints[var] = candidate_map.get(var, [])
-    # Cross-check that each of the simple GB polynomials is actually present
+    # Cross-check that each simple root constraint and dependent-coordinate
+    # binder used below is actually present in the computed GB.
     expected = [
         sp.Symbol("x2") - Rational(1, 2),
         sp.Symbol("x5") - Rational(1, 2),
@@ -138,6 +138,14 @@ def infer_constraint_set(gb_polys: Iterable[sp.Expr], free: list[Symbol]):
         sp.Symbol("x6") ** 2 - Rational(3, 2) * sp.Symbol("x6"),
         sp.Symbol("x4") ** 2 - sp.Symbol("x4") / 2 - Rational(1, 2),
         sp.Symbol("x7") ** 2 - sp.Symbol("x7") / 2 - Rational(1, 2),
+        sp.Symbol("x3") * sp.Symbol("y2") - Rational(3, 2) * sp.Symbol("y3"),
+        sp.Symbol("x4") * sp.Symbol("y2")
+        - sp.Symbol("y2")
+        + Rational(3, 2) * sp.Symbol("y4"),
+        sp.Symbol("x6") * sp.Symbol("y2") - Rational(3, 2) * sp.Symbol("y6"),
+        sp.Symbol("x7") * sp.Symbol("y2")
+        - sp.Symbol("y2")
+        + Rational(3, 2) * sp.Symbol("y7"),
     ]
     missing = [str(p) for p in expected if sp.simplify(p) not in poly_set]
     return constraints, missing
@@ -347,7 +355,7 @@ def main() -> int:
                         help="seconds before lex GB is considered slow (informational)")
     args = parser.parse_args()
 
-    with SOURCE_GROEBNER.open("r") as f:
+    with SOURCE_GROEBNER.open("r", encoding="utf-8") as f:
         groebner_data = json.load(f)
 
     families = [fam for fam in groebner_data if fam["family_id"] in TARGET_FAMILIES]
@@ -389,8 +397,9 @@ def main() -> int:
         },
         "families": decoded,
         "honest_caveat": (
-            "REVIEW_PENDING. This artifact is one of two independent n=9 selected-witness "
-            "obstructions (the other is the vertex-circle exhaustive checker). Neither "
+            "REVIEW_PENDING. This artifact is a repo-local algebraic audit for n=9 "
+            "selected-witness families already covered by the vertex-circle exhaustive "
+            "checker. Neither artifact "
             "promotes the official/global FALSIFIABLE/OPEN status of Erdős #97. The lex "
             "Gröbner basis and univariate elimination polynomial are computed online; "
             "reviewers should re-run scripts/decode_n9_groebner_f07_f13.py with sympy "
@@ -399,8 +408,9 @@ def main() -> int:
     }
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    with out_path.open("w") as fh:
+    with out_path.open("w", encoding="utf-8", newline="\n") as fh:
         json.dump(summary, fh, indent=2, sort_keys=False)
+        fh.write("\n")
     print(f"\nwrote {out_path}")
     print(f"total real solutions across F07/F08/F09/F13: {summary['headline']['total_real_solutions_across_families']}")
     print(f"strictly convex configurations: {summary['headline']['strictly_convex_solutions']}")

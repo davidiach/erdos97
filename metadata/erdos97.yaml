@@ -85,7 +85,7 @@ local_repo:
       claim_scope: "candidate repo-local selected-witness n=9 finite-case obstruction only; does not alter official/global status"
       review_note: "Promote only after independent review reconciles the exhaustive vertex-circle counts with the raw 184/16 and 102-certificate archive variants."
     - name: "n9_groebner_real_root_decoders"
-      status: "MACHINE_CHECKED_ALGEBRAIC_PROOF_REVIEW_PENDING"
+      status: "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING"
       artifact: "data/certificates/n9_groebner_real_root_decoders.json"
       verifier: "scripts/decode_n9_groebner_f07_f13.py"
       source_provenance: "data/certificates/2026-05-05/n9_groebner_results.json"
