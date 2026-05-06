@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 from erdos97.n9_base_apex import (
     base_apex_slack,
     canonical_deficit_placement,
@@ -10,6 +13,7 @@ from erdos97.n9_base_apex import (
     excess_distributions,
     guaranteed_full_bases,
     ledger_summary,
+    low_excess_ledger_report,
     minimum_capacity_deficit_to_escape_turn_cover,
     minimum_escape_motif_summary,
     profile_assumption_summaries,
@@ -238,3 +242,42 @@ def test_minimum_escape_motif_summary_is_included_in_ledger_summary() -> None:
     assert summary["raw_escaping_placement_count"] == 108
     assert summary["dihedral_class_count"] == 8
     assert ledger["minimum_escape_motif_summary"]["strict_positive_threshold"] == summary
+
+
+def test_low_excess_ledger_report_records_unresolved_counts() -> None:
+    report = low_excess_ledger_report()
+
+    assert report["schema"] == "erdos97.n9_base_apex_low_excess_ledgers.v1"
+    assert report["status"] == "EXPLORATORY_LEDGER_ONLY"
+    assert report["trust"] == "FINITE_BOOKKEEPING_NOT_A_PROOF"
+    assert report["strict_unresolved_profile_ledger_count"] == 30
+    assert report["strict_unresolved_count_by_total_profile_excess"] == {
+        "0": 1,
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 5,
+        "5": 7,
+        "6": 11,
+    }
+    assert report["strict_unresolved_count_by_capacity_deficit"] == {
+        "3": 11,
+        "4": 7,
+        "5": 5,
+        "6": 3,
+        "7": 2,
+        "8": 1,
+        "9": 1,
+    }
+    assert len(report["strict_minimum_escape_motif_classes"]) == 8
+    assert len(report["conservative_minimum_escape_motif_classes"]) == 6
+    assert "No proof of the n=9 case is claimed." in report["notes"]
+
+
+def test_checked_low_excess_ledger_artifact_matches_generator() -> None:
+    repo = Path(__file__).resolve().parents[1]
+    artifact = repo / "data" / "certificates" / "n9_base_apex_low_excess_ledgers.json"
+
+    payload = json.loads(artifact.read_text(encoding="utf-8"))
+
+    assert payload == low_excess_ledger_report()

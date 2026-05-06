@@ -1,0 +1,2602 @@
+{
+  "base_apex_slack": 9,
+  "claim_scope": "Focused n=9 base-apex low-excess bookkeeping; not a proof of n=9, not a counterexample, and not a global status update.",
+  "conservative_minimum_escape_motif_classes": [
+    {
+      "contradiction_threshold": 4,
+      "n": 9,
+      "placement_count": 18,
+      "relevant_deficit_count": 2,
+      "remaining_minimum_forced_turns": 3,
+      "remaining_turn_clause_count": 6,
+      "spoiled_length2": [
+        0
+      ],
+      "spoiled_length3": [
+        1
+      ]
+    },
+    {
+      "contradiction_threshold": 4,
+      "n": 9,
+      "placement_count": 18,
+      "relevant_deficit_count": 2,
+      "remaining_minimum_forced_turns": 3,
+      "remaining_turn_clause_count": 6,
+      "spoiled_length2": [
+        0
+      ],
+      "spoiled_length3": [
+        3
+      ]
+    },
+    {
+      "contradiction_threshold": 4,
+      "n": 9,
+      "placement_count": 9,
+      "relevant_deficit_count": 2,
+      "remaining_minimum_forced_turns": 3,
+      "remaining_turn_clause_count": 6,
+      "spoiled_length2": [
+        0,
+        1
+      ],
+      "spoiled_length3": []
+    },
+    {
+      "contradiction_threshold": 4,
+      "n": 9,
+      "placement_count": 9,
+      "relevant_deficit_count": 2,
+      "remaining_minimum_forced_turns": 3,
+      "remaining_turn_clause_count": 5,
+      "spoiled_length2": [
+        0,
+        2
+      ],
+      "spoiled_length3": []
+    },
+    {
+      "contradiction_threshold": 4,
+      "n": 9,
+      "placement_count": 9,
+      "relevant_deficit_count": 2,
+      "remaining_minimum_forced_turns": 3,
+      "remaining_turn_clause_count": 5,
+      "spoiled_length2": [
+        0,
+        3
+      ],
+      "spoiled_length3": []
+    },
+    {
+      "contradiction_threshold": 4,
+      "n": 9,
+      "placement_count": 9,
+      "relevant_deficit_count": 2,
+      "remaining_minimum_forced_turns": 3,
+      "remaining_turn_clause_count": 5,
+      "spoiled_length2": [
+        0,
+        4
+      ],
+      "spoiled_length3": []
+    }
+  ],
+  "conservative_turn_cover_summary": {
+    "capacity_deficit_counts": {
+      "0": 29,
+      "1": 21,
+      "2": 15,
+      "3": 11,
+      "4": 7,
+      "5": 5,
+      "6": 3,
+      "7": 2,
+      "8": 1,
+      "9": 1
+    },
+    "contradiction_threshold": 4,
+    "distribution_count": 95,
+    "forced_by_turn_cover_count": 50,
+    "minimum_capacity_deficit_to_escape": 2,
+    "unresolved_by_turn_cover_count": 45
+  },
+  "n": 9,
+  "notes": [
+    "No proof of the n=9 case is claimed.",
+    "These are exactly the profile ledgers not closed by the strict turn-cover diagnostic.",
+    "For the strict threshold, unresolved ledgers have E <= 6 and D >= 3.",
+    "The motif classes only record length-2/length-3 saturation deficits relevant to this diagnostic."
+  ],
+  "provenance": {
+    "command": "python scripts/explore_n9_base_apex.py --low-excess-report --out data/certificates/n9_base_apex_low_excess_ledgers.json",
+    "generator": "scripts/explore_n9_base_apex.py"
+  },
+  "schema": "erdos97.n9_base_apex_low_excess_ledgers.v1",
+  "status": "EXPLORATORY_LEDGER_ONLY",
+  "strict_minimum_escape_motif_classes": [
+    {
+      "contradiction_threshold": 3,
+      "n": 9,
+      "placement_count": 18,
+      "relevant_deficit_count": 3,
+      "remaining_minimum_forced_turns": 2,
+      "remaining_turn_clause_count": 4,
+      "spoiled_length2": [
+        0,
+        2
+      ],
+      "spoiled_length3": [
+        3
+      ]
+    },
+    {
+      "contradiction_threshold": 3,
+      "n": 9,
+      "placement_count": 9,
+      "relevant_deficit_count": 3,
+      "remaining_minimum_forced_turns": 2,
+      "remaining_turn_clause_count": 4,
+      "spoiled_length2": [
+        0,
+        2
+      ],
+      "spoiled_length3": [
+        5
+      ]
+    },
+    {
+      "contradiction_threshold": 3,
+      "n": 9,
+      "placement_count": 9,
+      "relevant_deficit_count": 3,
+      "remaining_minimum_forced_turns": 2,
+      "remaining_turn_clause_count": 4,
+      "spoiled_length2": [
+        0,
+        3
+      ],
+      "spoiled_length3": [
+        1
+      ]
+    },
+    {
+      "contradiction_threshold": 3,
+      "n": 9,
+      "placement_count": 18,
+      "relevant_deficit_count": 3,
+      "remaining_minimum_forced_turns": 2,
+      "remaining_turn_clause_count": 4,
+      "spoiled_length2": [
+        0,
+        4
+      ],
+      "spoiled_length3": [
+        5
+      ]
+    },
+    {
+      "contradiction_threshold": 3,
+      "n": 9,
+      "placement_count": 18,
+      "relevant_deficit_count": 3,
+      "remaining_minimum_forced_turns": 2,
+      "remaining_turn_clause_count": 4,
+      "spoiled_length2": [
+        0,
+        1,
+        3
+      ],
+      "spoiled_length3": []
+    },
+    {
+      "contradiction_threshold": 3,
+      "n": 9,
+      "placement_count": 9,
+      "relevant_deficit_count": 3,
+      "remaining_minimum_forced_turns": 2,
+      "remaining_turn_clause_count": 4,
+      "spoiled_length2": [
+        0,
+        1,
+        5
+      ],
+      "spoiled_length3": []
+    },
+    {
+      "contradiction_threshold": 3,
+      "n": 9,
+      "placement_count": 9,
+      "relevant_deficit_count": 3,
+      "remaining_minimum_forced_turns": 2,
+      "remaining_turn_clause_count": 3,
+      "spoiled_length2": [
+        0,
+        2,
+        4
+      ],
+      "spoiled_length3": []
+    },
+    {
+      "contradiction_threshold": 3,
+      "n": 9,
+      "placement_count": 18,
+      "relevant_deficit_count": 3,
+      "remaining_minimum_forced_turns": 2,
+      "remaining_turn_clause_count": 3,
+      "spoiled_length2": [
+        0,
+        2,
+        5
+      ],
+      "spoiled_length3": []
+    }
+  ],
+  "strict_turn_cover_summary": {
+    "capacity_deficit_counts": {
+      "0": 29,
+      "1": 21,
+      "2": 15,
+      "3": 11,
+      "4": 7,
+      "5": 5,
+      "6": 3,
+      "7": 2,
+      "8": 1,
+      "9": 1
+    },
+    "contradiction_threshold": 3,
+    "distribution_count": 95,
+    "forced_by_turn_cover_count": 65,
+    "minimum_capacity_deficit_to_escape": 3,
+    "unresolved_by_turn_cover_count": 30
+  },
+  "strict_unresolved_count_by_capacity_deficit": {
+    "3": 11,
+    "4": 7,
+    "5": 5,
+    "6": 3,
+    "7": 2,
+    "8": 1,
+    "9": 1
+  },
+  "strict_unresolved_count_by_total_profile_excess": {
+    "0": 1,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 5,
+    "5": 7,
+    "6": 11
+  },
+  "strict_unresolved_profile_ledger_count": 30,
+  "strict_unresolved_profile_ledgers": [
+    {
+      "capacity_deficit": 9,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "total_profile_excess": 0
+    },
+    {
+      "capacity_deficit": 8,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ]
+      ],
+      "total_profile_excess": 1
+    },
+    {
+      "capacity_deficit": 7,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          2
+        ]
+      ],
+      "total_profile_excess": 2
+    },
+    {
+      "capacity_deficit": 7,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ]
+      ],
+      "total_profile_excess": 2
+    },
+    {
+      "capacity_deficit": 6,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ]
+      ],
+      "total_profile_excess": 3
+    },
+    {
+      "capacity_deficit": 6,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          2
+        ]
+      ],
+      "total_profile_excess": 3
+    },
+    {
+      "capacity_deficit": 6,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ]
+      ],
+      "total_profile_excess": 3
+    },
+    {
+      "capacity_deficit": 5,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          5,
+          1,
+          1,
+          1
+        ]
+      ],
+      "total_profile_excess": 4
+    },
+    {
+      "capacity_deficit": 5,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        3
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ]
+      ],
+      "total_profile_excess": 4
+    },
+    {
+      "capacity_deficit": 5,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          2,
+          2
+        ]
+      ],
+      "total_profile_excess": 4
+    },
+    {
+      "capacity_deficit": 5,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          2
+        ]
+      ],
+      "total_profile_excess": 4
+    },
+    {
+      "capacity_deficit": 5,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ]
+      ],
+      "total_profile_excess": 4
+    },
+    {
+      "capacity_deficit": 4,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          5,
+          2,
+          1
+        ]
+      ],
+      "total_profile_excess": 5
+    },
+    {
+      "capacity_deficit": 4,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        4
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          5,
+          1,
+          1,
+          1
+        ]
+      ],
+      "total_profile_excess": 5
+    },
+    {
+      "capacity_deficit": 4,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        3
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          3,
+          1
+        ]
+      ],
+      "total_profile_excess": 5
+    },
+    {
+      "capacity_deficit": 4,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        3
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ]
+      ],
+      "total_profile_excess": 5
+    },
+    {
+      "capacity_deficit": 4,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        2
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          2,
+          2
+        ]
+      ],
+      "total_profile_excess": 5
+    },
+    {
+      "capacity_deficit": 4,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          2
+        ]
+      ],
+      "total_profile_excess": 5
+    },
+    {
+      "capacity_deficit": 4,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ]
+      ],
+      "total_profile_excess": 5
+    },
+    {
+      "capacity_deficit": 3,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "total_profile_excess": 6
+    },
+    {
+      "capacity_deficit": 3,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          5,
+          2,
+          1
+        ]
+      ],
+      "total_profile_excess": 6
+    },
+    {
+      "capacity_deficit": 3,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          5,
+          1,
+          1,
+          1
+        ]
+      ],
+      "total_profile_excess": 6
+    },
+    {
+      "capacity_deficit": 3,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ]
+      ],
+      "total_profile_excess": 6
+    },
+    {
+      "capacity_deficit": 3,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          5,
+          1,
+          1,
+          1
+        ]
+      ],
+      "total_profile_excess": 6
+    },
+    {
+      "capacity_deficit": 3,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          3,
+          1
+        ]
+      ],
+      "total_profile_excess": 6
+    },
+    {
+      "capacity_deficit": 3,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          2,
+          2
+        ]
+      ],
+      "total_profile_excess": 6
+    },
+    {
+      "capacity_deficit": 3,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ]
+      ],
+      "total_profile_excess": 6
+    },
+    {
+      "capacity_deficit": 3,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          2,
+          2
+        ]
+      ],
+      "total_profile_excess": 6
+    },
+    {
+      "capacity_deficit": 3,
+      "excesses": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          2
+        ]
+      ],
+      "total_profile_excess": 6
+    },
+    {
+      "capacity_deficit": 3,
+      "excesses": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "forced_by_turn_cover": false,
+      "profile_multiset": [
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          1
+        ]
+      ],
+      "total_profile_excess": 6
+    }
+  ],
+  "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
+  "witness_size": 4
+}

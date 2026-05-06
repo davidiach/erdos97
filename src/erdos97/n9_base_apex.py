@@ -814,3 +814,113 @@ def ledger_summary(n: int = 9, witness_size: int = 4) -> dict[str, object]:
             "Anti-concentration alone does not close n=9 in this ledger; low profile excess leaves capacity deficit to control.",
         ],
     }
+
+
+def profile_ledger_case_payload(row: ProfileLedgerCase) -> dict[str, object]:
+    """Return a JSON-shaped profile-ledger row."""
+
+    return {
+        "excesses": list(row.excesses),
+        "total_profile_excess": row.total_profile_excess,
+        "capacity_deficit": row.capacity_deficit,
+        "forced_by_turn_cover": row.forced_by_turn_cover,
+        "profile_multiset": [list(profile) for profile in row.profile_multiset],
+    }
+
+
+def deficit_placement_payload(row: DeficitPlacementClass) -> dict[str, object]:
+    """Return a JSON-shaped deficit-placement row."""
+
+    return {
+        "n": row.n,
+        "relevant_deficit_count": row.relevant_deficit_count,
+        "contradiction_threshold": row.contradiction_threshold,
+        "spoiled_length2": list(row.spoiled_length2),
+        "spoiled_length3": list(row.spoiled_length3),
+        "placement_count": row.placement_count,
+        "remaining_minimum_forced_turns": row.remaining_minimum_forced_turns,
+        "remaining_turn_clause_count": row.remaining_turn_clause_count,
+    }
+
+
+def low_excess_ledger_report(n: int = 9, witness_size: int = 4) -> dict[str, object]:
+    """Return the focused unresolved low-excess ledger report.
+
+    This is a generated review artifact for the n=9 base-apex workstream. It
+    records which profile-excess distributions the strict turn-cover diagnostic
+    does not close, together with the minimum relevant deficit motifs. It is
+    intentionally bookkeeping only.
+    """
+
+    unresolved = profile_ledger_cases(
+        n,
+        witness_size,
+        contradiction_threshold=3,
+        forced_by_turn_cover=False,
+    )
+    total_excess_counts = Counter(row.total_profile_excess for row in unresolved)
+    capacity_deficit_counts = Counter(row.capacity_deficit for row in unresolved)
+    strict_motifs = deficit_placement_classes(
+        n,
+        contradiction_threshold=3,
+    )
+    conservative_motifs = deficit_placement_classes(
+        n,
+        contradiction_threshold=4,
+    )
+    strict_summary = turn_cover_distribution_summary(
+        n,
+        witness_size,
+        contradiction_threshold=3,
+    )
+    conservative_summary = turn_cover_distribution_summary(
+        n,
+        witness_size,
+        contradiction_threshold=4,
+    )
+
+    return {
+        "schema": "erdos97.n9_base_apex_low_excess_ledgers.v1",
+        "status": "EXPLORATORY_LEDGER_ONLY",
+        "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
+        "claim_scope": (
+            "Focused n=9 base-apex low-excess bookkeeping; not a proof of n=9, "
+            "not a counterexample, and not a global status update."
+        ),
+        "n": n,
+        "witness_size": witness_size,
+        "base_apex_slack": base_apex_slack(n, witness_size),
+        "strict_turn_cover_summary": strict_summary,
+        "conservative_turn_cover_summary": conservative_summary,
+        "strict_unresolved_profile_ledger_count": len(unresolved),
+        "strict_unresolved_count_by_total_profile_excess": {
+            str(excess): total_excess_counts[excess]
+            for excess in sorted(total_excess_counts)
+        },
+        "strict_unresolved_count_by_capacity_deficit": {
+            str(deficit): capacity_deficit_counts[deficit]
+            for deficit in sorted(capacity_deficit_counts)
+        },
+        "strict_unresolved_profile_ledgers": [
+            profile_ledger_case_payload(row) for row in unresolved
+        ],
+        "strict_minimum_escape_motif_classes": [
+            deficit_placement_payload(row) for row in strict_motifs
+        ],
+        "conservative_minimum_escape_motif_classes": [
+            deficit_placement_payload(row) for row in conservative_motifs
+        ],
+        "notes": [
+            "No proof of the n=9 case is claimed.",
+            "These are exactly the profile ledgers not closed by the strict turn-cover diagnostic.",
+            "For the strict threshold, unresolved ledgers have E <= 6 and D >= 3.",
+            "The motif classes only record length-2/length-3 saturation deficits relevant to this diagnostic.",
+        ],
+        "provenance": {
+            "generator": "scripts/explore_n9_base_apex.py",
+            "command": (
+                "python scripts/explore_n9_base_apex.py --low-excess-report "
+                "--out data/certificates/n9_base_apex_low_excess_ledgers.json"
+            ),
+        },
+    }

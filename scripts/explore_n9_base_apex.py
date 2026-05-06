@@ -20,6 +20,7 @@ from erdos97.n9_base_apex import (  # noqa: E402
     excess_distributions,
     guaranteed_full_bases,
     ledger_summary,
+    low_excess_ledger_report,
     minimum_capacity_deficit_to_escape_turn_cover,
     profile_assumption_summaries,
     profile_ledger_cases,
@@ -27,10 +28,32 @@ from erdos97.n9_base_apex import (  # noqa: E402
 )
 
 
+def emit_json(payload: object, out: Path | None = None) -> None:
+    """Print or write a stable JSON payload."""
+
+    text = json.dumps(payload, indent=2, sort_keys=True) + "\n"
+    if out is None:
+        print(text, end="")
+        return
+    path = out if out.is_absolute() else ROOT / out
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json", action="store_true", help="print the full JSON payload")
     parser.add_argument("--summary", action="store_true", help="print a compact summary")
+    parser.add_argument(
+        "--low-excess-report",
+        action="store_true",
+        help="emit the focused low-excess unresolved-ledger report",
+    )
+    parser.add_argument(
+        "--out",
+        type=Path,
+        help="write JSON output to this path instead of stdout",
+    )
     parser.add_argument(
         "--distributions",
         action="store_true",
@@ -57,6 +80,10 @@ def main() -> int:
         help="include minimum deficit-placement motif classes",
     )
     args = parser.parse_args()
+
+    if args.low_excess_report:
+        emit_json(low_excess_ledger_report(), args.out)
+        return 0
 
     payload = ledger_summary()
     if args.distributions:
@@ -95,7 +122,7 @@ def main() -> int:
         or args.assumptions
         or args.motifs
     ):
-        print(json.dumps(payload, indent=2, sort_keys=True))
+        emit_json(payload, args.out)
         return 0
 
     if args.summary:
@@ -146,8 +173,13 @@ def main() -> int:
                 cyclic_length=2,
             ),
         }
-        print(json.dumps(compact, indent=2, sort_keys=True))
+        emit_json(compact, args.out)
         return 0
+
+    if args.out is not None:
+        parser.error(
+            "--out requires --json, --summary, --low-excess-report, or a detail flag"
+        )
 
     print("n=9 base-apex profile ledger")
     print("status: exploratory bookkeeping only")
