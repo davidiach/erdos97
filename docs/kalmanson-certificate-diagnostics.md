@@ -88,6 +88,33 @@ support, and this report does not derive one certificate from the other. It is
 only a fixed-order support diagnostic. The separate all-order `C19_skew` Z3
 artifact remains separate, and no global Erdos Problem #97 status changes here.
 
+## C19 Z3 Clause-Template Diagnostic
+
+The all-order C19 Z3 certificate has a separate clause-template diagnostic:
+
+```text
+reports/c19_kalmanson_z3_clause_diagnostics.json
+```
+
+Regenerate and compare it to the stored report with:
+
+```bash
+python scripts/analyze_kalmanson_z3_clauses.py \
+  --assert-expected \
+  --check-artifact reports/c19_kalmanson_z3_clause_diagnostics.json
+```
+
+The report replays
+`data/certificates/c19_skew_all_orders_kalmanson_z3.json` before summarizing
+its 7,981 forbidden ordered-quadrilateral clauses. It records clause validation
+counts, inverse-pair kind counts, selected-distance quotient table counts,
+translation-template coverage, label-overlap shapes, and label-0
+rotation-quotient literal counts.
+
+This is an inspection aid for the already checked fixed abstract `C19_skew`
+all-order certificate. It is not an independent proof, not a statement about
+all C19-like patterns, and not a proof of Erdos Problem #97.
+
 ## Interpretation
 
 Safe claim:

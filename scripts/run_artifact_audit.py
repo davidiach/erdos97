@@ -59,6 +59,28 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         claim_scope="Exact obstruction for one fixed C19_skew cyclic order only.",
     ),
     AuditCommand(
+        ident="c19_all_orders_kalmanson_z3",
+        command=(
+            "python",
+            "scripts/check_kalmanson_two_order_z3.py",
+            "--certificate",
+            "data/certificates/c19_skew_all_orders_kalmanson_z3.json",
+            "--assert-unsat",
+        ),
+        claim_scope="All-order obstruction for one fixed abstract C19_skew selected-witness pattern only.",
+    ),
+    AuditCommand(
+        ident="c19_z3_clause_diagnostic",
+        command=(
+            "python",
+            "scripts/analyze_kalmanson_z3_clauses.py",
+            "--assert-expected",
+            "--check-artifact",
+            "reports/c19_kalmanson_z3_clause_diagnostics.json",
+        ),
+        claim_scope="Structural diagnostic for the C19_skew all-order Z3 clauses only.",
+    ),
+    AuditCommand(
         ident="c13_fixed_order_compact_kalmanson",
         command=(
             "python",
