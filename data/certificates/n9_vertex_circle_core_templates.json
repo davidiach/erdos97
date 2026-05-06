@@ -1,0 +1,801 @@
+{
+  "claim_scope": "Template diagnostic for the 16 n=9 vertex-circle local-core motif representatives; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.",
+  "core_size_counts": {
+    "3": 5,
+    "4": 6,
+    "5": 2,
+    "6": 3
+  },
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "families": [
+    {
+      "core_size": 3,
+      "family_id": "F01",
+      "obstruction_summary": {
+        "self_edge_conflict_count": 1,
+        "self_edge_shape_counts": [
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 1
+          }
+        ]
+      },
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_edge_count": 27,
+      "template_id": "T02"
+    },
+    {
+      "core_size": 6,
+      "family_id": "F02",
+      "obstruction_summary": {
+        "self_edge_conflict_count": 9,
+        "self_edge_shape_counts": [
+          {
+            "count": 4,
+            "inner_span": 1,
+            "outer_span": 2,
+            "shared_endpoint_count": 1
+          },
+          {
+            "count": 2,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 0
+          },
+          {
+            "count": 2,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 1
+          },
+          {
+            "count": 1,
+            "inner_span": 2,
+            "outer_span": 3,
+            "shared_endpoint_count": 1
+          }
+        ]
+      },
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_edge_count": 54,
+      "template_id": "T08"
+    },
+    {
+      "core_size": 6,
+      "family_id": "F03",
+      "obstruction_summary": {
+        "self_edge_conflict_count": 13,
+        "self_edge_shape_counts": [
+          {
+            "count": 5,
+            "inner_span": 1,
+            "outer_span": 2,
+            "shared_endpoint_count": 1
+          },
+          {
+            "count": 2,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 0
+          },
+          {
+            "count": 4,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 1
+          },
+          {
+            "count": 2,
+            "inner_span": 2,
+            "outer_span": 3,
+            "shared_endpoint_count": 1
+          }
+        ]
+      },
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_edge_count": 54,
+      "template_id": "T09"
+    },
+    {
+      "core_size": 3,
+      "family_id": "F04",
+      "obstruction_summary": {
+        "self_edge_conflict_count": 1,
+        "self_edge_shape_counts": [
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 1
+          }
+        ]
+      },
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_edge_count": 27,
+      "template_id": "T02"
+    },
+    {
+      "core_size": 4,
+      "family_id": "F05",
+      "obstruction_summary": {
+        "self_edge_conflict_count": 1,
+        "self_edge_shape_counts": [
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 2,
+            "shared_endpoint_count": 1
+          }
+        ]
+      },
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_edge_count": 36,
+      "template_id": "T03"
+    },
+    {
+      "core_size": 5,
+      "family_id": "F06",
+      "obstruction_summary": {
+        "self_edge_conflict_count": 6,
+        "self_edge_shape_counts": [
+          {
+            "count": 3,
+            "inner_span": 1,
+            "outer_span": 2,
+            "shared_endpoint_count": 1
+          },
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 0
+          },
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 1
+          },
+          {
+            "count": 1,
+            "inner_span": 2,
+            "outer_span": 3,
+            "shared_endpoint_count": 1
+          }
+        ]
+      },
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_edge_count": 45,
+      "template_id": "T07"
+    },
+    {
+      "core_size": 4,
+      "family_id": "F07",
+      "obstruction_summary": {
+        "cycle_length": 3,
+        "cycle_span_counts": [
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 2
+          },
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 3
+          },
+          {
+            "count": 1,
+            "inner_span": 2,
+            "outer_span": 3
+          }
+        ]
+      },
+      "orbit_size": 6,
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T11"
+    },
+    {
+      "core_size": 3,
+      "family_id": "F08",
+      "obstruction_summary": {
+        "self_edge_conflict_count": 1,
+        "self_edge_shape_counts": [
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 1
+          }
+        ]
+      },
+      "orbit_size": 2,
+      "status": "self_edge",
+      "strict_edge_count": 27,
+      "template_id": "T02"
+    },
+    {
+      "core_size": 3,
+      "family_id": "F09",
+      "obstruction_summary": {
+        "self_edge_conflict_count": 2,
+        "self_edge_shape_counts": [
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 0
+          },
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 1
+          }
+        ]
+      },
+      "orbit_size": 6,
+      "status": "self_edge",
+      "strict_edge_count": 27,
+      "template_id": "T01"
+    },
+    {
+      "core_size": 4,
+      "family_id": "F10",
+      "obstruction_summary": {
+        "self_edge_conflict_count": 2,
+        "self_edge_shape_counts": [
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 0
+          },
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 1
+          }
+        ]
+      },
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_edge_count": 36,
+      "template_id": "T05"
+    },
+    {
+      "core_size": 5,
+      "family_id": "F11",
+      "obstruction_summary": {
+        "self_edge_conflict_count": 3,
+        "self_edge_shape_counts": [
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 2,
+            "shared_endpoint_count": 1
+          },
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 0
+          },
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 1
+          }
+        ]
+      },
+      "orbit_size": 18,
+      "status": "self_edge",
+      "strict_edge_count": 45,
+      "template_id": "T06"
+    },
+    {
+      "core_size": 4,
+      "family_id": "F12",
+      "obstruction_summary": {
+        "cycle_length": 2,
+        "cycle_span_counts": [
+          {
+            "count": 2,
+            "inner_span": 1,
+            "outer_span": 2
+          }
+        ]
+      },
+      "orbit_size": 18,
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10"
+    },
+    {
+      "core_size": 4,
+      "family_id": "F13",
+      "obstruction_summary": {
+        "self_edge_conflict_count": 2,
+        "self_edge_shape_counts": [
+          {
+            "count": 2,
+            "inner_span": 1,
+            "outer_span": 2,
+            "shared_endpoint_count": 1
+          }
+        ]
+      },
+      "orbit_size": 2,
+      "status": "self_edge",
+      "strict_edge_count": 36,
+      "template_id": "T04"
+    },
+    {
+      "core_size": 3,
+      "family_id": "F14",
+      "obstruction_summary": {
+        "self_edge_conflict_count": 1,
+        "self_edge_shape_counts": [
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 3,
+            "shared_endpoint_count": 1
+          }
+        ]
+      },
+      "orbit_size": 2,
+      "status": "self_edge",
+      "strict_edge_count": 27,
+      "template_id": "T02"
+    },
+    {
+      "core_size": 4,
+      "family_id": "F15",
+      "obstruction_summary": {
+        "self_edge_conflict_count": 1,
+        "self_edge_shape_counts": [
+          {
+            "count": 1,
+            "inner_span": 1,
+            "outer_span": 2,
+            "shared_endpoint_count": 1
+          }
+        ]
+      },
+      "orbit_size": 2,
+      "status": "self_edge",
+      "strict_edge_count": 36,
+      "template_id": "T03"
+    },
+    {
+      "core_size": 6,
+      "family_id": "F16",
+      "obstruction_summary": {
+        "cycle_length": 3,
+        "cycle_span_counts": [
+          {
+            "count": 3,
+            "inner_span": 1,
+            "outer_span": 3
+          }
+        ]
+      },
+      "orbit_size": 2,
+      "status": "strict_cycle",
+      "strict_edge_count": 54,
+      "template_id": "T12"
+    }
+  ],
+  "family_count": 16,
+  "interpretation": [
+    "Templates are replay-derived shape buckets for the compact local cores.",
+    "Template ids are deterministic artifact labels, not intrinsic theorem names.",
+    "Each template covers only the listed n=9 motif-family representatives under the recorded cyclic order.",
+    "No proof of the n=9 case is claimed."
+  ],
+  "max_core_size": 6,
+  "n": 9,
+  "orbit_size_sum": 184,
+  "provenance": {
+    "command": "python scripts/check_n9_vertex_circle_core_templates.py --assert-expected --write",
+    "generator": "scripts/check_n9_vertex_circle_core_templates.py"
+  },
+  "row_size": 4,
+  "schema": "erdos97.n9_vertex_circle_core_templates.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/n9_vertex_circle_local_cores.json",
+      "role": "detailed source local-core certificate artifact"
+    },
+    {
+      "path": "data/certificates/n9_vertex_circle_motif_families.json",
+      "role": "deterministic family-id convention"
+    }
+  ],
+  "source_packet": {
+    "path": "data/certificates/n9_vertex_circle_local_core_packet.json",
+    "schema": "erdos97.n9_vertex_circle_local_core_packet.v1",
+    "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+    "trust": "REVIEW_PENDING_DIAGNOSTIC"
+  },
+  "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+  "status_core_size_counts": {
+    "self_edge": {
+      "3": 5,
+      "4": 4,
+      "5": 2,
+      "6": 2
+    },
+    "strict_cycle": {
+      "4": 2,
+      "6": 1
+    }
+  },
+  "status_template_counts": {
+    "self_edge": 9,
+    "strict_cycle": 3
+  },
+  "template_count": 12,
+  "template_family_count_distribution": {
+    "1": 10,
+    "2": 1,
+    "4": 1
+  },
+  "templates": [
+    {
+      "core_size": 3,
+      "families": [
+        "F09"
+      ],
+      "family_count": 1,
+      "orbit_size_sum": 6,
+      "self_edge_shape_counts": [
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 0
+        },
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 1
+        }
+      ],
+      "status": "self_edge",
+      "strict_edge_count": 27,
+      "template_id": "T01",
+      "template_key": "self_edge|rows=3|strict_edges=27|conflicts=3:1:0x1,3:1:1x1"
+    },
+    {
+      "core_size": 3,
+      "families": [
+        "F01",
+        "F04",
+        "F08",
+        "F14"
+      ],
+      "family_count": 4,
+      "orbit_size_sum": 40,
+      "self_edge_shape_counts": [
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 1
+        }
+      ],
+      "status": "self_edge",
+      "strict_edge_count": 27,
+      "template_id": "T02",
+      "template_key": "self_edge|rows=3|strict_edges=27|conflicts=3:1:1x1"
+    },
+    {
+      "core_size": 4,
+      "families": [
+        "F05",
+        "F15"
+      ],
+      "family_count": 2,
+      "orbit_size_sum": 20,
+      "self_edge_shape_counts": [
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 2,
+          "shared_endpoint_count": 1
+        }
+      ],
+      "status": "self_edge",
+      "strict_edge_count": 36,
+      "template_id": "T03",
+      "template_key": "self_edge|rows=4|strict_edges=36|conflicts=2:1:1x1"
+    },
+    {
+      "core_size": 4,
+      "families": [
+        "F13"
+      ],
+      "family_count": 1,
+      "orbit_size_sum": 2,
+      "self_edge_shape_counts": [
+        {
+          "count": 2,
+          "inner_span": 1,
+          "outer_span": 2,
+          "shared_endpoint_count": 1
+        }
+      ],
+      "status": "self_edge",
+      "strict_edge_count": 36,
+      "template_id": "T04",
+      "template_key": "self_edge|rows=4|strict_edges=36|conflicts=2:1:1x2"
+    },
+    {
+      "core_size": 4,
+      "families": [
+        "F10"
+      ],
+      "family_count": 1,
+      "orbit_size_sum": 18,
+      "self_edge_shape_counts": [
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 0
+        },
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 1
+        }
+      ],
+      "status": "self_edge",
+      "strict_edge_count": 36,
+      "template_id": "T05",
+      "template_key": "self_edge|rows=4|strict_edges=36|conflicts=3:1:0x1,3:1:1x1"
+    },
+    {
+      "core_size": 5,
+      "families": [
+        "F11"
+      ],
+      "family_count": 1,
+      "orbit_size_sum": 18,
+      "self_edge_shape_counts": [
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 2,
+          "shared_endpoint_count": 1
+        },
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 0
+        },
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 1
+        }
+      ],
+      "status": "self_edge",
+      "strict_edge_count": 45,
+      "template_id": "T06",
+      "template_key": "self_edge|rows=5|strict_edges=45|conflicts=2:1:1x1,3:1:0x1,3:1:1x1"
+    },
+    {
+      "core_size": 5,
+      "families": [
+        "F06"
+      ],
+      "family_count": 1,
+      "orbit_size_sum": 18,
+      "self_edge_shape_counts": [
+        {
+          "count": 3,
+          "inner_span": 1,
+          "outer_span": 2,
+          "shared_endpoint_count": 1
+        },
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 0
+        },
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 1
+        },
+        {
+          "count": 1,
+          "inner_span": 2,
+          "outer_span": 3,
+          "shared_endpoint_count": 1
+        }
+      ],
+      "status": "self_edge",
+      "strict_edge_count": 45,
+      "template_id": "T07",
+      "template_key": "self_edge|rows=5|strict_edges=45|conflicts=2:1:1x3,3:1:0x1,3:1:1x1,3:2:1x1"
+    },
+    {
+      "core_size": 6,
+      "families": [
+        "F02"
+      ],
+      "family_count": 1,
+      "orbit_size_sum": 18,
+      "self_edge_shape_counts": [
+        {
+          "count": 4,
+          "inner_span": 1,
+          "outer_span": 2,
+          "shared_endpoint_count": 1
+        },
+        {
+          "count": 2,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 0
+        },
+        {
+          "count": 2,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 1
+        },
+        {
+          "count": 1,
+          "inner_span": 2,
+          "outer_span": 3,
+          "shared_endpoint_count": 1
+        }
+      ],
+      "status": "self_edge",
+      "strict_edge_count": 54,
+      "template_id": "T08",
+      "template_key": "self_edge|rows=6|strict_edges=54|conflicts=2:1:1x4,3:1:0x2,3:1:1x2,3:2:1x1"
+    },
+    {
+      "core_size": 6,
+      "families": [
+        "F03"
+      ],
+      "family_count": 1,
+      "orbit_size_sum": 18,
+      "self_edge_shape_counts": [
+        {
+          "count": 5,
+          "inner_span": 1,
+          "outer_span": 2,
+          "shared_endpoint_count": 1
+        },
+        {
+          "count": 2,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 0
+        },
+        {
+          "count": 4,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 1
+        },
+        {
+          "count": 2,
+          "inner_span": 2,
+          "outer_span": 3,
+          "shared_endpoint_count": 1
+        }
+      ],
+      "status": "self_edge",
+      "strict_edge_count": 54,
+      "template_id": "T09",
+      "template_key": "self_edge|rows=6|strict_edges=54|conflicts=2:1:1x5,3:1:0x2,3:1:1x4,3:2:1x2"
+    },
+    {
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_span_counts": [
+        {
+          "count": 2,
+          "inner_span": 1,
+          "outer_span": 2
+        }
+      ],
+      "families": [
+        "F12"
+      ],
+      "family_count": 1,
+      "orbit_size_sum": 18,
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "template_key": "strict_cycle|rows=4|strict_edges=36|cycle=2|spans=2:1x2"
+    },
+    {
+      "core_size": 4,
+      "cycle_length": 3,
+      "cycle_span_counts": [
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 2
+        },
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 3
+        },
+        {
+          "count": 1,
+          "inner_span": 2,
+          "outer_span": 3
+        }
+      ],
+      "families": [
+        "F07"
+      ],
+      "family_count": 1,
+      "orbit_size_sum": 6,
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T11",
+      "template_key": "strict_cycle|rows=4|strict_edges=36|cycle=3|spans=2:1x1,3:1x1,3:2x1"
+    },
+    {
+      "core_size": 6,
+      "cycle_length": 3,
+      "cycle_span_counts": [
+        {
+          "count": 3,
+          "inner_span": 1,
+          "outer_span": 3
+        }
+      ],
+      "families": [
+        "F16"
+      ],
+      "family_count": 1,
+      "orbit_size_sum": 2,
+      "status": "strict_cycle",
+      "strict_edge_count": 54,
+      "template_id": "T12",
+      "template_key": "strict_cycle|rows=6|strict_edges=54|cycle=3|spans=3:1x3"
+    }
+  ],
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

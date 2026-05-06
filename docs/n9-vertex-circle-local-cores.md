@@ -39,6 +39,14 @@ packet is also available at
 core selected rows for each family and is replayed by
 `scripts/check_n9_vertex_circle_local_core_packet.py`.
 
+The companion template diagnostic
+`data/certificates/n9_vertex_circle_core_templates.json` groups the 16 compact
+cores into 12 replay-derived shape buckets. The buckets record self-edge
+conflict span/shared-endpoint shapes or strict-cycle span shapes, plus the
+family ids covered by each bucket. These template ids are deterministic
+artifact labels only; they are not theorem names and do not promote the n=9
+finite-case status.
+
 ## Certificate Shape
 
 A self-edge core consists of:
@@ -101,10 +109,26 @@ python scripts/check_n9_vertex_circle_local_core_packet.py \
   --json
 ```
 
+Generate and check the local-core template diagnostic:
+
+```bash
+python scripts/check_n9_vertex_circle_core_templates.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_vertex_circle_core_templates.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
 Run the targeted artifact test:
 
 ```bash
-python -m pytest tests/test_n9_vertex_circle_local_cores.py -q
+python -m pytest \
+  tests/test_n9_vertex_circle_local_cores.py \
+  tests/test_n9_vertex_circle_core_templates.py \
+  -q
 ```
 
 Replay the 16 local quotient certificates with the small proof-facing kernel:
