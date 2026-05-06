@@ -1,0 +1,912 @@
+{
+  "branch_accounting": {
+    "canonical_boundary_state_count": 6683040,
+    "exhaustive_all_orders": false,
+    "exhaustive_prefix_scan": false,
+    "raw_boundary_state_count": 13366080,
+    "sampled_branch_certified_count": 100,
+    "sampled_branch_count": 128,
+    "sampled_branch_unclosed_count": 28
+  },
+  "closed_certificate_examples": [
+    {
+      "boundary_left": [
+        1,
+        3,
+        5
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        6
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 910,
+        "max_weight": 1,
+        "positive_inequalities": 6,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 6,
+        "zero_sum_verified": true
+      },
+      "label": "c19_prefix_branch_0000",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        5
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        7
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 910,
+        "max_weight": 1,
+        "positive_inequalities": 4,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 4,
+        "zero_sum_verified": true
+      },
+      "label": "c19_prefix_branch_0001",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        5
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        8
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 910,
+        "max_weight": 1,
+        "positive_inequalities": 5,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 5,
+        "zero_sum_verified": true
+      },
+      "label": "c19_prefix_branch_0002",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        5
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        9
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 910,
+        "max_weight": 1,
+        "positive_inequalities": 4,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 4,
+        "zero_sum_verified": true
+      },
+      "label": "c19_prefix_branch_0003",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        5
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        10
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 910,
+        "max_weight": 1,
+        "positive_inequalities": 6,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 6,
+        "zero_sum_verified": true
+      },
+      "label": "c19_prefix_branch_0004",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        5
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        11
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 910,
+        "max_weight": 1,
+        "positive_inequalities": 3,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 3,
+        "zero_sum_verified": true
+      },
+      "label": "c19_prefix_branch_0005",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        5
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        12
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 910,
+        "max_weight": 1,
+        "positive_inequalities": 5,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 5,
+        "zero_sum_verified": true
+      },
+      "label": "c19_prefix_branch_0006",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        5
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        13
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 910,
+        "max_weight": 1,
+        "positive_inequalities": 2,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 2,
+        "zero_sum_verified": true
+      },
+      "label": "c19_prefix_branch_0007",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        5
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        14
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 910,
+        "max_weight": 1,
+        "positive_inequalities": 4,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 4,
+        "zero_sum_verified": true
+      },
+      "label": "c19_prefix_branch_0008",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        5
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        15
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 910,
+        "max_weight": 1,
+        "positive_inequalities": 6,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 6,
+        "zero_sum_verified": true
+      },
+      "label": "c19_prefix_branch_0009",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        5
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        16
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 910,
+        "max_weight": 1,
+        "positive_inequalities": 4,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 4,
+        "zero_sum_verified": true
+      },
+      "label": "c19_prefix_branch_0010",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        5
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        17
+      ],
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 910,
+        "max_weight": 1,
+        "positive_inequalities": 6,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 6,
+        "zero_sum_verified": true
+      },
+      "label": "c19_prefix_branch_0011",
+      "middle_label_count": 12
+    }
+  ],
+  "closed_support_size_histogram": {
+    "10": 2,
+    "11": 3,
+    "12": 2,
+    "13": 1,
+    "17": 3,
+    "2": 11,
+    "21": 1,
+    "3": 12,
+    "4": 23,
+    "5": 16,
+    "6": 10,
+    "7": 11,
+    "8": 3,
+    "9": 2
+  },
+  "forced_row_count_histogram": {
+    "910": 128
+  },
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "This is a bounded prefix-branch pilot, not an exhaustive all-order C19 search.",
+    "Each closed sampled branch is certified using only Kalmanson inequalities whose order is forced by the recorded boundary prefix.",
+    "Unclosed sampled branches are not counterexamples and are not evidence of realizability."
+  ],
+  "parameters": {
+    "anchor_label": 0,
+    "boundary_pairs": 3,
+    "closed_example_count": 12,
+    "include_certificates_in_examples": false,
+    "lp_support_tolerance": 1e-09,
+    "max_branches": 128
+  },
+  "pattern": {
+    "circulant_offsets": [
+      -8,
+      -3,
+      5,
+      9
+    ],
+    "n": 19,
+    "name": "C19_skew"
+  },
+  "sampled_branch_label_digest": "79fa7c236754647fd7ed844475896ee61ff1eef0ab66c14410221891773db37b",
+  "trust": "EXACT_OBSTRUCTION",
+  "type": "c19_kalmanson_prefix_branch_pilot_v1",
+  "unclosed_branch_examples": [
+    {
+      "boundary_left": [
+        1,
+        3,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5
+      ],
+      "label": "c19_prefix_branch_0013",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        7
+      ],
+      "label": "c19_prefix_branch_0014",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        10
+      ],
+      "label": "c19_prefix_branch_0017",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        13
+      ],
+      "label": "c19_prefix_branch_0020",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        18
+      ],
+      "label": "c19_prefix_branch_0025",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        8
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        7
+      ],
+      "label": "c19_prefix_branch_0041",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        8
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        10
+      ],
+      "label": "c19_prefix_branch_0043",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        8
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        11
+      ],
+      "label": "c19_prefix_branch_0044",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        8
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        15
+      ],
+      "label": "c19_prefix_branch_0048",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        10
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5
+      ],
+      "label": "c19_prefix_branch_0065",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        10
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        11
+      ],
+      "label": "c19_prefix_branch_0070",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        10
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        13
+      ],
+      "label": "c19_prefix_branch_0072",
+      "middle_label_count": 12
+    }
+  ],
+  "unclosed_sampled_branches": [
+    {
+      "boundary_left": [
+        1,
+        3,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5
+      ],
+      "label": "c19_prefix_branch_0013",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        7
+      ],
+      "label": "c19_prefix_branch_0014",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        10
+      ],
+      "label": "c19_prefix_branch_0017",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        13
+      ],
+      "label": "c19_prefix_branch_0020",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        18
+      ],
+      "label": "c19_prefix_branch_0025",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        8
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        7
+      ],
+      "label": "c19_prefix_branch_0041",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        8
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        10
+      ],
+      "label": "c19_prefix_branch_0043",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        8
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        11
+      ],
+      "label": "c19_prefix_branch_0044",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        8
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        15
+      ],
+      "label": "c19_prefix_branch_0048",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        10
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5
+      ],
+      "label": "c19_prefix_branch_0065",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        10
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        11
+      ],
+      "label": "c19_prefix_branch_0070",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        10
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        13
+      ],
+      "label": "c19_prefix_branch_0072",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        10
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        16
+      ],
+      "label": "c19_prefix_branch_0075",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        11
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5
+      ],
+      "label": "c19_prefix_branch_0078",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        11
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        7
+      ],
+      "label": "c19_prefix_branch_0080",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        11
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        10
+      ],
+      "label": "c19_prefix_branch_0083",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        11
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        13
+      ],
+      "label": "c19_prefix_branch_0085",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        11
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        15
+      ],
+      "label": "c19_prefix_branch_0087",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        11
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        18
+      ],
+      "label": "c19_prefix_branch_0090",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        12
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5
+      ],
+      "label": "c19_prefix_branch_0091",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        12
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        10
+      ],
+      "label": "c19_prefix_branch_0096",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        12
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        11
+      ],
+      "label": "c19_prefix_branch_0097",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        12
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        13
+      ],
+      "label": "c19_prefix_branch_0098",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        12
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        15
+      ],
+      "label": "c19_prefix_branch_0100",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        12
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        16
+      ],
+      "label": "c19_prefix_branch_0101",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        12
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        18
+      ],
+      "label": "c19_prefix_branch_0103",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        13
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        7
+      ],
+      "label": "c19_prefix_branch_0106",
+      "middle_label_count": 12
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        13
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        10
+      ],
+      "label": "c19_prefix_branch_0109",
+      "middle_label_count": 12
+    }
+  ]
+}

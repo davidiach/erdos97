@@ -1,0 +1,1755 @@
+{
+  "aggregate": {
+    "fifth_pair_child_count": 7920,
+    "fifth_pair_child_label_digest": "33ec807edc96dbd4e529899b34d61f4e57a43798b6d63f31cbac40bd7a3b8033",
+    "fourth_pair_survivor_parent_count": 88,
+    "prefix_parent_count_requiring_fifth_pair": 33,
+    "source_fifth_pair_child_count": 7920,
+    "source_unclosed_fifth_pair_child_count": 0
+  },
+  "fifth_pair_child_record_samples": {
+    "first": [
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          17,
+          11,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          4,
+          5,
+          15,
+          7
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 7,
+        "fourth_added_left": 11,
+        "fourth_added_right_reflection_side": 15,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+        "label": "c19_window_fifth_child_0156_0063_0000",
+        "left_gap_to_fourth_boundary": 3,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0156",
+        "right_gap_to_fourth_boundary": 2
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          17,
+          11,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          4,
+          5,
+          15,
+          8
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 8,
+        "fourth_added_left": 11,
+        "fourth_added_right_reflection_side": 15,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+        "label": "c19_window_fifth_child_0156_0063_0001",
+        "left_gap_to_fourth_boundary": 3,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0156",
+        "right_gap_to_fourth_boundary": 3
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          17,
+          11,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          4,
+          5,
+          15,
+          9
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 9,
+        "fourth_added_left": 11,
+        "fourth_added_right_reflection_side": 15,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+        "label": "c19_window_fifth_child_0156_0063_0002",
+        "left_gap_to_fourth_boundary": 3,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0156",
+        "right_gap_to_fourth_boundary": 4
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          17,
+          11,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          4,
+          5,
+          15,
+          10
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 10,
+        "fourth_added_left": 11,
+        "fourth_added_right_reflection_side": 15,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+        "label": "c19_window_fifth_child_0156_0063_0003",
+        "left_gap_to_fourth_boundary": 3,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0156",
+        "right_gap_to_fourth_boundary": 5
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          17,
+          11,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          4,
+          5,
+          15,
+          12
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 12,
+        "fourth_added_left": 11,
+        "fourth_added_right_reflection_side": 15,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+        "label": "c19_window_fifth_child_0156_0063_0004",
+        "left_gap_to_fourth_boundary": 3,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0156",
+        "right_gap_to_fourth_boundary": 3
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          17,
+          11,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          4,
+          5,
+          15,
+          13
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 13,
+        "fourth_added_left": 11,
+        "fourth_added_right_reflection_side": 15,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+        "label": "c19_window_fifth_child_0156_0063_0005",
+        "left_gap_to_fourth_boundary": 3,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0156",
+        "right_gap_to_fourth_boundary": 2
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          17,
+          11,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          4,
+          5,
+          15,
+          14
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 14,
+        "fourth_added_left": 11,
+        "fourth_added_right_reflection_side": 15,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+        "label": "c19_window_fifth_child_0156_0063_0006",
+        "left_gap_to_fourth_boundary": 3,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0156",
+        "right_gap_to_fourth_boundary": 1
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          17,
+          11,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          4,
+          5,
+          15,
+          16
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 16,
+        "fourth_added_left": 11,
+        "fourth_added_right_reflection_side": 15,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+        "label": "c19_window_fifth_child_0156_0063_0007",
+        "left_gap_to_fourth_boundary": 3,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0156",
+        "right_gap_to_fourth_boundary": 1
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          17,
+          11,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          4,
+          5,
+          15,
+          18
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 18,
+        "fourth_added_left": 11,
+        "fourth_added_right_reflection_side": 15,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+        "label": "c19_window_fifth_child_0156_0063_0008",
+        "left_gap_to_fourth_boundary": 3,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0156",
+        "right_gap_to_fourth_boundary": 3
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          17,
+          11,
+          7
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          4,
+          5,
+          15,
+          6
+        ],
+        "fifth_added_left": 7,
+        "fifth_added_right_reflection_side": 6,
+        "fourth_added_left": 11,
+        "fourth_added_right_reflection_side": 15,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+        "label": "c19_window_fifth_child_0156_0063_0009",
+        "left_gap_to_fourth_boundary": 4,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0156",
+        "right_gap_to_fourth_boundary": 1
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          17,
+          11,
+          7
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          4,
+          5,
+          15,
+          8
+        ],
+        "fifth_added_left": 7,
+        "fifth_added_right_reflection_side": 8,
+        "fourth_added_left": 11,
+        "fourth_added_right_reflection_side": 15,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+        "label": "c19_window_fifth_child_0156_0063_0010",
+        "left_gap_to_fourth_boundary": 4,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0156",
+        "right_gap_to_fourth_boundary": 3
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          17,
+          11,
+          7
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          4,
+          5,
+          15,
+          9
+        ],
+        "fifth_added_left": 7,
+        "fifth_added_right_reflection_side": 9,
+        "fourth_added_left": 11,
+        "fourth_added_right_reflection_side": 15,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+        "label": "c19_window_fifth_child_0156_0063_0011",
+        "left_gap_to_fourth_boundary": 4,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0156",
+        "right_gap_to_fourth_boundary": 4
+      }
+    ],
+    "last": [
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          12,
+          17,
+          14
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          16,
+          18,
+          11
+        ],
+        "fifth_added_left": 14,
+        "fifth_added_right_reflection_side": 11,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0283_0120",
+        "label": "c19_window_fifth_child_0283_0120_0078",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0283",
+        "right_gap_to_fourth_boundary": 5
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          12,
+          17,
+          14
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          16,
+          18,
+          13
+        ],
+        "fifth_added_left": 14,
+        "fifth_added_right_reflection_side": 13,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0283_0120",
+        "label": "c19_window_fifth_child_0283_0120_0079",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0283",
+        "right_gap_to_fourth_boundary": 3
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          12,
+          17,
+          14
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          16,
+          18,
+          15
+        ],
+        "fifth_added_left": 14,
+        "fifth_added_right_reflection_side": 15,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0283_0120",
+        "label": "c19_window_fifth_child_0283_0120_0080",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0283",
+        "right_gap_to_fourth_boundary": 1
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          12,
+          17,
+          15
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          16,
+          18,
+          4
+        ],
+        "fifth_added_left": 15,
+        "fifth_added_right_reflection_side": 4,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0283_0120",
+        "label": "c19_window_fifth_child_0283_0120_0081",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0283",
+        "right_gap_to_fourth_boundary": 1
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          12,
+          17,
+          15
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          16,
+          18,
+          6
+        ],
+        "fifth_added_left": 15,
+        "fifth_added_right_reflection_side": 6,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0283_0120",
+        "label": "c19_window_fifth_child_0283_0120_0082",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0283",
+        "right_gap_to_fourth_boundary": 1
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          12,
+          17,
+          15
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          16,
+          18,
+          7
+        ],
+        "fifth_added_left": 15,
+        "fifth_added_right_reflection_side": 7,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0283_0120",
+        "label": "c19_window_fifth_child_0283_0120_0083",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0283",
+        "right_gap_to_fourth_boundary": 2
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          12,
+          17,
+          15
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          16,
+          18,
+          8
+        ],
+        "fifth_added_left": 15,
+        "fifth_added_right_reflection_side": 8,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0283_0120",
+        "label": "c19_window_fifth_child_0283_0120_0084",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0283",
+        "right_gap_to_fourth_boundary": 3
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          12,
+          17,
+          15
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          16,
+          18,
+          9
+        ],
+        "fifth_added_left": 15,
+        "fifth_added_right_reflection_side": 9,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0283_0120",
+        "label": "c19_window_fifth_child_0283_0120_0085",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0283",
+        "right_gap_to_fourth_boundary": 4
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          12,
+          17,
+          15
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          16,
+          18,
+          10
+        ],
+        "fifth_added_left": 15,
+        "fifth_added_right_reflection_side": 10,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0283_0120",
+        "label": "c19_window_fifth_child_0283_0120_0086",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0283",
+        "right_gap_to_fourth_boundary": 5
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          12,
+          17,
+          15
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          16,
+          18,
+          11
+        ],
+        "fifth_added_left": 15,
+        "fifth_added_right_reflection_side": 11,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0283_0120",
+        "label": "c19_window_fifth_child_0283_0120_0087",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0283",
+        "right_gap_to_fourth_boundary": 5
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          12,
+          17,
+          15
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          16,
+          18,
+          13
+        ],
+        "fifth_added_left": 15,
+        "fifth_added_right_reflection_side": 13,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0283_0120",
+        "label": "c19_window_fifth_child_0283_0120_0088",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0283",
+        "right_gap_to_fourth_boundary": 3
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          12,
+          17,
+          15
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          16,
+          18,
+          14
+        ],
+        "fifth_added_left": 15,
+        "fifth_added_right_reflection_side": 14,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0283_0120",
+        "label": "c19_window_fifth_child_0283_0120_0089",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0283",
+        "right_gap_to_fourth_boundary": 2
+      }
+    ]
+  },
+  "frontier_artifact": "reports/c19_fourth_pair_frontier_classifier.json",
+  "histograms": {
+    "fifth_child_count_by_added_left": {
+      "10": 396,
+      "11": 225,
+      "12": 549,
+      "13": 720,
+      "14": 774,
+      "15": 495,
+      "16": 756,
+      "17": 540,
+      "18": 531,
+      "4": 477,
+      "5": 36,
+      "6": 594,
+      "7": 576,
+      "8": 693,
+      "9": 558
+    },
+    "fifth_child_count_by_added_pair": {
+      "10,11": 10,
+      "10,12": 35,
+      "10,13": 39,
+      "10,14": 43,
+      "10,15": 19,
+      "10,16": 42,
+      "10,17": 27,
+      "10,18": 24,
+      "10,4": 26,
+      "10,5": 4,
+      "10,6": 35,
+      "10,7": 29,
+      "10,8": 34,
+      "10,9": 29,
+      "11,10": 10,
+      "11,12": 15,
+      "11,13": 23,
+      "11,14": 23,
+      "11,15": 17,
+      "11,16": 21,
+      "11,17": 17,
+      "11,18": 17,
+      "11,4": 14,
+      "11,6": 13,
+      "11,7": 18,
+      "11,8": 20,
+      "11,9": 17,
+      "12,10": 35,
+      "12,11": 15,
+      "12,13": 53,
+      "12,14": 61,
+      "12,15": 28,
+      "12,16": 59,
+      "12,17": 34,
+      "12,18": 46,
+      "12,4": 37,
+      "12,5": 4,
+      "12,6": 49,
+      "12,7": 37,
+      "12,8": 50,
+      "12,9": 41,
+      "13,10": 39,
+      "13,11": 23,
+      "13,12": 53,
+      "13,14": 78,
+      "13,15": 54,
+      "13,16": 76,
+      "13,17": 55,
+      "13,18": 52,
+      "13,4": 47,
+      "13,5": 2,
+      "13,6": 58,
+      "13,7": 56,
+      "13,8": 69,
+      "13,9": 58,
+      "14,10": 43,
+      "14,11": 23,
+      "14,12": 61,
+      "14,13": 78,
+      "14,15": 53,
+      "14,16": 82,
+      "14,17": 58,
+      "14,18": 59,
+      "14,4": 52,
+      "14,5": 4,
+      "14,6": 64,
+      "14,7": 62,
+      "14,8": 75,
+      "14,9": 60,
+      "15,10": 19,
+      "15,11": 17,
+      "15,12": 28,
+      "15,13": 54,
+      "15,14": 53,
+      "15,16": 52,
+      "15,17": 39,
+      "15,18": 30,
+      "15,4": 28,
+      "15,5": 1,
+      "15,6": 34,
+      "15,7": 43,
+      "15,8": 52,
+      "15,9": 45,
+      "16,10": 42,
+      "16,11": 21,
+      "16,12": 59,
+      "16,13": 76,
+      "16,14": 82,
+      "16,15": 52,
+      "16,17": 59,
+      "16,18": 56,
+      "16,4": 51,
+      "16,5": 4,
+      "16,6": 62,
+      "16,7": 60,
+      "16,8": 73,
+      "16,9": 59,
+      "17,10": 27,
+      "17,11": 17,
+      "17,12": 34,
+      "17,13": 55,
+      "17,14": 58,
+      "17,15": 39,
+      "17,16": 59,
+      "17,18": 43,
+      "17,4": 41,
+      "17,6": 44,
+      "17,7": 38,
+      "17,8": 49,
+      "17,9": 36,
+      "18,10": 24,
+      "18,11": 17,
+      "18,12": 46,
+      "18,13": 52,
+      "18,14": 59,
+      "18,15": 30,
+      "18,16": 56,
+      "18,17": 43,
+      "18,4": 34,
+      "18,5": 1,
+      "18,6": 47,
+      "18,7": 37,
+      "18,8": 48,
+      "18,9": 37,
+      "4,10": 26,
+      "4,11": 14,
+      "4,12": 37,
+      "4,13": 47,
+      "4,14": 52,
+      "4,15": 28,
+      "4,16": 51,
+      "4,17": 41,
+      "4,18": 34,
+      "4,6": 40,
+      "4,7": 34,
+      "4,8": 46,
+      "4,9": 27,
+      "5,10": 4,
+      "5,12": 4,
+      "5,13": 2,
+      "5,14": 4,
+      "5,15": 1,
+      "5,16": 4,
+      "5,18": 1,
+      "5,6": 4,
+      "5,7": 4,
+      "5,8": 4,
+      "5,9": 4,
+      "6,10": 35,
+      "6,11": 13,
+      "6,12": 49,
+      "6,13": 58,
+      "6,14": 64,
+      "6,15": 34,
+      "6,16": 62,
+      "6,17": 44,
+      "6,18": 47,
+      "6,4": 40,
+      "6,5": 4,
+      "6,7": 47,
+      "6,8": 56,
+      "6,9": 41,
+      "7,10": 29,
+      "7,11": 18,
+      "7,12": 37,
+      "7,13": 56,
+      "7,14": 62,
+      "7,15": 43,
+      "7,16": 60,
+      "7,17": 38,
+      "7,18": 37,
+      "7,4": 34,
+      "7,5": 4,
+      "7,6": 47,
+      "7,8": 62,
+      "7,9": 49,
+      "8,10": 34,
+      "8,11": 20,
+      "8,12": 50,
+      "8,13": 69,
+      "8,14": 75,
+      "8,15": 52,
+      "8,16": 73,
+      "8,17": 49,
+      "8,18": 48,
+      "8,4": 46,
+      "8,5": 4,
+      "8,6": 56,
+      "8,7": 62,
+      "8,9": 55,
+      "9,10": 29,
+      "9,11": 17,
+      "9,12": 41,
+      "9,13": 58,
+      "9,14": 60,
+      "9,15": 45,
+      "9,16": 59,
+      "9,17": 36,
+      "9,18": 37,
+      "9,4": 27,
+      "9,5": 4,
+      "9,6": 41,
+      "9,7": 49,
+      "9,8": 55
+    },
+    "fifth_child_count_by_added_right_reflection_side": {
+      "10": 396,
+      "11": 225,
+      "12": 549,
+      "13": 720,
+      "14": 774,
+      "15": 495,
+      "16": 756,
+      "17": 540,
+      "18": 531,
+      "4": 477,
+      "5": 36,
+      "6": 594,
+      "7": 576,
+      "8": 693,
+      "9": 558
+    },
+    "fifth_child_count_by_fourth_added_pair": {
+      "10,13": 90,
+      "10,18": 90,
+      "10,7": 90,
+      "10,9": 90,
+      "11,10": 270,
+      "11,13": 180,
+      "11,15": 360,
+      "11,18": 810,
+      "11,7": 180,
+      "11,9": 270,
+      "12,10": 180,
+      "12,18": 450,
+      "12,9": 90,
+      "14,18": 180,
+      "17,10": 270,
+      "17,11": 180,
+      "17,13": 90,
+      "17,15": 450,
+      "17,16": 90,
+      "17,18": 630,
+      "17,4": 270,
+      "4,10": 360,
+      "4,11": 180,
+      "4,16": 90,
+      "4,6": 180,
+      "6,10": 90,
+      "6,18": 180,
+      "7,10": 90,
+      "8,15": 270,
+      "8,4": 180,
+      "8,6": 90,
+      "8,7": 270,
+      "9,13": 180,
+      "9,15": 180,
+      "9,7": 270
+    },
+    "left_gap_to_fourth_boundary": {
+      "1": 2313,
+      "10": 36,
+      "11": 27,
+      "2": 1467,
+      "3": 1737,
+      "4": 864,
+      "5": 648,
+      "6": 396,
+      "7": 270,
+      "8": 90,
+      "9": 72
+    },
+    "right_gap_to_fourth_boundary": {
+      "1": 2655,
+      "10": 18,
+      "11": 18,
+      "2": 1746,
+      "3": 1449,
+      "4": 756,
+      "5": 567,
+      "6": 279,
+      "7": 225,
+      "8": 180,
+      "9": 27
+    }
+  },
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "This is an exact fifth-pair frontier classifier over the recorded sweep artifact.",
+    "The classifier reconstructs branch labels below recorded fourth-pair survivors and compares per-window digests against the source sweep.",
+    "It does not run LPs and does not certify branches beyond the source artifact."
+  ],
+  "per_fourth_pair_parent": [
+    {
+      "branch_index": 63,
+      "fifth_child_label_digest": "e536372a90d0c664cb3c7836ae7fb8c777f28f76cd5e39a6e846d2c99bd7d046",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,15",
+      "label": "c19_window_fourth_child_0156_0063",
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    },
+    {
+      "branch_index": 65,
+      "fifth_child_label_digest": "85a8c02e1539f1d7bb57794279cefe1a31e282b39b4e377eefedaaf192653d63",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,18",
+      "label": "c19_window_fourth_child_0156_0065",
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    },
+    {
+      "branch_index": 74,
+      "fifth_child_label_digest": "219da8936050b1910d43dced036c14dc50a77c89f05b5b11efe72777ca0d93a1",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,15",
+      "label": "c19_window_fourth_child_0164_0074",
+      "prefix_parent_label": "c19_prefix_branch_0164"
+    },
+    {
+      "branch_index": 76,
+      "fifth_child_label_digest": "1d2151377df683eefd7a62da151f222b8f8057e42a4167cfaaf1200c006fefbe",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,18",
+      "label": "c19_window_fourth_child_0164_0076",
+      "prefix_parent_label": "c19_prefix_branch_0164"
+    },
+    {
+      "branch_index": 76,
+      "fifth_child_label_digest": "950781ccb0afd7e5ca1a4e900092e907d1c7d8d27111ba366930705966be48ee",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,18",
+      "label": "c19_window_fourth_child_0166_0076",
+      "prefix_parent_label": "c19_prefix_branch_0166"
+    },
+    {
+      "branch_index": 75,
+      "fifth_child_label_digest": "90baafb3fab263338b479ffcc0da97a568a8986a26840d087d203d8981cafc7c",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,15",
+      "label": "c19_window_fourth_child_0168_0075",
+      "prefix_parent_label": "c19_prefix_branch_0168"
+    },
+    {
+      "branch_index": 114,
+      "fifth_child_label_digest": "ff6785f6e3c650eb009394882c68aefa1550740033be41181d5b1abc028be2f3",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,11",
+      "label": "c19_window_fourth_child_0186_0114",
+      "prefix_parent_label": "c19_prefix_branch_0186"
+    },
+    {
+      "branch_index": 119,
+      "fifth_child_label_digest": "6e5dbd1b9147102b0d5bce01a0194ff980da4b0e46fdc057d6f51efb87970c04",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,16",
+      "label": "c19_window_fourth_child_0186_0119",
+      "prefix_parent_label": "c19_prefix_branch_0186"
+    },
+    {
+      "branch_index": 114,
+      "fifth_child_label_digest": "0697089e1b4045e919ec5c703cbc736f8194bac085dc09976773639a541d4a83",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,10",
+      "label": "c19_window_fourth_child_0187_0114",
+      "prefix_parent_label": "c19_prefix_branch_0187"
+    },
+    {
+      "branch_index": 113,
+      "fifth_child_label_digest": "8c7f71846b7120e9077ec064771de271821724cb09c016120fd27fefe75480b9",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,10",
+      "label": "c19_window_fourth_child_0195_0113",
+      "prefix_parent_label": "c19_prefix_branch_0195"
+    },
+    {
+      "branch_index": 120,
+      "fifth_child_label_digest": "97f2d46c095e4ad3fb0437a55846c26923eae4e92f444d84e4f4331b0258a822",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,18",
+      "label": "c19_window_fourth_child_0195_0120",
+      "prefix_parent_label": "c19_prefix_branch_0195"
+    },
+    {
+      "branch_index": 54,
+      "fifth_child_label_digest": "e659d0054b3c53fdbaedc22346ea530f5b80236004a3a5c134660c8012b576fc",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,18",
+      "label": "c19_window_fourth_child_0196_0054",
+      "prefix_parent_label": "c19_prefix_branch_0196"
+    },
+    {
+      "branch_index": 65,
+      "fifth_child_label_digest": "cdcedee160f3f3156f87e75226f1f73512544d93626b9c0a549be4f63f167ca5",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "12,18",
+      "label": "c19_window_fourth_child_0199_0065",
+      "prefix_parent_label": "c19_prefix_branch_0199"
+    },
+    {
+      "branch_index": 110,
+      "fifth_child_label_digest": "64a1080e582da645e08781e43a83d6f3f0f544a210670a6da126fd48bb237888",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,4",
+      "label": "c19_window_fourth_child_0199_0110",
+      "prefix_parent_label": "c19_prefix_branch_0199"
+    },
+    {
+      "branch_index": 120,
+      "fifth_child_label_digest": "fd8bd3531117c3965ac71cab712b5fa56139cfbd0be3d72d89fa410ea211eb43",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,18",
+      "label": "c19_window_fourth_child_0199_0120",
+      "prefix_parent_label": "c19_prefix_branch_0199"
+    },
+    {
+      "branch_index": 56,
+      "fifth_child_label_digest": "5ead5065c1e1d0b3ca86124f197859f34e3047c50bb5e80677f113f132b0b18f",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,7",
+      "label": "c19_window_fourth_child_0207_0056",
+      "prefix_parent_label": "c19_prefix_branch_0207"
+    },
+    {
+      "branch_index": 46,
+      "fifth_child_label_digest": "a0439dce267996a1e94c40113450a022fa3106b06d636e4bfedf4a319243b966",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,9",
+      "label": "c19_window_fourth_child_0209_0046",
+      "prefix_parent_label": "c19_prefix_branch_0209"
+    },
+    {
+      "branch_index": 0,
+      "fifth_child_label_digest": "15a7938158c4ca849cb00a47912ca9c971ab11aabee0c387921983ec11b91796",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "4,6",
+      "label": "c19_window_fourth_child_0212_0000",
+      "prefix_parent_label": "c19_prefix_branch_0212"
+    },
+    {
+      "branch_index": 3,
+      "fifth_child_label_digest": "4b6e1ee883041969cb9cef012d60b5ac83cc6be768afe4a2bc6a4d75d4920c5a",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "4,11",
+      "label": "c19_window_fourth_child_0212_0003",
+      "prefix_parent_label": "c19_prefix_branch_0212"
+    },
+    {
+      "branch_index": 23,
+      "fifth_child_label_digest": "853e176348adbc0ccf86ff71b5ba3b1580d18639bebe196f6668ed0540b8b1d0",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "8,6",
+      "label": "c19_window_fourth_child_0212_0023",
+      "prefix_parent_label": "c19_prefix_branch_0212"
+    },
+    {
+      "branch_index": 114,
+      "fifth_child_label_digest": "2dcd2fc64f022d8cb3b8acd9239de37ca4758e625bd303dfaff43f7e8ca5142b",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,11",
+      "label": "c19_window_fourth_child_0212_0114",
+      "prefix_parent_label": "c19_prefix_branch_0212"
+    },
+    {
+      "branch_index": 3,
+      "fifth_child_label_digest": "73d2a179981c25fbf3168b44b4fd935f010ac67014a33fa68c8c69718b631fe9",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "4,10",
+      "label": "c19_window_fourth_child_0213_0003",
+      "prefix_parent_label": "c19_prefix_branch_0213"
+    },
+    {
+      "branch_index": 114,
+      "fifth_child_label_digest": "f9d5107cfe54d7a49b09def434097807afaf2178d65eb525b8b0b52b82c82d68",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,10",
+      "label": "c19_window_fourth_child_0213_0114",
+      "prefix_parent_label": "c19_prefix_branch_0213"
+    },
+    {
+      "branch_index": 29,
+      "fifth_child_label_digest": "57ab38bc4f3abb8e83608be7d2d2b874f35758a84a9735c31f97cc788a90d0e1",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "9,15",
+      "label": "c19_window_fourth_child_0223_0029",
+      "prefix_parent_label": "c19_prefix_branch_0223"
+    },
+    {
+      "branch_index": 35,
+      "fifth_child_label_digest": "d0a61b78f0d52271f9c129b0b071c539ef0ea5fb0dd5c94b7d87ad8f327d6309",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "9,7",
+      "label": "c19_window_fourth_child_0230_0035",
+      "prefix_parent_label": "c19_prefix_branch_0230"
+    },
+    {
+      "branch_index": 29,
+      "fifth_child_label_digest": "cbc6e056bdcd6d672e30f3e51f7876062f06ddb8575bf5f04c0c43c73c7c492f",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "8,15",
+      "label": "c19_window_fourth_child_0236_0029",
+      "prefix_parent_label": "c19_prefix_branch_0236"
+    },
+    {
+      "branch_index": 51,
+      "fifth_child_label_digest": "c04a43c31b929db03e8eaafc2282f255e129fa71356255251bc20806e7bf54eb",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,15",
+      "label": "c19_window_fourth_child_0236_0051",
+      "prefix_parent_label": "c19_prefix_branch_0236"
+    },
+    {
+      "branch_index": 35,
+      "fifth_child_label_digest": "d3efbb72125f03c9e730d5805c2bcd8133c21b7ea8817fc8a16a1043a6f4665f",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "8,7",
+      "label": "c19_window_fourth_child_0243_0035",
+      "prefix_parent_label": "c19_prefix_branch_0243"
+    },
+    {
+      "branch_index": 57,
+      "fifth_child_label_digest": "f88d277372831d0cf4726d6b40feb7a6e76959af9457ab596f01f78469f1398e",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,7",
+      "label": "c19_window_fourth_child_0243_0057",
+      "prefix_parent_label": "c19_prefix_branch_0243"
+    },
+    {
+      "branch_index": 61,
+      "fifth_child_label_digest": "7d54340fe35477955c93b64e683d71291d0990069211d5fabc4aaeede8f9aa05",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,13",
+      "label": "c19_window_fourth_child_0243_0061",
+      "prefix_parent_label": "c19_prefix_branch_0243"
+    },
+    {
+      "branch_index": 117,
+      "fifth_child_label_digest": "feb1ee6a6b3378b26af660c563ffb10670a84c0af085e41cc6a27d4cc2a2ece6",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,13",
+      "label": "c19_window_fourth_child_0243_0117",
+      "prefix_parent_label": "c19_prefix_branch_0243"
+    },
+    {
+      "branch_index": 119,
+      "fifth_child_label_digest": "916a3d2b314ec85ada3e5f90d27bb18f4109503bb80aca8518e0b0f3b1111bd2",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,15",
+      "label": "c19_window_fourth_child_0244_0119",
+      "prefix_parent_label": "c19_prefix_branch_0244"
+    },
+    {
+      "branch_index": 54,
+      "fifth_child_label_digest": "ea2c576464913092fe50714a07854fd76c2b23b8d5b52c2e4dda0e5ba2b27591",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,18",
+      "label": "c19_window_fourth_child_0251_0054",
+      "prefix_parent_label": "c19_prefix_branch_0251"
+    },
+    {
+      "branch_index": 46,
+      "fifth_child_label_digest": "024f6cd699b54a90198294d734a877beeeef903a2a387d9e5d4f5362ff296128",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "9,7",
+      "label": "c19_window_fourth_child_0256_0046",
+      "prefix_parent_label": "c19_prefix_branch_0256"
+    },
+    {
+      "branch_index": 50,
+      "fifth_child_label_digest": "0f9afe7a4142d866998d29664fb885c7e532e3ca4135e89f8b852813eb813464",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "9,13",
+      "label": "c19_window_fourth_child_0256_0050",
+      "prefix_parent_label": "c19_prefix_branch_0256"
+    },
+    {
+      "branch_index": 59,
+      "fifth_child_label_digest": "2b017adb60a2f75cecd5e1c3fd5a91e6ba8cd5ee061e290f250857e9bbe00254",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,9",
+      "label": "c19_window_fourth_child_0256_0059",
+      "prefix_parent_label": "c19_prefix_branch_0256"
+    },
+    {
+      "branch_index": 61,
+      "fifth_child_label_digest": "b797f60fb5f90694a46ff93f7f21b0210f3c3275695329de3a866fc95eb72c93",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,13",
+      "label": "c19_window_fourth_child_0256_0061",
+      "prefix_parent_label": "c19_prefix_branch_0256"
+    },
+    {
+      "branch_index": 23,
+      "fifth_child_label_digest": "33ef37d3811c4156f991bb2d3a59daaae89070e20f9753217c84ed3958bebaff",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "8,7",
+      "label": "c19_window_fourth_child_0260_0023",
+      "prefix_parent_label": "c19_prefix_branch_0260"
+    },
+    {
+      "branch_index": 29,
+      "fifth_child_label_digest": "a171246e1c00ced9570ae83512bdb421167a5468d0ba0ba57e876141e9b36c72",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "8,15",
+      "label": "c19_window_fourth_child_0260_0029",
+      "prefix_parent_label": "c19_prefix_branch_0260"
+    },
+    {
+      "branch_index": 65,
+      "fifth_child_label_digest": "791ddcffcf0595abb8844ccb2200adb6dc75fdb537269855427a2ae0514e5893",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "12,18",
+      "label": "c19_window_fourth_child_0260_0065",
+      "prefix_parent_label": "c19_prefix_branch_0260"
+    },
+    {
+      "branch_index": 118,
+      "fifth_child_label_digest": "99127e9fc5a795061aed0f855db8f69b09facee4c204eae9877f61f1dc86bbfc",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,15",
+      "label": "c19_window_fourth_child_0260_0118",
+      "prefix_parent_label": "c19_prefix_branch_0260"
+    },
+    {
+      "branch_index": 120,
+      "fifth_child_label_digest": "32d5c0fcd25d53d9b12cddb9a94fbcb5ee5d633f519cc8a9e28d98c6913cefaf",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,18",
+      "label": "c19_window_fourth_child_0260_0120",
+      "prefix_parent_label": "c19_prefix_branch_0260"
+    },
+    {
+      "branch_index": 3,
+      "fifth_child_label_digest": "bba8a68f9c96f5446e059a70e95373e27ea85ccc9fea3c3cddbf7ad545f728bf",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "4,10",
+      "label": "c19_window_fourth_child_0261_0003",
+      "prefix_parent_label": "c19_prefix_branch_0261"
+    },
+    {
+      "branch_index": 59,
+      "fifth_child_label_digest": "f837cf4a77c95b6849fa25c2925e4542df38709bbea6af41fe12ecd782b07e77",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "12,10",
+      "label": "c19_window_fourth_child_0261_0059",
+      "prefix_parent_label": "c19_prefix_branch_0261"
+    },
+    {
+      "branch_index": 65,
+      "fifth_child_label_digest": "7cbdc264ec251e46f20c208228a35e05bd8dc46a98aa0877afc990c1b3a2d8b2",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "12,18",
+      "label": "c19_window_fourth_child_0261_0065",
+      "prefix_parent_label": "c19_prefix_branch_0261"
+    },
+    {
+      "branch_index": 118,
+      "fifth_child_label_digest": "087123ffb18c8b36d19b1c70a61701d2559f6078a173e446dca8d5b2c8892237",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,15",
+      "label": "c19_window_fourth_child_0261_0118",
+      "prefix_parent_label": "c19_prefix_branch_0261"
+    },
+    {
+      "branch_index": 120,
+      "fifth_child_label_digest": "c1298ccb4d6ec095421f87603a3ce31553120b6360e98b93caaf5d6a69d32aed",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,18",
+      "label": "c19_window_fourth_child_0261_0120",
+      "prefix_parent_label": "c19_prefix_branch_0261"
+    },
+    {
+      "branch_index": 22,
+      "fifth_child_label_digest": "b6e56253a46c6a6fde6f6ac373de53506fbf099ccbc1c12fb13a53342fb63896",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "8,4",
+      "label": "c19_window_fourth_child_0262_0022",
+      "prefix_parent_label": "c19_prefix_branch_0262"
+    },
+    {
+      "branch_index": 29,
+      "fifth_child_label_digest": "3666754a4ae32f0fc2c8fc5745d0082456a9cd03088d83dc8f2f4b48bd70d54e",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "8,15",
+      "label": "c19_window_fourth_child_0262_0029",
+      "prefix_parent_label": "c19_prefix_branch_0262"
+    },
+    {
+      "branch_index": 40,
+      "fifth_child_label_digest": "b1a573396965a7ec8018e49367814b4a24f3a8b6c46cc3ee1a9e32b5bafdb362",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "9,15",
+      "label": "c19_window_fourth_child_0262_0040",
+      "prefix_parent_label": "c19_prefix_branch_0262"
+    },
+    {
+      "branch_index": 25,
+      "fifth_child_label_digest": "62bcfce6c2748ab01cc662185251f0fcb47adefcf30c08b0c3731ae3520b9440",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "7,10",
+      "label": "c19_window_fourth_child_0264_0025",
+      "prefix_parent_label": "c19_prefix_branch_0264"
+    },
+    {
+      "branch_index": 54,
+      "fifth_child_label_digest": "b577f173099c3804e5359d8f0f50178db7dfce94d45bb4c593a2b29f78d7db29",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "10,18",
+      "label": "c19_window_fourth_child_0264_0054",
+      "prefix_parent_label": "c19_prefix_branch_0264"
+    },
+    {
+      "branch_index": 59,
+      "fifth_child_label_digest": "e8d2edf4fc46645f7677b2641245c75486e19cda3fb505695ec6ecdf87db77e9",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "12,10",
+      "label": "c19_window_fourth_child_0264_0059",
+      "prefix_parent_label": "c19_prefix_branch_0264"
+    },
+    {
+      "branch_index": 65,
+      "fifth_child_label_digest": "cc25ec1075b0b918627c7648f61742496ed885322fbed0a93778d52d96436743",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "12,18",
+      "label": "c19_window_fourth_child_0264_0065",
+      "prefix_parent_label": "c19_prefix_branch_0264"
+    },
+    {
+      "branch_index": 59,
+      "fifth_child_label_digest": "39c55b97f9a77cf5bbcfdd1d3fcf094a56947d5b7b648753467a1930935bbe8c",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "12,9",
+      "label": "c19_window_fourth_child_0265_0059",
+      "prefix_parent_label": "c19_prefix_branch_0265"
+    },
+    {
+      "branch_index": 65,
+      "fifth_child_label_digest": "e6ca1dfe4e686857de8320962c4b9caa3c8c7a19bcf4d2e0ba591235e7c872bc",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "12,18",
+      "label": "c19_window_fourth_child_0265_0065",
+      "prefix_parent_label": "c19_prefix_branch_0265"
+    },
+    {
+      "branch_index": 110,
+      "fifth_child_label_digest": "d2ab1813992e7c782fe1610a3c7fb66883335b262ce7a78e90a42f5e6b8405f5",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,4",
+      "label": "c19_window_fourth_child_0265_0110",
+      "prefix_parent_label": "c19_prefix_branch_0265"
+    },
+    {
+      "branch_index": 118,
+      "fifth_child_label_digest": "c00b60d62bb5a9b434dd2609c3269204c147a34538b9865593ac08ee6525da78",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,15",
+      "label": "c19_window_fourth_child_0265_0118",
+      "prefix_parent_label": "c19_prefix_branch_0265"
+    },
+    {
+      "branch_index": 120,
+      "fifth_child_label_digest": "3734ecc5ddc686908a526e2ff94ef50e9bf8fb94d7fd2e605f8f98662ac65b66",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,18",
+      "label": "c19_window_fourth_child_0265_0120",
+      "prefix_parent_label": "c19_prefix_branch_0265"
+    },
+    {
+      "branch_index": 33,
+      "fifth_child_label_digest": "298cd2f23317a2e912683b10f028606a3e39e3d64c1fbd3aebcba28b5779a772",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "8,4",
+      "label": "c19_window_fourth_child_0269_0033",
+      "prefix_parent_label": "c19_prefix_branch_0269"
+    },
+    {
+      "branch_index": 35,
+      "fifth_child_label_digest": "fcc1f4991f8d738bf8a1a61d2b50a750108fa8ffa89a16264fc7a14ff1d3f67a",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "8,7",
+      "label": "c19_window_fourth_child_0269_0035",
+      "prefix_parent_label": "c19_prefix_branch_0269"
+    },
+    {
+      "branch_index": 46,
+      "fifth_child_label_digest": "d3c13286f2861bba3e12f3f7a819bae69b5dcacfd787ef30e38911badce31fbf",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "9,7",
+      "label": "c19_window_fourth_child_0269_0046",
+      "prefix_parent_label": "c19_prefix_branch_0269"
+    },
+    {
+      "branch_index": 50,
+      "fifth_child_label_digest": "8e8e3cd245f697e3c65749647f923beae0fdac54b5760c493838e375cfd038a7",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "9,13",
+      "label": "c19_window_fourth_child_0269_0050",
+      "prefix_parent_label": "c19_prefix_branch_0269"
+    },
+    {
+      "branch_index": 57,
+      "fifth_child_label_digest": "7c0c5c4ebe5e24c530dd9e52aaec5406b013a0accb7a2d4edc05ca95c2e60b37",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "10,7",
+      "label": "c19_window_fourth_child_0269_0057",
+      "prefix_parent_label": "c19_prefix_branch_0269"
+    },
+    {
+      "branch_index": 59,
+      "fifth_child_label_digest": "dc404615e6395afee1fde4d05c4eb507c9bc2751746441a81e8f5bd1950119eb",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "10,9",
+      "label": "c19_window_fourth_child_0269_0059",
+      "prefix_parent_label": "c19_prefix_branch_0269"
+    },
+    {
+      "branch_index": 61,
+      "fifth_child_label_digest": "5aa9072ac1fe4bd3c766aba3ca39c92ea49d6932345fe9514a212202d32744ce",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "10,13",
+      "label": "c19_window_fourth_child_0269_0061",
+      "prefix_parent_label": "c19_prefix_branch_0269"
+    },
+    {
+      "branch_index": 110,
+      "fifth_child_label_digest": "cfba5dc1291b2ff0682706282a2d27b3cb89ecaaa6d914420fe6873b87bee846",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,4",
+      "label": "c19_window_fourth_child_0269_0110",
+      "prefix_parent_label": "c19_prefix_branch_0269"
+    },
+    {
+      "branch_index": 120,
+      "fifth_child_label_digest": "b05195daab774b09782d1da8fee9ec5bebedcf205ab55f8dcabe4aebb309f682",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,18",
+      "label": "c19_window_fourth_child_0269_0120",
+      "prefix_parent_label": "c19_prefix_branch_0269"
+    },
+    {
+      "branch_index": 130,
+      "fifth_child_label_digest": "783887f18b8e0a557b7029a1dd01178ac0ef488e87924534845042d084dc611e",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,15",
+      "label": "c19_window_fourth_child_0272_0130",
+      "prefix_parent_label": "c19_prefix_branch_0272"
+    },
+    {
+      "branch_index": 3,
+      "fifth_child_label_digest": "79d2bc3fb8acf6860a8116e6d89c971f3f5a224cb24034ea17eded0d5b9a049c",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "6,10",
+      "label": "c19_window_fourth_child_0273_0003",
+      "prefix_parent_label": "c19_prefix_branch_0273"
+    },
+    {
+      "branch_index": 10,
+      "fifth_child_label_digest": "64ccc6895a28e13b33158e491e49254363fef2c33c5429f592ffc070b22ca520",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "6,18",
+      "label": "c19_window_fourth_child_0273_0010",
+      "prefix_parent_label": "c19_prefix_branch_0273"
+    },
+    {
+      "branch_index": 59,
+      "fifth_child_label_digest": "faa53eb27276acfd3c707b812860be22f21e4faa44b8957b75d9e68452cded5d",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,10",
+      "label": "c19_window_fourth_child_0273_0059",
+      "prefix_parent_label": "c19_prefix_branch_0273"
+    },
+    {
+      "branch_index": 65,
+      "fifth_child_label_digest": "c1808ad19e380364260ebbc0669280c804386976abad01d1f6e701a46aad930e",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,18",
+      "label": "c19_window_fourth_child_0273_0065",
+      "prefix_parent_label": "c19_prefix_branch_0273"
+    },
+    {
+      "branch_index": 87,
+      "fifth_child_label_digest": "fde817b8029c31b86e60f73ca9e0a998831a2157f3071caed2f6aab0b196205a",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "14,18",
+      "label": "c19_window_fourth_child_0273_0087",
+      "prefix_parent_label": "c19_prefix_branch_0273"
+    },
+    {
+      "branch_index": 3,
+      "fifth_child_label_digest": "1257ecbc9b2325308d4e40110e9c7d329bf694bea00b924d4c83c39e9b0db5f7",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "4,10",
+      "label": "c19_window_fourth_child_0274_0003",
+      "prefix_parent_label": "c19_prefix_branch_0274"
+    },
+    {
+      "branch_index": 59,
+      "fifth_child_label_digest": "2356ee10e9a7a942a4b42eb338b3b5abf18f92bb255e5dd20b502f05609578de",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,10",
+      "label": "c19_window_fourth_child_0274_0059",
+      "prefix_parent_label": "c19_prefix_branch_0274"
+    },
+    {
+      "branch_index": 65,
+      "fifth_child_label_digest": "622768dd70deb11474dbcd76a2023f7cc3f4390e9bca3b26b789aba7a236f4fc",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,18",
+      "label": "c19_window_fourth_child_0274_0065",
+      "prefix_parent_label": "c19_prefix_branch_0274"
+    },
+    {
+      "branch_index": 59,
+      "fifth_child_label_digest": "3009c4dd145c0a1621b7e45074f8190cd32491ccc615b1a686c4d9a6a8191f4e",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,10",
+      "label": "c19_window_fourth_child_0277_0059",
+      "prefix_parent_label": "c19_prefix_branch_0277"
+    },
+    {
+      "branch_index": 65,
+      "fifth_child_label_digest": "0757fd906324ce4753f09808bc9dc8e4872026c7535fc717d6ffda132139fdea",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,18",
+      "label": "c19_window_fourth_child_0277_0065",
+      "prefix_parent_label": "c19_prefix_branch_0277"
+    },
+    {
+      "branch_index": 0,
+      "fifth_child_label_digest": "0b0b8469337f70220a0d0e9f095a8338014a356b096f9370c00fd4d28d3c7398",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "4,6",
+      "label": "c19_window_fourth_child_0278_0000",
+      "prefix_parent_label": "c19_prefix_branch_0278"
+    },
+    {
+      "branch_index": 4,
+      "fifth_child_label_digest": "9993339c5404afbaa90deab9cf8db2f4fa683af6cb54ab64ab7f03838ebc0b5e",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "4,11",
+      "label": "c19_window_fourth_child_0278_0004",
+      "prefix_parent_label": "c19_prefix_branch_0278"
+    },
+    {
+      "branch_index": 8,
+      "fifth_child_label_digest": "0989aed73aa66bb3d9d4510f6c034c9683b1d0160819c4a6d828afd028378b77",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "4,16",
+      "label": "c19_window_fourth_child_0278_0008",
+      "prefix_parent_label": "c19_prefix_branch_0278"
+    },
+    {
+      "branch_index": 21,
+      "fifth_child_label_digest": "615100eb6316b2322b3c1a8b4a19ec352d965274e28b0df8d36cd37f81e0e4b2",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "6,18",
+      "label": "c19_window_fourth_child_0278_0021",
+      "prefix_parent_label": "c19_prefix_branch_0278"
+    },
+    {
+      "branch_index": 59,
+      "fifth_child_label_digest": "fcfe0d5c6abe6b73a9df4b43174522f3fbfd951026b0656a4fc1098fd48945ed",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,9",
+      "label": "c19_window_fourth_child_0278_0059",
+      "prefix_parent_label": "c19_prefix_branch_0278"
+    },
+    {
+      "branch_index": 65,
+      "fifth_child_label_digest": "11d3a69df0c14d54f24b0c278dee3b11b8fe76699a9851d173239efced1b8002",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "11,18",
+      "label": "c19_window_fourth_child_0278_0065",
+      "prefix_parent_label": "c19_prefix_branch_0278"
+    },
+    {
+      "branch_index": 87,
+      "fifth_child_label_digest": "ab7709c9d521d37e423837b66908d7cc2f7cd2e022d81ec7fcaa2ecafdece871",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "14,18",
+      "label": "c19_window_fourth_child_0278_0087",
+      "prefix_parent_label": "c19_prefix_branch_0278"
+    },
+    {
+      "branch_index": 4,
+      "fifth_child_label_digest": "b616f1dc1a2fe1a7d79f6f03985a4b6a691fa27119a63b141fef9bcba8e7b4c7",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "4,10",
+      "label": "c19_window_fourth_child_0279_0004",
+      "prefix_parent_label": "c19_prefix_branch_0279"
+    },
+    {
+      "branch_index": 120,
+      "fifth_child_label_digest": "3bc99046465e412d19cb7d74bedb3ce5f8b35358fc9a3af55f77f053196bec8b",
+      "fifth_pair_child_count": 90,
+      "fourth_added_pair": "17,18",
+      "label": "c19_window_fourth_child_0283_0120",
+      "prefix_parent_label": "c19_prefix_branch_0283"
+    }
+  ],
+  "per_window": [
+    {
+      "end_index": 159,
+      "fifth_child_label_digest": "75db70d03330d51835ff7974ec1999eeb8307e3fb5347a8416ee37f7467b51b8",
+      "fifth_pair_child_count": 180,
+      "source_fifth_pair_child_count": 180,
+      "source_unclosed_fifth_pair_child_count": 0,
+      "start_index": 128
+    },
+    {
+      "end_index": 191,
+      "fifth_child_label_digest": "004b096bc414999a8288790c66e93b76aeac1b879a3f66c2ad43848a016b4106",
+      "fifth_pair_child_count": 630,
+      "source_fifth_pair_child_count": 630,
+      "source_unclosed_fifth_pair_child_count": 0,
+      "start_index": 160
+    },
+    {
+      "end_index": 223,
+      "fifth_child_label_digest": "8763096fda0ee73f731dfa653a2cd4715a7cacdc7886f15f9f2977ffff8ab4d8",
+      "fifth_pair_child_count": 1350,
+      "source_fifth_pair_child_count": 1350,
+      "source_unclosed_fifth_pair_child_count": 0,
+      "start_index": 192
+    },
+    {
+      "end_index": 255,
+      "fifth_child_label_digest": "b8e68c1be46713436937f23bdbb7a4f8f89d0e01c0c0bf0a76de9fc2345724e4",
+      "fifth_pair_child_count": 810,
+      "source_fifth_pair_child_count": 810,
+      "source_unclosed_fifth_pair_child_count": 0,
+      "start_index": 224
+    },
+    {
+      "end_index": 287,
+      "fifth_child_label_digest": "43d1a8312d51f2681a0202ea9424e0f024cb57468a53b20b94840d56c88296a7",
+      "fifth_pair_child_count": 4950,
+      "source_fifth_pair_child_count": 4950,
+      "source_unclosed_fifth_pair_child_count": 0,
+      "start_index": 256
+    }
+  ],
+  "source_prefix_label_digest": "b18984a2ebd95ffcd6eb2af48fd13c6710b29d9234af18e5966895fa23667879",
+  "source_sweep_artifact": "data/certificates/c19_kalmanson_prefix_window_sweep_128_287.json",
+  "top_prefix_parents_by_fifth_pair_child_count": [
+    {
+      "fifth_pair_child_count": 810,
+      "prefix_parent_label": "c19_prefix_branch_0269"
+    },
+    {
+      "fifth_pair_child_count": 630,
+      "prefix_parent_label": "c19_prefix_branch_0278"
+    },
+    {
+      "fifth_pair_child_count": 450,
+      "prefix_parent_label": "c19_prefix_branch_0260"
+    },
+    {
+      "fifth_pair_child_count": 450,
+      "prefix_parent_label": "c19_prefix_branch_0261"
+    },
+    {
+      "fifth_pair_child_count": 450,
+      "prefix_parent_label": "c19_prefix_branch_0265"
+    },
+    {
+      "fifth_pair_child_count": 450,
+      "prefix_parent_label": "c19_prefix_branch_0273"
+    },
+    {
+      "fifth_pair_child_count": 360,
+      "prefix_parent_label": "c19_prefix_branch_0212"
+    },
+    {
+      "fifth_pair_child_count": 360,
+      "prefix_parent_label": "c19_prefix_branch_0243"
+    },
+    {
+      "fifth_pair_child_count": 360,
+      "prefix_parent_label": "c19_prefix_branch_0256"
+    },
+    {
+      "fifth_pair_child_count": 360,
+      "prefix_parent_label": "c19_prefix_branch_0264"
+    },
+    {
+      "fifth_pair_child_count": 270,
+      "prefix_parent_label": "c19_prefix_branch_0199"
+    },
+    {
+      "fifth_pair_child_count": 270,
+      "prefix_parent_label": "c19_prefix_branch_0262"
+    }
+  ],
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+  "type": "c19_fifth_pair_frontier_classifier_v1"
+}

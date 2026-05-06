@@ -1,0 +1,923 @@
+{
+  "fifth_pair_child_record_samples": {
+    "first": [
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          8,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          4,
+          7
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 7,
+        "fourth_added_left": 8,
+        "fourth_added_right_reflection_side": 4,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0033",
+        "label": "c19_window_fifth_child_0269_0033_0000",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 2
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          8,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          4,
+          9
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 9,
+        "fourth_added_left": 8,
+        "fourth_added_right_reflection_side": 4,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0033",
+        "label": "c19_window_fifth_child_0269_0033_0001",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 4
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          8,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          4,
+          10
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 10,
+        "fourth_added_left": 8,
+        "fourth_added_right_reflection_side": 4,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0033",
+        "label": "c19_window_fifth_child_0269_0033_0002",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 5
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          8,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          4,
+          12
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 12,
+        "fourth_added_left": 8,
+        "fourth_added_right_reflection_side": 4,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0033",
+        "label": "c19_window_fifth_child_0269_0033_0003",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 3
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          8,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          4,
+          13
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 13,
+        "fourth_added_left": 8,
+        "fourth_added_right_reflection_side": 4,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0033",
+        "label": "c19_window_fifth_child_0269_0033_0004",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 2
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          8,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          4,
+          14
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 14,
+        "fourth_added_left": 8,
+        "fourth_added_right_reflection_side": 4,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0033",
+        "label": "c19_window_fifth_child_0269_0033_0005",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 1
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          8,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          4,
+          16
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 16,
+        "fourth_added_left": 8,
+        "fourth_added_right_reflection_side": 4,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0033",
+        "label": "c19_window_fifth_child_0269_0033_0006",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 1
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          8,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          4,
+          17
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 17,
+        "fourth_added_left": 8,
+        "fourth_added_right_reflection_side": 4,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0033",
+        "label": "c19_window_fifth_child_0269_0033_0007",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 2
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          8,
+          6
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          4,
+          18
+        ],
+        "fifth_added_left": 6,
+        "fifth_added_right_reflection_side": 18,
+        "fourth_added_left": 8,
+        "fourth_added_right_reflection_side": 4,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0033",
+        "label": "c19_window_fifth_child_0269_0033_0008",
+        "left_gap_to_fourth_boundary": 2,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 3
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          8,
+          7
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          4,
+          6
+        ],
+        "fifth_added_left": 7,
+        "fifth_added_right_reflection_side": 6,
+        "fourth_added_left": 8,
+        "fourth_added_right_reflection_side": 4,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0033",
+        "label": "c19_window_fifth_child_0269_0033_0009",
+        "left_gap_to_fourth_boundary": 1,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 1
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          8,
+          7
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          4,
+          9
+        ],
+        "fifth_added_left": 7,
+        "fifth_added_right_reflection_side": 9,
+        "fourth_added_left": 8,
+        "fourth_added_right_reflection_side": 4,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0033",
+        "label": "c19_window_fifth_child_0269_0033_0010",
+        "left_gap_to_fourth_boundary": 1,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 4
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          8,
+          7
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          4,
+          10
+        ],
+        "fifth_added_left": 7,
+        "fifth_added_right_reflection_side": 10,
+        "fourth_added_left": 8,
+        "fourth_added_right_reflection_side": 4,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0033",
+        "label": "c19_window_fifth_child_0269_0033_0011",
+        "left_gap_to_fourth_boundary": 1,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 5
+      }
+    ],
+    "last": [
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          17,
+          14
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          18,
+          12
+        ],
+        "fifth_added_left": 14,
+        "fifth_added_right_reflection_side": 12,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0120",
+        "label": "c19_window_fifth_child_0269_0120_0078",
+        "left_gap_to_fourth_boundary": 3,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 3
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          17,
+          14
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          18,
+          13
+        ],
+        "fifth_added_left": 14,
+        "fifth_added_right_reflection_side": 13,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0120",
+        "label": "c19_window_fifth_child_0269_0120_0079",
+        "left_gap_to_fourth_boundary": 3,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 2
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          17,
+          14
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          18,
+          16
+        ],
+        "fifth_added_left": 14,
+        "fifth_added_right_reflection_side": 16,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0120",
+        "label": "c19_window_fifth_child_0269_0120_0080",
+        "left_gap_to_fourth_boundary": 3,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 1
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          17,
+          16
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          18,
+          4
+        ],
+        "fifth_added_left": 16,
+        "fifth_added_right_reflection_side": 4,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0120",
+        "label": "c19_window_fifth_child_0269_0120_0081",
+        "left_gap_to_fourth_boundary": 1,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 1
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          17,
+          16
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          18,
+          6
+        ],
+        "fifth_added_left": 16,
+        "fifth_added_right_reflection_side": 6,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0120",
+        "label": "c19_window_fifth_child_0269_0120_0082",
+        "left_gap_to_fourth_boundary": 1,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 1
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          17,
+          16
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          18,
+          7
+        ],
+        "fifth_added_left": 16,
+        "fifth_added_right_reflection_side": 7,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0120",
+        "label": "c19_window_fifth_child_0269_0120_0083",
+        "left_gap_to_fourth_boundary": 1,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 2
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          17,
+          16
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          18,
+          8
+        ],
+        "fifth_added_left": 16,
+        "fifth_added_right_reflection_side": 8,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0120",
+        "label": "c19_window_fifth_child_0269_0120_0084",
+        "left_gap_to_fourth_boundary": 1,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 3
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          17,
+          16
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          18,
+          9
+        ],
+        "fifth_added_left": 16,
+        "fifth_added_right_reflection_side": 9,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0120",
+        "label": "c19_window_fifth_child_0269_0120_0085",
+        "left_gap_to_fourth_boundary": 1,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 4
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          17,
+          16
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          18,
+          10
+        ],
+        "fifth_added_left": 16,
+        "fifth_added_right_reflection_side": 10,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0120",
+        "label": "c19_window_fifth_child_0269_0120_0086",
+        "left_gap_to_fourth_boundary": 1,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 5
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          17,
+          16
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          18,
+          12
+        ],
+        "fifth_added_left": 16,
+        "fifth_added_right_reflection_side": 12,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0120",
+        "label": "c19_window_fifth_child_0269_0120_0087",
+        "left_gap_to_fourth_boundary": 1,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 3
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          17,
+          16
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          18,
+          13
+        ],
+        "fifth_added_left": 16,
+        "fifth_added_right_reflection_side": 13,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0120",
+        "label": "c19_window_fifth_child_0269_0120_0088",
+        "left_gap_to_fourth_boundary": 1,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 2
+      },
+      {
+        "child_boundary_left": [
+          1,
+          3,
+          11,
+          17,
+          16
+        ],
+        "child_boundary_right_reflection_side": [
+          2,
+          5,
+          15,
+          18,
+          14
+        ],
+        "fifth_added_left": 16,
+        "fifth_added_right_reflection_side": 14,
+        "fourth_added_left": 17,
+        "fourth_added_right_reflection_side": 18,
+        "fourth_pair_parent_label": "c19_window_fourth_child_0269_0120",
+        "label": "c19_window_fifth_child_0269_0120_0089",
+        "left_gap_to_fourth_boundary": 1,
+        "middle_label_count": 8,
+        "prefix_parent_label": "c19_prefix_branch_0269",
+        "right_gap_to_fourth_boundary": 1
+      }
+    ]
+  },
+  "focus_parent": {
+    "boundary_left": [
+      1,
+      3,
+      11
+    ],
+    "boundary_right_reflection_side": [
+      2,
+      5,
+      15
+    ],
+    "fifth_pair_child_count": 810,
+    "fifth_pair_child_label_digest": "65690f03459851d0f3dafc19d2d0a4a1a6797d4e033f455e39b17810d2e2cf08",
+    "fourth_pair_survivor_count": 9,
+    "label": "c19_prefix_branch_0269"
+  },
+  "frontier_artifact": "reports/c19_fourth_pair_frontier_classifier.json",
+  "histograms": {
+    "fifth_child_count_by_fourth_added_pair": {
+      "10,13": 90,
+      "10,7": 90,
+      "10,9": 90,
+      "17,18": 90,
+      "17,4": 90,
+      "8,4": 90,
+      "8,7": 90,
+      "9,13": 90,
+      "9,7": 90
+    },
+    "fifth_survivor_count_by_added_left": {
+      "10": 54,
+      "12": 81,
+      "13": 63,
+      "14": 81,
+      "16": 81,
+      "17": 63,
+      "18": 72,
+      "4": 63,
+      "6": 81,
+      "7": 54,
+      "8": 63,
+      "9": 54
+    },
+    "fifth_survivor_count_by_added_pair": {
+      "10,12": 6,
+      "10,13": 5,
+      "10,14": 6,
+      "10,16": 6,
+      "10,17": 4,
+      "10,18": 5,
+      "10,4": 4,
+      "10,6": 6,
+      "10,7": 4,
+      "10,8": 4,
+      "10,9": 4,
+      "12,10": 6,
+      "12,13": 7,
+      "12,14": 9,
+      "12,16": 9,
+      "12,17": 7,
+      "12,18": 8,
+      "12,4": 7,
+      "12,6": 9,
+      "12,7": 6,
+      "12,8": 7,
+      "12,9": 6,
+      "13,10": 5,
+      "13,12": 7,
+      "13,14": 7,
+      "13,16": 7,
+      "13,17": 5,
+      "13,18": 6,
+      "13,4": 5,
+      "13,6": 7,
+      "13,7": 4,
+      "13,8": 5,
+      "13,9": 5,
+      "14,10": 6,
+      "14,12": 9,
+      "14,13": 7,
+      "14,16": 9,
+      "14,17": 7,
+      "14,18": 8,
+      "14,4": 7,
+      "14,6": 9,
+      "14,7": 6,
+      "14,8": 7,
+      "14,9": 6,
+      "16,10": 6,
+      "16,12": 9,
+      "16,13": 7,
+      "16,14": 9,
+      "16,17": 7,
+      "16,18": 8,
+      "16,4": 7,
+      "16,6": 9,
+      "16,7": 6,
+      "16,8": 7,
+      "16,9": 6,
+      "17,10": 4,
+      "17,12": 7,
+      "17,13": 5,
+      "17,14": 7,
+      "17,16": 7,
+      "17,18": 7,
+      "17,4": 6,
+      "17,6": 7,
+      "17,7": 4,
+      "17,8": 5,
+      "17,9": 4,
+      "18,10": 5,
+      "18,12": 8,
+      "18,13": 6,
+      "18,14": 8,
+      "18,16": 8,
+      "18,17": 7,
+      "18,4": 6,
+      "18,6": 8,
+      "18,7": 5,
+      "18,8": 6,
+      "18,9": 5,
+      "4,10": 4,
+      "4,12": 7,
+      "4,13": 5,
+      "4,14": 7,
+      "4,16": 7,
+      "4,17": 6,
+      "4,18": 6,
+      "4,6": 7,
+      "4,7": 4,
+      "4,8": 6,
+      "4,9": 4,
+      "6,10": 6,
+      "6,12": 9,
+      "6,13": 7,
+      "6,14": 9,
+      "6,16": 9,
+      "6,17": 7,
+      "6,18": 8,
+      "6,4": 7,
+      "6,7": 6,
+      "6,8": 7,
+      "6,9": 6,
+      "7,10": 4,
+      "7,12": 6,
+      "7,13": 4,
+      "7,14": 6,
+      "7,16": 6,
+      "7,17": 4,
+      "7,18": 5,
+      "7,4": 4,
+      "7,6": 6,
+      "7,8": 5,
+      "7,9": 4,
+      "8,10": 4,
+      "8,12": 7,
+      "8,13": 5,
+      "8,14": 7,
+      "8,16": 7,
+      "8,17": 5,
+      "8,18": 6,
+      "8,4": 6,
+      "8,6": 7,
+      "8,7": 5,
+      "8,9": 4,
+      "9,10": 4,
+      "9,12": 6,
+      "9,13": 5,
+      "9,14": 6,
+      "9,16": 6,
+      "9,17": 4,
+      "9,18": 5,
+      "9,4": 4,
+      "9,6": 6,
+      "9,7": 4,
+      "9,8": 4
+    },
+    "fifth_survivor_count_by_added_right_reflection_side": {
+      "10": 54,
+      "12": 81,
+      "13": 63,
+      "14": 81,
+      "16": 81,
+      "17": 63,
+      "18": 72,
+      "4": 63,
+      "6": 81,
+      "7": 54,
+      "8": 63,
+      "9": 54
+    },
+    "left_gap_to_fourth_boundary": {
+      "1": 288,
+      "2": 135,
+      "3": 180,
+      "4": 18,
+      "5": 63,
+      "6": 63,
+      "7": 63
+    },
+    "right_gap_to_fourth_boundary": {
+      "1": 351,
+      "2": 198,
+      "3": 198,
+      "4": 36,
+      "5": 27
+    }
+  },
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "This is an exact fifth-pair sub-frontier classifier below C19 prefix branch 269.",
+    "The classifier reconstructs branch labels below the recorded fourth-pair survivors and checks the source sweep records no fifth-pair survivors in the containing window.",
+    "It does not run LPs and does not certify branches beyond the source artifact."
+  ],
+  "per_fourth_pair_parent": [
+    {
+      "fifth_child_label_digest": "298cd2f23317a2e912683b10f028606a3e39e3d64c1fbd3aebcba28b5779a772",
+      "fifth_pair_child_count": 90,
+      "fourth_added_left": 8,
+      "fourth_added_right_reflection_side": 4,
+      "label": "c19_window_fourth_child_0269_0033"
+    },
+    {
+      "fifth_child_label_digest": "fcc1f4991f8d738bf8a1a61d2b50a750108fa8ffa89a16264fc7a14ff1d3f67a",
+      "fifth_pair_child_count": 90,
+      "fourth_added_left": 8,
+      "fourth_added_right_reflection_side": 7,
+      "label": "c19_window_fourth_child_0269_0035"
+    },
+    {
+      "fifth_child_label_digest": "d3c13286f2861bba3e12f3f7a819bae69b5dcacfd787ef30e38911badce31fbf",
+      "fifth_pair_child_count": 90,
+      "fourth_added_left": 9,
+      "fourth_added_right_reflection_side": 7,
+      "label": "c19_window_fourth_child_0269_0046"
+    },
+    {
+      "fifth_child_label_digest": "8e8e3cd245f697e3c65749647f923beae0fdac54b5760c493838e375cfd038a7",
+      "fifth_pair_child_count": 90,
+      "fourth_added_left": 9,
+      "fourth_added_right_reflection_side": 13,
+      "label": "c19_window_fourth_child_0269_0050"
+    },
+    {
+      "fifth_child_label_digest": "7c0c5c4ebe5e24c530dd9e52aaec5406b013a0accb7a2d4edc05ca95c2e60b37",
+      "fifth_pair_child_count": 90,
+      "fourth_added_left": 10,
+      "fourth_added_right_reflection_side": 7,
+      "label": "c19_window_fourth_child_0269_0057"
+    },
+    {
+      "fifth_child_label_digest": "dc404615e6395afee1fde4d05c4eb507c9bc2751746441a81e8f5bd1950119eb",
+      "fifth_pair_child_count": 90,
+      "fourth_added_left": 10,
+      "fourth_added_right_reflection_side": 9,
+      "label": "c19_window_fourth_child_0269_0059"
+    },
+    {
+      "fifth_child_label_digest": "5aa9072ac1fe4bd3c766aba3ca39c92ea49d6932345fe9514a212202d32744ce",
+      "fifth_pair_child_count": 90,
+      "fourth_added_left": 10,
+      "fourth_added_right_reflection_side": 13,
+      "label": "c19_window_fourth_child_0269_0061"
+    },
+    {
+      "fifth_child_label_digest": "cfba5dc1291b2ff0682706282a2d27b3cb89ecaaa6d914420fe6873b87bee846",
+      "fifth_pair_child_count": 90,
+      "fourth_added_left": 17,
+      "fourth_added_right_reflection_side": 4,
+      "label": "c19_window_fourth_child_0269_0110"
+    },
+    {
+      "fifth_child_label_digest": "b05195daab774b09782d1da8fee9ec5bebedcf205ab55f8dcabe4aebb309f682",
+      "fifth_pair_child_count": 90,
+      "fourth_added_left": 17,
+      "fourth_added_right_reflection_side": 18,
+      "label": "c19_window_fourth_child_0269_0120"
+    }
+  ],
+  "source_prefix_label_digest": "b18984a2ebd95ffcd6eb2af48fd13c6710b29d9234af18e5966895fa23667879",
+  "source_sweep_artifact": "data/certificates/c19_kalmanson_prefix_window_sweep_128_287.json",
+  "source_window": {
+    "end_index": 287,
+    "fifth_pair_child_branch_count": 4950,
+    "fifth_pair_child_certified_count": 4950,
+    "start_index": 256,
+    "unclosed_fifth_pair_child_branch_count": 0
+  },
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+  "type": "c19_branch269_fifth_pair_subfrontier_v1"
+}

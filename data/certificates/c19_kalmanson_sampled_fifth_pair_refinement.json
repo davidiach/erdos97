@@ -1,0 +1,640 @@
+{
+  "branch_accounting": {
+    "exhaustive_all_orders": false,
+    "exhaustive_refinement_of_sampled_fourth_pair_frontier": true,
+    "fifth_pair_child_branch_count": 4770,
+    "fifth_pair_child_certified_count": 4770,
+    "fifth_pair_children_per_parent": 90,
+    "fourth_pair_parents_closed_by_fifth_refinement": 53,
+    "fourth_pair_parents_still_unclosed_after_fifth_refinement": 0,
+    "sampled_fourth_pair_frontier_parent_count": 53,
+    "sampled_prefix_parents_closed_by_fifth_refinement": 15,
+    "scanned_parent_count": 53,
+    "unclosed_fifth_pair_child_branch_count": 0
+  },
+  "closed_certificate_examples": [
+    {
+      "added_left": 8,
+      "added_right_reflection_side": 9,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 9531,
+        "positive_inequalities": 57,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 115516,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        3,
+        6,
+        11,
+        8
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7,
+        9
+      ],
+      "fourth_pair_parent_label": "c19_fourth_pair_child_0044",
+      "label": "c19_fifth_pair_child_00000",
+      "parent_boundary_left": [
+        1,
+        3,
+        6,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "sampled_parent_label": "c19_prefix_branch_0013"
+    },
+    {
+      "added_left": 8,
+      "added_right_reflection_side": 10,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 59819,
+        "positive_inequalities": 60,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 1087332,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        3,
+        6,
+        11,
+        8
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7,
+        10
+      ],
+      "fourth_pair_parent_label": "c19_fourth_pair_child_0044",
+      "label": "c19_fifth_pair_child_00001",
+      "parent_boundary_left": [
+        1,
+        3,
+        6,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "sampled_parent_label": "c19_prefix_branch_0013"
+    },
+    {
+      "added_left": 8,
+      "added_right_reflection_side": 12,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 46619,
+        "positive_inequalities": 64,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 599435,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        3,
+        6,
+        11,
+        8
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7,
+        12
+      ],
+      "fourth_pair_parent_label": "c19_fourth_pair_child_0044",
+      "label": "c19_fifth_pair_child_00002",
+      "parent_boundary_left": [
+        1,
+        3,
+        6,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "sampled_parent_label": "c19_prefix_branch_0013"
+    },
+    {
+      "added_left": 8,
+      "added_right_reflection_side": 13,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 45325,
+        "positive_inequalities": 60,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 502416,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        3,
+        6,
+        11,
+        8
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7,
+        13
+      ],
+      "fourth_pair_parent_label": "c19_fourth_pair_child_0044",
+      "label": "c19_fifth_pair_child_00003",
+      "parent_boundary_left": [
+        1,
+        3,
+        6,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "sampled_parent_label": "c19_prefix_branch_0013"
+    },
+    {
+      "added_left": 8,
+      "added_right_reflection_side": 14,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 16594,
+        "positive_inequalities": 58,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 285408,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        3,
+        6,
+        11,
+        8
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7,
+        14
+      ],
+      "fourth_pair_parent_label": "c19_fourth_pair_child_0044",
+      "label": "c19_fifth_pair_child_00004",
+      "parent_boundary_left": [
+        1,
+        3,
+        6,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "sampled_parent_label": "c19_prefix_branch_0013"
+    },
+    {
+      "added_left": 8,
+      "added_right_reflection_side": 15,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 48959,
+        "positive_inequalities": 64,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 813245,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        3,
+        6,
+        11,
+        8
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7,
+        15
+      ],
+      "fourth_pair_parent_label": "c19_fourth_pair_child_0044",
+      "label": "c19_fifth_pair_child_00005",
+      "parent_boundary_left": [
+        1,
+        3,
+        6,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "sampled_parent_label": "c19_prefix_branch_0013"
+    },
+    {
+      "added_left": 8,
+      "added_right_reflection_side": 16,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 1513,
+        "positive_inequalities": 60,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 17721,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        3,
+        6,
+        11,
+        8
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7,
+        16
+      ],
+      "fourth_pair_parent_label": "c19_fourth_pair_child_0044",
+      "label": "c19_fifth_pair_child_00006",
+      "parent_boundary_left": [
+        1,
+        3,
+        6,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "sampled_parent_label": "c19_prefix_branch_0013"
+    },
+    {
+      "added_left": 8,
+      "added_right_reflection_side": 17,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 2295,
+        "positive_inequalities": 63,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 38348,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        3,
+        6,
+        11,
+        8
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7,
+        17
+      ],
+      "fourth_pair_parent_label": "c19_fourth_pair_child_0044",
+      "label": "c19_fifth_pair_child_00007",
+      "parent_boundary_left": [
+        1,
+        3,
+        6,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "sampled_parent_label": "c19_prefix_branch_0013"
+    },
+    {
+      "added_left": 8,
+      "added_right_reflection_side": 18,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 18359,
+        "positive_inequalities": 63,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 298035,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        3,
+        6,
+        11,
+        8
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7,
+        18
+      ],
+      "fourth_pair_parent_label": "c19_fourth_pair_child_0044",
+      "label": "c19_fifth_pair_child_00008",
+      "parent_boundary_left": [
+        1,
+        3,
+        6,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "sampled_parent_label": "c19_prefix_branch_0013"
+    },
+    {
+      "added_left": 9,
+      "added_right_reflection_side": 8,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 89832,
+        "positive_inequalities": 63,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 1304832,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        3,
+        6,
+        11,
+        9
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "fourth_pair_parent_label": "c19_fourth_pair_child_0044",
+      "label": "c19_fifth_pair_child_00009",
+      "parent_boundary_left": [
+        1,
+        3,
+        6,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "sampled_parent_label": "c19_prefix_branch_0013"
+    },
+    {
+      "added_left": 9,
+      "added_right_reflection_side": 10,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 13392,
+        "positive_inequalities": 62,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 288653,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        3,
+        6,
+        11,
+        9
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7,
+        10
+      ],
+      "fourth_pair_parent_label": "c19_fourth_pair_child_0044",
+      "label": "c19_fifth_pair_child_00010",
+      "parent_boundary_left": [
+        1,
+        3,
+        6,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "sampled_parent_label": "c19_prefix_branch_0013"
+    },
+    {
+      "added_left": 9,
+      "added_right_reflection_side": 12,
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 1548,
+        "positive_inequalities": 50,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 14191,
+        "zero_sum_verified": true
+      },
+      "child_boundary_left": [
+        1,
+        3,
+        6,
+        11,
+        9
+      ],
+      "child_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7,
+        12
+      ],
+      "fourth_pair_parent_label": "c19_fourth_pair_child_0044",
+      "label": "c19_fifth_pair_child_00011",
+      "parent_boundary_left": [
+        1,
+        3,
+        6,
+        11
+      ],
+      "parent_boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "sampled_parent_label": "c19_prefix_branch_0013"
+    }
+  ],
+  "closed_support_size_histogram": {
+    "13": 1,
+    "18": 1,
+    "22": 1,
+    "24": 1,
+    "26": 1,
+    "27": 1,
+    "29": 1,
+    "30": 2,
+    "31": 3,
+    "32": 4,
+    "33": 3,
+    "34": 2,
+    "35": 8,
+    "36": 3,
+    "37": 8,
+    "38": 8,
+    "39": 8,
+    "4": 1,
+    "40": 12,
+    "41": 18,
+    "42": 21,
+    "43": 18,
+    "44": 22,
+    "45": 27,
+    "46": 32,
+    "47": 42,
+    "48": 52,
+    "49": 63,
+    "50": 46,
+    "51": 68,
+    "52": 99,
+    "53": 123,
+    "54": 134,
+    "55": 159,
+    "56": 148,
+    "57": 207,
+    "58": 233,
+    "59": 260,
+    "60": 300,
+    "61": 285,
+    "62": 287,
+    "63": 305,
+    "64": 270,
+    "65": 261,
+    "66": 282,
+    "67": 230,
+    "68": 207,
+    "69": 169,
+    "70": 102,
+    "71": 72,
+    "72": 71,
+    "73": 46,
+    "74": 19,
+    "75": 13,
+    "76": 4,
+    "77": 4,
+    "78": 2
+  },
+  "combined_sample_accounting": {
+    "sampled_fourth_pair_children_closed_by_fifth_pair_subdivision": 53,
+    "sampled_fourth_pair_children_refined_here": 53,
+    "sampled_fourth_pair_children_remaining_after_fifth_pair": 0,
+    "sampled_prefix_branches_closed_after_fifth_pair": 128,
+    "sampled_prefix_branches_closed_by_fifth_pair_subdivision": 15,
+    "sampled_prefix_branches_closed_by_fourth_pair_subdivision": 13,
+    "sampled_prefix_branches_closed_directly_by_prior_pilot": 100,
+    "sampled_prefix_branches_in_prior_pilot": 128,
+    "sampled_prefix_branches_remaining_after_fifth_pair": 0,
+    "sampled_prefix_branches_remaining_after_fourth_pair": 15
+  },
+  "fifth_child_label_digest": "94c4657efb0253fe566cc7fad12c2401658f0fcdc9f1cdca7b44c3d40d497f0b",
+  "forced_row_count_histogram": {
+    "3300": 4770
+  },
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "This refines only sampled C19 fourth-pair children left open by the sampled fourth-pair pass.",
+    "Each closed fifth-pair child is certified using only Kalmanson inequalities whose order is forced by the recorded five-pair boundary prefix.",
+    "Unclosed children are not counterexamples and are not evidence of realizability.",
+    "This is not an exhaustive all-order C19 search."
+  ],
+  "parameters": {
+    "anchor_label": 0,
+    "child_boundary_pairs": 5,
+    "closed_example_count": 12,
+    "fourth_pair_artifact": "data/certificates/c19_kalmanson_sampled_fourth_pair_refinement.json",
+    "include_certificates_in_examples": false,
+    "lp_support_tolerance": 1e-09,
+    "max_parents": null,
+    "parent_boundary_pairs": 4,
+    "prefix_pilot_sample_size": 128
+  },
+  "pattern": {
+    "circulant_offsets": [
+      -8,
+      -3,
+      5,
+      9
+    ],
+    "n": 19,
+    "name": "C19_skew"
+  },
+  "trust": "EXACT_OBSTRUCTION",
+  "type": "c19_kalmanson_sampled_fifth_pair_refinement_v1",
+  "unclosed_fifth_pair_child_branches": []
+}

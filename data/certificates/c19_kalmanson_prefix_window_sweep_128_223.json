@@ -1,0 +1,1589 @@
+{
+  "aggregate_accounting": {
+    "direct_prefix_certified_count": 73,
+    "direct_prefix_unclosed_count": 23,
+    "exhaustive_all_orders": false,
+    "exhaustive_window_sweep": true,
+    "fifth_pair_child_branch_count": 2160,
+    "fifth_pair_child_certified_count": 2160,
+    "fourth_pair_child_branch_count": 3036,
+    "fourth_pair_child_certified_count": 3012,
+    "prefix_branch_count": 96,
+    "prefix_branches_closed_after_chain": 96,
+    "prefix_branches_remaining_after_chain": 0,
+    "unclosed_fifth_pair_child_branch_count": 0,
+    "unclosed_fourth_pair_child_branch_count": 24
+  },
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "This sweep certifies only deterministic C19 three-boundary-prefix windows.",
+    "Closed branches use Kalmanson/Farkas certificates whose order is forced by the recorded boundary prefix.",
+    "Unclosed children, if any, are not counterexamples and are not evidence of realizability.",
+    "This is not an exhaustive all-order C19 search."
+  ],
+  "parameters": {
+    "anchor_label": 0,
+    "lp_support_tolerance": 1e-09,
+    "start_index": 128,
+    "window_count": 3,
+    "window_size": 32
+  },
+  "pattern": {
+    "circulant_offsets": [
+      -8,
+      -3,
+      5,
+      9
+    ],
+    "n": 19,
+    "name": "C19_skew"
+  },
+  "prefix_label_digest": "f0ed89c6d902eaca14ae5967a0cd0eb6677738675611701219ed8a921306bda8",
+  "trust": "EXACT_OBSTRUCTION",
+  "type": "c19_kalmanson_prefix_window_sweep_v1",
+  "windows": [
+    {
+      "branch_accounting": {
+        "direct_prefix_certified_count": 31,
+        "direct_prefix_unclosed_count": 1,
+        "exhaustive_all_orders": false,
+        "exhaustive_window_scan": true,
+        "fifth_pair_child_branch_count": 180,
+        "fifth_pair_child_certified_count": 180,
+        "fifth_pair_parent_count": 2,
+        "fourth_pair_child_branch_count": 132,
+        "fourth_pair_child_certified_count": 130,
+        "fourth_pair_parent_count": 1,
+        "fourth_pair_parents_closed_by_fifth_refinement": 2,
+        "prefix_branch_count": 32,
+        "prefix_branches_closed_after_chain": 32,
+        "prefix_branches_remaining_after_chain": 0,
+        "prefix_parents_closed_by_fifth_refinement": 1,
+        "prefix_parents_closed_by_fourth_refinement": 0,
+        "unclosed_fifth_pair_child_branch_count": 0,
+        "unclosed_fourth_pair_child_branch_count": 2
+      },
+      "closed_support_size_histograms": {
+        "direct_prefix": {
+          "10": 1,
+          "11": 1,
+          "13": 1,
+          "2": 3,
+          "3": 6,
+          "4": 8,
+          "5": 5,
+          "6": 2,
+          "7": 1,
+          "8": 2,
+          "9": 1
+        },
+        "fifth_pair": {
+          "40": 1,
+          "44": 1,
+          "45": 2,
+          "47": 2,
+          "50": 4,
+          "51": 3,
+          "52": 3,
+          "53": 5,
+          "54": 3,
+          "55": 6,
+          "56": 6,
+          "57": 10,
+          "58": 6,
+          "59": 10,
+          "60": 21,
+          "61": 13,
+          "62": 16,
+          "63": 12,
+          "64": 9,
+          "65": 6,
+          "66": 15,
+          "67": 6,
+          "68": 7,
+          "69": 4,
+          "70": 4,
+          "71": 1,
+          "72": 3,
+          "74": 1
+        },
+        "fourth_pair": {
+          "12": 2,
+          "13": 2,
+          "15": 1,
+          "16": 1,
+          "18": 1,
+          "19": 1,
+          "20": 1,
+          "21": 2,
+          "22": 1,
+          "23": 2,
+          "24": 1,
+          "27": 1,
+          "28": 3,
+          "29": 2,
+          "3": 2,
+          "31": 1,
+          "32": 8,
+          "33": 5,
+          "34": 5,
+          "35": 5,
+          "36": 6,
+          "37": 3,
+          "38": 3,
+          "39": 7,
+          "40": 8,
+          "41": 7,
+          "42": 8,
+          "43": 6,
+          "44": 6,
+          "45": 7,
+          "46": 6,
+          "47": 5,
+          "48": 3,
+          "49": 4,
+          "51": 1,
+          "53": 2,
+          "56": 1
+        }
+      },
+      "direct_survivor_labels": [
+        "c19_prefix_branch_0156"
+      ],
+      "direct_survivors": [
+        {
+          "boundary_left": [
+            1,
+            3,
+            17
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            4,
+            5
+          ],
+          "label": "c19_prefix_branch_0156",
+          "middle_label_count": 12
+        }
+      ],
+      "end_index": 159,
+      "fifth_pair_survivor_labels": [],
+      "fifth_pair_survivors": [],
+      "forced_row_count_histograms": {
+        "direct_prefix": {
+          "910": 32
+        },
+        "fifth_pair": {
+          "3300": 180
+        },
+        "fourth_pair": {
+          "1932": 132
+        }
+      },
+      "fourth_pair_survivor_labels": [
+        "c19_window_fourth_child_0156_0063",
+        "c19_window_fourth_child_0156_0065"
+      ],
+      "fourth_pair_survivors": [
+        {
+          "added_left": 11,
+          "added_right_reflection_side": 15,
+          "child_boundary_left": [
+            1,
+            3,
+            17,
+            11
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            4,
+            5,
+            15
+          ],
+          "label": "c19_window_fourth_child_0156_0063",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            17
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            4,
+            5
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0156"
+        },
+        {
+          "added_left": 11,
+          "added_right_reflection_side": 18,
+          "child_boundary_left": [
+            1,
+            3,
+            17,
+            11
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            4,
+            5,
+            18
+          ],
+          "label": "c19_window_fourth_child_0156_0065",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            17
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            4,
+            5
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0156"
+        }
+      ],
+      "label_digests": {
+        "fifth_pair_children": "75db70d03330d51835ff7974ec1999eeb8307e3fb5347a8416ee37f7467b51b8",
+        "fourth_pair_children": "e2fe7d93069dab13d15fe076e4d114db09c0d75420208f89241fccf26bca1225",
+        "prefix": "9741d59833d730db662ad850c052d53fc880a6599db363e82175ca318729f3e9"
+      },
+      "start_index": 128,
+      "window_size": 32
+    },
+    {
+      "branch_accounting": {
+        "direct_prefix_certified_count": 23,
+        "direct_prefix_unclosed_count": 9,
+        "exhaustive_all_orders": false,
+        "exhaustive_window_scan": true,
+        "fifth_pair_child_branch_count": 630,
+        "fifth_pair_child_certified_count": 630,
+        "fifth_pair_parent_count": 7,
+        "fourth_pair_child_branch_count": 1188,
+        "fourth_pair_child_certified_count": 1181,
+        "fourth_pair_parent_count": 9,
+        "fourth_pair_parents_closed_by_fifth_refinement": 7,
+        "prefix_branch_count": 32,
+        "prefix_branches_closed_after_chain": 32,
+        "prefix_branches_remaining_after_chain": 0,
+        "prefix_parents_closed_by_fifth_refinement": 5,
+        "prefix_parents_closed_by_fourth_refinement": 4,
+        "unclosed_fifth_pair_child_branch_count": 0,
+        "unclosed_fourth_pair_child_branch_count": 7
+      },
+      "closed_support_size_histograms": {
+        "direct_prefix": {
+          "10": 1,
+          "12": 2,
+          "13": 2,
+          "14": 1,
+          "17": 1,
+          "20": 1,
+          "3": 1,
+          "4": 3,
+          "5": 3,
+          "6": 1,
+          "7": 3,
+          "8": 1,
+          "9": 3
+        },
+        "fifth_pair": {
+          "2": 1,
+          "36": 1,
+          "42": 1,
+          "43": 2,
+          "44": 1,
+          "45": 1,
+          "46": 2,
+          "47": 2,
+          "48": 2,
+          "49": 5,
+          "50": 5,
+          "51": 7,
+          "52": 6,
+          "53": 13,
+          "54": 15,
+          "55": 13,
+          "56": 19,
+          "57": 23,
+          "58": 31,
+          "59": 35,
+          "60": 32,
+          "61": 44,
+          "62": 46,
+          "63": 48,
+          "64": 33,
+          "65": 42,
+          "66": 43,
+          "67": 35,
+          "68": 42,
+          "69": 23,
+          "70": 18,
+          "71": 15,
+          "72": 10,
+          "73": 4,
+          "74": 6,
+          "75": 2,
+          "76": 1,
+          "77": 1
+        },
+        "fourth_pair": {
+          "10": 8,
+          "11": 8,
+          "12": 3,
+          "13": 4,
+          "14": 1,
+          "15": 6,
+          "16": 7,
+          "17": 3,
+          "18": 8,
+          "19": 10,
+          "2": 6,
+          "20": 13,
+          "21": 12,
+          "22": 14,
+          "23": 14,
+          "24": 13,
+          "25": 24,
+          "26": 14,
+          "27": 22,
+          "28": 25,
+          "29": 20,
+          "3": 2,
+          "30": 32,
+          "31": 27,
+          "32": 39,
+          "33": 31,
+          "34": 42,
+          "35": 44,
+          "36": 44,
+          "37": 51,
+          "38": 55,
+          "39": 45,
+          "4": 3,
+          "40": 43,
+          "41": 50,
+          "42": 45,
+          "43": 56,
+          "44": 50,
+          "45": 41,
+          "46": 54,
+          "47": 43,
+          "48": 34,
+          "49": 25,
+          "5": 2,
+          "50": 21,
+          "51": 12,
+          "52": 13,
+          "53": 7,
+          "54": 6,
+          "55": 6,
+          "56": 1,
+          "57": 2,
+          "58": 3,
+          "59": 2,
+          "6": 3,
+          "7": 2,
+          "8": 6,
+          "9": 4
+        }
+      },
+      "direct_survivor_labels": [
+        "c19_prefix_branch_0161",
+        "c19_prefix_branch_0162",
+        "c19_prefix_branch_0164",
+        "c19_prefix_branch_0166",
+        "c19_prefix_branch_0167",
+        "c19_prefix_branch_0168",
+        "c19_prefix_branch_0182",
+        "c19_prefix_branch_0186",
+        "c19_prefix_branch_0187"
+      ],
+      "direct_survivors": [
+        {
+          "boundary_left": [
+            1,
+            3,
+            17
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            4,
+            10
+          ],
+          "label": "c19_prefix_branch_0161",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            17
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            4,
+            11
+          ],
+          "label": "c19_prefix_branch_0162",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            17
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            4,
+            13
+          ],
+          "label": "c19_prefix_branch_0164",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            17
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            4,
+            15
+          ],
+          "label": "c19_prefix_branch_0166",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            17
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            4,
+            16
+          ],
+          "label": "c19_prefix_branch_0167",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            17
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            4,
+            18
+          ],
+          "label": "c19_prefix_branch_0168",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            4
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            6
+          ],
+          "label": "c19_prefix_branch_0182",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            4
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            10
+          ],
+          "label": "c19_prefix_branch_0186",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            4
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            11
+          ],
+          "label": "c19_prefix_branch_0187",
+          "middle_label_count": 12
+        }
+      ],
+      "end_index": 191,
+      "fifth_pair_survivor_labels": [],
+      "fifth_pair_survivors": [],
+      "forced_row_count_histograms": {
+        "direct_prefix": {
+          "910": 32
+        },
+        "fifth_pair": {
+          "3300": 630
+        },
+        "fourth_pair": {
+          "1932": 1188
+        }
+      },
+      "fourth_pair_survivor_labels": [
+        "c19_window_fourth_child_0164_0074",
+        "c19_window_fourth_child_0164_0076",
+        "c19_window_fourth_child_0166_0076",
+        "c19_window_fourth_child_0168_0075",
+        "c19_window_fourth_child_0186_0114",
+        "c19_window_fourth_child_0186_0119",
+        "c19_window_fourth_child_0187_0114"
+      ],
+      "fourth_pair_survivors": [
+        {
+          "added_left": 11,
+          "added_right_reflection_side": 15,
+          "child_boundary_left": [
+            1,
+            3,
+            17,
+            11
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            4,
+            13,
+            15
+          ],
+          "label": "c19_window_fourth_child_0164_0074",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            17
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            4,
+            13
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0164"
+        },
+        {
+          "added_left": 11,
+          "added_right_reflection_side": 18,
+          "child_boundary_left": [
+            1,
+            3,
+            17,
+            11
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            4,
+            13,
+            18
+          ],
+          "label": "c19_window_fourth_child_0164_0076",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            17
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            4,
+            13
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0164"
+        },
+        {
+          "added_left": 11,
+          "added_right_reflection_side": 18,
+          "child_boundary_left": [
+            1,
+            3,
+            17,
+            11
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            4,
+            15,
+            18
+          ],
+          "label": "c19_window_fourth_child_0166_0076",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            17
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            4,
+            15
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0166"
+        },
+        {
+          "added_left": 11,
+          "added_right_reflection_side": 15,
+          "child_boundary_left": [
+            1,
+            3,
+            17,
+            11
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            4,
+            18,
+            15
+          ],
+          "label": "c19_window_fourth_child_0168_0075",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            17
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            4,
+            18
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0168"
+        },
+        {
+          "added_left": 17,
+          "added_right_reflection_side": 11,
+          "child_boundary_left": [
+            1,
+            3,
+            4,
+            17
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            10,
+            11
+          ],
+          "label": "c19_window_fourth_child_0186_0114",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            4
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            10
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0186"
+        },
+        {
+          "added_left": 17,
+          "added_right_reflection_side": 16,
+          "child_boundary_left": [
+            1,
+            3,
+            4,
+            17
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            10,
+            16
+          ],
+          "label": "c19_window_fourth_child_0186_0119",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            4
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            10
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0186"
+        },
+        {
+          "added_left": 17,
+          "added_right_reflection_side": 10,
+          "child_boundary_left": [
+            1,
+            3,
+            4,
+            17
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            11,
+            10
+          ],
+          "label": "c19_window_fourth_child_0187_0114",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            4
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            11
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0187"
+        }
+      ],
+      "label_digests": {
+        "fifth_pair_children": "004b096bc414999a8288790c66e93b76aeac1b879a3f66c2ad43848a016b4106",
+        "fourth_pair_children": "ee4c5b53f6976fe6453363552d9404f101c881141e56208454c6bd484068160e",
+        "prefix": "92c942e3ff7724cdfa51af73618e70f8d0a268a3256954bd77e8c00d8b68be69"
+      },
+      "start_index": 160,
+      "window_size": 32
+    },
+    {
+      "branch_accounting": {
+        "direct_prefix_certified_count": 19,
+        "direct_prefix_unclosed_count": 13,
+        "exhaustive_all_orders": false,
+        "exhaustive_window_scan": true,
+        "fifth_pair_child_branch_count": 1350,
+        "fifth_pair_child_certified_count": 1350,
+        "fifth_pair_parent_count": 15,
+        "fourth_pair_child_branch_count": 1716,
+        "fourth_pair_child_certified_count": 1701,
+        "fourth_pair_parent_count": 13,
+        "fourth_pair_parents_closed_by_fifth_refinement": 15,
+        "prefix_branch_count": 32,
+        "prefix_branches_closed_after_chain": 32,
+        "prefix_branches_remaining_after_chain": 0,
+        "prefix_parents_closed_by_fifth_refinement": 8,
+        "prefix_parents_closed_by_fourth_refinement": 5,
+        "unclosed_fifth_pair_child_branch_count": 0,
+        "unclosed_fourth_pair_child_branch_count": 15
+      },
+      "closed_support_size_histograms": {
+        "direct_prefix": {
+          "10": 1,
+          "11": 1,
+          "13": 2,
+          "14": 2,
+          "19": 1,
+          "20": 1,
+          "21": 1,
+          "3": 1,
+          "32": 1,
+          "4": 4,
+          "5": 1,
+          "8": 2,
+          "9": 1
+        },
+        "fifth_pair": {
+          "33": 1,
+          "35": 2,
+          "36": 1,
+          "37": 1,
+          "38": 1,
+          "39": 1,
+          "41": 1,
+          "44": 1,
+          "45": 1,
+          "46": 3,
+          "47": 3,
+          "48": 7,
+          "49": 9,
+          "50": 17,
+          "51": 17,
+          "52": 24,
+          "53": 21,
+          "54": 27,
+          "55": 41,
+          "56": 41,
+          "57": 48,
+          "58": 55,
+          "59": 44,
+          "60": 59,
+          "61": 78,
+          "62": 85,
+          "63": 103,
+          "64": 91,
+          "65": 93,
+          "66": 80,
+          "67": 69,
+          "68": 62,
+          "69": 60,
+          "70": 48,
+          "71": 41,
+          "72": 44,
+          "73": 24,
+          "74": 16,
+          "75": 14,
+          "76": 7,
+          "77": 5,
+          "78": 2,
+          "79": 2
+        },
+        "fourth_pair": {
+          "10": 5,
+          "11": 11,
+          "12": 7,
+          "13": 3,
+          "14": 12,
+          "15": 6,
+          "16": 11,
+          "17": 11,
+          "18": 7,
+          "19": 15,
+          "2": 1,
+          "20": 8,
+          "21": 8,
+          "22": 14,
+          "23": 17,
+          "24": 16,
+          "25": 9,
+          "26": 22,
+          "27": 19,
+          "28": 33,
+          "29": 36,
+          "3": 3,
+          "30": 36,
+          "31": 32,
+          "32": 46,
+          "33": 48,
+          "34": 50,
+          "35": 48,
+          "36": 66,
+          "37": 56,
+          "38": 61,
+          "39": 82,
+          "4": 8,
+          "40": 78,
+          "41": 81,
+          "42": 81,
+          "43": 69,
+          "44": 79,
+          "45": 76,
+          "46": 65,
+          "47": 69,
+          "48": 54,
+          "49": 55,
+          "5": 7,
+          "50": 36,
+          "51": 35,
+          "52": 21,
+          "53": 18,
+          "54": 18,
+          "55": 8,
+          "56": 9,
+          "57": 5,
+          "58": 3,
+          "59": 4,
+          "6": 4,
+          "62": 2,
+          "7": 2,
+          "8": 11,
+          "9": 4
+        }
+      },
+      "direct_survivor_labels": [
+        "c19_prefix_branch_0192",
+        "c19_prefix_branch_0193",
+        "c19_prefix_branch_0195",
+        "c19_prefix_branch_0196",
+        "c19_prefix_branch_0199",
+        "c19_prefix_branch_0207",
+        "c19_prefix_branch_0209",
+        "c19_prefix_branch_0211",
+        "c19_prefix_branch_0212",
+        "c19_prefix_branch_0213",
+        "c19_prefix_branch_0221",
+        "c19_prefix_branch_0222",
+        "c19_prefix_branch_0223"
+      ],
+      "direct_survivors": [
+        {
+          "boundary_left": [
+            1,
+            3,
+            4
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            16
+          ],
+          "label": "c19_prefix_branch_0192",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            4
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            17
+          ],
+          "label": "c19_prefix_branch_0193",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            6
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            4
+          ],
+          "label": "c19_prefix_branch_0195",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            6
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            7
+          ],
+          "label": "c19_prefix_branch_0196",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            6
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            10
+          ],
+          "label": "c19_prefix_branch_0199",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            6
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            18
+          ],
+          "label": "c19_prefix_branch_0207",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            7
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            6
+          ],
+          "label": "c19_prefix_branch_0209",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            7
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            9
+          ],
+          "label": "c19_prefix_branch_0211",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            7
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            10
+          ],
+          "label": "c19_prefix_branch_0212",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            7
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            11
+          ],
+          "label": "c19_prefix_branch_0213",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            8
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            4
+          ],
+          "label": "c19_prefix_branch_0221",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            8
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            6
+          ],
+          "label": "c19_prefix_branch_0222",
+          "middle_label_count": 12
+        },
+        {
+          "boundary_left": [
+            1,
+            3,
+            8
+          ],
+          "boundary_right_reflection_side": [
+            2,
+            5,
+            7
+          ],
+          "label": "c19_prefix_branch_0223",
+          "middle_label_count": 12
+        }
+      ],
+      "end_index": 223,
+      "fifth_pair_survivor_labels": [],
+      "fifth_pair_survivors": [],
+      "forced_row_count_histograms": {
+        "direct_prefix": {
+          "910": 32
+        },
+        "fifth_pair": {
+          "3300": 1350
+        },
+        "fourth_pair": {
+          "1932": 1716
+        }
+      },
+      "fourth_pair_survivor_labels": [
+        "c19_window_fourth_child_0195_0113",
+        "c19_window_fourth_child_0195_0120",
+        "c19_window_fourth_child_0196_0054",
+        "c19_window_fourth_child_0199_0065",
+        "c19_window_fourth_child_0199_0110",
+        "c19_window_fourth_child_0199_0120",
+        "c19_window_fourth_child_0207_0056",
+        "c19_window_fourth_child_0209_0046",
+        "c19_window_fourth_child_0212_0000",
+        "c19_window_fourth_child_0212_0003",
+        "c19_window_fourth_child_0212_0023",
+        "c19_window_fourth_child_0212_0114",
+        "c19_window_fourth_child_0213_0003",
+        "c19_window_fourth_child_0213_0114",
+        "c19_window_fourth_child_0223_0029"
+      ],
+      "fourth_pair_survivors": [
+        {
+          "added_left": 17,
+          "added_right_reflection_side": 10,
+          "child_boundary_left": [
+            1,
+            3,
+            6,
+            17
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            4,
+            10
+          ],
+          "label": "c19_window_fourth_child_0195_0113",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            6
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            4
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0195"
+        },
+        {
+          "added_left": 17,
+          "added_right_reflection_side": 18,
+          "child_boundary_left": [
+            1,
+            3,
+            6,
+            17
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            4,
+            18
+          ],
+          "label": "c19_window_fourth_child_0195_0120",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            6
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            4
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0195"
+        },
+        {
+          "added_left": 11,
+          "added_right_reflection_side": 18,
+          "child_boundary_left": [
+            1,
+            3,
+            6,
+            11
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            7,
+            18
+          ],
+          "label": "c19_window_fourth_child_0196_0054",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            6
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            7
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0196"
+        },
+        {
+          "added_left": 12,
+          "added_right_reflection_side": 18,
+          "child_boundary_left": [
+            1,
+            3,
+            6,
+            12
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            10,
+            18
+          ],
+          "label": "c19_window_fourth_child_0199_0065",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            6
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            10
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0199"
+        },
+        {
+          "added_left": 17,
+          "added_right_reflection_side": 4,
+          "child_boundary_left": [
+            1,
+            3,
+            6,
+            17
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            10,
+            4
+          ],
+          "label": "c19_window_fourth_child_0199_0110",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            6
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            10
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0199"
+        },
+        {
+          "added_left": 17,
+          "added_right_reflection_side": 18,
+          "child_boundary_left": [
+            1,
+            3,
+            6,
+            17
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            10,
+            18
+          ],
+          "label": "c19_window_fourth_child_0199_0120",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            6
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            10
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0199"
+        },
+        {
+          "added_left": 11,
+          "added_right_reflection_side": 7,
+          "child_boundary_left": [
+            1,
+            3,
+            6,
+            11
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            18,
+            7
+          ],
+          "label": "c19_window_fourth_child_0207_0056",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            6
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            18
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0207"
+        },
+        {
+          "added_left": 11,
+          "added_right_reflection_side": 9,
+          "child_boundary_left": [
+            1,
+            3,
+            7,
+            11
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            6,
+            9
+          ],
+          "label": "c19_window_fourth_child_0209_0046",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            7
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            6
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0209"
+        },
+        {
+          "added_left": 4,
+          "added_right_reflection_side": 6,
+          "child_boundary_left": [
+            1,
+            3,
+            7,
+            4
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            10,
+            6
+          ],
+          "label": "c19_window_fourth_child_0212_0000",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            7
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            10
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0212"
+        },
+        {
+          "added_left": 4,
+          "added_right_reflection_side": 11,
+          "child_boundary_left": [
+            1,
+            3,
+            7,
+            4
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            10,
+            11
+          ],
+          "label": "c19_window_fourth_child_0212_0003",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            7
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            10
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0212"
+        },
+        {
+          "added_left": 8,
+          "added_right_reflection_side": 6,
+          "child_boundary_left": [
+            1,
+            3,
+            7,
+            8
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            10,
+            6
+          ],
+          "label": "c19_window_fourth_child_0212_0023",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            7
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            10
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0212"
+        },
+        {
+          "added_left": 17,
+          "added_right_reflection_side": 11,
+          "child_boundary_left": [
+            1,
+            3,
+            7,
+            17
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            10,
+            11
+          ],
+          "label": "c19_window_fourth_child_0212_0114",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            7
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            10
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0212"
+        },
+        {
+          "added_left": 4,
+          "added_right_reflection_side": 10,
+          "child_boundary_left": [
+            1,
+            3,
+            7,
+            4
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            11,
+            10
+          ],
+          "label": "c19_window_fourth_child_0213_0003",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            7
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            11
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0213"
+        },
+        {
+          "added_left": 17,
+          "added_right_reflection_side": 10,
+          "child_boundary_left": [
+            1,
+            3,
+            7,
+            17
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            11,
+            10
+          ],
+          "label": "c19_window_fourth_child_0213_0114",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            7
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            11
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0213"
+        },
+        {
+          "added_left": 9,
+          "added_right_reflection_side": 15,
+          "child_boundary_left": [
+            1,
+            3,
+            8,
+            9
+          ],
+          "child_boundary_right_reflection_side": [
+            2,
+            5,
+            7,
+            15
+          ],
+          "label": "c19_window_fourth_child_0223_0029",
+          "middle_label_count": 10,
+          "parent_boundary_left": [
+            1,
+            3,
+            8
+          ],
+          "parent_boundary_right_reflection_side": [
+            2,
+            5,
+            7
+          ],
+          "prefix_parent_label": "c19_prefix_branch_0223"
+        }
+      ],
+      "label_digests": {
+        "fifth_pair_children": "8763096fda0ee73f731dfa653a2cd4715a7cacdc7886f15f9f2977ffff8ab4d8",
+        "fourth_pair_children": "2a64f7f6aa7009c626665357d5c8e1632e22d79acee595788f511f30e4f2eefd",
+        "prefix": "9f6df0ff2d090bb363ba7b3876b00f1b427151465607e287b9a2f655c55e0040"
+      },
+      "start_index": 192,
+      "window_size": 32
+    }
+  ]
+}
