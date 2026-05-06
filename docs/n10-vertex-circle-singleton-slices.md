@@ -35,7 +35,10 @@ not a public theorem-style claim.
 The checked-in artifact is
 `data/certificates/n10_vertex_circle_singleton_slices.json`. It converts the
 archive `n10_rows.jsonl` into explicit singleton row0 records, so each raw row
-has a `row0_index` and `row0_range`.
+has a `row0_index`, `row0_range`, `row0_mask`, and `row0_witnesses`. The
+explicit witness lists are derived from the repo-native
+`GenericVertexSearch(10).options[0]` order and are included to make the
+`[0,126)` coverage audit easier to read.
 
 ```text
 row0 choices covered:      126 / 126
@@ -65,6 +68,16 @@ Validate the artifact and rerun row0 singleton `0` with the generic checker:
 python scripts/check_n10_vertex_circle_singletons.py \
   --assert-expected \
   --spot-check-generic
+```
+
+Validate selected singleton slices with the generic checker:
+
+```bash
+python scripts/check_n10_vertex_circle_singletons.py \
+  --assert-expected \
+  --spot-check-row0 0 \
+  --spot-check-row0 63 \
+  --spot-check-row0 125
 ```
 
 Regenerate the checked-in artifact from the archived JSONL:

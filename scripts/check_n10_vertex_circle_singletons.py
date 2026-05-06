@@ -49,6 +49,14 @@ def main() -> int:
         action="store_true",
         help="rerun row0 singleton 0 with the repo-native generic checker",
     )
+    parser.add_argument(
+        "--spot-check-row0",
+        action="append",
+        type=int,
+        default=[],
+        metavar="INDEX",
+        help="rerun this row0 singleton index with the repo-native generic checker",
+    )
     args = parser.parse_args()
 
     artifact_path = Path(args.artifact)
@@ -66,8 +74,11 @@ def main() -> int:
 
     if args.assert_expected:
         assert_expected_payload(payload)
+    spot_check_indices = list(args.spot_check_row0)
     if args.spot_check_generic:
-        assert_generic_spot_check(payload)
+        spot_check_indices.insert(0, 0)
+    for row0_index in dict.fromkeys(spot_check_indices):
+        assert_generic_spot_check(payload, row0_index=row0_index)
 
     if args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
@@ -77,6 +88,8 @@ def main() -> int:
             print("OK: n=10 singleton artifact expected counts verified")
         if args.spot_check_generic:
             print("OK: row0 singleton 0 matches the repo-native generic checker")
+        for row0_index in dict.fromkeys(args.spot_check_row0):
+            print(f"OK: row0 singleton {row0_index} matches the repo-native generic checker")
         if args.write:
             print(f"wrote {display_path(artifact_path, ROOT)}")
     return 0
