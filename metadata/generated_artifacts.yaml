@@ -194,6 +194,27 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_groebner_real_root_decoders
+    path: data/certificates/n9_groebner_real_root_decoders.json
+    kind: algebraic_decoder_artifact
+    generator: scripts/decode_n9_groebner_f07_f13.py
+    command: python scripts/decode_n9_groebner_f07_f13.py
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    claim_scope: Review-pending algebraic decoder audit for the F07/F08/F09/F13 n=9 selected-witness families only.
+    json_top_level_type: object
+    expected_json:
+      schema_version: n9_groebner_real_root_decoders/v1
+      headline.total_real_solutions_across_families: 80
+      headline.strictly_convex_solutions: 0
+      provenance.status: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    forbidden_claims:
+      - n=9 is proved
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n9_base_apex_low_excess_ledgers
     path: data/certificates/n9_base_apex_low_excess_ledgers.json
     kind: exploratory_ledger_artifact

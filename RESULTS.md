@@ -239,18 +239,20 @@ Gröbner-basis-only proof of n=8 (≈3.4 s wall-clock total). Artifact:
 For n=9 (184 surviving witness assignments collapsed to 16 dihedral
 families): 11 of 16 families (150 / 184 labelled assignments) have
 grevlex Gröbner basis equal to {1}. Family F12 (orbit 18) has a Gröbner
-generator `y_8^2 + 1/4 = 0` ruling out real solutions. These committed
-artifacts therefore exactly kill 168 / 184 labelled assignments. Families
-F07, F08, F09, F13 (orbit total 16) have nontrivial zero-dimensional ideals;
-the exploratory notes report only degenerate real solutions, but this PR does
-not yet include replayable real-root / non-degeneracy decoders for those
-families. Artifact:
-`data/certificates/2026-05-05/n9_groebner_results.json`.
+generator `y_8^2 + 1/4 = 0` ruling out real solutions. The 2026-05-05
+artifacts therefore exactly kill 168 / 184 labelled assignments. A 2026-05-06
+follow-up adds replayable real-root / non-degeneracy decoders for F07, F08,
+F09, and F13 (orbit total 16). The decoder enumerates 80 real algebraic
+configurations across the four families and records zero strictly convex
+configurations, with every accepted real configuration degenerate. Artifacts:
+`data/certificates/2026-05-05/n9_groebner_results.json` and
+`data/certificates/n9_groebner_real_root_decoders.json`; verifier:
+`scripts/decode_n9_groebner_f07_f13.py`.
 
 This complements the existing vertex-circle filter — which independently
 kills all 184 n=9 patterns by geometric strict-monotonicity arguments — but
-does not yet give a complete algebraic second-source proof. The remaining
-F07/F08/F09/F13 decoders are explicit follow-up audit targets.
+the algebraic route remains review-pending and does not promote n=9 beyond
+the existing audit-target status without independent review.
 
 ### Review-pending n=10 vertex-circle singleton-slice draft
 

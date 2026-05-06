@@ -8,6 +8,12 @@ independent verification, and surveys the remaining frontier.
 The official/global status of Erdős #97 (erdosproblems.com/97, last edited
 2025-10-27) remains FALSIFIABLE/OPEN.
 
+2026-05-06 supersession note: `docs/n9-groebner-decoders.md` adds a
+review-pending replayable decoder for the F07/F08/F09/F13 follow-up families.
+The remaining-F07/F08/F09/F13 language below records the state of the
+2026-05-05 attack report before that follow-up and should be read as
+historical provenance, not current dashboard status.
+
 ## Headline findings
 
 1. **Audit of the review-pending n = 9 vertex-circle exhaustive checker:
