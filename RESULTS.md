@@ -218,6 +218,40 @@ variants whose symmetry conventions need separate review. See
 `data/certificates/n9_vertex_circle_exhaustive.json`, and
 `incoming/archive-output-2026-05-03/`.
 
+### Review-pending n=8 proof and n=9 Gröbner pruning
+
+Status: `MACHINE_CHECKED_ALGEBRAIC_PROOF_REVIEW_PENDING` for `n=8`;
+`PARTIAL_EXACT_PRUNING_REVIEW_PENDING` for `n=9`.
+
+The 2026-05-05 multi-agent attack (see `docs/erdos97-attack-2026-05-05.md`)
+adds an independent algebraic-geometry verification at n=8 and n=9 using
+sympy's Gröbner basis over `QQ`.
+
+For n=8 (15 incidence-completeness survivors): 14 of 15 patterns have
+grevlex Gröbner basis equal to {1} — no complex solutions exist, hence no
+Euclidean realization. The remaining pattern (id=14) has a zero-dimensional
+ideal with elimination polynomial `y_7^4 - (7/2) y_7^2 + 1/16 = 0`; its
+4 real algebraic configurations all collapse to a hexagram on the lattice
+`{0, 1/2, 1±sqrt(3)/2}^2` and fail strict convexity. This gives a complete
+Gröbner-basis-only proof of n=8 (≈3.4 s wall-clock total). Artifact:
+`data/certificates/2026-05-05/n8_groebner_results.json`.
+
+For n=9 (184 surviving witness assignments collapsed to 16 dihedral
+families): 11 of 16 families (150 / 184 labelled assignments) have
+grevlex Gröbner basis equal to {1}. Family F12 (orbit 18) has a Gröbner
+generator `y_8^2 + 1/4 = 0` ruling out real solutions. These committed
+artifacts therefore exactly kill 168 / 184 labelled assignments. Families
+F07, F08, F09, F13 (orbit total 16) have nontrivial zero-dimensional ideals;
+the exploratory notes report only degenerate real solutions, but this PR does
+not yet include replayable real-root / non-degeneracy decoders for those
+families. Artifact:
+`data/certificates/2026-05-05/n9_groebner_results.json`.
+
+This complements the existing vertex-circle filter — which independently
+kills all 184 n=9 patterns by geometric strict-monotonicity arguments — but
+does not yet give a complete algebraic second-source proof. The remaining
+F07/F08/F09/F13 decoders are explicit follow-up audit targets.
+
 ### Review-pending n=10 vertex-circle singleton-slice draft
 
 Status: `MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING`.
