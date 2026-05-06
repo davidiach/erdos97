@@ -13,6 +13,8 @@ from erdos97.n10_vertex_circle_singletons import (
     EXPECTED_TOTAL_NODES,
     assert_expected_payload,
     assert_generic_spot_check,
+    row0_mask_for_index,
+    row0_witnesses_for_index,
 )
 
 
@@ -36,6 +38,18 @@ def test_n10_first_singleton_matches_generic_checker() -> None:
     payload = json.loads(ARTIFACT.read_text(encoding="utf-8"))
 
     assert_generic_spot_check(payload, row0_index=0)
+
+
+def test_n10_artifact_records_explicit_row0_witnesses() -> None:
+    payload = json.loads(ARTIFACT.read_text(encoding="utf-8"))
+    rows = payload["rows"]
+
+    assert payload["row0_witnesses"][0] == [1, 2, 3, 4]
+    assert payload["row0_witnesses"][-1] == [6, 7, 8, 9]
+    for idx, row in enumerate(rows):
+        assert row["row0_mask"] == row0_mask_for_index(idx)
+        assert row["row0_witnesses"] == row0_witnesses_for_index(idx)
+        assert payload["row0_witnesses"][idx] == row["row0_witnesses"]
 
 
 def test_generic_checker_reproduces_n9_review_pending_counts() -> None:

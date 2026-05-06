@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from collections import Counter
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Sequence
 
@@ -22,6 +23,29 @@ EXPECTED_COUNTS = {
 TRUST = "MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING"
 
 
+@lru_cache(maxsize=1)
+def _generic_n10_search() -> GenericVertexSearch:
+    """Return the canonical generic n=10 search object."""
+
+    return GenericVertexSearch(N)
+
+
+def row0_mask_for_index(row0_index: int) -> int:
+    """Return the row0 witness mask for the canonical row0 option index."""
+
+    options = _generic_n10_search().options[0]
+    if not 0 <= row0_index < len(options):
+        raise IndexError(f"row0_index out of range: {row0_index}")
+    return options[row0_index]
+
+
+def row0_witnesses_for_index(row0_index: int) -> list[int]:
+    """Return the row0 witness labels for the canonical row0 option index."""
+
+    search = _generic_n10_search()
+    return list(search.mask_bits[row0_mask_for_index(row0_index)])
+
+
 @dataclass(frozen=True)
 class SingletonRow:
     row0_index: int
@@ -37,6 +61,8 @@ class SingletonRow:
         row: dict[str, object] = {
             "row0_index": self.row0_index,
             "row0_range": [self.row0_start, self.row0_end],
+            "row0_mask": row0_mask_for_index(self.row0_index),
+            "row0_witnesses": row0_witnesses_for_index(self.row0_index),
             "nodes": self.nodes,
             "full": self.full,
             "aborted": self.aborted,
@@ -115,6 +141,7 @@ def artifact_payload(rows: Sequence[SingletonRow]) -> dict[str, object]:
         "row0_choice_count_expected": EXPECTED_ROW0_CHOICES,
         "row0_choices_covered": len(rows),
         "row0_ranges": [[row.row0_start, row.row0_end] for row in rows],
+        "row0_witnesses": [row0_witnesses_for_index(row.row0_index) for row in rows],
         "aborted_any": any(row.aborted for row in rows),
         "total_nodes": sum(row.nodes for row in rows),
         "total_full": sum(row.full for row in rows),
@@ -160,6 +187,11 @@ def assert_expected_payload(payload: dict[str, Any]) -> None:
     expected_ranges = [[idx, idx + 1] for idx in range(EXPECTED_ROW0_CHOICES)]
     if payload.get("row0_ranges") != expected_ranges:
         raise AssertionError("row0_ranges are not the 126 singleton slices")
+    expected_witnesses = [
+        row0_witnesses_for_index(idx) for idx in range(EXPECTED_ROW0_CHOICES)
+    ]
+    if payload.get("row0_witnesses") != expected_witnesses:
+        raise AssertionError("row0_witnesses do not match the generic checker option order")
 
     node_sum = 0
     full_sum = 0
@@ -171,6 +203,10 @@ def assert_expected_payload(payload: dict[str, Any]) -> None:
             raise AssertionError(f"row {idx} has wrong row0_index")
         if row.get("row0_range") != [idx, idx + 1]:
             raise AssertionError(f"row {idx} has wrong row0_range")
+        if row.get("row0_mask") != row0_mask_for_index(idx):
+            raise AssertionError(f"row {idx} has wrong row0_mask")
+        if row.get("row0_witnesses") != row0_witnesses_for_index(idx):
+            raise AssertionError(f"row {idx} has wrong row0_witnesses")
         if row.get("aborted") is not False:
             raise AssertionError(f"row {idx} aborted")
         if row.get("full") != 0:
@@ -194,6 +230,8 @@ def assert_generic_spot_check(payload: dict[str, Any], row0_index: int = 0) -> N
     rows = payload.get("rows")
     if not isinstance(rows, list):
         raise AssertionError("payload rows missing")
+    if not 0 <= row0_index < len(rows):
+        raise AssertionError(f"row0_index out of range: {row0_index}")
     expected = rows[row0_index]
     if not isinstance(expected, dict):
         raise AssertionError("expected row is not an object")
