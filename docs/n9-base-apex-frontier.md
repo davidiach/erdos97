@@ -86,7 +86,14 @@ the ledger separate from the turn-cover closure:
 python scripts/explore_n9_base_apex.py --summary
 python scripts/explore_n9_base_apex.py --turn-cover
 python scripts/explore_n9_base_apex.py --motifs
+python scripts/explore_n9_base_apex.py --low-excess-report --out data/certificates/n9_base_apex_low_excess_ledgers.json
 ```
+
+The focused generated report
+`data/certificates/n9_base_apex_low_excess_ledgers.json` records the
+strict-threshold unresolved low-excess ledgers, the counts by `E` and `D`, and
+the minimum relevant length-2/length-3 deficit motif classes. It is
+`FINITE_BOOKKEEPING_NOT_A_PROOF`, not a claim that `n=9` is closed.
 
 ## Turn-cover diagnostic
 

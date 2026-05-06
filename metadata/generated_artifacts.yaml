@@ -194,6 +194,29 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_base_apex_low_excess_ledgers
+    path: data/certificates/n9_base_apex_low_excess_ledgers.json
+    kind: exploratory_ledger_artifact
+    generator: scripts/explore_n9_base_apex.py
+    command: python scripts/explore_n9_base_apex.py --low-excess-report --out data/certificates/n9_base_apex_low_excess_ledgers.json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    claim_scope: Focused n=9 base-apex low-excess bookkeeping; not a proof of n=9 and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_base_apex_low_excess_ledgers.v1
+      status: EXPLORATORY_LEDGER_ONLY
+      trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+      n: 9
+      witness_size: 4
+      base_apex_slack: 9
+      strict_unresolved_profile_ledger_count: 30
+    forbidden_claims:
+      - n=9 is proved
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n10_vertex_circle_singleton_slices
     path: data/certificates/n10_vertex_circle_singleton_slices.json
     kind: finite_case_draft_artifact
