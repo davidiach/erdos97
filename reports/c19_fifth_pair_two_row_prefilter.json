@@ -1,0 +1,3746 @@
+{
+  "aggregate": {
+    "certified_by_two_row_count": 7917,
+    "certified_by_zero_row_count": 0,
+    "fallback_certificate_digest": "1c09e3b2b7b147172f3d703bb2968a5ed66a84f550b65fc27cd55d9dc173e7ee",
+    "fallback_exactified_count": 3,
+    "fifth_pair_child_count": 7920,
+    "fifth_pair_child_label_digest": "33ec807edc96dbd4e529899b34d61f4e57a43798b6d63f31cbac40bd7a3b8033",
+    "final_certified_count": 7920,
+    "final_unclosed_count": 0,
+    "fourth_pair_survivor_parent_count": 88,
+    "prefilter_certified_count": 7917,
+    "prefilter_miss_count": 3,
+    "prefix_parent_count_requiring_fifth_pair": 33,
+    "source_fifth_pair_child_count": 7920,
+    "source_unclosed_fifth_pair_child_count": 0,
+    "two_row_prefilter_certificate_digest": "61476c4922821c55986b182a4720280730f97bf78a3b7f1cfb29658331e64b98"
+  },
+  "fallback_certificates": [
+    {
+      "boundary_left": [
+        1,
+        3,
+        7,
+        8,
+        4
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        5,
+        10,
+        6,
+        9
+      ],
+      "certificate": {
+        "boundary_prefix": {
+          "anchor_label": 0,
+          "left": [
+            1,
+            3,
+            7,
+            8,
+            4
+          ],
+          "middle_labels_unordered": [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "right_reflection_side": [
+            2,
+            5,
+            10,
+            6,
+            9
+          ]
+        },
+        "certificate_logic": "every listed inequality has a vertex order forced by the boundary prefix; the listed positive integer combination has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0 for every completion of this branch",
+        "certificate_type": "kalmanson_prefix_forced_farkas",
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "forced_inequalities_available": 3300,
+        "forced_order_model": "orders start with 0,left..., end with reversed(right), and put all middle labels between those fixed boundary blocks",
+        "inequalities": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              4,
+              14
+            ],
+            "weight": 1524
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              15,
+              5
+            ],
+            "weight": 859
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              16,
+              6
+            ],
+            "weight": 1787
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              4,
+              17,
+              2
+            ],
+            "weight": 717
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              15,
+              5,
+              2
+            ],
+            "weight": 896
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              18,
+              5,
+              2
+            ],
+            "weight": 353
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              17,
+              9,
+              2
+            ],
+            "weight": 705
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              12,
+              10,
+              2
+            ],
+            "weight": 341
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              16,
+              10,
+              2
+            ],
+            "weight": 2160
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              13,
+              5
+            ],
+            "weight": 177
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              15,
+              9
+            ],
+            "weight": 37
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              4,
+              12,
+              5
+            ],
+            "weight": 341
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              4,
+              18,
+              6
+            ],
+            "weight": 353
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              4,
+              14,
+              10
+            ],
+            "weight": 113
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              16,
+              6,
+              5
+            ],
+            "weight": 126
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              17,
+              9,
+              5
+            ],
+            "weight": 12
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              11,
+              10,
+              5
+            ],
+            "weight": 401
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              12,
+              10,
+              5
+            ],
+            "weight": 341
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              8,
+              13,
+              6
+            ],
+            "weight": 171
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              13,
+              6,
+              10
+            ],
+            "weight": 1832
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              13,
+              9,
+              10
+            ],
+            "weight": 348
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              4,
+              16,
+              2
+            ],
+            "weight": 2034
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              13,
+              6,
+              2
+            ],
+            "weight": 943
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              11,
+              9,
+              2
+            ],
+            "weight": 228
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              17,
+              10,
+              2
+            ],
+            "weight": 12
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              6,
+              5
+            ],
+            "weight": 107
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              13,
+              6
+            ],
+            "weight": 171
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              4,
+              17,
+              5
+            ],
+            "weight": 12
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              4,
+              9,
+              6
+            ],
+            "weight": 1134
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              4,
+              11,
+              10
+            ],
+            "weight": 228
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              7,
+              9,
+              5
+            ],
+            "weight": 752
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              14,
+              9,
+              5
+            ],
+            "weight": 1524
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              7,
+              13,
+              10
+            ],
+            "weight": 772
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              8,
+              9,
+              10
+            ],
+            "weight": 772
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              15,
+              9,
+              10
+            ],
+            "weight": 37
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              16,
+              9,
+              10
+            ],
+            "weight": 247
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              9,
+              6,
+              2
+            ],
+            "weight": 37
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              4,
+              6,
+              2
+            ],
+            "weight": 1524
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              4,
+              12,
+              9,
+              2
+            ],
+            "weight": 4275
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              11,
+              5,
+              2
+            ],
+            "weight": 1153
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              15,
+              9,
+              5,
+              2
+            ],
+            "weight": 896
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              6,
+              10,
+              2
+            ],
+            "weight": 980
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              8,
+              10,
+              2
+            ],
+            "weight": 1153
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              8,
+              15,
+              5
+            ],
+            "weight": 37
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              16,
+              10,
+              5
+            ],
+            "weight": 247
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              8,
+              17,
+              10
+            ],
+            "weight": 247
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              4,
+              18,
+              10,
+              5
+            ],
+            "weight": 353
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              4,
+              15,
+              6
+            ],
+            "weight": 37
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              4,
+              12,
+              9,
+              10
+            ],
+            "weight": 341
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              4,
+              18,
+              9,
+              10
+            ],
+            "weight": 353
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              6,
+              10,
+              5
+            ],
+            "weight": 247
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              9,
+              6,
+              5
+            ],
+            "weight": 1832
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              17,
+              9,
+              6,
+              5
+            ],
+            "weight": 247
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              18,
+              9,
+              6,
+              5
+            ],
+            "weight": 353
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              11,
+              10,
+              5
+            ],
+            "weight": 752
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              14,
+              9,
+              6
+            ],
+            "weight": 1524
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              14,
+              6,
+              10
+            ],
+            "weight": 113
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              15,
+              9,
+              6,
+              10
+            ],
+            "weight": 632
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              8,
+              13,
+              9
+            ],
+            "weight": 772
+          }
+        ],
+        "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+        "label": "c19_window_fifth_child_0212_0023_0000",
+        "num_inequalities": 59,
+        "pattern": {
+          "circulant_offsets": [
+            -8,
+            -3,
+            5,
+            9
+          ],
+          "n": 19,
+          "name": "C19_skew"
+        },
+        "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 40672
+      },
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 4275,
+        "positive_inequalities": 59,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 40672,
+        "zero_sum_verified": true
+      },
+      "fifth_added_left": 4,
+      "fifth_added_right_reflection_side": 9,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0212_0023",
+      "label": "c19_window_fifth_child_0212_0023_0000",
+      "prefix_parent_label": "c19_prefix_branch_0212"
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        11,
+        12,
+        13
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        5,
+        6,
+        10,
+        15
+      ],
+      "certificate": {
+        "boundary_prefix": {
+          "anchor_label": 0,
+          "left": [
+            1,
+            3,
+            11,
+            12,
+            13
+          ],
+          "middle_labels_unordered": [
+            4,
+            7,
+            8,
+            9,
+            14,
+            16,
+            17,
+            18
+          ],
+          "right_reflection_side": [
+            2,
+            5,
+            6,
+            10,
+            15
+          ]
+        },
+        "certificate_logic": "every listed inequality has a vertex order forced by the boundary prefix; the listed positive integer combination has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0 for every completion of this branch",
+        "certificate_type": "kalmanson_prefix_forced_farkas",
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "forced_inequalities_available": 3300,
+        "forced_order_model": "orders start with 0,left..., end with reversed(right), and put all middle labels between those fixed boundary blocks",
+        "inequalities": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              4,
+              10
+            ],
+            "weight": 262
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              13,
+              4
+            ],
+            "weight": 384
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              9,
+              6
+            ],
+            "weight": 122
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              12,
+              17
+            ],
+            "weight": 524
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              6,
+              5,
+              2
+            ],
+            "weight": 97
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              12,
+              8,
+              2
+            ],
+            "weight": 240
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              17,
+              10,
+              2
+            ],
+            "weight": 42
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              18,
+              10,
+              2
+            ],
+            "weight": 43
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              16,
+              15,
+              2
+            ],
+            "weight": 383
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              18,
+              5
+            ],
+            "weight": 43
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              15,
+              6
+            ],
+            "weight": 64
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              11,
+              10
+            ],
+            "weight": 63
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              11,
+              12
+            ],
+            "weight": 102
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              12,
+              13,
+              4
+            ],
+            "weight": 136
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              12,
+              4,
+              15
+            ],
+            "weight": 122
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              13,
+              6,
+              5
+            ],
+            "weight": 283
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              13,
+              17,
+              5
+            ],
+            "weight": 566
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              11,
+              9,
+              15
+            ],
+            "weight": 325
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              12,
+              13,
+              16
+            ],
+            "weight": 46
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              8,
+              5,
+              2
+            ],
+            "weight": 240
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              15,
+              6,
+              2
+            ],
+            "weight": 95
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              12,
+              9,
+              2
+            ],
+            "weight": 122
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              4,
+              5
+            ],
+            "weight": 14
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              17,
+              5
+            ],
+            "weight": 44
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              8,
+              15
+            ],
+            "weight": 58
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              11,
+              12
+            ],
+            "weight": 17
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              11,
+              8,
+              5
+            ],
+            "weight": 182
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              12,
+              13,
+              5
+            ],
+            "weight": 384
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              11,
+              10,
+              6
+            ],
+            "weight": 217
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              9,
+              15,
+              2
+            ],
+            "weight": 49
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              13,
+              17,
+              2
+            ],
+            "weight": 44
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              7,
+              5,
+              2
+            ],
+            "weight": 101
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              15,
+              5,
+              2
+            ],
+            "weight": 337
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              17,
+              6,
+              2
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              12,
+              9,
+              10,
+              2
+            ],
+            "weight": 73
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              12,
+              10,
+              2
+            ],
+            "weight": 87
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              13,
+              10,
+              2
+            ],
+            "weight": 479
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              12,
+              4,
+              10
+            ],
+            "weight": 14
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              7,
+              6,
+              5
+            ],
+            "weight": 101
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              11,
+              9,
+              10
+            ],
+            "weight": 49
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              11,
+              12,
+              17
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              13,
+              18,
+              15
+            ],
+            "weight": 43
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              12,
+              6,
+              5
+            ],
+            "weight": 182
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              12,
+              17,
+              6,
+              5
+            ],
+            "weight": 566
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              12,
+              7,
+              15,
+              6
+            ],
+            "weight": 101
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              12,
+              13,
+              15,
+              6
+            ],
+            "weight": 283
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              7,
+              15,
+              10
+            ],
+            "weight": 335
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              13,
+              8,
+              15
+            ],
+            "weight": 240
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              12,
+              9,
+              15
+            ],
+            "weight": 374
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              12,
+              16,
+              15
+            ],
+            "weight": 46
+          }
+        ],
+        "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+        "label": "c19_window_fifth_child_0261_0059_0041",
+        "num_inequalities": 50,
+        "pattern": {
+          "circulant_offsets": [
+            -8,
+            -3,
+            5,
+            9
+          ],
+          "n": 19,
+          "name": "C19_skew"
+        },
+        "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 8728
+      },
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 566,
+        "positive_inequalities": 50,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 8728,
+        "zero_sum_verified": true
+      },
+      "fifth_added_left": 13,
+      "fifth_added_right_reflection_side": 15,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0261_0059",
+      "label": "c19_window_fifth_child_0261_0059_0041",
+      "prefix_parent_label": "c19_prefix_branch_0261"
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        12,
+        11,
+        13
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        5,
+        6,
+        10,
+        15
+      ],
+      "certificate": {
+        "boundary_prefix": {
+          "anchor_label": 0,
+          "left": [
+            1,
+            3,
+            12,
+            11,
+            13
+          ],
+          "middle_labels_unordered": [
+            4,
+            7,
+            8,
+            9,
+            14,
+            16,
+            17,
+            18
+          ],
+          "right_reflection_side": [
+            2,
+            5,
+            6,
+            10,
+            15
+          ]
+        },
+        "certificate_logic": "every listed inequality has a vertex order forced by the boundary prefix; the listed positive integer combination has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0 for every completion of this branch",
+        "certificate_type": "kalmanson_prefix_forced_farkas",
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "forced_inequalities_available": 3300,
+        "forced_order_model": "orders start with 0,left..., end with reversed(right), and put all middle labels between those fixed boundary blocks",
+        "inequalities": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              4,
+              6
+            ],
+            "weight": 131
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              18,
+              5
+            ],
+            "weight": 1162
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              12,
+              7
+            ],
+            "weight": 1067
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              12,
+              8
+            ],
+            "weight": 1153
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              14,
+              10
+            ],
+            "weight": 350
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              12,
+              16
+            ],
+            "weight": 815
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              13,
+              18
+            ],
+            "weight": 1323
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              13,
+              7,
+              2
+            ],
+            "weight": 1067
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              13,
+              9,
+              2
+            ],
+            "weight": 387
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              15,
+              10,
+              2
+            ],
+            "weight": 54
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              12,
+              14,
+              2
+            ],
+            "weight": 630
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              18,
+              15,
+              2
+            ],
+            "weight": 473
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              13,
+              4
+            ],
+            "weight": 131
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              14,
+              6
+            ],
+            "weight": 469
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              18,
+              15
+            ],
+            "weight": 634
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              16,
+              6,
+              5
+            ],
+            "weight": 815
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              12,
+              11,
+              5
+            ],
+            "weight": 1148
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              13,
+              15,
+              6
+            ],
+            "weight": 215
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              12,
+              11,
+              8
+            ],
+            "weight": 1257
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              11,
+              4,
+              2
+            ],
+            "weight": 131
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              9,
+              6,
+              2
+            ],
+            "weight": 387
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              14,
+              6,
+              2
+            ],
+            "weight": 39
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              7,
+              15,
+              2
+            ],
+            "weight": 1067
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              13,
+              17,
+              2
+            ],
+            "weight": 1148
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              10,
+              5
+            ],
+            "weight": 722
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              13,
+              8
+            ],
+            "weight": 1153
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              13,
+              16
+            ],
+            "weight": 815
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              13,
+              18
+            ],
+            "weight": 634
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              11,
+              13,
+              4
+            ],
+            "weight": 258
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              12,
+              4,
+              15
+            ],
+            "weight": 258
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              13,
+              6,
+              5
+            ],
+            "weight": 258
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              7,
+              15,
+              5
+            ],
+            "weight": 182
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              13,
+              14,
+              5
+            ],
+            "weight": 389
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              12,
+              9,
+              15
+            ],
+            "weight": 387
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              11,
+              18,
+              15
+            ],
+            "weight": 473
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              4,
+              10,
+              2
+            ],
+            "weight": 131
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              6,
+              5,
+              2
+            ],
+            "weight": 426
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              14,
+              10,
+              2
+            ],
+            "weight": 591
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              16,
+              15,
+              2
+            ],
+            "weight": 815
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              12,
+              7,
+              5,
+              2
+            ],
+            "weight": 182
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              9,
+              5,
+              2
+            ],
+            "weight": 2301
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              9,
+              15,
+              5,
+              2
+            ],
+            "weight": 2301
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              17,
+              5,
+              2
+            ],
+            "weight": 1148
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              12,
+              13,
+              6,
+              2
+            ],
+            "weight": 61
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              17,
+              6,
+              5
+            ],
+            "weight": 1148
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              13,
+              8,
+              6
+            ],
+            "weight": 104
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              12,
+              11,
+              14
+            ],
+            "weight": 1388
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              12,
+              11,
+              15
+            ],
+            "weight": 258
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              12,
+              14,
+              15
+            ],
+            "weight": 1449
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              12,
+              11,
+              4,
+              10
+            ],
+            "weight": 258
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              12,
+              8,
+              15,
+              5
+            ],
+            "weight": 1257
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              12,
+              13,
+              10,
+              5
+            ],
+            "weight": 1330
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              12,
+              11,
+              14,
+              6
+            ],
+            "weight": 61
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              12,
+              7,
+              15,
+              10
+            ],
+            "weight": 1072
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              13,
+              15,
+              10
+            ],
+            "weight": 258
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              13,
+              18,
+              15
+            ],
+            "weight": 473
+          }
+        ],
+        "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+        "label": "c19_window_fifth_child_0274_0059_0041",
+        "num_inequalities": 56,
+        "pattern": {
+          "circulant_offsets": [
+            -8,
+            -3,
+            5,
+            9
+          ],
+          "n": 19,
+          "name": "C19_skew"
+        },
+        "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 38594
+      },
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 2301,
+        "positive_inequalities": 56,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 38594,
+        "zero_sum_verified": true
+      },
+      "fifth_added_left": 13,
+      "fifth_added_right_reflection_side": 15,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0274_0059",
+      "label": "c19_window_fifth_child_0274_0059_0041",
+      "prefix_parent_label": "c19_prefix_branch_0274"
+    }
+  ],
+  "final_unclosed_samples": [],
+  "frontier_artifact": "reports/c19_fourth_pair_frontier_classifier.json",
+  "histograms": {
+    "certificate_kind_pattern": {
+      "K1_diag_gt_sides+K1_diag_gt_sides": 3852,
+      "K1_diag_gt_sides+K2_diag_gt_other": 2135,
+      "K2_diag_gt_other+K1_diag_gt_sides": 1083,
+      "K2_diag_gt_other+K2_diag_gt_other": 847
+    },
+    "certificate_row_count": {
+      "2": 7917
+    },
+    "fallback_support_size": {
+      "50": 1,
+      "56": 1,
+      "59": 1
+    },
+    "forced_row_count": {
+      "3300": 7920
+    },
+    "prefilter_certified_count_by_fourth_added_pair": {
+      "10,13": 90,
+      "10,18": 90,
+      "10,7": 90,
+      "10,9": 90,
+      "11,10": 269,
+      "11,13": 180,
+      "11,15": 360,
+      "11,18": 810,
+      "11,7": 180,
+      "11,9": 270,
+      "12,10": 179,
+      "12,18": 450,
+      "12,9": 90,
+      "14,18": 180,
+      "17,10": 270,
+      "17,11": 180,
+      "17,13": 90,
+      "17,15": 450,
+      "17,16": 90,
+      "17,18": 630,
+      "17,4": 270,
+      "4,10": 360,
+      "4,11": 180,
+      "4,16": 90,
+      "4,6": 180,
+      "6,10": 90,
+      "6,18": 180,
+      "7,10": 90,
+      "8,15": 270,
+      "8,4": 180,
+      "8,6": 89,
+      "8,7": 270,
+      "9,13": 180,
+      "9,15": 180,
+      "9,7": 270
+    }
+  },
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "This checks only the recorded C19 fifth-pair frontier from the compact sweep artifact.",
+    "A one-row certificate is a forced Kalmanson inequality whose quotient vector is zero.",
+    "A two-row certificate is a pair of forced Kalmanson inequalities whose quotient vectors are exact opposites.",
+    "Each listed small certificate is an exact positive-integer strict-inequality contradiction for completions of that one boundary-prefix child.",
+    "This does not certify branches beyond the recorded sweep and is not an all-order C19 obstruction."
+  ],
+  "pattern": {
+    "circulant_offsets": [
+      -8,
+      -3,
+      5,
+      9
+    ],
+    "n": 19,
+    "name": "C19_skew"
+  },
+  "per_fourth_pair_parent": [
+    {
+      "branch_index": 63,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0156_0063",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 65,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0156_0065",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 74,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0164_0074",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 76,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0164_0076",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 76,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0166_0076",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 75,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0168_0075",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 114,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0186_0114",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 119,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0186_0119",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 114,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0187_0114",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 113,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0195_0113",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 120,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0195_0120",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 54,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0196_0054",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 65,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0199_0065",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 110,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0199_0110",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 120,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0199_0120",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 56,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0207_0056",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 46,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0209_0046",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 0,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0212_0000",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 3,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0212_0003",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 23,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0212_0023",
+      "prefilter_certified_count": 89,
+      "prefilter_miss_count": 1
+    },
+    {
+      "branch_index": 114,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0212_0114",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 3,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0213_0003",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 114,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0213_0114",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 29,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0223_0029",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 35,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0230_0035",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 29,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0236_0029",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 51,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0236_0051",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 35,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0243_0035",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 57,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0243_0057",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 61,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0243_0061",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 117,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0243_0117",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 119,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0244_0119",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 54,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0251_0054",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 46,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0256_0046",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 50,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0256_0050",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 59,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0256_0059",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 61,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0256_0061",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 23,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0260_0023",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 29,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0260_0029",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 65,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0260_0065",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 118,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0260_0118",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 120,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0260_0120",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 3,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0261_0003",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 59,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0261_0059",
+      "prefilter_certified_count": 89,
+      "prefilter_miss_count": 1
+    },
+    {
+      "branch_index": 65,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0261_0065",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 118,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0261_0118",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 120,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0261_0120",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 22,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0262_0022",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 29,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0262_0029",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 40,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0262_0040",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 25,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0264_0025",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 54,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0264_0054",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 59,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0264_0059",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 65,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0264_0065",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 59,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0265_0059",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 65,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0265_0065",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 110,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0265_0110",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 118,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0265_0118",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 120,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0265_0120",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 33,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0269_0033",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 35,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0269_0035",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 46,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0269_0046",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 50,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0269_0050",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 57,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0269_0057",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 59,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0269_0059",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 61,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0269_0061",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 110,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0269_0110",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 120,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0269_0120",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 130,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0272_0130",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 3,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0273_0003",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 10,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0273_0010",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 59,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0273_0059",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 65,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0273_0065",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 87,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0273_0087",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 3,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0274_0003",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 59,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0274_0059",
+      "prefilter_certified_count": 89,
+      "prefilter_miss_count": 1
+    },
+    {
+      "branch_index": 65,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0274_0065",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 59,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0277_0059",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 65,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0277_0065",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 0,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0278_0000",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 4,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0278_0004",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 8,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0278_0008",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 21,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0278_0021",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 59,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0278_0059",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 65,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0278_0065",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 87,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0278_0087",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 4,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0279_0004",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    },
+    {
+      "branch_index": 120,
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "label": "c19_window_fourth_child_0283_0120",
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0
+    }
+  ],
+  "per_prefix_parent": [
+    {
+      "fifth_pair_child_count": 180,
+      "final_certified_count": 180,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 180,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    },
+    {
+      "fifth_pair_child_count": 180,
+      "final_certified_count": 180,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 180,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0164"
+    },
+    {
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0166"
+    },
+    {
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0168"
+    },
+    {
+      "fifth_pair_child_count": 180,
+      "final_certified_count": 180,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 180,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0186"
+    },
+    {
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0187"
+    },
+    {
+      "fifth_pair_child_count": 180,
+      "final_certified_count": 180,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 180,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0195"
+    },
+    {
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0196"
+    },
+    {
+      "fifth_pair_child_count": 270,
+      "final_certified_count": 270,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 270,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0199"
+    },
+    {
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0207"
+    },
+    {
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0209"
+    },
+    {
+      "fifth_pair_child_count": 360,
+      "final_certified_count": 360,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 359,
+      "prefilter_miss_count": 1,
+      "prefix_parent_label": "c19_prefix_branch_0212"
+    },
+    {
+      "fifth_pair_child_count": 180,
+      "final_certified_count": 180,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 180,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0213"
+    },
+    {
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0223"
+    },
+    {
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0230"
+    },
+    {
+      "fifth_pair_child_count": 180,
+      "final_certified_count": 180,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 180,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0236"
+    },
+    {
+      "fifth_pair_child_count": 360,
+      "final_certified_count": 360,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 360,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0243"
+    },
+    {
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0244"
+    },
+    {
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0251"
+    },
+    {
+      "fifth_pair_child_count": 360,
+      "final_certified_count": 360,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 360,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0256"
+    },
+    {
+      "fifth_pair_child_count": 450,
+      "final_certified_count": 450,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 450,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0260"
+    },
+    {
+      "fifth_pair_child_count": 450,
+      "final_certified_count": 450,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 449,
+      "prefilter_miss_count": 1,
+      "prefix_parent_label": "c19_prefix_branch_0261"
+    },
+    {
+      "fifth_pair_child_count": 270,
+      "final_certified_count": 270,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 270,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0262"
+    },
+    {
+      "fifth_pair_child_count": 360,
+      "final_certified_count": 360,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 360,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0264"
+    },
+    {
+      "fifth_pair_child_count": 450,
+      "final_certified_count": 450,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 450,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0265"
+    },
+    {
+      "fifth_pair_child_count": 810,
+      "final_certified_count": 810,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 810,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0269"
+    },
+    {
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0272"
+    },
+    {
+      "fifth_pair_child_count": 450,
+      "final_certified_count": 450,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 450,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0273"
+    },
+    {
+      "fifth_pair_child_count": 270,
+      "final_certified_count": 270,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 269,
+      "prefilter_miss_count": 1,
+      "prefix_parent_label": "c19_prefix_branch_0274"
+    },
+    {
+      "fifth_pair_child_count": 180,
+      "final_certified_count": 180,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 180,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0277"
+    },
+    {
+      "fifth_pair_child_count": 630,
+      "final_certified_count": 630,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 630,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0278"
+    },
+    {
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0279"
+    },
+    {
+      "fifth_pair_child_count": 90,
+      "final_certified_count": 90,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 90,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0283"
+    }
+  ],
+  "per_window": [
+    {
+      "end_index": 159,
+      "fifth_child_label_digest": "75db70d03330d51835ff7974ec1999eeb8307e3fb5347a8416ee37f7467b51b8",
+      "final_certified_count": 180,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 180,
+      "prefilter_miss_count": 0,
+      "source_fifth_pair_child_count": 180,
+      "source_unclosed_fifth_pair_child_count": 0,
+      "start_index": 128
+    },
+    {
+      "end_index": 191,
+      "fifth_child_label_digest": "004b096bc414999a8288790c66e93b76aeac1b879a3f66c2ad43848a016b4106",
+      "final_certified_count": 630,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 630,
+      "prefilter_miss_count": 0,
+      "source_fifth_pair_child_count": 630,
+      "source_unclosed_fifth_pair_child_count": 0,
+      "start_index": 160
+    },
+    {
+      "end_index": 223,
+      "fifth_child_label_digest": "8763096fda0ee73f731dfa653a2cd4715a7cacdc7886f15f9f2977ffff8ab4d8",
+      "final_certified_count": 1350,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 1349,
+      "prefilter_miss_count": 1,
+      "source_fifth_pair_child_count": 1350,
+      "source_unclosed_fifth_pair_child_count": 0,
+      "start_index": 192
+    },
+    {
+      "end_index": 255,
+      "fifth_child_label_digest": "b8e68c1be46713436937f23bdbb7a4f8f89d0e01c0c0bf0a76de9fc2345724e4",
+      "final_certified_count": 810,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 810,
+      "prefilter_miss_count": 0,
+      "source_fifth_pair_child_count": 810,
+      "source_unclosed_fifth_pair_child_count": 0,
+      "start_index": 224
+    },
+    {
+      "end_index": 287,
+      "fifth_child_label_digest": "43d1a8312d51f2681a0202ea9424e0f024cb57468a53b20b94840d56c88296a7",
+      "final_certified_count": 4950,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 4948,
+      "prefilter_miss_count": 2,
+      "source_fifth_pair_child_count": 4950,
+      "source_unclosed_fifth_pair_child_count": 0,
+      "start_index": 256
+    }
+  ],
+  "sample_certificates": [
+    {
+      "boundary_left": [
+        1,
+        3,
+        17,
+        11,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        15,
+        7
+      ],
+      "fifth_added_left": 6,
+      "fifth_added_right_reflection_side": 7,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+      "inequalities": [
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            0,
+            17,
+            6,
+            8
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            6,
+            10,
+            15
+          ],
+          "weight": 1
+        }
+      ],
+      "label": "c19_window_fifth_child_0156_0063_0000",
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        17,
+        11,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        15,
+        8
+      ],
+      "fifth_added_left": 6,
+      "fifth_added_right_reflection_side": 8,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+      "inequalities": [
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            10,
+            5,
+            2
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            16,
+            8,
+            5
+          ],
+          "weight": 1
+        }
+      ],
+      "label": "c19_window_fifth_child_0156_0063_0001",
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        17,
+        11,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        15,
+        9
+      ],
+      "fifth_added_left": 6,
+      "fifth_added_right_reflection_side": 9,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+      "inequalities": [
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            11,
+            13,
+            2
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            13,
+            9,
+            4
+          ],
+          "weight": 1
+        }
+      ],
+      "label": "c19_window_fifth_child_0156_0063_0002",
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        17,
+        11,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        15,
+        10
+      ],
+      "fifth_added_left": 6,
+      "fifth_added_right_reflection_side": 10,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+      "inequalities": [
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            0,
+            17,
+            6,
+            8
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            6,
+            10,
+            15
+          ],
+          "weight": 1
+        }
+      ],
+      "label": "c19_window_fifth_child_0156_0063_0003",
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        17,
+        11,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        15,
+        12
+      ],
+      "fifth_added_left": 6,
+      "fifth_added_right_reflection_side": 12,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+      "inequalities": [
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            0,
+            17,
+            6,
+            8
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            6,
+            10,
+            15
+          ],
+          "weight": 1
+        }
+      ],
+      "label": "c19_window_fifth_child_0156_0063_0004",
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        17,
+        11,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        15,
+        13
+      ],
+      "fifth_added_left": 6,
+      "fifth_added_right_reflection_side": 13,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+      "inequalities": [
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            0,
+            17,
+            6,
+            8
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            6,
+            10,
+            15
+          ],
+          "weight": 1
+        }
+      ],
+      "label": "c19_window_fifth_child_0156_0063_0005",
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        17,
+        11,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        15,
+        14
+      ],
+      "fifth_added_left": 6,
+      "fifth_added_right_reflection_side": 14,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+      "inequalities": [
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            3,
+            11,
+            14
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            16,
+            14,
+            5
+          ],
+          "weight": 1
+        }
+      ],
+      "label": "c19_window_fifth_child_0156_0063_0006",
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        17,
+        11,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        15,
+        16
+      ],
+      "fifth_added_left": 6,
+      "fifth_added_right_reflection_side": 16,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+      "inequalities": [
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            0,
+            17,
+            6,
+            8
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            6,
+            10,
+            15
+          ],
+          "weight": 1
+        }
+      ],
+      "label": "c19_window_fifth_child_0156_0063_0007",
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        17,
+        11,
+        6
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        15,
+        18
+      ],
+      "fifth_added_left": 6,
+      "fifth_added_right_reflection_side": 18,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+      "inequalities": [
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            0,
+            17,
+            6,
+            8
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            6,
+            10,
+            15
+          ],
+          "weight": 1
+        }
+      ],
+      "label": "c19_window_fifth_child_0156_0063_0008",
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        17,
+        11,
+        7
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        15,
+        6
+      ],
+      "fifth_added_left": 7,
+      "fifth_added_right_reflection_side": 6,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+      "inequalities": [
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            3,
+            7,
+            12
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            7,
+            14,
+            4
+          ],
+          "weight": 1
+        }
+      ],
+      "label": "c19_window_fifth_child_0156_0063_0009",
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        17,
+        11,
+        7
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        15,
+        8
+      ],
+      "fifth_added_left": 7,
+      "fifth_added_right_reflection_side": 8,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+      "inequalities": [
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            3,
+            7,
+            12
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            7,
+            14,
+            4
+          ],
+          "weight": 1
+        }
+      ],
+      "label": "c19_window_fifth_child_0156_0063_0010",
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        17,
+        11,
+        7
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        4,
+        5,
+        15,
+        9
+      ],
+      "fifth_added_left": 7,
+      "fifth_added_right_reflection_side": 9,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0156_0063",
+      "inequalities": [
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            3,
+            7,
+            12
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            7,
+            14,
+            4
+          ],
+          "weight": 1
+        }
+      ],
+      "label": "c19_window_fifth_child_0156_0063_0011",
+      "prefix_parent_label": "c19_prefix_branch_0156"
+    }
+  ],
+  "source_prefix_label_digest": "b18984a2ebd95ffcd6eb2af48fd13c6710b29d9234af18e5966895fa23667879",
+  "source_sweep_artifact": "data/certificates/c19_kalmanson_prefix_window_sweep_128_287.json",
+  "top_prefix_parents_by_prefilter_certified_count": [
+    {
+      "fifth_pair_child_count": 810,
+      "final_certified_count": 810,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 810,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0269"
+    },
+    {
+      "fifth_pair_child_count": 630,
+      "final_certified_count": 630,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 630,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0278"
+    },
+    {
+      "fifth_pair_child_count": 450,
+      "final_certified_count": 450,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 450,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0260"
+    },
+    {
+      "fifth_pair_child_count": 450,
+      "final_certified_count": 450,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 450,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0265"
+    },
+    {
+      "fifth_pair_child_count": 450,
+      "final_certified_count": 450,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 450,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0273"
+    },
+    {
+      "fifth_pair_child_count": 450,
+      "final_certified_count": 450,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 449,
+      "prefilter_miss_count": 1,
+      "prefix_parent_label": "c19_prefix_branch_0261"
+    },
+    {
+      "fifth_pair_child_count": 360,
+      "final_certified_count": 360,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 360,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0243"
+    },
+    {
+      "fifth_pair_child_count": 360,
+      "final_certified_count": 360,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 360,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0256"
+    },
+    {
+      "fifth_pair_child_count": 360,
+      "final_certified_count": 360,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 360,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0264"
+    },
+    {
+      "fifth_pair_child_count": 360,
+      "final_certified_count": 360,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 359,
+      "prefilter_miss_count": 1,
+      "prefix_parent_label": "c19_prefix_branch_0212"
+    },
+    {
+      "fifth_pair_child_count": 270,
+      "final_certified_count": 270,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 270,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0199"
+    },
+    {
+      "fifth_pair_child_count": 270,
+      "final_certified_count": 270,
+      "final_unclosed_count": 0,
+      "prefilter_certified_count": 270,
+      "prefilter_miss_count": 0,
+      "prefix_parent_label": "c19_prefix_branch_0262"
+    }
+  ],
+  "trust": "EXACT_OBSTRUCTION",
+  "type": "c19_fifth_pair_two_row_prefilter_v1"
+}

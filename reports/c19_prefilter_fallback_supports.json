@@ -1,0 +1,3924 @@
+{
+  "aggregate": {
+    "exact_farkas_certified_count": 8,
+    "fallback_certificate_digest": "1570b3fa915c0c4a734518008c0121d3b40c6913927d0cc45064a40777969952",
+    "fallback_child_count": 8,
+    "fallback_label_digest": "2dc4965b208144017b7aba73dba920c8c8f8f1eea93a2f84650eb4f5f484f0c8",
+    "final_unclosed_count": 0,
+    "forced_row_count": 3300,
+    "two_row_prefilter_miss_count": 8
+  },
+  "fallback_records": [
+    {
+      "boundary_left": [
+        1,
+        3,
+        10,
+        14,
+        7
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        6,
+        5,
+        11,
+        9
+      ],
+      "certificate": {
+        "boundary_prefix": {
+          "anchor_label": 0,
+          "left": [
+            1,
+            3,
+            10,
+            14,
+            7
+          ],
+          "middle_labels_unordered": [
+            4,
+            8,
+            12,
+            13,
+            15,
+            16,
+            17,
+            18
+          ],
+          "right_reflection_side": [
+            2,
+            6,
+            5,
+            11,
+            9
+          ]
+        },
+        "certificate_logic": "every listed inequality has a vertex order forced by the boundary prefix; the listed positive integer combination has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0 for every completion of this branch",
+        "certificate_type": "kalmanson_prefix_forced_farkas",
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "forced_inequalities_available": 3300,
+        "forced_order_model": "orders start with 0,left..., end with reversed(right), and put all middle labels between those fixed boundary blocks",
+        "inequalities": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              11,
+              5
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              7,
+              12
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              10,
+              8
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              15,
+              9
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              10,
+              18
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              18,
+              11
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              7,
+              9,
+              2
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              15,
+              11,
+              2
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              14,
+              12,
+              2
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              7,
+              15,
+              2
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              9,
+              11,
+              2
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              12,
+              5
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              7,
+              8
+            ],
+            "weight": 3
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              7,
+              8,
+              11
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              12,
+              11,
+              2
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              7,
+              5,
+              2
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              8,
+              11,
+              5
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              7,
+              13
+            ],
+            "weight": 3
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              7,
+              11,
+              5
+            ],
+            "weight": 1
+          }
+        ],
+        "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+        "label": "c19_window_fifth_child_0430_0081_0011",
+        "num_inequalities": 19,
+        "pattern": {
+          "circulant_offsets": [
+            -8,
+            -3,
+            5,
+            9
+          ],
+          "n": 19,
+          "name": "C19_skew"
+        },
+        "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 27
+      },
+      "certificate_kind_counts": {
+        "K1_diag_gt_sides": 7,
+        "K2_diag_gt_other": 12
+      },
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 3,
+        "positive_inequalities": 19,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 27,
+        "zero_sum_verified": true
+      },
+      "certificate_weight_counts": {
+        "1": 13,
+        "2": 4,
+        "3": 2
+      },
+      "fifth_added_left": 7,
+      "fifth_added_right_reflection_side": 9,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0430_0081",
+      "label": "c19_window_fifth_child_0430_0081_0011",
+      "prefix_parent_label": "c19_prefix_branch_0430",
+      "two_row_prefilter_certificate_found": false
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        10,
+        13,
+        7
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        6,
+        11,
+        9,
+        12
+      ],
+      "certificate": {
+        "boundary_prefix": {
+          "anchor_label": 0,
+          "left": [
+            1,
+            3,
+            10,
+            13,
+            7
+          ],
+          "middle_labels_unordered": [
+            4,
+            5,
+            8,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "right_reflection_side": [
+            2,
+            6,
+            11,
+            9,
+            12
+          ]
+        },
+        "certificate_logic": "every listed inequality has a vertex order forced by the boundary prefix; the listed positive integer combination has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0 for every completion of this branch",
+        "certificate_type": "kalmanson_prefix_forced_farkas",
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "forced_inequalities_available": 3300,
+        "forced_order_model": "orders start with 0,left..., end with reversed(right), and put all middle labels between those fixed boundary blocks",
+        "inequalities": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              5,
+              11
+            ],
+            "weight": 25
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              13,
+              7
+            ],
+            "weight": 53
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              7,
+              17
+            ],
+            "weight": 28
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              10,
+              15
+            ],
+            "weight": 76
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              5,
+              2
+            ],
+            "weight": 51
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              13,
+              8,
+              2
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              14,
+              9,
+              2
+            ],
+            "weight": 27
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              12,
+              11,
+              2
+            ],
+            "weight": 15
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              13,
+              5
+            ],
+            "weight": 65
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              17,
+              9
+            ],
+            "weight": 28
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              10,
+              15
+            ],
+            "weight": 27
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              10,
+              17
+            ],
+            "weight": 135
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              13,
+              7,
+              6
+            ],
+            "weight": 116
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              7,
+              15,
+              9
+            ],
+            "weight": 91
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              15,
+              12,
+              11
+            ],
+            "weight": 15
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              7,
+              5,
+              2
+            ],
+            "weight": 25
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              13,
+              15,
+              2
+            ],
+            "weight": 27
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              13,
+              9
+            ],
+            "weight": 80
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              17,
+              11
+            ],
+            "weight": 173
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              14,
+              9,
+              11
+            ],
+            "weight": 226
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              10,
+              15,
+              12
+            ],
+            "weight": 125
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              9,
+              2
+            ],
+            "weight": 51
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              15,
+              9,
+              2
+            ],
+            "weight": 27
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              13,
+              14,
+              2
+            ],
+            "weight": 27
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              9,
+              6,
+              2
+            ],
+            "weight": 54
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              12,
+              6,
+              2
+            ],
+            "weight": 250
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              8,
+              11,
+              2
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              7,
+              18,
+              2
+            ],
+            "weight": 177
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              13,
+              11,
+              2
+            ],
+            "weight": 72
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              13,
+              12,
+              11,
+              2
+            ],
+            "weight": 136
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              7,
+              5
+            ],
+            "weight": 65
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              7,
+              14,
+              6
+            ],
+            "weight": 65
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              11,
+              6
+            ],
+            "weight": 87
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              12,
+              11,
+              6
+            ],
+            "weight": 65
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              13,
+              8,
+              12
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              17,
+              12,
+              9
+            ],
+            "weight": 186
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              13,
+              5,
+              12
+            ],
+            "weight": 11
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              7,
+              9,
+              6
+            ],
+            "weight": 51
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              12,
+              9,
+              6
+            ],
+            "weight": 134
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              15,
+              9,
+              6
+            ],
+            "weight": 137
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              15,
+              11,
+              6
+            ],
+            "weight": 15
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              13,
+              12,
+              6
+            ],
+            "weight": 21
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              12,
+              11,
+              6
+            ],
+            "weight": 51
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              7,
+              9,
+              11
+            ],
+            "weight": 64
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              18,
+              9,
+              11
+            ],
+            "weight": 66
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              15,
+              12,
+              9
+            ],
+            "weight": 228
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              7,
+              16,
+              9
+            ],
+            "weight": 51
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              7,
+              17,
+              9
+            ],
+            "weight": 135
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              7,
+              18,
+              12
+            ],
+            "weight": 6
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              18,
+              12,
+              9,
+              11
+            ],
+            "weight": 66
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              17,
+              12,
+              9
+            ],
+            "weight": 15
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              13,
+              17,
+              12
+            ],
+            "weight": 135
+          }
+        ],
+        "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+        "label": "c19_window_fifth_child_0434_0070_0021",
+        "num_inequalities": 52,
+        "pattern": {
+          "circulant_offsets": [
+            -8,
+            -3,
+            5,
+            9
+          ],
+          "n": 19,
+          "name": "C19_skew"
+        },
+        "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 3862
+      },
+      "certificate_kind_counts": {
+        "K1_diag_gt_sides": 16,
+        "K2_diag_gt_other": 36
+      },
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 250,
+        "positive_inequalities": 52,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 3862,
+        "zero_sum_verified": true
+      },
+      "certificate_weight_counts": {
+        "11": 1,
+        "116": 1,
+        "125": 1,
+        "134": 1,
+        "135": 3,
+        "136": 1,
+        "137": 1,
+        "15": 4,
+        "173": 1,
+        "177": 1,
+        "186": 1,
+        "2": 3,
+        "21": 1,
+        "226": 1,
+        "228": 1,
+        "25": 2,
+        "250": 1,
+        "27": 5,
+        "28": 2,
+        "51": 5,
+        "53": 1,
+        "54": 1,
+        "6": 1,
+        "64": 1,
+        "65": 4,
+        "66": 2,
+        "72": 1,
+        "76": 1,
+        "80": 1,
+        "87": 1,
+        "91": 1
+      },
+      "fifth_added_left": 7,
+      "fifth_added_right_reflection_side": 12,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0434_0070",
+      "label": "c19_window_fifth_child_0434_0070_0021",
+      "prefix_parent_label": "c19_prefix_branch_0434",
+      "two_row_prefilter_certificate_found": false
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        10,
+        14,
+        7
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        6,
+        12,
+        5,
+        11
+      ],
+      "certificate": {
+        "boundary_prefix": {
+          "anchor_label": 0,
+          "left": [
+            1,
+            3,
+            10,
+            14,
+            7
+          ],
+          "middle_labels_unordered": [
+            4,
+            8,
+            9,
+            13,
+            15,
+            16,
+            17,
+            18
+          ],
+          "right_reflection_side": [
+            2,
+            6,
+            12,
+            5,
+            11
+          ]
+        },
+        "certificate_logic": "every listed inequality has a vertex order forced by the boundary prefix; the listed positive integer combination has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0 for every completion of this branch",
+        "certificate_type": "kalmanson_prefix_forced_farkas",
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "forced_inequalities_available": 3300,
+        "forced_order_model": "orders start with 0,left..., end with reversed(right), and put all middle labels between those fixed boundary blocks",
+        "inequalities": [
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              10,
+              2
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              15,
+              11
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              6,
+              2
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              12,
+              6
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              11,
+              12
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              15,
+              11
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              14,
+              12,
+              6
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              15,
+              12,
+              6
+            ],
+            "weight": 1
+          }
+        ],
+        "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+        "label": "c19_window_fifth_child_0435_0078_0012",
+        "num_inequalities": 8,
+        "pattern": {
+          "circulant_offsets": [
+            -8,
+            -3,
+            5,
+            9
+          ],
+          "n": 19,
+          "name": "C19_skew"
+        },
+        "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 9
+      },
+      "certificate_kind_counts": {
+        "K1_diag_gt_sides": 1,
+        "K2_diag_gt_other": 7
+      },
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 2,
+        "positive_inequalities": 8,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 9,
+        "zero_sum_verified": true
+      },
+      "certificate_weight_counts": {
+        "1": 7,
+        "2": 1
+      },
+      "fifth_added_left": 7,
+      "fifth_added_right_reflection_side": 11,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0435_0078",
+      "label": "c19_window_fifth_child_0435_0078_0012",
+      "prefix_parent_label": "c19_prefix_branch_0435",
+      "two_row_prefilter_certificate_found": false
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        10,
+        14,
+        18
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        6,
+        12,
+        5,
+        11
+      ],
+      "certificate": {
+        "boundary_prefix": {
+          "anchor_label": 0,
+          "left": [
+            1,
+            3,
+            10,
+            14,
+            18
+          ],
+          "middle_labels_unordered": [
+            4,
+            7,
+            8,
+            9,
+            13,
+            15,
+            16,
+            17
+          ],
+          "right_reflection_side": [
+            2,
+            6,
+            12,
+            5,
+            11
+          ]
+        },
+        "certificate_logic": "every listed inequality has a vertex order forced by the boundary prefix; the listed positive integer combination has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0 for every completion of this branch",
+        "certificate_type": "kalmanson_prefix_forced_farkas",
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "forced_inequalities_available": 3300,
+        "forced_order_model": "orders start with 0,left..., end with reversed(right), and put all middle labels between those fixed boundary blocks",
+        "inequalities": [
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              10,
+              2
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              15,
+              11
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              6,
+              2
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              11,
+              6
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              18,
+              12,
+              6
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              15,
+              11
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              18,
+              15,
+              12,
+              6
+            ],
+            "weight": 1
+          }
+        ],
+        "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+        "label": "c19_window_fifth_child_0435_0078_0085",
+        "num_inequalities": 7,
+        "pattern": {
+          "circulant_offsets": [
+            -8,
+            -3,
+            5,
+            9
+          ],
+          "n": 19,
+          "name": "C19_skew"
+        },
+        "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 7
+      },
+      "certificate_kind_counts": {
+        "K1_diag_gt_sides": 1,
+        "K2_diag_gt_other": 6
+      },
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 1,
+        "positive_inequalities": 7,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 7,
+        "zero_sum_verified": true
+      },
+      "certificate_weight_counts": {
+        "1": 7
+      },
+      "fifth_added_left": 18,
+      "fifth_added_right_reflection_side": 11,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0435_0078",
+      "label": "c19_window_fifth_child_0435_0078_0085",
+      "prefix_parent_label": "c19_prefix_branch_0435",
+      "two_row_prefilter_certificate_found": false
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        10,
+        14,
+        7
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        6,
+        12,
+        13,
+        11
+      ],
+      "certificate": {
+        "boundary_prefix": {
+          "anchor_label": 0,
+          "left": [
+            1,
+            3,
+            10,
+            14,
+            7
+          ],
+          "middle_labels_unordered": [
+            4,
+            5,
+            8,
+            9,
+            15,
+            16,
+            17,
+            18
+          ],
+          "right_reflection_side": [
+            2,
+            6,
+            12,
+            13,
+            11
+          ]
+        },
+        "certificate_logic": "every listed inequality has a vertex order forced by the boundary prefix; the listed positive integer combination has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0 for every completion of this branch",
+        "certificate_type": "kalmanson_prefix_forced_farkas",
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "forced_inequalities_available": 3300,
+        "forced_order_model": "orders start with 0,left..., end with reversed(right), and put all middle labels between those fixed boundary blocks",
+        "inequalities": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              7,
+              5
+            ],
+            "weight": 42
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              8,
+              13
+            ],
+            "weight": 30
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              9,
+              13
+            ],
+            "weight": 15
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              14,
+              9
+            ],
+            "weight": 16
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              10,
+              14
+            ],
+            "weight": 101
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              13,
+              12
+            ],
+            "weight": 103
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              16,
+              13
+            ],
+            "weight": 13
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              14,
+              2
+            ],
+            "weight": 9
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              5,
+              12,
+              2
+            ],
+            "weight": 103
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              7,
+              8,
+              2
+            ],
+            "weight": 32
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              7,
+              16,
+              2
+            ],
+            "weight": 88
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              5,
+              11
+            ],
+            "weight": 145
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              7,
+              8
+            ],
+            "weight": 78
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              9,
+              11
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              8,
+              11,
+              13
+            ],
+            "weight": 16
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              10,
+              11,
+              13
+            ],
+            "weight": 29
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              5,
+              11,
+              2
+            ],
+            "weight": 79
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              14,
+              17,
+              2
+            ],
+            "weight": 42
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              8,
+              11
+            ],
+            "weight": 30
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              15,
+              11
+            ],
+            "weight": 74
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              16,
+              11
+            ],
+            "weight": 13
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              13,
+              12
+            ],
+            "weight": 45
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              10,
+              4,
+              11
+            ],
+            "weight": 104
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              10,
+              5,
+              11
+            ],
+            "weight": 37
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              7,
+              17,
+              12
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              14,
+              7,
+              17
+            ],
+            "weight": 43
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              11,
+              2
+            ],
+            "weight": 9
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              17,
+              6,
+              2
+            ],
+            "weight": 42
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              8,
+              6,
+              2
+            ],
+            "weight": 32
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              7,
+              16,
+              2
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              7,
+              5
+            ],
+            "weight": 36
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              5,
+              13
+            ],
+            "weight": 181
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              14,
+              7,
+              6
+            ],
+            "weight": 42
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              8,
+              12,
+              6
+            ],
+            "weight": 32
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              7,
+              11,
+              13
+            ],
+            "weight": 44
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              9,
+              11
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              15,
+              12
+            ],
+            "weight": 74
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              14,
+              16,
+              13
+            ],
+            "weight": 13
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              4,
+              13,
+              12
+            ],
+            "weight": 31
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              14,
+              4,
+              11
+            ],
+            "weight": 104
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              4,
+              13,
+              12
+            ],
+            "weight": 73
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              15,
+              12,
+              6
+            ],
+            "weight": 74
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              8,
+              11,
+              12
+            ],
+            "weight": 32
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              7,
+              16,
+              11
+            ],
+            "weight": 12
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              7,
+              13,
+              12
+            ],
+            "weight": 75
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              14,
+              9,
+              12
+            ],
+            "weight": 1
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              16,
+              11,
+              13
+            ],
+            "weight": 88
+          }
+        ],
+        "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+        "label": "c19_window_fifth_child_0435_0083_0022",
+        "num_inequalities": 47,
+        "pattern": {
+          "circulant_offsets": [
+            -8,
+            -3,
+            5,
+            9
+          ],
+          "n": 19,
+          "name": "C19_skew"
+        },
+        "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 2286
+      },
+      "certificate_kind_counts": {
+        "K1_diag_gt_sides": 9,
+        "K2_diag_gt_other": 38
+      },
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 181,
+        "positive_inequalities": 47,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 2286,
+        "zero_sum_verified": true
+      },
+      "certificate_weight_counts": {
+        "1": 5,
+        "101": 1,
+        "103": 2,
+        "104": 2,
+        "12": 1,
+        "13": 3,
+        "145": 1,
+        "15": 1,
+        "16": 2,
+        "181": 1,
+        "29": 1,
+        "30": 2,
+        "31": 1,
+        "32": 4,
+        "36": 1,
+        "37": 1,
+        "42": 4,
+        "43": 1,
+        "44": 1,
+        "45": 1,
+        "73": 1,
+        "74": 3,
+        "75": 1,
+        "78": 1,
+        "79": 1,
+        "88": 2,
+        "9": 2
+      },
+      "fifth_added_left": 7,
+      "fifth_added_right_reflection_side": 11,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0435_0083",
+      "label": "c19_window_fifth_child_0435_0083_0022",
+      "prefix_parent_label": "c19_prefix_branch_0435",
+      "two_row_prefilter_certificate_found": false
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        10,
+        14,
+        7
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        6,
+        13,
+        11,
+        12
+      ],
+      "certificate": {
+        "boundary_prefix": {
+          "anchor_label": 0,
+          "left": [
+            1,
+            3,
+            10,
+            14,
+            7
+          ],
+          "middle_labels_unordered": [
+            4,
+            5,
+            8,
+            9,
+            15,
+            16,
+            17,
+            18
+          ],
+          "right_reflection_side": [
+            2,
+            6,
+            13,
+            11,
+            12
+          ]
+        },
+        "certificate_logic": "every listed inequality has a vertex order forced by the boundary prefix; the listed positive integer combination has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0 for every completion of this branch",
+        "certificate_type": "kalmanson_prefix_forced_farkas",
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "forced_inequalities_available": 3300,
+        "forced_order_model": "orders start with 0,left..., end with reversed(right), and put all middle labels between those fixed boundary blocks",
+        "inequalities": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              10,
+              5
+            ],
+            "weight": 196
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              5,
+              13
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              7,
+              8
+            ],
+            "weight": 167
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              7,
+              15
+            ],
+            "weight": 529
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              14,
+              8
+            ],
+            "weight": 529
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              9,
+              11
+            ],
+            "weight": 47
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              10,
+              17
+            ],
+            "weight": 1873
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              8,
+              2
+            ],
+            "weight": 37
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              15,
+              2
+            ],
+            "weight": 106
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              7,
+              16,
+              2
+            ],
+            "weight": 273
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              18,
+              13,
+              2
+            ],
+            "weight": 64
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              14,
+              17,
+              2
+            ],
+            "weight": 1732
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              5,
+              12
+            ],
+            "weight": 194
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              18,
+              6
+            ],
+            "weight": 64
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              10,
+              18
+            ],
+            "weight": 836
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              17,
+              11
+            ],
+            "weight": 141
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              7,
+              12,
+              11
+            ],
+            "weight": 147
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              7,
+              15,
+              11
+            ],
+            "weight": 423
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              9,
+              12,
+              11
+            ],
+            "weight": 47
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              10,
+              11,
+              13
+            ],
+            "weight": 62
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              5,
+              11,
+              2
+            ],
+            "weight": 194
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              10,
+              14,
+              2
+            ],
+            "weight": 529
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              18,
+              12,
+              2
+            ],
+            "weight": 772
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              7,
+              8
+            ],
+            "weight": 696
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              15,
+              11
+            ],
+            "weight": 1426
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              18,
+              11
+            ],
+            "weight": 836
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              10,
+              4,
+              13
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              18,
+              11,
+              6
+            ],
+            "weight": 64
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              10,
+              9,
+              13
+            ],
+            "weight": 47
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              4,
+              6,
+              2
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              17,
+              2
+            ],
+            "weight": 141
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              10,
+              7,
+              4,
+              2
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              8,
+              6,
+              2
+            ],
+            "weight": 37
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              7,
+              6,
+              2
+            ],
+            "weight": 1273
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              17,
+              6,
+              2
+            ],
+            "weight": 1097
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              17,
+              11,
+              2
+            ],
+            "weight": 635
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              7,
+              12,
+              13,
+              2
+            ],
+            "weight": 866
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              10,
+              12,
+              11,
+              2
+            ],
+            "weight": 588
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              15,
+              12,
+              2
+            ],
+            "weight": 106
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              5,
+              13
+            ],
+            "weight": 194
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              12,
+              6
+            ],
+            "weight": 153
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              7,
+              13
+            ],
+            "weight": 696
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              7,
+              11,
+              13
+            ],
+            "weight": 523
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              15,
+              13
+            ],
+            "weight": 1426
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              4,
+              13,
+              6
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              10,
+              7,
+              17,
+              6
+            ],
+            "weight": 141
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              7,
+              11,
+              6
+            ],
+            "weight": 1095
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              10,
+              8,
+              11,
+              6
+            ],
+            "weight": 37
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              15,
+              13,
+              6
+            ],
+            "weight": 1426
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              10,
+              7,
+              8,
+              13
+            ],
+            "weight": 37
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              7,
+              18,
+              11
+            ],
+            "weight": 836
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              15,
+              12,
+              11
+            ],
+            "weight": 423
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              15,
+              12,
+              13
+            ],
+            "weight": 1426
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              8,
+              11,
+              13
+            ],
+            "weight": 696
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              9,
+              11,
+              13
+            ],
+            "weight": 47
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              16,
+              11,
+              13
+            ],
+            "weight": 273
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              14,
+              12,
+              13
+            ],
+            "weight": 741
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              17,
+              12,
+              11
+            ],
+            "weight": 635
+          }
+        ],
+        "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+        "label": "c19_window_fifth_child_0436_0082_0022",
+        "num_inequalities": 58,
+        "pattern": {
+          "circulant_offsets": [
+            -8,
+            -3,
+            5,
+            9
+          ],
+          "n": 19,
+          "name": "C19_skew"
+        },
+        "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 27589
+      },
+      "certificate_kind_counts": {
+        "K1_diag_gt_sides": 19,
+        "K2_diag_gt_other": 39
+      },
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 1873,
+        "positive_inequalities": 58,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 27589,
+        "zero_sum_verified": true
+      },
+      "certificate_weight_counts": {
+        "106": 2,
+        "1095": 1,
+        "1097": 1,
+        "1273": 1,
+        "141": 3,
+        "1426": 4,
+        "147": 1,
+        "153": 1,
+        "167": 1,
+        "1732": 1,
+        "1873": 1,
+        "194": 3,
+        "196": 1,
+        "2": 5,
+        "273": 2,
+        "37": 4,
+        "423": 2,
+        "47": 4,
+        "523": 1,
+        "529": 3,
+        "588": 1,
+        "62": 1,
+        "635": 2,
+        "64": 3,
+        "696": 3,
+        "741": 1,
+        "772": 1,
+        "836": 3,
+        "866": 1
+      },
+      "fifth_added_left": 7,
+      "fifth_added_right_reflection_side": 12,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0436_0082",
+      "label": "c19_window_fifth_child_0436_0082_0022",
+      "prefix_parent_label": "c19_prefix_branch_0436",
+      "two_row_prefilter_certificate_found": false
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        10,
+        14,
+        7
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        6,
+        13,
+        12,
+        11
+      ],
+      "certificate": {
+        "boundary_prefix": {
+          "anchor_label": 0,
+          "left": [
+            1,
+            3,
+            10,
+            14,
+            7
+          ],
+          "middle_labels_unordered": [
+            4,
+            5,
+            8,
+            9,
+            15,
+            16,
+            17,
+            18
+          ],
+          "right_reflection_side": [
+            2,
+            6,
+            13,
+            12,
+            11
+          ]
+        },
+        "certificate_logic": "every listed inequality has a vertex order forced by the boundary prefix; the listed positive integer combination has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0 for every completion of this branch",
+        "certificate_type": "kalmanson_prefix_forced_farkas",
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "forced_inequalities_available": 3300,
+        "forced_order_model": "orders start with 0,left..., end with reversed(right), and put all middle labels between those fixed boundary blocks",
+        "inequalities": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              5,
+              11
+            ],
+            "weight": 125
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              7,
+              17
+            ],
+            "weight": 162
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              10,
+              14
+            ],
+            "weight": 98
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              10,
+              15
+            ],
+            "weight": 420
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              11,
+              12
+            ],
+            "weight": 364
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              15,
+              11
+            ],
+            "weight": 392
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              16,
+              11
+            ],
+            "weight": 8
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              18,
+              11
+            ],
+            "weight": 118
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              15,
+              2
+            ],
+            "weight": 28
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              5,
+              13,
+              2
+            ],
+            "weight": 125
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              7,
+              9,
+              2
+            ],
+            "weight": 75
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              7,
+              16,
+              2
+            ],
+            "weight": 228
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              11,
+              12,
+              2
+            ],
+            "weight": 32
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              18,
+              13,
+              2
+            ],
+            "weight": 207
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              14,
+              18,
+              2
+            ],
+            "weight": 11
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              3,
+              7,
+              8
+            ],
+            "weight": 211
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              7,
+              18,
+              6
+            ],
+            "weight": 78
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              14,
+              17,
+              6
+            ],
+            "weight": 162
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              14,
+              7,
+              16
+            ],
+            "weight": 8
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              10,
+              12,
+              13
+            ],
+            "weight": 332
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              12,
+              13,
+              2
+            ],
+            "weight": 107
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              5,
+              11
+            ],
+            "weight": 125
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              14,
+              7
+            ],
+            "weight": 33
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              15,
+              11
+            ],
+            "weight": 304
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              14,
+              7,
+              6
+            ],
+            "weight": 131
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              10,
+              7,
+              9
+            ],
+            "weight": 64
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              10,
+              18,
+              11
+            ],
+            "weight": 118
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              10,
+              16,
+              13
+            ],
+            "weight": 8
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              14,
+              12,
+              13
+            ],
+            "weight": 99
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              6,
+              2
+            ],
+            "weight": 28
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              9,
+              11,
+              2
+            ],
+            "weight": 64
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              15,
+              13,
+              2
+            ],
+            "weight": 28
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              9,
+              13,
+              2
+            ],
+            "weight": 11
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              5,
+              13
+            ],
+            "weight": 125
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              16,
+              6
+            ],
+            "weight": 170
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              7,
+              16
+            ],
+            "weight": 178
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              7,
+              11,
+              13
+            ],
+            "weight": 82
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              8,
+              12,
+              13
+            ],
+            "weight": 211
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              9,
+              13
+            ],
+            "weight": 64
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              9,
+              12,
+              13
+            ],
+            "weight": 75
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              10,
+              15,
+              12
+            ],
+            "weight": 304
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              14,
+              11,
+              12
+            ],
+            "weight": 132
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              14,
+              16,
+              13
+            ],
+            "weight": 8
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              7,
+              11,
+              6
+            ],
+            "weight": 357
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              15,
+              12,
+              6
+            ],
+            "weight": 304
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              9,
+              13,
+              6
+            ],
+            "weight": 64
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              18,
+              13,
+              6
+            ],
+            "weight": 78
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              8,
+              11,
+              12
+            ],
+            "weight": 211
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              16,
+              11,
+              12
+            ],
+            "weight": 228
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              16,
+              12,
+              13
+            ],
+            "weight": 228
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              7,
+              17,
+              12
+            ],
+            "weight": 33
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              7,
+              18,
+              13
+            ],
+            "weight": 118
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              14,
+              18,
+              11
+            ],
+            "weight": 118
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              15,
+              12,
+              13
+            ],
+            "weight": 28
+          }
+        ],
+        "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+        "label": "c19_window_fifth_child_0436_0083_0022",
+        "num_inequalities": 54,
+        "pattern": {
+          "circulant_offsets": [
+            -8,
+            -3,
+            5,
+            9
+          ],
+          "n": 19,
+          "name": "C19_skew"
+        },
+        "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 7420
+      },
+      "certificate_kind_counts": {
+        "K1_diag_gt_sides": 13,
+        "K2_diag_gt_other": 41
+      },
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 420,
+        "positive_inequalities": 54,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 7420,
+        "zero_sum_verified": true
+      },
+      "certificate_weight_counts": {
+        "107": 1,
+        "11": 2,
+        "118": 4,
+        "125": 4,
+        "131": 1,
+        "132": 1,
+        "162": 2,
+        "170": 1,
+        "178": 1,
+        "207": 1,
+        "211": 3,
+        "228": 3,
+        "28": 4,
+        "304": 3,
+        "32": 1,
+        "33": 2,
+        "332": 1,
+        "357": 1,
+        "364": 1,
+        "392": 1,
+        "420": 1,
+        "64": 4,
+        "75": 2,
+        "78": 2,
+        "8": 4,
+        "82": 1,
+        "98": 1,
+        "99": 1
+      },
+      "fifth_added_left": 7,
+      "fifth_added_right_reflection_side": 11,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0436_0083",
+      "label": "c19_window_fifth_child_0436_0083_0022",
+      "prefix_parent_label": "c19_prefix_branch_0436",
+      "two_row_prefilter_certificate_found": false
+    },
+    {
+      "boundary_left": [
+        1,
+        3,
+        12,
+        11,
+        13
+      ],
+      "boundary_right_reflection_side": [
+        2,
+        6,
+        5,
+        10,
+        15
+      ],
+      "certificate": {
+        "boundary_prefix": {
+          "anchor_label": 0,
+          "left": [
+            1,
+            3,
+            12,
+            11,
+            13
+          ],
+          "middle_labels_unordered": [
+            4,
+            7,
+            8,
+            9,
+            14,
+            16,
+            17,
+            18
+          ],
+          "right_reflection_side": [
+            2,
+            6,
+            5,
+            10,
+            15
+          ]
+        },
+        "certificate_logic": "every listed inequality has a vertex order forced by the boundary prefix; the listed positive integer combination has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0 for every completion of this branch",
+        "certificate_type": "kalmanson_prefix_forced_farkas",
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "forced_inequalities_available": 3300,
+        "forced_order_model": "orders start with 0,left..., end with reversed(right), and put all middle labels between those fixed boundary blocks",
+        "inequalities": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              7,
+              5
+            ],
+            "weight": 17
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              12,
+              9
+            ],
+            "weight": 185
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              12,
+              10
+            ],
+            "weight": 1317
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              13,
+              17
+            ],
+            "weight": 187
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              16,
+              15,
+              2
+            ],
+            "weight": 73
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              7,
+              15,
+              5
+            ],
+            "weight": 17
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              13,
+              9,
+              5
+            ],
+            "weight": 187
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              12,
+              10,
+              5
+            ],
+            "weight": 43
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              16,
+              10,
+              5
+            ],
+            "weight": 551
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              11,
+              17,
+              5
+            ],
+            "weight": 187
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              16,
+              10,
+              6
+            ],
+            "weight": 633
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              12,
+              11,
+              15
+            ],
+            "weight": 1502
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              12,
+              14,
+              15
+            ],
+            "weight": 90
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              16,
+              10,
+              2
+            ],
+            "weight": 109
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              18,
+              10,
+              2
+            ],
+            "weight": 5
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              12,
+              17,
+              2
+            ],
+            "weight": 7
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              3,
+              10,
+              5
+            ],
+            "weight": 17
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              11,
+              7,
+              5
+            ],
+            "weight": 17
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              12,
+              11,
+              14
+            ],
+            "weight": 133
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              11,
+              13,
+              15
+            ],
+            "weight": 187
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              11,
+              16,
+              15
+            ],
+            "weight": 109
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              12,
+              18,
+              15
+            ],
+            "weight": 5
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              14,
+              10,
+              2
+            ],
+            "weight": 29
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              15,
+              5,
+              2
+            ],
+            "weight": 271
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              15,
+              5,
+              2
+            ],
+            "weight": 72
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              8,
+              6,
+              2
+            ],
+            "weight": 271
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              9,
+              10,
+              6,
+              2
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              17,
+              6,
+              2
+            ],
+            "weight": 7
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              12,
+              9,
+              15,
+              2
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              13,
+              10,
+              2
+            ],
+            "weight": 813
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              12,
+              14,
+              10,
+              2
+            ],
+            "weight": 43
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              12,
+              11,
+              18,
+              2
+            ],
+            "weight": 5
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              13,
+              18,
+              15,
+              2
+            ],
+            "weight": 268
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              12,
+              5,
+              6
+            ],
+            "weight": 43
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              11,
+              14,
+              5
+            ],
+            "weight": 60
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              16,
+              15,
+              5
+            ],
+            "weight": 12
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              8,
+              15,
+              6
+            ],
+            "weight": 271
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              12,
+              11,
+              6
+            ],
+            "weight": 43
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              3,
+              14,
+              15,
+              6
+            ],
+            "weight": 103
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              11,
+              8,
+              15
+            ],
+            "weight": 386
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              11,
+              16,
+              10
+            ],
+            "weight": 12
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              9,
+              15,
+              5,
+              6
+            ],
+            "weight": 187
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              10,
+              5,
+              6
+            ],
+            "weight": 635
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              17,
+              15,
+              5,
+              6
+            ],
+            "weight": 187
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              13,
+              16,
+              5
+            ],
+            "weight": 264
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              13,
+              8,
+              6
+            ],
+            "weight": 271
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              15,
+              10,
+              6
+            ],
+            "weight": 551
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              12,
+              13,
+              15,
+              6
+            ],
+            "weight": 86
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              7,
+              15,
+              10
+            ],
+            "weight": 825
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              13,
+              18,
+              15
+            ],
+            "weight": 5
+          }
+        ],
+        "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+        "label": "c19_window_fifth_child_0456_0059_0041",
+        "num_inequalities": 50,
+        "pattern": {
+          "circulant_offsets": [
+            -8,
+            -3,
+            5,
+            9
+          ],
+          "n": 19,
+          "name": "C19_skew"
+        },
+        "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 11302
+      },
+      "certificate_kind_counts": {
+        "K1_diag_gt_sides": 20,
+        "K2_diag_gt_other": 30
+      },
+      "certificate_summary": {
+        "claim_strength": "Exact obstruction for every completion of this one fixed C19 boundary prefix; not an all-order C19 obstruction.",
+        "distance_classes_after_selected_equalities": 114,
+        "forced_inequalities_available": 3300,
+        "max_weight": 1502,
+        "positive_inequalities": 50,
+        "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
+        "weight_sum": 11302,
+        "zero_sum_verified": true
+      },
+      "certificate_weight_counts": {
+        "103": 1,
+        "109": 2,
+        "12": 2,
+        "1317": 1,
+        "133": 1,
+        "1502": 1,
+        "17": 4,
+        "185": 1,
+        "187": 6,
+        "2": 2,
+        "264": 1,
+        "268": 1,
+        "271": 4,
+        "29": 1,
+        "386": 1,
+        "43": 4,
+        "5": 4,
+        "551": 2,
+        "60": 1,
+        "633": 1,
+        "635": 1,
+        "7": 2,
+        "72": 1,
+        "73": 1,
+        "813": 1,
+        "825": 1,
+        "86": 1,
+        "90": 1
+      },
+      "fifth_added_left": 13,
+      "fifth_added_right_reflection_side": 15,
+      "forced_inequalities_available": 3300,
+      "fourth_pair_parent_label": "c19_window_fourth_child_0456_0059",
+      "label": "c19_window_fifth_child_0456_0059_0041",
+      "prefix_parent_label": "c19_prefix_branch_0456",
+      "two_row_prefilter_certificate_found": false
+    }
+  ],
+  "histograms": {
+    "fallback_count_by_fourth_pair_parent": {
+      "c19_window_fourth_child_0430_0081": 1,
+      "c19_window_fourth_child_0434_0070": 1,
+      "c19_window_fourth_child_0435_0078": 2,
+      "c19_window_fourth_child_0435_0083": 1,
+      "c19_window_fourth_child_0436_0082": 1,
+      "c19_window_fourth_child_0436_0083": 1,
+      "c19_window_fourth_child_0456_0059": 1
+    },
+    "fallback_count_by_prefix_parent": {
+      "c19_prefix_branch_0430": 1,
+      "c19_prefix_branch_0434": 1,
+      "c19_prefix_branch_0435": 3,
+      "c19_prefix_branch_0436": 2,
+      "c19_prefix_branch_0456": 1
+    },
+    "kind_pattern": {
+      "K1_diag_gt_sides:1+K2_diag_gt_other:6": 1,
+      "K1_diag_gt_sides:1+K2_diag_gt_other:7": 1,
+      "K1_diag_gt_sides:13+K2_diag_gt_other:41": 1,
+      "K1_diag_gt_sides:16+K2_diag_gt_other:36": 1,
+      "K1_diag_gt_sides:19+K2_diag_gt_other:39": 1,
+      "K1_diag_gt_sides:20+K2_diag_gt_other:30": 1,
+      "K1_diag_gt_sides:7+K2_diag_gt_other:12": 1,
+      "K1_diag_gt_sides:9+K2_diag_gt_other:38": 1
+    },
+    "max_weight": {
+      "1": 1,
+      "1502": 1,
+      "181": 1,
+      "1873": 1,
+      "2": 1,
+      "250": 1,
+      "3": 1,
+      "420": 1
+    },
+    "support_size": {
+      "19": 1,
+      "47": 1,
+      "50": 1,
+      "52": 1,
+      "54": 1,
+      "58": 1,
+      "7": 1,
+      "8": 1
+    },
+    "weight_sum": {
+      "11302": 1,
+      "2286": 1,
+      "27": 1,
+      "27589": 1,
+      "3862": 1,
+      "7": 1,
+      "7420": 1,
+      "9": 1
+    }
+  },
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "This diagnostic only reconstructs fallback children already recorded by the compact C19 prefilter-window sweep.",
+    "Each fallback child is rechecked as a miss for the exact two-row prefilter.",
+    "Each fallback child is then certified by an exact positive-integer Kalmanson/Farkas certificate.",
+    "This does not certify branches beyond the recorded sampled windows and is not an all-order C19 obstruction."
+  ],
+  "parameters": {
+    "fifth_pair_prefilter": "two_row_kalmanson_prefilter",
+    "lp_support_tolerance": 1e-09
+  },
+  "pattern": {
+    "circulant_offsets": [
+      -8,
+      -3,
+      5,
+      9
+    ],
+    "n": 19,
+    "name": "C19_skew"
+  },
+  "source_artifact": "data/certificates/c19_kalmanson_prefix_window_prefilter_sweep_288_479.json",
+  "source_prefix_label_digest": "a2dcbd0eb6d2513dd906346ab9a4e6a273bb7033d5bcd344cf4f52cd622e8648",
+  "trust": "EXACT_OBSTRUCTION",
+  "type": "c19_prefilter_fallback_support_diagnostic_v1"
+}
