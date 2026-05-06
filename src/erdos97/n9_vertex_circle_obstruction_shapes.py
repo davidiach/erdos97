@@ -106,6 +106,25 @@ def canonical_dihedral_rows(rows: Sequence[Sequence[int]]) -> CanonicalRows:
     )
 
 
+def canonical_dihedral_rows_with_map(
+    rows: Sequence[Sequence[int]],
+) -> tuple[CanonicalRows, tuple[int, ...]]:
+    """Return the canonical dihedral row system and the label map that gives it.
+
+    The map sends labels in ``rows`` to labels in the returned canonical
+    representative. Ties are broken by the map so callers can store a stable
+    provenance witness, even when a row system has nontrivial dihedral symmetry.
+    """
+
+    return min(
+        (
+            tuple(tuple(row) for row in _transform_rows(rows, label_map)),
+            tuple(label_map),
+        )
+        for label_map in _dihedral_maps()
+    )
+
+
 def _rows_to_json(rows: Sequence[Sequence[int]]) -> Rows:
     return [[int(value) for value in row] for row in rows]
 

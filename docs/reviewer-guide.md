@@ -72,6 +72,7 @@ python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --check-artifac
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 python scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_core_templates.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_frontier_motif_classification.py --check --assert-expected --json
 python scripts/check_n9_row_ptolemy_product_cancellations.py --check --json
 python scripts/check_n9_row_ptolemy_family_signatures.py --check --assert-expected --json
 python scripts/check_n9_row_ptolemy_order_sensitivity.py --check --assert-expected --json

@@ -47,6 +47,14 @@ family ids covered by each bucket. These template ids are deterministic
 artifact labels only; they are not theorem names and do not promote the n=9
 finite-case status.
 
+`data/certificates/n9_vertex_circle_frontier_motif_classification.json`
+pushes the same local-core labels back down to all 184 labelled frontier
+assignments. It stores each assignment's selected rows, its dihedral map to
+the canonical family representative, and the compact core rows in the
+assignment's original labels. The checker replays the transformed cores, so
+the file is useful for reviewing the family classification without treating
+template ids as theorem names.
+
 `data/certificates/n9_row_ptolemy_product_cancellations.json` contains a
 dependent crosswalk from the row-Ptolemy hit families to these template labels:
 `F02 -> T08`, `F09 -> T01`, and `F13 -> T04`. All three are self-edge
@@ -135,12 +143,26 @@ python scripts/check_n9_vertex_circle_core_templates.py \
   --json
 ```
 
+Generate and check the assignment-level motif classification:
+
+```bash
+python scripts/check_n9_vertex_circle_frontier_motif_classification.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_vertex_circle_frontier_motif_classification.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
 Run the targeted artifact test:
 
 ```bash
 python -m pytest \
   tests/test_n9_vertex_circle_local_cores.py \
   tests/test_n9_vertex_circle_core_templates.py \
+  tests/test_n9_vertex_circle_frontier_motif_classification.py \
   -q
 ```
 

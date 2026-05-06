@@ -30,6 +30,16 @@ after cyclic symmetry.
 The checked-in artifact is
 `data/certificates/n9_vertex_circle_motif_families.json`.
 
+The derived assignment-level classification
+`data/certificates/n9_vertex_circle_frontier_motif_classification.json` makes
+this join explicit for all 184 labelled assignments. For each assignment it
+stores the full selected-row system, the deterministic dihedral map to the
+canonical family representative, the local-core template id, and the compact
+core rows transformed back into the assignment labels. The checker replays
+both the full assignment and the transformed compact core. This is a
+review-pending diagnostic classification, not an independent proof and not a
+promotion of the n=9 finite-case status.
+
 The local-core follow-up in `docs/n9-vertex-circle-local-cores.md` shows that
 each of the 16 family representatives has a vertex-circle certificate using at
 most 6 selected rows. Its template diagnostic groups those 16 local cores into
@@ -90,8 +100,24 @@ python scripts/analyze_n9_vertex_circle_motif_families.py \
   --write
 ```
 
+Generate and check the assignment-level motif classification:
+
+```bash
+python scripts/check_n9_vertex_circle_frontier_motif_classification.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_vertex_circle_frontier_motif_classification.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
 Run the targeted artifact test:
 
 ```bash
-python -m pytest tests/test_n9_vertex_circle_motif_families.py -q
+python -m pytest \
+  tests/test_n9_vertex_circle_motif_families.py \
+  tests/test_n9_vertex_circle_frontier_motif_classification.py \
+  -q
 ```
