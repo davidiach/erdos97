@@ -71,6 +71,11 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/check_n9_row_ptolemy_admissible_gap_replay.py --check "
+        "--assert-expected --json"
+        in command_texts
+    )
+    assert (
         "python scripts/check_n9_vertex_circle_local_core_packet.py --check "
         "--assert-expected --json"
         in command_texts

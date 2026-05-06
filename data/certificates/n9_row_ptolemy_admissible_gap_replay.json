@@ -1,0 +1,2070 @@
+{
+  "assignment_indices": [
+    22,
+    173
+  ],
+  "claim_scope": "Replay of the two zero-certificate n=9 row-Ptolemy admissible assignment-order records; not a proof of n=9, not a counterexample, not an all-order obstruction, not an orderless abstract-incidence obstruction, not a geometric realizability count, and not a global status update.",
+  "family_signature_source": {
+    "certificate_count_per_assignment": 18,
+    "family_id": "F13",
+    "hit_assignment_count": 2,
+    "hit_certificate_count": 36,
+    "path": "data/certificates/n9_row_ptolemy_family_signatures.json",
+    "template_id": "T04",
+    "template_key": "self_edge|rows=4|strict_edges=36|conflicts=2:1:1x2",
+    "template_status": "self_edge"
+  },
+  "filter_replay_scope": "Replay only the zero-certificate admissible assignment-order records from the row-Ptolemy admissible-order census.",
+  "interpretation": [
+    "Zero row-Ptolemy certificates are diagnostic gaps for this filter, not realizability evidence.",
+    "Both records still replay as vertex-circle self-edge obstructions under the supplied normalized order.",
+    "The F13 -> T04 label is crosswalk metadata, not a theorem name.",
+    "No proof of the n=9 case is claimed.",
+    "No counterexample or global status update is claimed."
+  ],
+  "n": 9,
+  "normalized_order": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    1,
+    3,
+    5,
+    7
+  ],
+  "provenance": {
+    "command": "python scripts/check_n9_row_ptolemy_admissible_gap_replay.py --assert-expected --write",
+    "generator": "scripts/check_n9_row_ptolemy_admissible_gap_replay.py"
+  },
+  "record_count": 2,
+  "records": [
+    {
+      "adjacent_two_overlap_violation_count": 0,
+      "assignment_index": 22,
+      "crossing_bisector_violation_count": 0,
+      "family_id": "F13",
+      "family_orbit_size": 2,
+      "is_natural_order": false,
+      "order": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        1,
+        3,
+        5,
+        7
+      ],
+      "row_ptolemy_certificate_count": 0,
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "source_vertex_circle_status": "self_edge",
+      "template_id": "T04",
+      "template_key": "self_edge|rows=4|strict_edges=36|conflicts=2:1:1x2",
+      "template_status": "self_edge",
+      "vertex_circle_replay": {
+        "cycle_edges": [],
+        "n": 9,
+        "obstructed": true,
+        "order": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          1,
+          3,
+          5,
+          7
+        ],
+        "selected_row_count": 9,
+        "self_edge_conflicts": [
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              7
+            ],
+            "row": 0,
+            "witness_order": [
+              2,
+              1,
+              5,
+              7
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              1,
+              5
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              7
+            ],
+            "row": 0,
+            "witness_order": [
+              2,
+              1,
+              5,
+              7
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              5,
+              7
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              7
+            ],
+            "row": 0,
+            "witness_order": [
+              2,
+              1,
+              5,
+              7
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              2,
+              3
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              8
+            ],
+            "row": 1,
+            "witness_order": [
+              3,
+              2,
+              6,
+              8
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              2,
+              6
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              8
+            ],
+            "row": 1,
+            "witness_order": [
+              3,
+              2,
+              6,
+              8
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              6,
+              8
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              8
+            ],
+            "row": 1,
+            "witness_order": [
+              3,
+              2,
+              6,
+              8
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              3,
+              4
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              4
+            ],
+            "row": 2,
+            "witness_order": [
+              4,
+              3,
+              7,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              3,
+              7
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              4
+            ],
+            "row": 2,
+            "witness_order": [
+              4,
+              3,
+              7,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              7
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              4
+            ],
+            "row": 2,
+            "witness_order": [
+              4,
+              3,
+              7,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              4,
+              5
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              5
+            ],
+            "row": 3,
+            "witness_order": [
+              5,
+              4,
+              8,
+              1
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              4,
+              8
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              5
+            ],
+            "row": 3,
+            "witness_order": [
+              5,
+              4,
+              8,
+              1
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              1,
+              8
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              5
+            ],
+            "row": 3,
+            "witness_order": [
+              5,
+              4,
+              8,
+              1
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              5,
+              6
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              6
+            ],
+            "row": 4,
+            "witness_order": [
+              6,
+              5,
+              0,
+              2
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              0,
+              5
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              6
+            ],
+            "row": 4,
+            "witness_order": [
+              6,
+              5,
+              0,
+              2
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              2
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              6
+            ],
+            "row": 4,
+            "witness_order": [
+              6,
+              5,
+              0,
+              2
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              6,
+              7
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              7
+            ],
+            "row": 5,
+            "witness_order": [
+              7,
+              6,
+              1,
+              3
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              1,
+              6
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              7
+            ],
+            "row": 5,
+            "witness_order": [
+              7,
+              6,
+              1,
+              3
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              1,
+              3
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              7
+            ],
+            "row": 5,
+            "witness_order": [
+              7,
+              6,
+              1,
+              3
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              7,
+              8
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              4,
+              8
+            ],
+            "row": 6,
+            "witness_order": [
+              8,
+              7,
+              2,
+              4
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              2,
+              7
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              4,
+              8
+            ],
+            "row": 6,
+            "witness_order": [
+              8,
+              7,
+              2,
+              4
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              2,
+              4
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              4,
+              8
+            ],
+            "row": 6,
+            "witness_order": [
+              8,
+              7,
+              2,
+              4
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              0,
+              8
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              5
+            ],
+            "row": 7,
+            "witness_order": [
+              0,
+              8,
+              3,
+              5
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              3,
+              8
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              5
+            ],
+            "row": 7,
+            "witness_order": [
+              0,
+              8,
+              3,
+              5
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              3,
+              5
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              5
+            ],
+            "row": 7,
+            "witness_order": [
+              0,
+              8,
+              3,
+              5
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              0,
+              1
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              6
+            ],
+            "row": 8,
+            "witness_order": [
+              1,
+              0,
+              4,
+              6
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              0,
+              4
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              6
+            ],
+            "row": 8,
+            "witness_order": [
+              1,
+              0,
+              4,
+              6
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              4,
+              6
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              6
+            ],
+            "row": 8,
+            "witness_order": [
+              1,
+              0,
+              4,
+              6
+            ]
+          }
+        ],
+        "status": "self_edge",
+        "strict_edge_count": 81,
+        "type": "vertex_circle_quotient_replay_result"
+      }
+    },
+    {
+      "adjacent_two_overlap_violation_count": 0,
+      "assignment_index": 173,
+      "crossing_bisector_violation_count": 0,
+      "family_id": "F13",
+      "family_orbit_size": 2,
+      "is_natural_order": false,
+      "order": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        1,
+        3,
+        5,
+        7
+      ],
+      "row_ptolemy_certificate_count": 0,
+      "selected_rows": [
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "source_vertex_circle_status": "self_edge",
+      "template_id": "T04",
+      "template_key": "self_edge|rows=4|strict_edges=36|conflicts=2:1:1x2",
+      "template_status": "self_edge",
+      "vertex_circle_replay": {
+        "cycle_edges": [],
+        "n": 9,
+        "obstructed": true,
+        "order": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          1,
+          3,
+          5,
+          7
+        ],
+        "selected_row_count": 9,
+        "self_edge_conflicts": [
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              2,
+              4
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              7
+            ],
+            "row": 0,
+            "witness_order": [
+              2,
+              4,
+              8,
+              7
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              4,
+              8
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              7
+            ],
+            "row": 0,
+            "witness_order": [
+              2,
+              4,
+              8,
+              7
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              7,
+              8
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              7
+            ],
+            "row": 0,
+            "witness_order": [
+              2,
+              4,
+              8,
+              7
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              3,
+              5
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              8
+            ],
+            "row": 1,
+            "witness_order": [
+              3,
+              5,
+              0,
+              8
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              0,
+              5
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              8
+            ],
+            "row": 1,
+            "witness_order": [
+              3,
+              5,
+              0,
+              8
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              8
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              8
+            ],
+            "row": 1,
+            "witness_order": [
+              3,
+              5,
+              0,
+              8
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              4,
+              6
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              4
+            ],
+            "row": 2,
+            "witness_order": [
+              4,
+              6,
+              1,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              1,
+              6
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              4
+            ],
+            "row": 2,
+            "witness_order": [
+              4,
+              6,
+              1,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              1
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              4
+            ],
+            "row": 2,
+            "witness_order": [
+              4,
+              6,
+              1,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              5,
+              7
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              5
+            ],
+            "row": 3,
+            "witness_order": [
+              5,
+              7,
+              2,
+              1
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              2,
+              7
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              5
+            ],
+            "row": 3,
+            "witness_order": [
+              5,
+              7,
+              2,
+              1
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              5
+            ],
+            "row": 3,
+            "witness_order": [
+              5,
+              7,
+              2,
+              1
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              6,
+              8
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              6
+            ],
+            "row": 4,
+            "witness_order": [
+              6,
+              8,
+              3,
+              2
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              3,
+              8
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              6
+            ],
+            "row": 4,
+            "witness_order": [
+              6,
+              8,
+              3,
+              2
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              2,
+              3
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              6
+            ],
+            "row": 4,
+            "witness_order": [
+              6,
+              8,
+              3,
+              2
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              0,
+              7
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              7
+            ],
+            "row": 5,
+            "witness_order": [
+              7,
+              0,
+              4,
+              3
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              0,
+              4
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              7
+            ],
+            "row": 5,
+            "witness_order": [
+              7,
+              0,
+              4,
+              3
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              3,
+              4
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              7
+            ],
+            "row": 5,
+            "witness_order": [
+              7,
+              0,
+              4,
+              3
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              8
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              4,
+              8
+            ],
+            "row": 6,
+            "witness_order": [
+              8,
+              1,
+              5,
+              4
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              1,
+              5
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              4,
+              8
+            ],
+            "row": 6,
+            "witness_order": [
+              8,
+              1,
+              5,
+              4
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              4,
+              5
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              4,
+              8
+            ],
+            "row": 6,
+            "witness_order": [
+              8,
+              1,
+              5,
+              4
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              0,
+              2
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              5
+            ],
+            "row": 7,
+            "witness_order": [
+              0,
+              2,
+              6,
+              5
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              2,
+              6
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              5
+            ],
+            "row": 7,
+            "witness_order": [
+              0,
+              2,
+              6,
+              5
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              5,
+              6
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              5
+            ],
+            "row": 7,
+            "witness_order": [
+              0,
+              2,
+              6,
+              5
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              3
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              6
+            ],
+            "row": 8,
+            "witness_order": [
+              1,
+              3,
+              7,
+              6
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              3,
+              7
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              6
+            ],
+            "row": 8,
+            "witness_order": [
+              1,
+              3,
+              7,
+              6
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              6,
+              7
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              6
+            ],
+            "row": 8,
+            "witness_order": [
+              1,
+              3,
+              7,
+              6
+            ]
+          }
+        ],
+        "status": "self_edge",
+        "strict_edge_count": 81,
+        "type": "vertex_circle_quotient_replay_result"
+      }
+    }
+  ],
+  "row_ptolemy_certificate_count_histogram": {
+    "0": 2
+  },
+  "schema": "erdos97.n9_row_ptolemy_admissible_gap_replay.v1",
+  "self_edge_conflict_count_histogram": {
+    "27": 2
+  },
+  "source_admissible_census": {
+    "compatible_order_count": 28,
+    "compatible_vertex_circle_status_counts": {
+      "self_edge": 28
+    },
+    "compatible_zero_certificate_order_count": 2,
+    "path": "data/certificates/n9_row_ptolemy_order_admissible_census.json"
+  },
+  "source_artifacts": [
+    {
+      "path": "data/certificates/n9_row_ptolemy_order_admissible_census.json",
+      "role": "zero-certificate admissible assignment-order source records",
+      "schema": "erdos97.n9_row_ptolemy_order_admissible_census.v1",
+      "status": "EXPLORATORY_LEDGER_ONLY",
+      "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF"
+    },
+    {
+      "path": "data/certificates/n9_row_ptolemy_family_signatures.json",
+      "role": "row-Ptolemy family to local-core template crosswalk",
+      "schema": "erdos97.n9_row_ptolemy_family_signatures.v2",
+      "status": "EXPLORATORY_LEDGER_ONLY",
+      "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF"
+    }
+  ],
+  "status": "EXPLORATORY_LEDGER_ONLY",
+  "strict_edge_count_histogram": {
+    "81": 2
+  },
+  "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
+  "vertex_circle_status_counts": {
+    "self_edge": 2
+  },
+  "witness_size": 4
+}
