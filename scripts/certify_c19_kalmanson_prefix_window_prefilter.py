@@ -19,8 +19,9 @@ import json
 from collections import Counter
 from itertools import islice
 from pathlib import Path
-from typing import Any, Mapping
+from typing import Any, Mapping, Sequence
 
+from analyze_c19_prefilter_catalog_unit_supports import catalog_unit_certificate_for_state
 from analyze_c19_fifth_pair_two_row_prefilter import two_row_certificate_for_state
 from check_kalmanson_certificate import build_distance_classes
 from certify_c19_kalmanson_prefix_window import child_record, state_record
@@ -61,10 +62,12 @@ def prefilter_summary(
     *,
     row_count: int,
     inequalities: list[dict[str, object]],
+    method: str = "two_row_kalmanson_prefilter",
+    catalog_id: str | None = None,
 ) -> dict[str, object]:
-    return {
+    summary: dict[str, object] = {
         "status": "EXACT_OBSTRUCTION_FOR_PREFIX_BRANCH_COMPLETIONS",
-        "method": "two_row_kalmanson_prefilter",
+        "method": method,
         "positive_inequalities": len(inequalities),
         "forced_inequalities_available": row_count,
         "weight_sum": len(inequalities),
@@ -75,6 +78,9 @@ def prefilter_summary(
             "boundary-prefix child; not an all-order C19 obstruction."
         ),
     }
+    if catalog_id is not None:
+        summary["catalog_id"] = catalog_id
+    return summary
 
 
 def scan_window_with_prefilter(
@@ -84,6 +90,7 @@ def scan_window_with_prefilter(
     include_certificates: bool,
     closed_example_count: int,
     tol: float,
+    catalog_unit_supports: Sequence[Mapping[str, object]] | None = None,
 ) -> dict[str, object]:
     if start_index < 0:
         raise ValueError("start_index must be nonnegative")
@@ -120,6 +127,8 @@ def scan_window_with_prefilter(
     fifth_child_count = 0
     fifth_closed = 0
     fifth_prefilter_closed = 0
+    fifth_two_row_prefilter_closed = 0
+    fifth_catalog_prefilter_closed = 0
     fifth_fallback_attempts = 0
     fifth_fallback_closed = 0
     fifth_parent_closed = 0
@@ -224,15 +233,38 @@ def scan_window_with_prefilter(
                     row_count, inequalities = two_row_certificate_for_state(child, classes)
                     fifth_row_count_histogram[row_count] += 1
                     fifth_child_count += 1
+                    prefilter_method = "two_row_kalmanson_prefilter"
+                    catalog_id = None
+                    if not inequalities and catalog_unit_supports is not None:
+                        catalog_certificate = catalog_unit_certificate_for_state(
+                            child,
+                            classes,
+                            catalog_unit_supports,
+                        )
+                        if catalog_certificate is not None:
+                            inequalities = [
+                                dict(_as_mapping(item, "catalog prefilter row"))
+                                for item in catalog_certificate["inequalities"]
+                            ]
+                            prefilter_method = "cataloged_unit_support_prefilter"
+                            catalog_id = str(catalog_certificate["catalog_id"])
                     if inequalities:
                         fifth_closed += 1
                         fifth_prefilter_closed += 1
+                        if prefilter_method == "two_row_kalmanson_prefilter":
+                            fifth_two_row_prefilter_closed += 1
+                        elif prefilter_method == "cataloged_unit_support_prefilter":
+                            fifth_catalog_prefilter_closed += 1
+                        else:
+                            raise AssertionError(f"unknown prefilter method: {prefilter_method}")
                         fifth_prefilter_row_histogram[len(inequalities)] += 1
                         if len(fifth_closed_examples) < closed_example_count:
                             example = dict(record)
                             example["certificate_summary"] = prefilter_summary(
                                 row_count=row_count,
                                 inequalities=inequalities,
+                                method=prefilter_method,
+                                catalog_id=catalog_id,
                             )
                             example["prefilter_inequalities"] = inequalities
                             fifth_closed_examples.append(example)
@@ -273,6 +305,65 @@ def scan_window_with_prefilter(
 
     prefix_count = len(prefix_labels)
     prefix_closed_after_chain = direct_closed + fourth_parent_closed + prefix_closed_by_fifth
+    fifth_pair_prefilter_name = "two_row_kalmanson_prefilter"
+    if catalog_unit_supports is not None:
+        fifth_pair_prefilter_name = "two_row_then_cataloged_unit_support"
+    branch_accounting: dict[str, object] = {
+        "prefix_branch_count": prefix_count,
+        "direct_prefix_certified_count": direct_closed,
+        "direct_prefix_unclosed_count": len(direct_unclosed_prefixes),
+        "fourth_pair_parent_count": len(direct_unclosed_prefixes),
+        "fourth_pair_child_branch_count": fourth_child_count,
+        "fourth_pair_child_certified_count": fourth_closed,
+        "unclosed_fourth_pair_child_branch_count": len(unclosed_fourth_children),
+        "prefix_parents_closed_by_fourth_refinement": fourth_parent_closed,
+        "fifth_pair_parent_count": len(unclosed_fourth_children),
+        "fifth_pair_child_branch_count": fifth_child_count,
+        "fifth_pair_child_certified_count": fifth_closed,
+        "fifth_pair_prefilter_certified_count": fifth_prefilter_closed,
+        "fifth_pair_farkas_fallback_attempt_count": fifth_fallback_attempts,
+        "fifth_pair_farkas_fallback_certified_count": fifth_fallback_closed,
+        "unclosed_fifth_pair_child_branch_count": len(unclosed_fifth_children),
+        "fourth_pair_parents_closed_by_fifth_refinement": fifth_parent_closed,
+        "prefix_parents_closed_by_fifth_refinement": prefix_closed_by_fifth,
+        "prefix_branches_closed_after_chain": prefix_closed_after_chain,
+        "prefix_branches_remaining_after_chain": prefix_count - prefix_closed_after_chain,
+        "exhaustive_window_scan": True,
+        "exhaustive_all_orders": False,
+    }
+    parameters: dict[str, object] = {
+        "start_index": start_index,
+        "window_size": window_size,
+        "boundary_pairs": 3,
+        "include_certificates_in_examples": include_certificates,
+        "closed_example_count": closed_example_count,
+        "lp_support_tolerance": tol,
+        "anchor_label": 0,
+        "fifth_pair_prefilter": fifth_pair_prefilter_name,
+    }
+    if catalog_unit_supports is not None:
+        parameters["catalog_unit_support_count"] = len(catalog_unit_supports)
+        branch_accounting["fifth_pair_two_row_prefilter_certified_count"] = (
+            fifth_two_row_prefilter_closed
+        )
+        branch_accounting["fifth_pair_catalog_prefilter_certified_count"] = (
+            fifth_catalog_prefilter_closed
+        )
+    notes = [
+        "No general proof of Erdos Problem #97 is claimed.",
+        "No counterexample is claimed.",
+        "This certifies only one deterministic C19 three-boundary-prefix window.",
+        "Direct and fourth-pair closures use ordinary prefix-forced Kalmanson/Farkas certificates.",
+        "Fifth-pair closures first try exact two-row Kalmanson cancellations; only misses use ordinary Farkas fallback.",
+        "Unclosed children, if any, are not counterexamples and are not evidence of realizability.",
+        "This is not an exhaustive all-order C19 search.",
+    ]
+    if catalog_unit_supports is not None:
+        notes[4] = (
+            "Fifth-pair closures first try exact two-row Kalmanson cancellations, "
+            "then cataloged unit supports; only misses use ordinary "
+            "Farkas fallback."
+        )
     return {
         "type": "c19_kalmanson_prefix_window_prefilter_chain_v1",
         "trust": "EXACT_OBSTRUCTION",
@@ -281,52 +372,13 @@ def scan_window_with_prefilter(
             "n": N,
             "circulant_offsets": OFFSETS,
         },
-        "notes": [
-            "No general proof of Erdos Problem #97 is claimed.",
-            "No counterexample is claimed.",
-            "This certifies only one deterministic C19 three-boundary-prefix window.",
-            "Direct and fourth-pair closures use ordinary prefix-forced Kalmanson/Farkas certificates.",
-            "Fifth-pair closures first try exact two-row Kalmanson cancellations; only misses use ordinary Farkas fallback.",
-            "Unclosed children, if any, are not counterexamples and are not evidence of realizability.",
-            "This is not an exhaustive all-order C19 search.",
-        ],
-        "parameters": {
-            "start_index": start_index,
-            "window_size": window_size,
-            "boundary_pairs": 3,
-            "include_certificates_in_examples": include_certificates,
-            "closed_example_count": closed_example_count,
-            "lp_support_tolerance": tol,
-            "anchor_label": 0,
-            "fifth_pair_prefilter": "two_row_kalmanson_prefilter",
-        },
+        "notes": notes,
+        "parameters": parameters,
         "global_prefix_space": {
             "raw_three_boundary_state_count": raw_count,
             "canonical_three_boundary_state_count": canonical_count,
         },
-        "branch_accounting": {
-            "prefix_branch_count": prefix_count,
-            "direct_prefix_certified_count": direct_closed,
-            "direct_prefix_unclosed_count": len(direct_unclosed_prefixes),
-            "fourth_pair_parent_count": len(direct_unclosed_prefixes),
-            "fourth_pair_child_branch_count": fourth_child_count,
-            "fourth_pair_child_certified_count": fourth_closed,
-            "unclosed_fourth_pair_child_branch_count": len(unclosed_fourth_children),
-            "prefix_parents_closed_by_fourth_refinement": fourth_parent_closed,
-            "fifth_pair_parent_count": len(unclosed_fourth_children),
-            "fifth_pair_child_branch_count": fifth_child_count,
-            "fifth_pair_child_certified_count": fifth_closed,
-            "fifth_pair_prefilter_certified_count": fifth_prefilter_closed,
-            "fifth_pair_farkas_fallback_attempt_count": fifth_fallback_attempts,
-            "fifth_pair_farkas_fallback_certified_count": fifth_fallback_closed,
-            "unclosed_fifth_pair_child_branch_count": len(unclosed_fifth_children),
-            "fourth_pair_parents_closed_by_fifth_refinement": fifth_parent_closed,
-            "prefix_parents_closed_by_fifth_refinement": prefix_closed_by_fifth,
-            "prefix_branches_closed_after_chain": prefix_closed_after_chain,
-            "prefix_branches_remaining_after_chain": prefix_count - prefix_closed_after_chain,
-            "exhaustive_window_scan": True,
-            "exhaustive_all_orders": False,
-        },
+        "branch_accounting": branch_accounting,
         "forced_row_count_histograms": {
             "direct_prefix": _histogram(direct_row_count_histogram),
             "fourth_pair": _histogram(fourth_row_count_histogram),

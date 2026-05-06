@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Verify cataloged three-row C19 fallback prefilter supports.
+"""Verify cataloged C19 fallback prefilter unit supports.
 
 The exhaustive small-unit search records one support witness for each sampled
 C19 fifth-pair fallback child where a unit-weight cancellation of size <= 3
-exists.  This analyzer turns those recorded witnesses into a compact catalog
-and replays them as cheap exact prefilter rules over the same fallback states.
+exists.  This analyzer turns those recorded witnesses plus the later logged
+six-row unit support for the lone size-3 miss into a compact catalog and
+replays them as cheap exact prefilter rules over the same fallback states.
 
 The scope is only the recorded fallback children from the compact C19
 prefilter-window sweep.  This is not an all-order C19 search and does not
@@ -48,6 +49,48 @@ DEFAULT_SOURCE = (
 DEFAULT_SUPPORTS = ROOT / "reports" / "c19_prefilter_small_unit_support_search.json"
 DEFAULT_OUT = ROOT / "reports" / "c19_prefilter_catalog_unit_supports.json"
 
+UNIT_SUPPORT_CATALOG = (
+    (
+        ("K1_diag_gt_sides", (0, 3, 10, 11)),
+        ("K2_diag_gt_other", (1, 10, 15, 11)),
+        ("K2_diag_gt_other", (3, 15, 12, 6)),
+    ),
+    (
+        ("K1_diag_gt_sides", (0, 16, 5, 2)),
+        ("K1_diag_gt_sides", (1, 9, 15, 6)),
+        ("K2_diag_gt_other", (16, 15, 5, 6)),
+    ),
+    (
+        ("K2_diag_gt_other", (0, 1, 10, 8)),
+        ("K1_diag_gt_sides", (0, 14, 8, 11)),
+        ("K1_diag_gt_sides", (1, 7, 12, 2)),
+        ("K2_diag_gt_other", (1, 3, 7, 8)),
+        ("K1_diag_gt_sides", (3, 12, 11, 2)),
+        ("K2_diag_gt_other", (3, 10, 7, 13)),
+    ),
+)
+
+
+def catalog_unit_support_catalog() -> list[dict[str, object]]:
+    catalog: list[dict[str, object]] = []
+    for support in UNIT_SUPPORT_CATALOG:
+        payload = [
+            {
+                "weight": 1,
+                "kind": kind,
+                "quad": list(quad),
+            }
+            for kind, quad in support
+        ]
+        catalog.append(
+            {
+                "catalog_id": f"unit_support_{len(catalog):03d}",
+                "support": payload,
+                "support_line": _support_line(payload),
+            }
+        )
+    return catalog
+
 
 def _support_line(support: Sequence[Mapping[str, object]]) -> str:
     parts = []
@@ -79,7 +122,8 @@ def _load_catalog(support_payload: Mapping[str, Any]) -> list[dict[str, object]]
     if support_payload["type"] != "c19_prefilter_small_unit_support_search_v1":
         raise ValueError("expected C19 small-unit support search artifact")
 
-    catalog: list[dict[str, object]] = []
+    catalog = catalog_unit_support_catalog()
+    catalog_lines = {str(item["support_line"]) for item in catalog}
     seen: set[str] = set()
     for row in _as_list(support_payload["fallback_records"], "fallback_records"):
         record = _as_mapping(row, "fallback_record")
@@ -93,21 +137,18 @@ def _load_catalog(support_payload: Mapping[str, Any]) -> list[dict[str, object]]
         if line in seen:
             continue
         seen.add(line)
-        catalog.append(
-            {
-                "catalog_id": f"unit_support_{len(catalog):03d}",
-                "support": support,
-                "support_line": line,
-            }
-        )
+        if line not in catalog_lines:
+            raise AssertionError("small-unit support artifact has an uncataloged support")
     return catalog
 
 
-def _catalog_certificate_for_state(
+def catalog_unit_certificate_for_state(
     state: BoundaryState,
     classes: Mapping[tuple[int, int], int],
-    catalog: Sequence[Mapping[str, object]],
+    catalog: Sequence[Mapping[str, object]] | None = None,
 ) -> dict[str, object] | None:
+    if catalog is None:
+        catalog = catalog_unit_support_catalog()
     rows = prefix_kalmanson_rows(state, classes)
     by_key = {(row.kind, tuple(row.quad)): row for row in rows}
     for item in catalog:
@@ -176,7 +217,7 @@ def analyze_catalog_unit_supports(
             raise AssertionError(f"fallback label now has a two-row certificate: {label}")
         two_row_miss_count += 1
 
-        certificate = _catalog_certificate_for_state(state, classes, catalog)
+        certificate = catalog_unit_certificate_for_state(state, classes, catalog)
         if certificate is None:
             catalog_usage["none"] += 1
         else:
@@ -198,8 +239,8 @@ def analyze_catalog_unit_supports(
     )
     if len(records) != expected_count:
         raise AssertionError(f"reconstructed {len(records)} fallback children, expected {expected_count}")
-    if sorted(certified_labels) != sorted(input_support_labels):
-        raise AssertionError("catalog replay does not match the small-unit support artifact")
+    if not set(input_support_labels).issubset(set(certified_labels)):
+        raise AssertionError("catalog replay lost a small-unit support artifact hit")
 
     support_lines = [str(item["support_line"]) for item in catalog]
     return {
@@ -211,13 +252,13 @@ def analyze_catalog_unit_supports(
         "notes": [
             "No general proof of Erdos Problem #97 is claimed.",
             "No counterexample is claimed.",
-            "This replays cataloged three-row unit Kalmanson supports over recorded C19 fallback children only.",
+            "This replays cataloged unit Kalmanson supports over recorded C19 fallback children only.",
             "Each catalog hit is rechecked by exact vector summation after selected-distance quotienting.",
             "This does not certify branches beyond the recorded sampled windows and is not an all-order C19 obstruction.",
         ],
         "parameters": {
-            "catalog_source": "nonempty supports from c19_prefilter_small_unit_support_search_v1",
-            "fifth_pair_prefilter_chain": "two_row_then_cataloged_three_row_unit_support",
+            "catalog_source": "small-unit support artifact plus logged six-row unit support",
+            "fifth_pair_prefilter_chain": "two_row_then_cataloged_unit_support",
         },
         "pattern": {
             "name": PATTERN_NAME,
@@ -254,22 +295,22 @@ def assert_expected(data: Mapping[str, Any]) -> None:
     expected_aggregate = {
         "fallback_child_count": 8,
         "two_row_prefilter_miss_count": 8,
-        "catalog_support_count": 2,
+        "catalog_support_count": 3,
         "input_support_record_count": 7,
-        "catalog_certified_count": 7,
-        "catalog_miss_count": 1,
+        "catalog_certified_count": 8,
+        "catalog_miss_count": 0,
         "fallback_label_digest": "2dc4965b208144017b7aba73dba920c8c8f8f1eea93a2f84650eb4f5f484f0c8",
-        "catalog_certified_label_digest": "03412b1e4da3c1de13345b052773aef2ae944f06028529f6c0f0d0a39e2a8ea6",
-        "catalog_support_digest": "b4110d03ca090444ce9585c24d89ca8a71be87d1e7df55507cbc47ef41a5aee5",
+        "catalog_certified_label_digest": "2dc4965b208144017b7aba73dba920c8c8f8f1eea93a2f84650eb4f5f484f0c8",
+        "catalog_support_digest": "895860a0c4d7ebc155b32be42c39061531772d2e245821eb68da14e332d8e7a9",
     }
     for key, expected in expected_aggregate.items():
         if aggregate[key] != expected:
             raise AssertionError(f"{key} changed: {aggregate[key]} != {expected}")
     histograms = _as_mapping(data["histograms"], "histograms")
     if histograms["catalog_usage"] != {
-        "none": 1,
         "unit_support_000": 6,
         "unit_support_001": 1,
+        "unit_support_002": 1,
     }:
         raise AssertionError("catalog usage histogram changed")
 
