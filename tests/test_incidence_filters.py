@@ -10,6 +10,7 @@ from erdos97.incidence_filters import (
     phi4_rectangle_trap_certificates,
     phi_directed_4_cycles,
     phi_map,
+    row_ptolemy_product_cancellation_certificates,
 )
 from erdos97.search import built_in_patterns
 
@@ -160,6 +161,31 @@ def test_n9_rectangle_trap_accepts_reversed_cyclic_order() -> None:
 
     assert len(certs) == 1
     assert certs[0]["cyclic_order_orientation"] == "reversed"
+
+
+def test_row_ptolemy_product_cancellation_certificate_on_toy_pattern() -> None:
+    rows = [
+        [1, 2, 3, 4],
+        [0, 2, 3, 4],
+        [1, 3, 4, 5],
+        [1, 2, 4, 5],
+        [0, 1, 2, 3],
+        [0, 1, 2, 3],
+    ]
+
+    certs = row_ptolemy_product_cancellation_certificates(rows, list(range(6)))
+
+    row0_certs = [cert for cert in certs if cert["row"] == 0]
+    assert row0_certs
+    cert = row0_certs[0]
+    assert cert["status"] == "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_ROW_ORDER"
+    assert cert["witness_order"] == [1, 2, 3, 4]
+    assert cert["ptolemy_identity"] == "d02*d13 = d01*d23 + d03*d12"
+    assert cert["zero_product"]["expression"] == "d03*d12"
+    assert any(
+        cert["variant"] == "cancel_d01_d23_via_d02_eq_d01_and_d13_eq_d23"
+        for cert in row0_certs
+    )
 
 
 def test_phi4_rectangle_trap_determinant_identity_expands_exactly() -> None:

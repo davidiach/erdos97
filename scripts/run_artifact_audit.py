@@ -150,6 +150,20 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_row_ptolemy_product_cancellations",
+        command=(
+            "python",
+            "scripts/check_n9_row_ptolemy_product_cancellations.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Focused n=9 row-Ptolemy product-cancellation bookkeeping for "
+            "fixed row order; not a proof of n=9, counterexample, geometric "
+            "realizability test, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",

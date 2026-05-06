@@ -67,6 +67,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`ptolemy-order-nlp.md`](ptolemy-order-nlp.md): numerical nonlinear
   diagnostic adding Ptolemy inequalities for cyclic quadrilaterals; records a
   relaxation miss on the registered sparse orders.
+- [`row-ptolemy-product-filter.md`](row-ptolemy-product-filter.md): exact
+  row-circle Ptolemy product-cancellation filter for fixed row orders, plus a
+  non-promoting n=9 frontier sweep.
 - [`two-orbit-radius-propagation.md`](two-orbit-radius-propagation.md): exact
   obstruction for a half-step two-orbit near-regular ansatz.
 - [`minimum-radius-filter.md`](minimum-radius-filter.md): weak exact
