@@ -1,0 +1,659 @@
+{
+  "certificates": [
+    {
+      "compact_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          8,
+          0,
+          1,
+          4,
+          5
+        ]
+      ],
+      "core_size": 3,
+      "family_id": "F01",
+      "orbit_size": 18,
+      "status": "self_edge"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          5,
+          2,
+          4,
+          6,
+          7
+        ],
+        [
+          6,
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "core_size": 6,
+      "family_id": "F02",
+      "orbit_size": 18,
+      "status": "self_edge"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "core_size": 6,
+      "family_id": "F03",
+      "orbit_size": 18,
+      "status": "self_edge"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          8
+        ]
+      ],
+      "core_size": 3,
+      "family_id": "F04",
+      "orbit_size": 18,
+      "status": "self_edge"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          1,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          6,
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "family_id": "F05",
+      "orbit_size": 18,
+      "status": "self_edge"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          5,
+          3,
+          4,
+          6,
+          8
+        ],
+        [
+          6,
+          0,
+          2,
+          5,
+          7
+        ]
+      ],
+      "core_size": 5,
+      "family_id": "F06",
+      "orbit_size": 18,
+      "status": "self_edge"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          6,
+          1,
+          5,
+          7,
+          8
+        ]
+      ],
+      "core_size": 4,
+      "family_id": "F07",
+      "orbit_size": 6,
+      "status": "strict_cycle"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          8,
+          0,
+          1,
+          3,
+          7
+        ]
+      ],
+      "core_size": 3,
+      "family_id": "F08",
+      "orbit_size": 2,
+      "status": "self_edge"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "core_size": 3,
+      "family_id": "F09",
+      "orbit_size": 6,
+      "status": "self_edge"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          7,
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "family_id": "F10",
+      "orbit_size": 18,
+      "status": "self_edge"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          1,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          1,
+          5,
+          6
+        ],
+        [
+          8,
+          2,
+          3,
+          6,
+          7
+        ]
+      ],
+      "core_size": 5,
+      "family_id": "F11",
+      "orbit_size": 18,
+      "status": "self_edge"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          6,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "family_id": "F12",
+      "orbit_size": 18,
+      "status": "strict_cycle"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          1,
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "family_id": "F13",
+      "orbit_size": 2,
+      "status": "self_edge"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          8,
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "core_size": 3,
+      "family_id": "F14",
+      "orbit_size": 2,
+      "status": "self_edge"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          0,
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          3,
+          2,
+          4,
+          6,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "family_id": "F15",
+      "orbit_size": 2,
+      "status": "self_edge"
+    },
+    {
+      "compact_selected_rows": [
+        [
+          0,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          2,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          4,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          8,
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "core_size": 6,
+      "family_id": "F16",
+      "orbit_size": 2,
+      "status": "strict_cycle"
+    }
+  ],
+  "claim_scope": "Compact replay packet for the 16 n=9 vertex-circle local-core motif representatives; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.",
+  "core_size_counts": {
+    "3": 5,
+    "4": 6,
+    "5": 2,
+    "6": 3
+  },
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "family_count": 16,
+  "interpretation": [
+    "This packet stores only the selected rows needed to replay each local quotient obstruction.",
+    "Each certificate covers one deterministic n=9 motif-family representative under the recorded cyclic order.",
+    "The packet is a reviewer aid for the review-pending n=9 vertex-circle frontier, not a promotion of the n=9 finite-case status.",
+    "No proof of the n=9 case is claimed."
+  ],
+  "max_core_size": 6,
+  "n": 9,
+  "orbit_size_sum": 184,
+  "provenance": {
+    "command": "python scripts/check_n9_vertex_circle_local_core_packet.py --assert-expected --write",
+    "generator": "scripts/check_n9_vertex_circle_local_core_packet.py"
+  },
+  "row_size": 4,
+  "schema": "erdos97.n9_vertex_circle_local_core_packet.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/n9_vertex_circle_local_cores.json",
+      "role": "detailed source local-core certificate artifact"
+    },
+    {
+      "path": "data/certificates/n9_vertex_circle_motif_families.json",
+      "role": "deterministic family-id convention"
+    }
+  ],
+  "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+  "status_core_size_counts": {
+    "self_edge": {
+      "3": 5,
+      "4": 4,
+      "5": 2,
+      "6": 2
+    },
+    "strict_cycle": {
+      "4": 2,
+      "6": 1
+    }
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

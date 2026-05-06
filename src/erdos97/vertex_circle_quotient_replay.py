@@ -106,6 +106,13 @@ def parse_selected_rows(raw_rows: Sequence[Any]) -> list[SelectedRow]:
         else:
             center = index
             witnesses_raw = raw
+            if (
+                isinstance(raw, Sequence)
+                and not isinstance(raw, str)
+                and len(raw) == 5
+            ):
+                center = int(raw[0])
+                witnesses_raw = raw[1:]
         if not isinstance(witnesses_raw, Sequence) or isinstance(witnesses_raw, str):
             raise ValueError(f"row {center} witnesses must be a sequence")
         witnesses = tuple(int(label) for label in witnesses_raw)
@@ -122,7 +129,7 @@ def parse_selected_rows(raw_rows: Sequence[Any]) -> list[SelectedRow]:
 
 def rows_from_payload(payload: dict[str, Any]) -> list[SelectedRow]:
     """Extract selected rows from a replay payload."""
-    for key in ("core_selected_rows", "selected_rows", "rows", "S"):
+    for key in ("compact_selected_rows", "core_selected_rows", "selected_rows", "rows", "S"):
         if key in payload:
             raw_rows = payload[key]
             if not isinstance(raw_rows, Sequence) or isinstance(raw_rows, str):

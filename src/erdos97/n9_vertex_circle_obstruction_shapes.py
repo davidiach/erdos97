@@ -34,6 +34,21 @@ EXPECTED_LOCAL_CORE_STATUS_SIZE_COUNTS = {
     "self_edge": {3: 5, 4: 4, 5: 2, 6: 2},
     "strict_cycle": {4: 2, 6: 1},
 }
+LOCAL_CORE_PACKET_SCHEMA = "erdos97.n9_vertex_circle_local_core_packet.v1"
+LOCAL_CORE_PACKET_TRUST = "REVIEW_PENDING_DIAGNOSTIC"
+LOCAL_CORE_PACKET_STATUS = "REVIEW_PENDING_DIAGNOSTIC_ONLY"
+LOCAL_CORE_PACKET_CLAIM_SCOPE = (
+    "Compact replay packet for the 16 n=9 vertex-circle local-core motif "
+    "representatives; not a proof of n=9, not a counterexample, not an "
+    "independent review of the exhaustive checker, and not a global status update."
+)
+LOCAL_CORE_PACKET_PROVENANCE = {
+    "generator": "scripts/check_n9_vertex_circle_local_core_packet.py",
+    "command": (
+        "python scripts/check_n9_vertex_circle_local_core_packet.py "
+        "--assert-expected --write"
+    ),
+}
 
 
 Assignment = dict[int, int]
@@ -819,6 +834,70 @@ def local_core_summary() -> dict[str, object]:
     return payload
 
 
+def local_core_packet_summary() -> dict[str, object]:
+    """Return a compact replay packet for the 16 n=9 local-core certificates."""
+
+    local_payload = local_core_summary()
+    certificates = []
+    for certificate in local_payload["certificates"]:
+        if not isinstance(certificate, dict):
+            raise AssertionError("malformed local-core certificate")
+        compact_rows = []
+        for row in certificate["core_selected_rows"]:
+            if not isinstance(row, dict):
+                raise AssertionError("malformed core row")
+            compact_rows.append(
+                [
+                    int(row["row"]),
+                    *[int(witness) for witness in row["witnesses"]],
+                ]
+            )
+        certificates.append(
+            {
+                "family_id": str(certificate["family_id"]),
+                "orbit_size": int(certificate["orbit_size"]),
+                "status": str(certificate["status"]),
+                "core_size": int(certificate["core_size"]),
+                "compact_selected_rows": compact_rows,
+            }
+        )
+
+    payload = {
+        "schema": LOCAL_CORE_PACKET_SCHEMA,
+        "status": LOCAL_CORE_PACKET_STATUS,
+        "trust": LOCAL_CORE_PACKET_TRUST,
+        "claim_scope": LOCAL_CORE_PACKET_CLAIM_SCOPE,
+        "n": n9.N,
+        "row_size": n9.ROW_SIZE,
+        "cyclic_order": list(n9.ORDER),
+        "family_count": len(certificates),
+        "orbit_size_sum": sum(int(cert["orbit_size"]) for cert in certificates),
+        "core_size_counts": local_payload["core_size_counts"],
+        "status_core_size_counts": local_payload["status_core_size_counts"],
+        "max_core_size": local_payload["max_core_size"],
+        "certificates": certificates,
+        "interpretation": [
+            "This packet stores only the selected rows needed to replay each local quotient obstruction.",
+            "Each certificate covers one deterministic n=9 motif-family representative under the recorded cyclic order.",
+            "The packet is a reviewer aid for the review-pending n=9 vertex-circle frontier, not a promotion of the n=9 finite-case status.",
+            "No proof of the n=9 case is claimed.",
+        ],
+        "source_artifacts": [
+            {
+                "path": "data/certificates/n9_vertex_circle_local_cores.json",
+                "role": "detailed source local-core certificate artifact",
+            },
+            {
+                "path": "data/certificates/n9_vertex_circle_motif_families.json",
+                "role": "deterministic family-id convention",
+            },
+        ],
+        "provenance": LOCAL_CORE_PACKET_PROVENANCE,
+    }
+    assert_expected_local_core_packet_counts(payload)
+    return payload
+
+
 def assert_expected_counts(payload: dict[str, object]) -> None:
     """Assert that the diagnostic still matches the checked n=9 frontier."""
     search = payload["pre_vertex_circle_search"]
@@ -904,3 +983,50 @@ def assert_expected_local_core_counts(payload: dict[str, object]) -> None:
         if not isinstance(certificate, dict):
             raise AssertionError("malformed local core certificate")
         verify_local_core_certificate(certificate)
+
+
+def assert_expected_local_core_packet_counts(payload: dict[str, object]) -> None:
+    """Assert that the compact local-core packet matches the known n=9 motifs."""
+
+    if payload["schema"] != LOCAL_CORE_PACKET_SCHEMA:
+        raise AssertionError(f"unexpected schema: {payload['schema']}")
+    if payload["status"] != LOCAL_CORE_PACKET_STATUS:
+        raise AssertionError(f"unexpected status: {payload['status']}")
+    if payload["trust"] != LOCAL_CORE_PACKET_TRUST:
+        raise AssertionError(f"unexpected trust: {payload['trust']}")
+    if payload["family_count"] != EXPECTED_DIHEDRAL_INCIDENCE_FAMILIES:
+        raise AssertionError(f"unexpected family count: {payload['family_count']}")
+    if payload["orbit_size_sum"] != EXPECTED_PRE_VERTEX_CIRCLE_ASSIGNMENTS:
+        raise AssertionError(f"unexpected orbit-size sum: {payload['orbit_size_sum']}")
+    if payload["core_size_counts"] != _json_counter(
+        Counter(EXPECTED_LOCAL_CORE_SIZE_COUNTS)
+    ):
+        raise AssertionError("unexpected packet core size counts")
+    expected_status_sizes = {
+        status: _json_counter(Counter(counts))
+        for status, counts in sorted(EXPECTED_LOCAL_CORE_STATUS_SIZE_COUNTS.items())
+    }
+    if payload["status_core_size_counts"] != expected_status_sizes:
+        raise AssertionError("unexpected packet status/core size counts")
+    certificates = payload["certificates"]
+    if len(certificates) != EXPECTED_DIHEDRAL_INCIDENCE_FAMILIES:
+        raise AssertionError("unexpected packet certificate count")
+    expected_family_ids = [f"F{idx:02d}" for idx in range(1, 17)]
+    actual_family_ids = [
+        str(certificate["family_id"])
+        for certificate in certificates
+        if isinstance(certificate, dict)
+    ]
+    if actual_family_ids != expected_family_ids:
+        raise AssertionError(f"unexpected packet family ids: {actual_family_ids}")
+    for certificate in certificates:
+        if not isinstance(certificate, dict):
+            raise AssertionError("malformed packet certificate")
+        compact_rows = certificate.get("compact_selected_rows")
+        if not isinstance(compact_rows, list):
+            raise AssertionError("packet certificate missing compact rows")
+        if len(compact_rows) != int(certificate["core_size"]):
+            raise AssertionError("compact row count does not match core_size")
+        for row in compact_rows:
+            if not isinstance(row, list) or len(row) != 5:
+                raise AssertionError(f"malformed compact row: {row!r}")

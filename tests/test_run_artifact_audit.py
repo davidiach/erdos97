@@ -55,3 +55,8 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_n9_row_ptolemy_product_cancellations.py --check --json"
         in command_texts
     )
+    assert (
+        "python scripts/check_n9_vertex_circle_local_core_packet.py --check "
+        "--assert-expected --json"
+        in command_texts
+    )
