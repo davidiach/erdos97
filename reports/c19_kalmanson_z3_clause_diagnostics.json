@@ -1,0 +1,720 @@
+{
+  "claim_scope": "Structural diagnostic for the checked C19_skew all-order Z3 Kalmanson certificate only; not a proof of Erdos Problem #97.",
+  "clause_shape_summary": {
+    "left_right_shared_label_count_distribution": {
+      "2": 7310,
+      "3": 671
+    },
+    "raw_unique_precedence_literal_count_distribution": {
+      "5": 799,
+      "6": 7182
+    },
+    "union_label_count_distribution": {
+      "5": 671,
+      "6": 7310
+    }
+  },
+  "clause_validation_summary": {
+    "lexicographically_sorted": true,
+    "parsed_clause_count": 7981,
+    "solver_replay_result": "unsat",
+    "source_forbidden_clause_count": 7981,
+    "unique_clause_count": 7981,
+    "verified_status": "EXACT_ALL_ORDER_TWO_INEQUALITY_KALMANSON_OBSTRUCTION",
+    "verified_trust": "SMT_EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN"
+  },
+  "distance_quotient_table_summary": {
+    "inverse_vector_pair_count": 11172,
+    "ordered_quad_table_size": 93024,
+    "selected_distance_class_count": 114,
+    "selected_distance_class_size_histogram": {
+      "1": 95,
+      "4": 19
+    },
+    "unique_inverse_vector_pairs_used_by_stored_clauses": 285,
+    "vector_id_count": 22344,
+    "vector_id_note": "Vector-id counts are deterministic for the current table builder, but individual ids are not a mathematical invariant."
+  },
+  "interpretation_note": "This report makes the stored C19_skew Z3 clause set easier to inspect. It does not add clauses, search new cyclic orders, or transfer the obstruction to any other selected-witness pattern.",
+  "label_frequencies": [
+    {
+      "clause_touch_count": 1530,
+      "label": 0,
+      "ordered_quad_occurrences": 1934
+    },
+    {
+      "clause_touch_count": 2822,
+      "label": 1,
+      "ordered_quad_occurrences": 3824
+    },
+    {
+      "clause_touch_count": 2496,
+      "label": 2,
+      "ordered_quad_occurrences": 3387
+    },
+    {
+      "clause_touch_count": 2403,
+      "label": 3,
+      "ordered_quad_occurrences": 3193
+    },
+    {
+      "clause_touch_count": 2646,
+      "label": 4,
+      "ordered_quad_occurrences": 3572
+    },
+    {
+      "clause_touch_count": 2377,
+      "label": 5,
+      "ordered_quad_occurrences": 3222
+    },
+    {
+      "clause_touch_count": 2553,
+      "label": 6,
+      "ordered_quad_occurrences": 3479
+    },
+    {
+      "clause_touch_count": 2643,
+      "label": 7,
+      "ordered_quad_occurrences": 3599
+    },
+    {
+      "clause_touch_count": 2305,
+      "label": 8,
+      "ordered_quad_occurrences": 3118
+    },
+    {
+      "clause_touch_count": 2585,
+      "label": 9,
+      "ordered_quad_occurrences": 3510
+    },
+    {
+      "clause_touch_count": 2636,
+      "label": 10,
+      "ordered_quad_occurrences": 3560
+    },
+    {
+      "clause_touch_count": 2224,
+      "label": 11,
+      "ordered_quad_occurrences": 3012
+    },
+    {
+      "clause_touch_count": 2561,
+      "label": 12,
+      "ordered_quad_occurrences": 3511
+    },
+    {
+      "clause_touch_count": 2603,
+      "label": 13,
+      "ordered_quad_occurrences": 3570
+    },
+    {
+      "clause_touch_count": 2352,
+      "label": 14,
+      "ordered_quad_occurrences": 3151
+    },
+    {
+      "clause_touch_count": 2626,
+      "label": 15,
+      "ordered_quad_occurrences": 3570
+    },
+    {
+      "clause_touch_count": 2451,
+      "label": 16,
+      "ordered_quad_occurrences": 3280
+    },
+    {
+      "clause_touch_count": 2464,
+      "label": 17,
+      "ordered_quad_occurrences": 3392
+    },
+    {
+      "clause_touch_count": 2938,
+      "label": 18,
+      "ordered_quad_occurrences": 3964
+    }
+  ],
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "The source certificate is replayed with Z3 before clause templates are summarized.",
+    "Translation families quotient simultaneous cyclic relabeling only; reversal is not quotiented.",
+    "Template frequencies are diagnostic search guidance, not a statement about all C19-like patterns."
+  ],
+  "provenance": {
+    "command": "python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --out reports/c19_kalmanson_z3_clause_diagnostics.json",
+    "generator": "scripts/analyze_kalmanson_z3_clauses.py"
+  },
+  "rotation_quotient_literal_summary": {
+    "effective_literal_count_distribution": {
+      "4": 404,
+      "5": 1126,
+      "6": 6451
+    },
+    "effective_unique_literal_count_distribution": {
+      "3": 15,
+      "4": 466,
+      "5": 1734,
+      "6": 5766
+    },
+    "label0_non_first_occurrences": 0,
+    "label0_positions_inside_ordered_quads": {
+      "0": 1934
+    },
+    "quads_containing_label0_per_clause": {
+      "0": 6451,
+      "1": 1126,
+      "2": 404
+    }
+  },
+  "source_certificate": {
+    "conflict_cap": 1024,
+    "forbidden_clause_count": 7981,
+    "iterations": 142,
+    "path": "data/certificates/c19_skew_all_orders_kalmanson_z3.json",
+    "pattern": {
+      "circulant_offsets": [
+        -8,
+        -3,
+        5,
+        9
+      ],
+      "n": 19,
+      "name": "C19_skew"
+    },
+    "reversal_quotient": "none",
+    "rotation_quotient": "The cyclic order is represented with label 0 at position 0.",
+    "smt_solver": "z3",
+    "solver_result": "unsat",
+    "status": "EXACT_ALL_ORDER_TWO_INEQUALITY_KALMANSON_OBSTRUCTION",
+    "trust": "SMT_EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN",
+    "type": "kalmanson_two_order_z3_refinement_v1"
+  },
+  "status": "ALL_ORDER_C19_Z3_CLAUSE_DIAGNOSTIC_ONLY",
+  "template_summary": {
+    "clause_count": 7981,
+    "inverse_kind_pair_distribution": [
+      {
+        "count": 1928,
+        "kind_pairs": [
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K1_diag_gt_sides"
+          }
+        ]
+      },
+      {
+        "count": 2061,
+        "kind_pairs": [
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K2_diag_gt_other"
+          }
+        ]
+      },
+      {
+        "count": 2092,
+        "kind_pairs": [
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K1_diag_gt_sides"
+          }
+        ]
+      },
+      {
+        "count": 1900,
+        "kind_pairs": [
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K2_diag_gt_other"
+          }
+        ]
+      }
+    ],
+    "label_clause_touch_max": 2938,
+    "label_clause_touch_min": 1530,
+    "label_ordered_quad_occurrence_max": 3964,
+    "label_ordered_quad_occurrence_min": 1934,
+    "matched_vector_support_size_distribution": {
+      "2": 7780,
+      "4": 201
+    },
+    "matches_per_clause_distribution": {
+      "1": 7981
+    },
+    "ordered_quad_count": 7535,
+    "ordered_quad_step_pattern_count": 576,
+    "ordered_quad_step_signature_count": 1946,
+    "shared_label_count_distribution": {
+      "2": 7310,
+      "3": 671
+    },
+    "translation_family_count": 1946,
+    "translation_family_coverage_histogram": {
+      "1": 198,
+      "10": 22,
+      "11": 18,
+      "12": 1,
+      "14": 2,
+      "2": 305,
+      "3": 354,
+      "4": 358,
+      "5": 266,
+      "6": 206,
+      "7": 109,
+      "8": 71,
+      "9": 36
+    }
+  },
+  "top_ordered_quad_step_patterns": [
+    {
+      "count": 62,
+      "ordered_quad_steps": [
+        11,
+        11,
+        11,
+        5
+      ]
+    },
+    {
+      "count": 60,
+      "ordered_quad_steps": [
+        5,
+        11,
+        16,
+        6
+      ]
+    },
+    {
+      "count": 57,
+      "ordered_quad_steps": [
+        11,
+        3,
+        11,
+        13
+      ]
+    },
+    {
+      "count": 57,
+      "ordered_quad_steps": [
+        11,
+        11,
+        5,
+        11
+      ]
+    },
+    {
+      "count": 55,
+      "ordered_quad_steps": [
+        8,
+        8,
+        8,
+        14
+      ]
+    },
+    {
+      "count": 55,
+      "ordered_quad_steps": [
+        11,
+        5,
+        11,
+        11
+      ]
+    },
+    {
+      "count": 53,
+      "ordered_quad_steps": [
+        6,
+        16,
+        11,
+        5
+      ]
+    },
+    {
+      "count": 53,
+      "ordered_quad_steps": [
+        12,
+        16,
+        14,
+        15
+      ]
+    },
+    {
+      "count": 52,
+      "ordered_quad_steps": [
+        3,
+        8,
+        14,
+        13
+      ]
+    },
+    {
+      "count": 51,
+      "ordered_quad_steps": [
+        13,
+        3,
+        8,
+        14
+      ]
+    },
+    {
+      "count": 51,
+      "ordered_quad_steps": [
+        15,
+        14,
+        15,
+        13
+      ]
+    },
+    {
+      "count": 50,
+      "ordered_quad_steps": [
+        14,
+        8,
+        8,
+        8
+      ]
+    }
+  ],
+  "top_ordered_quads": [
+    {
+      "count": 9,
+      "ordered_quad": [
+        0,
+        10,
+        8,
+        13
+      ]
+    },
+    {
+      "count": 9,
+      "ordered_quad": [
+        0,
+        11,
+        16,
+        8
+      ]
+    },
+    {
+      "count": 8,
+      "ordered_quad": [
+        0,
+        6,
+        3,
+        14
+      ]
+    },
+    {
+      "count": 8,
+      "ordered_quad": [
+        0,
+        8,
+        3,
+        11
+      ]
+    },
+    {
+      "count": 8,
+      "ordered_quad": [
+        0,
+        8,
+        10,
+        17
+      ]
+    },
+    {
+      "count": 8,
+      "ordered_quad": [
+        0,
+        11,
+        3,
+        8
+      ]
+    },
+    {
+      "count": 8,
+      "ordered_quad": [
+        0,
+        11,
+        16,
+        7
+      ]
+    },
+    {
+      "count": 8,
+      "ordered_quad": [
+        0,
+        13,
+        10,
+        8
+      ]
+    },
+    {
+      "count": 8,
+      "ordered_quad": [
+        1,
+        9,
+        11,
+        16
+      ]
+    },
+    {
+      "count": 8,
+      "ordered_quad": [
+        13,
+        18,
+        10,
+        2
+      ]
+    },
+    {
+      "count": 7,
+      "ordered_quad": [
+        0,
+        2,
+        11,
+        5
+      ]
+    },
+    {
+      "count": 7,
+      "ordered_quad": [
+        0,
+        4,
+        5,
+        9
+      ]
+    }
+  ],
+  "top_translation_families": [
+    {
+      "canonical_clause": "0,5,16,13|10,0,5,13",
+      "count": 14,
+      "ordered_quad_step_signature": [
+        [
+          5,
+          11,
+          16,
+          6
+        ],
+        [
+          9,
+          5,
+          8,
+          16
+        ]
+      ],
+      "step_signature_count": 14
+    },
+    {
+      "canonical_clause": "0,9,14,6|0,14,6,3",
+      "count": 14,
+      "ordered_quad_step_signature": [
+        [
+          9,
+          5,
+          11,
+          13
+        ],
+        [
+          14,
+          11,
+          16,
+          16
+        ]
+      ],
+      "step_signature_count": 14
+    },
+    {
+      "canonical_clause": "0,10,16,5|0,13,10,5",
+      "count": 12,
+      "ordered_quad_step_signature": [
+        [
+          10,
+          6,
+          8,
+          14
+        ],
+        [
+          13,
+          16,
+          14,
+          14
+        ]
+      ],
+      "step_signature_count": 12
+    },
+    {
+      "canonical_clause": "0,10,13,5|0,13,16,5",
+      "count": 11,
+      "ordered_quad_step_signature": [
+        [
+          10,
+          3,
+          11,
+          14
+        ],
+        [
+          13,
+          3,
+          8,
+          14
+        ]
+      ],
+      "step_signature_count": 11
+    },
+    {
+      "canonical_clause": "0,10,5,16|10,5,13,16",
+      "count": 11,
+      "ordered_quad_step_signature": [
+        [
+          10,
+          14,
+          11,
+          3
+        ],
+        [
+          14,
+          8,
+          3,
+          13
+        ]
+      ],
+      "step_signature_count": 11
+    },
+    {
+      "canonical_clause": "0,11,16,6|3,0,11,6",
+      "count": 11,
+      "ordered_quad_step_signature": [
+        [
+          11,
+          5,
+          9,
+          13
+        ],
+        [
+          16,
+          11,
+          14,
+          16
+        ]
+      ],
+      "step_signature_count": 11
+    },
+    {
+      "canonical_clause": "0,13,3,8|0,16,13,8",
+      "count": 11,
+      "ordered_quad_step_signature": [
+        [
+          13,
+          9,
+          5,
+          11
+        ],
+        [
+          16,
+          16,
+          14,
+          11
+        ]
+      ],
+      "step_signature_count": 11
+    },
+    {
+      "canonical_clause": "0,16,3,8|16,13,3,8",
+      "count": 11,
+      "ordered_quad_step_signature": [
+        [
+          16,
+          6,
+          5,
+          11
+        ],
+        [
+          16,
+          9,
+          5,
+          8
+        ]
+      ],
+      "step_signature_count": 11
+    },
+    {
+      "canonical_clause": "0,3,11,16|3,11,6,16",
+      "count": 11,
+      "ordered_quad_step_signature": [
+        [
+          3,
+          8,
+          5,
+          3
+        ],
+        [
+          8,
+          14,
+          10,
+          6
+        ]
+      ],
+      "step_signature_count": 11
+    },
+    {
+      "canonical_clause": "0,3,11,6|0,11,6,16",
+      "count": 11,
+      "ordered_quad_step_signature": [
+        [
+          3,
+          8,
+          14,
+          13
+        ],
+        [
+          11,
+          14,
+          10,
+          3
+        ]
+      ],
+      "step_signature_count": 11
+    },
+    {
+      "canonical_clause": "0,3,13,8|16,0,13,8",
+      "count": 11,
+      "ordered_quad_step_signature": [
+        [
+          3,
+          10,
+          14,
+          11
+        ],
+        [
+          3,
+          13,
+          14,
+          8
+        ]
+      ],
+      "step_signature_count": 11
+    },
+    {
+      "canonical_clause": "0,3,6,11|0,6,16,11",
+      "count": 11,
+      "ordered_quad_step_signature": [
+        [
+          3,
+          3,
+          5,
+          8
+        ],
+        [
+          6,
+          10,
+          14,
+          8
+        ]
+      ],
+      "step_signature_count": 11
+    }
+  ],
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+  "type": "c19_kalmanson_z3_clause_diagnostics_v1"
+}

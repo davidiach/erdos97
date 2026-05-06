@@ -37,6 +37,9 @@ Expected artifacts:
 - a reproducible diagnostic script or update to an existing report generator;
 - a checked JSON or Markdown report summarizing support groups, smaller
   dependencies, or negative results.
+- optional all-order Z3 clause-template diagnostics such as
+  `reports/c19_kalmanson_z3_clause_diagnostics.json`, kept separate from the
+  underlying SMT replay certificate.
 
 Acceptance criteria:
 

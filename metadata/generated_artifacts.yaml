@@ -112,6 +112,37 @@ artifacts:
       - all sparse patterns are impossible
       - general proof of Erdos Problem #97
 
+  - id: c19_z3_clause_diagnostic
+    path: reports/c19_kalmanson_z3_clause_diagnostics.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/analyze_kalmanson_z3_clauses.py
+    command: python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --out reports/c19_kalmanson_z3_clause_diagnostics.json
+    checker: scripts/analyze_kalmanson_z3_clauses.py
+    check_command: python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --check-artifact reports/c19_kalmanson_z3_clause_diagnostics.json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: Structural diagnostic for the checked C19_skew all-order Z3 Kalmanson certificate only.
+    json_top_level_type: object
+    expected_json:
+      type: c19_kalmanson_z3_clause_diagnostics_v1
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      status: ALL_ORDER_C19_Z3_CLAUSE_DIAGNOSTIC_ONLY
+      source_certificate.pattern.name: C19_skew
+      source_certificate.status: EXACT_ALL_ORDER_TWO_INEQUALITY_KALMANSON_OBSTRUCTION
+      clause_validation_summary.solver_replay_result: unsat
+      template_summary.clause_count: 7981
+      template_summary.translation_family_count: 1946
+      distance_quotient_table_summary.unique_inverse_vector_pairs_used_by_stored_clauses: 285
+      provenance.command: python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --out reports/c19_kalmanson_z3_clause_diagnostics.json
+    forbidden_claims:
+      - C19_skew proves Erdos Problem #97
+      - all C19-like patterns are impossible
+      - all sparse patterns are impossible
+      - this closes the frontier
+      - this diagnostic is an independent proof
+      - general proof of Erdos Problem #97
+
   - id: c19_compact_vs_legacy_diagnostic
     path: reports/c19_kalmanson_compact_vs_legacy.json
     kind: certificate_diagnostic_artifact

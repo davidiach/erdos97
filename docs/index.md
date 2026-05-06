@@ -47,10 +47,11 @@ put detailed reconciliation in the canonical synthesis.
   Kalmanson/Farkas certificate for the registered non-natural C13 Sidon order.
 - [`kalmanson-certificate-diagnostics.md`](kalmanson-certificate-diagnostics.md):
   deterministic support diagnostics for the checked C13 and C19 fixed-order
-  Kalmanson/Farkas certificates.
+  Kalmanson/Farkas certificates, plus the C19 all-order Z3 clause-template
+  diagnostic.
 - [`kalmanson-two-order-search.md`](kalmanson-two-order-search.md): exact
   all-cyclic-order two-inequality Kalmanson obstruction for the fixed C13 Sidon
-  pattern.
+  and C19 skew patterns.
 - [`c13-kalmanson-order-pilot.md`](c13-kalmanson-order-pilot.md): bounded
   C13 fixed-order Kalmanson pilot over seven explicit cyclic orders; not an
   all-order search.

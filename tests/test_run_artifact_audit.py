@@ -28,9 +28,19 @@ def test_run_audit_command_records_metadata(tmp_path: Path) -> None:
     assert len(record["combined_output_sha256"]) == 64
 
 
-def test_audit_commands_include_n9_base_apex_ledgers() -> None:
+def test_audit_commands_include_registered_followup_checkers() -> None:
     command_texts = {command_text(command.command) for command in AUDIT_COMMANDS}
 
+    assert (
+        "python scripts/check_kalmanson_two_order_z3.py --certificate "
+        "data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat"
+        in command_texts
+    )
+    assert (
+        "python scripts/analyze_kalmanson_z3_clauses.py --assert-expected "
+        "--check-artifact reports/c19_kalmanson_z3_clause_diagnostics.json"
+        in command_texts
+    )
     assert (
         "python scripts/check_n9_base_apex_low_excess_ledgers.py --check --json"
         in command_texts

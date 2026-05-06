@@ -70,6 +70,32 @@ row vectors are exact inverses after selected-distance quotienting. The verifier
 checks every clause against the inverse-vector table and then asks Z3 to prove
 that the accumulated exact cyclic-order constraints are unsatisfiable.
 
+The companion clause-template diagnostic is:
+
+```text
+reports/c19_kalmanson_z3_clause_diagnostics.json
+```
+
+Regenerate and check it with:
+
+```bash
+python scripts/analyze_kalmanson_z3_clauses.py \
+  --assert-expected \
+  --out reports/c19_kalmanson_z3_clause_diagnostics.json
+
+python scripts/analyze_kalmanson_z3_clauses.py \
+  --assert-expected \
+  --check-artifact reports/c19_kalmanson_z3_clause_diagnostics.json
+```
+
+The diagnostic first replays the source Z3 certificate, then summarizes the
+7,981 stored clauses by inverse-pair kind, selected-distance quotient table
+size, simultaneous cyclic-translation families, modular ordered-quad steps,
+label overlap, and label-0 rotation-quotient literals. It is a structural
+inspection aid for the fixed abstract `C19_skew` certificate only. It does not
+add a proof, search new cyclic orders, transfer the obstruction to any other
+pattern, or update the global Erdos #97 status.
+
 ## Reproduction
 
 Regenerate the artifact:
