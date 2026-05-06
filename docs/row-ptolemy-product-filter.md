@@ -53,6 +53,28 @@ This gives an independent Ptolemy-equality certificate for those fixed-order
 assignments, but it does not dominate or replace the vertex-circle checker and
 does not prove the full `n=9` finite case.
 
+## Negative Controls And Order Guardrails
+
+The checked artifact now has regression coverage for both the positive and
+negative family labels in the current `n=9` frontier. The row-Ptolemy sweep
+hits only `F02`, `F09`, and `F13`. The remaining 13 deterministic family labels
+are kept as negative controls with zero row-Ptolemy certificates:
+
+```text
+F01,F03,F04,F05,F06,F07,F08,F10,F11,F12,F14,F15,F16
+```
+
+Those negative controls cover `158` of the `184` pre-vertex-circle assignments.
+They are bookkeeping guardrails, not evidence that those assignments are
+geometrically realizable or that the vertex-circle obstruction is unnecessary.
+
+The checker also replays every stored hit record against its fixed cyclic
+order. It verifies that each certificate's `witness_order`, forced-equality
+pair names, and zero-product pair names match the supplied row order. A
+scrambled non-dihedral order for the first `F02` representative has zero
+row-Ptolemy product-cancellation certificates, while the stored natural order
+has six. This is why the row order remains part of the certificate hypothesis.
+
 ## Reproduction
 
 ```bash
