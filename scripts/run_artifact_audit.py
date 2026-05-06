@@ -254,6 +254,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_row_ptolemy_gap_self_edge_cores",
+        command=(
+            "python",
+            "scripts/check_n9_row_ptolemy_gap_self_edge_cores.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Compact self-edge core certificates for the two zero-certificate "
+            "n=9 row-Ptolemy admissible assignment-order records; not a proof "
+            "of n=9, counterexample, all-order obstruction, orderless "
+            "obstruction, geometric realizability count, or official/global "
+            "status update."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",

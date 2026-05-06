@@ -33,6 +33,7 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_row_ptolemy_order_sensitivity.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_row_ptolemy_order_admissible_census.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_row_ptolemy_admissible_gap_replay.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_row_ptolemy_gap_self_edge_cores.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_base_apex_low_excess_ledgers.py --check --json
 	$(PYTHON) scripts/check_n9_base_apex_escape_budget.py --check --json
 

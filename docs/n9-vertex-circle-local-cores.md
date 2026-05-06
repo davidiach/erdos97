@@ -54,6 +54,12 @@ template families, and all strict-cycle template families remain no-hit
 negative controls for the row-Ptolemy diagnostic. This is a consistency join
 between artifacts, not an additional n=9 proof claim.
 
+`data/certificates/n9_row_ptolemy_gap_self_edge_cores.json` applies the same
+replay idea to the two zero-certificate row-Ptolemy admissible-order records.
+It does not enumerate new n=9 cases; it compresses those two recorded `F13`
+gap replays to minimal 3-row `self_edge` cores and stores the selected-distance
+equality path responsible for each self-edge.
+
 ## Certificate Shape
 
 A self-edge core consists of:
