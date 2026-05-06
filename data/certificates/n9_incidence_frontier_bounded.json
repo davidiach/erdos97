@@ -1,5 +1,5 @@
 {
-  "accepted_frontier_count": 1,
+  "accepted_frontier_count": 0,
   "cyclic_order": [
     0,
     1,
@@ -12,103 +12,6 @@
     8
   ],
   "examples": {
-    "accepted_frontier": [
-      {
-        "adjacent_two_overlap_violations": [],
-        "column_indegree_upper_violations": [],
-        "column_pair_cap_violations": [],
-        "crossing_bisector_violations": [],
-        "directed_phi_4_cycle_count": 0,
-        "forced_equality_classes": [],
-        "indegrees": [
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4
-        ],
-        "midpoint_matrix_rank": 0,
-        "n": 9,
-        "odd_forced_perpendicular_cycle": null,
-        "order": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8
-        ],
-        "phi_edges": 18,
-        "rectangle_trap_4_cycles": 0,
-        "rectangle_trap_certificates": [],
-        "row_pair_intersection_cap_violations": [],
-        "row_size": 4,
-        "rows": [
-          [
-            1,
-            2,
-            3,
-            8
-          ],
-          [
-            0,
-            3,
-            4,
-            7
-          ],
-          [
-            1,
-            3,
-            5,
-            6
-          ],
-          [
-            2,
-            4,
-            5,
-            8
-          ],
-          [
-            0,
-            3,
-            6,
-            8
-          ],
-          [
-            2,
-            4,
-            6,
-            7
-          ],
-          [
-            1,
-            5,
-            7,
-            8
-          ],
-          [
-            0,
-            1,
-            4,
-            6
-          ],
-          [
-            0,
-            2,
-            5,
-            7
-          ]
-        ],
-        "status": "accepted_frontier"
-      }
-    ],
     "adjacent_two_overlap": [
       {
         "center": 8,
@@ -565,6 +468,8 @@
         "rectangle_trap_4_cycles": 0,
         "rectangle_trap_certificates": [],
         "row_pair_intersection_cap_violations": [],
+        "row_ptolemy_product_cancellation_certificates": [],
+        "row_ptolemy_product_cancellation_count": 0,
         "row_size": 4,
         "rows": [
           [
@@ -755,6 +660,8 @@
           }
         ],
         "row_pair_intersection_cap_violations": [],
+        "row_ptolemy_product_cancellation_certificates": [],
+        "row_ptolemy_product_cancellation_count": 0,
         "row_size": 4,
         "rows": [
           [
@@ -1020,6 +927,307 @@
           8
         ]
       }
+    ],
+    "row_ptolemy_product_cancellation": [
+      {
+        "adjacent_two_overlap_violations": [],
+        "column_indegree_upper_violations": [],
+        "column_pair_cap_violations": [],
+        "crossing_bisector_violations": [],
+        "directed_phi_4_cycle_count": 0,
+        "forced_equality_classes": [],
+        "indegrees": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "midpoint_matrix_rank": 0,
+        "n": 9,
+        "odd_forced_perpendicular_cycle": null,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "phi_edges": 18,
+        "rectangle_trap_4_cycles": 0,
+        "rectangle_trap_certificates": [],
+        "row_pair_intersection_cap_violations": [],
+        "row_ptolemy_product_cancellation_certificates": [
+          {
+            "cancelled_product": "d01*d23",
+            "contradiction": "Ptolemy cancellation forces a product of two ordinary distances to be zero, but distinct strictly convex vertices have positive Euclidean distances.",
+            "forced_equalities": [
+              {
+                "class_member_count": 28,
+                "distance_class": 0,
+                "left": "d02",
+                "left_pair": [
+                  1,
+                  3
+                ],
+                "right": "d23",
+                "right_pair": [
+                  3,
+                  8
+                ]
+              },
+              {
+                "class_member_count": 28,
+                "distance_class": 0,
+                "left": "d13",
+                "left_pair": [
+                  2,
+                  8
+                ],
+                "right": "d01",
+                "right_pair": [
+                  1,
+                  2
+                ]
+              }
+            ],
+            "ptolemy_identity": "d02*d13 = d01*d23 + d03*d12",
+            "row": 0,
+            "scope": "Exact obstruction for this fixed selected-witness row under the supplied/certified row order only.",
+            "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_ROW_ORDER",
+            "type": "row_ptolemy_product_cancellation",
+            "variant": "cancel_d01_d23_via_d02_eq_d23_and_d13_eq_d01",
+            "witness_order": [
+              1,
+              2,
+              3,
+              8
+            ],
+            "zero_product": {
+              "expression": "d03*d12",
+              "factors": [
+                {
+                  "distance_class": 4,
+                  "name": "d03",
+                  "pair": [
+                    1,
+                    8
+                  ]
+                },
+                {
+                  "distance_class": 0,
+                  "name": "d12",
+                  "pair": [
+                    2,
+                    3
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "cancelled_product": "d01*d23",
+            "contradiction": "Ptolemy cancellation forces a product of two ordinary distances to be zero, but distinct strictly convex vertices have positive Euclidean distances.",
+            "forced_equalities": [
+              {
+                "class_member_count": 28,
+                "distance_class": 0,
+                "left": "d02",
+                "left_pair": [
+                  1,
+                  3
+                ],
+                "right": "d01",
+                "right_pair": [
+                  1,
+                  2
+                ]
+              },
+              {
+                "class_member_count": 28,
+                "distance_class": 0,
+                "left": "d13",
+                "left_pair": [
+                  2,
+                  8
+                ],
+                "right": "d23",
+                "right_pair": [
+                  3,
+                  8
+                ]
+              }
+            ],
+            "ptolemy_identity": "d02*d13 = d01*d23 + d03*d12",
+            "row": 0,
+            "scope": "Exact obstruction for this fixed selected-witness row under the supplied/certified row order only.",
+            "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_ROW_ORDER",
+            "type": "row_ptolemy_product_cancellation",
+            "variant": "cancel_d01_d23_via_d02_eq_d01_and_d13_eq_d23",
+            "witness_order": [
+              1,
+              2,
+              3,
+              8
+            ],
+            "zero_product": {
+              "expression": "d03*d12",
+              "factors": [
+                {
+                  "distance_class": 4,
+                  "name": "d03",
+                  "pair": [
+                    1,
+                    8
+                  ]
+                },
+                {
+                  "distance_class": 0,
+                  "name": "d12",
+                  "pair": [
+                    2,
+                    3
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "cancelled_product": "d01*d23",
+            "contradiction": "Ptolemy cancellation forces a product of two ordinary distances to be zero, but distinct strictly convex vertices have positive Euclidean distances.",
+            "forced_equalities": [
+              {
+                "class_member_count": 28,
+                "distance_class": 0,
+                "left": "d02",
+                "left_pair": [
+                  4,
+                  8
+                ],
+                "right": "d23",
+                "right_pair": [
+                  2,
+                  8
+                ]
+              },
+              {
+                "class_member_count": 28,
+                "distance_class": 0,
+                "left": "d13",
+                "left_pair": [
+                  2,
+                  5
+                ],
+                "right": "d01",
+                "right_pair": [
+                  4,
+                  5
+                ]
+              }
+            ],
+            "ptolemy_identity": "d02*d13 = d01*d23 + d03*d12",
+            "row": 3,
+            "scope": "Exact obstruction for this fixed selected-witness row under the supplied/certified row order only.",
+            "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_ROW_ORDER",
+            "type": "row_ptolemy_product_cancellation",
+            "variant": "cancel_d01_d23_via_d02_eq_d23_and_d13_eq_d01",
+            "witness_order": [
+              4,
+              5,
+              8,
+              2
+            ],
+            "zero_product": {
+              "expression": "d03*d12",
+              "factors": [
+                {
+                  "distance_class": 5,
+                  "name": "d03",
+                  "pair": [
+                    2,
+                    4
+                  ]
+                },
+                {
+                  "distance_class": 0,
+                  "name": "d12",
+                  "pair": [
+                    5,
+                    8
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "row_ptolemy_product_cancellation_count": 6,
+        "row_size": 4,
+        "rows": [
+          [
+            1,
+            2,
+            3,
+            8
+          ],
+          [
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            6
+          ],
+          [
+            2,
+            4,
+            5,
+            8
+          ],
+          [
+            0,
+            3,
+            6,
+            8
+          ],
+          [
+            2,
+            4,
+            6,
+            7
+          ],
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            0,
+            2,
+            5,
+            7
+          ]
+        ],
+        "status": "row_ptolemy_product_cancellation"
+      }
     ]
   },
   "filter_order": [
@@ -1031,10 +1239,11 @@
     "odd_forced_perpendicular_cycle",
     "mutual_midpoint_collapse",
     "phi4_rectangle_trap",
+    "row_ptolemy_product_cancellation",
     "accepted_frontier"
   ],
   "full_classification_counts": {
-    "accepted_frontier": 1,
+    "accepted_frontier": 0,
     "adjacent_two_overlap": 0,
     "column_indegree_upper": 0,
     "column_pair_cap": 0,
@@ -1042,7 +1251,8 @@
     "mutual_midpoint_collapse": 0,
     "odd_forced_perpendicular_cycle": 1,
     "phi4_rectangle_trap": 1,
-    "row_pair_intersection_cap": 0
+    "row_pair_intersection_cap": 0,
+    "row_ptolemy_product_cancellation": 1
   },
   "full_patterns_checked": 3,
   "hit_full_pattern_limit": false,
@@ -1058,7 +1268,8 @@
     "No general proof of Erdos Problem #97 is claimed.",
     "No counterexample is claimed.",
     "The row0-fixed search is bounded by explicit node and full-pattern limits.",
-    "An accepted_frontier item only means the listed necessary filters did not obstruct it."
+    "An accepted_frontier item only means the listed necessary filters did not obstruct it.",
+    "The row-Ptolemy classifier is a fixed supplied-order obstruction only, not an orderless abstract-incidence obstruction."
   ],
   "partial_rejection_counts": {
     "adjacent_two_overlap": 20362,
@@ -1202,6 +1413,8 @@
           }
         ],
         "row_pair_intersection_cap_violations": [],
+        "row_ptolemy_product_cancellation_certificates": [],
+        "row_ptolemy_product_cancellation_count": 0,
         "row_size": 4,
         "rows": [
           [

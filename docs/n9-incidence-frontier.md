@@ -45,6 +45,7 @@ At full patterns it also applies:
 - odd forced-perpendicularity cycles;
 - mutual-rhombus midpoint collapse;
 - phi 4-cycle rectangle-trap certificates.
+- row-Ptolemy product-cancellation certificates for the supplied cyclic order.
 
 ## Current Result
 
@@ -72,14 +73,17 @@ The three full patterns split as follows:
 ```text
 odd forced-perpendicularity cycle: 1
 phi4 rectangle trap:              1
-accepted frontier:                1
+row-Ptolemy product cancellation: 1
+accepted frontier:                0
 ```
 
-Here `accepted_frontier` means only that the listed exact necessary filters did
-not obstruct the fixed incidence/order pattern. It is not evidence of geometric
-realizability.
+Here `accepted_frontier` would mean only that the listed exact necessary
+filters did not obstruct the fixed incidence/order pattern. The default run now
+has no such item after adding the row-Ptolemy full-pattern classifier, but this
+is still a bounded row0-fixed natural-order diagnostic, not an `n=9`
+completeness theorem.
 
-The surviving fixed-order incidence pattern is:
+The pattern classified by the row-Ptolemy full-pattern filter is:
 
 ```text
 S0 = {1,2,3,8}
@@ -95,7 +99,11 @@ S8 = {0,2,5,7}
 
 It has balanced witness indegrees `[4,4,4,4,4,4,4,4,4]`, `18` phi edges, no
 directed phi 4-cycle, no odd forced-perpendicularity cycle, and no forced
-midpoint equality classes under the current mutual-rhombus filter.
+midpoint equality classes under the current mutual-rhombus filter. Under the
+recorded natural cyclic order, it has `6` row-Ptolemy product-cancellation
+certificates. These are exact obstructions for this fixed selected-witness
+pattern and supplied row order only; they are not orderless abstract-incidence
+obstructions.
 
 ## Reproduction
 
@@ -110,8 +118,9 @@ The `--write` command regenerates
 
 ## Next Use
 
-The immediate value of the artifact is that it reduces this row0-fixed natural
-order slice to one current filter survivor. Good next checks for that survivor
-are the row-circle/Ptolemy equations, radius-propagation diagnostics, interval
-verification attempts, and an even-cycle certificate search beyond the phi4
-rectangle-trap shape.
+The immediate value of the artifact is that it records how the default
+row0-fixed natural-order slice is handled by the listed exact full-pattern
+classifiers. Good next checks are to audit whether the row-Ptolemy classifier
+can be converted into reusable local lemmas, compare it with the n=9
+vertex-circle local-core templates, and keep testing order-sensitive variants
+without treating this bounded slice as a lossless quotient of all `n=9` cases.
