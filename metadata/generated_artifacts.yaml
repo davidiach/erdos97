@@ -404,7 +404,7 @@ artifacts:
     claim_scope: Focused n=9 selected-baseline escape-budget overlay bookkeeping; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.
     json_top_level_type: object
     expected_json:
-      schema: erdos97.n9_selected_baseline_escape_budget_overlay.v1
+      schema: erdos97.n9_selected_baseline_escape_budget_overlay.v2
       status: EXPLORATORY_LEDGER_ONLY
       trust: FINITE_BOOKKEEPING_NOT_A_PROOF
       claim_scope: Focused n=9 selected-baseline escape-budget overlay bookkeeping; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.
@@ -418,9 +418,8 @@ artifacts:
       selected_baseline.strict_positive_forced_assignment_count: 44
       selected_baseline.sum_exceeds_forced_assignment_count: 2
       selected_baseline.dihedral_relevant_placement_class_count: 13
-      accepted_frontier_overlay.selected_baseline.deficit_by_cyclic_length.2: 3
-      accepted_frontier_overlay.selected_baseline.deficit_by_cyclic_length.3: 2
-      accepted_frontier_overlay.turn_cover_overlay.remaining_minimum_forced_turns: 1
+      accepted_frontier_overlay.accepted_frontier_count: 0
+      accepted_frontier_overlay.vertex_circle_status: none
       provenance.command: python scripts/analyze_n9_selected_baseline_escape_budget_overlay.py --assert-expected --out data/certificates/n9_selected_baseline_escape_budget_overlay.json
     forbidden_claims:
       - n=9 is proved
@@ -516,7 +515,7 @@ artifacts:
     claim_scope: Derived n=9 row-Ptolemy per-family certificate-signature diagnostic for the fixed natural cyclic order; not a proof of n=9, not a counterexample, not an orderless abstract-incidence obstruction, and not a global status update.
     json_top_level_type: object
     expected_json:
-      schema: erdos97.n9_row_ptolemy_family_signatures.v1
+      schema: erdos97.n9_row_ptolemy_family_signatures.v2
       status: EXPLORATORY_LEDGER_ONLY
       trust: FINITE_BOOKKEEPING_NOT_A_PROOF
       claim_scope: Derived n=9 row-Ptolemy per-family certificate-signature diagnostic for the fixed natural cyclic order; not a proof of n=9, not a counterexample, not an orderless abstract-incidence obstruction, and not a global status update.
@@ -525,8 +524,17 @@ artifacts:
       family_count: 3
       hit_assignment_count: 26
       hit_certificate_count: 216
-      source_artifact.path: data/certificates/n9_row_ptolemy_product_cancellations.json
-      source_artifact.schema: erdos97.n9_row_ptolemy_product_cancellations.v2
+      source_artifacts:
+        - path: data/certificates/n9_row_ptolemy_product_cancellations.json
+          role: row-Ptolemy product-cancellation hit records
+          schema: erdos97.n9_row_ptolemy_product_cancellations.v2
+          status: EXPLORATORY_LEDGER_ONLY
+          trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+        - path: data/certificates/n9_vertex_circle_core_templates.json
+          role: review-pending local-core template shape labels
+          schema: erdos97.n9_vertex_circle_core_templates.v1
+          status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+          trust: REVIEW_PENDING_DIAGNOSTIC
       provenance.command: python scripts/check_n9_row_ptolemy_family_signatures.py --assert-expected --write
     forbidden_claims:
       - n=9 is proved

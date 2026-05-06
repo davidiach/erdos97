@@ -46,13 +46,11 @@ def test_selected_baseline_overlay_artifact_summary_is_nonclaiming() -> None:
     assert selected["strict_positive_forced_assignment_count"] == 44
     assert selected["sum_exceeds_forced_assignment_count"] == 2
     assert selected["dihedral_relevant_placement_class_count"] == 13
-    assert frontier["selected_baseline"]["deficit_by_cyclic_length"] == {
-        "1": 0,
-        "2": 3,
-        "3": 2,
-        "4": 4,
-    }
-    assert frontier["turn_cover_overlay"]["remaining_minimum_forced_turns"] == 1
+    assert frontier["accepted_frontier_count"] == 0
+    assert frontier["rows"] == []
+    assert frontier["vertex_circle_status"] == "none"
+    assert frontier["selected_baseline"] is None
+    assert frontier["turn_cover_overlay"] is None
 
 
 def test_selected_baseline_overlay_budget_rows_pin_universal_forcing_counts() -> None:

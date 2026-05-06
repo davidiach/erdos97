@@ -95,9 +95,10 @@ this no-hit side of the crosswalk.
 
 The companion artifact
 `data/certificates/n9_row_ptolemy_family_signatures.json` compresses the
-row-Ptolemy hit records into per-family certificate histograms. It is a
-proof-search aid for spotting reusable-looking local shapes, not a proof and
-not a lemma statement.
+row-Ptolemy hit records into per-family certificate histograms. In schema `v2`
+it also carries the matching local-core self-edge shape counts from the
+review-pending template diagnostic. It is a proof-search aid for spotting
+reusable-looking local shapes, not a proof and not a lemma statement.
 
 For the current fixed natural order, all row-Ptolemy hits use the same
 Ptolemy-side signature: the two stored `cancel_d01_d23...` variants cancel
@@ -108,6 +109,16 @@ is how many rows in each assignment carry this two-certificate local pattern:
 F02 -> T08: 3 hit rows per assignment,  6 certificates per assignment
 F09 -> T01: 6 hit rows per assignment, 12 certificates per assignment
 F13 -> T04: 9 hit rows per assignment, 18 certificates per assignment
+```
+
+The copied local-core shape fields are deterministic crosswalk metadata. They
+come from `data/certificates/n9_vertex_circle_core_templates.json`, where
+template ids are artifact labels rather than theorem names:
+
+```text
+F02 -> T08: self_edge conflicts (2,1,1)x4, (3,1,0)x2, (3,1,1)x2, (3,2,1)x1
+F09 -> T01: self_edge conflicts (3,1,0)x1, (3,1,1)x1
+F13 -> T04: self_edge conflicts (2,1,1)x2
 ```
 
 Across each full dihedral family orbit, every center label appears equally

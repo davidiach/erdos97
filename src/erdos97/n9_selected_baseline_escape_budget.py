@@ -363,7 +363,31 @@ def accepted_frontier_overlay() -> dict[str, object]:
     """Return the selected-baseline overlay for the bounded accepted frontier."""
 
     artifact = json.loads(ACCEPTED_FRONTIER_ARTIFACT.read_text(encoding="utf-8"))
-    frontiers = artifact["examples"]["accepted_frontier"]
+    examples = artifact.get("examples", {})
+    frontiers = (
+        examples.get("accepted_frontier", [])
+        if isinstance(examples, dict)
+        else []
+    )
+    accepted_frontier_count = int(artifact.get("accepted_frontier_count", len(frontiers)))
+    if accepted_frontier_count != len(frontiers):
+        raise AssertionError(
+            "accepted_frontier_count does not match accepted_frontier examples"
+        )
+    if not frontiers:
+        return {
+            "source": "data/certificates/n9_incidence_frontier_bounded.json",
+            "accepted_frontier_count": 0,
+            "rows": [],
+            "vertex_circle_status": "none",
+            "selected_baseline": None,
+            "turn_cover_overlay": None,
+            "interpretation": (
+                "No accepted_frontier row system is recorded in the bounded "
+                "frontier artifact; this overlay therefore has no surviving "
+                "frontier escape example to analyze."
+            ),
+        }
     if len(frontiers) != 1:
         raise AssertionError(f"expected one accepted_frontier, got {len(frontiers)}")
     rows = frontiers[0]["rows"]
@@ -389,7 +413,7 @@ def accepted_frontier_overlay() -> dict[str, object]:
         status = "ok"
     return {
         "source": "data/certificates/n9_incidence_frontier_bounded.json",
-        "accepted_frontier_count": 1,
+        "accepted_frontier_count": accepted_frontier_count,
         "rows": rows,
         "vertex_circle_status": status,
         "selected_baseline": {
@@ -467,7 +491,7 @@ def selected_baseline_escape_budget_overlay() -> dict[str, object]:
         ] += 1
 
     payload = {
-        "schema": "erdos97.n9_selected_baseline_escape_budget_overlay.v1",
+        "schema": "erdos97.n9_selected_baseline_escape_budget_overlay.v2",
         "status": "EXPLORATORY_LEDGER_ONLY",
         "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
         "claim_scope": (
@@ -603,16 +627,13 @@ def assert_expected_overlay_counts(payload: dict[str, object]) -> None:
     frontier = payload["accepted_frontier_overlay"]
     if not isinstance(frontier, dict):
         raise AssertionError("missing accepted_frontier_overlay block")
-    if frontier["vertex_circle_status"] != "self_edge":
+    if frontier["accepted_frontier_count"] != 0:
+        raise AssertionError("unexpected accepted-frontier count")
+    if frontier["vertex_circle_status"] != "none":
         raise AssertionError("unexpected accepted-frontier vertex-circle status")
-    frontier_selected = frontier["selected_baseline"]
-    if not isinstance(frontier_selected, dict):
-        raise AssertionError("missing accepted frontier selected-baseline block")
-    if frontier_selected["deficit_by_cyclic_length"] != {"1": 0, "2": 3, "3": 2, "4": 4}:
-        raise AssertionError("unexpected accepted-frontier deficit vector")
-    if frontier_selected["spoiled_length2"] != [0, 3, 6]:
-        raise AssertionError("unexpected accepted-frontier length-2 deficits")
-    if frontier_selected["spoiled_length3"] != [1, 7]:
-        raise AssertionError("unexpected accepted-frontier length-3 deficits")
-    if frontier["turn_cover_overlay"]["remaining_minimum_forced_turns"] != 1:
-        raise AssertionError("unexpected accepted-frontier forced-turn count")
+    if frontier["rows"] != []:
+        raise AssertionError("unexpected accepted-frontier rows")
+    if frontier["selected_baseline"] is not None:
+        raise AssertionError("unexpected accepted-frontier selected-baseline block")
+    if frontier["turn_cover_overlay"] is not None:
+        raise AssertionError("unexpected accepted-frontier turn-cover block")

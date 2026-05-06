@@ -26,11 +26,18 @@ from scripts.check_n9_row_ptolemy_product_cancellations import (  # noqa: E402
     load_artifact,
     validate_payload as validate_row_ptolemy_payload,
 )
+from scripts.check_n9_vertex_circle_core_templates import (  # noqa: E402
+    DEFAULT_ARTIFACT as DEFAULT_CORE_TEMPLATE_ARTIFACT,
+    SCHEMA as CORE_TEMPLATE_SCHEMA,
+    STATUS as CORE_TEMPLATE_STATUS,
+    TRUST as CORE_TEMPLATE_TRUST,
+    validate_payload as validate_core_template_payload,
+)
 
 DEFAULT_ARTIFACT = (
     ROOT / "data" / "certificates" / "n9_row_ptolemy_family_signatures.json"
 )
-SCHEMA = "erdos97.n9_row_ptolemy_family_signatures.v1"
+SCHEMA = "erdos97.n9_row_ptolemy_family_signatures.v2"
 STATUS = "EXPLORATORY_LEDGER_ONLY"
 TRUST = "FINITE_BOOKKEEPING_NOT_A_PROOF"
 CLAIM_SCOPE = (
@@ -46,12 +53,24 @@ PROVENANCE = {
         "--assert-expected --write"
     ),
 }
-EXPECTED_SOURCE_ARTIFACT = {
-    "path": "data/certificates/n9_row_ptolemy_product_cancellations.json",
-    "schema": "erdos97.n9_row_ptolemy_product_cancellations.v2",
-    "status": "EXPLORATORY_LEDGER_ONLY",
-    "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
-}
+ROW_PTOLEMY_SOURCE_PATH = "data/certificates/n9_row_ptolemy_product_cancellations.json"
+CORE_TEMPLATE_SOURCE_PATH = "data/certificates/n9_vertex_circle_core_templates.json"
+EXPECTED_SOURCE_ARTIFACTS = [
+    {
+        "path": ROW_PTOLEMY_SOURCE_PATH,
+        "role": "row-Ptolemy product-cancellation hit records",
+        "schema": "erdos97.n9_row_ptolemy_product_cancellations.v2",
+        "status": "EXPLORATORY_LEDGER_ONLY",
+        "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
+    },
+    {
+        "path": CORE_TEMPLATE_SOURCE_PATH,
+        "role": "review-pending local-core template shape labels",
+        "schema": CORE_TEMPLATE_SCHEMA,
+        "status": CORE_TEMPLATE_STATUS,
+        "trust": CORE_TEMPLATE_TRUST,
+    },
+]
 EXPECTED_TOP_LEVEL_KEYS = {
     "claim_scope",
     "cyclic_order",
@@ -63,7 +82,7 @@ EXPECTED_TOP_LEVEL_KEYS = {
     "provenance",
     "schema",
     "signature_rows",
-    "source_artifact",
+    "source_artifacts",
     "status",
     "trust",
     "witness_size",
@@ -91,6 +110,39 @@ EXPECTED_SIGNATURE_ROWS = [
             "row_ptolemy_product|hit_rows=3|certs_per_row=2|"
             "cancelled=d01*d23|zero=d03*d12"
         ),
+        "template_core_size": 6,
+        "template_key": (
+            "self_edge|rows=6|strict_edges=54|"
+            "conflicts=2:1:1x4,3:1:0x2,3:1:1x2,3:2:1x1"
+        ),
+        "template_self_edge_conflict_count": 9,
+        "template_self_edge_shape_counts": [
+            {
+                "count": 4,
+                "inner_span": 1,
+                "outer_span": 2,
+                "shared_endpoint_count": 1,
+            },
+            {
+                "count": 2,
+                "inner_span": 1,
+                "outer_span": 3,
+                "shared_endpoint_count": 0,
+            },
+            {
+                "count": 2,
+                "inner_span": 1,
+                "outer_span": 3,
+                "shared_endpoint_count": 1,
+            },
+            {
+                "count": 1,
+                "inner_span": 2,
+                "outer_span": 3,
+                "shared_endpoint_count": 1,
+            },
+        ],
+        "template_strict_edge_count": 54,
     },
     {
         "family_id": "F09",
@@ -114,6 +166,26 @@ EXPECTED_SIGNATURE_ROWS = [
             "row_ptolemy_product|hit_rows=6|certs_per_row=2|"
             "cancelled=d01*d23|zero=d03*d12"
         ),
+        "template_core_size": 3,
+        "template_key": (
+            "self_edge|rows=3|strict_edges=27|conflicts=3:1:0x1,3:1:1x1"
+        ),
+        "template_self_edge_conflict_count": 2,
+        "template_self_edge_shape_counts": [
+            {
+                "count": 1,
+                "inner_span": 1,
+                "outer_span": 3,
+                "shared_endpoint_count": 0,
+            },
+            {
+                "count": 1,
+                "inner_span": 1,
+                "outer_span": 3,
+                "shared_endpoint_count": 1,
+            },
+        ],
+        "template_strict_edge_count": 27,
     },
     {
         "family_id": "F13",
@@ -137,6 +209,20 @@ EXPECTED_SIGNATURE_ROWS = [
             "row_ptolemy_product|hit_rows=9|certs_per_row=2|"
             "cancelled=d01*d23|zero=d03*d12"
         ),
+        "template_core_size": 4,
+        "template_key": (
+            "self_edge|rows=4|strict_edges=36|conflicts=2:1:1x2"
+        ),
+        "template_self_edge_conflict_count": 2,
+        "template_self_edge_shape_counts": [
+            {
+                "count": 2,
+                "inner_span": 1,
+                "outer_span": 2,
+                "shared_endpoint_count": 1,
+            },
+        ],
+        "template_strict_edge_count": 36,
     },
 ]
 
@@ -184,10 +270,167 @@ def _same_counter(
     return first
 
 
+def _source_artifacts(
+    row_ptolemy_source: dict[str, Any],
+    template_source: dict[str, Any],
+) -> list[dict[str, Any]]:
+    return [
+        {
+            "path": ROW_PTOLEMY_SOURCE_PATH,
+            "role": "row-Ptolemy product-cancellation hit records",
+            "schema": row_ptolemy_source.get("schema"),
+            "status": row_ptolemy_source.get("status"),
+            "trust": row_ptolemy_source.get("trust"),
+        },
+        {
+            "path": CORE_TEMPLATE_SOURCE_PATH,
+            "role": "review-pending local-core template shape labels",
+            "schema": template_source.get("schema"),
+            "status": template_source.get("status"),
+            "trust": template_source.get("trust"),
+        },
+    ]
+
+
+def _template_crosswalk_source_artifact(template_source: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "path": CORE_TEMPLATE_SOURCE_PATH,
+        "schema": template_source.get("schema"),
+        "status": template_source.get("status"),
+        "trust": template_source.get("trust"),
+    }
+
+
+def _template_maps(
+    template_source: Any,
+    errors: list[str],
+) -> tuple[dict[str, dict[str, Any]], dict[str, dict[str, Any]]]:
+    if not isinstance(template_source, dict):
+        errors.append("local-core template source top level must be an object")
+        return {}, {}
+    template_errors = validate_core_template_payload(template_source, recompute=False)
+    errors.extend(f"local-core template source invalid: {error}" for error in template_errors)
+
+    raw_families = template_source.get("families")
+    raw_templates = template_source.get("templates")
+    if not isinstance(raw_families, list):
+        errors.append("local-core template source families must be a list")
+        return {}, {}
+    if not isinstance(raw_templates, list):
+        errors.append("local-core template source templates must be a list")
+        return {}, {}
+
+    families_by_id: dict[str, dict[str, Any]] = {}
+    for index, raw_family in enumerate(raw_families):
+        if not isinstance(raw_family, dict):
+            errors.append(f"local-core template source families[{index}] must be an object")
+            continue
+        family_id = raw_family.get("family_id")
+        if not isinstance(family_id, str) or not family_id:
+            errors.append(
+                f"local-core template source families[{index}] has invalid family_id"
+            )
+            continue
+        if family_id in families_by_id:
+            errors.append(f"duplicate local-core template family id {family_id}")
+        families_by_id[family_id] = raw_family
+
+    templates_by_id: dict[str, dict[str, Any]] = {}
+    for index, raw_template in enumerate(raw_templates):
+        if not isinstance(raw_template, dict):
+            errors.append(f"local-core template source templates[{index}] must be an object")
+            continue
+        template_id = raw_template.get("template_id")
+        if not isinstance(template_id, str) or not template_id:
+            errors.append(
+                f"local-core template source templates[{index}] has invalid template_id"
+            )
+            continue
+        if template_id in templates_by_id:
+            errors.append(f"duplicate local-core template id {template_id}")
+        templates_by_id[template_id] = raw_template
+    return families_by_id, templates_by_id
+
+
+def _int_field(errors: list[str], row: dict[str, Any], key: str, label: str) -> int:
+    value = row.get(key)
+    if isinstance(value, int) and not isinstance(value, bool):
+        return int(value)
+    errors.append(f"{label} {key} must be an integer")
+    return 0
+
+
+def _self_edge_shape_fields(
+    errors: list[str],
+    *,
+    family_id: str,
+    template_id: str,
+    family_template: dict[str, Any],
+    template: dict[str, Any],
+) -> dict[str, Any]:
+    if template.get("status") != "self_edge":
+        errors.append(
+            f"family {family_id} template {template_id} is not a self_edge template"
+        )
+        return {
+            "template_key": template.get("template_key"),
+            "template_core_size": _int_field(
+                errors, template, "core_size", f"template {template_id}"
+            ),
+            "template_strict_edge_count": _int_field(
+                errors, template, "strict_edge_count", f"template {template_id}"
+            ),
+            "template_self_edge_conflict_count": 0,
+            "template_self_edge_shape_counts": [],
+        }
+
+    obstruction = family_template.get("obstruction_summary")
+    if not isinstance(obstruction, dict):
+        errors.append(f"family {family_id} obstruction_summary must be an object")
+        obstruction = {}
+    shape_counts = template.get("self_edge_shape_counts")
+    if not isinstance(shape_counts, list):
+        errors.append(f"template {template_id} self_edge_shape_counts must be a list")
+        shape_counts = []
+    copied_shape_counts = [
+        dict(row)
+        for row in shape_counts
+        if isinstance(row, dict)
+    ]
+    if obstruction.get("self_edge_shape_counts") != shape_counts:
+        errors.append(
+            f"family {family_id} self_edge_shape_counts do not match template {template_id}"
+        )
+
+    conflict_count = sum(
+        int(row.get("count", 0))
+        for row in shape_counts
+        if isinstance(row, dict) and isinstance(row.get("count"), int)
+    )
+    if obstruction.get("self_edge_conflict_count") != conflict_count:
+        errors.append(
+            f"family {family_id} self_edge conflict count does not match template shapes"
+        )
+
+    return {
+        "template_key": template.get("template_key"),
+        "template_core_size": _int_field(
+            errors, template, "core_size", f"template {template_id}"
+        ),
+        "template_strict_edge_count": _int_field(
+            errors, template, "strict_edge_count", f"template {template_id}"
+        ),
+        "template_self_edge_conflict_count": conflict_count,
+        "template_self_edge_shape_counts": copied_shape_counts,
+    }
+
+
 def _signature_rows(
     source: dict[str, Any],
+    template_source: dict[str, Any],
     errors: list[str],
 ) -> list[dict[str, Any]]:
+    families_by_id, templates_by_id = _template_maps(template_source, errors)
     records_by_family: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for record in source.get("hit_records", []):
         if isinstance(record, dict) and isinstance(record.get("family_id"), str):
@@ -201,11 +444,48 @@ def _signature_rows(
             for row in crosswalk["hit_family_rows"]
             if isinstance(row, dict) and "family_id" in row
         }
+    expect_equal(
+        errors,
+        "row-Ptolemy template_crosswalk source_artifact",
+        crosswalk.get("source_artifact") if isinstance(crosswalk, dict) else None,
+        _template_crosswalk_source_artifact(template_source),
+    )
 
     rows = []
     for family_id in sorted(records_by_family):
         records = records_by_family[family_id]
         family_crosswalk = crosswalk_rows.get(family_id, {})
+        template_id = family_crosswalk.get("template_id")
+        template_shape_fields: dict[str, Any] = {}
+        if not isinstance(template_id, str):
+            errors.append(f"missing template id for {family_id}")
+        else:
+            family_template = families_by_id.get(family_id)
+            template = templates_by_id.get(template_id)
+            if family_template is None:
+                errors.append(f"local-core template source missing family {family_id}")
+            elif template is None:
+                errors.append(f"local-core template source missing template {template_id}")
+            else:
+                expect_equal(
+                    errors,
+                    f"{family_id} local-core template id",
+                    family_template.get("template_id"),
+                    template_id,
+                )
+                expect_equal(
+                    errors,
+                    f"{family_id} local-core template status",
+                    family_template.get("status"),
+                    family_crosswalk.get("template_status"),
+                )
+                template_shape_fields = _self_edge_shape_fields(
+                    errors,
+                    family_id=family_id,
+                    template_id=template_id,
+                    family_template=family_template,
+                    template=template,
+                )
         certificate_count = sum(int(record["certificate_count"]) for record in records)
         certificate_counts = [int(record["certificate_count"]) for record in records]
         if len(set(certificate_counts)) != 1:
@@ -299,19 +579,23 @@ def _signature_rows(
                     counters=zero_counters,
                 ),
                 "signature_key": signature_key,
+                **template_shape_fields,
             }
         )
     return rows
 
 
-def signature_payload(source: dict[str, Any]) -> dict[str, Any]:
+def signature_payload(
+    source: dict[str, Any],
+    template_source: dict[str, Any],
+) -> dict[str, Any]:
     """Return a derived per-family signature diagnostic."""
 
     errors = validate_row_ptolemy_payload(source, recompute=False)
     if errors:
         raise ValueError(f"source row-Ptolemy artifact invalid: {errors[0]}")
     signature_errors: list[str] = []
-    signature_rows = _signature_rows(source, signature_errors)
+    signature_rows = _signature_rows(source, template_source, signature_errors)
     if signature_errors:
         raise ValueError(f"signature derivation failed: {signature_errors[0]}")
 
@@ -335,14 +619,10 @@ def signature_payload(source: dict[str, Any]) -> dict[str, Any]:
             "Rows summarize stable certificate histograms within each row-Ptolemy hit family.",
             "The signatures are prompts for local-lemma extraction, not local lemmas by themselves.",
             "Each underlying certificate remains fixed-pattern and fixed-row-order only.",
+            "The local-core shape fields are copied from the review-pending template diagnostic for comparison only.",
             "No proof of the n=9 case is claimed.",
         ],
-        "source_artifact": {
-            "path": "data/certificates/n9_row_ptolemy_product_cancellations.json",
-            "schema": source["schema"],
-            "status": source["status"],
-            "trust": source["trust"],
-        },
+        "source_artifacts": _source_artifacts(source, template_source),
         "provenance": PROVENANCE,
     }
     assert_expected_signature_counts(payload)
@@ -378,6 +658,7 @@ def validate_payload(
     payload: Any,
     *,
     source: Any | None = None,
+    template_source: Any | None = None,
     recompute: bool = True,
 ) -> list[str]:
     """Return validation errors for a loaded signature artifact."""
@@ -404,7 +685,7 @@ def validate_payload(
         "hit_certificate_count": 216,
         "signature_rows": EXPECTED_SIGNATURE_ROWS,
         "provenance": PROVENANCE,
-        "source_artifact": EXPECTED_SOURCE_ARTIFACT,
+        "source_artifacts": EXPECTED_SOURCE_ARTIFACTS,
     }
     for key, expected in expected_meta.items():
         expect_equal(errors, key, payload.get(key), expected)
@@ -417,6 +698,7 @@ def validate_payload(
     else:
         required = (
             "The signatures are prompts for local-lemma extraction, not local lemmas by themselves.",
+            "The local-core shape fields are copied from the review-pending template diagnostic for comparison only.",
             "No proof of the n=9 case is claimed.",
         )
         for phrase in required:
@@ -435,13 +717,22 @@ def validate_payload(
             except (OSError, json.JSONDecodeError) as exc:
                 errors.append(f"failed to load source row-Ptolemy artifact: {exc}")
                 source = None
-        if isinstance(source, dict):
+        if template_source is None:
             try:
-                expected_payload = signature_payload(source)
-            except (TypeError, ValueError) as exc:
-                errors.append(f"recomputed signature diagnostic failed: {exc}")
+                template_source = load_artifact(DEFAULT_CORE_TEMPLATE_ARTIFACT)
+            except (OSError, json.JSONDecodeError) as exc:
+                errors.append(f"failed to load local-core template artifact: {exc}")
+                template_source = None
+        if isinstance(source, dict):
+            if not isinstance(template_source, dict):
+                errors.append("local-core template artifact must be an object")
             else:
-                expect_equal(errors, "signature diagnostic", payload, expected_payload)
+                try:
+                    expected_payload = signature_payload(source, template_source)
+                except (AssertionError, TypeError, ValueError) as exc:
+                    errors.append(f"recomputed signature diagnostic failed: {exc}")
+                else:
+                    expect_equal(errors, "signature diagnostic", payload, expected_payload)
         else:
             errors.append("source row-Ptolemy artifact must be an object")
     return errors
@@ -473,6 +764,12 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--artifact", type=Path, default=DEFAULT_ARTIFACT)
     parser.add_argument("--source", type=Path, default=DEFAULT_ROW_PTOLEMY_ARTIFACT)
+    parser.add_argument(
+        "--template-source",
+        type=Path,
+        default=DEFAULT_CORE_TEMPLATE_ARTIFACT,
+        help="local-core template diagnostic used for shape metadata",
+    )
     parser.add_argument("--out", type=Path, default=DEFAULT_ARTIFACT)
     parser.add_argument("--write", action="store_true", help="write generated diagnostic")
     parser.add_argument("--check", action="store_true", help="validate an existing diagnostic")
@@ -485,6 +782,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv)
     artifact = args.artifact if args.artifact.is_absolute() else ROOT / args.artifact
     source_path = args.source if args.source.is_absolute() else ROOT / args.source
+    template_source_path = (
+        args.template_source
+        if args.template_source.is_absolute()
+        else ROOT / args.template_source
+    )
     out = args.out if args.out.is_absolute() else ROOT / args.out
 
     try:
@@ -495,12 +797,27 @@ def main(argv: Sequence[str] | None = None) -> int:
     else:
         source_errors = validate_row_ptolemy_payload(source, recompute=False)
 
+    try:
+        template_source = load_artifact(template_source_path)
+    except (OSError, json.JSONDecodeError) as exc:
+        template_source = {}
+        template_source_errors = [str(exc)]
+    else:
+        template_source_errors = validate_core_template_payload(
+            template_source,
+            recompute=False,
+        )
+
     if args.write:
         if source_errors:
             for error in source_errors:
                 print(f"source artifact invalid: {error}", file=sys.stderr)
             return 1
-        payload = signature_payload(source)
+        if template_source_errors:
+            for error in template_source_errors:
+                print(f"local-core template artifact invalid: {error}", file=sys.stderr)
+            return 1
+        payload = signature_payload(source, template_source)
         if args.assert_expected:
             assert_expected_signature_counts(payload)
         write_json(payload, out)
@@ -516,6 +833,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         errors = validate_payload(
             payload,
             source=source,
+            template_source=template_source,
             recompute=args.check or args.assert_expected,
         )
     except (OSError, json.JSONDecodeError, ValueError) as exc:
@@ -523,6 +841,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         errors = [str(exc)]
     if source_errors:
         errors.extend(f"source artifact invalid: {error}" for error in source_errors)
+    if template_source_errors:
+        errors.extend(
+            f"local-core template artifact invalid: {error}"
+            for error in template_source_errors
+        )
 
     summary = summary_payload(artifact, payload, errors)
     if args.json:
