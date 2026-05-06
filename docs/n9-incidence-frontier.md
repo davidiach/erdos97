@@ -137,6 +137,10 @@ finds 1318 adjacent-ok assignment-order pairs and 28 admissible orders after
 crossing-bisector checks; these are 28 assignment-order records, not 28
 distinct order permutations. Two of those records, both in `F13`, have zero
 row-Ptolemy certificates while remaining vertex-circle self-edge obstructed.
-Good next checks are to audit whether those signatures can be converted into
+The narrower replay artifact
+`data/certificates/n9_row_ptolemy_admissible_gap_replay.json` records those two
+rows directly: both use order `[0,2,4,6,8,1,3,5,7]`, crosswalk to `F13 -> T04`,
+and replay with 81 strict vertex-circle edges and 27 self-edge conflicts. Good
+next checks are to audit whether those signatures can be converted into
 reusable local lemmas and to keep testing order-sensitive variants without
 treating this bounded slice as a lossless quotient of all `n=9` cases.

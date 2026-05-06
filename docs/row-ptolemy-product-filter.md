@@ -191,6 +191,22 @@ gaps for the row-Ptolemy filter, not realizability evidence: the replayed
 vertex-circle quotient still classifies every recorded admissible record as a
 `self_edge` obstruction.
 
+## Gap Replay
+
+The generated artifact
+`data/certificates/n9_row_ptolemy_admissible_gap_replay.json` isolates just the
+two zero-certificate admissible assignment-order records from the census. It
+replays the adjacent two-overlap filter, crossing-bisector filter,
+row-Ptolemy certificate search, and vertex-circle quotient for those two
+records.
+
+Both replay rows are in `F13`, crosswalked to local-core template `T04`, under
+the normalized order `[0,2,4,6,8,1,3,5,7]`. Each row still has zero
+row-Ptolemy product-cancellation certificates, zero adjacent/crossing-filter
+violations, and a vertex-circle `self_edge` replay with `81` strict edges and
+`27` self-edge conflicts. This narrows the diagnostic gap to inspect next; it
+does not promote the rows to geometric candidates or change the global status.
+
 ## Reproduction
 
 ```bash
@@ -223,6 +239,15 @@ python scripts/check_n9_row_ptolemy_order_admissible_census.py \
   --write
 
 python scripts/check_n9_row_ptolemy_order_admissible_census.py \
+  --check \
+  --assert-expected \
+  --json
+
+python scripts/check_n9_row_ptolemy_admissible_gap_replay.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_row_ptolemy_admissible_gap_replay.py \
   --check \
   --assert-expected \
   --json
