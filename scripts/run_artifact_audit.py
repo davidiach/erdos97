@@ -201,9 +201,9 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "--json",
         ),
         claim_scope=(
-            "Derived n=9 row-Ptolemy family-signature diagnostic for fixed row "
-            "order; not a proof of n=9, counterexample, orderless obstruction, "
-            "or official/global status update."
+            "Derived n=9 row-Ptolemy family-signature and local-core shape "
+            "crosswalk diagnostic for fixed row order; not a proof of n=9, "
+            "counterexample, orderless obstruction, or official/global status update."
         ),
     ),
     AuditCommand(

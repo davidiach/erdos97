@@ -18,6 +18,7 @@
     "Rows summarize stable certificate histograms within each row-Ptolemy hit family.",
     "The signatures are prompts for local-lemma extraction, not local lemmas by themselves.",
     "Each underlying certificate remains fixed-pattern and fixed-row-order only.",
+    "The local-core shape fields are copied from the review-pending template diagnostic for comparison only.",
     "No proof of the n=9 case is claimed."
   ],
   "n": 9,
@@ -25,7 +26,7 @@
     "command": "python scripts/check_n9_row_ptolemy_family_signatures.py --assert-expected --write",
     "generator": "scripts/check_n9_row_ptolemy_family_signatures.py"
   },
-  "schema": "erdos97.n9_row_ptolemy_family_signatures.v1",
+  "schema": "erdos97.n9_row_ptolemy_family_signatures.v2",
   "signature_rows": [
     {
       "cancelled_product_counts_per_assignment": {
@@ -53,8 +54,38 @@
         "3": 18
       },
       "signature_key": "row_ptolemy_product|hit_rows=3|certs_per_row=2|cancelled=d01*d23|zero=d03*d12",
+      "template_core_size": 6,
       "template_id": "T08",
+      "template_key": "self_edge|rows=6|strict_edges=54|conflicts=2:1:1x4,3:1:0x2,3:1:1x2,3:2:1x1",
+      "template_self_edge_conflict_count": 9,
+      "template_self_edge_shape_counts": [
+        {
+          "count": 4,
+          "inner_span": 1,
+          "outer_span": 2,
+          "shared_endpoint_count": 1
+        },
+        {
+          "count": 2,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 0
+        },
+        {
+          "count": 2,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 1
+        },
+        {
+          "count": 1,
+          "inner_span": 2,
+          "outer_span": 3,
+          "shared_endpoint_count": 1
+        }
+      ],
       "template_status": "self_edge",
+      "template_strict_edge_count": 54,
       "variant_counts_per_assignment": {
         "cancel_d01_d23_via_d02_eq_d01_and_d13_eq_d23": 3,
         "cancel_d01_d23_via_d02_eq_d23_and_d13_eq_d01": 3
@@ -89,8 +120,26 @@
         "6": 6
       },
       "signature_key": "row_ptolemy_product|hit_rows=6|certs_per_row=2|cancelled=d01*d23|zero=d03*d12",
+      "template_core_size": 3,
       "template_id": "T01",
+      "template_key": "self_edge|rows=3|strict_edges=27|conflicts=3:1:0x1,3:1:1x1",
+      "template_self_edge_conflict_count": 2,
+      "template_self_edge_shape_counts": [
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 0
+        },
+        {
+          "count": 1,
+          "inner_span": 1,
+          "outer_span": 3,
+          "shared_endpoint_count": 1
+        }
+      ],
       "template_status": "self_edge",
+      "template_strict_edge_count": 27,
       "variant_counts_per_assignment": {
         "cancel_d01_d23_via_d02_eq_d01_and_d13_eq_d23": 6,
         "cancel_d01_d23_via_d02_eq_d23_and_d13_eq_d01": 6
@@ -125,8 +174,20 @@
         "9": 2
       },
       "signature_key": "row_ptolemy_product|hit_rows=9|certs_per_row=2|cancelled=d01*d23|zero=d03*d12",
+      "template_core_size": 4,
       "template_id": "T04",
+      "template_key": "self_edge|rows=4|strict_edges=36|conflicts=2:1:1x2",
+      "template_self_edge_conflict_count": 2,
+      "template_self_edge_shape_counts": [
+        {
+          "count": 2,
+          "inner_span": 1,
+          "outer_span": 2,
+          "shared_endpoint_count": 1
+        }
+      ],
       "template_status": "self_edge",
+      "template_strict_edge_count": 36,
       "variant_counts_per_assignment": {
         "cancel_d01_d23_via_d02_eq_d01_and_d13_eq_d23": 9,
         "cancel_d01_d23_via_d02_eq_d23_and_d13_eq_d01": 9
@@ -136,12 +197,22 @@
       }
     }
   ],
-  "source_artifact": {
-    "path": "data/certificates/n9_row_ptolemy_product_cancellations.json",
-    "schema": "erdos97.n9_row_ptolemy_product_cancellations.v2",
-    "status": "EXPLORATORY_LEDGER_ONLY",
-    "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF"
-  },
+  "source_artifacts": [
+    {
+      "path": "data/certificates/n9_row_ptolemy_product_cancellations.json",
+      "role": "row-Ptolemy product-cancellation hit records",
+      "schema": "erdos97.n9_row_ptolemy_product_cancellations.v2",
+      "status": "EXPLORATORY_LEDGER_ONLY",
+      "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF"
+    },
+    {
+      "path": "data/certificates/n9_vertex_circle_core_templates.json",
+      "role": "review-pending local-core template shape labels",
+      "schema": "erdos97.n9_vertex_circle_core_templates.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
   "status": "EXPLORATORY_LEDGER_ONLY",
   "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
   "witness_size": 4

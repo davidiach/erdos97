@@ -122,10 +122,12 @@ incidences against total cyclic capacity 63, leaving 9 selected-baseline empty
 capacity units in every case. Under the strict threshold, the selected-baseline
 deficits still force the current turn-cover contradiction in 44 of the 184
 assignments; under the conservative threshold, they force it in 2. The one
-`accepted_frontier` row system from
-`data/certificates/n9_incidence_frontier_bounded.json` has selected-baseline
-deficits on length-2 indices `{0,3,6}` and length-3 indices `{1,7}`, leaving
-only one forced turn, so it is a genuine escape for this diagnostic.
+formerly recorded `accepted_frontier` row system from
+`data/certificates/n9_incidence_frontier_bounded.json` is now classified by
+the row-Ptolemy product-cancellation filter in that bounded natural-order
+slice. The selected-baseline overlay schema `v2` therefore records
+`accepted_frontier_count = 0` and has no surviving frontier escape example to
+analyze.
 
 This overlay is not a geometric realizability test. Actual unselected
 equal-distance triples or profile excess could fill selected-baseline empty

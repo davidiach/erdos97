@@ -79,7 +79,7 @@ def validate_payload(payload: Any) -> list[str]:
         )
 
     expected_meta = {
-        "schema": "erdos97.n9_selected_baseline_escape_budget_overlay.v1",
+        "schema": "erdos97.n9_selected_baseline_escape_budget_overlay.v2",
         "status": "EXPLORATORY_LEDGER_ONLY",
         "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
         "n": 9,

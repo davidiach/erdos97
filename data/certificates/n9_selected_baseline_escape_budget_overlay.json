@@ -1,124 +1,12 @@
 {
   "accepted_frontier_overlay": {
-    "accepted_frontier_count": 1,
-    "interpretation": "This accepted_frontier row system escapes the selected-baseline turn-cover overlay; accepted_frontier means it passed the bounded frontier filters, not that it is geometrically realizable.",
-    "rows": [
-      [
-        1,
-        2,
-        3,
-        8
-      ],
-      [
-        0,
-        3,
-        4,
-        7
-      ],
-      [
-        1,
-        3,
-        5,
-        6
-      ],
-      [
-        2,
-        4,
-        5,
-        8
-      ],
-      [
-        0,
-        3,
-        6,
-        8
-      ],
-      [
-        2,
-        4,
-        6,
-        7
-      ],
-      [
-        1,
-        5,
-        7,
-        8
-      ],
-      [
-        0,
-        1,
-        4,
-        6
-      ],
-      [
-        0,
-        2,
-        5,
-        7
-      ]
-    ],
-    "selected_baseline": {
-      "canonical_relevant_placement": {
-        "spoiled_length2": [
-          0,
-          3,
-          6
-        ],
-        "spoiled_length3": [
-          1,
-          4
-        ]
-      },
-      "deficit_by_cyclic_length": {
-        "1": 0,
-        "2": 3,
-        "3": 2,
-        "4": 4
-      },
-      "overfull_base_count": 0,
-      "saturated_base_count_by_cyclic_length": {
-        "1": 9,
-        "2": 6,
-        "3": 7,
-        "4": 5
-      },
-      "spoiled_base_count_by_cyclic_length": {
-        "1": 0,
-        "2": 3,
-        "3": 2,
-        "4": 4
-      },
-      "spoiled_length2": [
-        0,
-        3,
-        6
-      ],
-      "spoiled_length3": [
-        1,
-        7
-      ],
-      "total_deficit": 9,
-      "usage_by_cyclic_length": {
-        "1": 9,
-        "2": 15,
-        "3": 16,
-        "4": 14
-      }
-    },
+    "accepted_frontier_count": 0,
+    "interpretation": "No accepted_frontier row system is recorded in the bounded frontier artifact; this overlay therefore has no surviving frontier escape example to analyze.",
+    "rows": [],
+    "selected_baseline": null,
     "source": "data/certificates/n9_incidence_frontier_bounded.json",
-    "turn_cover_overlay": {
-      "remaining_minimum_forced_turns": 1,
-      "remaining_turn_clauses": [
-        [
-          5,
-          6
-        ]
-      ],
-      "strict_positive_forces_turn_cover": false,
-      "sum_exceeds_forces_turn_cover": false
-    },
-    "vertex_circle_status": "self_edge"
+    "turn_cover_overlay": null,
+    "vertex_circle_status": "none"
   },
   "base_apex_slack": 9,
   "budget_overlay": {
@@ -574,7 +462,7 @@
     "command": "python scripts/analyze_n9_selected_baseline_escape_budget_overlay.py --assert-expected --out data/certificates/n9_selected_baseline_escape_budget_overlay.json",
     "generator": "scripts/analyze_n9_selected_baseline_escape_budget_overlay.py"
   },
-  "schema": "erdos97.n9_selected_baseline_escape_budget_overlay.v1",
+  "schema": "erdos97.n9_selected_baseline_escape_budget_overlay.v2",
   "selected_baseline": {
     "assignment_count": 184,
     "cyclic_base_capacity_total": 63,

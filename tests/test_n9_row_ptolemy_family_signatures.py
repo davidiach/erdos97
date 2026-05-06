@@ -9,6 +9,7 @@ import pytest
 
 from scripts.check_n9_row_ptolemy_family_signatures import (
     DEFAULT_ARTIFACT,
+    DEFAULT_CORE_TEMPLATE_ARTIFACT,
     DEFAULT_ROW_PTOLEMY_ARTIFACT,
     EXPECTED_SIGNATURE_ROWS,
     assert_expected_signature_counts,
@@ -56,23 +57,39 @@ def test_row_ptolemy_family_signature_rows_record_stable_shapes() -> None:
         row["family_id"]: row["cancelled_product_counts_per_assignment"]
         for row in payload["signature_rows"]
     } == {"F02": {"d01*d23": 6}, "F09": {"d01*d23": 12}, "F13": {"d01*d23": 18}}
+    assert rows["F02"]["template_key"] == (
+        "self_edge|rows=6|strict_edges=54|"
+        "conflicts=2:1:1x4,3:1:0x2,3:1:1x2,3:2:1x1"
+    )
+    assert rows["F02"]["template_self_edge_conflict_count"] == 9
+    assert rows["F09"]["template_core_size"] == 3
+    assert rows["F13"]["template_self_edge_shape_counts"] == [
+        {
+            "count": 2,
+            "inner_span": 1,
+            "outer_span": 2,
+            "shared_endpoint_count": 1,
+        }
+    ]
 
 
 @pytest.mark.artifact
 @pytest.mark.exhaustive
 def test_row_ptolemy_family_signature_artifact_matches_generator() -> None:
     source = load_artifact(DEFAULT_ROW_PTOLEMY_ARTIFACT)
+    template_source = load_artifact(DEFAULT_CORE_TEMPLATE_ARTIFACT)
     checked_in = load_artifact(DEFAULT_ARTIFACT)
 
-    assert checked_in == signature_payload(source)
+    assert checked_in == signature_payload(source, template_source)
 
 
 @pytest.mark.artifact
 @pytest.mark.exhaustive
 def test_row_ptolemy_family_signature_checker_passes() -> None:
     source = load_artifact(DEFAULT_ROW_PTOLEMY_ARTIFACT)
+    template_source = load_artifact(DEFAULT_CORE_TEMPLATE_ARTIFACT)
     payload = load_artifact(DEFAULT_ARTIFACT)
-    errors = validate_payload(payload, source=source)
+    errors = validate_payload(payload, source=source, template_source=template_source)
     summary = summary_payload(DEFAULT_ARTIFACT, payload, errors)
 
     assert errors == []
@@ -84,6 +101,15 @@ def test_row_ptolemy_family_signature_checker_passes() -> None:
 def test_row_ptolemy_family_signature_checker_rejects_tampered_signature() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     payload["signature_rows"][0]["hit_row_count_per_assignment"] = 4
+
+    errors = validate_payload(payload, recompute=False)
+
+    assert any("signature_rows" in error for error in errors)
+
+
+def test_row_ptolemy_family_signature_checker_rejects_tampered_shape() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    payload["signature_rows"][0]["template_self_edge_shape_counts"][0]["count"] = 5
 
     errors = validate_payload(payload, recompute=False)
 
@@ -103,11 +129,27 @@ def test_row_ptolemy_family_signature_checker_rejects_missing_no_proof_note() ->
 
 def test_row_ptolemy_family_signature_checker_rejects_tampered_source() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
-    payload["source_artifact"]["schema"] = "erdos97.n9_row_ptolemy_product_cancellations.v1"
+    payload["source_artifacts"][0]["schema"] = (
+        "erdos97.n9_row_ptolemy_product_cancellations.v1"
+    )
 
     errors = validate_payload(payload, recompute=False)
 
-    assert any("source_artifact" in error for error in errors)
+    assert any("source_artifacts" in error for error in errors)
+
+
+def test_row_ptolemy_family_signature_checker_rejects_tampered_template_source() -> None:
+    source = load_artifact(DEFAULT_ROW_PTOLEMY_ARTIFACT)
+    template_source = load_artifact(DEFAULT_CORE_TEMPLATE_ARTIFACT)
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    for template in template_source["templates"]:
+        if template["template_id"] == "T08":
+            template["self_edge_shape_counts"][0]["count"] = 5
+            break
+
+    errors = validate_payload(payload, source=source, template_source=template_source)
+
+    assert any("recomputed signature diagnostic failed" in error for error in errors)
 
 
 @pytest.mark.artifact
