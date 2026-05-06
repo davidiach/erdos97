@@ -326,6 +326,45 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_selected_baseline_escape_budget_overlay
+    path: data/certificates/n9_selected_baseline_escape_budget_overlay.json
+    kind: exploratory_ledger_artifact
+    generator: scripts/analyze_n9_selected_baseline_escape_budget_overlay.py
+    command: python scripts/analyze_n9_selected_baseline_escape_budget_overlay.py --assert-expected --out data/certificates/n9_selected_baseline_escape_budget_overlay.json
+    checker: scripts/check_n9_selected_baseline_escape_budget_overlay.py
+    check_command: python scripts/check_n9_selected_baseline_escape_budget_overlay.py --check --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    claim_scope: Focused n=9 selected-baseline escape-budget overlay bookkeeping; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_selected_baseline_escape_budget_overlay.v1
+      status: EXPLORATORY_LEDGER_ONLY
+      trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+      claim_scope: Focused n=9 selected-baseline escape-budget overlay bookkeeping; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.
+      n: 9
+      witness_size: 4
+      base_apex_slack: 9
+      selected_baseline.assignment_count: 184
+      selected_baseline.pre_vertex_circle_nodes: 100817
+      selected_baseline.selected_baseline_total_deficit_per_assignment: 9
+      selected_baseline.overfull_assignment_count: 0
+      selected_baseline.strict_positive_forced_assignment_count: 44
+      selected_baseline.sum_exceeds_forced_assignment_count: 2
+      selected_baseline.dihedral_relevant_placement_class_count: 13
+      accepted_frontier_overlay.selected_baseline.deficit_by_cyclic_length.2: 3
+      accepted_frontier_overlay.selected_baseline.deficit_by_cyclic_length.3: 2
+      accepted_frontier_overlay.turn_cover_overlay.remaining_minimum_forced_turns: 1
+      provenance.command: python scripts/analyze_n9_selected_baseline_escape_budget_overlay.py --assert-expected --out data/certificates/n9_selected_baseline_escape_budget_overlay.json
+    forbidden_claims:
+      - n=9 is proved
+      - geometric realizability count
+      - counterexample
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n10_vertex_circle_singleton_slices
     path: data/certificates/n10_vertex_circle_singleton_slices.json
     kind: finite_case_draft_artifact

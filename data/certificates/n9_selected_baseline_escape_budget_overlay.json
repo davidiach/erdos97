@@ -1,0 +1,967 @@
+{
+  "accepted_frontier_overlay": {
+    "accepted_frontier_count": 1,
+    "interpretation": "This accepted_frontier row system escapes the selected-baseline turn-cover overlay; accepted_frontier means it passed the bounded frontier filters, not that it is geometrically realizable.",
+    "rows": [
+      [
+        1,
+        2,
+        3,
+        8
+      ],
+      [
+        0,
+        3,
+        4,
+        7
+      ],
+      [
+        1,
+        3,
+        5,
+        6
+      ],
+      [
+        2,
+        4,
+        5,
+        8
+      ],
+      [
+        0,
+        3,
+        6,
+        8
+      ],
+      [
+        2,
+        4,
+        6,
+        7
+      ],
+      [
+        1,
+        5,
+        7,
+        8
+      ],
+      [
+        0,
+        1,
+        4,
+        6
+      ],
+      [
+        0,
+        2,
+        5,
+        7
+      ]
+    ],
+    "selected_baseline": {
+      "canonical_relevant_placement": {
+        "spoiled_length2": [
+          0,
+          3,
+          6
+        ],
+        "spoiled_length3": [
+          1,
+          4
+        ]
+      },
+      "deficit_by_cyclic_length": {
+        "1": 0,
+        "2": 3,
+        "3": 2,
+        "4": 4
+      },
+      "overfull_base_count": 0,
+      "saturated_base_count_by_cyclic_length": {
+        "1": 9,
+        "2": 6,
+        "3": 7,
+        "4": 5
+      },
+      "spoiled_base_count_by_cyclic_length": {
+        "1": 0,
+        "2": 3,
+        "3": 2,
+        "4": 4
+      },
+      "spoiled_length2": [
+        0,
+        3,
+        6
+      ],
+      "spoiled_length3": [
+        1,
+        7
+      ],
+      "total_deficit": 9,
+      "usage_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 16,
+        "4": 14
+      }
+    },
+    "source": "data/certificates/n9_incidence_frontier_bounded.json",
+    "turn_cover_overlay": {
+      "remaining_minimum_forced_turns": 1,
+      "remaining_turn_clauses": [
+        [
+          5,
+          6
+        ]
+      ],
+      "strict_positive_forces_turn_cover": false,
+      "sum_exceeds_forces_turn_cover": false
+    },
+    "vertex_circle_status": "self_edge"
+  },
+  "base_apex_slack": 9,
+  "budget_overlay": {
+    "strict_positive_threshold": {
+      "budget_rows": [
+        {
+          "assignment_with_escape_count": 0,
+          "capacity_deficit_budget": 0,
+          "escaping_final_deficit_placement_count": 0,
+          "forced_final_deficit_placement_count": 184,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 184
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "5": 184
+          },
+          "total_final_deficit_placement_count": 184,
+          "universally_forced_assignment_count": 184
+        },
+        {
+          "assignment_with_escape_count": 0,
+          "capacity_deficit_budget": 1,
+          "escaping_final_deficit_placement_count": 0,
+          "forced_final_deficit_placement_count": 1656,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 576,
+            "1": 1080
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "4": 1080,
+            "5": 576
+          },
+          "total_final_deficit_placement_count": 1656,
+          "universally_forced_assignment_count": 184
+        },
+        {
+          "assignment_with_escape_count": 0,
+          "capacity_deficit_budget": 2,
+          "escaping_final_deficit_placement_count": 0,
+          "forced_final_deficit_placement_count": 6624,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 1080,
+            "1": 2448,
+            "2": 3096
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "3": 2124,
+            "4": 3420,
+            "5": 1080
+          },
+          "total_final_deficit_placement_count": 6624,
+          "universally_forced_assignment_count": 184
+        },
+        {
+          "assignment_with_escape_count": 136,
+          "capacity_deficit_budget": 3,
+          "escaping_final_deficit_placement_count": 1746,
+          "forced_final_deficit_placement_count": 13710,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 1176,
+            "1": 4032,
+            "2": 4536,
+            "3": 5712
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "2": 1746,
+            "3": 6594,
+            "4": 5940,
+            "5": 1176
+          },
+          "total_final_deficit_placement_count": 15456,
+          "universally_forced_assignment_count": 48
+        },
+        {
+          "assignment_with_escape_count": 136,
+          "capacity_deficit_budget": 4,
+          "escaping_final_deficit_placement_count": 6138,
+          "forced_final_deficit_placement_count": 17046,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 828,
+            "1": 3744,
+            "2": 6480,
+            "3": 4752,
+            "4": 7380
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "1": 684,
+            "2": 5454,
+            "3": 10152,
+            "4": 6066,
+            "5": 828
+          },
+          "total_final_deficit_placement_count": 23184,
+          "universally_forced_assignment_count": 48
+        },
+        {
+          "assignment_with_escape_count": 140,
+          "capacity_deficit_budget": 5,
+          "escaping_final_deficit_placement_count": 9378,
+          "forced_final_deficit_placement_count": 13806,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 432,
+            "1": 1980,
+            "2": 5400,
+            "3": 5400,
+            "4": 3240,
+            "5": 6732
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "0": 90,
+            "1": 2520,
+            "2": 6768,
+            "3": 9738,
+            "4": 3636,
+            "5": 432
+          },
+          "total_final_deficit_placement_count": 23184,
+          "universally_forced_assignment_count": 44
+        },
+        {
+          "assignment_with_escape_count": 140,
+          "capacity_deficit_budget": 6,
+          "escaping_final_deficit_placement_count": 8172,
+          "forced_final_deficit_placement_count": 7284,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 192,
+            "1": 576,
+            "2": 2520,
+            "3": 3840,
+            "4": 2520,
+            "5": 1584,
+            "6": 4224
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "0": 432,
+            "1": 3024,
+            "2": 4716,
+            "3": 5904,
+            "4": 1188,
+            "5": 192
+          },
+          "total_final_deficit_placement_count": 15456,
+          "universally_forced_assignment_count": 44
+        },
+        {
+          "assignment_with_escape_count": 140,
+          "capacity_deficit_budget": 7,
+          "escaping_final_deficit_placement_count": 4212,
+          "forced_final_deficit_placement_count": 2412,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 72,
+            "1": 72,
+            "2": 648,
+            "3": 1440,
+            "4": 1440,
+            "5": 648,
+            "6": 576,
+            "7": 1728
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "0": 558,
+            "1": 1674,
+            "2": 1980,
+            "3": 2178,
+            "4": 162,
+            "5": 72
+          },
+          "total_final_deficit_placement_count": 6624,
+          "universally_forced_assignment_count": 44
+        },
+        {
+          "assignment_with_escape_count": 140,
+          "capacity_deficit_budget": 8,
+          "escaping_final_deficit_placement_count": 1188,
+          "forced_final_deficit_placement_count": 468,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 18,
+            "2": 72,
+            "3": 288,
+            "4": 360,
+            "5": 288,
+            "6": 72,
+            "7": 144,
+            "8": 414
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "0": 270,
+            "1": 486,
+            "2": 432,
+            "3": 450,
+            "5": 18
+          },
+          "total_final_deficit_placement_count": 1656,
+          "universally_forced_assignment_count": 44
+        },
+        {
+          "assignment_with_escape_count": 140,
+          "capacity_deficit_budget": 9,
+          "escaping_final_deficit_placement_count": 140,
+          "forced_final_deficit_placement_count": 44,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 2,
+            "3": 24,
+            "4": 36,
+            "5": 36,
+            "6": 24,
+            "8": 18,
+            "9": 44
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "0": 50,
+            "1": 54,
+            "2": 36,
+            "3": 42,
+            "5": 2
+          },
+          "total_final_deficit_placement_count": 184,
+          "universally_forced_assignment_count": 44
+        }
+      ],
+      "contradiction_threshold": 3
+    },
+    "sum_exceeds_threshold": {
+      "budget_rows": [
+        {
+          "assignment_with_escape_count": 0,
+          "capacity_deficit_budget": 0,
+          "escaping_final_deficit_placement_count": 0,
+          "forced_final_deficit_placement_count": 184,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 184
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "5": 184
+          },
+          "total_final_deficit_placement_count": 184,
+          "universally_forced_assignment_count": 184
+        },
+        {
+          "assignment_with_escape_count": 0,
+          "capacity_deficit_budget": 1,
+          "escaping_final_deficit_placement_count": 0,
+          "forced_final_deficit_placement_count": 1656,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 576,
+            "1": 1080
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "4": 1080,
+            "5": 576
+          },
+          "total_final_deficit_placement_count": 1656,
+          "universally_forced_assignment_count": 184
+        },
+        {
+          "assignment_with_escape_count": 178,
+          "capacity_deficit_budget": 2,
+          "escaping_final_deficit_placement_count": 2124,
+          "forced_final_deficit_placement_count": 4500,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 1080,
+            "1": 2448,
+            "2": 3096
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "3": 2124,
+            "4": 3420,
+            "5": 1080
+          },
+          "total_final_deficit_placement_count": 6624,
+          "universally_forced_assignment_count": 6
+        },
+        {
+          "assignment_with_escape_count": 182,
+          "capacity_deficit_budget": 3,
+          "escaping_final_deficit_placement_count": 8340,
+          "forced_final_deficit_placement_count": 7116,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 1176,
+            "1": 4032,
+            "2": 4536,
+            "3": 5712
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "2": 1746,
+            "3": 6594,
+            "4": 5940,
+            "5": 1176
+          },
+          "total_final_deficit_placement_count": 15456,
+          "universally_forced_assignment_count": 2
+        },
+        {
+          "assignment_with_escape_count": 182,
+          "capacity_deficit_budget": 4,
+          "escaping_final_deficit_placement_count": 16290,
+          "forced_final_deficit_placement_count": 6894,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 828,
+            "1": 3744,
+            "2": 6480,
+            "3": 4752,
+            "4": 7380
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "1": 684,
+            "2": 5454,
+            "3": 10152,
+            "4": 6066,
+            "5": 828
+          },
+          "total_final_deficit_placement_count": 23184,
+          "universally_forced_assignment_count": 2
+        },
+        {
+          "assignment_with_escape_count": 182,
+          "capacity_deficit_budget": 5,
+          "escaping_final_deficit_placement_count": 19116,
+          "forced_final_deficit_placement_count": 4068,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 432,
+            "1": 1980,
+            "2": 5400,
+            "3": 5400,
+            "4": 3240,
+            "5": 6732
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "0": 90,
+            "1": 2520,
+            "2": 6768,
+            "3": 9738,
+            "4": 3636,
+            "5": 432
+          },
+          "total_final_deficit_placement_count": 23184,
+          "universally_forced_assignment_count": 2
+        },
+        {
+          "assignment_with_escape_count": 182,
+          "capacity_deficit_budget": 6,
+          "escaping_final_deficit_placement_count": 14076,
+          "forced_final_deficit_placement_count": 1380,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 192,
+            "1": 576,
+            "2": 2520,
+            "3": 3840,
+            "4": 2520,
+            "5": 1584,
+            "6": 4224
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "0": 432,
+            "1": 3024,
+            "2": 4716,
+            "3": 5904,
+            "4": 1188,
+            "5": 192
+          },
+          "total_final_deficit_placement_count": 15456,
+          "universally_forced_assignment_count": 2
+        },
+        {
+          "assignment_with_escape_count": 182,
+          "capacity_deficit_budget": 7,
+          "escaping_final_deficit_placement_count": 6390,
+          "forced_final_deficit_placement_count": 234,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 72,
+            "1": 72,
+            "2": 648,
+            "3": 1440,
+            "4": 1440,
+            "5": 648,
+            "6": 576,
+            "7": 1728
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "0": 558,
+            "1": 1674,
+            "2": 1980,
+            "3": 2178,
+            "4": 162,
+            "5": 72
+          },
+          "total_final_deficit_placement_count": 6624,
+          "universally_forced_assignment_count": 2
+        },
+        {
+          "assignment_with_escape_count": 182,
+          "capacity_deficit_budget": 8,
+          "escaping_final_deficit_placement_count": 1638,
+          "forced_final_deficit_placement_count": 18,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 18,
+            "2": 72,
+            "3": 288,
+            "4": 360,
+            "5": 288,
+            "6": 72,
+            "7": 144,
+            "8": 414
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "0": 270,
+            "1": 486,
+            "2": 432,
+            "3": 450,
+            "5": 18
+          },
+          "total_final_deficit_placement_count": 1656,
+          "universally_forced_assignment_count": 2
+        },
+        {
+          "assignment_with_escape_count": 182,
+          "capacity_deficit_budget": 9,
+          "escaping_final_deficit_placement_count": 182,
+          "forced_final_deficit_placement_count": 2,
+          "relevant_deficit_count_by_final_placement": {
+            "0": 2,
+            "3": 24,
+            "4": 36,
+            "5": 36,
+            "6": 24,
+            "8": 18,
+            "9": 44
+          },
+          "remaining_forced_turn_count_by_final_placement": {
+            "0": 50,
+            "1": 54,
+            "2": 36,
+            "3": 42,
+            "5": 2
+          },
+          "total_final_deficit_placement_count": 184,
+          "universally_forced_assignment_count": 2
+        }
+      ],
+      "contradiction_threshold": 4
+    }
+  },
+  "claim_scope": "Focused n=9 selected-baseline escape-budget overlay bookkeeping; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.",
+  "interpretation": [
+    "The selected baseline counts only the 4 chosen witnesses at each center.",
+    "Every pre-vertex-circle selected-witness assignment uses 54 base-apex incidences against cyclic capacity 63, leaving 9 selected-baseline empty capacity units.",
+    "Actual unselected equal-distance triples or profile excess could fill some selected-baseline empty slots, so these counts are not geometric realizability counts.",
+    "A forced row for budget D means every way to leave D selected-baseline empty slots unfilled still triggers the current length-2/length-3 turn-cover contradiction.",
+    "No proof of the n=9 case is claimed."
+  ],
+  "n": 9,
+  "provenance": {
+    "command": "python scripts/analyze_n9_selected_baseline_escape_budget_overlay.py --assert-expected --out data/certificates/n9_selected_baseline_escape_budget_overlay.json",
+    "generator": "scripts/analyze_n9_selected_baseline_escape_budget_overlay.py"
+  },
+  "schema": "erdos97.n9_selected_baseline_escape_budget_overlay.v1",
+  "selected_baseline": {
+    "assignment_count": 184,
+    "cyclic_base_capacity_total": 63,
+    "deficit_vector_count_by_cyclic_length": [
+      {
+        "assignment_count": 2,
+        "deficit_by_cyclic_length": {
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 9
+        }
+      },
+      {
+        "assignment_count": 4,
+        "deficit_by_cyclic_length": {
+          "1": 0,
+          "2": 0,
+          "3": 9,
+          "4": 0
+        }
+      },
+      {
+        "assignment_count": 24,
+        "deficit_by_cyclic_length": {
+          "1": 0,
+          "2": 3,
+          "3": 0,
+          "4": 6
+        }
+      },
+      {
+        "assignment_count": 36,
+        "deficit_by_cyclic_length": {
+          "1": 0,
+          "2": 3,
+          "3": 2,
+          "4": 4
+        }
+      },
+      {
+        "assignment_count": 18,
+        "deficit_by_cyclic_length": {
+          "1": 0,
+          "2": 3,
+          "3": 3,
+          "4": 3
+        }
+      },
+      {
+        "assignment_count": 18,
+        "deficit_by_cyclic_length": {
+          "1": 0,
+          "2": 5,
+          "3": 4,
+          "4": 0
+        }
+      },
+      {
+        "assignment_count": 6,
+        "deficit_by_cyclic_length": {
+          "1": 0,
+          "2": 6,
+          "3": 0,
+          "4": 3
+        }
+      },
+      {
+        "assignment_count": 18,
+        "deficit_by_cyclic_length": {
+          "1": 0,
+          "2": 6,
+          "3": 2,
+          "4": 1
+        }
+      },
+      {
+        "assignment_count": 18,
+        "deficit_by_cyclic_length": {
+          "1": 0,
+          "2": 7,
+          "3": 2,
+          "4": 0
+        }
+      },
+      {
+        "assignment_count": 4,
+        "deficit_by_cyclic_length": {
+          "1": 0,
+          "2": 9,
+          "3": 0,
+          "4": 0
+        }
+      },
+      {
+        "assignment_count": 18,
+        "deficit_by_cyclic_length": {
+          "1": 1,
+          "2": 2,
+          "3": 2,
+          "4": 4
+        }
+      },
+      {
+        "assignment_count": 18,
+        "deficit_by_cyclic_length": {
+          "1": 1,
+          "2": 3,
+          "3": 1,
+          "4": 4
+        }
+      }
+    ],
+    "dihedral_relevant_placement_class_count": 13,
+    "dihedral_relevant_placement_classes": [
+      {
+        "assignment_count": 2,
+        "canonical_relevant_placement": {
+          "spoiled_length2": [],
+          "spoiled_length3": []
+        },
+        "relevant_deficit_count": 0,
+        "remaining_minimum_forced_turns": 5,
+        "strict_positive_forces_turn_cover": true,
+        "sum_exceeds_forces_turn_cover": true
+      },
+      {
+        "assignment_count": 24,
+        "canonical_relevant_placement": {
+          "spoiled_length2": [
+            0,
+            3,
+            6
+          ],
+          "spoiled_length3": []
+        },
+        "relevant_deficit_count": 3,
+        "remaining_minimum_forced_turns": 3,
+        "strict_positive_forces_turn_cover": true,
+        "sum_exceeds_forces_turn_cover": false
+      },
+      {
+        "assignment_count": 18,
+        "canonical_relevant_placement": {
+          "spoiled_length2": [
+            0,
+            2,
+            4
+          ],
+          "spoiled_length3": [
+            5
+          ]
+        },
+        "relevant_deficit_count": 4,
+        "remaining_minimum_forced_turns": 1,
+        "strict_positive_forces_turn_cover": false,
+        "sum_exceeds_forces_turn_cover": false
+      },
+      {
+        "assignment_count": 18,
+        "canonical_relevant_placement": {
+          "spoiled_length2": [
+            0,
+            4
+          ],
+          "spoiled_length3": [
+            0,
+            3
+          ]
+        },
+        "relevant_deficit_count": 4,
+        "remaining_minimum_forced_turns": 3,
+        "strict_positive_forces_turn_cover": true,
+        "sum_exceeds_forces_turn_cover": false
+      },
+      {
+        "assignment_count": 18,
+        "canonical_relevant_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": [
+            3,
+            5
+          ]
+        },
+        "relevant_deficit_count": 5,
+        "remaining_minimum_forced_turns": 2,
+        "strict_positive_forces_turn_cover": false,
+        "sum_exceeds_forces_turn_cover": false
+      },
+      {
+        "assignment_count": 18,
+        "canonical_relevant_placement": {
+          "spoiled_length2": [
+            0,
+            3,
+            6
+          ],
+          "spoiled_length3": [
+            1,
+            4
+          ]
+        },
+        "relevant_deficit_count": 5,
+        "remaining_minimum_forced_turns": 1,
+        "strict_positive_forces_turn_cover": false,
+        "sum_exceeds_forces_turn_cover": false
+      },
+      {
+        "assignment_count": 6,
+        "canonical_relevant_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3,
+            4,
+            6,
+            7
+          ],
+          "spoiled_length3": []
+        },
+        "relevant_deficit_count": 6,
+        "remaining_minimum_forced_turns": 0,
+        "strict_positive_forces_turn_cover": false,
+        "sum_exceeds_forces_turn_cover": false
+      },
+      {
+        "assignment_count": 18,
+        "canonical_relevant_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            5
+          ],
+          "spoiled_length3": [
+            2,
+            4,
+            6
+          ]
+        },
+        "relevant_deficit_count": 6,
+        "remaining_minimum_forced_turns": 2,
+        "strict_positive_forces_turn_cover": false,
+        "sum_exceeds_forces_turn_cover": false
+      },
+      {
+        "assignment_count": 18,
+        "canonical_relevant_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3,
+            4,
+            6,
+            7
+          ],
+          "spoiled_length3": [
+            1,
+            5
+          ]
+        },
+        "relevant_deficit_count": 8,
+        "remaining_minimum_forced_turns": 0,
+        "strict_positive_forces_turn_cover": false,
+        "sum_exceeds_forces_turn_cover": false
+      },
+      {
+        "assignment_count": 4,
+        "canonical_relevant_placement": {
+          "spoiled_length2": [],
+          "spoiled_length3": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "relevant_deficit_count": 9,
+        "remaining_minimum_forced_turns": 0,
+        "strict_positive_forces_turn_cover": false,
+        "sum_exceeds_forces_turn_cover": false
+      },
+      {
+        "assignment_count": 4,
+        "canonical_relevant_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "spoiled_length3": []
+        },
+        "relevant_deficit_count": 9,
+        "remaining_minimum_forced_turns": 0,
+        "strict_positive_forces_turn_cover": false,
+        "sum_exceeds_forces_turn_cover": false
+      },
+      {
+        "assignment_count": 18,
+        "canonical_relevant_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+          ],
+          "spoiled_length3": [
+            5,
+            7
+          ]
+        },
+        "relevant_deficit_count": 9,
+        "remaining_minimum_forced_turns": 0,
+        "strict_positive_forces_turn_cover": false,
+        "sum_exceeds_forces_turn_cover": false
+      },
+      {
+        "assignment_count": 18,
+        "canonical_relevant_placement": {
+          "spoiled_length2": [
+            0,
+            1,
+            3,
+            5,
+            6
+          ],
+          "spoiled_length3": [
+            1,
+            4,
+            6,
+            8
+          ]
+        },
+        "relevant_deficit_count": 9,
+        "remaining_minimum_forced_turns": 1,
+        "strict_positive_forces_turn_cover": false,
+        "sum_exceeds_forces_turn_cover": false
+      }
+    ],
+    "overfull_assignment_count": 0,
+    "pre_vertex_circle_nodes": 100817,
+    "relevant_deficit_count_distribution": {
+      "0": 2,
+      "3": 24,
+      "4": 36,
+      "5": 36,
+      "6": 24,
+      "8": 18,
+      "9": 44
+    },
+    "remaining_forced_turn_count_distribution": {
+      "0": 50,
+      "1": 54,
+      "2": 36,
+      "3": 42,
+      "5": 2
+    },
+    "selected_baseline_total_deficit_per_assignment": 9,
+    "selected_baseline_usage_per_assignment": 54,
+    "strict_positive_escaping_assignment_count": 140,
+    "strict_positive_forced_assignment_count": 44,
+    "sum_exceeds_escaping_assignment_count": 182,
+    "sum_exceeds_forced_assignment_count": 2
+  },
+  "source_artifacts": {
+    "accepted_frontier": "data/certificates/n9_incidence_frontier_bounded.json",
+    "base_apex_escape_budget": "data/certificates/n9_base_apex_escape_budget_report.json",
+    "pre_vertex_circle_assignments": "data/certificates/n9_vertex_circle_exhaustive.json"
+  },
+  "status": "EXPLORATORY_LEDGER_ONLY",
+  "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
+  "witness_size": 4
+}

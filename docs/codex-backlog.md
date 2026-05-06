@@ -89,6 +89,11 @@ Expected artifacts:
 - optional successor diagnostics such as
   `data/certificates/n9_base_apex_escape_budget_report.json` that keep escape
   placement counts separate from geometric realizability;
+- optional selected-baseline overlays such as
+  `data/certificates/n9_selected_baseline_escape_budget_overlay.json` that
+  compare the escape-budget motif map with the 184 pre-vertex-circle
+  selected-witness assignments without treating selected-baseline empty slots
+  as actual geometric capacity deficits;
 - checker updates that independently replay generated ledger arithmetic and
   motif counts from stored JSON.
 
