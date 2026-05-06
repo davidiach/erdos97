@@ -157,6 +157,40 @@ order analysis, and not evidence that any challenge order is geometrically
 realizable. It is finite bookkeeping that makes the order-sensitive hypothesis
 hard to miss.
 
+## Admissible-Order Census
+
+The generated artifact
+`data/certificates/n9_row_ptolemy_order_admissible_census.json` exhausts the
+dihedral-normalized supplied cyclic orders for the 26 fixed-order
+row-Ptolemy hit assignments. It fixes label `0` first and quotients reversal
+by retaining only orders whose second label is smaller than their last label,
+giving `20160` normalized orders per assignment and `524160` assignment-order
+pairs.
+
+The census separates two notions:
+
+- an admissible order passes the adjacent two-overlap and crossing-bisector
+  filters for the same selected rows;
+- a row-Ptolemy hit order has at least one row-Ptolemy product-cancellation
+  certificate under that supplied order.
+
+The adjacent two-overlap filter leaves `1318` assignment-order pairs. Adding
+the crossing-bisector filter leaves only `28` admissible assignment-order records
+across the 26 assignments. Their row-Ptolemy certificate-count histogram is:
+
+```text
+0 certificates:  2 records
+6 certificates: 18 records
+12 certificates: 6 records
+18 certificates: 2 records
+```
+
+The two zero-certificate admissible records occur in the two `F13` assignments,
+both using the normalized order `[0,2,4,6,8,1,3,5,7]`. They are diagnostic
+gaps for the row-Ptolemy filter, not realizability evidence: the replayed
+vertex-circle quotient still classifies every recorded admissible record as a
+`self_edge` obstruction.
+
 ## Reproduction
 
 ```bash
@@ -180,6 +214,15 @@ python scripts/check_n9_row_ptolemy_order_sensitivity.py \
   --write
 
 python scripts/check_n9_row_ptolemy_order_sensitivity.py \
+  --check \
+  --assert-expected \
+  --json
+
+python scripts/check_n9_row_ptolemy_order_admissible_census.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_row_ptolemy_order_admissible_census.py \
   --check \
   --assert-expected \
   --json

@@ -1,0 +1,2795 @@
+{
+  "adjacent_ok_order_count": 1318,
+  "assignment_order_pair_count": 524160,
+  "assignment_rows": [
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 1,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          2,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          0,
+          2,
+          5,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 11,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          2,
+          4,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 41,
+      "all_order_certificate_count_histogram": {
+        "0": 5,
+        "10": 4032,
+        "12": 4692,
+        "14": 4194,
+        "16": 2745,
+        "18": 973,
+        "2": 27,
+        "4": 252,
+        "6": 918,
+        "8": 2322
+      },
+      "assignment_index": 13,
+      "compatible_certificate_count_histogram": {
+        "12": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 12,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F09",
+      "family_orbit_size": 6,
+      "natural_certificate_count": 12,
+      "selected_rows": [
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 12
+    },
+    {
+      "adjacent_ok_order_count": 41,
+      "all_order_certificate_count_histogram": {
+        "0": 5,
+        "10": 4032,
+        "12": 4692,
+        "14": 4194,
+        "16": 2745,
+        "18": 973,
+        "2": 27,
+        "4": 252,
+        "6": 918,
+        "8": 2322
+      },
+      "assignment_index": 22,
+      "compatible_certificate_count_histogram": {
+        "0": 1,
+        "18": 1
+      },
+      "compatible_order_count": 2,
+      "compatible_orders": [
+        {
+          "certificate_count": 18,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "certificate_count": 0,
+          "is_natural_order": false,
+          "order": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            1,
+            3,
+            5,
+            7
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 2
+      },
+      "compatible_zero_certificate_order_count": 1,
+      "family_id": "F13",
+      "family_orbit_size": 2,
+      "natural_certificate_count": 18,
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "stored_natural_certificate_count": 18
+    },
+    {
+      "adjacent_ok_order_count": 41,
+      "all_order_certificate_count_histogram": {
+        "0": 5,
+        "10": 4032,
+        "12": 4692,
+        "14": 4194,
+        "16": 2745,
+        "18": 973,
+        "2": 27,
+        "4": 252,
+        "6": 918,
+        "8": 2322
+      },
+      "assignment_index": 23,
+      "compatible_certificate_count_histogram": {
+        "12": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 12,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F09",
+      "family_orbit_size": 6,
+      "natural_certificate_count": 12,
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "stored_natural_certificate_count": 12
+    },
+    {
+      "adjacent_ok_order_count": 41,
+      "all_order_certificate_count_histogram": {
+        "0": 5,
+        "10": 4032,
+        "12": 4692,
+        "14": 4194,
+        "16": 2745,
+        "18": 973,
+        "2": 27,
+        "4": 252,
+        "6": 918,
+        "8": 2322
+      },
+      "assignment_index": 30,
+      "compatible_certificate_count_histogram": {
+        "12": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 12,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F09",
+      "family_orbit_size": 6,
+      "natural_certificate_count": 12,
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 12
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 42,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          0,
+          2,
+          3,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 49,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          3,
+          5,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          1,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          1,
+          3,
+          4,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 66,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          0,
+          1,
+          6,
+          8
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 83,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          2,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 84,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          0,
+          2,
+          7,
+          8
+        ],
+        [
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          3,
+          4,
+          6,
+          8
+        ],
+        [
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          4,
+          5,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 85,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          4
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          2,
+          4,
+          6,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          0,
+          1,
+          4,
+          7
+        ],
+        [
+          3,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 95,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          0,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          6
+        ],
+        [
+          2,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          5,
+          6,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 105,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          3,
+          7,
+          8
+        ],
+        [
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          0,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          4,
+          6
+        ],
+        [
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 108,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          0,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          7,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          3,
+          5
+        ],
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 121,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          1,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          6
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 131,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          5,
+          6,
+          8
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          0,
+          4,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 133,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          3,
+          4,
+          5,
+          7
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 41,
+      "all_order_certificate_count_histogram": {
+        "0": 5,
+        "10": 4032,
+        "12": 4692,
+        "14": 4194,
+        "16": 2745,
+        "18": 973,
+        "2": 27,
+        "4": 252,
+        "6": 918,
+        "8": 2322
+      },
+      "assignment_index": 139,
+      "compatible_certificate_count_histogram": {
+        "12": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 12,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F09",
+      "family_orbit_size": 6,
+      "natural_certificate_count": 12,
+      "selected_rows": [
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "stored_natural_certificate_count": 12
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 142,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          1,
+          6,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          3,
+          5,
+          7
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          3,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 148,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          2,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 149,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          1,
+          3,
+          4,
+          5
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          3,
+          5,
+          7,
+          8
+        ],
+        [
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 55,
+      "all_order_certificate_count_histogram": {
+        "0": 33,
+        "10": 5322,
+        "12": 1829,
+        "2": 362,
+        "4": 1683,
+        "6": 4396,
+        "8": 6535
+      },
+      "assignment_index": 158,
+      "compatible_certificate_count_histogram": {
+        "6": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 6,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "natural_certificate_count": 6,
+      "selected_rows": [
+        [
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          4,
+          6,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 6
+    },
+    {
+      "adjacent_ok_order_count": 41,
+      "all_order_certificate_count_histogram": {
+        "0": 5,
+        "10": 4032,
+        "12": 4692,
+        "14": 4194,
+        "16": 2745,
+        "18": 973,
+        "2": 27,
+        "4": 252,
+        "6": 918,
+        "8": 2322
+      },
+      "assignment_index": 165,
+      "compatible_certificate_count_histogram": {
+        "12": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 12,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F09",
+      "family_orbit_size": 6,
+      "natural_certificate_count": 12,
+      "selected_rows": [
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 12
+    },
+    {
+      "adjacent_ok_order_count": 41,
+      "all_order_certificate_count_histogram": {
+        "0": 5,
+        "10": 4032,
+        "12": 4692,
+        "14": 4194,
+        "16": 2745,
+        "18": 973,
+        "2": 27,
+        "4": 252,
+        "6": 918,
+        "8": 2322
+      },
+      "assignment_index": 173,
+      "compatible_certificate_count_histogram": {
+        "0": 1,
+        "18": 1
+      },
+      "compatible_order_count": 2,
+      "compatible_orders": [
+        {
+          "certificate_count": 18,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "certificate_count": 0,
+          "is_natural_order": false,
+          "order": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            1,
+            3,
+            5,
+            7
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 2
+      },
+      "compatible_zero_certificate_order_count": 1,
+      "family_id": "F13",
+      "family_orbit_size": 2,
+      "natural_certificate_count": 18,
+      "selected_rows": [
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 18
+    },
+    {
+      "adjacent_ok_order_count": 41,
+      "all_order_certificate_count_histogram": {
+        "0": 5,
+        "10": 4032,
+        "12": 4692,
+        "14": 4194,
+        "16": 2745,
+        "18": 973,
+        "2": 27,
+        "4": 252,
+        "6": 918,
+        "8": 2322
+      },
+      "assignment_index": 174,
+      "compatible_certificate_count_histogram": {
+        "12": 1
+      },
+      "compatible_order_count": 1,
+      "compatible_orders": [
+        {
+          "certificate_count": 12,
+          "is_natural_order": true,
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 1
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F09",
+      "family_orbit_size": 6,
+      "natural_certificate_count": 12,
+      "selected_rows": [
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          0,
+          1,
+          3,
+          7
+        ]
+      ],
+      "stored_natural_certificate_count": 12
+    }
+  ],
+  "claim_scope": "Derived n=9 row-Ptolemy admissible-order census for the 26 fixed-order hit assignments; not a proof of n=9, not a counterexample, not an all-order obstruction, not an orderless abstract-incidence obstruction, not a geometric realizability count, and not a global status update.",
+  "compatible_certificate_count_histogram": {
+    "0": 2,
+    "12": 6,
+    "18": 2,
+    "6": 18
+  },
+  "compatible_order_count": 28,
+  "compatible_order_count_per_assignment_counts": {
+    "1": 24,
+    "2": 2
+  },
+  "compatible_vertex_circle_status_counts": {
+    "self_edge": 28
+  },
+  "compatible_zero_certificate_order_count": 2,
+  "family_count": 3,
+  "family_rows": [
+    {
+      "adjacent_ok_order_count": 990,
+      "all_order_certificate_count_histogram": {
+        "0": 594,
+        "10": 95796,
+        "12": 32922,
+        "2": 6516,
+        "4": 30294,
+        "6": 79128,
+        "8": 117630
+      },
+      "assignment_count": 18,
+      "compatible_certificate_count_histogram": {
+        "6": 18
+      },
+      "compatible_order_count": 18,
+      "compatible_order_count_per_assignment_counts": {
+        "1": 18
+      },
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 18
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F02",
+      "natural_certificate_count_per_assignment": 6
+    },
+    {
+      "adjacent_ok_order_count": 246,
+      "all_order_certificate_count_histogram": {
+        "0": 30,
+        "10": 24192,
+        "12": 28152,
+        "14": 25164,
+        "16": 16470,
+        "18": 5838,
+        "2": 162,
+        "4": 1512,
+        "6": 5508,
+        "8": 13932
+      },
+      "assignment_count": 6,
+      "compatible_certificate_count_histogram": {
+        "12": 6
+      },
+      "compatible_order_count": 6,
+      "compatible_order_count_per_assignment_counts": {
+        "1": 6
+      },
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 6
+      },
+      "compatible_zero_certificate_order_count": 0,
+      "family_id": "F09",
+      "natural_certificate_count_per_assignment": 12
+    },
+    {
+      "adjacent_ok_order_count": 82,
+      "all_order_certificate_count_histogram": {
+        "0": 10,
+        "10": 8064,
+        "12": 9384,
+        "14": 8388,
+        "16": 5490,
+        "18": 1946,
+        "2": 54,
+        "4": 504,
+        "6": 1836,
+        "8": 4644
+      },
+      "assignment_count": 2,
+      "compatible_certificate_count_histogram": {
+        "0": 2,
+        "18": 2
+      },
+      "compatible_order_count": 4,
+      "compatible_order_count_per_assignment_counts": {
+        "2": 2
+      },
+      "compatible_vertex_circle_status_counts": {
+        "self_edge": 4
+      },
+      "compatible_zero_certificate_order_count": 2,
+      "family_id": "F13",
+      "natural_certificate_count_per_assignment": 18
+    }
+  ],
+  "filter": {
+    "order_filters": [
+      "adjacent two-overlap rejection",
+      "crossing-bisector rejection for every two-overlap"
+    ],
+    "row_ptolemy_certificate_scope": "fixed selected-witness pattern plus supplied row order only"
+  },
+  "interpretation": [
+    "The census covers normalized supplied cyclic orders for the 26 existing fixed-order row-Ptolemy hit assignments only.",
+    "An admissible order here only passes the adjacent two-overlap and crossing-bisector filters for the same selected rows.",
+    "Admissible assignment-order records with zero row-Ptolemy certificates are diagnostic gaps for this filter, not realizability evidence.",
+    "All recorded admissible assignment-order records remain vertex-circle self-edge obstructed in the replayed quotient diagnostic.",
+    "No proof of the n=9 case is claimed."
+  ],
+  "n": 9,
+  "normalized_order_count": 20160,
+  "normalized_order_rule": "Fix label 0 first and quotient reversal by retaining only orders whose second label is smaller than their last label; no geometric realizability or cyclic-order completeness claim is made.",
+  "provenance": {
+    "command": "python scripts/check_n9_row_ptolemy_order_admissible_census.py --assert-expected --write",
+    "generator": "scripts/check_n9_row_ptolemy_order_admissible_census.py"
+  },
+  "schema": "erdos97.n9_row_ptolemy_order_admissible_census.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/n9_row_ptolemy_product_cancellations.json",
+      "schema": "erdos97.n9_row_ptolemy_product_cancellations.v2",
+      "status": "EXPLORATORY_LEDGER_ONLY",
+      "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF"
+    }
+  ],
+  "source_fixed_order": {
+    "cyclic_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "hit_assignment_count": 26,
+    "hit_certificate_count": 216,
+    "hit_family_ids": [
+      "F02",
+      "F09",
+      "F13"
+    ]
+  },
+  "status": "EXPLORATORY_LEDGER_ONLY",
+  "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
+  "witness_size": 4
+}
