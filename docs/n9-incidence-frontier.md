@@ -120,7 +120,9 @@ The `--write` command regenerates
 
 The immediate value of the artifact is that it records how the default
 row0-fixed natural-order slice is handled by the listed exact full-pattern
-classifiers. Good next checks are to audit whether the row-Ptolemy classifier
-can be converted into reusable local lemmas, compare it with the n=9
-vertex-circle local-core templates, and keep testing order-sensitive variants
-without treating this bounded slice as a lossless quotient of all `n=9` cases.
+classifiers. The row-Ptolemy sweep now crosswalks its hit families against the
+n=9 vertex-circle local-core template labels in
+`data/certificates/n9_row_ptolemy_product_cancellations.json`. Good next
+checks are to audit whether that comparison can be converted into reusable
+local lemmas and to keep testing order-sensitive variants without treating this
+bounded slice as a lossless quotient of all `n=9` cases.

@@ -19,6 +19,9 @@ from scripts.check_n9_vertex_circle_core_templates import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+ROW_PTOLEMY_ARTIFACT = (
+    ROOT / "data" / "certificates" / "n9_row_ptolemy_product_cancellations.json"
+)
 
 
 def test_local_core_template_artifact_counts_and_scope() -> None:
@@ -49,6 +52,25 @@ def test_local_core_template_rows_reference_known_templates() -> None:
         "self_edge",
         "strict_cycle",
     }
+
+
+def test_local_core_template_artifact_marks_row_ptolemy_hit_families() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    row_ptolemy_payload = json.loads(ROW_PTOLEMY_ARTIFACT.read_text(encoding="utf-8"))
+    template_families = {family["family_id"]: family for family in payload["families"]}
+    hit_family_template_ids = row_ptolemy_payload["template_crosswalk"][
+        "hit_family_template_ids"
+    ]
+
+    assert hit_family_template_ids == {"F02": "T08", "F09": "T01", "F13": "T04"}
+    assert {
+        family_id: template_families[family_id]["status"]
+        for family_id in hit_family_template_ids
+    } == {"F02": "self_edge", "F09": "self_edge", "F13": "self_edge"}
+    assert {
+        family_id: template_families[family_id]["core_size"]
+        for family_id in hit_family_template_ids
+    } == {"F02": 6, "F09": 3, "F13": 4}
 
 
 def test_local_core_template_checker_rejects_tampered_count() -> None:

@@ -13,8 +13,13 @@ from typing import Any, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
+SCRIPTS = ROOT / "scripts"
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
 
 from erdos97 import n9_vertex_circle_exhaustive as n9  # noqa: E402
 from erdos97.incidence_filters import (  # noqa: E402
@@ -29,11 +34,22 @@ from erdos97.n9_row_ptolemy_product_cancellations import (  # noqa: E402
     EXPECTED_HIT_CERTIFICATES,
     EXPECTED_HIT_FAMILIES,
     EXPECTED_HIT_FAMILY_COUNTS,
+    EXPECTED_HIT_FAMILY_TEMPLATE_IDS,
+    EXPECTED_HIT_TEMPLATE_ASSIGNMENT_COUNTS,
+    EXPECTED_HIT_TEMPLATE_CERTIFICATE_COUNTS,
+    EXPECTED_HIT_TEMPLATE_STATUS_COUNTS,
+    EXPECTED_NONHIT_FAMILY_COUNT,
+    EXPECTED_NONHIT_FAMILY_ORBIT_SIZE_SUM,
+    EXPECTED_NONHIT_TEMPLATE_IDS,
     EXPECTED_PRE_VERTEX_CIRCLE_ASSIGNMENTS,
     EXPECTED_PRE_VERTEX_CIRCLE_NODES,
+    EXPECTED_STRICT_CYCLE_HIT_FAMILY_COUNT,
+    EXPECTED_STRICT_CYCLE_NONHIT_FAMILY_COUNT,
     PROVENANCE,
     SCHEMA,
     STATUS,
+    TEMPLATE_CROSSWALK_CLAIM_SCOPE,
+    TEMPLATE_CROSSWALK_SOURCE_PATH,
     TRUST,
     _family_labels,
     assert_expected_counts,
@@ -44,10 +60,14 @@ from erdos97.n9_vertex_circle_obstruction_shapes import (  # noqa: E402
     canonical_dihedral_rows,
     pre_vertex_circle_assignments,
 )
+from scripts.check_n9_vertex_circle_core_templates import (  # noqa: E402
+    validate_payload as validate_template_payload,
+)
 
 DEFAULT_ARTIFACT = (
     ROOT / "data" / "certificates" / "n9_row_ptolemy_product_cancellations.json"
 )
+DEFAULT_TEMPLATE_ARTIFACT = ROOT / TEMPLATE_CROSSWALK_SOURCE_PATH
 EXPECTED_TOP_LEVEL_KEYS = {
     "claim_scope",
     "cyclic_order",
@@ -61,9 +81,28 @@ EXPECTED_TOP_LEVEL_KEYS = {
     "source_artifacts",
     "source_frontier",
     "status",
+    "template_crosswalk",
     "trust",
     "witness_size",
 }
+EXPECTED_SOURCE_ARTIFACTS = [
+    {
+        "path": "data/certificates/n9_vertex_circle_exhaustive.json",
+        "role": "review-pending source frontier count target",
+    },
+    {
+        "path": "data/certificates/n9_vertex_circle_motif_families.json",
+        "role": "deterministic family-id convention used for F02/F09/F13 labels",
+    },
+    {
+        "path": TEMPLATE_CROSSWALK_SOURCE_PATH,
+        "role": "review-pending local-core template labels used for the diagnostic crosswalk",
+    },
+    {
+        "path": "data/runs/2026-05-05/new_obstructions.md",
+        "role": "archived exploratory memo for the historical F15 alias",
+    },
+]
 EXPECTED_CERTIFICATE_TYPE = "row_ptolemy_product_cancellation"
 EXPECTED_CERTIFICATE_STATUS = "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_ROW_ORDER"
 EXPECTED_PTOLEMY_IDENTITY = "d02*d13 = d01*d23 + d03*d12"
@@ -627,7 +666,337 @@ def _validate_hit_records(
     )
 
 
-def validate_payload(payload: Any, *, recompute: bool = True) -> list[str]:
+def _template_family_maps(
+    errors: list[str],
+    template_payload: Any,
+) -> tuple[dict[str, dict[str, Any]], dict[str, dict[str, Any]]]:
+    if not isinstance(template_payload, dict):
+        errors.append("template crosswalk source top level must be an object")
+        return {}, {}
+    template_errors = validate_template_payload(template_payload, recompute=False)
+    errors.extend(f"template crosswalk source invalid: {error}" for error in template_errors)
+
+    raw_families = template_payload.get("families")
+    raw_templates = template_payload.get("templates")
+    if not isinstance(raw_families, list):
+        errors.append("template crosswalk source families must be a list")
+        return {}, {}
+    if not isinstance(raw_templates, list):
+        errors.append("template crosswalk source templates must be a list")
+        return {}, {}
+
+    families_by_id: dict[str, dict[str, Any]] = {}
+    for index, raw_family in enumerate(raw_families):
+        if not isinstance(raw_family, dict):
+            errors.append(f"template crosswalk source families[{index}] must be an object")
+            continue
+        family_id = raw_family.get("family_id")
+        if not isinstance(family_id, str) or not family_id:
+            errors.append(f"template crosswalk source families[{index}] has invalid family_id")
+            continue
+        families_by_id[family_id] = raw_family
+
+    templates_by_id: dict[str, dict[str, Any]] = {}
+    for index, raw_template in enumerate(raw_templates):
+        if not isinstance(raw_template, dict):
+            errors.append(f"template crosswalk source templates[{index}] must be an object")
+            continue
+        template_id = raw_template.get("template_id")
+        if not isinstance(template_id, str) or not template_id:
+            errors.append(f"template crosswalk source templates[{index}] has invalid template_id")
+            continue
+        templates_by_id[template_id] = raw_template
+    return families_by_id, templates_by_id
+
+
+def _template_family_row(errors: list[str], family: dict[str, Any], key: str) -> Any:
+    if key not in family:
+        errors.append(f"template crosswalk source family {family.get('family_id')!r} missing {key}")
+        return None
+    return family[key]
+
+
+def _template_int_field(errors: list[str], row: dict[str, Any], key: str, label: str) -> int:
+    value = row.get(key)
+    if _is_int(value):
+        return int(value)
+    errors.append(f"{label} {key} must be an integer")
+    return 0
+
+
+def _hit_family_counts_from_records(
+    payload: dict[str, Any],
+) -> tuple[Counter[str], Counter[str]]:
+    family_hit_counts: Counter[str] = Counter()
+    family_certificate_counts: Counter[str] = Counter()
+    records = payload.get("hit_records")
+    if not isinstance(records, list):
+        return family_hit_counts, family_certificate_counts
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        family_id = record.get("family_id")
+        certificate_count = record.get("certificate_count")
+        if isinstance(family_id, str) and _is_int(certificate_count):
+            family_hit_counts[family_id] += 1
+            family_certificate_counts[family_id] += int(certificate_count)
+    return family_hit_counts, family_certificate_counts
+
+
+def _expected_template_crosswalk(
+    *,
+    errors: list[str],
+    payload: dict[str, Any],
+    families_by_id: dict[str, dict[str, Any]],
+    templates_by_id: dict[str, dict[str, Any]],
+    template_payload: dict[str, Any],
+) -> dict[str, Any]:
+    family_hit_counts, family_certificate_counts = _hit_family_counts_from_records(payload)
+
+    hit_family_template_ids: dict[str, str] = {}
+    hit_family_rows = []
+    template_assignment_counts: Counter[str] = Counter()
+    template_certificate_counts: Counter[str] = Counter()
+
+    for family_id in sorted(family_hit_counts):
+        family = families_by_id[family_id]
+        template_id = _template_family_row(errors, family, "template_id")
+        status = _template_family_row(errors, family, "status")
+        core_size = _template_family_row(errors, family, "core_size")
+        strict_edge_count = _template_family_row(errors, family, "strict_edge_count")
+        orbit_size = _template_family_row(errors, family, "orbit_size")
+        if template_id is None:
+            continue
+        template_id = str(template_id)
+        template = templates_by_id.get(template_id)
+        if template is None:
+            errors.append(f"template crosswalk source missing template {template_id!r}")
+            continue
+        hit_assignment_count = int(family_hit_counts[family_id])
+        hit_certificate_count = int(family_certificate_counts[family_id])
+        template_assignment_counts[template_id] += hit_assignment_count
+        template_certificate_counts[template_id] += hit_certificate_count
+        hit_family_template_ids[family_id] = template_id
+        hit_family_rows.append(
+            {
+                "family_id": family_id,
+                "template_id": template_id,
+                "template_status": str(status),
+                "template_core_size": int(core_size) if _is_int(core_size) else 0,
+                "template_strict_edge_count": (
+                    int(strict_edge_count) if _is_int(strict_edge_count) else 0
+                ),
+                "family_orbit_size": int(orbit_size) if _is_int(orbit_size) else 0,
+                "hit_assignment_count": hit_assignment_count,
+                "hit_certificate_count": hit_certificate_count,
+                "certificate_count_per_hit_assignment": (
+                    hit_certificate_count // hit_assignment_count
+                ),
+                "template_family_count": _template_int_field(
+                    errors,
+                    template,
+                    "family_count",
+                    f"template crosswalk source template {template_id}",
+                ),
+                "template_orbit_size_sum": _template_int_field(
+                    errors,
+                    template,
+                    "orbit_size_sum",
+                    f"template crosswalk source template {template_id}",
+                ),
+            }
+        )
+
+    template_status_counts = Counter(
+        str(templates_by_id[template_id].get("status"))
+        for template_id in template_assignment_counts
+    )
+    hit_template_rows = []
+    for template_id in sorted(template_assignment_counts):
+        template = templates_by_id[template_id]
+        hit_families = sorted(
+            family_id
+            for family_id, row_template_id in hit_family_template_ids.items()
+            if row_template_id == template_id
+        )
+        hit_template_rows.append(
+            {
+                "template_id": template_id,
+                "template_status": str(template.get("status")),
+                "families": hit_families,
+                "hit_family_count": len(hit_families),
+                "hit_assignment_count": int(template_assignment_counts[template_id]),
+                "hit_certificate_count": int(template_certificate_counts[template_id]),
+            }
+        )
+
+    all_family_ids = set(families_by_id)
+    hit_family_ids = set(hit_family_template_ids)
+    nonhit_family_ids = sorted(all_family_ids - hit_family_ids)
+    return {
+        "claim_scope": TEMPLATE_CROSSWALK_CLAIM_SCOPE,
+        "source_artifact": {
+            "path": TEMPLATE_CROSSWALK_SOURCE_PATH,
+            "schema": template_payload.get("schema"),
+            "status": template_payload.get("status"),
+            "trust": template_payload.get("trust"),
+        },
+        "hit_template_count": len(template_assignment_counts),
+        "hit_family_template_ids": hit_family_template_ids,
+        "hit_template_assignment_counts": {
+            template_id: int(template_assignment_counts[template_id])
+            for template_id in sorted(template_assignment_counts)
+        },
+        "hit_template_certificate_counts": {
+            template_id: int(template_certificate_counts[template_id])
+            for template_id in sorted(template_certificate_counts)
+        },
+        "hit_template_status_counts": {
+            status: int(template_status_counts[status])
+            for status in sorted(template_status_counts)
+        },
+        "strict_cycle_hit_family_count": sum(
+            1
+            for family_id in hit_family_ids
+            if families_by_id[family_id].get("status") == "strict_cycle"
+        ),
+        "nonhit_family_count": len(nonhit_family_ids),
+        "nonhit_family_orbit_size_sum": sum(
+            _template_int_field(
+                errors,
+                families_by_id[family_id],
+                "orbit_size",
+                f"template crosswalk source family {family_id}",
+            )
+            for family_id in nonhit_family_ids
+        ),
+        "strict_cycle_nonhit_family_count": sum(
+            1
+            for family_id in nonhit_family_ids
+            if families_by_id[family_id].get("status") == "strict_cycle"
+        ),
+        "nonhit_template_ids": sorted(
+            {
+                str(families_by_id[family_id].get("template_id"))
+                for family_id in nonhit_family_ids
+                if families_by_id[family_id].get("template_id") is not None
+            }
+        ),
+        "hit_family_rows": hit_family_rows,
+        "hit_template_rows": hit_template_rows,
+    }
+
+
+def _validate_template_crosswalk(
+    errors: list[str],
+    payload: dict[str, Any],
+    template_payload: Any,
+) -> None:
+    crosswalk = payload.get("template_crosswalk")
+    if not isinstance(crosswalk, dict):
+        errors.append("template_crosswalk must be an object")
+        return
+
+    if not isinstance(template_payload, dict):
+        _template_family_maps(errors, template_payload)
+        return
+    families_by_id, templates_by_id = _template_family_maps(errors, template_payload)
+    if not families_by_id or not templates_by_id:
+        return
+
+    family_hit_counts, _certificate_counts = _hit_family_counts_from_records(payload)
+    missing_families = sorted(set(family_hit_counts) - set(families_by_id))
+    if missing_families:
+        errors.append(
+            "template_crosswalk missing source family rows for "
+            f"{missing_families!r}"
+        )
+        return
+    missing_template_ids = sorted(
+        {
+            str(families_by_id[family_id].get("template_id"))
+            for family_id in family_hit_counts
+        }
+        - set(templates_by_id)
+    )
+    if missing_template_ids:
+        errors.append(
+            "template_crosswalk missing source template rows for "
+            f"{missing_template_ids!r}"
+        )
+        return
+
+    expected = _expected_template_crosswalk(
+        errors=errors,
+        payload=payload,
+        families_by_id=families_by_id,
+        templates_by_id=templates_by_id,
+        template_payload=template_payload,
+    )
+    expect_equal(errors, "template_crosswalk", crosswalk, expected)
+
+    expect_equal(
+        errors,
+        "template_crosswalk hit_family_template_ids",
+        crosswalk.get("hit_family_template_ids"),
+        EXPECTED_HIT_FAMILY_TEMPLATE_IDS,
+    )
+    expect_equal(
+        errors,
+        "template_crosswalk hit_template_assignment_counts",
+        crosswalk.get("hit_template_assignment_counts"),
+        EXPECTED_HIT_TEMPLATE_ASSIGNMENT_COUNTS,
+    )
+    expect_equal(
+        errors,
+        "template_crosswalk hit_template_certificate_counts",
+        crosswalk.get("hit_template_certificate_counts"),
+        EXPECTED_HIT_TEMPLATE_CERTIFICATE_COUNTS,
+    )
+    expect_equal(
+        errors,
+        "template_crosswalk hit_template_status_counts",
+        crosswalk.get("hit_template_status_counts"),
+        EXPECTED_HIT_TEMPLATE_STATUS_COUNTS,
+    )
+    expect_equal(
+        errors,
+        "template_crosswalk strict_cycle_hit_family_count",
+        crosswalk.get("strict_cycle_hit_family_count"),
+        EXPECTED_STRICT_CYCLE_HIT_FAMILY_COUNT,
+    )
+    expect_equal(
+        errors,
+        "template_crosswalk nonhit_family_count",
+        crosswalk.get("nonhit_family_count"),
+        EXPECTED_NONHIT_FAMILY_COUNT,
+    )
+    expect_equal(
+        errors,
+        "template_crosswalk nonhit_family_orbit_size_sum",
+        crosswalk.get("nonhit_family_orbit_size_sum"),
+        EXPECTED_NONHIT_FAMILY_ORBIT_SIZE_SUM,
+    )
+    expect_equal(
+        errors,
+        "template_crosswalk strict_cycle_nonhit_family_count",
+        crosswalk.get("strict_cycle_nonhit_family_count"),
+        EXPECTED_STRICT_CYCLE_NONHIT_FAMILY_COUNT,
+    )
+    expect_equal(
+        errors,
+        "template_crosswalk nonhit_template_ids",
+        crosswalk.get("nonhit_template_ids"),
+        EXPECTED_NONHIT_TEMPLATE_IDS,
+    )
+
+
+def validate_payload(
+    payload: Any,
+    *,
+    recompute: bool = True,
+    template_payload: Any | None = None,
+) -> list[str]:
     """Return validation errors for a loaded cancellation artifact."""
 
     if not isinstance(payload, dict):
@@ -656,6 +1025,12 @@ def validate_payload(payload: Any, *, recompute: bool = True) -> list[str]:
     _validate_claim_scope(errors, payload.get("claim_scope"))
     _validate_interpretation(errors, payload.get("interpretation"))
     expect_equal(errors, "provenance", payload.get("provenance"), PROVENANCE)
+    expect_equal(
+        errors,
+        "source_artifacts",
+        payload.get("source_artifacts"),
+        EXPECTED_SOURCE_ARTIFACTS,
+    )
 
     source = payload.get("source_frontier")
     if isinstance(source, dict):
@@ -742,6 +1117,13 @@ def validate_payload(payload: Any, *, recompute: bool = True) -> list[str]:
     except (AssertionError, KeyError, TypeError, ValueError) as exc:
         errors.append(f"expected row-Ptolemy counts failed: {exc}")
     _validate_hit_records(errors, payload, bind_source_assignments=not recompute)
+    if template_payload is None:
+        try:
+            template_payload = load_artifact(DEFAULT_TEMPLATE_ARTIFACT)
+        except (OSError, json.JSONDecodeError) as exc:
+            errors.append(f"failed to load template crosswalk source: {exc}")
+            template_payload = {}
+    _validate_template_crosswalk(errors, payload, template_payload)
 
     if recompute:
         try:
@@ -794,6 +1176,16 @@ def summary_payload(path: Path, payload: Any, errors: Sequence[str]) -> dict[str
         ),
         "hit_family_count": (
             hit_summary.get("hit_family_count") if isinstance(hit_summary, dict) else None
+        ),
+        "hit_template_count": (
+            object_payload.get("template_crosswalk", {}).get("hit_template_count")
+            if isinstance(object_payload.get("template_crosswalk"), dict)
+            else None
+        ),
+        "hit_family_template_ids": (
+            object_payload.get("template_crosswalk", {}).get("hit_family_template_ids")
+            if isinstance(object_payload.get("template_crosswalk"), dict)
+            else None
         ),
         "validation_errors": list(errors),
     }

@@ -16229,6 +16229,7 @@
     "The proof uses Ptolemy on a row witness circle plus exact selected-distance quotient equalities.",
     "The filter kills 26 of the 184 n=9 pre-vertex-circle assignments, covering 3 of the 16 deterministic dihedral family labels.",
     "For this n=9 frontier, every hit is also a vertex-circle self-edge case; this diagnostic does not dominate or replace the vertex-circle checker.",
+    "The template crosswalk only joins deterministic artifact labels; template ids are not theorem names.",
     "The row order must be supplied or certified. This is not an orderless abstract-incidence obstruction.",
     "No proof of the n=9 case is claimed."
   ],
@@ -16237,7 +16238,7 @@
     "command": "python scripts/analyze_n9_row_ptolemy_product_cancellations.py --assert-expected --out data/certificates/n9_row_ptolemy_product_cancellations.json",
     "generator": "scripts/analyze_n9_row_ptolemy_product_cancellations.py"
   },
-  "schema": "erdos97.n9_row_ptolemy_product_cancellations.v1",
+  "schema": "erdos97.n9_row_ptolemy_product_cancellations.v2",
   "source_artifacts": [
     {
       "path": "data/certificates/n9_vertex_circle_exhaustive.json",
@@ -16246,6 +16247,10 @@
     {
       "path": "data/certificates/n9_vertex_circle_motif_families.json",
       "role": "deterministic family-id convention used for F02/F09/F13 labels"
+    },
+    {
+      "path": "data/certificates/n9_vertex_circle_core_templates.json",
+      "role": "review-pending local-core template labels used for the diagnostic crosswalk"
     },
     {
       "path": "data/runs/2026-05-05/new_obstructions.md",
@@ -16260,6 +16265,122 @@
     "row0_choices": 70
   },
   "status": "EXPLORATORY_LEDGER_ONLY",
+  "template_crosswalk": {
+    "claim_scope": "Diagnostic join from row-Ptolemy hit families to review-pending n=9 vertex-circle local-core template labels; not a proof of n=9, not a counterexample, and not a global status update.",
+    "hit_family_rows": [
+      {
+        "certificate_count_per_hit_assignment": 6,
+        "family_id": "F02",
+        "family_orbit_size": 18,
+        "hit_assignment_count": 18,
+        "hit_certificate_count": 108,
+        "template_core_size": 6,
+        "template_family_count": 1,
+        "template_id": "T08",
+        "template_orbit_size_sum": 18,
+        "template_status": "self_edge",
+        "template_strict_edge_count": 54
+      },
+      {
+        "certificate_count_per_hit_assignment": 12,
+        "family_id": "F09",
+        "family_orbit_size": 6,
+        "hit_assignment_count": 6,
+        "hit_certificate_count": 72,
+        "template_core_size": 3,
+        "template_family_count": 1,
+        "template_id": "T01",
+        "template_orbit_size_sum": 6,
+        "template_status": "self_edge",
+        "template_strict_edge_count": 27
+      },
+      {
+        "certificate_count_per_hit_assignment": 18,
+        "family_id": "F13",
+        "family_orbit_size": 2,
+        "hit_assignment_count": 2,
+        "hit_certificate_count": 36,
+        "template_core_size": 4,
+        "template_family_count": 1,
+        "template_id": "T04",
+        "template_orbit_size_sum": 2,
+        "template_status": "self_edge",
+        "template_strict_edge_count": 36
+      }
+    ],
+    "hit_family_template_ids": {
+      "F02": "T08",
+      "F09": "T01",
+      "F13": "T04"
+    },
+    "hit_template_assignment_counts": {
+      "T01": 6,
+      "T04": 2,
+      "T08": 18
+    },
+    "hit_template_certificate_counts": {
+      "T01": 72,
+      "T04": 36,
+      "T08": 108
+    },
+    "hit_template_count": 3,
+    "hit_template_rows": [
+      {
+        "families": [
+          "F09"
+        ],
+        "hit_assignment_count": 6,
+        "hit_certificate_count": 72,
+        "hit_family_count": 1,
+        "template_id": "T01",
+        "template_status": "self_edge"
+      },
+      {
+        "families": [
+          "F13"
+        ],
+        "hit_assignment_count": 2,
+        "hit_certificate_count": 36,
+        "hit_family_count": 1,
+        "template_id": "T04",
+        "template_status": "self_edge"
+      },
+      {
+        "families": [
+          "F02"
+        ],
+        "hit_assignment_count": 18,
+        "hit_certificate_count": 108,
+        "hit_family_count": 1,
+        "template_id": "T08",
+        "template_status": "self_edge"
+      }
+    ],
+    "hit_template_status_counts": {
+      "self_edge": 3
+    },
+    "nonhit_family_count": 13,
+    "nonhit_family_orbit_size_sum": 158,
+    "nonhit_template_ids": [
+      "T02",
+      "T03",
+      "T05",
+      "T06",
+      "T07",
+      "T09",
+      "T10",
+      "T11",
+      "T12"
+    ],
+    "source_artifact": {
+      "path": "data/certificates/n9_vertex_circle_core_templates.json",
+      "schema": "erdos97.n9_vertex_circle_core_templates.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    "strict_cycle_hit_family_count": 0,
+    "strict_cycle_nonhit_family_count": 3
+  },
   "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
   "witness_size": 4
 }
