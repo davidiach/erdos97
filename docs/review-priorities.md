@@ -136,6 +136,8 @@ Next steps:
   quotient-cycle templates;
 - use `docs/n9-vertex-circle-local-cores.md` as the row-local certificate list
   to keep those lemmas small;
+- use `data/certificates/n9_vertex_circle_self_edge_path_join.json` as the
+  assignment-level replay aid for transformed self-edge equality paths;
 - test whether the same motifs appear in the P18 obstruction and fail in the
   known `C19_skew` vertex-circle survivor;
 - use `docs/n9-vertex-circle-frontier-comparison.md` as the current guardrail:

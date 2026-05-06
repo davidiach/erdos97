@@ -353,6 +353,49 @@ artifacts:
       - motif classification is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_vertex_circle_self_edge_path_join
+    path: data/certificates/n9_vertex_circle_self_edge_path_join.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_n9_vertex_circle_self_edge_path_join.py
+    command: python scripts/check_n9_vertex_circle_self_edge_path_join.py --assert-expected --write
+    checker: scripts/check_n9_vertex_circle_self_edge_path_join.py
+    check_command: python scripts/check_n9_vertex_circle_self_edge_path_join.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Assignment-level join of the 158 n=9 self-edge frontier assignments to transformed family representative equality paths; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_vertex_circle_self_edge_path_join.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: Assignment-level join of the 158 n=9 self-edge frontier assignments to transformed family representative equality paths; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+      n: 9
+      row_size: 4
+      source_assignment_count: 184
+      self_edge_assignment_count: 158
+      strict_cycle_assignment_count: 26
+      self_edge_family_count: 13
+      self_edge_template_count: 9
+      path_length_counts.3: 86
+      path_length_counts.4: 36
+      path_length_counts.5: 18
+      path_length_counts.6: 18
+      shared_endpoint_counts.1: 158
+      core_size_assignment_counts.3: 46
+      core_size_assignment_counts.4: 40
+      core_size_assignment_counts.5: 36
+      core_size_assignment_counts.6: 36
+      provenance.command: python scripts/check_n9_vertex_circle_self_edge_path_join.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - template labels are theorem names
+      - the path join is an independent proof
+      - general proof of Erdos Problem #97
+
   - id: n9_groebner_real_root_decoders
     path: data/certificates/n9_groebner_real_root_decoders.json
     kind: algebraic_decoder_artifact

@@ -156,6 +156,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_self_edge_path_join",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_self_edge_path_join.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Assignment-level join for the 158 n=9 self-edge frontier "
+            "assignments and transformed equality paths; not a proof of n=9 "
+            "or independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_base_apex_low_excess_ledgers",
         command=("python", "scripts/check_n9_base_apex_low_excess_ledgers.py", "--check", "--json"),
         claim_scope=(
