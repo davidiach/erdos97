@@ -171,6 +171,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_strict_cycle_path_join",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_strict_cycle_path_join.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Assignment-level join for the 26 n=9 strict-cycle frontier "
+            "assignments and transformed local-core quotient cycles; not a "
+            "proof of n=9 or independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_base_apex_low_excess_ledgers",
         command=("python", "scripts/check_n9_base_apex_low_excess_ledgers.py", "--check", "--json"),
         claim_scope=(

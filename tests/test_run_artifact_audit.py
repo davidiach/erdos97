@@ -100,3 +100,8 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--check --assert-expected --json"
         in command_texts
     )
+    assert (
+        "python scripts/check_n9_vertex_circle_strict_cycle_path_join.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
