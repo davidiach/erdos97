@@ -126,7 +126,10 @@ n=9 vertex-circle local-core template labels in
 per-family signature summary in
 `data/certificates/n9_row_ptolemy_family_signatures.json`; that companion
 summary now carries the matching local-core self-edge shape counts as
-review-pending crosswalk metadata. Good next checks are to audit whether those
-signatures can be converted into reusable local lemmas and to keep testing
-order-sensitive variants without treating this bounded slice as a lossless
-quotient of all `n=9` cases.
+review-pending crosswalk metadata. The separate guardrail artifact
+`data/certificates/n9_row_ptolemy_order_sensitivity.json` records three
+representative non-dihedral supplied orders with zero row-Ptolemy certificates,
+only to document the order-sensitive hypothesis. Good next checks are to audit
+whether those signatures can be converted into reusable local lemmas and to
+keep testing order-sensitive variants without treating this bounded slice as a
+lossless quotient of all `n=9` cases.

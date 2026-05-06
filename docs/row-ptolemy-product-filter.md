@@ -133,6 +133,30 @@ scrambled non-dihedral order for the first `F02` representative has zero
 row-Ptolemy product-cancellation certificates, while the stored natural order
 has six. This is why the row order remains part of the certificate hypothesis.
 
+## Order-Sensitivity Diagnostic
+
+The generated artifact
+`data/certificates/n9_row_ptolemy_order_sensitivity.json` records a small
+order-sensitivity guardrail for the row-Ptolemy filter. It chooses one
+representative assignment from each hit family `F02`, `F09`, and `F13`, replays
+the natural fixed-order certificates, and compares them with one deterministic
+non-dihedral supplied cyclic order for the same selected rows.
+
+The natural-order representatives have `6`, `12`, and `18` certificates,
+respectively. The three recorded challenge orders have zero row-Ptolemy
+product-cancellation certificates:
+
+```text
+F02 assignment  1:  6 -> 0
+F09 assignment 13: 12 -> 0
+F13 assignment 22: 18 -> 0
+```
+
+This is deliberately not an exhaustive cyclic-order search, not a compatible
+order analysis, and not evidence that any challenge order is geometrically
+realizable. It is finite bookkeeping that makes the order-sensitive hypothesis
+hard to miss.
+
 ## Reproduction
 
 ```bash
@@ -147,6 +171,15 @@ python scripts/check_n9_row_ptolemy_family_signatures.py \
   --write
 
 python scripts/check_n9_row_ptolemy_family_signatures.py \
+  --check \
+  --assert-expected \
+  --json
+
+python scripts/check_n9_row_ptolemy_order_sensitivity.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_row_ptolemy_order_sensitivity.py \
   --check \
   --assert-expected \
   --json
