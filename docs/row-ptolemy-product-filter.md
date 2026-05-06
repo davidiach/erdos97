@@ -53,6 +53,21 @@ This gives an independent Ptolemy-equality certificate for those fixed-order
 assignments, but it does not dominate or replace the vertex-circle checker and
 does not prove the full `n=9` finite case.
 
+The same artifact now includes a crosswalk to
+`data/certificates/n9_vertex_circle_core_templates.json`. This is a diagnostic
+join on deterministic family/template labels only:
+
+```text
+F02 -> T08, self_edge, orbit 18, row-Ptolemy certificates 108
+F09 -> T01, self_edge, orbit  6, row-Ptolemy certificates  72
+F13 -> T04, self_edge, orbit  2, row-Ptolemy certificates  36
+```
+
+The hit assignment count matches the full dihedral orbit size for each of
+these three family labels. The crosswalk is useful for comparing local lemma
+shapes, but the template ids are artifact labels, not theorem names, and this
+does not promote the review-pending n=9 status.
+
 ## Negative Controls And Order Guardrails
 
 The checked artifact now has regression coverage for both the positive and
@@ -67,6 +82,14 @@ F01,F03,F04,F05,F06,F07,F08,F10,F11,F12,F14,F15,F16
 Those negative controls cover `158` of the `184` pre-vertex-circle assignments.
 They are bookkeeping guardrails, not evidence that those assignments are
 geometrically realizable or that the vertex-circle obstruction is unnecessary.
+They occupy nine local-core template ids with no row-Ptolemy hits:
+
+```text
+T02,T03,T05,T06,T07,T09,T10,T11,T12
+```
+
+All strict-cycle local-core families, currently `F07`, `F12`, and `F16`, are in
+this no-hit side of the crosswalk.
 
 The checker also replays every stored hit record against its fixed cyclic
 order. It verifies that each certificate's `witness_order`, forced-equality

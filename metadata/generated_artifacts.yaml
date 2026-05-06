@@ -481,7 +481,7 @@ artifacts:
     claim_scope: Focused n=9 row-Ptolemy product-cancellation bookkeeping for the fixed natural cyclic order; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.
     json_top_level_type: object
     expected_json:
-      schema: erdos97.n9_row_ptolemy_product_cancellations.v1
+      schema: erdos97.n9_row_ptolemy_product_cancellations.v2
       status: EXPLORATORY_LEDGER_ONLY
       trust: FINITE_BOOKKEEPING_NOT_A_PROOF
       claim_scope: Focused n=9 row-Ptolemy product-cancellation bookkeeping for the fixed natural cyclic order; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.

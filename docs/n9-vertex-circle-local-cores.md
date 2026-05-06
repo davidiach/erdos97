@@ -47,6 +47,13 @@ family ids covered by each bucket. These template ids are deterministic
 artifact labels only; they are not theorem names and do not promote the n=9
 finite-case status.
 
+`data/certificates/n9_row_ptolemy_product_cancellations.json` contains a
+dependent crosswalk from the row-Ptolemy hit families to these template labels:
+`F02 -> T08`, `F09 -> T01`, and `F13 -> T04`. All three are self-edge
+template families, and all strict-cycle template families remain no-hit
+negative controls for the row-Ptolemy diagnostic. This is a consistency join
+between artifacts, not an additional n=9 proof claim.
+
 ## Certificate Shape
 
 A self-edge core consists of:
