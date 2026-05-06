@@ -32,8 +32,12 @@ strict-cycle cores:
   6 rows: 1 family
 ```
 
-The checked-in artifact is
-`data/certificates/n9_vertex_circle_local_cores.json`.
+The detailed checked-in artifact is
+`data/certificates/n9_vertex_circle_local_cores.json`. A smaller reviewer
+packet is also available at
+`data/certificates/n9_vertex_circle_local_core_packet.json`; it stores only the
+core selected rows for each family and is replayed by
+`scripts/check_n9_vertex_circle_local_core_packet.py`.
 
 ## Certificate Shape
 
@@ -82,6 +86,19 @@ Generate and check the local-core artifact:
 python scripts/analyze_n9_vertex_circle_local_cores.py \
   --assert-expected \
   --write
+```
+
+Generate and check the compact reviewer packet:
+
+```bash
+python scripts/check_n9_vertex_circle_local_core_packet.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_vertex_circle_local_core_packet.py \
+  --check \
+  --assert-expected \
+  --json
 ```
 
 Run the targeted artifact test:

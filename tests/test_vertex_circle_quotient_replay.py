@@ -88,6 +88,19 @@ def test_first_n9_local_core_replays_the_expected_self_edge() -> None:
     assert conflict.outer_class == conflict.inner_class
 
 
+def test_compact_selected_rows_parse_with_explicit_centers() -> None:
+    rows = parse_selected_rows(
+        [
+            [0, 1, 2, 3, 8],
+            [1, 0, 2, 4, 7],
+            [8, 0, 1, 4, 5],
+        ]
+    )
+
+    assert [row.center for row in rows] == [0, 1, 8]
+    assert rows[0].witnesses == (1, 2, 3, 8)
+
+
 def test_full_pattern_replay_matches_existing_vertex_circle_filter() -> None:
     pattern = built_in_patterns()["P18_parity_balanced"]
     rows = parse_selected_rows(pattern.S)
