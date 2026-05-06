@@ -22,6 +22,7 @@ data/certificates/c19_kalmanson_prefix_window_416_447_prefilter.json
 data/certificates/c19_kalmanson_prefix_window_448_479_prefilter.json
 data/certificates/c19_kalmanson_prefix_window_prefilter_sweep_288_479.json
 reports/c19_prefilter_fallback_supports.json
+data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
 ```
 
 Regenerate them with:
@@ -70,6 +71,10 @@ python scripts/sweep_c19_kalmanson_prefix_windows_prefilter.py \
 python scripts/analyze_c19_prefilter_fallback_supports.py \
   --assert-expected \
   --out reports/c19_prefilter_fallback_supports.json
+
+python scripts/sweep_c19_kalmanson_prefix_windows_catalog_prefilter.py \
+  --assert-expected \
+  --out data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
 ```
 
 Use `.venv/bin/python` in this checkout if the system `python` does not have
@@ -103,6 +108,12 @@ The fallback-support diagnostic in
 [`c19-prefilter-fallback-supports.md`](c19-prefilter-fallback-supports.md)
 reconstructs those eight fallback children and records their exact Farkas
 support sizes: 7, 8, 19, 47, 50, 52, 54, and 58 inequalities.
+
+The catalog-prefilter sweep in
+[`c19-kalmanson-prefix-window-catalog-prefilter-sweep.md`](c19-kalmanson-prefix-window-catalog-prefilter-sweep.md)
+keeps the two-row artifact intact and applies three cataloged unit supports
+only after a two-row miss. It records 10,350 fifth-pair prefilter closures and
+zero ordinary Farkas fallbacks over the same 288-479 sampled range.
 
 Together with the initial sampled-prefix chain and the 128-287 compact sweep,
 the currently recorded C19 sampled-prefix coverage is:
