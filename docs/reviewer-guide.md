@@ -53,7 +53,9 @@ make audit-artifacts
 The `audit-artifacts` target includes the dated official-status consistency
 check, so this audit path is stricter than the default fast tier.
 
-Equivalent raw commands:
+If `make` is unavailable, treat `Makefile` and
+`scripts/run_artifact_audit.py` as the source of truth for the current raw
+command set. The current raw commands are:
 
 ```bash
 python scripts/check_status_consistency.py --max-official-status-age-days 90
@@ -65,7 +67,22 @@ python scripts/check_round2_certificates.py
 python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json
 python scripts/check_kalmanson_certificate.py data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json --summary-json
 python scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n 13 --offsets 1,2,4,10 --assert-obstructed --assert-c13-expected --json
+python scripts/check_kalmanson_two_order_z3.py --certificate data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat
+python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --check-artifact reports/c19_kalmanson_z3_clause_diagnostics.json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
+python scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_core_templates.py --check --assert-expected --json
+python scripts/check_n9_row_ptolemy_product_cancellations.py --check --json
+python scripts/check_n9_row_ptolemy_family_signatures.py --check --assert-expected --json
+python scripts/check_n9_row_ptolemy_order_sensitivity.py --check --assert-expected --json
+python scripts/check_n9_row_ptolemy_order_admissible_census.py --check --assert-expected --json
+python scripts/check_n9_row_ptolemy_admissible_gap_replay.py --check --assert-expected --json
+python scripts/check_n9_row_ptolemy_gap_self_edge_cores.py --check --assert-expected --json
+python scripts/check_n9_base_apex_low_excess_ledgers.py --check --json
+python scripts/check_n9_base_apex_escape_budget.py --check --json
+python scripts/check_n9_selected_baseline_escape_budget_overlay.py --check --json
+python scripts/check_n9_d3_escape_slice.py --check --json
+python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-generic
 ```
 
 The default pytest configuration excludes tests marked `artifact`, `slow`, or

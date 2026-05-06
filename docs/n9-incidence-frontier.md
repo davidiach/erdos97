@@ -140,7 +140,12 @@ row-Ptolemy certificates while remaining vertex-circle self-edge obstructed.
 The narrower replay artifact
 `data/certificates/n9_row_ptolemy_admissible_gap_replay.json` records those two
 rows directly: both use order `[0,2,4,6,8,1,3,5,7]`, crosswalk to `F13 -> T04`,
-and replay with 81 strict vertex-circle edges and 27 self-edge conflicts. Good
-next checks are to audit whether those signatures can be converted into
-reusable local lemmas and to keep testing order-sensitive variants without
-treating this bounded slice as a lossless quotient of all `n=9` cases.
+and replay with 81 strict vertex-circle edges and 27 self-edge conflicts.
+The compact-core artifact
+`data/certificates/n9_row_ptolemy_gap_self_edge_cores.json` then shrinks each
+full replay to the lexicographically first minimal 3-row `self_edge` core,
+rows `[0,2,4]`, with an explicit selected-distance equality path from the
+strict outer chord to the strict inner chord. Good next checks are to audit
+whether those compact signatures can be converted into reusable local lemmas
+and to keep testing order-sensitive variants without treating this bounded
+slice as a lossless quotient of all `n=9` cases.

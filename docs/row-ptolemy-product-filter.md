@@ -207,6 +207,15 @@ violations, and a vertex-circle `self_edge` replay with `81` strict edges and
 `27` self-edge conflicts. This narrows the diagnostic gap to inspect next; it
 does not promote the rows to geometric candidates or change the global status.
 
+The follow-up compact-core artifact
+`data/certificates/n9_row_ptolemy_gap_self_edge_cores.json` records the
+lexicographically first minimal `self_edge` row subset for each of those two
+records. In both cases, rows `[0,2,4]` form a 3-row core with one self-edge
+conflict, `27` strict vertex-circle edges, and no proper subcore with a
+`self_edge` replay. The stored selected-distance equality path explains how the
+strict outer chord and inner chord are identified in the quotient. This is a
+local replay certificate for those two records, not a standalone theorem.
+
 ## Reproduction
 
 ```bash
@@ -248,6 +257,15 @@ python scripts/check_n9_row_ptolemy_admissible_gap_replay.py \
   --write
 
 python scripts/check_n9_row_ptolemy_admissible_gap_replay.py \
+  --check \
+  --assert-expected \
+  --json
+
+python scripts/check_n9_row_ptolemy_gap_self_edge_cores.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_row_ptolemy_gap_self_edge_cores.py \
   --check \
   --assert-expected \
   --json

@@ -1,0 +1,497 @@
+{
+  "assignment_indices": [
+    22,
+    173
+  ],
+  "claim_scope": "Compact self-edge core certificates for the two zero-certificate n=9 row-Ptolemy admissible assignment-order records; not a proof of n=9, not a counterexample, not an all-order obstruction, not an orderless abstract-incidence obstruction, not a geometric realizability count, and not a global status update.",
+  "core_row_index_sets": [
+    [
+      0,
+      2,
+      4
+    ],
+    [
+      0,
+      2,
+      4
+    ]
+  ],
+  "core_self_edge_conflict_count_histogram": {
+    "1": 2
+  },
+  "core_size_counts": {
+    "3": 2
+  },
+  "core_strict_edge_count_histogram": {
+    "27": 2
+  },
+  "equality_path_length_histogram": {
+    "3": 2
+  },
+  "interpretation": [
+    "Each core is a compact replay certificate for one recorded self-edge gap record, not a standalone theorem.",
+    "The selected-distance equality path explains why the strict outer chord and inner chord are identified in the quotient.",
+    "The listed core is the lexicographically first minimal self-edge row subset for that recorded assignment-order pair.",
+    "No proof of the n=9 case is claimed.",
+    "No counterexample or global status update is claimed."
+  ],
+  "minimal_self_edge_core_count_histogram": {
+    "9": 2
+  },
+  "n": 9,
+  "normalized_order": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    1,
+    3,
+    5,
+    7
+  ],
+  "provenance": {
+    "command": "python scripts/check_n9_row_ptolemy_gap_self_edge_cores.py --assert-expected --write",
+    "generator": "scripts/check_n9_row_ptolemy_gap_self_edge_cores.py"
+  },
+  "record_count": 2,
+  "records": [
+    {
+      "assignment_index": 22,
+      "core_replay": {
+        "cycle_edges": [],
+        "n": 9,
+        "obstructed": true,
+        "order": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          1,
+          3,
+          5,
+          7
+        ],
+        "selected_row_count": 3,
+        "self_edge_conflicts": [
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              7
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              4
+            ],
+            "row": 2,
+            "witness_order": [
+              4,
+              3,
+              7,
+              0
+            ]
+          }
+        ],
+        "status": "self_edge",
+        "strict_edge_count": 27,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "core_row_indices": [
+        0,
+        2,
+        4
+      ],
+      "core_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            1,
+            2,
+            5,
+            7
+          ]
+        },
+        {
+          "row": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            7
+          ]
+        },
+        {
+          "row": 4,
+          "witnesses": [
+            0,
+            2,
+            5,
+            6
+          ]
+        }
+      ],
+      "family_id": "F13",
+      "minimality": {
+        "lexicographic_min_core_row_indices": [
+          0,
+          2,
+          4
+        ],
+        "minimal_self_edge_core_count": 9,
+        "minimal_self_edge_core_size": 3,
+        "proper_self_edge_subcore_count": 0,
+        "proper_subcore_status_counts": {
+          "ok": 6
+        }
+      },
+      "order": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        1,
+        3,
+        5,
+        7
+      ],
+      "selected_distance_equality_path": [
+        {
+          "from_pair": [
+            0,
+            4
+          ],
+          "reason": "selected distances from this center to its witnesses are equal",
+          "row": 4,
+          "row_witnesses": [
+            0,
+            2,
+            5,
+            6
+          ],
+          "to_pair": [
+            2,
+            4
+          ]
+        },
+        {
+          "from_pair": [
+            2,
+            4
+          ],
+          "reason": "selected distances from this center to its witnesses are equal",
+          "row": 2,
+          "row_witnesses": [
+            0,
+            3,
+            4,
+            7
+          ],
+          "to_pair": [
+            0,
+            2
+          ]
+        },
+        {
+          "from_pair": [
+            0,
+            2
+          ],
+          "reason": "selected distances from this center to its witnesses are equal",
+          "row": 0,
+          "row_witnesses": [
+            1,
+            2,
+            5,
+            7
+          ],
+          "to_pair": [
+            0,
+            7
+          ]
+        }
+      ],
+      "self_edge_conflict": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          2,
+          3
+        ],
+        "inner_pair": [
+          0,
+          7
+        ],
+        "outer_class": [
+          0,
+          1
+        ],
+        "outer_interval": [
+          0,
+          3
+        ],
+        "outer_pair": [
+          0,
+          4
+        ],
+        "row": 2,
+        "witness_order": [
+          4,
+          3,
+          7,
+          0
+        ]
+      },
+      "source_record": {
+        "selected_row_count": 9,
+        "self_edge_conflict_count": 27,
+        "strict_edge_count": 81
+      },
+      "template_id": "T04"
+    },
+    {
+      "assignment_index": 173,
+      "core_replay": {
+        "cycle_edges": [],
+        "n": 9,
+        "obstructed": true,
+        "order": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          1,
+          3,
+          5,
+          7
+        ],
+        "selected_row_count": 3,
+        "self_edge_conflicts": [
+          {
+            "inner_class": [
+              0,
+              2
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              4,
+              6
+            ],
+            "outer_class": [
+              0,
+              2
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              4
+            ],
+            "row": 2,
+            "witness_order": [
+              4,
+              6,
+              1,
+              0
+            ]
+          }
+        ],
+        "status": "self_edge",
+        "strict_edge_count": 27,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "core_row_indices": [
+        0,
+        2,
+        4
+      ],
+      "core_rows": [
+        {
+          "row": 0,
+          "witnesses": [
+            2,
+            4,
+            7,
+            8
+          ]
+        },
+        {
+          "row": 2,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "row": 4,
+          "witnesses": [
+            2,
+            3,
+            6,
+            8
+          ]
+        }
+      ],
+      "family_id": "F13",
+      "minimality": {
+        "lexicographic_min_core_row_indices": [
+          0,
+          2,
+          4
+        ],
+        "minimal_self_edge_core_count": 9,
+        "minimal_self_edge_core_size": 3,
+        "proper_self_edge_subcore_count": 0,
+        "proper_subcore_status_counts": {
+          "ok": 6
+        }
+      },
+      "order": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        1,
+        3,
+        5,
+        7
+      ],
+      "selected_distance_equality_path": [
+        {
+          "from_pair": [
+            0,
+            4
+          ],
+          "reason": "selected distances from this center to its witnesses are equal",
+          "row": 0,
+          "row_witnesses": [
+            2,
+            4,
+            7,
+            8
+          ],
+          "to_pair": [
+            0,
+            2
+          ]
+        },
+        {
+          "from_pair": [
+            0,
+            2
+          ],
+          "reason": "selected distances from this center to its witnesses are equal",
+          "row": 2,
+          "row_witnesses": [
+            0,
+            1,
+            4,
+            6
+          ],
+          "to_pair": [
+            2,
+            4
+          ]
+        },
+        {
+          "from_pair": [
+            2,
+            4
+          ],
+          "reason": "selected distances from this center to its witnesses are equal",
+          "row": 4,
+          "row_witnesses": [
+            2,
+            3,
+            6,
+            8
+          ],
+          "to_pair": [
+            4,
+            6
+          ]
+        }
+      ],
+      "self_edge_conflict": {
+        "inner_class": [
+          0,
+          2
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          4,
+          6
+        ],
+        "outer_class": [
+          0,
+          2
+        ],
+        "outer_interval": [
+          0,
+          3
+        ],
+        "outer_pair": [
+          0,
+          4
+        ],
+        "row": 2,
+        "witness_order": [
+          4,
+          6,
+          1,
+          0
+        ]
+      },
+      "source_record": {
+        "selected_row_count": 9,
+        "self_edge_conflict_count": 27,
+        "strict_edge_count": 81
+      },
+      "template_id": "T04"
+    }
+  ],
+  "schema": "erdos97.n9_row_ptolemy_gap_self_edge_cores.v1",
+  "source_artifact": {
+    "path": "data/certificates/n9_row_ptolemy_admissible_gap_replay.json",
+    "schema": "erdos97.n9_row_ptolemy_admissible_gap_replay.v1",
+    "status": "EXPLORATORY_LEDGER_ONLY",
+    "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF"
+  },
+  "status": "EXPLORATORY_LEDGER_ONLY",
+  "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
+  "vertex_circle_status_counts": {
+    "self_edge": 2
+  },
+  "witness_size": 4
+}
