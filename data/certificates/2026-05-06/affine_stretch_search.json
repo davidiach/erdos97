@@ -1,0 +1,1774 @@
+{
+  "method": "Affine stretching of regular n-gons P_j = (sqrt(lam) cos(2 pi j /n + phi), sin(2 pi j /n + phi)). For each n, three phases: A dense lam sweep on log-spaced grid; B critical lam enumeration (analytic solution of pairwise distance equations); C 2-param (phi, lam) sweep. Coverage = #vertices i with some squared-distance multiplicity >= 4. 4-bad polygon iff coverage = n.",
+  "tolerances": {
+    "phaseA_abs_tol": 1e-07,
+    "phaseB_abs_tol": 1e-09,
+    "phaseC_abs_tol": 1e-07
+  },
+  "verification_823_24gon": {
+    "n": 24,
+    "lambda": 0.15470053837925168,
+    "coverage_4good": 6,
+    "max_mult_per_vertex": [
+      4,
+      4,
+      2,
+      2,
+      2,
+      1,
+      2,
+      1,
+      2,
+      2,
+      2,
+      4,
+      4,
+      4,
+      2,
+      2,
+      2,
+      1,
+      2,
+      1,
+      2,
+      2,
+      2,
+      4
+    ],
+    "strictly_convex": true
+  },
+  "phase_A": {
+    "12": {
+      "n": 12,
+      "best_coverage": 2,
+      "best_lambda": 0.15470053837925168,
+      "max_mults_at_best": [
+        4,
+        1,
+        2,
+        2,
+        2,
+        1,
+        4,
+        1,
+        2,
+        2,
+        2,
+        1
+      ],
+      "convex_at_best": true,
+      "high_coverage_records": [
+        [
+          0.15470053837925168,
+          2
+        ]
+      ]
+    },
+    "16": {
+      "n": 16,
+      "best_coverage": 0,
+      "best_lambda": 0.001,
+      "max_mults_at_best": [
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "convex_at_best": true,
+      "high_coverage_records": []
+    },
+    "18": {
+      "n": 18,
+      "best_coverage": 0,
+      "best_lambda": 0.001,
+      "max_mults_at_best": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "convex_at_best": true,
+      "high_coverage_records": []
+    },
+    "20": {
+      "n": 20,
+      "best_coverage": 0,
+      "best_lambda": 0.001,
+      "max_mults_at_best": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "convex_at_best": true,
+      "high_coverage_records": []
+    },
+    "24": {
+      "n": 24,
+      "best_coverage": 6,
+      "best_lambda": 0.15470053837925168,
+      "max_mults_at_best": [
+        4,
+        4,
+        2,
+        2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2,
+        4,
+        4,
+        4,
+        2,
+        2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2,
+        4
+      ],
+      "convex_at_best": true,
+      "high_coverage_records": [
+        [
+          0.15470053837925168,
+          6
+        ]
+      ]
+    },
+    "28": {
+      "n": 28,
+      "best_coverage": 0,
+      "best_lambda": 0.001,
+      "max_mults_at_best": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "convex_at_best": true,
+      "high_coverage_records": []
+    },
+    "32": {
+      "n": 32,
+      "best_coverage": 0,
+      "best_lambda": 0.001,
+      "max_mults_at_best": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "convex_at_best": true,
+      "high_coverage_records": []
+    },
+    "36": {
+      "n": 36,
+      "best_coverage": 2,
+      "best_lambda": 0.15470053837925168,
+      "max_mults_at_best": [
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "convex_at_best": true,
+      "high_coverage_records": [
+        [
+          0.15470053837925168,
+          2
+        ]
+      ]
+    },
+    "40": {
+      "n": 40,
+      "best_coverage": 0,
+      "best_lambda": 0.001,
+      "max_mults_at_best": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "convex_at_best": true,
+      "high_coverage_records": []
+    },
+    "48": {
+      "n": 48,
+      "best_coverage": 6,
+      "best_lambda": 0.15470053837925168,
+      "max_mults_at_best": [
+        4,
+        1,
+        4,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        4,
+        1,
+        4,
+        1,
+        4,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        4,
+        1
+      ],
+      "convex_at_best": true,
+      "high_coverage_records": [
+        [
+          0.15470053837925168,
+          6
+        ],
+        [
+          2.803814811245374,
+          2
+        ]
+      ]
+    }
+  },
+  "phase_B": {
+    "12": {
+      "n": 12,
+      "num_critical_lams": 51,
+      "num_clusters": 51,
+      "best_coverage": 2,
+      "best_lambda": 0.1547005384,
+      "max_mults_at_best": [
+        4,
+        1,
+        2,
+        2,
+        2,
+        1,
+        4,
+        1,
+        2,
+        2,
+        2,
+        1
+      ],
+      "convex_at_best": true,
+      "top10": [
+        {
+          "coverage": 2,
+          "lam": 0.1547005384,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.2,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.3021694793,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.4058274196,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 2.4641016151,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 3.3094010768,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 5.0,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 6.4641016151,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 0,
+          "lam": 0.0239322566,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 0,
+          "lam": 0.0467457811,
+          "convex": true,
+          "cluster_size": 1
+        }
+      ]
+    },
+    "16": {
+      "n": 16,
+      "num_critical_lams": 149,
+      "num_clusters": 149,
+      "best_coverage": 2,
+      "best_lambda": 0.0977875388,
+      "max_mults_at_best": [
+        4,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        4,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "convex_at_best": true,
+      "top10": [
+        {
+          "coverage": 2,
+          "lam": 0.0977875388,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.139571541,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1606102712,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.2129690425,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.261203875,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.3159772905,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.352706863,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.3951423211,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.4491854755,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 2.2262518595,
+          "convex": true,
+          "cluster_size": 1
+        }
+      ]
+    },
+    "18": {
+      "n": 18,
+      "num_critical_lams": 186,
+      "num_clusters": 186,
+      "best_coverage": 4,
+      "best_lambda": 0.0932736124,
+      "max_mults_at_best": [
+        2,
+        4,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        4,
+        2,
+        4,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        4
+      ],
+      "convex_at_best": true,
+      "top10": [
+        {
+          "coverage": 4,
+          "lam": 0.0932736124,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 4,
+          "lam": 4.2608298764,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 4,
+          "lam": 22.6458965112,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0798878951,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1174047773,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1402848095,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1802245976,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.2285130068,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.2519584227,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.2769458188,
+          "convex": true,
+          "cluster_size": 1
+        }
+      ]
+    },
+    "20": {
+      "n": 20,
+      "num_critical_lams": 311,
+      "num_clusters": 311,
+      "best_coverage": 2,
+      "best_lambda": 0.0663104114,
+      "max_mults_at_best": [
+        4,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "convex_at_best": true,
+      "top10": [
+        {
+          "coverage": 2,
+          "lam": 0.0663104114,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0995986767,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1223328686,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1338305414,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1537154323,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.2,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.2271383422,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.2430090529,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.2880071555,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.3095835236,
+          "convex": true,
+          "cluster_size": 1
+        }
+      ]
+    },
+    "24": {
+      "n": 24,
+      "num_critical_lams": 495,
+      "num_clusters": 493,
+      "best_coverage": 6,
+      "best_lambda": 0.1547005384,
+      "max_mults_at_best": [
+        4,
+        4,
+        2,
+        2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2,
+        4,
+        4,
+        4,
+        2,
+        2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2,
+        4
+      ],
+      "convex_at_best": true,
+      "top10": [
+        {
+          "coverage": 6,
+          "lam": 0.1547005384,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 6,
+          "lam": 6.4641016151,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0475738856,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0736102885,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0938363214,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1076133341,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1145815756,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1831025535,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1889455965,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.2,
+          "convex": true,
+          "cluster_size": 1
+        }
+      ]
+    },
+    "28": {
+      "n": 28,
+      "num_critical_lams": 971,
+      "num_clusters": 969,
+      "best_coverage": 2,
+      "best_lambda": 0.0356608027,
+      "max_mults_at_best": [
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "convex_at_best": true,
+      "top10": [
+        {
+          "coverage": 2,
+          "lam": 0.0356608027,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0562197554,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0733626571,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0865936873,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.088047396,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0955803384,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.100120962,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1218360556,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1481922859,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1494566703,
+          "convex": true,
+          "cluster_size": 1
+        }
+      ]
+    },
+    "32": {
+      "n": 32,
+      "num_critical_lams": 1531,
+      "num_clusters": 1527,
+      "best_coverage": 2,
+      "best_lambda": 0.0276657051,
+      "max_mults_at_best": [
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "convex_at_best": true,
+      "top10": [
+        {
+          "coverage": 2,
+          "lam": 0.0276657051,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0441643482,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0585412385,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0694712602,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0704317797,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0795654889,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0857532004,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0888757606,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0977875388,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.1203681608,
+          "convex": true,
+          "cluster_size": 1
+        }
+      ]
+    },
+    "36": {
+      "n": 36,
+      "num_critical_lams": 2012,
+      "num_clusters": 2005,
+      "best_coverage": 4,
+      "best_lambda": 0.0441581105,
+      "max_mults_at_best": [
+        2,
+        2,
+        2,
+        2,
+        1,
+        4,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        4,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        4,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        4,
+        1,
+        2,
+        2,
+        2
+      ],
+      "convex_at_best": true,
+      "top10": [
+        {
+          "coverage": 4,
+          "lam": 0.0441581105,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 4,
+          "lam": 0.0932736124,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 4,
+          "lam": 0.2346960637,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 4,
+          "lam": 4.2608298764,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 4,
+          "lam": 10.7211458258,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 4,
+          "lam": 22.6458965112,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0220599474,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0355250912,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0476104129,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0560616098,
+          "convex": true,
+          "cluster_size": 1
+        }
+      ]
+    },
+    "40": {
+      "n": 40,
+      "num_critical_lams": 3150,
+      "num_clusters": 3147,
+      "best_coverage": 2,
+      "best_lambda": 0.0179864735,
+      "max_mults_at_best": [
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "convex_at_best": true,
+      "top10": [
+        {
+          "coverage": 2,
+          "lam": 0.0179864735,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0291497742,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0393803757,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0461118209,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0484845702,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0563017585,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0627027283,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0663104114,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0675875506,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0708834747,
+          "convex": true,
+          "cluster_size": 1
+        }
+      ]
+    },
+    "48": {
+      "n": 48,
+      "num_critical_lams": 5350,
+      "num_clusters": 5333,
+      "best_coverage": 6,
+      "best_lambda": 0.1547005384,
+      "max_mults_at_best": [
+        4,
+        1,
+        4,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        4,
+        1,
+        4,
+        1,
+        4,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        4,
+        1
+      ],
+      "convex_at_best": true,
+      "top10": [
+        {
+          "coverage": 6,
+          "lam": 0.1547005384,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 6,
+          "lam": 6.4641016151,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0125987634,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0205902745,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0281138142,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0326786912,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0350620172,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0413405399,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0468680487,
+          "convex": true,
+          "cluster_size": 1
+        },
+        {
+          "coverage": 2,
+          "lam": 0.0475738856,
+          "convex": true,
+          "cluster_size": 1
+        }
+      ]
+    }
+  },
+  "phase_C": {
+    "12": {
+      "n": 12,
+      "best_coverage": 0,
+      "best_phi": 0.0,
+      "best_lambda": 0.01,
+      "max_mults_at_best": [
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1
+      ]
+    },
+    "16": {
+      "n": 16,
+      "best_coverage": 0,
+      "best_phi": 0.0,
+      "best_lambda": 0.01,
+      "max_mults_at_best": [
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    "18": {
+      "n": 18,
+      "best_coverage": 0,
+      "best_phi": 0.0,
+      "best_lambda": 0.01,
+      "max_mults_at_best": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "20": {
+      "n": 20,
+      "best_coverage": 0,
+      "best_phi": 0.0,
+      "best_lambda": 0.01,
+      "max_mults_at_best": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "24": {
+      "n": 24,
+      "best_coverage": 0,
+      "best_phi": 0.0,
+      "best_lambda": 0.01,
+      "max_mults_at_best": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "28": {
+      "n": 28,
+      "best_coverage": 0,
+      "best_phi": 0.0,
+      "best_lambda": 0.01,
+      "max_mults_at_best": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "32": {
+      "n": 32,
+      "best_coverage": 0,
+      "best_phi": 0.0,
+      "best_lambda": 0.01,
+      "max_mults_at_best": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "36": {
+      "n": 36,
+      "best_coverage": 0,
+      "best_phi": 0.0,
+      "best_lambda": 0.01,
+      "max_mults_at_best": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "40": {
+      "n": 40,
+      "skipped": "n>36 (slow)"
+    },
+    "48": {
+      "n": 48,
+      "skipped": "n>36 (slow)"
+    }
+  },
+  "best_overall": {
+    "strategy": "A",
+    "n": 24,
+    "params": {
+      "best_coverage": 6,
+      "best_lambda": 0.15470053837925168
+    },
+    "coverage": 6
+  },
+  "any_full_4bad": false,
+  "any_full_4bad_records": [],
+  "near_miss_table": [
+    {
+      "n": 12,
+      "best_coverage": 2,
+      "shortfall": 10,
+      "winning_strategy": "A"
+    },
+    {
+      "n": 16,
+      "best_coverage": 2,
+      "shortfall": 14,
+      "winning_strategy": "B"
+    },
+    {
+      "n": 18,
+      "best_coverage": 4,
+      "shortfall": 14,
+      "winning_strategy": "B"
+    },
+    {
+      "n": 20,
+      "best_coverage": 2,
+      "shortfall": 18,
+      "winning_strategy": "B"
+    },
+    {
+      "n": 24,
+      "best_coverage": 6,
+      "shortfall": 18,
+      "winning_strategy": "A"
+    },
+    {
+      "n": 28,
+      "best_coverage": 2,
+      "shortfall": 26,
+      "winning_strategy": "B"
+    },
+    {
+      "n": 32,
+      "best_coverage": 2,
+      "shortfall": 30,
+      "winning_strategy": "B"
+    },
+    {
+      "n": 36,
+      "best_coverage": 4,
+      "shortfall": 32,
+      "winning_strategy": "B"
+    },
+    {
+      "n": 40,
+      "best_coverage": 2,
+      "shortfall": 38,
+      "winning_strategy": "B"
+    },
+    {
+      "n": 48,
+      "best_coverage": 6,
+      "shortfall": 42,
+      "winning_strategy": "A"
+    }
+  ],
+  "overall_time_s": 250.78479862213135,
+  "phase_D_note": "Approach 3 (multiple affine pieces - upper half stretched differently from lower half) is excluded a priori: combining two affine pieces along a chord generically produces a kink at the join, breaking strict convexity. Even when the join points are coincident (continuous), the second-derivative discontinuity prevents the polygon from satisfying \"strict convexity\" in any meaningful sense for a polygon (corners would have undefined cross products). Additionally, vertices on opposite halves would no longer share a common scaling in their distance multisets, which is exactly what a single-axis stretch exploits.",
+  "conclusion": "No 4-bad polygon found among affine-stretched regular n-gons for n in {12, 16, 18, 20, 24, 28, 32, 36, 40, 48}. Best result is n=24 at lam = 2/sqrt(3)-1 reproducing the known \u00a77.3 example with 6/24 vertices having multiplicity >= 4 (NOT a counterexample). Mathematical reason: the 1-parameter affine-stretch family imposes only one degree of freedom, but achieving multiplicity >= 4 simultaneously at all n vertices requires forcing many independent equality conditions. The \u00a77.3 example exploits a special coincidence at n=24, but this coincidence at lam = 2/sqrt(3) - 1 only saturates 6 of 24 orbits.",
+  "vertex_orbits_under_x_reflection_and_180rot": {
+    "12": 5,
+    "16": 6,
+    "18": 6,
+    "20": 7,
+    "24": 8,
+    "28": 9,
+    "32": 10,
+    "36": 11,
+    "40": 12,
+    "48": 14
+  }
+}

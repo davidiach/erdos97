@@ -247,6 +247,9 @@ def built_in_patterns() -> Dict[str, PatternInfo]:
     pats.append(circulant_pattern(13, [1, 2, 4, 10], "C13_sidon_1_2_4_10"))
     pats.append(circulant_pattern(25, [2, 5, 9, 14], "C25_sidon_2_5_9_14"))
     pats.append(circulant_pattern(29, [1, 3, 7, 15], "C29_sidon_1_3_7_15"))
+    # Speculative sparse circulant patterns from the n=39 degeneracy review.
+    pats.append(circulant_pattern(41, [5, 14, 24, 34], "C41_offsets_5_14_24_34"))
+    pats.append(circulant_pattern(43, [6, 15, 27, 36], "C43_offsets_6_15_27_36"))
     by_name = {p.name: p for p in pats}
     _apply_catalog_metadata(by_name)
     return by_name

@@ -1,0 +1,96 @@
+{
+  "audit_invariants_match": {
+    "branching_order_invariant": [
+      "main_pass.full_assignments",
+      "cross_check_pass.full_assignments",
+      "cross_check_pass.self_edge",
+      "cross_check_pass.strict_cycle",
+      "cross_check_pass.vc_pass",
+      "row0_choices"
+    ],
+    "branching_order_dependent": [
+      "main_pass.nodes_visited",
+      "main_pass.partial_self_edge",
+      "main_pass.partial_strict_cycle",
+      "cross_check_pass.nodes_visited"
+    ],
+    "all_branching_invariants_match_existing_checker": true
+  },
+  "audit_verdict": "AGREE",
+  "audit_verdict_explanation": [
+    "The independent implementation reaches identical conclusions on every counter that does not depend on the branching strategy.",
+    "Main pass returns 0 full assignments (matches checked-in 0).",
+    "Cross-check returns 184 full assignments (matches checked-in 184), of which exactly 158 are killed by vertex-circle self-edge and 26 by strict-cycle (matches checked-in 158/26).",
+    "vc_pass = 0: not a single full assignment among the 184 survives the vertex-circle filter; this is the central audit invariant and it is reproduced.",
+    "Node counts differ because the independent implementation branches rows in label order (rows 1,2,...,8) while the existing checker uses a minimum-remaining-options heuristic that selects the most-constrained center first. This is a search-order, not a soundness, difference: the set of leaves is the same, only the visited internal nodes differ.",
+    "The independent implementation therefore corroborates the existing review-pending claim that no n=9 selected-witness assignment survives the L4 + L5 + L6-crossing + indegree-cap + vertex-circle filters."
+  ],
+  "cross_check_pass": {
+    "full_assignments": 184,
+    "nodes_visited": 520782,
+    "row0_choices": 70,
+    "self_edge": 158,
+    "strict_cycle": 26,
+    "vc_pass": 0
+  },
+  "discrepancies": [
+    "main_pass.nodes_visited 107018 (independent) vs 16752 (existing): branching-order difference, see audit_verdict_explanation",
+    "main_pass.partial_self_edge 34445 (independent) vs 11271 (existing): same",
+    "main_pass.partial_strict_cycle 35029 (independent) vs 11011 (existing): same",
+    "cross_check_pass.nodes_visited 520782 (independent) vs 100817 (existing): same",
+    "All four discrepancies are attributable to label-order vs MRO branching; the three counters that are independent of branching order (full_assignments, self_edge, strict_cycle) match exactly."
+  ],
+  "elapsed_seconds": {
+    "cross_check": 572.1959798336029,
+    "main": 99.29167485237122
+  },
+  "expected_cross_check_pass": {
+    "full_assignments": 184,
+    "nodes_visited": 100817,
+    "row0_choices": 70,
+    "self_edge": 158,
+    "strict_cycle": 26
+  },
+  "expected_main_pass": {
+    "full_assignments": 0,
+    "nodes_visited": 16752,
+    "partial_self_edge": 11271,
+    "partial_strict_cycle": 11011,
+    "row0_choices": 70
+  },
+  "filters_applied": [
+    "F1 pair-cap / L4 perpendicular-bisector vertex bound (each unordered witness-witness pair in <= 2 rows)",
+    "F2 two-circle-cap / L5 (|S_i & S_j| <= 2)",
+    "F3 crossing / L6 (shared two-witnesses cross source chord in cyclic order)",
+    "F4 indegree cap (each vertex appears in <= floor(2*(n-1)/(k-1)) = 5 rows; derived from L4 + row size)",
+    "F5 vertex-circle nested-chord strict-monotonicity (no self-edge or strict directed cycle in the strict-inequality graph after selected-distance UF quotient)"
+  ],
+  "implementation_independence_notes": [
+    "Did not import or re-execute erdos97.n9_vertex_circle_exhaustive or scripts/check_n9_vertex_circle_exhaustive.",
+    "Re-derived UnionFind, vertex_circle_check, witness candidates, and strict-edge generation from the geometric necessary conditions in docs/vertex-circle-order-filter.md.",
+    "Branches rows in increasing label order rather than minimum-remaining-options (intentional structural difference for cross-validation).",
+    "Strict-cycle detection uses Kahn's topological-sort algorithm (existing checker uses iterative DFS); self-edge detection by checking ro==ri before adding edge.",
+    "Cyclic-order primitives (chord_separates, angular_order_around) re-derived from cyclic_position(v, center) = (v-center-1) mod n.",
+    "Strict-edge enumeration: for the 4 angularly-sorted witnesses w0<w1<w2<w3 in row position, all 9 strict-containment pairs are emitted (matches the geometric all-containments lemma)."
+  ],
+  "indegree_cap": 5,
+  "main_pass": {
+    "full_assignments": 0,
+    "nodes_visited": 107018,
+    "partial_self_edge": 34445,
+    "partial_strict_cycle": 35029,
+    "row0_choices": 70
+  },
+  "main_pass_matches_expected": false,
+  "n": 9,
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed.",
+    "No counterexample is claimed.",
+    "This is an independent audit of the review-pending n=9 vertex-circle exhaustive checker.",
+    "Soundness verdict: AGREE. The independent implementation confirms 0 full assignments survive the vertex-circle filter at n=9.",
+    "Public theorem-style use still requires further independent review of the computer-assisted enumeration."
+  ],
+  "row_size": 4,
+  "trust": "MACHINE_CHECKED_FINITE_CASE_INDEPENDENT_AUDIT",
+  "type": "n9_independent_audit_v1"
+}

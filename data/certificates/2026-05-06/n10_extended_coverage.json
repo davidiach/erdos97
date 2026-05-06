@@ -1,0 +1,111 @@
+{
+  "audit": {
+    "artifact_aborted_any": false,
+    "artifact_counts": {
+      "partial_self_edge": 4467592,
+      "partial_strict_cycle": 5318250
+    },
+    "artifact_total_full": 0,
+    "artifact_total_nodes": 4142738,
+    "row0_index_coverage": {
+      "expected_range": [
+        0,
+        126
+      ],
+      "observed_complete": true,
+      "observed_size": 126,
+      "observed_unique": true
+    },
+    "singleton_slices_equal_row0_4subsets": true
+  },
+  "conclusion": "For n=10 the existing singleton-slice artifact already covers all C(9,4)=126 row0 4-subsets. Each row0 4-subset corresponds to exactly one singleton slice (row0_index in [0,126)). No coverage gap exists and no extension to row0 4-tuple enumeration is required.",
+  "date": "2026-05-06",
+  "generic_engine_spot_check_total_seconds": 311.1951493700001,
+  "generic_engine_spot_checks": [
+    {
+      "aborted": false,
+      "counts": {
+        "partial_self_edge": 5256,
+        "partial_strict_cycle": 6031
+      },
+      "full": 0,
+      "generic_check_seconds": 11.587062161999938,
+      "nodes": 9759,
+      "row0_index": 0
+    },
+    {
+      "aborted": false,
+      "counts": {
+        "partial_self_edge": 10487,
+        "partial_strict_cycle": 11871
+      },
+      "full": 0,
+      "generic_check_seconds": 15.480860593999978,
+      "nodes": 13828,
+      "row0_index": 1
+    },
+    {
+      "aborted": false,
+      "counts": {
+        "partial_self_edge": 70446,
+        "partial_strict_cycle": 76153
+      },
+      "full": 0,
+      "generic_check_seconds": 57.61547070500001,
+      "nodes": 59671,
+      "row0_index": 25
+    },
+    {
+      "aborted": false,
+      "counts": {
+        "partial_self_edge": 92434,
+        "partial_strict_cycle": 92139
+      },
+      "full": 0,
+      "generic_check_seconds": 106.48289524899997,
+      "nodes": 66331,
+      "row0_index": 50
+    },
+    {
+      "aborted": false,
+      "counts": {
+        "partial_self_edge": 17783,
+        "partial_strict_cycle": 27559
+      },
+      "full": 0,
+      "generic_check_seconds": 42.39652407499989,
+      "nodes": 26759,
+      "row0_index": 62
+    },
+    {
+      "aborted": false,
+      "counts": {
+        "partial_self_edge": 25726,
+        "partial_strict_cycle": 29494
+      },
+      "full": 0,
+      "generic_check_seconds": 49.51422830899992,
+      "nodes": 23249,
+      "row0_index": 100
+    },
+    {
+      "aborted": false,
+      "counts": {
+        "partial_self_edge": 9087,
+        "partial_strict_cycle": 7172
+      },
+      "full": 0,
+      "generic_check_seconds": 28.11755359599988,
+      "nodes": 11020,
+      "row0_index": 125
+    }
+  ],
+  "notes": [
+    "No general proof of Erdos Problem #97 is claimed; this is a finite-case draft.",
+    "The strongest local source-of-truth result remains the n<=8 selected-witness artifact.",
+    "Both n=9 and n=10 vertex-circle artifacts remain MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING."
+  ],
+  "scope": "Audit of n=10 selected-witness vertex-circle singleton-slice artifact. Confirms (a) the 126 row0 singleton slices are exactly the 126 row0 4-subsets (C(9,4)) covered exhaustively, and (b) re-runs of multiple slices through the repo-native generic engine reproduce the imported counts.",
+  "trust": "MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING",
+  "type": "n10_extended_coverage_audit_v1"
+}
