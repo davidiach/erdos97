@@ -59,13 +59,18 @@ those 184 obstructions. It finds 158 self-edge contradictions and 26 strict
 directed cycles; every strict cycle has length 2 or 3. That diagnostic is meant
 to guide a possible general lemma, not to strengthen the repo claim by itself.
 
-Two later review aids make the self-edge part easier to inspect:
+Later review aids make the local quotient certificates easier to inspect:
 `data/certificates/n9_vertex_circle_frontier_motif_classification.json`
 classifies all 184 labelled assignments by motif family and local-core
 template, while
 `data/certificates/n9_vertex_circle_self_edge_path_join.json` transforms the
 family representative equality paths back into each of the 158 labelled
-self-edge assignments. Both are review-pending diagnostics only, not
+self-edge assignments.
+`data/certificates/n9_vertex_circle_strict_cycle_path_join.json` similarly
+transforms the strict-cycle local-core certificates back into each of the 26
+strict-cycle assignments. Its local-core cycle-length counts (`2: 18`,
+`3: 8`) are distinct from the first full-assignment obstruction-shape counts
+(`2: 22`, `3: 4`). All of these are review-pending diagnostics only, not
 independent proofs and not status promotions.
 
 ## Commands

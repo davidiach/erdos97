@@ -138,6 +138,10 @@ Next steps:
   to keep those lemmas small;
 - use `data/certificates/n9_vertex_circle_self_edge_path_join.json` as the
   assignment-level replay aid for transformed self-edge equality paths;
+- use `data/certificates/n9_vertex_circle_strict_cycle_path_join.json` as the
+  assignment-level replay aid for transformed strict-cycle local-core
+  quotient cycles, keeping its local-core cycle counts separate from first
+  full-assignment obstruction-shape counts;
 - test whether the same motifs appear in the P18 obstruction and fail in the
   known `C19_skew` vertex-circle survivor;
 - use `docs/n9-vertex-circle-frontier-comparison.md` as the current guardrail:

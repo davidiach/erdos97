@@ -64,6 +64,16 @@ compact core rows. This is a lemma-mining and reviewer-navigation diagnostic
 only; it is not an independent proof of `n=9` and does not promote the
 exhaustive checker.
 
+`data/certificates/n9_vertex_circle_strict_cycle_path_join.json` is the
+parallel replay join for the 26 strict-cycle frontier assignments. It
+transforms each family representative local-core cycle into labelled
+assignment coordinates, checks each equality connector from a strict edge's
+inner pair to the next strict edge's outer pair, and replays the transformed
+strict edges from the compact core rows. Its cycle-length counts summarize the
+transformed local-core certificates (`2: 18`, `3: 8`), not the first
+full-assignment obstruction-shape cycles (`2: 22`, `3: 4`). This is also a
+reviewer-navigation diagnostic only.
+
 `data/certificates/n9_row_ptolemy_product_cancellations.json` contains a
 dependent crosswalk from the row-Ptolemy hit families to these template labels:
 `F02 -> T08`, `F09 -> T01`, and `F13 -> T04`. All three are self-edge
@@ -178,6 +188,19 @@ python scripts/check_n9_vertex_circle_self_edge_path_join.py \
   --json
 ```
 
+Generate and check the strict-cycle path join:
+
+```bash
+python scripts/check_n9_vertex_circle_strict_cycle_path_join.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_vertex_circle_strict_cycle_path_join.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
 Run the targeted artifact test:
 
 ```bash
@@ -186,6 +209,7 @@ python -m pytest \
   tests/test_n9_vertex_circle_core_templates.py \
   tests/test_n9_vertex_circle_frontier_motif_classification.py \
   tests/test_n9_vertex_circle_self_edge_path_join.py \
+  tests/test_n9_vertex_circle_strict_cycle_path_join.py \
   -q
 ```
 

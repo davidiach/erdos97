@@ -1,0 +1,5280 @@
+{
+  "claim_scope": "Assignment-level join of the 26 n=9 strict-cycle frontier assignments to transformed family representative local-core strict cycles; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.",
+  "connector_path_length_counts": {
+    "0": 6,
+    "1": 28,
+    "2": 26
+  },
+  "core_size_assignment_counts": {
+    "4": 24,
+    "6": 2
+  },
+  "cycle_length_counts": {
+    "2": 18,
+    "3": 8
+  },
+  "cycle_step_count": 60,
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "families": [
+    {
+      "assignment_count": 6,
+      "core_size": 4,
+      "cycle_length": 3,
+      "family_id": "F07",
+      "orbit_size": 6,
+      "span_signature": "2:1,3:1,3:2",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T11"
+    },
+    {
+      "assignment_count": 18,
+      "core_size": 4,
+      "cycle_length": 2,
+      "family_id": "F12",
+      "orbit_size": 18,
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10"
+    },
+    {
+      "assignment_count": 2,
+      "core_size": 6,
+      "cycle_length": 3,
+      "family_id": "F16",
+      "orbit_size": 2,
+      "span_signature": "3:1,3:1,3:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 54,
+      "template_id": "T12"
+    }
+  ],
+  "family_assignment_counts": {
+    "F07": 6,
+    "F12": 18,
+    "F16": 2
+  },
+  "first_full_assignment_cycle_length_counts": {
+    "2": 22,
+    "3": 4
+  },
+  "interpretation": [
+    "Each record transforms a strict-cycle family representative local-core certificate into one labelled n=9 frontier assignment.",
+    "The transformed strict-cycle edges are replayed from the assignment's compact core rows.",
+    "Connector paths identify each strict edge's inner pair with the next strict edge's outer pair.",
+    "Cycle-length counts here summarize transformed local-core certificates, not first full-assignment obstruction-shape cycles.",
+    "These records are compact replay aids and lemma-mining diagnostics, not theorem names.",
+    "No proof of the n=9 case is claimed."
+  ],
+  "n": 9,
+  "provenance": {
+    "command": "python scripts/check_n9_vertex_circle_strict_cycle_path_join.py --assert-expected --write",
+    "generator": "scripts/check_n9_vertex_circle_strict_cycle_path_join.py"
+  },
+  "records": [
+    {
+      "assignment_id": "A008",
+      "connector_path_lengths": [
+        0,
+        1,
+        2
+      ],
+      "contradiction": {
+        "cycle_length": 3,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          6,
+          1,
+          5,
+          7,
+          8
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 3,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              3
+            ],
+            "path": [],
+            "start_pair": [
+              0,
+              3
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              3
+            ],
+            "inner_interval": [
+              1,
+              3
+            ],
+            "inner_pair": [
+              0,
+              3
+            ],
+            "inner_span": 2,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              2
+            ],
+            "outer_span": 3,
+            "row": 1,
+            "witness_order": [
+              2,
+              3,
+              5,
+              0
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              5,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  5,
+                  7
+                ],
+                "row": 5
+              }
+            ],
+            "start_pair": [
+              0,
+              5
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              5
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              5
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              3
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              0,
+              3
+            ],
+            "outer_span": 2,
+            "row": 1,
+            "witness_order": [
+              2,
+              3,
+              5,
+              0
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              2
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  1
+                ],
+                "row": 1
+              },
+              {
+                "next_pair": [
+                  0,
+                  2
+                ],
+                "row": 0
+              }
+            ],
+            "start_pair": [
+              1,
+              5
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              1,
+              5
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              5
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              5,
+              7
+            ],
+            "outer_span": 3,
+            "row": 6,
+            "witness_order": [
+              7,
+              8,
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "family_id": "F07",
+      "span_signature": "2:1,3:1,3:2",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T11",
+      "to_canonical_label_map": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "assignment_id": "A015",
+      "connector_path_lengths": [
+        0,
+        1,
+        2
+      ],
+      "contradiction": {
+        "cycle_length": 3,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          4,
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          5,
+          0,
+          4,
+          6,
+          7
+        ],
+        [
+          8,
+          0,
+          1,
+          3,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 3,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              8
+            ],
+            "path": [],
+            "start_pair": [
+              2,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              2,
+              8
+            ],
+            "inner_interval": [
+              1,
+              3
+            ],
+            "inner_pair": [
+              2,
+              8
+            ],
+            "inner_span": 2,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              8
+            ],
+            "outer_span": 3,
+            "row": 0,
+            "witness_order": [
+              1,
+              2,
+              4,
+              8
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              4,
+              6
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  4,
+                  6
+                ],
+                "row": 4
+              }
+            ],
+            "start_pair": [
+              4,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              2,
+              4
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              4,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              2,
+              8
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              2,
+              8
+            ],
+            "outer_span": 2,
+            "row": 0,
+            "witness_order": [
+              1,
+              2,
+              4,
+              8
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              8
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  8
+                ],
+                "row": 0
+              },
+              {
+                "next_pair": [
+                  1,
+                  8
+                ],
+                "row": 8
+              }
+            ],
+            "start_pair": [
+              0,
+              4
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              4
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              2,
+              4
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              4,
+              6
+            ],
+            "outer_span": 3,
+            "row": 5,
+            "witness_order": [
+              6,
+              7,
+              0,
+              4
+            ]
+          }
+        }
+      ],
+      "family_id": "F07",
+      "span_signature": "2:1,3:1,3:2",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T11",
+      "to_canonical_label_map": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        0
+      ]
+    },
+    {
+      "assignment_id": "A020",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          6,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              6
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  3,
+                  6
+                ],
+                "row": 3
+              },
+              {
+                "next_pair": [
+                  1,
+                  6
+                ],
+                "row": 6
+              }
+            ],
+            "start_pair": [
+              0,
+              3
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              3
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              0,
+              3
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              0,
+              6
+            ],
+            "outer_span": 2,
+            "row": 8,
+            "witness_order": [
+              0,
+              3,
+              6,
+              7
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              6
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  6
+                ],
+                "row": 0
+              }
+            ],
+            "start_pair": [
+              0,
+              1
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              1
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              3
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              1,
+              6
+            ],
+            "outer_span": 2,
+            "row": 3,
+            "witness_order": [
+              4,
+              6,
+              0,
+              1
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "assignment_id": "A032",
+      "connector_path_lengths": [
+        0,
+        1,
+        2
+      ],
+      "contradiction": {
+        "cycle_length": 3,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          1,
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          7
+        ],
+        [
+          5,
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          6,
+          2,
+          4,
+          7,
+          8
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 3,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              8
+            ],
+            "path": [],
+            "start_pair": [
+              2,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              2,
+              8
+            ],
+            "inner_interval": [
+              0,
+              2
+            ],
+            "inner_pair": [
+              2,
+              8
+            ],
+            "inner_span": 2,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              2
+            ],
+            "outer_span": 3,
+            "row": 1,
+            "witness_order": [
+              2,
+              6,
+              8,
+              0
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              4,
+              6
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  4,
+                  6
+                ],
+                "row": 6
+              }
+            ],
+            "start_pair": [
+              2,
+              6
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              2,
+              6
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              2,
+              6
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              2,
+              8
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              2,
+              8
+            ],
+            "outer_span": 2,
+            "row": 1,
+            "witness_order": [
+              2,
+              6,
+              8,
+              0
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              2
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  1,
+                  2
+                ],
+                "row": 1
+              },
+              {
+                "next_pair": [
+                  0,
+                  2
+                ],
+                "row": 2
+              }
+            ],
+            "start_pair": [
+              1,
+              6
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              6
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              2,
+              6
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              4,
+              6
+            ],
+            "outer_span": 3,
+            "row": 5,
+            "witness_order": [
+              6,
+              1,
+              3,
+              4
+            ]
+          }
+        }
+      ],
+      "family_id": "F07",
+      "span_signature": "2:1,3:1,3:2",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T11",
+      "to_canonical_label_map": [
+        2,
+        1,
+        0,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3
+      ]
+    },
+    {
+      "assignment_id": "A040",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          2,
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          5,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          8,
+          2,
+          3,
+          6,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  2,
+                  5
+                ],
+                "row": 5
+              },
+              {
+                "next_pair": [
+                  2,
+                  7
+                ],
+                "row": 2
+              }
+            ],
+            "start_pair": [
+              5,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              2
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              5,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              2,
+              8
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              2,
+              8
+            ],
+            "outer_span": 2,
+            "row": 0,
+            "witness_order": [
+              1,
+              2,
+              5,
+              8
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              8
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  2,
+                  8
+                ],
+                "row": 8
+              }
+            ],
+            "start_pair": [
+              7,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              2,
+              8
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              7,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              2
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              2,
+              7
+            ],
+            "outer_span": 2,
+            "row": 5,
+            "witness_order": [
+              7,
+              8,
+              2,
+              4
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_id": "A047",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          1,
+          0,
+          2,
+          5,
+          8
+        ],
+        [
+          2,
+          3,
+          4,
+          7,
+          8
+        ],
+        [
+          5,
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          5,
+          6
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              3,
+              8
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  5,
+                  8
+                ],
+                "row": 5
+              },
+              {
+                "next_pair": [
+                  3,
+                  8
+                ],
+                "row": 8
+              }
+            ],
+            "start_pair": [
+              2,
+              5
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              8
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              2,
+              5
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              2,
+              3
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              2,
+              8
+            ],
+            "outer_span": 2,
+            "row": 1,
+            "witness_order": [
+              2,
+              5,
+              8,
+              0
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              8
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  2,
+                  8
+                ],
+                "row": 2
+              }
+            ],
+            "start_pair": [
+              2,
+              3
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              2,
+              3
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              2,
+              3
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              8
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              3,
+              8
+            ],
+            "outer_span": 2,
+            "row": 5,
+            "witness_order": [
+              6,
+              8,
+              2,
+              3
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        7,
+        8,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "assignment_id": "A071",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          2,
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          4,
+          2,
+          3,
+          5,
+          8
+        ],
+        [
+          5,
+          1,
+          2,
+          6,
+          7
+        ],
+        [
+          8,
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              6
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  2,
+                  8
+                ],
+                "row": 8
+              },
+              {
+                "next_pair": [
+                  2,
+                  6
+                ],
+                "row": 2
+              }
+            ],
+            "start_pair": [
+              5,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              2
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              5,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              5
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              2,
+              5
+            ],
+            "outer_span": 2,
+            "row": 4,
+            "witness_order": [
+              5,
+              8,
+              2,
+              3
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              5
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  2,
+                  5
+                ],
+                "row": 5
+              }
+            ],
+            "start_pair": [
+              5,
+              6
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              5
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              5,
+              6
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              2
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              2,
+              6
+            ],
+            "outer_span": 2,
+            "row": 8,
+            "witness_order": [
+              0,
+              2,
+              5,
+              6
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "assignment_id": "A080",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          2,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          5,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          7,
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          4,
+          5
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              5
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  2,
+                  5
+                ],
+                "row": 2
+              },
+              {
+                "next_pair": [
+                  0,
+                  5
+                ],
+                "row": 5
+              }
+            ],
+            "start_pair": [
+              2,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              2
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              2,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              8
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              5,
+              8
+            ],
+            "outer_span": 2,
+            "row": 7,
+            "witness_order": [
+              8,
+              2,
+              5,
+              6
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              5,
+              8
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  5,
+                  8
+                ],
+                "row": 8
+              }
+            ],
+            "start_pair": [
+              0,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              8
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              2
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              0,
+              5
+            ],
+            "outer_span": 2,
+            "row": 2,
+            "witness_order": [
+              3,
+              5,
+              8,
+              0
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        0
+      ]
+    },
+    {
+      "assignment_id": "A081",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          1,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          3,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          4,
+          0,
+          1,
+          5,
+          6
+        ],
+        [
+          7,
+          1,
+          4,
+          5,
+          8
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              5
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  1,
+                  7
+                ],
+                "row": 7
+              },
+              {
+                "next_pair": [
+                  1,
+                  5
+                ],
+                "row": 1
+              }
+            ],
+            "start_pair": [
+              4,
+              7
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              2
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              4,
+              7
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              4
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              1,
+              4
+            ],
+            "outer_span": 2,
+            "row": 3,
+            "witness_order": [
+              4,
+              7,
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              4
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  1,
+                  4
+                ],
+                "row": 4
+              }
+            ],
+            "start_pair": [
+              4,
+              5
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              4
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              4,
+              5
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              2
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              1,
+              5
+            ],
+            "outer_span": 2,
+            "row": 7,
+            "witness_order": [
+              8,
+              1,
+              4,
+              5
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        5,
+        6,
+        7,
+        8,
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "assignment_id": "A082",
+      "connector_path_lengths": [
+        1,
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 3,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          0,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          2,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          4,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          8,
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "core_size": 6,
+      "cycle_length": 3,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              8
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  2,
+                  8
+                ],
+                "row": 8
+              }
+            ],
+            "start_pair": [
+              0,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              2
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              3
+            ],
+            "outer_span": 3,
+            "row": 2,
+            "witness_order": [
+              3,
+              5,
+              8,
+              0
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  1,
+                  4
+                ],
+                "row": 4
+              },
+              {
+                "next_pair": [
+                  1,
+                  7
+                ],
+                "row": 1
+              }
+            ],
+            "start_pair": [
+              2,
+              4
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              2
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              2,
+              4
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              2
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              8
+            ],
+            "outer_span": 3,
+            "row": 1,
+            "witness_order": [
+              2,
+              4,
+              7,
+              8
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              3
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  3
+                ],
+                "row": 3
+              }
+            ],
+            "start_pair": [
+              1,
+              3
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              3
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              2
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              7
+            ],
+            "outer_span": 3,
+            "row": 0,
+            "witness_order": [
+              1,
+              3,
+              6,
+              7
+            ]
+          }
+        }
+      ],
+      "family_id": "F16",
+      "span_signature": "3:1,3:1,3:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 54,
+      "template_id": "T12",
+      "to_canonical_label_map": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "assignment_id": "A083",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          0,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          7
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          6
+        ],
+        [
+          6,
+          2,
+          3,
+          7,
+          8
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              3,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  3
+                ],
+                "row": 0
+              },
+              {
+                "next_pair": [
+                  3,
+                  7
+                ],
+                "row": 3
+              }
+            ],
+            "start_pair": [
+              0,
+              6
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              0,
+              6
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              2,
+              6
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              3,
+              6
+            ],
+            "outer_span": 2,
+            "row": 5,
+            "witness_order": [
+              6,
+              0,
+              3,
+              4
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              3,
+              6
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  3,
+                  6
+                ],
+                "row": 6
+              }
+            ],
+            "start_pair": [
+              6,
+              7
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              2,
+              6
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              6,
+              7
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              3,
+              7
+            ],
+            "outer_span": 2,
+            "row": 0,
+            "witness_order": [
+              1,
+              3,
+              6,
+              7
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "assignment_id": "A093",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          2,
+          0,
+          1,
+          5,
+          6
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          5,
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          8,
+          1,
+          2,
+          5,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              5
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  5,
+                  8
+                ],
+                "row": 8
+              },
+              {
+                "next_pair": [
+                  1,
+                  5
+                ],
+                "row": 5
+              }
+            ],
+            "start_pair": [
+              2,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              5
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              2,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              2
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              2,
+              5
+            ],
+            "outer_span": 2,
+            "row": 3,
+            "witness_order": [
+              4,
+              5,
+              8,
+              2
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              5
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  2,
+                  5
+                ],
+                "row": 2
+              }
+            ],
+            "start_pair": [
+              1,
+              2
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              2
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              5
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              1,
+              5
+            ],
+            "outer_span": 2,
+            "row": 8,
+            "witness_order": [
+              1,
+              2,
+              5,
+              7
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        2,
+        1,
+        0,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3
+      ]
+    },
+    {
+      "assignment_id": "A095",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          1,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          4,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          6,
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          7,
+          0,
+          3,
+          4,
+          8
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              4,
+              8
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  1,
+                  4
+                ],
+                "row": 1
+              },
+              {
+                "next_pair": [
+                  4,
+                  8
+                ],
+                "row": 4
+              }
+            ],
+            "start_pair": [
+              1,
+              7
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              2
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              7
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              7
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              4,
+              7
+            ],
+            "outer_span": 2,
+            "row": 6,
+            "witness_order": [
+              7,
+              1,
+              4,
+              5
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              4,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  4,
+                  7
+                ],
+                "row": 7
+              }
+            ],
+            "start_pair": [
+              7,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              7
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              7,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              2
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              4,
+              8
+            ],
+            "outer_span": 2,
+            "row": 1,
+            "witness_order": [
+              2,
+              4,
+              7,
+              8
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_id": "A111",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          0,
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          3,
+          0,
+          4,
+          5,
+          8
+        ],
+        [
+          6,
+          0,
+          3,
+          4,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              4
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  6
+                ],
+                "row": 6
+              },
+              {
+                "next_pair": [
+                  0,
+                  4
+                ],
+                "row": 0
+              }
+            ],
+            "start_pair": [
+              3,
+              6
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              3,
+              6
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              3
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              0,
+              3
+            ],
+            "outer_span": 2,
+            "row": 2,
+            "witness_order": [
+              3,
+              6,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              3
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  3
+                ],
+                "row": 3
+              }
+            ],
+            "start_pair": [
+              3,
+              4
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              3
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              3,
+              4
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              0,
+              4
+            ],
+            "outer_span": 2,
+            "row": 6,
+            "witness_order": [
+              7,
+              0,
+              3,
+              4
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        6,
+        7,
+        8,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "assignment_id": "A126",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          0,
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          1,
+          2,
+          3,
+          6,
+          7
+        ],
+        [
+          4,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          7,
+          2,
+          4,
+          5,
+          8
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  4,
+                  7
+                ],
+                "row": 4
+              },
+              {
+                "next_pair": [
+                  2,
+                  7
+                ],
+                "row": 7
+              }
+            ],
+            "start_pair": [
+              1,
+              4
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              4
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              4
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              2
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              1,
+              7
+            ],
+            "outer_span": 2,
+            "row": 0,
+            "witness_order": [
+              1,
+              4,
+              7,
+              8
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  1,
+                  7
+                ],
+                "row": 1
+              }
+            ],
+            "start_pair": [
+              1,
+              2
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              2
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              4
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              2,
+              7
+            ],
+            "outer_span": 2,
+            "row": 4,
+            "witness_order": [
+              5,
+              7,
+              1,
+              2
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        8,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "assignment_id": "A137",
+      "connector_path_lengths": [
+        0,
+        1,
+        2
+      ],
+      "contradiction": {
+        "cycle_length": 3,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          0,
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          4,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 3,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              7
+            ],
+            "path": [],
+            "start_pair": [
+              1,
+              7
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              7
+            ],
+            "inner_interval": [
+              0,
+              2
+            ],
+            "inner_pair": [
+              1,
+              7
+            ],
+            "inner_span": 2,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              8
+            ],
+            "outer_span": 3,
+            "row": 0,
+            "witness_order": [
+              1,
+              5,
+              7,
+              8
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              3,
+              5
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  3,
+                  5
+                ],
+                "row": 5
+              }
+            ],
+            "start_pair": [
+              1,
+              5
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              5
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              5
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              7
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              1,
+              7
+            ],
+            "outer_span": 2,
+            "row": 0,
+            "witness_order": [
+              1,
+              5,
+              7,
+              8
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              8
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  1
+                ],
+                "row": 0
+              },
+              {
+                "next_pair": [
+                  1,
+                  8
+                ],
+                "row": 1
+              }
+            ],
+            "start_pair": [
+              0,
+              5
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              0,
+              5
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              5
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              5
+            ],
+            "outer_span": 3,
+            "row": 4,
+            "witness_order": [
+              5,
+              0,
+              2,
+              3
+            ]
+          }
+        }
+      ],
+      "family_id": "F07",
+      "span_signature": "2:1,3:1,3:2",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T11",
+      "to_canonical_label_map": [
+        1,
+        0,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2
+      ]
+    },
+    {
+      "assignment_id": "A141",
+      "connector_path_lengths": [
+        0,
+        1,
+        2
+      ],
+      "contradiction": {
+        "cycle_length": 3,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          0,
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          3,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          8,
+          0,
+          4,
+          6,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 3,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              6
+            ],
+            "path": [],
+            "start_pair": [
+              0,
+              6
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              6
+            ],
+            "inner_interval": [
+              0,
+              2
+            ],
+            "inner_pair": [
+              0,
+              6
+            ],
+            "inner_span": 2,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              7
+            ],
+            "outer_span": 3,
+            "row": 8,
+            "witness_order": [
+              0,
+              4,
+              6,
+              7
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              4
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  2,
+                  4
+                ],
+                "row": 4
+              }
+            ],
+            "start_pair": [
+              0,
+              4
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              4
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              0,
+              4
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              6
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              0,
+              6
+            ],
+            "outer_span": 2,
+            "row": 8,
+            "witness_order": [
+              0,
+              4,
+              6,
+              7
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  8
+                ],
+                "row": 8
+              },
+              {
+                "next_pair": [
+                  0,
+                  7
+                ],
+                "row": 0
+              }
+            ],
+            "start_pair": [
+              4,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              4,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              4
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              4
+            ],
+            "outer_span": 3,
+            "row": 3,
+            "witness_order": [
+              4,
+              8,
+              1,
+              2
+            ]
+          }
+        }
+      ],
+      "family_id": "F07",
+      "span_signature": "2:1,3:1,3:2",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T11",
+      "to_canonical_label_map": [
+        0,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "assignment_id": "A147",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          0,
+          2,
+          3,
+          5,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          6,
+          0,
+          1,
+          4,
+          5
+        ],
+        [
+          7,
+          0,
+          3,
+          6,
+          8
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              5
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  3
+                ],
+                "row": 3
+              },
+              {
+                "next_pair": [
+                  0,
+                  5
+                ],
+                "row": 0
+              }
+            ],
+            "start_pair": [
+              3,
+              6
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              2
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              3,
+              6
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              6
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              0,
+              6
+            ],
+            "outer_span": 2,
+            "row": 7,
+            "witness_order": [
+              8,
+              0,
+              3,
+              6
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              6
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  6
+                ],
+                "row": 6
+              }
+            ],
+            "start_pair": [
+              5,
+              6
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              6
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              5,
+              6
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              2
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              0,
+              5
+            ],
+            "outer_span": 2,
+            "row": 3,
+            "witness_order": [
+              5,
+              6,
+              0,
+              2
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0,
+        8,
+        7
+      ]
+    },
+    {
+      "assignment_id": "A151",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          0,
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          3,
+          1,
+          2,
+          6,
+          7
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          6,
+          0,
+          2,
+          5,
+          8
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              6
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  6
+                ],
+                "row": 0
+              },
+              {
+                "next_pair": [
+                  2,
+                  6
+                ],
+                "row": 6
+              }
+            ],
+            "start_pair": [
+              0,
+              3
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              2
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              3
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              3
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              3,
+              6
+            ],
+            "outer_span": 2,
+            "row": 4,
+            "witness_order": [
+              5,
+              6,
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              3,
+              6
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  3,
+                  6
+                ],
+                "row": 3
+              }
+            ],
+            "start_pair": [
+              2,
+              3
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              3
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              2,
+              3
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              2
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              2,
+              6
+            ],
+            "outer_span": 2,
+            "row": 0,
+            "witness_order": [
+              2,
+              3,
+              6,
+              8
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        3,
+        2,
+        1,
+        0,
+        8,
+        7,
+        6,
+        5,
+        4
+      ]
+    },
+    {
+      "assignment_id": "A152",
+      "connector_path_lengths": [
+        1,
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 3,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          0,
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          5,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          6,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          7,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          8,
+          1,
+          2,
+          5,
+          7
+        ]
+      ],
+      "core_size": 6,
+      "cycle_length": 3,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  1,
+                  7
+                ],
+                "row": 1
+              }
+            ],
+            "start_pair": [
+              0,
+              1
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              0,
+              1
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              2
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              6
+            ],
+            "outer_span": 3,
+            "row": 7,
+            "witness_order": [
+              0,
+              1,
+              4,
+              6
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              8
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  5,
+                  8
+                ],
+                "row": 5
+              },
+              {
+                "next_pair": [
+                  2,
+                  8
+                ],
+                "row": 8
+              }
+            ],
+            "start_pair": [
+              5,
+              7
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              8
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              5,
+              7
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              7
+            ],
+            "outer_span": 3,
+            "row": 8,
+            "witness_order": [
+              1,
+              2,
+              5,
+              7
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              6
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  6
+                ],
+                "row": 6
+              }
+            ],
+            "start_pair": [
+              6,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              2
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              6,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              8
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              8
+            ],
+            "outer_span": 3,
+            "row": 0,
+            "witness_order": [
+              2,
+              3,
+              6,
+              8
+            ]
+          }
+        }
+      ],
+      "family_id": "F16",
+      "span_signature": "3:1,3:1,3:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 54,
+      "template_id": "T12",
+      "to_canonical_label_map": [
+        0,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "assignment_id": "A153",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          2,
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          8
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          8,
+          1,
+          2,
+          4,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              4,
+              8
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  2,
+                  8
+                ],
+                "row": 2
+              },
+              {
+                "next_pair": [
+                  4,
+                  8
+                ],
+                "row": 8
+              }
+            ],
+            "start_pair": [
+              2,
+              5
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              2
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              2,
+              5
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              5
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              5,
+              8
+            ],
+            "outer_span": 2,
+            "row": 6,
+            "witness_order": [
+              7,
+              8,
+              2,
+              5
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              5,
+              8
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  5,
+                  8
+                ],
+                "row": 5
+              }
+            ],
+            "start_pair": [
+              4,
+              5
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              5
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              4,
+              5
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              2
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              4,
+              8
+            ],
+            "outer_span": 2,
+            "row": 2,
+            "witness_order": [
+              4,
+              5,
+              8,
+              1
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0,
+        8,
+        7,
+        6
+      ]
+    },
+    {
+      "assignment_id": "A154",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          1,
+          0,
+          4,
+          5,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          4,
+          0,
+          3,
+          6,
+          7
+        ],
+        [
+          7,
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              4
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  4,
+                  7
+                ],
+                "row": 7
+              },
+              {
+                "next_pair": [
+                  0,
+                  4
+                ],
+                "row": 4
+              }
+            ],
+            "start_pair": [
+              1,
+              7
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              4
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              1,
+              7
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              1,
+              4
+            ],
+            "outer_span": 2,
+            "row": 2,
+            "witness_order": [
+              3,
+              4,
+              7,
+              1
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              4
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  1,
+                  4
+                ],
+                "row": 1
+              }
+            ],
+            "start_pair": [
+              0,
+              1
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              0,
+              1
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              4
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              0,
+              4
+            ],
+            "outer_span": 2,
+            "row": 7,
+            "witness_order": [
+              0,
+              1,
+              4,
+              6
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        1,
+        0,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2
+      ]
+    },
+    {
+      "assignment_id": "A157",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          1,
+          0,
+          3,
+          4,
+          6
+        ],
+        [
+          4,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          7,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          8,
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              6
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  1,
+                  4
+                ],
+                "row": 4
+              },
+              {
+                "next_pair": [
+                  1,
+                  6
+                ],
+                "row": 1
+              }
+            ],
+            "start_pair": [
+              4,
+              7
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              4,
+              7
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              7
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              1,
+              7
+            ],
+            "outer_span": 2,
+            "row": 8,
+            "witness_order": [
+              0,
+              1,
+              4,
+              7
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  1,
+                  7
+                ],
+                "row": 7
+              }
+            ],
+            "start_pair": [
+              6,
+              7
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              7
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              6,
+              7
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              1,
+              6
+            ],
+            "outer_span": 2,
+            "row": 4,
+            "witness_order": [
+              6,
+              7,
+              1,
+              3
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0,
+        8
+      ]
+    },
+    {
+      "assignment_id": "A164",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          1,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          4,
+          2,
+          3,
+          7,
+          8
+        ],
+        [
+          5,
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          7,
+          0,
+          1,
+          3,
+          6
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              3,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  1,
+                  7
+                ],
+                "row": 1
+              },
+              {
+                "next_pair": [
+                  3,
+                  7
+                ],
+                "row": 7
+              }
+            ],
+            "start_pair": [
+              1,
+              4
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              1,
+              4
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              2,
+              4
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              4,
+              7
+            ],
+            "outer_span": 2,
+            "row": 5,
+            "witness_order": [
+              6,
+              7,
+              1,
+              4
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              4,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  4,
+                  7
+                ],
+                "row": 4
+              }
+            ],
+            "start_pair": [
+              3,
+              4
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              2,
+              4
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              3,
+              4
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              3,
+              7
+            ],
+            "outer_span": 2,
+            "row": 1,
+            "witness_order": [
+              3,
+              4,
+              7,
+              0
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        4,
+        3,
+        2,
+        1,
+        0,
+        8,
+        7,
+        6,
+        5
+      ]
+    },
+    {
+      "assignment_id": "A167",
+      "connector_path_lengths": [
+        0,
+        1,
+        2
+      ],
+      "contradiction": {
+        "cycle_length": 3,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          3,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          4,
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          7,
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          3,
+          7
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 3,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              7
+            ],
+            "path": [],
+            "start_pair": [
+              1,
+              7
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              7
+            ],
+            "inner_interval": [
+              1,
+              3
+            ],
+            "inner_pair": [
+              1,
+              7
+            ],
+            "inner_span": 2,
+            "outer_class": [
+              0,
+              7
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              7
+            ],
+            "outer_span": 3,
+            "row": 8,
+            "witness_order": [
+              0,
+              1,
+              3,
+              7
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              3,
+              5
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  3,
+                  5
+                ],
+                "row": 3
+              }
+            ],
+            "start_pair": [
+              3,
+              7
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              3
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              3,
+              7
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              7
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              1,
+              7
+            ],
+            "outer_span": 2,
+            "row": 8,
+            "witness_order": [
+              0,
+              1,
+              3,
+              7
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  7,
+                  8
+                ],
+                "row": 8
+              },
+              {
+                "next_pair": [
+                  0,
+                  7
+                ],
+                "row": 7
+              }
+            ],
+            "start_pair": [
+              3,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              7
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              3,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              3
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              5
+            ],
+            "outer_span": 3,
+            "row": 4,
+            "witness_order": [
+              5,
+              6,
+              8,
+              3
+            ]
+          }
+        }
+      ],
+      "family_id": "F07",
+      "span_signature": "2:1,3:1,3:2",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T11",
+      "to_canonical_label_map": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_id": "A180",
+      "connector_path_lengths": [
+        2,
+        1
+      ],
+      "contradiction": {
+        "cycle_length": 2,
+        "kind": "strict_cycle",
+        "statement": "strict inequalities form a directed cycle after selected-distance quotienting"
+      },
+      "core_selected_rows": [
+        [
+          0,
+          3,
+          4,
+          7,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          3,
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          6,
+          0,
+          3,
+          5,
+          8
+        ]
+      ],
+      "core_size": 4,
+      "cycle_length": 2,
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              3,
+              8
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  3,
+                  6
+                ],
+                "row": 6
+              },
+              {
+                "next_pair": [
+                  3,
+                  8
+                ],
+                "row": 3
+              }
+            ],
+            "start_pair": [
+              0,
+              6
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              6
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              6
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              3
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              0,
+              3
+            ],
+            "outer_span": 2,
+            "row": 1,
+            "witness_order": [
+              2,
+              3,
+              6,
+              0
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              3
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  3
+                ],
+                "row": 0
+              }
+            ],
+            "start_pair": [
+              0,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              3
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              0,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              6
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              3,
+              8
+            ],
+            "outer_span": 2,
+            "row": 6,
+            "witness_order": [
+              8,
+              0,
+              3,
+              5
+            ]
+          }
+        }
+      ],
+      "family_id": "F12",
+      "span_signature": "2:1,2:1",
+      "status": "strict_cycle",
+      "strict_edge_count": 36,
+      "template_id": "T10",
+      "to_canonical_label_map": [
+        0,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ]
+    }
+  ],
+  "row_size": 4,
+  "schema": "erdos97.n9_vertex_circle_strict_cycle_path_join.v1",
+  "self_edge_assignment_count": 158,
+  "source_artifacts": [
+    {
+      "path": "data/certificates/n9_vertex_circle_local_cores.json",
+      "role": "family representative strict-cycle inequalities and equality connectors",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC",
+      "type": "n9_vertex_circle_local_cores_v1"
+    },
+    {
+      "path": "data/certificates/n9_vertex_circle_frontier_motif_classification.json",
+      "role": "assignment-to-family label maps and transformed core rows",
+      "schema": "erdos97.n9_vertex_circle_frontier_motif_classification.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/n9_vertex_circle_core_templates.json",
+      "role": "strict-cycle local-core template ids and span summaries",
+      "schema": "erdos97.n9_vertex_circle_core_templates.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/n9_vertex_circle_obstruction_shapes.json",
+      "role": "first full-assignment strict-cycle length counts for diagnostic comparison",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC",
+      "type": "n9_vertex_circle_obstruction_shapes_v1"
+    }
+  ],
+  "source_assignment_count": 184,
+  "span_signature_counts": {
+    "2:1,2:1": 18,
+    "2:1,3:1,3:2": 6,
+    "3:1,3:1,3:1": 2
+  },
+  "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+  "strict_cycle_assignment_count": 26,
+  "strict_cycle_family_count": 3,
+  "strict_cycle_template_count": 3,
+  "strict_edge_count_assignment_counts": {
+    "36": 24,
+    "54": 2
+  },
+  "template_assignment_counts": {
+    "T10": 18,
+    "T11": 6,
+    "T12": 2
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

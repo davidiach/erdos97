@@ -49,6 +49,15 @@ certificates, the stored label maps, the transformed core rows, and the
 replayed strict inequality. This is a review-pending diagnostic for lemma
 mining only; the path join is not an independent proof of `n=9`.
 
+The strict-cycle path join
+`data/certificates/n9_vertex_circle_strict_cycle_path_join.json` covers the
+remaining 26 assignments. It stores transformed local-core quotient cycles for
+families `F07`, `F12`, and `F16`, with template counts `T10: 18`, `T11: 6`,
+and `T12: 2`. Its local-core cycle-length counts are `2: 18` and `3: 8`;
+these are not the same statistic as the first full-assignment obstruction
+cycle counts in the obstruction-shape diagnostic. This is still a
+review-pending replay aid, not an independent n=9 proof.
+
 The local-core follow-up in `docs/n9-vertex-circle-local-cores.md` shows that
 each of the 16 family representatives has a vertex-circle certificate using at
 most 6 selected rows. Its template diagnostic groups those 16 local cores into
@@ -135,6 +144,19 @@ python scripts/check_n9_vertex_circle_self_edge_path_join.py \
   --json
 ```
 
+Generate and check the strict-cycle path join:
+
+```bash
+python scripts/check_n9_vertex_circle_strict_cycle_path_join.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_vertex_circle_strict_cycle_path_join.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
 Run the targeted artifact test:
 
 ```bash
@@ -142,5 +164,6 @@ python -m pytest \
   tests/test_n9_vertex_circle_motif_families.py \
   tests/test_n9_vertex_circle_frontier_motif_classification.py \
   tests/test_n9_vertex_circle_self_edge_path_join.py \
+  tests/test_n9_vertex_circle_strict_cycle_path_join.py \
   -q
 ```
