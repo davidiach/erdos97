@@ -74,6 +74,7 @@ Commands:
 
 ```bash
 python scripts/explore_n9_base_apex.py
+python scripts/check_n9_base_apex_low_excess_ledgers.py --check --json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 ```
 
@@ -81,7 +82,8 @@ Expected artifacts:
 
 - `data/certificates/n9_base_apex_low_excess_ledgers.json`, or an updated
   successor JSON/Markdown report listing which low-excess ledgers remain;
-- a checker update only if the new obstruction is exact and reproducible.
+- checker updates that independently replay generated ledger arithmetic and
+  motif counts from stored JSON.
 
 Acceptance criteria:
 
