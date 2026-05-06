@@ -216,7 +216,6 @@ def build_route_b_minor(
     # We exhibit a witness rational point where it is nonzero.
     g2_candidates = [i for i, t in enumerate(tags) if t[0] in (0, 1, 2)]
     g2_rows: list[int] | None = None
-    g2_first_block_det_at_pt: sp.Rational | None = None
     # We score trios by the eventual nonzero determinant of the FULL 7x7 minor
     # at the eval point, choosing the lexicographically first nonsingular trio.
     final_col_order_attempt = [2, 4, 5] + list(range(6, 2 * n))
@@ -412,7 +411,7 @@ def verify_n(n: int) -> dict:
     rows, tags = equidistance_jacobian_rows(pts, pattern)
     jac = sp.Matrix(rows)
     print(f"Jacobian shape: {jac.shape}  (expected rows={3*n}, cols={2*n})")
-    print(f"Ear-orderable (natural order): True")
+    print("Ear-orderable (natural order): True")
 
     eval_subs = evaluation_point(n)
     info = build_route_b_minor(jac, tags, n, pattern, eval_subs)

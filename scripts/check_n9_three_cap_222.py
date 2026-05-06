@@ -77,7 +77,6 @@ import json
 import sys
 import time
 from pathlib import Path
-from typing import Iterable, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "data" / "certificates" / "n9_three_cap_222.json"
@@ -191,7 +190,8 @@ def apply_perm(perm, ws):
     Wp, Wq, Wr = ws
     inv = {v: k for k, v in perm.items()}
     role_to_old_W = {P: Wp, Q: Wq, R: Wr}
-    img_set = lambda S: frozenset(perm[s] for s in S)
+    def img_set(S):
+        return frozenset(perm[s] for s in S)
     return tuple(img_set(role_to_old_W[inv[r]]) for r in (P, Q, R))
 
 

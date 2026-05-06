@@ -42,7 +42,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import signal
 import sys
 import time
@@ -57,7 +56,7 @@ sys.path.insert(0, str(SRC_DIR))
 from erdos97.generic_vertex_search import GenericVertexSearch  # noqa: E402
 
 import sympy as sp  # noqa: E402
-from sympy import Rational, Symbol, S, expand, groebner  # noqa: E402
+from sympy import Symbol, S, expand, groebner  # noqa: E402
 from sympy.polys.orderings import grevlex  # noqa: E402
 
 N = 10
@@ -262,15 +261,9 @@ def collect_survivors(
     target = survivor_cap
 
     def collect_for_row0(row0_index: int, row0: int) -> int:
-        from collections import Counter
-        from time import monotonic
 
         n_local = search.n
-        compatible = search.compatible
         mask_bits = search.mask_bits
-        options = search.options
-        max_indegree = search.max_indegree
-        pair_cap = search.pair_cap
         row_pair_indices = search.row_pair_indices
 
         nodes = 0

@@ -352,7 +352,7 @@ def audit_f5_inverted_pencil_concentration(
     diagnostic count rather than a hard kill.  We do *not* mark these
     as obstructions; we record them only as warnings.
     """
-    n = len(rows)
+    len(rows)
     pair_rows: dict[tuple[int, int], list[int]] = defaultdict(list)
     for k, w_k in enumerate(rows):
         for a, b in combinations(sorted(w_k), 2):
@@ -424,7 +424,7 @@ def audit_f6_inversion_l4_cross_check(
     audit so that downstream tooling can verify nothing slipped
     through.  No new kills are expected if F2 is enforced.
     """
-    n = len(rows)
+    len(rows)
     triples_by_i = inversion_triples(rows)
     pair_to_rows: dict[tuple[int, int], list[int]] = defaultdict(list)
     for k, w_k in enumerate(rows):

@@ -572,7 +572,6 @@ def minimal_v_failure_rows(p: WitnessProblem, rows: list[list[int]]) -> tuple[st
         return rows_set
 
     # Detect first violation:
-    component: dict[int, int] = {}
     graph: dict[int, list[tuple[int, int]]] = defaultdict(list)  # class -> [(class, source_row, outer_idx, inner_idx)]
     for outer, inner, src in edges:
         o = find(outer)

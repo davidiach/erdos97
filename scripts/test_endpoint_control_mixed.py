@@ -48,7 +48,6 @@ from __future__ import annotations
 import argparse
 import json
 import math
-import random
 from collections import defaultdict
 from dataclasses import dataclass, asdict, field
 from pathlib import Path
@@ -197,7 +196,6 @@ def construct_m4_polygon(n, rng=None, max_tries=400, min_each=1):
         # spread small => A_pts have y close to 1, x spread small.
         spread = rng.uniform(np.pi*0.15, np.pi*0.5)
         a_angles = np.sort(rng.uniform(np.pi/2 - spread/2, np.pi/2 + spread/2, 4))
-        r_star = 1.0
         A_pts = np.array([[np.cos(t), np.sin(t)] for t in a_angles])
         # A_pts[0] has smallest angle => largest x (right). A_pts[-1] has largest angle => leftmost.
         # Polygon CCW starting from i* (origin): we go to the right first
@@ -324,7 +322,7 @@ def analyse_polygon(P, eps=1e-7, require_global_m4=False,
     # Boundary order partition. Cyclic boundary indices 0..n-1, walk from i*.
     # L = vertices strictly between i* and j_minus (going one way that has
     # j_minus first); R = vertices strictly between j_plus and i*.
-    cyc = list(range(n))
+    list(range(n))
     # Find the arc i* -> j_minus that contains no other A vertex.
     def boundary_walk(start, end, direction):
         out = []
@@ -350,7 +348,7 @@ def analyse_polygon(P, eps=1e-7, require_global_m4=False,
         return None
 
     # Sanity: every vertex other than A ∪ {i*} should be in L ∪ R.
-    interior_A = set(A) - {j_minus, j_plus}
+    set(A) - {j_minus, j_plus}
     rest = set(range(n)) - {i_star} - set(A)
     if set(L_chain) | set(R_chain) != rest:
         # Some inconsistency; skip.
@@ -373,7 +371,7 @@ def analyse_polygon(P, eps=1e-7, require_global_m4=False,
             continue
         d = D[j_minus, k]
         # Group by quantized radius.
-        key = round(d / eps) * eps
+        round(d / eps) * eps
         # Use approximate equality: brute search over existing keys.
         matched = False
         for existing in list(rho_groups.keys()):
@@ -547,19 +545,19 @@ def verify_symmetric_closure():
     # mirror through y-axis: x -> -x
     uR = sp.Matrix([x0 - rho * sp.cos(alpha), y0 + rho * sp.sin(alpha)])
     jm = sp.Matrix([-x0, y0])
-    dL = (uL - jm).norm()
+    (uL - jm).norm()
     dR = (uR - jm).norm()
     # |uL - jm| = rho automatically. Force |uR - jm| = rho:
     eq = sp.simplify(dR**2 - rho**2)
-    sol = sp.solve(eq, alpha)
-    print(f"Symmetric closure: forcing |v_{{j^-}} - mirror(u_L)| = rho gives:")
-    print(f"  alpha must satisfy: cos(alpha) = x0 / rho")
+    sp.solve(eq, alpha)
+    print("Symmetric closure: forcing |v_{j^-} - mirror(u_L)| = rho gives:")
+    print("  alpha must satisfy: cos(alpha) = x0 / rho")
     # Substitute back to see that uL_x = 0:
     cos_alpha_expr = x0 / rho
     uL_x_at_sol = sp.simplify((-x0 + rho * cos_alpha_expr))
     print(f"  Then u_L.x = -x0 + rho * (x0/rho) = {uL_x_at_sol}")
-    print(f"  Hence u_L lies on the y-axis, equal to its mirror u_R.")
-    print(f"  Two distinct mirror pairs at the same rho is impossible.")
+    print("  Hence u_L lies on the y-axis, equal to its mirror u_R.")
+    print("  Two distinct mirror pairs at the same rho is impossible.")
 
 
 def main():

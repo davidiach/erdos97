@@ -30,41 +30,31 @@ from __future__ import annotations
 
 import argparse
 import json
-import math
-import os
 import sys
 import time
 from dataclasses import asdict, dataclass
 from itertools import combinations
 from pathlib import Path
-from typing import Iterable, Optional
+from typing import Optional
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
-import numpy as np
-from scipy.optimize import minimize
+import numpy as np  # noqa: E402
+from scipy.optimize import minimize  # noqa: E402
 
-from erdos97.incidence_filters import (
-    adjacent_two_overlap_violations,
+from erdos97.incidence_filters import (  # noqa: E402
     filter_summary,
-    odd_forced_perpendicular_cycle,
-    phi4_rectangle_trap_certificates,
-    mutual_phi_pairs,
-    mutual_midpoint_matrix,
-    forced_equal_classes_from_matrix,
 )
-from erdos97.search import (
-    PatternInfo,
+from erdos97.search import (  # noqa: E402
     convexity_margins,
     independent_diagnostics,
     init_x,
     pairwise_distances,
     pairwise_sqdist,
     polygon_from_x,
-    softplus,
 )
-from erdos97.vertex_circle_order_filter import vertex_circle_order_obstruction
+from erdos97.vertex_circle_order_filter import vertex_circle_order_obstruction  # noqa: E402
 
 
 @dataclass
@@ -589,7 +579,7 @@ def summarize_run(records, n_top=5):
 
     def rank_key(e):
         nm = e["numeric"]
-        rep = e["report"]
+        e["report"]
         # primary: low loss; tie-break: high convexity, high min_edge
         return (
             nm["max_spread"],
@@ -642,7 +632,7 @@ def main():
             seen_ns.append(n)
     ns = seen_ns
 
-    rng = np.random.default_rng(args.seed)
+    np.random.default_rng(args.seed)
     all_records = []
     seen_signatures = set()
 

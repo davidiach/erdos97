@@ -11,15 +11,13 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
-import numpy as np
-from scipy.optimize import minimize
+import numpy as np  # noqa: E402
+from scipy.optimize import minimize  # noqa: E402
 
-from erdos97.search import (
+from erdos97.search import (  # noqa: E402
     polygon_from_x, init_x, pairwise_distances, pairwise_sqdist,
     convexity_margins, independent_diagnostics,
 )
-from erdos97.incidence_filters import filter_summary
-from erdos97.vertex_circle_order_filter import vertex_circle_order_obstruction
 
 
 def cyclic_pattern(n, offsets):
@@ -59,14 +57,16 @@ def run_one(S, n, mode='polar', restarts=20, seed=42, margin=1e-4,
     t0 = time.time()
     # prescreen: short iters
     for r in range(restarts):
-        if time.time() - t0 > time_budget * 0.5: break
+        if time.time() - t0 > time_budget * 0.5:
+            break
         x0 = init_x(n, rng, mode, jitter=0.45 if r else 0.10)
         try:
             res = minimize(loss_fn, x0, method='SLSQP', constraints=constraints,
                           options={'maxiter': 60, 'ftol':1e-9})
         except Exception:
             continue
-        if not np.all(np.isfinite(res.x)): continue
+        if not np.all(np.isfinite(res.x)):
+            continue
         if conv_c(res.x).min() < -1e-9 or edge_c(res.x).min() < -1e-9 or pair_c(res.x).min() < -1e-9:
             continue
         if best is None or res.fun < best[0]:
@@ -80,7 +80,8 @@ def run_one(S, n, mode='polar', restarts=20, seed=42, margin=1e-4,
                           options={'maxiter': max_iter, 'ftol':1e-13})
         except Exception:
             break
-        if not np.all(np.isfinite(res.x)): break
+        if not np.all(np.isfinite(res.x)):
+            break
         if conv_c(res.x).min() < -1e-9 or edge_c(res.x).min() < -1e-9 or pair_c(res.x).min() < -1e-9:
             break
         improved = res.fun < best[0] - 1e-12

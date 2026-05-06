@@ -44,10 +44,8 @@ from typing import Sequence
 
 from erdos97.incidence_filters import (
     Chord,
-    forced_perpendicular_graph,
     mutual_phi_pairs,
     normalize_chord,
-    phi_map,
 )
 
 Pattern = Sequence[Sequence[int]]

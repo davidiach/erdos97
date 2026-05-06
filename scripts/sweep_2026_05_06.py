@@ -30,24 +30,19 @@ import sys
 import time
 from collections import defaultdict
 from pathlib import Path
-from typing import Iterable, Iterator, List, Optional, Sequence, Tuple
+from typing import Iterator, List, Optional, Sequence, Tuple
 
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "src"))
 
-import numpy as np
+import numpy as np  # noqa: E402
 
-from erdos97.search import (
-    LossWeights,
+from erdos97.search import (  # noqa: E402
     PatternInfo,
     built_in_patterns,
-    incidence_obstruction_stats,
-    independent_diagnostics,
-    polygon_from_x,
     search_pattern,
-    validate_candidate_shape,
 )
-from erdos97.generic_vertex_search import GenericVertexSearch
+from erdos97.generic_vertex_search import GenericVertexSearch  # noqa: E402
 
 OUT_DIR = REPO / "data" / "runs" / "2026-05-06"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -111,7 +106,7 @@ def column_pair_cap_ok(S: Sequence[Sequence[int]], cap: int = 2) -> bool:
     """The dual cap: a single chord (i,j) cannot appear as a witness pair in
     more than ``cap`` rows. Equivalently: for each unordered pair {i,j} of
     targets, count rows containing both; cap at 2."""
-    n = len(S)
+    len(S)
     counts: dict = defaultdict(int)
     for row in S:
         for a, b in itertools.combinations(sorted(row), 2):
@@ -345,7 +340,7 @@ def two_orbit_z2m_patterns(
     n = 2 * m
     for k in range(n_candidates):
         # offsets are signed integers in (-(n-1)..n-1) excluding 0
-        candidates = [d for d in range(1, n) if d != 0]
+        [d for d in range(1, n) if d != 0]
         all_vals = list(range(-n + 1, n))
         all_vals = [v for v in all_vals if v != 0]
         even_off = sorted(rng.choice(all_vals, size=4, replace=False).tolist())
@@ -841,7 +836,7 @@ def main() -> None:
         print(f"  {k}: {v}")
     print(f"submitted to optimizer: {summary['submitted_total']}")
     print(f"near misses: {len(summary['near_misses'])}")
-    print(f"\nTop 5 (lowest eq_rms):")
+    print("\nTop 5 (lowest eq_rms):")
     for rec in summary["top_records"][:5]:
         print(f"  {rec['name']}: n={rec['n']}, eq_rms={rec['eq_rms']:.3e}, "
               f"conv={rec['convexity_margin']:.3e}, edge={rec['min_edge_length']:.3e}")

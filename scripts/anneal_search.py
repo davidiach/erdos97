@@ -26,14 +26,12 @@ from typing import Sequence
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "src"))
 
-import numpy as np
-from scipy.optimize import minimize
+import numpy as np  # noqa: E402
+from scipy.optimize import minimize  # noqa: E402
 
-from erdos97.search import (
+from erdos97.search import (  # noqa: E402
     convexity_margin,
-    convexity_margins,
     independent_diagnostics,
-    min_edge_length,
     min_pair_distance,
     normalize_points,
     pairwise_sqdist,
@@ -317,7 +315,7 @@ def slsqp_refine(P0: np.ndarray, S: Sequence[Sequence[int]], *, margin: float = 
     # ---- convexity constraint & analytic Jacobian ----
     # g_e = sign * ((P[i+1]-P[i]) x (P[j]-P[i])) - margin
     # Sign is fixed across the polygon (we'll evaluate per-call).
-    sign0 = 1.0 if polygon_area2(P0) >= 0 else -1.0
+    1.0 if polygon_area2(P0) >= 0 else -1.0
 
     def convex_value_and_jac(P: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
         # Evaluate vectorized.
@@ -418,7 +416,7 @@ class Reject:
 
 def validate_final(P: np.ndarray, S: Sequence[Sequence[int]]) -> str | None:
     """Return rejection reason or None if the candidate clears acceptance gates."""
-    n = len(P)
+    len(P)
     if min_pair_distance(P) < 0.01:
         return "collapse_to_clusters"
     margin = convexity_margin(P)

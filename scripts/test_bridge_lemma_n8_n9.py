@@ -29,11 +29,10 @@ from __future__ import annotations
 
 import json
 import sys
-from collections import Counter
 from itertools import combinations
 from pathlib import Path
 from time import monotonic
-from typing import Iterable, Optional
+from typing import Optional
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
@@ -42,7 +41,6 @@ if str(SRC) not in sys.path:
 
 from erdos97.generic_vertex_search import GenericVertexSearch  # noqa: E402
 from erdos97.search import (  # noqa: E402
-    LossWeights,
     PatternInfo,
     search_pattern,
 )
@@ -263,9 +261,8 @@ def attempt_realization(
                 max_nfev=max_nfev,
                 verbose=False,
             )
-        except Exception as exc:  # pragma: no cover - search robustness
+        except Exception:  # pragma: no cover - search robustness
             continue
-        score = (r.eq_rms, r.max_spread, -r.convexity_margin if r.convexity_margin is not None else 0.0)
         if r.loss < best_score:
             best_score = r.loss
             best = {
@@ -503,11 +500,11 @@ def n10_estimate() -> dict[str, object]:
 
 def structural_summary(n8_data: dict[str, object], n9_data: dict[str, object], real: dict[str, object]) -> dict[str, object]:
     """Distill the Bridge Lemma A' empirical findings."""
-    n8_non_ear = n8_data["non_ear_orderable_count"]
+    n8_data["non_ear_orderable_count"]
     n8_k4 = n8_data["k4_core_ids"]
     n8_realiz = real["n8_non_ear_realization"]
 
-    n9_non_ear = n9_data["non_ear_orderable_count"]
+    n9_data["non_ear_orderable_count"]
     n9_k4 = n9_data["k4_core_indices"]
     n9_realiz = real["n9_non_ear_realization"]
 
@@ -583,11 +580,11 @@ def structural_summary(n8_data: dict[str, object], n9_data: dict[str, object], r
         )
         if first_non_ear:
             findings.append(
-                f"At n=9, the only non-ear-orderable patterns are circulants on "
-                f"Z/9 with offsets {{1,3,6,7}} (idx 81) and its v->-v image "
-                f"{{2,3,6,8}} (idx 151); both are killed by the strict-cycle "
-                f"vertex-circle obstruction (per bridge_lemma_check.json) and "
-                f"have largest mutually-witnessed clique = K_3 only."
+                "At n=9, the only non-ear-orderable patterns are circulants on "
+                "Z/9 with offsets {1,3,6,7} (idx 81) and its v->-v image "
+                "{2,3,6,8} (idx 151); both are killed by the strict-cycle "
+                "vertex-circle obstruction (per bridge_lemma_check.json) and "
+                "have largest mutually-witnessed clique = K_3 only."
             )
 
     return {

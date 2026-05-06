@@ -66,9 +66,8 @@ import argparse
 import json
 import sys
 import time
-from itertools import combinations, permutations
+from itertools import combinations
 from pathlib import Path
-from typing import Iterable
 
 # Ensure src/ is on path
 ROOT = Path(__file__).resolve().parents[1]
@@ -431,7 +430,6 @@ def analyse_cayley(n: int) -> dict:
     not_ear_closure = 0
     not_ear_closure_and_vc_ok = 0
     not_ear_dag_and_vc_ok = 0
-    pattern_max = 0
 
     for D in offset_sets:
         pattern = cayley_pattern(D, n)
@@ -534,7 +532,6 @@ def n10_pre_vc_sample(node_budget_per_slice: int, slices_to_run: list[int]) -> d
     total_nodes = 0
     total_full = 0
     aborted_count = 0
-    full_patterns: list[tuple[tuple[int, ...], ...]] = []
     t0 = time.perf_counter()
     for row0_index in slices_to_run:
         slice_t0 = time.perf_counter()

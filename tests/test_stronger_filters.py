@@ -47,7 +47,6 @@ def test_triple_unique_remove_balances_add():
 
 def test_perp_edges_for_two_overlap_pair():
     # n = 6 toy: rows 0 and 1 share witnesses {2, 3}.
-    mask_bits = {0b001110: [1, 2, 3], 0b011100: [2, 3, 4]}  # not real masks; mock
     # Build a synthetic assignment using simple lists instead.
     assign = {0: 0, 1: 1}
     mb = {0: [2, 3, 4, 5], 1: [2, 3, 4, 5]}  # share {2,3,4,5} which is 4 overlaps

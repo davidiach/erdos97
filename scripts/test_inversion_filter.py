@@ -17,11 +17,8 @@ This script:
 from __future__ import annotations
 
 import json
-import os
 import sys
-from collections import Counter
 from pathlib import Path
-from typing import Iterable
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SRC_PATH = REPO_ROOT / "src"
@@ -35,14 +32,13 @@ from erdos97.n9_vertex_circle_exhaustive import (  # noqa: E402
     OPTIONS as N9_OPTIONS,
     PAIRS as N9_PAIRS,
     ROW_PAIR_INDICES as N9_ROW_PAIR_INDICES,
-    rows_compatible as n9_rows_compatible,
     vertex_circle_status as n9_vertex_circle_status,
     valid_options_for_center as n9_valid_options,
 )
 
 
 def _rows_from_indicator(indicator_rows):
-    n = len(indicator_rows)
+    len(indicator_rows)
     out = []
     for i, row in enumerate(indicator_rows):
         ws = sorted(idx for idx, val in enumerate(row) if val)
