@@ -168,13 +168,70 @@ public theorem-style use of the artifacts here.
    no other vertex is 4-bad."
    Writeup: `data/runs/2026-05-06/three_cap_n9_rigid.md`.
 
-9. **Danzer / Fishburn-Reeds k=3 → k=4 lift attempts: no counterexample.**
-   Multiple lifting strategies (1-parameter perturbations, double-Danzer,
-   center insertion, affine stretches) were attempted on the Danzer
-   9-point and Fishburn-Reeds 20-point k=3 examples. None produced a
-   strictly convex k=4 polygon. Best near-misses are recorded as
-   provenance only.
-   Artifact: `data/runs/2026-05-06/danzer_fr_lift_attempts.json`.
+9. **Danzer / Fishburn-Reeds k=3 → k=4 lift attempts: no counterexample,
+   but a notable algebraic by-product.** Multiple lifting strategies
+   (1-parameter perturbations, double-Danzer, center insertion, affine
+   stretches) were attempted on the Danzer 9-point and Fishburn-Reeds
+   20-point k=3 examples. None produced a strictly convex k=4 polygon.
+
+   **Notable algebraic finding:** A 3-fold rotationally-symmetric exact
+   algebraic family at n=9, with three orbits at radii (r_A, r_B, r_C),
+   the closed-form constraint `r_B = r_C + 1`, and orbit phases
+   `(0, -π/3, 2π/3)`, has `E(v) = 4` at every vertex. **However**, this
+   family is NOT a convex 9-gon for any `r_C > 0`: the smallest-radius
+   orbit always lies in the interior of the convex hull of the other two
+   orbits, so only 6 of 9 points are on the hull. This confirms that
+   variable-radius constructions naturally produce 6-vertex convex hulls
+   with interior points (consistent with Danzer's published 9-point), and
+   does not affect Erdős #97 (which requires all 9 points on the convex
+   hull).
+
+   Artifact: `data/runs/2026-05-06/danzer_fr_lift_attempts.json`,
+   `data/runs/2026-05-06/danzer_3fold_algebra.py`,
+   `data/runs/2026-05-06/verify_3fold_convex.py`.
+
+10. **Affine stretching of regular n-gons confirms dead end at n ≤ 48.**
+    Phases A (dense λ-sweep), B (analytic critical-λ enumeration), C
+    (rotate + stretch) tested n in {12, 16, 18, 20, 24, 28, 32, 36, 40, 48}.
+    Best coverage: n=24 with λ = 2/√3 - 1 attaining 6/24 (the §7.3 example).
+    No (n, λ) achieves coverage = n. Mathematical reason: under x-axis
+    stretch + 180° rotation symmetry, n vertices fall into ⌈n/4⌉+1 orbits;
+    saturating mult ≥ 4 in every orbit requires that many independent
+    algebraic equations in λ alone (1 d.o.f.), generically impossible.
+    Artifact: `data/certificates/2026-05-06/affine_stretch_search.json`.
+
+11. **Independent re-implementation of n=9 vertex-circle audit AGREES.**
+    A separate audit agent re-implemented the n=9 vertex-circle search
+    from scratch (label-order branching instead of minimum-remaining-options).
+    Branching-invariant counters match exactly: 0 full assignments
+    with vertex-circle, 184 full assignments without, 158 self-edge +
+    26 strict-cycle kills. Search-order-dependent counters (nodes visited)
+    differ as expected, confirming search-strategy difference rather than
+    a soundness defect. Audit verdict: **AGREE**.
+    Artifacts: `data/certificates/2026-05-06/n9_independent_audit.json`,
+    `data/runs/2026-05-06_audit/independent_audit.py`.
+
+12. **Bridge Lemma A' direct attack: not closed, but new partial filter
+    (F-EQTRI).** A "forced-equilateral" lemma was proved: if a witness
+    pattern contains an all-mutual triangle `{a, b, c}` (each pair-wise
+    in the others' selected rows), then the triangle is equilateral with
+    side equal to the common selected radius. Applied to the 2 non-ear
+    n=9 patterns (Cayley-Z/9 circulants), this gives a per-triangle
+    equality constraint. F-EQTRI alone does not kill three disjoint
+    forced equilateral triangles in a 9-gon (verified numerically;
+    realizable as Star-of-David configurations). Combined with cyclic
+    order it may be productive at n ≥ 10.
+    Artifact: `data/runs/2026-05-06/bridge_lemma_attack.md`.
+
+13. **Paraboloid-lift attack: no counterexample at n ∈ {12, 15, 16, 18, 21},
+    plus a new "lifted-normal defect" diagnostic.** All Newton/L-BFGS runs
+    converged to degenerate cluster-collapse configurations. New functional
+    `D_normal(P, S) = sum_i (1 - cos angle(fitted_normal_i, target_normal_i))^2`
+    distinguishes honest 4-bad solutions (D_normal = 0) from cluster
+    degenerations (D_normal large). At the saved B12 near-miss, D_normal = 9.89
+    with min_cos = -0.86 (plane normals strongly misoriented), confirming
+    the near-miss is on the wrong locus.
+    Artifact: `data/runs/2026-05-06/paraboloid_lift_attack.md`.
 
 ## Combinatorial / algebraic verification matrix (updated)
 
