@@ -30,6 +30,25 @@ def test_b12_near_miss_is_not_interval_certified() -> None:
     assert "counterexample to Erdos Problem #97" in result["does_not_claim"]
 
 
+def test_negative_interval_parameters_are_malformed() -> None:
+    result = verify_interval_json(B12, coord_abs_radius=-1e-12, coord_rel_radius=0.0)
+
+    assert result["ok"] is False
+    assert result["failure_mode"] == "malformed"
+    assert result["claim_strength"] == "MALFORMED_INPUT"
+    assert "coord_abs_radius must be nonnegative" in result["validation_errors"][0]
+
+
+def test_wider_coordinate_radius_documents_uncertified_convexity() -> None:
+    result = verify_interval_json(B12, coord_abs_radius=1e-6, coord_rel_radius=0.0)
+
+    assert result["ok"] is False
+    assert result["failure_mode"] == "uncertified"
+    assert result["convexity_certified"] is False
+    assert result["claim_strength"] == "NUMERICAL_EVIDENCE_OR_NEAR_MISS_NOT_A_COUNTEREXAMPLE"
+    assert "counterexample to Erdos Problem #97" in result["does_not_claim"]
+
+
 def test_malformed_candidate_is_reported(tmp_path: Path) -> None:
     candidate = tmp_path / "bad.json"
     write_candidate(candidate, [[0.0, 0.0], [1.0, 0.0]], [[1, 1, 1, 1], [0, 0, 0, 0]])
@@ -97,3 +116,26 @@ def test_interval_verify_cli_check_rejects_b12() -> None:
     assert result.returncode == 1
     payload = json.loads(result.stdout)
     assert payload["failure_mode"] == "floating_near_miss"
+
+
+def test_interval_verify_cli_reports_negative_radius_as_json() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/interval_verify_candidate.py",
+            str(B12),
+            "--coord-abs-radius=-1e-12",
+            "--coord-rel-radius",
+            "0",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 0
+    assert result.stderr == ""
+    payload = json.loads(result.stdout)
+    assert payload["failure_mode"] == "malformed"
+    assert payload["claim_strength"] == "MALFORMED_INPUT"
