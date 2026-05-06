@@ -188,6 +188,29 @@ def test_row_ptolemy_product_cancellation_certificate_on_toy_pattern() -> None:
     )
 
 
+def test_row_ptolemy_product_cancellation_depends_on_supplied_order() -> None:
+    rows = [
+        [1, 2, 3, 8],
+        [0, 3, 4, 7],
+        [1, 3, 5, 6],
+        [2, 4, 5, 8],
+        [0, 3, 6, 8],
+        [2, 4, 6, 7],
+        [1, 5, 7, 8],
+        [0, 1, 4, 6],
+        [0, 2, 5, 7],
+    ]
+
+    natural_certs = row_ptolemy_product_cancellation_certificates(rows, list(range(9)))
+    scrambled_certs = row_ptolemy_product_cancellation_certificates(
+        rows,
+        [0, 1, 2, 6, 5, 7, 4, 8, 3],
+    )
+
+    assert len(natural_certs) == 6
+    assert scrambled_certs == []
+
+
 def test_phi4_rectangle_trap_determinant_identity_expands_exactly() -> None:
     import sympy as sp
 
