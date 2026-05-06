@@ -21,7 +21,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Any, Mapping
+from typing import Any, Mapping, Sequence
 
 from certify_c19_kalmanson_prefix_window_prefilter import scan_window_with_prefilter
 from pilot_c19_kalmanson_prefix_branches import N, OFFSETS, PATTERN_NAME, label_digest
@@ -89,6 +89,7 @@ def run_sweep(
     window_count: int,
     fallback_example_count: int,
     tol: float,
+    catalog_unit_supports: Sequence[Mapping[str, object]] | None = None,
 ) -> dict[str, object]:
     if start_index < 0:
         raise ValueError("start_index must be nonnegative")
@@ -108,6 +109,7 @@ def run_sweep(
             include_certificates=False,
             closed_example_count=fallback_example_count,
             tol=tol,
+            catalog_unit_supports=catalog_unit_supports,
         )
         windows.append(compact_window_record(window_data))
 
@@ -124,6 +126,8 @@ def run_sweep(
     total_fifth_children = 0
     total_fifth_closed = 0
     total_fifth_prefilter_closed = 0
+    total_fifth_two_row_prefilter_closed = 0
+    total_fifth_catalog_prefilter_closed = 0
     total_fifth_fallback_attempts = 0
     total_fifth_fallback_closed = 0
     total_fifth_survivors = 0
@@ -149,6 +153,12 @@ def run_sweep(
         total_fifth_prefilter_closed += int(
             accounting["fifth_pair_prefilter_certified_count"]
         )
+        total_fifth_two_row_prefilter_closed += int(
+            accounting.get("fifth_pair_two_row_prefilter_certified_count", 0)
+        )
+        total_fifth_catalog_prefilter_closed += int(
+            accounting.get("fifth_pair_catalog_prefilter_certified_count", 0)
+        )
         total_fifth_fallback_attempts += int(
             accounting["fifth_pair_farkas_fallback_attempt_count"]
         )
@@ -167,56 +177,78 @@ def run_sweep(
             for idx in range(int(window["start_index"]), int(window["end_index"]) + 1)
         )
 
+    artifact_type = "c19_kalmanson_prefix_window_prefilter_sweep_v1"
+    fifth_pair_prefilter = "two_row_kalmanson_prefilter"
+    if catalog_unit_supports is not None:
+        artifact_type = "c19_kalmanson_prefix_window_catalog_prefilter_sweep_v1"
+        fifth_pair_prefilter = "two_row_then_cataloged_unit_support"
+    aggregate_accounting: dict[str, object] = {
+        "prefix_branch_count": total_prefixes,
+        "prefix_branches_closed_after_chain": total_closed,
+        "prefix_branches_remaining_after_chain": total_prefixes - total_closed,
+        "direct_prefix_certified_count": total_direct_closed,
+        "direct_prefix_unclosed_count": total_direct_survivors,
+        "fourth_pair_child_branch_count": total_fourth_children,
+        "fourth_pair_child_certified_count": total_fourth_closed,
+        "unclosed_fourth_pair_child_branch_count": total_fourth_survivors,
+        "prefix_parents_closed_by_fourth_refinement": total_prefixes_closed_by_fourth,
+        "fifth_pair_parent_count": total_fifth_parents,
+        "fifth_pair_child_branch_count": total_fifth_children,
+        "fifth_pair_child_certified_count": total_fifth_closed,
+        "fifth_pair_prefilter_certified_count": total_fifth_prefilter_closed,
+        "fifth_pair_farkas_fallback_attempt_count": total_fifth_fallback_attempts,
+        "fifth_pair_farkas_fallback_certified_count": total_fifth_fallback_closed,
+        "unclosed_fifth_pair_child_branch_count": total_fifth_survivors,
+        "fourth_pair_parents_closed_by_fifth_refinement": (
+            total_fourth_parents_closed_by_fifth
+        ),
+        "prefix_parents_closed_by_fifth_refinement": total_prefixes_closed_by_fifth,
+        "exhaustive_window_sweep": True,
+        "exhaustive_all_orders": False,
+    }
+    parameters: dict[str, object] = {
+        "start_index": start_index,
+        "window_size": window_size,
+        "window_count": window_count,
+        "lp_support_tolerance": tol,
+        "anchor_label": 0,
+        "fifth_pair_prefilter": fifth_pair_prefilter,
+        "fallback_example_count": fallback_example_count,
+    }
+    if catalog_unit_supports is not None:
+        parameters["catalog_unit_support_count"] = len(catalog_unit_supports)
+        aggregate_accounting["fifth_pair_two_row_prefilter_certified_count"] = (
+            total_fifth_two_row_prefilter_closed
+        )
+        aggregate_accounting["fifth_pair_catalog_prefilter_certified_count"] = (
+            total_fifth_catalog_prefilter_closed
+        )
+    notes = [
+        "No general proof of Erdos Problem #97 is claimed.",
+        "No counterexample is claimed.",
+        "This sweep certifies only deterministic C19 three-boundary-prefix windows.",
+        "Direct and fourth-pair closures use ordinary prefix-forced Kalmanson/Farkas certificates.",
+        "Fifth-pair closures first try exact two-row Kalmanson cancellations; only misses use ordinary Farkas fallback.",
+        "Unclosed children, if any, are not counterexamples and are not evidence of realizability.",
+        "This is not an exhaustive all-order C19 search.",
+    ]
+    if catalog_unit_supports is not None:
+        notes[4] = (
+            "Fifth-pair closures first try exact two-row Kalmanson cancellations, "
+            "then cataloged unit supports; only misses use ordinary "
+            "Farkas fallback."
+        )
     return {
-        "type": "c19_kalmanson_prefix_window_prefilter_sweep_v1",
+        "type": artifact_type,
         "trust": "EXACT_OBSTRUCTION",
         "pattern": {
             "name": PATTERN_NAME,
             "n": N,
             "circulant_offsets": OFFSETS,
         },
-        "notes": [
-            "No general proof of Erdos Problem #97 is claimed.",
-            "No counterexample is claimed.",
-            "This sweep certifies only deterministic C19 three-boundary-prefix windows.",
-            "Direct and fourth-pair closures use ordinary prefix-forced Kalmanson/Farkas certificates.",
-            "Fifth-pair closures first try exact two-row Kalmanson cancellations; only misses use ordinary Farkas fallback.",
-            "Unclosed children, if any, are not counterexamples and are not evidence of realizability.",
-            "This is not an exhaustive all-order C19 search.",
-        ],
-        "parameters": {
-            "start_index": start_index,
-            "window_size": window_size,
-            "window_count": window_count,
-            "lp_support_tolerance": tol,
-            "anchor_label": 0,
-            "fifth_pair_prefilter": "two_row_kalmanson_prefilter",
-            "fallback_example_count": fallback_example_count,
-        },
-        "aggregate_accounting": {
-            "prefix_branch_count": total_prefixes,
-            "prefix_branches_closed_after_chain": total_closed,
-            "prefix_branches_remaining_after_chain": total_prefixes - total_closed,
-            "direct_prefix_certified_count": total_direct_closed,
-            "direct_prefix_unclosed_count": total_direct_survivors,
-            "fourth_pair_child_branch_count": total_fourth_children,
-            "fourth_pair_child_certified_count": total_fourth_closed,
-            "unclosed_fourth_pair_child_branch_count": total_fourth_survivors,
-            "prefix_parents_closed_by_fourth_refinement": total_prefixes_closed_by_fourth,
-            "fifth_pair_parent_count": total_fifth_parents,
-            "fifth_pair_child_branch_count": total_fifth_children,
-            "fifth_pair_child_certified_count": total_fifth_closed,
-            "fifth_pair_prefilter_certified_count": total_fifth_prefilter_closed,
-            "fifth_pair_farkas_fallback_attempt_count": total_fifth_fallback_attempts,
-            "fifth_pair_farkas_fallback_certified_count": total_fifth_fallback_closed,
-            "unclosed_fifth_pair_child_branch_count": total_fifth_survivors,
-            "fourth_pair_parents_closed_by_fifth_refinement": (
-                total_fourth_parents_closed_by_fifth
-            ),
-            "prefix_parents_closed_by_fifth_refinement": total_prefixes_closed_by_fifth,
-            "exhaustive_window_sweep": True,
-            "exhaustive_all_orders": False,
-        },
+        "notes": notes,
+        "parameters": parameters,
+        "aggregate_accounting": aggregate_accounting,
         "prefix_label_digest": label_digest(prefix_labels),
         "windows": windows,
     }
