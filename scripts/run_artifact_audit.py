@@ -207,6 +207,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_row_ptolemy_order_sensitivity",
+        command=(
+            "python",
+            "scripts/check_n9_row_ptolemy_order_sensitivity.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Derived n=9 row-Ptolemy order-sensitivity diagnostic for sampled "
+            "representatives; not a proof of n=9, counterexample, all-order "
+            "obstruction, orderless obstruction, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",
