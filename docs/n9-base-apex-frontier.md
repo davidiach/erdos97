@@ -132,6 +132,16 @@ equal-distance triples or profile excess could fill selected-baseline empty
 capacity slots, so the artifact is only a finite bookkeeping map for where the
 current turn-cover method does and does not bite.
 
+The sharp strict-threshold slice is recorded separately at
+`data/certificates/n9_base_apex_d3_escape_slice.json`. This is the case
+`E=6`, `D=3`, `r=3`, where all three capacity-deficit units are relevant
+length-2/length-3 deficits and there is no leftover budget to park on sides or
+length-4 diagonals. The diagnostic finds 3,003 labelled profile-excess
+sequences, 108 labelled strict escape placements, and 18,088 common-dihedral
+coupled profile/escape classes. These are proof-search fingerprints only: the
+artifact does not say that any coupled class is realizable, nor that the
+`D=3` slice is impossible.
+
 ## Turn-cover diagnostic
 
 Index the length-2 diagonal `{v_i,v_{i+2}}` by `i`. If it is fully saturated,
