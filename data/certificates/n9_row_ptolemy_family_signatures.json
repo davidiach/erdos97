@@ -1,0 +1,148 @@
+{
+  "claim_scope": "Derived n=9 row-Ptolemy per-family certificate-signature diagnostic for the fixed natural cyclic order; not a proof of n=9, not a counterexample, not an orderless abstract-incidence obstruction, and not a global status update.",
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "family_count": 3,
+  "hit_assignment_count": 26,
+  "hit_certificate_count": 216,
+  "interpretation": [
+    "Rows summarize stable certificate histograms within each row-Ptolemy hit family.",
+    "The signatures are prompts for local-lemma extraction, not local lemmas by themselves.",
+    "Each underlying certificate remains fixed-pattern and fixed-row-order only.",
+    "No proof of the n=9 case is claimed."
+  ],
+  "n": 9,
+  "provenance": {
+    "command": "python scripts/check_n9_row_ptolemy_family_signatures.py --assert-expected --write",
+    "generator": "scripts/check_n9_row_ptolemy_family_signatures.py"
+  },
+  "schema": "erdos97.n9_row_ptolemy_family_signatures.v1",
+  "signature_rows": [
+    {
+      "cancelled_product_counts_per_assignment": {
+        "d01*d23": 6
+      },
+      "certificate_count_by_center": {
+        "0": 12,
+        "1": 12,
+        "2": 12,
+        "3": 12,
+        "4": 12,
+        "5": 12,
+        "6": 12,
+        "7": 12,
+        "8": 12
+      },
+      "certificate_count_per_assignment": 6,
+      "certificate_count_per_hit_row": 2,
+      "family_id": "F02",
+      "family_orbit_size": 18,
+      "hit_assignment_count": 18,
+      "hit_certificate_count": 108,
+      "hit_row_count_per_assignment": 3,
+      "rows_with_certificates_per_assignment_counts": {
+        "3": 18
+      },
+      "signature_key": "row_ptolemy_product|hit_rows=3|certs_per_row=2|cancelled=d01*d23|zero=d03*d12",
+      "template_id": "T08",
+      "template_status": "self_edge",
+      "variant_counts_per_assignment": {
+        "cancel_d01_d23_via_d02_eq_d01_and_d13_eq_d23": 3,
+        "cancel_d01_d23_via_d02_eq_d23_and_d13_eq_d01": 3
+      },
+      "zero_product_expression_counts_per_assignment": {
+        "d03*d12": 6
+      }
+    },
+    {
+      "cancelled_product_counts_per_assignment": {
+        "d01*d23": 12
+      },
+      "certificate_count_by_center": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8
+      },
+      "certificate_count_per_assignment": 12,
+      "certificate_count_per_hit_row": 2,
+      "family_id": "F09",
+      "family_orbit_size": 6,
+      "hit_assignment_count": 6,
+      "hit_certificate_count": 72,
+      "hit_row_count_per_assignment": 6,
+      "rows_with_certificates_per_assignment_counts": {
+        "6": 6
+      },
+      "signature_key": "row_ptolemy_product|hit_rows=6|certs_per_row=2|cancelled=d01*d23|zero=d03*d12",
+      "template_id": "T01",
+      "template_status": "self_edge",
+      "variant_counts_per_assignment": {
+        "cancel_d01_d23_via_d02_eq_d01_and_d13_eq_d23": 6,
+        "cancel_d01_d23_via_d02_eq_d23_and_d13_eq_d01": 6
+      },
+      "zero_product_expression_counts_per_assignment": {
+        "d03*d12": 12
+      }
+    },
+    {
+      "cancelled_product_counts_per_assignment": {
+        "d01*d23": 18
+      },
+      "certificate_count_by_center": {
+        "0": 4,
+        "1": 4,
+        "2": 4,
+        "3": 4,
+        "4": 4,
+        "5": 4,
+        "6": 4,
+        "7": 4,
+        "8": 4
+      },
+      "certificate_count_per_assignment": 18,
+      "certificate_count_per_hit_row": 2,
+      "family_id": "F13",
+      "family_orbit_size": 2,
+      "hit_assignment_count": 2,
+      "hit_certificate_count": 36,
+      "hit_row_count_per_assignment": 9,
+      "rows_with_certificates_per_assignment_counts": {
+        "9": 2
+      },
+      "signature_key": "row_ptolemy_product|hit_rows=9|certs_per_row=2|cancelled=d01*d23|zero=d03*d12",
+      "template_id": "T04",
+      "template_status": "self_edge",
+      "variant_counts_per_assignment": {
+        "cancel_d01_d23_via_d02_eq_d01_and_d13_eq_d23": 9,
+        "cancel_d01_d23_via_d02_eq_d23_and_d13_eq_d01": 9
+      },
+      "zero_product_expression_counts_per_assignment": {
+        "d03*d12": 18
+      }
+    }
+  ],
+  "source_artifact": {
+    "path": "data/certificates/n9_row_ptolemy_product_cancellations.json",
+    "schema": "erdos97.n9_row_ptolemy_product_cancellations.v2",
+    "status": "EXPLORATORY_LEDGER_ONLY",
+    "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF"
+  },
+  "status": "EXPLORATORY_LEDGER_ONLY",
+  "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
+  "witness_size": 4
+}

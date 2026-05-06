@@ -91,6 +91,30 @@ T02,T03,T05,T06,T07,T09,T10,T11,T12
 All strict-cycle local-core families, currently `F07`, `F12`, and `F16`, are in
 this no-hit side of the crosswalk.
 
+## Family-Signature Diagnostic
+
+The companion artifact
+`data/certificates/n9_row_ptolemy_family_signatures.json` compresses the
+row-Ptolemy hit records into per-family certificate histograms. It is a
+proof-search aid for spotting reusable-looking local shapes, not a proof and
+not a lemma statement.
+
+For the current fixed natural order, all row-Ptolemy hits use the same
+Ptolemy-side signature: the two stored `cancel_d01_d23...` variants cancel
+`d01*d23` and force the zero product `d03*d12`. The family-level distinction
+is how many rows in each assignment carry this two-certificate local pattern:
+
+```text
+F02 -> T08: 3 hit rows per assignment,  6 certificates per assignment
+F09 -> T01: 6 hit rows per assignment, 12 certificates per assignment
+F13 -> T04: 9 hit rows per assignment, 18 certificates per assignment
+```
+
+Across each full dihedral family orbit, every center label appears equally
+often in the stored certificates. These uniform histograms are prompts for
+local-lemma extraction only; each underlying certificate remains tied to the
+fixed selected-witness pattern and supplied row order.
+
 The checker also replays every stored hit record against its fixed cyclic
 order. It verifies that each certificate's `witness_order`, forced-equality
 pair names, and zero-product pair names match the supplied row order. A
@@ -106,4 +130,13 @@ python scripts/analyze_n9_row_ptolemy_product_cancellations.py \
   --out data/certificates/n9_row_ptolemy_product_cancellations.json
 
 python scripts/check_n9_row_ptolemy_product_cancellations.py --check --json
+
+python scripts/check_n9_row_ptolemy_family_signatures.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_row_ptolemy_family_signatures.py \
+  --check \
+  --assert-expected \
+  --json
 ```
