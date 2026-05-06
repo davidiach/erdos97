@@ -192,6 +192,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_row_ptolemy_family_signatures",
+        command=(
+            "python",
+            "scripts/check_n9_row_ptolemy_family_signatures.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Derived n=9 row-Ptolemy family-signature diagnostic for fixed row "
+            "order; not a proof of n=9, counterexample, orderless obstruction, "
+            "or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",
