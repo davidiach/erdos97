@@ -128,6 +128,19 @@ def validate_artifact(
     if isinstance(generator, str) and not repo_path(generator).exists():
         errors.append(f"{label}.generator does not exist: {generator}")
 
+    checker = artifact.get("checker")
+    if checker is not None:
+        if not isinstance(checker, str) or not checker.strip():
+            errors.append(f"{label}.checker must be a nonempty string when present")
+        elif not repo_path(checker).exists():
+            errors.append(f"{label}.checker does not exist: {checker}")
+
+    check_command = artifact.get("check_command")
+    if check_command is not None and (
+        not isinstance(check_command, str) or not check_command.strip()
+    ):
+        errors.append(f"{label}.check_command must be a nonempty string when present")
+
     if artifact.get("direct_edit_allowed") is not False:
         errors.append(f"{label}.direct_edit_allowed must be false for generated artifacts")
 
