@@ -28,6 +28,12 @@ DEFAULT_CERTIFICATES = (
     ROOT / "data" / "certificates" / "c13_sidon_order_survivor_kalmanson_unsat.json",
     ROOT / "data" / "certificates" / "round2" / "c19_kalmanson_known_order_unsat.json",
 )
+DEFAULT_C19_LEGACY = (
+    ROOT / "data" / "certificates" / "round2" / "c19_kalmanson_known_order_unsat.json"
+)
+DEFAULT_C19_COMPACT = (
+    ROOT / "data" / "certificates" / "round2" / "c19_kalmanson_known_order_two_unsat.json"
+)
 RANK_PRIMES = (1_000_003, 1_000_033, 1_000_037)
 
 
@@ -99,6 +105,51 @@ def _weight_stats(weights: Sequence[int]) -> dict[str, int]:
         "sum": sum(weights),
         "distinct_count": len(set(weights)),
         "gcd": gcd,
+    }
+
+
+def _inequality_signature(item: Mapping[str, object]) -> tuple[str, tuple[int, ...]]:
+    return (
+        str(item["kind"]),
+        tuple(int(label) for label in item["quad"]),  # type: ignore[index]
+    )
+
+
+def _compact_certificate_summary(path: Path) -> dict[str, object]:
+    diagnostic = analyze_certificate(path, top=1)
+    cert = json.loads(path.read_text(encoding="utf-8"))
+    inequalities = cert["inequalities"]
+    return {
+        "path": diagnostic["path"],
+        "pattern": diagnostic["pattern"],
+        "n": diagnostic["n"],
+        "status": diagnostic["status"],
+        "claim_strength": diagnostic["claim_strength"],
+        "cyclic_order": diagnostic["cyclic_order"],
+        "circulant_offsets": diagnostic["circulant_offsets"],
+        "positive_inequalities": diagnostic["positive_inequalities"],
+        "distance_classes_after_selected_equalities": diagnostic[
+            "distance_classes_after_selected_equalities"
+        ],
+        "distance_class_size_histogram": diagnostic["distance_class_size_histogram"],
+        "zero_sum_verified": diagnostic["max_abs_weighted_sum_coefficient"] == 0,
+        "max_abs_weighted_sum_coefficient": diagnostic[
+            "max_abs_weighted_sum_coefficient"
+        ],
+        "weight_stats": diagnostic["weight_stats"],
+        "kind_counts": diagnostic["kind_counts"],
+        "kind_weight_sums": diagnostic["kind_weight_sums"],
+        "support_rank_mod_primes": diagnostic["support_rank_mod_primes"],
+        "support_nullity_mod_primes": diagnostic["support_nullity_mod_primes"],
+        "support_signatures": [
+            {
+                "kind": kind,
+                "quad": list(quad),
+                "weight": int(item["weight"]),
+            }
+            for item in inequalities
+            for kind, quad in [_inequality_signature(item)]
+        ],
     }
 
 
@@ -276,6 +327,71 @@ def payload(paths: Sequence[Path], *, top: int) -> dict[str, object]:
     }
 
 
+def c19_compact_vs_legacy_payload(
+    *,
+    legacy: Path = DEFAULT_C19_LEGACY,
+    compact: Path = DEFAULT_C19_COMPACT,
+) -> dict[str, object]:
+    legacy_summary = _compact_certificate_summary(legacy)
+    compact_summary = _compact_certificate_summary(compact)
+    legacy_cert = json.loads(legacy.read_text(encoding="utf-8"))
+    compact_cert = json.loads(compact.read_text(encoding="utf-8"))
+    legacy_support = {
+        _inequality_signature(item): int(item["weight"])
+        for item in legacy_cert["inequalities"]
+    }
+    compact_support = {
+        _inequality_signature(item): int(item["weight"])
+        for item in compact_cert["inequalities"]
+    }
+    common_support = sorted(set(legacy_support) & set(compact_support))
+
+    return {
+        "type": "c19_kalmanson_compact_vs_legacy_diagnostic_v1",
+        "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+        "status": "FIXED_ORDER_CERTIFICATE_COMPARISON_ONLY",
+        "notes": [
+            "No general proof of Erdos Problem #97 is claimed.",
+            "No counterexample is claimed.",
+            "Both inputs are checked fixed-order C19_skew Kalmanson/Farkas certificates.",
+            "This report compares support shape only; it does not derive the compact certificate from the legacy certificate.",
+            "The all-order C19_skew Z3 certificate is a separate artifact and is not replayed here.",
+        ],
+        "legacy": legacy_summary,
+        "compact": compact_summary,
+        "comparison": {
+            "same_pattern": legacy_summary["pattern"] == compact_summary["pattern"],
+            "same_cyclic_order": legacy_summary["cyclic_order"] == compact_summary["cyclic_order"],
+            "same_status": legacy_summary["status"] == compact_summary["status"],
+            "same_distance_class_count": (
+                legacy_summary["distance_classes_after_selected_equalities"]
+                == compact_summary["distance_classes_after_selected_equalities"]
+            ),
+            "legacy_inequality_count": legacy_summary["positive_inequalities"],
+            "compact_inequality_count": compact_summary["positive_inequalities"],
+            "legacy_weight_sum": legacy_summary["weight_stats"]["sum"],  # type: ignore[index]
+            "compact_weight_sum": compact_summary["weight_stats"]["sum"],  # type: ignore[index]
+            "legacy_max_weight": legacy_summary["weight_stats"]["max"],  # type: ignore[index]
+            "compact_max_weight": compact_summary["weight_stats"]["max"],  # type: ignore[index]
+            "support_signature_overlap_count": len(common_support),
+            "compact_support_subset_of_legacy": set(compact_support).issubset(
+                set(legacy_support)
+            ),
+            "common_support_signatures": [
+                {"kind": kind, "quad": list(quad)}
+                for kind, quad in common_support
+            ],
+        },
+        "interpretation_note": (
+            "The compact two-inequality certificate and the legacy 94-inequality "
+            "certificate obstruct the same fixed C19_skew cyclic order after the "
+            "same selected-distance quotienting. Their supports are not literally "
+            "nested, so this report should not be read as a derivation of one "
+            "certificate from the other."
+        ),
+    }
+
+
 def assert_expected(data: Mapping[str, object]) -> None:
     certs = data["certificates"]
     if not isinstance(certs, list):
@@ -299,6 +415,68 @@ def assert_expected(data: Mapping[str, object]) -> None:
         nullities = cert["support_nullity_mod_primes"]
         if not isinstance(nullities, dict) or set(nullities.values()) != {1}:
             raise AssertionError(f"{pattern} support nullity is not 1 over checked primes")
+
+
+def assert_c19_compact_vs_legacy_expected(data: Mapping[str, object]) -> None:
+    if data.get("type") != "c19_kalmanson_compact_vs_legacy_diagnostic_v1":
+        raise AssertionError("unexpected C19 compact-vs-legacy report type")
+    expected_c19_summary = {
+        "pattern": "C19_skew",
+        "n": 19,
+        "circulant_offsets": [-8, -3, 5, 9],
+        "cyclic_order": [
+            18,
+            10,
+            7,
+            17,
+            6,
+            3,
+            5,
+            9,
+            14,
+            11,
+            2,
+            13,
+            4,
+            16,
+            12,
+            15,
+            0,
+            8,
+            1,
+        ],
+    }
+    for label in ("legacy", "compact"):
+        summary = data[label]
+        if not isinstance(summary, Mapping):
+            raise AssertionError(f"{label} summary must be an object")
+        for key, expected_value in expected_c19_summary.items():
+            if summary.get(key) != expected_value:
+                raise AssertionError(
+                    f"{label}[{key!r}] is {summary.get(key)!r}, expected {expected_value!r}"
+                )
+    comparison = data["comparison"]
+    if not isinstance(comparison, Mapping):
+        raise AssertionError("comparison must be an object")
+    expected = {
+        "same_pattern": True,
+        "same_cyclic_order": True,
+        "same_status": True,
+        "same_distance_class_count": True,
+        "legacy_inequality_count": 94,
+        "compact_inequality_count": 2,
+        "legacy_weight_sum": 6_283_316_065,
+        "compact_weight_sum": 2,
+        "legacy_max_weight": 334_665_404,
+        "compact_max_weight": 1,
+        "support_signature_overlap_count": 0,
+        "compact_support_subset_of_legacy": False,
+    }
+    for key, expected_value in expected.items():
+        if comparison.get(key) != expected_value:
+            raise AssertionError(
+                f"comparison[{key!r}] is {comparison.get(key)!r}, expected {expected_value!r}"
+            )
 
 
 def print_table(data: Mapping[str, object]) -> None:
@@ -345,19 +523,39 @@ def main() -> int:
     parser.add_argument("--out", type=Path, help="write JSON payload to this path")
     parser.add_argument("--json", action="store_true", help="print JSON payload")
     parser.add_argument("--assert-expected", action="store_true")
+    parser.add_argument(
+        "--c19-compact-vs-legacy",
+        action="store_true",
+        help="emit the C19 compact two-inequality vs legacy 94-inequality diagnostic",
+    )
     args = parser.parse_args()
 
     if args.top <= 0:
         raise SystemExit("--top must be positive")
-    paths = tuple(args.certificates) if args.certificates else DEFAULT_CERTIFICATES
-    data = payload(paths, top=args.top)
-    if args.assert_expected:
-        assert_expected(data)
+    if args.c19_compact_vs_legacy:
+        if args.certificates:
+            raise SystemExit("--c19-compact-vs-legacy does not accept positional certificates")
+        data = c19_compact_vs_legacy_payload()
+        if args.assert_expected:
+            assert_c19_compact_vs_legacy_expected(data)
+    else:
+        paths = tuple(args.certificates) if args.certificates else DEFAULT_CERTIFICATES
+        data = payload(paths, top=args.top)
+        if args.assert_expected:
+            assert_expected(data)
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     if args.json:
         print(json.dumps(data, indent=2, sort_keys=True))
+    elif args.c19_compact_vs_legacy:
+        comparison = data["comparison"]  # type: ignore[index]
+        print("C19 compact-vs-legacy fixed-order certificate diagnostic")
+        print(f"legacy inequalities: {comparison['legacy_inequality_count']}")  # type: ignore[index]
+        print(f"compact inequalities: {comparison['compact_inequality_count']}")  # type: ignore[index]
+        print(f"support overlap: {comparison['support_signature_overlap_count']}")  # type: ignore[index]
+        if args.assert_expected:
+            print("OK: C19 compact-vs-legacy diagnostic matches expected values")
     else:
         print_table(data)
         if args.assert_expected:

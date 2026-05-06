@@ -112,6 +112,30 @@ artifacts:
       - all sparse patterns are impossible
       - general proof of Erdos Problem #97
 
+  - id: c19_compact_vs_legacy_diagnostic
+    path: reports/c19_kalmanson_compact_vs_legacy.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/analyze_kalmanson_certificates.py
+    command: python scripts/analyze_kalmanson_certificates.py --c19-compact-vs-legacy --assert-expected --out reports/c19_kalmanson_compact_vs_legacy.json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: Fixed-order C19_skew compact-vs-legacy certificate support diagnostic only.
+    json_top_level_type: object
+    expected_json:
+      type: c19_kalmanson_compact_vs_legacy_diagnostic_v1
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      status: FIXED_ORDER_CERTIFICATE_COMPARISON_ONLY
+      comparison.same_pattern: true
+      comparison.same_cyclic_order: true
+      comparison.legacy_inequality_count: 94
+      comparison.compact_inequality_count: 2
+      comparison.support_signature_overlap_count: 0
+    forbidden_claims:
+      - C19_skew proves Erdos Problem #97
+      - all C19-like patterns are impossible
+      - general proof of Erdos Problem #97
+
   - id: c13_fixed_order_two_kalmanson
     path: data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json
     kind: certificate_artifact

@@ -106,3 +106,34 @@ def test_manifest_rejects_missing_optional_checker(tmp_path: Path) -> None:
     errors = validate_manifest(manifest)
 
     assert any("checker does not exist" in error for error in errors)
+
+
+def test_manifest_accepts_exact_certificate_diagnostic_trust(tmp_path: Path) -> None:
+    artifact = tmp_path / "artifact.json"
+    generator = tmp_path / "generator.py"
+    artifact.write_text(json.dumps({"type": "diagnostic"}), encoding="utf-8")
+    generator.write_text("print('ok')\n", encoding="utf-8")
+    manifest = {
+        "schema": "erdos97.generated_artifacts.v1",
+        "claim_scope": "test manifest only",
+        "artifacts": [
+            {
+                "id": "sample",
+                "path": str(artifact),
+                "kind": "certificate_diagnostic_artifact",
+                "generator": str(generator),
+                "command": f"python {generator}",
+                "direct_edit_allowed": False,
+                "provenance_mode": "manifest_only_legacy",
+                "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+                "claim_scope": "test diagnostic only",
+                "json_top_level_type": "object",
+                "expected_json": {"type": "diagnostic"},
+                "forbidden_claims": ["general proof"],
+            }
+        ],
+    }
+
+    errors = validate_manifest(manifest)
+
+    assert errors == []
