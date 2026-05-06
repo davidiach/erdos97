@@ -13,7 +13,7 @@ pure Python.
 
 The implementation lives in `src/erdos97/stronger_filters.py`. The benchmark
 artifact is `data/certificates/stronger_filters_test.json` and is produced by
-`scripts/test_stronger_filters.py`.
+`scripts/bench_stronger_filters.py`.
 
 ## Geometric setup recap
 
@@ -141,7 +141,7 @@ is still net positive.
 ## Reproduction
 
 ```bash
-python scripts/test_stronger_filters.py --n11-node-limit 5000
+python scripts/bench_stronger_filters.py --n11-node-limit 5000
 python -m pytest tests/test_stronger_filters.py -q
 ```
 

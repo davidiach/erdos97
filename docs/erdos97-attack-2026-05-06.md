@@ -129,7 +129,7 @@ The 2026-05-06 round produced:
 
 10. **Stronger filters at higher n proposed but not yet tested**
     (`docs/stronger-filters.md`, `src/erdos97/stronger_filters.py`,
-    `scripts/test_stronger_filters.py`): three new filters
+    `scripts/bench_stronger_filters.py`): three new filters
     (triple uniqueness, forced-perpendicularity 2-coloring, mutual-rhombus
     rational closure) applied incrementally during search to prune deeper.
     Status: ran on n=9; benchmark on n=11 still in progress at time of
@@ -275,7 +275,7 @@ scripts/test_endpoint_control_mixed.py
 scripts/test_inversion_filter.py
 scripts/test_new_filters.py
 scripts/test_paraboloid_filters.py
-scripts/test_stronger_filters.py
+scripts/bench_stronger_filters.py
 scripts/verify_ear_rank.py
 
 src/erdos97/inversion_filter.py
