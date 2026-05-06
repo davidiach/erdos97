@@ -105,14 +105,17 @@ current `n <= 8` source-of-truth result until independent review.
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)
 and partial n=9 algebraic corroboration: 150 labelled assignments are killed
-by GB={1}, and 18 more by F12's `y_8^2 + 1/4 = 0`. The remaining 16 labelled
-assignments in F07/F08/F09/F13 still need replayable real-root /
-non-degeneracy decoders before the algebraic route becomes a complete
-second-source proof. The same audit reports no soundness defect in the
-vertex-circle checker filters. See
+by GB={1}, and 18 more by F12's `y_8^2 + 1/4 = 0`. A 2026-05-06 follow-up
+adds replayable real-root / non-degeneracy decoders for the remaining 16
+labelled assignments in F07/F08/F09/F13, recording them as a review-pending
+candidate second-source algebraic audit target. The same audit reports no
+soundness defect in the vertex-circle checker filters. See
 `docs/erdos97-attack-2026-05-05.md` and
-`data/certificates/2026-05-05/n9_groebner_results.json`. Independent
-reviewer audit is still required.
+`data/certificates/2026-05-05/n9_groebner_results.json`; for the decoder
+follow-up see `docs/n9-groebner-decoders.md`,
+`scripts/decode_n9_groebner_f07_f13.py`, and
+`data/certificates/n9_groebner_real_root_decoders.json`. Independent reviewer
+audit is still required before any source-of-truth promotion.
 
 A later incoming `n=10` continuation is now recorded as a
 `MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING` artifact at
