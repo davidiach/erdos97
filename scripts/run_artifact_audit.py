@@ -222,6 +222,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_row_ptolemy_order_admissible_census",
+        command=(
+            "python",
+            "scripts/check_n9_row_ptolemy_order_admissible_census.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Derived n=9 row-Ptolemy admissible-order census for existing "
+            "fixed-order hit assignments; not a proof of n=9, counterexample, "
+            "all-order obstruction, orderless obstruction, geometric "
+            "realizability count, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",

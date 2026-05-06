@@ -129,7 +129,14 @@ summary now carries the matching local-core self-edge shape counts as
 review-pending crosswalk metadata. The separate guardrail artifact
 `data/certificates/n9_row_ptolemy_order_sensitivity.json` records three
 representative non-dihedral supplied orders with zero row-Ptolemy certificates,
-only to document the order-sensitive hypothesis. Good next checks are to audit
-whether those signatures can be converted into reusable local lemmas and to
-keep testing order-sensitive variants without treating this bounded slice as a
-lossless quotient of all `n=9` cases.
+only to document the order-sensitive hypothesis. The follow-up admissible-order
+census in `data/certificates/n9_row_ptolemy_order_admissible_census.json`
+checks all normalized supplied orders for the 26 fixed-order row-Ptolemy hit
+assignments against the adjacent two-overlap and crossing-bisector filters. It
+finds 1318 adjacent-ok assignment-order pairs and 28 admissible orders after
+crossing-bisector checks; these are 28 assignment-order records, not 28
+distinct order permutations. Two of those records, both in `F13`, have zero
+row-Ptolemy certificates while remaining vertex-circle self-edge obstructed.
+Good next checks are to audit whether those signatures can be converted into
+reusable local lemmas and to keep testing order-sensitive variants without
+treating this bounded slice as a lossless quotient of all `n=9` cases.
