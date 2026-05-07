@@ -129,6 +129,12 @@ local_repo:
       verifier: "scripts/check_kalmanson_two_order_search.py"
       claim_scope: "kills this fixed abstract C13 selected-witness pattern across all cyclic orders; does not prove Erdos #97"
   notable_frontier_diagnostics:
+    - pattern: "C19_skew"
+      status: "sampled prefix-window catalog prefilter replay"
+      artifact: "data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json"
+      verifier: "scripts/sweep_c19_kalmanson_prefix_windows_catalog_prefilter.py"
+      support_artifact: "reports/c19_prefilter_catalog_unit_supports.json"
+      claim_scope: "sampled prefix indices 288-479 only; reduces ordinary fifth-pair Farkas fallbacks from eight to zero after the two-row lookup; not a separate all-order C19 claim and not a proof of Erdos #97"
     - pattern: "C25_sidon_2_5_9_14"
       status: "fixed-order Kalmanson-filter survivor killed by vertex-circle and Altman filters"
       artifact: "data/certificates/c25_c29_sparse_frontier_probe.json"

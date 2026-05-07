@@ -156,6 +156,14 @@ checked certificate is
 `scripts/check_kalmanson_two_order_z3.py`. This retires the registered sparse
 `C19_skew` fixed-pattern lead, but it is still not a proof of Erdos #97.
 
+Separate sampled-prefix C19 artifacts record a prefix/fourth/fifth refinement
+chain for the first 480 deterministic three-boundary-prefix states. The
+catalog-prefilter sweep over indices 288-479 keeps the two-row lookup intact,
+adds three checked unit-support prefilter rules for the eight two-row misses,
+and reduces ordinary fifth-pair Farkas fallbacks from eight to zero. This is
+sampled-window work only, not a new all-order C19 claim. See
+[`docs/c19-kalmanson-prefix-window-catalog-prefilter-sweep.md`](docs/c19-kalmanson-prefix-window-catalog-prefilter-sweep.md).
+
 A C13 Kalmanson pilot kills one registered non-natural
 `C13_sidon_1_2_4_10` order `[5,0,10,8,9,7,4,6,2,11,12,3,1]` by the exact
 certificate

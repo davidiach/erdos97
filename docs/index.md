@@ -64,6 +64,15 @@ put detailed reconciliation in the canonical synthesis.
 - [`c13-kalmanson-third-pair-refinement.md`](c13-kalmanson-third-pair-refinement.md):
   exact prefix-forced Kalmanson certificates for 46,567 of 46,592 third-pair
   refinements of the remaining C13 two-pair frontier; not an all-order search.
+- [`c19-kalmanson-prefix-window-prefilter-extension.md`](c19-kalmanson-prefix-window-prefilter-extension.md):
+  exact prefilter-assisted C19 prefix-window extension closing deterministic
+  branch windows 288 through 479, with compact aggregate replay artifacts.
+- [`c19-prefilter-catalog-unit-supports.md`](c19-prefilter-catalog-unit-supports.md):
+  exact replay of three cataloged unit supports as cheap fallback prefilter
+  rules for the sampled C19 misses.
+- [`c19-kalmanson-prefix-window-catalog-prefilter-sweep.md`](c19-kalmanson-prefix-window-catalog-prefilter-sweep.md):
+  exact catalog-prefilter replay over the 288-479 sampled C19 range, reducing
+  ordinary fifth-pair Farkas fallbacks from eight to zero.
 - [`ptolemy-order-nlp.md`](ptolemy-order-nlp.md): numerical nonlinear
   diagnostic adding Ptolemy inequalities for cyclic quadrilaterals; records a
   relaxation miss on the registered sparse orders.

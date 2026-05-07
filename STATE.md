@@ -78,6 +78,13 @@ cyclic-order constraints are unsatisfiable. See
 `scripts/check_kalmanson_two_order_z3.py`, and
 `data/certificates/c19_skew_all_orders_kalmanson_z3.json`.
 
+The C19 sampled-prefix workspace also records exact branch certificates for
+480 deterministic three-boundary-prefix states. The 288-479
+catalog-prefilter replay applies three checked unit supports after the two-row
+lookup and leaves zero ordinary fifth-pair Farkas fallbacks in that sampled
+range. This is a reproducibility and pruning artifact for the sampled branch
+chain, not a separate all-order C19 claim.
+
 A C13 Kalmanson pilot also kills the registered non-natural
 `C13_sidon_1_2_4_10` order `[5,0,10,8,9,7,4,6,2,11,12,3,1]` by an exact
 2-inequality Kalmanson/Farkas certificate. The follow-up exact order search now
