@@ -151,6 +151,8 @@ Next steps:
 - use `data/certificates/n9_vertex_circle_template_lemma_catalog.json` as a
   single 12-template lemma-candidate crosswalk before writing proof-facing
   local lemmas;
+- use `data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json` as
+  the first focused review-pending T01/F09 self-edge local lemma packet;
 - test whether the same motifs appear in the P18 obstruction and fail in the
   known `C19_skew` vertex-circle survivor;
 - use `docs/n9-vertex-circle-frontier-comparison.md` as the current guardrail:

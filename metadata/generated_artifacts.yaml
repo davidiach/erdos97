@@ -635,6 +635,73 @@ artifacts:
       - the lemma catalog is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_vertex_circle_t01_self_edge_lemma_packet
+    path: data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py
+    command: python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --assert-expected --write
+    checker: scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py
+    check_command: python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Focused T01/F09 self-edge local lemma packet for six n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_vertex_circle_t01_self_edge_lemma_packet.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: Focused T01/F09 self-edge local lemma packet for six n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+      n: 9
+      row_size: 4
+      template_id: T01
+      family_id: F09
+      assignment_count: 6
+      assignment_ids:
+        - A014
+        - A024
+        - A031
+        - A140
+        - A166
+        - A175
+      family_count: 1
+      orbit_size: 6
+      core_size: 3
+      strict_inequality.row: 0
+      strict_inequality.witness_order:
+        - 1
+        - 2
+        - 4
+        - 8
+      strict_inequality.outer_pair:
+        - 1
+        - 8
+      strict_inequality.inner_pair:
+        - 1
+        - 2
+      strict_inequality.outer_span: 3
+      strict_inequality.inner_span: 1
+      equality_chain:
+        - [1, 8]
+        - [0, 1]
+        - [0, 2]
+        - [1, 2]
+      local_lemma.review_status: review_pending
+      replay.status: self_edge
+      replay.selected_row_count: 3
+      replay.strict_edge_count: 27
+      replay.self_edge_conflict_count: 2
+      provenance.command: python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - T01 proves n=9
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - template labels are theorem names
+      - the local lemma packet is an independent proof
+      - general proof of Erdos Problem #97
+
   - id: n9_groebner_real_root_decoders
     path: data/certificates/n9_groebner_real_root_decoders.json
     kind: algebraic_decoder_artifact
