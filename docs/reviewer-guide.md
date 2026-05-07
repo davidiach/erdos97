@@ -13,6 +13,9 @@
 - It does not claim the `n=8` artifact has had independent external review.
 - It does not claim that the round-two `C19_skew` Kalmanson certificate kills
   all cyclic orders of the abstract pattern.
+- It records a separate Z3 certificate that kills all cyclic orders for the
+  fixed abstract `C19_skew` pattern, but this still is not a proof of Erdos
+  Problem #97.
 - It does not claim that the exact all-order C13 result proves Erdos Problem
   #97; that result is only for one fixed abstract selected-witness pattern.
 
@@ -193,14 +196,15 @@ Check:
 - that the weighted coefficient sum is exactly zero;
 - that the result is recorded only as a fixed-order obstruction.
 
-## Review target F - C13 all-order two-certificate search
+## Review target F - fixed-pattern all-order two-certificate searches
 
 Check:
 
 - that `scripts/check_kalmanson_two_order_search.py` fixes label `0` only by
   translation symmetry for the circulant pattern;
-- that the search result is an all-order statement only for the fixed abstract
-  `C13_sidon_1_2_4_10` selected-witness pattern;
+- that the search/Z3 results are all-order statements only for their fixed
+  abstract selected-witness patterns, such as `C13_sidon_1_2_4_10` and
+  `C19_skew`;
 - that the result is not described as a general proof of Erdos Problem #97.
 
 ## Known weak points / independent review requests

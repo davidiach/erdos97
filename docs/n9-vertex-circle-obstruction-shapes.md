@@ -58,9 +58,11 @@ a self-edge or directed cycle.
 
 That lemma is not proved here. The existing `C19_skew` caveat in
 `docs/vertex-circle-order-filter.md` shows that the current vertex-circle
-quotient graph alone is not enough for a global solution. The likely proof path
-is to combine this quotient-graph obstruction with stronger order information,
-Altman/Kalmanson inequalities, or radius propagation.
+quotient graph alone is not enough for a global solution. The fixed abstract
+`C19_skew` pattern is now killed by a separate all-order Z3 Kalmanson
+certificate, but that only reinforces the need to combine the quotient-graph
+obstruction with stronger order information, Altman/Kalmanson inequalities, or
+radius propagation.
 
 ## Reproduction
 
@@ -86,6 +88,6 @@ python -m pytest tests/test_n9_vertex_circle_obstruction_shapes.py -q
   cyclic-order templates?
 - Can the 16 dihedral incidence families be replaced by local lemmas that do
   not enumerate all n=9 row systems?
-- Which extra condition rules out the known `C19_skew` vertex-circle survivor:
-  Altman diagonal sums, Kalmanson inequalities, radius propagation, or a
-  sharper vertex-circle inequality?
+- Which extra condition rules out the recorded `C19_skew` vertex-circle-only
+  survivor in a reusable way: Altman diagonal sums, Kalmanson inequalities,
+  radius propagation, or a sharper vertex-circle inequality?

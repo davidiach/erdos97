@@ -93,6 +93,6 @@ full replay and should be reviewed before it changes the source-of-truth local
 finite-case status.
 
 The `n=10` singleton-slice checker is a draft review-pending artifact check.
-The command above validates the imported counts and reruns row0 singleton `0`
-with the repo-native generic checker; it is not a full repo-native replay of
-all 126 singleton slices and does not promote `n=10`.
+The command above validates the imported counts and reruns row0 singleton IDs
+`0`, `63`, and `125` with the repo-native generic checker; it is not a full
+repo-native replay of all 126 singleton slices and does not promote `n=10`.

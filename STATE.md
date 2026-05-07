@@ -129,8 +129,9 @@ A later incoming `n=10` continuation is now recorded as a
 `data/certificates/n10_vertex_circle_singleton_slices.json`. It covers all 126
 row0 singleton slices, reports 4,142,738 total visited nodes, zero full
 assignments, and no aborted slices. The repo-native generic checker reproduces
-the n=9 counts and spot-checks row0 singleton `0`, but the n=10 package is an
-audit target only and is not promoted to the source-of-truth finite-case result.
+the n=9 counts and spot-checks row0 singleton IDs `0`, `63`, and `125`, but the
+n=10 package is an audit target only and is not promoted to the source-of-truth
+finite-case result.
 
 ## Best saved near-miss
 

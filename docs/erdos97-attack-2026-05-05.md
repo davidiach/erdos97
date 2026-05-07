@@ -14,6 +14,12 @@ The remaining-F07/F08/F09/F13 language below records the state of the
 2026-05-05 attack report before that follow-up and should be read as
 historical provenance, not current dashboard status.
 
+2026-05-07 supersession note: current source-of-truth wording treats the n = 9
+finite-case package as review-pending and the n = 10 singleton-slice package as
+draft review-pending. Archived phrases below such as "proved-locally" or "audit
+confirms soundness" should not be read as public theorem claims, independent
+review completion, a general proof, or a counterexample.
+
 ## Headline findings
 
 1. **Audit of the review-pending n = 9 vertex-circle exhaustive checker:

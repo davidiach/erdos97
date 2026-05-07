@@ -3,9 +3,10 @@
 Status: `EXACT_CERTIFICATE_DIAGNOSTIC`.
 
 This note records a deterministic support diagnostic for the checked
-fixed-order Kalmanson/Farkas certificates. It does not add a general proof, a
-counterexample, or an all-order obstruction for `C13_sidon_1_2_4_10` or
-`C19_skew`.
+Kalmanson/Farkas certificates. The fixed-order sections remain fixed-order
+diagnostics. The C19 Z3 clause report is an inspection aid for the already
+checked fixed-abstract-pattern all-order certificate. None of these diagnostics
+adds a general proof or a counterexample.
 
 ## Artifact
 

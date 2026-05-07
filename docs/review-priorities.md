@@ -154,7 +154,8 @@ Next steps:
 - use `data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json` as
   the first focused review-pending T01/F09 self-edge local lemma packet;
 - test whether the same motifs appear in the P18 obstruction and fail in the
-  known `C19_skew` vertex-circle survivor;
+  recorded `C19_skew` vertex-circle-only survivor, which is now retired as a
+  fixed abstract pattern by the separate Z3 Kalmanson certificate;
 - use `docs/n9-vertex-circle-frontier-comparison.md` as the current guardrail:
   exact n=9 cores do not embed into P18 or C19, although P18 shares a loose
   strict-cycle span shape;
