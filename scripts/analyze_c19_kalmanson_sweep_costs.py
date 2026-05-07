@@ -282,9 +282,9 @@ def main() -> int:
 
     payload = json.loads(args.source.read_text(encoding="utf-8"))
     try:
-        source_artifact = str(args.source.resolve().relative_to(ROOT))
+        source_artifact = args.source.resolve().relative_to(ROOT).as_posix()
     except ValueError:
-        source_artifact = str(args.source)
+        source_artifact = args.source.as_posix()
     data = analyze_sweep_costs(payload, source_artifact=source_artifact)
     if args.assert_expected:
         assert_expected(data)

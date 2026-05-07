@@ -454,11 +454,13 @@ def main() -> int:
     args = parser.parse_args()
 
     frontier = _as_mapping(json.loads(args.frontier.read_text(encoding="utf-8")), "frontier")
+    try:
+        frontier_artifact = args.frontier.resolve().relative_to(ROOT).as_posix()
+    except ValueError:
+        frontier_artifact = args.frontier.as_posix()
     data = analyze_two_row_prefilter(
         frontier,
-        frontier_artifact=str(args.frontier.relative_to(ROOT))
-        if args.frontier.is_absolute() and args.frontier.is_relative_to(ROOT)
-        else str(args.frontier),
+        frontier_artifact=frontier_artifact,
     )
     if args.assert_expected:
         assert_expected(data)
