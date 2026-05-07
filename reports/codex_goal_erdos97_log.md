@@ -22947,6 +22947,229 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-07 - Cycle 560 - Z3 Clause Encoding Equivalence
+
+### Mathematical Subquestion
+
+Cycles 558 and 559 explained two audit points for the all-order C19
+Kalmanson/Z3 certificate: why an inverse-pair clause is geometrically sound,
+and why representing cyclic orders with label `0` at position `0` loses no
+oriented cyclic-order cases. The next narrow question was:
+
+```text
+Does the stored Z3 disjunction encode exactly "not both ordered
+quadrilaterals occur" in the rooted linear position model?
+```
+
+This is the third local proof-facing audit point in the C19 review checklist.
+
+### Definitions and Assumptions
+
+Fix `n` labels and integer position variables
+
+```text
+pos(0),...,pos(n-1).
+```
+
+The Z3 position model used by `scripts/check_kalmanson_two_order_z3.py`
+asserts:
+
+```text
+pos(0)=0,
+Distinct(pos(0),...,pos(n-1)),
+0 <= pos(i) < n  for every label i.
+```
+
+For an ordered quadrilateral
+
+```text
+Q=(q0,q1,q2,q3)
+```
+
+with four distinct labels, define the rooted ordered occurrence predicate
+
+```text
+Occ(Q)  <=>  pos(q0)<pos(q1)<pos(q2)<pos(q3).
+```
+
+For a stored clause with quadrilaterals
+
+```text
+Q=(q0,q1,q2,q3),  R=(r0,r1,r2,r3),
+```
+
+the checker adds:
+
+```text
+C(Q,R) =
+  pos(q0)>pos(q1) or pos(q1)>pos(q2) or pos(q2)>pos(q3)
+  or pos(r0)>pos(r1) or pos(r1)>pos(r2) or pos(r2)>pos(r3).
+```
+
+The two quadrilaterals need not be disjoint from each other. The only
+structural assumption needed here is that each individual quadrilateral has
+four distinct labels, which the verifier checks before accepting a stored
+clause.
+
+### Result Status
+
+Proved lemma:
+**Z3 Clause Encoding Equivalence Lemma**.
+
+Under the distinct-position constraints,
+
+```text
+C(Q,R)  <=>  not (Occ(Q) and Occ(R)).
+```
+
+Thus each stored disjunction is exactly the negation of simultaneous rooted
+ordered-quadrilateral occurrence.
+
+### Proof
+
+Because the position variables are pairwise distinct, for any two distinct
+labels `a,b` exactly one of the two relations holds:
+
+```text
+pos(a)<pos(b),   pos(a)>pos(b).
+```
+
+There is no equality case.
+
+For one ordered quadrilateral `Q=(q0,q1,q2,q3)`, the occurrence predicate is
+
+```text
+Occ(Q) =
+  pos(q0)<pos(q1) and pos(q1)<pos(q2) and pos(q2)<pos(q3).
+```
+
+Negating and using distinctness gives:
+
+```text
+not Occ(Q)
+  <=>
+  pos(q0)>pos(q1) or pos(q1)>pos(q2) or pos(q2)>pos(q3).
+```
+
+The same equivalence holds for `R`. Therefore
+
+```text
+not (Occ(Q) and Occ(R))
+  <=>  (not Occ(Q)) or (not Occ(R))
+```
+
+is exactly the six-disjunct clause `C(Q,R)` added by the checker.
+
+If the two quadrilaterals share labels, the same proof still applies. Shared
+labels may make `Occ(Q) and Occ(R)` impossible for order-theoretic reasons
+before using any Kalmanson geometry; in that case the disjunction is forced by
+the position constraints. When simultaneous occurrence is possible, the
+disjunction still cuts out exactly that simultaneous occurrence.
+
+### Exact Artifact Replay
+
+The C19 artifact under discussion is:
+
+```text
+data/certificates/c19_skew_all_orders_kalmanson_z3.json
+```
+
+Its digest in this checkout is:
+
+```text
+c5d3731cf0487965c0e6bdef6c8d2c8c11dac552cadf33acd5958e944cec2714
+```
+
+The verifier replayed the stored C19 clause certificate:
+
+```text
+C19_skew EXACT_ALL_ORDER_TWO_INEQUALITY_KALMANSON_OBSTRUCTION solver=unsat clauses=7981 iterations=None
+OK: Z3 Kalmanson order obstruction verified
+```
+
+The relevant checker implementation is the `_add_clause` function in
+`scripts/check_kalmanson_two_order_z3.py`; it is precisely the displayed
+six-disjunct formula.
+
+### Limitations
+
+- This cycle proves the Boolean/order encoding of one stored clause form.
+- It does not prove that a given stored pair is a Kalmanson inverse pair; that
+  is the Cycle 558 clause-soundness audit plus the verifier's vector check.
+- It does not prove that rooting at `pos(0)=0` loses no cyclic orders; that is
+  the Cycle 559 normalization lemma.
+- It does not replace the exact machine replay of all 7,981 clauses and the
+  final Z3 UNSAT result.
+- The result is scoped to the fixed abstract `C19_skew` certificate format.
+- It does not classify arbitrary selected-witness incidence patterns.
+- It does not prove a general theorem for Erdos Problem #97 and does not give
+  a counterexample.
+
+### Effect on the Attack
+
+Cycles 558-560 now give a complete local human-readable explanation of the C19
+all-order certificate interface:
+
+```text
+Cycle 558: inverse-pair clauses are geometrically sound.
+Cycle 559: label 0 rooting is a harmless cyclic-order representation choice.
+Cycle 560: each Z3 disjunction is exactly the negation of simultaneous
+           ordered-quadrilateral occurrence.
+```
+
+This improves auditability of the fixed-pattern C19 obstruction. It does not
+move the global Erdos97 status, because the missing bridge is still a theorem
+showing that arbitrary counterexamples reduce to one of the classified
+obstruction mechanisms or to a finite, fully checked family.
+
+### Next Lead
+
+Leave the C19 certificate-audit lane and return to proof-facing bridge work.
+The most promising exact subproblem is the vertex-circle quotient-graph route
+from `docs/review-priorities.md`: state and prove a local lemma whose
+incidence/order hypotheses force either a quotient self-edge or a strict
+cycle, without enumerating all `n=9` selected-witness assignments.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-560`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-560`.
+- The branch was based on merged `origin/main` at
+  `45d80b9570408025e9c432b6c62127ce8e23a649`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_kalmanson_two_order_z3.py --certificate
+  data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat`:
+  passed.
+- `shasum -a 256
+  data/certificates/c19_skew_all_orders_kalmanson_z3.json`: reproduced digest
+  `c5d3731cf0487965c0e6bdef6c8d2c8c11dac552cadf33acd5958e944cec2714`.
+- Repository validation after recording the cycle:
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_text_clean.py`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_status_consistency.py`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_artifact_provenance.py`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+    passed.
+  - `git diff --check`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+    passed, `586 passed, 90 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-07 - Cycle 559 - Rooted Order Normalization for Circulant Patterns
 
 ### Mathematical Subquestion
