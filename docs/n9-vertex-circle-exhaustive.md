@@ -66,6 +66,9 @@ template, while
 `data/certificates/n9_vertex_circle_self_edge_path_join.json` transforms the
 family representative equality paths back into each of the 158 labelled
 self-edge assignments.
+`data/certificates/n9_vertex_circle_self_edge_template_packet.json` compresses
+those self-edge joins to 9 template-level reviewer records with canonical
+family certificates.
 `data/certificates/n9_vertex_circle_strict_cycle_path_join.json` similarly
 transforms the strict-cycle local-core certificates back into each of the 26
 strict-cycle assignments. Its local-core cycle-length counts (`2: 18`,

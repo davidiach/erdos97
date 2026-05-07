@@ -138,6 +138,9 @@ Next steps:
   to keep those lemmas small;
 - use `data/certificates/n9_vertex_circle_self_edge_path_join.json` as the
   assignment-level replay aid for transformed self-edge equality paths;
+- use `data/certificates/n9_vertex_circle_self_edge_template_packet.json` to
+  review the 9 self-edge template packets before attempting reusable local
+  lemmas;
 - use `data/certificates/n9_vertex_circle_strict_cycle_path_join.json` as the
   assignment-level replay aid for transformed strict-cycle local-core
   quotient cycles, keeping its local-core cycle counts separate from first

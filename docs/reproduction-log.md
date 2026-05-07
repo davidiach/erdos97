@@ -57,6 +57,7 @@ python scripts/analyze_n8_exact_survivors.py --check --json \
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected
 python scripts/check_n9_vertex_circle_frontier_motif_classification.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_self_edge_path_join.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_self_edge_template_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_strict_cycle_path_join.py --check --assert-expected --json
 python scripts/check_n9_row_ptolemy_admissible_gap_replay.py --check --assert-expected --json
 python scripts/check_n9_row_ptolemy_gap_self_edge_cores.py --check --assert-expected --json
