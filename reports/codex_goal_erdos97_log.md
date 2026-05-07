@@ -22947,6 +22947,272 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-07 - Cycle 557 - Full Shared-Endpoint RX Transport Audit
+
+### Subquestion
+
+Cycles 555 and 556 tested six frequent mixed one-term off-target families of
+the form
+
+```text
+Ra < Xb_a
+```
+
+where the radius label `a` is one endpoint of the pair class. The narrow
+question for this cycle was:
+
+```text
+In the sampled C19 prefix-window artifact, does the shared-endpoint shift a
+work for every zero target-aware forbidden placement carrying any off-target
+one-term RX family Ra < Xb_a?
+```
+
+Equivalently, is there any sampled source placement where shifting the center
+by the radius endpoint fails to expose the Cycle 549 target-aware 22-family
+vocabulary?
+
+### Definitions and Setup
+
+The audit uses the finite catalog-prefilter artifact
+
+```text
+data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
+```
+
+and reconstructs all recorded fifth-pair children. For a child and center
+`c`, set `p=c+7 mod 19`. The forbidden depth classes are the six classes from
+Cycles 549-556:
+
+```text
+(LD, LD), (LD, RD), (M, LD), (RD, LD), (RD, M), (RD, RD)
+```
+
+For each child, the audit enumerates all exact inverse pairs `v,-v` among
+forced Kalmanson row quotient vectors. A placement `(child,c,p)` is zero
+target-aware if no inverse-pair vector touches either the selected-radius class
+`R_c` or the pair class `X_{c,p}`. Families are normalized by translating
+`c` to `0`.
+
+A one-term RX family is included in this cycle exactly when it has the form
+`Ra < Xb_a` after normalization. Its shared-endpoint shift is the center
+shift by `a`; the other endpoint shift is by `b`.
+
+### Result Status
+
+Promising finite reduction:
+**Full Shared-Endpoint RX Transport Audit**.
+
+In the sampled windows 288-479, every source placement carrying any one-term
+RX family `Ra < Xb_a` transports under the shared-endpoint shift `a` into the
+Cycle 549 target-aware 22-family vocabulary.
+
+This is still a finite sampled statement, not a proof of the conjecture
+outside the recorded artifact.
+
+### Exact Audit Result
+
+The audit reproduced the previous sampled totals:
+
+```text
+fifth-pair children: 10350
+forbidden placements: 70614
+zero target-aware placements: 27255
+target-aware vocabulary size: 22
+target family-count histogram:
+  0: 27255
+  1: 18313
+  2: 11915
+  3: 7017
+  4: 3634
+  5: 1397
+  6: 708
+  7: 247
+  8: 96
+  9: 26
+  10: 6
+```
+
+The full shared-RX transport counts were:
+
+```text
+shared RX families tested: 161
+shared RX source occurrences: 209185
+families with shared-shift failures: 0
+shared-shift failure occurrences: 0
+families with other-endpoint failures: 144
+other-endpoint failure occurrences: 73545
+families with no forbidden target-aware shift: 120
+no-forbidden-target-aware-shift occurrences: 599
+```
+
+After removing the six families already tested in Cycles 555-556, this cycle
+adds:
+
+```text
+new shared RX families tested: 155
+new shared RX source occurrences: 190808
+new shared-shift failure occurrences: 0
+```
+
+The audit digest was:
+
+```text
+a7dda13294135b13dc7a4367f8e56c62c3c9b62aebfbb5582898351ff2ca87b1
+```
+
+### Top New Families
+
+The most frequent newly tested shared-RX families were:
+
+```text
+family          sources  children  shared_shift  shared_success  other_shift  other_success
+R18 < X6_18       2798      2589            18            2798            6           1704
+R4 < X4_17        2772      2540             4            2772           17           1822
+R15 < X3_15       2619      2415            15            2619            3           1439
+R9 < X7_9         2585      2323             9            2585            7           1846
+R12 < X6_12       2583      2369            12            2583            6           1702
+R16 < X10_16      2521      2348            16            2521           10           1875
+R16 < X4_16       2460      2274            16            2460            4           1774
+R15 < X14_15      2439      2211            15            2439           14           1397
+R11 < X11_18      2402      2234            11            2402           18           1597
+R1 < X1_18        2382      2185             1            2382           18           1750
+```
+
+Every listed shared success count equals the source count. The same equality
+holds for all 161 tested families.
+
+### Obstruction to the Other-Endpoint Rule
+
+The other endpoint remains unreliable. For the most frequent newly tested
+family, `R18 < X6_18`, the first source where the other shift `6` fails but
+the shared shift `18` succeeds is:
+
+```text
+label c19_window_fifth_child_0338_0063_0006
+source center 15, partner 3, depth (RD, LD)
+boundary_left [1, 3, 17, 11, 6]
+boundary_right [2, 5, 4, 15, 14]
+remaining [7, 8, 9, 10, 12, 13, 16, 18]
+shared_shift 18
+other_shift 6
+good_offsets [2, 3, 4, 5, 7, 8, 10, 12, 13, 14, 15, 16, 18]
+forbidden_good_offsets [2, 3, 8, 14]
+```
+
+Thus the broader endpoint rule is false well beyond the six high-frequency
+families from Cycles 555-556:
+
+```text
+For Ra < Xb_a, both endpoint shifts a and b expose the target-aware
+vocabulary.
+```
+
+### Obstruction to the Stronger Forbidden-Shift Route
+
+The stronger route requiring some shifted target-aware placement to remain in
+a forbidden depth class also fails broadly. For `R18 < X6_18`, the first
+source with target-aware shifts but no forbidden target-aware shift is:
+
+```text
+label c19_window_fifth_child_0368_0025_0037
+source center 3, partner 10, depth (LD, RD)
+boundary_left [1, 3, 4, 8, 13]
+boundary_right [2, 6, 10, 11, 7]
+remaining [5, 9, 12, 14, 15, 16, 17, 18]
+shared_shift 18
+other_shift 6
+good_offsets [2, 5, 16, 18]
+forbidden_good_offsets []
+```
+
+So the surviving route is still target-vocabulary transport, not
+forbidden-class-preserving transport.
+
+### Argument
+
+The audit is an exact finite replay over the stored sampled artifact. It uses
+the existing prefix-forced Kalmanson row construction and selected-distance
+quotient map, then enumerates inverse pairs by exact integer quotient vectors.
+For each zero target-aware forbidden placement, it filters the complete
+off-target family set to one-term RX families whose radius label is a pair
+endpoint. For each such family `Ra < Xb_a`, it checks the shifted placement
+with center `c+a`.
+
+The shared shift succeeds in every one of the 209185 source occurrences. Since
+the audit found no shared-shift failure, there is no sampled obstruction to
+the shared-endpoint conjecture among one-term RX families in windows 288-479.
+The displayed other-endpoint and forbidden-shift witnesses show that two
+stronger natural variants are false.
+
+### Limitations
+
+- This is a finite sampled audit over windows 288-479 only.
+- It covers one-term RX off-target families in the sampled artifact, not all
+  off-target family types from Cycle 551.
+- It remains a replay computation, not a human-readable cyclic-order proof.
+- The shared-endpoint RX transport principle remains unproved outside the
+  sampled artifact.
+- The result does not prove or refute an all-order `C19_skew` obstruction.
+- It does not prove a general theorem for Erdos Problem #97 and does not give
+  a counterexample.
+
+### Effect on the Attack
+
+Cycles 555-556 suggested the shared endpoint as the correct transport choice
+for mixed radius/pair families. This cycle upgrades that sampled evidence from
+six hand-picked frequent families to every one-term RX family of the form
+`Ra < Xb_a` appearing in the sampled zero target-aware source set.
+
+The theory target is now sharper: prove a local order/quotient lemma showing
+why the radius endpoint `a` of `Ra < Xb_a` must make some target-aware inverse
+pair visible after shifting the center by `a`. Any proof route that treats the
+other endpoint symmetrically is ruled out by exact sampled witnesses.
+
+### Next Lead
+
+Try to prove the shared-endpoint RX transport principle directly from the
+cyclic order and selected-distance quotient. A useful first lemma would state
+precise hypotheses on a forced inverse pair of type `Ra < Xb_a` and derive
+the existence of a target-aware inverse pair after translating the center by
+`a`, without requiring the shifted placement to remain forbidden.
+
+If that proof stalls, repeat the same exhaustive sampled transport audit for
+the remaining non-RX off-target family types from Cycle 551, keeping the
+family-type statements separate.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-557`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-557`.
+- The branch was based on merged `origin/main` at
+  `e3139f17753b8dee9c8f445f1394e3c076afa490`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact all-shared-RX transport audit over all 10,350 sampled fifth
+  children, all 70,614 forbidden placements, all 27,255 zero target-aware
+  placements, and all 209,185 shared-RX source occurrences: passed, with
+  digest
+  `a7dda13294135b13dc7a4367f8e56c62c3c9b62aebfbb5582898351ff2ca87b1`.
+- Repository validation after recording the cycle:
+  - `python scripts/check_text_clean.py`: passed.
+  - `python scripts/check_status_consistency.py`: passed.
+  - `python scripts/check_artifact_provenance.py`: passed.
+  - `python -m ruff check .`: passed.
+  - `git diff --check`: passed.
+  - `python -m pytest -q`: passed, `536 passed, 81 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## Session 2026-05-06, Theory Cycle 412
 
 Timestamp: 2026-05-06 15:18 EEST.
