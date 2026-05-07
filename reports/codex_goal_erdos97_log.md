@@ -92404,3 +92404,192 @@ families.
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 - Cycle 552 - R10-R7 Two-Shift Target Transport
+
+### Subquestion
+
+For the zero target-aware forbidden placements carrying the most frequent
+off-target family `R10 < R7` from Cycle 551, does changing the center by `7`
+or `10` always expose one of the 22 target-aware families from Cycle 549?
+
+### Definitions and Setup
+
+This cycle uses the same sampled finite artifact as Cycles 549-551:
+
+```text
+data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
+```
+
+For a reconstructed fifth-pair child and center `c`, set `p=c+7 mod 19`.
+The depth labels and forbidden placement classes are those of Cycle 549:
+`(LD,LD)`, `(LD,RD)`, `(M,LD)`, `(RD,LD)`, `(RD,M)`, and `(RD,RD)`.
+
+The target classes at center `c` are the selected-radius class `R_c` and the
+pair class `X_{c,p}`. A placement is zero target-aware if no inverse-pair
+vector among the forced Kalmanson rows has support on either target class.
+The family `R10 < R7` is normalized by translating `c` to `0`.
+
+The transport test considers a source placement `(child,c,c+7)` that is
+forbidden, zero target-aware, and carries `R10 < R7`. For a shift offset `s`,
+it inspects the shifted placement with center `c+s` and partner `c+s+7`, then
+asks whether its target-aware family set intersects the 22-family vocabulary
+from Cycle 549.
+
+### Result Status
+
+Promising finite reduction:
+**R10-R7 Two-Shift Target Transport Lemma**.
+
+In the sampled finite scope, every `R10 < R7` zero-target source placement
+transports to a Cycle 549 target-aware family after shifting the center by
+`7`, and also after shifting the center by `10`.
+
+### Exact Audit Result
+
+The audit first reproduced the prior sampled totals:
+
+```text
+children 10350
+forbidden 70614
+distinct target 22
+zero 27255
+R10<R7 source 4817
+```
+
+The transport counts for the two proposed shifts were:
+
+```text
+offset 7:
+  sources: 4817
+  shifted placements with any target-aware family: 4817
+  shifted placements with a Cycle 549 family: 4817
+  shifted placements still in a forbidden depth class: 2626
+  shifted placements both forbidden and target-aware: 2626
+
+offset 10:
+  sources: 4817
+  shifted placements with any target-aware family: 4817
+  shifted placements with a Cycle 549 family: 4817
+  shifted placements still in a forbidden depth class: 2359
+  shifted placements both forbidden and target-aware: 2359
+```
+
+Thus the simple transport statement succeeds without needing to search other
+offsets. Over all offsets `1..18`, every source had at least three target-aware
+shift offsets:
+
+```text
+good_offset_count_hist {3: 9, 4: 10, 5: 54, 6: 88, 7: 187, 8: 333, 9: 543, 10: 776, 11: 985, 12: 916, 13: 517, 14: 286, 15: 91, 16: 21, 17: 1}
+fail_7_10 0
+fail_any 0
+```
+
+The stronger statement that some shifted target-aware placement is still
+forbidden fails for three source placements:
+
+```text
+forbidden_good_offset_count_hist {0: 3, 1: 110, 2: 391, 3: 1015, 4: 1433, 5: 1128, 6: 542, 7: 163, 8: 29, 9: 3}
+fail_forbidden_any 3
+```
+
+The first obstruction to this stronger forbidden-shift statement is:
+
+```text
+label c19_window_fifth_child_0391_0046_0015
+source center 4, partner 11, depth (M, LD)
+boundary_left [1, 3, 7, 11, 8]
+boundary_right [2, 6, 5, 9, 16]
+remaining [4, 10, 12, 13, 14, 15, 17, 18]
+good_offsets [3, 7, 10, 15, 16, 18]
+forbidden_good_offsets []
+```
+
+For this obstruction, the two proposed shifts still expose target-aware
+families, but not in forbidden depth classes:
+
+```text
+shift 7:  center 11, partner 18, depth (LD, M), families R0 < R3, R0 < R8, R0 < X0_1
+shift 10: center 14, partner 2,  depth (M, R1), families R0 < R16
+```
+
+The two focused audit digests were:
+
+```text
+transport_digest 686a4d50a03bf3c6ae03da62e2e17c6b68058710b476ca3a949ccda90d1e6acf
+focused_digest   58baa7af4ae8f8b8d1ed9e089c070ab87a3ade72a2bb96f0a43d17c2c3417e68
+```
+
+### Argument
+
+The audit reconstructs each fifth-pair child directly from the recorded
+fourth-pair survivors in the sampled artifact, using the same
+`child_state`, `prefix_kalmanson_rows`, and selected-distance quotient as the
+certificate scripts. It enumerates all exact inverse-vector pairs among the
+forced Kalmanson rows and normalizes family names by translating the source
+center to `0`.
+
+The reconstruction is guarded by exact replay checks against the Cycle 549 and
+Cycle 551 totals. After those checks pass, the source set is exactly the 4,817
+forbidden zero-target placements carrying `R10 < R7`. For each such source,
+the shifted centers `c+7` and `c+10` both have at least one inverse-pair vector
+touching the shifted target classes, and every such shifted target family lies
+in the 22-family vocabulary already isolated in Cycle 549.
+
+### Limitations
+
+- This is a finite sampled audit over windows 288-479 only.
+- The result is a transport property for one off-target family, `R10 < R7`,
+  not for all 259 off-target families from Cycle 551.
+- The shifted placement need not remain in one of the six forbidden depth
+  classes; the three-source obstruction above rules out that stronger route.
+- The audit shows a reusable finite pattern but does not yet explain why the
+  two shifts must work by a human-readable order-theoretic lemma.
+- It does not prove or refute an all-order `C19_skew` obstruction.
+- It does not prove a general theorem for Erdos Problem #97 and does not give
+  a counterexample.
+
+### Effect on the Attack
+
+This is the first successful local transport bridge from the zero target-aware
+side back into the 22-family target-aware vocabulary. The immediate proof route
+is no longer just to catalog the zero-target side; it is to prove
+family-by-family transport lemmas that turn off-target radius comparisons into
+target-aware comparisons after controlled shifts of the center.
+
+The obstruction above is also useful: any proof that insists the shifted
+placement must remain forbidden is too strong. The target-aware vocabulary
+should be treated as a local algebraic witness that may occur outside the
+forbidden depth classes.
+
+### Next Lead
+
+Repeat the same transport audit for the next most frequent off-target
+families, starting with `R1 < R4`, `R15 < R18`, and `R10 < R13`. If these also
+transport under small deterministic shifts, promote the pattern into a general
+radius-comparison shift conjecture.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-552`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-552`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact transport audit over all 10,350 sampled fifth children, all
+  70,614 forbidden placements, and all 4,817 `R10 < R7` zero-target source
+  placements: passed, with digest
+  `686a4d50a03bf3c6ae03da62e2e17c6b68058710b476ca3a949ccda90d1e6acf`.
+- One-off focused shifted-family audit for offsets `7` and `10`: passed, with
+  digest `58baa7af4ae8f8b8d1ed9e089c070ab87a3ade72a2bb96f0a43d17c2c3417e68`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
