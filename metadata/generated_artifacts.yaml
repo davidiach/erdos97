@@ -998,15 +998,18 @@ artifacts:
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: FINITE_BOOKKEEPING_NOT_A_PROOF
-    claim_scope: Focused n=9 base-apex low-excess bookkeeping; not a proof of n=9 and not a global status update.
+    claim_scope: Focused n=9 base-apex low-excess bookkeeping; not a proof of n=9, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
       schema: erdos97.n9_base_apex_low_excess_ledgers.v1
       status: EXPLORATORY_LEDGER_ONLY
       trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+      claim_scope: Focused n=9 base-apex low-excess bookkeeping; not a proof of n=9, not a counterexample, and not a global status update.
       n: 9
       witness_size: 4
       base_apex_slack: 9
+      provenance.generator: scripts/explore_n9_base_apex.py
+      provenance.command: python scripts/explore_n9_base_apex.py --low-excess-report --out data/certificates/n9_base_apex_low_excess_ledgers.json
       strict_unresolved_profile_ledger_count: 30
     forbidden_claims:
       - n=9 is proved

@@ -324,16 +324,17 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ident="n9_base_apex_low_excess_ledgers",
         command=("python", "scripts/check_n9_base_apex_low_excess_ledgers.py", "--check", "--json"),
         claim_scope=(
-            "Exploratory n=9 base-apex low-excess bookkeeping; "
-            "not a proof of n=9 or official/global status update."
+            "Focused n=9 base-apex low-excess bookkeeping; "
+            "not a proof of n=9, not a counterexample, "
+            "and not a global status update."
         ),
     ),
     AuditCommand(
         ident="n9_base_apex_escape_budget",
         command=("python", "scripts/check_n9_base_apex_escape_budget.py", "--check", "--json"),
         claim_scope=(
-            "Exploratory n=9 base-apex escape-budget bookkeeping; "
-            "not a proof of n=9, counterexample, or official/global status update."
+            "Focused n=9 base-apex escape-budget bookkeeping; "
+            "not a proof of n=9, not a counterexample, and not a global status update."
         ),
     ),
     AuditCommand(
@@ -345,16 +346,18 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "--json",
         ),
         claim_scope=(
-            "Exploratory n=9 selected-baseline escape-budget overlay bookkeeping; "
-            "not a proof of n=9, counterexample, or official/global status update."
+            "Focused n=9 selected-baseline escape-budget overlay bookkeeping; "
+            "not a proof of n=9, not a counterexample, not a geometric "
+            "realizability test, and not a global status update."
         ),
     ),
     AuditCommand(
         ident="n9_base_apex_d3_escape_slice",
         command=("python", "scripts/check_n9_d3_escape_slice.py", "--check", "--json"),
         claim_scope=(
-            "Exploratory n=9 base-apex D=3,r=3 coupled escape-slice bookkeeping; "
-            "not a proof of n=9, counterexample, or official/global status update."
+            "Focused n=9 base-apex D=3,r=3 coupled escape-slice bookkeeping; "
+            "not a proof of n=9, not a counterexample, not a geometric "
+            "realizability test, and not a global status update."
         ),
     ),
     AuditCommand(

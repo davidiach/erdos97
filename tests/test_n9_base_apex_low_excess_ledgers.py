@@ -45,6 +45,64 @@ def test_low_excess_ledger_checker_rejects_tampered_count() -> None:
     assert any("strict_unresolved_profile_ledger_count" in error for error in errors)
 
 
+def test_low_excess_ledger_checker_rejects_unknown_top_level_key() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    payload["unchecked_schema_drift"] = True
+
+    errors = validate_payload(payload)
+
+    assert any("top-level keys" in error for error in errors)
+
+
+def test_low_excess_ledger_checker_rejects_tampered_claim_scope() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    payload["claim_scope"] = (
+        "Focused n=9 base-apex low-excess bookkeeping; not a proof of n=9 "
+        "and not a global status update."
+    )
+
+    errors = validate_payload(payload)
+
+    assert any("claim_scope mismatch" in error for error in errors)
+    assert any("not a counterexample" in error for error in errors)
+
+
+def test_low_excess_ledger_checker_rejects_shortened_provenance() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    payload["provenance"]["command"] = "python scripts/explore_n9_base_apex.py --low-excess-report"
+
+    errors = validate_payload(payload)
+
+    assert any("provenance mismatch" in error for error in errors)
+
+
+def test_low_excess_ledger_checker_rejects_appended_overclaiming_note() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    payload["notes"].append("This proves the n=9 case.")
+
+    errors = validate_payload(payload)
+
+    assert any("notes mismatch" in error for error in errors)
+
+
+def test_low_excess_ledger_checker_reports_malformed_row_excesses() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    payload["strict_unresolved_profile_ledgers"][0]["excesses"] = None
+
+    errors = validate_payload(payload)
+
+    assert any("excesses must be a list of integers" in error for error in errors)
+
+
+def test_low_excess_ledger_checker_rejects_boolean_row_excess() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    payload["strict_unresolved_profile_ledgers"][0]["excesses"][0] = False
+
+    errors = validate_payload(payload)
+
+    assert any("excesses must be a list of integers" in error for error in errors)
+
+
 def test_low_excess_ledger_checker_cli_json() -> None:
     result = subprocess.run(
         [
