@@ -1162,6 +1162,68 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_base_apex_d3_p19_incidence_capacity_pilot
+    path: data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json
+    kind: exploratory_ledger_artifact
+    generator: scripts/analyze_n9_base_apex_d3_p19_incidence_capacity_pilot.py
+    command: python scripts/analyze_n9_base_apex_d3_p19_incidence_capacity_pilot.py --assert-expected --out data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json
+    checker: scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py
+    check_command: python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    claim_scope: Focused n=9 base-apex D=3 P19 incidence-capacity pilot ledger for rows R000..R007; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_base_apex_d3_p19_incidence_capacity_pilot.v1
+      status: EXPLORATORY_LEDGER_ONLY
+      trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+      claim_scope: Focused n=9 base-apex D=3 P19 incidence-capacity pilot ledger for rows R000..R007; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.
+      n: 9
+      witness_size: 4
+      profile_ledger_id: P19
+      profile_multiset:
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 6
+      source_representative_ids:
+        - R000
+        - R001
+        - R002
+        - R003
+        - R004
+        - R005
+        - R006
+        - R007
+      escape_class_count: 8
+      representative_count: 8
+      total_profile_excess: 6
+      capacity_deficit: 3
+      relevant_deficit_count: 3
+      labelled_profile_sequence_count: 9
+      common_dihedral_pair_class_count: 56
+      target_capacity_total: 60
+      realizability_state: UNKNOWN
+      incidence_state: UNKNOWN
+      state_scope: bookkeeping-only
+      provenance.generator: scripts/analyze_n9_base_apex_d3_p19_incidence_capacity_pilot.py
+      provenance.command: python scripts/analyze_n9_base_apex_d3_p19_incidence_capacity_pilot.py --assert-expected --out data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json
+    forbidden_claims:
+      - n=9 is proved
+      - P19 is impossible
+      - incidence-completeness result
+      - geometric realizability count
+      - counterexample
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n9_base_apex_low_excess_escape_ladder
     path: data/certificates/n9_base_apex_low_excess_escape_ladder.json
     kind: exploratory_ledger_artifact
