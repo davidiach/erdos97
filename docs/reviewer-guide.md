@@ -83,6 +83,7 @@ python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --check --
 python scripts/check_n9_vertex_circle_template_lemma_catalog.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_row_ptolemy_product_cancellations.py --check --json
 python scripts/check_n9_row_ptolemy_family_signatures.py --check --assert-expected --json
 python scripts/check_n9_row_ptolemy_order_sensitivity.py --check --assert-expected --json
