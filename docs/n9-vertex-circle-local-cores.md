@@ -90,6 +90,13 @@ join. It is a reviewer-navigation packet only, not a theorem list, and keeps
 the local-core cycle counts separate from first full-assignment obstruction
 counts.
 
+`data/certificates/n9_vertex_circle_template_lemma_catalog.json` combines the
+9 self-edge template records and the 3 strict-cycle template records into a
+single derived lemma-candidate crosswalk. It records the local-core hypothesis
+shape, assignment/family coverage, and quotient obstruction shape for each
+template. This is proof-mining scaffolding only; template ids are not theorem
+names.
+
 `data/certificates/n9_row_ptolemy_product_cancellations.json` contains a
 dependent crosswalk from the row-Ptolemy hit families to these template labels:
 `F02 -> T08`, `F09 -> T01`, and `F13 -> T04`. All three are self-edge
@@ -243,6 +250,19 @@ python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py \
   --json
 ```
 
+Generate and check the template lemma-candidate catalog:
+
+```bash
+python scripts/check_n9_vertex_circle_template_lemma_catalog.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_vertex_circle_template_lemma_catalog.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
 Run the targeted artifact test:
 
 ```bash
@@ -254,6 +274,7 @@ python -m pytest \
   tests/test_n9_vertex_circle_self_edge_template_packet.py \
   tests/test_n9_vertex_circle_strict_cycle_path_join.py \
   tests/test_n9_vertex_circle_strict_cycle_template_packet.py \
+  tests/test_n9_vertex_circle_template_lemma_catalog.py \
   -q
 ```
 

@@ -97,6 +97,8 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-exhaustive.md`](n9-vertex-circle-exhaustive.md):
   review-pending exhaustive `n=9` selected-witness checker using the
   vertex-circle strict-chord filter.
+- [`n9-vertex-circle-template-lemma-catalog.md`](n9-vertex-circle-template-lemma-catalog.md):
+  derived 12-template lemma-candidate catalog for proof-mining review.
 - [`n10-vertex-circle-singleton-slices.md`](n10-vertex-circle-singleton-slices.md):
   review-pending `n=10` singleton-slice finite-case draft and audit target.
 - [`octagon-trap.html`](octagon-trap.html): interactive visualization of the

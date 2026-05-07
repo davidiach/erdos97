@@ -76,8 +76,11 @@ strict-cycle assignments. Its local-core cycle-length counts (`2: 18`,
 (`2: 22`, `3: 4`).
 `data/certificates/n9_vertex_circle_strict_cycle_template_packet.json`
 compresses those strict-cycle joins to 3 template-level reviewer records with
-canonical family cycles. All of these are review-pending diagnostics only,
-not independent proofs and not status promotions.
+canonical family cycles.
+`data/certificates/n9_vertex_circle_template_lemma_catalog.json` combines the
+9 self-edge templates and 3 strict-cycle templates into one derived
+lemma-candidate crosswalk for proof mining. All of these are review-pending
+diagnostics only, not independent proofs and not status promotions.
 
 ## Commands
 

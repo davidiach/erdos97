@@ -81,6 +81,13 @@ most 6 selected rows. Its template diagnostic groups those 16 local cores into
 templates. These buckets are review aids for lemma mining; they are not an
 independent n=9 proof path.
 
+The derived catalog
+`data/certificates/n9_vertex_circle_template_lemma_catalog.json` puts those 12
+template buckets in one proof-mining crosswalk. Each record keeps assignment
+coverage, family coverage, a local-core hypothesis shape, and the quotient
+self-edge or strict-cycle conclusion shape. It is still a diagnostic artifact,
+not a theorem list.
+
 ## Loose Obstruction Shapes
 
 As a deliberately coarse diagnostic, the artifact also buckets the first
@@ -199,6 +206,19 @@ python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py \
   --json
 ```
 
+Generate and check the template lemma-candidate catalog:
+
+```bash
+python scripts/check_n9_vertex_circle_template_lemma_catalog.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_vertex_circle_template_lemma_catalog.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
 Run the targeted artifact test:
 
 ```bash
@@ -209,5 +229,6 @@ python -m pytest \
   tests/test_n9_vertex_circle_self_edge_template_packet.py \
   tests/test_n9_vertex_circle_strict_cycle_path_join.py \
   tests/test_n9_vertex_circle_strict_cycle_template_packet.py \
+  tests/test_n9_vertex_circle_template_lemma_catalog.py \
   -q
 ```
