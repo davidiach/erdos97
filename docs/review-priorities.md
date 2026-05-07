@@ -145,6 +145,9 @@ Next steps:
   assignment-level replay aid for transformed strict-cycle local-core
   quotient cycles, keeping its local-core cycle counts separate from first
   full-assignment obstruction-shape counts;
+- use `data/certificates/n9_vertex_circle_strict_cycle_template_packet.json`
+  to review the 3 strict-cycle template packets before attempting reusable
+  quotient-cycle lemmas;
 - test whether the same motifs appear in the P18 obstruction and fail in the
   known `C19_skew` vertex-circle survivor;
 - use `docs/n9-vertex-circle-frontier-comparison.md` as the current guardrail:

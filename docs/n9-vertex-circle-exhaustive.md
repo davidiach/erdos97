@@ -73,8 +73,11 @@ family certificates.
 transforms the strict-cycle local-core certificates back into each of the 26
 strict-cycle assignments. Its local-core cycle-length counts (`2: 18`,
 `3: 8`) are distinct from the first full-assignment obstruction-shape counts
-(`2: 22`, `3: 4`). All of these are review-pending diagnostics only, not
-independent proofs and not status promotions.
+(`2: 22`, `3: 4`).
+`data/certificates/n9_vertex_circle_strict_cycle_template_packet.json`
+compresses those strict-cycle joins to 3 template-level reviewer records with
+canonical family cycles. All of these are review-pending diagnostics only,
+not independent proofs and not status promotions.
 
 ## Commands
 

@@ -513,6 +513,63 @@ artifacts:
       - the path join is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_vertex_circle_strict_cycle_template_packet
+    path: data/certificates/n9_vertex_circle_strict_cycle_template_packet.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_n9_vertex_circle_strict_cycle_template_packet.py
+    command: python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --assert-expected --write
+    checker: scripts/check_n9_vertex_circle_strict_cycle_template_packet.py
+    check_command: python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Template-level packet for the 3 strict-cycle local-core templates covering 26 n=9 strict-cycle frontier assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_vertex_circle_strict_cycle_template_packet.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: Template-level packet for the 3 strict-cycle local-core templates covering 26 n=9 strict-cycle frontier assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+      n: 9
+      row_size: 4
+      source_assignment_count: 184
+      self_edge_assignment_count: 158
+      strict_cycle_assignment_count: 26
+      strict_cycle_family_count: 3
+      strict_cycle_template_count: 3
+      local_core_cycle_step_count: 60
+      local_core_cycle_length_counts.2: 18
+      local_core_cycle_length_counts.3: 8
+      first_full_assignment_cycle_length_counts.2: 22
+      first_full_assignment_cycle_length_counts.3: 4
+      core_size_assignment_counts.4: 24
+      core_size_assignment_counts.6: 2
+      strict_edge_count_assignment_counts.36: 24
+      strict_edge_count_assignment_counts.54: 2
+      connector_path_length_counts.0: 6
+      connector_path_length_counts.1: 28
+      connector_path_length_counts.2: 26
+      template_assignment_counts.T10: 18
+      template_assignment_counts.T11: 6
+      template_assignment_counts.T12: 2
+      template_cycle_length_counts.T10.2: 18
+      template_cycle_length_counts.T11.3: 6
+      template_cycle_length_counts.T12.3: 2
+      template_core_size_counts.4: 2
+      template_core_size_counts.6: 1
+      template_cycle_length_distribution.2: 1
+      template_cycle_length_distribution.3: 2
+      provenance.command: python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - template labels are theorem names
+      - local-core cycle counts are first full-assignment cycle counts
+      - the template packet is an independent proof
+      - general proof of Erdos Problem #97
+
   - id: n9_groebner_real_root_decoders
     path: data/certificates/n9_groebner_real_root_decoders.json
     kind: algebraic_decoder_artifact
