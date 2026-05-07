@@ -88336,3 +88336,1306 @@ other 14 families.
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 09:47 EEST - Cycle 529: O01 Three-Bridge Normal Form
+
+### Mathematical Subquestion
+
+For the largest two-row family `O01`, with quotient relation
+`-S_0 + P_0_7`, do its 31 raw row-pair templates admit a smaller
+row-level normal form?
+
+### Definitions and Assumptions
+
+Use the notation from Cycle 528. Normalize every `O01` occurrence by rotating
+the selected class in the relation to `S_0` and orienting the first row to
+have quotient vector:
+
+```text
+P_0_7 - S_0.
+```
+
+The second row then has the opposite quotient vector:
+
+```text
+S_0 - P_0_7.
+```
+
+Call a row a **bridge through `S_t`** if its two non-distinguished terms are
+one positive and one negative pair in the same selected class `S_t`, so that
+the row reduces to either `P_0_7 > S_0` or `S_0 > P_0_7`.
+
+### Attempted Proof Route
+
+Normalize every sampled `O01` certificate and count both full row-pair
+templates and individual row forms. Then check whether the individual rows
+use a small set of auxiliary selected classes.
+
+### Result
+
+Finite normal form:
+**O01 Three-Bridge Normal Form.**
+
+Every sampled normalized `O01` row proving `P_0_7 > S_0` or `S_0 > P_0_7`
+bridges through one of exactly three auxiliary selected classes:
+
+```text
+S_2, S_15, S_17.
+```
+
+The sampled `O01` pair templates are all obtained by pairing a positive
+bridge and a negative bridge with distinct auxiliary classes from this
+three-element set.
+
+### Exact Audit
+
+The full normalized row-pair audit returned:
+
+```text
+o01_hit_count 1594
+o01_hit_digest ea8e4657d233b712c068c6f9d4373e637551e6a33fe7ecae6774a14dadfc348d
+normalized_template_count 31
+kind_order_counts {('K1_diag_gt_sides', 'K2_diag_gt_other'): 796, ('K2_diag_gt_other', 'K1_diag_gt_sides'): 336, ('K1_diag_gt_sides', 'K1_diag_gt_sides'): 416, ('K2_diag_gt_other', 'K2_diag_gt_other'): 46}
+reduced_edge_count_hist {5: 752, 6: 842}
+```
+
+The individual-row audit returned:
+
+```text
+pos_row_count 15
+neg_row_count 14
+pair_template_count 31
+```
+
+The auxiliary selected-class table was:
+
+```text
+pos_aux {2: 823, 15: 319, 17: 452}
+neg_aux {2: 455, 15: 572, 17: 567}
+cross {(2, 15): 400, (2, 17): 423, (15, 2): 175, (15, 17): 144, (17, 2): 280, (17, 15): 172}
+```
+
+The full row-template audit digest was:
+
+```text
+dfcd1190890bc459771997f1ed95e30270114eb7666235873368c0c1d646f329
+```
+
+The auxiliary table digest was:
+
+```text
+35a38ff9d5c7cfde782c94570989f9be49cc574a72298035d8f216e2128aa771
+```
+
+### Proof
+
+After normalization, each first row has vector `P_0_7 - S_0`. The individual
+row term expansions show that its remaining positive and negative terms are
+the same selected class. Only three such auxiliary classes occur:
+
+```text
+S_2:  pairs (2,11) and (2,7), paired with S_0 pair (0,11)
+S_15: pairs (5,15) and (7,15), paired with S_0 pair (0,5)
+S_17: pairs (9,17) and (7,17), paired with S_0 pair (0,9)
+```
+
+Thus each positive bridge has the form:
+
+```text
+P_0_7 + S_t > S_0 + S_t
+```
+
+for `t in {2,15,17}`. The opposite rows have the reverse form:
+
+```text
+S_0 + S_t > P_0_7 + S_t.
+```
+
+The cross table shows that every sampled normalized pair uses two distinct
+auxiliary classes from `{2,15,17}`; no `(2,2)`, `(15,15)`, or `(17,17)` pair
+occurs in the deterministic sampled `O01` certificates.
+
+### Limitations
+
+- This is a finite normal form for sampled deterministic `O01` certificates,
+  not a theorem that all possible `O01` certificates have this form.
+- It still leaves 31 row-pair templates, because each bridge class can be
+  realized by several forced cyclic row orders and Kalmanson kinds.
+- The result does not prove a boundary-forcing predicate for `O01`.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+`O01` is no longer an opaque collection of 31 row pairs. It factors into a
+small menu of row-level bridge gadgets through `S_2`, `S_15`, and `S_17`.
+This is closer to a human proof object: a future argument can try to show
+that certain boundary states force two opposite bridges through distinct
+auxiliary selected classes.
+
+### Next Lead
+
+Try to prove the row-level bridge classification abstractly for the relation
+`P_0_7 - S_0`: enumerate or reason through all Kalmanson rows whose quotient
+vector is `P_0_7 - S_0`, and check whether the same three auxiliaries are the
+only possible bridges outside the sampled frontier.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact normalized `O01` row-pair audit over all 10,350 sampled
+  fifth-pair children in windows 288-479: passed, with digest
+  `dfcd1190890bc459771997f1ed95e30270114eb7666235873368c0c1d646f329`.
+- One-off exact `O01` auxiliary bridge audit: passed, with digest
+  `35a38ff9d5c7cfde782c94570989f9be49cc574a72298035d8f216e2128aa771`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 10:05 EEST - Cycle 530: Abstract O01 Row Bridge Classification
+
+### Mathematical Subquestion
+
+Outside the sampled fifth-pair frontier, can we classify all ordered C19
+Kalmanson rows whose selected-distance quotient vector is exactly
+`P_0_7 - S_0`? In particular, are the auxiliary bridge classes from Cycle 529
+the only possible ones?
+
+### Definitions and Assumptions
+
+Use `C19_skew` with offsets `[-8,-3,5,9]`. Let
+
+```text
+S_0 = {(0,5), (0,9), (0,11), (0,16)}
+```
+
+be the selected-distance class at center 0, and let `P_0_7` be the singleton
+class of the nonselected pair `(0,7)`.
+
+An **ordered Kalmanson row** is a choice of a distinct ordered quadruple
+`(a,b,c,d)` and one of the two row kinds:
+
+```text
+K1: d(a,c)+d(b,d) > d(a,b)+d(c,d)
+K2: d(a,c)+d(b,d) > d(a,d)+d(b,c).
+```
+
+### Attempted Proof Route
+
+Enumerate all ordered quadruples of distinct labels in `{0,...,18}` and both
+Kalmanson row kinds. Select exactly the rows whose quotient vector after
+selected-distance equalities is `P_0_7 - S_0` or its opposite. Then check
+whether every selected row has its two remaining terms in the same selected
+class, and identify all such auxiliary classes.
+
+### Result
+
+Proved finite lemma:
+**Abstract O01 Row Bridge Classification.**
+
+There are exactly 24 ordered Kalmanson rows with quotient vector
+`P_0_7 - S_0`, and exactly 24 with quotient vector `S_0 - P_0_7`.
+
+Every such row is a bridge through one of exactly three auxiliary selected
+classes:
+
+```text
+S_2, S_15, S_17.
+```
+
+No other selected class, singleton class, or nonselected quotient class can
+occur as the cancelling auxiliary class for this row relation.
+
+### Exact Audit
+
+The exhaustive ordered-row audit returned:
+
+```text
+target_rows 24
+opposite_rows 24
+bad_count 0
+target_aux {2: 8, 15: 8, 17: 8}
+kind_orientation_counts {('K2_diag_gt_other', 'target'): 12, ('K2_diag_gt_other', 'opp'): 12, ('K1_diag_gt_sides', 'target'): 12, ('K1_diag_gt_sides', 'opp'): 12}
+unique_target_rows 24
+unique_opposite_rows 24
+```
+
+The audit digest was:
+
+```text
+03db6077b10d75fe999505684e82c106f9bfaf7d1adcce058f5853acca01aa64
+```
+
+The target rows split evenly into three bridge types:
+
+```text
+S_2:  P_0_7 + S_2 > S_0 + S_2
+S_15: P_0_7 + S_15 > S_0 + S_15
+S_17: P_0_7 + S_17 > S_0 + S_17
+```
+
+More concretely, the auxiliary pair identities are:
+
+```text
+S_2:  positive pair (2,11), negative pair (2,7),  S_0 pair (0,11)
+S_15: positive pair (5,15), negative pair (7,15), S_0 pair (0,5)
+S_17: positive pair (9,17), negative pair (7,17), S_0 pair (0,9)
+```
+
+### Proof
+
+The exact audit checks all `19*18*17*16` ordered quadruples and both
+Kalmanson row kinds. For each row, it forms the four signed unordered-pair
+terms, quotients them by the selected-distance equalities, and compares the
+resulting sparse coefficient vector with `P_0_7 - S_0` and `S_0 - P_0_7`.
+
+For every hit, the two terms not contributing `P_0_7` or `S_0` lie in the
+same selected class, with opposite signs. The audit found no bad row where
+those two terms fail to cancel in one selected class, and the only selected
+classes that occur are `S_2`, `S_15`, and `S_17`.
+
+This proves the finite ordered-row classification.
+
+### Limitations
+
+- This classifies rows with quotient vector `P_0_7 - S_0`; it does not prove
+  that a boundary state must force one such row.
+- It classifies individual rows, not pairs of forced rows. A contradiction
+  still needs one row of type `P_0_7 > S_0` and one row of opposite type
+  `S_0 > P_0_7`.
+- It does not explain why sampled deterministic `O01` certificates avoid
+  same-auxiliary pairings; that remains a pair-level or boundary-order
+  question.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+Cycle 529's sampled bridge observation is now promoted to an exact row-level
+classification. For `O01`, the algebraic row universe is small enough to
+state without reference to the sampled frontier. The remaining target is a
+boundary-forcing lemma: characterize when the prefix order forces opposite
+bridges through two of the three classes `S_2`, `S_15`, and `S_17`.
+
+### Next Lead
+
+Analyze the pair-level obstruction for `O01`: can a boundary state force
+opposite bridges through the same auxiliary class, or is the sampled
+"distinct auxiliary" phenomenon forced by cyclic order? If same-auxiliary
+opposite bridges are impossible, prove it exactly; if possible, construct the
+smallest boundary-order witness.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact exhaustive ordered-row audit over all C19 ordered Kalmanson
+  rows for the relation `P_0_7 - S_0`: passed, with digest
+  `03db6077b10d75fe999505684e82c106f9bfaf7d1adcce058f5853acca01aa64`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 10:18 EEST - Cycle 531: O01 Same-Auxiliary Incompatibility
+
+### Mathematical Subquestion
+
+For the `O01` relation `P_0_7 - S_0`, can a single cyclic order force one
+target bridge row and one opposite bridge row through the same auxiliary
+selected class? Or is the sampled "distinct auxiliary" phenomenon from
+Cycle 529 forced by cyclic order?
+
+### Definitions and Assumptions
+
+Use the row classification from Cycle 530. A **target bridge** is an ordered
+Kalmanson row with quotient vector:
+
+```text
+P_0_7 - S_0.
+```
+
+An **opposite bridge** is an ordered Kalmanson row with quotient vector:
+
+```text
+S_0 - P_0_7.
+```
+
+Both bridge through one of `S_2`, `S_15`, or `S_17`. Two ordered rows are
+**cyclic-order compatible** if there exists a cyclic order of their involved
+labels in which both ordered quadruples occur in the stated cyclic order.
+
+### Attempted Proof Route
+
+For all 24 target rows and all 24 opposite rows from Cycle 530, test cyclic
+compatibility. Separate pairs with the same auxiliary selected class from
+pairs with distinct auxiliaries. Also record the induced anchored order
+patterns on the three nonzero-relation labels for each auxiliary.
+
+### Result
+
+Proved finite lemma:
+**O01 Same-Auxiliary Incompatibility Lemma.**
+
+No target bridge and opposite bridge through the same auxiliary class can be
+realized by one cyclic order. Thus any cyclic-order-compatible `O01`
+two-row contradiction must use distinct auxiliary classes.
+
+Conversely, every target/opposite pair with distinct auxiliary classes is
+cyclic-order compatible at the row-order level.
+
+### Exact Audit
+
+The audit returned:
+
+```text
+target_rows 24
+opposite_rows 24
+same_aux_pairs 192
+same_aux_compatible_count 0
+diff_aux_pairs 384
+diff_aux_compatible_count 384
+```
+
+The anchored order patterns were:
+
+```text
+target_order_patterns {
+  2:  {(2,7,11): 4, (11,7,2): 4},
+  15: {(5,7,15): 4, (15,7,5): 4},
+  17: {(9,7,17): 4, (17,7,9): 4}
+}
+
+opposite_order_patterns {
+  2:  {(2,11,7): 4, (7,11,2): 4},
+  15: {(7,5,15): 4, (15,5,7): 4},
+  17: {(7,9,17): 4, (17,9,7): 4}
+}
+```
+
+The audit digest was:
+
+```text
+9ac52e10e62604114a7bf3ff72b927163377fd8872ba0a3a426c3bf4b5061fb0
+```
+
+### Proof
+
+For each same-auxiliary pair, both rows involve the same four labels
+`{0,7}` plus the two nonzero labels defining the auxiliary bridge. Anchor the
+cyclic order at 0.
+
+For auxiliary `S_2`, the target bridge rows force either:
+
+```text
+2 < 7 < 11
+```
+
+or its reverse, while the opposite bridge rows force either:
+
+```text
+2 < 11 < 7
+```
+
+or its reverse. These two sets of possible linear orders on `{2,7,11}` are
+disjoint. Hence no same-auxiliary target/opposite pair through `S_2` is
+cyclic-order compatible.
+
+The same argument applies to `S_15` and `S_17`: target rows put label `7`
+between the two auxiliary endpoints, while opposite rows put the other
+distinguished endpoint between them. The displayed order-pattern table shows
+the disjoint alternatives exactly.
+
+The audit also checks all distinct-auxiliary pairs and finds a cyclic order
+witness for each, proving the converse compatibility statement at the level
+of ordered row pairs.
+
+### Limitations
+
+- This is a row-order compatibility lemma for `O01`; it does not prove that a
+  boundary state must force any compatible distinct-auxiliary pair.
+- The converse says that a cyclic order exists for each distinct-auxiliary
+  row pair, not that every such pair appears in the sampled frontier or is
+  forced by a prefix boundary.
+- It is specific to the `O01` relation `P_0_7 - S_0`.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The sampled `O01` distinct-auxiliary phenomenon is no longer merely an
+artifact of the deterministic lookup. It is forced by cyclic order for this
+row relation. This converts the `O01` local contradiction target into a clean
+pairing rule: force any target bridge and any opposite bridge through two
+different classes among `S_2`, `S_15`, and `S_17`.
+
+### Next Lead
+
+Turn the compatibility lemma into a boundary-forcing predicate. For each
+ordered pair of distinct auxiliaries `(u,v)` in `{2,15,17}`, characterize the
+minimal prefix-order comparisons that force one target bridge through `S_u`
+and one opposite bridge through `S_v`.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact cyclic-order compatibility audit over all target/opposite
+  `O01` row pairs: passed, with digest
+  `9ac52e10e62604114a7bf3ff72b927163377fd8872ba0a3a426c3bf4b5061fb0`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 10:31 EEST - Cycle 532: O01 Anchor-Normalization Obstruction
+
+### Mathematical Subquestion
+
+Can the distinct-auxiliary `O01` bridge pairs from Cycle 531 be converted
+directly into minimal prefix-order comparison posets after rotating the
+relation to `S_0` and `P_0_7`?
+
+### Definitions and Assumptions
+
+Use the 24 target and 24 opposite `O01` bridge rows from Cycle 530. For
+ordered distinct auxiliaries `(u,v)` in `{2,15,17}`, consider every target
+row through `S_u` and every opposite row through `S_v`.
+
+The naive prefix-poset attempt takes the adjacent comparisons from the two
+ordered row quadruples and asks whether their union is an acyclic directed
+comparison graph. If it is acyclic, a transitive reduction gives a candidate
+linear prefix-order predicate.
+
+### Attempted Proof Route
+
+For every distinct-auxiliary row pair, form the union of adjacent
+comparisons from the two row orders and test whether this directed graph is
+acyclic. If all such graphs are acyclic, reduce them to minimal comparison
+posets. If not, record the obstruction.
+
+### Result
+
+Failed reduction / obstruction:
+**O01 Anchor-Normalization Obstruction.**
+
+The relation-normalized `O01` row pairs do not all define linear prefix-order
+posets. For each ordered auxiliary pair, exactly half of the row pairs have
+an acyclic adjacent-comparison graph and half have a directed cycle.
+
+Thus one cannot derive prefix-boundary predicates by first rotating the
+relation to `S_0` and then treating row orders as linear comparisons from the
+same anchor. The rotation-normalized notation is useful algebraically, but
+it loses the actual prefix anchor.
+
+### Exact Audit
+
+The acyclicity audit returned:
+
+```text
+target_rows 24
+opposite_rows 24
+distinct_aux_pairs 384
+cycle_counts
+  (2, 15, 'acyclic'): 32
+  (2, 15, 'cyclic'): 32
+  (2, 17, 'acyclic'): 32
+  (2, 17, 'cyclic'): 32
+  (15, 2, 'acyclic'): 32
+  (15, 2, 'cyclic'): 32
+  (15, 17, 'acyclic'): 32
+  (15, 17, 'cyclic'): 32
+  (17, 2, 'acyclic'): 32
+  (17, 2, 'cyclic'): 32
+  (17, 15, 'acyclic'): 32
+  (17, 15, 'cyclic'): 32
+```
+
+One cyclic example for auxiliary pair `(2,15)` is:
+
+```text
+target=K2_diag_gt_other(0,2,7,11)
+opposite=K2_diag_gt_other(5,7,0,15)
+edges=[(0,2), (0,15), (2,7), (5,7), (7,0), (7,11)]
+```
+
+The edge `(7,0)` shows the wrap around the normalized anchor.
+
+The audit digest was:
+
+```text
+f8e08405b85cf7d4bc61421b5eab4b22dd6df2013efaaff849db1ee6597161a2
+```
+
+### Proof
+
+The displayed cyclic example already rules out a uniform linear-prefix
+comparison predicate after relation normalization. The target row forces
+comparisons including `0<2<7<11`, while the opposite row includes
+`5<7<0<15`. Their union contains a directed path through the normalized
+anchor and cannot be represented as one acyclic linear order starting at
+that anchor.
+
+The exhaustive audit confirms this is not an isolated case: each ordered
+distinct-auxiliary pair has 32 acyclic and 32 cyclic row-pair graphs under
+the normalized labels.
+
+### Limitations
+
+- This is an obstruction to a naive reduction method, not to `O01` itself.
+- Cyclic row-pair compatibility from Cycle 531 remains true. The failure is
+  only in converting relation-normalized cyclic rows into prefix-order
+  predicates without tracking the actual prefix anchor.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The next boundary-forcing step must keep two pieces of data separate:
+
+```text
+1. algebraic normalization by rotation, used for quotient-class families;
+2. the actual prefix anchor 0, used for forced-order predicates.
+```
+
+The clean `O01` bridge lemmas remain useful, but prefix predicates must be
+derived in the original boundary labels, then only quotiented by rotations
+that preserve the anchor convention or with an explicit anchor parameter.
+
+### Next Lead
+
+Redo the `O01` boundary-forcing analysis without rotating away the actual
+prefix anchor. For sampled `O01` certificates, group row pairs by the
+position of the selected center relative to the prefix anchor and then reduce
+only acyclic forced-order comparison graphs in that anchored model.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact acyclicity audit over all distinct-auxiliary `O01` row pairs:
+  passed, with digest
+  `f8e08405b85cf7d4bc61421b5eab4b22dd6df2013efaaff849db1ee6597161a2`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 10:47 EEST - Cycle 533: Anchored O01 Sample Posets
+
+### Mathematical Subquestion
+
+If `O01` row pairs are analyzed in the original prefix-anchor labels, rather
+than after rotating the relation to `S_0`, do their forced-order graphs become
+valid linear prefix-order posets? If so, does the anchored model give a small
+number of predicates?
+
+### Definitions and Assumptions
+
+Use the sampled C19 windows 288-479 fifth-pair frontier. An `O01` hit is a
+deterministic two-row certificate whose quotient-vector signature lies in
+the rotation family represented by `-S_0 + P_0_7`.
+
+For each sampled hit, keep the original row labels and the actual prefix
+anchor `0`. Let the **anchored row-pair graph** be the directed graph formed
+from adjacent comparisons in the two forced row orders.
+
+### Attempted Proof Route
+
+For every sampled `O01` hit, compute:
+
+1. the actual selected center of its `O01` relation;
+2. the position of that center in the fifth-pair boundary state;
+3. whether the anchored row-pair graph is acyclic; and
+4. the transitive reduction of that graph.
+
+If the anchor-normalization obstruction from Cycle 532 was only an artifact
+of rotation, the original anchored graphs should be acyclic.
+
+### Result
+
+Finite anchored audit:
+**Anchored O01 Sample Posets.**
+
+In the original prefix-anchor labels, all 1,594 sampled `O01` row-pair graphs
+are acyclic. Thus the cyclic graphs from Cycle 532 were an artifact of
+rotating away the actual prefix anchor.
+
+However, the anchored sample still does not collapse to a tiny predicate
+list: it has 31 distinct anchored reduced posets. The selected center of the
+`O01` relation appears in 8 different labels and several prefix positions.
+
+### Exact Audit
+
+The audit returned:
+
+```text
+o01_hit_count 1594
+o01_hit_digest ea8e4657d233b712c068c6f9d4373e637551e6a33fe7ecae6774a14dadfc348d
+center_count 8
+center_hist {0: 814, 1: 72, 2: 8, 10: 1, 12: 604, 13: 92, 14: 2, 17: 1}
+center_position_hist {'L1': 72, 'L3': 2, 'L4': 5, 'L5': 236, 'M': 125, 'R1': 8, 'R3': 130, 'R4': 53, 'R5': 149, 'anchor': 814}
+cyclic_graph_count 0
+unique_anchored_reduced_posets 31
+```
+
+The reduced-poset counts by selected center were:
+
+```text
+center=0  hits=814 reduced_posets=8
+center=1  hits=72  reduced_posets=4
+center=2  hits=8   reduced_posets=1
+center=10 hits=1   reduced_posets=1
+center=12 hits=604 reduced_posets=8
+center=13 hits=92  reduced_posets=7
+center=14 hits=2   reduced_posets=1
+center=17 hits=1   reduced_posets=1
+```
+
+The audit digest was:
+
+```text
+5a9ea73447d30982a061a3a581a7d19453e90a76d73cbf4548e6e5592a282559
+```
+
+### Proof
+
+Each sampled deterministic two-row certificate is generated from rows whose
+orders are forced by the actual boundary state. Therefore, when the original
+prefix anchor is kept, the adjacent row-order comparisons should be
+compatible with one linear prefix order. The audit confirms this exactly:
+`cyclic_graph_count` is zero across all 1,594 sampled `O01` hits.
+
+The audit then computes transitive reductions of those acyclic graphs. The
+31 distinct reductions show that keeping the anchor fixes the cyclic
+artifact from Cycle 532, but it does not by itself give a one- or two-poset
+description of `O01`.
+
+### Limitations
+
+- This is a finite audit over sampled deterministic `O01` hits only.
+- The 31 anchored reduced posets are sampled predicates, not an exhaustive
+  all-boundary classification.
+- This does not prove that arbitrary C19 boundary states must force an
+  `O01` contradiction.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The anchor issue is now understood: algebraic rotation is safe for quotient
+families, but boundary predicates must be built in anchored coordinates.
+For sampled `O01`, this gives valid posets but still leaves 31 cases. A proof
+route should next look for a second compression variable, such as selected
+center position or boundary-side type.
+
+### Next Lead
+
+Group the 31 anchored `O01` reduced posets by boundary-side type of the
+selected center and by which auxiliary pair is used. Try to identify whether
+the high-count centers `0` and `12` already explain most of the sampled
+`O01` closures through a small number of boundary-side patterns.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact anchored `O01` sampled-poset audit over all 10,350 sampled
+  fifth-pair children in windows 288-479: passed, with digest
+  `5a9ea73447d30982a061a3a581a7d19453e90a76d73cbf4548e6e5592a282559`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 08:20 EEST - Cycle 534: Center-Position Nonclassification
+
+### Mathematical Subquestion
+
+Does the selected-center position classify the 31 anchored `O01` reduced
+posets from Cycle 533? More precisely, after fixing the selected center label
+and its boundary position, is the anchored reduced row-pair poset determined?
+
+### Definitions and Assumptions
+
+Use the sampled C19 windows 288-479 fifth-pair frontier. An `O01` hit is a
+deterministic two-row certificate whose quotient-vector signature lies in
+the rotation family represented by `-S_0 + P_0_7`.
+
+For an anchored `O01` hit, the **selected center** is the label `c` for which
+one row vector is `-S_c + P_{c,c+7}` or its negative. The center position is
+one of:
+
+```text
+anchor, L1, L2, ..., R1, R2, ..., M
+```
+
+where `Lk` and `Rk` are the stored left/right boundary positions and `M` is
+an unordered middle label.
+
+### Attempted Proof Route
+
+Recompute all fifth-pair two-row certificates from the recorded sampled
+frontier. Keep only `O01` hits. For each such hit, compute:
+
+1. selected center;
+2. center position;
+3. anchored forced-order graph from adjacent comparisons in the two rows; and
+4. transitive reduction of that graph.
+
+If center position were a useful proof predicate, each `(center, position)`
+bucket would have one reduced poset, or at least almost all mass would lie in
+a few one-poset buckets.
+
+### Result
+
+Failed compression lemma:
+**Center-Position Nonclassification Obstruction.**
+
+Selected-center position does not classify anchored `O01` reduced posets in
+the sampled frontier. The audit found 17 `(center, position)` buckets, but
+12 of those buckets contain more than one reduced poset. The maximum number
+of reduced posets in a single `(center, position)` bucket is 8.
+
+The strongest obstruction is the high-mass anchor bucket:
+
+```text
+(center=0, position=anchor): hits=814, reduced_posets=8
+```
+
+Thus even the most common center-position case is not a single boundary
+predicate.
+
+### Exact Audit
+
+The recomputation returned:
+
+```text
+all_fifth 10350
+two_hits 10342
+o01 1594
+label_digest ea8e4657d233b712c068c6f9d4373e637551e6a33fe7ecae6774a14dadfc348d
+classification_digest 05e25ded1205314cb299e16033c8e8be0b1d70a2a3c73feb688076cd0f83997f
+unique_red 31
+center_position_bucket_count 17
+multi_red_center_position_buckets 12
+max_red_per_position 9
+max_red_per_center_position 8
+```
+
+The `(center, position)` bucket table was:
+
+```text
+(0, 'anchor') hits 814 red 8
+(1, 'L1') hits 72 red 4
+(2, 'R1') hits 8 red 1
+(10, 'L3') hits 1 red 1
+(12, 'L5') hits 231 red 5
+(12, 'M') hits 97 red 5
+(12, 'R3') hits 130 red 2
+(12, 'R4') hits 43 red 2
+(12, 'R5') hits 103 red 3
+(13, 'L3') hits 1 red 1
+(13, 'L4') hits 5 red 2
+(13, 'L5') hits 3 red 2
+(13, 'M') hits 27 red 3
+(13, 'R4') hits 10 red 2
+(13, 'R5') hits 46 red 4
+(14, 'L5') hits 2 red 1
+(17, 'M') hits 1 red 1
+```
+
+Two explicit same-bucket witnesses are:
+
+```text
+label c19_window_fifth_child_0403_0045_0009
+center 0
+position anchor
+rows K1_diag_gt_sides(0,11,7,2); K2_diag_gt_other(0,15,5,7)
+left (1, 3, 8, 11, 9)
+right (2, 6, 4, 7, 5)
+reduced_poset ((0, 11), (0, 15), (5, 7), (7, 2), (11, 7), (15, 5))
+
+label c19_window_fifth_child_0338_0063_0019
+center 0
+position anchor
+rows K1_diag_gt_sides(0,11,7,2); K2_diag_gt_other(0,17,9,7)
+left (1, 3, 17, 11, 8)
+right (2, 5, 4, 15, 7)
+reduced_poset ((0, 11), (0, 17), (7, 2), (9, 7), (11, 7), (17, 9))
+```
+
+They have the same selected center and the same center position, but distinct
+anchored reduced posets.
+
+### Proof
+
+The two displayed witnesses are exact sampled fifth-pair boundary states.
+Both are deterministic two-row `O01` certificates with selected center `0`
+at the anchor. Their two forced row orders give different transitive
+reductions. Therefore `(center, position)` cannot determine the anchored
+reduced poset.
+
+The full audit confirms this is not an isolated accident: among 17
+`(center, position)` buckets, 12 contain multiple reduced posets. Hence
+center position is not an adequate compression variable for a direct
+human-readable `O01` proof predicate.
+
+### Limitations
+
+- This is a finite sampled-frontier obstruction to a compression strategy.
+- It does not rule out a stronger classifier using auxiliary labels,
+  boundary-side order type, or parent-state data.
+- It does not prove that arbitrary C19 boundary states must force an `O01`
+  contradiction.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The Cycle 533 lead "group by selected center position" is insufficient.
+The next compression variable must encode the two auxiliary bridges or the
+relative order type of the auxiliary labels. The proof route should now treat
+an anchored `O01` certificate as a center plus an ordered auxiliary-pair
+configuration, rather than as a center-position predicate.
+
+### Next Lead
+
+Classify the anchored `O01` sample by selected center together with the
+ordered auxiliary bridge pair from the two rows. Test whether
+`(center, position, ordered auxiliary type)` determines the reduced poset, or
+whether another small obstruction appears.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact center-position audit over all 10,350 sampled fifth-pair
+  children in windows 288-479: passed, with classification digest
+  `05e25ded1205314cb299e16033c8e8be0b1d70a2a3c73feb688076cd0f83997f`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 08:27 EEST - Cycle 535: Signed-Auxiliary O01 Determinacy
+
+### Mathematical Subquestion
+
+Does adding the ordered auxiliary bridge data classify the anchored `O01`
+reduced posets from Cycle 533? In particular, does
+`(center, position, signed auxiliary pair)` determine the anchored reduced
+row-pair poset?
+
+### Definitions and Assumptions
+
+Use the sampled C19 windows 288-479 fifth-pair frontier. An `O01` hit is a
+deterministic two-row certificate whose quotient-vector signature lies in
+the rotation family represented by `-S_0 + P_0_7`.
+
+For selected center `c`, let the selected partner be `c+7 mod 19`. For each
+of the two Kalmanson rows in an `O01` certificate, delete `c` and `c+7` from
+the ordered quadrilateral. The two remaining labels, kept in row order, are
+that row's **auxiliary bridge**.
+
+The row whose quotient vector is `-S_c + P_{c,c+7}` is called `target`; the
+row whose vector is `S_c - P_{c,c+7}` is called `opposite`. The
+**signed auxiliary pair** is:
+
+```text
+((opposite, opposite_auxiliary_bridge), (target, target_auxiliary_bridge))
+```
+
+### Attempted Proof Route
+
+Recompute all fifth-pair two-row certificates from the recorded sampled
+frontier. Keep only `O01` hits. Compare several candidate classifiers against
+the transitive reduction of the anchored forced-order graph:
+
+```text
+center position only
+center position plus unordered auxiliary set
+center position plus signed auxiliary pair
+center position plus signed auxiliary pair plus row kind
+```
+
+### Result
+
+Finite sampled determinacy lemma:
+**Signed-Auxiliary O01 Determinacy.**
+
+For the sampled `O01` frontier, `(center, position, signed auxiliary pair)`
+determines the anchored reduced poset. The audit found no ambiguous buckets:
+
+```text
+center_pos_signed_aux bucket_count 47 multi 0 max_red 1 max_hits 252
+```
+
+Adding row kind is unnecessary in this sampled audit:
+
+```text
+center_pos_signed_kind_aux bucket_count 47 multi 0 max_red 1 max_hits 252
+```
+
+The coarser unordered auxiliary set is not enough:
+
+```text
+center_pos_auxset bucket_count 29 multi 10 max_red 4 max_hits 565
+```
+
+### Exact Audit
+
+The full classifier comparison returned:
+
+```text
+records 1594
+center_pos bucket_count 17 multi 12 max_red 8 max_hits 814
+center_pos_auxset bucket_count 29 multi 10 max_red 4 max_hits 565
+center_pos_signed_aux bucket_count 47 multi 0 max_red 1 max_hits 252
+center_pos_signed_kind_aux bucket_count 47 multi 0 max_red 1 max_hits 252
+signed_kind_aux_only bucket_count 31 multi 0 max_red 1 max_hits 252
+```
+
+The classifier digests were:
+
+```text
+center_pos_digest 91eebb2c068a5a00a4c66c9b0af32d3850c3609f659c2848cbcc528b4692295c
+center_pos_auxset_digest 750188e0b7171521084f27a11a1e45ed121414ce3c2c00417b0da0c2797cba03
+center_pos_signed_aux_digest d25185262aabcfe94d209240f28a33e0e0ca958194bfe708c6dd7aefbf286704
+center_pos_signed_kind_aux_digest fd3b83ee79d9ef6a72fde5d151294baeb7015056a15e59dde3b43521babbd6f9
+signed_kind_aux_only_digest 94f8ecca343e7a37454f78b1426dd3283dc665021042eaba27b01a811b1a42b3
+```
+
+The largest signed-auxiliary bucket was:
+
+```text
+hits 252
+reduced_posets 1
+key (0, 'anchor',
+     ((opposite, (15, 5)), (target, (11, 2))))
+```
+
+The unordered auxiliary set obstruction has exact witnesses in the same
+coarse bucket:
+
+```text
+coarse key (0, 'anchor', (2, 5, 11, 15))
+
+label c19_window_fifth_child_0357_0010_0000
+rows K1_diag_gt_sides(0,7,11,2); K2_diag_gt_other(0,15,7,5)
+left (1, 3, 18, 4, 6)
+right (2, 5, 11, 17, 7)
+reduced_poset ((0, 15), (7, 5), (7, 11), (11, 2), (15, 7))
+
+label c19_window_fifth_child_0368_0048_0014
+rows K1_diag_gt_sides(0,11,7,2); K1_diag_gt_sides(0,7,5,15)
+left (1, 3, 4, 11, 7)
+right (2, 6, 10, 12, 15)
+reduced_poset ((0, 11), (5, 15), (7, 2), (7, 5), (11, 7))
+```
+
+They have the same center, same center position, and same unordered auxiliary
+set, but distinct signed auxiliary data and distinct reduced posets.
+
+### Proof
+
+For each sampled `O01` certificate, the audit computes the selected center,
+the center position, the sign of each row vector relative to
+`-S_c + P_{c,c+7}`, the row-ordered auxiliary bridge for each signed row, and
+the transitive reduction of the anchored forced-order graph.
+
+The bucket check is exact over all 1,594 sampled `O01` records. Every bucket
+with key `(center, position, signed auxiliary pair)` contains exactly one
+reduced poset. Therefore the signed auxiliary pair determines the reduced
+poset on this sampled frontier.
+
+The two coarse-key witnesses show that removing the signs and row orders
+loses essential information: the same unordered auxiliary set can realize
+different anchored reduced posets.
+
+### Limitations
+
+- This is a finite sampled-frontier determinacy result, not an exhaustive
+  all-boundary theorem.
+- The signed auxiliary pair is still certificate-level data; this cycle does
+  not prove that arbitrary C19 boundary states must supply one of these
+  pairs.
+- The result classifies sampled `O01` reduced posets, but does not prove an
+  all-order `C19_skew` obstruction, a general proof of Erdos Problem #97, or
+  a counterexample.
+
+### Effect on the Attack
+
+This is a useful compression. Cycle 534 showed that center position alone is
+too weak. This cycle shows that the obstruction is localized in the signed
+auxiliary bridges. The 31 anchored reduced posets can now be treated through
+signed auxiliary bridge types rather than raw boundary states.
+
+### Next Lead
+
+Try to prove an abstract `O01` signed-auxiliary lemma: for a selected center
+`c`, a target bridge, and an opposite bridge whose signed auxiliary data
+matches one of the sampled types, derive the anchored reduced poset directly
+from Kalmanson row order without reference to the sampled frontier. Then test
+which boundary predicates force those signed auxiliary types.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact signed-auxiliary audit over all 10,350 sampled fifth-pair
+  children in windows 288-479: passed, with classifier digest
+  `d25185262aabcfe94d209240f28a33e0e0ca958194bfe708c6dd7aefbf286704`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 08:29 EEST - Cycle 536: Anchor-Admissible O01 Row Determinacy
+
+### Mathematical Subquestion
+
+Can the sampled signed-auxiliary `O01` determinacy from Cycle 535 be promoted
+to an abstract row-level lemma? If not in full generality, does it hold under
+the prefix-anchor hypothesis relevant to the high-mass `(center=0,
+position=anchor)` bucket?
+
+### Definitions and Assumptions
+
+Work with selected center `0` and selected partner `7`. Let `T` be the
+quotient vector:
+
+```text
+T = -S_0 + P_{0,7}.
+```
+
+An abstract `O01` target row is an ordered Kalmanson row with quotient vector
+`T`; an abstract opposite row has quotient vector `-T`. The signed auxiliary
+bridge of such a row is obtained by deleting `0` and `7` from its ordered
+quadrilateral.
+
+An abstract row is **anchor-admissible** if its ordered quadrilateral starts
+with `0`. This is the row-level hypothesis forced by a prefix boundary when
+the selected center is the anchor.
+
+### Attempted Proof Route
+
+Enumerate every ordered Kalmanson row on labels `0,...,18` whose quotient
+vector is `T` or `-T`. First test signed-auxiliary determinacy without any
+anchor restriction. Then restrict to anchor-admissible rows and test whether
+the signed auxiliary pair determines the acyclic row-pair transitive
+reduction.
+
+### Result
+
+Two-part result:
+
+1. Failed generalization:
+   **Unrestricted Signed-Auxiliary Nonclassification.**
+
+   Without the anchor-admissible hypothesis, signed auxiliary data does not
+   determine the reduced row-pair poset. There are many cyclic row pairs and
+   every signed-auxiliary pair bucket has multiple reductions.
+
+2. Proved finite row lemma:
+   **Anchor-Admissible O01 Row Determinacy.**
+
+   Under the anchor-admissible hypothesis, each signed auxiliary bridge
+   determines exactly one target or opposite row. Consequently each acyclic
+   signed auxiliary row-pair determines exactly one reduced poset.
+
+### Exact Audit
+
+The unrestricted row audit returned:
+
+```text
+rows_with_endpoints 48
+by_sign Counter({'target': 24, 'opposite': 24})
+row_pairs_total 576
+cyclic 384
+acyclic 192
+signed_aux_pair_buckets 24
+multi_red 24
+max_red 8
+signed_kind_aux_pair_buckets 48
+multi_red 48
+max_red 4
+row_digest 64f2d5ca7b899b6e7b72d81dedc8eaa139984399275fdae3515130577a66796f
+```
+
+The anchor-admissible audit returned:
+
+```text
+anchor_rows 12
+by_sign Counter({'target': 6, 'opposite': 6})
+pairs 36
+cyc 12
+acyclic 24
+buckets 24
+multi 0
+max_red 1
+digest 74a910f4a3026ab70e640713ee8478c0c4b368d902aaafb4abf538769fe2558f
+```
+
+The anchor-admissible target and opposite bridges are exactly one row for
+each of the signed auxiliaries:
+
+```text
+(2, 11), (5, 15), (9, 17), (11, 2), (15, 5), (17, 9)
+```
+
+For example, the signed auxiliary pair
+
+```text
+((opposite, (15, 5)), (target, (11, 2)))
+```
+
+determines the unique anchor-admissible row pair:
+
+```text
+target   K1_diag_gt_sides(0,11,7,2)
+opposite K2_diag_gt_other(0,15,5,7)
+```
+
+and the reduced poset:
+
+```text
+((0, 11), (0, 15), (5, 7), (7, 2), (11, 7), (15, 5))
+```
+
+### Proof
+
+The unrestricted enumeration shows why Cycle 535 cannot be promoted without
+an anchor hypothesis: the same signed auxiliary data can arise from different
+cyclic rotations of the Kalmanson rows, and those rotations produce different
+comparison graphs.
+
+For the anchor-admissible case, every row contains labels `0` and `7`, and
+the prefix anchor condition forces `0` to be the first entry of the ordered
+quadrilateral. The exact row enumeration leaves only 12 rows: six target rows
+and six opposite rows, one for each signed auxiliary bridge listed above.
+Thus a signed auxiliary bridge fixes the row itself. A signed auxiliary pair
+therefore fixes the two rows. If their adjacent-comparison graph is acyclic,
+its transitive reduction is uniquely determined by that row pair. The audit
+checks all 36 anchor-admissible target/opposite pairs and finds 24 acyclic
+pairs, grouped into 24 one-reduction buckets.
+
+### Limitations
+
+- This is an abstract finite row-level lemma for selected center `0` at the
+  prefix anchor.
+- It explains the high-mass sampled bucket where `center=0` and
+  `position=anchor`, but not the sampled cases where the selected center lies
+  at `Lk`, `Rk`, or `M`.
+- It does not by itself prove that arbitrary C19 boundary states force an
+  anchor-admissible `O01` pair.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The signed-auxiliary compression has a genuine row-level explanation in the
+center-at-anchor case. The obstacle is now clearer: to extend this beyond
+the sampled anchor bucket, one needs analogous admissibility hypotheses for
+centers appearing in left, right, or middle boundary positions.
+
+### Next Lead
+
+Formulate and test a position-admissible version of this lemma. For a selected
+center at `Lk`, `Rk`, or `M`, replace "ordered quadrilateral starts with `0`"
+by the appropriate prefix-order constraint and test whether signed auxiliary
+bridges again determine the admissible target/opposite rows.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact unrestricted and anchor-admissible abstract `O01` row audit:
+  passed, with anchor-admissible digest
+  `74a910f4a3026ab70e640713ee8478c0c4b368d902aaafb4abf538769fe2558f`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
