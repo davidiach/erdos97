@@ -91587,3 +91587,240 @@ top deterministic families above and compare against the `O01` family
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 11:23 EEST - Cycle 548: Target-Aware O01 Availability Obstruction
+
+### Mathematical Subquestion
+
+For each sampled forbidden placement `(child, c, c+7)`, do the full forced
+two-row inverse-pair families involving either `R_c` or the pair class
+`X_{c,c+7}` remain small after cyclic normalization, and do they still avoid
+the normalized `O01` family `R0 < X0_7`?
+
+### Definitions and Assumptions
+
+Use the recorded sampled C19 prefix-window catalog-prefilter sweep over
+windows 288-479:
+
+```text
+data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
+```
+
+Reconstruct each recorded fifth-pair child from its fourth-pair survivor
+boundary state. For every center `c`, set `p=c+7 mod 19` and record the
+same coarse depth pair as in Cycles 543-547:
+
+```text
+A  = anchor
+M  = middle
+L1 = left depth 1
+LD = left depth deeper than 1
+R1 = right depth 1
+RD = right depth deeper than 1
+```
+
+The six forbidden depth-pair classes are:
+
+```text
+(LD, LD), (LD, RD), (M, LD), (RD, LD), (RD, M), (RD, RD)
+```
+
+For a fixed child, enumerate all forced Kalmanson row vectors and all exact
+inverse pairs `v,-v` after quotienting by selected-distance equalities. For a
+placement `(child,c,p)`, keep only inverse-pair vectors whose support touches
+either the selected radius class `R_c` or the pair class `X_{c,p}`. Normalize
+labels by rotating `c` to `0`, so `p=c+7` becomes `7`. The target `O01`
+family is the normalized comparison:
+
+```text
+R0 < X0_7
+```
+
+This is deliberately different from Cycles 545-547: it enumerates all forced
+two-row inverse-pair families relevant to the placement, rather than only the
+first certificate returned by the deterministic lookup.
+
+### Attempted Proof Route
+
+Cycle 547 showed that the deterministic first-certificate family is too
+coarse. The next possible repair was:
+
+```text
+Use target-aware inverse pairs for the specific placement. The family set may
+be small, and perhaps the forbidden depth classes still avoid O01 intrinsically.
+```
+
+If true, Cycle 545's sampled `O01` deep-avoidance would become a statement
+about intrinsic inverse-pair availability rather than a deterministic lookup
+artifact.
+
+### Result
+
+Counterexample to subclaim:
+**Target-Aware O01 Availability Obstruction.**
+
+The target-aware family set is smaller than the deterministic child-level
+family set from Cycle 547, but it does not avoid `O01`. The normalized
+`R0 < X0_7` inverse-pair family appears in forbidden depth classes.
+
+The full audit returned:
+
+```text
+children 10350
+all_center_partner_placements 196650
+forbidden_placements 70614
+forbidden_with_target_family 43359
+forbidden_with_o01 6731
+distinct_target_families_forbidden 22
+target_family_occurrences_forbidden 91754
+```
+
+Thus the strict Cycle 545 avoidance statement is not intrinsic to all
+available inverse pairs. It is a statement about the deterministic certificate
+selected by the current lookup.
+
+The number of target-aware families per forbidden placement was:
+
+```text
+0: 27255
+1: 18313
+2: 11915
+3: 7017
+4: 3634
+5: 1397
+6: 708
+7: 247
+8: 96
+9: 26
+10: 6
+```
+
+The most frequent normalized target-aware families on forbidden placements
+were:
+
+```text
+9585  R0 < R3
+8720  R0 < R16
+6731  R0 < X0_7
+6552  R0 < R14
+6233  R0 < X0_18
+6230  R0 < R5
+5647  R0 < X0_4
+4953  R0 < X0_1
+4905  R0 < X0_13
+4143  R0 < X0_17
+3129  R7 < X0_7
+3084  R0 < X0_12
+```
+
+The audit digest was:
+
+```text
+608a7af24a649978c648f586d18fdd16304a90b25e41a53e1deb9421c7a684dd
+```
+
+### Exact Obstruction Witness
+
+One explicit forbidden placement with an available `O01` inverse pair is:
+
+```text
+label   c19_window_fifth_child_0338_0063_0001
+center  10
+partner 17
+left    [1, 3, 17, 11, 6]
+right   [2, 5, 4, 15, 8]
+center position  M
+partner position L3
+depth pair       (M, LD)
+```
+
+The following two forced Kalmanson rows have opposite quotient vectors and
+normalize relative to center `10` as the `R0 < X0_7` family:
+
+```text
+K2_diag_gt_other(0,17,10,8)
+K1_diag_gt_sides(17,6,10,15)
+```
+
+The audit explicitly checked:
+
+```text
+sum_zero True
+```
+
+So this is an exact obstruction to the subclaim that forbidden depth classes
+avoid the `O01` inverse-pair family when all target-aware inverse pairs are
+enumerated.
+
+### Proof
+
+The audit reconstructs every sampled fifth child from the recorded
+catalog-prefilter sweep. For each child, it computes all forced Kalmanson
+rows using `prefix_kalmanson_rows`, groups rows by exact quotient vector, and
+keeps every vector `v` for which `-v` is also forced. For each placement
+`(child,c,c+7)`, it filters those inverse-pair vectors to ones involving
+`R_c` or `X_{c,c+7}`, then normalizes by cyclic rotation sending `c` to `0`.
+
+The explicit witness above has depth pair `(M, LD)`, which is one of the six
+forbidden classes from Cycle 546. Its two listed rows are both forced by the
+child boundary state, have exactly opposite quotient vectors, and normalize
+to `R0 < X0_7`. Therefore the proposed target-aware `O01` avoidance lemma is
+false.
+
+The aggregate count `forbidden_with_o01 6731` shows the witness is not
+isolated.
+
+### Limitations
+
+- This is a finite audit over sampled windows 288-479 only.
+- It enumerates two-row inverse pairs, not larger Farkas or catalog supports.
+- It does not decide which inverse pair should be considered canonical when
+  several are available for one placement.
+- It does not prove or refute an all-order `C19_skew` obstruction.
+- It does not prove a general theorem for Erdos Problem #97 and does not give
+  a counterexample.
+
+### Effect on the Attack
+
+This corrects the interpretation of Cycles 545-547. The sampled `O01`
+deep-avoidance phenomenon is not an intrinsic absence of `O01`-type row
+geometry in the forbidden depth classes. It is caused by the deterministic
+certificate-selection rule used by `two_row_certificate_for_state`.
+
+That makes the previous `O01` depth-pair route a dead end unless a
+mathematically natural canonical selection rule is introduced and justified.
+The more robust object is the complete target-aware inverse-pair set.
+
+### Next Lead
+
+Classify the 22 normalized target-aware families as a small exact vocabulary.
+The promising subquestion is whether every forbidden placement with a
+target-aware family belongs to one of a few radius-comparison templates, and
+whether placements with zero target-aware families are exactly the catalog or
+larger-Farkas cases. Avoid using the deterministic `O01` label as intrinsic
+evidence unless a canonical selection rule is proved.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-548`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-548`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact target-aware inverse-pair audit over all 10,350 sampled fifth
+  children and all 196,650 center/partner placements: passed, with digest
+  `608a7af24a649978c648f586d18fdd16304a90b25e41a53e1deb9421c7a684dd`.
+- One-off exact witness extraction for
+  `c19_window_fifth_child_0338_0063_0001`, center `10`: passed, verifying the
+  listed two forced rows sum to zero after quotienting.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
