@@ -246,6 +246,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_t02_self_edge_lemma_packet",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Focused T02 multi-family n=9 self-edge local lemma packet; "
+            "proof-mining scaffolding only, not a proof of n=9, "
+            "counterexample, or independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_base_apex_low_excess_ledgers",
         command=("python", "scripts/check_n9_base_apex_low_excess_ledgers.py", "--check", "--json"),
         claim_scope=(
