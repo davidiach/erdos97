@@ -92200,3 +92200,207 @@ the 22 target-aware families from Cycle 549.
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 - Cycle 551 - Off-Target 259-Family Vocabulary
+
+### Subquestion
+
+For the sampled forbidden placements with no target-aware two-row inverse-pair
+family, do the available non-target inverse-pair families form a small
+transport vocabulary that can be studied after Cycle 550, or are they too
+dispersed to be useful?
+
+### Definitions and Setup
+
+This cycle uses the same sampled artifact as Cycles 548-550:
+
+```text
+data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
+```
+
+For each reconstructed fifth-pair child and each forbidden center/partner
+placement `(c,c+7)`, the audit first tests whether any inverse-pair vector
+touches the target classes `R_c` or `X_{c,c+7}`. If none does, the placement is
+zero target-aware. The audit then records every inverse-pair family available
+in that child, normalized by the cyclic rotation sending `c` to `0`.
+
+Because the placement is zero target-aware, every recorded family avoids both
+normalized target classes `R0` and `X0_7`.
+
+The family categories are syntactic:
+
+- `single-1v1-RX`: one radius term compared with one pair term;
+- `single-1v1-RR`: one radius term compared with one radius term;
+- `mixed-2v2-RRRX`: two terms on each side, with three radius terms and one
+  pair term in total.
+
+### Result Status
+
+Promising finite reduction:
+**Off-Target 259-Family Vocabulary Reduction**.
+
+The zero target-aware side is not explained by a tiny list comparable to the
+22 target-aware families, but it is still a bounded sampled vocabulary with
+only three syntactic shapes.
+
+### Exact Audit Result
+
+The complete sampled audit found:
+
+```text
+summary {'child_count': 10350, 'forbidden_placements': 70614, 'zero_target_placements': 27255}
+distinct_non_target_families 259
+zero_placements_with_any_non_target 27209
+zero_placements_without_non_target 46
+```
+
+The `46` zero-target placements without any non-target family are exactly the
+catalog-only contribution from Cycle 550. Every other zero-target placement
+has at least one non-target inverse-pair family.
+
+Family occurrences over zero target-aware placements split as:
+
+```text
+single-1v1-RX: 222837
+single-1v1-RR: 109680
+mixed-2v2-RRRX: 13652
+```
+
+The number of non-target families available per zero target-aware placement
+was:
+
+```text
+{0: 46, 1: 98, 2: 121, 3: 374, 4: 492, 5: 737, 6: 1049, 7: 1420, 8: 1520, 9: 1748, 10: 1774, 11: 2136, 12: 2053, 13: 2278, 14: 1936, 15: 1857, 16: 1558, 17: 1304, 18: 1268, 19: 896, 20: 737, 21: 539, 22: 398, 23: 314, 24: 186, 25: 148, 26: 109, 27: 66, 28: 43, 29: 19, 30: 9, 31: 10, 32: 10, 33: 1, 34: 1}
+```
+
+The audit digest was:
+
+```text
+8474b4526dfd992509051df09d0f85deb72b02a16626f53b167a682c8e9a840f
+```
+
+The most frequent normalized off-target families were:
+
+```text
+ 4817  single-1v1-RR    R10 < R7
+ 4036  single-1v1-RR    R1 < R4
+ 3372  single-1v1-RR    R15 < R18
+ 3334  single-1v1-RR    R10 < R13
+ 3325  single-1v1-RX    R7 < X6_7
+ 3292  single-1v1-RR    R12 < R15
+ 3279  single-1v1-RR    R12 < R7
+ 3137  single-1v1-RR    R2 < R7
+ 3098  single-1v1-RR    R1 < R17
+ 3093  single-1v1-RX    R13 < X7_13
+ 3083  single-1v1-RR    R4 < R9
+ 3046  single-1v1-RX    R7 < X7_14
+ 2998  single-1v1-RX    R9 < X9_16
+ 2958  single-1v1-RX    R10 < X10_17
+ 2957  single-1v1-RX    R5 < X5_18
+```
+
+The top off-target families by forbidden depth class begin:
+
+```text
+('LD', 'LD'):
+  420  R2 < X0_2
+  383  R18 < X12_18
+  353  R10 < R7
+  352  R14 < X7_14
+('LD', 'RD'):
+  522  R10 < R7
+  401  R15 < R18
+  386  R13 < R16
+  381  R4 < R7
+('M', 'LD'):
+  2961  R10 < R7
+  2562  R1 < R4
+  2284  R7 < X6_7
+  2166  R2 < R7
+('RD', 'LD'):
+  592  R10 < R7
+  482  R15 < R18
+  458  R1 < R4
+  435  R10 < R13
+('RD', 'M'):
+  878  R12 < R15
+  845  R14 < R17
+  841  R8 < X8_15
+  828  R14 < R9
+('RD', 'RD'):
+  342  R4 < R7
+  312  R7 < X7_14
+  274  R1 < X0_1
+  267  R2 < X0_2
+```
+
+### Argument
+
+The audit reconstructs every sampled fifth child and enumerates all exact
+two-row inverse pairs among forced Kalmanson rows after quotienting. For each
+forbidden placement, it discards placements with any inverse pair touching the
+local target classes. For the remaining zero target-aware placements, every
+available inverse-pair vector is normalized relative to the center and counted
+as an off-target family.
+
+This gives an exact finite vocabulary for the sampled zero-target side:
+`259` normalized families, with all occurrences falling into the three
+syntactic categories above. The vocabulary is significantly larger than the
+22 target-aware families from Cycle 549, but it is not unstructured.
+
+### Limitations
+
+- This is a finite audit over sampled windows 288-479 only.
+- The vocabulary counts occurrences over placements; they are not independent
+  mathematical lemmas.
+- The category names are syntactic and not yet invariant under a proved
+  normal form.
+- The result does not show how to transport an off-target family into a
+  target-aware family.
+- It does not prove or refute an all-order `C19_skew` obstruction.
+- It does not prove a general theorem for Erdos Problem #97 and does not give
+  a counterexample.
+
+### Effect on the Attack
+
+Cycle 550 showed that zero target-aware placements are not catalog residue.
+Cycle 551 shows that their non-target inverse-pair geometry is broader than
+the target-aware vocabulary but still concentrated in one-term radius/pair and
+radius/radius comparisons, with only a small mixed category.
+
+The most promising theoretical move is to seek a radius-comparison transport
+lemma: identify conditions under which a relation like `Ra < Rb` or
+`Ra < Xb_c`, together with the placement of `c` and `c+7`, forces one of the
+22 target-aware families after changing centers or combining two local
+relations.
+
+### Next Lead
+
+Try a narrow transport test on the top family `R10 < R7`: for zero
+target-aware placements carrying this family, ask whether shifting the center
+by `7`, `10`, or another offset produces one of the 22 target-aware families
+from Cycle 549 in the neighboring placement. A failure should record the exact
+smallest obstruction and clarify whether transport must combine multiple
+families.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-551`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-551`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact off-target vocabulary audit over all 10,350 sampled fifth
+  children and all 27,255 zero target-aware forbidden placements: passed, with
+  digest `8474b4526dfd992509051df09d0f85deb72b02a16626f53b167a682c8e9a840f`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
