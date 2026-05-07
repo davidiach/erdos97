@@ -361,6 +361,20 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_base_apex_d3_escape_frontier_packet",
+        command=(
+            "python",
+            "scripts/check_n9_base_apex_d3_escape_frontier_packet.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Focused n=9 base-apex D=3,r=3 escape-frontier representative "
+            "packet bookkeeping; not a proof of n=9, not a counterexample, "
+            "not a geometric realizability test, and not a global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_base_apex_low_excess_escape_ladder",
         command=(
             "python",
