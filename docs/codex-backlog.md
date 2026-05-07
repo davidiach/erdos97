@@ -79,6 +79,7 @@ Commands:
 python scripts/explore_n9_base_apex.py
 python scripts/check_n9_base_apex_low_excess_ledgers.py --check --json
 python scripts/check_n9_base_apex_escape_budget.py --check --json
+python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 ```
 
@@ -98,6 +99,10 @@ Expected artifacts:
   `data/certificates/n9_base_apex_d3_escape_slice.json` that couple the
   `E=6, D=3, r=3` profile/escape bookkeeping under common dihedral symmetry
   without claiming the slice is impossible or realizable;
+- optional low-excess profile/escape crosswalks such as
+  `data/certificates/n9_base_apex_low_excess_escape_crosswalk.json` that keep
+  ledger-to-escape bookkeeping separate from proof, counterexample, and
+  geometric-realizability claims;
 - checker updates that independently replay generated ledger arithmetic and
   motif counts from stored JSON.
 
@@ -106,7 +111,8 @@ Acceptance criteria:
 - Remaining `E <= 6` / `D >= 3` or related low-excess cases are enumerated
   explicitly.
 - Any new obstruction states exact incidence/order hypotheses.
-- The n=9 status is not promoted unless every required case is certified.
+- Any n=9 promotion remains review-pending and cannot update the
+  source-of-truth or global status without a broader review decision.
 
 Trust delta: may promote a conditional ledger obstruction or a review-pending
 n=9 subcase. It may not promote the full n=9 selected-witness case without a

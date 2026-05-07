@@ -375,6 +375,20 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_base_apex_low_excess_escape_crosswalk",
+        command=(
+            "python",
+            "scripts/check_n9_base_apex_low_excess_escape_crosswalk.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Focused n=9 base-apex low-excess profile/escape crosswalk "
+            "bookkeeping; not a proof of n=9, not a counterexample, not a "
+            "geometric realizability test, and not a global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_row_ptolemy_product_cancellations",
         command=(
             "python",
