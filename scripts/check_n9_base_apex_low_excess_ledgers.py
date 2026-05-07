@@ -15,6 +15,42 @@ from typing import Any, Iterable, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "n9_base_apex_low_excess_ledgers.json"
+EXPECTED_TOP_LEVEL_KEYS = {
+    "base_apex_slack",
+    "claim_scope",
+    "conservative_minimum_escape_motif_classes",
+    "conservative_turn_cover_summary",
+    "n",
+    "notes",
+    "provenance",
+    "schema",
+    "status",
+    "strict_minimum_escape_motif_classes",
+    "strict_turn_cover_summary",
+    "strict_unresolved_count_by_capacity_deficit",
+    "strict_unresolved_count_by_total_profile_excess",
+    "strict_unresolved_profile_ledger_count",
+    "strict_unresolved_profile_ledgers",
+    "trust",
+    "witness_size",
+}
+EXPECTED_CLAIM_SCOPE = (
+    "Focused n=9 base-apex low-excess bookkeeping; not a proof of n=9, "
+    "not a counterexample, and not a global status update."
+)
+EXPECTED_NOTES = [
+    "No proof of the n=9 case is claimed.",
+    "These are exactly the profile ledgers not closed by the strict turn-cover diagnostic.",
+    "For the strict threshold, unresolved ledgers have E <= 6 and D >= 3.",
+    "The motif classes only record length-2/length-3 saturation deficits relevant to this diagnostic.",
+]
+EXPECTED_PROVENANCE = {
+    "generator": "scripts/explore_n9_base_apex.py",
+    "command": (
+        "python scripts/explore_n9_base_apex.py --low-excess-report "
+        "--out data/certificates/n9_base_apex_low_excess_ledgers.json"
+    ),
+}
 
 
 def binom2(value: int) -> int:
@@ -401,6 +437,13 @@ def validate_payload(payload: Any) -> list[str]:
         return ["artifact top level must be a JSON object"]
 
     errors: list[str] = []
+    top_level_keys = set(payload)
+    if top_level_keys != EXPECTED_TOP_LEVEL_KEYS:
+        errors.append(
+            "top-level keys mismatch: "
+            f"expected {sorted(EXPECTED_TOP_LEVEL_KEYS)!r}, got {sorted(top_level_keys)!r}"
+        )
+
     n = payload.get("n")
     witness_size = payload.get("witness_size")
     if not isinstance(n, int) or not isinstance(witness_size, int):
@@ -418,38 +461,44 @@ def validate_payload(payload: Any) -> list[str]:
         expect_equal(errors, key, payload.get(key), expected)
 
     claim_scope = payload.get("claim_scope")
-    if not isinstance(claim_scope, str):
-        errors.append("claim_scope must be a string")
-    else:
+    expect_equal(errors, "claim_scope", claim_scope, EXPECTED_CLAIM_SCOPE)
+    if isinstance(claim_scope, str):
         lowered = claim_scope.lower()
         for phrase in ("not a proof", "not a counterexample", "not a global status update"):
             if phrase not in lowered:
                 errors.append(f"claim_scope must include {phrase!r}")
+    else:
+        errors.append("claim_scope must be a string")
 
     notes = payload.get("notes")
-    if not isinstance(notes, list) or "No proof of the n=9 case is claimed." not in notes:
-        errors.append("notes must preserve the explicit no-proof statement")
+    expect_equal(errors, "notes", notes, EXPECTED_NOTES)
+    if not isinstance(notes, list) or not all(isinstance(note, str) for note in notes):
+        errors.append("notes must be the expected list of public nonclaiming notes")
 
     provenance = payload.get("provenance")
+    expect_equal(errors, "provenance", provenance, EXPECTED_PROVENANCE)
     if not isinstance(provenance, dict):
         errors.append("provenance must be an object")
-    else:
-        expect_equal(
-            errors,
-            "provenance.generator",
-            provenance.get("generator"),
-            "scripts/explore_n9_base_apex.py",
-        )
-        command = provenance.get("command")
-        if not isinstance(command, str) or "--low-excess-report" not in command:
-            errors.append("provenance.command must name the low-excess generator command")
 
     computed_profiles = distance_profiles(n, witness_size)
+    actual_rows = payload.get("strict_unresolved_profile_ledgers")
+    row_excess_sources: list[dict[str, Any]] = []
+    if not isinstance(actual_rows, list):
+        errors.append("strict_unresolved_profile_ledgers must be a list")
+    else:
+        for index, row in enumerate(actual_rows):
+            if not isinstance(row, dict):
+                errors.append(f"strict_unresolved_profile_ledgers[{index}] must be an object")
+                continue
+            excesses = row.get("excesses")
+            if not isinstance(excesses, list) or not all(type(excess) is int for excess in excesses):
+                errors.append(f"strict_unresolved_profile_ledgers[{index}].excesses must be a list of integers")
+                continue
+            row_excess_sources.append(row)
     used_profile_excesses = {
         excess
-        for row in payload.get("strict_unresolved_profile_ledgers", [])
-        if isinstance(row, dict)
-        for excess in row.get("excesses", [])
+        for row in row_excess_sources
+        for excess in row["excesses"]
     }
     available_excesses = {excess for excess, _parts in computed_profiles}
     if not used_profile_excesses.issubset(available_excesses):
@@ -479,7 +528,6 @@ def validate_payload(payload: Any) -> list[str]:
     )
 
     expected_rows = unresolved_ledger_rows(n, witness_size, contradiction_threshold=3)
-    actual_rows = payload.get("strict_unresolved_profile_ledgers")
     expect_equal(errors, "strict_unresolved_profile_ledgers", actual_rows, expected_rows)
     expect_equal(
         errors,
