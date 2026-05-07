@@ -216,6 +216,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_template_lemma_catalog",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_template_lemma_catalog.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Derived lemma-candidate catalog for the 12 n=9 vertex-circle "
+            "local-core templates; not a proof of n=9, counterexample, "
+            "or independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_base_apex_low_excess_ledgers",
         command=("python", "scripts/check_n9_base_apex_low_excess_ledgers.py", "--check", "--json"),
         claim_scope=(
