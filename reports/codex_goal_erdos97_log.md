@@ -22946,6 +22946,7 @@ witnesses admit the analogous quotient-cancellation classification.
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
 ## Session 2026-05-06, Theory Cycle 412
 
 Timestamp: 2026-05-06 15:18 EEST.
@@ -81252,6 +81253,1489 @@ one-sided inverse already present + new opposite vector enters.
   `c19_window_fifth_child_0274_0059_0041` and
   `c19_window_fifth_child_0277_0059_0041`: passed, with per-window label
   digest verification against the source sweep artifacts.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## Session 2026-05-07, Theory Cycle 486
+
+Timestamp: 2026-05-07 01:59 EEST.
+
+### Subquestion
+
+In the Cycle 485 collision pair, can the appearance of new selected reciprocal
+pairs be localized to the labels whose boundary status changes, or can a
+boundary swap change forced Kalmanson rows that avoid the swapped labels?
+
+### Definitions and Assumptions
+
+For a C19 prefix state
+
+```text
+B=(L,R,M)
+```
+
+use the repository's prefix-order model:
+
+```text
+0, L_1, ..., L_k, M in arbitrary order, R_k, ..., R_1.
+```
+
+A quadruple is `B`-forced if it contains at most one label from `M`. Its
+forced cyclic order is the order returned by the prefix key used in
+`forced_order_quad`: anchor `0`, then left-boundary labels in their left order,
+then the unique middle label if present, then right-boundary labels in reverse
+right-boundary order. A forced Kalmanson row is the pair
+
+```text
+(kind, ordered quadruple)
+```
+
+together with its quotient vector after selected-distance equalities for the
+fixed `C19_skew` selected-witness pattern.
+
+Compare the exact Cycle 485 pair:
+
+```text
+old/exception:
+  c19_window_fifth_child_0274_0059_0041
+  L=[1,3,12,11,13], R=[2,5,6,10,15]
+
+new/selected mate:
+  c19_window_fifth_child_0277_0059_0041
+  L=[1,3,12,11,13], R=[2,5,9,10,15]
+```
+
+The only boundary-status change is the right-boundary slot swap
+
+```text
+6 -> 9.
+```
+
+### Attempted Proof Route
+
+Prove the following small structural lemma and audit it on the collision pair.
+
+**Boundary-Swap Locality Lemma.** Suppose two prefix states have the same
+anchor, the same left boundary, the same right-boundary order outside one
+right-boundary slot, and differ only by exchanging a boundary label `a` with a
+middle label `b` in that slot. Then any forced Kalmanson row whose ordered
+quadruple and quotient vector differ between the two states contains at least
+one of `a,b`.
+
+Proof: take any quadruple `Q` disjoint from `{a,b}`. Every label of `Q` has the
+same status in both prefix states: anchor, same left-boundary position, same
+right-boundary position, or middle. Therefore the prefix key used to sort `Q`
+is identical in both states. In particular, `Q` is forced in one state iff it
+is forced in the other, and if forced it has the same ordered quadruple. Since
+the selected-distance quotient for `C19_skew` is independent of the boundary
+state, each Kalmanson row kind on this ordered quadruple has the same quotient
+vector in both states. Thus no changed row can avoid `{a,b}`.
+
+### Result
+
+Proved lemma:
+**Boundary-Swap Locality Lemma.**
+
+Finite audit on the Cycle 485 pair verifies the lemma exactly for the
+repository implementation:
+
+```text
+old forced row triples:     3300
+new forced row triples:     3300
+common row triples:         2324
+old-only row triples:        976
+new-only row triples:        976
+old-only avoiding {6,9}:       0
+new-only avoiding {6,9}:       0
+```
+
+The changed-row involvement histogram is:
+
+```text
+old-only:
+  {6}:   758
+  {9}:   128
+  {6,9}:  90
+
+new-only:
+  {6}:   128
+  {9}:   758
+  {6,9}:  90
+```
+
+The exact transition digest for this row-locality audit is:
+
+```text
+a83cde8b7d30f8012ba4eed16891cd006e8960a752e972d79da415c109a4d079
+```
+
+For the three selected reciprocal pairs from Cycle 485, the new selected-only
+side is localized further: each contains the promoted boundary label `9`:
+
+```text
+K1_diag_gt_sides(1, 12, 4, 9)
+K1_diag_gt_sides(3, 13, 17, 9)
+K2_diag_gt_other(0, 17, 9, 5)
+```
+
+This gives a useful corollary for the collision pair:
+
+**New-Inverse Locality Corollary.** If a one-sided inverse is already present
+and becomes a selected reciprocal pair after this boundary swap, then the new
+opposite row must be one of the rows localized on `{6,9}`. In the recorded
+collision, all three new opposite rows contain `9`.
+
+### Limitations
+
+- The lemma is structural for a one-slot boundary swap in the prefix-order
+  model. It does not by itself prove that selected reciprocal pairs cannot
+  appear.
+- The stronger observation that all three new reciprocal sides contain the
+  promoted label `9`, rather than merely one of `{6,9}`, is currently only an
+  exact fact about this collision pair.
+- The lemma is about forced row triples. Primitive quotient vectors can still
+  have large symmetric differences after projection and duplicate collapse,
+  as Cycle 485 showed.
+- This is not a proof of Erdos Problem #97 and not a counterexample.
+
+### Effect on the Attack
+
+This turns the Cycle 485 vector-mask drift into a local boundary event. Future
+search for inverse-completion obstructions can restrict attention to rows
+touching the swapped labels, instead of comparing all forced Kalmanson rows.
+
+The next proof-facing lead is to classify when a promoted boundary label can
+create the opposite side of a selected reciprocal pair against an inverse row
+that was already common. A promising subquestion is whether promoted-label
+inverse completions obey a small finite set of positional templates relative
+to the left boundary and the reverse right-boundary order.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact row-locality audit using the repository implementations of
+  `BoundaryState`, `forced_order_quad`, `prefix_kalmanson_rows`, and
+  `build_distance_classes`: passed.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## Session 2026-05-07, Theory Cycle 487
+
+Timestamp: 2026-05-07 02:07 EEST.
+
+### Subquestion
+
+For the Cycle 485/486 boundary swap, can the new selected reciprocal pairs be
+explained as genuine promotion-exposed rows, rather than merely as rows whose
+cyclic order changed under the swap? If so, how many promotion-exposed rows
+survive the selected-distance quotient filter and have an inverse row already
+common to both states?
+
+### Definitions and Assumptions
+
+Use the same two C19 fifth-pair states:
+
+```text
+old/exception:
+  c19_window_fifth_child_0274_0059_0041
+  L=[1,3,12,11,13], R=[2,5,6,10,15]
+
+new/selected mate:
+  c19_window_fifth_child_0277_0059_0041
+  L=[1,3,12,11,13], R=[2,5,9,10,15]
+```
+
+The right-boundary slot swap demotes `6` to the middle and promotes `9` to
+the right boundary. A row is a **genuine promotion entry** if it is forced in
+the new state, not forced in the old state, contains the promoted label `9`,
+and does not contain the demoted label `6`.
+
+For a Kalmanson row, reduce its vector in the fixed `C19_skew`
+selected-distance quotient. A reduced support-two row is **primitive** if the
+quotient vector has exactly one `+1` class and one `-1` class. Its type is
+`RR`, `RX`, `XR`, or `XX` according to whether the positive and negative
+classes are selected-star classes `R` or singleton nonselected classes `X`.
+
+### Attempted Proof Route
+
+First prove the exposure mechanism without using the selected-distance
+quotient. In a one-slot promotion, any row that genuinely enters without
+using the demoted label must contain the promoted label and exactly one other
+old-middle label: before promotion it had two middle labels and was therefore
+not forced; after promotion it has only one middle label and becomes forced.
+
+For this collision, the old middle set has `8` labels, one of which is the
+promoted label `9`. The common fixed labels available to the other two
+positions are:
+
+```text
+anchor 0,
+five left-boundary labels,
+four unchanged right-boundary labels,
+```
+
+so there are `10` such fixed labels. Hence the number of genuine promotion
+entries is exactly
+
+```text
+2 * 7 * C(10,2) = 630,
+```
+
+with the leading factor `2` for the two Kalmanson row kinds.
+
+Then filter those `630` rows by exact selected-distance quotient type and
+test whether the opposite primitive vector is already present among rows
+common to both states.
+
+### Result
+
+Proved local structural lemma:
+**Promotion-Exposure Lemma.**
+
+In a one-slot boundary promotion/demotion, any genuine new row that uses the
+promoted label but not the demoted label has the form:
+
+```text
+promoted boundary label
++ exactly one still-middle label
++ two labels whose fixed prefix status is unchanged.
+```
+
+For the Cycle 485 pair, the exact row-entry mechanism split is:
+
+```text
+new-only rows:
+  genuine_entry|9: 630
+  reordered|6:     128
+  reordered|6,9:    90
+  reordered|9:     128
+
+old-only rows:
+  genuine_entry|6: 630
+  reordered|6:     128
+  reordered|6,9:    90
+  reordered|9:     128
+```
+
+The selected-distance quotient filter on the `630` genuine promotion entries
+gives:
+
+```text
+primitive|RR: 12
+primitive|RX: 23
+primitive|XR: 24
+primitive|XX: 34
+all other rows: 537
+```
+
+Among those rows, only three primitive selected rows have an opposite vector
+already present in the common row set:
+
+```text
+K1_diag_gt_sides(1, 12, 4, 9):  R12 > R01
+K1_diag_gt_sides(3, 13, 17, 9): X09,13 > R13
+K2_diag_gt_other(0, 17, 9, 5):  X05,17 > R17
+```
+
+These are exactly the three selected-only sides of the Cycle 485 reciprocal
+pairs. Thus, for this collision, selected reciprocity is not caused by the
+full `976`-row symmetric difference. It is caused by a much narrower event:
+
+```text
+promotion exposes a primitive selected support-two row
++ the opposite primitive vector was already common.
+```
+
+The exact digest for this promotion-filter audit is:
+
+```text
+5327cf5777345de1a5bc415c664d4a400ec194c9fc6162837a2be35521cc6275
+```
+
+### Limitations
+
+- The Promotion-Exposure Lemma is structural for one-slot prefix-state
+  promotions, but the `3`-row quotient filter is only an exact finite fact
+  about the Cycle 485 collision.
+- The count `630` depends on this fifth-pair state having `7` still-middle
+  choices and `10` common fixed labels.
+- The audit does not classify promotion-exposed inverse completions across
+  all recorded C19 states or all cyclic orders.
+- This is not a proof of Erdos Problem #97 and not a counterexample.
+
+### Effect on the Attack
+
+The local route is now sharper. Instead of tracking all changed rows or all
+new primitive rows, the proof-facing target can be stated as a promotion
+filter:
+
+```text
+Which promotion-exposed support-two rows have a common inverse already forced?
+```
+
+If this filter can be classified symbolically for arbitrary one-slot
+promotions, it could replace scalar invariants such as primitive-row totals
+and unique-vector counts with an order-local obstruction template.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact promotion-entry mechanism audit using
+  `BoundaryState`, `forced_order_quad`, `prefix_kalmanson_rows`, and
+  `build_distance_classes`: passed.
+- One-off exact selected-distance quotient filter over the `630` genuine
+  promotion entries: passed, with digest
+  `5327cf5777345de1a5bc415c664d4a400ec194c9fc6162837a2be35521cc6275`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## Session 2026-05-07, Theory Cycle 488
+
+Timestamp: 2026-05-07 02:10 EEST.
+
+### Subquestion
+
+Can the Cycle 487 promotion filter be explained purely in the
+selected-distance quotient, by saying that only the three reciprocal-completing
+promotion rows have an algebraic opposite row? Or is the real obstruction the
+stronger prefix-order requirement that an opposite vector is actually forced
+in both boundary states?
+
+### Definitions and Assumptions
+
+Use the same Cycle 485 boundary swap and the same `630` genuine promotion
+entries from Cycle 487. Restrict to **primitive selected promotion rows**:
+promotion-exposed rows whose reduced quotient vector has support two and type
+`RR`, `RX`, or `XR`.
+
+For such a row with quotient vector `v`, compare four levels:
+
+```text
+universal opposite: some Kalmanson row in the all-order row universe has -v;
+old-only opposite:  -v is forced in the old state but not common;
+new-only opposite:  -v is forced in the new state but not common;
+common opposite:    -v is forced by a row common to old and new.
+```
+
+The reciprocal completions in Cycle 485 require the last condition for the
+observed one-sided completions: the promotion exposes `v`, and `-v` is already
+common.
+
+### Attempted Proof Route
+
+Test the quotient-only hypothesis first. Enumerate every primitive selected
+promotion row and search for an opposite vector in the universal Kalmanson row
+universe, modulo cyclic rotation of the ordered quadruple. Then compare this
+with the actual old/new/common forced row-vector sets.
+
+If the three reciprocal completions were the only rows with universal
+opposites, the quotient algebra alone would explain the filter. If many other
+promotion rows also have universal opposites, the missing ingredient is
+prefix-order forcing of the inverse row.
+
+### Result
+
+Failed quotient-only route and finite obstruction:
+**Forced-Inverse Bottleneck.**
+
+The exact audit found `59` primitive selected promotion rows:
+
+```text
+RR: 12
+RX: 23
+XR: 24
+```
+
+Every one of these `59` rows has an opposite vector somewhere in the universal
+Kalmanson row universe. Thus quotient algebra alone does not distinguish the
+three reciprocal completions.
+
+The actual forced-opposite status is:
+
+```text
+RR|opposite_common:                1
+RR|opposite_old_only:              1
+RR|opposite_universal_not_forced: 10
+RX|opposite_universal_not_forced: 23
+XR|opposite_common:                2
+XR|opposite_universal_not_forced: 22
+```
+
+The three common-opposite rows are exactly the Cycle 485 completions:
+
+```text
+K1_diag_gt_sides(1, 12, 4, 9):  R12 > R01
+  common inverse: K2_diag_gt_other(1, 12, 17, 15)
+
+K1_diag_gt_sides(3, 13, 17, 9): X09,13 > R13
+  common inverse: K2_diag_gt_other(0, 13, 9, 5)
+
+K2_diag_gt_other(0, 17, 9, 5):  X05,17 > R17
+  common inverse: K1_diag_gt_sides(3, 13, 17, 5)
+```
+
+There is one near miss:
+
+```text
+K1_diag_gt_sides(3, 12, 14, 9): R12 > R09
+  old-only inverse vector: R09 > R12
+  old-only inverse row: K2_diag_gt_other(1, 12, 9, 15)
+```
+
+This near miss shows why exact row/vector membership matters. Having an
+opposite vector in the universal row universe, or even in one side of the
+swap, is not enough to produce a selected reciprocal pair in the new state.
+
+The exact digest for this common-inverse filter audit is:
+
+```text
+0b367d4ae6e0a8f3bddfc4b34e2825d3af7a056268ebbe1c8af23bba2bc13b67
+```
+
+### Limitations
+
+- This is an exact finite audit of the Cycle 485 boundary swap, not a
+  classification over all recorded C19 states.
+- The universal row universe used here is a quotient-row existence check; the
+  proof-relevant condition remains actual forced membership in the prefix
+  states.
+- The result does not prove that the three common inverses are the only
+  possible templates under arbitrary one-slot promotions.
+- This is not a proof of Erdos Problem #97 and not a counterexample.
+
+### Effect on the Attack
+
+The quotient-only route is now ruled out for this collision: all primitive
+selected promotion rows already have algebraic opposites. The live proof
+question is order-theoretic:
+
+```text
+When does the inverse of a promotion-exposed support-two row remain forced
+under both sides of the boundary swap?
+```
+
+The next promising exact subproblem is to classify the common-inverse
+condition by the positions of the inverse row's labels in the left boundary,
+right boundary, and middle block.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact universal-opposite and forced-opposite audit over the `59`
+  primitive selected promotion rows: passed, with digest
+  `0b367d4ae6e0a8f3bddfc4b34e2825d3af7a056268ebbe1c8af23bba2bc13b67`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## Session 2026-05-07, Theory Cycle 489
+
+Timestamp: 2026-05-07 02:12 EEST.
+
+### Subquestion
+
+Can the common-inverse condition from Cycle 488 be expressed as a clean
+order-theoretic criterion for one-slot boundary swaps?
+
+### Definitions and Assumptions
+
+Use the same old/new C19 prefix states. The swap is in one right-boundary
+slot:
+
+```text
+old right reverse order: 15, 10, 6, 5, 2
+new right reverse order: 15, 10, 9, 5, 2
+```
+
+So `6` is demoted from the right boundary to the middle, and `9` is promoted
+from the middle to the same right-boundary slot. The right-boundary labels
+before the slot in prefix cyclic order are:
+
+```text
+{10,15}
+```
+
+and the right-boundary labels after the slot are:
+
+```text
+{2,5}.
+```
+
+A quadruple is **stable across the slot swap** if it is forced in both states
+and has the same forced ordered quadruple in both states.
+
+### Attempted Proof Route
+
+Prove a general slot-order lemma. For a one-slot swap, compare a quadruple
+`Q` by the number of swapped labels it contains:
+
+1. If `Q` contains neither swapped label, its order is unchanged whenever it
+   is forced, because every label of `Q` has the same prefix status in both
+   states.
+2. If `Q` contains both swapped labels, then the two swapped labels exchange
+   their middle/right roles, so their relative order changes. Such a quadruple
+   cannot be stable.
+3. If `Q` contains exactly one swapped label, then it can be stable only if
+   it contains no other middle label in either state and no right-boundary
+   label that precedes the swapped slot. A preceding right label lies before
+   the slot label when the swapped label is on the right boundary, but after
+   it when the swapped label is in the middle.
+
+This gives the predicted criterion:
+
+```text
+stable iff
+  Q is forced in both states
+  and either Q avoids both swapped labels,
+      or Q contains exactly one swapped label and no preceding-slot right label.
+```
+
+### Result
+
+Proved structural lemma:
+**Stable-Slot Criterion.**
+
+For a one-slot boundary promotion/demotion, a forced quadruple has the same
+ordered tuple on both sides of the swap exactly under the criterion above.
+
+The exact audit over all quadruples in the Cycle 485 states found zero
+prediction failures:
+
+```text
+quad prediction failures: 0
+```
+
+The forced quadruple split was:
+
+```text
+none|same:           1050
+none|neither:        1330
+6|same:                56
+6|both_reordered:      64
+6|old_only:           315
+6|neither:            245
+9|same:                56
+9|both_reordered:      64
+9|new_only:           315
+9|neither:            245
+6,9|both_reordered:    45
+6,9|neither:           91
+```
+
+At the row-triple level this gives:
+
+```text
+none|common: 2100
+6|common:     112
+9|common:     112
+6,9|common:     0
+```
+
+The criterion explains the Cycle 488 inverse rows:
+
+- `K2_diag_gt_other(1, 12, 17, 15)` and
+  `K1_diag_gt_sides(3, 13, 17, 5)` avoid both swapped labels, so their
+  stability is automatic once forced.
+- `K2_diag_gt_other(0, 13, 9, 5)` contains the promoted label `9` and the
+  following-slot right label `5`, but no preceding-slot right label, so it is
+  stable.
+- The near miss `K2_diag_gt_other(1, 12, 9, 15)` contains the promoted label
+  `9` and the preceding-slot right label `15`, so it is forced in the old
+  state but reordered in the new state. It is not a common inverse.
+
+The exact digest for this stable-slot audit is:
+
+```text
+a835959742b94dca11e11cffb92b2cb33c55d092cee7373996640ef3e6125354
+```
+
+### Limitations
+
+- The Stable-Slot Criterion is an order lemma for one-slot swaps in the
+  prefix model; it is not by itself a Kalmanson contradiction.
+- The audit applies the lemma to the Cycle 485 pair only. It does not
+  enumerate all possible one-slot swaps across all C19 states.
+- The lemma explains when an inverse row can remain common, but it does not
+  classify which promotion-exposed rows have inverse vectors with such stable
+  representatives.
+- This is not a proof of Erdos Problem #97 and not a counterexample.
+
+### Effect on the Attack
+
+The order-theoretic part of the bottleneck is now clean. The remaining local
+classification problem factors into two independent tests:
+
+```text
+promotion row has a primitive selected support-two vector v;
+some representative of -v satisfies the Stable-Slot Criterion.
+```
+
+This is a more reusable normal form than the previous list of three inverse
+rows. The next lead is to combine the selected-distance quotient equations
+with the Stable-Slot Criterion and derive a finite set of inverse templates
+for one-slot promotions.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact stable-slot criterion audit over all quadruples in the Cycle
+  485 old/new prefix states: passed, with digest
+  `a835959742b94dca11e11cffb92b2cb33c55d092cee7373996640ef3e6125354`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## Session 2026-05-07, Theory Cycle 490
+
+Timestamp: 2026-05-07 02:14 EEST.
+
+### Subquestion
+
+Does combining the selected-distance quotient with the Stable-Slot Criterion
+recover the three Cycle 485 inverse completions as a finite template list,
+without directly using the precomputed common row set?
+
+### Definitions and Assumptions
+
+Use the Cycle 485 one-slot swap and the `59` primitive selected promotion
+rows from Cycle 488:
+
+```text
+RR: 12
+RX: 23
+XR: 24
+```
+
+For a promotion row with quotient vector `v`, form candidate inverse rows by
+the following two tests:
+
+```text
+1. selected-distance quotient test: inverse row vector is -v;
+2. Stable-Slot Criterion: inverse row is forced with the same ordered
+   quadruple on both sides of the boundary swap.
+```
+
+Do not use row membership in `old_rows & new_rows` as the primary filter.
+Instead, generate stable inverse candidates from the Stable-Slot Criterion
+itself and then compare with the common row set only as a sanity check.
+
+Use these role names in the new state:
+
+```text
+A  = anchor 0
+Li = left-boundary position i
+P  = promoted label 9
+D  = demoted label 6
+Bj = right-boundary label before the swapped slot in reverse-right order
+Fj = right-boundary label after the swapped slot in reverse-right order
+M  = still-middle label
+```
+
+### Attempted Proof Route
+
+First verify that the Stable-Slot Criterion exactly regenerates the common row
+universe:
+
+```text
+stable-slot generated rows == old_rows & new_rows.
+```
+
+Then, for each of the `59` primitive selected promotion rows, search the
+stable-slot generated rows for vectors equal to `-v`. If this returns only the
+three known completions, the finite local template list is independent of the
+direct common-row lookup.
+
+### Result
+
+Finite template classification:
+**Stable-Inverse Template Filter.**
+
+The stable-slot generated row set exactly matched the common row set:
+
+```text
+stable-slot rows:          2324
+old/new common rows:       2324
+stable equals common rows: true
+```
+
+Among the `59` primitive selected promotion rows, the stable inverse count was:
+
+```text
+RR with no stable inverse: 11
+RR with one stable inverse: 1
+RX with no stable inverse: 23
+XR with no stable inverse: 22
+XR with one stable inverse: 2
+```
+
+Thus the combined quotient plus stable-slot filter recovers exactly the three
+Cycle 485 completions:
+
+```text
+Template 1:
+  promotion:
+    K1_diag_gt_sides(1, 12, 4, 9)
+    roles L1,L3,M,P
+    quotient R12 > R01
+  stable inverse:
+    K2_diag_gt_other(1, 12, 17, 15)
+    roles L1,L3,M,B1
+    quotient R01 > R12
+
+Template 2:
+  promotion:
+    K1_diag_gt_sides(3, 13, 17, 9)
+    roles L2,L5,M,P
+    quotient X09,13 > R13
+  stable inverse:
+    K2_diag_gt_other(0, 13, 9, 5)
+    roles A,L5,P,F1
+    quotient R13 > X09,13
+
+Template 3:
+  promotion:
+    K2_diag_gt_other(0, 17, 9, 5)
+    roles A,M,P,F1
+    quotient X05,17 > R17
+  stable inverse:
+    K1_diag_gt_sides(3, 13, 17, 5)
+    roles L2,L5,M,F1
+    quotient R17 > X05,17
+```
+
+The exact digest for this stable-inverse template audit is:
+
+```text
+67e7a941a2853b81e168148a49f7e552fbf504c6fa9386c2b554e11ea4edede0
+```
+
+### Limitations
+
+- This is a finite local template classification for one Cycle 485 boundary
+  swap, not a theorem over all C19 prefix states.
+- The role templates are literal for this local prefix state. They may need
+  quotienting by prefix symmetries or translation before they become reusable
+  across other swaps.
+- The result classifies inverse completions; it does not itself produce a
+  Farkas certificate or a contradiction for arbitrary promotions.
+- This is not a proof of Erdos Problem #97 and not a counterexample.
+
+### Effect on the Attack
+
+The Cycle 485/488 bottleneck now has a finite normal form:
+
+```text
+promotion-exposed primitive selected row
++ stable inverse template
+```
+
+For this collision, there are only three such templates. The next proof-facing
+lead is to test whether the same role-template filter explains all recorded
+one-slot promotion collisions from Cycle 484, or whether new templates appear.
+If no new templates appear, the filter may become a reusable lemma for
+compressing primitive-row reciprocity across one-slot boundary changes.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact stable-inverse template audit over all `59` primitive
+  selected promotion rows: passed, with digest
+  `67e7a941a2853b81e168148a49f7e552fbf504c6fa9386c2b554e11ea4edede0`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## Session 2026-05-07, Theory Cycle 491
+
+Timestamp: 2026-05-07 02:15 EEST.
+
+### Subquestion
+
+Does the Stable-Inverse Template Filter from Cycle 490 apply to the other
+recorded Cycle 484 exception-to-selected collisions, or was the Cycle 485
+collision the only one-slot promotion comparison in that finite list?
+
+### Definitions and Assumptions
+
+Use the exact Cycle 484 collisions:
+
+```text
+1. c19_window_fifth_child_0261_0059_0041
+   vs c19_window_fifth_child_0264_0025_0041
+
+2. c19_window_fifth_child_0274_0059_0041
+   vs c19_window_fifth_child_0277_0059_0041
+
+3. c19_window_fifth_child_0435_0078_0085
+   vs c19_window_fifth_child_0435_0122_0021
+
+4a. c19_window_fifth_child_0456_0059_0041
+    vs c19_window_fifth_child_0443_0110_0042
+
+4b. c19_window_fifth_child_0456_0059_0041
+    vs c19_window_fifth_child_0456_0003_0087
+```
+
+Reconstruct each fifth-pair boundary state from its label by replaying the
+deterministic prefix/fourth/fifth enumeration:
+
+```text
+c19_window_fifth_child_<prefix>_<fourth>_<fifth>.
+```
+
+Call a comparison a **one-slot domain comparison** if the two states differ
+in exactly one boundary slot, replace exactly one old boundary label by
+exactly one new boundary label, and move no shared boundary label to a
+different side or slot.
+
+### Attempted Proof Route
+
+Audit the five exception-to-selected comparisons from Cycle 484. If several
+are one-slot domain comparisons, apply the Cycle 490 template filter to each.
+If only the Cycle 485 pair is one-slot, then the current template filter has
+no other finite recorded collision to explain without a multi-slot extension.
+
+### Result
+
+Finite domain obstruction:
+**Cycle 484 Has One One-Slot Collision.**
+
+The exact reconstruction found:
+
+```text
+Cycle 484 comparisons checked: 5
+one-slot domain comparisons:  1
+```
+
+The sole one-slot comparison is the Cycle 485 pair:
+
+```text
+c19_window_fifth_child_0274_0059_0041
+  L=[1,3,12,11,13], R=[2,5,6,10,15]
+
+c19_window_fifth_child_0277_0059_0041
+  L=[1,3,12,11,13], R=[2,5,9,10,15]
+
+classification:
+  one_slot_right_replacement_6_to_9
+```
+
+The other comparisons are outside the one-slot domain:
+
+```text
+collision 1:
+  multi_slot_boundary_replacement
+  left slot 4:  12 -> 7
+  right slot 3: 6 -> 9
+
+collision 3:
+  multi_slot_with_shared_boundary_move
+  left slot 4: 14 -> 18
+  left slot 5: 18 -> 8
+  shared boundary label 18 moves from L5 to L4
+
+collision 4a:
+  multi_slot_with_shared_boundary_move
+  left slot 3: 12 -> 11
+  left slot 4: 11 -> 17
+  left slot 5: 13 -> 12
+  right slot 4: 10 -> 4
+  shared labels 11 and 12 move left slots
+
+collision 4b:
+  multi_slot_boundary_replacement
+  left slot 4: 11 -> 4
+  left slot 5: 13 -> 18
+```
+
+The exact digest for this Cycle 484 one-slot domain audit is:
+
+```text
+1e02f4b9e430b907d9b4c84f3fa43fad910948661799d932c998baf6b1043969
+```
+
+### Limitations
+
+- This is a finite audit of the Cycle 484 collision list only.
+- It does not classify multi-slot promotions, shared-boundary moves, or
+  simultaneous left/right replacements.
+- It does not add a new obstruction for the non-one-slot collisions; it only
+  prevents overextending the Stable-Inverse Template Filter.
+- This is not a proof of Erdos Problem #97 and not a counterexample.
+
+### Effect on the Attack
+
+The Stable-Inverse Template Filter explains the only one-slot collision from
+Cycle 484, but the remaining recorded collisions require a multi-slot
+generalization. The next useful exact subproblem is to formulate a two-slot
+stable-order criterion, starting with collision 1 because it has two
+independent replacements and no shared boundary label moves:
+
+```text
+left slot 4:  12 -> 7
+right slot 3: 6 -> 9.
+```
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact Cycle 484 one-slot domain audit over all five
+  exception-to-selected comparisons: passed, with digest
+  `1e02f4b9e430b907d9b4c84f3fa43fad910948661799d932c998baf6b1043969`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## Session 2026-05-07, Theory Cycle 492
+
+Timestamp: 2026-05-07 02:17 EEST.
+
+### Subquestion
+
+For the clean two-slot comparison from Cycle 491, can stable forced rows be
+classified by a pairwise order-crossing criterion rather than by a special
+case analysis of each changed slot?
+
+### Definitions and Assumptions
+
+Use Cycle 484 collision 1:
+
+```text
+old/exception:
+  c19_window_fifth_child_0261_0059_0041
+  L=[1,3,11,12,13], R=[2,5,6,10,15]
+
+new/selected mate:
+  c19_window_fifth_child_0264_0025_0041
+  L=[1,3,11,7,13], R=[2,5,9,10,15]
+```
+
+This comparison has two independent boundary replacements and no shared
+boundary label moves:
+
+```text
+left slot 4:  12 -> 7
+right slot 3: 6 -> 9
+```
+
+For a prefix state `B`, write `<_B` for the prefix order on labels, except
+that two middle labels are tied. A quadruple forced by `B` has at most one
+middle label, so `<_B` restricts to a genuine total order on that quadruple.
+
+Call an unordered pair `{a,b}` a **crossing pair** for two states `B,B'` if
+both pair orders are defined and the order of `a,b` is reversed between
+`<_B` and `<_{B'}`.
+
+### Attempted Proof Route
+
+Prove a general order lemma:
+
+**Pairwise-Crossing Stability Criterion.** For any two prefix states `B,B'`,
+a quadruple `Q` has the same forced ordered tuple in both states if and only
+if:
+
+```text
+Q is forced in both states, and
+Q contains no crossing pair for B,B'.
+```
+
+Proof: if `Q` is forced in both states, each state induces a total order on
+the four labels of `Q`. Two finite total orders on the same label set agree
+if and only if every two-label comparison agrees. Therefore the ordered
+quadruple changes exactly when some label pair in `Q` crosses.
+
+Then audit the criterion exactly on collision 1.
+
+### Result
+
+Proved structural lemma:
+**Pairwise-Crossing Stability Criterion.**
+
+For collision 1, the crossing graph has exactly eight label pairs:
+
+```text
+{6,9}
+{6,10}
+{6,15}
+{7,12}
+{7,13}
+{9,10}
+{9,15}
+{12,13}
+```
+
+These are exactly the pairwise reversals created by:
+
+```text
+left slot 4:  12 demoted to middle, 7 promoted to L4;
+right slot 3: 6 demoted to middle, 9 promoted to R3.
+```
+
+The exact quadruple audit found zero prediction failures:
+
+```text
+quad prediction failures: 0
+```
+
+The forced quadruple split was:
+
+```text
+same:           842
+both_reordered: 268
+old_only:       540
+new_only:       540
+neither:       1686
+```
+
+At the row-triple level:
+
+```text
+common rows:  1684
+old-only rows: 1616
+new-only rows: 1616
+```
+
+The exact digest for this pairwise-crossing audit is:
+
+```text
+2f6a08341ae4bf124db2fdfbbeb01d4457d1cb01194979eccf4a62a674f18452
+```
+
+### Limitations
+
+- The lemma is purely order-theoretic. It tells when a row remains common,
+  but not whether it participates in a quotient-vector inverse pair.
+- The finite audit is for Cycle 484 collision 1 only.
+- The crossing graph still has to be combined with selected-distance quotient
+  algebra to classify stable inverse templates.
+- This is not a proof of Erdos Problem #97 and not a counterexample.
+
+### Effect on the Attack
+
+The one-slot Stable-Slot Criterion is now subsumed by a more general
+Pairwise-Crossing Stability Criterion. The multi-slot route no longer needs a
+separate ad hoc order proof for each collision: compute the crossing graph,
+then search for promotion-exposed primitive rows whose inverse vector has a
+representative avoiding that crossing graph.
+
+The next exact subproblem is to apply this crossing-graph plus quotient
+filter to collision 1 and compare its stable inverse templates with the
+Cycle 490 one-slot templates.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact pairwise-crossing stability audit over all quadruples in
+  Cycle 484 collision 1: passed, with digest
+  `2f6a08341ae4bf124db2fdfbbeb01d4457d1cb01194979eccf4a62a674f18452`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## Session 2026-05-07, Theory Cycle 493
+
+Timestamp: 2026-05-07 02:18 EEST.
+
+### Subquestion
+
+After replacing the one-slot Stable-Slot Criterion by the Pairwise-Crossing
+Stability Criterion, what stable inverse templates appear in Cycle 484
+collision 1? Does it reuse the three one-slot templates from Cycle 490, or do
+new template families appear?
+
+### Definitions and Assumptions
+
+Use Cycle 484 collision 1:
+
+```text
+old/exception:
+  c19_window_fifth_child_0261_0059_0041
+  L=[1,3,11,12,13], R=[2,5,6,10,15]
+
+new/selected mate:
+  c19_window_fifth_child_0264_0025_0041
+  L=[1,3,11,7,13], R=[2,5,9,10,15]
+```
+
+Use the crossing graph from Cycle 492:
+
+```text
+{6,9}, {6,10}, {6,15}, {7,12}, {7,13},
+{9,10}, {9,15}, {12,13}.
+```
+
+Generate stable inverse candidates as follows:
+
+```text
+1. enumerate rows stable by the Pairwise-Crossing Stability Criterion;
+2. restrict to new-only primitive selected rows in the selected mate;
+3. ask whether the negative quotient vector has a stable row representative.
+```
+
+### Attempted Proof Route
+
+This is the same quotient-plus-stability filter as Cycle 490, but with the
+general crossing graph replacing the one-slot stable-slot rule. If no new
+templates appear, the one-slot roles may have captured a reusable mechanism.
+If new templates appear, then multi-slot replacements need their own template
+taxonomy.
+
+### Result
+
+Finite expansion result:
+**Two-Slot Stable-Inverse Template Expansion.**
+
+The pairwise-crossing stable rows again matched the old/new common rows:
+
+```text
+stable rows:         1684
+old/new common rows: 1684
+stable equals common: true
+```
+
+The selected mate has `147` new-only primitive selected rows:
+
+```text
+RR: 27
+RX: 65
+XR: 55
+```
+
+The stable inverse count by type is:
+
+```text
+RR with no stable inverse: 25
+RR with one stable inverse: 1
+RR with two stable inverses: 1
+RX with no stable inverse: 63
+RX with two stable inverses: 2
+XR with no stable inverse: 52
+XR with one stable inverse: 3
+```
+
+Thus collision 1 has `7` new primitive selected rows with at least one stable
+inverse. They include the familiar one-slot-style comparisons
+
+```text
+X09,13 > R13
+X05,17 > R17
+```
+
+but also new two-slot comparisons:
+
+```text
+R01 > R17
+R15 > X03,15
+R10 > R13
+R15 > X13,15
+```
+
+The seven new-row templates are:
+
+```text
+1. K1_diag_gt_sides(3, 13, 17, 9): X09,13 > R13
+   stable inverse: K2_diag_gt_other(0, 13, 9, 5)
+
+2. K1_diag_gt_sides(7, 17, 15, 5): X05,17 > R17
+   stable inverse: K1_diag_gt_sides(3, 13, 17, 5)
+
+3. K2_diag_gt_other(0, 17, 9, 5): X05,17 > R17
+   stable inverse: K1_diag_gt_sides(3, 13, 17, 5)
+
+4. K2_diag_gt_other(1, 7, 17, 15): R01 > R17
+   stable inverse: K2_diag_gt_other(1, 3, 11, 17)
+
+5. K2_diag_gt_other(3, 7, 17, 15): R15 > X03,15
+   stable inverses:
+     K2_diag_gt_other(1, 3, 11, 15)
+     K1_diag_gt_sides(3, 13, 15, 5)
+
+6. K2_diag_gt_other(7, 13, 10, 2): R10 > R13
+   stable inverses:
+     K2_diag_gt_other(0, 13, 8, 10)
+     K1_diag_gt_sides(13, 16, 10, 2)
+
+7. K2_diag_gt_other(7, 13, 15, 2): R15 > X13,15
+   stable inverses:
+     K2_diag_gt_other(1, 13, 4, 15)
+     K1_diag_gt_sides(13, 8, 15, 5)
+```
+
+The exact digest for this collision-1 stable-inverse audit is:
+
+```text
+8103da9798f57225efdfa622181067814ee86afe63ba36fedb53ea103d9343a4
+```
+
+### Limitations
+
+- This is an exact finite template list for one two-slot comparison only.
+- The new templates are literal label/role templates, not yet symmetry- or
+  quotient-normalized across other comparisons.
+- The result shows that the one-slot template list is not universal for
+  multi-slot replacements.
+- This is not a proof of Erdos Problem #97 and not a counterexample.
+
+### Effect on the Attack
+
+The multi-slot route is richer than the one-slot route. Collision 1 has seven
+new primitive rows with stable inverses, not just the three one-slot
+templates. The positive lesson is that the pairwise-crossing graph still
+compresses the order side exactly; the hard part is now quotient-template
+normalization across collisions.
+
+The next exact subproblem is to apply the same crossing-graph plus quotient
+filter to the remaining Cycle 484 multi-slot comparisons and compare template
+families.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact crossing-graph plus stable-inverse audit over Cycle 484
+  collision 1: passed, with digest
+  `8103da9798f57225efdfa622181067814ee86afe63ba36fedb53ea103d9343a4`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## Session 2026-05-07, Theory Cycle 494
+
+Timestamp: 2026-05-07 02:20 EEST.
+
+### Subquestion
+
+When the crossing-graph plus quotient filter from Cycle 493 is applied to the
+remaining Cycle 484 multi-slot comparisons, do the stable inverse templates
+collapse to a small shared family, or do new quotient-comparison families
+proliferate?
+
+### Definitions and Assumptions
+
+Use the remaining three non-one-slot Cycle 484 comparisons:
+
+```text
+collision 3:
+  c19_window_fifth_child_0435_0078_0085
+  vs c19_window_fifth_child_0435_0122_0021
+
+collision 4a:
+  c19_window_fifth_child_0456_0059_0041
+  vs c19_window_fifth_child_0443_0110_0042
+
+collision 4b:
+  c19_window_fifth_child_0456_0059_0041
+  vs c19_window_fifth_child_0456_0003_0087
+```
+
+For each comparison:
+
+1. reconstruct both fifth-pair boundary states from their labels;
+2. compute the pairwise crossing graph;
+3. regenerate the common row set using the Pairwise-Crossing Stability
+   Criterion;
+4. restrict to new-only primitive selected rows in the selected mate; and
+5. search for stable representatives of the negative quotient vector.
+
+### Attempted Proof Route
+
+The hoped-for compression was that the remaining multi-slot comparisons would
+use the same few stable inverse quotient families seen in the one-slot and
+clean two-slot cases. If true, this could point toward a small reusable
+template taxonomy for selected reciprocal completions.
+
+### Result
+
+Failed small-template route and finite obstruction:
+**Multi-Slot Stable-Inverse Proliferation.**
+
+For every comparison, the crossing-graph generated row set exactly matched
+the old/new common row set. Thus the order side remains clean.
+
+The stable-inverse counts were:
+
+```text
+collision 3:
+  crossing pairs: 2
+  common rows: 2508
+  new-only primitive selected rows: 90
+  stable-inverse hit rows: 13
+  unique hit families: 11
+
+collision 4a:
+  crossing pairs: 6
+  common rows: 1696
+  new-only primitive selected rows: 157
+  stable-inverse hit rows: 2
+  unique hit families: 2
+
+collision 4b:
+  crossing pairs: 4
+  common rows: 1932
+  new-only primitive selected rows: 131
+  stable-inverse hit rows: 9
+  unique hit families: 9
+```
+
+Across these three comparisons there are `22` aggregate stable-inverse
+quotient-comparison families, including:
+
+```text
+RR families:
+  R07 > R15
+  R10 > R15
+  R11 > R02
+  R11 > R08
+  R12 > R01
+  R12 > R15
+  R14 > R05
+  R17 > R03
+
+RX families:
+  R00 > X00,15
+  R01 > X01,05
+  R02 > X02,15
+  R03 > X03,10
+  R03 > X03,15
+  R12 > X06,12
+  R13 > X05,18
+
+XR families:
+  X00,12 > R12
+  X00,13 > R00
+  X00,17 > R00
+  X01,07 > R15
+  X01,08 > R01
+  X08,10 > R10
+  X08,12 > R08
+```
+
+The exact digest for this remaining-multi-slot audit is:
+
+```text
+9bb2c220072492d5903e6d090f472c43549248b8d370b840841f777ad349dac1
+```
+
+### Limitations
+
+- This is an exact finite audit of three recorded comparisons, not a theorem
+  over all C19 states.
+- The listed families are quotient-comparison families, not normalized under
+  all cyclic, reflection, or selected-distance symmetries.
+- The result does not prove that no deeper compression exists; it only rules
+  out the small literal family suggested by the one-slot case.
+- This is not a proof of Erdos Problem #97 and not a counterexample.
+
+### Effect on the Attack
+
+The order side of the route is promising: Pairwise-Crossing Stability
+continues to regenerate common rows exactly. The quotient-template side is
+not yet compact: multi-slot comparisons produce many stable inverse families.
+
+The next proof-facing lead is to stop cataloging literal quotient comparisons
+and search for a coarser invariant, such as the shape of the signed
+support-two circuit after forgetting class names and retaining only
+`RR/RX/XR` type, row kind, and whether each row touches a changed boundary
+label.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact crossing-graph plus stable-inverse audit over the three
+  remaining Cycle 484 multi-slot comparisons: passed, with digest
+  `9bb2c220072492d5903e6d090f472c43549248b8d370b840841f777ad349dac1`.
 
 ### Goal Status
 
