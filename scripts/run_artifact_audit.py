@@ -201,6 +201,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_strict_cycle_template_packet",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_strict_cycle_template_packet.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Template-level packet for the 3 n=9 strict-cycle local-core "
+            "templates; not a proof of n=9, counterexample, or independent "
+            "review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_base_apex_low_excess_ledgers",
         command=("python", "scripts/check_n9_base_apex_low_excess_ledgers.py", "--check", "--json"),
         claim_scope=(

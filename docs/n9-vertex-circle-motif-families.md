@@ -66,6 +66,14 @@ these are not the same statistic as the first full-assignment obstruction
 cycle counts in the obstruction-shape diagnostic. This is still a
 review-pending replay aid, not an independent n=9 proof.
 
+The strict-cycle template packet
+`data/certificates/n9_vertex_circle_strict_cycle_template_packet.json` then
+groups those 26 assignment-level joins by the 3 strict-cycle template ids. It
+keeps one canonical local-core directed cycle for each covered strict-cycle
+family and records template-level assignment, span-signature, and connector
+path-length summaries. It is for human review and lemma mining only; template
+ids remain deterministic artifact labels.
+
 The local-core follow-up in `docs/n9-vertex-circle-local-cores.md` shows that
 each of the 16 family representatives has a vertex-circle certificate using at
 most 6 selected rows. Its template diagnostic groups those 16 local cores into
@@ -178,6 +186,19 @@ python scripts/check_n9_vertex_circle_strict_cycle_path_join.py \
   --json
 ```
 
+Generate and check the strict-cycle template packet:
+
+```bash
+python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
 Run the targeted artifact test:
 
 ```bash
@@ -187,5 +208,6 @@ python -m pytest \
   tests/test_n9_vertex_circle_self_edge_path_join.py \
   tests/test_n9_vertex_circle_self_edge_template_packet.py \
   tests/test_n9_vertex_circle_strict_cycle_path_join.py \
+  tests/test_n9_vertex_circle_strict_cycle_template_packet.py \
   -q
 ```

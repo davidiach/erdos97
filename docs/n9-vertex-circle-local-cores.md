@@ -82,6 +82,14 @@ transformed local-core certificates (`2: 18`, `3: 8`), not the first
 full-assignment obstruction-shape cycles (`2: 22`, `3: 4`). This is also a
 reviewer-navigation diagnostic only.
 
+`data/certificates/n9_vertex_circle_strict_cycle_template_packet.json`
+compresses that strict-cycle side to 3 template-level records. Each template
+record keeps the canonical family local-core directed cycle, assignment ids,
+cycle/span summaries, and connector path-length counts from the assignment
+join. It is a reviewer-navigation packet only, not a theorem list, and keeps
+the local-core cycle counts separate from first full-assignment obstruction
+counts.
+
 `data/certificates/n9_row_ptolemy_product_cancellations.json` contains a
 dependent crosswalk from the row-Ptolemy hit families to these template labels:
 `F02 -> T08`, `F09 -> T01`, and `F13 -> T04`. All three are self-edge
@@ -222,6 +230,19 @@ python scripts/check_n9_vertex_circle_strict_cycle_path_join.py \
   --json
 ```
 
+Generate and check the strict-cycle template packet:
+
+```bash
+python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
 Run the targeted artifact test:
 
 ```bash
@@ -232,6 +253,7 @@ python -m pytest \
   tests/test_n9_vertex_circle_self_edge_path_join.py \
   tests/test_n9_vertex_circle_self_edge_template_packet.py \
   tests/test_n9_vertex_circle_strict_cycle_path_join.py \
+  tests/test_n9_vertex_circle_strict_cycle_template_packet.py \
   -q
 ```
 
