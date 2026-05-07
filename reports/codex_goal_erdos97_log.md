@@ -91379,3 +91379,211 @@ rule.
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 11:00 EEST - Cycle 547: Deterministic Family Dispersion Obstruction
+
+### Mathematical Subquestion
+
+Can the six broad forbidden depth-pair placement classes from Cycle 546 be
+explained by a small set of non-`O01` two-row quotient-vector families, using
+the deterministic two-row certificate returned by the existing fifth-pair
+prefilter?
+
+### Definitions and Assumptions
+
+Use the recorded sampled C19 prefix-window catalog-prefilter sweep over
+windows 288-479:
+
+```text
+data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
+```
+
+Reconstruct each recorded fifth-pair child from its fourth-pair survivor
+boundary state. For every center `c`, set the `O01` partner to
+`p=c+7 mod 19` and record the same coarse depth pair as in Cycles 543-546:
+
+```text
+A  = anchor
+M  = middle
+L1 = left depth 1
+LD = left depth deeper than 1
+R1 = right depth 1
+RD = right depth deeper than 1
+```
+
+The six **forbidden depth-pair classes** are:
+
+```text
+(LD, LD), (LD, RD), (M, LD), (RD, LD), (RD, M), (RD, RD)
+```
+
+For each fifth child, recompute the deterministic two-row certificate from
+`two_row_certificate_for_state`. Its **deterministic quotient-vector family**
+is the normalized exact quotient vector of the first row in the inverse pair,
+written as a comparison such as `R0 < X0_13`. This is only the first
+deterministic certificate selected by the existing lookup; it is not the set
+of all inverse pairs forced by the child.
+
+### Attempted Proof Route
+
+Cycle 546 ruled out a pure placement explanation for sampled `O01`
+deep-avoidance. The next possible explanation was:
+
+```text
+Although the forbidden depth classes are present in the sampled placement
+frontier, a small set of non-O01 deterministic two-row families accounts for
+them.
+```
+
+If true, the sampled `O01` avoidance could be reframed as a compact
+family-selection rule.
+
+### Result
+
+Failed compression lemma:
+**Deterministic Family Dispersion Obstruction.**
+
+The deterministic-family explanation is too dispersed. Across the six
+forbidden depth-pair classes, the audit finds:
+
+```text
+all_fifth 10350
+two_hits 10342
+forbidden placement instances 70614
+children with at least one forbidden placement 10350
+deterministic quotient-vector families on forbidden placements 94
+```
+
+Thus every sampled fifth child has at least one center/partner placement in
+one of the six broad forbidden depth-pair classes. The forbidden classes are
+not a rare child-level event.
+
+The top deterministic families by forbidden placement count are:
+
+```text
+8506  R0 < X0_13
+7451  R0 < R5
+6600  R0 < R16
+5522  R0 < X0_7
+4049  R12 < X0_12
+3816  R0 < X0_18
+3624  R0 < X0_4
+3498  R0 < R9
+2714  R0 < X0_17
+2631  R7 < X0_7
+2121  R15 < X0_15
+1893  R18 < X0_18
+```
+
+The top 10 families account for 48,411 of 70,614 forbidden placements, and
+the top 20 account for 61,251. This is useful concentration, but it is not a
+small exact family-selection explanation.
+
+Each forbidden depth class also has many deterministic families:
+
+```text
+(LD, LD): total  6822, families 79, no_two_row 12, top R0 < X0_13 count 705
+(LD, RD): total 10496, families 88, no_two_row  2, top R0 < X0_13 count 1263
+(M, LD):  total 17296, families 94, no_two_row  9, top R0 < X0_13 count 2178
+(RD, LD): total 11144, families 88, no_two_row  5, top R0 < X0_13 count 1503
+(RD, M):  total 18232, families 92, no_two_row 13, top R0 < R5     count 2183
+(RD, RD): total  6624, families 75, no_two_row  5, top R0 < X0_13 count 941
+```
+
+The eight children missed by the deterministic two-row lookup still contribute
+46 forbidden placement instances. Their labels are:
+
+```text
+c19_window_fifth_child_0430_0081_0011
+c19_window_fifth_child_0434_0070_0021
+c19_window_fifth_child_0435_0078_0012
+c19_window_fifth_child_0435_0078_0085
+c19_window_fifth_child_0435_0083_0022
+c19_window_fifth_child_0436_0082_0022
+c19_window_fifth_child_0436_0083_0022
+c19_window_fifth_child_0456_0059_0041
+```
+
+The audit digest was:
+
+```text
+a8b0e14ba2a01828cb2747eb7641440cdb166b22b520eb247c7f1262885e5557
+```
+
+### Proof
+
+The audit reconstructs all 10,350 fifth children from the recorded
+fourth-pair survivor states. For each child it recomputes the exact
+deterministic two-row certificate by the repository's existing lookup. For
+each of the 19 possible centers, it records the depth pair of `c` and
+`c+7 mod 19`, and filters to the six forbidden depth-pair classes.
+
+The recomputed fifth-child and two-row-hit totals match the known sampled
+catalog-prefilter accounting: 10,350 fifth children and 10,342 two-row hits.
+The counted forbidden placement instances sum to the Cycle 546 forbidden
+depth-pair totals:
+
+```text
+6822 + 10496 + 17296 + 11144 + 18232 + 6624 = 70614
+```
+
+Since 94 deterministic quotient-vector families occur, and each forbidden
+depth class contains at least 75 such families, the proposed small
+deterministic-family explanation is false for this sampled frontier.
+
+### Limitations
+
+- This is a finite audit over sampled windows 288-479 only.
+- The deterministic family is the first inverse-pair certificate found by the
+  existing lookup, not the complete set of two-row inverse pairs forced by a
+  child.
+- A forbidden placement instance for a center `c` need not be the center
+  actually used by the deterministic certificate for that child.
+- Therefore this does not classify all target-aware non-`O01` inverse-pair
+  families on the forbidden classes.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+Cycle 546 showed that raw placement does not explain sampled `O01`
+deep-avoidance. This cycle shows that the deterministic certificate chosen by
+the existing lookup is also too coarse: the forbidden placement classes are
+ubiquitous and are spread across many deterministic quotient-vector families.
+
+The next abstraction should be target-aware. Instead of assigning each child
+one deterministic certificate, enumerate the inverse-pair families attached
+to the specific center/partner placement under study, or classify complete
+inverse-pair sets for a smaller representative sample.
+
+### Next Lead
+
+For each sampled forbidden placement `(child, c, c+7)`, enumerate all forced
+two-row inverse pairs whose quotient vector involves either `R_c` or the
+pair class of `{c,c+7}`. Test whether the target-aware family set is small
+after cyclic normalization. If this is too large, first run it on the six
+top deterministic families above and compare against the `O01` family
+`R0 < X0_7`.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-547`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-547`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact deterministic-family audit over all 10,350 sampled fifth
+  children and all 70,614 forbidden center/partner placement instances:
+  passed, with digest
+  `a8b0e14ba2a01828cb2747eb7641440cdb166b22b520eb247c7f1262885e5557`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
