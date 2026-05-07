@@ -22947,6 +22947,202 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-07 - Cycle 561 - F13 Nested-Chord Self-Edge Lemma
+
+### Mathematical Subquestion
+
+Can the `T04/F13` self-edge entry in the review-pending `n=9`
+vertex-circle template catalog be proved directly as a small local lemma,
+without relying on the template id as a theorem name?
+
+This follows the Cycle 560 next lead to leave the C19 certificate-audit lane
+and return to proof-facing vertex-circle quotient-graph work.
+
+### Definitions and Assumptions
+
+Work in a strictly convex polygon with cyclic order agreeing on the displayed
+labels with
+
+```text
+0,1,2,3,4,5,6,7,8.
+```
+
+For a center `i`, write a selected row as
+
+```text
+i: {a,b,c,d}
+```
+
+meaning the four vertices `a,b,c,d` lie on one circle centered at `i`.
+Therefore the four distances from `i` to those selected witnesses are equal.
+Use `d(u,v)` for the ordinary Euclidean distance between vertices `u` and
+`v`.
+
+The local rows are the four `F13` core rows recorded by the `T04` self-edge
+template:
+
+```text
+0: {1,2,5,7}
+1: {2,3,6,8}
+3: {1,4,5,8}
+5: {1,3,6,7}
+```
+
+The vertex-circle nesting lemma says: if two witness chords lie on the same
+selected circle around a center, and one witness interval properly contains
+the other in angular order, then the outer chord is strictly longer than the
+inner chord.
+
+### Result Status
+
+Proved local lemma:
+**F13 Nested-Chord Self-Edge Lemma**.
+
+Under the four displayed selected rows and cyclic-order hypothesis, no
+strictly convex realization exists.
+
+### Argument
+
+In row `0`, the selected witnesses occur in cyclic order
+
+```text
+1,2,5,7.
+```
+
+On the circle centered at vertex `0`, the witness interval from `1` to `5`
+properly contains the witness interval from `1` to `2`. Hence the
+vertex-circle nesting lemma gives the strict inequality
+
+```text
+d(1,5) > d(1,2).                         (1)
+```
+
+The other three selected rows give a selected-distance equality path from the
+outer chord in (1) back to the inner chord:
+
+```text
+row 5: d(1,5) = d(3,5),
+row 3: d(3,5) = d(1,3),
+row 1: d(1,3) = d(1,2).
+```
+
+Thus
+
+```text
+d(1,5) = d(1,2),
+```
+
+contradicting (1). Equivalently, the selected-distance quotient graph has a
+reflexive strict edge.
+
+### Exact Artifact Scope
+
+The local rows and equality path are the `T04/F13` record in
+
+```text
+data/certificates/n9_vertex_circle_self_edge_template_packet.json
+data/certificates/n9_vertex_circle_template_lemma_catalog.json
+```
+
+The exact packet records that this template covers the two labelled
+assignments `A023` and `A174`, both in family `F13`, with outer pair
+`[1,5]`, inner pair `[1,2]`, and path length `3`.
+
+### Limitations
+
+- This is a local row-core obstruction only.
+- It proves the `F13` core contradiction, not the full `n=9` exhaustive
+  checker.
+- It does not prove that arbitrary `n=9` selected-witness assignments must
+  contain this core.
+- It does not address other self-edge templates `T05` through `T09`.
+- It does not prove a general theorem for Erdos Problem #97 and does not give
+  a counterexample.
+
+### Effect on the Attack
+
+One more review-pending n=9 vertex-circle template is now represented by a
+human-readable local lemma rather than only by artifact labels. The useful
+general shape is a **nested-chord self-edge**:
+
+```text
+outer chord > inner chord
+outer chord = ... = inner chord by selected rows.
+```
+
+This supports the broader quotient-graph route from `docs/review-priorities.md`:
+replace enumerated vertex-circle kills by small local lemmas that force a
+self-edge or strict directed cycle.
+
+### Next Lead
+
+Try the same direct proof extraction for `T05`, the next single-family
+self-edge template. The narrow target is to identify its strict outer/inner
+chord and write the selected-distance equality path as a short row-by-row
+chain.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-561`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-561`.
+- The branch was initially based on merged `origin/main` at
+  `dbab944cf075e5e63197f4becbffe0a5e4ca4775`, then rebased onto
+  `c21ad09015b2a4d38a84e58d65acfa289b2eab6a` after main advanced through
+  PR #209.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_self_edge_template_packet.py --check
+  --assert-expected --json`: passed; the packet reports `T04: 2` assignments
+  and zero validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+  --assert-expected --json`: passed; the catalog reports 12 templates covering
+  184 assignments and zero validation errors.
+- Repository validation after recording the cycle:
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_text_clean.py`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_status_consistency.py`: passed.
+  - `git diff --check`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_artifact_provenance.py`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+    passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+    passed, `592 passed, 90 deselected`.
+- Repository validation after rebasing onto
+  `c21ad09015b2a4d38a84e58d65acfa289b2eab6a`:
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_n9_vertex_circle_self_edge_template_packet.py --check
+    --assert-expected --json`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+    --assert-expected --json`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_text_clean.py`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_status_consistency.py`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_artifact_provenance.py`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+    passed.
+  - `git diff --check`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+    passed, `607 passed, 90 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-07 - Cycle 560 - Z3 Clause Encoding Equivalence
 
 ### Mathematical Subquestion
