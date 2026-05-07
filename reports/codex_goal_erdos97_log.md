@@ -93255,3 +93255,320 @@ endpoint before trying the other endpoint.
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 - Cycle 556 - Shared-Endpoint Radius-Pair Shift Batch
+
+### Subquestion
+
+Cycle 555 isolated a mixed radius/pair transport pattern:
+
+```text
+R7 < X6_7
+```
+
+where the shared endpoint shift `7` always reached the target-aware
+vocabulary in the sampled scope, but the other pair endpoint shift `6`
+failed. The subquestion for this cycle was:
+
+```text
+For the next frequent mixed families Ra < Xb_a, does the shared endpoint
+shift a always expose the target-aware 22-family vocabulary, while the
+other endpoint b may fail?
+```
+
+The tested families were:
+
+```text
+R13 < X7_13
+R7 < X7_14
+R9 < X9_16
+R10 < X10_17
+R5 < X5_18
+```
+
+### Definitions and Setup
+
+The ambient finite object is the recorded sampled C19 Kalmanson prefix-window
+artifact for windows 288-479. A fifth-pair child is reconstructed from the
+stored fourth-pair survivor boundary state. For each forbidden placement
+`(child,c,c+7)`, the audit computes the exact selected-distance quotient rows
+and records inverse-pair families in the notation used in Cycles 549-555.
+
+For a mixed source family `Ra < Xb_a`, the center shift by `a` is called the
+shared-endpoint shift because `a` is both the radius label and one endpoint of
+the pair class. The center shift by `b` is the other-endpoint shift.
+
+A source placement is one whose target-aware family set is empty but whose
+completed off-target family set contains the tested mixed family. A shift is
+successful if the shifted placement has nonempty intersection with the Cycle
+549 target-aware 22-family vocabulary. A forbidden shift is a stricter
+success where the shifted placement is also in a forbidden depth class.
+
+### Result Status
+
+Promising finite reduction, plus exact sampled counterexamples to the
+other-endpoint rule.
+
+### Named Object
+
+**Shared-Endpoint Radius-Pair Shift Batch.** In the sampled windows 288-479,
+the shared endpoint succeeds for all sources in the five tested mixed
+families, while the other endpoint fails in each family.
+
+Together with Cycle 555, this gives sampled support for the following named
+conjecture on six mixed radius/pair families:
+
+```text
+Shared-Endpoint Radius-Pair Shift Conjecture:
+If a zero target-aware forbidden placement has an off-target inverse pair
+Ra < Xb_a, then shifting the center by a exposes the target-aware
+22-family vocabulary.
+```
+
+### Exact Audit Totals
+
+The audit reproduced the same global sampled totals as Cycles 549 and 555:
+
+```text
+fifth-pair children: 10350
+forbidden placements: 70614
+zero target-aware placements: 27255
+nonzero target-aware placements: 43359
+target vocabulary size: 22
+target vocabulary matches Cycle 549: true
+target histogram:
+  0: 27255
+  1: 18313
+  2: 11915
+  3: 7017
+  4: 3634
+  5: 1397
+  6: 708
+  7: 247
+  8: 96
+  9: 26
+  10: 6
+```
+
+The audit digest was:
+
+```text
+6414dad1e6622ed0631ed0148665a7810440737ab07f2d6bc36b63dc6e2efe93
+```
+
+### Family Results
+
+For `R13 < X7_13`:
+
+```text
+source placements: 3093
+source children: 2832
+source by depth:
+  (LD, LD): 146
+  (LD, RD): 344
+  (M, LD): 2023
+  (RD, LD): 228
+  (RD, M): 85
+  (RD, RD): 267
+shared shift 13 target-vocabulary successes: 3093
+other shift 7 target-vocabulary successes: 2265
+shared shift 13 forbidden successes: 1321
+other shift 7 forbidden successes: 1267
+outside vocabulary count: 0
+shared failures: 0
+```
+
+For `R7 < X7_14`:
+
+```text
+source placements: 3046
+source children: 2772
+source by depth:
+  (LD, LD): 224
+  (LD, RD): 251
+  (M, LD): 1825
+  (RD, LD): 342
+  (RD, M): 92
+  (RD, RD): 312
+shared shift 7 target-vocabulary successes: 3046
+other shift 14 target-vocabulary successes: 1807
+shared shift 7 forbidden successes: 1559
+other shift 14 forbidden successes: 705
+outside vocabulary count: 0
+shared failures: 0
+```
+
+For `R9 < X9_16`:
+
+```text
+source placements: 2998
+source children: 2694
+source by depth:
+  (LD, LD): 167
+  (LD, RD): 304
+  (M, LD): 1682
+  (RD, LD): 365
+  (RD, M): 385
+  (RD, RD): 95
+shared shift 9 target-vocabulary successes: 2998
+other shift 16 target-vocabulary successes: 1695
+shared shift 9 forbidden successes: 768
+other shift 16 forbidden successes: 502
+outside vocabulary count: 0
+shared failures: 0
+```
+
+For `R10 < X10_17`:
+
+```text
+source placements: 2958
+source children: 2671
+source by depth:
+  (LD, LD): 193
+  (LD, RD): 341
+  (M, LD): 1473
+  (RD, LD): 351
+  (RD, M): 542
+  (RD, RD): 58
+shared shift 10 target-vocabulary successes: 2958
+other shift 17 target-vocabulary successes: 1912
+shared shift 10 forbidden successes: 1355
+other shift 17 forbidden successes: 604
+outside vocabulary count: 0
+shared failures: 0
+```
+
+For `R5 < X5_18`:
+
+```text
+source placements: 2957
+source children: 2714
+source by depth:
+  (LD, LD): 142
+  (LD, RD): 312
+  (M, LD): 1875
+  (RD, LD): 310
+  (RD, M): 195
+  (RD, RD): 123
+shared shift 5 target-vocabulary successes: 2957
+other shift 18 target-vocabulary successes: 2174
+shared shift 5 forbidden successes: 686
+other shift 18 forbidden successes: 1053
+outside vocabulary count: 0
+shared failures: 0
+```
+
+### Obstruction to the Other-Endpoint Rule
+
+The other endpoint is not a valid replacement for the shared endpoint. For
+`R13 < X7_13`, the first source where shift `7` fails but shift `13`
+succeeds is:
+
+```text
+label c19_window_fifth_child_0338_0063_0057
+source center 6, partner 13, depth (M, LD)
+boundary_left [1, 3, 17, 11, 13]
+boundary_right [2, 5, 4, 15, 9]
+remaining [6, 7, 8, 10, 12, 14, 16, 18]
+tested failing shift 7
+good_offsets [1, 2, 3, 5, 8, 9, 11, 12, 13, 14, 15, 17]
+forbidden_good_offsets [3, 9, 11, 17]
+```
+
+This exactly rules out the subclaim:
+
+```text
+For Ra < Xb_a, both endpoint shifts a and b expose the target-aware
+vocabulary.
+```
+
+The same failure pattern occurs at the count level in all five tested
+families: the shared endpoint has no failures, while the other endpoint has
+strictly fewer successes than sources.
+
+### Obstruction to the Stronger Forbidden-Shift Route
+
+The stricter route requiring a shifted target-aware placement to stay in a
+forbidden depth class again fails. For `R13 < X7_13`, the first source with
+target-aware shifts but no forbidden target-aware shift is:
+
+```text
+label c19_window_fifth_child_0338_0065_0059
+source center 6, partner 13, depth (M, LD)
+boundary_left [1, 3, 17, 11, 13]
+boundary_right [2, 5, 4, 18, 12]
+remaining [6, 7, 8, 9, 10, 14, 15, 16]
+good_offsets [1, 6, 13, 14, 15, 16]
+forbidden_good_offsets []
+```
+
+Thus the plausible finite-to-theory route is a target-vocabulary transport
+lemma, not a forbidden-class-preserving transport lemma.
+
+### Argument
+
+The audit is an exact finite replay over the recorded sampled artifact. It
+does not use floating-point geometry. For each tested family it filters the
+zero target-aware forbidden placements whose completed off-target family set
+contains that family. It then recomputes the target-aware family set after
+shifting the center by the shared endpoint and by the other endpoint.
+
+The shared endpoint succeeds in every listed source placement, and the other
+endpoint fails in every listed family because its success count is strictly
+less than its source count. The recorded witness above gives an exact sampled
+failure for the other-endpoint rule. The forbidden-shift witness shows that
+requiring the shifted placement to remain forbidden is still too strong.
+
+### Limitations
+
+- This is a finite sampled audit over windows 288-479 only.
+- The result covers five mixed radius/pair families, and six total when
+  combined with Cycle 555, not all possible off-target mixed families.
+- The proof is still an exact replay, not a human-readable cyclic-order or
+  metric-order lemma.
+- The shared-endpoint conjecture remains unproved outside the sampled
+  artifact.
+- The result does not prove or refute an all-order `C19_skew` obstruction.
+- It does not prove a general theorem for Erdos Problem #97 and does not give
+  a counterexample.
+
+### Effect on the Attack
+
+The evidence now separates two statements sharply. The broad endpoint
+transport rule is false: the other endpoint can fail. The narrower
+shared-endpoint rule has survived six frequent mixed families in the sampled
+scope. This turns the next theory target into a more precise local statement:
+explain why the radius label, when it is also a pair endpoint, transports a
+zero target-aware inverse-pair obstruction into the target-aware vocabulary.
+
+### Next Lead
+
+Test the remaining mixed one-term families from Cycle 551 for the same
+shared-endpoint property, or try to prove the property directly from the
+cyclic order of the center, partner, and the selected-distance quotient rows.
+The most useful human-readable lemma would identify the order-theoretic
+feature that distinguishes the shared endpoint from the other endpoint.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-556`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-556`.
+- The branch was based on `codex/erdos97-cycle-555` at commit
+  `8d6209428aebd02f0eae869698414104cf6dc8d6`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact five-family shared-endpoint audit over the sampled artifact:
+  passed, with digest
+  `6414dad1e6622ed0631ed0148665a7810440737ab07f2d6bc36b63dc6e2efe93`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
