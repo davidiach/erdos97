@@ -40,7 +40,7 @@ EXPECTED_INTERPRETATION = [
     "The packet emits one representative row for each D=3 profile-multiset by strict r=3 escape-class cell.",
     "Representative profile sequences are sorted profile-excess multisets used as compact row representatives, not geometric distance-class realizations.",
     "Canonical escape placements record length-2/length-3 deficits in the current turn-cover diagnostic only.",
-    "Common-dihedral pair class counts quotient profile labels and escape placements by the same cyclic relabeling action.",
+    "Common-dihedral pair class counts quotient profile labels and escape placements by the same dihedral relabeling action.",
     "Rows are finite bookkeeping representatives, not certificates that any cell is realizable or impossible.",
     "No proof of the n=9 case is claimed.",
 ]
