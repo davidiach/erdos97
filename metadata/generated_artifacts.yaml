@@ -396,6 +396,71 @@ artifacts:
       - the path join is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_vertex_circle_self_edge_template_packet
+    path: data/certificates/n9_vertex_circle_self_edge_template_packet.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_n9_vertex_circle_self_edge_template_packet.py
+    command: python scripts/check_n9_vertex_circle_self_edge_template_packet.py --assert-expected --write
+    checker: scripts/check_n9_vertex_circle_self_edge_template_packet.py
+    check_command: python scripts/check_n9_vertex_circle_self_edge_template_packet.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Template-level packet for the 9 self-edge local-core templates covering 158 n=9 self-edge frontier assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_vertex_circle_self_edge_template_packet.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: Template-level packet for the 9 self-edge local-core templates covering 158 n=9 self-edge frontier assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+      n: 9
+      row_size: 4
+      source_assignment_count: 184
+      self_edge_assignment_count: 158
+      strict_cycle_assignment_count: 26
+      self_edge_family_count: 13
+      self_edge_template_count: 9
+      template_assignment_counts.T01: 6
+      template_assignment_counts.T02: 40
+      template_assignment_counts.T03: 20
+      template_assignment_counts.T04: 2
+      template_assignment_counts.T05: 18
+      template_assignment_counts.T06: 18
+      template_assignment_counts.T07: 18
+      template_assignment_counts.T08: 18
+      template_assignment_counts.T09: 18
+      template_family_counts.T01: 1
+      template_family_counts.T02: 4
+      template_family_counts.T03: 2
+      template_family_counts.T04: 1
+      template_family_counts.T05: 1
+      template_family_counts.T06: 1
+      template_family_counts.T07: 1
+      template_family_counts.T08: 1
+      template_family_counts.T09: 1
+      path_length_counts.3: 86
+      path_length_counts.4: 36
+      path_length_counts.5: 18
+      path_length_counts.6: 18
+      shared_endpoint_counts.1: 158
+      assignment_core_size_counts.3: 46
+      assignment_core_size_counts.4: 40
+      assignment_core_size_counts.5: 36
+      assignment_core_size_counts.6: 36
+      template_core_size_counts.3: 2
+      template_core_size_counts.4: 3
+      template_core_size_counts.5: 2
+      template_core_size_counts.6: 2
+      provenance.command: python scripts/check_n9_vertex_circle_self_edge_template_packet.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - template labels are theorem names
+      - the template packet is an independent proof
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_strict_cycle_path_join
     path: data/certificates/n9_vertex_circle_strict_cycle_path_join.json
     kind: certificate_diagnostic_artifact

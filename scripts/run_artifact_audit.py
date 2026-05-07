@@ -171,6 +171,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_self_edge_template_packet",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_self_edge_template_packet.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Template-level packet for the 9 n=9 self-edge local-core "
+            "templates and their canonical family certificates; not a proof "
+            "of n=9 or independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_strict_cycle_path_join",
         command=(
             "python",

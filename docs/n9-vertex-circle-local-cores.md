@@ -64,6 +64,14 @@ compact core rows. This is a lemma-mining and reviewer-navigation diagnostic
 only; it is not an independent proof of `n=9` and does not promote the
 exhaustive checker.
 
+`data/certificates/n9_vertex_circle_self_edge_template_packet.json` compresses
+the same self-edge side to 9 template-level records. Each template record keeps
+the canonical family local-core certificates covered by that template, plus
+assignment-count and selected-path shape summaries from the assignment-level
+join. It distinguishes the selected equality-path representative from the
+broader self-edge shape counts in the template artifact. This is a
+reviewer-navigation packet only, not a theorem list.
+
 `data/certificates/n9_vertex_circle_strict_cycle_path_join.json` is the
 parallel replay join for the 26 strict-cycle frontier assignments. It
 transforms each family representative local-core cycle into labelled
@@ -188,6 +196,19 @@ python scripts/check_n9_vertex_circle_self_edge_path_join.py \
   --json
 ```
 
+Generate and check the self-edge template packet:
+
+```bash
+python scripts/check_n9_vertex_circle_self_edge_template_packet.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_vertex_circle_self_edge_template_packet.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
 Generate and check the strict-cycle path join:
 
 ```bash
@@ -209,6 +230,7 @@ python -m pytest \
   tests/test_n9_vertex_circle_core_templates.py \
   tests/test_n9_vertex_circle_frontier_motif_classification.py \
   tests/test_n9_vertex_circle_self_edge_path_join.py \
+  tests/test_n9_vertex_circle_self_edge_template_packet.py \
   tests/test_n9_vertex_circle_strict_cycle_path_join.py \
   -q
 ```

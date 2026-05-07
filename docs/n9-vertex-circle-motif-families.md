@@ -49,6 +49,14 @@ certificates, the stored label maps, the transformed core rows, and the
 replayed strict inequality. This is a review-pending diagnostic for lemma
 mining only; the path join is not an independent proof of `n=9`.
 
+The self-edge template packet
+`data/certificates/n9_vertex_circle_self_edge_template_packet.json` then groups
+those 158 assignment-level joins by the 9 self-edge template ids. It keeps one
+canonical local-core certificate for each of the 13 covered self-edge families
+and records template-level assignment counts (`T01: 6`, `T02: 40`, `T03: 20`,
+`T04: 2`, and `T05` through `T09`: 18 each). This packet is for human review
+and lemma mining only; template ids remain deterministic artifact labels.
+
 The strict-cycle path join
 `data/certificates/n9_vertex_circle_strict_cycle_path_join.json` covers the
 remaining 26 assignments. It stores transformed local-core quotient cycles for
@@ -144,6 +152,19 @@ python scripts/check_n9_vertex_circle_self_edge_path_join.py \
   --json
 ```
 
+Generate and check the self-edge template packet:
+
+```bash
+python scripts/check_n9_vertex_circle_self_edge_template_packet.py \
+  --assert-expected \
+  --write
+
+python scripts/check_n9_vertex_circle_self_edge_template_packet.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
 Generate and check the strict-cycle path join:
 
 ```bash
@@ -164,6 +185,7 @@ python -m pytest \
   tests/test_n9_vertex_circle_motif_families.py \
   tests/test_n9_vertex_circle_frontier_motif_classification.py \
   tests/test_n9_vertex_circle_self_edge_path_join.py \
+  tests/test_n9_vertex_circle_self_edge_template_packet.py \
   tests/test_n9_vertex_circle_strict_cycle_path_join.py \
   -q
 ```
