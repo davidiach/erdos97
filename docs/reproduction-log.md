@@ -65,6 +65,7 @@ python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check --as
 python scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_row_ptolemy_admissible_gap_replay.py --check --assert-expected --json
 python scripts/check_n9_row_ptolemy_gap_self_edge_cores.py --check --assert-expected --json
 python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125

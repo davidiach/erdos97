@@ -38,6 +38,7 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_row_ptolemy_product_cancellations.py --check --json
 	$(PYTHON) scripts/check_n9_row_ptolemy_family_signatures.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_row_ptolemy_order_sensitivity.py --check --assert-expected --json

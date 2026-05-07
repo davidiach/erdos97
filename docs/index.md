@@ -120,6 +120,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-t10-strict-cycle-lemma.md`](n9-vertex-circle-t10-strict-cycle-lemma.md):
   focused review-pending T10/F12 strict-cycle local lemma packet for proof
   mining.
+- [`n9-vertex-circle-t11-strict-cycle-lemma.md`](n9-vertex-circle-t11-strict-cycle-lemma.md):
+  focused review-pending T11/F07 strict-cycle local lemma packet for proof
+  mining.
 - [`n10-vertex-circle-singleton-slices.md`](n10-vertex-circle-singleton-slices.md):
   review-pending `n=10` singleton-slice finite-case draft, including the
   secondary first-five replay cross-check.
