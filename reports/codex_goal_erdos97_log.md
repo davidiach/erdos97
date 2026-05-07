@@ -82741,3 +82741,3190 @@ label.
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 03:51 EEST - Cycle 495: Coarse Stable-Inverse Shape Audit
+
+### Mathematical Subquestion
+
+Across all five recorded Cycle 484 exception-to-selected comparisons, do the
+stable-inverse hit rows collapse under the coarse shape invariant that records
+only:
+
+- comparison type `RR`, `RX`, or `XR`;
+- the Kalmanson row kind of the new-only primitive selected row;
+- the Kalmanson row kind of the inverse common row;
+- whether the new row touches at least one changed boundary label;
+- whether the inverse row touches at least one changed boundary label?
+
+Equivalently, after forgetting literal quotient class names, is there a small
+shape-level template behind the Cycle 494 stable inverse families?
+
+### Definitions and Assumptions
+
+For a fixed comparison between an old exception state and a new selected state,
+let `changed labels` be the boundary labels whose cyclic positions differ
+between the two states. A row touches changed labels if at least one of its four
+boundary labels is changed.
+
+Kalmanson row kinds are named as in the repo-local row generator:
+
+- `K1_diag_gt_sides`: the inequality with diagonal `ab + cd` against side
+  pairs.
+- `K2_diag_gt_other`: the inequality with diagonal `ad + bc` against side
+  pairs.
+
+A stable-inverse hit pair is an exact pair consisting of:
+
+- a new-only primitive selected quotient-comparison row, and
+- a common selected row whose inverse selected-distance quotient comparison
+  matches the new-only row.
+
+The audit used the same five Cycle 484 comparisons used in Cycles 491-494:
+
+```text
+collision_1:
+  old c19_window_fifth_child_0261_0059_0041
+  new c19_window_fifth_child_0264_0025_0041
+
+collision_2_one_slot:
+  old c19_window_fifth_child_0274_0059_0041
+  new c19_window_fifth_child_0277_0059_0041
+
+collision_3:
+  old c19_window_fifth_child_0435_0078_0085
+  new c19_window_fifth_child_0435_0122_0021
+
+collision_4a:
+  old c19_window_fifth_child_0456_0059_0041
+  new c19_window_fifth_child_0443_0110_0042
+
+collision_4b:
+  old c19_window_fifth_child_0456_0059_0041
+  new c19_window_fifth_child_0456_0003_0087
+```
+
+### Attempted Proof Route
+
+The Cycle 494 obstruction was that literal quotient-comparison families
+proliferate in multi-slot comparisons. The proposed repair was to forget the
+literal selected-distance class names and retain only coarse signed-circuit
+shape: `RR/RX/XR`, row kind, inverse row kind, and changed-label touch bits.
+
+If this produced one or only a few shapes, it could support a human-readable
+local lemma: every selected replacement row needing an inverse certificate
+would arise from a fixed boundary-change shape.
+
+### Result: Proved Finite Fact Plus Failed Compression
+
+The exact audit found:
+
+```text
+hit_pair_count: 39
+hit_row_count: 34
+pair_shape_count: 17
+row_shape_count: 18
+digest: df91920ef9c9ffb837c15969687ece432f39e63a79b4e480f08822f33bc341f6
+```
+
+Per-comparison counts were:
+
+```text
+collision_1:
+  changed_labels: [6, 7, 9, 12]
+  crossing_pair_count: 8
+  common_row_count: 1684
+  new_only_primitive_selected_rows: 147
+  hit_rows: 7
+  hit_pairs: 10
+
+collision_2_one_slot:
+  changed_labels: [6, 9]
+  crossing_pair_count: 5
+  common_row_count: 2324
+  new_only_primitive_selected_rows: 87
+  hit_rows: 3
+  hit_pairs: 3
+
+collision_3:
+  changed_labels: [8, 14, 18]
+  crossing_pair_count: 2
+  common_row_count: 2508
+  new_only_primitive_selected_rows: 90
+  hit_rows: 13
+  hit_pairs: 13
+
+collision_4a:
+  changed_labels: [4, 10, 11, 12, 13, 17]
+  crossing_pair_count: 6
+  common_row_count: 1696
+  new_only_primitive_selected_rows: 157
+  hit_rows: 2
+  hit_pairs: 2
+
+collision_4b:
+  changed_labels: [4, 11, 13, 18]
+  crossing_pair_count: 4
+  common_row_count: 1932
+  new_only_primitive_selected_rows: 131
+  hit_rows: 9
+  hit_pairs: 11
+```
+
+The positive finite fact is:
+
+**Changed-Row Touch Universality.** In these five comparisons, every stable
+inverse hit row has its new-only row touching at least one changed boundary
+label.
+
+The failed compression is:
+
+**Coarse Shape Noncollapse.** The proposed invariant still leaves `17`
+pair-level coarse shapes and `18` row-level coarse shapes. Thus it does not
+yield a small universal template for the Cycle 484 inverse mechanism.
+
+The pair-level shape histogram was:
+
+```text
+(RR, K1_diag_gt_sides, K1_diag_gt_sides, new_touch=True, inv_touch=False): 2
+(RR, K1_diag_gt_sides, K2_diag_gt_other, new_touch=True, inv_touch=False): 3
+(RR, K1_diag_gt_sides, K2_diag_gt_other, new_touch=True, inv_touch=True): 4
+(RR, K2_diag_gt_other, K1_diag_gt_sides, new_touch=True, inv_touch=False): 2
+(RR, K2_diag_gt_other, K2_diag_gt_other, new_touch=True, inv_touch=False): 2
+(RR, K2_diag_gt_other, K2_diag_gt_other, new_touch=True, inv_touch=True): 1
+(RX, K1_diag_gt_sides, K2_diag_gt_other, new_touch=True, inv_touch=False): 1
+(RX, K1_diag_gt_sides, K2_diag_gt_other, new_touch=True, inv_touch=True): 1
+(RX, K2_diag_gt_other, K1_diag_gt_sides, new_touch=True, inv_touch=False): 4
+(RX, K2_diag_gt_other, K1_diag_gt_sides, new_touch=True, inv_touch=True): 1
+(RX, K2_diag_gt_other, K2_diag_gt_other, new_touch=True, inv_touch=False): 4
+(RX, K2_diag_gt_other, K2_diag_gt_other, new_touch=True, inv_touch=True): 2
+(XR, K1_diag_gt_sides, K1_diag_gt_sides, new_touch=True, inv_touch=False): 2
+(XR, K1_diag_gt_sides, K2_diag_gt_other, new_touch=True, inv_touch=True): 2
+(XR, K2_diag_gt_other, K1_diag_gt_sides, new_touch=True, inv_touch=False): 4
+(XR, K2_diag_gt_other, K1_diag_gt_sides, new_touch=True, inv_touch=True): 3
+(XR, K2_diag_gt_other, K2_diag_gt_other, new_touch=True, inv_touch=False): 1
+```
+
+### Limitations
+
+- This is an exact finite audit of five recorded Cycle 484 comparisons, not a
+  theorem over all C19 states.
+- The audit proves touch universality only for stable-inverse hits in this
+  finite packet.
+- The failed invariant may be too coarse. It forgets which side of the
+  signed row the changed label occupies and how many changed labels occur in
+  each signed part.
+- This is not a proof of Erdos Problem #97 and not a counterexample.
+
+### Effect on the Attack
+
+Cycle 495 rules out a tempting proof compression: quotient family names cannot
+simply be forgotten down to `RR/RX/XR`, row kinds, and touch bits. The useful
+surviving exact fact is that all new-only inverse hits are supported by rows
+that actually touch the changed boundary set. That keeps the inverse mechanism
+local, but a proof-facing invariant must retain more signed incidence
+information than touch/no-touch.
+
+### Next Lead
+
+Refine the shape invariant by recording signed changed-label incidence:
+
+- number of changed labels in the positive side of the new row;
+- number of changed labels in the negative side of the new row;
+- the same two counts for the inverse common row;
+- whether the changed labels lie in selected `R` classes or singleton `X`
+  classes.
+
+This may separate the proliferation into a small set of genuine signed-support
+circuits without returning to literal selected-distance class names.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact coarse stable-inverse shape audit over the five Cycle 484
+  comparisons: passed, with digest
+  `df91920ef9c9ffb837c15969687ece432f39e63a79b4e480f08822f33bc341f6`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 03:58 EEST - Cycle 496: Signed-Support Incidence Refinement Audit
+
+### Mathematical Subquestion
+
+Does the failed Cycle 495 touch/no-touch invariant become compact if each
+stable-inverse hit is classified by signed incidence of changed boundary
+labels on the two surviving selected-distance quotient support classes?
+
+More precisely, for a primitive selected row with quotient comparison
+
+```text
+positive support class > negative support class
+```
+
+record the `R`/`X` type of each support class and the number of changed
+boundary labels appearing in the same-sign raw Kalmanson pair or pairs whose
+net quotient coefficient survives on that side. Then compare row-level and
+pair-level shape counts over the same five Cycle 484 comparisons from Cycle
+495.
+
+### Definitions and Assumptions
+
+Use the five recorded exception-to-selected comparisons from Cycle 495. A
+changed label is any label whose prefix-position key differs between the old
+and new boundary states.
+
+For each forced Kalmanson row, quotient unordered distance variables by the
+fixed `C19_skew` selected-distance equalities. A primitive selected row has
+exactly one `+1` quotient class and one `-1` quotient class, with comparison
+type `RR`, `RX`, or `XR`.
+
+For a support class `C` with net sign `s` in a row, define its
+**same-sign changed count** to be the number of changed boundary labels in
+the raw Kalmanson pair endpoints of terms with quotient class `C` and
+coefficient sign `s`. In all audited support classes the net coefficient is
+`+1` or `-1`, so this records where the surviving side of the quotient
+comparison sees changed labels.
+
+### Attempted Proof Route
+
+Cycle 495 showed that the coarse invariant
+
+```text
+RR/RX/XR + row kinds + row touches changed labels
+```
+
+does not give a small pair template. The hoped-for repair was that signed
+support incidence would identify a few real quotient circuits after forgetting
+literal class names.
+
+If successful, this would suggest a human-readable local lemma: stable inverse
+hits are forced by a small list of signed changed-label support patterns.
+
+### Result
+
+Finite obstruction:
+**Signed-Support Incidence Noncollapse.**
+
+The audit reproduced the Cycle 495 comparison-local hit counts:
+
+```text
+hit pairs: 39
+pair-local hit rows: 34
+```
+
+The same-sign signed-support invariant gives:
+
+```text
+row shapes with Kalmanson row kind:        19
+pair shapes ignoring Kalmanson row kind:  15
+pair shapes with Kalmanson row kind:      27
+```
+
+Thus signed-support incidence is more informative than touch/no-touch but
+does not produce a small pair-template list once row kind is retained.
+
+The pair shapes ignoring row kind were:
+
+```text
+6  RX  new ((R,1),(X,0))  inverse ((X,0),(R,0))
+5  RR  new ((R,1),(R,0))  inverse ((R,0),(R,0))
+4  RR  new ((R,0),(R,0))  inverse ((R,0),(R,0))
+4  XR  new ((X,0),(R,0))  inverse ((R,0),(X,0))
+4  RR  new ((R,1),(R,1))  inverse ((R,1),(R,1))
+3  XR  new ((X,1),(R,0))  inverse ((R,0),(X,1))
+3  XR  new ((X,0),(R,1))  inverse ((R,0),(X,0))
+3  RX  new ((R,0),(X,0))  inverse ((X,0),(R,0))
+1  RR  new ((R,0),(R,1))  inverse ((R,0),(R,0))
+1  XR  new ((X,1),(R,1))  inverse ((R,1),(X,1))
+1  RX  new ((R,1),(X,1))  inverse ((X,1),(R,0))
+1  RX  new ((R,2),(X,1))  inverse ((X,1),(R,1))
+1  XR  new ((X,1),(R,2))  inverse ((R,1),(X,1))
+1  RX  new ((R,1),(X,0))  inverse ((X,0),(R,1))
+1  RX  new ((R,0),(X,0))  inverse ((X,0),(R,1))
+```
+
+Here `(R,1)` means a selected-star support class whose same-sign raw
+representative contains one changed boundary label; `(X,0)` means a singleton
+nonselected support class whose same-sign raw representative contains none.
+
+The row-level split was:
+
+```text
+same-union row shapes: 13
+rows with no changed label on either surviving same-sign support: 11
+rows with some changed label on a surviving same-sign support:    23
+```
+
+This yields a second obstruction:
+**Cancellation-Side Change Obstruction.** Even though Cycle 495 proved every
+hit row touches a changed boundary label, `11` of the `34` pair-local hit rows
+have no changed label on either surviving same-sign quotient support class.
+For these rows the changed label is visible to the forced Kalmanson row but is
+lost from the surviving support comparison after selected-distance quotient
+cancellation.
+
+Examples include:
+
+```text
+collision_3, changed labels [8,14,18]:
+  K1_diag_gt_sides(0,3,8,17), signed support ((R,0),(R,0))
+  K2_diag_gt_other(0,8,17,5), signed support ((X,0),(R,0))
+
+collision_4b, changed labels [4,11,13,18]:
+  K2_diag_gt_other(0,4,9,15), signed support ((R,0),(X,0))
+  K1_diag_gt_sides(1,12,4,9), signed support ((R,0),(R,0))
+```
+
+The exact digests for the signed-support audits are:
+
+```text
+full signed-count payload:
+  b9ad51f5e62d149616a4ef95f12e7d6c61e02f6c0d28b48a52c9950acf7ba9d8
+
+same-sign support-shape payload:
+  6c3b716dfd080fd4d92fb930909b4f602707321289f1b15e53a1125ff2031d2b
+
+cancellation-side support summary:
+  1c969b19841cc35745da30deb8fa901b72bba805bc7e6351f485b7ff70a4caa5
+```
+
+### Limitations
+
+- This is an exact finite audit of the same five Cycle 484 comparisons, not a
+  theorem over all C19 states.
+- The invariant is sensitive to the chosen representative raw Kalmanson terms
+  of a quotient support class.
+- The audit does not prove that no stronger signed-circuit normal form exists.
+  It only rules out the tested support-incidence compression.
+- This is not a proof of Erdos Problem #97 and not a counterexample.
+
+### Effect on the Attack
+
+The support-only route is weaker than hoped. The changed boundary labels can
+be responsible for a row entering or changing order while disappearing from
+the row's surviving quotient support classes. Therefore a proof-facing local
+normal form must remember at least some cancellation-side data, not only the
+two support classes of the primitive quotient comparison.
+
+### Next Lead
+
+Promote the cancellation side into the invariant. For each hit row, record
+the full four-term Kalmanson signed circuit after quotienting:
+
+- surviving positive and negative support classes;
+- quotient classes that cancel internally;
+- which changed labels occur only in canceled terms;
+- whether the inverse row cancels the same class type or a different one.
+
+The most promising narrow subquestion is whether the `11` cancellation-side
+rows split into a small list of canceled-class mechanisms.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact signed-support incidence audit over the five Cycle 484
+  comparisons: passed, reproducing the Cycle 495 hit counts.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:00 EEST - Cycle 497: Cancellation-Side Circuit Mechanism
+
+### Mathematical Subquestion
+
+For the `11` Cycle 496 hit rows whose changed labels disappear from both
+surviving same-sign quotient support classes, do the full four-term
+Kalmanson circuits split into a small list of canceled-class mechanisms?
+
+### Definitions and Assumptions
+
+Use the same five Cycle 484 exception-to-selected comparisons and the same
+stable-inverse hit set from Cycles 495-496.
+
+For a primitive selected Kalmanson row, expand the row before quotienting as
+four signed raw distance terms:
+
+```text
+two positive Kalmanson terms and two negative Kalmanson terms.
+```
+
+After quotienting by the fixed `C19_skew` selected-distance equalities, the
+row has one surviving positive support class and one surviving negative
+support class. Any other quotient class appearing once with sign `+` and once
+with sign `-` is called a **canceled class** of the row.
+
+The Cycle 496 cancellation-side rows are precisely the pair-local hit rows
+that:
+
+1. touch at least one changed boundary label as raw Kalmanson rows; but
+2. have no changed label in either surviving same-sign quotient support class.
+
+### Attempted Proof Route
+
+Cycle 496 showed that support-only incidence loses order data. The next
+possibility was that the missing data is still simple: the changed labels may
+always enter through a canceled selected-star class, rather than through an
+arbitrary canceled singleton or a mix of canceled classes.
+
+The exact audit therefore classified, for each cancellation-side hit row:
+
+- the surviving support class types and changed-label counts;
+- every canceled quotient class;
+- the `R`/`X` type of each canceled class;
+- changed-label counts in the positive and negative raw terms of the canceled
+  class;
+- the corresponding cancellation profile of each stable inverse row.
+
+### Result
+
+Finite positive compression:
+**Changed-Center Canceled-Star Mechanism.**
+
+The audit found:
+
+```text
+stable-inverse hit pairs total:         39
+cancellation-side pair-local hit rows:  11
+cancellation-side hit pairs:            12
+new canceled mechanism shapes:           1
+new row shapes with Kalmanson kind:       5
+pair shapes ignoring row kind:            5
+digest:
+  7d286a2c57871baed3ebc890bd0660dfb77f6bc03eea11d751e5d2bb3f7fea18
+```
+
+All `11` cancellation-side new rows have exactly the same canceled-class
+mechanism:
+
+```text
+one canceled selected-star class R_c,
+one positive raw term in R_c containing one changed label,
+one negative raw term in R_c containing one changed label,
+no changed label in either surviving quotient support class.
+```
+
+In every audited case, the canceled selected-star center `c` is itself a
+changed boundary label. The literal canceled classes were:
+
+```text
+collision_3:  R08
+collision_4b: R04 or R18
+```
+
+Thus the changed label does not disappear arbitrarily. It is absorbed by
+cancelling the selected-distance star centered at a changed boundary label.
+
+The new-row mechanism shape count was:
+
+```text
+11  canceled class: (R, positive changed-count (1), negative changed-count (1))
+```
+
+The row-level shapes with Kalmanson row kind were:
+
+```text
+3  XR, K2_diag_gt_other, support ((X,0),(R,0)), canceled R(1,1)
+3  RX, K2_diag_gt_other, support ((R,0),(X,0)), canceled R(1,1)
+2  RR, K1_diag_gt_sides, support ((R,0),(R,0)), canceled R(1,1)
+2  RR, K2_diag_gt_other, support ((R,0),(R,0)), canceled R(1,1)
+1  XR, K1_diag_gt_sides, support ((X,0),(R,0)), canceled R(1,1)
+```
+
+The stable-inverse pair shapes, ignoring Kalmanson row kind, were:
+
+```text
+4  XR new with canceled R(1,1) -> RX inverse with canceled R(0,0)
+3  RR new with canceled R(1,1) -> RR inverse with canceled R(0,0)
+3  RX new with canceled R(1,1) -> XR inverse with canceled R(0,0)
+1  RX new with canceled R(1,1) -> XR inverse with canceled R(1,0)
+1  RR new with canceled R(1,1) -> RR inverse with canceled R(1,1)
+```
+
+### Limitations
+
+- This is an exact finite audit of the `11` cancellation-side rows from the
+  five Cycle 484 comparisons. It is not a theorem over all C19 states.
+- The result classifies only rows that already have stable inverse hits.
+- The inverse-row cancellation side is not as uniform as the new-row side:
+  most inverse rows cancel an unchanged selected-star class, but two inverse
+  shapes still involve changed-label cancellation.
+- This is not a proof of Erdos Problem #97 and not a counterexample.
+
+### Effect on the Attack
+
+This rescues a useful part of the signed-circuit route. Cycle 496 ruled out a
+support-only invariant, but Cycle 497 shows that the missing data has a simple
+form for the cancellation-side subset: the changed label is hidden by a
+canceled selected-star class centered at a changed boundary label.
+
+The proof-facing target can now be refined:
+
+```text
+stable inverse hit = surviving support incidence
+or changed-center canceled-star incidence.
+```
+
+The remaining question is whether the other `23` hit rows, where changed
+labels already appear on surviving support classes, admit a similarly compact
+full-circuit description.
+
+### Next Lead
+
+Apply the same full four-term circuit classification to the remaining `23`
+pair-local hit rows whose surviving support classes do see changed labels.
+If those also collapse to a small set of changed-center or changed-support
+mechanisms, the stable-inverse route may yield a reusable local normal form.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact four-term cancellation-side circuit audit over the five Cycle
+  484 comparisons: passed, with digest
+  `7d286a2c57871baed3ebc890bd0660dfb77f6bc03eea11d751e5d2bb3f7fea18`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:02 EEST - Cycle 498: Support-Visible Circuit Proliferation
+
+### Mathematical Subquestion
+
+For the remaining Cycle 495 stable-inverse hit rows, where changed labels
+already appear on at least one surviving same-sign quotient support class, do
+the full four-term Kalmanson circuits collapse to a small mechanism analogous
+to the Cycle 497 cancellation-side rows?
+
+### Definitions and Assumptions
+
+Use the same five Cycle 484 exception-to-selected comparisons and the same
+`39` stable-inverse hit pairs from Cycles 495-497.
+
+A **support-visible hit row** is a comparison-local hit row such that at least
+one changed boundary label appears in a raw Kalmanson pair contributing to
+one of the two surviving quotient support classes.
+
+For each such row, record:
+
+- the `R`/`X` type of the surviving positive and negative support classes;
+- the changed-label counts in the same-sign raw representatives of those
+  support classes;
+- the canceled quotient class and its `R`/`X` type;
+- changed-label counts in the positive and negative raw representatives of
+  the canceled class;
+- the same full-circuit profile for each stable inverse row.
+
+### Attempted Proof Route
+
+Cycle 497 gave a compact mechanism for the cancellation-side rows: every such
+new row hides the changed labels in a canceled selected-star class centered at
+a changed boundary label. The hoped-for extension was that the support-visible
+rows might also reduce to a small number of changed-support or changed-center
+mechanisms.
+
+### Result
+
+Finite obstruction:
+**Support-Visible Circuit Proliferation.**
+
+The exact audit found:
+
+```text
+stable-inverse hit pairs total:       39
+support-visible pair-local hit rows:  23
+support-visible hit pairs:            27
+new support shape count:              11
+new canceled shape count:              5
+new full row shapes with kind:        17
+pair shapes ignoring row kind:        15
+digest:
+  aa741967b70749a05239746f7cd3780e96727019fcfc29dacfd1c6cc54db51fc
+```
+
+Thus the support-visible part does not collapse to a small template list at
+this level of abstraction.
+
+The useful surviving finite fact is:
+
+**All-Hit Canceled-Star Pattern.** Combining Cycles 497 and 498, every one of
+the `34` comparison-local stable-inverse hit rows has exactly one canceled
+quotient class, and that canceled class is a selected-star class `R_c`, never
+a singleton nonselected class `X`.
+
+For the `23` support-visible rows, the canceled selected-star shapes split as:
+
+```text
+8  R with class_changed=0, positive changed-count (0), negative changed-count (1)
+5  R with class_changed=0, positive changed-count (1), negative changed-count (0)
+4  R with class_changed=1, positive changed-count (1), negative changed-count (2)
+3  R with class_changed=1, positive changed-count (1), negative changed-count (1)
+3  R with class_changed=0, positive changed-count (0), negative changed-count (0)
+```
+
+The support shapes already split into `11` cases:
+
+```text
+4  ((R, class_changed=0, same=(1)), (X, class_changed=0, same=(0)))
+4  ((R, class_changed=0, same=(1)), (R, class_changed=0, same=(0)))
+3  ((X, class_changed=1, same=(1)), (R, class_changed=0, same=(0)))
+3  ((X, class_changed=0, same=(0)), (R, class_changed=0, same=(1)))
+3  ((R, class_changed=0, same=(1)), (R, class_changed=1, same=(1)))
+1  ((R, class_changed=0, same=(0)), (R, class_changed=0, same=(1)))
+1  ((R, class_changed=1, same=(1)), (R, class_changed=0, same=(1)))
+1  ((X, class_changed=1, same=(1)), (R, class_changed=1, same=(1)))
+1  ((R, class_changed=0, same=(1)), (X, class_changed=1, same=(1)))
+1  ((X, class_changed=1, same=(1)), (R, class_changed=1, same=(2)))
+1  ((R, class_changed=1, same=(2)), (X, class_changed=1, same=(1)))
+```
+
+Here `class_changed=1` for an `R` class means the selected-star center is a
+changed boundary label; for an `X` class it means one endpoint of the
+singleton nonselected pair is changed.
+
+### Limitations
+
+- This is an exact finite audit of the `23` support-visible hit rows in the
+  five Cycle 484 comparisons, not a theorem over all C19 states.
+- The row profile is still local to the chosen raw Kalmanson four-term
+  representative and to the selected-distance quotient.
+- The All-Hit Canceled-Star Pattern is finite for this hit set only; it is not
+  yet a structural lemma for all primitive selected rows.
+- This is not a proof of Erdos Problem #97 and not a counterexample.
+
+### Effect on the Attack
+
+The full-circuit route gives one robust invariant, but not yet a proof
+template. Every stable-inverse hit row in this finite packet cancels a
+selected-star class, which is a stronger pattern than Cycles 495-496 exposed.
+However, the support-visible rows proliferate by support incidence and by how
+the canceled star sees changed labels.
+
+The likely next abstraction is not a longer list of support shapes, but a
+center-level statement about why a stable-inverse hit must cancel an `R_c`
+star at all.
+
+### Next Lead
+
+Try to prove or exactly refute a local algebraic sublemma:
+
+```text
+For a primitive selected support-two Kalmanson row in C19_skew that has a
+stable inverse representative in the Cycle 484 comparison packet, the
+remaining canceled quotient class must be a selected-star class R_c.
+```
+
+If this holds for a broader local universe beyond the 34 observed hit rows, it
+may explain why stable inverse completions are centered phenomena rather than
+arbitrary quotient coincidences.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact full-circuit audit over the `23` support-visible rows in the
+  five Cycle 484 comparisons: passed, with digest
+  `aa741967b70749a05239746f7cd3780e96727019fcfc29dacfd1c6cc54db51fc`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:05 EEST - Cycle 499: Primitive Rows Cancel Selected Stars
+
+### Mathematical Subquestion
+
+Is the All-Hit Canceled-Star Pattern from Cycle 498 special to the `34`
+stable-inverse hit rows, or is it already forced by the `C19_skew`
+selected-distance quotient for every primitive selected support-two
+Kalmanson row?
+
+### Definitions and Assumptions
+
+Use the fixed `C19_skew` selected-witness quotient on labels modulo `19` with
+offsets `[-8,-3,5,9]`. For each ordered quadruple of distinct labels
+`(a,b,c,d)` and each Kalmanson kind `K1_diag_gt_sides` or
+`K2_diag_gt_other`, form the four-term quotient vector.
+
+A row is **primitive selected support-two** if its quotient vector has exactly
+one `+1` class and one `-1` class after selected-distance quotienting, and
+the resulting comparison type is `RR`, `RX`, or `XR`.
+
+For such a four-term row, a **canceled class** is a quotient class whose raw
+terms appear with total coefficient zero.
+
+### Attempted Proof Route
+
+First check the broader local universe from Cycle 498: every primitive
+selected support-two row in the old/new row union for the five Cycle 484
+comparisons whose opposite vector has a stable common representative.
+
+Then remove the order-state restriction entirely and audit the full ordered
+row universe:
+
+```text
+all ordered quadruples of distinct C19 labels
+times the two Kalmanson row kinds.
+```
+
+If any row canceled a singleton nonselected class `X`, it would refute the
+proposed star-cancellation sublemma.
+
+### Result
+
+Proved finite algebraic lemma:
+**Primitive Selected Rows Cancel Selected Stars.**
+
+In the symmetric old/new comparison-packet audit, the broader local universe
+did not add any rows beyond the previously observed stable-inverse hits:
+
+```text
+rows in old/new union with stable common inverse: 34
+stable inverse pairs:                            39
+location split:                                  new_only=34
+canceled kind counts:                            R=34
+failures to cancel exactly one R class:           0
+digest:
+  bb6e13177003f8bf3140103b1ed385b8062fc9b27354819ae6c6d6e8ee843b6e
+```
+
+The all-ordered-row quotient audit found:
+
+```text
+ordered primitive selected support-two rows: 19760
+type counts:
+  RR: 4560
+  RX: 7600
+  XR: 7600
+canceled kind counts:
+  R: 19760
+failure count: 0
+unique primitive selected vectors: 1596
+unique vector failures: 0
+digest:
+  1735e944153b9d9048c036063f160defa2cee4867334083ead18b927da7083c5
+```
+
+Thus the selected-star cancellation pattern is not a peculiarity of the Cycle
+484 stable-inverse hits. It is a quotient-algebra property of every primitive
+selected support-two Kalmanson row in the full ordered `C19_skew` row universe.
+
+There is also a short structural reason for the negative half. A singleton
+nonselected quotient class `X` contains exactly one unordered label pair.
+In a Kalmanson row on four distinct labels, the four raw unordered pairs are
+distinct. Therefore an `X` class cannot appear once with sign `+` and once
+with sign `-`; any canceled quotient class must be a selected-distance class
+`R_c`.
+
+The finite audit supplies the remaining existence/count check: every primitive
+selected support-two row in this `C19_skew` quotient has exactly one such
+canceled class.
+
+### Limitations
+
+- This is a finite algebraic statement about the fixed `C19_skew`
+  selected-distance quotient and Kalmanson row universe.
+- It does not classify which primitive rows are forced by a boundary state.
+- It does not classify which primitive rows have stable inverse
+  representatives in a comparison.
+- It is not an all-order obstruction for `C19_skew`, a proof of Erdos Problem
+  #97, or a counterexample.
+
+### Effect on the Attack
+
+Cycles 497-498 exposed a real quotient normal form. The canceled-star feature
+is not merely empirical for stable-inverse hits: every primitive selected
+support-two row in the full `C19_skew` row universe has the form
+
+```text
+surviving support comparison + one canceled selected-star class.
+```
+
+The stable-inverse problem can now be reframed as an order-theoretic problem
+about when the inverse of such a three-class quotient circuit has a stable
+forced representative.
+
+### Next Lead
+
+Use the selected-star cancellation normal form to reparameterize primitive
+rows by triples:
+
+```text
+positive support class, negative support class, canceled center c.
+```
+
+Then audit whether stable-inverse hits are characterized by a simple relation
+between the canceled center of the new row and the canceled center of the
+stable inverse row.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact old/new union audit over the five Cycle 484 comparisons:
+  passed, with digest
+  `bb6e13177003f8bf3140103b1ed385b8062fc9b27354819ae6c6d6e8ee843b6e`.
+- One-off exact full ordered `C19_skew` Kalmanson row quotient audit: passed,
+  with digest
+  `1735e944153b9d9048c036063f160defa2cee4867334083ead18b927da7083c5`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:07 EEST - Cycle 500: Canceled-Center Triple Audit
+
+### Mathematical Subquestion
+
+After Cycle 499's selected-star cancellation normal form, do stable-inverse
+hits have a simple relation between the canceled center of the new row and
+the canceled center of the stable inverse row?
+
+Equivalently, if a primitive row is encoded by
+
+```text
+(positive support class, negative support class, canceled center c),
+```
+
+does the stable inverse operation preserve, swap, or otherwise visibly
+constrain `c`?
+
+### Definitions and Assumptions
+
+Use the five Cycle 484 exception-to-selected comparisons and the `39`
+stable-inverse hit pairs from Cycles 495-499.
+
+For a primitive selected support-two row, write `c(row)` for the label `c`
+such that the unique canceled selected-star class is `R_c`. Cycle 499 proves
+that `c(row)` exists for every primitive selected support-two row in the full
+ordered `C19_skew` row universe.
+
+For a support class, its **support endpoints** are:
+
+- the center label for an `R_i` selected-star class;
+- the two endpoint labels for an `X_{a,b}` singleton nonselected class.
+
+### Attempted Proof Route
+
+First audit the stable-inverse hit pairs for simple canceled-center relations:
+
+- whether `c(new) = c(inverse)`;
+- whether either canceled center is a changed boundary label;
+- whether `c(new)` occurs among the inverse support endpoints;
+- whether `c(inverse)` occurs among the new support endpoints;
+- whether the difference `c(inverse)-c(new)` modulo `19` is constant or small.
+
+Then audit the full ordered primitive selected row universe to determine
+whether the canceled center is always outside the row's two surviving support
+classes, not just in the observed hits.
+
+### Result
+
+Finite obstruction plus finite algebraic lemma.
+
+The stable-inverse hit-pair audit found:
+
+```text
+hit pairs: 39
+pair-local hit rows: 34
+c(new) changed-label pairs:      20
+c(inverse) changed-label pairs:   2
+c(new) = c(inverse):              0
+c(new) in inverse support:        0
+c(inverse) in new support:        0
+digest:
+  6656de3f94d1a2c369ea71134408d1ef1019a5b898c07fd67191ba5d6bb023b1
+```
+
+The center-difference histogram modulo `19` was:
+
+```text
+10  delta 2
+ 6  delta 13
+ 5  delta 6
+ 5  delta 11
+ 3  delta 17
+ 2  delta 15
+ 2  delta 14
+ 2  delta 4
+ 1  delta 12
+ 1  delta 5
+ 1  delta 8
+ 1  delta 7
+```
+
+Thus there is no simple equality, support-incidence, or single-difference
+rule relating the canceled center of a new row to the canceled center of a
+stable inverse row in this packet.
+
+This is the finite obstruction:
+**Canceled-Center Nonalignment.**
+
+The stronger all-row audit found:
+
+```text
+ordered primitive selected support-two rows: 19760
+type counts:
+  RR: 4560
+  RX: 7600
+  XR: 7600
+canceled center support relation:
+  outside_support: 19760
+failure count: 0
+unique primitive selected vectors: 1596
+unique relation failures: 0
+digest:
+  dff93c40d0b96da5fea4c867dcec38e5b19f16dc4efceca2a20ef853bdaef981
+```
+
+This proves the finite algebraic lemma:
+**Canceled-Center Outside-Support Lemma.**
+
+For every primitive selected support-two Kalmanson row in the full ordered
+`C19_skew` quotient row universe, the canceled selected-star center `c(row)`
+is not an endpoint of either surviving support class.
+
+### Limitations
+
+- The outside-support lemma is finite and quotient-algebraic for the fixed
+  `C19_skew` selected-distance quotient.
+- The nonalignment obstruction is an audit of the five recorded Cycle 484
+  comparisons, not a theorem over all boundary comparisons.
+- The result does not classify stable inverse existence. It only rules out
+  several simple canceled-center matching rules.
+- This is not an all-order obstruction for `C19_skew`, a proof of Erdos
+  Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The three-class normal form is real, but the inverse operation is not governed
+by matching canceled centers. The stable inverse problem now looks more
+geometric/order-theoretic than center-arithmetic: the canceled center is
+always outside the two surviving support classes, and stable inverses pair
+different outside centers in many modular differences.
+
+### Next Lead
+
+Use the outside-support lemma to study the actual label geometry of a
+primitive row:
+
+```text
+support endpoint labels plus external canceled center c.
+```
+
+The next narrow subquestion is whether the row's four raw Kalmanson labels are
+determined, up to the two Kalmanson kinds, by this triple. If so, stable
+inverse existence can be checked at the level of forced cyclic order on a
+small labeled configuration.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact canceled-center relation audit over the `39` stable-inverse
+  hit pairs: passed, with digest
+  `6656de3f94d1a2c369ea71134408d1ef1019a5b898c07fd67191ba5d6bb023b1`.
+- One-off exact full ordered primitive-row outside-support audit: passed, with
+  digest
+  `dff93c40d0b96da5fea4c867dcec38e5b19f16dc4efceca2a20ef853bdaef981`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:09 EEST - Cycle 501: Three-Class Row Reconstruction
+
+### Mathematical Subquestion
+
+Given Cycle 500's outside-support normal form, is a primitive selected
+support-two Kalmanson row in `C19_skew` determined by the triple
+
+```text
+(positive support class, negative support class, canceled center c)?
+```
+
+More concretely, does this triple determine the unordered four-label set and
+the raw support/cancellation pairs, or can multiple geometrically different
+four-label configurations have the same quotient triple?
+
+### Definitions and Assumptions
+
+Use the full ordered `C19_skew` Kalmanson row universe:
+
+```text
+all ordered quadruples of distinct labels in {0,...,18}
+times K1_diag_gt_sides and K2_diag_gt_other.
+```
+
+Restrict to primitive selected support-two rows, as in Cycle 499. For each
+such row, compute:
+
+- the positive support quotient class;
+- the negative support quotient class;
+- the unique canceled selected-star center `c`;
+- the unordered four-label set of the row;
+- the raw pair representing the positive support class;
+- the raw pair representing the negative support class;
+- the positive and negative raw pairs that cancel in `R_c`.
+
+### Attempted Proof Route
+
+If different four-label configurations can realize the same
+`(positive, negative, c)` triple, then the three-class normal form is too
+coarse for order-theoretic analysis. If the triple determines the raw label
+geometry, then stable inverse existence can be studied at the level of this
+small labeled configuration.
+
+### Result
+
+Proved finite normal-form lemma:
+**Three-Class Row Reconstruction.**
+
+The full ordered-row audit found:
+
+```text
+primitive ordered rows: 19760
+triple count: 2470
+row count per triple:
+  8: 2470
+label-set count per triple:
+  1: 2470
+Kalmanson-kind count per triple:
+  2: 2470
+positive raw-pair count per triple:
+  1: 2470
+negative raw-pair count per triple:
+  1: 2470
+kind-tagged decomposition count per triple:
+  2: 2470
+triples not determining the unordered label set: 0
+digest:
+  bb50d43de6f530d1ee1c9b521d16a966e70a6af353931aa64668f727b05ae53b
+```
+
+Thus every triple
+
+```text
+(positive support class, negative support class, canceled center c)
+```
+
+determines:
+
+- the unordered four-label set;
+- the raw pair carrying the positive quotient support;
+- the raw pair carrying the negative quotient support;
+- the two raw selected spokes in the canceled star `R_c`.
+
+The remaining multiplicity is representational, not geometric: each triple
+has eight ordered-row realizations in the audit, coming from ordered
+quadruple symmetries and the two Kalmanson kind names. If the Kalmanson kind
+tag is retained, there are two kind-tagged decompositions per triple; if the
+raw signed pairs are retained and kind names are ignored, the decomposition
+is unique.
+
+Example:
+
+```text
+triple: (R00, R02, c=10)
+unordered labels: {0,2,10,11}
+positive support pair: {0,11}
+negative support pair: {2,11}
+canceled positive spoke: {2,10}
+canceled negative spoke: {0,10}
+```
+
+### Limitations
+
+- This is a finite normal-form statement for the fixed `C19_skew`
+  selected-distance quotient and all ordered Kalmanson rows.
+- It does not say which reconstructed rows are forced by a boundary state.
+- It does not classify stable inverse existence.
+- It is not an all-order obstruction for `C19_skew`, a proof of Erdos Problem
+  #97, or a counterexample.
+
+### Effect on the Attack
+
+This is a useful compression. A primitive selected support-two row can now be
+treated as a three-class object whose raw four-label geometry is recoverable.
+The order side of the proof attempt can therefore ask whether the recovered
+four-label configuration and the recovered inverse configuration avoid the
+comparison crossing graph.
+
+### Next Lead
+
+Use Three-Class Row Reconstruction on the `39` stable-inverse hit pairs and
+their non-hit neighbors:
+
+```text
+Given a new-row triple T, reconstruct the inverse triple(s) with quotient
+vector -T and test whether the reconstructed inverse four-label set avoids
+the old/new crossing graph.
+```
+
+The target is a compact criterion for stable inverse existence in terms of
+triple reconstruction plus crossing-graph avoidance.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact full ordered primitive-row triple reconstruction audit:
+  passed, with digest
+  `bb50d43de6f530d1ee1c9b521d16a966e70a6af353931aa64668f727b05ae53b`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:11 EEST - Cycle 502: Triple-Crossing Stable-Inverse Criterion
+
+### Mathematical Subquestion
+
+For the five Cycle 484 comparisons, does Three-Class Row Reconstruction plus
+the Pairwise-Crossing Stability Criterion exactly decide which new-only
+primitive selected rows have stable inverse representatives?
+
+### Definitions and Assumptions
+
+Use the `2470` primitive quotient triples from Cycle 501. For a new-only
+primitive selected row with quotient vector
+
+```text
+positive class P > negative class N,
+```
+
+candidate inverse triples are all triples of the form
+
+```text
+(N, P, canceled center c).
+```
+
+Each candidate inverse triple reconstructs a unique unordered four-label set.
+For a fixed comparison between old and new boundary states, call the candidate
+stable if:
+
+1. its reconstructed label set is forced in both boundary states;
+2. its label set contains no crossing pair for the old/new prefix orders; and
+3. the common forced order with one of the two Kalmanson row kinds has quotient
+   vector `-v`.
+
+This uses only the quotient triple reconstruction and the order-theoretic
+crossing criterion, not a direct lookup in the common row set.
+
+### Attempted Proof Route
+
+Audit all new-only primitive selected rows in the five Cycle 484 comparisons.
+For each row, compare:
+
+```text
+actual hit:      a common old/new row has quotient vector -v;
+predicted hit:   some reconstructed inverse triple satisfies the three tests.
+```
+
+If there are no mismatches, then stable inverse existence in this packet is
+exactly reducible to triple reconstruction plus crossing-graph avoidance and
+the final row-kind vector check.
+
+### Result
+
+Proved finite equivalence:
+**Triple-Crossing Stable-Inverse Criterion for the Cycle 484 Packet.**
+
+The exact audit found:
+
+```text
+new-only primitive selected rows checked: 612
+actual stable-inverse hit rows:            34
+actual stable-inverse hit pairs:           39
+predicted hit rows:                        34
+predicted inverse triples:                 39
+prediction-correct rows:                  612
+mismatches:                                 0
+digest:
+  ec76e531b7518241449de3526fb657ab1ad3874e41002720a30c4da83b633833
+```
+
+Per-comparison counts were:
+
+```text
+collision_1:
+  new-only primitive rows: 147
+  actual/predicted hit rows: 7
+  actual/predicted hit pairs or triples: 10
+  crossing pairs: 8
+
+collision_2_one_slot:
+  new-only primitive rows: 87
+  actual/predicted hit rows: 3
+  actual/predicted hit pairs or triples: 3
+  crossing pairs: 5
+
+collision_3:
+  new-only primitive rows: 90
+  actual/predicted hit rows: 13
+  actual/predicted hit pairs or triples: 13
+  crossing pairs: 2
+
+collision_4a:
+  new-only primitive rows: 157
+  actual/predicted hit rows: 2
+  actual/predicted hit pairs or triples: 2
+  crossing pairs: 6
+
+collision_4b:
+  new-only primitive rows: 131
+  actual/predicted hit rows: 9
+  actual/predicted hit pairs or triples: 11
+  crossing pairs: 4
+```
+
+The inverse-candidate triple histogram over the `612` rows was:
+
+```text
+1 candidate: 268 rows
+2 candidates: 115 rows
+3 candidates: 182 rows
+4 candidates:  47 rows
+```
+
+After the crossing/forcing/vector tests:
+
+```text
+0 predicted inverse triples: 578 rows
+1 predicted inverse triple:   29 rows
+2 predicted inverse triples:   5 rows
+```
+
+The non-hit candidate failures split as:
+
+```text
+not forced in old state:        813 candidate triples
+not forced in new state:         41 candidate triples
+contains crossing pair:         241 candidate triples
+stable label set, wrong vector:  98 candidate triples
+```
+
+### Limitations
+
+- This is an exact finite equivalence for the five recorded Cycle 484
+  comparisons only.
+- The criterion still depends on enumerating inverse triples in the fixed
+  `C19_skew` quotient universe.
+- The final row-kind vector check is necessary: some reconstructed inverse
+  label sets are stable but their forced Kalmanson row kinds do not realize
+  the required inverse vector.
+- This is not an all-order obstruction for `C19_skew`, a proof of Erdos
+  Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+This converts the stable-inverse side of the Cycle 484 packet from a direct
+row-set lookup into a reusable two-stage normal form:
+
+```text
+quotient triple reconstruction
++ pairwise-crossing forced-order test
++ row-kind vector check.
+```
+
+The non-hit rows fail for explicit local reasons: mostly because the inverse
+triple is not forced in the old state, and secondarily because it crosses the
+old/new comparison graph.
+
+### Next Lead
+
+Try to replace the remaining row-kind vector check with a direct relation
+between the new triple and the inverse triple. If that succeeds, stable
+inverse existence in this finite packet becomes a purely triple-plus-order
+criterion.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact triple reconstruction plus crossing-criterion audit over all
+  `612` new-only primitive selected rows in the five Cycle 484 comparisons:
+  passed, with digest
+  `ec76e531b7518241449de3526fb657ab1ad3874e41002720a30c4da83b633833`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:15 EEST - Cycle 503: Forced-Order Triple Compatibility Criterion
+
+### Mathematical Subquestion
+
+Can the remaining row-kind vector check from Cycle 502 be replaced by a direct
+triple compatibility condition between a reconstructed inverse triple and the
+forced cyclic order on its four labels?
+
+### Definitions and Assumptions
+
+Use the five Cycle 484 exception-to-selected comparisons and the
+Three-Class Row Reconstruction universe from Cycle 501.
+
+For a primitive selected support-two row, write its quotient triple as
+
+```text
+T(row) = (positive support class P, negative support class N, canceled center c).
+```
+
+For an ordered four-label tuple `q`, define
+
+```text
+Real(q)
+```
+
+to be the set of primitive triples realized by the two Kalmanson rows
+`K1_diag_gt_sides(q)` and `K2_diag_gt_other(q)`, omitting a kind if its
+quotient vector is not primitive selected support-two.
+
+Given a new-only row with triple `(P,N,c)`, a candidate inverse triple is any
+triple `(N,P,c')` from the Cycle 501 triple universe. Its reconstructed
+four-label set is **stable** for a comparison if it is forced in both boundary
+states and contains no crossing pair in the old/new crossing graph.
+
+### Attempted Proof Route
+
+Audit the `39` Cycle 502 predicted inverse triples and the `98` candidates
+that passed the stable label-set test but failed the vector test.
+
+For each stable candidate triple `T'`, compute the common forced order `q` on
+its reconstructed label set and test whether
+
+```text
+T' in Real(q).
+```
+
+If this condition is equivalent to the old vector check, then stable inverse
+existence can be stated without direct vector comparison:
+
+```text
+inverse triple reconstruction
++ pairwise-crossing stable label set
++ forced-order triple compatibility.
+```
+
+### Result
+
+Proved finite equivalence:
+**Forced-Order Triple Compatibility Criterion for the Cycle 484 Packet.**
+
+The exact audit found:
+
+```text
+stable candidate inverse triples:              137
+forced-order compatible hit triples:            39
+stable label-set but incompatible triples:       98
+compatibility/vector-check mismatches:            0
+digest:
+  7861f5cd1ac3c549d4efe5878fa0d891ce39052bd7a30030407622780f8319f9
+```
+
+The comparison-level counts were:
+
+```text
+collision_1:
+  predicted inverse triples: 10
+  stable wrong-vector triples: 18
+
+collision_2_one_slot:
+  predicted inverse triples: 3
+  stable wrong-vector triples: 12
+
+collision_3:
+  predicted inverse triples: 13
+  stable wrong-vector triples: 23
+
+collision_4a:
+  predicted inverse triples: 2
+  stable wrong-vector triples: 23
+
+collision_4b:
+  predicted inverse triples: 11
+  stable wrong-vector triples: 22
+```
+
+By row kind of the new-only row:
+
+```text
+K1 compatible hit triples:        15
+K1 stable incompatible triples:   50
+K2 compatible hit triples:        24
+K2 stable incompatible triples:   48
+```
+
+For the `137` stable candidate triples, the forced order realized primitive
+triples as follows:
+
+```text
+0 realized primitive triples: 36
+1 realized primitive triple:  85
+2 realized primitive triples: 16
+```
+
+The `98` incompatible candidates fail for an exact local reason: the forced
+order on the reconstructed four-label set either realizes no primitive
+selected support-two triple, or realizes a different triple on the same label
+set. The forced-row vector relation split was:
+
+```text
+nonprimitive / nonprimitive:       36
+nonprimitive / other primitive:     8
+other primitive / nonprimitive:     6
+nonprimitive / same vector:        21
+same vector / nonprimitive:        20
+same vector / other primitive:      2
+other primitive / same vector:      5
+```
+
+Here `same vector` means one forced Kalmanson kind reproduces the original new
+row's quotient vector rather than its negative; `other primitive` means it
+realizes a third primitive selected support-two vector.
+
+### Argument
+
+The equivalence is formally tight once Cycle 501 is available. A candidate
+inverse triple `T'=(N,P,c')` has quotient vector `-v` by construction at the
+triple level. If the stable reconstructed label set has common forced order
+`q`, then a forced Kalmanson row on that label set realizes `-v` exactly when
+one of the two forced Kalmanson triples in `Real(q)` is `T'`. Conversely, if
+`T'` is not in `Real(q)`, no forced Kalmanson row on that stable label set has
+the required inverse vector. The audit verifies that this definition-level
+criterion matches all `137` stable candidates in the five recorded Cycle 484
+comparisons.
+
+### Limitations
+
+- This is an exact finite criterion for the five recorded Cycle 484
+  comparisons only.
+- It depends on the finite Cycle 501 triple reconstruction universe for the
+  fixed `C19_skew` selected-distance quotient.
+- It classifies stable inverse existence in this packet, but it does not show
+  that such inverses always appear when needed in arbitrary C19 boundary
+  comparisons.
+- This is not an all-order obstruction for `C19_skew`, a proof of Erdos
+  Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The stable-inverse side of the Cycle 484 packet is now fully phrased in
+triple/order language:
+
+```text
+new primitive triple
+-> inverse triple candidates
+-> reconstructed four-label set
+-> pairwise-crossing stability
+-> forced-order triple compatibility.
+```
+
+This removes the opaque vector-check wording from Cycle 502. The remaining
+hard part is no longer local row algebra; it is proving that the boundary
+event creating a new primitive triple also forces at least one compatible
+stable inverse triple, or finding an exact obstruction to that statement.
+
+### Next Lead
+
+Try to formulate a local boundary-event lemma:
+
+```text
+When a primitive selected support-two triple appears in a new state but not in
+the old state, the changed boundary labels force at least one inverse triple
+whose reconstructed label set is stable and whose forced order realizes that
+inverse triple.
+```
+
+The five Cycle 484 comparisons are evidence for a narrow version, but the
+lemma is not proved outside this packet.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact forced-order triple compatibility audit over all `137` stable
+  candidate inverse triples from the five Cycle 484 comparisons: passed, with
+  digest
+  `7861f5cd1ac3c549d4efe5878fa0d891ce39052bd7a30030407622780f8319f9`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:18 EEST - Cycle 504: Coarse Boundary-Event Nonseparator
+
+### Mathematical Subquestion
+
+Can the Cycle 503 compatible stable-inverse hits be separated from non-hits by
+simple local boundary-event features of the new primitive row, such as changed
+labels, changed support pairs, changed canceled center, or the number of
+candidate inverse centers?
+
+### Definitions and Assumptions
+
+Use the same five Cycle 484 comparisons and the same `612` new-only primitive
+selected support-two rows from Cycles 502-503.
+
+For each comparison, define the **changed labels** to be labels whose boundary
+state key differs between the old and new fifth-pair states. For a new-only
+primitive row, record:
+
+- `label_changed`: number of row labels that are changed labels;
+- `pos_changed` and `neg_changed`: changed-label counts in the positive and
+  negative raw support pairs;
+- `can_changed`: whether the canceled selected-star center is changed;
+- `any_support_changed`: whether either surviving support pair touches a
+  changed label;
+- `stable_label`: whether at least one reconstructed inverse triple has a
+  stable four-label set before forced-order triple compatibility is checked;
+- `candidate_count`: the number of possible inverse triples `(N,P,c')` in the
+  Cycle 501 triple universe.
+
+### Attempted Proof Route
+
+Search for a simple predicate in these features that either:
+
+1. covers all `34` compatible hit rows with small leakage; or
+2. implies a compatible hit for many rows.
+
+If such a predicate existed, it could be a candidate statement for a local
+boundary-event lemma.
+
+### Result
+
+Failed lemma plus finite obstruction.
+
+The exact changed-feature audit found:
+
+```text
+new-only primitive rows checked: 612
+compatible hit rows:             34
+non-hit rows:                   578
+digest:
+  74a6daaca94d776002868942174f7850c52c441fb18775fb901ad98fd954ad0d
+```
+
+No coarse changed-label feature separated the hits. For example:
+
+```text
+label_changed = 1: 25 hits, 337 non-hits
+label_changed = 2:  9 hits, 214 non-hits
+label_changed = 3:  0 hits,  26 non-hits
+label_changed = 4:  0 hits,   1 non-hit
+
+any_support_changed = 0: 11 hits,  63 non-hits
+any_support_changed = 1: 23 hits, 515 non-hits
+
+can_changed = 0: 16 hits, 395 non-hits
+can_changed = 1: 18 hits, 183 non-hits
+```
+
+Thus changed support incidence and changed canceled-center incidence are
+neither necessary nor sufficient.
+
+The best one-feature predicate covering all hits is just:
+
+```text
+stable_label = 1.
+```
+
+But this still leaves substantial leakage:
+
+```text
+stable_label = 0:  0 hits, 495 non-hits
+stable_label = 1: 34 hits,  83 non-hits
+```
+
+Small hit-implying predicates were also too narrow to be useful: the largest
+found using up to three audited atoms covered only `2` hit rows.
+
+The one useful finite obstruction is:
+**Single-Inverse-Center Obstruction for the Cycle 484 Packet.**
+
+Rows whose inverse support-pair admits only one candidate canceled center had
+no stable label set and no compatible hit:
+
+```text
+candidate_count = 1:
+  rows:                 268
+  compatible hits:        0
+  stable label sets:      0
+  failure split:
+    not forced in old state: 170
+    contains crossing pair:   98
+```
+
+For comparison, candidate multiplicities above one were necessary but far
+from sufficient:
+
+```text
+candidate_count = 2:
+  rows: 115
+  hit rows: 11
+  stable-wrong-only rows: 19
+  no-stable-label rows: 85
+
+candidate_count = 3:
+  rows: 182
+  hit rows: 17
+  stable-wrong-only rows: 53
+  no-stable-label rows: 112
+
+candidate_count = 4:
+  rows: 47
+  hit rows: 6
+  stable-wrong-only rows: 11
+  no-stable-label rows: 30
+```
+
+The candidate-count audit digest is:
+
+```text
+a323f4b78a13d1104be3f256c209b1531869198d6e4043c10c4073cb35a795d9
+```
+
+### Limitations
+
+- This is an exact finite audit for the five recorded Cycle 484 comparisons
+  only.
+- The feature list is deliberately coarse; it does not rule out a subtler
+  order-theoretic boundary-event lemma.
+- The single-inverse-center obstruction is currently packet-local. It is not
+  proved for arbitrary C19 boundary comparisons.
+- This is not an all-order obstruction for `C19_skew`, a proof of Erdos
+  Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+Cycle 503 removed the vector-check opacity, but this cycle shows that the next
+step cannot be a naive changed-label incidence rule. The stable-inverse
+mechanism depends on the geometry of the inverse candidate's reconstructed
+four-label set, not merely on whether the new row touches changed labels.
+
+The candidate-center count is a more promising invariant than raw
+changed-label incidence: multiplicity one is fatal in this packet, while
+higher multiplicity supplies the only rows that can survive to the stable
+label-set and compatibility tests.
+
+### Next Lead
+
+Classify the inverse support-pairs by `candidate_count`. The next exact
+subquestion is whether `candidate_count = 1` has a direct structural meaning
+in the `C19_skew` quotient, for example a forced placement of the unique
+reconstructed inverse four-label set that must either remain unforced in the
+old state or cross the old/new comparison graph.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact changed-feature audit over the `612` new-only primitive rows
+  from the five Cycle 484 comparisons: passed, with digest
+  `74a6daaca94d776002868942174f7850c52c441fb18775fb901ad98fd954ad0d`.
+- One-off exact inverse-candidate-count audit over the same rows: passed, with
+  digest
+  `a323f4b78a13d1104be3f256c209b1531869198d6e4043c10c4073cb35a795d9`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:21 EEST - Cycle 505: Endpoint-Sharing Candidate-Center Formula
+
+### Mathematical Subquestion
+
+Does `candidate_count` from Cycle 504 have a direct quotient-geometric
+meaning in the full `C19_skew` primitive triple universe?
+
+Equivalently, for an ordered support-pair `(P,N)`, can the possible canceled
+centers `c` in triples `(P,N,c)` be read off from raw endpoint-sharing
+geometry rather than by enumerating Kalmanson rows?
+
+### Definitions and Assumptions
+
+Use the fixed `C19_skew` selected-distance quotient on labels modulo `19`,
+with selected offsets `[-8,-3,5,9]`.
+
+For a quotient class `P`, let `Raw(P)` be the set of unordered label-pairs
+belonging to that class. Thus `Raw(R_i)` has the four selected spokes from
+center `i`, while `Raw(X_{a,b})` is the singleton nonselected pair `{a,b}`.
+
+For ordered support classes `(P,N)` of type `RR`, `RX`, or `XR`, define an
+**endpoint-sharing completion** to be a choice of raw pairs
+
+```text
+p+ = {s,a} in Raw(P)
+p- = {s,b} in Raw(N)
+```
+
+sharing exactly one endpoint `s`, together with a label `c` outside
+`{s,a,b}` such that both `{c,a}` and `{c,b}` are selected spokes from center
+`c`.
+
+The completion predicts the primitive quotient row
+
+```text
+P - N + R_c - R_c,
+```
+
+where the canceled `R_c` terms are represented by `{c,b}` and `{c,a}`.
+
+### Attempted Proof Route
+
+Compare two constructions over the full ordered `C19_skew` Kalmanson row
+universe:
+
+1. the Cycle 501 triple enumeration, which records every primitive triple
+   `(P,N,c)` realized by some ordered Kalmanson row; and
+2. the endpoint-sharing completion formula above.
+
+If the two sets agree for every ordered support-pair `(P,N)`, then
+`candidate_count(P,N)` is exactly the number of endpoint-sharing completions.
+
+### Result
+
+Proved finite quotient-normal-form equivalence:
+**Endpoint-Sharing Candidate-Center Formula.**
+
+The exact audit found zero mismatches between the Cycle 501 triple universe
+and the endpoint-sharing completion formula:
+
+```text
+ordered primitive rows:       19760
+primitive triples:             2470
+ordered support-pairs used:    1596
+formula mismatches:               0
+digest:
+  bffa3883c4814a7826ed97b26b34ed52eb2b3f57330a88fcbfa5580f656fd5eb
+```
+
+Thus, in this fixed quotient, the candidate centers for `(P,N)` are exactly
+the centers obtained by endpoint-sharing completions. In particular,
+`candidate_count = 1` means that the inverse support-pair has exactly one raw
+endpoint-sharing completion and hence exactly one possible reconstructed
+inverse four-label set.
+
+The candidate-count histogram over the `1596` ordered support-pairs that occur
+in primitive triples is:
+
+```text
+candidate_count = 1: 1064 support-pairs
+candidate_count = 2:  228 support-pairs
+candidate_count = 3:  266 support-pairs
+candidate_count = 4:   38 support-pairs
+```
+
+By ordered support type:
+
+```text
+RR:
+  count 1: 152
+  count 2:  76
+  count 3:  38
+  count 4:  38
+
+RX:
+  count 1: 456
+  count 2:  76
+  count 3: 114
+
+XR:
+  count 1: 456
+  count 2:  76
+  count 3: 114
+```
+
+The same endpoint-sharing formula also identifies ordered support-pairs with
+zero completions. Among all ordered support-pairs of types `RR`, `RX`, and
+`XR`, the count distribution is:
+
+```text
+RR:
+  count 0:  38
+  count 1: 152
+  count 2:  76
+  count 3:  38
+  count 4:  38
+
+RX:
+  count 0: 1159
+  count 1:  456
+  count 2:   76
+  count 3:  114
+
+XR:
+  count 0: 1159
+  count 1:  456
+  count 2:   76
+  count 3:  114
+```
+
+For every occurring support-pair, the number of endpoint-sharing raw
+configurations equals the number of candidate centers:
+
+```text
+count 1: 1064 support-pairs have 1 raw completion
+count 2:  228 support-pairs have 2 raw completions
+count 3:  266 support-pairs have 3 raw completions
+count 4:   38 support-pairs have 4 raw completions
+```
+
+### Argument
+
+One direction is structural. In a primitive support-two row, the positive and
+negative surviving raw support pairs must share one endpoint `s`; otherwise
+the two canceled raw terms could not be the two selected spokes of a single
+canceled star `R_c` on the same four-label set. The two nonshared endpoints
+`a,b` must both lie in `S_c`, because the canceled raw terms are selected
+spokes from center `c`.
+
+Conversely, an endpoint-sharing completion
+
+```text
+p+ = {s,a},  p- = {s,b},  a,b in S_c
+```
+
+is realized in the full ordered row universe by a Kalmanson row on the four
+labels `{a,b,c,s}`; for instance one ordering/kind gives raw terms
+
+```text
+{s,a} + {c,b} - {s,b} - {c,a}.
+```
+
+The finite audit verifies that, after quotienting by the selected-distance
+equalities, this structural construction matches every primitive triple in
+the full ordered `C19_skew` row universe and creates no extras.
+
+### Limitations
+
+- This is a finite quotient-normal-form statement for the fixed `C19_skew`
+  selected-distance quotient.
+- It does not include any boundary-state forcing or crossing information.
+- It explains `candidate_count`, but it does not decide which candidate
+  inverse label sets are stable in a specific old/new boundary comparison.
+- This is not an all-order obstruction for `C19_skew`, a proof of Erdos
+  Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+Cycle 504's `candidate_count = 1` obstruction now has a concrete meaning:
+there is a unique inverse four-label set available at the quotient level. In
+the Cycle 484 packet, every such unique inverse set is destroyed before
+compatibility, either because it is not forced in the old state or because it
+crosses the old/new comparison graph.
+
+The proof-facing problem has therefore moved from quotient algebra to order
+placement of endpoint-sharing completions.
+
+### Next Lead
+
+For the `268` Cycle 484 rows with `candidate_count = 1`, classify the unique
+endpoint-sharing inverse completion by the location of its four labels in the
+old/new boundary blocks. The target is a direct order lemma explaining the
+observed split:
+
+```text
+170 not forced in old state
+ 98 crossing pair
+```
+
+If that order lemma is clean, it may become a reusable obstruction for
+single-completion inverse support-pairs.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact full-quotient endpoint-sharing candidate-center audit: passed,
+  with digest
+  `bffa3883c4814a7826ed97b26b34ed52eb2b3f57330a88fcbfa5580f656fd5eb`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:22 EEST - Cycle 506: Single-Completion Order Dichotomy
+
+### Mathematical Subquestion
+
+For the `268` Cycle 484 rows whose inverse support-pair has
+`candidate_count = 1`, can the failure of the unique inverse completion be
+explained directly from old/new boundary-block placement?
+
+### Definitions and Assumptions
+
+Use the same five Cycle 484 comparisons and the Endpoint-Sharing
+Candidate-Center Formula from Cycle 505.
+
+For the unique inverse completion of a new-only primitive row, let
+
+```text
+Q = {a,b,c,s}
+```
+
+be its reconstructed four-label set. In a boundary state, a label is in one
+of the blocks:
+
+```text
+A: anchor label 0
+L: forced left boundary
+M: unordered middle
+R: forced right-reflection boundary
+```
+
+The prefix model forces the order of a four-label set exactly when at most
+one of its labels lies in `M`. A pair in `Q` is an old/new crossing pair if
+its forced relative order changes between the old and new boundary states.
+
+### Attempted Proof Route
+
+Audit all `268` single-completion rows. For each unique inverse set `Q`,
+record:
+
+- the number of labels of `Q` in the old and new middle blocks;
+- whether `Q` is forced in the old and new states;
+- how many crossing pairs inside `Q` appear in the old/new crossing graph.
+
+If every single-completion failure is explained by one of these two order
+obstructions, then Cycle 504's packet-local obstruction becomes an explicit
+boundary-order dichotomy.
+
+### Result
+
+Proved finite packet dichotomy:
+**Single-Completion Order Dichotomy for the Cycle 484 Packet.**
+
+The exact audit found:
+
+```text
+single-completion rows checked: 268
+not forced in old state:       170
+contains crossing pair:         98
+unexpected stable cases:         0
+digest:
+  a9b9d6f8b3bfb3019e6494753242425127c63b44fcecfe944a3982776f45f5c6
+```
+
+Every unique inverse set is forced in the new state:
+
+```text
+not_forced_old rows:
+  new middle count 0:   4
+  new middle count 1: 166
+
+crossing_pair rows:
+  new middle count 0: 24
+  new middle count 1: 74
+```
+
+The `170` not-forced-old rows are exactly those where the unique inverse set
+has at least two old-middle labels:
+
+```text
+old middle count 2: 162
+old middle count 3:   8
+```
+
+The remaining `98` rows have the unique inverse set forced in both states but
+contain at least one crossing pair:
+
+```text
+old middle count 0: 25
+old middle count 1: 73
+
+crossing pairs inside Q:
+  1 crossing pair: 92
+  2 crossing pairs: 3
+  3 crossing pairs: 3
+```
+
+By comparison, the split was:
+
+```text
+collision_1:          40 not-forced-old, 29 crossing
+collision_2_one_slot: 24 not-forced-old, 14 crossing
+collision_3:          28 not-forced-old,  4 crossing
+collision_4a:         41 not-forced-old, 34 crossing
+collision_4b:         37 not-forced-old, 17 crossing
+```
+
+### Argument
+
+The boundary-order part is direct from the prefix model. A four-label set is
+not forced by a boundary state exactly when it contains at least two unordered
+middle labels. The audit shows that every single-completion inverse set is
+forced in the new state, but the `170` not-forced-old cases contain at least
+two labels in the old middle block. If the set is forced in both states, then
+Cycle 503's stability criterion leaves only the crossing obstruction before
+triple compatibility; the remaining `98` cases all contain an old/new crossing
+pair inside `Q`.
+
+### Limitations
+
+- This is an exact finite statement for the five recorded Cycle 484
+  comparisons only.
+- The dichotomy explains why single-completion inverse support-pairs fail in
+  this packet, but it does not prove that single-completion rows always fail
+  in arbitrary C19 boundary comparisons.
+- It does not classify the higher-multiplicity candidate cases
+  `candidate_count >= 2`.
+- This is not an all-order obstruction for `C19_skew`, a proof of Erdos
+  Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The single-completion branch is now closed for the Cycle 484 packet:
+
+```text
+candidate_count = 1
+-> unique endpoint-sharing inverse set
+-> forced in new
+-> either not forced in old, or crossing
+-> no stable compatible inverse.
+```
+
+This separates one large obstruction class (`268` of `612` new-only primitive
+rows) from the harder higher-multiplicity branch.
+
+### Next Lead
+
+Move to `candidate_count >= 2`. For higher-multiplicity support-pairs, classify
+how many endpoint-sharing inverse completions survive the old-forced and
+crossing tests before compatibility. The target is to explain the remaining
+breakdown:
+
+```text
+83 stable-label non-hit rows
+34 compatible hit rows
+```
+
+in terms of choosing among multiple endpoint-sharing completions.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact single-completion boundary-block audit over the `268`
+  candidate-count-one rows from the five Cycle 484 comparisons: passed, with
+  digest
+  `a9b9d6f8b3bfb3019e6494753242425127c63b44fcecfe944a3982776f45f5c6`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:24 EEST - Cycle 507: Higher-Multiplicity Survivorship Decomposition
+
+### Mathematical Subquestion
+
+For the `344` Cycle 484 rows with `candidate_count >= 2`, how many
+endpoint-sharing inverse completions survive the old-forced and crossing
+tests before forced-order triple compatibility?
+
+Can this survivorship explain the split between the `34` compatible hit rows
+and the `83` stable-label non-hit rows?
+
+### Definitions and Assumptions
+
+Use the same five Cycle 484 comparisons, the Endpoint-Sharing
+Candidate-Center Formula from Cycle 505, and the Single-Completion Order
+Dichotomy from Cycle 506.
+
+For a candidate inverse completion, use the following ordered status buckets:
+
+```text
+not_forced_old:       reconstructed inverse set has at least two old-middle labels
+not_forced_new:       reconstructed inverse set has at least two new-middle labels
+crossing_pair:        forced in both states but contains an old/new crossing pair
+stable_incompatible:  stable label set, but forced order realizes a different triple
+compatible:           stable label set and forced order realizes the candidate triple
+```
+
+A row is a **hit row** if at least one candidate is `compatible`. It is
+**stable-wrong-only** if at least one candidate is `stable_incompatible` but
+none is `compatible`.
+
+### Attempted Proof Route
+
+Audit all higher-multiplicity rows and count candidate statuses. If all hit
+rows had a distinctive survivor count, or all false positives had a distinctive
+candidate-status multiset, then the boundary-event route might reduce to a
+simple choice principle among endpoint-sharing completions.
+
+### Result
+
+Finite decomposition plus failed simple-choice separator:
+**Higher-Multiplicity Survivorship Decomposition.**
+
+The exact audit found:
+
+```text
+higher-multiplicity rows checked:      344
+endpoint-sharing candidates checked:   964
+hit rows:                               34
+stable-wrong-only rows:                 83
+no-stable-label rows:                  227
+digest:
+  09227749fce41d9dad8b72f716c54b3c06716717bd1b74d249f6e8282905b16d
+```
+
+Candidate statuses by `candidate_count` were:
+
+```text
+candidate_count = 2:
+  candidates:             230
+  compatible:              11
+  stable_incompatible:     19
+  crossing_pair:           43
+  not_forced_new:           4
+  not_forced_old:         153
+
+candidate_count = 3:
+  candidates:             546
+  compatible:              21
+  stable_incompatible:     65
+  crossing_pair:           71
+  not_forced_new:          25
+  not_forced_old:         364
+
+candidate_count = 4:
+  candidates:             188
+  compatible:               7
+  stable_incompatible:     14
+  crossing_pair:           29
+  not_forced_new:          12
+  not_forced_old:         126
+```
+
+Row outcomes by `candidate_count` were:
+
+```text
+candidate_count = 2:
+  hit:               11
+  stable-wrong-only: 19
+  no stable label:   85
+
+candidate_count = 3:
+  hit:               17
+  stable-wrong-only: 53
+  no stable label:  112
+
+candidate_count = 4:
+  hit:                6
+  stable-wrong-only: 11
+  no stable label:   30
+```
+
+The number of stable surviving candidates per row was:
+
+```text
+candidate_count = 2:
+  0 survivors: 85 rows
+  1 survivor:  30 rows
+
+candidate_count = 3:
+  0 survivors: 112 rows
+  1 survivor:  54 rows
+  2 survivors: 16 rows
+
+candidate_count = 4:
+  0 survivors: 30 rows
+  1 survivor: 14 rows
+  2 survivors:  2 rows
+  3 survivors:  1 row
+```
+
+Thus higher multiplicity is necessary for compatible hits in this packet, but
+it is far from sufficient. Most higher-multiplicity rows still have no stable
+inverse label set, and among rows with stable candidates there are many false
+positives:
+
+```text
+stable candidates total:      137
+compatible candidates:         39
+stable incompatible candidates: 98
+```
+
+### Obstruction to a Simple Choice Rule
+
+Survivor count alone does not separate hits from false positives:
+
+```text
+1 stable survivor:
+  hit rows: 26
+  stable-wrong-only rows: 72
+
+2 stable survivors:
+  hit rows: 7
+  stable-wrong-only rows: 11
+
+3 stable survivors:
+  hit rows: 1
+  stable-wrong-only rows: 0
+```
+
+The common row-status multisets also overlap in the sense that both hit rows
+and stable-wrong-only rows can have exactly one stable survivor plus the rest
+destroyed by old-forcing or crossing. The difference is not the existence or
+number of stable endpoint-sharing completions; it is exactly the Cycle 503
+forced-order triple compatibility of the surviving completion.
+
+### Limitations
+
+- This is an exact finite decomposition for the five recorded Cycle 484
+  comparisons only.
+- The result does not rule out a subtler criterion using the actual cyclic
+  order of the stable candidate labels.
+- It does not prove a general C19 boundary-event lemma.
+- This is not an all-order obstruction for `C19_skew`, a proof of Erdos
+  Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The endpoint-sharing route now has a clean packet-level decision tree:
+
+```text
+candidate_count = 1:
+  unique inverse completion dies by old-middle or crossing.
+
+candidate_count >= 2:
+  most completions die by old-middle, new-middle, or crossing;
+  surviving completions split into compatible and stable-incompatible
+  according to forced-order triple compatibility.
+```
+
+This explains all `612` new-only primitive rows in the five Cycle 484
+comparisons, but it is still a packet classification rather than a proof
+that future boundary events must behave the same way.
+
+### Next Lead
+
+Focus only on the `137` stable surviving candidates. Classify the forced
+cyclic orders on their four labels and compare the candidate endpoint-sharing
+triple with the triples realized by that forced order. The goal is to replace
+the remaining compatibility test by a small orientation rule on the four
+labels `{a,b,c,s}`.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact higher-multiplicity endpoint-sharing survivorship audit over
+  the five Cycle 484 comparisons: passed, with digest
+  `09227749fce41d9dad8b72f716c54b3c06716717bd1b74d249f6e8282905b16d`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:27 EEST - Cycle 508: Positive-Diagonal Orientation Criterion
+
+### Mathematical Subquestion
+
+For the `137` stable surviving endpoint-sharing inverse candidates from
+Cycle 507, can forced-order triple compatibility be replaced by a small
+orientation rule on the four endpoint-sharing labels?
+
+### Definitions and Assumptions
+
+Use the endpoint-sharing notation from Cycle 505. A candidate inverse
+completion has raw expression
+
+```text
+{s,a} + {c,b} - {s,b} - {c,a},
+```
+
+where:
+
+- `{s,a}` is the positive surviving support pair;
+- `{s,b}` is the negative surviving support pair;
+- `{c,b}` and `{c,a}` are the positive and negative raw pairs canceling in
+  the selected star `R_c`.
+
+For a forced cyclic order `q=(x_1,x_2,x_3,x_4)` on these four labels, the two
+Kalmanson rows have common positive raw pairs
+
+```text
+{x_1,x_3}, {x_2,x_4},
+```
+
+the diagonals of the cyclic quadrilateral. The two Kalmanson kinds differ only
+by which opposite side-pairing is negative.
+
+### Attempted Proof Route
+
+Audit all `137` stable surviving candidates and test the rule:
+
+```text
+candidate is compatible
+iff
+{{s,a}, {c,b}} is exactly the diagonal pair partition of the forced order.
+```
+
+If this has no mismatches, the remaining Cycle 503 compatibility check is a
+plain four-point orientation condition.
+
+### Result
+
+Proved finite orientation criterion:
+**Positive-Diagonal Orientation Criterion for the Cycle 484 Packet.**
+
+The exact audit found:
+
+```text
+stable surviving candidates checked: 137
+compatible candidates:               39
+stable incompatible candidates:       98
+orientation-rule mismatches:           0
+digest:
+  c451ed70f3bcf2712b9dca89e93c901270a9cfbb7d81db7191d72d4b1525aeb4
+```
+
+The rule split was exact:
+
+```text
+positive raw pairs are forced diagonals:      39 compatible
+positive raw pairs are not forced diagonals:  98 stable incompatible
+```
+
+Among the `39` compatible candidates, the realizing Kalmanson kind split was:
+
+```text
+K1_diag_gt_sides: 18
+K2_diag_gt_other: 21
+```
+
+### Argument
+
+For four labels in cyclic order, both strict Kalmanson inequalities put the
+two diagonals on the positive side. Therefore a candidate raw expression
+
+```text
+{s,a} + {c,b} - {s,b} - {c,a}
+```
+
+can be one of the forced Kalmanson rows only if `{s,a}` and `{c,b}` are the
+two diagonals of the forced quadrilateral. If they are diagonals, exactly one
+of the two Kalmanson kinds has negative side-pairs `{s,b}` and `{c,a}` and
+therefore realizes the candidate triple. If they are not diagonals, no
+Kalmanson kind on that forced order realizes the candidate vector.
+
+The audit verifies that this structural rule matches every one of the `137`
+stable surviving candidates in the five recorded Cycle 484 comparisons.
+
+### Limitations
+
+- This is an exact finite orientation criterion for the stable surviving
+  candidates in the five recorded Cycle 484 comparisons.
+- The underlying four-point observation is general for Kalmanson rows, but the
+  list of stable surviving candidates is packet-specific.
+- The criterion does not prove that arbitrary C19 boundary events produce a
+  compatible candidate; it only classifies compatibility once a stable
+  endpoint-sharing candidate exists.
+- This is not an all-order obstruction for `C19_skew`, a proof of Erdos
+  Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The Cycle 484 packet now has a fully explicit local decision tree for
+new-only primitive selected rows:
+
+```text
+endpoint-sharing inverse candidates
+-> boundary-order forcing
+-> crossing avoidance
+-> positive-diagonal orientation.
+```
+
+This removes the last opaque vector comparison from the packet analysis. The
+remaining proof-facing issue is global: prove that every relevant C19 boundary
+event falls into a controlled version of this decision tree, or find an exact
+boundary event where it does not.
+
+### Next Lead
+
+Test the positive-diagonal orientation criterion on a fresh family of boundary
+comparisons, not just the five Cycle 484 exception-to-selected comparisons.
+A narrow next subquestion is to mine nearby sampled prefix-window transitions
+for new-only primitive rows and check whether the same endpoint-sharing
+decision tree classifies them without modification.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact positive-diagonal orientation audit over the `137` stable
+  surviving candidates from the five Cycle 484 comparisons: passed, with
+  digest
+  `c451ed70f3bcf2712b9dca89e93c901270a9cfbb7d81db7191d72d4b1525aeb4`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:29 EEST - Cycle 509: Fresh Adjacent-Sibling Orientation Replay
+
+### Mathematical Subquestion
+
+Does the endpoint-sharing decision tree from Cycles 505-508 classify a fresh
+packet of boundary comparisons outside the five Cycle 484
+exception-to-selected pairs?
+
+### Definitions and Assumptions
+
+Use the same fixed `C19_skew` selected-distance quotient and prefix-boundary
+model. Select a fresh deterministic packet as follows:
+
+```text
+first 8 lexicographic adjacent fifth-child sibling transitions
+in prefix range 288..479
+with at least one stable endpoint-sharing candidate,
+excluding the five Cycle 484 comparison pairs.
+```
+
+This rule selected the adjacent sibling transitions:
+
+```text
+c19_window_fifth_child_0288_0000_0000 -> c19_window_fifth_child_0288_0000_0001
+c19_window_fifth_child_0288_0000_0001 -> c19_window_fifth_child_0288_0000_0002
+c19_window_fifth_child_0288_0000_0002 -> c19_window_fifth_child_0288_0000_0003
+c19_window_fifth_child_0288_0000_0003 -> c19_window_fifth_child_0288_0000_0004
+c19_window_fifth_child_0288_0000_0004 -> c19_window_fifth_child_0288_0000_0005
+c19_window_fifth_child_0288_0000_0005 -> c19_window_fifth_child_0288_0000_0006
+c19_window_fifth_child_0288_0000_0006 -> c19_window_fifth_child_0288_0000_0007
+c19_window_fifth_child_0288_0000_0007 -> c19_window_fifth_child_0288_0000_0008
+```
+
+For each old/new pair, classify every endpoint-sharing inverse candidate of
+every new-only primitive selected row into:
+
+```text
+not_forced_old
+not_forced_new
+crossing_pair
+stable_incompatible
+compatible
+```
+
+and test the Positive-Diagonal Orientation Criterion:
+
+```text
+compatible iff the candidate's two positive raw pairs are the diagonals of
+the forced four-label order.
+```
+
+### Attempted Proof Route
+
+The goal was not to prove the full C19 pattern. It was to check whether the
+Cycle 484 decision tree was merely an artifact of exception-to-selected
+comparisons, or whether it also works on a fresh packet of adjacent sibling
+transitions.
+
+### Result
+
+Fresh finite replay:
+**Fresh Adjacent-Sibling Orientation Replay.**
+
+The exact audit found:
+
+```text
+fresh comparisons checked:          8
+new-only primitive rows checked:  825
+endpoint-sharing candidates:     1635
+orientation-rule mismatches:        0
+digest:
+  28a485c3c3a937d8cdee71118f049d07db2e191caa5d0c9bc97d02b383e256ef
+```
+
+Candidate status totals were:
+
+```text
+compatible:             64
+stable_incompatible:   131
+crossing_pair:          67
+not_forced_new:         35
+not_forced_old:       1338
+```
+
+Row status totals were:
+
+```text
+new-only primitive rows: 825
+hit rows:                 58
+stable-wrong-only rows:   94
+no-stable-label rows:    673
+```
+
+Per comparison, the compatible-candidate counts were:
+
+```text
+0000 -> 0001:  6 compatible, 15 stable-incompatible
+0001 -> 0002: 14 compatible, 21 stable-incompatible
+0002 -> 0003:  5 compatible,  7 stable-incompatible
+0003 -> 0004:  5 compatible, 18 stable-incompatible
+0004 -> 0005:  7 compatible, 16 stable-incompatible
+0005 -> 0006: 12 compatible, 11 stable-incompatible
+0006 -> 0007:  5 compatible, 19 stable-incompatible
+0007 -> 0008: 10 compatible, 24 stable-incompatible
+```
+
+### Limitations
+
+- This is a fresh finite replay on eight adjacent sibling transitions only.
+- The packet was selected to have at least one stable endpoint-sharing
+  candidate per comparison, so it is not an unbiased sample of all sibling
+  transitions.
+- The result checks that the decision tree applies beyond Cycle 484, but it
+  does not prove a global C19 boundary-event theorem.
+- This is not an all-order obstruction for `C19_skew`, a proof of Erdos
+  Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The endpoint-sharing decision tree is no longer only a Cycle 484 artifact.
+It works without modification on a fresh packet of adjacent fifth-child
+sibling transitions:
+
+```text
+endpoint-sharing candidate
+-> old/new forcing
+-> crossing avoidance
+-> positive-diagonal orientation
+```
+
+The dominant obstruction in this fresh packet is old-state non-forcing:
+`1338` of `1635` candidates die because the reconstructed inverse four-label
+set has too many old-middle labels. This suggests that any proof-facing
+boundary-event lemma should first explain why most inverse endpoint-sharing
+completions remain underforced in the previous state.
+
+### Next Lead
+
+Promote the decision tree from an audit to a small reusable checker or lemma
+statement. The next exact mathematical subquestion is whether the following
+statement is formally true for any pair of C19 boundary states:
+
+```text
+For every new-only primitive selected row, every endpoint-sharing inverse
+candidate is compatible exactly when its reconstructed label set is forced in
+both states, avoids all old/new crossing pairs, and has its positive raw pairs
+as the forced diagonals.
+```
+
+If this is just a direct consequence of definitions, the remaining hard part
+is entirely existence: prove that some compatible candidate always exists in
+the boundary events needed for a certificate, or find an exact event where no
+candidate exists.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact fresh adjacent-sibling endpoint-sharing replay over eight
+  comparisons: passed, with digest
+  `28a485c3c3a937d8cdee71118f049d07db2e191caa5d0c9bc97d02b383e256ef`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:30 EEST - Cycle 510: General Endpoint-Sharing Decision Lemma
+
+### Mathematical Subquestion
+
+Is the endpoint-sharing decision tree from Cycles 505-509 formally true for
+any pair of C19 prefix-boundary states, independent of the particular sampled
+comparison packet?
+
+### Definitions and Assumptions
+
+Work in the fixed `C19_skew` selected-distance quotient with offsets
+`[-8,-3,5,9]`.
+
+A boundary state has ordered blocks
+
+```text
+0, L_1, ..., L_k, M in unknown order, R_k, ..., R_1.
+```
+
+For two boundary states `B_old` and `B_new`, call an unordered pair
+`{x,y}` a **crossing pair** if both states force the relative order of `x`
+and `y`, and the two forced relative orders are opposite.
+
+Let a new-only primitive selected row have quotient vector
+
+```text
+v = P - N.
+```
+
+By the Endpoint-Sharing Candidate-Center Formula, an inverse candidate for
+`-v` is an endpoint-sharing completion with raw expression
+
+```text
+{s,a} + {c,b} - {s,b} - {c,a}.
+```
+
+Its reconstructed label set is
+
+```text
+Q = {s,a,b,c}.
+```
+
+### Attempted Proof Route
+
+Prove directly from the boundary model and the two Kalmanson inequalities
+that the candidate has a common forced inverse representative if and only if:
+
+1. `Q` is forced in both `B_old` and `B_new`;
+2. no pair inside `Q` is a crossing pair; and
+3. in the common forced order on `Q`, the two positive raw pairs
+   `{s,a}` and `{c,b}` are the diagonals.
+
+### Result
+
+Proved structural lemma:
+**General Endpoint-Sharing Decision Lemma.**
+
+For any pair of C19 prefix-boundary states and any endpoint-sharing inverse
+candidate of a primitive selected support-two row, the candidate realizes the
+inverse vector as a common forced Kalmanson row if and only if the three tests
+above hold.
+
+### Proof
+
+First, a four-label set is forced by a boundary state exactly when it contains
+at most one unordered middle label. If `Q` is not forced in either state, then
+no forced Kalmanson row on `Q` is available in that state.
+
+Assume `Q` is forced in both states. The two forced cyclic orders on `Q` agree
+exactly when no pair of labels in `Q` reverses its forced order between the
+two states. This is precisely the condition that `Q` contains no crossing
+pair. If a crossing pair is present, no single ordered Kalmanson row on `Q`
+belongs to both forced row sets.
+
+It remains to classify a common forced order
+
+```text
+q = (x_1,x_2,x_3,x_4).
+```
+
+For either strict Kalmanson inequality on `q`, the positive raw pairs are the
+two diagonals
+
+```text
+{x_1,x_3}, {x_2,x_4}.
+```
+
+The two Kalmanson kinds differ only in which opposite pair of sides is placed
+on the negative side:
+
+```text
+K1: negative sides {x_1,x_2}, {x_3,x_4}
+K2: negative sides {x_1,x_4}, {x_2,x_3}.
+```
+
+Therefore the endpoint-sharing raw expression
+
+```text
+{s,a} + {c,b} - {s,b} - {c,a}
+```
+
+is realized by a Kalmanson row on `q` exactly when `{s,a}` and `{c,b}` are the
+diagonals of `q`. If they are, one of `K1` or `K2` has negative side-pairs
+`{s,b}` and `{c,a}`. If they are not, neither Kalmanson kind has the required
+positive side, so the quotient vector cannot be the candidate inverse.
+
+Combining these observations proves the equivalence.
+
+### Limitations
+
+- This lemma classifies compatibility of a **given** endpoint-sharing inverse
+  candidate.
+- It does not assert that a compatible candidate exists for any new-only
+  primitive row.
+- It does not close any C19 boundary branch by itself.
+- It is not an all-order obstruction for `C19_skew`, a proof of Erdos
+  Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The endpoint-sharing decision tree is now a reusable local lemma rather than
+only an empirical packet audit:
+
+```text
+candidate inverse label set forced in both states
++ no crossing pair
++ positive raw pairs are diagonals
+<=> common forced inverse row.
+```
+
+The remaining proof-facing burden is strictly an existence problem:
+
+```text
+When a new primitive selected support-two row appears in the boundary process,
+must at least one endpoint-sharing inverse candidate pass the three tests?
+```
+
+Cycles 504-509 show that the answer is often no for arbitrary adjacent sibling
+transitions, but the certificate search only needs this mechanism in specific
+boundary-event contexts. The next work should identify exactly which boundary
+events require inverse completion.
+
+### Next Lead
+
+Return to certificate-facing boundary events. Instead of testing arbitrary
+sibling transitions, isolate the events where the row-set change threatens a
+certificate support or prefilter closure, and ask whether the General
+Endpoint-Sharing Decision Lemma supplies the needed inverse row. If not,
+record the smallest exact event where no compatible candidate exists.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- Pure theory/log update; no new computation beyond the definition-level proof.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:32 EEST - Cycle 511: Blanket Inverse-Existence Obstruction
+
+### Mathematical Subquestion
+
+Is the broad existence subclaim true?
+
+```text
+Every new-only primitive selected row in a C19 boundary transition has at
+least one compatible endpoint-sharing inverse candidate.
+```
+
+### Definitions and Assumptions
+
+Use the General Endpoint-Sharing Decision Lemma from Cycle 510. A compatible
+endpoint-sharing inverse candidate must have a reconstructed label set forced
+in both boundary states, contain no old/new crossing pair, and place its two
+positive raw pairs on the forced diagonals.
+
+Use the first fresh adjacent sibling transition from Cycle 509:
+
+```text
+old: c19_window_fifth_child_0288_0000_0000
+new: c19_window_fifth_child_0288_0000_0001
+```
+
+The old state is:
+
+```text
+left:      [1,3,13,4,8]
+right:     [2,5,7,6,9]
+remaining: [10,11,12,14,15,16,17,18]
+```
+
+The new state is:
+
+```text
+left:      [1,3,13,4,8]
+right:     [2,5,7,6,10]
+remaining: [9,11,12,14,15,16,17,18]
+```
+
+The only old/new crossing pair in this transition is:
+
+```text
+{9,10}.
+```
+
+### Attempted Proof Route
+
+Search this fresh transition for the first lexicographic new-only primitive
+selected row with no compatible endpoint-sharing inverse candidate. If found,
+record the row and all inverse candidates exactly.
+
+### Result
+
+Counterexample to the broad subclaim:
+**Blanket Inverse-Existence Obstruction.**
+
+The first lexicographic obstruction row is:
+
+```text
+new row:
+  K1_diag_gt_sides(0,9,10,2)
+
+quotient triple:
+  X02,09 > R00 with canceled center 10
+
+raw expression:
+  positive pair:          {2,9}
+  negative pair:          {0,9}
+  canceled positive pair: {0,10}
+  canceled negative pair: {2,10}
+```
+
+This row has exactly one endpoint-sharing inverse candidate:
+
+```text
+inverse triple:
+  R00 > X02,09 with canceled center 10
+
+reconstructed labels:
+  {0,2,9,10}
+
+raw expression:
+  positive pair:          {0,9}
+  negative pair:          {2,9}
+  canceled positive pair: {2,10}
+  canceled negative pair: {0,10}
+```
+
+The inverse label set is forced in both states, but the forced orders differ:
+
+```text
+old forced order: (0,10,9,2)
+new forced order: (0,9,10,2)
+```
+
+Equivalently, the inverse label set contains the old/new crossing pair
+`{9,10}`. By the General Endpoint-Sharing Decision Lemma, this unique inverse
+candidate is not a common forced inverse row. Since there are no other
+endpoint-sharing candidates, the row has no compatible inverse candidate.
+
+The exact obstruction digest is:
+
+```text
+14c9bbac852a50549239fcd362165bd1583f0df2b5b56eb06cc4b85cb27093d5
+```
+
+### Limitations
+
+- This refutes only the broad endpoint-sharing inverse-existence subclaim.
+- It is not a counterexample to Erdos Problem #97.
+- It is not an all-order obstruction for `C19_skew`.
+- It does not show that compatible inverse candidates are unnecessary in
+  certificate-facing events; it only shows they are not guaranteed for
+  arbitrary adjacent sibling transitions.
+
+### Effect on the Attack
+
+The existence burden must be tied to a narrower certificate-facing context.
+The broad statement
+
+```text
+new-only primitive selected row -> compatible endpoint-sharing inverse exists
+```
+
+is false. Any future proof route must identify which row changes actually
+matter to a certificate or support template, and prove compatible inverse
+existence only for that restricted class, or use a different repair mechanism.
+
+### Next Lead
+
+Return to the catalog/prefilter support context. For each support row used in
+the small unit catalog or the fallback-support certificates, inspect adjacent
+boundary transitions that add or remove that row and test whether this
+specific certificate-facing row has a compatible endpoint-sharing inverse or
+some other replacement. This avoids the false blanket existence claim.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact obstruction extraction in the fresh adjacent-sibling packet:
+  passed, with digest
+  `14c9bbac852a50549239fcd362165bd1583f0df2b5b56eb06cc4b85cb27093d5`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:37 EEST - Cycle 512: Catalog Support Row Transition Audit
+
+### Mathematical Subquestion
+
+In the actual catalog/prefilter certificate-facing transitions, do the support
+rows used by the catalog close because each new primitive support row has a
+compatible endpoint-sharing inverse candidate in the parent state?
+
+### Definitions and Assumptions
+
+Use the eight recorded C19 fifth-pair fallback children from the sampled
+288-479 prefilter sweep and the three cataloged unit supports recorded in
+`reports/c19_prefilter_catalog_unit_supports.json`.
+
+For each fallback child, compare the fourth-pair parent boundary state with
+the fifth-pair child boundary state. For every row in the catalog support used
+by that child, classify it as:
+
+```text
+already_parent_forced_primitive
+already_parent_forced_nonprimitive
+new_child_only_primitive
+new_child_only_nonprimitive
+```
+
+For the new child-only primitive rows, apply the General Endpoint-Sharing
+Decision Lemma from Cycle 510 to every endpoint-sharing inverse candidate.
+
+### Attempted Proof Route
+
+The hoped-for route was that catalog supports work by row-by-row inverse
+repair: whenever the child support uses a new primitive row, the parent state
+would supply a compatible endpoint-sharing inverse row, allowing the support
+to be related directly to a parent support.
+
+### Result
+
+Finite obstruction:
+**Catalog Support Transition Non-Inverse Obstruction.**
+
+The exact audit checked `27` catalog support row instances across the eight
+fallback records. The row-classification totals were:
+
+```text
+already_parent_forced_nonprimitive: 10
+already_parent_forced_primitive:     6
+new_child_only_nonprimitive:         7
+new_child_only_primitive:            4
+```
+
+By catalog support:
+
+```text
+unit_support_000:
+  already_parent_forced_nonprimitive: 8
+  already_parent_forced_primitive:    4
+  new_child_only_nonprimitive:        4
+  new_child_only_primitive:           2
+
+unit_support_001:
+  already_parent_forced_primitive:    1
+  new_child_only_nonprimitive:        1
+  new_child_only_primitive:           1
+
+unit_support_002:
+  already_parent_forced_nonprimitive: 2
+  already_parent_forced_primitive:    1
+  new_child_only_nonprimitive:        2
+  new_child_only_primitive:           1
+```
+
+The four new child-only primitive support rows had no compatible
+endpoint-sharing inverse candidates. The relevant primitive rows were:
+
+```text
+c19_window_fifth_child_0430_0081_0011, unit_support_002:
+  K2_diag_gt_other(3,10,7,13)
+  triple: X03,07 > R10 with canceled center 13
+  unique inverse R10 > X03,07, status: not_forced_old
+
+c19_window_fifth_child_0434_0070_0021, unit_support_000:
+  K2_diag_gt_other(3,15,12,6)
+  triple: R03 > R15 with canceled center 6
+  unique inverse R15 > R03, status: not_forced_old
+
+c19_window_fifth_child_0436_0082_0022, unit_support_000:
+  K2_diag_gt_other(3,15,12,6)
+  triple: R03 > R15 with canceled center 6
+  unique inverse R15 > R03, status: not_forced_old
+
+c19_window_fifth_child_0456_0059_0041, unit_support_001:
+  K1_diag_gt_sides(1,9,15,6)
+  triple: R15 > R06 with canceled center 9
+  inverse R06 > R15 with center 1, status: stable_incompatible
+  inverse R06 > R15 with center 9, status: not_forced_old
+```
+
+The audit digest was:
+
+```text
+7aad4dc3b68b01d21a6b20f21478be9f8041ea76f6fafa3b44277948cdd5f3ce
+```
+
+### Limitations
+
+- This is an exact finite audit of the catalog-facing fallback transitions
+  only.
+- It does not classify arbitrary C19 boundary transitions.
+- It does not rule out endpoint-sharing inverses as useful in other contexts.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The row-by-row inverse-repair route is not the mechanism behind the catalog
+supports. The catalog works as direct zero-sum support in the child state,
+mixing parent-forced rows, child-only nonprimitive rows, and a few primitive
+rows whose endpoint-sharing inverse candidates fail old-state forcing or
+orientation.
+
+The proof-facing object should therefore be the whole unit-support circuit,
+not a per-row inverse replacement rule.
+
+### Next Lead
+
+Analyze catalog supports as support-level zero-sum circuits across the
+parent-to-child transition. The next narrow question is whether each new
+child-only row is balanced by an identifiable parent-forced row inside the
+same catalog unit support after selected-distance quotienting.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact catalog support row transition audit over the eight catalog
+  fallback records: passed, with digest
+  `7aad4dc3b68b01d21a6b20f21478be9f8041ea76f6fafa3b44277948cdd5f3ce`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
