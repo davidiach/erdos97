@@ -91984,3 +91984,219 @@ explanations.
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 - Cycle 550 - Zero-Target Catalog-Residue Obstruction
+
+### Subquestion
+
+In the sampled `C19_skew` prefix-window catalog-prefilter artifact, are the
+forbidden placements with no target-aware two-row inverse-pair family exactly
+the catalog-only or larger-Farkas residue, or do they already occur inside
+ordinary two-row-prefilter children?
+
+### Definitions and Setup
+
+This cycle uses the same finite artifact and target-aware vocabulary
+definitions as Cycles 548 and 549:
+
+```text
+data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
+```
+
+The audit reconstructs all 10,350 sampled fifth-pair children. For every child
+and center `c`, let `p = c + 7 mod 19`. A placement is in scope when the
+coarse depth pair of `(c,p)` is one of:
+
+```text
+(LD,LD), (LD,RD), (M,LD), (RD,LD), (RD,M), (RD,RD).
+```
+
+For each child, the audit computes all exact inverse pairs `v,-v` among forced
+Kalmanson rows after quotienting by selected-distance classes. A placement has
+a target-aware family if some inverse-pair vector has nonzero support on the
+radius class `R_c` or the pair class `X_{c,p}`.
+
+The child closure method is classified by the existing deterministic
+prefilter chain:
+
+- `two_row_prefilter_child` if `two_row_certificate_for_state` finds a
+  deterministic one- or two-row exact cancellation;
+- `catalog_unit_support_..._child` if the two-row lookup misses and the
+  cataloged unit-support prefilter closes the child;
+- ordinary Farkas or unclosed otherwise.
+
+### Result Status
+
+Counterexample to subclaim:
+**Zero-Target Catalog-Residue Obstruction**.
+
+The zero target-aware placements are not merely the catalog-only residue.
+Almost all of them occur inside children already closed by the ordinary
+two-row prefilter.
+
+### Exact Audit Result
+
+The sampled audit found:
+
+```text
+summary {'child_count': 10350, 'forbidden_placements': 70614, 'zero_target_placements': 27255, 'nonzero_target_placements': 43359}
+method_by_child {'catalog_unit_support_000_child': 6, 'catalog_unit_support_001_child': 1, 'catalog_unit_support_002_child': 1, 'two_row_prefilter_child': 10342}
+forbidden_by_method {'catalog_unit_support_000_child': 33, 'catalog_unit_support_001_child': 6, 'catalog_unit_support_002_child': 7, 'two_row_prefilter_child': 70568}
+zero_by_method {'catalog_unit_support_000_child': 33, 'catalog_unit_support_001_child': 6, 'catalog_unit_support_002_child': 7, 'two_row_prefilter_child': 27209}
+nonzero_by_method {'two_row_prefilter_child': 43359}
+```
+
+Thus only `46` zero target-aware forbidden placements come from catalog-only
+children, while `27209` come from two-row-prefilter children.
+
+The zero-target placements by forbidden depth class are:
+
+```text
+('LD', 'LD'): 1797
+('LD', 'RD'): 2906
+('M', 'LD'): 13218
+('RD', 'LD'): 2902
+('RD', 'M'): 5003
+('RD', 'RD'): 1429
+```
+
+The audit also found:
+
+```text
+zero_child_count 9834
+children_with_all_forbidden_placements_zero 43
+children_with_zero_and_nonzero_target_placements 9791
+digest 0635cca80788aa6382765a671dad5c1b2f2266c30227cf210d68603fcf14ee1f
+```
+
+The histogram by the total number of inverse pairs available in the child was:
+
+```text
+{0: 46, 1: 98, 2: 121, 3: 374, 4: 492, 5: 737, 6: 1049, 7: 1420, 8: 1520, 9: 1748, 10: 1774, 11: 2136, 12: 2053, 13: 2278, 14: 1936, 15: 1857, 16: 1558, 17: 1304, 18: 1268, 19: 896, 20: 737, 21: 539, 22: 398, 23: 314, 24: 186, 25: 148, 26: 109, 27: 66, 28: 43, 29: 19, 30: 9, 31: 10, 32: 10, 33: 1, 34: 1}
+```
+
+The `0: 46` bin is exactly the catalog-only contribution. The remaining
+zero-target placements occur in children with at least one inverse pair
+available, but no inverse pair touches the local target classes for that
+placement.
+
+### Exact Obstruction Witness
+
+One explicit two-row-prefilter child with a zero target-aware forbidden
+placement is:
+
+```text
+label      c19_window_fifth_child_0338_0063_0000
+left       [1, 3, 17, 11, 6]
+right      [2, 5, 4, 15, 7]
+remaining  [8, 9, 10, 12, 13, 14, 16, 18]
+center     5
+partner    12
+positions  R2, M
+depth      (RD, M)
+row_count  3300
+```
+
+The deterministic two-row prefilter closes this child using:
+
+```text
+K2_diag_gt_other(0,17,6,8)
+K1_diag_gt_sides(0,6,10,15)
+```
+
+For the placement `(c,p)=(5,12)`, the normalized target classes are:
+
+```text
+target_radius_class 31 R0
+target_pair_class   65 X0_7
+```
+
+The child has `18` exact inverse pairs, but the target-aware count for this
+placement is zero. The first non-target normalized inverse-pair families
+include:
+
+```text
+R1 + R14 < R6 + X1_14
+R1 < X1_14
+R1 < X1_16
+R1 < X1_18
+R1 < X1_2
+R10 < X4_10
+R10 < X8_10
+R12 < R17
+```
+
+This is an exact obstruction to the proposed reduction "zero target-aware
+placement means catalog-only or larger-Farkas child."
+
+### Argument
+
+The audit reconstructs every sampled fifth child from the recorded sweep. It
+then applies the same exact two-row lookup and catalog-unit lookup used by the
+catalog-prefilter replay. Independently, it enumerates all inverse pairs among
+forced Kalmanson row vectors for each child and tests target support against
+`R_c` and `X_{c,c+7}` for every forbidden placement.
+
+Because `27209` zero target-aware placements occur in children closed by
+`two_row_certificate_for_state`, the catalog-residue explanation is false.
+The explicit witness above shows the stronger local phenomenon: a child may
+have many inverse pairs and a deterministic two-row certificate, while a
+specific forbidden target placement is invisible to all inverse pairs that
+touch its local radius/pair target classes.
+
+### Limitations
+
+- This is a finite audit over sampled windows 288-479 only.
+- It concerns target-aware two-row inverse pairs, not arbitrary larger
+  positive supports.
+- It does not classify the non-target inverse-pair families into a structural
+  theorem.
+- It does not prove or refute an all-order `C19_skew` obstruction.
+- It does not prove a general theorem for Erdos Problem #97 and does not give
+  a counterexample.
+
+### Effect on the Attack
+
+The zero-family side of Cycle 549 should not be routed primarily through the
+catalog supports. The main obstruction is placement-local: even when a child
+is two-row-certified, a particular center/partner target may be untouched by
+all available inverse pairs.
+
+The next proof route should look for a transport or propagation principle:
+can non-target inverse-pair families force a target-aware family after moving
+the center, rotating the local frame, or combining a small number of inverse
+pairs? If no such transport exists, zero-target placements may require a
+separate non-target vocabulary rather than a catalog/Farkas explanation.
+
+### Next Lead
+
+Classify the non-target inverse-pair families appearing in zero target-aware
+placements. A narrow next subquestion is whether the witness families above
+belong to a small "off-target transport" vocabulary that can be connected to
+the 22 target-aware families from Cycle 549.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-550`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-550`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact zero-target placement audit over all 10,350 sampled fifth
+  children and all 70,614 forbidden center/partner placements: passed, with
+  digest `0635cca80788aa6382765a671dad5c1b2f2266c30227cf210d68603fcf14ee1f`.
+- One-off exact witness extraction for
+  `c19_window_fifth_child_0338_0063_0000`, center `5`: passed, verifying
+  two-row closure, target classes `R0` and `X0_7`, `18` inverse pairs, and zero
+  target-aware inverse-pair families for that placement.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
