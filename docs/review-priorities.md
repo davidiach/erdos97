@@ -161,6 +161,8 @@ Next steps:
   as the next focused review-pending T10/F12 strict-cycle local lemma packet;
 - use `data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json`
   as the next focused review-pending T11/F07 strict-cycle local lemma packet;
+- use `data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json`
+  as the next focused review-pending T12/F16 strict-cycle local lemma packet;
 - test whether the same motifs appear in the P18 obstruction and fail in the
   recorded `C19_skew` vertex-circle-only survivor, which is now retired as a
   fixed abstract pattern by the separate Z3 Kalmanson certificate;

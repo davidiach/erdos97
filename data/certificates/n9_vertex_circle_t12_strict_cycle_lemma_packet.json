@@ -1,0 +1,900 @@
+{
+  "assignment_count": 2,
+  "assignment_ids": [
+    "A082",
+    "A152"
+  ],
+  "claim_scope": "Focused T12/F16 strict-cycle local lemma packet for two n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.",
+  "connector_path_length_counts": {
+    "1": 4,
+    "2": 2
+  },
+  "core_size": 6,
+  "cycle_length": 3,
+  "cycle_length_counts": {
+    "3": 2
+  },
+  "cycle_span_counts": [
+    {
+      "count": 3,
+      "inner_span": 1,
+      "outer_span": 3
+    }
+  ],
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "family_assignment_counts": {
+    "F16": 2
+  },
+  "family_count": 1,
+  "family_ids": [
+    "F16"
+  ],
+  "family_orbit_sizes": {
+    "F16": 2
+  },
+  "family_packets": [
+    {
+      "assignment_count": 2,
+      "core_selected_rows": [
+        [
+          0,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          2,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          4,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          8,
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "core_size": 6,
+      "cycle_length": 3,
+      "cycle_pair_chain": [
+        {
+          "cycle_step": 0,
+          "equality_chain_to_next_outer_pair": [
+            [
+              0,
+              8
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "next_outer_pair": [
+            2,
+            8
+          ],
+          "strict_from_outer_pair": [
+            0,
+            3
+          ],
+          "strict_to_inner_pair": [
+            0,
+            8
+          ]
+        },
+        {
+          "cycle_step": 1,
+          "equality_chain_to_next_outer_pair": [
+            [
+              2,
+              4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "next_outer_pair": [
+            1,
+            7
+          ],
+          "strict_from_outer_pair": [
+            2,
+            8
+          ],
+          "strict_to_inner_pair": [
+            2,
+            4
+          ]
+        },
+        {
+          "cycle_step": 2,
+          "equality_chain_to_next_outer_pair": [
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "next_outer_pair": [
+            0,
+            3
+          ],
+          "strict_from_outer_pair": [
+            1,
+            7
+          ],
+          "strict_to_inner_pair": [
+            1,
+            3
+          ]
+        }
+      ],
+      "cycle_steps": [
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              2,
+              8
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  2,
+                  8
+                ],
+                "row": 8
+              }
+            ],
+            "start_pair": [
+              0,
+              8
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              2
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              3
+            ],
+            "outer_span": 3,
+            "row": 2,
+            "witness_order": [
+              3,
+              5,
+              8,
+              0
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              1,
+              7
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  1,
+                  4
+                ],
+                "row": 4
+              },
+              {
+                "next_pair": [
+                  1,
+                  7
+                ],
+                "row": 1
+              }
+            ],
+            "start_pair": [
+              2,
+              4
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              1,
+              2
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              2,
+              4
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              2
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              8
+            ],
+            "outer_span": 3,
+            "row": 1,
+            "witness_order": [
+              2,
+              4,
+              7,
+              8
+            ]
+          }
+        },
+        {
+          "equality_to_next_outer_pair": {
+            "end_pair": [
+              0,
+              3
+            ],
+            "path": [
+              {
+                "next_pair": [
+                  0,
+                  3
+                ],
+                "row": 3
+              }
+            ],
+            "start_pair": [
+              1,
+              3
+            ]
+          },
+          "strict_inequality": {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              3
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              2
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              7
+            ],
+            "outer_span": 3,
+            "row": 0,
+            "witness_order": [
+              1,
+              3,
+              6,
+              7
+            ]
+          }
+        }
+      ],
+      "family_id": "F16",
+      "local_lemma": {
+        "contradiction": "The strict graph has a directed strict cycle of length 3 after selected-distance quotienting.",
+        "cycle_closure_statement": "Each strict edge's inner pair is identified with the next strict edge's outer pair, closing a directed three-edge strict cycle in the selected-distance quotient.",
+        "hypothesis_scope": "Natural cyclic order on labels 0..8 plus the six listed selected rows; no claim is made about other n=9 templates.",
+        "packet_name": "T12/F16 strict-cycle local lemma packet",
+        "review_status": "review_pending",
+        "selected_distance_equalities": [
+          {
+            "cycle_step": 0,
+            "equality_steps": [
+              {
+                "left_pair": [
+                  0,
+                  8
+                ],
+                "right_pair": [
+                  2,
+                  8
+                ],
+                "row": 8
+              }
+            ]
+          },
+          {
+            "cycle_step": 1,
+            "equality_steps": [
+              {
+                "left_pair": [
+                  2,
+                  4
+                ],
+                "right_pair": [
+                  1,
+                  4
+                ],
+                "row": 4
+              },
+              {
+                "left_pair": [
+                  1,
+                  4
+                ],
+                "right_pair": [
+                  1,
+                  7
+                ],
+                "row": 1
+              }
+            ]
+          },
+          {
+            "cycle_step": 2,
+            "equality_steps": [
+              {
+                "left_pair": [
+                  1,
+                  3
+                ],
+                "right_pair": [
+                  0,
+                  3
+                ],
+                "row": 3
+              }
+            ]
+          }
+        ],
+        "strict_inequality_statements": [
+          "Step 0: row 2 has witness order [3, 5, 8, 0], so outer pair [0, 3] strictly contains inner pair [0, 8].",
+          "Step 1: row 1 has witness order [2, 4, 7, 8], so outer pair [2, 8] strictly contains inner pair [2, 4].",
+          "Step 2: row 0 has witness order [1, 3, 6, 7], so outer pair [1, 7] strictly contains inner pair [1, 3]."
+        ]
+      },
+      "orbit_size": 2,
+      "replay": {
+        "cycle_edge_count": 3,
+        "cycle_edges": [
+          {
+            "inner_class": [
+              0,
+              2
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              8
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              3
+            ],
+            "row": 2,
+            "witness_order": [
+              3,
+              5,
+              8,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              1,
+              2
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              2,
+              4
+            ],
+            "outer_class": [
+              0,
+              2
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              8
+            ],
+            "row": 1,
+            "witness_order": [
+              2,
+              4,
+              7,
+              8
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              3
+            ],
+            "outer_class": [
+              1,
+              2
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              7
+            ],
+            "row": 0,
+            "witness_order": [
+              1,
+              3,
+              6,
+              7
+            ]
+          }
+        ],
+        "selected_row_count": 6,
+        "self_edge_conflict_count": 0,
+        "self_edge_conflicts": [],
+        "status": "strict_cycle",
+        "strict_edge_count": 54
+      },
+      "source_family_record": {
+        "assignment_count": 2,
+        "core_size": 6,
+        "cycle_length": 3,
+        "cycle_steps": [
+          {
+            "equality_to_next_outer_pair": {
+              "end_pair": [
+                2,
+                8
+              ],
+              "path": [
+                {
+                  "next_pair": [
+                    2,
+                    8
+                  ],
+                  "row": 8
+                }
+              ],
+              "start_pair": [
+                0,
+                8
+              ]
+            },
+            "strict_inequality": {
+              "inner_class": [
+                0,
+                2
+              ],
+              "inner_interval": [
+                2,
+                3
+              ],
+              "inner_pair": [
+                0,
+                8
+              ],
+              "inner_span": 1,
+              "outer_class": [
+                0,
+                1
+              ],
+              "outer_interval": [
+                0,
+                3
+              ],
+              "outer_pair": [
+                0,
+                3
+              ],
+              "outer_span": 3,
+              "row": 2,
+              "witness_order": [
+                3,
+                5,
+                8,
+                0
+              ]
+            }
+          },
+          {
+            "equality_to_next_outer_pair": {
+              "end_pair": [
+                1,
+                7
+              ],
+              "path": [
+                {
+                  "next_pair": [
+                    1,
+                    4
+                  ],
+                  "row": 4
+                },
+                {
+                  "next_pair": [
+                    1,
+                    7
+                  ],
+                  "row": 1
+                }
+              ],
+              "start_pair": [
+                2,
+                4
+              ]
+            },
+            "strict_inequality": {
+              "inner_class": [
+                1,
+                2
+              ],
+              "inner_interval": [
+                0,
+                1
+              ],
+              "inner_pair": [
+                2,
+                4
+              ],
+              "inner_span": 1,
+              "outer_class": [
+                0,
+                2
+              ],
+              "outer_interval": [
+                0,
+                3
+              ],
+              "outer_pair": [
+                2,
+                8
+              ],
+              "outer_span": 3,
+              "row": 1,
+              "witness_order": [
+                2,
+                4,
+                7,
+                8
+              ]
+            }
+          },
+          {
+            "equality_to_next_outer_pair": {
+              "end_pair": [
+                0,
+                3
+              ],
+              "path": [
+                {
+                  "next_pair": [
+                    0,
+                    3
+                  ],
+                  "row": 3
+                }
+              ],
+              "start_pair": [
+                1,
+                3
+              ]
+            },
+            "strict_inequality": {
+              "inner_class": [
+                0,
+                1
+              ],
+              "inner_interval": [
+                0,
+                1
+              ],
+              "inner_pair": [
+                1,
+                3
+              ],
+              "inner_span": 1,
+              "outer_class": [
+                1,
+                2
+              ],
+              "outer_interval": [
+                0,
+                3
+              ],
+              "outer_pair": [
+                1,
+                7
+              ],
+              "outer_span": 3,
+              "row": 0,
+              "witness_order": [
+                1,
+                3,
+                6,
+                7
+              ]
+            }
+          }
+        ],
+        "equality_chains": [
+          [
+            [
+              0,
+              8
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          [
+            [
+              2,
+              4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          [
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        ],
+        "family_id": "F16",
+        "orbit_size": 2,
+        "span_signature": "3:1,3:1,3:1",
+        "status": "strict_cycle",
+        "strict_edge_count": 54,
+        "template_id": "T12"
+      },
+      "span_signature": "3:1,3:1,3:1",
+      "strict_edge_count": 54
+    }
+  ],
+  "interpretation": [
+    "This packet isolates the single-family T12 strict-cycle motif from existing review-pending n=9 diagnostics.",
+    "The F16 record has six local rows and three directed strict inequalities.",
+    "Each strict edge's inner pair is connected by selected-distance equalities to the next strict edge's outer pair.",
+    "The packet is intended for local lemma review and proof mining, not as a theorem name.",
+    "No proof of the n=9 case is claimed."
+  ],
+  "n": 9,
+  "orbit_size_sum": 2,
+  "provenance": {
+    "command": "python scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py --assert-expected --write",
+    "generator": "scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py"
+  },
+  "row_size": 4,
+  "schema": "erdos97.n9_vertex_circle_t12_strict_cycle_lemma_packet.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/n9_vertex_circle_strict_cycle_template_packet.json",
+      "role": "source T12/F16 strict-cycle template record",
+      "schema": "erdos97.n9_vertex_circle_strict_cycle_template_packet.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/n9_vertex_circle_template_lemma_catalog.json",
+      "role": "catalog crosswalk confirming T12 coverage and strict-cycle shape summary",
+      "schema": "erdos97.n9_vertex_circle_template_lemma_catalog.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "source_catalog_record": {
+    "conclusion_shape": {
+      "certificate_fields": [
+        "cycle_steps",
+        "equality_to_next_outer_pair"
+      ],
+      "kind": "strict_cycle",
+      "strict_graph_obstruction": "directed strict cycle after selected-distance quotienting"
+    },
+    "coverage": {
+      "assignment_count": 2,
+      "assignment_ids": [
+        "A082",
+        "A152"
+      ],
+      "families": [
+        "F16"
+      ],
+      "family_count": 1,
+      "orbit_size_sum": 2
+    },
+    "family_summaries": [
+      {
+        "assignment_count": 2,
+        "contradiction_kind": "strict_cycle",
+        "core_size": 6,
+        "cycle_length": 3,
+        "cycle_step_count": 3,
+        "family_id": "F16",
+        "orbit_size": 2,
+        "span_signature": "3:1,3:1,3:1",
+        "status": "strict_cycle",
+        "strict_edge_count": 54,
+        "template_id": "T12"
+      }
+    ],
+    "hypothesis_shape": {
+      "connector_path_length_counts": {
+        "1": 4,
+        "2": 2
+      },
+      "core_size": 6,
+      "cycle_length": 3,
+      "cycle_length_counts": {
+        "3": 2
+      },
+      "cycle_span_counts": [
+        {
+          "count": 3,
+          "inner_span": 1,
+          "outer_span": 3
+        }
+      ],
+      "span_signature_counts": {
+        "3:1,3:1,3:1": 2
+      },
+      "strict_edge_count": 54
+    },
+    "status": "strict_cycle",
+    "template_id": "T12",
+    "template_key": "strict_cycle|rows=6|strict_edges=54|cycle=3|spans=3:1x3"
+  },
+  "source_template_record": {
+    "assignment_count": 2,
+    "assignment_ids": [
+      "A082",
+      "A152"
+    ],
+    "connector_path_length_counts": {
+      "1": 4,
+      "2": 2
+    },
+    "core_size": 6,
+    "cycle_length": 3,
+    "cycle_length_counts": {
+      "3": 2
+    },
+    "cycle_span_counts": [
+      {
+        "count": 3,
+        "inner_span": 1,
+        "outer_span": 3
+      }
+    ],
+    "families": [
+      "F16"
+    ],
+    "family_count": 1,
+    "orbit_size_sum": 2,
+    "span_signature_counts": {
+      "3:1,3:1,3:1": 2
+    },
+    "status": "strict_cycle",
+    "strict_edge_count": 54,
+    "template_id": "T12",
+    "template_key": "strict_cycle|rows=6|strict_edges=54|cycle=3|spans=3:1x3"
+  },
+  "span_signature_counts": {
+    "3:1,3:1,3:1": 2
+  },
+  "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+  "strict_edge_count": 54,
+  "template_id": "T12",
+  "template_key": "strict_cycle|rows=6|strict_edges=54|cycle=3|spans=3:1x3",
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}
