@@ -90997,3 +90997,192 @@ observed generic triples.
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 09:59 EEST - Cycle 545: Sampled O01 Deep-Avoidance Constraint
+
+### Mathematical Subquestion
+
+Is the broad ambiguous witness `(center=1, L2, L4)` from Cycle 544 actually
+present in the sampled C19 fifth-pair frontier, and what simple
+observed-position constraint separates sampled `O01` triples from the broad
+ambiguous depth-pair classes?
+
+### Definitions and Assumptions
+
+Use the recorded sampled C19 prefix-window catalog-prefilter sweep for
+windows 288-479. Reconstruct each fifth-pair child from the recorded fourth
+survivor boundary states.
+
+An `O01` hit is a deterministic two-row certificate whose two quotient
+vectors are the opposite pair in the rotation family represented by
+`-S_0 + P_0_7`. For selected center `c`, the selected partner is
+`p=c+7 mod 19`.
+
+Use the same coarse depth-side labels as Cycles 543-544:
+
+```text
+A  = anchor
+M  = middle
+L1 = left depth 1
+LD = left depth deeper than 1
+R1 = right depth 1
+RD = right depth deeper than 1
+```
+
+### Attempted Proof Route
+
+Replay all 10,350 sampled fifth-pair children from the sweep artifact. For
+each child, recompute the exact two-row prefilter certificate, identify the
+`O01` center/partner relation by quotient-vector equality, and record the
+selected center position, selected partner position, and depth pair.
+
+Then compare the sampled depth-pair support with the broad ambiguous
+depth-pair classes from Cycle 544, especially the displayed broad witness
+`(center=1, L2, L4)`.
+
+### Result
+
+Finite sampled exclusion lemma:
+**Sampled O01 Deep-Avoidance Constraint.**
+
+The broad witness `(center=1, L2, L4)` is absent from the sampled `O01`
+frontier:
+
+```text
+witness_triple_count 0
+witness_depth (LD, LD)
+```
+
+More generally, none of the six broad ambiguous depth-pair classes outside
+the two known sampled singleton exception buckets occurs among sampled `O01`
+hits:
+
+```text
+(LD, LD): 0
+(LD, RD): 0
+(M, LD):  0
+(RD, LD): 0
+(RD, M):  0
+(RD, RD): 0
+```
+
+Equivalently, every sampled `O01` hit avoids deep-deep center/partner pairs,
+and if one endpoint is middle while the other is deep, only the two known
+singleton orientations `(LD, M)` and `(M, RD)` occur.
+
+### Exact Audit
+
+The replay used:
+
+```text
+data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
+```
+
+The audit returned:
+
+```text
+all_fifth 10350
+two_hits 10342
+o01 1594
+triple_count 26
+position_pair_count 26
+depth_pair_count 17
+o01_label_digest ea8e4657d233b712c068c6f9d4373e637551e6a33fe7ecae6774a14dadfc348d
+```
+
+The sampled depth-pair support was:
+
+```text
+(A, LD):  87
+(A, M):   212
+(A, RD):  515
+(L1, LD): 48
+(L1, M):  18
+(L1, RD): 6
+(LD, A):  231
+(LD, L1): 9
+(LD, M):  1
+(LD, R1): 2
+(M, A):   97
+(M, L1):  27
+(M, RD):  1
+(R1, M):  1
+(R1, RD): 7
+(RD, A):  276
+(RD, L1): 56
+```
+
+The finite audit digest was:
+
+```text
+3759042a508b572a69980a63424946131496254873b780fb7edf891a846b65c9
+```
+
+### Proof
+
+The audit deterministically reconstructs every fifth child from the recorded
+fourth-pair survivor states in the sampled 288-479 sweep artifact. For each
+child it recomputes the exact two-row certificate and identifies `O01` by
+quotient-vector equality with the rotated relation `-S_c + P_{c,c+7}`.
+
+The recomputed totals match the known sampled frontier counts:
+10,350 fifth children, 10,342 two-row prefilter hits, and 1,594 `O01` hits.
+The `O01` label digest also matches the prior digest, so the same sampled
+`O01` population is being audited.
+
+The explicit counter `witness_triple_count 0` proves the displayed broad
+Cycle 544 witness does not appear in the sampled frontier. The six displayed
+forbidden depth-pair counters are all zero, proving the finite sampled
+deep-avoidance statement.
+
+### Limitations
+
+- This is a finite statement about the recorded sampled windows 288-479.
+- It does not prove that arbitrary C19 boundary states avoid the six broad
+  ambiguous depth-pair classes.
+- It does not explain why the sampled sweep avoids those classes; it only
+  records the exact avoidance fact.
+- It does not prove that arbitrary C19 boundary states force an `O01`
+  certificate.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+Cycle 544 showed that the depth-pair rule fails badly in a broad abstract
+row-pair model. This cycle shows that the displayed broad failures are not
+sampled-frontier phenomena: the sampled `O01` frontier satisfies a strict
+deep-avoidance constraint.
+
+The next useful proof route is therefore not to repair the broad row-pair
+model directly, but to identify the parent-state or incidence rule that
+forces this deep-avoidance behavior in the sampled frontier.
+
+### Next Lead
+
+Search for a parent-state invariant behind deep avoidance. A concrete next
+subquestion is: in sampled `O01` records, does the fifth-pair child always
+place at least one of `c` and `c+7` at anchor, middle, or depth 1, except for
+the two singleton middle/deep orientations already isolated by Cycle 540?
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-545`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-545`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact sampled `O01` deep-avoidance audit over all 10,350 sampled
+  fifth-pair children: passed, with digest
+  `3759042a508b572a69980a63424946131496254873b780fb7edf891a846b65c9`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
