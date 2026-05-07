@@ -366,10 +366,15 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "python",
             "scripts/check_n10_vertex_circle_singletons.py",
             "--assert-expected",
-            "--spot-check-generic",
+            "--spot-check-row0",
+            "0",
+            "--spot-check-row0",
+            "63",
+            "--spot-check-row0",
+            "125",
         ),
         claim_scope=(
-            "Draft review-pending n=10 singleton-slice artifact spot-check; "
+            "Draft review-pending n=10 singleton-slice artifact selected spot-checks; "
             "not a source-of-truth finite-case result or official/global status update."
         ),
     ),

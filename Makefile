@@ -44,7 +44,7 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_base_apex_escape_budget.py --check --json
 
 verify-n10-review:
-	$(PYTHON) scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-generic
+	$(PYTHON) scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
 
 verify-artifacts: verify-n8 verify-kalmanson verify-n9-review verify-n10-review
 

@@ -179,7 +179,7 @@ vertex-circle filters. Treat this as a draft until an independent audit checks:
 - that partial vertex-circle pruning uses only already-fixed selected rows and
   selected-distance equalities;
 - that a second implementation or replayable terminal-conflict certificate
-  agrees with all 126 slices, not only the current row0 `0` spot-check.
+  agrees with all 126 slices, not only the current selected row0 spot-checks.
 
 Acceptance standard: a reviewer should either promote the artifact to the same
 review-pending finite-case status as n=9, or identify the exact implementation,

@@ -21,6 +21,32 @@ from erdos97.n10_vertex_circle_singletons import (
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACT = ROOT / "data" / "certificates" / "n10_vertex_circle_singleton_slices.json"
 pytestmark = [pytest.mark.artifact, pytest.mark.exhaustive]
+SELECTED_GENERIC_SPOT_CHECK_ROWS = {
+    0: {
+        "row0_witnesses": [1, 2, 3, 4],
+        "nodes": 9759,
+        "counts": {
+            "partial_self_edge": 5256,
+            "partial_strict_cycle": 6031,
+        },
+    },
+    63: {
+        "row0_witnesses": [2, 3, 5, 8],
+        "nodes": 36084,
+        "counts": {
+            "partial_self_edge": 30431,
+            "partial_strict_cycle": 41710,
+        },
+    },
+    125: {
+        "row0_witnesses": [6, 7, 8, 9],
+        "nodes": 11020,
+        "counts": {
+            "partial_self_edge": 9087,
+            "partial_strict_cycle": 7172,
+        },
+    },
+}
 
 
 def test_n10_singleton_artifact_expected_counts() -> None:
@@ -34,10 +60,17 @@ def test_n10_singleton_artifact_expected_counts() -> None:
     assert payload["counts"] == EXPECTED_COUNTS
 
 
-def test_n10_first_singleton_matches_generic_checker() -> None:
+def test_n10_selected_singletons_match_generic_checker() -> None:
     payload = json.loads(ARTIFACT.read_text(encoding="utf-8"))
 
-    assert_generic_spot_check(payload, row0_index=0)
+    for row0_index, expected in SELECTED_GENERIC_SPOT_CHECK_ROWS.items():
+        row = payload["rows"][row0_index]
+        assert row["row0_witnesses"] == expected["row0_witnesses"]
+        assert row["nodes"] == expected["nodes"]
+        assert row["full"] == 0
+        assert row["aborted"] is False
+        assert row["counts"] == expected["counts"]
+        assert_generic_spot_check(payload, row0_index=row0_index)
 
 
 def test_n10_artifact_records_explicit_row0_witnesses() -> None:

@@ -1073,13 +1073,14 @@ artifacts:
     path: data/certificates/n10_vertex_circle_singleton_slices.json
     kind: finite_case_draft_artifact
     generator: scripts/check_n10_vertex_circle_singletons.py
-    command: python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-generic
+    command: python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
     trust: MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING
     claim_scope: Review-pending draft n=10 selected-witness singleton-slice finite-case artifact only.
     json_top_level_type: object
     expected_json:
+      type: n10_vertex_circle_singleton_slices_v1
       n: 10
       row_size: 4
       trust: MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING
@@ -1088,6 +1089,8 @@ artifacts:
       total_full: 0
       total_nodes: 4142738
       aborted_any: false
+      counts.partial_self_edge: 4467592
+      counts.partial_strict_cycle: 5318250
     forbidden_claims:
       - n=10 is proved
       - official/global status update
