@@ -50,6 +50,7 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_base_apex_escape_budget.py --check --json
 	$(PYTHON) scripts/check_n9_selected_baseline_escape_budget_overlay.py --check --json
 	$(PYTHON) scripts/check_n9_d3_escape_slice.py --check --json
+	$(PYTHON) scripts/check_n9_base_apex_low_excess_escape_ladder.py --check --json
 
 verify-n10-review:
 	$(PYTHON) scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
