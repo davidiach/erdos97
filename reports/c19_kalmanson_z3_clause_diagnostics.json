@@ -36,6 +36,344 @@
     "vector_id_note": "Vector-id counts are deterministic for the current table builder, but individual ids are not a mathematical invariant."
   },
   "interpretation_note": "This report makes the stored C19_skew Z3 clause set easier to inspect. It does not add clauses, search new cyclic orders, or transfer the obstruction to any other selected-witness pattern.",
+  "inverse_vector_pair_support_summary": {
+    "clause_count_by_inverse_vector_pair_support_size": {
+      "2": 7780,
+      "4": 201
+    },
+    "clause_count_per_inverse_vector_pair_max": 86,
+    "clause_count_per_inverse_vector_pair_min": 4,
+    "kind_pattern_count_per_inverse_vector_pair_distribution": {
+      "2": 4,
+      "3": 14,
+      "4": 267
+    },
+    "note": "Vector ids are deterministic for this diagnostic generator, but they are implementation identifiers rather than mathematical invariants.",
+    "oriented_clause_support_size_distribution": {
+      "2,2": 7780,
+      "4,4": 201
+    },
+    "pair_support_size_mismatch_count": 0,
+    "top_inverse_vector_pairs_by_clause_count": [
+      {
+        "clause_count": 86,
+        "inverse_vector_pair": [
+          7001,
+          7037
+        ],
+        "kind_patterns": [
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K2_diag_gt_other"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K2_diag_gt_other"
+          }
+        ],
+        "support_size": 2
+      },
+      {
+        "clause_count": 81,
+        "inverse_vector_pair": [
+          5517,
+          5671
+        ],
+        "kind_patterns": [
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K2_diag_gt_other"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K2_diag_gt_other"
+          }
+        ],
+        "support_size": 2
+      },
+      {
+        "clause_count": 80,
+        "inverse_vector_pair": [
+          11130,
+          11484
+        ],
+        "kind_patterns": [
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K2_diag_gt_other"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K2_diag_gt_other"
+          }
+        ],
+        "support_size": 2
+      },
+      {
+        "clause_count": 78,
+        "inverse_vector_pair": [
+          9829,
+          10553
+        ],
+        "kind_patterns": [
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K2_diag_gt_other"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K2_diag_gt_other"
+          }
+        ],
+        "support_size": 2
+      },
+      {
+        "clause_count": 74,
+        "inverse_vector_pair": [
+          7663,
+          8620
+        ],
+        "kind_patterns": [
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K2_diag_gt_other"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K2_diag_gt_other"
+          }
+        ],
+        "support_size": 2
+      },
+      {
+        "clause_count": 73,
+        "inverse_vector_pair": [
+          6025,
+          6903
+        ],
+        "kind_patterns": [
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K2_diag_gt_other"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K2_diag_gt_other"
+          }
+        ],
+        "support_size": 2
+      },
+      {
+        "clause_count": 73,
+        "inverse_vector_pair": [
+          6706,
+          7526
+        ],
+        "kind_patterns": [
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K2_diag_gt_other"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K2_diag_gt_other"
+          }
+        ],
+        "support_size": 2
+      },
+      {
+        "clause_count": 66,
+        "inverse_vector_pair": [
+          11149,
+          11208
+        ],
+        "kind_patterns": [
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K2_diag_gt_other"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K2_diag_gt_other"
+          }
+        ],
+        "support_size": 2
+      },
+      {
+        "clause_count": 63,
+        "inverse_vector_pair": [
+          6206,
+          6295
+        ],
+        "kind_patterns": [
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K2_diag_gt_other"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K2_diag_gt_other"
+          }
+        ],
+        "support_size": 2
+      },
+      {
+        "clause_count": 63,
+        "inverse_vector_pair": [
+          10498,
+          11939
+        ],
+        "kind_patterns": [
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K2_diag_gt_other"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K2_diag_gt_other"
+          }
+        ],
+        "support_size": 2
+      },
+      {
+        "clause_count": 62,
+        "inverse_vector_pair": [
+          7595,
+          8040
+        ],
+        "kind_patterns": [
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K2_diag_gt_other"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K2_diag_gt_other"
+          }
+        ],
+        "support_size": 2
+      },
+      {
+        "clause_count": 61,
+        "inverse_vector_pair": [
+          6675,
+          7781
+        ],
+        "kind_patterns": [
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K1_diag_gt_sides",
+            "right_kind": "K2_diag_gt_other"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K1_diag_gt_sides"
+          },
+          {
+            "left_kind": "K2_diag_gt_other",
+            "right_kind": "K2_diag_gt_other"
+          }
+        ],
+        "support_size": 2
+      }
+    ],
+    "unique_pair_support_size_distribution": {
+      "2": 266,
+      "4": 19
+    },
+    "used_inverse_vector_pair_count": 285
+  },
   "label_frequencies": [
     {
       "clause_touch_count": 1530,
