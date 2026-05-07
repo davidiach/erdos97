@@ -50,9 +50,9 @@ partial strict cycles:     5,318,250
 ```
 
 The companion generic Python checker reproduces the repo's n=9 counts exactly
-and spot-checks row0 singleton `0` for the n=10 artifact. A full repo-native
-n=10 rerun is intentionally not part of the fast tier; it should be treated as
-artifact-tier work.
+and spot-checks selected row0 singletons `0`, `63`, and `125` for the n=10
+artifact. A full repo-native n=10 rerun is intentionally not part of the fast
+tier; it should be treated as artifact-tier work.
 
 ## Commands
 
@@ -62,15 +62,8 @@ Validate the imported artifact counts:
 python scripts/check_n10_vertex_circle_singletons.py --assert-expected
 ```
 
-Validate the artifact and rerun row0 singleton `0` with the generic checker:
-
-```bash
-python scripts/check_n10_vertex_circle_singletons.py \
-  --assert-expected \
-  --spot-check-generic
-```
-
-Validate selected singleton slices with the generic checker:
+Validate the artifact and rerun selected row0 singletons `0`, `63`, and `125`
+with the generic checker:
 
 ```bash
 python scripts/check_n10_vertex_circle_singletons.py \
@@ -78,6 +71,15 @@ python scripts/check_n10_vertex_circle_singletons.py \
   --spot-check-row0 0 \
   --spot-check-row0 63 \
   --spot-check-row0 125
+```
+
+The legacy shorthand below is still supported and checks only row0 singleton
+`0`:
+
+```bash
+python scripts/check_n10_vertex_circle_singletons.py \
+  --assert-expected \
+  --spot-check-generic
 ```
 
 Regenerate the checked-in artifact from the archived JSONL:
@@ -106,8 +108,8 @@ should check:
 - that the minimum-remaining-options row choice changes only search order;
 - that vertex-circle partial pruning uses only already-fixed selected rows and
   selected-distance equalities;
-- that the generic repo-native checker and the archived C++ checker agree on
-  more than the first n=10 singleton, or that a second independent verifier
+- that the generic repo-native checker and the archived C++ checker agree
+  beyond the selected n=10 singleton spot-checks, or that a second independent verifier
   replays all terminal conflicts;
 - that the artifact remains scoped to the selected-witness n=10 finite case
   and does not alter the global status.

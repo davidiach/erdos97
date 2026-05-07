@@ -133,13 +133,14 @@ Read first:
 Commands:
 
 ```bash
-python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-generic
+python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
 python -m pytest tests/test_n10_vertex_circle_singletons.py -q -m "artifact"
 ```
 
 Expected artifacts:
 
 - independent review notes for the generic checker and the imported singleton rows;
+- selected repo-native spot checks for row0 singletons `0`, `63`, and `125`;
 - optional second-implementation counts or a replayable terminal-conflict certificate.
 
 Acceptance criteria:
