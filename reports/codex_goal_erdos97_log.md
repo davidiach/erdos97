@@ -22947,6 +22947,179 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 563 - F11 Five-Row Nested-Chord Self-Edge Lemma
+
+### Mathematical Subquestion
+
+Can the `T06/F11` self-edge entry in the review-pending `n=9`
+vertex-circle template catalog be proved directly as a small local lemma,
+continuing the proof extraction for the single-family self-edge templates?
+
+### Definitions and Assumptions
+
+Work in a strictly convex polygon with cyclic order agreeing on the displayed
+labels with
+
+```text
+0,1,2,3,4,5,6,7,8.
+```
+
+For a center `i`, a selected row
+
+```text
+i: {a,b,c,d}
+```
+
+means the four selected witnesses lie on one circle centered at vertex `i`,
+so all four distances from `i` to those witnesses are equal. Use `d(u,v)` for
+ordinary Euclidean distance.
+
+The local rows are the five `F11` core rows recorded by the `T06` self-edge
+template:
+
+```text
+1: {0,3,5,8}
+5: {0,3,4,7}
+6: {2,5,7,8}
+7: {0,1,5,6}
+8: {2,3,6,7}
+```
+
+Use the vertex-circle nesting lemma as in Cycles 561 and 562: on a selected
+circle around a center in a strictly convex polygon, a properly containing
+witness interval determines a strictly longer chord.
+
+### Result Status
+
+Proved local lemma:
+**F11 Five-Row Nested-Chord Self-Edge Lemma**.
+
+Under the five displayed selected rows and cyclic-order hypothesis, no
+strictly convex realization exists.
+
+### Argument
+
+In row `1`, the selected witnesses occur in cyclic order
+
+```text
+3,5,8,0.
+```
+
+The witness interval from `3` to `8` properly contains the witness interval
+from `3` to `5`. Therefore the vertex-circle nesting lemma gives
+
+```text
+d(3,8) > d(3,5).                         (1)
+```
+
+The other selected rows identify the outer and inner chord distances:
+
+```text
+row 8: d(3,8) = d(6,8),
+row 6: d(6,8) = d(6,7),
+row 7: d(6,7) = d(5,7),
+row 5: d(5,7) = d(3,5).
+```
+
+Thus
+
+```text
+d(3,8) = d(3,5),
+```
+
+contradicting (1). Equivalently, the selected-distance quotient graph has a
+reflexive strict edge.
+
+### Exact Artifact Scope
+
+The rows and equality path are the `T06/F11` record in
+
+```text
+data/certificates/n9_vertex_circle_self_edge_template_packet.json
+data/certificates/n9_vertex_circle_template_lemma_catalog.json
+```
+
+The exact packet records that this template covers 18 labelled assignments
+
+```text
+A016, A018, A026, A027, A041, A046, A069, A094, A097,
+A112, A127, A139, A146, A158, A165, A168, A172, A179
+```
+
+all in family `F11`, with outer pair `[3,8]`, inner pair `[3,5]`, and path
+length `4`.
+
+### Limitations
+
+- This is a local row-core obstruction only.
+- It proves the `F11` core contradiction, not the full `n=9` exhaustive
+  checker.
+- It does not prove that arbitrary `n=9` selected-witness assignments must
+  contain this core.
+- It does not address remaining self-edge templates `T07` through `T09`.
+- It does not prove a general theorem for Erdos Problem #97 and does not give
+  a counterexample.
+
+### Effect on the Attack
+
+Cycles 561 and 562 handled `T04/F13` and `T05/F10`; this cycle handles
+`T06/F11`. The same mechanism persists after the equality path length grows
+from three to four: a single selected row supplies a strict nested-chord
+inequality, and selected-distance equalities chain the outer chord back to
+the inner chord.
+
+This strengthens the proof-mining route for the self-edge catalog. At least
+three consecutive single-family templates now have direct human-readable
+nested-chord self-edge proofs.
+
+### Next Lead
+
+Extract the analogous direct proof for `T07/F06`. The useful question is
+whether the five-row `T07` core still has one visible strict nested-chord
+inequality plus an equality path, or whether the extra conflict shapes in the
+template require a different local obstruction.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-563`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-563`.
+- The branch was based on merged `origin/main` at
+  `dd86119e3e45a8ec24417316f16a3c35291dbc94`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_self_edge_template_packet.py --check
+  --assert-expected --json`: passed; the packet reports `T06: 18`
+  assignments and zero validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+  --assert-expected --json`: passed; the catalog reports 12 templates covering
+  184 assignments and zero validation errors.
+- Repository validation after recording the cycle:
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_text_clean.py`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_status_consistency.py`: passed.
+  - `git diff --check`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_artifact_provenance.py`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+    passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+    passed, `625 passed, 90 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-07 - Cycle 562 - F10 Long Nested-Chord Self-Edge Lemma
 
 ### Mathematical Subquestion
