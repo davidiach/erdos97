@@ -91824,3 +91824,163 @@ evidence unless a canonical selection rule is proved.
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 - Cycle 549 - Target-Aware 22-Family Vocabulary
+
+### Subquestion
+
+In the sampled `C19_skew` prefix-window catalog-prefilter artifact, can the
+normalized target-aware inverse-pair families from Cycle 548 be classified as
+a small exact vocabulary, or do the six forbidden depth classes require a
+large unstructured set of local two-row explanations?
+
+### Definitions and Setup
+
+This cycle uses the finite artifact
+`data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json`.
+The audit reconstructs the 10,350 fifth-pair children recorded by that
+artifact. For every child and every center `c`, let `p = c + 7 mod 19`.
+
+The coarse depth label of a point is:
+
+- `A` if the point is the anchor `0`;
+- `M` if it is still in the middle set;
+- `L1` or `R1` if it is the first placed point on the corresponding side;
+- `LD` or `RD` if it is deeper on the corresponding side.
+
+The forbidden depth classes are
+`(LD,LD)`, `(LD,RD)`, `(M,LD)`, `(RD,LD)`, `(RD,M)`, and `(RD,RD)`.
+
+For each reconstructed child, the audit computes all forced Kalmanson rows
+using `prefix_kalmanson_rows`, quotients them by distance class, and keeps
+every inverse pair `v,-v` of exact quotient vectors. For a placement
+`(child,c,p)`, the target-aware family set consists of inverse-pair vectors
+whose support touches either the radius class `R_c` or the pair class
+`X_{c,p}`. Every family is normalized by the cyclic rotation sending `c` to
+`0`.
+
+### Result Status
+
+Promising finite reduction:
+**Target-Aware 22-Family Vocabulary Reduction**.
+
+### Exact Audit Result
+
+The complete sampled audit found exactly 22 normalized target-aware families
+over the six forbidden depth classes:
+
+```text
+distinct_families 22
+category_counts
+  mixed-two-term: 7664
+  off-root-pair-comparison: 2951
+  partner-radius-to-root-partner-pair: 3129
+  root-pair-comparison: 39093
+  root-radius-comparison: 38917
+placement_family_count_hist {0: 27255, 1: 18313, 2: 11915, 3: 7017, 4: 3634, 5: 1397, 6: 708, 7: 247, 8: 96, 9: 26, 10: 6}
+placement_category_count_hist {0: 27255, 1: 25561, 2: 13672, 3: 2981, 4: 1090, 5: 55}
+digest 9dacdc5f3ae8151c10d4db5bfbfaddc898323b5caa0b88a0c10927ee57f5cf86
+```
+
+The 22 families, with occurrence counts among forbidden placements, are:
+
+```text
+ 9585  root-radius-comparison               R0 < R3
+ 8720  root-radius-comparison               R0 < R16
+ 6731  root-pair-comparison                 R0 < X0_7
+ 6552  root-radius-comparison               R0 < R14
+ 6233  root-pair-comparison                 R0 < X0_18
+ 6230  root-radius-comparison               R0 < R5
+ 5647  root-pair-comparison                 R0 < X0_4
+ 4953  root-pair-comparison                 R0 < X0_1
+ 4905  root-pair-comparison                 R0 < X0_13
+ 4143  root-pair-comparison                 R0 < X0_17
+ 3129  partner-radius-to-root-partner-pair  R7 < X0_7
+ 3084  root-pair-comparison                 R0 < X0_12
+ 3079  mixed-two-term                       R0 + R6 < R11 + X0_6
+ 2951  mixed-two-term                       R0 + X8_14 < R14 + R8
+ 2951  off-root-pair-comparison             R0 < X5_11
+ 2278  root-radius-comparison               R0 < R11
+ 2106  root-pair-comparison                 R0 < X0_2
+ 1964  root-radius-comparison               R0 < R8
+ 1903  root-radius-comparison               R0 < R10
+ 1685  root-radius-comparison               R0 < R9
+ 1634  mixed-two-term                       R0 + R13 < R5 + X0_13
+ 1291  root-pair-comparison                 R0 < X0_15
+```
+
+Thus the target-aware local inverse-pair geometry is not as dispersed as the
+deterministic first-certificate vocabulary from Cycle 547. It collapses to a
+finite sampled vocabulary with five simple categories and only three mixed
+two-term templates.
+
+### Argument
+
+The audit is an exact finite enumeration over the recorded sampled artifact.
+It uses the same row construction as the existing certificate scripts and
+does not use numerical optimization. The classification is syntactic after
+normalization:
+
+- `root-radius-comparison`: one-term comparisons `R0 < Rk`;
+- `root-pair-comparison`: one-term comparisons `R0 < X0_k`;
+- `partner-radius-to-root-partner-pair`: the one-term comparison
+  `R7 < X0_7`;
+- `off-root-pair-comparison`: the one-term comparison `R0 < X5_11`;
+- `mixed-two-term`: two-term comparisons on both sides.
+
+The digest above is computed from the sorted family counts, category counts,
+and placement histograms. This makes the finite statement independently
+checkable by rerunning the same reconstruction and classification.
+
+### Limitations
+
+- This is only a sampled finite reduction over windows 288-479.
+- The reduction classifies target-aware two-row inverse pairs, not all Farkas
+  supports or all possible catalog closures.
+- `27255` forbidden placements have no target-aware inverse-pair family under
+  this filter, so the vocabulary does not cover every forbidden placement.
+- The category names are descriptive. They are not yet proved invariant under
+  a broader mathematical normal form.
+- No general theorem for Erdos Problem #97 and no exact counterexample are
+  claimed.
+
+### Effect on the Attack
+
+Cycle 548 showed that deterministic `O01` avoidance was a certificate-selection
+artifact. Cycle 549 shows that the replacement object, the complete
+target-aware inverse-pair set, is still small enough to study by hand.
+
+The main live route is now to explain the 22-family vocabulary structurally:
+either prove that the one-term radius and pair comparisons are forced by
+cyclic-order/Kalmanson geometry, or isolate exactly why the three mixed
+two-term templates appear.
+
+### Next Lead
+
+Split the forbidden placements with zero target-aware inverse-pair families
+from those with one or more families. The next narrow subquestion is whether
+the zero-family placements are exactly the cases needing catalog supports or
+larger Farkas certificates, or whether some have simple non-target local
+explanations.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-549`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-549`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact target-aware vocabulary audit over all 10,350 sampled fifth
+  children and all 196,650 center/partner placements: passed, with digest
+  `9dacdc5f3ae8151c10d4db5bfbfaddc898323b5caa0b88a0c10927ee57f5cf86`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
