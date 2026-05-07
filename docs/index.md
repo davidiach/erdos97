@@ -115,7 +115,8 @@ put detailed reconciliation in the canonical synthesis.
   focused review-pending T02 multi-family self-edge local lemma packet for
   proof mining.
 - [`n10-vertex-circle-singleton-slices.md`](n10-vertex-circle-singleton-slices.md):
-  review-pending `n=10` singleton-slice finite-case draft and audit target.
+  review-pending `n=10` singleton-slice finite-case draft, including the
+  secondary first-five replay cross-check.
 - [`octagon-trap.html`](octagon-trap.html): interactive visualization of the
   isosceles-triangle count and octagon equality trap.
 - [`reproduction-log.md`](reproduction-log.md): fast, artifact, and exhaustive

@@ -1224,3 +1224,37 @@ artifacts:
       - official/global status update
       - source-of-truth strongest result
       - general proof of Erdos Problem #97
+
+  - id: n10_secondary_singleton_replay
+    path: data/certificates/2026-05-05/n10_secondary.json
+    kind: finite_case_draft_artifact
+    generator: data/runs/2026-05-05/n10_secondary.py
+    command: python data/runs/2026-05-05/n10_secondary.py
+    checker: scripts/check_n10_secondary_singleton_replay.py
+    check_command: python scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING_SECONDARY
+    claim_scope: Secondary review-pending draft n=10 selected-witness singleton replay for the first five row0 choices only.
+    json_top_level_type: object
+    expected_json:
+      type: n10_secondary_check_v1
+      trust: MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING_SECONDARY
+      n: 10
+      row_size: 4
+      pair_cap: 2
+      max_indegree: 6
+      triple_cap: 1
+      row0_choices_total: 126
+      row0_choices_covered: 5
+      total_full: 0
+      total_nodes: 114144
+      total_counts.partial_self_edge: 106827
+      total_counts.partial_strict_cycle: 120823
+    forbidden_claims:
+      - n=10 is proved
+      - first five row0 choices cover the n=10 search
+      - independent review of the n=10 checker is complete
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97

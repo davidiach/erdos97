@@ -54,6 +54,27 @@ and spot-checks selected row0 singletons `0`, `63`, and `125` for the n=10
 artifact. A full repo-native n=10 rerun is intentionally not part of the fast
 tier; it should be treated as artifact-tier work.
 
+## Secondary first-five replay
+
+The archived secondary artifact
+`data/certificates/2026-05-05/n10_secondary.json` replays the first five row0
+singletons under the same pair/crossing/indegree/vertex-circle filters plus an
+extra triple-intersection necessary filter. It is a cross-check of the prefix
+only, not a replacement for the 126-slice artifact and not a promotion of the
+n=10 draft.
+
+```text
+row0 choices covered:      5 / 126
+full assignments:          0
+nodes visited:             114,144
+partial self-edge prunes:  106,827
+partial strict cycles:     120,823
+```
+
+The checked replay verifies that rows `0..4` match the primary singleton
+artifact exactly for witness lists, node counts, full counts, and prune counts,
+and that every listed `full_survivors` record is empty.
+
 ## Commands
 
 Validate the imported artifact counts:
@@ -80,6 +101,16 @@ The legacy shorthand below is still supported and checks only row0 singleton
 python scripts/check_n10_vertex_circle_singletons.py \
   --assert-expected \
   --spot-check-generic
+```
+
+Validate the secondary first-five replay against the primary singleton
+artifact:
+
+```bash
+python scripts/check_n10_secondary_singleton_replay.py \
+  --check \
+  --assert-expected \
+  --json
 ```
 
 Regenerate the checked-in artifact from the archived JSONL:
@@ -111,5 +142,7 @@ should check:
 - that the generic repo-native checker and the archived C++ checker agree
   beyond the selected n=10 singleton spot-checks, or that a second independent verifier
   replays all terminal conflicts;
+- that the secondary first-five replay is treated only as prefix agreement
+  under an extra necessary filter, not as all-slice coverage;
 - that the artifact remains scoped to the selected-witness n=10 finite case
   and does not alter the global status.
