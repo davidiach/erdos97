@@ -92593,3 +92593,218 @@ radius-comparison shift conjecture.
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 - Cycle 553 - Three Radius-Comparison Shift Transport
+
+### Subquestion
+
+Cycle 552 showed that the zero target-aware family `R10 < R7` always exposes
+the Cycle 549 target-aware vocabulary after shifting the center by either
+compared radius index, `10` or `7`. Does the same two-endpoint shift transport
+hold for the next three most frequent off-target radius comparisons:
+`R1 < R4`, `R15 < R18`, and `R10 < R13`?
+
+### Definitions and Setup
+
+This cycle uses the same sampled finite artifact as Cycles 549-552:
+
+```text
+data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
+```
+
+For a reconstructed fifth-pair child and center `c`, set `p=c+7 mod 19`.
+The forbidden depth classes are
+`(LD,LD)`, `(LD,RD)`, `(M,LD)`, `(RD,LD)`, `(RD,M)`, and `(RD,RD)`.
+
+A source placement for a normalized family `Ra < Rb` is a forbidden
+zero target-aware placement `(child,c,c+7)` whose off-target inverse-pair
+family set contains `Ra < Rb`. The two endpoint shifts are `a` and `b`: the
+audit tests centers `c+a` and `c+b`, each with partner shifted by the same
+offset plus `7`.
+
+Transport succeeds at a shifted center if the shifted placement has a
+target-aware inverse-pair family lying in the 22-family vocabulary isolated in
+Cycle 549. The shifted placement is not required to remain in one of the six
+forbidden depth classes.
+
+### Result Status
+
+Promising finite reduction:
+**Three Radius-Comparison Two-Endpoint Shift Transport**.
+
+In the sampled finite scope, all three tested radius-comparison families
+transport under both of their endpoint shifts.
+
+### Exact Audit Result
+
+The audit first reproduced the prior sampled totals:
+
+```text
+children 10350
+forbidden 70614
+zero_target 27255
+target_vocab 22
+target_hist {0: 27255, 1: 18313, 2: 11915, 3: 7017, 4: 3634, 5: 1397, 6: 708, 7: 247, 8: 96, 9: 26, 10: 6}
+```
+
+For `R1 < R4`:
+
+```text
+source_count 4036
+endpoint shifts 1, 4
+shift 1 target-aware successes: 4036
+shift 4 target-aware successes: 4036
+shift 1 forbidden-and-target-aware successes: 2248
+shift 4 forbidden-and-target-aware successes: 926
+named_fail_count 0
+any_fail_count 0
+forbidden_any_fail_count 7
+```
+
+The first obstruction to the stronger forbidden-shift version is:
+
+```text
+label c19_window_fifth_child_0447_0110_0060
+source center 10, partner 17, depth (RD, LD)
+boundary_left [1, 3, 11, 17, 14]
+boundary_right [2, 6, 10, 4, 15]
+remaining [5, 7, 8, 9, 12, 13, 16, 18]
+good_offsets [1, 2, 4, 6, 7, 9, 17]
+forbidden_good_offsets []
+```
+
+For `R15 < R18`:
+
+```text
+source_count 3372
+endpoint shifts 15, 18
+shift 15 target-aware successes: 3372
+shift 18 target-aware successes: 3372
+shift 15 forbidden-and-target-aware successes: 1669
+shift 18 forbidden-and-target-aware successes: 1642
+named_fail_count 0
+any_fail_count 0
+forbidden_any_fail_count 11
+```
+
+The first obstruction to the stronger forbidden-shift version is:
+
+```text
+label c19_window_fifth_child_0368_0025_0037
+source center 6, partner 13, depth (RD, LD)
+boundary_left [1, 3, 4, 8, 13]
+boundary_right [2, 6, 10, 11, 7]
+remaining [5, 9, 12, 14, 15, 16, 17, 18]
+good_offsets [2, 13, 15, 18]
+forbidden_good_offsets []
+```
+
+For `R10 < R13`:
+
+```text
+source_count 3334
+endpoint shifts 10, 13
+shift 10 target-aware successes: 3334
+shift 13 target-aware successes: 3334
+shift 10 forbidden-and-target-aware successes: 1630
+shift 13 forbidden-and-target-aware successes: 1344
+named_fail_count 0
+any_fail_count 0
+forbidden_any_fail_count 15
+```
+
+The first obstruction to the stronger forbidden-shift version is:
+
+```text
+label c19_window_fifth_child_0368_0025_0037
+source center 11, partner 18, depth (RD, M)
+boundary_left [1, 3, 4, 8, 13]
+boundary_right [2, 6, 10, 11, 7]
+remaining [5, 9, 12, 14, 15, 16, 17, 18]
+good_offsets [8, 10, 13, 16]
+forbidden_good_offsets []
+```
+
+The complete transport-audit digest was:
+
+```text
+3b6e7736e83bf2101443175c08e9065f5451ed131c265b231d03512dae86bbe5
+```
+
+### Argument
+
+The audit reconstructs each sampled fifth-pair child from the recorded
+fourth-pair survivors and computes all exact two-row inverse-vector pairs
+among forced Kalmanson rows after quotienting by selected-distance classes. It
+then reproduces the Cycle 549 target-aware vocabulary and the Cycle 551
+zero-target source side before testing the three selected off-target families.
+
+For each source placement carrying `Ra < Rb`, the shifted centers `c+a` and
+`c+b` both have at least one inverse-pair vector touching the shifted target
+classes. Every shifted target-aware family observed under these endpoint
+shifts lies in the 22-family vocabulary from Cycle 549.
+
+Together with Cycle 552, the four largest off-target radius/radius families
+now satisfy the same finite sampled transport pattern:
+
+```text
+R10 < R7   shifts 10, 7
+R1 < R4    shifts 1, 4
+R15 < R18  shifts 15, 18
+R10 < R13  shifts 10, 13
+```
+
+### Limitations
+
+- This is a finite sampled audit over windows 288-479 only.
+- The result covers four high-frequency off-target radius/radius families
+  after including Cycle 552, not all 259 off-target families from Cycle 551.
+- The shifted placement need not remain in a forbidden depth class; the
+  recorded obstructions rule out that stronger route for all three families.
+- The audit does not yet prove a human-readable order-theoretic shift lemma.
+- It does not prove or refute an all-order `C19_skew` obstruction.
+- It does not prove a general theorem for Erdos Problem #97 and does not give
+  a counterexample.
+
+### Effect on the Attack
+
+This strengthens the transport route: the Cycle 552 phenomenon is not isolated
+to `R10 < R7`. The apparent finite principle is now:
+
+```text
+normalized off-target radius comparison Ra < Rb
+    => shifted center c+a or c+b exposes a target-aware inverse pair
+```
+
+The remaining proof-facing question is to state exact order/quotient
+hypotheses under which this implication follows without enumeration.
+
+### Next Lead
+
+Test the transport rule against the remaining frequent one-term off-target
+families, including `R7 < X6_7`, `R12 < R15`, `R12 < R7`, and `R2 < R7`.
+The mixed radius/pair cases should be separated from radius/radius cases, since
+the natural endpoint-shift rule is less clear when one side is a pair class.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-553`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-553`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact three-family transport audit over all 10,350 sampled fifth
+  children, all 70,614 forbidden placements, and the three source families
+  above: passed, with digest
+  `3b6e7736e83bf2101443175c08e9065f5451ed131c265b231d03512dae86bbe5`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
