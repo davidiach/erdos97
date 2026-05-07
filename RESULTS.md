@@ -167,6 +167,16 @@ UNSAT. This is an exact obstruction for this fixed abstract pattern only, not a
 proof of Erdos #97. See `docs/kalmanson-two-order-search.md` and
 `scripts/check_kalmanson_two_order_z3.py`.
 
+The sampled C19 prefix-window artifacts also record a bounded
+prefix/fourth/fifth refinement chain for the first 480 deterministic
+three-boundary-prefix states. The latest catalog-prefilter replay applies the
+three checked unit supports in `reports/c19_prefilter_catalog_unit_supports.json`
+after the two-row lookup, closing the eight recorded two-row misses and
+reducing ordinary fifth-pair Farkas fallbacks over windows 288-479 from eight
+to zero. This is exact for the sampled branches only and does not add an
+all-order claim beyond the Z3 certificate above. See
+`docs/c19-kalmanson-prefix-window-catalog-prefilter-sweep.md`.
+
 The C13 Kalmanson pilot kills the registered non-natural
 `C13_sidon_1_2_4_10` order `[5,0,10,8,9,7,4,6,2,11,12,3,1]`. The certificate is
 a positive integer sum of 2 strict Kalmanson distance inequalities whose total

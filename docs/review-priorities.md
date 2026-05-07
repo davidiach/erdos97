@@ -205,6 +205,32 @@ Acceptance standard: a reviewer should either accept the certificate as an
 exact all-order obstruction for fixed abstract `C19_skew`, or identify a
 specific encoding or verifier gap.
 
+## Priority 7b - audit the C19 sampled-prefix catalog prefilter
+
+Target:
+`data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json`,
+`reports/c19_prefilter_catalog_unit_supports.json`, and
+`scripts/sweep_c19_kalmanson_prefix_windows_catalog_prefilter.py`.
+
+The catalog-prefilter sweep is exact for sampled C19 prefix windows 288-479
+and should remain separate from the all-order Z3 certificate above. It applies
+the two-row prefilter first, then three cataloged unit supports for the eight
+recorded two-row misses, leaving zero ordinary fifth-pair Farkas fallbacks in
+that sampled range.
+
+Review checklist:
+
+- the three catalog supports sum to zero after selected-distance quotienting;
+- each catalog support row is forced by the recorded fallback child state;
+- the sweep records the same 192 sampled prefixes and 10,350 fifth-pair
+  children as the two-row-only compact sweep;
+- catalog support use is limited to children missed by the two-row lookup;
+- the claim remains scoped to sampled prefix indices 288-479.
+
+Acceptance standard: a reviewer should either accept the catalog prefilter as
+an exact sampled-window replay optimization, or identify a specific mismatch
+between the catalog support artifact and the sweep accounting.
+
 ## Priority 8 - extend the two-certificate search beyond retired sparse leads
 
 The C13 Sidon pattern and C19 skew pattern are now both killed across all cyclic
