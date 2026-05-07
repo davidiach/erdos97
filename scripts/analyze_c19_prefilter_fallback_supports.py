@@ -86,9 +86,9 @@ def _certificate_digest(lines: Sequence[str]) -> str:
 
 def _relative_path(path: Path) -> str:
     try:
-        return str(path.resolve().relative_to(ROOT))
+        return path.resolve().relative_to(ROOT).as_posix()
     except ValueError:
-        return str(path)
+        return path.as_posix()
 
 
 def _fallback_states(source: Mapping[str, Any]) -> Iterator[dict[str, Any]]:

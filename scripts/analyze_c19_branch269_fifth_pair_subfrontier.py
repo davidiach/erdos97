@@ -270,9 +270,9 @@ def main() -> int:
 
     frontier = json.loads(args.frontier.read_text(encoding="utf-8"))
     try:
-        frontier_artifact = str(args.frontier.resolve().relative_to(ROOT))
+        frontier_artifact = args.frontier.resolve().relative_to(ROOT).as_posix()
     except ValueError:
-        frontier_artifact = str(args.frontier)
+        frontier_artifact = args.frontier.as_posix()
     data = analyze_subfrontier(frontier, frontier_artifact=frontier_artifact)
     if args.assert_expected:
         assert_expected(data)
