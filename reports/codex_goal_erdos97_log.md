@@ -85928,3 +85928,495 @@ same catalog unit support after selected-distance quotienting.
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 04:58 EEST - Cycle 513: Catalog Block Balance Obstruction
+
+### Mathematical Subquestion
+
+In each catalog unit support from Cycle 512, is every new child-only support
+row balanced by an identifiable parent-forced row with the opposite quotient
+vector inside the same catalog support?
+
+### Definitions and Assumptions
+
+Use the same eight catalog-facing C19 fifth-pair fallback transitions as
+Cycle 512. For a catalog support in a child state, split the support rows into
+two blocks:
+
+```text
+P = rows already forced by the fourth-pair parent state,
+N = rows new in the fifth-pair child state.
+```
+
+All row vectors are taken after quotienting by the selected-distance
+equalities of `C19_skew`. A **row-pair balance** is a pair
+`(p,n) in P x N` with quotient vectors satisfying `v_p + v_n = 0`.
+
+### Attempted Proof Route
+
+Try to strengthen Cycle 512's support-level view into a row-level transition
+rule: each new row in the catalog circuit should be paired with an already
+parent-forced opposite row from the same circuit.
+
+### Result
+
+Failed lemma and finite obstruction:
+**Catalog Block Balance Obstruction.**
+
+The exact audit found `11` new child-only catalog support row instances across
+the eight fallback records, and none has an opposite parent-forced row inside
+the same catalog support:
+
+```text
+new row has parent-forced opposite: 0
+new row has no parent-forced opposite: 11
+```
+
+Nevertheless, for every catalog hit the two blocks cancel as blocks:
+
+```text
+sum(P) + sum(N) = 0.
+```
+
+The per-record split was:
+
+```text
+c19_window_fifth_child_0430_0081_0011, unit_support_002:
+  new rows: 3, row-pair matches: 0/3, |supp(sum N)|=6, |supp(sum P)|=6
+
+c19_window_fifth_child_0434_0070_0021, unit_support_000:
+  new rows: 1, row-pair matches: 0/1, |supp(sum N)|=2, |supp(sum P)|=2
+
+c19_window_fifth_child_0435_0078_0012, unit_support_000:
+  new rows: 1, row-pair matches: 0/1, |supp(sum N)|=4, |supp(sum P)|=4
+
+c19_window_fifth_child_0435_0078_0085, unit_support_000:
+  new rows: 1, row-pair matches: 0/1, |supp(sum N)|=4, |supp(sum P)|=4
+
+c19_window_fifth_child_0435_0083_0022, unit_support_000:
+  new rows: 1, row-pair matches: 0/1, |supp(sum N)|=4, |supp(sum P)|=4
+
+c19_window_fifth_child_0436_0082_0022, unit_support_000:
+  new rows: 1, row-pair matches: 0/1, |supp(sum N)|=2, |supp(sum P)|=2
+
+c19_window_fifth_child_0436_0083_0022, unit_support_000:
+  new rows: 1, row-pair matches: 0/1, |supp(sum N)|=4, |supp(sum P)|=4
+
+c19_window_fifth_child_0456_0059_0041, unit_support_001:
+  new rows: 2, row-pair matches: 0/2, |supp(sum N)|=2, |supp(sum P)|=2
+```
+
+The exact audit digest was:
+
+```text
+25a692d1183fa3265c9a8f4be79fc9f3ccdd948a91b8a1bfdaa0e85c898e4572
+```
+
+### Limitations
+
+- This is an exact finite audit of the eight catalog-facing fallback
+  transitions only.
+- The block cancellation is conditional on the already-recorded catalog
+  supports; it does not prove those supports appear in other C19 states.
+- The result refutes the row-pair balance subclaim but does not rule out a
+  coarser transition invariant.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The catalog supports are genuinely block-level circuits. A proof route that
+tries to propagate supports through parent-to-child transitions one row at a
+time is too strong even in the recorded catalog hits. The useful object is the
+signed quotient sum of the whole new block, which is exactly the negative of
+the parent-forced block.
+
+### Next Lead
+
+Classify the block sums themselves. A narrow next question is whether the
+new-block quotient sums for `unit_support_000`, `unit_support_001`, and
+`unit_support_002` fall into a small number of signed support shapes after
+forgetting literal class names and retaining only selected class versus
+nonselected class types.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact parent/new block-balance audit over the eight catalog fallback
+  records: passed, with digest
+  `25a692d1183fa3265c9a8f4be79fc9f3ccdd948a91b8a1bfdaa0e85c898e4572`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:58 EEST - Cycle 514: Catalog New-Block Shape Compression
+
+### Mathematical Subquestion
+
+After Cycle 513 shows that catalog supports balance only at block level, do
+the new child-only block sums fall into a small number of signed support
+shapes if literal quotient class names are forgotten and only selected
+classes `R` versus nonselected classes `X` are retained?
+
+### Definitions and Assumptions
+
+For each catalog-facing fallback transition, split the catalog support into
+the parent-forced block `P` and the new child-only block `N` as in Cycle 513.
+
+For the quotient vector `sum(N)`, replace every nonzero quotient class by its
+type:
+
+```text
+R = a selected-distance quotient class,
+X = a nonselected quotient class,
+```
+
+and record only signed type counts such as `+1R:1 -1R:1`.
+
+### Attempted Proof Route
+
+Search for a compact block-level invariant. If many literal row/circuit
+patterns collapse to a few signed `R/X` shapes, the catalog supports may be
+amenable to a human-readable transition lemma at the level of block sums.
+
+### Result
+
+Promising finite compression:
+**Catalog New-Block Shape Compression.**
+
+The eight catalog hits collapse to three signed new-block shapes:
+
+```text
+3 hits: +1R:1 -1R:1
+4 hits: +1R:1 +1X:1 -1R:2
+1 hit:  +1R:3 -1R:2 -1X:1
+```
+
+By catalog support:
+
+```text
+unit_support_000:
+  +1R:1 -1R:1         appears 2 times
+  +1R:1 +1X:1 -1R:2   appears 4 times
+
+unit_support_001:
+  +1R:1 -1R:1         appears 1 time
+
+unit_support_002:
+  +1R:3 -1R:2 -1X:1   appears 1 time
+```
+
+The per-record list was:
+
+```text
+c19_window_fifth_child_0430_0081_0011  unit_support_002  new=3 parent=3  +1R:3 -1R:2 -1X:1
+c19_window_fifth_child_0434_0070_0021  unit_support_000  new=1 parent=2  +1R:1 -1R:1
+c19_window_fifth_child_0435_0078_0012  unit_support_000  new=1 parent=2  +1R:1 +1X:1 -1R:2
+c19_window_fifth_child_0435_0078_0085  unit_support_000  new=1 parent=2  +1R:1 +1X:1 -1R:2
+c19_window_fifth_child_0435_0083_0022  unit_support_000  new=1 parent=2  +1R:1 +1X:1 -1R:2
+c19_window_fifth_child_0436_0082_0022  unit_support_000  new=1 parent=2  +1R:1 -1R:1
+c19_window_fifth_child_0436_0083_0022  unit_support_000  new=1 parent=2  +1R:1 +1X:1 -1R:2
+c19_window_fifth_child_0456_0059_0041  unit_support_001  new=2 parent=1  +1R:1 -1R:1
+```
+
+The exact audit digest was:
+
+```text
+721d88a1eec0d18c6a66c6dece2e0b8991015b521596d2e3abe95117e855faca
+```
+
+### Limitations
+
+- This is an exact finite compression over eight recorded catalog fallback
+  transitions only.
+- The shapes forget literal quotient class names and row identities, so they
+  are necessary descriptors of the observed blocks, not certificates by
+  themselves.
+- The compression does not show that other C19 transitions must have one of
+  these shapes.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The row-level route failed in Cycle 513, but the block-level route did not
+explode: the catalog new blocks have only three coarse signed `R/X` shapes.
+This suggests a possible finite-to-structural bridge: classify when a
+boundary event creates one of these signed block types and when the parent
+boundary already forces the complementary block.
+
+### Next Lead
+
+Refine the three shapes by restoring just enough structure to distinguish
+`unit_support_000`'s two cases: keep the positions of the changed fifth-pair
+labels relative to the signed `R/X` classes, but still forget absolute label
+names.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact new-block signed `R/X` shape audit over the eight catalog
+  fallback records: passed, with digest
+  `721d88a1eec0d18c6a66c6dece2e0b8991015b521596d2e3abe95117e855faca`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 04:58 EEST - Cycle 515: Changed-Label Touch Refinement Split
+
+### Mathematical Subquestion
+
+Does the three-shape compression from Cycle 514 become more explanatory if
+each nonzero quotient class in the new block is also labeled by whether it
+touches the newly added fifth-pair left label, right label, both, or neither?
+
+### Definitions and Assumptions
+
+For each catalog-facing fallback transition, let `L` be the fifth added left
+boundary label and `R` be the fifth added right reflection-side label.
+
+For each nonzero quotient class in `sum(N)`, where `N` is the new child-only
+block from Cycle 513, record:
+
+```text
+R or X  = selected-distance class or nonselected class,
+0      = no representative pair in the quotient class touches L or R,
+L      = some representative pair touches L only,
+R      = some representative pair touches R only,
+LR     = representative pairs touch both L and R.
+```
+
+The resulting signed token shape has entries such as `+1RL` or `-1XR`.
+
+### Attempted Proof Route
+
+The hope was that the two `unit_support_000` coarse cases from Cycle 514
+would become a small order/position rule when the changed fifth-pair labels
+were retained but absolute label names were still forgotten.
+
+### Result
+
+Failed refinement:
+**Changed-Label Touch Refinement Split.**
+
+The eight catalog hits split into five touch-sensitive shapes:
+
+```text
+1 hit: +1R0:2 +1RL:1 -1RL:1 -1RR:1 -1X0:1
+2 hits: +1RR:1 -1RLR:1
+3 hits: +1RL:1 +1XR:1 -1RL:1 -1RR:1
+1 hit: +1R0:1 +1XR:1 -1R0:1 -1RR:1
+1 hit: +1R0:1 -1RL:1
+```
+
+By catalog support:
+
+```text
+unit_support_000:
+  +1RR:1 -1RLR:1                       appears 2 times
+  +1RL:1 +1XR:1 -1RL:1 -1RR:1          appears 3 times
+  +1R0:1 +1XR:1 -1R0:1 -1RR:1          appears 1 time
+
+unit_support_001:
+  +1R0:1 -1RL:1                         appears 1 time
+
+unit_support_002:
+  +1R0:2 +1RL:1 -1RL:1 -1RR:1 -1X0:1   appears 1 time
+```
+
+The per-record list was:
+
+```text
+c19_window_fifth_child_0430_0081_0011  unit_support_002  L=7  R=9   +1R0:2 +1RL:1 -1RL:1 -1RR:1 -1X0:1
+c19_window_fifth_child_0434_0070_0021  unit_support_000  L=7  R=12  +1RR:1 -1RLR:1
+c19_window_fifth_child_0435_0078_0012  unit_support_000  L=7  R=11  +1RL:1 +1XR:1 -1RL:1 -1RR:1
+c19_window_fifth_child_0435_0078_0085  unit_support_000  L=18 R=11  +1R0:1 +1XR:1 -1R0:1 -1RR:1
+c19_window_fifth_child_0435_0083_0022  unit_support_000  L=7  R=11  +1RL:1 +1XR:1 -1RL:1 -1RR:1
+c19_window_fifth_child_0436_0082_0022  unit_support_000  L=7  R=12  +1RR:1 -1RLR:1
+c19_window_fifth_child_0436_0083_0022  unit_support_000  L=7  R=11  +1RL:1 +1XR:1 -1RL:1 -1RR:1
+c19_window_fifth_child_0456_0059_0041  unit_support_001  L=13 R=15  +1R0:1 -1RL:1
+```
+
+The exact audit digest was:
+
+```text
+a0c85a0dc1c33c5161b439725ef534739959d80aae5f2055b843b086fa647929
+```
+
+### Limitations
+
+- This is an exact finite audit over the eight catalog fallback transitions
+  only.
+- The touch rule uses whether any representative pair in a quotient class
+  touches `L` or `R`; it is a coarse quotient-class descriptor, not a full row
+  identity.
+- The split does not prove that no other useful refinement exists.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+Adding changed-label touch information is not the right simplification:
+it refines the three coarse shapes into five cases and splits
+`unit_support_000` into three subtypes. The next structural invariant should
+probably use the actual boundary order positions of the support labels, not
+only whether the quotient classes touch the newly added labels.
+
+### Next Lead
+
+For `unit_support_000`, compare the two recurring cases
+`L=7,R=12` and `L=7,R=11` directly in boundary-order language. The next narrow
+question is whether the choice of right added label determines which one of
+the two `unit_support_000` rows is new and which two are parent-forced.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact changed-label touch-shape audit over the eight catalog
+  fallback records: passed, with digest
+  `a0c85a0dc1c33c5161b439725ef534739959d80aae5f2055b843b086fa647929`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 05:05 EEST - Cycle 516: Unit Support 000 Right-Added Split Rule
+
+### Mathematical Subquestion
+
+For the six recorded catalog hits using `unit_support_000`, is the unique
+new child-only support row determined by the fifth-pair right
+reflection-side label?
+
+### Definitions and Assumptions
+
+Use the recorded C19 fifth-pair fallback children from the sampled
+288-479 prefilter sweep and the catalog replay in
+`reports/c19_prefilter_catalog_unit_supports.json`.
+
+For each `unit_support_000` hit, reconstruct the fourth-pair parent boundary
+state and the fifth-pair child boundary state. A support row is
+**parent-forced** if the row occurs in the parent state's prefix-forced
+Kalmanson rows. A support row is **new child-only** if it occurs in the child
+support but not in the parent row set.
+
+### Attempted Proof Route
+
+Cycle 515 suggested that changed-label touch types were too coarse. The next
+more concrete route is to keep the actual fifth-added right reflection-side
+label and test whether it selects which of the two non-common
+`unit_support_000` rows becomes new.
+
+### Result
+
+Finite exact rule:
+**Unit Support 000 Right-Added Split Rule.**
+
+In all six recorded `unit_support_000` catalog hits, exactly one support row
+is new child-only and exactly two support rows are already parent-forced.
+The new row is determined by the fifth-added right reflection-side label:
+
+```text
+records 6
+by_right
+11 4 K2_diag_gt_other(1,10,15,11)
+12 2 K2_diag_gt_other(3,15,12,6)
+mismatches []
+```
+
+The per-record split was:
+
+```text
+c19_window_fifth_child_0434_0070_0021 L=7 R=12 new=K2_diag_gt_other(3,15,12,6) parent=K1_diag_gt_sides(0,3,10,11)|K2_diag_gt_other(1,10,15,11)
+c19_window_fifth_child_0435_0078_0012 L=7 R=11 new=K2_diag_gt_other(1,10,15,11) parent=K1_diag_gt_sides(0,3,10,11)|K2_diag_gt_other(3,15,12,6)
+c19_window_fifth_child_0435_0078_0085 L=18 R=11 new=K2_diag_gt_other(1,10,15,11) parent=K1_diag_gt_sides(0,3,10,11)|K2_diag_gt_other(3,15,12,6)
+c19_window_fifth_child_0435_0083_0022 L=7 R=11 new=K2_diag_gt_other(1,10,15,11) parent=K1_diag_gt_sides(0,3,10,11)|K2_diag_gt_other(3,15,12,6)
+c19_window_fifth_child_0436_0082_0022 L=7 R=12 new=K2_diag_gt_other(3,15,12,6) parent=K1_diag_gt_sides(0,3,10,11)|K2_diag_gt_other(1,10,15,11)
+c19_window_fifth_child_0436_0083_0022 L=7 R=11 new=K2_diag_gt_other(1,10,15,11) parent=K1_diag_gt_sides(0,3,10,11)|K2_diag_gt_other(3,15,12,6)
+```
+
+The exact audit digest, computed from the displayed count and per-record
+lines, was:
+
+```text
+651b61eda3376a74500d058906eaf37e04223c3b4c8e9ceb2e96527528573235
+```
+
+### Limitations
+
+- This is an exact finite audit over only the six recorded
+  `unit_support_000` catalog hits.
+- It does not prove that every possible `unit_support_000` occurrence obeys
+  the same right-added split rule.
+- It does not classify the two other catalog supports.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The failed touch-shape refinement from Cycle 515 can be replaced, at least
+for `unit_support_000`, by a sharper boundary-label rule: the common row
+`K1_diag_gt_sides(0,3,10,11)` stays parent-forced, and the two
+`K2_diag_gt_other` rows trade new/parent-forced roles according to whether
+the fifth-added right reflection-side label is `11` or `12`.
+
+This suggests a possible human-readable transition lemma for
+`unit_support_000`: prove from the boundary order why the row containing the
+new right-side boundary label is the unique new row, while the complementary
+two-row block is already present in the parent state.
+
+### Next Lead
+
+Try to prove the `unit_support_000` split rule directly from the
+prefix-forced Kalmanson row conditions. If that proof works, test whether
+analogous boundary-label rules exist for `unit_support_001` and
+`unit_support_002`.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact reconstruction audit over the six recorded
+  `unit_support_000` catalog hits: passed, with digest
+  `651b61eda3376a74500d058906eaf37e04223c3b4c8e9ceb2e96527528573235`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
