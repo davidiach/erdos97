@@ -50,6 +50,7 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_base_apex_escape_budget.py --check --json
 	$(PYTHON) scripts/check_n9_selected_baseline_escape_budget_overlay.py --check --json
 	$(PYTHON) scripts/check_n9_d3_escape_slice.py --check --json
+	$(PYTHON) scripts/check_n9_base_apex_d3_escape_frontier_packet.py --check --json
 	$(PYTHON) scripts/check_n9_base_apex_low_excess_escape_ladder.py --check --json
 	$(PYTHON) scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json
 

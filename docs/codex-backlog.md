@@ -79,6 +79,7 @@ Commands:
 python scripts/explore_n9_base_apex.py
 python scripts/check_n9_base_apex_low_excess_ledgers.py --check --json
 python scripts/check_n9_base_apex_escape_budget.py --check --json
+python scripts/check_n9_base_apex_d3_escape_frontier_packet.py --check --json
 python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 ```
@@ -99,6 +100,10 @@ Expected artifacts:
   `data/certificates/n9_base_apex_d3_escape_slice.json` that couple the
   `E=6, D=3, r=3` profile/escape bookkeeping under common dihedral symmetry
   without claiming the slice is impossible or realizable;
+- optional D=3 representative packets such as
+  `data/certificates/n9_base_apex_d3_escape_frontier_packet.json` that expose
+  compact profile-multiset by escape-class targets without certifying
+  realizability or impossibility;
 - optional low-excess profile/escape crosswalks such as
   `data/certificates/n9_base_apex_low_excess_escape_crosswalk.json` that keep
   ledger-to-escape bookkeeping separate from proof, counterexample, and
