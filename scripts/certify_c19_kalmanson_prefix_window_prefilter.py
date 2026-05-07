@@ -765,6 +765,8 @@ def assert_expected_416_447(data: Mapping[str, object]) -> None:
         supports["fifth_pair_farkas_fallback"],
         "window 416-447 fallback histogram",
     )
+    # Farkas support sizes can vary by solver environment; the stable
+    # invariants here are the fallback count and the exact fallback labels.
     if sum(int(count) for count in fallback_supports.values()) != int(
         accounting["fifth_pair_farkas_fallback_certified_count"]
     ):
@@ -856,6 +858,8 @@ def assert_expected_448_479(data: Mapping[str, object]) -> None:
         supports["fifth_pair_farkas_fallback"],
         "window 448-479 fallback histogram",
     )
+    # Farkas support sizes can vary by solver environment; the stable
+    # invariants here are the fallback count and the exact fallback labels.
     if sum(int(count) for count in fallback_supports.values()) != int(
         accounting["fifth_pair_farkas_fallback_certified_count"]
     ):
