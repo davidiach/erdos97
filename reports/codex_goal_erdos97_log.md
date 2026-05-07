@@ -86420,3 +86420,521 @@ analogous boundary-label rules exist for `unit_support_001` and
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 06:15 EEST - Cycle 517: U0 Boundary Row-Forcing Lemma
+
+### Mathematical Subquestion
+
+Can the finite `unit_support_000` split from Cycle 516 be proved directly
+from the prefix-forced Kalmanson row predicate, instead of remaining only an
+observed six-record pattern?
+
+### Definitions and Assumptions
+
+Use the C19 prefix-forced order model from
+`scripts/pilot_c19_kalmanson_prefix_branches.py`. For a boundary state with
+anchor `0`, left boundary tuple `L`, right reflection-side tuple `R`, and
+middle labels `M`, a quadrilateral row with labels `(a,b,c,d)` is forced
+exactly when:
+
+1. at most one of the four labels lies in `M`; and
+2. sorting the four labels by the prefix-order key
+
+```text
+0 < L in tuple order < M < reversed(R)
+```
+
+gives `(a,b,c,d)`.
+
+For `unit_support_000`, write the three rows as:
+
+```text
+A = K1_diag_gt_sides(0,3,10,11)
+B = K2_diag_gt_other(1,10,15,11)
+C = K2_diag_gt_other(3,15,12,6)
+```
+
+Consider a parent boundary state satisfying the following `U0` boundary
+hypotheses:
+
+- labels `1,3,10` occur on the left boundary in that order;
+- label `6` occurs on the right boundary;
+- label `15` is still a middle label;
+- exactly one of labels `11,12` occurs on the right boundary and the other is
+  still a middle label;
+- if `12` occurs on the right boundary, then it is after `6` in the right
+  tuple, so it is before `6` in the cyclic prefix order;
+- the child state is obtained by appending the missing label from `{11,12}`
+  to the right boundary.
+
+### Attempted Proof Route
+
+Prove the row statuses symbolically from the prefix-order key. Then audit the
+six recorded `unit_support_000` catalog hits only to verify that their parent
+states satisfy these hypotheses.
+
+### Result
+
+Proved conditional lemma plus finite audit:
+**U0 Boundary Row-Forcing Lemma.**
+
+Under the `U0` boundary hypotheses above:
+
+- Row `A` is forced in the parent and remains forced in the child.
+- If `11` is already on the parent right boundary, then row `B` is forced in
+  the parent and remains forced in the child, while row `C` is not forced in
+  the parent and becomes forced exactly after appending `12` on the right.
+- If `12` is already on the parent right boundary and `11` is still a middle
+  label, then row `C` is forced in the parent and remains forced in the child,
+  while row `B` is not forced in the parent and becomes forced exactly after
+  appending `11` on the right.
+
+Thus, in this conditional boundary regime, the unique new
+`unit_support_000` row is selected by the newly appended right boundary label:
+
+```text
+new right 11 -> new row B = K2_diag_gt_other(1,10,15,11)
+new right 12 -> new row C = K2_diag_gt_other(3,15,12,6)
+```
+
+### Proof
+
+For `A`, labels `0,3,10` are anchor/left labels and occur in the required
+order. Label `11` is either a middle label or a right-boundary label, so it
+comes after `10` in the prefix order. Hence the forced order of
+`{0,3,10,11}` is `(0,3,10,11)` in both parent and child states, with at most
+one middle label.
+
+For `B`, labels `1,10` occur on the left boundary in the required order and
+label `15` is a middle label. If `11` is already on the right boundary, then
+the forced order of `{1,10,15,11}` is `(1,10,15,11)`, so `B` is parent-forced.
+If `11` is still a middle label, then both `15` and `11` are middle labels,
+so the row is not prefix-forced in the parent. After appending `11` to the
+right boundary, only `15` remains middle and the forced order becomes
+`(1,10,15,11)`.
+
+For `C`, label `3` is on the left boundary and `15` is a middle label. If
+`12` is already on the right boundary after `6` in the right tuple, then
+`12` precedes `6` in the reversed-right cyclic prefix order, so the forced
+order of `{3,15,12,6}` is `(3,15,12,6)`. If `12` is still a middle label,
+then both `15` and `12` are middle labels, so `C` is not parent-forced. After
+appending `12` to the right boundary, the appended `12` precedes all earlier
+right-boundary labels in the reversed-right order, in particular it precedes
+`6`, and the forced order becomes `(3,15,12,6)`.
+
+This proves the conditional row-forcing lemma.
+
+### Exact Audit
+
+A one-off reconstruction of the six recorded `unit_support_000` catalog hits
+verified the hypotheses and the row statuses:
+
+```text
+c19_window_fifth_child_0434_0070_0021 add=(7,12) parent_left=(1, 3, 10, 13) parent_right=(2, 6, 11, 9) child_right=(2, 6, 11, 9, 12) A:P=1 C=1 B:P=1 C=1 C:P=0 C=1 A:Pq=(0, 3, 10, 11) Cq=(0, 3, 10, 11) B:Pq=(1, 10, 15, 11) Cq=(1, 10, 15, 11) C:Pq=None Cq=(3, 15, 12, 6)
+c19_window_fifth_child_0435_0078_0012 add=(7,11) parent_left=(1, 3, 10, 14) parent_right=(2, 6, 12, 5) child_right=(2, 6, 12, 5, 11) A:P=1 C=1 B:P=0 C=1 C:P=1 C=1 A:Pq=(0, 3, 10, 11) Cq=(0, 3, 10, 11) B:Pq=None Cq=(1, 10, 15, 11) C:Pq=(3, 15, 12, 6) Cq=(3, 15, 12, 6)
+c19_window_fifth_child_0435_0078_0085 add=(18,11) parent_left=(1, 3, 10, 14) parent_right=(2, 6, 12, 5) child_right=(2, 6, 12, 5, 11) A:P=1 C=1 B:P=0 C=1 C:P=1 C=1 A:Pq=(0, 3, 10, 11) Cq=(0, 3, 10, 11) B:Pq=None Cq=(1, 10, 15, 11) C:Pq=(3, 15, 12, 6) Cq=(3, 15, 12, 6)
+c19_window_fifth_child_0435_0083_0022 add=(7,11) parent_left=(1, 3, 10, 14) parent_right=(2, 6, 12, 13) child_right=(2, 6, 12, 13, 11) A:P=1 C=1 B:P=0 C=1 C:P=1 C=1 A:Pq=(0, 3, 10, 11) Cq=(0, 3, 10, 11) B:Pq=None Cq=(1, 10, 15, 11) C:Pq=(3, 15, 12, 6) Cq=(3, 15, 12, 6)
+c19_window_fifth_child_0436_0082_0022 add=(7,12) parent_left=(1, 3, 10, 14) parent_right=(2, 6, 13, 11) child_right=(2, 6, 13, 11, 12) A:P=1 C=1 B:P=1 C=1 C:P=0 C=1 A:Pq=(0, 3, 10, 11) Cq=(0, 3, 10, 11) B:Pq=(1, 10, 15, 11) Cq=(1, 10, 15, 11) C:Pq=None Cq=(3, 15, 12, 6)
+c19_window_fifth_child_0436_0083_0022 add=(7,11) parent_left=(1, 3, 10, 14) parent_right=(2, 6, 13, 12) child_right=(2, 6, 13, 12, 11) A:P=1 C=1 B:P=0 C=1 C:P=1 C=1 A:Pq=(0, 3, 10, 11) Cq=(0, 3, 10, 11) B:Pq=None Cq=(1, 10, 15, 11) C:Pq=(3, 15, 12, 6) Cq=(3, 15, 12, 6)
+```
+
+The audit digest was:
+
+```text
+386e371295774d356a696ebcaa32fda039a7c56c7b81d7708fd945484b1a3001
+```
+
+### Limitations
+
+- The lemma is conditional on the `U0` boundary hypotheses. It does not prove
+  that every future `unit_support_000` occurrence satisfies those hypotheses.
+- The finite audit verifies the hypotheses only for the six recorded
+  `unit_support_000` catalog hits.
+- The lemma explains row availability, not why a branch must enter this
+  boundary regime.
+- It does not classify `unit_support_001` or `unit_support_002`.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+Cycle 516's finite split is no longer just a table lookup: it has a
+human-readable local reason in the prefix-order model. This is a small
+finite-to-structural bridge. It suggests that catalog supports may be
+explainable by a small collection of boundary-row forcing lemmas, one per
+catalog support type, rather than by endpoint-inverse repair.
+
+### Next Lead
+
+Attempt the same row-forcing analysis for `unit_support_001` and
+`unit_support_002`. The narrow question is whether their parent/new row
+splits also follow from a compact boundary-membership predicate, or whether
+they require a genuinely different mechanism.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact reconstruction audit over the six recorded
+  `unit_support_000` catalog hits: passed, with digest
+  `386e371295774d356a696ebcaa32fda039a7c56c7b81d7708fd945484b1a3001`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 06:17 EEST - Cycle 518: U1/U2 Boundary Row-Forcing Lemmas
+
+### Mathematical Subquestion
+
+Do the remaining catalog supports, `unit_support_001` and
+`unit_support_002`, admit compact row-forcing explanations analogous to the
+`U0` Boundary Row-Forcing Lemma from Cycle 517?
+
+### Definitions and Assumptions
+
+Use the same prefix-forced Kalmanson row predicate as Cycle 517:
+
+```text
+0 < left boundary in tuple order < middle labels < reversed(right boundary).
+```
+
+A row is forced by a boundary state exactly when its four labels have at most
+one middle label and sort to the row's displayed quadrilateral order under
+this key.
+
+For `unit_support_001`, write:
+
+```text
+U1A = K1_diag_gt_sides(0,16,5,2)
+U1B = K1_diag_gt_sides(1,9,15,6)
+U1C = K2_diag_gt_other(16,15,5,6)
+```
+
+For `unit_support_002`, write:
+
+```text
+U2A = K2_diag_gt_other(0,1,10,8)
+U2B = K1_diag_gt_sides(0,14,8,11)
+U2C = K1_diag_gt_sides(1,7,12,2)
+U2D = K2_diag_gt_other(1,3,7,8)
+U2E = K1_diag_gt_sides(3,12,11,2)
+U2F = K2_diag_gt_other(3,10,7,13)
+```
+
+### Attempted Proof Route
+
+As in Cycle 517, separate the proof into:
+
+1. a symbolic row-forcing lemma conditional on a compact boundary predicate;
+2. a finite audit that the recorded catalog hit satisfies that predicate.
+
+### Result
+
+Proved conditional lemmas plus finite audit:
+**U1 Right-Append Row-Forcing Lemma** and
+**U2 Left-Append Row-Forcing Lemma**.
+
+For `unit_support_001`, assume a parent boundary state has:
+
+- label `1` on the left boundary;
+- labels `5,6,2` on the right side with `5` before both `6` and `2` in the
+  cyclic prefix order;
+- labels `9,15,16` in the middle;
+- the child state appends `15` to the right boundary.
+
+Then `U1A` is parent-forced and remains child-forced, while `U1B` and `U1C`
+are not parent-forced and become child-forced exactly after appending `15` to
+the right boundary.
+
+For `unit_support_002`, assume a parent boundary state has:
+
+- labels `1,3,10,14` on the left boundary in that order;
+- labels `2,11` on the right side with `11` before `2` in the cyclic prefix
+  order;
+- labels `7,8,12,13` in the middle;
+- the child state appends `7` to the left boundary.
+
+Then `U2A`, `U2B`, and `U2E` are parent-forced and remain child-forced, while
+`U2C`, `U2D`, and `U2F` are not parent-forced and become child-forced exactly
+after appending `7` to the left boundary.
+
+### Proof
+
+For `U1A`, the parent and child order of `{0,16,5,2}` is
+`(0,16,5,2)`: anchor `0` comes first, `16` is the unique middle label, and
+the assumed right-side order puts `5` before `2`. Thus `U1A` is forced in
+both states.
+
+For `U1B`, the parent has both `9` and `15` in the middle, so the row is not
+forced. After appending `15` to the right boundary, only `9` remains middle,
+and the order becomes `(1,9,15,6)`: left label `1`, then middle label `9`,
+then appended-right label `15`, then the old right label `6`.
+
+For `U1C`, the parent has both `16` and `15` in the middle, so the row is not
+forced. After appending `15` to the right boundary, only `16` remains middle,
+and the order is `(16,15,5,6)` because an appended right label is first in
+the reversed-right block and the assumed old right-side order puts `5`
+before `6`.
+
+For `U2A`, labels `0,1,10` are anchor/left labels in the required order and
+`8` is the unique middle label, so `(0,1,10,8)` is forced in both states.
+
+For `U2B`, labels `0,14` are anchor/left labels, `8` is the unique middle
+label, and `11` is on the right, so `(0,14,8,11)` is forced in both states.
+
+For `U2E`, label `3` is left, `12` is the unique middle label, and the
+right-side order puts `11` before `2`, so `(3,12,11,2)` is forced in both
+states.
+
+For `U2C`, `U2D`, and `U2F`, the parent has two middle labels in each row:
+`{7,12}`, `{7,8}`, and `{7,13}`, respectively. Thus none is parent-forced.
+After appending `7` to the left boundary, each row has only one middle label,
+and the left-boundary order gives:
+
+```text
+U2C: (1,7,12,2)
+U2D: (1,3,7,8)
+U2F: (3,10,7,13)
+```
+
+so all three become child-forced.
+
+### Exact Audit
+
+The one-off reconstruction over the recorded non-`U0` catalog hits produced:
+
+```text
+c19_window_fifth_child_0430_0081_0011 unit_support_002 add=(7,9) parent_left=(1, 3, 10, 14) parent_right=(2, 6, 5, 11) child_left=(1, 3, 10, 14, 7) child_right=(2, 6, 5, 11, 9)
+  R0:K2_diag_gt_other(0,1,10,8) P=1 C=1 Pm=(8,) Cm=(8,) Pq=(0, 1, 10, 8) Cq=(0, 1, 10, 8)
+  R1:K1_diag_gt_sides(0,14,8,11) P=1 C=1 Pm=(8,) Cm=(8,) Pq=(0, 14, 8, 11) Cq=(0, 14, 8, 11)
+  R2:K1_diag_gt_sides(1,7,12,2) P=0 C=1 Pm=(7, 12) Cm=(12,) Pq=None Cq=(1, 7, 12, 2)
+  R3:K2_diag_gt_other(1,3,7,8) P=0 C=1 Pm=(7, 8) Cm=(8,) Pq=None Cq=(1, 3, 7, 8)
+  R4:K1_diag_gt_sides(3,12,11,2) P=1 C=1 Pm=(12,) Cm=(12,) Pq=(3, 12, 11, 2) Cq=(3, 12, 11, 2)
+  R5:K2_diag_gt_other(3,10,7,13) P=0 C=1 Pm=(7, 13) Cm=(13,) Pq=None Cq=(3, 10, 7, 13)
+c19_window_fifth_child_0456_0059_0041 unit_support_001 add=(13,15) parent_left=(1, 3, 12, 11) parent_right=(2, 6, 5, 10) child_left=(1, 3, 12, 11, 13) child_right=(2, 6, 5, 10, 15)
+  R0:K1_diag_gt_sides(0,16,5,2) P=1 C=1 Pm=(16,) Cm=(16,) Pq=(0, 16, 5, 2) Cq=(0, 16, 5, 2)
+  R1:K1_diag_gt_sides(1,9,15,6) P=0 C=1 Pm=(9, 15) Cm=(9,) Pq=None Cq=(1, 9, 15, 6)
+  R2:K2_diag_gt_other(16,15,5,6) P=0 C=1 Pm=(16, 15) Cm=(16,) Pq=None Cq=(16, 15, 5, 6)
+```
+
+The audit digest was:
+
+```text
+2e2fa880847e8fe27d5b53e22cd0c69e195de74620af1425be65e536998a660b
+```
+
+### Limitations
+
+- The two lemmas are conditional on their displayed boundary predicates.
+- Each finite audit covers only one recorded catalog hit: one `U1` hit and
+  one `U2` hit.
+- These lemmas explain row availability inside already-observed catalog
+  transitions; they do not prove that arbitrary C19 transitions must enter
+  one of the three catalog boundary regimes.
+- They do not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+Together with Cycle 517, all three catalog unit supports now have local
+row-forcing explanations. The recorded catalog closures are therefore not
+mysterious Farkas accidents at the row-availability level: each is explained
+by a small boundary append event that turns a fixed set of two-middle rows
+into one-middle prefix-forced rows while preserving the complementary
+parent-forced rows.
+
+The remaining proof gap is higher-level: show that unresolved branches can
+always be driven into one of these boundary regimes, or find an exact branch
+where the catalog regimes fail and a different obstruction is necessary.
+
+### Next Lead
+
+Try to abstract the three catalog row-forcing lemmas into a single
+append-event template. The next narrow question is whether a row becomes new
+precisely when the appended boundary label replaces one of two middle labels
+in a catalog row, while the other support rows are already one-middle rows in
+the parent.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The worktree was already dirty before this cycle; this cycle changes only
+  `reports/codex_goal_erdos97_log.md`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact reconstruction audit over the recorded `unit_support_001` and
+  `unit_support_002` catalog hits: passed, with digest
+  `2e2fa880847e8fe27d5b53e22cd0c69e195de74620af1425be65e536998a660b`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 06:22 EEST - Cycle 519: Catalog Append-Event Row Template
+
+### Mathematical Subquestion
+
+Do the three catalog row-forcing lemmas from Cycles 517 and 518 share one
+local mechanism that can be stated independently of the names
+`unit_support_000`, `unit_support_001`, and `unit_support_002`?
+
+### Definitions and Assumptions
+
+Use the same boundary-state order model. A state has anchor `0`, left
+boundary tuple `L`, right reflection-side tuple `R`, and unordered middle set
+`M`. A row with labels `(a,b,c,d)` is forced exactly when at most one of the
+four labels lies in `M` and sorting its labels by
+
+```text
+0 < L in tuple order < M < reversed(R)
+```
+
+returns `(a,b,c,d)`.
+
+An **append event** moves one label `x` from `M` to the end of either `L` or
+`R`, producing a child state. Appending to `L` places `x` after old left
+labels. Appending to `R` places `x` before old right labels in the cyclic
+prefix order, because the right block is read as `reversed(R)`.
+
+### Attempted Proof Route
+
+Abstract away the catalog names and classify each support row only by:
+
+- whether it is forced in the parent and child;
+- how many of its labels are middle labels before and after the append;
+- whether the appended label is one of the row labels.
+
+Then audit all recorded catalog support rows against the resulting template.
+
+### Result
+
+Proved lemma plus finite audit:
+**Catalog Append-Event Row Template.**
+
+For a fixed displayed quadrilateral row and one append event:
+
+- If the row is parent-forced and the append preserves its sorted displayed
+  order, then it remains child-forced.
+- If the row is not parent-forced solely because it has exactly two middle
+  labels, one of those middle labels is the appended label `x`, and after the
+  append the four labels sort to the displayed order with exactly one middle
+  label left, then the row becomes child-forced.
+
+In the recorded catalog supports, every new support row is of the second
+type: it changes from two middle labels in the parent to one middle label in
+the child, and it touches the appended boundary label. Every stable support
+row is of the first type: it is already forced in the parent and remains
+forced in the child.
+
+### Proof
+
+The first assertion is just the row-forcing criterion applied twice. A
+parent-forced row has at most one middle label and already sorts to its
+displayed row order. If the append does not change that sorted order and does
+not introduce a second middle label, the same criterion gives child-forcing.
+
+For the second assertion, the parent has exactly two row labels in `M`, so
+the row is not forced by definition. After appending one of those two middle
+labels to a boundary, the row has exactly one middle label. If the resulting
+prefix-order sort is the displayed order, the row satisfies both defining
+conditions for child-forcing.
+
+The placement convention explains the left/right asymmetry in the catalog
+hits: a left append inserts the new boundary label after old left labels,
+while a right append inserts it before old right labels in cyclic prefix
+order.
+
+### Exact Audit
+
+A one-off classification over all 27 recorded catalog support-row instances
+found no violations of the template. The class counts were:
+
+```text
+unit_support_000 new:pM2->cM1:touchR 6
+unit_support_000 stable:pM0->cM0:touch0 2
+unit_support_000 stable:pM1->cM0:touchR 4
+unit_support_000 stable:pM1->cM1:touch0 6
+unit_support_001 new:pM2->cM1:touchR 2
+unit_support_001 stable:pM1->cM1:touch0 1
+unit_support_002 new:pM2->cM1:touchL 3
+unit_support_002 stable:pM1->cM1:touch0 3
+violations 0
+```
+
+Thus all 11 new rows are two-middle-to-one-middle rows touching the appended
+boundary label: six right-appended `U0` rows, two right-appended `U1` rows,
+and three left-appended `U2` rows. All 16 stable rows are parent-forced and
+remain child-forced.
+
+The audit digest was:
+
+```text
+1daed86a5fdfbb695988a083d2a89574ff05f893d79fe1e9296db10d06233766
+```
+
+### Limitations
+
+- The abstract template is a row-forcing mechanism, not a theorem that future
+  C19 branches must admit catalog append events.
+- The finite audit covers only the 27 support-row instances from the recorded
+  catalog hits.
+- The proof still leaves the higher-level selection problem open: why should
+  an unresolved branch enter one of these boundary regimes?
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+Cycles 517-519 now replace several row-level catalog observations with one
+reusable append-event lemma. The catalog supports are explained by a single
+local transition pattern: stable rows are already forced, and new rows become
+available exactly when the appended boundary label removes one of two middle
+labels from the row.
+
+This narrows the remaining proof search. The next structural target is not
+the Farkas algebra inside the catalog supports, but the boundary dynamics
+that would force an unresolved branch into a catalog append event.
+
+### Next Lead
+
+Try to formulate a **Catalog Entry Forcing Conjecture**: every sampled
+two-row-prefilter miss either reaches one of the catalog append-event
+boundary predicates or exhibits a small exact obstruction explaining why no
+catalog append event is available. The first exact test should be the
+remaining fallback label `c19_window_fifth_child_0430_0081_0011`, which is
+already the lone non-catalog closure in the sampled catalog-prefilter sweep.
+
+### Traceability
+
+- Current branch during the cycle:
+  `codex/goal-erdos97-proof-or-counterexample`.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- The research checkout was already dirty before this cycle; this PR worktree
+  records only the log update in `reports/codex_goal_erdos97_log.md`.
+- No general proof, counterexample, status promotion, or official/global
+  status update is made.
+
+### Validation
+
+- One-off exact classification audit over the 27 recorded catalog support-row
+  instances: passed, with digest
+  `1daed86a5fdfbb695988a083d2a89574ff05f893d79fe1e9296db10d06233766`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
