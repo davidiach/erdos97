@@ -89639,3 +89639,1361 @@ bridges again determine the admissible target/opposite rows.
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 08:35 EEST - Cycle 537: Position-Admissible O01 Split
+
+### Mathematical Subquestion
+
+Does the anchor-admissible `O01` row determinacy from Cycle 536 extend to
+all selected-center positions observed in the sampled frontier if
+"admissible" means realizable by some five-pair prefix boundary with the
+center in that position?
+
+### Definitions and Assumptions
+
+For a selected center `c`, let:
+
+```text
+T_c = -S_c + P_{c,c+7}.
+```
+
+A row is a target row if its quotient vector is `T_c` and an opposite row if
+its quotient vector is `-T_c`. Its signed auxiliary bridge is obtained by
+deleting `c` and `c+7` from the ordered quadrilateral.
+
+For an observed center position such as `L3`, `R5`, or `M`, a row is
+**position-admissible** if there exists a five-pair prefix boundary state
+with `c` in that position and whose `forced_order_quad` order is exactly that
+row. This is an existential row-level model, broader than the sampled
+frontier.
+
+### Attempted Proof Route
+
+First recompute the observed `(center, position)` pairs from the sampled
+frontier. For each observed pair, enumerate all ordered Kalmanson rows with
+quotient vector `T_c` or `-T_c` that are position-admissible. Then test
+whether signed auxiliary row pairs determine the acyclic transitive
+reduction.
+
+### Result
+
+Mixed result / obstruction:
+**Position-Admissible O01 Split.**
+
+The position-admissible analogue succeeds for some observed positions but
+fails for others. In particular, the anchor-like one-reduction behavior holds
+for:
+
+```text
+(0, anchor), (1, L1), (2, R1),
+(12, L5), (12, M), (12, R3), (12, R4), (12, R5)
+```
+
+but fails for:
+
+```text
+(10, L3),
+(13, L3), (13, L4), (13, L5), (13, M), (13, R4), (13, R5),
+(14, L5), (17, M)
+```
+
+Thus signed auxiliary bridges plus center position do not give a general
+position-admissible row theorem in this broad existential model.
+
+### Exact Audit
+
+The observed center-position set was:
+
+```text
+[(0, 'anchor'), (1, 'L1'), (2, 'R1'), (10, 'L3'),
+ (12, 'L5'), (12, 'M'), (12, 'R3'), (12, 'R4'), (12, 'R5'),
+ (13, 'L3'), (13, 'L4'), (13, 'L5'), (13, 'M'), (13, 'R4'),
+ (13, 'R5'), (14, 'L5'), (17, 'M')]
+```
+
+The audit summary columns are:
+
+```text
+center pos rows target opposite pairs cyc acyc buckets multi maxred maxhits
+```
+
+and the rows were:
+
+```text
+(0, 'anchor', 12, 6, 6, 36, 12, 24, 24, 0, 1, 1)
+(1, 'L1', 12, 6, 6, 36, 12, 24, 24, 0, 1, 1)
+(2, 'R1', 10, 5, 5, 25, 9, 16, 16, 0, 1, 1)
+(10, 'L3', 28, 14, 14, 196, 132, 64, 16, 16, 5, 5)
+(12, 'L5', 12, 6, 6, 36, 12, 24, 24, 0, 1, 1)
+(12, 'M', 12, 6, 6, 36, 12, 24, 24, 0, 1, 1)
+(12, 'R3', 12, 6, 6, 36, 12, 24, 24, 0, 1, 1)
+(12, 'R4', 12, 6, 6, 36, 12, 24, 24, 0, 1, 1)
+(12, 'R5', 12, 6, 6, 36, 12, 24, 24, 0, 1, 1)
+(13, 'L3', 36, 18, 18, 324, 204, 120, 24, 24, 5, 5)
+(13, 'L4', 48, 24, 24, 576, 384, 192, 24, 24, 8, 8)
+(13, 'L5', 48, 24, 24, 576, 384, 192, 24, 24, 8, 8)
+(13, 'M', 48, 24, 24, 576, 384, 192, 24, 24, 8, 8)
+(13, 'R4', 48, 24, 24, 576, 384, 192, 24, 24, 8, 8)
+(13, 'R5', 48, 24, 24, 576, 384, 192, 24, 24, 8, 8)
+(14, 'L5', 36, 18, 18, 324, 228, 96, 16, 16, 8, 8)
+(17, 'M', 36, 18, 18, 324, 228, 96, 16, 16, 8, 8)
+```
+
+The full position-admissible digest was:
+
+```text
+b31ede1b5bf44b1de394c7c802afa8c6d2efda38e79049465abc499137c8c60e
+```
+
+An exact same-key obstruction occurs at `(center=13, position=L4)`. The
+signed auxiliary key
+
+```text
+((opposite, (5, 15)), (target, (3, 11)))
+```
+
+has eight different reduced posets in the broad position-admissible model.
+Three witnesses are:
+
+```text
+target   K2_diag_gt_other(1,3,13,11)
+opposite K2_diag_gt_other(1,5,15,13)
+red      ((1, 3), (1, 5), (3, 13), (5, 15), (13, 11), (15, 13))
+
+target   K2_diag_gt_other(1,3,13,11)
+opposite K2_diag_gt_other(5,1,13,15)
+red      ((1, 3), (3, 13), (5, 1), (13, 11), (13, 15))
+
+target   K2_diag_gt_other(3,1,11,13)
+opposite K2_diag_gt_other(1,5,15,13)
+red      ((1, 5), (1, 11), (3, 1), (5, 15), (11, 13), (15, 13))
+```
+
+The witness-bucket digest was:
+
+```text
+b07125f78bdc1309658d640bb212b9e1e4a5ec1aada3290b5aa01fbe5031e000
+```
+
+### Proof
+
+The audit is finite. For each observed `(center, position)`, it enumerates
+all ordered Kalmanson rows that can be forced by some five-pair boundary with
+that center position. It then checks all target/opposite row pairs, discards
+cyclic comparison graphs, and groups the acyclic reductions by signed
+auxiliary pair.
+
+For positions with `multi=0`, the signed auxiliary pair determines the
+reduced poset in this broad row model. For positions with `multi>0`, the
+displayed `(13, L4)` witnesses show the determinacy statement is false:
+the center, position, and signed auxiliary pair are identical, but the
+reduced posets differ.
+
+### Limitations
+
+- This is a broad row-level existential model, not the exact sampled frontier.
+  Some position-admissible rows may never occur in actual C19 prefix states.
+- The split does not rule out a sharper theorem using additional data such
+  as the selected partner's boundary position, side occupancy, or parent
+  boundary constraints.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+A uniform position-admissible signed-auxiliary lemma is false. The next proof
+route should refine the admissibility data, especially for centers near `13`,
+where the broad existential model admits all 48 unrestricted rows and loses
+determinacy.
+
+### Next Lead
+
+Add the selected partner's position to the row-level classifier. Test whether
+`(center position, partner position, signed auxiliary pair)` restores
+determinacy for the failing positions, especially `(13, L4)`, `(13, M)`,
+`(14, L5)`, and `(17, M)`.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact position-admissible abstract `O01` row audit over all
+  observed center positions: passed, with digest
+  `b31ede1b5bf44b1de394c7c802afa8c6d2efda38e79049465abc499137c8c60e`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 08:41 EEST - Cycle 538: Partner-Position O01 Near-Determinacy
+
+### Mathematical Subquestion
+
+Does adding the selected partner's boundary position repair the
+position-admissible nonclassification from Cycle 537? More precisely, does
+`(center position, partner position, signed auxiliary pair)` determine the
+acyclic reduced row-pair poset when the two rows are jointly realizable by
+one five-pair prefix boundary?
+
+### Definitions and Assumptions
+
+For selected center `c`, let the selected partner be `p=c+7 mod 19` and let:
+
+```text
+T_c = -S_c + P_{c,p}.
+```
+
+A target row has quotient vector `T_c`; an opposite row has quotient vector
+`-T_c`. The signed auxiliary bridge is obtained by deleting `c` and `p` from
+the ordered quadrilateral.
+
+A target/opposite row pair is **jointly position-admissible** for
+`(c, center_position, partner_position)` if there exists one five-pair prefix
+boundary assignment with `c` and `p` in those positions that forces both row
+orders. This is stricter than the row-wise existential model from Cycle 537.
+
+### Attempted Proof Route
+
+Recompute all observed triples:
+
+```text
+(selected center, center position, selected partner position)
+```
+
+from the sampled `O01` frontier. For each observed triple, enumerate all
+abstract target/opposite row pairs, keep only jointly position-admissible
+pairs, discard cyclic comparison graphs, and group the acyclic reductions by
+signed auxiliary pair.
+
+### Result
+
+Near-determinacy with two exact obstructions:
+**Partner-Position O01 Near-Determinacy.**
+
+Adding the selected partner's position eliminates the broad failures from
+Cycle 537 for 24 of the 26 observed triples. However, two rare triples still
+have ambiguous signed-auxiliary buckets:
+
+```text
+(10, L3, M)
+(17, M, R3)
+```
+
+The sampled frontier contains only one `O01` hit for each of these triples,
+but the broader jointly admissible row model still has multiple reductions.
+
+### Exact Audit
+
+The audit found 26 observed triples:
+
+```text
+(0, anchor, L5): 87
+(0, anchor, M): 212
+(0, anchor, R3): 125
+(0, anchor, R4): 156
+(0, anchor, R5): 234
+(1, L1, L3): 12
+(1, L1, L4): 11
+(1, L1, L5): 25
+(1, L1, M): 18
+(1, L1, R5): 6
+(2, R1, M): 1
+(2, R1, R5): 7
+(10, L3, M): 1
+(12, L5, anchor): 231
+(12, M, anchor): 97
+(12, R3, anchor): 130
+(12, R4, anchor): 43
+(12, R5, anchor): 103
+(13, L3, L1): 1
+(13, L4, L1): 5
+(13, L5, L1): 3
+(13, M, L1): 27
+(13, R4, L1): 10
+(13, R5, L1): 46
+(14, L5, R1): 2
+(17, M, R3): 1
+```
+
+The audit summary columns are:
+
+```text
+center cpos ppos sample total admissible cyc acyc buckets multi maxred maxhits target_rows opp_rows
+```
+
+and the rows were:
+
+```text
+(0, 'anchor', 'L5', 87, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(0, 'anchor', 'M', 212, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(0, 'anchor', 'R3', 125, 576, 12, 0, 12, 12, 0, 1, 1, 6, 3)
+(0, 'anchor', 'R4', 156, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(0, 'anchor', 'R5', 234, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(1, 'L1', 'L3', 12, 576, 12, 0, 12, 12, 0, 1, 1, 6, 3)
+(1, 'L1', 'L4', 11, 576, 12, 0, 12, 12, 0, 1, 1, 6, 3)
+(1, 'L1', 'L5', 25, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(1, 'L1', 'M', 18, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(1, 'L1', 'R5', 6, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(2, 'R1', 'M', 1, 576, 16, 0, 16, 16, 0, 1, 1, 5, 5)
+(2, 'R1', 'R5', 7, 576, 16, 0, 16, 16, 0, 1, 1, 5, 5)
+(10, 'L3', 'M', 1, 576, 34, 0, 34, 16, 14, 3, 3, 9, 7)
+(12, 'L5', 'anchor', 231, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(12, 'M', 'anchor', 97, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(12, 'R3', 'anchor', 130, 576, 12, 0, 12, 12, 0, 1, 1, 6, 3)
+(12, 'R4', 'anchor', 43, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(12, 'R5', 'anchor', 103, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(13, 'L3', 'L1', 1, 576, 12, 0, 12, 12, 0, 1, 1, 6, 3)
+(13, 'L4', 'L1', 5, 576, 12, 0, 12, 12, 0, 1, 1, 6, 3)
+(13, 'L5', 'L1', 3, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(13, 'M', 'L1', 27, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(13, 'R4', 'L1', 10, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(13, 'R5', 'L1', 46, 576, 24, 0, 24, 24, 0, 1, 1, 6, 6)
+(14, 'L5', 'R1', 2, 576, 16, 0, 16, 16, 0, 1, 1, 5, 5)
+(17, 'M', 'R3', 1, 576, 34, 0, 34, 16, 14, 3, 3, 9, 7)
+```
+
+The full joint partner-position digest was:
+
+```text
+2d3d923c566f00c079b93a321288b92fcee4af361c2c375321a55f2a85a1b2f7
+```
+
+The worst exact obstruction occurs at `(10, L3, M)`. The signed auxiliary key
+
+```text
+((opposite, (15, 6)), (target, (12, 2)))
+```
+
+has three different reduced posets:
+
+```text
+target   K2_diag_gt_other(10,12,17,2)
+opposite K1_diag_gt_sides(10,17,15,6)
+red      ((10, 12), (12, 17), (15, 6), (17, 2), (17, 15))
+
+target   K2_diag_gt_other(10,12,17,2)
+opposite K1_diag_gt_sides(15,6,10,17)
+red      ((6, 10), (10, 12), (12, 17), (15, 6), (17, 2))
+
+target   K2_diag_gt_other(12,10,2,17)
+opposite K1_diag_gt_sides(10,17,15,6)
+red      ((2, 17), (10, 2), (12, 10), (15, 6), (17, 15))
+```
+
+### Proof
+
+The audit is finite. For each observed triple, every target/opposite row pair
+is tested for joint realizability by one five-pair boundary assignment with
+the selected center and partner in the requested positions. The comparison
+graph is then reduced when acyclic.
+
+For 24 triples, every signed auxiliary bucket has exactly one reduced poset.
+For `(10, L3, M)` and `(17, M, R3)`, some buckets have multiple reduced
+posets. The displayed `(10, L3, M)` witnesses have the same center position,
+partner position, and signed auxiliary pair, but distinct reductions, so the
+proposed classifier is still false in this broad joint-boundary model.
+
+### Limitations
+
+- This remains a broad abstract row-pair model; it is stricter than Cycle 537
+  but still may include row pairs absent from actual C19 sampled boundary
+  states.
+- The two failing triples each occur only once in the sampled frontier, so
+  they may be removable by adding parent-state constraints.
+- This does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+Partner position is a strong compression variable: it repairs all high-mass
+observed triples and leaves only two singleton sampled triples as abstract
+failures. The remaining ambiguity is now localized enough to test against
+actual parent-boundary constraints rather than broad existential boundaries.
+
+### Next Lead
+
+For the two failing triples `(10, L3, M)` and `(17, M, R3)`, compare the broad
+joint-boundary row pairs against the actual sampled parent boundary states.
+Test whether parent-state constraints select only one reduced poset, which
+would turn near-determinacy into sampled-state determinacy with a smaller
+exception set.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact joint partner-position `O01` row-pair audit over all observed
+  center/partner triples: passed, with digest
+  `2d3d923c566f00c079b93a321288b92fcee4af361c2c375321a55f2a85a1b2f7`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 08:45 EEST - Cycle 539: Sampled-State O01 Singleton Repair
+
+### Mathematical Subquestion
+
+For the two singleton sampled triples that remained ambiguous in the broad
+joint-boundary model of Cycle 538, do the actual sampled five-pair child
+boundary states select a unique `O01` row-pair reduction?
+
+### Definitions and Assumptions
+
+Use the two failing broad-model triples from Cycle 538:
+
+```text
+(10, L3, M)
+(17, M, R3)
+```
+
+For each actual sampled fifth-pair child with one of these triples, enumerate
+all forced Kalmanson rows in the exact child boundary state. Keep only rows
+whose quotient vector is `T_c=-S_c+P_{c,c+7}` or `-T_c`. Then form all
+target/opposite `O01` row pairs, discard cyclic comparison graphs, and group
+the reductions by signed auxiliary pair.
+
+### Attempted Proof Route
+
+The broad model in Cycle 538 allowed several jointly position-admissible row
+pairs for the two rare triples. The next test is whether the actual parent
+and child boundary labels in the sampled frontier rule out all but one of
+those row pairs.
+
+### Result
+
+Finite sampled-state repair:
+**Sampled-State O01 Singleton Repair.**
+
+Both broad-model failing triples collapse to a unique forced `O01` row pair
+in their actual sampled child boundary states. Each sampled state has:
+
+```text
+forced_o01_rows 2
+target 1
+opposite 1
+pairs 1
+acyc 1
+buckets 1
+multi 0
+```
+
+Thus the remaining Cycle 538 ambiguity is not present in the actual sampled
+frontier. It is an artifact of the broader jointly admissible row-pair model.
+
+### Exact Audit
+
+The audit found exactly two sampled records:
+
+```text
+failing_sample_records 2
+```
+
+First record:
+
+```text
+label c19_window_fifth_child_0434_0084_0051
+triple (10, L3, M)
+left (1, 3, 10, 14, 12)
+right (2, 6, 11, 15, 16)
+fourth_parent c19_window_fourth_child_0434_0084
+fourth_left [1, 3, 10, 14]
+fourth_right [2, 6, 11, 15]
+cert_key ((opposite, (15, 6)), (target, (12, 2)))
+cert_rows K2_diag_gt_other(10,12,17,2);
+          K1_diag_gt_sides(10,17,15,6)
+cert_red ((10, 12), (12, 17), (15, 6), (17, 2), (17, 15))
+```
+
+Second record:
+
+```text
+label c19_window_fifth_child_0456_0059_0039
+triple (17, M, R3)
+left (1, 3, 12, 11, 13)
+right (2, 6, 5, 10, 9)
+fourth_parent c19_window_fourth_child_0456_0059
+fourth_left [1, 3, 12, 11]
+fourth_right [2, 6, 5, 10]
+cert_key ((opposite, (3, 13)), (target, (0, 9)))
+cert_rows K2_diag_gt_other(0,17,9,5);
+          K1_diag_gt_sides(3,13,17,5)
+cert_red ((0, 17), (3, 13), (9, 5), (13, 17), (17, 9))
+```
+
+The sampled-state repair digest was:
+
+```text
+5a25d75a85b0a9d57601e3cdf0b1b8297b5f8455ed7c3a3bf48dd2863b590bb9
+```
+
+### Proof
+
+The audit recomputes forced Kalmanson rows directly from each exact sampled
+child boundary state. In both cases, among all forced rows only two rows have
+the relevant `O01` quotient vector, one target and one opposite. Hence there
+is exactly one target/opposite row pair. Its comparison graph is acyclic and
+has the displayed transitive reduction.
+
+Therefore the broad-model ambiguity from Cycle 538 is eliminated by the
+actual sampled boundary state for both remaining triples.
+
+### Limitations
+
+- This is a sampled-state result for two singleton records only.
+- It does not prove that every abstract boundary state with triples
+  `(10, L3, M)` or `(17, M, R3)` has a unique `O01` reduction.
+- It does not prove that arbitrary C19 boundary states force an `O01`
+  certificate.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+For the sampled frontier, the `O01` determinacy picture is now cleaner:
+signed auxiliary data and actual boundary-state forcing account for the two
+rare cases that escaped the broad partner-position classifier. The next gap
+is to replace sampled boundary facts with a reusable parent-state predicate.
+
+### Next Lead
+
+Abstract the two singleton repairs into a parent-state predicate. For each
+repair, identify which concrete boundary placements force the displayed two
+rows and exclude the other broad row-pair alternatives from Cycle 538.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact sampled-state audit for the two Cycle 538 broad-model failing
+  triples: passed, with digest
+  `5a25d75a85b0a9d57601e3cdf0b1b8297b5f8455ed7c3a3bf48dd2863b590bb9`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 08:56 EEST - Cycle 540: Singleton Repair Placement Predicates
+
+### Mathematical Subquestion
+
+Can the two singleton sampled-state repairs from Cycle 539 be promoted into
+explicit reusable boundary-placement predicates?
+
+### Definitions and Assumptions
+
+Start from the Cycle 538 baseline predicates:
+
+```text
+A: center 10 at L3, partner 17 at M
+B: center 17 at M, partner 5 at R3
+```
+
+A **placement predicate** fixes selected labels to concrete prefix positions
+such as `L5`, `R1`, or `M`. A predicate is sufficient if every acyclic
+abstract `O01` target/opposite row pair compatible with those placements is
+the actual sampled row pair from Cycle 539.
+
+### Attempted Proof Route
+
+First test whether the baseline plus the actual auxiliary placements is
+enough. It is not. Then add the middle-label exclusions that occur in the
+competing broad-model row pairs and retest exact compatibility.
+
+### Result
+
+Proved finite sufficiency result:
+**Singleton Repair Placement Predicates.**
+
+For the two singleton repairs, the following concrete placement predicates
+select exactly the actual sampled `O01` row pair.
+
+Predicate A:
+
+```text
+10 at L3
+17 at M
+12 at L5
+2 at R1
+15 at R4
+6 at R2
+8 at M
+```
+
+This leaves the unique row pair:
+
+```text
+target   K2_diag_gt_other(10,12,17,2)
+opposite K1_diag_gt_sides(10,17,15,6)
+red      ((10, 12), (12, 17), (15, 6), (17, 2), (17, 15))
+```
+
+Predicate B:
+
+```text
+17 at M
+5 at R3
+9 at R5
+3 at L2
+13 at L5
+7 at M
+15 at M
+```
+
+This leaves the unique row pair:
+
+```text
+target   K2_diag_gt_other(0,17,9,5)
+opposite K1_diag_gt_sides(3,13,17,5)
+red      ((0, 17), (3, 13), (9, 5), (13, 17), (17, 9))
+```
+
+### Exact Audit
+
+The first targeted check showed that actual auxiliary placements alone are
+not sufficient:
+
+```text
+A with baseline plus 8 at M only:
+survivors 20
+unique_pairs 20
+actual_only False
+
+B with baseline plus 7 at M and/or 15 at M only:
+survivors 7
+unique_pairs 7
+actual_only False
+```
+
+The successful predicate check returned:
+
+```text
+A survivors 1 unique_pairs 1 actual_only True
+  K2_diag_gt_other(10,12,17,2) |
+  K1_diag_gt_sides(10,17,15,6)
+  ((10, 12), (12, 17), (15, 6), (17, 2), (17, 15))
+
+B survivors 1 unique_pairs 1 actual_only True
+  K2_diag_gt_other(0,17,9,5) |
+  K1_diag_gt_sides(3,13,17,5)
+  ((0, 17), (3, 13), (9, 5), (13, 17), (17, 9))
+```
+
+The successful predicate digest was:
+
+```text
+a96c70eb0bab141cb983016fa90a6bd62e9549a1b7a234b85f9287c54f2bad4f
+```
+
+The auxiliary-only failure digest was:
+
+```text
+8adaf909618731ed2c46a1b1864c90b1a73b39395291150e2dfe498f93ef8c0e
+```
+
+### Proof
+
+For each predicate, enumerate every abstract acyclic `O01` target/opposite
+row pair for the selected center. Keep only row pairs compatible with the
+listed placements in a five-pair prefix boundary. The exact compatibility
+check leaves exactly one survivor in each case, and that survivor is the
+sampled row pair from Cycle 539. Therefore each placement predicate is
+sufficient.
+
+The auxiliary-only check shows why the extra middle placements are needed:
+with too few placements, other abstract row pairs remain compatible.
+
+### Limitations
+
+- These predicates are sufficient but not proved minimal. A broader minimal
+  subset search was interrupted because it was combinatorially too expensive;
+  no minimality claim is made.
+- The predicates are concrete sampled-state repairs, not all-boundary
+  theorems.
+- They do not prove that arbitrary C19 boundary states force an `O01`
+  certificate.
+- They do not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The two singleton `O01` exceptions now have explicit finite placement
+predicates. This converts the sampled repairs from raw state facts into
+reusable local rules, although still only for these concrete boundary
+placements.
+
+### Next Lead
+
+Fold the successful singleton predicates into the sampled `O01` classifier:
+separate the high-mass partner-position determinacy cases from the two
+explicit placement-predicate repairs, and check whether this covers all
+1,594 sampled `O01` hits without reference to raw row-pair enumeration.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact placement-predicate audit for the two Cycle 539 singleton
+  repairs: passed, with successful predicate digest
+  `a96c70eb0bab141cb983016fa90a6bd62e9549a1b7a234b85f9287c54f2bad4f`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 09:00 EEST - Cycle 541: Sampled O01 Classifier Coverage
+
+### Mathematical Subquestion
+
+Do the partner-position determinacy cases from Cycle 538, together with the
+two singleton placement predicates from Cycle 540, cover every sampled `O01`
+hit in the 288-479 fifth-pair frontier?
+
+### Definitions and Assumptions
+
+Use the sampled C19 windows 288-479 fifth-pair frontier. An `O01` hit is a
+deterministic two-row certificate whose quotient-vector signature lies in
+the rotation family represented by `-S_0 + P_0_7`.
+
+The sampled `O01` classifier has three branches:
+
+```text
+1. partner_position_generic:
+   the observed center/partner triple is one of the 24 triples whose
+   broad joint-boundary model had no signed-auxiliary ambiguity in Cycle 538.
+
+2. singleton_predicate_A:
+   the concrete placement predicate A from Cycle 540 holds.
+
+3. singleton_predicate_B:
+   the concrete placement predicate B from Cycle 540 holds.
+```
+
+### Attempted Proof Route
+
+Recompute every fifth-pair child, every two-row certificate, and every
+sampled `O01` hit. For each `O01` hit, compute the selected center, selected
+partner position, signed auxiliary key, and concrete boundary state. Assign
+the record to exactly one of the three classifier branches. Report any gap
+or overlap.
+
+### Result
+
+Finite sampled coverage lemma:
+**Sampled O01 Classifier Coverage.**
+
+The three-branch sampled `O01` classifier covers all 1,594 sampled `O01`
+hits with no gaps and no overlaps.
+
+The coverage counts are:
+
+```text
+partner_position_generic 1592
+singleton_predicate_A       1
+singleton_predicate_B       1
+```
+
+The 24 generic triples account for all high-mass cases. The two singleton
+predicates account exactly for the two rare triples left ambiguous by the
+broad partner-position model.
+
+### Exact Audit
+
+The audit returned:
+
+```text
+all_fifth 10350
+two_hits 10342
+o01 1594
+covered 1594
+bad_count 0
+classifier_counts {'partner_position_generic': 1592,
+                   'singleton_predicate_A': 1,
+                   'singleton_predicate_B': 1}
+triple_count 26
+generic_triple_count 24
+```
+
+The singleton records were:
+
+```text
+label c19_window_fifth_child_0434_0084_0051
+triple (10, L3, M)
+classifier singleton_predicate_A
+left (1, 3, 10, 14, 12)
+right (2, 6, 11, 15, 16)
+signed_key ((opposite, (15, 6)), (target, (12, 2)))
+rows K1_diag_gt_sides(10,17,15,6);
+     K2_diag_gt_other(10,12,17,2)
+
+label c19_window_fifth_child_0456_0059_0039
+triple (17, M, R3)
+classifier singleton_predicate_B
+left (1, 3, 12, 11, 13)
+right (2, 6, 5, 10, 9)
+signed_key ((opposite, (3, 13)), (target, (0, 9)))
+rows K1_diag_gt_sides(3,13,17,5);
+     K2_diag_gt_other(0,17,9,5)
+```
+
+The classifier digest was:
+
+```text
+2fba4e37f3e7fea547aef732815c24c34642770b6663beede1c867ea6f986041
+```
+
+The sampled `O01` label digest was:
+
+```text
+ea8e4657d233b712c068c6f9d4373e637551e6a33fe7ecae6774a14dadfc348d
+```
+
+### Proof
+
+The audit is finite over the recorded sampled frontier. Every sampled `O01`
+hit is assigned to the classifier by explicit predicates. The count
+`covered 1594` equals the recomputed `o01 1594`, and `bad_count 0` means no
+record was uncovered or multiply classified. Thus the three-branch classifier
+covers the sampled `O01` frontier exactly.
+
+### Limitations
+
+- This is a sampled classifier over windows 288-479 only.
+- It does not prove that the 24 generic triples or the two singleton
+  predicates cover all possible C19 boundary states.
+- It does not prove that arbitrary C19 boundary states force an `O01`
+  certificate.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The sampled `O01` evidence now has a compact classification layer:
+24 generic partner-position cases plus two explicit singleton placement
+repairs. This is closer to a human-readable proof skeleton for the sampled
+frontier, but it remains finite sampled evidence.
+
+### Next Lead
+
+Try to replace the sampled classifier branches with abstract boundary
+lemmas. Start with the 24 partner-position generic triples: group them by
+relative center/partner side type and look for a small statement implying
+signed-auxiliary determinacy without enumerating all sampled records.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact sampled `O01` classifier coverage audit over all 10,350
+  sampled fifth-pair children: passed, with classifier digest
+  `2fba4e37f3e7fea547aef732815c24c34642770b6663beede1c867ea6f986041`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 09:03 EEST - Cycle 542: Generic O01 Side-Pair Compression Obstruction
+
+### Mathematical Subquestion
+
+Can the 24 generic partner-position triples from Cycle 541 be explained by
+only the ordered side type of the selected center and selected partner, where
+the side is one of `A` for anchor, `L`, `R`, or `M`?
+
+### Definitions and Assumptions
+
+Use the observed center/partner triples and the broad joint-boundary
+determinacy statuses from Cycle 538. For a position such as `L3` or `R5`,
+the side is `L` or `R`; `anchor` has side `A`; `M` has side `M`.
+
+An ordered side pair is:
+
+```text
+(side(center position), side(partner position)).
+```
+
+### Attempted Proof Route
+
+Group the 26 observed triples by ordered side pair. If side type were the
+right abstraction, each side-pair bucket would have a uniform determinacy
+status, and the 24 generic triples would be explainable without exact
+position indices.
+
+### Result
+
+Failed compression:
+**Generic O01 Side-Pair Compression Obstruction.**
+
+Ordered side pair is not sufficient. The side pair `(L, M)` contains both a
+generic determinate triple and a broad-model failure:
+
+```text
+good: (1, L1, M), hits 18, determinate True
+bad:  (10, L3, M), hits 1, determinate False
+```
+
+Thus exact boundary positions cannot be discarded wholesale. The generic
+partner-position classifier from Cycle 541 genuinely uses more than side
+type in at least the left/middle regime.
+
+### Exact Audit
+
+The side-pair summary was:
+
+```text
+(A, L): triples 1, hits 87, fail_triples 0
+(A, M): triples 1, hits 212, fail_triples 0
+(A, R): triples 3, hits 515, fail_triples 0
+(L, A): triples 1, hits 231, fail_triples 0
+(L, L): triples 6, hits 57, fail_triples 0
+(L, M): triples 2, hits 19, fail_triples 1
+(L, R): triples 2, hits 8, fail_triples 0
+(M, A): triples 1, hits 97, fail_triples 0
+(M, L): triples 1, hits 27, fail_triples 0
+(M, R): triples 1, hits 1, fail_triples 1
+(R, A): triples 3, hits 276, fail_triples 0
+(R, L): triples 2, hits 56, fail_triples 0
+(R, M): triples 1, hits 1, fail_triples 0
+(R, R): triples 1, hits 7, fail_triples 0
+```
+
+The classifier-bucket check returned:
+
+```text
+side_pair bucket_count 14 mixed_buckets [('L', 'M')]
+unordered_side_pair bucket_count 8 mixed_buckets [('L', 'M'), ('M', 'R')]
+center_side_only bucket_count 4 mixed_buckets ['L', 'M']
+partner_side_only bucket_count 4 mixed_buckets ['M', 'R']
+has_anchor bucket_count 2 mixed_buckets [False]
+has_middle bucket_count 2 mixed_buckets [True]
+```
+
+The side-pair grouping digest was:
+
+```text
+d3e724fc3c33ae1469b5bcedd329bd86190ca86f8a7ae9f92db7b65da90ca279
+```
+
+### Proof
+
+The two displayed triples have the same ordered side pair `(L, M)`. Cycle
+538 proved that `(1, L1, M)` has no signed-auxiliary ambiguity in the broad
+joint-boundary model, while `(10, L3, M)` has ambiguity. Therefore ordered
+side pair alone cannot imply the generic partner-position determinacy
+property.
+
+### Limitations
+
+- This is a compression obstruction for the sampled observed triples, not an
+  all-boundary classification.
+- Side pair still explains many buckets: only `(L, M)` is mixed among
+  ordered side pairs in the observed data.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The side-type route is too coarse. A useful abstraction must keep at least
+some exact position information inside side-pair buckets involving `M`,
+especially `(L, M)` and the rare `(M, R)` failure.
+
+### Next Lead
+
+Refine the side-pair classifier by adding a small boundary-depth variable,
+such as whether a non-middle endpoint is at depth 1 versus deeper. Test
+whether `(ordered side pair, boundary depth class)` separates the generic
+triples from the two singleton exceptions.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact side-pair grouping audit over the 26 observed center/partner
+  triples from the sampled `O01` frontier: passed, with digest
+  `d3e724fc3c33ae1469b5bcedd329bd86190ca86f8a7ae9f92db7b65da90ca279`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 09:05 EEST - Cycle 543: Generic O01 Depth-Pair Compression
+
+### Mathematical Subquestion
+
+Does adding a small boundary-depth variable to ordered side type separate
+the 24 generic partner-position triples from the two singleton exceptions?
+
+### Definitions and Assumptions
+
+Use the 26 observed center/partner triples and broad joint-boundary
+determinacy statuses from Cycle 538.
+
+Define the coarse depth-side label:
+
+```text
+A  = anchor
+M  = middle
+L1 = left depth 1
+LD = left depth deeper than 1
+R1 = right depth 1
+RD = right depth deeper than 1
+```
+
+The **depth-pair classifier** of a triple is the ordered pair of these labels
+for the selected center and selected partner.
+
+### Attempted Proof Route
+
+Test several increasingly fine classifiers:
+
+```text
+ordered side pair
+ordered side plus 1-vs-deep depth
+ordered side plus exact position
+center-side-only and partner-side-only variants
+```
+
+The target was to find the smallest checked classifier whose buckets are
+uniform with respect to the Cycle 538 broad-model determinacy status.
+
+### Result
+
+Finite compression lemma:
+**Generic O01 Depth-Pair Compression.**
+
+The ordered depth-pair classifier with depth `1` versus `deep` separates all
+24 generic triples from the two singleton exceptions in the observed
+frontier:
+
+```text
+side_depth_1_vs_deep bucket_count 17
+mixed_count 0
+fail_bucket_count 2
+```
+
+The two fail buckets are exactly:
+
+```text
+(LD, M):  (10, L3, M)
+(M, RD):  (17, M, R3)
+```
+
+Every other observed depth-pair bucket is generic-determinate.
+
+### Exact Audit
+
+The classifier comparison returned:
+
+```text
+side_pair bucket_count 14 mixed_count 1 fail_bucket_count 2
+side_depth_1_vs_deep bucket_count 17 mixed_count 0 fail_bucket_count 2
+side_depth_1_vs_2plus bucket_count 17 mixed_count 0 fail_bucket_count 2
+side_depth_1_2_3plus bucket_count 17 mixed_count 0 fail_bucket_count 2
+exact_position_pair bucket_count 26 mixed_count 0 fail_bucket_count 2
+side_pair_center_depth bucket_count 22 mixed_count 0 fail_bucket_count 2
+side_pair_partner_depth bucket_count 20 mixed_count 1 fail_bucket_count 2
+```
+
+The depth-pair bucket summary was:
+
+```text
+(A, LD): triples 1, hits 87, fail 0
+(A, M):  triples 1, hits 212, fail 0
+(A, RD): triples 3, hits 515, fail 0
+(L1, LD): triples 3, hits 48, fail 0
+(L1, M):  triples 1, hits 18, fail 0
+(L1, RD): triples 1, hits 6, fail 0
+(LD, A):  triples 1, hits 231, fail 0
+(LD, L1): triples 3, hits 9, fail 0
+(LD, M):  triples 1, hits 1, fail 1
+(LD, R1): triples 1, hits 2, fail 0
+(M, A):   triples 1, hits 97, fail 0
+(M, L1):  triples 1, hits 27, fail 0
+(M, RD):  triples 1, hits 1, fail 1
+(R1, M):  triples 1, hits 1, fail 0
+(R1, RD): triples 1, hits 7, fail 0
+(RD, A):  triples 3, hits 276, fail 0
+(RD, L1): triples 2, hits 56, fail 0
+```
+
+The depth-classifier digest was:
+
+```text
+f8d93d483fd993b410a72e6ea2ada2951a1bd929d361b82fef7896eaa7926cdb
+```
+
+### Proof
+
+The audit groups every observed triple by the ordered pair of depth-side
+labels. Since `mixed_count` is zero, no bucket contains both a generic
+determinate triple and a broad-model ambiguous triple. The only buckets with
+failures are `(LD, M)` and `(M, RD)`, and each contains exactly one singleton
+exception. Therefore the 24 generic triples are exactly the observed triples
+outside those two depth-pair buckets.
+
+### Limitations
+
+- This is a finite compression statement for the observed sampled triples.
+- It does not prove that all triples with depth-pair outside `(LD, M)` and
+  `(M, RD)` are determinate in all C19 boundary states.
+- It does not prove that arbitrary C19 boundary states force an `O01`
+  certificate.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+This gives a compact language for the sampled `O01` classifier:
+all observed triples outside two depth-pair exception classes are generic,
+and the two exceptions are exactly the singleton placement-predicate repairs
+from Cycle 540.
+
+### Next Lead
+
+Try to prove an abstract depth-pair determinacy lemma: for any observed-style
+`O01` state with depth pair outside `(LD, M)` and `(M, RD)`, signed auxiliary
+data determines the acyclic reduced poset. If this fails, record the smallest
+exact obstruction.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact depth-pair grouping audit over the 26 observed center/partner
+  triples from the sampled `O01` frontier: passed, with digest
+  `f8d93d483fd993b410a72e6ea2ada2951a1bd929d361b82fef7896eaa7926cdb`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-07 09:09 EEST - Cycle 544: Abstract Depth-Pair Generalization Obstruction
+
+### Mathematical Subquestion
+
+Does the depth-pair determinacy pattern from Cycle 543 extend beyond the 26
+sampled observed triples to the full abstract position space in the broad
+joint-boundary row-pair model?
+
+### Definitions and Assumptions
+
+Use the same coarse depth-side labels as Cycle 543:
+
+```text
+A  = anchor
+M  = middle
+L1 = left depth 1
+LD = left depth deeper than 1
+R1 = right depth 1
+RD = right depth deeper than 1
+```
+
+For each selected center `c`, selected partner `p=c+7 mod 19`, and concrete
+center/partner positions compatible with the anchor rule, enumerate all
+abstract acyclic `O01` target/opposite row pairs that are jointly realizable
+by one five-pair prefix boundary. Group reductions by signed auxiliary key.
+
+### Attempted Proof Route
+
+Cycle 543 showed that, on observed sampled triples, every depth-pair bucket
+except `(LD, M)` and `(M, RD)` was generic-determinate. The attempted
+generalization was:
+
+```text
+Outside (LD, M) and (M, RD), signed auxiliary data determines the acyclic
+reduced poset in the broad joint-boundary row-pair model.
+```
+
+### Result
+
+Failed generalization:
+**Abstract Depth-Pair Generalization Obstruction.**
+
+The sampled depth-pair rule does not hold across the full abstract position
+space. There are many ambiguous triples outside the two sampled exception
+depth-pair classes.
+
+The smallest displayed obstruction has:
+
+```text
+center 1
+center position L2
+partner position L4
+depth pair (LD, LD)
+signed auxiliary key ((opposite, (6, 16)), (target, (3, 12)))
+```
+
+with two different reduced posets.
+
+### Exact Audit
+
+The broad audit enumerated:
+
+```text
+total_triples 1909
+total_with_pairs 1526
+total_ambig 952
+```
+
+Depth-pair buckets with ambiguity outside the sampled exception classes
+included:
+
+```text
+(LD, LD): ambig 102
+(LD, RD): ambig 272
+(M, LD):  ambig 51
+(RD, LD): ambig 272
+(RD, M):  ambig 51
+(RD, RD): ambig 102
+```
+
+The exact witness was:
+
+```text
+center 1
+cpos L2
+ppos L4
+depth (LD, LD)
+key ((opposite, (6, 16)), (target, (3, 12)))
+hits 2
+reds 2
+
+target   K2_diag_gt_other(1,3,8,12)
+opposite K1_diag_gt_sides(1,8,6,16)
+red      ((1, 3), (3, 8), (6, 16), (8, 6), (8, 12))
+
+target   K2_diag_gt_other(3,1,12,8)
+opposite K1_diag_gt_sides(1,8,6,16)
+red      ((1, 12), (3, 1), (6, 16), (8, 6), (12, 8))
+```
+
+The abstract depth-pair audit digest was:
+
+```text
+55d44a99657b5e50a5ad253aaed7048c5a3adb1cda4b0f6372fd6011b09f4aad
+```
+
+### Proof
+
+The two displayed row pairs have the same selected center, same concrete
+center/partner positions, same depth pair, and same signed auxiliary key.
+They are both acyclic and jointly realizable in the broad five-pair
+boundary model, but their transitive reductions differ. Therefore the
+abstract depth-pair determinacy statement is false.
+
+The full audit shows this is not isolated: 952 concrete triples are
+ambiguous in the broad model, including many outside `(LD, M)` and `(M, RD)`.
+
+### Limitations
+
+- This is an obstruction to a broad abstract generalization, not to the
+  sampled classifier from Cycle 541.
+- The broad row-pair model includes position triples that may not occur in
+  the sampled C19 frontier.
+- It does not prove an all-order `C19_skew` obstruction, a general proof of
+  Erdos Problem #97, or a counterexample.
+
+### Effect on the Attack
+
+The depth-pair compression is useful only in the sampled observed-triple
+regime. Any proof route must include additional structure explaining why the
+sampled frontier avoids the many abstract ambiguous depth-pair states.
+
+### Next Lead
+
+Compare the sampled observed triples against the broad ambiguous triples.
+Look for a parent-state or incidence constraint that excludes ambiguous
+depth-pair configurations such as `(center=1, L2, L4)` while preserving the
+observed generic triples.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-pr-log-517`.
+- Branch during the cycle:
+  `codex/erdos97-log-cycles-517-519`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made during this cycle.
+
+### Validation
+
+- One-off exact abstract depth-pair audit over all concrete center/partner
+  positions in the broad joint-boundary row-pair model: passed, with digest
+  `55d44a99657b5e50a5ad253aaed7048c5a3adb1cda4b0f6372fd6011b09f4aad`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
