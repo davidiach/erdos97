@@ -37,9 +37,10 @@ matching n=9 strict-cycle span bucket count: 8
 So P18 does not literally contain one of the n=9 local cores, but it does share
 one of the same coarse strict-cycle span shapes.
 
-The recorded `C19_skew` order still passes the vertex-circle filter. This
-remains the guardrail for the proof route: the current quotient-graph
-vertex-circle obstruction is not enough by itself.
+The recorded `C19_skew` order still passes the vertex-circle filter, although
+the fixed abstract pattern is now killed by the separate all-order Z3 Kalmanson
+certificate. This remains the guardrail for the proof route: the current
+quotient-graph vertex-circle obstruction is not enough by itself.
 
 ## Reproduction
 

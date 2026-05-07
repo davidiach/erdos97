@@ -283,8 +283,9 @@ partial strict-cycle prunes: 5,318,250
 ```
 
 This is a draft audit target only. The repo-native generic checker reproduces
-the n=9 vertex-circle counts and reruns row0 singleton `0`, but the full n=10
-search still needs independent implementation review or a compact replayable
+the n=9 vertex-circle counts and reruns row0 singleton IDs `0`, `63`, and
+`125`, but the full n=10 search still needs independent implementation review
+or a compact replayable
 certificate format before any public theorem-style use. It is not promoted to
 the source-of-truth strongest result. See
 `docs/n10-vertex-circle-singleton-slices.md`.
