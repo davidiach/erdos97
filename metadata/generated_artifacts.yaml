@@ -810,6 +810,56 @@ artifacts:
       - the local lemma packet is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_vertex_circle_t10_strict_cycle_lemma_packet
+    path: data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py
+    command: python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --assert-expected --write
+    checker: scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py
+    check_command: python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Focused T10/F12 strict-cycle local lemma packet for eighteen n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_vertex_circle_t10_strict_cycle_lemma_packet.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: Focused T10/F12 strict-cycle local lemma packet for eighteen n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+      n: 9
+      row_size: 4
+      template_id: T10
+      template_key: strict_cycle|rows=4|strict_edges=36|cycle=2|spans=2:1x2
+      assignment_count: 18
+      family_count: 1
+      family_ids:
+        - F12
+      family_assignment_counts.F12: 18
+      family_orbit_sizes.F12: 18
+      orbit_size_sum: 18
+      core_size: 4
+      cycle_length: 2
+      strict_edge_count: 36
+      cycle_length_counts.2: 18
+      connector_path_length_counts.1: 18
+      connector_path_length_counts.2: 18
+      "span_signature_counts.2:1,2:1": 18
+      cycle_span_counts:
+        - count: 2
+          inner_span: 1
+          outer_span: 2
+      provenance.command: python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - T10 proves n=9
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - template labels are theorem names
+      - the local lemma packet is an independent proof
+      - general proof of Erdos Problem #97
+
   - id: n9_groebner_real_root_decoders
     path: data/certificates/n9_groebner_real_root_decoders.json
     kind: algebraic_decoder_artifact
