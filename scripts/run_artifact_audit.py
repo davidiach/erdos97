@@ -408,6 +408,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "not a source-of-truth finite-case result or official/global status update."
         ),
     ),
+    AuditCommand(
+        ident="n10_secondary_singleton_replay",
+        command=(
+            "python",
+            "scripts/check_n10_secondary_singleton_replay.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Secondary first-five n=10 singleton replay cross-check with an additional "
+            "triple-intersection filter; not a proof of n=10, a source-of-truth "
+            "finite-case result, or an official/global status update."
+        ),
+    ),
 )
 
 

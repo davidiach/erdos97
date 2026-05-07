@@ -180,6 +180,9 @@ vertex-circle filters. Treat this as a draft until an independent audit checks:
 - the generic checker source against the exact pruning lemmas;
 - the row0 singleton coverage `[0,126)` and absence of hidden symmetry
   quotienting;
+- the secondary first-five replay in
+  `data/certificates/2026-05-05/n10_secondary.json`, which cross-checks only
+  rows `0..4` under an extra triple-intersection necessary filter;
 - that minimum-remaining-options branching changes only search order;
 - that partial vertex-circle pruning uses only already-fixed selected rows and
   selected-distance equalities;

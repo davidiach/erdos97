@@ -135,3 +135,7 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125"
         in command_texts
     )
+    assert (
+        "python scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json"
+        in command_texts
+    )

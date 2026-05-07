@@ -47,6 +47,7 @@ verify-n9-review:
 
 verify-n10-review:
 	$(PYTHON) scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
+	$(PYTHON) scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json
 
 verify-artifacts: verify-n8 verify-kalmanson verify-n9-review verify-n10-review
 
