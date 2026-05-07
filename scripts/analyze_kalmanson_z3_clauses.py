@@ -115,6 +115,30 @@ def inverse_vector_matches(
     return tuple(sorted(matches))
 
 
+def inverse_vector_match_details(
+    clause: Clause,
+    quad_ids: Mapping[Quad, tuple[int, int]],
+    inverse_id: Sequence[int],
+) -> tuple[tuple[int, int, str, str], ...]:
+    """Return vector-id and kind pairs that justify the clause."""
+
+    left_ids = quad_ids[clause[0]]
+    right_ids = quad_ids[clause[1]]
+    details = []
+    for left_kind, left_vector_id in enumerate(left_ids):
+        for right_kind, right_vector_id in enumerate(right_ids):
+            if inverse_id[left_vector_id] == right_vector_id:
+                details.append(
+                    (
+                        left_vector_id,
+                        right_vector_id,
+                        KINDS[left_kind],
+                        KINDS[right_kind],
+                    )
+                )
+    return tuple(sorted(details))
+
+
 def clause_literals(clause: Clause) -> list[tuple[int, int]]:
     literals = []
     for quad in clause:
@@ -171,6 +195,68 @@ def distance_quotient_summary(
         "vector_id_note": (
             "Vector-id counts are deterministic for the current table builder, "
             "but individual ids are not a mathematical invariant."
+        ),
+    }
+
+
+def inverse_vector_pair_support_summary(
+    vector_pair_clause_counts: Counter[tuple[int, int]],
+    pair_kind_patterns: Mapping[tuple[int, int], set[tuple[str, str]]],
+    pair_support_size_by_pair: Mapping[tuple[int, int], int],
+    pair_support_size_mismatches: set[tuple[int, int]],
+    oriented_clause_support_counts: Counter[tuple[int, int]],
+    *,
+    top: int,
+) -> dict[str, object]:
+    """Return compact support data for inverse vector pairs used by clauses."""
+
+    unique_support_counts = Counter(pair_support_size_by_pair.values())
+    kind_pattern_count_distribution = Counter(
+        len(pair_kind_patterns[pair]) for pair in vector_pair_clause_counts
+    )
+    clause_counts = list(vector_pair_clause_counts.values())
+    return {
+        "used_inverse_vector_pair_count": len(vector_pair_clause_counts),
+        "pair_support_size_mismatch_count": len(pair_support_size_mismatches),
+        "unique_pair_support_size_distribution": {
+            str(key): unique_support_counts[key] for key in sorted(unique_support_counts)
+        },
+        "clause_count_by_inverse_vector_pair_support_size": {
+            str(key): sum(
+                count
+                for pair, count in vector_pair_clause_counts.items()
+                if pair_support_size_by_pair[pair] == key
+            )
+            for key in sorted(unique_support_counts)
+        },
+        "oriented_clause_support_size_distribution": {
+            f"{left},{right}": oriented_clause_support_counts[(left, right)]
+            for left, right in sorted(oriented_clause_support_counts)
+        },
+        "clause_count_per_inverse_vector_pair_min": min(clause_counts),
+        "clause_count_per_inverse_vector_pair_max": max(clause_counts),
+        "kind_pattern_count_per_inverse_vector_pair_distribution": {
+            str(key): kind_pattern_count_distribution[key]
+            for key in sorted(kind_pattern_count_distribution)
+        },
+        "top_inverse_vector_pairs_by_clause_count": [
+            {
+                "inverse_vector_pair": list(pair),
+                "clause_count": count,
+                "support_size": pair_support_size_by_pair[pair],
+                "kind_patterns": [
+                    {"left_kind": left, "right_kind": right}
+                    for left, right in sorted(pair_kind_patterns[pair])
+                ],
+            }
+            for pair, count in sorted(
+                vector_pair_clause_counts.items(),
+                key=lambda item: (-item[1], item[0]),
+            )[:top]
+        ],
+        "note": (
+            "Vector ids are deterministic for this diagnostic generator, but they are "
+            "implementation identifiers rather than mathematical invariants."
         ),
     }
 
@@ -258,17 +344,39 @@ def diagnostic_payload(
     label_occurrences: Counter[int] = Counter()
     label_clause_touches: Counter[int] = Counter()
     used_vector_pairs: set[tuple[int, int]] = set()
+    vector_pair_clause_counts: Counter[tuple[int, int]] = Counter()
+    vector_pair_kind_patterns: dict[tuple[int, int], set[tuple[str, str]]] = {}
+    pair_support_size_by_pair: dict[tuple[int, int], int] = {}
+    pair_support_size_mismatches: set[tuple[int, int]] = set()
+    oriented_clause_support_counts: Counter[tuple[int, int]] = Counter()
 
     for clause in clauses:
         family_counts[translation_family(clause, n)] += 1
         step_signature_counts[clause_step_signature(clause, n)] += 1
-        kind_matches = inverse_kind_pairs(clause, quad_ids, inverse_id)
-        vector_matches = inverse_vector_matches(clause, quad_ids, inverse_id)
+        match_details = inverse_vector_match_details(clause, quad_ids, inverse_id)
+        kind_matches = tuple(
+            sorted((left_kind, right_kind) for _, _, left_kind, right_kind in match_details)
+        )
+        vector_matches = tuple(
+            sorted(
+                (left_vector_id, right_vector_id)
+                for left_vector_id, right_vector_id, _, _ in match_details
+            )
+        )
         kind_pair_counts[kind_matches] += 1
         matches_per_clause_counts[len(vector_matches)] += 1
-        for left_vector_id, right_vector_id in vector_matches:
-            used_vector_pairs.add(tuple(sorted((left_vector_id, right_vector_id))))
-            matched_vector_support_counts[support_sizes[left_vector_id]] += 1
+        for left_vector_id, right_vector_id, left_kind, right_kind in match_details:
+            vector_pair = tuple(sorted((left_vector_id, right_vector_id)))
+            left_support_size = support_sizes[left_vector_id]
+            right_support_size = support_sizes[right_vector_id]
+            used_vector_pairs.add(vector_pair)
+            vector_pair_clause_counts[vector_pair] += 1
+            vector_pair_kind_patterns.setdefault(vector_pair, set()).add((left_kind, right_kind))
+            pair_support_size_by_pair[vector_pair] = left_support_size
+            if left_support_size != right_support_size:
+                pair_support_size_mismatches.add(vector_pair)
+            oriented_clause_support_counts[(left_support_size, right_support_size)] += 1
+            matched_vector_support_counts[left_support_size] += 1
         shared_label_counts[len(set(clause[0]) & set(clause[1]))] += 1
         union_label_counts[len(set(clause[0]) | set(clause[1]))] += 1
         quads_with_label0_counts[sum(1 for quad in clause if 0 in quad)] += 1
@@ -375,6 +483,14 @@ def diagnostic_payload(
             "label_clause_touch_min": min(label_clause_touches.values()),
             "label_clause_touch_max": max(label_clause_touches.values()),
         },
+        "inverse_vector_pair_support_summary": inverse_vector_pair_support_summary(
+            vector_pair_clause_counts,
+            vector_pair_kind_patterns,
+            pair_support_size_by_pair,
+            pair_support_size_mismatches,
+            oriented_clause_support_counts,
+            top=top,
+        ),
         "rotation_quotient_literal_summary": {
             "quads_containing_label0_per_clause": {
                 str(key): quads_with_label0_counts[key] for key in sorted(quads_with_label0_counts)
@@ -558,6 +674,47 @@ def assert_expected(payload: Mapping[str, object]) -> None:
         observed_kind_counts[(str(pair["left_kind"]), str(pair["right_kind"]))] = int(row["count"])
     if observed_kind_counts != expected_kind_counts:
         raise AssertionError(f"unexpected kind-pair distribution: {observed_kind_counts!r}")
+
+    support = payload.get("inverse_vector_pair_support_summary")
+    if not isinstance(support, Mapping):
+        raise AssertionError("inverse_vector_pair_support_summary must be an object")
+    expected_support = {
+        "used_inverse_vector_pair_count": 285,
+        "pair_support_size_mismatch_count": 0,
+        "unique_pair_support_size_distribution": {"2": 266, "4": 19},
+        "clause_count_by_inverse_vector_pair_support_size": {"2": 7780, "4": 201},
+        "oriented_clause_support_size_distribution": {"2,2": 7780, "4,4": 201},
+        "clause_count_per_inverse_vector_pair_min": 4,
+        "clause_count_per_inverse_vector_pair_max": 86,
+        "kind_pattern_count_per_inverse_vector_pair_distribution": {
+            "2": 4,
+            "3": 14,
+            "4": 267,
+        },
+    }
+    for key, expected in expected_support.items():
+        if support.get(key) != expected:
+            raise AssertionError(
+                f"inverse_vector_pair_support_summary[{key!r}] is {support.get(key)!r}, "
+                f"expected {expected!r}"
+            )
+    top_pairs = support.get("top_inverse_vector_pairs_by_clause_count")
+    if not isinstance(top_pairs, list) or not top_pairs:
+        raise AssertionError("top inverse-vector-pair rows changed")
+    first_pair = top_pairs[0]
+    if not isinstance(first_pair, Mapping):
+        raise AssertionError("top inverse-vector-pair rows must be objects")
+    expected_first_pair = {
+        "inverse_vector_pair": [7001, 7037],
+        "clause_count": 86,
+        "support_size": 2,
+    }
+    for key, expected in expected_first_pair.items():
+        if first_pair.get(key) != expected:
+            raise AssertionError(
+                f"top_inverse_vector_pairs_by_clause_count[0][{key!r}] is "
+                f"{first_pair.get(key)!r}, expected {expected!r}"
+            )
 
     rotation = payload.get("rotation_quotient_literal_summary")
     if not isinstance(rotation, Mapping):

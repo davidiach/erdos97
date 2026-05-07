@@ -134,6 +134,14 @@ artifacts:
       template_summary.clause_count: 7981
       template_summary.translation_family_count: 1946
       distance_quotient_table_summary.unique_inverse_vector_pairs_used_by_stored_clauses: 285
+      inverse_vector_pair_support_summary.used_inverse_vector_pair_count: 285
+      inverse_vector_pair_support_summary.pair_support_size_mismatch_count: 0
+      inverse_vector_pair_support_summary.unique_pair_support_size_distribution.2: 266
+      inverse_vector_pair_support_summary.unique_pair_support_size_distribution.4: 19
+      inverse_vector_pair_support_summary.clause_count_by_inverse_vector_pair_support_size.2: 7780
+      inverse_vector_pair_support_summary.clause_count_by_inverse_vector_pair_support_size.4: 201
+      inverse_vector_pair_support_summary.clause_count_per_inverse_vector_pair_min: 4
+      inverse_vector_pair_support_summary.clause_count_per_inverse_vector_pair_max: 86
       provenance.command: python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --out reports/c19_kalmanson_z3_clause_diagnostics.json
     forbidden_claims:
       - C19_skew proves Erdos Problem #97
