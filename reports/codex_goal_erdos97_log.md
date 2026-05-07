@@ -93026,3 +93026,232 @@ the radius labels.
 
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
+
+## 2026-05-07 - Cycle 555 - Radius-Pair Shared-Endpoint Shift
+
+### Subquestion
+
+Cycle 554 left the mixed radius/pair family `R7 < X6_7` untreated because a
+pair class has two endpoint labels rather than two radius labels. For zero
+target-aware forbidden placements carrying `R7 < X6_7`, do the two natural
+pair-endpoint shifts, `6` and `7`, both expose the Cycle 549 target-aware
+22-family vocabulary?
+
+### Definitions and Setup
+
+This cycle uses the same sampled finite artifact as Cycles 549-554:
+
+```text
+data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
+```
+
+For a reconstructed fifth-pair child and center `c`, set `p=c+7 mod 19`.
+The coarse depth labels are:
+
+```text
+A  = anchor
+M  = middle
+L1 = first point on the left boundary
+LD = deeper point on the left boundary
+R1 = first point on the right boundary
+RD = deeper point on the right boundary
+```
+
+The forbidden depth classes are
+`(LD,LD)`, `(LD,RD)`, `(M,LD)`, `(RD,LD)`, `(RD,M)`, and `(RD,RD)`.
+
+For a fixed child, enumerate all forced Kalmanson quotient vectors and keep
+each exact inverse pair `v,-v`. A placement `(child,c,p)` is zero
+target-aware if no inverse-pair family touches either the selected radius
+class `R_c` or the pair class `X_{c,p}`. Normalize family labels by rotating
+`c` to `0`.
+
+A source placement for `R7 < X6_7` is a forbidden zero target-aware placement
+whose off-target inverse-pair family set contains the normalized comparison
+`R7 < X6_7`. The two candidate endpoint shifts are:
+
+```text
+shift 6: move the center from c to c+6
+shift 7: move the center from c to c+7
+```
+
+The pair endpoint `7` is also the radius label in `R7`; endpoint `6` is the
+other endpoint of the pair class `X6_7`.
+
+### Result Status
+
+Counterexample to the symmetric endpoint subclaim, plus a promising finite
+reduction:
+**Radius-Pair Shared-Endpoint Shift**.
+
+In the sampled finite scope, every `R7 < X6_7` source transports under shift
+`7`, but not every source transports under shift `6`.
+
+### Exact Audit Result
+
+The audit first reproduced the prior sampled totals:
+
+```text
+children 10350
+forbidden 70614
+zero_target 27255
+nonzero_target 43359
+target_vocab_count 22
+target_hist {0: 27255, 1: 18313, 2: 11915, 3: 7017, 4: 3634, 5: 1397, 6: 708, 7: 247, 8: 96, 9: 26, 10: 6}
+```
+
+The source side was:
+
+```text
+source family R7 < X6_7
+source placements 3325
+source children 2955
+```
+
+Source placements split by forbidden depth class as:
+
+```text
+(LD,LD): 182
+(LD,RD): 208
+(M,LD): 2284
+(RD,LD): 365
+(RD,M): 80
+(RD,RD): 206
+```
+
+For the two candidate shifts:
+
+```text
+shift 6 target-vocabulary successes: 2011
+shift 6 forbidden-and-target-vocabulary successes: 614
+shift 6 outside-vocabulary shifted families: 0
+
+shift 7 target-vocabulary successes: 3325
+shift 7 forbidden-and-target-vocabulary successes: 1776
+shift 7 outside-vocabulary shifted families: 0
+```
+
+Thus shift `7` succeeds on all 3,325 sources, while shift `6` fails on 1,314
+sources.
+
+The exact audit digest was:
+
+```text
+124b99af38b2bff9f0c2558ba1a3e048a41d8c22b5911bd87aeeb1e91a74189e
+```
+
+### Obstruction to the Symmetric Endpoint Rule
+
+The first source where shift `6` fails but shift `7` succeeds is:
+
+```text
+label c19_window_fifth_child_0338_0063_0002
+source center 10, partner 17, depth (M, LD)
+boundary_left [1, 3, 17, 11, 6]
+boundary_right [2, 5, 4, 15, 9]
+remaining [7, 8, 10, 12, 13, 14, 16, 18]
+named_success [7]
+good_offsets [1, 2, 4, 5, 7, 9, 10, 11, 12, 14, 15, 18]
+forbidden_good_offsets [5, 7, 14, 18]
+```
+
+This is an exact sampled obstruction to the subclaim:
+
+```text
+For R7 < X6_7, both pair endpoints 6 and 7 are valid transport shifts.
+```
+
+### Obstruction to the Stronger Forbidden-Shift Route
+
+As in Cycles 552-554, requiring a shifted target-aware placement to remain in
+a forbidden depth class is too strong. The first source with target-aware
+shifts but no forbidden target-aware shift is:
+
+```text
+label c19_window_fifth_child_0435_0078_0086
+source center 6, partner 13, depth (RD, RD)
+boundary_left [1, 3, 10, 14, 18]
+boundary_right [2, 6, 12, 5, 13]
+remaining [4, 7, 8, 9, 11, 15, 16, 17]
+good_offsets [2, 4, 7, 11, 15]
+forbidden_good_offsets []
+```
+
+### Argument
+
+The audit is an exact replay over the recorded sampled artifact. It
+reconstructs each fifth-pair child from the stored fourth-pair survivor
+boundary state, computes all prefix-forced Kalmanson rows, groups quotient
+vectors by exact selected-distance class, and enumerates inverse pairs
+`v,-v`.
+
+For each forbidden placement `(child,c,c+7)`, the audit first computes the
+target-aware family set. If that set is empty and the complete off-target
+family set contains `R7 < X6_7`, the placement is included as a source.
+Then it shifts the center by `6` and by `7`, recomputes the target-aware
+family set for the shifted center, and checks membership in the completed
+Cycle 549 22-family vocabulary.
+
+The endpoint `6` fails on the exact witness above, so the symmetric pair
+endpoint rule is false. The shared endpoint `7`, which is both the radius
+label and one endpoint of the pair class, succeeds for every sampled source.
+
+### Limitations
+
+- This is a finite sampled audit over windows 288-479 only.
+- The result covers one mixed radius/pair family, `R7 < X6_7`, not all mixed
+  off-target families from Cycle 551.
+- The proof is still an exact replay, not a human-readable order-theoretic
+  lemma.
+- The shifted placement need not remain in a forbidden depth class; the
+  recorded obstruction rules out that stronger route again.
+- The result does not prove or refute an all-order `C19_skew` obstruction.
+- It does not prove a general theorem for Erdos Problem #97 and does not give
+  a counterexample.
+
+### Effect on the Attack
+
+The radius/radius endpoint rule does not transfer verbatim to radius/pair
+families. The pair endpoint that is not also the radius label can fail. The
+surviving sampled principle is narrower:
+
+```text
+Shared-Endpoint Radius-Pair Shift Conjecture:
+If a zero target-aware forbidden placement has an off-target inverse pair
+Ra < Xb_a, then shifting the center by a exposes the target-aware
+22-family vocabulary.
+```
+
+This conjecture is still finite evidence until proved from the cyclic order
+and selected-distance quotient structure.
+
+### Next Lead
+
+Test the shared-endpoint rule on the next frequent mixed radius/pair families
+from Cycle 551, starting with `R13 < X7_13`, `R7 < X7_14`, `R9 < X9_16`,
+`R10 < X10_17`, and `R5 < X5_18`. The key distinction is whether the pair
+class has the radius label as one endpoint; if so, test only that shared
+endpoint before trying the other endpoint.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-555`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-555`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact radius/pair endpoint transport audit over all 10,350 sampled
+  fifth children, all 70,614 forbidden placements, and all 3,325
+  `R7 < X6_7` zero-target source placements: passed, with digest
+  `124b99af38b2bff9f0c2558ba1a3e048a41d8c22b5911bd87aeeb1e91a74189e`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
