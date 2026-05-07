@@ -42,6 +42,51 @@ def test_c19_z3_clause_diagnostic_matches_artifact() -> None:
     assert payload["distance_quotient_table_summary"][
         "unique_inverse_vector_pairs_used_by_stored_clauses"
     ] == 285
+    support_summary = payload["inverse_vector_pair_support_summary"]
+    assert support_summary["used_inverse_vector_pair_count"] == 285
+    assert support_summary["pair_support_size_mismatch_count"] == 0
+    assert support_summary["unique_pair_support_size_distribution"] == {
+        "2": 266,
+        "4": 19,
+    }
+    assert support_summary["clause_count_by_inverse_vector_pair_support_size"] == {
+        "2": 7780,
+        "4": 201,
+    }
+    assert support_summary["oriented_clause_support_size_distribution"] == {
+        "2,2": 7780,
+        "4,4": 201,
+    }
+    assert support_summary["clause_count_per_inverse_vector_pair_min"] == 4
+    assert support_summary["clause_count_per_inverse_vector_pair_max"] == 86
+    assert support_summary["kind_pattern_count_per_inverse_vector_pair_distribution"] == {
+        "2": 4,
+        "3": 14,
+        "4": 267,
+    }
+    assert support_summary["top_inverse_vector_pairs_by_clause_count"][0] == {
+        "inverse_vector_pair": [7001, 7037],
+        "clause_count": 86,
+        "support_size": 2,
+        "kind_patterns": [
+            {
+                "left_kind": "K1_diag_gt_sides",
+                "right_kind": "K1_diag_gt_sides",
+            },
+            {
+                "left_kind": "K1_diag_gt_sides",
+                "right_kind": "K2_diag_gt_other",
+            },
+            {
+                "left_kind": "K2_diag_gt_other",
+                "right_kind": "K1_diag_gt_sides",
+            },
+            {
+                "left_kind": "K2_diag_gt_other",
+                "right_kind": "K2_diag_gt_other",
+            },
+        ],
+    }
     assert payload["rotation_quotient_literal_summary"][
         "label0_non_first_occurrences"
     ] == 0
@@ -96,3 +141,30 @@ def test_c19_z3_clause_diagnostic_cli_json() -> None:
     payload = json.loads(result.stdout)
     assert payload["trust"] == "EXACT_CERTIFICATE_DIAGNOSTIC"
     assert payload["status"] == "ALL_ORDER_C19_Z3_CLAUSE_DIAGNOSTIC_ONLY"
+
+
+def test_c19_z3_clause_diagnostic_cli_assert_expected_with_short_top() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/analyze_kalmanson_z3_clauses.py",
+            "--assert-expected",
+            "--top",
+            "3",
+            "--json",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 0
+    assert result.stderr == ""
+    payload = json.loads(result.stdout)
+    assert len(payload["inverse_vector_pair_support_summary"][
+        "top_inverse_vector_pairs_by_clause_count"
+    ]) == 3
+    assert payload["inverse_vector_pair_support_summary"][
+        "used_inverse_vector_pair_count"
+    ] == 285
