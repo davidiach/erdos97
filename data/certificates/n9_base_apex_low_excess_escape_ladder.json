@@ -1,0 +1,181 @@
+{
+  "base_apex_slack": 9,
+  "capacity_deficit_relation": "D = 9 - E",
+  "claim_scope": "Focused n=9 base-apex low-excess minimal escape-slice ladder bookkeeping; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.",
+  "contradiction_threshold": 3,
+  "interpretation": [
+    "The ladder covers E=0..6, so D=9-E ranges from 9 down to 3.",
+    "Every row uses the strict turn-cover threshold and the minimum relevant escape count r=3.",
+    "Unassigned capacity is D-r and is not placed on side or length-4 bases by this report.",
+    "The coupled counts quotient profile labels and r=3 escape placements by the same dihedral action.",
+    "No individual coupled classes are emitted in this summary-only artifact.",
+    "No proof of the n=9 case is claimed."
+  ],
+  "ladder_rows": [
+    {
+      "capacity_deficit": 9,
+      "common_dihedral_pair_class_count": 8,
+      "common_dihedral_pair_orbit_size_counts": {
+        "18": 4,
+        "9": 4
+      },
+      "dihedral_profile_orbit_count": 1,
+      "dihedral_profile_orbit_size_counts": {
+        "1": 1
+      },
+      "labelled_profile_escape_pair_count": 108,
+      "labelled_profile_sequence_count": 1,
+      "strict_minimal_relevant_escape": 3,
+      "total_profile_excess": 0,
+      "unassigned_capacity_after_minimum_relevant_escape": 6,
+      "unlabeled_profile_ledger_count": 1
+    },
+    {
+      "capacity_deficit": 8,
+      "common_dihedral_pair_class_count": 56,
+      "common_dihedral_pair_orbit_size_counts": {
+        "18": 52,
+        "9": 4
+      },
+      "dihedral_profile_orbit_count": 1,
+      "dihedral_profile_orbit_size_counts": {
+        "9": 1
+      },
+      "labelled_profile_escape_pair_count": 972,
+      "labelled_profile_sequence_count": 9,
+      "strict_minimal_relevant_escape": 3,
+      "total_profile_excess": 1,
+      "unassigned_capacity_after_minimum_relevant_escape": 5,
+      "unlabeled_profile_ledger_count": 1
+    },
+    {
+      "capacity_deficit": 7,
+      "common_dihedral_pair_class_count": 280,
+      "common_dihedral_pair_orbit_size_counts": {
+        "18": 260,
+        "9": 20
+      },
+      "dihedral_profile_orbit_count": 5,
+      "dihedral_profile_orbit_size_counts": {
+        "9": 5
+      },
+      "labelled_profile_escape_pair_count": 4860,
+      "labelled_profile_sequence_count": 45,
+      "strict_minimal_relevant_escape": 3,
+      "total_profile_excess": 2,
+      "unassigned_capacity_after_minimum_relevant_escape": 4,
+      "unlabeled_profile_ledger_count": 2
+    },
+    {
+      "capacity_deficit": 6,
+      "common_dihedral_pair_class_count": 1000,
+      "common_dihedral_pair_orbit_size_counts": {
+        "18": 980,
+        "9": 20
+      },
+      "dihedral_profile_orbit_count": 12,
+      "dihedral_profile_orbit_size_counts": {
+        "18": 7,
+        "3": 1,
+        "9": 4
+      },
+      "labelled_profile_escape_pair_count": 17820,
+      "labelled_profile_sequence_count": 165,
+      "strict_minimal_relevant_escape": 3,
+      "total_profile_excess": 3,
+      "unassigned_capacity_after_minimum_relevant_escape": 3,
+      "unlabeled_profile_ledger_count": 3
+    },
+    {
+      "capacity_deficit": 5,
+      "common_dihedral_pair_class_count": 3000,
+      "common_dihedral_pair_orbit_size_counts": {
+        "18": 2940,
+        "9": 60
+      },
+      "dihedral_profile_orbit_count": 35,
+      "dihedral_profile_orbit_size_counts": {
+        "18": 20,
+        "9": 15
+      },
+      "labelled_profile_escape_pair_count": 53460,
+      "labelled_profile_sequence_count": 495,
+      "strict_minimal_relevant_escape": 3,
+      "total_profile_excess": 4,
+      "unassigned_capacity_after_minimum_relevant_escape": 2,
+      "unlabeled_profile_ledger_count": 5
+    },
+    {
+      "capacity_deficit": 4,
+      "common_dihedral_pair_class_count": 7752,
+      "common_dihedral_pair_orbit_size_counts": {
+        "18": 7692,
+        "9": 60
+      },
+      "dihedral_profile_orbit_count": 79,
+      "dihedral_profile_orbit_size_counts": {
+        "18": 64,
+        "9": 15
+      },
+      "labelled_profile_escape_pair_count": 138996,
+      "labelled_profile_sequence_count": 1287,
+      "strict_minimal_relevant_escape": 3,
+      "total_profile_excess": 5,
+      "unassigned_capacity_after_minimum_relevant_escape": 1,
+      "unlabeled_profile_ledger_count": 7
+    },
+    {
+      "capacity_deficit": 3,
+      "common_dihedral_pair_class_count": 18088,
+      "common_dihedral_pair_orbit_size_counts": {
+        "18": 17948,
+        "9": 140
+      },
+      "dihedral_profile_orbit_count": 185,
+      "dihedral_profile_orbit_size_counts": {
+        "18": 150,
+        "3": 2,
+        "9": 33
+      },
+      "labelled_profile_escape_pair_count": 324324,
+      "labelled_profile_sequence_count": 3003,
+      "strict_minimal_relevant_escape": 3,
+      "total_profile_excess": 6,
+      "unassigned_capacity_after_minimum_relevant_escape": 0,
+      "unlabeled_profile_ledger_count": 11
+    }
+  ],
+  "n": 9,
+  "provenance": {
+    "command": "python scripts/analyze_n9_base_apex_low_excess_escape_ladder.py --assert-expected --out data/certificates/n9_base_apex_low_excess_escape_ladder.json",
+    "generator": "scripts/analyze_n9_base_apex_low_excess_escape_ladder.py"
+  },
+  "schema": "erdos97.n9_base_apex_low_excess_escape_ladder.v1",
+  "source_artifacts": {
+    "d3_escape_slice": "data/certificates/n9_base_apex_d3_escape_slice.json",
+    "escape_budget": "data/certificates/n9_base_apex_escape_budget_report.json",
+    "low_excess_ledgers": "data/certificates/n9_base_apex_low_excess_ledgers.json"
+  },
+  "status": "EXPLORATORY_LEDGER_ONLY",
+  "strict_escape_slice": {
+    "contradiction_threshold": 3,
+    "dihedral_escape_class_count": 8,
+    "dihedral_escape_orbit_size_counts": {
+      "18": 4,
+      "9": 4
+    },
+    "labelled_escape_placement_count": 108,
+    "remaining_minimum_forced_turn_count": {
+      "2": 108
+    },
+    "strict_minimal_relevant_escape": 3,
+    "total_relevant_placement_count": 816
+  },
+  "strict_minimal_relevant_escape": 3,
+  "total_profile_excess_range": [
+    0,
+    6
+  ],
+  "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
+  "witness_size": 4
+}

@@ -52,6 +52,10 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
     )
     assert "python scripts/check_n9_d3_escape_slice.py --check --json" in command_texts
     assert (
+        "python scripts/check_n9_base_apex_low_excess_escape_ladder.py --check --json"
+        in command_texts
+    )
+    assert (
         "python scripts/check_n9_row_ptolemy_product_cancellations.py --check --json"
         in command_texts
     )
