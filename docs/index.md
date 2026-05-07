@@ -111,6 +111,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-t01-self-edge-lemma.md`](n9-vertex-circle-t01-self-edge-lemma.md):
   focused review-pending T01/F09 self-edge local lemma packet for proof
   mining.
+- [`n9-vertex-circle-t02-self-edge-lemma.md`](n9-vertex-circle-t02-self-edge-lemma.md):
+  focused review-pending T02 multi-family self-edge local lemma packet for
+  proof mining.
 - [`n10-vertex-circle-singleton-slices.md`](n10-vertex-circle-singleton-slices.md):
   review-pending `n=10` singleton-slice finite-case draft and audit target.
 - [`octagon-trap.html`](octagon-trap.html): interactive visualization of the
