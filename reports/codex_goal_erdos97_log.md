@@ -22947,6 +22947,221 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 578 - n=9 Local-Template Route Audit
+
+### Mathematical Subquestion
+
+After the self-edge and strict-cycle criteria from Cycles 576 and 577, exactly
+what would the current `n=9` local-template route prove if its review-pending
+finite artifacts were independently accepted, and exactly why does it still
+not prove Erdos Problem #97?
+
+### Definitions and Assumptions
+
+A **selected-witness assignment** for a cyclically labelled nonagon is a choice
+of one 4-set `S_i` of selected witnesses for each center `i`.
+
+A selected-witness assignment is **frontier-admissible** here if it passes the
+repo-native `n=9` pair/crossing/count filters before vertex-circle pruning.
+This is the scope of `data/certificates/n9_vertex_circle_exhaustive.json`, not
+a theorem about arbitrary `n`.
+
+A **local template obstruction** is one of the two quotient contradictions:
+
+```text
+self edge:    strict edge plus selected path from outer pair to inner pair
+strict cycle: directed cycle after selected-distance quotienting
+```
+
+The template labels `T01` through `T12` are deterministic artifact labels for
+reviewer navigation only. They are not theorem names.
+
+### Result Status
+
+Reduction and state-of-the-attack summary:
+**n=9 Local-Template Conditional Exclusion Route**.
+
+Conditional on independent acceptance of the review-pending `n=9`
+frontier-admissible enumeration and the assignment-to-template crosswalk, the
+current local-template route rules out every frontier-admissible selected
+witness assignment on 9 cyclically labelled vertices.
+
+This is a conditional finite-case route, not a global proof and not a
+counterexample.
+
+### Conditional Argument
+
+The route has three layers.
+
+1. The exhaustive `n=9` vertex-circle checker separates the search:
+
+```text
+row0 choices: 70
+frontier-admissible full assignments before vertex-circle pruning: 184
+vertex-circle classifications: 158 self-edge, 26 strict-cycle
+```
+
+2. The template lemma catalog compresses those 184 assignments:
+
+```text
+templates:            12
+families:             16
+assignments covered:  184
+self-edge templates:   9
+strict-cycle templates: 3
+```
+
+3. Cycles 576 and 577 give proof-facing local criteria for both obstruction
+types. A selected-path self-edge gives `D(p)>D(q)=D(p)`, and a directed
+strict cycle gives `D(P0)>D(P0)`. Therefore every catalog-covered local core is
+unrealizable.
+
+If all three layers are accepted, no frontier-admissible `n=9`
+selected-witness assignment remains.
+
+### What This Does Not Prove
+
+The route still has two separate gaps.
+
+First, the `n=9` finite-case package remains review-pending. The repository
+still records the source-of-truth local finite-case theorem as `n <= 8`, not
+`n <= 9`. The missing review items include:
+
+- the geometric necessity of every pair/crossing/count/vertex-circle pruning
+  rule;
+- the completeness of the dynamic row-order enumeration;
+- the absence of hidden row0 symmetry assumptions;
+- the soundness of applying vertex-circle pruning only from already fixed
+  rows and quotient equalities;
+- reconciliation with the raw 184/16 and 102-certificate archive variants.
+
+Second, even a fully reviewed `n=9` theorem would still not prove Erdos97.
+The global problem allows arbitrary `n`. The repository currently has no
+theorem saying that a minimal counterexample must reduce to `n <= 9`, must
+contain one of the `n=9` local row-core motifs, or must contain a comparable
+selected-distance quotient obstruction.
+
+Thus the global bridge needed for a proof is not another check of the 12
+templates. It is a theorem of one of the following forms:
+
+```text
+Bounded-size reduction:
+Every counterexample contains a bad induced subconfiguration on at most 9
+vertices.
+
+Forced-local-core bridge:
+Every minimal counterexample contains a selected-witness local core satisfying
+the self-edge or strict-cycle criterion.
+
+Finite obstruction atlas:
+A finite family of local quotient obstructions is forced in every minimal
+counterexample, with an independently checked complete atlas.
+```
+
+No such bridge is currently proved in the repository.
+
+### Exact Artifact Evidence
+
+The current catalog checker reports:
+
+```text
+schema: erdos97.n9_vertex_circle_template_lemma_catalog.v1
+status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+trust: REVIEW_PENDING_DIAGNOSTIC
+template_count: 12
+family_count: 16
+covered_assignment_count: 184
+status_assignment_counts:
+  self_edge: 158
+  strict_cycle: 26
+template_status_counts:
+  self_edge: 9
+  strict_cycle: 3
+```
+
+The metadata file still records:
+
+```text
+official/global status: falsifiable/open
+strongest local source-of-truth result: n <= 8
+n9_vertex_circle_exhaustive: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+```
+
+### Effect on the Attack
+
+The local-template work is now mature enough that repeating more
+template-by-template proof mining is lower value. The next useful proof work
+should attack one of the bridge statements directly.
+
+The most concrete candidate is the forced-local-core bridge:
+
+```text
+In any minimal counterexample, the fragile-cover rows or selected-distance
+quotient graph force either a selected-path self-edge or a directed
+strict-cycle obstruction.
+```
+
+The current evidence does not prove this, and the block-6 fragile-cover
+obstruction in `docs/minimal-fragile-cover-bridge.md` warns that hypergraph
+constraints alone are too weak. Any attempted proof must use cyclic order or
+metric geometry beyond the two-circle cap and fragile-cover incidence.
+
+### Next Lead
+
+Work on the forced-local-core bridge in theory mode. A narrow next
+subquestion is:
+
+```text
+Does a minimal fragile-cover witness system whose selected-distance quotient
+has no self-edge and no strict directed cycle admit a purely combinatorial
+normal form?
+```
+
+If such a normal form exists, it may either become the finite-to-infinite
+bridge or produce a small exact obstruction showing why the local-template
+route cannot be globalized.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-578`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-578`.
+- The branch was based on `origin/main` at
+  `cdcfe309dde10d8154d95f5c44800f7a26c935b1`, after replacement PR #245
+  merged Cycle 577.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+  --assert-expected --json`: passed; the catalog has 12 templates, 16
+  families, 184 covered assignments, and zero validation errors.
+- `jq '{schema,status,trust,templates:(.templates|length),
+  template_ids:[.templates[].template_id],
+  assignment_sum:([.templates[].coverage.assignment_count] | add),
+  self_edge:([.templates[] | select(.status=="self_edge")]|length),
+  strict_cycle:([.templates[] | select(.status=="strict_cycle")]|length)}'
+  data/certificates/n9_vertex_circle_template_lemma_catalog.json`: returned
+  12 templates, assignment sum 184, 9 self-edge templates, and 3 strict-cycle
+  templates.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed; 708 passed and 97 deselected.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 577 - Directed Strict-Cycle Criterion
 
 ### Mathematical Subquestion
