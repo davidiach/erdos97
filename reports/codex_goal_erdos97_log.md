@@ -22947,6 +22947,162 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 586 - C29 Small Bounded-Weight Circuit Lower Bound
+
+### Mathematical Subquestion
+
+Cycle 585 ruled out unit-weight zero-sum subcertificates of size at most six
+in the fixed-order `C29_sidon_1_3_7_15` Kalmanson certificate. The next
+possibility is that the certificate decomposes into small blocks only after
+allowing non-unit positive integer weights.
+
+Does the recorded C29 quotient row set contain a positive weighted zero-sum
+subcertificate with small support and small coefficients?
+
+### Definitions and Assumptions
+
+Use the same selected-distance quotient and the same 165 strict Kalmanson
+rows from `data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`
+as in Cycle 585.
+
+For a row `r`, let `v(r)` be its reduced integer quotient vector. A
+**positive weighted circuit** on support `S` is a choice of distinct row
+indices `r in S` and positive integers `w_r` such that
+
+```text
+sum_{r in S} w_r v(r) = 0.
+```
+
+This cycle checks two bounded regimes:
+
+1. support size at most four with every coefficient at most eight;
+2. support size exactly five with every coefficient at most three.
+
+Since the first regime includes supports of size two, three, and four, and
+the second regime covers size five at the smaller coefficient bound, the
+combined conclusion also rules out supports of size at most five with all
+coefficients at most three.
+
+### Result Status
+
+Proved finite lower bound:
+**C29 Small Bounded-Weight Circuit Lower Bound**.
+
+The exact search found no positive weighted zero-sum subcertificate in either
+bounded regime:
+
+```text
+row count:                              165
+support <= 4, coefficient <= 8:          0
+support = 5,  coefficient <= 3:          0
+weighted pair-sum classes, bound 8: 865,920
+weighted pair-sum classes, bound 3: 121,770
+weighted triple records checked:  19,848,510
+weighted triple-sum classes:      19,848,510
+```
+
+The exact audit digests were:
+
+```text
+support <= 4, coefficient <= 8 digest:
+  90cd1bfc99dcf9dc39b3576d52dce8885fa6c6b8124cf91c5054c8c0430fe721
+support = 5, coefficient <= 3 digest:
+  7bf0bcbe8276b74281faf91ce1b6ebe9194e8c2a5dd5d79b5e39c97b4ff6e820
+```
+
+### Argument
+
+The search is exact integer vector bookkeeping after selected-distance
+quotienting.
+
+For support size at most four with coefficient bound eight, the checker
+formed every weighted pair sum
+
+```text
+a v(r_i) + b v(r_j),  1 <= a,b <= 8,
+```
+
+over distinct row indices. It then tested:
+
+- whether any weighted pair sum is already zero;
+- whether the negative of a weighted row occurs as a disjoint weighted pair
+  sum, giving support three;
+- whether opposite disjoint weighted pair sums occur, giving support four.
+
+No such support was found.
+
+For support size five with coefficient bound three, the checker formed every
+weighted pair sum and compared it against every opposite weighted triple sum,
+requiring the pair and triple row-index supports to be disjoint. No support
+was found.
+
+All coefficient arithmetic was over exact integers. No floating-point
+tolerance or numerical optimization was used.
+
+### Effect on the Attack
+
+This strengthens Cycle 585's obstruction to a tiny-block explanation of the
+fixed C29 certificate. The certificate is not assembled from:
+
+- unit circuits of size at most six;
+- positive weighted circuits of size at most four with coefficients at most
+  eight; or
+- positive weighted circuits of size five with coefficients at most three.
+
+Thus the full weighted certificate's cancellation mechanism is either larger,
+uses substantially larger coefficients even on small supports, depends on a
+global interaction among many rows, or is better explained by a different
+invariant than local zero-sum blocks.
+
+### Exact Scope
+
+This is an exact finite audit of the recorded fixed-order
+`C29_sidon_1_3_7_15` Kalmanson certificate only. It does not cover other
+cyclic orders, other selected-witness patterns, support size at least six in
+the weighted setting, support size five with coefficients above three, or
+support size at most four with coefficients above eight.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+The small-block route is now less attractive. Two more useful directions are:
+
+1. search for a sparse weighted circuit using the actual certificate weights
+   as a guide, for example by looking at gcd-normalized groups of rows with
+   common quotient supports; or
+2. stop decomposing into circuits and instead look for a human-readable dual
+   invariant that certifies the full 165-row cancellation globally.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-586`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-586`.
+- The branch was based on Cycle 585 head
+  `548d00be8b8a2394b8b202ee8d216445a1265576`.
+- After Cycle 585 merged, the publication branch was rebased onto
+  `origin/main` at `258b9c5add5b2bd0d626a153eca5a7f47c7086f6`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 positive weighted circuit search for support size at most
+  four and coefficient bound eight: passed, with digest
+  `90cd1bfc99dcf9dc39b3576d52dce8885fa6c6b8124cf91c5054c8c0430fe721`.
+- One-off exact C29 positive weighted circuit search for support size five
+  and coefficient bound three: passed, with digest
+  `7bf0bcbe8276b74281faf91ce1b6ebe9194e8c2a5dd5d79b5e39c97b4ff6e820`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 585 - C29 Small Unit-Circuit Lower Bound
 
 ### Mathematical Subquestion
