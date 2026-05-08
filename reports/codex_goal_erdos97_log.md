@@ -22947,6 +22947,208 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 583 - Nonzero Dual Strict-Positivity Lemma
+
+### Mathematical Subquestion
+
+Cycle 582 characterized rows that are nonnegative on the weak acyclic
+quotient potential cone by upper-set masses. It left strict positivity as a
+zero-face question. Can that strict question be simplified exactly?
+
+More precisely, for a finite acyclic quotient strict graph `G`, when does a
+linear quotient row satisfy
+
+```text
+L(D) > 0
+```
+
+for every positive formal assignment that satisfies every strict edge
+strictly?
+
+### Definitions and Assumptions
+
+Use the notation from Cycles 579 through 582. Let `Q` be a finite set of
+selected-distance quotient classes, and let `G=(Q,E)` be a finite acyclic
+directed graph whose edge `X -> Y` represents the intended strict comparison
+
+```text
+D(X) > D(Y).
+```
+
+Let
+
+```text
+C(G) = { D : Q -> R_{>=0} such that D(X) >= D(Y) for every X -> Y }
+```
+
+be the weak formal potential cone, and let
+
+```text
+C_strict(G) = { D : Q -> R_{>0} such that D(X) > D(Y)
+                for every X -> Y }.
+```
+
+For a linear quotient row
+
+```text
+L(D) = sum_{X in Q} c_X D(X),
+```
+
+write
+
+```text
+c(U) = sum_{X in U} c_X
+```
+
+for each predecessor-closed upper set `U`.
+
+### Result Status
+
+Proved exact strict-forcing criterion:
+**Nonzero Dual Strict-Positivity Lemma**.
+
+For a finite acyclic quotient strict graph `G`, the following are equivalent:
+
+1. `L(D)>0` for every `D in C_strict(G)`;
+2. `c(U)>=0` for every upper set `U`, and the coefficient vector `c` is not
+   identically zero.
+
+Equivalently, by finite induction on a topological order, condition 2 can be
+stated as:
+
+```text
+c(U)>=0 for every upper set U, and c(U)>0 for at least one upper set U.
+```
+
+### Argument
+
+First note that `C_strict(G)` is nonempty because `G` is finite and acyclic:
+the Cycle 579 potential
+
+```text
+D_0(X) = 1 + h(X)
+```
+
+is positive and strictly decreases along every edge. It is also the interior
+of `C(G)`, since `C(G)` is defined by the finitely many weak inequalities
+`D(X)>=0` and `D(X)>=D(Y)` for edges `X -> Y`.
+
+Suppose first that `L(D)>0` for every `D in C_strict(G)`. For any
+`D in C(G)` and any `epsilon>0`, the point
+
+```text
+D + epsilon D_0
+```
+
+lies in `C_strict(G)`. Hence `L(D + epsilon D_0)>0`. Letting
+`epsilon -> 0` gives `L(D)>=0` on all of `C(G)`. By the Upper-Set Dual Cone
+Lemma from Cycle 582, `c(U)>=0` for every upper set `U`. Also `c` cannot be
+identically zero, because then `L(D)=0` on `C_strict(G)`.
+
+Conversely suppose every upper-set mass is nonnegative and `c` is not zero.
+By Cycle 582, `L(D)>=0` on all of `C(G)`. Assume for contradiction that some
+`D in C_strict(G)` satisfies `L(D)=0`.
+
+Because `c` is not zero, there is a direction `v` with `L(v)<0`; for example,
+take `v=-c` after identifying coefficient vectors with coordinate vectors.
+Since `D` is an interior point of the finitely constrained cone `C(G)`, there
+is some small `epsilon>0` such that
+
+```text
+D + epsilon v in C(G).
+```
+
+But then
+
+```text
+L(D + epsilon v) = L(D) + epsilon L(v) < 0,
+```
+
+contradicting `L>=0` on `C(G)`. Therefore `L(D)>0` for every
+`D in C_strict(G)`.
+
+For the equivalent upper-set formulation, if every upper-set mass is
+nonnegative and every upper-set mass is zero, then `c=0`: process the
+vertices in a topological order from sources to sinks. The principal upper set
+of a vertex consists of that vertex together with already-processed
+predecessors, so the zero mass of principal upper sets forces each coefficient
+to vanish in turn.
+
+### Effect on the Attack
+
+Cycle 582 left open the possibility that strict positivity required a
+separate zero-face analysis. Cycle 583 removes that extra ambiguity in the
+formal acyclic quotient-order model:
+
+```text
+strictly forced positive row
+= nonzero row with all upper-set masses nonnegative.
+```
+
+Thus the next concrete row-triage workflow is simpler than Cycle 582's
+wording suggested:
+
+1. find a negative upper-set mass and get a strict potential countermodel;
+2. find all upper-set masses nonnegative and some positive upper-set mass,
+   and the row is strictly forced by the quotient order;
+3. if all upper-set masses vanish, the row is the zero row after quotienting
+   and cannot contribute a strict inequality by itself.
+
+This does not produce a geometric contradiction by itself. It identifies
+exactly which quotient rows are strict consequences of an acyclic formal
+order, before adding Euclidean realizability, Kalmanson validity, or
+zero-sum-certificate information.
+
+### Exact Scope
+
+The lemma is finite, exact, and purely about formal quotient potentials. It
+does not assert that any point of `C_strict(G)` is a Euclidean distance vector
+or is realized by a strictly convex polygon. It also does not certify that a
+candidate row is a valid Kalmanson, Altman, Ptolemy, or radius-propagation
+inequality before quotienting.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+Apply the strict criterion to one recorded higher-support quotient row from
+the n=9 vertex-circle or C19/C29 Kalmanson artifacts. The useful deliverable
+would be a small exact upper-set mass table showing whether that row is
+strictly order-forced, defeated by drift, or zero after quotienting.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-583`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-583`.
+- The branch was based on `origin/main` at
+  `35eb92cb400e790e73199617de8117a6f70e3041`, after replacement PR #255
+  merged Cycle 582.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 582 - Upper-Set Dual Cone Lemma
 
 ### Mathematical Subquestion
