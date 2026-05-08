@@ -22947,6 +22947,340 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 574 - T02 Three-Step Self-Edge Lemma
+
+### Mathematical Subquestion
+
+Do the remaining `T02` self-edge families `F04`, `F08`, and `F14` admit the
+same kind of direct three-row proof as the `F01` lemma from Cycle 573?
+
+### Definitions and Assumptions
+
+Use the same vertex-circle nesting fact as Cycle 573. For a row
+
+```text
+i:{a,b,c,d}
+```
+
+the selected witnesses lie on one circle centered at `i`, and a properly
+larger witness interval gives a strictly longer chord.
+
+All displayed labels are read in the cyclic order
+
+```text
+0,1,2,3,4,5,6,7,8.
+```
+
+### Result Status
+
+Proved local lemma:
+**T02 Three-Step Self-Edge Lemma**.
+
+Each of the four canonical `T02` local cores (`F01`, `F04`, `F08`, and `F14`)
+is unrealizable by the same proof pattern: one strict vertex-circle chord
+inequality is contradicted by a three-step selected-distance equality chain.
+
+### Argument
+
+For `F01`, the selected rows are:
+
+```text
+0:{1,2,3,8}
+1:{0,2,4,7}
+8:{0,1,4,5}
+```
+
+Row `0` gives `d(1,8)>d(1,2)`, while rows `8`, `0`, and `1` give
+
+```text
+d(1,8)=d(0,8)=d(0,1)=d(1,2).
+```
+
+This is the Cycle 573 proof.
+
+For `F04`, the selected rows are:
+
+```text
+0:{1,2,4,6}
+1:{0,2,3,5}
+2:{1,3,4,8}
+```
+
+Row `1` has witness order `2,3,5,0`. The chord from `2` to `0` properly
+contains the chord from `2` to `3`, so
+
+```text
+d(0,2)>d(2,3).
+```
+
+The selected rows force
+
+```text
+d(0,2)=d(0,1)=d(1,2)=d(2,3),
+```
+
+using rows `0`, `1`, and `2`, respectively. This contradicts the strict
+inequality.
+
+For `F08`, the selected rows are:
+
+```text
+0:{1,2,4,8}
+1:{0,2,3,5}
+8:{0,1,3,7}
+```
+
+Row `0` gives `d(1,8)>d(1,2)`, and rows `8`, `0`, and `1` give
+
+```text
+d(1,8)=d(0,8)=d(0,1)=d(1,2).
+```
+
+For `F14`, the selected rows are:
+
+```text
+0:{1,2,6,8}
+1:{0,2,3,7}
+8:{0,1,5,7}
+```
+
+Again row `0` gives `d(1,8)>d(1,2)`, and rows `8`, `0`, and `1` give
+
+```text
+d(1,8)=d(0,8)=d(0,1)=d(1,2).
+```
+
+In all four cases, the selected-distance quotient identifies the outer and
+inner pairs of a strict chord-containment inequality. Therefore each core
+forces a reflexive strict edge and is unrealizable.
+
+### Exact Artifact Scope
+
+The checked `T02` packet records exactly these four families:
+
+```text
+F01, F04, F08, F14
+```
+
+with `40` labelled assignments total, core size `3`, and replay status
+`self_edge` for each family. This cycle supplies the human-readable local
+proof for those four canonical family cores only.
+
+### Limitations
+
+- This is a local four-core lemma, not a proof of `n=9`.
+- It assumes the displayed cyclic order and selected rows.
+- It does not prove the review-pending assignment-to-family classification.
+- It does not prove that arbitrary `n=9` assignments contain one of these
+  four cores.
+- It does not address the other self-edge templates or strict-cycle
+  templates.
+- It does not bridge to arbitrary `n`.
+- It does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Effect on the Attack
+
+The `T02` packet can now be read without consulting the replay artifact for
+its mathematical contradiction: all four families reduce to a strict
+lengthening chord plus a three-step selected-distance equality path. This is
+the first template packet whose canonical local cores have been converted into
+a compact proof-facing lemma.
+
+The next pressure point is to repeat this conversion for `T01` or `T03`, then
+look for a common self-edge normal form across the self-edge packet.
+
+### Next Lead
+
+Inspect the `T01` and `T03` self-edge packets. The narrow subquestion is
+whether they also have one strict chord inequality plus a short equality path,
+or whether they require genuinely different self-edge mechanisms.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-573`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-573`.
+- The branch was based on `origin/main` at
+  `291f081cfbdd3b4ba9a4f2d1023c2f085de0158d`, after replacement PR #237
+  merged Cycle 572.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --check
+  --assert-expected --json`: passed; `T02` has 40 assignments, 4 families
+  (`F01`, `F04`, `F08`, `F14`), core size 3, replay status `self_edge`, and
+  zero validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed; 708 passed and 97 deselected.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-08 - Cycle 573 - F01 Three-Row Self-Edge Lemma
+
+### Mathematical Subquestion
+
+Can the canonical self-edge family `F01` be stated and proved directly as a
+three-row incidence/order lemma, without relying on template labels as theorem
+names?
+
+### Definitions and Assumptions
+
+Work in a strictly convex polygon whose displayed labels occur in cyclic order
+
+```text
+0,1,2,3,4,5,6,7,8.
+```
+
+For a selected row
+
+```text
+i:{a,b,c,d}
+```
+
+the four distances from center `i` to witnesses `a,b,c,d` are equal.
+
+Use the standard vertex-circle nesting fact: if `a,b,c,d` occur in this order
+around a center `i`, lie on one circle centered at `i`, and the angular
+interval from `a` to `d` properly contains the interval from `a` to `b`, then
+
+```text
+d(a,d) > d(a,b).
+```
+
+This uses strict convexity at the center: the rays from a polygon vertex to
+the other vertices lie in an open angle of size less than `pi`, and chord
+length on a fixed circle is strictly increasing with the subtended angle in
+that range.
+
+The `F01` local rows are:
+
+```text
+0:{1,2,3,8}
+1:{0,2,4,7}
+8:{0,1,4,5}
+```
+
+### Result Status
+
+Proved local lemma:
+**F01 Three-Row Self-Edge Lemma**.
+
+The three displayed selected rows are unrealizable in any strictly convex
+polygon with the displayed cyclic order.
+
+### Argument
+
+From row `0`, the witnesses `1,2,3,8` lie on one circle centered at `0`.
+In the cyclic order around center `0`, the chord from `1` to `8` properly
+contains the chord from `1` to `2`. By the vertex-circle nesting fact,
+
+```text
+d(1,8) > d(1,2).        (1)
+```
+
+The selected rows also force an equality chain:
+
+```text
+d(1,8) = d(0,8)         by row 8, since 0 and 1 are selected witnesses of 8,
+d(0,8) = d(0,1)         by row 0, since 8 and 1 are selected witnesses of 0,
+d(0,1) = d(1,2)         by row 1, since 0 and 2 are selected witnesses of 1.
+```
+
+Therefore
+
+```text
+d(1,8) = d(1,2),
+```
+
+contradicting `(1)`. Equivalently, the selected-distance quotient identifies
+the outer and inner chord pairs of one strict vertex-circle inequality, giving
+a reflexive strict edge.
+
+### Exact Artifact Scope
+
+The checked `F01` local-core artifact records exactly this certificate:
+
+```text
+strict inequality: row 0, outer pair [1,8], inner pair [1,2]
+equality path: [1,8] --row 8--> [0,8] --row 0--> [0,1] --row 1--> [1,2]
+core rows: 0, 1, 8
+status: self_edge
+```
+
+`F01` belongs to the review-pending `T02` self-edge packet. The `T02` checker
+also covers `F04`, `F08`, and `F14`; this cycle proves only the displayed
+`F01` family by hand.
+
+### Limitations
+
+- This is a local three-row obstruction, not a proof of `n=9`.
+- It assumes the displayed cyclic order and selected rows.
+- It does not prove that arbitrary `n=9` frontier assignments contain this
+  local core.
+- It does not prove any of the other `T02` families.
+- It does not bridge to arbitrary `n`.
+- It does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Effect on the Attack
+
+This gives the first canonical self-edge family as a compact human-readable
+lemma. Together with Cycle 572, all dihedral relabellings of this family
+inherit the same proof by transport, but that still rests on the
+review-pending assignment-to-family classification.
+
+The proof style is reusable: identify one strict chord-containment inequality,
+then write the selected-distance equality path that returns the inner chord to
+the outer chord. The next useful test is whether the other `T02` families have
+the same three-row form with only labels changed, or whether they need
+separate self-edge descriptions.
+
+### Next Lead
+
+Prove the remaining `T02` self-edge families `F04`, `F08`, and `F14` directly
+or show that they are dihedral transports of the same row-shape. If they share
+one schematic proof, promote the result to a `T02` Three-Row Self-Edge Lemma.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-573`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-573`.
+- The branch was based on `origin/main` at
+  `291f081cfbdd3b4ba9a4f2d1023c2f085de0158d`, after replacement PR #237
+  merged Cycle 572.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --check
+  --assert-expected --json`: passed; `T02` has 40 assignments, 4 families
+  (`F01`, `F04`, `F08`, `F14`), core size 3, replay status `self_edge`, and
+  zero validation errors.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 572 - Dihedral Local-Core Transport Lemma
 
 ### Mathematical Subquestion
