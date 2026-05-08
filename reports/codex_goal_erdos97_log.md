@@ -22947,6 +22947,208 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 579 - Acyclic Quotient Potential Lemma
+
+### Mathematical Subquestion
+
+Does a selected-witness or fragile-cover quotient system whose vertex-circle
+strict graph has no self-edge and no strict directed cycle admit a purely
+combinatorial normal form?
+
+This is the next narrow subquestion from Cycle 578. It targets the forced
+local-core bridge: if minimal counterexamples avoid the self-edge and
+strict-cycle obstructions used in the `n=9` local-template route, what remains
+at the level of selected-distance quotient order?
+
+### Definitions and Assumptions
+
+Let `V` be a finite cyclically ordered vertex set. Let `P_2(V)` be the set of
+unordered pairs of distinct labels.
+
+A **selected-distance quotient** is a map
+
+```text
+q : P_2(V) -> Q
+```
+
+such that all pairs in one fiber of `q` are required to have the same distance
+value in any realization under discussion. Write `D(X)` for the common formal
+distance value assigned to a quotient class `X in Q`.
+
+A **vertex-circle strict edge** is an ordered pair `X -> Y` in `Q x Q` whose
+geometric certificate would force
+
+```text
+D(X) > D(Y).
+```
+
+In the `n=9` template packets, these edges come from proper interval
+containment among chords on a selected circle. The present cycle does not
+assume any particular `n=9` artifact; it only uses the quotient classes and
+the certified strict-edge relation.
+
+The **quotient strict graph** is the directed graph `G=(Q,E)` containing these
+strict edges. It is **strict-circuit-free** if it has no loop `X -> X` and no
+directed cycle of length at least `2`.
+
+### Result Status
+
+Proved order-theoretic normal form:
+**Acyclic Quotient Potential Lemma**.
+
+If `G=(Q,E)` is finite and strict-circuit-free, then there is an integer-valued
+potential
+
+```text
+h : Q -> {0,1,...,|Q|-1}
+```
+
+such that every strict edge `X -> Y` satisfies
+
+```text
+h(X) > h(Y).
+```
+
+Consequently, the selected-distance equalities together with the strict-edge
+inequalities alone have a positive formal solution:
+
+```text
+D(X) = 1 + h(X).
+```
+
+### Argument
+
+Since `G` is finite and has no directed cycle, it is a directed acyclic graph.
+For each quotient class `X`, define
+
+```text
+h(X) = maximum length of a directed path starting at X.
+```
+
+This maximum exists because the graph is finite and acyclic. If `X -> Y` is a
+strict edge, then any longest directed path starting at `Y` can be preceded by
+the edge `X -> Y`. Therefore
+
+```text
+h(X) >= 1 + h(Y),
+```
+
+so `h(X) > h(Y)`.
+
+Now assign the formal distance value `D(X)=1+h(X)` to every quotient class.
+All selected-distance equalities are satisfied by construction because each
+class receives one value. Every strict edge is satisfied because
+`h(X)>h(Y)` implies `D(X)>D(Y)`. All assigned values are positive.
+
+This is an exact finite argument; it uses only the order properties of real
+numbers and does not use floating-point computation.
+
+### Obstruction to a Stronger Pure-Quotient Route
+
+The lemma rules out the following tempting route:
+
+```text
+Even without a self-edge or directed strict cycle, selected-distance equalities
+plus vertex-circle strict edges might contradict real-valued distances by
+order alone.
+```
+
+That route is false. A strict-circuit-free quotient strict graph always has
+the potential model above. The smallest exact witness is
+
+```text
+Q = {A,B},  E = {A -> B},  h(A)=1, h(B)=0,  D(A)=2, D(B)=1.
+```
+
+Thus any proof of the forced-local-core bridge must do at least one of two
+things:
+
+1. prove that a minimal counterexample necessarily forces a strict circuit in
+   this quotient graph; or
+2. add genuinely stronger metric/cyclic information, such as Kalmanson,
+   Altman, Ptolemy, radius-propagation, or critical-tie constraints.
+
+### Exact Scope
+
+The lemma is a normal form for finite quotient strict graphs only. It does not
+say that the formal values `D(X)=1+h(X)` come from Euclidean distances, from a
+strictly convex polygon, or from any realizable metric.
+
+It also does not use:
+
+- triangle inequalities;
+- Ptolemy or Kalmanson inequalities;
+- cyclic-order diagonal monotonicity beyond the already-recorded strict edges;
+- row-circle consistency beyond selected-distance equality;
+- minimality or fragile-cover criticality.
+
+Therefore it is not a proof of Erdos Problem #97 and does not produce a
+counterexample.
+
+### Effect on the Attack
+
+This cycle gives a precise answer to the no-circuit branch of Cycle 578:
+there is a purely combinatorial normal form, but it is too weak to close the
+problem. The quotient strict graph by itself is complete as an obstruction
+only when it contains a strict circuit. In the acyclic case it has an exact
+potential model.
+
+This sharpens the bridge target. The next proof attempt should not look for a
+hidden contradiction in acyclic strict-edge order alone. It should either:
+
+- prove that minimal fragile-cover/full selected-witness systems force a
+  quotient strict circuit; or
+- identify an additional exact inequality family whose quotient-cone
+  combination contradicts the acyclic potential model.
+
+### Next Lead
+
+Formulate the next bridge subquestion with one extra metric ingredient:
+
+```text
+In a minimal fragile-cover witness system whose quotient strict graph is a
+DAG, do the critical 4-tie rows force a Kalmanson/Altman/Ptolemy inequality
+whose selected-distance quotient vector is nonnegative on every topological
+potential and strictly positive somewhere?
+```
+
+Equivalently, try to turn the acyclic potential `h` into a certificate search
+target: any additional valid inequality must cut off at least one topological
+potential model, not merely add another strict edge to the same DAG.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-579`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-579`.
+- The branch was based on `origin/main` at
+  `ed8e2fcd3f9de45c87f353e1f63a14115323b887`, after replacement PR #247
+  merged Cycle 578.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 578 - n=9 Local-Template Route Audit
 
 ### Mathematical Subquestion
