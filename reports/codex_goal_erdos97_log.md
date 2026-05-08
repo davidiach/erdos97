@@ -22947,6 +22947,219 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 575 - T01/T03 Selected-Path Self-Edge Lemma
+
+### Mathematical Subquestion
+
+Do the `T01` and `T03` self-edge packets admit the same human-readable local
+contradiction pattern as `T02`: one strict vertex-circle chord inequality
+whose two endpoint-pairs are identified by a three-step selected-distance
+equality path?
+
+### Definitions and Assumptions
+
+All displayed labels are read in the cyclic order
+
+```text
+0,1,2,3,4,5,6,7,8.
+```
+
+A selected row
+
+```text
+i:{a,b,c,d}
+```
+
+means that the four listed witnesses lie on a common circle centered at `i`.
+Thus any two listed witnesses `x,y` give the equality `d(i,x)=d(i,y)`. A
+selected-distance equality path is a chain of such row equalities between
+ordinary unordered pairs.
+
+Use the same vertex-circle chord monotonicity used in Cycles 573 and 574: in a
+fixed row, a chord spanning a properly larger witness interval is strictly
+longer than a chord spanning the smaller nested interval recorded in the
+packet.
+
+### Result Status
+
+Proved local lemma:
+**T01/T03 Selected-Path Self-Edge Lemma**.
+
+The canonical `T01/F09`, `T03/F05`, and `T03/F15` local cores are all
+unrealizable. In each case, the displayed selected rows force equality between
+the outer and inner pairs of a strict vertex-circle chord inequality.
+
+### Argument
+
+For `T01/F09`, the selected rows are:
+
+```text
+0:{1,2,4,8}
+1:{0,3,5,8}
+2:{0,1,4,6}
+```
+
+Row `0` has witness order `1,2,4,8`, so the chord from `1` to `8` properly
+contains the chord from `1` to `2`. Hence
+
+```text
+d(1,8)>d(1,2).
+```
+
+The selected rows also force
+
+```text
+d(1,8)=d(0,1)=d(0,2)=d(1,2),
+```
+
+using rows `1`, `0`, and `2`, respectively. This contradicts the strict
+inequality.
+
+For `T03/F05`, the selected rows are:
+
+```text
+1:{2,5,7,8}
+2:{1,3,4,8}
+3:{0,2,4,7}
+6:{1,3,5,7}
+```
+
+Row `6` has witness order `7,1,3,5`, so the chord from `7` to `3` properly
+contains the chord from `7` to `1`. Hence
+
+```text
+d(3,7)>d(1,7).
+```
+
+The selected rows force
+
+```text
+d(3,7)=d(2,3)=d(1,2)=d(1,7),
+```
+
+using rows `3`, `2`, and `1`, respectively. Again the strict inequality is
+identified with equality.
+
+For `T03/F15`, the selected rows are:
+
+```text
+0:{1,3,4,8}
+1:{0,2,4,5}
+2:{1,3,5,6}
+3:{2,4,6,7}
+```
+
+Row `0` has witness order `1,3,4,8`, so the chord from `1` to `4` properly
+contains the chord from `3` to `4`. Hence
+
+```text
+d(1,4)>d(3,4).
+```
+
+The selected rows force
+
+```text
+d(1,4)=d(1,2)=d(2,3)=d(3,4),
+```
+
+using rows `1`, `2`, and `3`, respectively. This is a third reflexive strict
+edge after selected-distance quotienting.
+
+Thus the `T01` and `T03` packets require no new obstruction type beyond the
+strict-chord plus selected-path self-edge contradiction.
+
+### Exact Artifact Scope
+
+The checked packets cover exactly:
+
+```text
+T01/F09: 6 labelled assignments, core size 3
+T03/F05: 18 labelled assignments, core size 4
+T03/F15: 2 labelled assignments, core size 4
+```
+
+The `T01` checker reports one family, six assignments, strict-edge count `27`,
+two replayed self-edge conflicts, and replay status `self_edge`. The `T03`
+checker reports two families, twenty assignments total, strict-edge count
+`36`, one replayed self-edge conflict per family, and replay status
+`self_edge` for both families.
+
+This cycle supplies human-readable local proofs for these three canonical
+family cores only.
+
+### Limitations
+
+- This is a local packet lemma, not a proof of `n=9`.
+- It assumes the displayed cyclic order and selected rows.
+- It does not prove the review-pending assignment-to-family classification.
+- It does not prove that every `n=9` assignment contains one of these cores.
+- It does not address `T04` and higher self-edge templates, or any strict-cycle
+  templates.
+- It does not bridge to arbitrary `n`.
+- It does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Effect on the Attack
+
+Together with Cycle 574, the self-edge templates `T01`, `T02`, and `T03` now
+have proof-facing local statements rather than artifact-only descriptions.
+The common normal form is:
+
+```text
+strict chord outer_pair > inner_pair
+selected-distance path outer_pair = inner_pair
+```
+
+This suggests a reusable self-edge normal-form lemma: any local core whose
+strict inequality endpoints are connected by a selected-distance equality path
+is unrealizable.
+
+### Next Lead
+
+Promote the repeated proof pattern into a general **Selected-Path Self-Edge
+Criterion**, then audit the remaining self-edge templates for exact instances
+of the criterion. The next exact subquestion is whether every remaining
+self-edge packet already records an outer-to-inner equality path, or whether
+some require a different quotient obstruction.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-575`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-575`.
+- The branch was based on `origin/main` at
+  `a6089a2260818c887c5d62187a979a537dcccdd9`, after replacement PR #239
+  merged Cycles 573 and 574.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check
+  --assert-expected --json`: passed; `T01/F09` has 6 assignments, core size 3,
+  replay status `self_edge`, two replayed self-edge conflicts, and zero
+  validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py --check
+  --assert-expected --json`: passed; `T03` has 20 assignments across families
+  `F05` and `F15`, core size 4, replay status `self_edge` for both families,
+  and zero validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed; 708 passed and 97 deselected.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 574 - T02 Three-Step Self-Edge Lemma
 
 ### Mathematical Subquestion
