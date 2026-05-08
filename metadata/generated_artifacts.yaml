@@ -1085,6 +1085,59 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_selected_baseline_d3_escape_class_crosswalk
+    path: data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json
+    kind: exploratory_ledger_artifact
+    generator: scripts/analyze_n9_selected_baseline_d3_escape_class_crosswalk.py
+    command: python scripts/analyze_n9_selected_baseline_d3_escape_class_crosswalk.py --assert-expected --out data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json
+    checker: scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py
+    check_command: python scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py --check --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    claim_scope: Focused n=9 selected-baseline D=3 escape-class crosswalk bookkeeping; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_selected_baseline_d3_escape_class_crosswalk.v1
+      status: EXPLORATORY_LEDGER_ONLY
+      trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+      claim_scope: Focused n=9 selected-baseline D=3 escape-class crosswalk bookkeeping; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.
+      n: 9
+      witness_size: 4
+      base_apex_slack: 9
+      capacity_deficit_budget: 3
+      contradiction_threshold: 3
+      assignment_count: 184
+      selected_baseline_class_count: 13
+      escape_class_count: 8
+      total_budget3_slot_choice_count: 15456
+      forced_budget3_slot_choice_count: 13710
+      escaping_budget3_slot_choice_count: 1746
+      relevant_count_distribution:
+        "0": 1176
+        "1": 4032
+        "2": 4536
+        "3": 5712
+      every_escaping_placement_relevant_count: true
+      crosswalk_summary.nonzero_crosswalk_cell_count: 36
+      crosswalk_summary.not_comparable_reference_common_dihedral_profile_escape_class_count: 18088
+      source_artifacts.pre_vertex_circle_assignments: data/certificates/n9_vertex_circle_exhaustive.json
+      source_artifacts.selected_baseline_overlay: data/certificates/n9_selected_baseline_escape_budget_overlay.json
+      source_artifacts.d3_escape_slice: data/certificates/n9_base_apex_d3_escape_slice.json
+      source_artifacts.low_excess_escape_crosswalk: data/certificates/n9_base_apex_low_excess_escape_crosswalk.json
+      provenance.generator: scripts/analyze_n9_selected_baseline_d3_escape_class_crosswalk.py
+      provenance.command: python scripts/analyze_n9_selected_baseline_d3_escape_class_crosswalk.py --assert-expected --out data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json
+    forbidden_claims:
+      - n=9 is proved
+      - selected-baseline landings are realizability counts
+      - comparable to common-dihedral profile/escape class counts
+      - incidence-completeness result
+      - geometric realizability count
+      - counterexample
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n9_base_apex_d3_escape_slice
     path: data/certificates/n9_base_apex_d3_escape_slice.json
     kind: exploratory_ledger_artifact
