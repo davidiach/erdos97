@@ -22947,6 +22947,183 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 577 - Directed Strict-Cycle Criterion
+
+### Mathematical Subquestion
+
+Can the three recorded strict-cycle templates `T10`, `T11`, and `T12` be
+compressed into one local contradiction criterion, analogous to the
+Selected-Path Self-Edge Criterion from Cycle 576?
+
+### Definitions and Assumptions
+
+For an unordered pair `p={a,b}`, write `D(p)=d(a,b)`.
+
+A strict-cycle packet consists of cyclically indexed strict edges
+
+```text
+P0 > Q0, P1 > Q1, ..., Pm-1 > Qm-1
+```
+
+together with selected-distance equality paths from each `Qi` to the next
+outer pair `P(i+1 mod m)`.
+
+In this cycle the strict edges and the row-certified equality paths are taken
+from the recorded strict-cycle packet. The cycle does not rederive each
+vertex-circle strict inequality from first principles.
+
+### Result Status
+
+Proved local lemma plus exact finite audit:
+**Directed Strict-Cycle Criterion**.
+
+If strict edges form a directed cycle after quotienting by selected-distance
+equalities, then the local core is unrealizable.
+
+All `3` strict-cycle family records in the current
+`n9_vertex_circle_strict_cycle_template_packet` satisfy the criterion exactly.
+These records cover `26` labelled assignments in the review-pending packet.
+
+### Proof of the Criterion
+
+For each cycle index `i`, the selected-distance path gives
+
+```text
+D(Qi)=D(P(i+1 mod m)).
+```
+
+The strict edges give
+
+```text
+D(Pi)>D(Qi).
+```
+
+Chaining these inequalities and equalities around the directed cycle gives
+
+```text
+D(P0)>D(Q0)=D(P1)>D(Q1)=...=D(P0),
+```
+
+which implies `D(P0)>D(P0)`, impossible for a real-valued distance function.
+Therefore no real distance assignment can realize such a local core.
+
+### Exact Strict-Cycle Packet Audit
+
+The strict-cycle packet checker reports:
+
+```text
+strict_cycle_template_count: 3
+strict_cycle_family_count:   3
+strict_cycle_assignment_count: 26
+```
+
+with template assignment counts:
+
+```text
+T10: 18
+T11: 6
+T12: 2
+```
+
+Two direct JSON audits over every cycle step found zero mismatches:
+
+```text
+equality_to_next_outer_pair.start_pair == current strict_inequality.inner_pair
+start mismatch count: 0
+
+equality_to_next_outer_pair.end_pair == next strict_inequality.outer_pair
+end mismatch count: 0
+```
+
+The family-level records are:
+
+```text
+T10/F12: 18 assignments, cycle length 2, core size 4, strict-edge count 36
+T11/F07: 6 assignments, cycle length 3, core size 4, strict-edge count 36
+T12/F16: 2 assignments, cycle length 3, core size 6, strict-edge count 54
+```
+
+Thus every recorded strict-cycle template is an instance of the same directed
+cycle contradiction.
+
+### Limitations
+
+- This proves a local contradiction criterion, not a proof of `n=9`.
+- The audit is over the current review-pending strict-cycle template packet
+  only.
+- The cycle does not independently prove packet completeness.
+- It does not independently prove each recorded vertex-circle strict edge.
+- It does not bridge to arbitrary `n`.
+- It does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Effect on the Attack
+
+Together with Cycle 576, the current template-lemma catalog now has
+proof-facing local criteria for both recorded obstruction types:
+
+```text
+self edge:    strict edge plus selected path from outer pair to inner pair
+strict cycle: directed cycle after selected-distance quotienting
+```
+
+The catalog-level local obstruction explanation now covers the recorded
+`T01` through `T12` templates, totaling `184` review-pending labelled
+assignments (`158` self-edge plus `26` strict-cycle). This does not prove the
+classification, but it makes the remaining gap sharper: review or replace the
+source `n=9` classification and then look for a finite-to-infinite bridge.
+
+### Next Lead
+
+Produce a state-of-the-attack summary for the `n=9` local-template route:
+which parts are now human-readable local lemmas, which parts remain
+review-pending finite classification, and what exact bridge would be needed to
+turn this into a proof of Erdos97.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-577`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-577`.
+- The branch was based on `origin/main` at
+  `dc9633ff8159288ca5bcbb21f6414937b21a8ffc`, after replacement PR #243
+  merged Cycle 576.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --check
+  --assert-expected --json`: passed; the packet has 3 strict-cycle templates,
+  3 strict-cycle families, 26 labelled assignments, and zero validation errors.
+- `jq '[.templates[].family_records[] | .cycle_steps[] |
+  select(.equality_to_next_outer_pair.start_pair !=
+  .strict_inequality.inner_pair)] | length'
+  data/certificates/n9_vertex_circle_strict_cycle_template_packet.json`:
+  returned `0`.
+- `jq '[.templates[].family_records[] | .cycle_steps as $steps |
+  range(0; ($steps|length)) as $i | $steps[$i] as $step |
+  $steps[(($i + 1) % ($steps|length))] as $next |
+  select($step.equality_to_next_outer_pair.end_pair !=
+  $next.strict_inequality.outer_pair)] | length'
+  data/certificates/n9_vertex_circle_strict_cycle_template_packet.json`:
+  returned `0`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed; 708 passed and 97 deselected.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 576 - Selected-Path Self-Edge Criterion
 
 ### Mathematical Subquestion
