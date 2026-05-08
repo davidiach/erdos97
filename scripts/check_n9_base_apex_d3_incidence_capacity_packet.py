@@ -925,12 +925,12 @@ def validate_d3_packet_source(payload: dict[str, Any], errors: list[str]) -> Non
             "labelled_profile_sequence_count",
             "labelled_escape_placement_count",
         ):
-            source_key = "representative_profile_sequence"
-            source_value = (
-                source_row["representative_profile_sequence"]
-                if key == source_key
-                else source_row.get(key)
-            )
+            if key not in source_row:
+                errors.append(
+                    "d3_escape_frontier_packet source row "
+                    f"{index} missing field {key}"
+                )
+            source_value = source_row.get(key)
             if row.get(key) != source_value:
                 errors.append(
                     "rows[{index}] does not match d3_escape_frontier_packet "
@@ -958,6 +958,7 @@ def validate_crosswalk_source(payload: dict[str, Any], errors: list[str]) -> Non
         return
 
     d3_by_key: dict[tuple[tuple[int, ...], str], dict[str, Any]] = {}
+    d3_row_count = 0
     for source_index, row in enumerate(crosswalk_rows):
         if not isinstance(row, dict):
             continue
@@ -965,6 +966,7 @@ def validate_crosswalk_source(payload: dict[str, Any], errors: list[str]) -> Non
             row.get("total_profile_excess") == TOTAL_PROFILE_EXCESS
             and row.get("capacity_deficit") == CAPACITY_DEFICIT
         ):
+            d3_row_count += 1
             source_multiset = parse_int_tuple_quiet(row.get("excess_multiset"))
             source_escape_id = row.get("escape_class_id")
             if source_multiset is None or not isinstance(source_escape_id, str):
@@ -974,9 +976,17 @@ def validate_crosswalk_source(payload: dict[str, Any], errors: list[str]) -> Non
                 )
                 continue
             key = (source_multiset, source_escape_id)
+            if key in d3_by_key:
+                errors.append(
+                    "low_excess_escape_crosswalk duplicate D=3 row key "
+                    f"at source row {source_index}: {key!r}"
+                )
+                continue
             d3_by_key[key] = row
-    if len(d3_by_key) != EXPECTED_COUNTS["representative_count"]:
+    if d3_row_count != EXPECTED_COUNTS["representative_count"]:
         errors.append("low_excess_escape_crosswalk D=3 row count mismatch")
+    if len(d3_by_key) != EXPECTED_COUNTS["representative_count"]:
+        errors.append("low_excess_escape_crosswalk D=3 unique row count mismatch")
         return
 
     rows = payload.get("rows")

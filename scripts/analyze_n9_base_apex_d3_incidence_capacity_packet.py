@@ -70,7 +70,22 @@ def main(argv: Sequence[str] | None = None) -> int:
             if args.check_artifact.is_absolute()
             else ROOT / args.check_artifact
         )
-        checked = load_json(artifact)
+        try:
+            checked = load_json(artifact)
+        except OSError as exc:
+            print(
+                "FAILED: could not load "
+                f"{display_path(artifact, ROOT)}: {exc}",
+                file=sys.stderr,
+            )
+            return 1
+        except json.JSONDecodeError as exc:
+            print(
+                "FAILED: could not parse "
+                f"{display_path(artifact, ROOT)} as JSON: {exc}",
+                file=sys.stderr,
+            )
+            return 1
         if checked != payload:
             print(
                 f"FAILED: generated payload differs from {display_path(artifact, ROOT)}",

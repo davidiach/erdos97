@@ -229,6 +229,31 @@ def test_full_packet_checker_rejects_drifted_d3_packet_source(monkeypatch) -> No
     )
 
 
+def test_full_packet_checker_rejects_malformed_d3_packet_source(monkeypatch) -> None:
+    payload = expected_packet_payload()
+    source_path = (
+        ROOT / checker.EXPECTED_SOURCE_ARTIFACTS["d3_escape_frontier_packet"]
+    )
+    source = json.loads(source_path.read_text(encoding="utf-8"))
+    del source["representatives"][0]["representative_profile_sequence"]
+    original_load = checker.load_source_artifact
+
+    def fake_load_source_artifact(path: Path, label: str, errors: list[str]) -> object:
+        if label == "d3_escape_frontier_packet":
+            return source
+        return original_load(path, label, errors)
+
+    monkeypatch.setattr(checker, "load_source_artifact", fake_load_source_artifact)
+
+    errors = validate_payload(payload)
+
+    assert any(
+        "d3_escape_frontier_packet source row 0 missing field "
+        "representative_profile_sequence" in error
+        for error in errors
+    )
+
+
 def test_full_packet_checker_rejects_drifted_crosswalk_source(monkeypatch) -> None:
     payload = expected_packet_payload()
     source_path = (
@@ -255,6 +280,33 @@ def test_full_packet_checker_rejects_drifted_crosswalk_source(monkeypatch) -> No
         "common_dihedral_pair_class_count" in error
         for error in errors
     )
+
+
+def test_full_packet_checker_rejects_duplicate_crosswalk_source_row(
+    monkeypatch,
+) -> None:
+    payload = expected_packet_payload()
+    source_path = (
+        ROOT / checker.EXPECTED_SOURCE_ARTIFACTS["low_excess_escape_crosswalk"]
+    )
+    source = json.loads(source_path.read_text(encoding="utf-8"))
+    for row in source["crosswalk_rows"]:
+        if row["profile_ledger_id"] == "P19" and row["escape_class_id"] == "X00":
+            source["crosswalk_rows"].append(json.loads(json.dumps(row)))
+            break
+    original_load = checker.load_source_artifact
+
+    def fake_load_source_artifact(path: Path, label: str, errors: list[str]) -> object:
+        if label == "low_excess_escape_crosswalk":
+            return source
+        return original_load(path, label, errors)
+
+    monkeypatch.setattr(checker, "load_source_artifact", fake_load_source_artifact)
+
+    errors = validate_payload(payload)
+
+    assert any("duplicate D=3 row key" in error for error in errors)
+    assert any("D=3 row count mismatch" in error for error in errors)
 
 
 def test_full_packet_checker_rejects_unknown_top_level_key() -> None:
@@ -400,3 +452,48 @@ def test_full_packet_analyzer_cli_json() -> None:
     payload = json.loads(result.stdout)
     assert payload["representative_count"] == 88
     assert payload["common_dihedral_pair_class_count"] == 18088
+
+
+def test_full_packet_analyzer_check_artifact_reports_load_errors(tmp_path: Path) -> None:
+    missing = tmp_path / "missing.json"
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py",
+            "--check-artifact",
+            str(missing),
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 1
+    assert result.stdout == ""
+    assert "FAILED: could not load" in result.stderr
+
+
+def test_full_packet_analyzer_check_artifact_reports_json_errors(
+    tmp_path: Path,
+) -> None:
+    malformed = tmp_path / "malformed.json"
+    malformed.write_text("{", encoding="utf-8")
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py",
+            "--check-artifact",
+            str(malformed),
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 1
+    assert result.stdout == ""
+    assert "FAILED: could not parse" in result.stderr
