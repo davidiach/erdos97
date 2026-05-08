@@ -22947,6 +22947,193 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 576 - Selected-Path Self-Edge Criterion
+
+### Mathematical Subquestion
+
+Can the repeated self-edge proof pattern from Cycles 573 through 575 be stated
+as one general local criterion, and do all recorded `n=9` self-edge template
+families satisfy that criterion exactly?
+
+### Definitions and Assumptions
+
+For an unordered pair `p={a,b}`, write `D(p)=d(a,b)`.
+
+A selected-distance equality path from pair `p` to pair `q` is a finite
+sequence
+
+```text
+p=p0, p1, ..., pk=q
+```
+
+such that each consecutive equality `D(pj)=D(pj+1)` is forced by one selected
+row. The path length is `k`.
+
+A strict edge from `p` to `q` means the local vertex-circle order has already
+forced
+
+```text
+D(p)>D(q).
+```
+
+In this cycle the strict edge itself is taken from the recorded self-edge
+packet. The cycle does not reprove the vertex-circle strictness of each
+individual row.
+
+### Result Status
+
+Proved lemma plus exact finite audit:
+**Selected-Path Self-Edge Criterion**.
+
+If a local core has a strict edge `p -> q` and a selected-distance equality
+path from `p` to `q`, then the local core is unrealizable.
+
+All `13` family records in the current
+`n9_vertex_circle_self_edge_template_packet` satisfy this criterion exactly.
+Thus the `9` recorded self-edge templates, covering `158` labelled assignments
+in the review-pending packet, reduce to one local contradiction form.
+
+### Proof of the Criterion
+
+Let
+
+```text
+p=p0, p1, ..., pk=q
+```
+
+be a selected-distance equality path. By transitivity of equality,
+
+```text
+D(p)=D(p0)=D(p1)=...=D(pk)=D(q).
+```
+
+If the same local core also has the strict edge `p -> q`, then `D(p)>D(q)`.
+This contradicts `D(p)=D(q)`. Therefore no real distance assignment can realize
+the local core.
+
+### Exact Self-Edge Packet Audit
+
+The self-edge packet checker reports:
+
+```text
+self_edge_template_count: 9
+self_edge_family_count:   13
+self_edge_assignment_count: 158
+```
+
+with template assignment counts:
+
+```text
+T01: 6
+T02: 40
+T03: 20
+T04: 2
+T05: 18
+T06: 18
+T07: 18
+T08: 18
+T09: 18
+```
+
+A direct JSON audit over every family record found zero mismatches to the
+criterion:
+
+```text
+strict_inequality.outer_pair == distance_equality.start_pair
+strict_inequality.inner_pair == distance_equality.end_pair
+mismatch count: 0
+```
+
+The family-level records are:
+
+```text
+T01/F09: 6 assignments, path length 3, strict [1,8] > [1,2]
+T02/F01: 18 assignments, path length 3, strict [1,8] > [1,2]
+T02/F04: 18 assignments, path length 3, strict [0,2] > [2,3]
+T02/F08: 2 assignments, path length 3, strict [1,8] > [1,2]
+T02/F14: 2 assignments, path length 3, strict [1,8] > [1,2]
+T03/F05: 18 assignments, path length 3, strict [3,7] > [1,7]
+T03/F15: 2 assignments, path length 3, strict [1,4] > [3,4]
+T04/F13: 2 assignments, path length 3, strict [1,5] > [1,2]
+T05/F10: 18 assignments, path length 3, strict [1,8] > [1,2]
+T06/F11: 18 assignments, path length 4, strict [3,8] > [3,5]
+T07/F06: 18 assignments, path length 4, strict [1,4] > [1,2]
+T08/F02: 18 assignments, path length 5, strict [1,3] > [1,2]
+T09/F03: 18 assignments, path length 6, strict [1,3] > [1,2]
+```
+
+Hence the longer-path self-edge templates `T06`, `T07`, `T08`, and `T09` do
+not require a new contradiction type at the quotient level; they only require
+longer selected-distance equality paths.
+
+### Limitations
+
+- This proves a local contradiction criterion, not a proof of `n=9`.
+- The audit is over the current review-pending self-edge template packet only.
+- The cycle does not independently prove that the packet contains every
+  relevant `n=9` assignment.
+- It does not independently prove each recorded vertex-circle strict edge.
+- It does not cover the strict-cycle templates `T10`, `T11`, and `T12`.
+- It does not bridge to arbitrary `n`.
+- It does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Effect on the Attack
+
+The proof-facing burden for the self-edge side is now separated cleanly:
+
+1. prove or trust a local strict edge from vertex-circle order;
+2. verify a selected-distance equality path from its outer pair to its inner
+   pair;
+3. apply the Selected-Path Self-Edge Criterion.
+
+This turns nine separate self-edge template descriptions into one reusable
+lemma plus a finite exact audit. The remaining local-template obstruction type
+in the catalog is strict cycle, not self edge.
+
+### Next Lead
+
+Apply the same compression to the strict-cycle side. The next exact subquestion
+is whether templates `T10`, `T11`, and `T12` are all instances of one directed
+strict-cycle criterion with row-by-row equality-to-next-outer-pair witnesses.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-576`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-576`.
+- The branch was based on `origin/main` at
+  `1dc2ebd1406586c32ce48758f7dd1fe538c3cd30`, after replacement PR #241
+  merged Cycle 575.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_self_edge_template_packet.py --check
+  --assert-expected --json`: passed; the packet has 9 self-edge templates, 13
+  self-edge families, 158 labelled assignments, and zero validation errors.
+- `jq '[.templates[].family_records[] | select(.strict_inequality.outer_pair
+  != .distance_equality.start_pair or .strict_inequality.inner_pair !=
+  .distance_equality.end_pair)] | length'
+  data/certificates/n9_vertex_circle_self_edge_template_packet.json`: returned
+  `0`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed; 708 passed and 97 deselected.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 575 - T01/T03 Selected-Path Self-Edge Lemma
 
 ### Mathematical Subquestion
