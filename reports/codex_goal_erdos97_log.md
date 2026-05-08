@@ -22947,6 +22947,160 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 587 - C29 Primitive Dependency Rigidity
+
+### Mathematical Subquestion
+
+Cycles 585 and 586 ruled out small local zero-sum blocks inside the recorded
+fixed-order `C29_sidon_1_3_7_15` Kalmanson certificate. A stronger possible
+explanation is that the full 165-row certificate is already a primitive
+indecomposable dependency: the actual large weights might be forced by the
+chosen row support.
+
+Within the 165 reduced quotient rows of
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`, is the
+recorded positive integer dependency unique up to scale?
+
+### Definitions and Assumptions
+
+Use the selected-distance quotient and the 165 strict Kalmanson rows from the
+recorded fixed-order C29 certificate. For each row `r_i`, let `v_i` be its
+reduced integer quotient vector. Let `A` be the integer matrix whose rows are
+the `v_i`, restricted to the quotient classes touched by at least one row.
+
+The recorded certificate gives positive integer weights `w_i` such that
+
+```text
+sum_i w_i v_i = 0.
+```
+
+A **proper row-subcertificate** is any nonzero integer dependency supported
+on a proper subset of these 165 rows.
+
+### Result Status
+
+Proved finite rigidity lemma:
+**C29 Primitive Dependency Rigidity Lemma**.
+
+For the recorded fixed-order C29 row set:
+
+```text
+row count:                         165
+distance classes after quotient:   319
+touched quotient classes:          165
+rank over checked finite fields:   164
+rational row-dependency nullity:      1
+recorded weight gcd:                 1
+recorded dependency residual:         0
+primitive reduced row vectors:      165
+repeated primitive vectors:           0
+opposite primitive vector pairs:      0
+repeated signed supports:             0
+repeated unsigned supports:           0
+used quotient classes:              165
+class balance imbalances:             0
+```
+
+The exact footprint audit digest was:
+
+```text
+7af9542d2275ad19863f7b79a4b0bd474b0bcf8c4161351b275e825b0534c1b8
+```
+
+The exact rank audit digest was:
+
+```text
+2bf30e2af91c78cc8438ca110a27300c9367bd42fa18f43600abefa4d80899c3
+```
+
+### Argument
+
+The recorded weights give a nonzero integer vector `w` in the row-dependency
+kernel, so the rational dependency nullity is at least one and
+`rank_Q(A) <= 164`.
+
+The audit computes rank `164` modulo each of the primes
+
+```text
+1000003, 1000033, 1000037, 1000039, 1000081.
+```
+
+In particular, the rank modulo `1000003` is `164`, so some `164 x 164` minor
+is nonzero modulo that prime. The same minor is therefore nonzero as an
+integer determinant, hence `rank_Q(A) >= 164`. Thus `rank_Q(A) = 164`, and
+the rational row-dependency space is one-dimensional.
+
+The recorded weight vector has gcd `1`. Since it spans the one-dimensional
+rational dependency space and is primitive, every integer dependency among
+these 165 rows is an integral multiple of the recorded weight vector.
+
+All recorded weights are positive and nonzero. Therefore no nonzero integer
+dependency can be supported on a proper subset of the 165 rows. In particular,
+there is no proper positive row-subcertificate using only these recorded rows.
+
+The support audit additionally shows that the large weights are not hiding
+identical, opposite, or same-footprint row groups: even after ignoring signs,
+all 165 quotient supports are distinct.
+
+### Effect on the Attack
+
+This supersedes the small-block exclusions of Cycles 585 and 586 inside the
+fixed recorded row support. The fixed C29 certificate cannot be decomposed
+into smaller zero-sum subcertificates drawn from its own 165 rows; its
+row-dependency is globally supported and primitive.
+
+This makes the local-circuit decomposition route unpromising for this
+certificate. A human-readable explanation should instead target either:
+
+1. why this exact 165-row support has a one-dimensional positive kernel; or
+2. a different certificate support or invariant outside the recorded row set.
+
+### Exact Scope
+
+This is an exact finite audit of the recorded fixed-order
+`C29_sidon_1_3_7_15` Kalmanson certificate only. It proves uniqueness of
+dependencies only inside the span of the 165 listed rows. It does not rule out
+other certificates using Kalmanson rows not listed here, other cyclic orders,
+other selected-witness patterns, interval/geometric counterexamples, or a
+general proof of Erdos Problem #97.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+Treat the C29 certificate as a primitive oriented-matroid circuit and inspect
+the `164 x 164` pivot structure or the quotient-class incidence graph for a
+human-readable reason that the kernel is one-dimensional and positive. The
+most useful next lemma would explain positivity and uniqueness without
+depending on the opaque rank computation.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-587`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-587`.
+- The branch was based on `origin/main` at
+  `2011a20853b4b291711c43bed29966c58db0d466`, after PR #263 merged Cycle
+  586.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 quotient-footprint audit: passed, with digest
+  `7af9542d2275ad19863f7b79a4b0bd474b0bcf8c4161351b275e825b0534c1b8`.
+- One-off exact C29 modular-rank and primitive-dependency audit: passed, with
+  digest
+  `2bf30e2af91c78cc8438ca110a27300c9367bd42fa18f43600abefa4d80899c3`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 586 - C29 Small Bounded-Weight Circuit Lower Bound
 
 ### Mathematical Subquestion
