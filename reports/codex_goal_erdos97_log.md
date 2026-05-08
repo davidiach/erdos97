@@ -22947,6 +22947,203 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 584 - C29 Support-Four Drift Audit
+
+### Mathematical Subquestion
+
+Cycle 583 gives an exact strict-positivity criterion for a row on a finite
+acyclic quotient strict graph. Apply it to one concrete recorded
+higher-support source:
+
+In the fixed-order `C29_sidon_1_3_7_15` Kalmanson certificate, let `G` be the
+strict graph formed by the certificate rows that reduce to support-two
+quotient comparisons. Does `G` force any of the remaining support-four
+Kalmanson rows to be positive by order alone?
+
+### Definitions and Assumptions
+
+Use the selected-distance quotient from
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`. Each
+strict Kalmanson row reduces to a quotient vector.
+
+For this cycle:
+
+- a **support-two row** has reduced vector `+Q_i - Q_j` and contributes the
+  strict edge `Q_i -> Q_j`;
+- a **support-four row** has two positive and two negative quotient classes;
+- `G` is the directed graph on quotient classes containing only the
+  support-two edges from the recorded C29 certificate;
+- an upper set is predecessor-closed with respect to those support-two edges.
+
+The certificate has:
+
+```text
+17 support-two rows,
+148 support-four rows.
+```
+
+The support-two graph `G` is acyclic.
+
+### Result Status
+
+Proved finite obstruction:
+**C29 Support-Four Drift Audit**.
+
+Relative to the acyclic graph `G` formed by the 17 support-two rows, every
+one of the 148 support-four rows has a negative upper-set mass. Therefore no
+individual support-four row in this fixed C29 certificate is strictly forced
+positive by the support-two DAG alone.
+
+The exact audit summary is:
+
+```text
+support histogram:       {2: 17, 4: 148}
+support-four rows:       148
+min upper-set mass -2:   147 rows
+min upper-set mass -1:     1 row
+support-relation count 0: 147 rows
+support-relation count 1:   1 row
+digest:
+  aed46e42e80e50cf8871c8f10c40408bb80218a0d2a1acda02c78987213638f1
+```
+
+### Argument
+
+For a support-four row `L`, only the intersection of an upper set with the
+four nonzero support classes affects the mass `c(U)`. Zero-coefficient
+predecessors may be added to make the set genuinely predecessor-closed, but
+they do not change `c(U)`.
+
+For 147 of the 148 support-four rows, the support-two graph has no reachability
+relation among the four support classes. Hence the predecessor closure of the
+two negative support classes has mass `-2`. By the Upper-Set Drift Lemma, each
+of these rows is defeated by an exact strict potential model of `G`.
+
+There is one exceptional support-four row whose support contains a nonzero
+reachability relation:
+
+```text
+certificate row 35:
+  K1_diag_gt_sides on [27, 4, 3, 23]
+  quotient support:
+    Q87  coefficient -1
+    Q91  coefficient +1
+    Q108 coefficient +1
+    Q111 coefficient -1
+  support relation inside G:
+    Q91 -> Q87
+```
+
+The reduced terms are exactly:
+
+```text
+d(3,27) + d(4,23) > d(4,27) + d(3,23),
+```
+
+with quotient classes:
+
+```text
+Q87  = {(3,23)}
+Q91  = {(3,27)}
+Q108 = {(4,23)}
+Q111 = {(4,27)}
+```
+
+The feasible upper-set intersections with this four-class support have
+masses:
+
+```text
+intersection              mass
+{Q111}                    -1
+{Q87,Q91,Q111}            -1
+empty                      0
+{Q87,Q91}                  0
+{Q91,Q111}                 0
+{Q108,Q111}                0
+{Q87,Q91,Q108,Q111}        0
+{Q91}                      1
+{Q108}                     1
+{Q87,Q91,Q108}             1
+{Q91,Q108,Q111}            1
+{Q91,Q108}                 2
+```
+
+Thus even the exceptional row has negative upper-set mass, for instance on
+the predecessor closure of `Q111`. Cycle 583 then says this row is not forced
+positive on the strict formal potential cone of `G`.
+
+### Effect on the Attack
+
+This rules out a tempting interpretation of the C29 fixed-order certificate:
+the support-four Kalmanson rows are not already strict consequences of the
+support-two quotient DAG. The certificate's obstruction is genuinely a
+positive Farkas combination, not a collection of support-four rows that the
+support-two order independently forces.
+
+The result also gives a useful diagnostic for future certificate mining. If a
+higher-support row has isolated negative support classes relative to the
+current support-two DAG, it immediately fails the upper-set strictness test
+and should not be treated as a standalone acyclic-branch obstruction.
+
+### Exact Scope
+
+This is an exact finite audit of the recorded fixed-order
+`C29_sidon_1_3_7_15` Kalmanson certificate only. It uses the support-two rows
+from that same certificate as the strict graph. It does not classify other
+C29 orders, arbitrary C19/C29 certificates, or n=9 vertex-circle packets.
+
+It does not weaken the fixed-order C29 certificate: the full positive
+combination still reduces to zero after selected-distance quotienting. It
+only says that individual support-four rows are not forced positive by the
+support-two DAG alone.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+The next exact subquestion is whether the full C29 zero-sum certificate can be
+partitioned into small mixed blocks, each containing at least one support-four
+row and enough support-two edges to avoid the negative-upper-set drift. A
+small block partition would be a more proof-facing explanation of the
+certificate than the current 165-row weighted combination.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-584`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-584`.
+- The branch was based on `origin/main` at
+  `901869d3806397b768a68f093f45b8c91618c22c`, after replacement PR #257
+  merged Cycle 583.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 support-four upper-set audit over
+  `data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`: passed,
+  with digest
+  `aed46e42e80e50cf8871c8f10c40408bb80218a0d2a1acda02c78987213638f1`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 583 - Nonzero Dual Strict-Positivity Lemma
 
 ### Mathematical Subquestion
