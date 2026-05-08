@@ -100,6 +100,7 @@ python scripts/analyze_n9_base_apex_d3_p19_incidence_capacity_pilot.py --assert-
 python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json
 python scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py --assert-expected --out data/certificates/n9_base_apex_d3_incidence_capacity_packet.json
 python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
+python scripts/check_n9_base_apex_d3_artifact_join.py --check --json
 ```
 
 The focused generated report
@@ -196,6 +197,14 @@ The low-excess profile/escape crosswalk is registered at
 a finite bookkeeping map between the low-excess ledgers and escape-slice audit
 targets. It does not assert that any crosswalk row is geometrically realizable
 or impossible, and it does not promote the `n=9` status.
+
+The D=3 cross-artifact consistency checker
+`scripts/check_n9_base_apex_d3_artifact_join.py` joins the D=3 escape slice,
+representative packet, low-excess crosswalk, P19 pilot, and all-row
+incidence-capacity packet. It verifies bookkeeping joins and pinned totals
+across these artifacts only; it is not a proof of `n=9`, not a counterexample,
+not an incidence-completeness result, not a geometric realizability test, and
+not a global status update.
 
 ## Turn-cover diagnostic
 

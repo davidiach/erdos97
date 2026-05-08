@@ -83,6 +83,7 @@ python scripts/check_n9_base_apex_d3_escape_frontier_packet.py --check --json
 python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json
 python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json
 python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
+python scripts/check_n9_base_apex_d3_artifact_join.py --check --json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 ```
 
@@ -114,6 +115,11 @@ Expected artifacts:
   `data/certificates/n9_base_apex_d3_incidence_capacity_packet.json` that
   extend the same bookkeeping to all 88 D=3 packet rows while keeping
   realizability and incidence states `UNKNOWN`;
+- optional cross-artifact D=3 consistency checkers such as
+  `scripts/check_n9_base_apex_d3_artifact_join.py` that join the D=3 slice,
+  representative packet, low-excess crosswalk, P19 pilot, and all-row
+  incidence-capacity packet without claiming proof, counterexample,
+  incidence-completeness, geometric realizability, or global status movement;
 - optional low-excess profile/escape crosswalks such as
   `data/certificates/n9_base_apex_low_excess_escape_crosswalk.json` that keep
   ledger-to-escape bookkeeping separate from proof, counterexample, and
