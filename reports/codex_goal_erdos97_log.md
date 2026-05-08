@@ -22947,6 +22947,161 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 585 - C29 Small Unit-Circuit Lower Bound
+
+### Mathematical Subquestion
+
+Cycle 584 showed that the fixed-order `C29_sidon_1_3_7_15` certificate's
+individual support-four rows are not forced positive by the certificate's
+support-two DAG. The next possible explanation is block-level: perhaps the
+165-row weighted zero-sum certificate decomposes into small exact
+subcircuits.
+
+As a first bounded test, does the recorded C29 row set contain any
+unit-weight zero-sum subcertificate of size at most six?
+
+### Definitions and Assumptions
+
+Use the selected-distance quotient and the 165 strict Kalmanson rows from
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`.
+
+For each row `r`, let `v(r)` be its reduced integer quotient vector. A
+**unit circuit of size k** is a set of distinct row indices
+`{r_1,...,r_k}` such that
+
+```text
+v(r_1) + ... + v(r_k) = 0.
+```
+
+The search in this cycle ignores the large positive weights in the recorded
+certificate and tests only unit-weight subcircuits.
+
+### Result Status
+
+Proved finite lower bound:
+**C29 Small Unit-Circuit Lower Bound**.
+
+The recorded C29 certificate contains no unit-weight zero-sum subcertificate
+using at most six rows:
+
+```text
+row count:                  165
+size-2 unit circuits:         0
+size-3 unit circuits:         0
+size-4 unit circuits:         0
+size-5 unit circuits:         0
+size-6 unit circuits:         0
+pair-sum classes:        13,530
+triple-sum classes:     735,130
+```
+
+The exact audit digests were:
+
+```text
+sizes 2-4 digest:
+  7ab3022a0a680e5f3e85b26572ff4b834ff6093659589bdaa66cc4acdf81e122
+size 5 digest:
+  6f77ead34c6ee7827023cf5d365a55570d69251c31ba553b0788abd378744e08
+size 6 digest:
+  08b0b6ac50c88579cdd01c64cb6d0060df5e57618f14c8f06035b84507c14d1e
+```
+
+### Argument
+
+The search is exact integer vector bookkeeping after selected-distance
+quotienting.
+
+For sizes 2 through 4:
+
+- a size-2 circuit is an opposite row-vector pair;
+- a size-3 circuit is a row whose negative appears as a pair sum;
+- a size-4 circuit is a pair sum whose negative appears as a disjoint pair
+  sum.
+
+The exact pair-sum dictionary found no such circuits.
+
+For size 5, the search compared all pair sums against all opposite triple
+sums and required row-index disjointness. It found zero circuits.
+
+For size 6, the search compared all triple sums against all opposite triple
+sums and again required disjoint row indices. It found zero circuits.
+
+All computations used exact integer quotient vectors, with no numerical
+tolerance.
+
+### Effect on the Attack
+
+This rules out the easiest block-level explanation for the C29 certificate:
+it is not built from tiny unit-weight quotient circuits. Therefore the next
+proof-facing explanation must use at least one of:
+
+1. larger unit circuits;
+2. non-unit positive integer weights;
+3. certificate-specific weighted cancellation structure; or
+4. a different structural invariant than small zero-sum blocks.
+
+Together with Cycle 584, this says that neither rowwise strict forcing nor
+tiny unit block cancellation explains the fixed C29 obstruction. The
+certificate remains exact, but its human-readable mechanism is still not
+compressed.
+
+### Exact Scope
+
+This is an exact finite audit of the recorded fixed-order
+`C29_sidon_1_3_7_15` Kalmanson certificate only. It is only a lower bound for
+unit-weight subcircuits of size at most six. It does not rule out weighted
+subcircuits, larger unit circuits, or a different decomposition of the full
+weighted certificate.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+Search for small **weighted** circuits with coefficients bounded by a small
+integer, starting with supports of size at most four or five. If no such
+weighted circuits exist, the C29 certificate likely needs a different
+compression strategy than local block decomposition.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-585`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-585`.
+- The branch was based on `origin/main` at
+  `dca56d93719d93863e0868da613ba6d0d6f07dc0`, after replacement PR #259
+  merged Cycle 584.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 unit-circuit search for sizes 2 through 4: passed, with
+  digest
+  `7ab3022a0a680e5f3e85b26572ff4b834ff6093659589bdaa66cc4acdf81e122`.
+- One-off exact C29 unit-circuit search for size 5: passed, with digest
+  `6f77ead34c6ee7827023cf5d365a55570d69251c31ba553b0788abd378744e08`.
+- One-off exact C29 unit-circuit search for size 6: passed, with digest
+  `08b0b6ac50c88579cdd01c64cb6d0060df5e57618f14c8f06035b84507c14d1e`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 584 - C29 Support-Four Drift Audit
 
 ### Mathematical Subquestion
