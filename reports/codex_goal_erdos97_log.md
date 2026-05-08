@@ -22947,6 +22947,206 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 581 - Upper-Set Drift Test for Higher-Support Rows
+
+### Mathematical Subquestion
+
+Cycle 580 shows that support-two rows cannot obstruct an acyclic quotient
+strict graph unless they close a directed cycle. What is the first exact test
+for a higher-support linear row to be too weak in the same formal potential
+model?
+
+More precisely, let a valid Kalmanson, Altman, Ptolemy, or radius-propagation
+row reduce in the selected-distance quotient to
+
+```text
+L(D) = sum_{X in Q} c_X D(X) > 0.
+```
+
+Can the acyclic strict-edge order alone force the sign of `L`, or is there a
+simple exact way to build potential assignments with the opposite sign?
+
+### Definitions and Assumptions
+
+Use the quotient strict graph notation from Cycles 579 and 580. Thus `Q` is a
+finite set of quotient classes, `D(X)` is the formal distance value of class
+`X`, and an edge `X -> Y` in a finite acyclic graph `G=(Q,E)` means
+
+```text
+D(X) > D(Y).
+```
+
+An **upper set** for this orientation is a subset `U subset Q` such that no
+edge enters `U` from its complement:
+
+```text
+Y in U and X -> Y  implies  X in U.
+```
+
+Equivalently, `U` is predecessor-closed for the strict order. For a quotient
+row `L(D)=sum c_X D(X)`, define its upper-set mass by
+
+```text
+c(U) = sum_{X in U} c_X.
+```
+
+### Result Status
+
+Proved necessary sign-forcing test:
+**Upper-Set Drift Lemma**.
+
+Let `G=(Q,E)` be finite and acyclic, and let `L(D)=sum c_X D(X)` be any
+linear quotient row with real, rational, or integer coefficients.
+
+If there is an upper set `U` with `c(U)<0`, then the strict-edge constraints
+of `G` do not force `L(D)>0`: there is a positive formal distance assignment
+satisfying every edge of `G` and satisfying `L(D)<0`.
+
+If there is an upper set `U` with `c(U)>0`, then the strict-edge constraints
+of `G` do not force `L(D)<0`: there is a positive formal distance assignment
+satisfying every edge of `G` and satisfying `L(D)>0`.
+
+Consequently, if two upper sets have masses of opposite signs, then the same
+acyclic strict graph admits positive formal assignments on both sides of the
+row. Such a row cannot be a one-row obstruction in the formal quotient-order
+model.
+
+### Argument
+
+By the Acyclic Quotient Potential Lemma, choose one positive assignment
+`D_0` satisfying all strict edges of `G`. For example, take
+
+```text
+D_0(X) = 1 + h(X),
+```
+
+where `h(X)` is the maximum directed-path length starting at `X`.
+
+Fix an upper set `U`. For `t >= 0`, define
+
+```text
+D_t(X) = D_0(X) + t  if X in U,
+D_t(X) = D_0(X)      if X notin U.
+```
+
+Then `D_t` is positive for every `t >= 0`. It also satisfies every strict
+edge:
+
+- if both endpoints lie inside `U`, the edge difference is unchanged;
+- if both endpoints lie outside `U`, the edge difference is unchanged;
+- if the edge leaves `U`, the larger endpoint is shifted upward and the edge
+  remains strict;
+- an edge entering `U` from outside cannot occur by upper-set closure.
+
+Thus `D_t` stays in the formal potential cone of the acyclic strict graph.
+Moreover,
+
+```text
+L(D_t) = L(D_0) + t c(U).
+```
+
+If `c(U)<0`, choose `t` large enough that `L(D_t)<0`. If `c(U)>0`, choose
+`t` large enough that `L(D_t)>0`. This proves the two sign-flexibility
+statements and the opposite-sign corollary.
+
+### Relation to Support-Two Rows
+
+For a support-two row `D(A)-D(B)>0`, the upper-set test recovers the familiar
+reachability obstruction. If `A` is not a predecessor of `B`, then the
+predecessor closure of `B` is an upper set containing `B` but not `A`, so its
+row mass is `-1`. The row is not forced positive by the acyclic order.
+
+Therefore a support-two row is forced positive by order only when the strict
+graph already contains a path from `A` to `B`; otherwise the upper-set drift
+builds a formal assignment with `D(A)<D(B)`.
+
+### Obstruction to a Naive Higher-Support Route
+
+The following proposed route is too optimistic:
+
+```text
+Once a row has support at least three, the acyclic potential model may force
+its sign without a zero-sum certificate or an added cycle.
+```
+
+The Upper-Set Drift Lemma gives an exact obstruction to this route. A
+higher-support row whose coefficient vector has a negative upper-set mass is
+not forced positive by the acyclic quotient order. A higher-support row whose
+coefficient vector has upper-set masses of both signs is fully sign-flexible
+inside the formal potential model.
+
+Thus higher support alone is not the missing ingredient. A useful
+higher-support obstruction must pass this upper-set drift test, appear in a
+positive zero-sum certificate, or use additional metric or Euclidean
+information beyond the acyclic quotient order.
+
+### Exact Scope
+
+The lemma is purely finite, linear, and order-theoretic. It applies after a
+row has already been reduced in the selected-distance quotient. It does not
+prove that the row is geometrically valid, and it does not prove that a formal
+assignment is realizable by Euclidean distances or by a strictly convex
+polygon.
+
+The lemma is only a necessary test for sign forcing. If every upper-set mass
+has the desired sign, the row might still fail or succeed for other reasons;
+this cycle does not claim a full dual-cone characterization.
+
+It does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Effect on the Attack
+
+Cycle 580 reduced support-two rows to directed-edge augmentation. Cycle 581
+adds the first exact filter for the next case: before treating a
+three-or-more-class row as a serious acyclic-branch obstruction, check the
+sums of its coefficients over predecessor-closed upper sets.
+
+This gives a small finite-to-theory bridge. It turns vague higher-support
+search into a concrete necessary condition and prevents spending effort on
+rows that can be defeated by shifting an upper set upward in the potential
+model.
+
+### Next Lead
+
+For recorded C19 Kalmanson quotient rows with support size at least three,
+compute or hand-classify the upper-set masses relative to the current
+strict-edge DAGs. The most useful next lemma would identify a small family of
+rows that pass the upper-set drift test and therefore remain plausible
+zero-sum-certificate ingredients.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-581`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-581`.
+- The branch was based on `origin/main` at
+  `bc83eaceecf5016d728fc8f76be6403c8c9a1c96`, after replacement PR #251
+  merged Cycle 580.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 580 - Support-Two Edge-Augmentation Lemma
 
 ### Mathematical Subquestion
