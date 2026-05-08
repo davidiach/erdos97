@@ -29,7 +29,8 @@ def test_run_audit_command_records_metadata(tmp_path: Path) -> None:
 
 
 def test_audit_commands_include_registered_followup_checkers() -> None:
-    command_texts = {command_text(command.command) for command in AUDIT_COMMANDS}
+    ordered_command_texts = [command_text(command.command) for command in AUDIT_COMMANDS]
+    command_texts = set(ordered_command_texts)
 
     assert (
         "python scripts/check_kalmanson_two_order_z3.py --certificate "
@@ -60,12 +61,26 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json"
+        in command_texts
+    )
+    assert (
         "python scripts/check_n9_base_apex_low_excess_escape_ladder.py --check --json"
         in command_texts
     )
     assert (
         "python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json"
         in command_texts
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json"
     )
     assert (
         "python scripts/check_n9_row_ptolemy_product_cancellations.py --check --json"

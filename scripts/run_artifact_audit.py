@@ -375,21 +375,6 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
-        ident="n9_base_apex_d3_p19_incidence_capacity_pilot",
-        command=(
-            "python",
-            "scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py",
-            "--check",
-            "--json",
-        ),
-        claim_scope=(
-            "Focused n=9 base-apex D=3 P19 incidence-capacity pilot ledger "
-            "for rows R000..R007; not a proof of n=9, not a counterexample, "
-            "not an incidence-completeness result, not a geometric "
-            "realizability test, and not a global status update."
-        ),
-    ),
-    AuditCommand(
         ident="n9_base_apex_low_excess_escape_ladder",
         command=(
             "python",
@@ -414,6 +399,36 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         claim_scope=(
             "Focused n=9 base-apex low-excess profile/escape crosswalk "
             "bookkeeping; not a proof of n=9, not a counterexample, not a "
+            "geometric realizability test, and not a global status update."
+        ),
+    ),
+    AuditCommand(
+        ident="n9_base_apex_d3_p19_incidence_capacity_pilot",
+        command=(
+            "python",
+            "scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Focused n=9 base-apex D=3 P19 incidence-capacity pilot ledger "
+            "for rows R000..R007; not a proof of n=9, not a counterexample, "
+            "not an incidence-completeness result, not a geometric "
+            "realizability test, and not a global status update."
+        ),
+    ),
+    AuditCommand(
+        ident="n9_base_apex_d3_incidence_capacity_packet",
+        command=(
+            "python",
+            "scripts/check_n9_base_apex_d3_incidence_capacity_packet.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Full n=9 base-apex D=3 incidence-capacity packet ledger for "
+            "all 88 D=3 packet rows; not a proof of n=9, not a "
+            "counterexample, not an incidence-completeness result, not a "
             "geometric realizability test, and not a global status update."
         ),
     ),

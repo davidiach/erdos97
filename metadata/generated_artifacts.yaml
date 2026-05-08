@@ -1224,6 +1224,54 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_base_apex_d3_incidence_capacity_packet
+    path: data/certificates/n9_base_apex_d3_incidence_capacity_packet.json
+    kind: exploratory_ledger_artifact
+    generator: scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py
+    command: python scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py --assert-expected --out data/certificates/n9_base_apex_d3_incidence_capacity_packet.json
+    checker: scripts/check_n9_base_apex_d3_incidence_capacity_packet.py
+    check_command: python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    claim_scope: Full n=9 base-apex D=3 incidence-capacity packet ledger for all 88 D=3 packet rows; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_base_apex_d3_incidence_capacity_packet.v1
+      status: EXPLORATORY_LEDGER_ONLY
+      trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+      claim_scope: Full n=9 base-apex D=3 incidence-capacity packet ledger for all 88 D=3 packet rows; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.
+      n: 9
+      witness_size: 4
+      total_profile_excess: 6
+      capacity_deficit: 3
+      relevant_deficit_count: 3
+      contradiction_threshold: 3
+      profile_multiset_count: 11
+      escape_class_count: 8
+      representative_count: 88
+      labelled_profile_sequence_count: 3003
+      labelled_escape_placement_count: 108
+      common_dihedral_pair_class_count: 18088
+      common_dihedral_pair_orbit_size_counts:
+        "18": 17948
+        "9": 140
+      target_capacity_total: 60
+      realizability_state: UNKNOWN
+      incidence_state: UNKNOWN
+      state_scope: bookkeeping-only
+      provenance.generator: scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py
+      provenance.command: python scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py --assert-expected --out data/certificates/n9_base_apex_d3_incidence_capacity_packet.json
+    forbidden_claims:
+      - n=9 is proved
+      - D=3 packet rows are impossible
+      - incidence-completeness result
+      - geometric realizability count
+      - counterexample
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n9_base_apex_low_excess_escape_ladder
     path: data/certificates/n9_base_apex_low_excess_escape_ladder.json
     kind: exploratory_ledger_artifact
