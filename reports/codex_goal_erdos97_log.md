@@ -22947,6 +22947,225 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 580 - Support-Two Edge-Augmentation Lemma
+
+### Mathematical Subquestion
+
+After the Acyclic Quotient Potential Lemma from Cycle 579, what can an added
+two-class metric inequality contribute? More precisely, if an extra valid
+Kalmanson, Altman, Ptolemy, or radius-propagation inequality reduces in the
+selected-distance quotient to a strict comparison
+
+```text
+D(A) > D(B),
+```
+
+can it contradict an acyclic quotient strict graph without creating a directed
+strict cycle?
+
+### Definitions and Assumptions
+
+Use the selected-distance quotient notation from Cycles 570 and 579. Thus
+`Q` is a finite set of quotient classes, `D(X)` is the formal distance value
+of class `X`, and the current certified strict graph is a directed graph
+
+```text
+G = (Q,E)
+```
+
+whose edge `X -> Y` means `D(X) > D(Y)`.
+
+A **support-two strict inequality** is any additional valid strict linear
+inequality whose quotient vector has exactly one positive class and one
+negative class, so after multiplying by a positive scalar it has the form
+
+```text
+D(A) - D(B) > 0.
+```
+
+Equivalently, it adds the directed edge `A -> B` to the quotient strict graph.
+A finite family of support-two strict inequalities therefore augments `G` to
+a graph
+
+```text
+G' = (Q, E union F),
+```
+
+where each new edge in `F` is one support-two comparison.
+
+### Result Status
+
+Proved reduction lemma:
+**Support-Two Edge-Augmentation Lemma**.
+
+Let `G` be a finite acyclic quotient strict graph. For any finite family `F`
+of support-two strict inequalities, the following are equivalent:
+
+1. the augmented graph `G'=(Q,E union F)` has a directed cycle; and
+2. the selected-distance equalities together with the strict comparisons in
+   `E union F` are order-inconsistent.
+
+Equivalently, if `G'` is still acyclic, then there is a positive formal
+distance assignment satisfying every original strict edge and every added
+support-two inequality.
+
+### Argument
+
+If `G'` has a directed cycle, then the strict comparisons around the cycle
+give
+
+```text
+D(X_0) > D(X_1) > ... > D(X_{k-1}) > D(X_0),
+```
+
+which is impossible in the real order. This is the Quotient Strict-Circuit
+Meta-Lemma from Cycle 570.
+
+Conversely, suppose `G'` has no directed cycle. Then `G'` is finite and
+acyclic. By the Acyclic Quotient Potential Lemma from Cycle 579, define
+
+```text
+h(X) = maximum length of a directed path starting at X in G'.
+```
+
+For every edge `X -> Y` of `G'`, including every support-two added edge,
+
+```text
+h(X) > h(Y).
+```
+
+The formal assignment
+
+```text
+D(X) = 1 + h(X)
+```
+
+is positive, satisfies all selected-distance equalities by assigning one value
+per quotient class, and satisfies every strict comparison in `E union F`.
+Thus the strict comparisons are not order-inconsistent.
+
+This proves both directions.
+
+### Single-Edge Corollary
+
+For one added support-two inequality `D(A)>D(B)`, the augmented graph has a
+cycle exactly when `B` already reaches `A` in `G` (allowing `A=B` as a
+self-edge case). If there is no directed path from `B` to `A`, the added edge
+keeps the graph acyclic and the potential model survives.
+
+Thus a support-two metric inequality cannot cut off the no-circuit branch by
+itself. It can only close a directed strict cycle.
+
+### Relation to Kalmanson/Farkas Certificates
+
+Many compact fixed-pattern certificates in this repository use strict
+Kalmanson inequalities whose selected-distance quotient vectors reduce to
+two-class comparisons. The lemma gives the proof-facing interpretation of
+that support-two case:
+
+- one support-two row adds one directed strict edge;
+- an inverse pair of support-two rows adds a two-cycle;
+- a longer family of support-two rows obstructs exactly when the augmented
+  directed graph has a cycle.
+
+This does not diminish those certificates. It clarifies their mechanism:
+their contradiction is still a strict-circuit contradiction after quotienting.
+
+### Obstruction to a Stronger Route
+
+The following hoped-for route is false:
+
+```text
+An extra support-two valid inequality may obstruct an acyclic quotient strict
+graph even if the augmented support-two graph remains acyclic.
+```
+
+The potential construction above is an exact obstruction to that route. A
+support-two-only bridge cannot prove more than strict-cycle forcing.
+
+Therefore, in the no-circuit branch, any genuinely new linear obstruction must
+use at least one of the following:
+
+1. a valid inequality whose quotient vector has support size at least three;
+2. a positive Farkas/Gordan-style combination of rows whose total quotient
+   vector is zero; or
+3. nonlinear or non-order metric information not expressible as support-two
+   strict comparisons.
+
+### Exact Scope
+
+The lemma is purely finite and order-theoretic. It does not assert that the
+formal values `D(X)=1+h(X)` are Euclidean distances or arise from a strictly
+convex polygon.
+
+It also does not prove that any particular Kalmanson, Altman, Ptolemy, or
+radius-propagation inequality is valid; validity of an added row must be
+certified separately. The lemma only says what happens after such a row has
+already reduced to support two in the selected-distance quotient.
+
+It does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Effect on the Attack
+
+Cycle 579 showed that acyclic quotient strict graphs have potential models.
+This cycle shows that adding support-two inequalities does not change that
+structural picture unless those inequalities create a directed cycle.
+
+The next bridge attempt should therefore not spend effort searching for a
+single support-two inequality that magically kills the acyclic case. The
+search target should be sharpened to either:
+
+- prove forced cycle creation after adding a known family of support-two
+  inequalities; or
+- find a higher-support exact row or zero-sum certificate that cuts off the
+  acyclic potential cone.
+
+### Next Lead
+
+Try the higher-support version:
+
+```text
+Given an acyclic quotient strict graph and its topological potential cone,
+can a valid three-or-more-class Kalmanson/Altman/Ptolemy row be forced to have
+a sign on every potential model?
+```
+
+If not, construct the smallest exact potential assignment showing that a
+candidate higher-support row is still too weak.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-580`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-580`.
+- The branch was based on `origin/main` at
+  `d53af6f32cc8fdb9a528721f07f25f5b36d77962`, after replacement PR #249
+  merged Cycle 579.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 579 - Acyclic Quotient Potential Lemma
 
 ### Mathematical Subquestion
