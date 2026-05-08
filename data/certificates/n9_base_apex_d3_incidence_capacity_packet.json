@@ -1,0 +1,9194 @@
+{
+  "capacity_deficit": 3,
+  "claim_scope": "Full n=9 base-apex D=3 incidence-capacity packet ledger for all 88 D=3 packet rows; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.",
+  "common_dihedral_pair_class_count": 18088,
+  "common_dihedral_pair_orbit_size_counts": {
+    "18": 17948,
+    "9": 140
+  },
+  "contradiction_threshold": 3,
+  "escape_class_count": 8,
+  "full_capacity_totals_by_cyclic_length": {
+    "1": 9,
+    "2": 18,
+    "3": 18,
+    "4": 18
+  },
+  "incidence_state": "UNKNOWN",
+  "interpretation": [
+    "The packet covers all 88 rows from the D=3 escape-frontier representative packet.",
+    "Profile option counts are labelled partitions of the eight non-center vertices by the displayed distance-profile shapes.",
+    "Target capacity totals subtract only the displayed length-2 and length-3 deficient base chords from the cyclic base-apex capacities.",
+    "Realizability and incidence-completeness states are UNKNOWN and bookkeeping-only.",
+    "No proof of the n=9 case is claimed."
+  ],
+  "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+  "labelled_escape_placement_count": 108,
+  "labelled_profile_sequence_count": 3003,
+  "n": 9,
+  "profile_ledger_ids": [
+    "P19",
+    "P20",
+    "P21",
+    "P22",
+    "P23",
+    "P24",
+    "P25",
+    "P26",
+    "P27",
+    "P28",
+    "P29"
+  ],
+  "profile_multiset_count": 11,
+  "profile_option_counts_by_excess": {
+    "0": {
+      "distance_profile": [
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "labelled_option_count": 70
+    },
+    "1": {
+      "distance_profile": [
+        4,
+        2,
+        1,
+        1
+      ],
+      "labelled_option_count": 420
+    },
+    "2": {
+      "distance_profile": [
+        4,
+        2,
+        2
+      ],
+      "labelled_option_count": 210
+    },
+    "3": {
+      "distance_profile": [
+        4,
+        3,
+        1
+      ],
+      "labelled_option_count": 280
+    },
+    "4": {
+      "distance_profile": [
+        5,
+        1,
+        1,
+        1
+      ],
+      "labelled_option_count": 56
+    },
+    "5": {
+      "distance_profile": [
+        5,
+        2,
+        1
+      ],
+      "labelled_option_count": 168
+    },
+    "6": {
+      "distance_profile": [
+        4,
+        4
+      ],
+      "labelled_option_count": 35
+    }
+  },
+  "provenance": {
+    "command": "python scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py --assert-expected --out data/certificates/n9_base_apex_d3_incidence_capacity_packet.json",
+    "generator": "scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py"
+  },
+  "realizability_state": "UNKNOWN",
+  "relevant_deficit_count": 3,
+  "representative_count": 88,
+  "rows": [
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          3
+        ]
+      },
+      "common_dihedral_pair_class_count": 9,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            6
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X00",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 9,
+      "profile_ledger_id": "P19",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "6": {
+          "distance_profile": [
+            4,
+            4
+          ],
+          "labelled_option_count": 35
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R000",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 5,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X01",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 9,
+      "profile_ledger_id": "P19",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "6": {
+          "distance_profile": [
+            4,
+            4
+          ],
+          "labelled_option_count": 35
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R001",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          3
+        ],
+        "spoiled_length3": [
+          1
+        ]
+      },
+      "common_dihedral_pair_class_count": 5,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            4
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X02",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 9,
+      "profile_ledger_id": "P19",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "6": {
+          "distance_profile": [
+            4,
+            4
+          ],
+          "labelled_option_count": 35
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R002",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          4
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 9,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X03",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 9,
+      "profile_ledger_id": "P19",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "6": {
+          "distance_profile": [
+            4,
+            4
+          ],
+          "labelled_option_count": 35
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R003",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          3
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 9,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X04",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 9,
+      "profile_ledger_id": "P19",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "6": {
+          "distance_profile": [
+            4,
+            4
+          ],
+          "labelled_option_count": 35
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R004",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 5,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X05",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 9,
+      "profile_ledger_id": "P19",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "6": {
+          "distance_profile": [
+            4,
+            4
+          ],
+          "labelled_option_count": 35
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R005",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          4
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 5,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X06",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 9,
+      "profile_ledger_id": "P19",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "6": {
+          "distance_profile": [
+            4,
+            4
+          ],
+          "labelled_option_count": 35
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R006",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 9,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X07",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 9,
+      "profile_ledger_id": "P19",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "6": {
+          "distance_profile": [
+            4,
+            4
+          ],
+          "labelled_option_count": 35
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R007",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          3
+        ]
+      },
+      "common_dihedral_pair_class_count": 72,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            6
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X00",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P20",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "5": {
+          "distance_profile": [
+            5,
+            2,
+            1
+          ],
+          "labelled_option_count": 168
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R008",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 36,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X01",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P20",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "5": {
+          "distance_profile": [
+            5,
+            2,
+            1
+          ],
+          "labelled_option_count": 168
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R009",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          3
+        ],
+        "spoiled_length3": [
+          1
+        ]
+      },
+      "common_dihedral_pair_class_count": 36,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            4
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X02",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P20",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "5": {
+          "distance_profile": [
+            5,
+            2,
+            1
+          ],
+          "labelled_option_count": 168
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R010",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          4
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 72,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X03",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P20",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "5": {
+          "distance_profile": [
+            5,
+            2,
+            1
+          ],
+          "labelled_option_count": 168
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R011",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          3
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 72,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X04",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P20",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "5": {
+          "distance_profile": [
+            5,
+            2,
+            1
+          ],
+          "labelled_option_count": 168
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R012",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 36,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X05",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P20",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "5": {
+          "distance_profile": [
+            5,
+            2,
+            1
+          ],
+          "labelled_option_count": 168
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R013",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          4
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 36,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X06",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P20",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "5": {
+          "distance_profile": [
+            5,
+            2,
+            1
+          ],
+          "labelled_option_count": 168
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R014",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 72,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X07",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P20",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "5": {
+          "distance_profile": [
+            5,
+            2,
+            1
+          ],
+          "labelled_option_count": 168
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R015",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          3
+        ]
+      },
+      "common_dihedral_pair_class_count": 72,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            6
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X00",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P21",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R016",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 36,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X01",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P21",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R017",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          3
+        ],
+        "spoiled_length3": [
+          1
+        ]
+      },
+      "common_dihedral_pair_class_count": 36,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            4
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X02",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P21",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R018",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          4
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 72,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X03",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P21",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R019",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          3
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 72,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X04",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P21",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R020",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 36,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X05",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P21",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R021",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          4
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 36,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X06",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P21",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R022",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 72,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X07",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 72,
+      "profile_ledger_id": "P21",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R023",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          3
+        ]
+      },
+      "common_dihedral_pair_class_count": 36,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            6
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X00",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 36,
+      "profile_ledger_id": "P22",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R024",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 20,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X01",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 36,
+      "profile_ledger_id": "P22",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R025",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          3
+        ],
+        "spoiled_length3": [
+          1
+        ]
+      },
+      "common_dihedral_pair_class_count": 20,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            4
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X02",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 36,
+      "profile_ledger_id": "P22",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R026",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          4
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 36,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X03",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 36,
+      "profile_ledger_id": "P22",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R027",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          3
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 36,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X04",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 36,
+      "profile_ledger_id": "P22",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R028",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 20,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X05",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 36,
+      "profile_ledger_id": "P22",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R029",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          4
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 20,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X06",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 36,
+      "profile_ledger_id": "P22",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R030",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 36,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X07",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 36,
+      "profile_ledger_id": "P22",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R031",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          3
+        ]
+      },
+      "common_dihedral_pair_class_count": 252,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            6
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X00",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 252,
+      "profile_ledger_id": "P23",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R032",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 128,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X01",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 252,
+      "profile_ledger_id": "P23",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R033",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          3
+        ],
+        "spoiled_length3": [
+          1
+        ]
+      },
+      "common_dihedral_pair_class_count": 128,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            4
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X02",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 252,
+      "profile_ledger_id": "P23",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R034",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          4
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 252,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X03",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 252,
+      "profile_ledger_id": "P23",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R035",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          3
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 252,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X04",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 252,
+      "profile_ledger_id": "P23",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R036",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 128,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X05",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 252,
+      "profile_ledger_id": "P23",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R037",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          4
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 128,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X06",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 252,
+      "profile_ledger_id": "P23",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R038",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 252,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X07",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 252,
+      "profile_ledger_id": "P23",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "4": {
+          "distance_profile": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 56
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R039",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        4
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          3
+        ]
+      },
+      "common_dihedral_pair_class_count": 504,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            6
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X00",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P24",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R040",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 252,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X01",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P24",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R041",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          3
+        ],
+        "spoiled_length3": [
+          1
+        ]
+      },
+      "common_dihedral_pair_class_count": 252,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            4
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X02",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P24",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R042",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          4
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 504,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X03",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P24",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R043",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          3
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 504,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X04",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P24",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R044",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 252,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X05",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P24",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R045",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          4
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 252,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X06",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P24",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R046",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 504,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X07",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P24",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R047",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          3
+        ]
+      },
+      "common_dihedral_pair_class_count": 84,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            6
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X00",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P25",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R048",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 44,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X01",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P25",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R049",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          3
+        ],
+        "spoiled_length3": [
+          1
+        ]
+      },
+      "common_dihedral_pair_class_count": 44,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            4
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X02",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P25",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R050",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          4
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 84,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X03",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P25",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R051",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          3
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 84,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X04",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P25",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R052",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 44,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X05",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P25",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R053",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          4
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 44,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X06",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P25",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R054",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 84,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X07",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P25",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R055",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          3
+        ]
+      },
+      "common_dihedral_pair_class_count": 504,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            6
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X00",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P26",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R056",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 252,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X01",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P26",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R057",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          3
+        ],
+        "spoiled_length3": [
+          1
+        ]
+      },
+      "common_dihedral_pair_class_count": 252,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            4
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X02",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P26",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R058",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          4
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 504,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X03",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P26",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R059",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          3
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 504,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X04",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P26",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R060",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 252,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X05",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P26",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R061",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          4
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 252,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X06",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P26",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R062",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 504,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X07",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 504,
+      "profile_ledger_id": "P26",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "3": {
+          "distance_profile": [
+            4,
+            3,
+            1
+          ],
+          "labelled_option_count": 280
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R063",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        3
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          3
+        ]
+      },
+      "common_dihedral_pair_class_count": 756,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            6
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X00",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 756,
+      "profile_ledger_id": "P27",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R064",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 384,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X01",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 756,
+      "profile_ledger_id": "P27",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R065",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          3
+        ],
+        "spoiled_length3": [
+          1
+        ]
+      },
+      "common_dihedral_pair_class_count": 384,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            4
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X02",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 756,
+      "profile_ledger_id": "P27",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R066",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          4
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 756,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X03",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 756,
+      "profile_ledger_id": "P27",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R067",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          3
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 756,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X04",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 756,
+      "profile_ledger_id": "P27",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R068",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 384,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X05",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 756,
+      "profile_ledger_id": "P27",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R069",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          4
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 384,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X06",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 756,
+      "profile_ledger_id": "P27",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R070",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 756,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X07",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 756,
+      "profile_ledger_id": "P27",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R071",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          3
+        ]
+      },
+      "common_dihedral_pair_class_count": 630,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            6
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X00",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 630,
+      "profile_ledger_id": "P28",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R072",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 318,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X01",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 630,
+      "profile_ledger_id": "P28",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R073",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          3
+        ],
+        "spoiled_length3": [
+          1
+        ]
+      },
+      "common_dihedral_pair_class_count": 318,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            4
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X02",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 630,
+      "profile_ledger_id": "P28",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R074",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          4
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 630,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X03",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 630,
+      "profile_ledger_id": "P28",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R075",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          3
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 630,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X04",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 630,
+      "profile_ledger_id": "P28",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R076",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 318,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X05",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 630,
+      "profile_ledger_id": "P28",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R077",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          4
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 318,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X06",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 630,
+      "profile_ledger_id": "P28",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R078",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 630,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X07",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 630,
+      "profile_ledger_id": "P28",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        },
+        "2": {
+          "distance_profile": [
+            4,
+            2,
+            2
+          ],
+          "labelled_option_count": 210
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R079",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          3
+        ]
+      },
+      "common_dihedral_pair_class_count": 84,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            6
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X00",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P29",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R080",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 44,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X01",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P29",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R081",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          3
+        ],
+        "spoiled_length3": [
+          1
+        ]
+      },
+      "common_dihedral_pair_class_count": 44,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            4
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X02",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P29",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R082",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          4
+        ],
+        "spoiled_length3": [
+          5
+        ]
+      },
+      "common_dihedral_pair_class_count": 84,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            8
+          ],
+          "cyclic_length": 3
+        }
+      ],
+      "escape_class_id": "X03",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P29",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R083",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 16,
+        "3": 17,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          3
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 84,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 3,
+          "chord": [
+            3,
+            5
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X04",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P29",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R084",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          1,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 44,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 1,
+          "chord": [
+            1,
+            3
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X05",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P29",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R085",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          4
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 44,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 4,
+          "chord": [
+            4,
+            6
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X06",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 9,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P29",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R086",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    },
+    {
+      "canonical_escape_placement": {
+        "spoiled_length2": [
+          0,
+          2,
+          5
+        ],
+        "spoiled_length3": []
+      },
+      "common_dihedral_pair_class_count": 84,
+      "deficient_base_chords": [
+        {
+          "base_index": 0,
+          "chord": [
+            0,
+            2
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 2,
+          "chord": [
+            2,
+            4
+          ],
+          "cyclic_length": 2
+        },
+        {
+          "base_index": 5,
+          "chord": [
+            5,
+            7
+          ],
+          "cyclic_length": 2
+        }
+      ],
+      "escape_class_id": "X07",
+      "excess_multiset": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "incidence_state": "UNKNOWN",
+      "interpretation_warning": "Bookkeeping-only warning: these rows do not decide feasibility, realizability, or incidence completeness.",
+      "labelled_escape_placement_count": 18,
+      "labelled_profile_sequence_count": 84,
+      "profile_ledger_id": "P29",
+      "profile_option_counts": {
+        "0": {
+          "distance_profile": [
+            4,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labelled_option_count": 70
+        },
+        "1": {
+          "distance_profile": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "labelled_option_count": 420
+        }
+      },
+      "realizability_state": "UNKNOWN",
+      "representative_id": "R087",
+      "representative_profile_sequence": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "state_scope": "bookkeeping-only",
+      "target_capacity_total": 60,
+      "target_capacity_totals_by_cyclic_length": {
+        "1": 9,
+        "2": 15,
+        "3": 18,
+        "4": 18
+      }
+    }
+  ],
+  "schema": "erdos97.n9_base_apex_d3_incidence_capacity_packet.v1",
+  "source_artifacts": {
+    "d3_escape_frontier_packet": "data/certificates/n9_base_apex_d3_escape_frontier_packet.json",
+    "low_excess_escape_crosswalk": "data/certificates/n9_base_apex_low_excess_escape_crosswalk.json"
+  },
+  "source_representative_ids": [
+    "R000",
+    "R001",
+    "R002",
+    "R003",
+    "R004",
+    "R005",
+    "R006",
+    "R007",
+    "R008",
+    "R009",
+    "R010",
+    "R011",
+    "R012",
+    "R013",
+    "R014",
+    "R015",
+    "R016",
+    "R017",
+    "R018",
+    "R019",
+    "R020",
+    "R021",
+    "R022",
+    "R023",
+    "R024",
+    "R025",
+    "R026",
+    "R027",
+    "R028",
+    "R029",
+    "R030",
+    "R031",
+    "R032",
+    "R033",
+    "R034",
+    "R035",
+    "R036",
+    "R037",
+    "R038",
+    "R039",
+    "R040",
+    "R041",
+    "R042",
+    "R043",
+    "R044",
+    "R045",
+    "R046",
+    "R047",
+    "R048",
+    "R049",
+    "R050",
+    "R051",
+    "R052",
+    "R053",
+    "R054",
+    "R055",
+    "R056",
+    "R057",
+    "R058",
+    "R059",
+    "R060",
+    "R061",
+    "R062",
+    "R063",
+    "R064",
+    "R065",
+    "R066",
+    "R067",
+    "R068",
+    "R069",
+    "R070",
+    "R071",
+    "R072",
+    "R073",
+    "R074",
+    "R075",
+    "R076",
+    "R077",
+    "R078",
+    "R079",
+    "R080",
+    "R081",
+    "R082",
+    "R083",
+    "R084",
+    "R085",
+    "R086",
+    "R087"
+  ],
+  "state_scope": "bookkeeping-only",
+  "status": "EXPLORATORY_LEDGER_ONLY",
+  "target_capacity_total": 60,
+  "total_profile_excess": 6,
+  "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
+  "witness_size": 4
+}

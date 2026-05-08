@@ -80,8 +80,9 @@ python scripts/explore_n9_base_apex.py
 python scripts/check_n9_base_apex_low_excess_ledgers.py --check --json
 python scripts/check_n9_base_apex_escape_budget.py --check --json
 python scripts/check_n9_base_apex_d3_escape_frontier_packet.py --check --json
-python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json
 python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json
+python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json
+python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 ```
 
@@ -109,6 +110,10 @@ Expected artifacts:
   `data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json` that
   record the first D=3 packet band as capacity bookkeeping only, with
   realizability and incidence states left `UNKNOWN`;
+- optional all-row D=3 incidence-capacity packets such as
+  `data/certificates/n9_base_apex_d3_incidence_capacity_packet.json` that
+  extend the same bookkeeping to all 88 D=3 packet rows while keeping
+  realizability and incidence states `UNKNOWN`;
 - optional low-excess profile/escape crosswalks such as
   `data/certificates/n9_base_apex_low_excess_escape_crosswalk.json` that keep
   ledger-to-escape bookkeeping separate from proof, counterexample, and
