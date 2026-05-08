@@ -22947,6 +22947,217 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 582 - Upper-Set Dual Cone Lemma
+
+### Mathematical Subquestion
+
+Cycle 581 proved that a negative upper-set coefficient mass defeats any claim
+that an acyclic quotient strict graph forces a row positive. Is this upper-set
+test merely a useful necessary obstruction, or does it exactly characterize
+the linear rows that are nonnegative on the formal potential cone?
+
+### Definitions and Assumptions
+
+Use the quotient strict graph notation from Cycles 579 through 581. Thus `Q`
+is a finite set of selected-distance quotient classes and `G=(Q,E)` is a
+finite acyclic directed graph whose edge `X -> Y` represents the intended
+strict comparison
+
+```text
+D(X) > D(Y).
+```
+
+For this cycle, pass to the weak closure of the formal potential cone:
+
+```text
+C(G) = { D : Q -> R_{>=0} such that D(X) >= D(Y) for every X -> Y }.
+```
+
+An **upper set** is a subset `U subset Q` with no edge entering from its
+complement:
+
+```text
+Y in U and X -> Y  implies  X in U.
+```
+
+For a linear quotient row
+
+```text
+L(D) = sum_{X in Q} c_X D(X),
+```
+
+write
+
+```text
+c(U) = sum_{X in U} c_X.
+```
+
+### Result Status
+
+Proved exact closure characterization:
+**Upper-Set Dual Cone Lemma**.
+
+For a finite acyclic quotient strict graph `G`, the following are equivalent:
+
+1. `L(D) >= 0` for every `D in C(G)`;
+2. `c(U) >= 0` for every upper set `U`.
+
+Equivalently, upper-set masses are not just a necessary drift test. They are
+the exact dual test for nonnegativity on the weak formal potential cone.
+
+### Argument
+
+First suppose `L(D) >= 0` for every `D in C(G)`. If `U` is an upper set, its
+indicator function `1_U` lies in `C(G)`: an edge can leave `U`, but no edge
+can enter it, so every edge `X -> Y` satisfies
+
+```text
+1_U(X) >= 1_U(Y).
+```
+
+Therefore
+
+```text
+c(U) = L(1_U) >= 0.
+```
+
+Conversely suppose every upper set has nonnegative mass. Let `D in C(G)`.
+If `D` is identically zero, then `L(D)=0`. Otherwise list the distinct
+positive values attained by `D` as
+
+```text
+0 < a_1 < a_2 < ... < a_m,
+```
+
+and set `a_0=0`. For each `i`, define the threshold set
+
+```text
+U_i = { X in Q : D(X) >= a_i }.
+```
+
+Each `U_i` is an upper set: if `Y in U_i` and `X -> Y`, then
+`D(X) >= D(Y) >= a_i`, so `X in U_i`.
+
+The layer decomposition
+
+```text
+D = sum_{i=1}^m (a_i - a_{i-1}) 1_{U_i}
+```
+
+is exact. Applying `L` gives
+
+```text
+L(D) = sum_{i=1}^m (a_i - a_{i-1}) c(U_i).
+```
+
+Every coefficient `a_i-a_{i-1}` is positive and every `c(U_i)` is
+nonnegative by hypothesis, so `L(D) >= 0`. This proves the equivalence.
+
+### Strict-Cone Consequences
+
+Let
+
+```text
+C_strict(G) = { D : Q -> R_{>0} such that D(X) > D(Y)
+                for every X -> Y }.
+```
+
+The dual cone lemma gives the following exact consequences for strict
+sign-forcing:
+
+- If some upper set has `c(U)<0`, then Cycle 581's drift construction gives a
+  point of `C_strict(G)` with `L(D)<0`. The row is not order-forced positive.
+- If every upper set has `c(U)>=0`, then no point of `C_strict(G)` has
+  `L(D)<0`, because `C_strict(G) subset C(G)`.
+- The remaining strict question is whether `L` can vanish inside
+  `C_strict(G)`. In the layer decomposition above, vanishing can occur only
+  when every positive-thickness threshold set used by `D` has zero mass.
+
+Thus strict positivity is reduced to a zero-face problem:
+
+```text
+L(D) > 0 for every D in C_strict(G)
+```
+
+holds exactly when all upper-set masses are nonnegative and no strictly
+edge-increasing positive potential decomposes entirely through zero-mass
+upper sets.
+
+This explains why support-two rows can be strictly forced even with
+`c(Q)=0`: if `A -> B`, then the row `D(A)-D(B)` has nonnegative upper-set
+masses and every strict potential separates a positive-mass threshold between
+`A` and `B`.
+
+### Effect on the Attack
+
+Cycle 581 supplied an exact obstruction to naive higher-support sign forcing.
+Cycle 582 turns that obstruction into a complete dual test for the weak
+formal potential cone. This gives a sharper triage rule for future
+Kalmanson/Altman/Ptolemy rows after quotienting:
+
+1. a negative upper-set mass gives an explicit strict potential countermodel;
+2. all upper-set masses nonnegative means the row is nonnegative on every
+   weak formal potential;
+3. strict positivity still requires excluding zero-face potentials, or using
+   the row inside a positive zero-sum certificate.
+
+This is useful because it separates row triage from Euclidean geometry. A
+higher-support row that fails the upper-set dual test cannot prove a
+contradiction in the acyclic quotient-order branch by itself. A row that
+passes the test remains a possible ingredient, but still needs a strict
+zero-face argument or a certificate combination.
+
+### Exact Scope
+
+The lemma is finite, exact, and purely linear-order-theoretic. It does not
+assert that a formal potential assignment is a Euclidean distance assignment,
+or that it is realized by a strictly convex polygon. It also does not certify
+that any Kalmanson, Altman, Ptolemy, or radius-propagation row is valid before
+quotienting.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+Use the lemma as a hand-checkable filter for concrete higher-support quotient
+rows. The next narrow task is to take one recorded C19 or n=9 quotient row
+with support at least three, enumerate its upper-set masses relative to the
+relevant strict DAG, and decide whether it is defeated by an explicit drift,
+is merely weakly nonnegative, or has a genuine strict zero-face obstruction.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-582`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-582`.
+- The branch was based on `origin/main` at
+  `8613e9d34773a6590d38a0fabd0bcdb2bd20c61b`, after replacement PR #253
+  merged Cycle 581.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 581 - Upper-Set Drift Test for Higher-Support Rows
 
 ### Mathematical Subquestion
