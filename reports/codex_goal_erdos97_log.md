@@ -22947,6 +22947,213 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 568 - F07 Four-Row Strict-Cycle Lemma
+
+### Mathematical Subquestion
+
+Can the `T11/F07` strict-cycle entry in the review-pending `n=9`
+vertex-circle template catalog be written as a short human-readable directed
+cycle of strict chord inequalities?
+
+### Definitions and Assumptions
+
+Work in a strictly convex polygon with cyclic order agreeing on the displayed
+labels with
+
+```text
+0,1,2,3,4,5,6,7,8.
+```
+
+For a center `i`, a selected row
+
+```text
+i: {a,b,c,d}
+```
+
+means the four selected witnesses lie on one circle centered at vertex `i`,
+so all four distances from `i` to those witnesses are equal. Use `d(u,v)` for
+ordinary Euclidean distance.
+
+The local rows are the four `F07` core rows recorded by the `T11`
+strict-cycle template:
+
+```text
+0: {1,2,4,8}
+1: {0,2,3,5}
+5: {0,3,4,7}
+6: {1,5,7,8}
+```
+
+Use the vertex-circle nesting lemma as in Cycles 561-567: on a selected
+circle around a center in a strictly convex polygon, a properly containing
+witness interval determines a strictly longer chord.
+
+### Result Status
+
+Proved local lemma:
+**F07 Four-Row Strict-Cycle Lemma**.
+
+Under the four displayed selected rows and cyclic-order hypothesis, no
+strictly convex realization exists.
+
+### Argument
+
+First use row `1`. Its selected witnesses occur in cyclic order
+
+```text
+2,3,5,0.
+```
+
+The witness interval from `0` to `2` properly contains the witness interval
+from `0` to `3`, and the witness interval from `0` to `3` properly contains
+the witness interval from `0` to `5`. Hence
+
+```text
+d(0,2) > d(0,3) > d(0,5).                (1)
+```
+
+Row `5` identifies the last chord in (1) with the next outer chord:
+
+```text
+row 5: d(0,5) = d(5,7).
+```
+
+Thus
+
+```text
+d(0,2) > d(0,3) > d(5,7).                (2)
+```
+
+Now use row `6`. Its selected witnesses occur in cyclic order
+
+```text
+7,8,1,5.
+```
+
+The witness interval from `5` to `7` properly contains the witness interval
+from `1` to `5`. Hence
+
+```text
+d(5,7) > d(1,5).                         (3)
+```
+
+Rows `1` and `0` identify this inner chord with the first outer chord:
+
+```text
+row 1: d(1,5) = d(0,1),
+row 0: d(0,1) = d(0,2).
+```
+
+Therefore
+
+```text
+d(5,7) > d(0,2).                         (4)
+```
+
+Combining (2) and (4) gives the impossible strict cycle
+
+```text
+d(0,2) > d(0,3) > d(5,7) > d(0,2).
+```
+
+Equivalently, the selected-distance quotient graph has a directed strict
+cycle of length three.
+
+### Exact Artifact Scope
+
+The rows and strict-cycle equality paths are the `T11/F07` records in
+
+```text
+data/certificates/n9_vertex_circle_strict_cycle_template_packet.json
+data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json
+data/certificates/n9_vertex_circle_template_lemma_catalog.json
+```
+
+The exact packet records that this template covers 6 labelled assignments
+
+```text
+A008, A015, A032, A137, A141, A167
+```
+
+all in family `F07`, with cycle length `3`, core size `4`, and span signature
+`2:1,3:1,3:2`.
+
+### Limitations
+
+- This is a local row-core obstruction only.
+- It proves the `F07` core contradiction, not the full `n=9` exhaustive
+  checker.
+- It does not prove that arbitrary `n=9` selected-witness assignments must
+  contain this core.
+- It handles only `T11`, not strict-cycle template `T12`.
+- It does not prove a general theorem for Erdos Problem #97 and does not give
+  a counterexample.
+
+### Effect on the Attack
+
+Cycles 567 and 568 now show that both `T10` and `T11` admit short directed
+strict-cycle presentations. The strict-cycle mechanism remains parallel to
+the self-edge mechanism: nested-chord inequalities give directed strict edges,
+and selected-distance equalities quotient the inner chord of each edge to the
+next outer chord.
+
+Only `T12` remains from the review-pending strict-cycle packet before the
+local proof extraction reaches all twelve current template records.
+
+### Next Lead
+
+Extract the analogous proof for `T12/F16`. Since `T12` has six core rows but
+only two assignments, the useful subquestion is whether its length-three
+strict cycle still compresses to a three-chord inequality chain after
+quotienting by selected-distance equalities.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-568`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-568`.
+- The branch was based on Cycle 567 commit
+  `4c8dff44edeaf68fc49db739a72a6e3667a62ee8`, which was later merged to
+  `main` through replacement PR #228 at
+  `fa5cd2cbcf1c4558a16929701d267f8c63a9774c`.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --check
+  --assert-expected --json`: passed; the packet reports `T11: 6`
+  assignments and zero validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py --check
+  --assert-expected --json`: passed; the T11 packet reports 6 assignments,
+  core size 4, cycle length 3, and zero validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+  --assert-expected --json`: passed; the catalog reports 12 templates covering
+  184 assignments and zero validation errors.
+- Repository validation after recording the cycle:
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_text_clean.py`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_status_consistency.py`: passed.
+  - `git diff --check`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+    scripts/check_artifact_provenance.py`: passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+    passed.
+  - `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+    passed, `641 passed, 90 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 567 - F12 Four-Row Strict-Cycle Lemma
 
 ### Mathematical Subquestion
