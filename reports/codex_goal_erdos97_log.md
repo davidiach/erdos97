@@ -22947,6 +22947,404 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-08 - Cycle 571 - Template-Catalog Strict-Circuit Bridge
+
+### Mathematical Subquestion
+
+Given the Quotient Strict-Circuit Meta-Lemma from Cycle 570, what exactly does
+the current `n=9` vertex-circle template catalog certify at the artifact
+level, and where does its proof-facing scope stop?
+
+### Definitions and Assumptions
+
+Use the selected-distance strict graph from Cycle 570. A local template is
+strict-circuit-killed if its checked local rows and cyclic-order witness data
+produce either:
+
+```text
+reflexive strict edge after selected-distance quotienting
+```
+
+or
+
+```text
+directed strict cycle after selected-distance quotienting.
+```
+
+The relevant artifacts are:
+
+```text
+data/certificates/n9_vertex_circle_self_edge_template_packet.json
+data/certificates/n9_vertex_circle_strict_cycle_template_packet.json
+data/certificates/n9_vertex_circle_core_templates.json
+data/certificates/n9_vertex_circle_template_lemma_catalog.json
+```
+
+and the relevant checker is
+
+```text
+scripts/check_n9_vertex_circle_template_lemma_catalog.py
+```
+
+This cycle treats these as review-pending diagnostic artifacts, not as an
+independent human proof.
+
+### Result Status
+
+Reduction:
+**Template-Catalog Strict-Circuit Bridge**.
+
+Within the trust scope of the checked template catalog, each of the 184
+catalog-covered `n=9` vertex-circle assignments is mapped to exactly one
+local template whose conclusion shape is a strict circuit in the
+selected-distance quotient graph.
+
+### Argument
+
+The catalog checker loads three source artifacts:
+
+```text
+self-edge template packet
+strict-cycle template packet
+core-template packet
+```
+
+It first validates each source artifact with its own validator. It then
+recomputes the expected catalog with `template_lemma_catalog_payload(...)`.
+The row validation in the checker compares the artifact's `templates` list
+against the recomputed list, accumulates all template assignment ids, and
+checks:
+
+```text
+covered_assignment_count = number of listed assignment ids,
+template_assignment_counts = per-template listed assignment counts,
+template_family_counts = per-template family counts,
+status_assignment_counts = accumulated self_edge / strict_cycle assignment counts,
+no duplicate template ids,
+no duplicate assignment ids across the catalog,
+no duplicate family ids across the catalog.
+```
+
+The checked current catalog has:
+
+```text
+covered assignments: 184
+templates: 12
+families: 16
+self_edge assignments: 158
+strict_cycle assignments: 26
+self_edge templates: 9
+strict_cycle templates: 3
+```
+
+The template conclusion shapes split as follows.
+
+For `T01` through `T09`, each record has status `self_edge` and conclusion
+
+```text
+reflexive strict edge after selected-distance quotienting.
+```
+
+For `T10` through `T12`, each record has status `strict_cycle` and conclusion
+
+```text
+directed strict cycle after selected-distance quotienting.
+```
+
+By Cycle 570, either conclusion shape is an immediate local contradiction
+once the source artifact's selected-distance equalities and strict
+chord-containment inequalities are accepted. Therefore, artifact-internally,
+the catalog-covered 184 assignments all land in strict-circuit-killed local
+templates.
+
+### Exact Artifact Scope
+
+The per-template assignment counts recorded by the checked catalog are:
+
+```text
+T01: 6
+T02: 40
+T03: 20
+T04: 2
+T05: 18
+T06: 18
+T07: 18
+T08: 18
+T09: 18
+T10: 18
+T11: 6
+T12: 2
+```
+
+The self-edge source packet independently checks the first nine template
+counts and totals 158 self-edge assignments. The strict-cycle source packet
+checks the last three template counts and totals 26 strict-cycle assignments.
+The core-template packet checks that the 16 families are grouped into 12
+templates with 9 self-edge and 3 strict-cycle template statuses.
+
+### Limitations
+
+- This is an artifact-level bridge, not a human proof of the `n=9` frontier.
+- It does not independently prove the source packet validators are complete.
+- It does not prove that the 184 catalog-covered assignments exhaust all
+  possible `n=9` selected-witness assignments.
+- It does not replace independent review of the finite pipeline.
+- It does not bridge from `n=9` diagnostics to arbitrary `n`.
+- It does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Effect on the Attack
+
+The local proof architecture now factors into three layers:
+
+1. **Strict-circuit contradiction**: Cycle 570, purely order-theoretic on real
+   distance values after quotienting.
+2. **Template bridge**: this cycle, artifact-bound mapping from 184
+   catalog-covered assignments to strict-circuit local templates.
+3. **Frontier/completeness bridge**: still missing as a human-readable proof;
+   this is the step that would have to justify why arbitrary relevant
+   configurations enter the catalog-covered frontier.
+
+This makes the missing proof obligation more precise. The next attack should
+not spend effort reproving individual template contradictions; it should
+target the frontier/completeness bridge.
+
+### Next Lead
+
+Inspect the upstream artifacts feeding the self-edge and strict-cycle template
+packets, especially the self-edge and strict-cycle path-join artifacts. The
+narrow subquestion is whether the assignment-level joins can be described as
+one reusable local-core extraction lemma, or whether they remain essentially
+computational.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-570`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-570`.
+- The branch was based on `origin/main` at
+  `bc90fdee30d2ab72e5e6d27d77255888e5f68a0e`, after Cycle 569 merged through
+  replacement PR #232.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_self_edge_template_packet.py --check
+  --assert-expected --json`: passed; 158 self-edge assignments, 9 templates,
+  and zero validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --check
+  --assert-expected --json`: passed; 26 strict-cycle assignments, 3 templates,
+  and zero validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_core_templates.py --check --assert-expected
+  --json`: passed; 16 families, 12 templates, and zero validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+  --assert-expected --json`: passed; 184 covered assignments, 12 templates,
+  and zero validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed; 703 passed and 90 deselected.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
+## 2026-05-08 - Cycle 570 - Quotient Strict-Circuit Meta-Lemma
+
+### Mathematical Subquestion
+
+Can the repeated self-edge and strict-cycle template proofs be separated into
+a single abstract contradiction lemma about selected-distance quotient graphs?
+
+### Definitions and Assumptions
+
+Let `P` be a strictly convex polygon with vertex set `V`. A selected-distance
+quotient relation is an equivalence relation `~` on unordered vertex pairs
+such that, in every realization under consideration,
+
+```text
+{a,b} ~ {c,d}  implies  d(a,b) = d(c,d).
+```
+
+In the vertex-circle setting, the relation is generated by selected rows:
+if row `i:{a,b,c,d}` is selected, then
+
+```text
+{i,a} ~ {i,b} ~ {i,c} ~ {i,d}.
+```
+
+Let `Q` be the set of quotient classes. For a class `X in Q`, write
+`D(X)` for the common distance value of any representative pair in `X`.
+This is well-defined under the selected-distance hypotheses.
+
+A certified strict chord-containment edge is an ordered pair `X -> Y` of
+classes such that every realization satisfying the cyclic-order and
+selected-row hypotheses has
+
+```text
+D(X) > D(Y).
+```
+
+In the recent `n=9` vertex-circle packets, each such strict edge comes from
+the vertex-circle nesting lemma: on one selected circle, a properly containing
+witness interval determines a strictly longer chord.
+
+The selected-distance strict graph is the directed graph on `Q` whose edges
+are the certified strict chord-containment edges after quotienting by `~`.
+
+### Result Status
+
+Proved reduction lemma:
+**Quotient Strict-Circuit Meta-Lemma**.
+
+If the selected-distance strict graph has either
+
+1. a reflexive strict edge `X -> X`, or
+2. a directed cycle
+
+```text
+X_0 -> X_1 -> ... -> X_{k-1} -> X_0
+```
+
+with `k >= 2`, then the displayed local hypotheses are unrealizable.
+
+### Argument
+
+A reflexive strict edge says
+
+```text
+D(X) > D(X),
+```
+
+which is impossible for a real-valued distance.
+
+For a directed cycle of length `k >= 2`, the strict edges say
+
+```text
+D(X_0) > D(X_1) > ... > D(X_{k-1}) > D(X_0).
+```
+
+By transitivity of the strict order on real numbers, this implies
+`D(X_0) > D(X_0)`, again impossible. No metric property beyond
+well-defined real distances is needed after the strict edges and quotient
+equalities have been certified.
+
+Thus self-edge and strict-cycle local packets are two forms of the same
+strict-circuit obstruction:
+
+```text
+reflexive strict edge = directed cycle of length 1,
+strict-cycle packet   = directed cycle of length at least 2.
+```
+
+### Exact Artifact Scope
+
+This lemma applies to a local packet only after two external ingredients have
+already been certified:
+
+1. the selected-distance quotient equalities are forced by the displayed
+   selected rows; and
+2. each directed edge is a strict inequality forced by a valid cyclic-order
+   chord-containment argument.
+
+For the current `n=9` vertex-circle template catalog, those ingredients are
+the checked local packet records in
+
+```text
+data/certificates/n9_vertex_circle_template_lemma_catalog.json
+data/certificates/n9_vertex_circle_self_edge_template_packet.json
+data/certificates/n9_vertex_circle_strict_cycle_template_packet.json
+data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json
+data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json
+data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json
+```
+
+The catalog currently records 12 local templates covering 184 assignments:
+9 self-edge templates covering 158 assignments and 3 strict-cycle templates
+covering 26 assignments. The meta-lemma explains the final contradiction step
+for these local templates, but it does not independently certify the
+templates or the path from arbitrary polygons to the template catalog.
+
+### Limitations
+
+- This is a local reduction lemma, not a proof of the `n=9` exhaustive
+  checker.
+- It assumes the selected-distance quotient equalities and strict edges have
+  already been certified by separate geometric or artifact-backed arguments.
+- It does not prove that arbitrary selected-witness assignments contain a
+  self-edge or directed cycle.
+- It does not bridge from finite `n=9` diagnostics to arbitrary `n`.
+- It does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Effect on the Attack
+
+The recent self-edge and strict-cycle proof extractions now have a common
+target:
+
+```text
+force a strict circuit in the selected-distance quotient graph.
+```
+
+This isolates the remaining proof pressure. The local contradiction is no
+longer the hard part; the hard part is a forcing theorem saying that any
+minimal counterexample, or at least any sufficiently reduced selected-witness
+assignment, must produce such a quotient strict circuit.
+
+### Next Lead
+
+Try to formulate a finite-to-structural bridge:
+
+```text
+Every review-pending n=9 vertex-circle frontier assignment maps to a
+selected-distance strict graph with a strict circuit.
+```
+
+The proof task is to identify exactly which checked artifact supplies this
+map, then decide which part could be replaced by a human-readable
+order-theoretic lemma.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-570`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-570`.
+- The branch was based on `origin/main` at
+  `bc90fdee30d2ab72e5e6d27d77255888e5f68a0e`, after Cycle 569 merged through
+  replacement PR #232.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+  --assert-expected --json`: passed; the catalog reports 12 templates covering
+  184 assignments, with 9 self-edge templates and 3 strict-cycle templates.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `git diff --check`: passed.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-08 - Cycle 569 - F16 Six-Row Strict-Cycle Lemma
 
 ### Mathematical Subquestion
