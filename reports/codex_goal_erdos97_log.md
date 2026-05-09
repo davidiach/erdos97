@@ -22947,6 +22947,181 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 594 - C29 Large-Pivot Reservoir
+
+### Mathematical Subquestion
+
+Cycle 593 showed that the sparse min-fill trace is not local in original-row
+ancestry. A different possible compression is that the largest pivot rows
+themselves might use one small, stable component reservoir.
+
+For the Cycle 592 deterministic min-fill trace on the contracted C29 matrix,
+where do the pivot rows of support at least 11 live, and does their common
+support pattern point to a local hand-proof subblock?
+
+### Definitions and Assumptions
+
+Use the Cycle 588 equality-balance contraction and the Cycle 589 contracted
+balance matrix `A=(a(Q,C))`, reconstructed from
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`.
+
+The min-fill rule is the Cycle 592 rule: choose a pivot minimizing
+
+```text
+(column_degree - 1) * (row_support - 1),
+```
+
+with deterministic ties by smaller column degree, then matrix-row index, then
+component-column index. A **large pivot** is a pivot row with component-column
+support at least 11. Its **component reservoir** is the union of all
+component columns appearing in the large pivots.
+
+### Result Status
+
+Finite refinement and obstruction:
+**C29 Large-Pivot Reservoir Obstruction**.
+
+Over each of
+
+```text
+1000003, 1000033, 1000037
+```
+
+the min-fill trace again had rank 114 and the same pivot-support histogram:
+
+```text
+2: 6
+3: 40
+4: 19
+5: 11
+6: 8
+7: 10
+8: 3
+9: 5
+10: 4
+11: 6
+13: 2
+```
+
+The eight large pivots had the same steps, matrix rows, quotient classes,
+pivot columns, and component supports over all three primes:
+
+```text
+step  matrix row  qclass  pivot column  component support
+91    41          89      39            6,25,33,39,45,65,69,70,79,94,108
+92    75          191     63            6,13,21,26,40,63,65,69,75,79,84
+96    25          49      105           6,13,26,54,65,75,79,84,94,105,108
+99    105         270     54            6,16,21,26,54,65,75,79,82,84,90,94,108
+100   43          93      82            6,16,21,25,26,45,65,70,75,82,84,90,108
+101   109         291     70            6,16,21,26,45,70,75,79,84,90,108
+102   50          113     75            21,25,26,45,65,75,79,84,90,94,108
+104   0           0       25            6,16,21,25,26,45,65,79,84,90,108
+```
+
+The component reservoir has 23 components:
+
+```text
+6, 13, 16, 21, 25, 26, 33, 39, 40, 45, 54, 63,
+65, 69, 70, 75, 79, 82, 84, 90, 94, 105, 108
+```
+
+Its component-size histogram is:
+
+```text
+1: 6
+2: 10
+3: 4
+4: 3
+```
+
+After expanding components back to original Kalmanson rows, the reservoir
+contains 50 raw rows, exactly 25 `K1` rows and 25 `K2` rows, and touches all
+29 labels.
+
+No component lies in all eight large pivots. The component frequency histogram
+across the eight large-pivot supports is:
+
+```text
+1: 5
+2: 4
+3: 1
+4: 3
+5: 2
+6: 2
+7: 6
+```
+
+The exact large-support audit digest was:
+
+```text
+e08ce3ae482485ce4d32fce3d14efaf84672738a6fe7e5c51b303535787f7361
+```
+
+### Argument
+
+The audit reconstructs the contracted matrix exactly and reruns the
+deterministic min-fill trace over the three listed primes. It records only
+the pivot rows whose active component-column support has size at least 11.
+The large-pivot records agree across all three primes, so the support
+reservoir is not an artifact of one prime.
+
+The reservoir is much smaller than the full 115-component core, but it is not
+a local geometric patch. It has empty common intersection across the eight
+large pivots, expands to 50 original strict rows, contains both Kalmanson row
+types in equal count, and touches every label in the C29 pattern.
+
+### Effect on the Attack
+
+This sharpens the Cycle 592/593 picture. The sparse trace has a finite
+high-support bottleneck of only eight pivots, and those pivots are confined to
+23 components. That is promising for a future certificate-mining route.
+
+However, the reservoir is already global at the label level, so the largest
+pivots do not directly isolate a small local forbidden configuration. A human
+proof would need either a quotient normal form for this 23-component
+reservoir or a different compression of the remaining global interaction.
+
+### Exact Scope
+
+This is an exact finite audit of the recorded fixed-order
+`C29_sidon_1_3_7_15` Kalmanson certificate after the Cycle 588
+equality-balance contraction. It concerns only the deterministic min-fill
+trace on the contracted 115-by-115 matrix over the listed primes. It does not
+classify other pivot rules, other certificates, other cyclic orders, other
+selected-witness patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+Treat the 23-component reservoir as a named submatrix and test whether its
+large-pivot supports have a signed quotient normal form or a smaller
+separator. If not, the more promising route may be to search for a different
+pivot rule optimized for reservoir size rather than individual row support.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-594`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-594`.
+- The branch was based on PR #270 head
+  `4f4ff8d1e484004e1dad802b57173e904be73568`, after recording Cycle 593.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 large-pivot reservoir audit: passed, with digest
+  `e08ce3ae482485ce4d32fce3d14efaf84672738a6fe7e5c51b303535787f7361`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 593 - C29 Min-Fill Trace Ancestry
 
 ### Mathematical Subquestion
