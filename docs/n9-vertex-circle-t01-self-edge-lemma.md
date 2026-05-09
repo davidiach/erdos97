@@ -30,6 +30,72 @@ The local core is the family `F09` three-row certificate:
 [2, 0, 1, 4, 6]
 ```
 
+Here `[c, a, b, d, e]` means that `a,b,d,e` are the selected witnesses for
+center `c`, hence the four distances from `c` to those witnesses are equal.
+
+## Local lemma
+
+The following local obstruction is independent of the exhaustive `n=9`
+brancher.
+
+Assume a strictly convex polygon has labels appearing in cyclic order
+
+```text
+0,1,2,3,4,5,6,7,8
+```
+
+and contains the three selected rows
+
+```text
+S_0 = {1,2,4,8}
+S_1 = {0,3,5,8}
+S_2 = {0,1,4,6}
+```
+
+Then these three rows cannot be realized.
+
+Indeed, the selected-distance equalities give
+
+```text
+d(1,8) = d(1,0)      from row 1,
+d(1,0) = d(0,2)      from row 0,
+d(0,2) = d(2,1)      from row 2.
+```
+
+Thus
+
+```text
+d(1,8) = d(1,2).
+```
+
+On the other hand, the selected witnesses of row `0` lie on one circle
+centered at vertex `0`, and their radial order is
+
+```text
+1,2,4,8.
+```
+
+In a strictly convex polygon, the rays from a vertex to the other vertices
+occur in the polygon's cyclic order inside an angle smaller than `pi`. On a
+fixed circle, chord length is strictly increasing with the enclosed central
+angle in this range. The chord `[1,8]` strictly contains the chord `[1,2]` in
+the row-`0` witness order, so
+
+```text
+d(1,8) > d(1,2).
+```
+
+This contradicts the equality above. Equivalently, after quotienting ordinary
+pair distances by the selected-distance equalities, row `0` creates a
+reflexive strict edge for the quotient class of `[1,8]` and `[1,2]`.
+
+The lemma is local: it rules out any selected-witness system containing these
+three rows in the stated cyclic order. It does not prove the full `n=9`
+finite case, because the exhaustive checker is still needed to show that every
+frontier assignment contains one of the recorded local obstruction templates.
+
+## Packet data
+
 For row `0`, the witness order `[1, 2, 4, 8]` gives the strict
 vertex-circle inequality
 
