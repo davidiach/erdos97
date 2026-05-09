@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 import scripts.check_n9_base_apex_d3_p19_incidence_capacity_pilot as checker
 from scripts.check_n9_base_apex_d3_p19_incidence_capacity_pilot import (
     EXPECTED_CLAIM_SCOPE,
@@ -15,6 +17,7 @@ from scripts.check_n9_base_apex_d3_p19_incidence_capacity_pilot import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.artifact
 
 
 def test_p19_pilot_counts_are_pinned() -> None:

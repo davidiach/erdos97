@@ -5,6 +5,8 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT / "scripts") not in sys.path:
     sys.path.insert(0, str(ROOT / "scripts"))
@@ -71,6 +73,8 @@ def test_c25_c29_sparse_frontier_probe_matches_exact_filter_sweep() -> None:
         ]["survives_pre_kalmanson_filters"]
 
 
+@pytest.mark.artifact
+@pytest.mark.slow
 def test_c25_c29_orders_have_no_two_inequality_kalmanson_inverse_pair() -> None:
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))
     by_pattern = {row["pattern"]: row for row in artifact["cases"]}

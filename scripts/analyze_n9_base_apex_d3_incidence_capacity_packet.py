@@ -60,10 +60,8 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv)
-    payload = d3_incidence_capacity_packet_report()
-    if args.assert_expected:
-        assert_expected_packet_counts(payload)
-
+    checked = None
+    artifact = None
     if args.check_artifact is not None:
         artifact = (
             args.check_artifact
@@ -86,6 +84,12 @@ def main(argv: Sequence[str] | None = None) -> int:
                 file=sys.stderr,
             )
             return 1
+
+    payload = d3_incidence_capacity_packet_report()
+    if args.assert_expected:
+        assert_expected_packet_counts(payload)
+
+    if checked is not None:
         if checked != payload:
             print(
                 f"FAILED: generated payload differs from {display_path(artifact, ROOT)}",

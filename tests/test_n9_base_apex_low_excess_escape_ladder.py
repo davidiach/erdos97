@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_n9_base_apex_low_excess_escape_ladder import (
     EXPECTED_CLAIM_SCOPE,
     EXPECTED_INTERPRETATION,
@@ -15,6 +17,7 @@ from scripts.check_n9_base_apex_low_excess_escape_ladder import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.artifact
 
 
 def test_expected_low_excess_escape_ladder_counts_are_pinned() -> None:

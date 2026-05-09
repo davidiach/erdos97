@@ -74,6 +74,7 @@ def test_c19_catalog_prefilter_window_sweep_artifact_summary() -> None:
     }
 
 
+@pytest.mark.artifact
 def test_c19_catalog_prefilter_window_sweep_small_replay() -> None:
     payload = run_script("--window-count", "1", "--json")
 

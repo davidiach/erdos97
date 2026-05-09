@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 import scripts.check_n9_base_apex_d3_incidence_capacity_packet as checker
 from scripts.check_n9_base_apex_d3_incidence_capacity_packet import (
     EXPECTED_CLAIM_SCOPE,
@@ -16,6 +18,7 @@ from scripts.check_n9_base_apex_d3_incidence_capacity_packet import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.artifact
 
 
 def test_full_packet_counts_are_pinned() -> None:

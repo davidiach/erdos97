@@ -7,6 +7,8 @@ import pathlib
 import subprocess
 import sys
 
+import pytest
+
 from c19_replay_helpers import assert_c19_replay_matches_artifact
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -82,6 +84,8 @@ def test_c19_fifth_pair_two_row_prefilter_artifact() -> None:
     ]
 
 
+@pytest.mark.artifact
+@pytest.mark.slow
 def test_c19_fifth_pair_two_row_prefilter_replay_matches_artifact() -> None:
     payload = run_script("--assert-expected", "--json")
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))

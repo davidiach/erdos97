@@ -7,6 +7,8 @@ import pathlib
 import subprocess
 import sys
 
+import pytest
+
 from c19_replay_helpers import assert_c19_replay_matches_artifact
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -82,6 +84,8 @@ def test_c19_prefix_window_artifact_summary() -> None:
     assert first_fifth["certificate_summary"]["forced_inequalities_available"] == 3300
 
 
+@pytest.mark.artifact
+@pytest.mark.slow
 def test_c19_prefix_window_replay_matches_artifact() -> None:
     payload = run_script("--assert-expected", "--json")
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))
@@ -147,6 +151,8 @@ def test_c19_prefix_window_160_191_artifact_summary() -> None:
     assert payload["unclosed_fifth_pair_child_branches"] == []
 
 
+@pytest.mark.artifact
+@pytest.mark.slow
 def test_c19_prefix_window_160_191_replay_matches_artifact() -> None:
     payload = run_script(
         "--start-index",

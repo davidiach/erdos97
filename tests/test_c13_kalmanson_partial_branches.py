@@ -7,6 +7,8 @@ import pathlib
 import subprocess
 import sys
 
+import pytest
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "certify_c13_kalmanson_partial_branches.py"
 ARTIFACT = ROOT / "data" / "certificates" / "c13_kalmanson_partial_branch_closures.json"
@@ -23,6 +25,8 @@ def run_script(*args: str) -> dict[str, object]:
     return json.loads(result.stdout)
 
 
+@pytest.mark.artifact
+@pytest.mark.slow
 def test_c13_partial_branch_closures_match_artifact() -> None:
     payload = run_script("--assert-expected", "--json")
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))

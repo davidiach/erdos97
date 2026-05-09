@@ -19,6 +19,7 @@ from scripts.check_n9_selected_baseline_escape_budget_overlay import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.artifact
 
 
 def test_selected_baseline_overlay_artifact_summary_is_nonclaiming() -> None:

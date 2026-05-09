@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.analyze_kalmanson_z3_clauses import (
     DEFAULT_ARTIFACT,
     assert_expected,
@@ -14,6 +16,7 @@ from scripts.analyze_kalmanson_z3_clauses import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.artifact
 
 
 def test_c19_z3_clause_diagnostic_matches_artifact() -> None:

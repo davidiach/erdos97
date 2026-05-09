@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_n9_base_apex_low_excess_ledgers import (
     DEFAULT_ARTIFACT,
     load_artifact,
@@ -14,6 +16,7 @@ from scripts.check_n9_base_apex_low_excess_ledgers import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.artifact
 
 
 def test_low_excess_ledger_artifact_passes_independent_checker() -> None:
