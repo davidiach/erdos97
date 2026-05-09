@@ -22947,6 +22947,208 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 613 - C29 Low-Support Triple Mechanism Split
+
+### Mathematical Subquestion
+
+Cycle 612 explained the unique support-`9` vector inside the consecutive
+triple `(103,104,105)` by a forced-zero component and one double coordinate
+zero in the label-7-free projective line. The next narrow question is:
+
+Among the four Cycle 608 support-`<=10` nearby triples, is the support drop
+always caused by the same double-zero mechanism, or does the support-`9` row
+have a sharper local signature?
+
+### Definitions and Assumptions
+
+Use the recorded fixed-order `C29_sidon_1_3_7_15` certificate, the Cycle 588
+equality-balance contraction, and the Cycle 592 min-fill trace with the Cycle
+612 deterministic pivot key.
+
+For each of the four triples
+
+```text
+(93,104,105), (98,104,105), (102,103,104), (103,104,105),
+```
+
+let `L_T` be the exact label-7-free subspace of its three-row span. The audit
+computes:
+
+- the union component support of the three rows;
+- the components forced to vanish on all of `L_T`;
+- the generic component support inside `L_T`;
+- all projective coordinate-zero candidates in `L_T` with all three row
+  coefficients nonzero;
+- the minimum support and all exact minima.
+
+### Result Status
+
+Finite mechanism split in the fixed audit scope:
+**C29 Low-Support Triple Mechanism Split**.
+
+All four low-support triples have label-free nullity `2`, so each has a
+projective label-free line. In all four cases component `90` is forced to
+vanish throughout that line.
+
+The support-`<=10` mechanisms are:
+
+```text
+triple          generic  forced  additional zeros at a minimum  minimum support
+(93,104,105)       12    90      16,108                         10
+(98,104,105)       11    90      one of 6,16,21,25,26,45,79,
+                                  84,108                         10
+(102,103,104)      12    90      26,65                          10
+(103,104,105)      11    90      65,108                          9
+```
+
+Thus the support-`9` row is distinguished from the other three low-support
+rows by the combination:
+
+```text
+generic support 11 plus a double additional zero.
+```
+
+The two support-`10` triples `(93,104,105)` and `(102,103,104)` also have a
+double additional zero, but their generic support is `12`. The remaining
+support-`10` triple `(98,104,105)` has generic support `11`, but it has only
+single additional-zero minima. The Cycle 608 displayed vector for that triple,
+
+```text
+coeffs: (-116/41,265/41,1),
+```
+
+is one of nine support-`10` minima in its label-free line, namely the one
+zeroing component `79`.
+
+### Argument
+
+The audit reconstructs the selected-distance quotient, the `50` two-row
+balance classes, the `115` equality components, and the exact rational
+min-fill rows. It verifies the Cycle 592 pivot-support histogram:
+
+```text
+2:6 3:40 4:19 5:11 6:8 7:10 8:3 9:5 10:4 11:6 13:2
+```
+
+For each of the four displayed triples it solves the label-7 deletion
+equations exactly. Each nullspace is two-dimensional, so support minimization
+inside the label-free line reduces to checking projective zeros of the
+component coordinate linear forms. The audit then clears rational coefficients
+to primitive component vectors.
+
+The three displayed Cycle 608 support-`10` vectors are recovered:
+
+```text
+(93,104,105):  coeffs (-6,5,1), additional zeros 16,108
+(98,104,105):  coeffs (-116/41,265/41,1), additional zero 79
+(102,103,104): coeffs (-3/5,7/2,1), additional zeros 26,65
+```
+
+The support-`9` vector is recovered as:
+
+```text
+(103,104,105): coeffs (-13/9,55/9,1), additional zeros 65,108
+```
+
+Together with the forced zero `90`, this proves the mechanism split for the
+four audited low-support triples.
+
+### Broad-Sweep Guardrail
+
+An attempted broader mechanism sweep over all `560` triples in rows `90..105`
+was not used as evidence. Although it recovered the same four support-`<=10`
+triples, its aggregate nullity counts did not reproduce the Cycle 608 archived
+counts:
+
+```text
+current ad hoc replay: 0:129, 1:323, 2:107, 3:1
+Cycle 608 log:         0:132, 1:320, 2:107, 3:1
+```
+
+This rules out promoting the ad hoc broad sweep into a new global nearby-window
+claim without first recovering or checking the exact Cycle 608 enumeration
+script. The focused four-triple audit above is retained because it directly
+reconstructs the four displayed low-support rows and their exact minima.
+
+### Effect on the Attack
+
+Cycle 612's double-zero explanation is useful but not alone decisive: two
+support-`10` triples also have double additional zeros. The sharper feature of
+the support-`9` row is the conjunction of generic support `11` and a double
+additional zero.
+
+This suggests a more precise proof-mining target. A reusable diagnostic should
+classify triples by the pair:
+
+```text
+(generic label-free support, maximum additional-zero multiplicity).
+```
+
+The support-`9` row sits at `(11,2)`, whereas the other low-support rows sit at
+`(12,2)` or `(11,1)`.
+
+### Exact Scope
+
+This is an exact finite audit of the four support-`<=10` triples displayed in
+Cycle 608, for the fixed-order `C29_sidon_1_3_7_15` certificate, the Cycle 588
+equality contraction, the Cycle 592 min-fill trace as reconstructed by the
+Cycle 612 pivot key, and label `7`.
+
+It does not certify the full `560`-triple nearby-window aggregate counts, and
+it does not classify other labels, other row spans, other min-fill tie rules,
+other C29 cyclic orders, arbitrary C19/C29 patterns, or geometric
+counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Recover the exact Cycle 608 enumeration logic as a reusable checked script, or
+avoid global nearby-window claims and instead continue with focused audits of
+named low-support rows. The most promising next local question is whether
+generic support `11` plus double additional zero has a visible
+quotient-incidence explanation, especially for the pair of disappearing
+components `65,108`.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-613`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-613`.
+- The branch was based on `origin/main` at commit
+  `b0b8a58136406b9f29065d10f4d611a4f2a3f231`, after PR #290 merged Cycle
+  612.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 low-support triple mechanism audit: passed, with digest
+  `1eb2c3bc7a7e599a17b283c5c5041038b010f83fe1b012bc8a32d12821a2ece5`.
+- Attempted broad nearby-triple mechanism sweep: not used as evidence because
+  its aggregate nullity counts did not reproduce Cycle 608; diagnostic digest
+  `4af07e83e6267a29d2c27a50c16cdb598e31c73cf2c26c5f8f1a77af3843ccd8`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 685.03s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 612 - C29 Consecutive Triple Double-Zero Mechanism
 
 ### Mathematical Subquestion
