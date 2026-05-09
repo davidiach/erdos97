@@ -22947,6 +22947,215 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 601 - C29 Early Label-7-Free Pivots
+
+### Mathematical Subquestion
+
+Cycle 600 found that the ten support components of the Cycle 597/598 row
+avoid label `7` in their raw quotient-class support. The next proposed lead
+was to test whether this deletion first appears at the two large pivot rows
+whose sum produces the support-10 row.
+
+In the Cycle 592 deterministic min-fill trace, are the pivot rows at steps
+`100` and `101` the first active rows whose component support lives entirely
+in the label-7-deleted subsystem?
+
+### Definitions and Assumptions
+
+Use the same contracted C29 balance matrix as Cycles 588-600. A component
+`C` is **label-7 incident** if its contracted signature contains some
+selected-distance quotient class with an unordered pair using label `7`.
+
+A min-fill pivot row is **label-7-free** if none of the component columns in
+its active support is label-7 incident.
+
+The deterministic min-fill trace is replayed over `F_1000003` with the Cycle
+592 tie-break rule:
+
+```text
+minimize (column_degree - 1) * (row_support - 1),
+then smaller column_degree,
+then matrix-row index,
+then component-column index.
+```
+
+### Result Status
+
+Counterexample to the proposed first-deletion route:
+**C29 Early Label-7-Free Pivot Obstruction.**
+
+The replay again matches the Cycle 592 rank and pivot-support histogram:
+
+```text
+rank: 114
+
+support histogram:
+2: 6
+3: 40
+4: 19
+5: 11
+6: 8
+7: 10
+8: 3
+9: 5
+10: 4
+11: 6
+13: 2
+```
+
+There are already `40` label-7-free pivot rows in the trace. Their support
+histogram is:
+
+```text
+2: 3
+3: 21
+4: 5
+5: 2
+6: 2
+7: 5
+8: 1
+10: 1
+```
+
+The first pivot row is already label-7-free:
+
+```text
+step 0:
+  matrix row 17, qclass 36, pivot column 114
+  support size 3
+  support 79, 104, 114
+```
+
+Thus steps `100` and `101` are not the first label-7-free active rows. In
+fact, neither step `100` nor step `101` is label-7-free:
+
+```text
+step 100:
+  matrix row 43, qclass 93, pivot column 82
+  support size 13
+  label-7 incident support components: 70, 90
+
+step 101:
+  matrix row 109, qclass 291, pivot column 70
+  support size 11
+  label-7 incident support components: 70, 90
+```
+
+A nearby pivot row before them is label-7-free with support `10`:
+
+```text
+step 98:
+  matrix row 98, qclass 245, pivot column 69
+  support size 10
+  support 6, 16, 21, 25, 26, 45, 69, 79, 84, 108
+```
+
+The eight large pivots all contain at least one label-7 incident component:
+
+```text
+step 91:  support 11, label-7 incident components 70
+step 92:  support 11, label-7 incident components 40
+step 96:  support 11, label-7 incident components 105
+step 99:  support 13, label-7 incident components 90
+step 100: support 13, label-7 incident components 70, 90
+step 101: support 11, label-7 incident components 70, 90
+step 102: support 11, label-7 incident components 90
+step 104: support 11, label-7 incident components 90
+```
+
+The exact individual-pivot label-7 audit digest was:
+
+```text
+9119df5af242178850cfaa66c6bc5ee32203a19ec925b5903bc7e0f2e01359b5
+```
+
+### Argument
+
+The audit reconstructs the selected-distance quotient, the 165 Kalmanson
+rows, and the Cycle 588 equality components from the recorded C29 certificate.
+It then forms the contracted matrix rows and replays the deterministic
+min-fill elimination over `F_1000003`.
+
+The row-index checks agree with the earlier large-pivot records; for example
+contracted matrix-row index `43` is qclass `93`, index `109` is qclass `291`,
+and index `50` is qclass `113`. The pivot support histogram exactly matches
+Cycle 592, so the replay is the same deterministic trace.
+
+For each pivot row, the audit tests whether its component support intersects
+the exact set of label-7 incident components. The displayed first pivot row
+has empty intersection, so the claim that label-7-free active rows first occur
+at steps `100` and `101` is false. The displayed records for steps `100` and
+`101` show a stronger failure: those two active rows still contain label-7
+incident components.
+
+### Effect on the Attack
+
+This refines the Cycle 600 signal. Label-7 deletion by itself is too common
+among individual min-fill pivots to explain the support-10 row: forty pivot
+rows already live in the label-7-deleted subsystem, and one appears at step
+`0`.
+
+The useful remaining structure is more specific. All eight large pivots are
+label-7 incident, while the sum of steps `100` and `101` cancels the
+label-7 incident components `70` and `90` and leaves the Cycle 597 support-10
+row. Therefore the next proof-facing question should not be "when does a
+label-7-free pivot first appear?" but rather "which combinations of large or
+near-large pivots cancel their label-7 incident components?"
+
+### Exact Scope
+
+This is an exact finite audit of individual pivot rows in the Cycle 592
+deterministic min-fill trace for the recorded fixed-order
+`C29_sidon_1_3_7_15` certificate after the Cycle 588 equality-balance
+contraction. It does not classify arbitrary row combinations, other pivot
+rules, other labels, other certificates, other cyclic orders, other
+selected-witness patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Audit two-row combinations among the large and near-large pivot rows,
+especially steps `90` through `105`, to classify which combinations cancel
+all label-7 incident components and whether the Cycle 597 pair `(100,101)` is
+unique at support `10` or below under that constraint.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-601`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-601`.
+- The branch was based on `origin/main` at
+  `4f61f1978494248aa59c2fe27f4bb2e56aa27823`, after PR #278 merged Cycle
+  600.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 individual-pivot label-7 audit: passed, with digest
+  `9119df5af242178850cfaa66c6bc5ee32203a19ec925b5903bc7e0f2e01359b5`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_text_clean.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_status_consistency.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_artifact_provenance.py`:
+  passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 682.14s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 600 - C29 Support-10 Label-7 Deletion
 
 ### Mathematical Subquestion
