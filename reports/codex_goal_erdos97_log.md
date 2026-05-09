@@ -22947,6 +22947,196 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 595 - C29 Reservoir Separator Audit
+
+### Mathematical Subquestion
+
+Cycle 594 isolated the eight large min-fill pivots inside a 23-component
+reservoir. The next possible compression is separator-based: perhaps this
+reservoir decomposes after removing only a few bridge components.
+
+Does the Cycle 594 large-pivot reservoir have a small component separator,
+either in the large-pivot overlap graph or in the component co-occurrence
+graph?
+
+### Definitions and Assumptions
+
+Use the Cycle 588 equality-balance contraction and the Cycle 589 contracted
+balance matrix `A=(a(Q,C))`, reconstructed from
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`.
+
+Use the Cycle 592 deterministic min-fill rule and the Cycle 594 large pivots,
+namely the eight pivot rows with component-column support at least 11.
+
+Let `R` be the 23-component reservoir from Cycle 594. Two exact separator
+tests were used.
+
+1. The **large-pivot overlap graph** has the eight large pivots as vertices.
+   After removing a set `S` of reservoir components, two pivots are adjacent
+   when their supports still share a component outside `S`.
+2. The **reservoir co-occurrence graph** has the 23 reservoir components as
+   vertices. Two components are adjacent when they occur together in at least
+   one large pivot support.
+
+### Result Status
+
+Finite obstruction:
+**C29 No Small Reservoir Separator Obstruction**.
+
+The min-fill replay was stable over
+
+```text
+1000003, 1000033, 1000037
+```
+
+with rank 114 over each prime and with the same eight large-pivot steps:
+
+```text
+91, 92, 96, 99, 100, 101, 102, 104
+```
+
+The reservoir was again:
+
+```text
+6, 13, 16, 21, 25, 26, 33, 39, 40, 45, 54, 63,
+65, 69, 70, 75, 79, 82, 84, 90, 94, 105, 108
+```
+
+The large-pivot support sizes were six rows of support 11 and two rows of
+support 13. Pairwise intersections among the eight large-pivot supports had
+histogram:
+
+```text
+4: 1
+5: 3
+6: 10
+7: 3
+8: 1
+9: 7
+10: 3
+```
+
+The reservoir co-occurrence graph has 23 vertices and 188 edges, with degree
+histogram:
+
+```text
+10: 5
+14: 2
+15: 3
+17: 4
+19: 1
+20: 5
+22: 3
+```
+
+For both separator tests, every removal of at most 8 reservoir components
+leaves the graph connected. The audit checked all
+
+```text
+1 + 23 + 253 + 1771 + 8855 + 33649 + 100947 + 245157 + 490314
+= 880970
+```
+
+subsets of size at most 8.
+
+The minimum cut size found for both tests is 9. Two size-9 cuts are:
+
+```text
+6, 13, 21, 26, 65, 69, 75, 79, 84
+6, 25, 45, 65, 69, 70, 79, 94, 108
+```
+
+For the first cut, the large-pivot overlap graph separates pivot step `92`
+from the other seven large pivots. The co-occurrence graph separates the
+component pair `{40,63}` from a 12-component block.
+
+For the second cut, the large-pivot overlap graph separates pivot step `91`
+from the other seven large pivots. The co-occurrence graph separates the
+component pair `{33,39}` from a 12-component block.
+
+The exact separator audit digest was:
+
+```text
+4290e3f9b6a1daabaa506cd059aee39eb27db0793dee39f72583864b015ae0a3
+```
+
+### Argument
+
+The audit reconstructs the contracted matrix exactly, reruns the deterministic
+min-fill trace over the three listed primes, and extracts the large-pivot
+supports. The extracted supports agree over all three primes.
+
+It then exhaustively tests component removals in increasing cardinality. For
+the pivot-overlap test, a removal disconnects the eight large pivots exactly
+when the remaining support-intersection graph on those eight pivots is
+disconnected. For the co-occurrence test, a removal disconnects the ordinary
+clique-expanded graph on reservoir components.
+
+No subset of size at most 8 disconnects either graph, and explicit subsets of
+size 9 disconnect both. Therefore the two tested separator notions have exact
+minimum cut size 9.
+
+### Effect on the Attack
+
+This rules out a tempting separator compression of the Cycle 594 reservoir.
+The 23-component reservoir is smaller than the full contracted core, but it
+does not break into smaller pieces after deleting only a few bridge
+components. A proof-facing explanation of the large pivots likely needs a
+signed or algebraic normal form rather than a low-order separator.
+
+### Exact Scope
+
+This is an exact finite audit of the recorded fixed-order
+`C29_sidon_1_3_7_15` Kalmanson certificate after the Cycle 588
+equality-balance contraction. It concerns only the deterministic min-fill
+trace, the Cycle 594 large-pivot reservoir, and the two separator definitions
+above. It does not classify other pivot rules, other certificates, other
+cyclic orders, other selected-witness patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+Since a small separator is absent, inspect signed normal forms inside the
+23-component reservoir. A concrete next test is to classify large-pivot
+support rows up to sign pattern and component-frequency strata, rather than
+trying to split the reservoir graph.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-595`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-595`.
+- The branch was based on `origin/main` at
+  `e3bbfaa6eb3ab1ff5e00b83813f7a3cc839cbd93`, after PR #272 merged Cycle
+  594.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 reservoir separator audit: passed, with digest
+  `4290e3f9b6a1daabaa506cd059aee39eb27db0793dee39f72583864b015ae0a3`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_text_clean.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_status_consistency.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_artifact_provenance.py`:
+  passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 680.86s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 594 - C29 Large-Pivot Reservoir
 
 ### Mathematical Subquestion
