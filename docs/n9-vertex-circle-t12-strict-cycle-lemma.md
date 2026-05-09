@@ -54,6 +54,123 @@ Thus the packet isolates the directed cycle
 [0, 3] > [0, 8] = [2, 8] > [2, 4] = [1, 4] = [1, 7] > [1, 3] = [0, 3].
 ```
 
+## Local lemma
+
+The following local obstruction is independent of the exhaustive `n=9`
+brancher once the six displayed rows are assumed.
+
+Assume a strictly convex polygon has labels appearing in cyclic order
+
+```text
+0,1,2,3,4,5,6,7,8
+```
+
+and contains the six selected rows
+
+```text
+S_0 = {1,3,6,7}
+S_1 = {2,4,7,8}
+S_2 = {0,3,5,8}
+S_3 = {0,1,4,6}
+S_4 = {1,2,5,7}
+S_8 = {0,2,5,6}
+```
+
+Then these six rows cannot be realized.
+
+First use row `2`. Its selected witnesses occur in cyclic order
+
+```text
+3,5,8,0.
+```
+
+In a strictly convex polygon, the rays from a vertex to the other vertices
+occur in the polygon's cyclic order inside an angle smaller than `pi`. Since
+the row-`2` witnesses lie on one circle centered at vertex `2`, chord length
+on that circle is strictly increasing with the enclosed central angle in this
+range. The chord `[0,3]` strictly contains `[0,8]` in the row-`2` witness
+order, so
+
+```text
+d(0,3) > d(0,8).                         (1)
+```
+
+Row `8` identifies the inner chord in (1) with the next outer chord:
+
+```text
+d(0,8) = d(2,8)      from row 8.
+```
+
+Thus
+
+```text
+d(0,3) > d(2,8).                         (2)
+```
+
+Next use row `1`. Its selected witnesses occur in cyclic order
+
+```text
+2,4,7,8.
+```
+
+The chord `[2,8]` strictly contains `[2,4]` in this row-`1` witness order, so
+
+```text
+d(2,8) > d(2,4).                         (3)
+```
+
+Rows `4` and `1` identify this inner chord with the next outer chord:
+
+```text
+d(2,4) = d(1,4)      from row 4,
+d(1,4) = d(1,7)      from row 1.
+```
+
+Therefore
+
+```text
+d(2,8) > d(1,7).                         (4)
+```
+
+Finally use row `0`. Its selected witnesses occur in cyclic order
+
+```text
+1,3,6,7.
+```
+
+The chord `[1,7]` strictly contains `[1,3]` in this row-`0` witness order, so
+
+```text
+d(1,7) > d(1,3).                         (5)
+```
+
+Row `3` identifies this inner chord with the first outer chord:
+
+```text
+d(1,3) = d(0,3)      from row 3.
+```
+
+Combining this equality with (5) gives
+
+```text
+d(1,7) > d(0,3).                         (6)
+```
+
+The strict inequalities (2), (4), and (6) produce the impossible cycle
+
+```text
+d(0,3) > d(2,8) > d(1,7) > d(0,3).
+```
+
+Equivalently, after quotienting ordinary pair distances by the selected
+distance equalities, rows `2`, `1`, and `0` create a directed strict cycle of
+length three.
+
+The lemma is local: it rules out any selected-witness system containing these
+six rows in the stated cyclic order. It does not prove the full `n=9` finite
+case, because the exhaustive checker is still needed to show that every
+frontier assignment contains one of the recorded local obstruction templates.
+
 ## Commands
 
 Generate and check the packet:
