@@ -22947,6 +22947,182 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 592 - C29 Sparse Modular Elimination Certificate
+
+### Mathematical Subquestion
+
+Cycle 591 showed that the positive right-kernel weights of the equality-
+contracted C29 balance system are arithmetically heterogeneous. The next
+possible route is linear-algebraic rather than value-based: perhaps the
+rank-114 property of the 115-by-115 contracted matrix has a sparse elimination
+certificate.
+
+Does the contracted C29 balance matrix admit a low-fill modular elimination
+certificate for rank 114, or does elimination necessarily become dense under
+simple deterministic pivot rules?
+
+### Definitions and Assumptions
+
+Use the Cycle 588 equality-balance contraction and the Cycle 589 contracted
+balance matrix `A=(a(Q,C))`, reconstructed from
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`.
+
+A **modular elimination certificate** for a prime `p` is a deterministic
+Gaussian elimination trace over `F_p` producing 114 pivots. Since the exact
+component-weight vector from Cycle 591 satisfies `A W = 0` over the integers,
+the rational rank is at most 114. A rank-114 elimination over any prime gives
+a nonzero 114-by-114 integer minor, so the rational rank is at least 114.
+
+The audit compared four deterministic row-elimination strategies:
+
+```text
+natural:         leftmost active column, then first active row
+min_row:         active row of minimum support, then first column
+min_col_degree:  active column of minimum degree, then sparsest row
+min_fill:        pivot minimizing (column_degree-1)*(row_support-1)
+```
+
+### Result Status
+
+Proved finite certificate:
+**C29 Sparse Modular Rank Certificate**.
+
+For the contracted 115-by-115 matrix:
+
+```text
+initial nonzeros:                 506
+initial row support range:          2 to 12
+initial column support range:       2 to 10
+rank over 1000003:                114
+rank over 1000033:                114
+rank over 1000037:                114
+```
+
+The min-fill strategy produced the same support statistics over all three
+checked primes:
+
+```text
+rank:                            114
+max active row support:           21
+max created row support:          21
+max pivot row support:            13
+```
+
+Its pivot-support histogram was:
+
+```text
+2: 6
+3: 40
+4: 19
+5: 11
+6: 8
+7: 10
+8: 3
+9: 5
+10: 4
+11: 6
+13: 2
+```
+
+For comparison, natural elimination over the same primes reached max active
+row support 51 and max pivot row support 44. The deterministic min-fill trace
+is therefore a genuine sparse rank certificate for the contracted matrix,
+not merely a dense generic rank computation.
+
+The exact sparse-elimination audit digest was:
+
+```text
+3734097663dce8abaab5177d17fd77c8aad07b575f95869fdb47bcabff2e9bb8
+```
+
+### Argument
+
+The audit reconstructs the selected-distance quotient, the 165 Kalmanson row
+vectors, and the Cycle 588 equality components directly from the certificate.
+It then forms the 115 nonzero contracted quotient-class equations as rows of
+`A`.
+
+For each prime
+
+```text
+1000003, 1000033, 1000037
+```
+
+and each pivot strategy, the audit runs exact sparse row elimination over the
+finite field. All four strategies produce 114 pivots for all three primes.
+Because the Cycle 591 integer vector `W` gives an exact nonzero right-kernel
+vector, the rational rank is exactly 114.
+
+The min-fill trace keeps intermediate rows relatively sparse. The original
+contracted equations have at most 12 nonzero entries, and the min-fill
+elimination never creates an active row with support above 21 or a pivot row
+with support above 13. This gives a concrete finite certificate that the
+rank-114 property is not inherently tied to dense elimination.
+
+### Effect on the Attack
+
+This is the first positive compression found after several C29 obstruction
+cycles. The contracted core is globally connected and heterogeneous, but its
+rank can still be certified by a sparse modular elimination trace.
+
+The result suggests a new proof-facing target: promote the min-fill elimination
+trace from an opaque modular computation into a human-readable sequence of
+sparse balance eliminations, or mine its pivot rows for repeated local
+patterns.
+
+### Exact Scope
+
+This is an exact finite audit of the recorded fixed-order
+`C29_sidon_1_3_7_15` Kalmanson certificate after the Cycle 588
+equality-balance contraction. The sparse elimination statements concern only
+the resulting 115-by-115 contracted balance matrix and the listed primes. They
+do not classify other certificates, other cyclic orders, other selected-witness
+patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+Extract the min-fill pivot trace itself and classify its 114 pivot rows by
+support size, original equation ancestry, and whether the largest pivot rows
+have reusable local quotient patterns. The aim is to replace the modular trace
+with a shorter human-readable sparse elimination certificate.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-592`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-592`.
+- The branch was based on `origin/main` at
+  `383da23b9cced8f294a6a6b217bd2dc8c64d34be`, after PR #268 merged Cycle
+  591.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 sparse-elimination audit: passed, with digest
+  `3734097663dce8abaab5177d17fd77c8aad07b575f95869fdb47bcabff2e9bb8`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_text_clean.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_status_consistency.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_artifact_provenance.py`:
+  passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 681.82s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 591 - C29 Component Weight Heterogeneity
 
 ### Mathematical Subquestion
