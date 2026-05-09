@@ -1,9 +1,10 @@
 {
-  "claim_scope": "Exact cleanup for selected speculative circulant patterns: C45 is killed as a fixed abstract selected-witness incidence pattern by the two-circle cap, while C41, C43, and C49 are fixed-natural-order diagnostics only. No general proof of Erdos Problem #97 and no counterexample are claimed.",
+  "claim_scope": "Exact cleanup for selected speculative circulant patterns: C45 is killed as a fixed abstract selected-witness incidence pattern by the two-circle cap, while C41, C43, C49, and R44 are fixed-natural-order diagnostics only. No general proof of Erdos Problem #97 and no counterexample are claimed.",
   "forbidden_claims": [
     "Erdos Problem #97 is solved.",
     "No counterexample exists.",
     "C49 is killed across all cyclic orders.",
+    "R44 is killed across all cyclic orders.",
     "The speculative frontier is closed.",
     "This proves the bridge theorem.",
     "general proof of Erdos Problem #97",
@@ -469,6 +470,100 @@
         }
       ],
       "verified_reason": "The listed vertex-circle interval containments force a strict cycle of ordinary distance inequalities in the natural order."
+    },
+    {
+      "claim_scope": "Fixed natural cyclic order only; no all-order obstruction for the abstract selected-witness pattern is claimed.",
+      "common_witness_chord": [
+        17,
+        39
+      ],
+      "cyclic_order_scope": "natural_order_only",
+      "formula": "S_{4g+r}={4(g+a_t)+((r+t) mod 4): t=0..3}, a=(2,4,7,9)",
+      "group_count": 11,
+      "group_offsets": [
+        2,
+        4,
+        7,
+        9
+      ],
+      "n": 44,
+      "natural_cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "pattern": "R44_four_lift_2_4_7_9",
+      "residue_count": 4,
+      "row_pair": [
+        0,
+        9
+      ],
+      "rows": {
+        "0": [
+          8,
+          17,
+          30,
+          39
+        ],
+        "9": [
+          17,
+          26,
+          39,
+          0
+        ]
+      },
+      "shared_witnesses": [
+        17,
+        39
+      ],
+      "source_and_witness_chords_alternate": false,
+      "source_chord": [
+        0,
+        9
+      ],
+      "status": "EXACT_NATURAL_ORDER_CROSSING_OBSTRUCTION",
+      "verified_reason": "A two-witness row overlap in a strictly convex realization forces the source chord and common-witness chord to cross; these chords do not alternate in the natural cyclic order."
     }
   ],
   "provenance": {
@@ -480,9 +575,9 @@
   "summary": {
     "abstract_incidence_obstruction_count": 1,
     "counterexample_claimed": false,
-    "fixed_natural_order_diagnostic_count": 3,
+    "fixed_natural_order_diagnostic_count": 4,
     "global_problem_status_changed": false,
-    "pattern_count": 4
+    "pattern_count": 5
   },
   "trust": "EXACT_OBSTRUCTION"
 }
