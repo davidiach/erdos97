@@ -22947,6 +22947,210 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 620 - T12/F16 Local Strict-Cycle Proof Note
+
+### Mathematical Subquestion
+
+The `n=9` vertex-circle strict-cycle packet already records the `T12/F16`
+six-row obstruction and the running log had a human-readable derivation, but
+the canonical packet note was still mostly a packet summary. The narrow
+question for this cycle was:
+
+Can the T12/F16 strict-cycle packet be restated in its proof-facing note as a
+standalone local lemma whose contradiction follows directly from
+vertex-circle strict inequalities and selected-distance quotienting, without
+invoking the exhaustive `n=9` brancher?
+
+### Definitions and Assumptions
+
+For a selected row `S_c`, all distances `d(c,x)` with `x in S_c` are equal.
+Work in a strictly convex polygon with labels in cyclic order
+
+```text
+0,1,2,3,4,5,6,7,8.
+```
+
+The T12/F16 local core consists of the six selected rows
+
+```text
+S_0 = {1,3,6,7}
+S_1 = {2,4,7,8}
+S_2 = {0,3,5,8}
+S_3 = {0,1,4,6}
+S_4 = {1,2,5,7}
+S_8 = {0,2,5,6}.
+```
+
+Use the standard vertex-circle monotonicity fact: if several selected
+witnesses lie on one circle centered at a polygon vertex, then nested witness
+chords in the radial order around that center have strictly increasing
+ordinary length.
+
+### Result Status
+
+Proved local lemma:
+**T12/F16 Three-Edge Strict-Cycle Lemma**.
+
+The six displayed rows are impossible in the stated cyclic order.
+
+### Argument
+
+Row `2` has witness order
+
+```text
+3,5,8,0.
+```
+
+The chord `[0,3]` strictly contains `[0,8]` in this row-`2` witness order.
+Thus vertex-circle monotonicity gives
+
+```text
+d(0,3) > d(0,8).                         (1)
+```
+
+Row `8` identifies the inner chord in (1) with the next outer chord:
+
+```text
+d(0,8) = d(2,8)      from row 8.
+```
+
+Therefore
+
+```text
+d(0,3) > d(2,8).                         (2)
+```
+
+Row `1` has witness order
+
+```text
+2,4,7,8.
+```
+
+The chord `[2,8]` strictly contains `[2,4]` in this row-`1` witness order, so
+
+```text
+d(2,8) > d(2,4).                         (3)
+```
+
+Rows `4` and `1` identify this inner chord with the next outer chord:
+
+```text
+d(2,4) = d(1,4)      from row 4,
+d(1,4) = d(1,7)      from row 1.
+```
+
+Combining these equalities with (3) gives
+
+```text
+d(2,8) > d(1,7).                         (4)
+```
+
+Row `0` has witness order
+
+```text
+1,3,6,7.
+```
+
+The chord `[1,7]` strictly contains `[1,3]` in this row-`0` witness order, so
+
+```text
+d(1,7) > d(1,3).                         (5)
+```
+
+Row `3` identifies this inner chord with the first outer chord:
+
+```text
+d(1,3) = d(0,3)      from row 3.
+```
+
+Combining this equality with (5) gives
+
+```text
+d(1,7) > d(0,3).                         (6)
+```
+
+The strict inequalities (2), (4), and (6) produce the impossible cycle
+
+```text
+d(0,3) > d(2,8) > d(1,7) > d(0,3).
+```
+
+Equivalently, after quotienting ordinary pair distances by the selected
+distance equalities, rows `2`, `1`, and `0` create a directed strict cycle of
+length three.
+
+### Exact Scope
+
+This is a local obstruction lemma for the six displayed selected rows in the
+stated cyclic order. It is independent of the exhaustive brancher once those
+rows are given.
+
+It does not prove the full `n=9` finite case, because the review-pending
+exhaustive checker is still needed to show that every `n=9` frontier
+assignment contains a recorded local obstruction template. It does not prove
+Erdos Problem #97 and does not give a counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-t12-strict-cycle-lemma.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect on the Attack
+
+This completes proof-note consolidation for the three review-pending
+strict-cycle packet notes `T10/F12`, `T11/F07`, and `T12/F16`. The strict-cycle
+side is now uniformly represented as local vertex-circle monotonicity plus
+selected-distance quotient cycles, but this remains local proof-mining
+scaffolding. Future work must still prove that arbitrary or finite frontier
+assignments force one of these local cores.
+
+### Next Lead
+
+Consolidate the local packet notes into a single quotient strict-circuit
+review aid, or move to the harder bridge question: which exact artifact step
+maps each review-pending frontier assignment into one of the local cores?
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-620`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-620`.
+- The branch was based on `origin/main` at commit
+  `3b1539e8f3ef6ab788efd34af46b06532b9e4e2d`, after PR #309 merged Cycle
+  619.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py --check
+  --assert-expected --json`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --check
+  --assert-expected --json`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+  --assert-expected --json`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 619 - T11/F07 Local Strict-Cycle Proof Note
 
 ### Mathematical Subquestion
