@@ -22947,6 +22947,309 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 596 - C29 Reservoir Signed Strata
+
+### Mathematical Subquestion
+
+Cycle 595 ruled out a small separator explanation for the Cycle 594
+large-pivot reservoir. The next possible compression is signed rather than
+graph-theoretic:
+
+```text
+Do the eight large-pivot rows in the 23-component C29 reservoir collapse to a
+simple signed normal form, perhaps determined by component frequency or by
+component-size strata?
+```
+
+### Definitions and Assumptions
+
+Use the same finite object as Cycles 588-595: the recorded fixed-order
+`C29_sidon_1_3_7_15` Kalmanson certificate
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`, the Cycle
+588 equality-balance contraction, and the Cycle 592 deterministic min-fill
+pivot rule.
+
+For a large pivot row, restrict its exact rational active row to the Cycle 594
+reservoir components. Normalize the row by multiplying by `-1` if necessary
+so that its pivot-column coefficient is positive. Its **signed reservoir word**
+records `+`, `-`, or `0` on the reservoir components in the fixed order
+
+```text
+6, 13, 16, 21, 25, 26, 33, 39, 40, 45, 54, 63,
+65, 69, 70, 75, 79, 82, 84, 90, 94, 105, 108.
+```
+
+For a component `C`, its **signed frequency triple** is
+
+```text
+(total occurrences among the eight pivots,
+ positive occurrences,
+ negative occurrences).
+```
+
+### Result Status
+
+Finite obstruction:
+**C29 Signed-Stratum Nonuniformity Obstruction**.
+
+The exact rational replay reproduces the previous structural checkpoints:
+
+```text
+two-row balance classes:        50
+equality components:           115
+nonzero contracted equations:  115
+rational min-fill rank:        114
+large-pivot steps:             91, 92, 96, 99, 100, 101, 102, 104
+reservoir size:                23
+```
+
+After pivot-normalization, the eight signed reservoir words are all distinct:
+
+```text
+step 91:  -000+0-+0+00-++0-000-0+
+step 92:  ++0+0+00-00+--0-+0-0000
+step 96:  --000-0000-0+00--0+0++-
+step 99:  -0-+0-0000+0+00---+-+0-
+step 100: +0++--000-00+0--0++-00-
+step 101: -0--0-000+0000+--0++00-
+step 102: 000-++000+00-00++0---0+
+step 104: -0-+++000+00+000-0+-00+
+```
+
+The sign-count histogram of these eight rows is also not uniform:
+
+```text
+(positive, negative) counts:
+  (4, 7): 2
+  (5, 8): 1
+  (6, 5): 3
+  (6, 7): 1
+  (7, 4): 1
+```
+
+Only five reservoir components have constant sign across all occurrences:
+
+```text
+33, 39, 40, 63, 105
+```
+
+The other 18 reservoir components occur with mixed signs:
+
+```text
+6, 13, 16, 21, 25, 26, 45, 54, 65, 69, 70, 75,
+79, 82, 84, 90, 94, 108
+```
+
+The signed frequency triples have 15 distinct values among 23 components:
+
+```text
+(1,0,1): 2
+(1,1,0): 3
+(2,1,1): 4
+(3,2,1): 1
+(4,1,3): 1
+(4,2,2): 1
+(4,3,1): 1
+(5,1,4): 1
+(5,4,1): 1
+(6,1,5): 1
+(6,4,2): 1
+(7,2,5): 2
+(7,3,4): 2
+(7,4,3): 1
+(7,5,2): 1
+```
+
+Frequency alone does not determine the sign tally. For example:
+
+```text
+frequency 5: component 45 has (4 positive, 1 negative),
+             component 90 has (1 positive, 4 negative)
+frequency 6: component 21 has (4 positive, 2 negative),
+             component 75 has (1 positive, 5 negative)
+```
+
+Even the pair `(frequency, component size)` does not determine the sign tally:
+
+```text
+(frequency 7, component size 2):
+  component 6   -> (2 positive, 5 negative)
+  component 26  -> (3 positive, 4 negative)
+  component 84  -> (5 positive, 2 negative)
+  component 108 -> (3 positive, 4 negative)
+
+(frequency 7, component size 3):
+  component 65 -> (4 positive, 3 negative)
+  component 79 -> (2 positive, 5 negative)
+```
+
+The pairwise intersection histogram among large-pivot supports agrees with
+Cycle 595:
+
+```text
+4: 1
+5: 3
+6: 10
+7: 3
+8: 1
+9: 7
+10: 3
+```
+
+However, the signs on those intersections are not coherent in one direction:
+
+```text
+same-sign intersection counts:
+  0: 2
+  1: 5
+  2: 5
+  3: 1
+  4: 5
+  5: 5
+  6: 1
+  7: 3
+  8: 1
+
+opposite-sign intersection counts:
+  0: 1
+  1: 5
+  2: 4
+  3: 5
+  4: 3
+  5: 2
+  6: 5
+  7: 1
+  8: 2
+```
+
+The exact signed-strata audit digest was:
+
+```text
+5fcfdef2527cb4920dd32cea41bcdcb83c3573fa985bb19a9d15f5e88761f834
+```
+
+### Primitive Signed Rows
+
+Clearing denominators and dividing by the row gcd gives the following exact
+primitive signed reservoir rows, again normalized so the pivot coefficient is
+positive:
+
+```text
+step 91, pivot 39:
+  6:-1 25:1 33:-1 39:1 45:1 65:-1 69:1 70:1 79:-1 94:-1 108:3
+
+step 92, pivot 63:
+  6:1 13:2 21:2 26:1 40:-1 63:1 65:-1 69:-1 75:-2 79:1 84:-1
+
+step 96, pivot 105:
+  6:-1 13:-1 26:-1 54:-1 65:1 75:-1 79:-2 84:1 94:1 105:1 108:-1
+
+step 99, pivot 54:
+  6:-1 16:-1 21:1 26:-2 54:1 65:1 75:-1 79:-3 82:-1 84:2 90:-1 94:2 108:-3
+
+step 100, pivot 82:
+  6:1 16:3 21:1 25:-3 26:-1 45:-2 65:2 70:-1 75:-2 82:1 84:3 90:-1 108:-5
+
+step 101, pivot 70:
+  6:-1 16:-1 21:-1 26:-1 45:1 70:1 75:-1 79:-2 84:2 90:1 108:-2
+
+step 102, pivot 75:
+  21:-5 25:5 26:6 45:1 65:-5 75:10 79:6 84:-7 90:-1 94:-5 108:17
+
+step 104, pivot 25:
+  6:-85 16:-15 21:25 25:10 26:1 45:51 65:5 79:-74 84:63 90:-41 108:52
+```
+
+The first seven large pivots are integral in this normalization. The final
+large pivot has rational coefficients with common denominator `10`; the
+displayed primitive row is obtained after clearing that denominator.
+
+### Argument
+
+The audit reconstructs the selected-distance quotient, the 165 reduced
+Kalmanson rows, and the 50 two-row equality classes directly from the C29
+certificate. It forms the 115-by-115 contracted balance matrix exactly over
+the integers, then replays the Cycle 592 min-fill pivot rule over the
+rationals using exact `Fraction` arithmetic.
+
+The resulting pivot-support histogram and large-pivot support list match
+Cycles 592-595. Since the same deterministic row operations are then read over
+the rationals, each signed reservoir row above is an exact row of the
+contracted balance system, not a modular or numerical approximation.
+
+The displayed collisions show that neither component frequency nor
+`(component frequency, component size)` determines the sign tally. The
+distinct signed words and mixed-sign high-frequency components rule out the
+coarsest signed-stratum normal form for the Cycle 594 reservoir.
+
+### Effect on the Attack
+
+This is negative for a very simple signed normal-form proof. The reservoir is
+not just a collection of components whose signs are forced by how often they
+appear, or by component size plus frequency.
+
+The positive information is the exact primitive table: the large pivots have
+small signed integer coefficients until the final pivot, and even the final
+cleared row has moderate support size. A better next route is to treat these
+eight rows as a small exact signed matrix and look for row combinations,
+oriented-matroid circuits, or a different pivot normalization that explains
+why these particular signed rows are forced.
+
+### Exact Scope
+
+This is an exact finite audit of the recorded fixed-order
+`C29_sidon_1_3_7_15` Kalmanson certificate after the Cycle 588
+equality-balance contraction. It concerns only the Cycle 592 deterministic
+min-fill trace and the Cycle 594 large-pivot reservoir. It does not classify
+other pivot rules, other certificates, other cyclic orders, other
+selected-witness patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+Analyze the eight primitive signed reservoir rows as an exact `8` by `23`
+matrix. The next narrow question is whether a small positive or signed row
+combination eliminates many reservoir components, exposing a smaller exact
+circuit, or whether the row span is already obstruction-resistant in the same
+way as the separator and frequency-stratum tests.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-596`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-596`.
+- The branch was based on `origin/main` at
+  `bb4540186bffa009b269247d3b0a203f05feb2d3`, after PR #273 merged Cycle
+  595.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact rational C29 reservoir signed-strata audit: passed, with
+  digest
+  `5fcfdef2527cb4920dd32cea41bcdcb83c3573fa985bb19a9d15f5e88761f834`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_text_clean.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_status_consistency.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_artifact_provenance.py`:
+  passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 682.60s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 595 - C29 Reservoir Separator Audit
 
 ### Mathematical Subquestion
