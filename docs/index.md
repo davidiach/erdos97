@@ -38,6 +38,9 @@ put detailed reconciliation in the canonical synthesis.
   crossing CSP for two-overlap patterns.
 - [`vertex-circle-order-filter.md`](vertex-circle-order-filter.md): exact
   row-wise convexity-distance filter for cyclic orders.
+- [`reciprocal-radial-budget.md`](reciprocal-radial-budget.md): local
+  middle-witness reciprocal-radial budget packet; a research packet, not a
+  global obstruction.
 - [`metric-order-lp.md`](metric-order-lp.md): combined fixed-order LP
   diagnostic using Altman gaps, vertex-circle inequalities, and triangle
   inequalities; records a relaxation miss on the registered sparse orders.
