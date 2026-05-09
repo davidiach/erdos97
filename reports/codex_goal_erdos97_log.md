@@ -22947,6 +22947,200 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 602 - C29 Nearby Two-Row Label-Free Pairs
+
+### Mathematical Subquestion
+
+Cycle 601 showed that the individual-pivot label-7-free property is too weak:
+many min-fill pivots are already label-7-free, while the large pivots at
+steps `100` and `101` are themselves label-7 incident. The remaining signal
+was cancellation: the combination of steps `100` and `101` cancels the
+label-7 incident components and leaves the Cycle 597 support-10 row.
+
+Among the exact rational active rows for steps `90` through `105` in the
+Cycle 592 deterministic min-fill trace, which two-row combinations become
+label-7-free? Is the pair `(100,101)` unique among such combinations at
+support at most `10`, or can nearby pairs give the same support size?
+
+### Definitions and Assumptions
+
+Use the same contracted C29 balance matrix as Cycles 588-601, built from the
+recorded fixed-order `C29_sidon_1_3_7_15` Kalmanson certificate after the
+Cycle 588 equality-balance contraction.
+
+A component is **label-7 incident** if its contracted signature contains a
+selected-distance quotient class using label `7`. A two-row combination
+`r_i + t r_j`, with `t` a rational scalar, is **label-7-free** if every
+label-7 incident component has coefficient zero in the combination.
+
+For pairs whose label-7 incident supports are already empty on both rows, the
+label-7-free condition imposes no scalar constraint; the audit records the
+same rational representative used in the exact support calculation. For pairs
+with nonempty label-7 incident support, the audit solves the exact rational
+linear cancellation equations. If a pair has more than one required
+cancellation ratio, it is rejected unless all ratios agree.
+
+### Result Status
+
+Counterexample to the proposed uniqueness subclaim at support `10`, and
+finite lower-bound evidence inside this window:
+**C29 Nearby Two-Row Label-Free Nonuniqueness Obstruction.**
+
+The exact rational replay reconstructed the Cycle 592 deterministic min-fill
+trace and matched the same support histogram. In the step window `90` through
+`105`, the active rows are:
+
+```text
+90:  qclass 25,  pivot 109, support  6, label-7 comps -,      support 6,16,82,94,108,109
+91:  qclass 89,  pivot 39,  support 11, label-7 comps 70,     support 6,25,33,39,45,65,69,70,79,94,108
+92:  qclass 191, pivot 63,  support 11, label-7 comps 40,     support 6,13,21,26,40,63,65,69,75,79,84
+93:  qclass 238, pivot 33,  support  7, label-7 comps 90,     support 6,21,33,75,79,84,90
+94:  qclass 132, pivot 103, support  9, label-7 comps 40,90,103, support 16,26,40,65,79,84,90,103,108
+95:  qclass 288, pivot 40,  support  9, label-7 comps 40,90,  support 16,25,40,45,75,79,90,94,108
+96:  qclass 49,  pivot 105, support 11, label-7 comps 105,    support 6,13,26,54,65,75,79,84,94,105,108
+97:  qclass 199, pivot 13,  support  7, label-7 comps -,      support 13,21,26,54,69,84,94
+98:  qclass 245, pivot 69,  support 10, label-7 comps -,      support 6,16,21,25,26,45,69,79,84,108
+99:  qclass 270, pivot 54,  support 13, label-7 comps 90,     support 6,16,21,26,54,65,75,79,82,84,90,94,108
+100: qclass 93,  pivot 82,  support 13, label-7 comps 70,90,  support 6,16,21,25,26,45,65,70,75,82,84,90,108
+101: qclass 291, pivot 70,  support 11, label-7 comps 70,90,  support 6,16,21,26,45,70,75,79,84,90,108
+102: qclass 113, pivot 75,  support 11, label-7 comps 90,     support 21,25,26,45,65,75,79,84,90,94,108
+103: qclass 71,  pivot 94,  support 10, label-7 comps 90,     support 6,16,21,26,45,65,84,90,94,108
+104: qclass 0,   pivot 25,  support 11, label-7 comps 90,     support 6,16,21,25,26,45,65,79,84,90,108
+105: qclass 47,  pivot 65,  support 10, label-7 comps 90,     support 6,16,21,26,45,65,79,84,90,108
+```
+
+There are exactly `19` label-7-free two-row pairs in this window:
+
+```text
+(90,97):   t=-1/2, support 11, support 6,13,16,21,26,54,69,82,84,108,109
+(90,98):   t=-1/2, support 11, support 16,21,25,26,45,69,79,82,84,94,109
+(93,99):   t=1, support 10, support 16,26,33,54,65,79,82,84,94,108
+(93,102):  t=1, support 12, support 6,21,25,26,33,45,65,75,79,84,94,108
+(93,103):  t=-1, support 11, support 6,16,21,26,33,45,65,75,79,94,108
+(93,104):  t=10/41, support 12, support 6,16,21,25,26,33,45,65,75,79,84,108
+(93,105):  t=-2/53, support 11, support 6,16,21,26,33,45,65,75,79,84,108
+(97,98):   t=-1, support 11, support 6,13,16,25,26,45,54,79,84,94,108
+(99,102):  t=-1, support 14, support 6,16,21,25,26,45,54,65,75,79,82,84,94,108
+(99,103):  t=1, support 11, support 6,16,21,26,45,54,75,79,82,84,108
+(99,104):  t=-10/41, support 14, support 6,16,21,25,26,45,54,65,75,79,82,84,94,108
+(99,105):  t=2/53, support 13, support 6,16,21,26,45,54,65,75,79,82,84,94,108
+(100,101): t=-1, support 10, support 16,25,26,45,65,75,79,82,84,108
+(102,103): t=1, support 12, support 6,16,21,25,26,45,65,75,79,84,94,108
+(102,104): t=-10/41, support 12, support 6,16,21,25,26,45,65,75,79,84,94,108
+(102,105): t=2/53, support 12, support 6,16,21,25,26,45,65,75,79,84,94,108
+(103,104): t=10/41, support 11, support 6,16,21,25,26,45,65,79,84,94,108
+(103,105): t=-2/53, support 10, support 6,16,21,26,45,65,79,84,94,108
+(104,105): t=41/265, support 10, support 6,16,21,25,26,45,65,79,84,108
+```
+
+Thus `(100,101)` is not unique among label-7-free pairs at support `10`.
+There are four such pairs:
+
+```text
+(93,99):   t=1,     support 10
+(100,101): t=-1,    support 10
+(103,105): t=-2/53, support 10
+(104,105): t=41/265, support 10
+```
+
+No label-7-free two-row pair in the tested window has support below `10`.
+
+The exact two-row audit digest was:
+
+```text
+d5125783a666eb8e6e82a49c2b7c624c944248251e34ec3f75c55c2ffa71ab89
+```
+
+### Argument
+
+The audit reconstructs the contracted component matrix over the rationals,
+not only modulo a prime, because the cancellation ratios must be exact. It
+then replays the deterministic min-fill row operations and extracts the
+active rational rows at steps `90` through `105`.
+
+For each pair, it restricts to the label-7 incident component columns. If
+both restricted supports are empty, the pair is automatically label-7-free.
+Otherwise, every nonzero label-7 incident coefficient in the first row must
+be cancelled by the second row with a single scalar `t`. The scalar is forced
+by any common label-7 incident column. The pair is accepted only when all
+required columns force the same rational `t` and all label-7 incident
+coefficients vanish in `r_i + t r_j`.
+
+The displayed accepted list therefore gives exact two-row cancellations. The
+three additional support-10 pairs disprove uniqueness of `(100,101)` under
+this local condition. The absence of support below `10` among accepted pairs
+is only a finite lower-bound statement for this fixed window and pair family.
+
+### Effect on the Attack
+
+This narrows the Cycle 600/601 label-deletion signal again. The support-10
+row from Cycle 597 is not isolated by the condition "two nearby pivot rows
+cancel all label-7 incident components": three other pairs in the same
+window satisfy the same support bound.
+
+The useful positive observation is that support `10` appears as a local floor
+for label-7-free two-row combinations in steps `90` through `105`. A plausible
+next proof-facing target is to compare the four support-10 pairs as signed
+relations and search for the extra invariant distinguishing the Cycle
+597/598 pair from the other three.
+
+### Exact Scope
+
+This is an exact finite audit of two-row combinations among steps `90`
+through `105` of the Cycle 592 deterministic min-fill trace for the recorded
+fixed-order `C29_sidon_1_3_7_15` certificate after the Cycle 588
+equality-balance contraction. It does not classify larger row combinations,
+other step windows, other deterministic pivot rules, other labels, other
+C29 certificates, other cyclic orders, arbitrary C19/C29 patterns, or
+geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Compare the four support-10 label-7-free two-row pairs by signed
+quotient-class residual, component profile, and relation to the Cycle 594
+large-pivot reservoir. The most useful next exact subquestion is whether one
+of these four pairs has a human-readable cyclic-order cancellation pattern
+that the other three lack.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-602`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-602`.
+- The branch was based on `origin/main` at
+  `2cca2252957ced39ca1588888063cf07db96fda2`, after PR #279 merged Cycle
+  601.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 two-row label-7 cancellation audit over steps `90`
+  through `105`: passed, with digest
+  `d5125783a666eb8e6e82a49c2b7c624c944248251e34ec3f75c55c2ffa71ab89`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_text_clean.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_status_consistency.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_artifact_provenance.py`:
+  passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 683.09s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 601 - C29 Early Label-7-Free Pivots
 
 ### Mathematical Subquestion
