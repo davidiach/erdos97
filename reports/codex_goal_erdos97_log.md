@@ -22947,6 +22947,225 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 600 - C29 Support-10 Label-7 Deletion
+
+### Mathematical Subquestion
+
+Cycle 599 ruled out a coarse component-profile explanation of the Cycle
+597/598 support-10 row. The next sharper question is signed and
+quotient-class-level:
+
+If the support-10 coefficients are paired with the actual contracted
+component-column signatures, do the positive and negative parts cancel on a
+small set of quotient classes, or do they expose a cyclic-label pattern?
+
+### Definitions and Assumptions
+
+Use the Cycle 588 equality-balance contraction reconstructed from
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`.
+For each equality component `C`, let `sigma(C)` be its contracted signed
+column over selected-distance quotient classes.
+
+Use the Cycle 597/598 support-10 coefficient vector
+
+```text
+u =
+  16:   2
+  25:  -3
+  26:  -2
+  45:  -1
+  65:   2
+  75:  -3
+  79:  -2
+  82:   1
+  84:   5
+  108: -7.
+```
+
+Define the positive and negative aggregate quotient signatures
+
+```text
+P = sum_{u_C > 0}  u_C sigma(C),
+N = sum_{u_C < 0} -u_C sigma(C),
+R = P - N.
+```
+
+Also record the raw quotient-class support touched by the component columns
+`sigma(C)` for the ten support components, ignoring coefficient weights.
+
+### Result Status
+
+Proved finite structural lemma plus obstruction:
+**C29 Support-10 Label-7 Deletion Lemma** and
+**C29 No Signed-Quotient-Cancellation Obstruction.**
+
+The ten support components touch `47` quotient classes in their raw component
+signatures. Their quotient-class-size histogram is:
+
+```text
+1: 35
+4: 12
+```
+
+Those `47` quotient classes touch exactly `28` labels:
+
+```text
+0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14,
+15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
+27, 28
+```
+
+The missing label is exactly:
+
+```text
+7.
+```
+
+By contrast, the 13 zero reservoir components touch `61` quotient classes,
+touch all 29 labels, and contain all reservoir quotient classes passing
+through label `7`:
+
+```text
+73, 132, 161, 167.
+```
+
+The positive and negative aggregates have small overlap and no exact
+quotient-class cancellation:
+
+```text
+positive aggregate support size: 22
+negative aggregate support size: 30
+intersection size:                5
+union size:                      47
+exact equal cancellations:        0
+residual support size:           47
+```
+
+The five overlapping quotient classes are:
+
+```text
+qclass 113: size 4, P= 1, N=-2, R= 3
+qclass 138: size 1, P=-5, N=-2, R=-3
+qclass 139: size 1, P= 5, N=-2, R= 7
+qclass 169: size 1, P=-1, N= 7, R=-8
+qclass 251: size 1, P= 2, N=-1, R= 3
+```
+
+Thus the residual `R=P-N` has the same support size `47` as the raw union.
+Its coefficient histogram is:
+
+```text
+-8: 1
+-7: 1
+-5: 2
+-4: 2
+-3: 7
+-2: 9
+-1: 3
+ 1: 2
+ 2: 6
+ 3: 7
+ 4: 1
+ 5: 3
+ 7: 3
+```
+
+The exact signed quotient-signature audit digest was:
+
+```text
+0b5976c4b86d0e28d8f22f9284fb3c0240aaa5a350b5f60e76f0bda2ab24417f
+```
+
+### Argument
+
+The audit reconstructs the selected-distance quotient, all 165 Kalmanson
+rows, and the Cycle 588 equality components directly from the recorded C29
+certificate. It forms each component column `sigma(C)` exactly over the
+integers, then computes the raw support and the aggregate vectors `P`, `N`,
+and `R`.
+
+Every quotient class in the raw support of the ten support components is
+inspected through `quotient.class_members`. None contains label `7`, while
+the zero reservoir side contains the four displayed quotient classes through
+label `7`. This proves the finite label-deletion statement for the recorded
+reservoir.
+
+For the signed-cancellation claim, the only possible cross-cancellations
+between `P` and `N` occur on their five common quotient classes. The displayed
+integer coefficients are unequal in all five cases, so no class cancels in
+`R`. Therefore `R` has support equal to the union of the two aggregate
+supports.
+
+### Effect on the Attack
+
+This is a more useful structural signal than the coarse profiles in Cycle
+599. The support-10 row is not merely a heterogeneous ten-component set: the
+component columns it uses all live in the quotient system with label `7`
+deleted. The canceled reservoir components are exactly where the label-7
+classes enter the reservoir.
+
+The negative side is also clear. The support-10 coefficients do not encode a
+small cancellation between positive and negative quotient signatures. Their
+aggregate quotient supports overlap in only five classes and none cancels
+exactly. Thus the next proof route should study why the elimination trace
+selects a label-7-free support, rather than trying to compress `u` as a
+positive/negative quotient-cancellation identity.
+
+### Exact Scope
+
+This is an exact finite audit of the ten Cycle 597 support components and the
+13 zero reservoir components inside the recorded fixed-order
+`C29_sidon_1_3_7_15` certificate after the Cycle 588 equality-balance
+contraction. It does not classify all min-fill rows, all multi-pivot
+extensions, other labels, other certificates, other cyclic orders, other
+selected-witness patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Treat label `7` as a distinguished deletion label for this fixed C29
+certificate. The next exact subquestion is whether the two large pivot rows
+at steps `100` and `101` are the first point in the min-fill trace where all
+label-7 quotient classes are eliminated from the active row, or whether
+earlier/later small pivots already live in the same label-7-deleted subsystem.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-600`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-600`.
+- The branch was based on `origin/main` at
+  `16cde83ffb3e06190e98bdbb45e118822b3f72c3`, after PR #277 merged Cycle
+  599.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 signed quotient-signature audit: passed, with digest
+  `0b5976c4b86d0e28d8f22f9284fb3c0240aaa5a350b5f60e76f0bda2ab24417f`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_text_clean.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_status_consistency.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_artifact_provenance.py`:
+  passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 682.50s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 599 - C29 Support-10 Profile Nonseparation
 
 ### Mathematical Subquestion
