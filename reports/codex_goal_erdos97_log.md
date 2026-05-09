@@ -22947,6 +22947,178 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 611 - C29 Component Label-Avoidance Nonselection
+
+### Mathematical Subquestion
+
+Cycle 610 showed that the unique Cycle 608 support-`9` vector is already
+label-7-free at the raw component-footprint level. The next narrow question
+is whether avoiding label `7` is rare enough among equality components to
+explain why those nine components appear, or whether label avoidance is too
+common to be a meaningful selector.
+
+### Definitions and Assumptions
+
+Work in the same fixed object as Cycles 608-610: the recorded fixed-order
+`C29_sidon_1_3_7_15` certificate, its selected-distance quotient, and the
+Cycle 588 equality-balance contraction into `115` components.
+
+For an equality component `C`, let
+
+```text
+sigma(C) = sum of quotient rows inside C.
+```
+
+The **label footprint** of `C` is the set of labels appearing in any selected-
+distance quotient class where `sigma(C)` is nonzero. The **missing-label set**
+`M(C)` is the complement of that footprint in `{0,...,28}`. A component
+**avoids label `l`** when `l in M(C)`.
+
+The Cycle 608 support-`9` component set is
+
+```text
+S9 = {6,16,21,25,26,45,79,84,94}.
+```
+
+### Result Status
+
+Finite obstruction in the fixed audit scope:
+**C29 Component Label-Avoidance Nonselection Obstruction**.
+
+Avoiding label `7` is a common component-level property, not a selector for
+the support-`9` vector. Among the `115` equality components:
+
+```text
+label-7-avoiding components:       88 / 115
+non-S9 label-7 avoiders:           79
+S9 components avoiding label 7:     9 / 9
+max S9 component size:              4
+max S9 signature support:           8
+label-7 avoiders within those
+  size/support bounds:             88
+```
+
+The number of components avoiding each label is:
+
+```text
+0:83  1:72  2:82  3:74  4:72  5:79  6:70  7:88
+8:89  9:79  10:77 11:78 12:71 13:67 14:88 15:82
+16:75 17:91 18:74 19:78 20:88 21:86 22:100 23:84
+24:94 25:80 26:82 27:79 28:75
+```
+
+Thus label `7` is not exceptional in this component-footprint statistic.
+Other labels are avoided at comparable or higher rates, including labels
+`8`, `17`, `22`, and `24`.
+
+The support-`9` components are also not extremal for missing-label richness.
+Their missing-label counts and ranks among all `115` components are:
+
+```text
+component  missing labels  rank by missing richness
+6          20              74
+16         19              95
+21         22              44
+25         22              50
+26         20              72
+45         20              63
+79         14              110
+84         18              97
+94         13              112
+```
+
+Here rank `1` means most missing-label-rich. Several support-`9` components
+are among the least missing-rich components in the contracted system.
+
+### Argument
+
+The audit reconstructs the `165` quotient rows from the checked C29
+certificate, repeats the exact two-row-balance union used in Cycle 588, and
+sums rows inside each equality component to compute `sigma(C)`. For every
+component it records:
+
+```text
+support(sigma(C));
+the labels appearing in those quotient classes;
+the missing-label set M(C).
+```
+
+Counting the components with `7 in M(C)` gives `88`, and removing the nine
+Cycle 608 support components still leaves `79` other label-7-free components.
+Moreover, all `88` label-7-free components have component size at most `4`
+and signature support at most `8`, matching the maximum size and signature
+support within `S9`. Therefore neither label-7 avoidance nor these crude size
+bounds isolate the support-`9` components.
+
+The per-label avoidance counts show that label `7` is ordinary in this
+statistic. The rank table shows that `S9` is not concentrated among the
+components with the largest missing-label sets.
+
+### Effect on the Attack
+
+This narrows the interpretation of Cycle 610. The support-`9` vector is
+raw-footprint label-7-free, but component-level label avoidance alone is too
+weak to explain it. The selection mechanism must involve the row-span
+constraints from the nearby min-fill triple, incidence between components and
+quotient classes, or coefficient arithmetic, not just the fact that individual
+components avoid label `7`.
+
+The next proof-facing target is to combine the component label-footprint
+catalog with the three generating rows `(103,104,105)`: determine whether
+their span forces the support to lie inside a small subfamily of the `88`
+label-7-free components.
+
+### Exact Scope
+
+This is a finite exact audit of component label-footprints for the fixed-order
+`C29_sidon_1_3_7_15` certificate after the Cycle 588 equality contraction. It
+does not classify other C29 certificates, other cyclic orders, C19 artifacts,
+arbitrary selected-witness patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Inspect the exact row-span support constraints of the generating min-fill rows
+`103`, `104`, and `105`. A useful next lemma would identify which of the `88`
+label-7-free components are reachable from that three-row span and why the
+primitive support-`9` solution chooses its particular nine components.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-611`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-611`.
+- The branch was based on `codex/erdos97-cycle-610` at commit
+  `1a7e1989b24cd71cab34d0d4aad412642515fec0`, while PR #288 was running CI.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 component label-footprint audit: passed, with digest
+  `cca310994f8855a8650d1213872d79c25782faebbdf193c907e247f8e44f1fa6`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 682.80s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 610 - C29 Support-9 Boundary Footprint
 
 ### Mathematical Subquestion
