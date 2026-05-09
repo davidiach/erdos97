@@ -22947,6 +22947,219 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 605 - C29 Fixed-Base One-Nonlarge Extensions
+
+### Mathematical Subquestion
+
+Cycle 604 found three large-large label-7-free pairs other than
+`(100,101)`, but their supports are larger:
+
+```text
+(99,102): support 14
+(99,104): support 14
+(102,104): support 12
+```
+
+Can adding one non-large pivot row to any of these fixed label-7-free base
+vectors reduce its support to `10` or below, or even reduce its support at
+all?
+
+### Definitions and Assumptions
+
+Use the recorded fixed-order `C29_sidon_1_3_7_15` certificate, the Cycle 588
+equality-balance contraction, and the Cycle 592 deterministic min-fill trace.
+
+The base vectors are the three accepted large-large label-7-free combinations
+from Cycle 604:
+
+```text
+u_1 = r_99 - r_102
+u_2 = r_99 - (10/41) r_104
+u_3 = r_102 - (10/41) r_104
+```
+
+A **fixed-base one-nonlarge extension** is a vector
+
+```text
+u_i + s r_k
+```
+
+where `r_k` is a non-large pivot row and `s` is a nonzero rational scalar.
+Since each `u_i` is already label-7-free, any admissible nonzero extension
+must use a non-large pivot row that is itself label-7-free. The audit tests
+all scalars `s` that can cancel at least one component in the current support.
+
+### Result Status
+
+Finite obstruction:
+**C29 Fixed-Base One-Nonlarge Nonreduction Obstruction.**
+
+The exact rational min-fill trace again has rank `114` and pivot-support
+histogram:
+
+```text
+2: 6
+3: 40
+4: 19
+5: 11
+6: 8
+7: 10
+8: 3
+9: 5
+10: 4
+11: 6
+13: 2
+```
+
+There are `106` non-large pivot rows. Exactly `40` of them are label-7-free,
+with support histogram:
+
+```text
+2: 3
+3: 21
+4: 5
+5: 2
+6: 2
+7: 5
+8: 1
+10: 1
+```
+
+For the base `(99,102)` with `t=-1` and support `14`:
+
+```text
+non-large rows skipped because label-7 incident: 66
+label-free non-large rows with no overlap:       10
+candidate label-free rows with overlap:          30
+tested support-canceling scalars:                70
+support-reducing extensions:                      0
+best support after one non-large row:            14
+support <= 10 extensions:                         0
+```
+
+For the base `(99,104)` with `t=-10/41` and support `14`:
+
+```text
+non-large rows skipped because label-7 incident: 66
+label-free non-large rows with no overlap:       10
+candidate label-free rows with overlap:          30
+tested support-canceling scalars:                71
+support-reducing extensions:                      0
+best support after one non-large row:            14
+support <= 10 extensions:                         0
+```
+
+For the base `(102,104)` with `t=-10/41` and support `12`:
+
+```text
+non-large rows skipped because label-7 incident: 66
+label-free non-large rows with no overlap:       13
+candidate label-free rows with overlap:          27
+tested support-canceling scalars:                62
+support-reducing extensions:                      0
+best support after one non-large row:            12
+support <= 10 extensions:                         0
+```
+
+Thus none of the three larger accepted large-large pairs can be reduced in
+support, let alone to support `10` or below, by adding one non-large pivot at
+the fixed large-large cancellation ratio.
+
+The exact fixed-base one-nonlarge audit digest was:
+
+```text
+2ef095c7560d967b4ce1591a027d545ebd70fc131ac882262dbe3078fc58794d
+```
+
+### Argument
+
+The audit reconstructs the exact rational min-fill trace and the
+label-7 incident component set from the recorded C29 certificate. For each
+base vector `u_i`, it first discards every non-large row with a label-7
+incident component: since `u_i` has zero label-7 coefficients, any nonzero
+multiple of such a row would reintroduce a label-7 coefficient.
+
+For each remaining label-7-free non-large row, the only scalars that can
+reduce support are the exact ratios
+
+```text
+s = -u_i(C) / r_k(C)
+```
+
+over overlapping nonzero component coordinates `C`. The audit evaluates all
+such rational scalars. No evaluated vector has support smaller than the
+original base support.
+
+### Effect on the Attack
+
+This blocks the most direct extension of Cycle 604. The three larger
+large-large label-7-free pairs do not become competitive with `(100,101)` by
+adding one non-large pivot while keeping the large-large cancellation fixed.
+The Cycle 597/598 support-10 row remains isolated inside this fixed-base
+one-pivot extension family.
+
+The limitation is important: this does not rule out a genuinely three-row
+combination in which the two large-pivot coefficients and the non-large
+coefficient vary simultaneously. It only rules out fixed-base extensions
+`u_i + s r_k`.
+
+### Exact Scope
+
+This is an exact finite audit of fixed-base one-nonlarge extensions of the
+three non-minimal large-large label-7-free pairs from Cycle 604, using the
+Cycle 592 deterministic min-fill trace for the recorded fixed-order
+`C29_sidon_1_3_7_15` certificate after the Cycle 588 equality-balance
+contraction. It does not classify free three-row spans, two-nonlarge
+extensions, other pivot rules, other labels, other C29 orders, arbitrary
+C19/C29 patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Broaden the extension test from fixed-base vectors to free three-row spans:
+for each of the three larger large-large pairs and each non-large pivot, solve
+the exact label-7 cancellation equations in the full span
+`a r_i + b r_j + c r_k`, then test whether any nonzero solution has support
+`10` or below.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-605`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-605`.
+- The branch was based on `origin/main` at
+  `58854f177bb92fdf44e2578b330d9b2c160f83a1`, after PR #282 merged Cycle
+  604.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 fixed-base one-nonlarge extension audit: passed, with
+  digest
+  `2ef095c7560d967b4ce1591a027d545ebd70fc131ac882262dbe3078fc58794d`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 681.76s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 604 - C29 Large-Pivot Label-Free Pairs
 
 ### Mathematical Subquestion
