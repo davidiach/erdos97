@@ -22947,6 +22947,166 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 591 - C29 Component Weight Heterogeneity
+
+### Mathematical Subquestion
+
+Cycle 590 ruled out cyclic-rotation compression of the contracted component
+columns in the recorded fixed-order `C29_sidon_1_3_7_15` certificate. The next
+possible compression is arithmetic rather than geometric: perhaps the unique
+positive right-kernel vector on the 115 equality components has only a few
+weight values or gcd layers.
+
+Do the primitive component weights in the equality-contracted C29 balance
+system admit a simple value-layer description?
+
+### Definitions and Assumptions
+
+Use the Cycle 588 equality-balance contraction and the Cycle 589 contracted
+balance matrix `A=(a(Q,C))`, reconstructed from
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`.
+
+For each equality component `C`, all original row weights inside `C` agree by
+the two-row balance construction. Let `W_C` be that common value. The
+**primitive component-weight vector** is `W=(W_C)` divided by the gcd of its
+115 entries.
+
+### Result Status
+
+Counterexample to a value-layer compression subclaim:
+**C29 Component Weight Heterogeneity Obstruction**.
+
+The exact component-weight audit found:
+
+```text
+row count:                              165
+two-row equality classes:                50
+component count:                        115
+contracted equation count:              115
+rank over checked primes:               114
+component-weight gcd:                     1
+right-kernel residual nonzero count:       0
+distinct component weights:             107
+repeated weight values:                   8
+all repeated multiplicities:              2
+minimum component weight:             63725
+maximum component weight:          15835921
+component-weight sum:             416187100
+```
+
+The eight repeated component weights, with component indices, were:
+
+```text
+63725:   77, 108
+67397:    6, 7
+273176:  48, 84
+427406:   9, 73
+955892:  16, 24
+1083234: 79, 95
+1629918: 21, 50
+5089561: 66, 105
+```
+
+The exact component-weight audit digest was:
+
+```text
+97d7b1a7ef107ed49ed32943394a64fd65459e53bba23adcfbc061b87111577e
+```
+
+### Argument
+
+The audit reconstructs the selected-distance quotient, the 165 Kalmanson row
+vectors, and the Cycle 588 equality components directly from the certificate.
+For each component it verifies that all original row weights in that component
+are equal, then forms the contracted balance equations and checks
+
+```text
+A W = 0
+```
+
+exactly over the integers. The residual is zero in every contracted equation.
+
+The same audit computes rank 114 over the primes
+
+```text
+1000003, 1000033, 1000037.
+```
+
+Since the exact integer vector `W` is a nonzero right-kernel vector for a
+115-column matrix, the rational rank is at most 114. The displayed finite-field
+ranks give a nonzero 114-by-114 minor over the integers, so the rational rank
+is at least 114. Therefore the right kernel is one-dimensional over the
+rationals, and `W` is the primitive positive kernel vector up to scale.
+
+The primitive vector has gcd 1 and 107 distinct values among 115 components.
+Only eight values repeat, and each repeats exactly twice. Thus the kernel is
+not explained by a small number of equal-weight layers or by a coarse
+component-size/value table. The component-size/weight pairs are almost all
+distinct as well: 114 distinct pairs occur among the 115 components.
+
+### Effect on the Attack
+
+This rules out another low-complexity explanation for the recorded C29
+certificate. After equality contraction, the unique positive kernel vector is
+not a small layered weight assignment. It is arithmetically heterogeneous in
+the most basic exact sense: almost every component has its own weight.
+
+The result does not rule out a deeper arithmetic formula for the weights, but
+that formula would have to explain many distinct integers rather than a short
+list of repeated values.
+
+### Exact Scope
+
+This is an exact finite audit of the recorded fixed-order
+`C29_sidon_1_3_7_15` Kalmanson certificate after the Cycle 588
+equality-balance contraction. It concerns only the 115 component weights and
+their contracted balance equations. It does not classify other certificates,
+other orders, other selected-witness patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+Value-layer compression is low value. A better next exact subquestion is
+whether the 115-by-115 contracted matrix has a small sparse row or column
+elimination certificate for its rank-114 property, or whether every low-fill
+elimination order creates many dense intermediate rows.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-591`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-591`.
+- The branch was based on `origin/main` at
+  `9e3b1ddde0e53b5029b2d880cd6e2b13edfdeb92`, after PR #267 merged Cycle
+  590.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 component-weight audit: passed, with digest
+  `97d7b1a7ef107ed49ed32943394a64fd65459e53bba23adcfbc061b87111577e`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_text_clean.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_status_consistency.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_artifact_provenance.py`:
+  passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 681.99s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 590 - C29 Component Rotation Signatures
 
 ### Mathematical Subquestion
