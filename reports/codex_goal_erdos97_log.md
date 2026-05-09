@@ -22947,6 +22947,216 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 598 - C29 Support-10 One-Pivot Extension
+
+### Mathematical Subquestion
+
+Cycle 597 found the unique support-10 row in the span of the eight primitive
+large-pivot reservoir rows. The next natural reduction is to add one more
+pivot row from the same deterministic min-fill trace.
+
+Does there exist a min-fill pivot row `r`, other than the two rows already
+used at steps `100` and `101`, and a nonzero rational scalar `t`, such that
+
+```text
+u + t r
+```
+
+has support smaller than `10`, where `u` is the Cycle 597 support-10 row?
+
+### Definitions and Assumptions
+
+Use the Cycle 588 equality-balance contraction and the Cycle 592 deterministic
+min-fill trace reconstructed exactly over the rationals. Normalize each pivot
+row by multiplying by `-1` if necessary so that its pivot-column coefficient
+is positive.
+
+Let
+
+```text
+u = row(step 100) + row(step 101).
+```
+
+Cycle 597 proved that `u` has the following primitive support:
+
+```text
+16:   2
+25:  -3
+26:  -2
+45:  -1
+65:   2
+75:  -3
+79:  -2
+82:   1
+84:   5
+108: -7
+```
+
+For each other pivot row `r`, the audit tests all nonzero rational scalars
+that can cancel at least one coordinate of `u`, namely
+
+```text
+t = -u_C / r_C
+```
+
+for every component `C` in the support of `u` with `r_C != 0`. If a row `r`
+has no overlap with the support of `u`, an arbitrary nonzero scalar is counted
+by its union support because no coordinate of `u` can be canceled.
+
+### Result Status
+
+Finite obstruction:
+**C29 One-Pivot Nonreduction Obstruction.**
+
+Across all `112` pivot rows other than steps `100` and `101`, no nonzero
+one-pivot extension reduces the support below `10`.
+
+The support histogram of the best nonzero one-pivot extension for each tested
+pivot row is:
+
+```text
+10: 10
+11: 27
+12: 22
+13: 27
+14: 18
+15: 5
+16: 3
+```
+
+Thus:
+
+```text
+rows preserving support 10:  10
+rows forcing larger support: 102
+rows with no overlap with u:  36
+```
+
+The nearby pivot steps around the large-pivot reservoir all fail to reduce
+support:
+
+```text
+step 90:  best support 11, pivot support  6
+step 91:  best support 15, pivot support 11
+step 92:  best support 13, pivot support 11
+step 93:  best support 13, pivot support  7
+step 94:  best support 11, pivot support  9
+step 95:  best support 11, pivot support  9
+step 96:  best support 13, pivot support 11
+step 97:  best support 14, pivot support  7
+step 98:  best support 12, pivot support 10
+step 99:  best support 14, pivot support 13
+step 102: best support 11, pivot support 11
+step 103: best support 12, pivot support 10
+step 104: best support 12, pivot support 11
+step 105: best support 12, pivot support 10
+```
+
+The first support-preserving nonzero extension occurs at step `40`, with
+matrix row `100`, quotient class `251`, pivot column `44`, and pivot support
+`3`. Two nonzero scalars preserve support `10`:
+
+```text
+t = 1:
+  16:2, 25:-3, 26:-2, 44:1, 65:1, 75:-3, 79:-2, 82:1, 84:5, 108:-7
+
+t = 2:
+  16:2, 25:-3, 26:-2, 44:2, 45:1, 75:-3, 79:-2, 82:1, 84:5, 108:-7
+```
+
+These preserve the support size by trading one old coordinate for one new
+coordinate; they do not make a smaller circuit.
+
+The exact one-pivot extension audit digest was:
+
+```text
+8e3fb494dc063f6585c652190a2da4c036502f001b26b43e05eb92edf9b4b62f
+```
+
+### Argument
+
+For a fixed pivot row `r`, the support of `u + t r` can change only when one
+of the finitely many coordinates in the union of the supports cancels. If
+`r_C = 0`, coordinate `C` cannot be canceled by choosing `t`. If `r_C != 0`,
+then the unique scalar canceling coordinate `C` is `t = -u_C/r_C`. Therefore
+testing all such scalars exactly finds the minimum support over all nonzero
+rational one-row extensions by `r`.
+
+The audit reconstructs the 114 rational min-fill pivot rows, normalizes their
+signs, forms `u`, and applies this finite scalar test to every other pivot
+row. The displayed histogram proves no tested row admits a nonzero scalar with
+support below `10`.
+
+### Effect on the Attack
+
+This rules out the simplest way to improve the Cycle 597 support-10 row. A
+single additional pivot row, even chosen from the entire deterministic
+min-fill trace, cannot expose a smaller support. The support-10 row is
+therefore stable under all one-pivot extensions.
+
+The result pushes the next reduction attempt toward either two-pivot
+extensions or a direct interpretation of the 10 support components. Since
+two-pivot extensions have a much larger parameter space, the more proof-facing
+next step is to explain the support set itself.
+
+### Exact Scope
+
+This is an exact finite audit of the Cycle 592 deterministic min-fill pivot
+rows for the recorded fixed-order `C29_sidon_1_3_7_15` certificate after the
+Cycle 588 equality-balance contraction. It tests only one extra pivot row at a
+time against the Cycle 597 support-10 row. It does not classify arbitrary
+multi-pivot extensions, other pivot rules, other certificates, other cyclic
+orders, other selected-witness patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+Try to interpret the support-10 component set directly:
+
+```text
+16, 25, 26, 45, 65, 75, 79, 82, 84, 108.
+```
+
+The useful next subquestion is whether these components share a quotient-class,
+original-row, cyclic-label, or Kalmanson-kind pattern that distinguishes them
+from the 13 zero components of `u`.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-598`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-598`.
+- The branch was based on `origin/main` at
+  `bba9eb4179540c6531326bee049a010ddb16c863`, after PR #275 merged Cycle
+  597.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 one-pivot extension audit: passed, with digest
+  `8e3fb494dc063f6585c652190a2da4c036502f001b26b43e05eb92edf9b4b62f`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_text_clean.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_status_consistency.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_artifact_provenance.py`:
+  passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 682.38s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 597 - C29 Reservoir Row-Span Support
 
 ### Mathematical Subquestion
