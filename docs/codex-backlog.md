@@ -8,6 +8,165 @@ repository claims. No general proof and no counterexample are claimed, and the
 official/global status remains falsifiable/open unless manually rechecked and
 updated from the official source.
 
+For task-selection discipline, read `docs/codex-strategy-instructions.md`.
+Before starting a task, identify which bridge it might strengthen; if it does
+not strengthen a bridge, record the audit, provenance, or negative-control value
+that justifies doing it anyway.
+
+## Recommended next technical PRs
+
+Use this queue when no more specific issue is selected.
+
+1. Extract one `n=9` vertex-circle self-edge local template into a
+   proof-facing lemma candidate and compact verifier. Start with the focused
+   T01/F09 packet unless another packet has a clearer review target.
+2. Extract one `n=9` strict-cycle local template into a proof-facing lemma
+   candidate and compact verifier. The T10/F12 packet is the first natural
+   target.
+3. Strengthen the minimal fragile-cover bridge with one geometric necessary
+   condition and test it against the block-6 negative controls.
+4. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
+   certificates and emit verifier-backed template records.
+5. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
+   with an independent input-data replay.
+
+## Task CB-N9-T01 - Extract Vertex-Circle Self-Edge Template
+
+Issue: none yet.
+
+Read first:
+
+- `docs/codex-strategy-instructions.md`
+- `docs/n9-vertex-circle-template-lemma-catalog.md`
+- `docs/n9-vertex-circle-t01-self-edge-lemma.md`
+- `data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json`
+- `docs/n9-vertex-circle-exhaustive.md`
+
+Commands:
+
+```bash
+python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_template_lemma_catalog.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
+```
+
+Expected artifacts:
+
+- a proof-facing lemma note or update that states the exact incidence and
+  cyclic-order hypotheses for the T01/F09 self-edge template;
+- a minimal checker or checker update that verifies the compact template
+  packet independently of the full exhaustive search;
+- documentation that distinguishes the local template from any `n=9`
+  completeness or global Erdos #97 claim.
+
+Acceptance criteria:
+
+- The lemma candidate does not enumerate all `n=9` selected-witness systems.
+- The proof-facing text identifies the selected-distance quotienting and
+  vertex-circle monotonicity used to force a self-edge.
+- The checker treats the packet as input data and reports explicit uncertainty
+  rather than silently accepting unsupported fields.
+- The result remains review-pending unless independently reviewed.
+
+Trust delta: may produce a reusable local obstruction template. It may not
+promote the full `n=9` selected-witness result or alter global status.
+
+Forbidden overclaiming text:
+
+- "n=9 is proved"
+- "the vertex-circle checker is independently reviewed"
+- "this proves Erdos #97"
+
+## Task CB-N9-T10 - Extract Vertex-Circle Strict-Cycle Template
+
+Issue: none yet.
+
+Read first:
+
+- `docs/codex-strategy-instructions.md`
+- `docs/n9-vertex-circle-template-lemma-catalog.md`
+- `docs/n9-vertex-circle-t10-strict-cycle-lemma.md`
+- `data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json`
+- `docs/n9-vertex-circle-exhaustive.md`
+
+Commands:
+
+```bash
+python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_template_lemma_catalog.py --check --assert-expected --json
+```
+
+Expected artifacts:
+
+- a proof-facing lemma note or update that states the exact incidence and
+  cyclic-order hypotheses for the T10/F12 strict-cycle template;
+- a compact verifier that replays the quotient strict-cycle certificate from
+  stored data;
+- documentation that keeps local-core strict-cycle counts separate from
+  full-assignment obstruction-shape counts.
+
+Acceptance criteria:
+
+- The lemma candidate states the directed quotient cycle and the exact local
+  hypotheses that force it.
+- The verifier is independent of the full exhaustive brancher.
+- The result is scoped as a reusable obstruction template, not an `n=9`
+  completeness proof.
+
+Trust delta: may produce a reusable local strict-cycle obstruction template. It
+may not promote the full `n=9` selected-witness result or alter global status.
+
+Forbidden overclaiming text:
+
+- "all strict cycles are classified" without the review-pending qualifier
+- "n=9 is proved"
+- "this proves Erdos #97"
+
+## Task CB-FRAGILE-GEO - Add One Geometric Fragile-Cover Condition
+
+Issue: none yet.
+
+Read first:
+
+- `docs/codex-strategy-instructions.md`
+- `docs/minimal-fragile-cover-bridge.md`
+- `src/erdos97/fragile_hypergraph.py`
+- `scripts/check_fragile_hypergraph.py`
+- `docs/stuck-set-miner.md`
+
+Commands:
+
+```bash
+python scripts/check_fragile_hypergraph.py --json
+python scripts/check_fragile_hypergraph.py --blocks 2 --assert-ok --json
+python -m pytest tests/test_fragile_hypergraph.py -q
+```
+
+Expected artifacts:
+
+- one documented geometric necessary condition for minimal counterexamples;
+- checker support that can be run against the block-6 family, two disjoint
+  block-6 families, and any current full-row extension survivors;
+- a short report explaining which abstract family is newly rejected and why the
+  condition is geometric rather than an arbitrary SAT filter.
+
+Acceptance criteria:
+
+- The condition is proved necessary for a minimal geometric counterexample.
+- It rejects at least one abstract fragile-cover family that currently passes
+  the pairwise/crossing checks.
+- It remains labeled as a partial bridge unless it proves more.
+
+Trust delta: may strengthen the minimal-counterexample bridge. It may not prove
+Erdos #97 unless paired with a complete reduction and exact obstruction.
+
+Forbidden overclaiming text:
+
+- "fragile covers prove the theorem"
+- "block-6 is impossible geometrically" without the stated new hypothesis
+- "minimal counterexamples are ruled out"
+
 ## Task CB-83 - Decompose C19 Kalmanson Certificate
 
 Issue: <https://github.com/davidiach/erdos97/issues/83>
@@ -52,8 +211,8 @@ Acceptance criteria:
 
 Trust delta: may improve C19 certificate understanding. The all-order
 fixed-pattern obstruction is already exact if the stored Z3 certificate
-replays, but this may not promote any `n >= 9` finite case or Erdos Problem
-#97.
+replays, but this may not promote any `n >= 9` finite case or Erdos
+Problem #97.
 
 Forbidden overclaiming text:
 
