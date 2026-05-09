@@ -22947,6 +22947,226 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 599 - C29 Support-10 Profile Nonseparation
+
+### Mathematical Subquestion
+
+Cycle 598 showed that the Cycle 597 support-10 row is stable under every
+one-pivot extension from the deterministic min-fill trace. The next
+proof-facing question is whether the ten surviving components themselves are
+one recognizable class.
+
+For the support-10 row
+
+```text
+u = row(step 100) + row(step 101),
+```
+
+do the nonzero components
+
+```text
+16, 25, 26, 45, 65, 75, 79, 82, 84, 108
+```
+
+share a simple quotient-class, original-row, cyclic-label, or Kalmanson-kind
+profile that distinguishes them from the 13 reservoir components where `u`
+vanishes?
+
+### Definitions and Assumptions
+
+Use the Cycle 588 equality-balance contraction reconstructed from
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`.
+The **support components** are the ten nonzero components of `u`. The
+**zero components** are the 13 reservoir components where `u` vanishes:
+
+```text
+6, 13, 21, 33, 39, 40, 54, 63, 69, 70, 90, 94, 105.
+```
+
+For a contracted equality component `C`, define its coarse **component
+profile** as
+
+```text
+P(C) = (
+  component size,
+  multiset of K1/K2 row kinds,
+  contracted signature support size,
+  cyclic-label support size,
+  number of first-quad labels,
+  quotient-class-size histogram in the contracted signature
+).
+```
+
+The contracted signature of `C` is the signed vector over selected-distance
+quotient classes obtained by summing the original Kalmanson rows in `C`.
+
+### Result Status
+
+Failed simplification lemma / finite obstruction:
+**C29 Support-10 Profile Nonseparation Obstruction.**
+
+The support components are not separated from the zero components by the
+tested coarse invariants. Reconstructing the exact 115 equality components
+again gives the Cycle 588 size histogram:
+
+```text
+1: 78
+2: 27
+3: 7
+4: 3
+```
+
+Within the 23-component reservoir, the support and zero sides have the
+following exact one-coordinate profile histograms:
+
+```text
+component size:
+  support: 1:2, 2:4, 3:3, 4:1
+  zero:    1:4, 2:6, 3:1, 4:2
+
+contracted signature support size:
+  support: 4:3, 6:5, 8:2
+  zero:    4:4, 6:6, 8:2, 10:1
+
+cyclic-label support size:
+  support: 4:2, 5:2, 6:2, 7:2, 8:2
+  zero:    4:4, 6:6, 8:1, 9:1, 10:1
+
+first-quad-label count:
+  support: 1:5, 2:2, 3:3
+  zero:    1:8, 2:5
+```
+
+Each of the basic ranges overlaps:
+
+```text
+component size:             support [1,2,3,4], zero [1,2,3,4]
+signature support size:     support [4,6,8],   zero [4,6,8,10]
+cyclic-label support size:  support [4,5,6,7,8], zero [4,6,8,9,10]
+first-quad-label count:     support [1,2,3],   zero [1,2]
+signature positive count:   support [2,3,4],   zero [2,3,4,5]
+signature negative count:   support [2,3,4],   zero [2,3,4,5]
+```
+
+More strongly, exact profile collisions occur across the support/zero split:
+
+```text
+support component 26 matches zero components 6 and 13
+support component 45 matches zero component 39
+support component 82 matches zero component 21
+```
+
+For example, components `26`, `6`, and `13` all have profile
+
+```text
+size 2,
+two K1 rows,
+signature support 6,
+cyclic-label support 6,
+one first-quad label,
+quotient-class-size histogram 1:5, 4:1.
+```
+
+The exact profile audit digest was:
+
+```text
+e8f68449e6e36804e8066937227e8c07a3abb5805941fed68f268e5b7d841ba5
+```
+
+### Argument
+
+The audit reconstructs the selected-distance quotient, all 165 Kalmanson
+rows, and the Cycle 588 equality components directly from the recorded C29
+certificate. It then expands each reservoir component back to its original
+row indices and Kalmanson row metadata, forms its contracted signed quotient
+signature, and computes the displayed profiles.
+
+Since the displayed support and zero components have identical profiles under
+`P`, no argument that depends only on `P(C)` can distinguish exactly the
+support of `u` from the canceled reservoir components. The overlapping
+one-coordinate histograms also rule out still coarser explanations using only
+component size, row-kind counts, signature size, label count, or sign count.
+
+There are partial signals, but they are not a classification. Among the
+reservoir components, first-quad-label count `3` occurs only in support
+components `16`, `65`, and `79`, while signature size `10` and label support
+at least `9` occur only on zero components. These partial separators explain
+some entries, not the whole support-10 row.
+
+### Effect on the Attack
+
+This rules out a tempting direct explanation of the Cycle 597/598 support-10
+row: the ten surviving components are not just the components of one coarse
+quotient-profile type. A human-readable proof route must use a sharper
+invariant, perhaps the signed coefficients of `u`, the exact quotient-class
+positions in the contracted signatures, or a multi-component relation among
+the support entries.
+
+The result is still useful because it narrows the next step. The support-10
+row should be treated as a signed relation, not merely as an unlabeled set of
+component profiles.
+
+### Exact Scope
+
+This is an exact finite profile audit of the 23-component reservoir from the
+Cycle 594 large-pivot analysis and the Cycle 597 support-10 row. It depends on
+the recorded fixed-order `C29_sidon_1_3_7_15` certificate and the Cycle 588
+equality-balance contraction. It does not classify sharper invariants, all
+multi-pivot extensions, other certificates, other cyclic orders, other
+selected-witness patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Use the signed coefficients of `u`
+
+```text
+16:2, 25:-3, 26:-2, 45:-1, 65:2,
+75:-3, 79:-2, 82:1, 84:5, 108:-7
+```
+
+and look for a relation among the actual signed quotient signatures, rather
+than among coarse component profiles. The most promising next subquestion is
+whether the positive and negative parts of `u` have a small exact quotient
+support overlap or a recognizable cyclic-label transport pattern.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-599`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-599`.
+- The branch was based on `origin/main` at
+  `c137ce9b4a7d1222887280e9e57d906e4cd12bf0`, after PR #276 merged Cycle
+  598.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 support/zero component profile audit: passed, with digest
+  `e8f68449e6e36804e8066937227e8c07a3abb5805941fed68f268e5b7d841ba5`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_text_clean.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_status_consistency.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_artifact_provenance.py`:
+  passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 682.73s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 598 - C29 Support-10 One-Pivot Extension
 
 ### Mathematical Subquestion
