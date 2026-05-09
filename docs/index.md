@@ -126,6 +126,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-t04-self-edge-lemma.md`](n9-vertex-circle-t04-self-edge-lemma.md):
   focused review-pending T04/F13 self-edge local lemma packet for proof
   mining.
+- [`n9-vertex-circle-t05-self-edge-lemma.md`](n9-vertex-circle-t05-self-edge-lemma.md):
+  focused review-pending T05/F10 self-edge local lemma packet for proof
+  mining.
 - [`n9-vertex-circle-t10-strict-cycle-lemma.md`](n9-vertex-circle-t10-strict-cycle-lemma.md):
   focused review-pending T10/F12 strict-cycle local lemma packet for proof
   mining.
