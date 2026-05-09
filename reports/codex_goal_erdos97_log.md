@@ -22947,6 +22947,250 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 614 - C29 65-108 Label-Gate Pair
+
+### Mathematical Subquestion
+
+Cycle 613 isolated the support-`9` triple `(103,104,105)` as the only
+low-support triple with both generic label-free support `11` and a double
+additional zero. The repeated zero occurs at components `65` and `108`.
+The next narrow question is:
+
+Does the repeated zero of components `65` and `108` have a visible exact
+explanation in the label-deletion equations, or is it only an accidental
+coincidence of two component coordinate forms?
+
+### Definitions and Assumptions
+
+Use the fixed-order `C29_sidon_1_3_7_15` certificate, the Cycle 588
+equality-balance contraction, and the Cycle 592 min-fill trace as in Cycles
+612 and 613.
+
+For the triple `(103,104,105)`, write a row combination as
+
+```text
+a r103 + b r104 + c r105.
+```
+
+Let `x_C(a,b,c)` be the coordinate of contracted equality component `C` in
+this combination. The nonzero label-`7` deletion equations are opposite
+equations on quotient classes `132` and `167`, so it is enough to write
+
+```text
+ell(a,b,c) = -a + 41/10 b - 53/2 c.
+```
+
+The label-`7`-free plane is `ell = 0`. A pair of component coordinates
+`x_C,x_D` is called a **label-gate pair** for this triple if a nonzero rational
+number `lambda` satisfies
+
+```text
+x_D + lambda x_C in span_Q{ell}.
+```
+
+In that case the two component coordinates become proportional after
+restricting to the label-free plane.
+
+### Result Status
+
+Proved finite structural lemma in the fixed audit scope:
+**C29 65-108 Label-Gate Pair Lemma**.
+
+For the support-`9` triple `(103,104,105)`, the two disappearing component
+coordinates are
+
+```text
+x_65  = -a + 1/2 b - 9/2 c,
+x_108 =  4a + 26/5 b - 26c.
+```
+
+They satisfy the exact identity
+
+```text
+x_108 + 6 x_65 = 2 ell.
+```
+
+Therefore, on the label-`7`-free plane `ell = 0`,
+
+```text
+x_108 = -6 x_65.
+```
+
+This proves that components `65` and `108` vanish at the same projective point
+for a structural reason internal to the label-deletion equation. In the
+Cycle-612 coordinates `b=s`, `c=t`, `a=41/10 s - 53/2 t`, the two forms become
+
+```text
+x_65  = -18/5 s + 22t  = -2/5 (9s - 55t),
+x_108 = 108/5 s - 132t = 12/5 (9s - 55t).
+```
+
+Thus their common projective zero is exactly
+
+```text
+(s,t) = (55,9).
+```
+
+The forced zero remains component `90`. Among the nonforced component
+coordinate forms in the triple, the exact projective zero classes are:
+
+```text
+(-395/63): 6
+(-145/23): 16
+(-465/74): 21
+0:         25
+(-50/7):   26
+(-545/87): 45
+(-55/9):   65,108
+(-225/37): 79
+(-105/11): 84
+(-265/41): 94
+forced:    90
+```
+
+So `65,108` is the unique repeated nonforced zero class in this triple.
+
+### Disjoint-Footprint Guardrail
+
+The label-gate relation is not a shared-footprint cancellation. Reconstructing
+the Cycle 588 equality components from the checked C29 certificate gives:
+
+```text
+component 65 rows:  82:K1(4,14,18,25),
+                    89:K2(19,26,14,18),
+                    117:K1(26,28,14,25)
+component 108 rows: 153:K1(28,10,25,8),
+                    154:K1(28,25,9,8)
+```
+
+Their contracted signed quotient supports are disjoint:
+
+```text
+support(65):  {89,100,104,251,290,318}
+support(108): {168,169,198,212}
+intersection: empty
+```
+
+Both components individually avoid label `7`, but their simultaneous
+disappearance is not caused by overlap between their quotient-class
+footprints. It is caused by the row-span identity
+`x_108 + 6 x_65 = 2 ell`.
+
+### Argument
+
+The first check is a direct rational calculation from the exact Cycle 612
+row coefficients. Adding six times the component-`65` coefficient vector to
+the component-`108` coefficient vector gives
+
+```text
+(4,26/5,-26) + 6(-1,1/2,-9/2)
+  = (-2,41/5,-53)
+  = 2(-1,41/10,-53/2).
+```
+
+The last vector is exactly `2 ell`, so the relation is proved over `Q`.
+
+Substituting the label-free parametrization gives proportional coordinate
+forms in `(s,t)`, and the projective zero audit shows that no other nonforced
+component pair shares the same zero class.
+
+The second check reconstructs the equality-balance components directly from
+the certificate by uniting row variables along the 50 two-row balance classes.
+It recovers the Cycle 588 component histogram
+
+```text
+1:78, 2:27, 3:7, 4:3
+```
+
+and the listed ancestry for components `65` and `108`. Their signed quotient
+supports have empty intersection, proving the disjoint-footprint guardrail.
+
+### Effect on the Attack
+
+This upgrades the Cycle 612/613 double-zero observation from a projective
+coincidence to an exact label-gate relation:
+
+```text
+component pair relation modulo the label-deletion equation.
+```
+
+That is real local structure, but still only local structure. It suggests a
+more reusable proof-mining target: search for component pairs whose coordinate
+functionals become proportional modulo the label-deletion span, then ask
+whether such gates can be classified from incidence/order data rather than
+from a completed min-fill trace.
+
+The guardrail is equally important. The pair `65,108` has disjoint quotient
+footprints, so a proof route based only on overlap or local cancellation in
+the component signatures will miss this mechanism.
+
+### Exact Scope
+
+This is an exact finite audit for the fixed-order
+`C29_sidon_1_3_7_15` certificate, the Cycle 588 equality-balance contraction,
+the Cycle 592 min-fill trace, the triple `(103,104,105)`, and label `7`.
+
+It does not classify other component pairs, other triples, other labels,
+other row spans, other min-fill tie rules, other C29 cyclic orders, arbitrary
+C19/C29 patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Search the four Cycle 613 low-support triples for label-gate pairs modulo
+their label-deletion equations, starting with the other double-zero minima
+`16,108` and `26,65`. The proof-facing question is whether the pair
+
+```text
+(generic label-free support, maximum additional-zero multiplicity)
+```
+
+can be replaced by a sharper invariant: the number and shape of component
+coordinate gates modulo the label-deletion span.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-614`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-614`.
+- The branch was based on `origin/main` at commit
+  `c431f01ba1d56dce312f284d738fc95715146d79`, after PR #292 merged Cycle
+  613.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 `65,108` label-gate rational audit: passed, with digest
+  `acc0793d0b89a6625f1e5b46d078ccae335d001488ffe0793a86dbbe699c1c4a`.
+- One-off exact projective zero-class audit for the `(103,104,105)` component
+  forms: passed, with digest
+  `6e8c98cf29050f945627fd623bbfe7510ed0348dfae51ff0ab980c2b99a19f1b`.
+- One-off exact component-footprint guardrail audit for components `65` and
+  `108`: passed, with digest
+  `72e17a7c6af25380e539dc9d462bb898c9b971e63da484be910da5f2a104881e`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 684.26s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 613 - C29 Low-Support Triple Mechanism Split
 
 ### Mathematical Subquestion
