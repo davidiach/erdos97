@@ -22947,6 +22947,223 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 615 - C29 Low-Support Gate-Type Split
+
+### Mathematical Subquestion
+
+Cycle 614 showed that the `(103,104,105)` support-`9` double zero
+`65,108` is a genuine label-gate pair: the two component coordinates become
+proportional after quotienting by the label-`7` deletion equation. Cycle 613
+also found two support-`10` triples with all-three double-zero minima:
+`16,108` for `(93,104,105)` and `26,65` for `(102,103,104)`.
+
+The next narrow question is:
+
+Do all three all-three double-zero minima have the same label-gate mechanism,
+or do they split into different exact gate types?
+
+### Definitions and Assumptions
+
+Use the fixed-order `C29_sidon_1_3_7_15` certificate, the Cycle 588
+equality-balance contraction, and the Cycle 592 deterministic min-fill pivot
+rule. The replay normalizes each pivot row to have pivot coefficient `1`; all
+relations below are stated in that normalized pivot-row basis.
+
+For a triple `T=(i,j,k)`, write a row combination as
+
+```text
+a r_i + b r_j + c r_k.
+```
+
+Let `x_C^T(a,b,c)` be the coordinate of contracted component `C`, and let
+`ell_T(a,b,c)=0` be the primitive integer label-`7` deletion equation for
+the triple. Since the four Cycle 613 triples have label-free nullity `2`,
+the label-deletion equation has rank `1` in each case.
+
+A pair `(C,D)` is a **label-gate pair** for `T` when
+
+```text
+x_D^T + lambda x_C^T in span_Q{ell_T}
+```
+
+for some rational `lambda`. It is a **full-span proportional pair** if the
+same relation already has right-hand side `0`, before imposing the label
+equation.
+
+This cycle is justified as proof-mining rather than a bridge result: it does
+not reduce arbitrary counterexamples, but it tests whether the C29 support
+drop can be replaced by a reusable component-gate invariant.
+
+### Result Status
+
+Proved finite mechanism split in the fixed audit scope:
+**C29 Low-Support Gate-Type Split**.
+
+The four Cycle 613 low-support triples have the following exact gate
+classification:
+
+```text
+triple          ell_T          all-three repeated pair  gate type
+(93,104,105)   (90,369,530)   16,108                   full-span proportional
+(98,104,105)   (0,369,530)    none                     no repeated zero class
+(102,103,104)  (1,5,41)       26,65                    label-gate pair
+(103,104,105)  (45,369,530)   65,108                   label-gate pair
+```
+
+The exact relations are:
+
+```text
+(93,104,105):   15 x_108 + 52 x_16 = 0.
+(102,103,104):  70 x_65 + 60 x_26 = ell_T.
+(103,104,105):  45 x_108 + 270 x_65 = ell_T.
+```
+
+Thus the support-`10` double-zero triple `(93,104,105)` does **not** use the
+same mechanism as the support-`9` triple. Its repeated zero is stronger and
+more rigid: components `16` and `108` are already proportional in the full
+three-row span. The other support-`10` double-zero triple `(102,103,104)`
+does use the same kind of label-gate mechanism as `(103,104,105)`.
+
+The triple `(98,104,105)` has generic label-free support `11`, but has no
+repeated projective zero class among its nonforced component coordinates.
+This matches Cycle 613: its support-`10` minima are single-additional-zero
+minima, not double-zero minima.
+
+### Boundary Guardrails
+
+The triple `(93,104,105)` also has a repeated nonforced zero class
+`33,75`, but its projective zero has first coefficient `0`. It is therefore
+not an all-three row combination and is not one of the Cycle 613 all-three
+support minima. The relevant all-three repeated pair in this triple is only
+`16,108`.
+
+For the three all-three repeated pairs, the contracted quotient footprints
+are disjoint:
+
+```text
+support(16)  cap support(108) = empty
+support(26)  cap support(65)  = empty
+support(65)  cap support(108) = empty
+```
+
+So none of the all-three double-zero mechanisms is explained by shared
+quotient-class footprint cancellation. The common mechanism is row-span
+linear dependence of component coordinate functionals, either before or
+after quotienting by the label-deletion equation.
+
+### Argument
+
+The audit reconstructs the selected-distance quotient, the `50` two-row
+balance classes, the `115` contracted equality components, and the exact
+rational Cycle 592 min-fill pivot rows directly from the checked C29
+certificate. It reproduces the Cycle 592 pivot-support histogram:
+
+```text
+2:6 3:40 4:19 5:11 6:8 7:10 8:3 9:5 10:4 11:6 13:2
+```
+
+For each of the four Cycle 613 triples it forms the label-`7` residual
+matrix on the quotient classes incident to label `7`. The nonzero rows span
+one primitive equation `ell_T`. It then restricts the component coordinate
+forms to the label-free projective line by grouping component coordinates
+with the same zero class, equivalently checking whether
+
+```text
+rank(ell_T, x_C^T, x_D^T) <= 2.
+```
+
+This recovers exactly the three all-three repeated pairs listed above and
+the absence of repeated zero classes for `(98,104,105)`. Solving the rational
+two-equation systems gives the three displayed relations.
+
+The component-footprint guardrail is a separate exact reconstruction of the
+contracted component signatures. It verifies that every all-three repeated
+pair has empty quotient-support intersection, so the gate-type split is not a
+hidden local cancellation in shared quotient classes.
+
+### Effect on the Attack
+
+Cycle 613's invariant
+
+```text
+(generic label-free support, maximum additional-zero multiplicity)
+```
+
+is still useful, but Cycle 615 shows it is not the sharpest local structure.
+The double-zero entries split by gate type:
+
+```text
+full-span proportional pair
+label-gate pair modulo ell_T
+```
+
+This gives a better proof-mining target. A future reusable lemma should try
+to state incidence/order hypotheses that force one of these component-gate
+relations, rather than merely counting generic support and repeated zeros.
+
+It also records a negative control: disjoint component footprints can still
+produce simultaneous zeros. Any route based only on shared quotient classes
+or local footprint overlap will miss the observed double-zero mechanisms.
+
+### Exact Scope
+
+This is an exact finite audit of the four Cycle 613 low-support triples for
+the fixed-order `C29_sidon_1_3_7_15` certificate, the Cycle 588
+equality-balance contraction, the Cycle 592 min-fill trace, and label `7`.
+
+It does not classify other triples, labels, component pairs, four-or-more-row
+spans, min-fill tie rules, C29 cyclic orders, arbitrary C19/C29 patterns, or
+geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Try to classify the gate relations without using the completed min-fill
+trace. A useful next subquestion is whether the full-span proportional pair
+`16,108` and the label-gate pairs `26,65` and `65,108` are visible from the
+original Kalmanson quadrilateral ancestry plus the selected-distance quotient,
+or whether they depend essentially on the exact elimination trace.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-615`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-615`.
+- The branch was based on `origin/main` at commit
+  `92c0114b6a87d1b4785d3ae53d2bc4e26288e76f`, after PR #297 merged Cycle
+  614.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact four-triple C29 gate-type audit: passed, with digest
+  `78dae9333828ac2b9494e5b220289027c38de7b12f21fdce36dca00241b5747a`.
+- One-off exact component-footprint guardrail audit for pairs `16,108`,
+  `26,65`, and `65,108`: passed, with digest
+  `d105f96d5a83cce56133400ee37b6d3d312571ee100f742b8d4e18807028b8fd`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `530 passed, 275 deselected in 70.01s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 614 - C29 65-108 Label-Gate Pair
 
 ### Mathematical Subquestion
