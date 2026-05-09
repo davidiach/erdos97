@@ -22947,6 +22947,197 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 610 - C29 Support-9 Boundary Footprint
+
+### Mathematical Subquestion
+
+Cycle 609 showed that the nearby all-three C29 audit has a unique support-`9`
+minimum:
+
+```text
+6:18 16:24 21:-23 25:55 26:-39 45:-24 79:-2 84:-68 94:26
+```
+
+The next narrow question is whether these nine components form an intrinsic
+local cancellation circuit in the contracted component-class bipartite graph,
+or whether the support-`9` drop is instead a boundary-supported artifact of
+the min-fill row span.
+
+### Definitions and Assumptions
+
+Use the same fixed finite object as Cycles 608 and 609: the recorded
+fixed-order `C29_sidon_1_3_7_15` certificate, its selected-distance quotient,
+and the Cycle 588 equality-balance contraction into `115` components.
+
+For a component `C`, let `sigma(C)` be the signed quotient-class vector
+obtained by summing the original Kalmanson rows inside `C`. For a component
+coefficient vector `u`, write
+
+```text
+R(u) = sum_C u_C sigma(C).
+```
+
+The **raw footprint** of a support set `S` is
+
+```text
+F(S) = union_{C in S} support(sigma(C)).
+```
+
+The **residual footprint** of `u` is `support(R(u))`. A footprint is
+label-7-free if none of its quotient classes contains label `7`.
+
+The **support graph** is the bipartite graph between the nine chosen
+components and the quotient classes in their raw footprint, with an edge
+`C-q` when `sigma(C)_q != 0`.
+
+### Result Status
+
+Finite obstruction in the fixed audit scope:
+**C29 Support-9 Boundary-Footprint Obstruction**.
+
+The support-`9` vector is not explained by quotient-class cancellation. Its
+raw footprint is already label-7-free, and weighting the components does not
+cancel any touched quotient class to zero:
+
+```text
+strict rows:                  165
+quotient classes:             319
+balance pairs:                 50
+equality components:          115
+support components:             9
+original rows in support:      20
+component size histogram:       1:2, 2:4, 3:2, 4:1
+original kind histogram:        K1:8, K2:12
+raw quotient classes touched:  45
+residual quotient classes:     45
+zeroed touched classes:         0
+raw missing labels:             7
+residual missing labels:        7
+quotient-degree histogram:      1:36, 2:9
+partial-cancellation classes:   5
+zero-cancellation classes:      0
+support graph components:       (8 components, 41 classes, 50 edges),
+                                (1 component, 4 classes, 4 edges)
+support graph cycle rank:       2
+```
+
+Each of the nine individual component signatures also omits label `7`.
+Thus label `7` is absent before taking the signed linear combination; it is
+not removed by an internal cancellation among label-7 incident quotient
+classes.
+
+The exact original-row ancestry of the nine components is:
+
+```text
+component  coeff  rows and Kalmanson quads
+6          18     6:K1(0,4,20,16), 26:K1(0,20,10,23)
+16         24     19:K2(0,21,17,9), 141:K2(6,18,25,17),
+                  147:K2(21,18,17,1)
+21        -23     25:K2(0,2,10,17)
+25         55     31:K1(27,4,19,18), 37:K1(27,19,18,23),
+                  96:K2(19,13,25,15), 97:K2(19,13,15,23)
+26        -39     33:K1(27,4,6,16), 43:K1(27,6,13,2)
+45        -24     57:K2(11,19,14,22)
+79         -2     107:K2(5,6,15,8), 134:K2(6,13,2,8),
+                  150:K2(13,15,22,8)
+84        -68     114:K1(26,12,18,16), 124:K2(12,6,15,16)
+94         26     130:K2(12,25,3,9), 164:K1(25,9,1,8)
+```
+
+### Argument
+
+The audit reconstructs the quotient rows from the checked C29 certificate,
+then unions rows whose quotient columns give exact opposite two-row balances,
+matching the Cycle 588 contraction. It sums each equality component to obtain
+`sigma(C)`, inserts the Cycle 608 support-`9` coefficients, and compares the
+raw and residual quotient-class footprints.
+
+If the support-`9` row were a compact local cancellation circuit explaining
+label-7 deletion, one would expect some touched quotient classes, especially
+label-7 incident classes, to disappear after applying the coefficients. The
+exact audit gives the opposite finite picture:
+
+```text
+F(S) = support(R(u))
+```
+
+as sets of quotient classes, both with size `45`, and both already omit label
+`7`. The support graph is boundary-rich: `36` of its `45` quotient classes
+touch only one of the nine components, and component `45` is disconnected
+from the other eight support components in this graph. Only five quotient
+classes have partial signed cancellation, and none cancel to zero.
+
+Therefore the support-`9` phenomenon is better described as a sparse
+label-7-free component footprint selected by the nearby three-row span, not
+as a small internal quotient-cancellation circuit.
+
+### Effect on the Attack
+
+This rules out the most direct "find the hidden circuit" explanation for the
+Cycle 608 support-`9` escape. The relevant structure is not a local zero-sum
+among quotient classes, but the existence of component signatures whose raw
+footprints already avoid a chosen label.
+
+The next proof-facing target should therefore shift from cancellation inside
+the support to the source of label-avoidance in individual component
+signatures: classify why components `6,16,21,25,26,45,79,84,94` all avoid
+label `7`, and whether nearby min-fill triples are forced to select from such
+components.
+
+### Exact Scope
+
+This is a finite exact audit for the unique Cycle 608 support-`9` vector in
+the fixed-order `C29_sidon_1_3_7_15` certificate after the Cycle 588 equality
+contraction. It does not classify other C29 vectors, other labels, other
+pivot traces, other cyclic orders, C19 artifacts, arbitrary patterns, or
+geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Audit all `115` equality components for missing-label sets and compare them
+with the components selected by the support-`9` vector. A useful next lemma
+would explain label avoidance at the component-signature level without using
+the later min-fill row span.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-610`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-610`.
+- The branch was based on `origin/main` at
+  `b7ddfebc54a1410737bdcde22b2d1dc838b8df17`, after PR #287 merged Cycle
+  609.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 support-`9` footprint and ancestry audit: passed, with
+  digest
+  `6ee6e40169c218b8a534670953a79ce3e14c54baf1b4d5d7624f33603762c651`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 682.67s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 609 - C29 Nearby All-Three Support-9 Floor
 
 ### Mathematical Subquestion
