@@ -22947,6 +22947,216 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 612 - C29 Consecutive Triple Double-Zero Mechanism
+
+### Mathematical Subquestion
+
+Cycle 611 ruled out component-level label-7 avoidance as a selector for the
+Cycle 608 support-`9` vector. The next narrow question is internal to the
+generating triple:
+
+For the consecutive min-fill pivot rows `(103,104,105)`, does the exact
+label-7-free row-span constraint itself explain why the support-`9` vector
+chooses its nine components?
+
+### Definitions and Assumptions
+
+Use the recorded fixed-order `C29_sidon_1_3_7_15` certificate, the Cycle 588
+equality-balance contraction, and the Cycle 592 deterministic min-fill trace.
+The min-fill replay uses the same pivot key as the previous exact audits:
+
+```text
+fill = (column_degree - 1) * (row_support - 1),
+then column_degree, row_support, active_row_index, component_column.
+```
+
+For a component vector `u`, write
+
+```text
+R(u) = sum_C u_C sigma(C),
+```
+
+where `sigma(C)` is the signed contracted component column. A vector is
+**label-7-free** if `R(u)` has coefficient `0` on every selected-distance
+quotient class incident to label `7`.
+
+### Result Status
+
+Proved finite structural lemma in the fixed audit scope:
+**C29 Consecutive Triple Double-Zero Lemma**.
+
+The exact min-fill replay reconstructs rows `103`, `104`, and `105` as:
+
+```text
+r103: 6:-1 16:-3 21:3 26:1 45:3 65:-1 84:-1 90:1 94:-2 108:4
+r104: 6:-17/2 16:-3/2 21:5/2 25:1 26:1/10 45:51/10
+      65:1/2 79:-37/5 84:63/10 90:-41/10 108:26/5
+r105: 6:105/2 16:15/2 21:-27/2 26:-7/2 45:-59/2
+      65:-9/2 79:45 84:-95/2 90:53/2 108:-26
+```
+
+For a combination `a r103 + b r104 + c r105`, the only nonzero label-7
+equations are the opposite equations on quotient classes `132` and `167`:
+
+```text
+qclass 132: -a + 41/10 b - 53/2 c = 0
+qclass 167:  a - 41/10 b + 53/2 c = 0
+```
+
+Thus the label-7-free subspace has dimension `2`. With parameters
+`b=s` and `c=t`, it is
+
+```text
+a = 41/10 s - 53/2 t.
+```
+
+Inside this label-free plane, the component coordinates are:
+
+```text
+component  coordinate in (s,t)
+6          -63/5 s + 79 t
+16         -69/5 s + 87 t
+21          74/5 s - 93 t
+25             1 s
+26          21/5 s - 30 t
+45          87/5 s - 109 t
+65         -18/5 s + 22 t
+79         -37/5 s + 45 t
+84          11/5 s - 21 t
+90             0
+94         -41/5 s + 53 t
+108        108/5 s - 132 t
+```
+
+Component `90` is therefore forced to vanish for every label-7-free vector in
+this triple span. Generically, the remaining `11` component coordinates are
+nonzero, so a generic all-three label-7-free vector in this span has component
+support `11`.
+
+There are `10` projective coordinate-zero classes in the `(s,t)` line. Their
+support histogram is:
+
+```text
+all coordinate-zero classes:       9:1, 10:9
+all-three coordinate-zero classes: 9:1, 10:7
+```
+
+The unique support-`9` all-three class is
+
+```text
+(s,t) = (55,9),  hence  (a,b,c) = (-13,55,9).
+```
+
+At that projective point, components `65` and `108` vanish simultaneously,
+and component `90` is already forced zero throughout the label-free plane.
+The remaining primitive component vector is exactly the Cycle 608 support-`9`
+vector:
+
+```text
+6:18 16:24 21:-23 25:55 26:-39 45:-24 79:-2 84:-68 94:26
+```
+
+### Argument
+
+The audit reconstructs the selected-distance quotient, the `50` two-row
+balance classes, the `115` equality components, and the `115` nonzero
+contracted quotient equations from the checked C29 certificate. It reruns the
+deterministic min-fill elimination over exact rationals and verifies the
+Cycle 592 pivot-support histogram:
+
+```text
+2:6 3:40 4:19 5:11 6:8 7:10 8:3 9:5 10:4 11:6 13:2
+```
+
+It then extracts rows `103`, `104`, and `105` and computes their residuals on
+the label-7 incident quotient classes. Only two classes remain, and they give
+opposite equations, so the label-free constraint has rank `1`.
+
+Substituting the two-parameter form of the label-free plane gives the
+displayed component coordinate forms. A component can disappear only at the
+projective zero of its corresponding linear form, except for component `90`,
+whose form is identically zero. The forms for components `65` and `108` have
+the same projective zero `(s,t)=(55,9)`, while every other nonforced component
+has a distinct projective zero. Therefore the support-`9` vector is precisely
+the unique all-three point where a double coordinate zero occurs.
+
+This explains the Cycle 608 support drop within the fixed triple: the vector
+is not selected merely from the large pool of label-7-avoiding components.
+It is selected by a rank-1 label-deletion equation plus one exceptional
+double-zero coincidence in the component coordinate forms.
+
+### Effect on the Attack
+
+This is real local structure, but it is also a boundary. The support-`9`
+escape is no longer an opaque accident of the three-row span: it comes from a
+specific double-zero in a projective line. To turn this into a proof-facing
+route, the next step would have to explain why such double-zero coincidences
+exist or are bounded in min-fill triples, or show that no analogous mechanism
+can push support below `9` in a larger span.
+
+The result also narrows what failed in Cycle 611. Component label avoidance
+alone is too common, but label avoidance together with the `(103,104,105)`
+row-span equations leaves a small projective line in which support minimization
+is fully explicit.
+
+### Exact Scope
+
+This is an exact finite audit for the recorded fixed-order
+`C29_sidon_1_3_7_15` certificate, the Cycle 588 equality contraction, and the
+Cycle 592 min-fill trace with the stated deterministic tie rule. It concerns
+only the triple `(103,104,105)` and label `7`.
+
+It does not classify other triples, other labels, four-or-more-row spans,
+other min-fill tie rules, other C29 cyclic orders, arbitrary C19/C29 patterns,
+or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Try to promote this from a one-triple calculation into a reusable diagnostic:
+for nearby triples, classify the label-free plane by forced-zero components
+and repeated coordinate-zero projective points. The proof-facing question is
+whether repeated zeros are governed by a visible quotient-incidence pattern or
+remain trace-specific arithmetic coincidences.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-612`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-612`.
+- The branch was based on `origin/main` at commit
+  `4fd0dd2b52ad2c40b21646de7067e4be9d6d696e`, after PR #289 merged Cycle
+  611.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 consecutive-triple label-free span audit: passed, with
+  digest
+  `329d64e1fa7193ec76d1a2d29453f79ed8658c6996ae9f1f2ab6dabad3f14133`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 682.00s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 611 - C29 Component Label-Avoidance Nonselection
 
 ### Mathematical Subquestion
