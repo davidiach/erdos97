@@ -22947,6 +22947,153 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 590 - C29 Component Rotation Signatures
+
+### Mathematical Subquestion
+
+Cycle 589 showed that the equality-contracted C29 balance system is one
+biconnected 115-component core. The next possible compression is symmetry:
+perhaps the 115 component columns, especially the 103 non-simple balanced
+hyperedge columns, are many rotated copies of a small number of quotient
+types.
+
+Do the contracted component columns collapse to a small set of signatures
+under cyclic rotation of the `C29_sidon_1_3_7_15` selected-distance quotient?
+
+### Definitions and Assumptions
+
+Use the Cycle 588 equality-balance contraction and the Cycle 589 contracted
+balance matrix `A=(a(Q,C))`, reconstructed from
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`.
+
+For a component `C`, its **component-column signature** is the signed finite
+set
+
+```text
+{(Q, a(Q,C)) : a(Q,C) != 0}
+```
+
+of quotient-class incidences. A cyclic rotation `x -> x+t mod 29` transports
+each quotient class by rotating every unordered pair in that class. Two
+component columns are **rotation-equivalent** if their signatures agree after
+one such transport. They are **rotation-or-sign-equivalent** if, after a
+rotation, one signature equals either the other signature or its global
+negative.
+
+### Result Status
+
+Counterexample to a symmetry-compression subclaim:
+**C29 No Rotation-Type Compression Obstruction**.
+
+The exact component-column rotation audit found:
+
+```text
+component count:                         115
+raw signature count:                     115
+rotation signature count:                115
+rotation-or-sign signature count:        114
+non-simple component count:              103
+non-simple rotation signature count:     103
+non-simple rotation-or-sign count:       102
+largest rotation multiplicities:         1, 1, 1, ...
+largest rotation-or-sign multiplicity:   2
+```
+
+The component sign histogram was unchanged from Cycle 589:
+
+```text
++1/-1: 12
++2/-2: 75
++3/-3: 22
++4/-4: 5
++5/-5: 1
+```
+
+The exact component-rotation audit digest was:
+
+```text
+fa5406e3b6f6104e3364092a780dd504b0e455d98529817c7a96a1ad6d420148
+```
+
+### Argument
+
+The audit reconstructs the selected-distance quotient, then verifies that each
+cyclic shift maps every quotient class to a single quotient class. It then
+forms each contracted component column as a signed vector over quotient
+classes and canonicalizes that signed support under all 29 rotations.
+
+No two component columns become equal under rotation alone: the 115 raw
+signatures remain 115 rotation signatures. Among the 103 non-simple balanced
+hyperedge columns, the 103 raw signatures also remain 103 rotation signatures.
+
+If a global sign flip is allowed as an additional normalization, exactly one
+pair of component columns is identified: the total count drops from 115 to
+114, and the non-simple count drops from 103 to 102. Thus cyclic symmetry
+does not expose a small family of repeated component types.
+
+### Effect on the Attack
+
+This rules out the simplest symmetry-normal-form route for the contracted C29
+core. The obstruction from Cycle 589 is not just one biconnected hypergraph;
+its component columns also do not reduce to a short list of rotated quotient
+types. Any human-readable explanation must either find a subtler invariant
+than cyclic rotation of component-column supports or explain a genuinely
+heterogeneous 115-column balanced hypergraph.
+
+### Exact Scope
+
+This is an exact finite audit of the recorded fixed-order
+`C29_sidon_1_3_7_15` Kalmanson certificate after the Cycle 588
+equality-balance contraction. It only classifies the 115 contracted component
+columns by signed quotient-class support under cyclic rotations and optional
+global sign. It does not classify other certificates, other orders, other
+selected-witness patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+Abandon component-column rotation as the primary compression. A more promising
+exact subquestion is whether the unique positive right-kernel vector has a
+short arithmetic description on the 115 components, for example by grouping
+component weights by value, gcd layers, or relations induced by the balanced
+hyperedge incidence matrix.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-590`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-590`.
+- The branch was based on `origin/main` at
+  `dc66e3dd864cae04ad9a4e0a22564d2ae8a1e73d`, after PR #266 merged Cycle
+  589.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 component-rotation audit: passed, with digest
+  `fa5406e3b6f6104e3364092a780dd504b0e455d98529817c7a96a1ad6d420148`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_text_clean.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_status_consistency.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_artifact_provenance.py`:
+  passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 682.17s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 589 - C29 Contracted Balance Core
 
 ### Mathematical Subquestion
