@@ -22947,6 +22947,201 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 604 - C29 Large-Pivot Label-Free Pairs
+
+### Mathematical Subquestion
+
+Cycle 603 showed that the Cycle 597/598 support-10 row `(100,101)` is the
+only support-10 pair among the four Cycle 602 pairs that uses two large
+pivots. The next narrower question is:
+
+Among the eight large pivots in the Cycle 594 reservoir, is `(100,101)` the
+only two-row pair that cancels all label-7 incident components, or is it only
+unique after imposing the support-10 bound?
+
+### Definitions and Assumptions
+
+Use the recorded fixed-order `C29_sidon_1_3_7_15` certificate, the Cycle 588
+equality-balance contraction, and the Cycle 592 deterministic min-fill trace.
+
+The large pivots are the support-at-least-11 pivot rows from Cycle 594:
+
+```text
+91, 92, 96, 99, 100, 101, 102, 104.
+```
+
+A large-large pair `(i,j)` is **label-7-free** if some exact rational scalar
+`t` makes `r_i + t r_j` vanish on every label-7 incident component. If more
+than one label-7 incident component is present, all forced ratios must agree.
+
+### Result Status
+
+Counterexample to the strongest uniqueness subclaim, plus a finite uniqueness
+lemma under the support-10 bound:
+**C29 Large-Pivot Label-Free Nonuniqueness Obstruction** and
+**C29 Large-Pivot Support-10 Uniqueness Lemma**.
+
+The eight large pivots have these label-7 incident component supports:
+
+```text
+step 91:  support 11, qclass 89,  label-7 components 70
+step 92:  support 11, qclass 191, label-7 components 40
+step 96:  support 11, qclass 49,  label-7 components 105
+step 99:  support 13, qclass 270, label-7 components 90
+step 100: support 13, qclass 93,  label-7 components 70,90
+step 101: support 11, qclass 291, label-7 components 70,90
+step 102: support 11, qclass 113, label-7 components 90
+step 104: support 11, qclass 0,   label-7 components 90
+```
+
+Among the `28` large-large pairs, exactly `4` are label-7-free:
+
+```text
+(99,102), t=-1
+  support size 14
+  support 6,16,21,25,26,45,54,65,75,79,82,84,94,108
+  primitive 6:1 16:1 21:-6 25:5 26:8 45:1 54:-1
+            65:-6 75:11 79:9 82:1 84:-9 94:-7 108:20
+  raw quotient footprint: 59 classes, missing label 7
+  signed residual: 57 classes, missing label 7
+
+(99,104), t=-10/41
+  support size 14
+  support 6,16,21,25,26,45,54,65,75,79,82,84,94,108
+  primitive 6:44 16:-26 21:16 25:-10 26:-83 45:-51 54:41
+            65:36 75:-41 79:-49 82:-41 84:19 94:82 108:-175
+  raw quotient footprint: 59 classes, missing label 7
+  signed residual: 59 classes, missing label 7
+
+(100,101), t=-1
+  support size 10
+  support 16,25,26,45,65,75,79,82,84,108
+  primitive 16:2 25:-3 26:-2 45:-1 65:2
+            75:-3 79:-2 82:1 84:5 108:-7
+  raw quotient footprint: 47 classes, missing label 7
+  signed residual: 47 classes, missing label 7
+
+(102,104), t=-10/41
+  support size 12
+  support 6,16,21,25,26,45,65,75,79,84,94,108
+  primitive 6:17 16:3 21:-46 25:39 26:49 45:-2
+            65:-42 75:82 79:64 84:-70 94:-41 108:129
+  raw quotient footprint: 55 classes, missing label 7
+  signed residual: 55 classes, missing label 7
+```
+
+The accepted support histogram is:
+
+```text
+10: 1
+12: 1
+14: 2
+```
+
+Thus `(100,101)` is not the only large-large pair cancelling all label-7
+incident components. It is, however, the unique large-large label-7-free pair
+with support at most `10`.
+
+The `24` rejected pairs fail for exact ratio reasons:
+
+```text
+component 105 only in first: 5
+component 40 only in first:  6
+component 70 only in first:  9
+inconsistent ratios 0,1:     2
+inconsistent ratios 1,0:     2
+```
+
+The exact large-pivot pair audit digest was:
+
+```text
+20914d2b90747b6529e4e75f47433beea0c00019af3b59a25a3d0580a3da38e2
+```
+
+### Argument
+
+The audit reconstructs the selected-distance quotient, the 165 Kalmanson
+rows, the equality-balance components, and the exact rational min-fill trace
+from the recorded C29 certificate. It then restricts to the eight large
+pivots from Cycle 594.
+
+For each large-large pair, the audit examines the label-7 incident component
+coordinates. If a label-7 component appears in only one row, no scalar can
+cancel it. If multiple components force different values of `t`, the pair is
+rejected. Otherwise the unique forced rational `t` is used, and the full
+component support is recomputed exactly.
+
+The displayed four accepted pairs show that large-pivot label-7 cancellation
+is not unique. The accepted support histogram proves the support-bounded
+statement: only `(100,101)` has support `10`, and no accepted large-large pair
+has support below `10`.
+
+### Effect on the Attack
+
+This refines Cycle 603. The two-large-pivot condition plus label-7
+cancellation is still too weak: three other large-large pairs satisfy it.
+Adding the support-10 bound isolates the Cycle 597/598 pair in the exact
+large-pivot pair family.
+
+The next useful proof-facing target is therefore not "large-pivot label-7
+cancellation is unique", but "large-pivot label-7 cancellation has a support
+floor of `10`, with equality only at `(100,101)`." That is a more precise
+finite statement and a possible route to a hand-checkable reservoir lemma.
+
+### Exact Scope
+
+This is an exact finite audit of the `28` two-row pairs among the eight large
+pivots of the Cycle 592 deterministic min-fill trace for the recorded
+fixed-order `C29_sidon_1_3_7_15` certificate after the Cycle 588
+equality-balance contraction. It does not classify non-large pivots, larger
+row combinations, other pivot rules, other labels, other C29 orders, arbitrary
+C19/C29 patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Try to prove the large-pivot support floor directly from the four possible
+label-7 cancellation classes inside the reservoir, or check whether adding
+one non-large pivot to any of the three larger accepted pairs can reduce
+their support to `10` or below.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-604`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-604`.
+- The branch was based on `origin/main` at
+  `72c568ea76963dfad6a484e1114788690c952c4c`, after PR #281 merged Cycle
+  603.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 large-pivot pair audit: passed, with digest
+  `20914d2b90747b6529e4e75f47433beea0c00019af3b59a25a3d0580a3da38e2`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_text_clean.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_status_consistency.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_artifact_provenance.py`:
+  passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 682.85s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 603 - C29 Four Support-10 Pair Profiles
 
 ### Mathematical Subquestion
