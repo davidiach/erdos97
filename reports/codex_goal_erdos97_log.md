@@ -22947,6 +22947,152 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 617 - T01/F09 Local Self-Edge Lemma
+
+### Mathematical Subquestion
+
+The `n=9` vertex-circle template catalog already contains a focused
+T01/F09 self-edge packet, but the proof-facing note was still mostly a packet
+summary. The narrow question for this cycle was:
+
+Can the T01/F09 packet be restated as a standalone local lemma whose
+contradiction follows directly from selected-distance equalities and
+vertex-circle monotonicity, without invoking the exhaustive `n=9` brancher?
+
+### Definitions and Assumptions
+
+For a selected row `S_c`, all distances `d(c,x)` with `x in S_c` are equal.
+Work in a strictly convex polygon with labels in cyclic order
+
+```text
+0,1,2,3,4,5,6,7,8.
+```
+
+The T01/F09 local core consists of the three selected rows
+
+```text
+S_0 = {1,2,4,8}
+S_1 = {0,3,5,8}
+S_2 = {0,1,4,6}.
+```
+
+Use the standard vertex-circle monotonicity fact: if several selected
+witnesses lie on one circle centered at a polygon vertex, then nested witness
+chords in the radial order around that center have strictly increasing
+ordinary length.
+
+### Result Status
+
+Proved local lemma:
+**T01/F09 Local Self-Edge Lemma**.
+
+The three displayed rows are impossible in the stated cyclic order.
+
+### Argument
+
+The selected rows force the equality chain
+
+```text
+d(1,8) = d(1,0)      from row 1,
+d(1,0) = d(0,2)      from row 0,
+d(0,2) = d(2,1)      from row 2.
+```
+
+Hence
+
+```text
+d(1,8) = d(1,2).
+```
+
+But row `0` has witness order
+
+```text
+1,2,4,8.
+```
+
+In a strictly convex polygon, rays from a vertex to the other vertices occur
+in cyclic order inside an angle smaller than `pi`. Since the row-`0`
+witnesses lie on a common circle centered at `0`, the chord `[1,8]` strictly
+contains `[1,2]` in that witness order. Therefore
+
+```text
+d(1,8) > d(1,2),
+```
+
+contradicting the equality chain. In quotient-graph language, the selected
+distance equalities identify `[1,8]` and `[1,2]`, while row `0` orients a
+strict edge from that quotient class to itself.
+
+### Exact Scope
+
+This is a local obstruction lemma for the three displayed selected rows in the
+stated cyclic order. It is independent of the exhaustive brancher once those
+rows are given.
+
+It does not prove the full `n=9` finite case, because the review-pending
+exhaustive checker is still needed to show that every `n=9` frontier
+assignment contains a recorded local obstruction template. It does not prove
+Erdos Problem #97 and does not give a counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-t01-self-edge-lemma.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect on the Attack
+
+This turns the first review-pending self-edge packet into a reusable
+human-readable local lemma. It strengthens the bridge-facing program only
+locally: future work must still prove that arbitrary or finite frontier
+assignments force one of these local cores.
+
+### Next Lead
+
+Apply the same proof-facing extraction to a strict-cycle packet, preferably
+T10/F12, or audit whether the T01 local row configuration is forced by any
+larger structural condition outside the `n=9` frontier enumeration.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-617`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-617`.
+- The branch was based on `origin/main` at commit
+  `edfce0827927d4a7a8d61c3135608035f41cea54`, after PR #302 merged Cycle
+  616.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check
+  --assert-expected --json`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+  --assert-expected --json`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `530 passed, 275 deselected in 70.12s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 616 - R44 Natural-Order Crossing Obstruction
 
 ### Mathematical Subquestion
