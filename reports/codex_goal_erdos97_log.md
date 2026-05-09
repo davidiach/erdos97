@@ -22947,6 +22947,285 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 606 - C29 Free Three-Row Large-Large-Nonlarge Spans
+
+### Mathematical Subquestion
+
+Cycle 605 ruled out support reduction for fixed-base extensions
+
+```text
+u_i + s r_k
+```
+
+of the three larger large-large label-7-free pairs from Cycle 604. Its
+explicit limitation was that it did not classify the free three-row span where
+the two large coefficients and the non-large coefficient all vary.
+
+For each of the three larger large-large label-7-free bases
+
+```text
+(99,102), (99,104), (102,104),
+```
+
+and each non-large pivot row `r_k`, does the exact span
+
+```text
+a r_i + b r_j + c r_k
+```
+
+contain a label-7-free vector with all three coefficients nonzero and support
+`10` or below? Does it contain one with support `9` or below?
+
+### Definitions and Assumptions
+
+Use the recorded fixed-order `C29_sidon_1_3_7_15` certificate, the Cycle 588
+equality-balance contraction, and the Cycle 592 exact rational min-fill
+trace.
+
+A component is **label-7 incident** if its contracted signed quotient
+signature touches a selected-distance quotient class containing label `7`.
+The audit reconstructs `27` label-7 incident components.
+
+An **all-three free one-nonlarge extension** for a large pair `(i,j)` and a
+non-large pivot `k` is a nonzero vector
+
+```text
+a r_i + b r_j + c r_k
+```
+
+such that `a`, `b`, and `c` are all nonzero rational numbers and every
+label-7 incident component has coefficient `0`. This excludes degenerate
+solutions using only the non-large pivot or only the already-known large-large
+pair.
+
+For each span, the label-7 cancellation equations are linear equations in
+`(a,b,c)`. Once the label-7-free nullspace is found, support can drop only on
+coordinate hyperplanes of the resulting row vector. The audit enumerates these
+projective hyperplane candidates exactly over the rationals while enforcing
+`a b c != 0`.
+
+### Result Status
+
+Finite counterexample to a plausible subclaim, plus finite obstruction:
+**C29 Free Three-Row Support-10 Escape** and
+**C29 Free Three-Row No-Sub-10 Obstruction.**
+
+The exact reconstruction again matches the previous checkpoints:
+
+```text
+equality components:           115
+component-size histogram:      1:78, 2:27, 3:7, 4:3
+nonzero contracted equations:  115
+rational min-fill rank:        114
+label-7 incident components:    27
+pivot-support histogram:       2:6, 3:40, 4:19, 5:11, 6:8,
+                               7:10, 8:3, 9:5, 10:4, 11:6, 13:2
+```
+
+For each large pair, all `106` non-large pivot rows were tested. The
+label-7-free nullity histogram was the same in the three audits:
+
+```text
+nullity 1: 51
+nullity 2: 55
+```
+
+Exactly `55` non-large rows in each large-pair family admit an all-three
+label-7-free vector; the other `51` admit no all-three solution.
+
+For base `(99,102)`, the all-three support histogram was:
+
+```text
+12: 7
+13: 6
+14: 12
+15: 15
+16: 2
+17: 10
+18: 3
+```
+
+The best support is `12`, and there are no all-three support-`10` or
+support-`9` solutions.
+
+For base `(99,104)`, the all-three support histogram was:
+
+```text
+12: 1
+13: 9
+14: 16
+15: 12
+16: 4
+17: 10
+18: 3
+```
+
+The best support is `12`, and there are no all-three support-`10` or
+support-`9` solutions.
+
+For base `(102,104)`, the all-three support histogram was:
+
+```text
+10: 1
+11: 9
+12: 11
+13: 10
+14: 7
+15: 14
+16: 3
+```
+
+There is exactly one all-three support-`10` solution and no support-`9`
+solution. It uses the non-large pivot step `103`, whose pivot column is `94`,
+quotient class is `71`, and pivot support size is `10`.
+
+One normalized coefficient vector on
+
+```text
+(r_102, r_104, r_103)
+```
+
+is
+
+```text
+(6/35, -2/7, 1).
+```
+
+Equivalently, a primitive integer coefficient vector is
+
+```text
+(6, -10, 35).
+```
+
+After rescaling the resulting row, its primitive support vector is
+
+```text
+6:12
+16:12
+21:-16
+25:2
+45:-15
+75:6
+79:11
+84:-7
+94:4
+108:-9
+```
+
+The exact free three-row audit digest was:
+
+```text
+e988859b388137b2d79843ecaa79dfd0d890d0d7700aabd8a83fd3383c133192
+```
+
+### Argument
+
+The audit reconstructs the selected-distance quotient, the 165 Kalmanson row
+vectors, the 115 equality components, and the exact rational min-fill pivot
+rows directly from the checked C29 certificate. The reconstructed large-pivot
+records agree with Cycles 594 through 605, including the pivot-support
+histogram and label-7 incident components.
+
+For a fixed triple `(i,j,k)`, label-7 deletion is the homogeneous rational
+linear system
+
+```text
+a r_i(C) + b r_j(C) + c r_k(C) = 0
+```
+
+over all label-7 incident components `C`. The audit computes its exact
+nullspace. It then minimizes support inside that nullspace with the extra
+constraints `a != 0`, `b != 0`, and `c != 0`.
+
+Since every non-label coordinate of the row is a rational linear form in the
+nullspace parameters, the support can change only when one of those forms
+vanishes. Enumerating the corresponding projective coordinate hyperplanes,
+and checking exact rational representatives, therefore finds the minimum
+support in each all-three span.
+
+The displayed support histograms are the complete exact results for the
+tested family. The support-`10` vector for `(102,104,103)` disproves the
+stronger subclaim that free one-nonlarge extensions cannot reach support
+`10`. The absence of support `9` in all three families proves the weaker
+finite obstruction in this exact scope.
+
+### Effect on the Attack
+
+Cycle 605's fixed-base nonreduction does not extend to free three-row spans:
+letting the large-large cancellation ratio vary exposes a new support-`10`
+row. Thus the Cycle 597/598 support-`10` row is not isolated in the broader
+all-three large-large-nonlarge family.
+
+However, the support floor `10` still survives this broader audit. No tested
+free three-row span produces a support-`9` row. This keeps the current C29
+certificate-mining route focused on explaining why support `10`, but not
+smaller, appears repeatedly around the label-7-deleted subsystem.
+
+### Exact Scope
+
+This is an exact finite audit of all all-three spans formed from one of the
+three non-minimal large-large label-7-free pairs from Cycle 604 and one
+non-large pivot row from the Cycle 592 deterministic min-fill trace, for the
+recorded fixed-order `C29_sidon_1_3_7_15` certificate after the Cycle 588
+equality-balance contraction.
+
+It does not classify spans involving the minimal pair `(100,101)`, two
+non-large pivots, more than three rows, other labels, other pivot rules, other
+C29 cyclic orders, arbitrary C19/C29 patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Compare all known support-`10` label-7-free rows in the C29 trace, now
+including the new three-row witness
+
+```text
+(102,104,103) with coefficients (6, -10, 35),
+```
+
+against the four two-row support-`10` rows from Cycle 602. The useful
+subquestion is whether these support-`10` rows share a sharper signed
+quotient-residual or cyclic-label deletion pattern, or whether another exact
+support-`10` nonuniqueness obstruction appears.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-606`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-606`.
+- The branch was based on `origin/main` at
+  `e57ae4e7a22679114b59b03daefa7eaae17d4992`, after PR #283 merged Cycle
+  605.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 free three-row large-large-nonlarge audit: passed, with
+  digest
+  `e988859b388137b2d79843ecaa79dfd0d890d0d7700aabd8a83fd3383c133192`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 681.23s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 605 - C29 Fixed-Base One-Nonlarge Extensions
 
 ### Mathematical Subquestion
