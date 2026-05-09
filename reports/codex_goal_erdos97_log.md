@@ -22947,6 +22947,231 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 597 - C29 Reservoir Row-Span Support
+
+### Mathematical Subquestion
+
+Cycle 596 showed that the eight large-pivot rows in the C29 reservoir do not
+collapse to a coarse signed-frequency normal form. The next possible
+compression is linear:
+
+```text
+In the exact row span of the eight primitive signed reservoir rows, is there a
+small-support row combination that exposes a hand-sized subcircuit?
+```
+
+### Definitions and Assumptions
+
+Use the primitive signed reservoir rows recorded in Cycle 596, with columns in
+the reservoir order
+
+```text
+6, 13, 16, 21, 25, 26, 33, 39, 40, 45, 54, 63,
+65, 69, 70, 75, 79, 82, 84, 90, 94, 105, 108.
+```
+
+The eight rows are indexed by the large-pivot steps
+
+```text
+91, 92, 96, 99, 100, 101, 102, 104.
+```
+
+The **row-span support** of a nonzero rational row combination is the set of
+reservoir components where the resulting coefficient is nonzero.
+
+### Result Status
+
+Finite exact reduction and obstruction:
+**C29 Reservoir Support-10 Row-Span Circuit.**
+
+The exact `8` by `23` primitive reservoir matrix has row rank `8`. Its
+minimum nonzero rational row-span support is exactly `10`. The unique
+support-10 combination found by the exhaustive hyperplane audit is the sum of
+the large-pivot rows at steps `100` and `101`, with coefficient vector
+
+```text
+(0, 0, 0, 0, 1, 1, 0, 0)
+```
+
+in the step order
+
+```text
+91, 92, 96, 99, 100, 101, 102, 104.
+```
+
+The combination vanishes on the 13 reservoir components
+
+```text
+6, 13, 21, 33, 39, 40, 54, 63, 69, 70, 90, 94, 105
+```
+
+and has the primitive support
+
+```text
+16:   2
+25:  -3
+26:  -2
+45:  -1
+65:   2
+75:  -3
+79:  -2
+82:   1
+84:   5
+108: -7
+```
+
+No nonzero rational row combination has support at most `9`.
+
+### Exact Audit Details
+
+The audit searched the rational row span by dual hyperplanes. A nonzero
+combination vanishing on a set `Z` of reservoir components is a nonzero vector
+orthogonal to the corresponding column set. Thus a support smaller than `10`
+would require more than `13` reservoir columns lying in one rational
+hyperplane, or in a lower-rank subspace.
+
+For rank-7 hyperplanes, the audit enumerated all
+
+```text
+245157
+```
+
+seven-column subsets, using the prime `1000003` as a modular prefilter and
+then verifying candidates exactly over the rationals. It found:
+
+```text
+unique modular hyperplanes:        74749
+candidate zero sets of size >=12:     31
+exact hyperplanes verified:           24
+maximum exact zero columns:           13
+best hyperplanes with 13 zeros:        1
+```
+
+For lower-rank subspaces, it enumerated independent bases of ranks `1`
+through `6` and counted their modular closures, verifying the displayed
+maximal closures exactly. The maximum closure sizes were:
+
+```text
+rank 1:   2
+rank 2:   5
+rank 3:   7
+rank 4:   8
+rank 5:   9
+rank 6:  11
+```
+
+These lower-rank closures are all smaller than the 13-column zero set above,
+so they cannot produce a support smaller than `10`.
+
+As a sanity check, the audit also enumerated all coefficient vectors with
+entries in `[-B,B]`, normalized up to global sign, for `B=1,2,3`. In each box,
+the best support was again `10`, achieved by the same coefficient vector:
+
+```text
+B=1: checked     3280 coefficient vectors, best support 10
+B=2: checked   195312 coefficient vectors, best support 10
+B=3: checked  2882400 coefficient vectors, best support 10
+```
+
+The exact row-span support audit digest was:
+
+```text
+0e6807d1c2d13de38150294b360fe15f773f1d8459a1dbce9cbad3e92478f024
+```
+
+### Argument
+
+The row rank is exactly `8`, so every nonzero row-span vector is represented
+by a nonzero rational coefficient vector on the eight large-pivot rows. A
+vector supported on at most `s` reservoir components vanishes on at least
+`23-s` reservoir columns.
+
+The rank-7 hyperplane enumeration proves that no rational hyperplane contains
+more than `13` reservoir columns. The lower-rank closure audit proves that no
+lower-rank subspace contains more than `11` reservoir columns. Therefore no
+nonzero row-span vector can vanish on `14` or more components, and hence no
+nonzero row-span vector can have support at most `9`.
+
+The displayed sum of steps `100` and `101` vanishes on exactly `13`
+components and has exactly `10` nonzero components. Thus the lower bound is
+sharp.
+
+### Effect on the Attack
+
+This gives a real compression, but not yet a tiny hand proof. The 23-component
+reservoir can be reduced inside the large-pivot row span to a unique
+10-component signed row. That is much smaller than the full reservoir, but it
+is still too large to be an immediate local contradiction.
+
+It also blocks a stronger hoped-for route: there is no hidden row combination
+on the eight large pivots with support `9` or less. Future proof work should
+focus either on explaining the support-10 row itself, or on bringing in
+additional non-large pivot rows rather than expecting the large-pivot row span
+alone to expose a smaller circuit.
+
+### Exact Scope
+
+This is an exact finite audit of the eight primitive signed reservoir rows
+from Cycle 596. It depends on the recorded fixed-order
+`C29_sidon_1_3_7_15` certificate, the Cycle 588 equality-balance contraction,
+the Cycle 592 deterministic min-fill trace, and the Cycle 594 reservoir. It
+does not classify other pivot rules, other certificates, other cyclic orders,
+other selected-witness patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+Treat the support-10 row as a named object and try to explain it directly.
+The narrow next question is whether the 10 components in
+
+```text
+16, 25, 26, 45, 65, 75, 79, 82, 84, 108
+```
+
+have a geometric or quotient-class meaning in the original C29 certificate, or
+whether adding one or two nearby non-large pivot rows can reduce this support
+further.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-597`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-597`.
+- The branch was based on `origin/main` at
+  `637e1212c2f1a6a468db8cac976740f85e3c9bde`, after PR #274 merged Cycle
+  596.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 reservoir row-span support audit: passed, with digest
+  `0e6807d1c2d13de38150294b360fe15f773f1d8459a1dbce9cbad3e92478f024`.
+- The first exhaustive script was interrupted after the exact result was
+  obtained because an unnecessary coefficient-box tail beyond `B=3` would
+  have been too expensive. The resumed audit completed the exact lower-rank
+  closure checks recorded above.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_text_clean.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_status_consistency.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_artifact_provenance.py`:
+  passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 683.62s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 596 - C29 Reservoir Signed Strata
 
 ### Mathematical Subquestion
