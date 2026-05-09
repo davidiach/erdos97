@@ -22947,6 +22947,254 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 607 - C29 Support-10 Five-Row Comparison
+
+### Mathematical Subquestion
+
+Cycle 606 added a three-row support-`10` label-7-free witness to the four
+two-row support-`10` witnesses from Cycle 602. The next narrow question was:
+
+Do the five known support-`10` label-7-free rows in the Cycle 592 C29
+min-fill trace share a sharper signed quotient-residual or component-support
+normal form than the broad label-7 deletion signal?
+
+### Definitions and Assumptions
+
+Use the recorded fixed-order `C29_sidon_1_3_7_15` certificate, the Cycle 588
+equality-balance contraction, and the Cycle 592 deterministic min-fill trace.
+The audit reconstructs the selected-distance quotient, the `50` two-row
+balance classes, the `115` equality components, and the `114` min-fill pivot
+rows exactly over the rationals.
+
+The five rows compared are:
+
+```text
+P93_99       = r_93 + r_99
+P100_101     = r_100 - r_101
+P103_105     = r_103 - (2/53) r_105
+P104_105     = r_104 + (41/265) r_105
+T102_104_103 = 6 r_102 - 10 r_104 - 35 r_103
+```
+
+Each vector is then cleared to a primitive integer component vector. For a
+component vector `u`, its **raw quotient footprint** is the union of the
+selected-distance quotient classes touched by components in `supp(u)`. Its
+**signed quotient residual** is
+
+```text
+R(u) = sum_C u_C sigma(C),
+```
+
+where `sigma(C)` is the signed contracted component column over quotient
+classes.
+
+### Result Status
+
+Finite correction plus finite obstruction:
+**C29 Three-Row Witness Sign Correction** and
+**C29 Support-10 Five-Row Noncompression Obstruction.**
+
+The exact reconstruction reproduced the previous checkpoints:
+
+```text
+equality components:           115
+two-row balance classes:        50
+nonzero contracted equations:  115
+rational min-fill rank:        114
+pivot-support histogram:       2:6, 3:40, 4:19, 5:11, 6:8,
+                               7:10, 8:3, 9:5, 10:4, 11:6, 13:2
+```
+
+The audit also corrected the Cycle 606 coefficient sign. With the same
+unnormalized min-fill row scaling used in Cycles 602 through 605, the
+three-row support-`10` witness is
+
+```text
+6 r_102 - 10 r_104 - 35 r_103,
+```
+
+not `6 r_102 - 10 r_104 + 35 r_103`. Equivalently, after normalizing the
+`r_103` coefficient to `1`, one may write
+
+```text
+(-6/35, 2/7, 1)
+```
+
+on `(r_102,r_104,r_103)`. The displayed primitive support vector from Cycle
+606 remains correct:
+
+```text
+6:12 16:12 21:-16 25:2 45:-15 75:6 79:11 84:-7 94:4 108:-9
+```
+
+The five support-`10` vectors have common component intersection
+
+```text
+16, 79, 84, 108
+```
+
+and union
+
+```text
+6, 16, 21, 25, 26, 33, 45, 54, 65, 75, 79, 82, 84, 94, 108.
+```
+
+Thus they all lie in a `15`-component subreservoir of the Cycle 594
+`23`-component large-pivot reservoir, but they do not share the stronger
+six-component core of the four two-row witnesses. The component-frequency
+histogram across the five rows is:
+
+```text
+5: 16, 79, 84, 108
+4: 26, 45, 65
+3: 6, 21, 25, 94
+2: 75, 82
+1: 33, 54
+```
+
+The profile table is:
+
+```text
+row             raw  residual  missing labels  kind histogram  component sizes
+P93_99           44        42   7               K1:10 K2:11     1:2 2:5 3:3
+P100_101         47        47   7               K1:10 K2:13     1:2 2:4 3:3 4:1
+P103_105         45        45   7               K1:10 K2:11     1:2 2:5 3:3
+P104_105         46        46   7,24            K1:11 K2:12     1:2 2:4 3:3 4:1
+T102_104_103     52        52   7               K1:9  K2:13     1:2 2:5 3:2 4:1
+```
+
+The signed residual `L1` norms and max coefficients were:
+
+```text
+P93_99          L1 82    max 7
+P100_101        L1 150   max 8
+P103_105        L1 3114  max 230
+P104_105        L1 8104  max 428
+T102_104_103    L1 492   max 28
+```
+
+The pairwise component-support intersections with the new three-row witness
+are:
+
+```text
+P93_99       with T102_104_103: 5 components, 16,79,84,94,108
+P100_101     with T102_104_103: 7 components, 16,25,45,75,79,84,108
+P103_105     with T102_104_103: 8 components, 6,16,21,45,79,84,94,108
+P104_105     with T102_104_103: 8 components, 6,16,21,25,45,79,84,108
+```
+
+The exact five-row comparison digest was:
+
+```text
+8f38b65ec637f2f287da3001575666bdf454036a6f82653031c778990d621014
+```
+
+### Argument
+
+The audit reconstructs the selected-distance quotient and the equality
+components from the certificate itself. It then reruns the deterministic
+min-fill elimination without normalizing pivot rows, matching the row scaling
+used by the Cycle 602 pair scalars. This replay reproduces the logged supports
+for steps `90` through `105` and reproduces all four Cycle 602 primitive
+support-`10` vectors exactly.
+
+Applying the Cycle 606 printed coefficients with a positive `35 r_103` term
+does not yield the displayed support-`10` vector. Solving the exact label-7
+cancellation equation for `(r_102,r_104,r_103)` and then imposing coordinate
+cancellation gives the support-`10` representative with coefficients
+`(6,-10,-35)`. The same calculation gives the displayed primitive component
+vector, so the mathematical witness survives but its recorded coefficient sign
+needed correction.
+
+The profile table gives a finite obstruction to a strong common-profile
+explanation. All five rows delete label `7` from their signed residuals and
+share four components, but the new three-row witness has a larger raw and
+signed residual footprint (`52` classes), a different Kalmanson kind histogram
+(`K1:9, K2:13`), and lacks components `26` and `65`, which were part of the
+six-component common core of the four two-row witnesses.
+
+### Effect on the Attack
+
+The sign correction is important for reproducibility: future audits should use
+`6 r_102 - 10 r_104 - 35 r_103` or the normalized form
+`(-6/35, 2/7, 1)`.
+
+The comparison weakens the hope that the known support-`10` rows are explained
+by one sharper signed-residual footprint or a single component-profile class.
+The robust shared facts in this fixed certificate are now:
+
+```text
+support size 10;
+label 7 deleted from the signed residual;
+membership in the Cycle 594 reservoir;
+common four-component core 16,79,84,108.
+```
+
+Those facts are still proof-facing clues, but they are not enough to isolate a
+unique row or a short normal form.
+
+### Exact Scope
+
+This is an exact finite comparison of the five currently recorded
+support-`10` label-7-free rows in the Cycle 592 deterministic min-fill trace
+for the fixed-order `C29_sidon_1_3_7_15` certificate after the Cycle 588
+equality-balance contraction.
+
+It does not classify other support-`10` vectors, spans involving two
+non-large pivots, more than three rows, other labels, other pivot rules, other
+C29 cyclic orders, arbitrary C19/C29 patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Treat the four-component core
+
+```text
+16, 79, 84, 108
+```
+
+as the next named object. The narrow next subquestion is whether every
+label-7-free support-`10` vector in nearby two- and three-row spans must
+contain this core, or whether a sixth exact support-`10` vector breaks it.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-607`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-607`.
+- The branch was based on `origin/main` at
+  `3da18a08c53abf7b74017160f05824bb8052585a`, after PR #284 merged Cycle
+  606.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 five-row support-`10` comparison audit: passed, with
+  digest
+  `8f38b65ec637f2f287da3001575666bdf454036a6f82653031c778990d621014`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 682.40s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 606 - C29 Free Three-Row Large-Large-Nonlarge Spans
 
 ### Mathematical Subquestion
@@ -23088,13 +23336,13 @@ One normalized coefficient vector on
 is
 
 ```text
-(6/35, -2/7, 1).
+(6/35, -2/7, -1).
 ```
 
 Equivalently, a primitive integer coefficient vector is
 
 ```text
-(6, -10, 35).
+(6, -10, -35).
 ```
 
 After rescaling the resulting row, its primitive support vector is
@@ -23182,7 +23430,7 @@ Compare all known support-`10` label-7-free rows in the C29 trace, now
 including the new three-row witness
 
 ```text
-(102,104,103) with coefficients (6, -10, 35),
+(102,104,103) with coefficients (6, -10, -35),
 ```
 
 against the four two-row support-`10` rows from Cycle 602. The useful
