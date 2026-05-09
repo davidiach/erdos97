@@ -22947,6 +22947,150 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 621 - T04/F13 Local Self-Edge Proof Note
+
+### Mathematical Subquestion
+
+The `n=9` vertex-circle self-edge template packet contains six unpromoted
+self-edge templates after the existing `T01`, `T02`, and `T03` proof notes.
+The smallest remaining packet is `T04/F13`, covering two assignments. The
+narrow question for this cycle was:
+
+Can the T04/F13 self-edge packet be restated as a standalone local lemma whose
+contradiction follows directly from selected-distance equalities and
+vertex-circle monotonicity, without invoking the exhaustive `n=9` brancher?
+
+### Definitions and Assumptions
+
+For a selected row `S_c`, all distances `d(c,x)` with `x in S_c` are equal.
+Work in a strictly convex polygon with labels in cyclic order
+
+```text
+0,1,2,3,4,5,6,7,8.
+```
+
+The T04/F13 local core consists of the four selected rows
+
+```text
+S_0 = {1,2,5,7}
+S_1 = {2,3,6,8}
+S_3 = {1,4,5,8}
+S_5 = {1,3,6,7}.
+```
+
+Use the standard vertex-circle monotonicity fact: if several selected
+witnesses lie on one circle centered at a polygon vertex, then nested witness
+chords in the radial order around that center have strictly increasing
+ordinary length.
+
+### Result Status
+
+Proved local lemma:
+**T04/F13 Four-Row Self-Edge Lemma**.
+
+The four displayed rows are impossible in the stated cyclic order.
+
+### Argument
+
+The selected rows force the equality chain
+
+```text
+d(1,5) = d(3,5)      from row 5,
+d(3,5) = d(1,3)      from row 3,
+d(1,3) = d(1,2)      from row 1.
+```
+
+Hence
+
+```text
+d(1,5) = d(1,2).
+```
+
+But row `0` has witness order
+
+```text
+1,2,5,7.
+```
+
+In a strictly convex polygon, rays from a vertex to the other vertices occur
+in cyclic order inside an angle smaller than `pi`. Since the row-`0`
+witnesses lie on a common circle centered at `0`, the chord `[1,5]` strictly
+contains `[1,2]` in that witness order. Therefore
+
+```text
+d(1,5) > d(1,2),
+```
+
+contradicting the equality chain. In quotient-graph language, the selected
+distance equalities identify `[1,5]` and `[1,2]`, while row `0` orients a
+strict edge from that quotient class to itself.
+
+### Exact Scope
+
+This is a local obstruction lemma for the four displayed selected rows in the
+stated cyclic order. It is independent of the exhaustive brancher once those
+rows are given.
+
+It does not prove the full `n=9` finite case, because the review-pending
+exhaustive checker is still needed to show that every `n=9` frontier
+assignment contains a recorded local obstruction template. It does not prove
+Erdos Problem #97 and does not give a counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-t04-self-edge-lemma.md`
+- `docs/index.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect on the Attack
+
+This extends proof-note consolidation from the first three self-edge templates
+to the next smallest remaining self-edge template. The proof uses the same
+mechanism as the earlier self-edge notes: a selected-distance equality path
+returns an outer and inner row-circle chord to the same quotient class, while
+vertex-circle monotonicity orients a strict self-edge. This strengthens the
+local lemma catalog, but it does not bridge arbitrary selected-witness
+systems to the catalog.
+
+### Next Lead
+
+Continue with one of the 18-assignment self-edge templates `T05` through
+`T09`, or look for a schematic statement covering the repeated four-row
+selected-path self-edge mechanism shared by `T03` and `T04`.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-621`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-621`.
+- The branch was based on `origin/main` at commit
+  `31591afd1d7f8715932d82ca811ff826c733b99a`, after PR #311 merged Cycle
+  620.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `python scripts/check_n9_vertex_circle_self_edge_template_packet.py --check
+  --assert-expected --json`: passed; the packet reports `T04: 2`,
+  self-edge template count `9`, and no validation errors.
+- `python scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+  --assert-expected --json`: passed; the catalog reports 184 covered
+  assignments, 12 templates, and no validation errors.
+- `python scripts/check_text_clean.py`: passed.
+- `python scripts/check_status_consistency.py`: passed.
+- `python scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `python -m ruff check .`: passed.
+- `python -m pytest -q`: passed, `534 passed, 275 deselected in 69.65s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 620 - T12/F16 Local Strict-Cycle Proof Note
 
 ### Mathematical Subquestion
