@@ -21,6 +21,7 @@ from scripts.check_n9_row_ptolemy_family_signatures import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.artifact
 
 
 def test_row_ptolemy_family_signature_artifact_counts_and_scope() -> None:

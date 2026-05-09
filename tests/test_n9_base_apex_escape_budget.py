@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_n9_base_apex_escape_budget import (
     DEFAULT_ARTIFACT,
     load_artifact,
@@ -14,6 +16,7 @@ from scripts.check_n9_base_apex_escape_budget import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.artifact
 
 
 def test_escape_budget_artifact_passes_independent_checker() -> None:

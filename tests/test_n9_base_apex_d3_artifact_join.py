@@ -6,6 +6,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+import pytest
+
 from erdos97.n9_base_apex_d3_artifact_join import (
     EXPECTED_CLAIM_SCOPE,
     cloned_artifacts,
@@ -16,6 +18,7 @@ from erdos97.n9_base_apex_d3_artifact_join import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.artifact
 
 
 def load_default_stack() -> tuple[dict[str, Path], dict[str, Any]]:

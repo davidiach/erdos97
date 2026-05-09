@@ -72,6 +72,8 @@ def test_c19_prefix_window_sweep_artifact_summary() -> None:
     assert [len(row["fifth_pair_survivor_labels"]) for row in windows] == [0, 0, 0, 0, 0]
 
 
+@pytest.mark.artifact
+@pytest.mark.slow
 def test_c19_prefix_window_sweep_small_replay() -> None:
     payload = run_script("--window-count", "1", "--json")
 

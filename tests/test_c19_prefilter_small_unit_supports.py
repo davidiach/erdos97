@@ -7,6 +7,8 @@ import pathlib
 import subprocess
 import sys
 
+import pytest
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "analyze_c19_prefilter_small_unit_supports.py"
 ARTIFACT = ROOT / "reports" / "c19_prefilter_small_unit_support_search.json"
@@ -53,6 +55,8 @@ def test_c19_prefilter_small_unit_support_artifact_summary() -> None:
     )
 
 
+@pytest.mark.artifact
+@pytest.mark.slow
 def test_c19_prefilter_small_unit_support_replay_matches_artifact() -> None:
     payload = run_script("--assert-expected", "--json")
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))

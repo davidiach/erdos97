@@ -52,6 +52,8 @@ def test_c13_third_pair_refinement_artifact_summary() -> None:
     assert unclosed[-1]["parent_label"] == "partial_branch_5284"
 
 
+@pytest.mark.artifact
+@pytest.mark.slow
 def test_c13_third_pair_refinement_small_replay() -> None:
     payload = run_script(
         "--max-parents",

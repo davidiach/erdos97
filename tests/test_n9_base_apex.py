@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
+
 from erdos97.n9_base_apex import (
     base_apex_slack,
     canonical_deficit_placement,
@@ -275,6 +277,7 @@ def test_low_excess_ledger_report_records_unresolved_counts() -> None:
     assert "No proof of the n=9 case is claimed." in report["notes"]
 
 
+@pytest.mark.artifact
 def test_escape_budget_report_records_budget_compatible_escape_counts() -> None:
     report = escape_budget_report()
 
@@ -328,6 +331,7 @@ def test_escape_budget_report_records_budget_compatible_escape_counts() -> None:
     assert "No proof of the n=9 case is claimed." in report["interpretation"]
 
 
+@pytest.mark.artifact
 def test_checked_low_excess_ledger_artifact_matches_generator() -> None:
     repo = Path(__file__).resolve().parents[1]
     artifact = repo / "data" / "certificates" / "n9_base_apex_low_excess_ledgers.json"
@@ -337,6 +341,7 @@ def test_checked_low_excess_ledger_artifact_matches_generator() -> None:
     assert payload == low_excess_ledger_report()
 
 
+@pytest.mark.artifact
 def test_checked_escape_budget_artifact_matches_generator() -> None:
     repo = Path(__file__).resolve().parents[1]
     artifact = repo / "data" / "certificates" / "n9_base_apex_escape_budget_report.json"

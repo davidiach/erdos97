@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_n9_base_apex_d3_escape_frontier_packet import (
     EXPECTED_CLAIM_SCOPE,
     EXPECTED_INTERPRETATION,
@@ -15,6 +17,7 @@ from scripts.check_n9_base_apex_d3_escape_frontier_packet import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.artifact
 
 
 def test_expected_d3_escape_frontier_packet_counts_are_pinned() -> None:

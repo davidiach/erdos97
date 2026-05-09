@@ -60,17 +60,36 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv)
-    payload = p19_incidence_capacity_pilot_report()
-    if args.assert_expected:
-        assert_expected_pilot_counts(payload)
-
+    checked = None
+    artifact = None
     if args.check_artifact is not None:
         artifact = (
             args.check_artifact
             if args.check_artifact.is_absolute()
             else ROOT / args.check_artifact
         )
-        checked = load_json(artifact)
+        try:
+            checked = load_json(artifact)
+        except OSError as exc:
+            print(
+                "FAILED: could not load "
+                f"{display_path(artifact, ROOT)}: {exc}",
+                file=sys.stderr,
+            )
+            return 1
+        except json.JSONDecodeError as exc:
+            print(
+                "FAILED: could not parse "
+                f"{display_path(artifact, ROOT)} as JSON: {exc}",
+                file=sys.stderr,
+            )
+            return 1
+
+    payload = p19_incidence_capacity_pilot_report()
+    if args.assert_expected:
+        assert_expected_pilot_counts(payload)
+
+    if checked is not None:
         if checked != payload:
             print(
                 f"FAILED: generated payload differs from {display_path(artifact, ROOT)}",

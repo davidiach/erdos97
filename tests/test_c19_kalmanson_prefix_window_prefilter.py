@@ -7,6 +7,8 @@ import pathlib
 import subprocess
 import sys
 
+import pytest
+
 from c19_replay_helpers import assert_c19_replay_matches_artifact
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -68,6 +70,8 @@ def test_c19_prefilter_window_288_319_artifact_summary() -> None:
     }
 
 
+@pytest.mark.artifact
+@pytest.mark.slow
 def test_c19_prefilter_window_288_319_replay_matches_artifact() -> None:
     payload = run_script(
         "--start-index",
@@ -122,6 +126,8 @@ def test_c19_prefilter_window_320_351_artifact_summary() -> None:
     ]
 
 
+@pytest.mark.artifact
+@pytest.mark.slow
 def test_c19_prefilter_window_320_351_replay_matches_artifact() -> None:
     payload = run_script(
         "--start-index",
@@ -171,6 +177,8 @@ def test_c19_prefilter_window_352_383_artifact_summary() -> None:
     ]
 
 
+@pytest.mark.artifact
+@pytest.mark.slow
 def test_c19_prefilter_window_352_383_replay_matches_artifact() -> None:
     payload = run_script(
         "--start-index",
@@ -223,6 +231,8 @@ def test_c19_prefilter_window_384_415_artifact_summary() -> None:
     ]
 
 
+@pytest.mark.artifact
+@pytest.mark.slow
 def test_c19_prefilter_window_384_415_replay_matches_artifact() -> None:
     payload = run_script(
         "--start-index",
@@ -279,6 +289,8 @@ def test_c19_prefilter_window_416_447_artifact_summary() -> None:
     ]
 
 
+@pytest.mark.artifact
+@pytest.mark.slow
 def test_c19_prefilter_window_416_447_replay_matches_artifact() -> None:
     payload = run_script(
         "--start-index",
@@ -323,6 +335,8 @@ def test_c19_prefilter_window_448_479_artifact_summary() -> None:
     ]
 
 
+@pytest.mark.artifact
+@pytest.mark.slow
 def test_c19_prefilter_window_448_479_replay_matches_artifact() -> None:
     payload = run_script(
         "--start-index",

@@ -22,6 +22,7 @@ from scripts.check_n9_selected_baseline_d3_escape_class_crosswalk import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.artifact
 
 
 def test_selected_baseline_d3_crosswalk_artifact_is_nonclaiming() -> None:

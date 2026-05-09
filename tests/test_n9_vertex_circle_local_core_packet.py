@@ -18,6 +18,7 @@ from scripts.check_n9_vertex_circle_local_core_packet import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.artifact
 
 
 def test_local_core_packet_artifact_counts_and_scope() -> None:

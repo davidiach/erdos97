@@ -21,6 +21,7 @@ from scripts.check_n9_row_ptolemy_order_sensitivity import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.artifact
 
 
 def test_row_ptolemy_order_sensitivity_artifact_scope() -> None:

@@ -1,6 +1,6 @@
 PYTHON ?= python
 
-.PHONY: verify-lint verify-fast verify-n8 verify-kalmanson verify-n9-review verify-n10-review verify-artifacts audit-artifacts verify-all
+.PHONY: verify-lint verify-fast verify-pytest-artifacts verify-pytest-all verify-n8 verify-kalmanson verify-n9-review verify-n10-review verify-artifacts audit-artifacts verify-all
 
 verify-lint:
 	$(PYTHON) scripts/check_text_clean.py
@@ -11,6 +11,12 @@ verify-lint:
 
 verify-fast: verify-lint
 	$(PYTHON) -m pytest -q
+
+verify-pytest-artifacts:
+	$(PYTHON) -m pytest -q -m "artifact"
+
+verify-pytest-all:
+	$(PYTHON) -m pytest -q -o addopts=
 
 verify-n8:
 	$(PYTHON) scripts/independent_check_n8_artifacts.py --check --json

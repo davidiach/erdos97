@@ -78,6 +78,7 @@ def test_c19_sampled_fourth_pair_refinement_artifact_summary() -> None:
     assert first["certificate_summary"]["forced_inequalities_available"] == 1932
 
 
+@pytest.mark.artifact
 def test_c19_sampled_fourth_pair_refinement_small_replay() -> None:
     payload = run_script(
         "--max-parents",
