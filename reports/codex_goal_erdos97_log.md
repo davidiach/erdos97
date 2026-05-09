@@ -22947,6 +22947,199 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 593 - C29 Min-Fill Trace Ancestry
+
+### Mathematical Subquestion
+
+Cycle 592 found a sparse modular min-fill elimination certificate for the
+rank-114 property of the contracted C29 balance matrix. The next proof-facing
+question is whether that sparse trace is also local in its ancestry: are the
+pivot rows built from only a few original contracted equations, or do they
+quickly become global combinations?
+
+### Definitions and Assumptions
+
+Use the Cycle 588 equality-balance contraction and the Cycle 589 contracted
+balance matrix `A=(a(Q,C))`, reconstructed from
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`.
+
+For a modular elimination over `F_p`, each active row is a linear combination
+of the original 115 contracted equations. The **pivot support** of a row is
+the number of nonzero component-column entries in the active row. The
+**ancestry support** is the number of original contracted equations with
+nonzero coefficient in that active row's linear-combination expression.
+
+### Result Status
+
+Finite refinement and obstruction:
+**C29 Sparse-Row Dense-Ancestry Obstruction**.
+
+The min-fill trace from Cycle 592 was replayed over
+
+```text
+1000003, 1000033, 1000037.
+```
+
+For all three primes, the trace statistics were identical:
+
+```text
+rank:                         114
+max pivot support:             13
+max ancestry support:         114
+max active ancestry support:  114
+```
+
+The pivot-support histogram remained:
+
+```text
+2: 6
+3: 40
+4: 19
+5: 11
+6: 8
+7: 10
+8: 3
+9: 5
+10: 4
+11: 6
+13: 2
+```
+
+The ancestry-support histogram was:
+
+```text
+1: 48
+2: 20
+3: 2
+4: 5
+5: 6
+6: 1
+7: 3
+8: 1
+9: 1
+11: 3
+12: 1
+13: 2
+14: 1
+16: 1
+22: 1
+26: 1
+28: 1
+31: 1
+33: 1
+39: 1
+45: 1
+51: 1
+80: 1
+93: 1
+96: 1
+100: 1
+102: 1
+106: 1
+107: 1
+109: 1
+110: 1
+111: 1
+114: 1
+```
+
+The final 20 ancestry supports were:
+
+```text
+7, 8, 28, 31, 33, 45, 51, 26, 80, 39,
+93, 100, 96, 102, 106, 107, 109, 110, 111, 114
+```
+
+The exact min-fill trace ancestry audit digest was:
+
+```text
+c2d4e6272780b30aa5d647a20f840799033daad755f2411d8bb20d161c7786de
+```
+
+### Argument
+
+The audit reconstructs the contracted matrix exactly, then reruns the same
+deterministic min-fill pivot rule from Cycle 592. In addition to each active
+row over component columns, it carries an ancestry vector over the original
+contracted equations and applies the same finite-field row operations to both
+vectors.
+
+The row side remains sparse: the largest pivot row has only 13 nonzero
+component-column entries. However, the ancestry side becomes global. The last
+pivot row has only 2 component entries but has nonzero ancestry coefficient
+on 114 original equations. The same ancestry histogram and top pivot records
+occur for all three checked primes.
+
+Thus Cycle 592's min-fill certificate is a sparse rank certificate in the row
+support sense, but not a local certificate in the original-equation ancestry
+sense.
+
+### Effect on the Attack
+
+This prevents an overoptimistic interpretation of the sparse modular
+certificate. It is promising because the active rows stay small, but it does
+not immediately translate into a short hand proof by naming a few original
+balance equations: the late pivots are global linear combinations.
+
+The next proof-facing task should therefore mine the pivot rows themselves,
+not merely their ancestry. A human-readable certificate might still exist if
+the sparse pivot rows have a quotient-pattern normal form, even though their
+derivation ancestry is dense.
+
+### Exact Scope
+
+This is an exact finite audit of the recorded fixed-order
+`C29_sidon_1_3_7_15` Kalmanson certificate after the Cycle 588
+equality-balance contraction. The ancestry statements concern only the
+deterministic min-fill elimination trace on the resulting 115-by-115
+contracted balance matrix over the listed primes. They do not classify other
+certificates, other cyclic orders, other selected-witness patterns, or
+geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Next Lead
+
+Classify the sparse pivot rows by their component-column support patterns,
+especially the rows with pivot support 11 and 13. If those pivot rows collapse
+under a quotient or sign normal form, the dense ancestry may still hide a
+short presentable rank certificate.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-593`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-593`.
+- The branch was based on `origin/main` at
+  `93c7152daa52d980d46fb6e4e0acad6cdd11a549`, after PR #269 merged Cycle
+  592.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 min-fill trace ancestry audit: passed, with digest
+  `c2d4e6272780b30aa5d647a20f840799033daad755f2411d8bb20d161c7786de`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_text_clean.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_status_consistency.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_artifact_provenance.py`:
+  passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 682.24s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 592 - C29 Sparse Modular Elimination Certificate
 
 ### Mathematical Subquestion
