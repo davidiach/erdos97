@@ -47,13 +47,19 @@ These came from the n=39 degeneracy review. They are not claims of geometric
 realizability; they are examples of incidence families designed to avoid the
 row-overlap failure that killed the n=39 branch.[^n39]
 
+The checked cleanup artifact
+`data/certificates/speculative_circulant_frontier_obstructions.json` records
+one exact abstract-incidence kill and three natural-order diagnostics for this
+group. The C41, C43, and C49 observations below are fixed-natural-order only;
+they do not rule out arbitrary cyclic orders for the same abstract selected
+witness patterns.
+
 | Rank | Name | n | Formula | Type | Current status |
 |---:|---|---:|---|---|---|
-| 11 | `C41_offsets_5_14_24_34` | 41 | offsets `{5,14,24,34}` | prime cyclic | speculative incidence source |
-| 12 | `C43_offsets_6_15_27_36` | 43 | offsets `{6,15,27,36}` | prime cyclic | speculative incidence source |
-| 13 | `C45_offsets_4_13_25_37` | 45 | offsets `{4,13,25,37}` | Sidon-type cyclic | speculative incidence source |
-| 14 | `C49_offsets_5_16_29_41` | 49 | offsets `{5,16,29,41}` | Sidon-type cyclic | speculative incidence source |
-| 15 | `R44_four_lift_2_4_7_9` | 44 | `S_{4g+r}={4(g+a_t)+((r+t) mod 4): t=0..3}`, `a=(2,4,7,9)` | residue-rotating | speculative incidence source |
+| 11 | `C41_offsets_5_14_24_34` | 41 | offsets `{5,14,24,34}` | prime cyclic | speculative abstract-order incidence source; natural-order status: killed by the two-overlap crossing rule |
+| 12 | `C43_offsets_6_15_27_36` | 43 | offsets `{6,15,27,36}` | prime cyclic | speculative abstract-order incidence source; natural-order status: killed by the two-overlap crossing rule |
+| 13 | `C49_offsets_5_16_29_41` | 49 | offsets `{5,16,29,41}` | Sidon-type cyclic | speculative abstract-order incidence source; natural-order status: killed by the vertex-circle strict-cycle filter |
+| 14 | `R44_four_lift_2_4_7_9` | 44 | `S_{4g+r}={4(g+a_t)+((r+t) mod 4): t=0..3}`, `a=(2,4,7,9)` | residue-rotating | speculative incidence source |
 
 ## Archived / killed patterns
 
@@ -68,6 +74,7 @@ row-overlap failure that killed the n=39 branch.[^n39]
 | A7 | `C16_pm_1_6` | 16 | offsets `{-6,-1,1,6}` | palindromic circulant | exactly killed by mutual-rhombus midpoint equations; parity collapse |
 | A8 | `C13_pm_3_5` | 13 | offsets `{-5,-3,3,5}` | palindromic circulant | exactly killed by mutual-rhombus midpoint equations; all labels collapse |
 | A9 | `C9_pm_2_4` | 9 | offsets `{-4,-2,2,4}` | palindromic circulant | exactly killed by mutual-rhombus midpoint equations; all labels collapse |
+| A10 | `C45_offsets_4_13_25_37` | 45 | offsets `{4,13,25,37}` | Sidon-type cyclic | exactly killed as a fixed abstract selected-witness incidence pattern: rows `0` and `12` share three witnesses `{4,25,37}`, violating the two-circle cap |
 
 [^repo]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md`.
 [^comp]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/04_COMPUTATIONAL_FINDINGS.md`.
