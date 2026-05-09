@@ -22947,6 +22947,215 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 608 - C29 Nearby Three-Row Support-9 Escape
+
+### Mathematical Subquestion
+
+Cycle 607 isolated a four-component core
+
+```text
+16, 79, 84, 108
+```
+
+common to the five then-known support-`10` label-7-free vectors in the Cycle
+592 C29 min-fill trace. The next narrow question was:
+
+Among all triples of nearby min-fill pivot rows with indices `90` through
+`105`, does every all-three label-7-free support-`10` vector contain this
+four-component core, or does a sixth nearby vector break it?
+
+### Definitions and Assumptions
+
+Use the recorded fixed-order `C29_sidon_1_3_7_15` certificate, the Cycle 588
+equality-balance contraction, and the Cycle 592 deterministic min-fill trace.
+The audit reconstructs the selected-distance quotient, the `50` two-row
+balance classes, the `115` equality components, and the `114` min-fill pivot
+rows exactly over the rationals.
+
+For a component vector `u`, write
+
+```text
+R(u) = sum_C u_C sigma(C),
+```
+
+where `sigma(C)` is the signed contracted component column over selected-
+distance quotient classes. A vector is **label-7-free** when no quotient class
+with nonzero coefficient in `R(u)` contains label `7`.
+
+For a triple of pivot rows `(r_i,r_j,r_k)`, the audit considers combinations
+
+```text
+a r_i + b r_j + c r_k
+```
+
+with `a,b,c` all nonzero. It first solves the exact linear equations forcing
+label `7` to disappear from `R(u)`, then enumerates coordinate hyperplane
+candidates exactly to minimize component support within that label-free
+subspace.
+
+### Result Status
+
+Counterexample to subclaim, plus finite obstruction:
+**C29 Nearby Three-Row Support-9 Escape** and
+**C29 Four-Component Core Breaker Obstruction**.
+
+The all-three audit over the `560` triples from steps `90` through `105`
+reported:
+
+```text
+triples tested:             560
+label-free nullity:         0:132, 1:320, 2:107, 3:1
+no all-three representative: 473
+best-support histogram:     9:1, 10:3, 11:15, 12:16, 13:17,
+                            14:18, 15:13, 16:3, 17:1
+support <= 10 count:          4
+support < 10 count:           1
+four-component core breakers: 3
+```
+
+The support-`9` escape is:
+
+```text
+triple:   (103,104,105)
+coeffs:   (-13/9, 55/9, 1)
+support:  9
+core:     false
+vector:   6:18 16:24 21:-23 25:55 26:-39 45:-24 79:-2 84:-68 94:26
+```
+
+This breaks both the Cycle 607 four-component-core conjecture and the broader
+nearby all-three support-floor-`10` intuition. It is label-7-free but omits
+component `108`, so it does not contain the core
+`{16,79,84,108}`.
+
+The four support-`<=10` all-three vectors in the window are:
+
+```text
+triple         support  coeffs                     core  vector
+(103,104,105)       9   (-13/9,55/9,1)             no    6:18 16:24 21:-23 25:55 26:-39 45:-24 79:-2 84:-68 94:26
+(93,104,105)       10   (-6,5,1)                   no    6:4 21:5 25:5 26:-3 33:6 45:-4 65:-2 75:-6 79:14 84:-10
+(98,104,105)       10   (-116/41,265/41,1)         no    6:132 16:26 21:-7 25:33 26:115 45:26 65:-52 69:116 84:-162 108:80
+(102,103,104)      10   (-3/5,7/2,1)               yes   6:12 16:12 21:-16 25:2 45:-15 75:6 79:11 84:-7 94:4 108:-9
+```
+
+Here `(102,103,104)` is the same primitive support vector as Cycle 606/607,
+with the coefficients normalized differently from the Cycle 607
+`(6,-35,-10)` ordering convention.
+
+The profile audit for these four rows gives:
+
+```text
+row             raw  residual  missing labels  kind histogram  component sizes       L1    max
+S103_104_105     45        45   7               K1:8  K2:12    1:2 2:4 3:2 4:1  1400     70
+S93_104_105      44        44   7               K1:11 K2:11    1:2 2:5 3:2 4:1   292     17
+S98_104_105      47        47   7,24            K1:12 K2:10    1:2 2:5 3:2 4:1  4202    277
+S102_103_104     52        52   7               K1:9  K2:13    1:2 2:5 3:2 4:1   492     28
+```
+
+The all-three support audit digest was:
+
+```text
+3a083234da14229a02b6559308f44c06aa64159fae9394a5d285def5ef679500
+```
+
+The support-profile digest was:
+
+```text
+b32175f8ff936c70909cc98100cfb12fcaa41fe647324c05e15557b812fd1473
+```
+
+### Argument
+
+The audit is finite exact rational linear algebra on the reconstructed C29
+contracted balance system. For each triple of nearby pivot rows, the
+label-7-free condition is a homogeneous rational linear system in the three
+row coefficients. Triples with no representative using all three coefficients
+are discarded. For the remaining `87` triples, the audit enumerates candidate
+coordinate cancellations inside the label-free subspace and records the
+minimum component support found with all three coefficients nonzero.
+
+The displayed `(103,104,105)` vector is an exact rational combination of three
+reconstructed pivot rows. Its primitive component vector has support `9`, and
+direct multiplication by the contracted component columns gives a signed
+quotient residual with `45` nonzero quotient classes and no class incident to
+label `7`. Since its support does not contain component `108`, it is an exact
+finite counterexample to the Cycle 607 core subclaim.
+
+The three other support-`<=10` vectors show that the core failure is not a
+single accident of the support-`9` row: two additional support-`10` all-three
+vectors also miss at least one component of `{16,79,84,108}`.
+
+### Effect on the Attack
+
+This closes the Cycle 607 lead negatively. The four-component core is useful
+as a descriptive feature of the first five recorded rows, but it is not forced
+even in the nearby all-three window `90..105`.
+
+The result also changes the local C29 target. The next proof-facing question
+is no longer to explain a support-floor-`10` phenomenon. The sharper target is
+the support-`9` row itself: why does the consecutive triple `(103,104,105)`
+drop one component lower, and can this mechanism either be pushed to
+support `<=8` or proved to stop at `9` in the nearby all-three window?
+
+### Exact Scope
+
+This is an exact finite audit of all all-three combinations from triples of
+Cycle 592 min-fill rows with indices `90` through `105`, for the fixed-order
+`C29_sidon_1_3_7_15` certificate after the Cycle 588 equality-balance
+contraction.
+
+It does not classify triples outside this window, two-row combinations,
+four-or-more-row combinations, spans involving other pivot traces, other
+labels, other C29 cyclic orders, arbitrary C19/C29 patterns, or geometric
+counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Analyze the consecutive support-`9` row `(103,104,105)` directly. The most
+useful next finite-theory subquestion is whether every label-7-free all-three
+vector in the nearby window has support at least `9`, or whether a second
+round of exact cancellation exposes support `<=8`.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-608`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-608`.
+- The branch was based on `origin/main` at
+  `28fd8e454fb82a56792bf8ec75329b0336d51588`, after PR #285 merged Cycle
+  607.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 nearby all-three support audit: passed, with digest
+  `3a083234da14229a02b6559308f44c06aa64159fae9394a5d285def5ef679500`.
+- One-off exact C29 support-profile audit: passed, with digest
+  `b32175f8ff936c70909cc98100cfb12fcaa41fe647324c05e15557b812fd1473`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 683.88s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 607 - C29 Support-10 Five-Row Comparison
 
 ### Mathematical Subquestion
