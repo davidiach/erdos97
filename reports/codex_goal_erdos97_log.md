@@ -22947,6 +22947,143 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 616 - R44 Natural-Order Crossing Obstruction
+
+### Mathematical Subquestion
+
+The latest speculative-frontier cleanup left
+`R44_four_lift_2_4_7_9` as the only listed speculative extension without a
+checked obstruction status. The narrow question for this cycle was:
+
+Does the fixed natural cyclic order for `R44_four_lift_2_4_7_9` already
+violate the two-overlap crossing rule?
+
+### Definitions and Assumptions
+
+Work with labels `0,...,43` in their natural cyclic order. Write each label
+as `4g+r`, with `g` modulo `11` and `r` modulo `4`. The residue-rotating
+selected-witness pattern is
+
+```text
+S_{4g+r} = { 4(g+a_t) + ((r+t) mod 4) : t=0,1,2,3 },
+a = (2,4,7,9),
+```
+
+with the group coordinate taken modulo `11`.
+
+Use the standard radical-axis crossing lemma: if two distinct centers `x,y`
+share exactly two selected witnesses `{u,v}`, then in any strictly convex
+realization the source chord `xy` and common-witness chord `uv` must cross.
+Equivalently, in the stated cyclic order their endpoints must alternate.
+
+### Result Status
+
+Exact fixed-natural-order obstruction:
+**R44 Natural-Order Crossing Obstruction**.
+
+The generator-backed certificate records:
+
+```text
+S_0 = {8,17,30,39}
+S_9 = {17,26,39,0}
+S_0 cap S_9 = {17,39}
+```
+
+In the natural cyclic order the relevant endpoints satisfy
+
+```text
+0 < 9 < 17 < 39.
+```
+
+Thus the source chord `{0,9}` and common-witness chord `{17,39}` do not
+alternate. This contradicts the required crossing for a two-witness row
+overlap in a strictly convex realization. Therefore the fixed natural order
+of `R44_four_lift_2_4_7_9` is impossible.
+
+### Argument
+
+The added checker function constructs every row of the residue-rotating
+pattern and verifies each row is a 4-set avoiding its own center. For the
+certifying pair `(0,9)`, it recomputes the two rows above, checks the shared
+witnesses are exactly `{17,39}`, and checks that the source and witness chords
+do not cross in the natural order.
+
+The mathematical contradiction is then immediate from the radical-axis
+crossing lemma. No metric search, floating point geometry, or optimizer output
+is used.
+
+### Effect on the Attack
+
+This closes the fixed-natural-order version of the last speculative extension
+listed in `docs/candidate-patterns.md`. It is useful cleanup because the
+speculative frontier is now uniformly annotated: `C45` has an
+order-independent abstract incidence kill, while `C41`, `C43`, `C49`, and
+`R44` have fixed-natural-order diagnostics.
+
+The result does not solve the more important bridge problem. It does not rule
+out arbitrary cyclic orders for `R44`, and it does not reduce arbitrary
+counterexamples to this speculative family.
+
+### Exact Scope
+
+This is an exact obstruction for the fixed natural cyclic order of the single
+pattern `R44_four_lift_2_4_7_9`.
+
+It does not claim an all-order obstruction for `R44`, does not close the
+speculative frontier, does not prove Erdos Problem #97, and does not give a
+counterexample.
+
+### Files Changed
+
+- `scripts/check_speculative_circulant_frontier_obstructions.py`
+- `data/certificates/speculative_circulant_frontier_obstructions.json`
+- `metadata/generated_artifacts.yaml`
+- `docs/candidate-patterns.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Next Lead
+
+The next proof-facing lead is not more natural-order cleanup. A better
+subquestion is whether any of the fixed-natural-order speculative diagnostics
+can be promoted to all-order constraints, or whether the bridge-first backlog
+tasks around `n=9` vertex-circle templates and minimal fragile covers offer a
+more reusable route.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-616`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-616`.
+- The branch was based on `origin/main` at commit
+  `54e05186f8381eb7d06b7114e276ada8e5d51c1d`, after the speculative
+  circulant frontier cleanup was merged.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_speculative_circulant_frontier_obstructions.py --check --json`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `530 passed, 275 deselected in 69.84s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 615 - C29 Low-Support Gate-Type Split
 
 ### Mathematical Subquestion

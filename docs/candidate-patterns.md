@@ -49,17 +49,17 @@ row-overlap failure that killed the n=39 branch.[^n39]
 
 The checked cleanup artifact
 `data/certificates/speculative_circulant_frontier_obstructions.json` records
-one exact abstract-incidence kill and three natural-order diagnostics for this
-group. The C41, C43, and C49 observations below are fixed-natural-order only;
-they do not rule out arbitrary cyclic orders for the same abstract selected
-witness patterns.
+one exact abstract-incidence kill and four natural-order diagnostics for this
+group. The C41, C43, C49, and R44 observations below are fixed-natural-order
+only; they do not rule out arbitrary cyclic orders for the same abstract
+selected-witness patterns.
 
 | Rank | Name | n | Formula | Type | Current status |
 |---:|---|---:|---|---|---|
 | 11 | `C41_offsets_5_14_24_34` | 41 | offsets `{5,14,24,34}` | prime cyclic | speculative abstract-order incidence source; natural-order status: killed by the two-overlap crossing rule |
 | 12 | `C43_offsets_6_15_27_36` | 43 | offsets `{6,15,27,36}` | prime cyclic | speculative abstract-order incidence source; natural-order status: killed by the two-overlap crossing rule |
 | 13 | `C49_offsets_5_16_29_41` | 49 | offsets `{5,16,29,41}` | Sidon-type cyclic | speculative abstract-order incidence source; natural-order status: killed by the vertex-circle strict-cycle filter |
-| 14 | `R44_four_lift_2_4_7_9` | 44 | `S_{4g+r}={4(g+a_t)+((r+t) mod 4): t=0..3}`, `a=(2,4,7,9)` | residue-rotating | speculative incidence source |
+| 14 | `R44_four_lift_2_4_7_9` | 44 | `S_{4g+r}={4(g+a_t)+((r+t) mod 4): t=0..3}`, `a=(2,4,7,9)` | residue-rotating | speculative abstract-order incidence source; natural-order status: killed by the two-overlap crossing rule |
 
 ## Archived / killed patterns
 

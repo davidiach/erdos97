@@ -19,8 +19,9 @@ TRUST = "EXACT_OBSTRUCTION"
 CLAIM_SCOPE = (
     "Exact cleanup for selected speculative circulant patterns: C45 is killed "
     "as a fixed abstract selected-witness incidence pattern by the two-circle "
-    "cap, while C41, C43, and C49 are fixed-natural-order diagnostics only. "
-    "No general proof of Erdos Problem #97 and no counterexample are claimed."
+    "cap, while C41, C43, C49, and R44 are fixed-natural-order diagnostics "
+    "only. No general proof of Erdos Problem #97 and no counterexample are "
+    "claimed."
 )
 PROVENANCE = {
     "generator": "scripts/check_speculative_circulant_frontier_obstructions.py",
@@ -32,6 +33,7 @@ FORBIDDEN_CLAIMS = [
     "Erdos Problem #97 is solved.",
     "No counterexample exists.",
     "C49 is killed across all cyclic orders.",
+    "R44 is killed across all cyclic orders.",
     "The speculative frontier is closed.",
     "This proves the bridge theorem.",
     "general proof of Erdos Problem #97",
@@ -52,6 +54,47 @@ def validate_circulant_rows(n: int, offsets: Sequence[int]) -> None:
         raise ValueError("frontier checks are for 4-offset rows")
     for center in range(n):
         row = circulant_row(n, offsets, center)
+        if len(set(row)) != 4:
+            raise AssertionError(f"row {center} has repeated witnesses: {row}")
+        if center in row:
+            raise AssertionError(f"row {center} contains its center")
+
+
+def residue_rotating_row(
+    *,
+    group_count: int,
+    residue_count: int,
+    group_offsets: Sequence[int],
+    center: int,
+) -> list[int]:
+    """Return the row for the residue-rotating lift pattern."""
+
+    group, residue = divmod(center, residue_count)
+    return [
+        residue_count * ((group + group_offset) % group_count)
+        + ((residue + offset_index) % residue_count)
+        for offset_index, group_offset in enumerate(group_offsets)
+    ]
+
+
+def validate_residue_rotating_rows(
+    *,
+    group_count: int,
+    residue_count: int,
+    group_offsets: Sequence[int],
+) -> None:
+    """Check every residue-rotating row is a 4-set avoiding its own center."""
+
+    if len(group_offsets) != 4:
+        raise ValueError("frontier checks are for 4-offset rows")
+    n = group_count * residue_count
+    for center in range(n):
+        row = residue_rotating_row(
+            group_count=group_count,
+            residue_count=residue_count,
+            group_offsets=group_offsets,
+            center=center,
+        )
         if len(set(row)) != 4:
             raise AssertionError(f"row {center} has repeated witnesses: {row}")
         if center in row:
@@ -259,6 +302,72 @@ def c49_vertex_circle_record() -> dict[str, Any]:
     }
 
 
+def r44_natural_crossing_record() -> dict[str, Any]:
+    group_count = 11
+    residue_count = 4
+    n = group_count * residue_count
+    group_offsets = [2, 4, 7, 9]
+    validate_residue_rotating_rows(
+        group_count=group_count,
+        residue_count=residue_count,
+        group_offsets=group_offsets,
+    )
+    row0 = residue_rotating_row(
+        group_count=group_count,
+        residue_count=residue_count,
+        group_offsets=group_offsets,
+        center=0,
+    )
+    row9 = residue_rotating_row(
+        group_count=group_count,
+        residue_count=residue_count,
+        group_offsets=group_offsets,
+        center=9,
+    )
+    shared = sorted(set(row0) & set(row9))
+    if row0 != [8, 17, 30, 39]:
+        raise AssertionError(f"unexpected R44 row 0: {row0}")
+    if row9 != [17, 26, 39, 0]:
+        raise AssertionError(f"unexpected R44 row 9: {row9}")
+    if shared != [17, 39]:
+        raise AssertionError(f"unexpected R44 shared witnesses: {shared}")
+    crosses = chord_crosses_in_natural_order(n, [0, 9], shared)
+    if crosses:
+        raise AssertionError("R44 natural-order chords unexpectedly cross")
+    return {
+        "pattern": "R44_four_lift_2_4_7_9",
+        "n": n,
+        "formula": (
+            "S_{4g+r}={4(g+a_t)+((r+t) mod 4): t=0..3}, "
+            "a=(2,4,7,9)"
+        ),
+        "group_count": group_count,
+        "residue_count": residue_count,
+        "group_offsets": group_offsets,
+        "status": "EXACT_NATURAL_ORDER_CROSSING_OBSTRUCTION",
+        "claim_scope": (
+            "Fixed natural cyclic order only; no all-order obstruction for "
+            "the abstract selected-witness pattern is claimed."
+        ),
+        "cyclic_order_scope": "natural_order_only",
+        "natural_cyclic_order": list(range(n)),
+        "row_pair": [0, 9],
+        "rows": {
+            "0": row0,
+            "9": row9,
+        },
+        "shared_witnesses": shared,
+        "source_chord": [0, 9],
+        "common_witness_chord": shared,
+        "source_and_witness_chords_alternate": crosses,
+        "verified_reason": (
+            "A two-witness row overlap in a strictly convex realization forces "
+            "the source chord and common-witness chord to cross; these chords "
+            "do not alternate in the natural cyclic order."
+        ),
+    }
+
+
 def build_payload() -> dict[str, Any]:
     patterns = [
         two_circle_cap_record(),
@@ -277,6 +386,7 @@ def build_payload() -> dict[str, Any]:
             expected_shared=[15, 36],
         ),
         c49_vertex_circle_record(),
+        r44_natural_crossing_record(),
     ]
     return {
         "schema": SCHEMA,
@@ -286,7 +396,7 @@ def build_payload() -> dict[str, Any]:
         "summary": {
             "pattern_count": len(patterns),
             "abstract_incidence_obstruction_count": 1,
-            "fixed_natural_order_diagnostic_count": 3,
+            "fixed_natural_order_diagnostic_count": 4,
             "global_problem_status_changed": False,
             "counterexample_claimed": False,
         },

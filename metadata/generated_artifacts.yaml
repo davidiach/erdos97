@@ -1685,15 +1685,15 @@ artifacts:
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: EXACT_OBSTRUCTION
-    claim_scope: Exact cleanup for selected speculative circulant patterns; C45 is killed as a fixed abstract selected-witness incidence pattern, while C41, C43, and C49 are fixed-natural-order diagnostics only.
+    claim_scope: Exact cleanup for selected speculative circulant patterns; C45 is killed as a fixed abstract selected-witness incidence pattern, while C41, C43, C49, and R44 are fixed-natural-order diagnostics only.
     json_top_level_type: object
     expected_json:
       schema: erdos97.speculative_circulant_frontier_obstructions.v1
       status: EXACT_SPECULATIVE_FRONTIER_CLEANUP
       trust: EXACT_OBSTRUCTION
-      summary.pattern_count: 4
+      summary.pattern_count: 5
       summary.abstract_incidence_obstruction_count: 1
-      summary.fixed_natural_order_diagnostic_count: 3
+      summary.fixed_natural_order_diagnostic_count: 4
       summary.global_problem_status_changed: false
       summary.counterexample_claimed: false
       provenance.generator: scripts/check_speculative_circulant_frontier_obstructions.py
@@ -1702,6 +1702,7 @@ artifacts:
       - Erdos Problem #97 is solved.
       - No counterexample exists.
       - C49 is killed across all cyclic orders.
+      - R44 is killed across all cyclic orders.
       - The speculative frontier is closed.
       - This proves the bridge theorem.
       - general proof of Erdos Problem #97
