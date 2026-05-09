@@ -52,6 +52,97 @@ Thus the packet isolates the directed cycle
 [0, 2] > [0, 3] = [0, 3] > [0, 5] = [5, 7] > [1, 5] = [0, 1] = [0, 2].
 ```
 
+## Local lemma
+
+The following local obstruction is independent of the exhaustive `n=9`
+brancher once the four displayed rows are assumed.
+
+Assume a strictly convex polygon has labels appearing in cyclic order
+
+```text
+0,1,2,3,4,5,6,7,8
+```
+
+and contains the four selected rows
+
+```text
+S_0 = {1,2,4,8}
+S_1 = {0,2,3,5}
+S_5 = {0,3,4,7}
+S_6 = {1,5,7,8}
+```
+
+Then these four rows cannot be realized.
+
+First use row `1`. Its selected witnesses occur in cyclic order
+
+```text
+2,3,5,0.
+```
+
+In a strictly convex polygon, the rays from a vertex to the other vertices
+occur in the polygon's cyclic order inside an angle smaller than `pi`. Since
+the row-`1` witnesses lie on one circle centered at vertex `1`, chord length
+on that circle is strictly increasing with the enclosed central angle in this
+range. The chord `[0,2]` strictly contains `[0,3]`, and `[0,3]` strictly
+contains `[0,5]`, in the row-`1` witness order. Hence
+
+```text
+d(0,2) > d(0,3) > d(0,5).                (1)
+```
+
+Row `5` identifies the last chord in (1) with the next outer chord:
+
+```text
+d(0,5) = d(5,7)      from row 5.
+```
+
+Thus
+
+```text
+d(0,2) > d(0,3) > d(5,7).                (2)
+```
+
+Next use row `6`. Its selected witnesses occur in cyclic order
+
+```text
+7,8,1,5.
+```
+
+The chord `[5,7]` strictly contains `[1,5]` in this row-`6` witness order, so
+
+```text
+d(5,7) > d(1,5).                         (3)
+```
+
+Rows `1` and `0` identify this inner chord with the first outer chord:
+
+```text
+d(1,5) = d(0,1)      from row 1,
+d(0,1) = d(0,2)      from row 0.
+```
+
+Therefore
+
+```text
+d(5,7) > d(0,2).                         (4)
+```
+
+Combining (2) and (4) gives the impossible strict cycle
+
+```text
+d(0,2) > d(0,3) > d(5,7) > d(0,2).
+```
+
+Equivalently, after quotienting ordinary pair distances by the selected
+distance equalities, rows `1`, `5`, and `6` create a directed strict cycle of
+length three.
+
+The lemma is local: it rules out any selected-witness system containing these
+four rows in the stated cyclic order. It does not prove the full `n=9` finite
+case, because the exhaustive checker is still needed to show that every
+frontier assignment contains one of the recorded local obstruction templates.
+
 ## Commands
 
 Generate and check the packet:
