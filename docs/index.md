@@ -14,6 +14,9 @@ put detailed reconciliation in the canonical synthesis.
   artifacts and exact certificates.
 - [`review-priorities.md`](review-priorities.md): current independent-review
   priorities; planning guidance only, not mathematical evidence.
+- [`codex-strategy-instructions.md`](codex-strategy-instructions.md):
+  Codex task-selection discipline centered on bridge theorems and
+  non-overclaiming; planning guidance only, not mathematical evidence.
 - [`canonical-synthesis.md`](canonical-synthesis.md): long-form canonical
   synthesis, claim taxonomy, failed-route reconciliation, and source/hash
   inventory.
