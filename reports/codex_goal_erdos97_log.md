@@ -22947,6 +22947,226 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-09 - Cycle 603 - C29 Four Support-10 Pair Profiles
+
+### Mathematical Subquestion
+
+Cycle 602 found four label-7-free two-row combinations of support `10` in
+the min-fill step window `90` through `105`:
+
+```text
+(93,99), (100,101), (103,105), (104,105).
+```
+
+Do signed quotient-class residuals, component profiles, or the Cycle 594
+large-pivot reservoir distinguish the Cycle 597/598 pair `(100,101)` from
+the other three support-10 pairs?
+
+### Definitions and Assumptions
+
+Use the same recorded fixed-order `C29_sidon_1_3_7_15` certificate, the Cycle
+588 equality-balance contraction, and the Cycle 592 deterministic min-fill
+trace. For each support-10 pair, form the exact rational active-row
+combination `r_i + t r_j` with the scalar `t` recorded in Cycle 602, then
+clear denominators and divide by the coefficient gcd to get a primitive
+integer component vector.
+
+For an equality component `C`, let `sigma(C)` be the contracted signed column
+over selected-distance quotient classes, using the sign convention aligned
+with Cycle 600. The **signed quotient residual** of a primitive component
+vector `u` is
+
+```text
+R(u) = sum_C u_C sigma(C).
+```
+
+The **raw quotient footprint** ignores the coefficients `u_C` and records
+the union of the quotient-class supports of the components in `supp(u)`.
+
+### Result Status
+
+Finite profile separation plus obstruction:
+**C29 Four Support-10 Pair Profile Separation** and
+**C29 Reservoir/Label Nonseparation Obstruction.**
+
+All four support-10 pairs are contained in the same Cycle 594
+large-pivot reservoir. All four have raw and residual quotient footprints
+with no quotient class through label `7`. Thus neither reservoir membership
+nor label-7 deletion separates `(100,101)` from the other support-10 pairs.
+
+The four primitive component vectors and profiles are:
+
+```text
+pair (93,99), t=1, large-pivot count 1
+primitive:
+  16:1 26:2 33:1 54:-1 65:-1 79:4 82:1 84:-1 94:-2 108:3
+positive components: 16,26,33,79,82,108
+negative components: 54,65,84,94
+component-size histogram: 1:2, 2:5, 3:3
+expanded row-kind histogram: K1:10, K2:11
+raw quotient footprint: 44 classes, size histogram 1:32, 4:12, missing labels 7
+signed residual: 42 classes, size histogram 1:32, 4:10, missing labels 7
+primitive residual L1: 82
+primitive residual max abs coefficient: 7
+
+pair (100,101), t=-1, large-pivot count 2
+primitive:
+  16:2 25:-3 26:-2 45:-1 65:2 75:-3 79:-2 82:1 84:5 108:-7
+positive components: 16,65,82,84
+negative components: 25,26,45,75,79,108
+component-size histogram: 1:2, 2:4, 3:3, 4:1
+expanded row-kind histogram: K1:10, K2:13
+raw quotient footprint: 47 classes, size histogram 1:35, 4:12, missing labels 7
+signed residual: 47 classes, size histogram 1:35, 4:12, missing labels 7
+primitive residual L1: 150
+primitive residual max abs coefficient: 8
+
+pair (103,105), t=-2/53, large-pivot count 0
+primitive:
+  6:79 16:87 21:-93 26:-30 45:-109 65:22 79:45 84:-21 94:53 108:-132
+positive components: 6,16,65,79,94
+negative components: 21,26,45,84,108
+component-size histogram: 1:2, 2:5, 3:3
+expanded row-kind histogram: K1:10, K2:11
+raw quotient footprint: 45 classes, size histogram 1:31, 4:14, missing labels 7
+signed residual: 45 classes, size histogram 1:31, 4:14, missing labels 7
+primitive residual L1: 3114
+primitive residual max abs coefficient: 230
+
+pair (104,105), t=41/265, large-pivot count 1
+primitive:
+  6:100 16:90 21:-109 25:-265 26:117 45:-142 65:52 79:116 84:278 108:-312
+positive components: 6,16,26,65,79,84
+negative components: 21,25,45,108
+component-size histogram: 1:2, 2:4, 3:3, 4:1
+expanded row-kind histogram: K1:11, K2:12
+raw quotient footprint: 46 classes, size histogram 1:34, 4:12, missing labels 7,24
+signed residual: 46 classes, size histogram 1:34, 4:12, missing labels 7,24
+primitive residual L1: 8104
+primitive residual max abs coefficient: 428
+```
+
+The component-support intersections are:
+
+```text
+(93,99)   with (100,101): 7 components, 16,26,65,79,82,84,108
+(93,99)   with (103,105): 7 components, 16,26,65,79,84,94,108
+(93,99)   with (104,105): 6 components, 16,26,65,79,84,108
+(100,101) with (103,105): 7 components, 16,26,45,65,79,84,108
+(100,101) with (104,105): 8 components, 16,25,26,45,65,79,84,108
+(103,105) with (104,105): 9 components, 6,16,21,26,45,65,79,84,108
+```
+
+The exact four-pair profile audit digest was:
+
+```text
+fed6305287798dfb594b119422f3f145773062d22cae1881c853eddd6a802139
+```
+
+### Argument
+
+The audit reconstructs the selected-distance quotient, all 165 Kalmanson
+rows, the 50 equality-balance two-row classes, the 115 equality components,
+and the 115 nonzero contracted quotient equations directly from the recorded
+C29 certificate. It reruns the exact rational min-fill elimination and
+checks that the prior invariants are reproduced:
+
+```text
+rows: 165
+quotient classes: 165
+two-row balance classes: 50
+components: 115
+component-size histogram: 1:78, 2:27, 3:7, 4:3
+nonzero contracted rows: 115
+rank: 114
+pivot-support histogram:
+  2:6, 3:40, 4:19, 5:11, 6:8, 7:10,
+  8:3, 9:5, 10:4, 11:6, 13:2
+```
+
+For each of the four Cycle 602 pairs, the audit forms the exact rational
+combination, clears denominators, and computes the primitive component vector
+shown above. It then computes the raw quotient footprint and the signed
+quotient residual by summing the contracted component columns.
+
+The displayed data proves the finite separation statements. The pair
+`(100,101)` is the only support-10 pair among the four that uses two large
+pivots. It is also the only one with a 47-class raw footprint and a 47-class
+signed residual. Its component kind profile is K2-heavier than the two
+profile-twin pairs `(93,99)` and `(103,105)`, and differs from `(104,105)`.
+
+The negative result is equally important: every pair remains inside the same
+23-component reservoir and deletes label `7`. Therefore the Cycle 600
+label-deletion signal and the Cycle 594 reservoir signal are not enough by
+themselves to isolate the Cycle 597/598 support-10 row.
+
+### Effect on the Attack
+
+The comparison turns Cycle 602's nonuniqueness into a more structured target.
+The support-10 row from `(100,101)` is not isolated by support size,
+reservoir membership, or label-7 deletion. It is isolated inside this
+four-pair family by being the only two-large-pivot support-10 pair and by
+having the maximal 47-class residual footprint without residual support loss.
+
+This suggests a narrower next lemma: in the large-pivot reservoir, the
+two-large-pivot condition plus label-7 cancellation may force the Cycle
+597/598 row. That is weaker than a general proof, but it is a more exact
+structural statement than the raw support-10 nonuniqueness question.
+
+### Exact Scope
+
+This is an exact finite audit of four support-10 two-row combinations in the
+Cycle 592 deterministic min-fill trace for the recorded fixed-order
+`C29_sidon_1_3_7_15` certificate after the Cycle 588 equality-balance
+contraction. It does not classify all support-10 row-span vectors, larger
+row combinations, other windows, other labels, other pivot rules, other C29
+orders, arbitrary C19/C29 patterns, or geometric counterexamples.
+
+The result does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Next Lead
+
+Restrict to the eight large pivots of the Cycle 594 reservoir and prove
+directly that the only two-large-pivot combination cancelling all label-7
+incident components is the Cycle 597/598 pair `(100,101)`, or find the exact
+large-pivot counterexample if that statement fails.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-603`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-603`.
+- The branch was based on `origin/main` at
+  `438398fb51e4d31eea0e90b44295b3070db288b0`, after PR #280 merged Cycle
+  602.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- No commit, push, or pull request was made before recording this cycle.
+
+### Validation
+
+- One-off exact C29 four-pair profile audit: passed, with digest
+  `fed6305287798dfb594b119422f3f145773062d22cae1881c853eddd6a802139`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_text_clean.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_status_consistency.py`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python scripts/check_artifact_provenance.py`:
+  passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `708 passed, 97 deselected in 682.87s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-09 - Cycle 602 - C29 Nearby Two-Row Label-Free Pairs
 
 ### Mathematical Subquestion
