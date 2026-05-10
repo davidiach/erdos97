@@ -450,6 +450,12 @@ template by selected-row signature, but their local strict-cycle row cores are
 not bootstrap-core-only. This is proof-mining scaffolding, not a proof of
 `n=9`, not a proof of the bridge, and not a global status update.
 
+The follow-up ledger in `docs/bootstrap-t12-forcing-targets.md` records the
+next T12 target more explicitly: both tight rows need T12/F16 row centers
+outside the bootstrap core, and the direct private-pair contacts are absent for
+source `81` and partial for source `151`. This remains an open target ledger,
+not a theorem that the missing rows are forced.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

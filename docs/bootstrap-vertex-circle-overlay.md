@@ -76,3 +76,9 @@ bootstrap core [0,1,2,4] + small private-halo margin
 That is still a conjectural bridge target. The current overlay only records the
 finite artifact join and the row-center mismatch that any future lemma must
 handle.
+
+The follow-up ledger in
+[`bootstrap-t12-forcing-targets.md`](bootstrap-t12-forcing-targets.md) breaks
+this target into concrete row-center gaps and direct private-pair contacts. It
+keeps the same status: proof-mining scaffolding only, not a proof that the
+missing rows are forced.

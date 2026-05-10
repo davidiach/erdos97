@@ -59,6 +59,9 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the bootstrap-core / vertex-circle overlay on the tight `n=9`
   non-ear-orderable rows, read
   [`docs/bootstrap-vertex-circle-overlay.md`](docs/bootstrap-vertex-circle-overlay.md).
+- For the follow-up T12 forcing-target ledger naming the missing row centers
+  and direct private-pair contacts, read
+  [`docs/bootstrap-t12-forcing-targets.md`](docs/bootstrap-t12-forcing-targets.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).

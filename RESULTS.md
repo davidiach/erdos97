@@ -151,6 +151,15 @@ diagnostic information only; see `docs/bootstrap-vertex-circle-overlay.md`,
 `scripts/check_bootstrap_vertex_circle_overlay.py`, and
 `data/certificates/bootstrap_vertex_circle_overlay.json`.
 
+The follow-up bootstrap/T12 forcing-target ledger records what the overlay
+would still need a bridge lemma to force. Source `81` needs equality-connector
+row centers `3` and `8` and has no direct private-pair hit; source `151` needs
+row centers `5,6,7,8` and has two direct private-pair hits. This is still an
+open proof-mining target, not a proof that the missing rows are forced; see
+`docs/bootstrap-t12-forcing-targets.md`,
+`scripts/check_bootstrap_t12_forcing_targets.py`, and
+`data/certificates/bootstrap_t12_forcing_targets.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

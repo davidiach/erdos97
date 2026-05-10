@@ -153,6 +153,11 @@ local_repo:
       artifact: "data/certificates/bootstrap_vertex_circle_overlay.json"
       verifier: "scripts/check_bootstrap_vertex_circle_overlay.py"
       claim_scope: "fixed selected-row proof-mining diagnostic only; both tight non-ear n=9 rows land on the T12/F16 strict-cycle template by selected-row signature, but this is not a proof of n=9, not a bridge proof, and not a counterexample"
+    - pattern: "bootstrap_t12_forcing_targets"
+      status: "row-center and private-pair forcing-target ledger for the two tight n=9 bootstrap/T12 overlay rows"
+      artifact: "data/certificates/bootstrap_t12_forcing_targets.json"
+      verifier: "scripts/check_bootstrap_t12_forcing_targets.py"
+      claim_scope: "fixed selected-row proof-mining diagnostic only; records missing T12/F16 row centers and direct private-pair contacts, but does not prove that the missing rows are forced and does not prove n=9 or the bridge"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

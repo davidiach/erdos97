@@ -60,6 +60,12 @@ Both rows join by selected-row signature to the same `T12/F16` strict-cycle
 template, but neither strict-cycle core is contained in the bootstrap core. See
 `docs/bootstrap-vertex-circle-overlay.md`.
 
+A follow-up T12 forcing-target ledger spells out the next bridge gap in that
+overlay: source `81` still needs equality-connector rows `3` and `8` and has no
+direct private-pair hit, while source `151` needs row centers `5,6,7,8` and has
+only two direct private-pair hits. This is target bookkeeping only; it is not a
+proof that those rows are forced. See `docs/bootstrap-t12-forcing-targets.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic
