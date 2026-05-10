@@ -518,6 +518,13 @@ next-lemma targets. It is a proof-mining map only: the hard strict endpoint
 rows `151:7` and `151:8`, and the open connector-pair row `151:5`, remain
 unproved bridge obligations rather than forced geometric rows.
 
+The hard strict-endpoint packet in
+`docs/bootstrap-t12-hard-strict-endpoints.md` isolates the two hard strict
+rows. Row `151:7` is closure-exposed but its exposed deletion closure supplies
+only `[0,1]` of the strict endpoint set `[0,1,6]`; row `151:8` has singleton
+supports that split the strict endpoint set `[1,5,7]`. This is diagnostic
+bookkeeping only, not a lemma that strict endpoint sets are forced.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

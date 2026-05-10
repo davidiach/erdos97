@@ -83,6 +83,9 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the joined T12 bridge-target map that names the exact next lemma target
   for each missing row, read
   [`docs/bootstrap-t12-bridge-target-map.md`](docs/bootstrap-t12-bridge-target-map.md).
+- For the hard strict-endpoint subpacket isolating rows `151:7` and `151:8`,
+  read
+  [`docs/bootstrap-t12-hard-strict-endpoints.md`](docs/bootstrap-t12-hard-strict-endpoints.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).

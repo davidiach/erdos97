@@ -188,6 +188,11 @@ local_repo:
       artifact: "data/certificates/bootstrap_t12_bridge_target_map.json"
       verifier: "scripts/check_bootstrap_t12_bridge_target_map.py"
       claim_scope: "fixed selected-row proof-mining diagnostic only; names explicit next-lemma targets for each missing row, but does not prove missing rows are forced and does not prove n=9 or the bridge"
+    - pattern: "bootstrap_t12_hard_strict_endpoints"
+      status: "hard strict-endpoint subpacket for the two strict T12/F16 row targets"
+      artifact: "data/certificates/bootstrap_t12_hard_strict_endpoints.json"
+      verifier: "scripts/check_bootstrap_t12_hard_strict_endpoints.py"
+      claim_scope: "fixed selected-row proof-mining diagnostic only; isolates incomplete strict-edge endpoint sets in rows 151:7 and 151:8, but does not prove endpoints or rows are forced and does not prove n=9 or the bridge"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

@@ -111,6 +111,13 @@ rows `151:7` and `151:8`, plus the open connector-pair row `151:5`. This is
 still a proof-mining diagnostic only. See
 `docs/bootstrap-t12-bridge-target-map.md`.
 
+A hard strict-endpoint subpacket now isolates rows `151:7` and `151:8`.
+Neither strict-edge endpoint requirement is closure-sufficient or
+support-sufficient: `151:7` is closure-exposed but misses outside endpoint `6`,
+while `151:8` has singleton supports that split endpoints `5` and `7`. This
+is diagnostic bookkeeping only, not a theorem that the missing endpoints are
+forced. See `docs/bootstrap-t12-hard-strict-endpoints.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic
