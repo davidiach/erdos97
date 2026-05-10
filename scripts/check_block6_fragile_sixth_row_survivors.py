@@ -513,6 +513,97 @@ EXPECTED_LOW_SUPPORT_TERMINAL_CLASSIFICATION = {
         },
     ],
 }
+EXPECTED_LOW_SUPPORT_PROFILE_TERMINALITY_AUDIT = {
+    "clean_seven_states": 2252,
+    "terminal_clean_seven_states": 12,
+    "non_two_two_clean_seven_states": 192,
+    "non_two_two_terminal_clean_seven_states": 0,
+    "two_two_clean_seven_states": 2060,
+    "two_two_terminal_clean_seven_states": 12,
+    "two_two_profile_classes": 6,
+    "terminal_profile_classes": 2,
+    "terminal_profiles_with_extendable_states": 2,
+    "profile_only_terminality_holds": False,
+    "non_two_two_by_center_triple": {
+        "2,10,11": 68,
+        "2,4,5": 28,
+        "4,5,8": 68,
+        "8,10,11": 28,
+    },
+    "profile_counts": {
+        (
+            "same_u=3,same_i=1,1,1,same_d=2,2,2|"
+            "opposite_u=5,opposite_i=0,0,1,opposite_d=1,1,1,1,2"
+        ): {
+            "clean_two_two_seven_states": 40,
+            "terminal": 0,
+            "extendable": 40,
+        },
+        (
+            "same_u=4,same_i=0,1,1,same_d=1,1,2,2|"
+            "opposite_u=4,opposite_i=0,1,1,opposite_d=1,1,2,2"
+        ): {
+            "clean_two_two_seven_states": 150,
+            "terminal": 0,
+            "extendable": 150,
+        },
+        (
+            "same_u=4,same_i=0,1,1,same_d=1,1,2,2|"
+            "opposite_u=5,opposite_i=0,0,1,opposite_d=1,1,1,1,2"
+        ): {
+            "clean_two_two_seven_states": 320,
+            "terminal": 4,
+            "extendable": 316,
+        },
+        (
+            "same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+            "opposite_u=4,opposite_i=0,1,1,opposite_d=1,1,2,2"
+        ): {
+            "clean_two_two_seven_states": 120,
+            "terminal": 0,
+            "extendable": 120,
+        },
+        (
+            "same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+            "opposite_u=5,opposite_i=0,0,1,opposite_d=1,1,1,1,2"
+        ): {
+            "clean_two_two_seven_states": 200,
+            "terminal": 0,
+            "extendable": 200,
+        },
+        (
+            "same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+            "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
+        ): {
+            "clean_two_two_seven_states": 1230,
+            "terminal": 8,
+            "extendable": 1222,
+        },
+    },
+    "first_non_two_two_example": [
+        {"center": 2, "row": [0, 1, 3, 7]},
+        {"center": 4, "row": [0, 3, 6, 9]},
+        {"center": 5, "row": [0, 4, 8, 11]},
+    ],
+    "terminal_profile_extendable_examples": {
+        (
+            "same_u=4,same_i=0,1,1,same_d=1,1,2,2|"
+            "opposite_u=5,opposite_i=0,0,1,opposite_d=1,1,1,1,2"
+        ): [
+            {"center": 1, "row": [3, 5, 6, 7]},
+            {"center": 4, "row": [0, 3, 6, 9]},
+            {"center": 5, "row": [0, 4, 8, 11]},
+        ],
+        (
+            "same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+            "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
+        ): [
+            {"center": 1, "row": [0, 2, 7, 11]},
+            {"center": 10, "row": [0, 1, 6, 9]},
+            {"center": 11, "row": [2, 5, 6, 10]},
+        ],
+    },
+}
 EXPECTED_BY_FIFTH_CENTER = {
     "1": {
         "clean_fifth": 21,
@@ -738,6 +829,13 @@ def _row_content_profile_key(state: SevenState) -> str:
         f"same_d={same_degrees}|opposite_u={len(opposite_labels)},"
         f"opposite_i={opposite_intersections},opposite_d={opposite_degrees}"
     )
+
+
+def _optional_row_content_profile_key(state: SevenState) -> str | None:
+    try:
+        return _row_content_profile_key(state)
+    except AssertionError:
+        return None
 
 
 def _status_split_key(counter: Counter[str]) -> str:
@@ -1044,6 +1142,85 @@ def _low_support_terminal_classification(
     }
 
 
+def _low_support_profile_terminality_audit(
+    clean_seven_states: set[SevenState],
+    terminal_audits: list[TerminalSevenAudit],
+) -> dict[str, Any]:
+    terminal_states = {state for state, _status in terminal_audits}
+    profile_counts: Counter[str] = Counter()
+    profile_terminal: Counter[str] = Counter()
+    profile_extendable: Counter[str] = Counter()
+    non_two_two_by_triple: Counter[str] = Counter()
+    non_two_two_terminal = 0
+    first_non_two_two_example: SevenState | None = None
+    extendable_examples: dict[str, SevenState] = {}
+
+    for state in sorted(clean_seven_states):
+        is_terminal = state in terminal_states
+        profile = _optional_row_content_profile_key(state)
+        if profile is None:
+            non_two_two_by_triple[
+                _center_tuple_key(tuple(record[0] for record in state))
+            ] += 1
+            non_two_two_terminal += int(is_terminal)
+            if first_non_two_two_example is None:
+                first_non_two_two_example = state
+            continue
+
+        profile_counts[profile] += 1
+        if is_terminal:
+            profile_terminal[profile] += 1
+        else:
+            profile_extendable[profile] += 1
+            extendable_examples.setdefault(profile, state)
+
+    terminal_profile_keys = {
+        _row_content_profile_key(state) for state, _status in terminal_audits
+    }
+    terminal_profiles_with_extendable = sorted(
+        profile
+        for profile in terminal_profile_keys
+        if profile_extendable[profile] > 0
+    )
+    non_two_two_total = sum(non_two_two_by_triple.values())
+
+    return {
+        "clean_seven_states": len(clean_seven_states),
+        "terminal_clean_seven_states": len(terminal_audits),
+        "non_two_two_clean_seven_states": non_two_two_total,
+        "non_two_two_terminal_clean_seven_states": non_two_two_terminal,
+        "two_two_clean_seven_states": len(clean_seven_states) - non_two_two_total,
+        "two_two_terminal_clean_seven_states": len(terminal_audits),
+        "two_two_profile_classes": len(profile_counts),
+        "terminal_profile_classes": len(terminal_profile_keys),
+        "terminal_profiles_with_extendable_states": len(
+            terminal_profiles_with_extendable
+        ),
+        "profile_only_terminality_holds": not terminal_profiles_with_extendable,
+        "non_two_two_by_center_triple": {
+            key: int(non_two_two_by_triple[key])
+            for key in sorted(non_two_two_by_triple)
+        },
+        "profile_counts": {
+            profile: {
+                "clean_two_two_seven_states": int(profile_counts[profile]),
+                "terminal": int(profile_terminal[profile]),
+                "extendable": int(profile_extendable[profile]),
+            }
+            for profile in sorted(profile_counts)
+        },
+        "first_non_two_two_example": (
+            [_record_payload(record) for record in first_non_two_two_example]
+            if first_non_two_two_example is not None
+            else None
+        ),
+        "terminal_profile_extendable_examples": {
+            profile: [_record_payload(record) for record in extendable_examples[profile]]
+            for profile in terminal_profiles_with_extendable
+        },
+    }
+
+
 def _orbit_count(states: set[RowRecord] | set[SixState]) -> tuple[int, Counter[int]]:
     seen: set[Any] = set()
     sizes: Counter[int] = Counter()
@@ -1210,6 +1387,12 @@ def survivor_payload() -> dict[str, Any]:
         "low_support_terminal_seven_state_classification": (
             _low_support_terminal_classification(low_support_terminal_audits)
         ),
+        "low_support_profile_terminality_audit": (
+            _low_support_profile_terminality_audit(
+                low_support_clean_seven_states,
+                low_support_terminal_audits,
+            )
+        ),
         "by_fifth_center": {
             center: {key: int(counter[key]) for key in sorted(counter)}
             for center, counter in sorted(by_fifth_center.items(), key=lambda item: int(item[0]))
@@ -1273,6 +1456,14 @@ def assert_expected(payload: Mapping[str, Any]) -> None:
         raise AssertionError(
             "unexpected low-support terminal classification: "
             f"{payload['low_support_terminal_seven_state_classification']!r}"
+        )
+    if (
+        payload["low_support_profile_terminality_audit"]
+        != EXPECTED_LOW_SUPPORT_PROFILE_TERMINALITY_AUDIT
+    ):
+        raise AssertionError(
+            "unexpected low-support profile terminality audit: "
+            f"{payload['low_support_profile_terminality_audit']!r}"
         )
     if payload["by_fifth_center"] != EXPECTED_BY_FIFTH_CENTER:
         raise AssertionError(

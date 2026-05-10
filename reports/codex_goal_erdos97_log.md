@@ -22947,6 +22947,156 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 648 - Block-6 Profile-only Terminality Failure
+
+### Mathematical Subquestion
+
+Cycle 647 found two row-content profile classes containing all `12` terminal
+clean seven-row states. The next precise question was:
+
+```text
+Does either terminal row-content profile by itself force eighth-row
+terminality in the low-support block-6 branch?
+```
+
+### Definitions and Assumptions
+
+The fixed block-6 fragile rows, the low-support clean seven-row states, and
+the block-swap symmetry are as in Cycle 647. A two-and-two row-content profile
+is defined only for clean seven-row states whose three added rows each split
+into exactly two witnesses in the same six-label block as the row center and
+two witnesses in the opposite block.
+
+For such a state, the profile records the same-block pair union size,
+same-block pairwise-intersection multiset and degree multiset, together with
+the analogous opposite-block data.
+
+### Result Status
+
+Failed lemma:
+**Profile-only Terminality Failure**.
+
+The two terminal row-content profiles do not force eighth-row terminality.
+Each also occurs among many clean seven-row states that have a clean eighth-row
+continuation.
+
+### Argument Or Obstruction
+
+The checker now audits all `2252` low-support clean seven-row states against
+the terminal profile data. Of these, `192` do not have the two-and-two split
+needed by the terminal profile classification; all `192` are extendable at the
+eighth-row level. The remaining `2060` split-compatible states fall into `6`
+row-content profiles.
+
+The two profiles containing terminal states have the following exact counts:
+
+```text
+profile summary                              clean states  terminal  extendable
+same union 4, intersections 0,1,1;
+  opposite union 5, intersections 0,0,1      320           4         316
+same union 5, intersections 0,0,1;
+  opposite union 6, intersections 0,0,0      1230          8         1222
+```
+
+A clean extendable state with the first terminal profile is:
+
+```text
+1 -> {3,5,6,7}
+4 -> {0,3,6,9}
+5 -> {0,4,8,11}
+```
+
+A clean extendable state with the second terminal profile is:
+
+```text
+1  -> {0,2,7,11}
+10 -> {0,1,6,9}
+11 -> {2,5,6,10}
+```
+
+One clean extendable state outside the two-and-two profile domain is:
+
+```text
+2 -> {0,1,3,7}
+4 -> {0,3,6,9}
+5 -> {0,4,8,11}
+```
+
+Thus a profile-only local lemma is false. Any terminality lemma for these
+pockets must use finer boundary data than the coarse same/opposite-block
+profile.
+
+### Exact Scope
+
+This is an exact finite audit inside the low-support two-block block-6
+natural-order selected-row extension tree. It covers all `2252` clean
+seven-row states generated from the `4,5` and `10,11` low-support six-row
+families. It is not a Euclidean realizability result, is not a proof of Erdos
+Problem #97, and is not a counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This rules out the simplest proof-mining route suggested by Cycle 647. The
+terminal pockets are not explained by the two coarse row-content profiles
+alone. The next lemma candidate must incorporate either the exact boundary
+pairs from the six block-swap orbits, the seventh center position, or the
+legal eighth-row candidate set.
+
+### Next Lead
+
+Classify the six terminal block-swap orbits by a finer invariant: for each
+remaining center, count which legal eighth rows are killed by self-edge versus
+strict-cycle obstructions, then look for a common local forcing pattern.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-648`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-648`.
+- The branch was based on `origin/main` at commit
+  `3a21411a2888cd956623199a04f10f3ebed9bd25`, after PR #365 merged Cycle
+  647.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- One-off profile terminality audit over all `2252` clean seven-row states:
+  found `192` non-two-and-two extendable states, `2060` two-and-two states,
+  `6` two-and-two profile classes, and terminal-profile extendable counts
+  `316` and `1222`.
+- `python3 scripts/check_block6_fragile_sixth_row_survivors.py
+  --assert-expected --json`: passed; reported `192` non-two-and-two
+  extendable states, `2060` two-and-two states, `6` two-and-two profile
+  classes, and `profile_only_terminality_holds: false`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `540 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 647 - Block-6 Terminal Seven-row Classification
 
 ### Mathematical Subquestion
