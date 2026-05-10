@@ -569,6 +569,50 @@ after pair/cross, opposite source arcs -> crossing two-overlap 8
 after valid, opposite source arcs -> crossing two-overlap      8
 ```
 
+The remaining thinning is caused by other assigned rows, not by the changed
+row. Indeed, in the setting above, once `a` and `s` lie in opposite source
+arcs, the candidate `Q` passes the pair/cross test against the changed row
+`R'` itself. Therefore any pair/cross failure after the replacement must be
+against some row already assigned at a different center.
+
+The exact finite audit splits the `36` raw opposite-arc substitutions as:
+
+```text
+source: old target -> new target  raw  after pair/cross  failed pair/cross
+2,10: 3,5 -> 1,5                 6    3                 3
+2,10: 3,6 -> 1,6                 6    1                 5
+2,10: 3,9 -> 1,9                 6    0                 6
+4,8: 0,9 -> 0,7                 6    1                 5
+4,8: 3,9 -> 3,7                 6    0                 6
+4,8: 9,11 -> 7,11               6    3                 3
+```
+
+Thus the two raw contexts `2,10: 3,9 -> 1,9` and
+`4,8: 3,9 -> 3,7` are completely killed by other-row pair/cross conflicts.
+Across the `28` failed raw opposite-arc substitutions, `14` have one blocker
+and `14` have two blockers. The `42` blocker incidences split as:
+
+```text
+blocker kind             incidences
+noncrossing two-overlap  32
+three-or-more overlap    10
+
+blocker role       incidences
+fixed row          18
+other added row    24
+
+blocker center orbit  incidences
+0,6                   12
+3,9                    6
+5,11                  24
+```
+
+This gives a second exact obstruction to the naive converse of the
+opposite-arc rule: an opposite-arc substitution is necessary for repairing the
+changed-row conflict, but not sufficient for a globally pair/cross-admissible
+eighth row. The candidate must also avoid independent noncrossing or
+three-or-more overlaps with the fixed rows and unchanged added rows.
+
 For example, the terminal state
 
 ```text
