@@ -22947,6 +22947,222 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 678 - Four-Hit Rolle Normal-Incidence Lemma
+
+### Mathematical Subquestion
+
+Cycle 677 reduced the smooth-curve route to two exact subproblems, one of
+which was to understand what a four-hit point forces on a smooth strictly
+convex curve. This cycle asked:
+
+```text
+If a boundary point has four distinct same-radius witnesses on a smooth
+strictly convex curve, what exact differential-geometric structure is forced?
+```
+
+The goal was to prove one local lemma rather than to claim a smooth-curve
+contradiction.
+
+### Definitions and Assumptions
+
+Let
+
+```text
+gamma: R/Z -> R^2
+```
+
+be a `C^1` regular, injective, orientation-preserving parametrization of a
+strictly convex closed curve. Fix `t0 in R/Z`, and put
+`p=gamma(t0)`. Cut the circle parameter at `t0`, identifying
+`(R/Z) \ {t0}` with an open interval.
+
+For `u != t0`, define the squared distance-to-center function
+
+```text
+F(u) = |gamma(u)-p|^2.
+```
+
+A **four-hit row at `p`** is a 4-set of distinct parameters
+`u_1,u_2,u_3,u_4`, none equal to `t0`, such that
+
+```text
+F(u_1)=F(u_2)=F(u_3)=F(u_4)>0.
+```
+
+A **nontrivial normal incidence through `p`** is a parameter `c != t0` such
+that
+
+```text
+(gamma(c)-p) dot gamma'(c) = 0.
+```
+
+Equivalently, `p` lies on the normal line to the curve at `gamma(c)`.
+
+### Result Status
+
+Proved lemma:
+**Four-Hit Rolle Normal-Incidence Lemma**.
+
+### Statement
+
+If `p=gamma(t0)` has a four-hit row on a `C^1` regular strictly convex closed
+curve, then there are at least three distinct nontrivial normal incidences
+through `p`.
+
+More generally, if a level set of `F` in `(R/Z) \ {t0}` contains `m` distinct
+parameters, then `F` has at least `m-1` distinct critical points away from
+`t0`.
+
+### Proof
+
+Order the four witness parameters in the interval obtained after cutting at
+`t0`:
+
+```text
+v_1 < v_2 < v_3 < v_4.
+```
+
+The function `F` is `C^1` on this interval, and the four displayed witnesses
+have the same positive value. For each adjacent pair,
+
+```text
+F(v_i)=F(v_{i+1}),  i=1,2,3.
+```
+
+By Rolle's theorem, for each `i=1,2,3` there is a parameter
+`c_i in (v_i,v_{i+1})` with
+
+```text
+F'(c_i)=0.
+```
+
+The three intervals `(v_i,v_{i+1})` are disjoint, so the `c_i` are distinct
+and none equals `t0`. Differentiating gives
+
+```text
+F'(c_i) = 2 (gamma(c_i)-p) dot gamma'(c_i).
+```
+
+Since `F'(c_i)=0`, each `c_i` is a nontrivial normal incidence through `p`.
+The same proof with `m` ordered equal-level parameters gives `m-1` critical
+points.
+
+### Exact Scope
+
+This is a local smooth lemma. It applies to a single `C^1` regular simple
+closed curve and a single center `p`. It does not prove that four-hit curves
+are impossible. It also does not prove that polygonal counterexample sequences
+have separated smooth limits; that remains the Cycle 677 witness-separation
+bridge problem.
+
+The lemma uses only differentiability and the cyclic ordering of the equal
+level set. Strict convexity is part of the intended Erdos97 smooth setting and
+ensures the usual geometric meaning of tangent and normal lines, but the Rolle
+step itself is more general.
+
+### Files Changed
+
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+The Smooth Four-Hit Gap Lemma now has a concrete necessary pressure point:
+a four-hit curve would be a curve whose every boundary point lies on at least
+three nontrivial normals from other boundary points. This shifts the next
+smooth-side task from raw circle intersections to normal-line multiplicity and
+the evolute/caustic structure of a strictly convex curve.
+
+This is useful because normal multiplicity has established differential
+geometry language, but no external theorem was invoked in this cycle. Any
+future use of such a theorem must state the exact hypotheses and be checked
+before it can carry a proof.
+
+### Next Lead
+
+Try to prove or disprove the following smooth obstruction:
+
+```text
+No C^2 strictly convex closed curve has every boundary point lying on at least
+three normal lines from other boundary points.
+```
+
+If false, the smallest exact obstruction to the smooth route would be a
+strictly convex curve, or a symbolic perturbation family, with many boundary
+normal incidences. If true, combine it with the Cycle 677 compactness bridge
+and a witness-separation theorem.
+
+The finite side lead from the parallel agent remains separate: the fixed
+endpoint-control survivor may reduce to five spine-pocket cyclic orders under
+two-overlap crossing constraints, each expected to have a small Kalmanson
+quotient-cone certificate.
+
+### Parallel Side Result
+
+The read-only side investigation for the endpoint-control survivor produced a
+promising finite benchmark, not yet a repository claim. For the fixed Cycle
+674 survivor, the side checker reported exactly `17` two-overlap crossing
+constraints:
+
+```text
+(0,2)->(1,3), (0,4)->(1,6), (0,5)->(3,6),
+(1,3)->(2,7), (1,5)->(0,2), (1,7)->(2,9),
+(1,8)->(7,9), (1,10)->(0,9), (2,6)->(4,10),
+(2,7)->(1,4), (2,8)->(3,10), (3,7)->(2,4),
+(3,9)->(2,5), (4,10)->(1,8), (6,9)->(8,10),
+(6,10)->(0,8), (7,10)->(1,9).
+```
+
+A tiny crossing-only insertion replay, reported as visiting `38` nodes, found
+exactly five normalized cyclic orders up to rotation and reversal:
+
+```text
+0,1,2,3,4,5,6,7,8,9,10
+0,1,2,3,4,5,7,6,8,9,10
+0,1,2,3,4,7,5,6,8,9,10
+0,1,2,3,5,4,6,7,8,9,10
+0,1,2,3,5,4,7,6,8,9,10
+```
+
+The suggested proof-facing form is a spine-pocket poset with fixed spine
+`0<1<2<3` and `8<9<10`, pocket labels `{4,5,6,7}`, and forced pocket
+relations `4<6`, `4<7`, and `5<6`. This side result still needs a committed
+minimal checker before it can be cited as exact repository evidence, and even
+then it would remain fixed-survivor only.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-678`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-678`.
+- The branch was started from `origin/main` at commit
+  `f0ea17a9f8f581fcf2417787af257b4210e98e4c`, after PR #418 merged Cycle
+  677.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- One parallel read-only agent was used to continue the endpoint-control
+  spine-pocket side lead while this smooth-route lemma was developed.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `606 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 677 - Separated Four-Hit Compactness Bridge
 
 ### Mathematical Subquestion
