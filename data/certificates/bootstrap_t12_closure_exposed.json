@@ -1,0 +1,197 @@
+{
+  "claim_scope": "Closure-exposed-row packet for the two tight n=9 bootstrap/T12 records; isolates the missing T12/F16 row centers that are already activation-ready inside a deletion closure. This does not prove that the missing rows are forced, does not prove n=9, does not prove the bridge, and does not claim a counterexample.",
+  "interpretation_warnings": [
+    "This packet isolates fixed selected-row deletion-closure exposures; it does not prove the rows are forced.",
+    "A closure exposure is a local activation-ready bookkeeping state, not a Euclidean rich-class certificate.",
+    "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_closure_exposed.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_closure_exposed.py"
+  },
+  "records": [
+    {
+      "activation_ready_in_closure": true,
+      "bootstrap_core_witnesses": [
+        0,
+        1,
+        4
+      ],
+      "classification_assignment_id": "A082",
+      "closure_exposure_mode": "CENTER_AND_FULL_ROW_IN_CLOSURE",
+      "closure_labels": [
+        0,
+        1,
+        3,
+        4,
+        6
+      ],
+      "closure_size": 5,
+      "core_witness_count_in_closure": 3,
+      "core_witnesses_in_closure": [
+        0,
+        1,
+        4
+      ],
+      "deletion_seed": [
+        0,
+        1,
+        4
+      ],
+      "exposed_core_vertex": 2,
+      "full_row_contained_in_exposure_closure": true,
+      "outside_witnesses": [
+        6
+      ],
+      "outside_witnesses_in_closure": [
+        6
+      ],
+      "outside_witnesses_private": [],
+      "pressure_class": "ALREADY_PRESENT_IN_A_DELETION_CLOSURE",
+      "private_witnesses": [],
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 3,
+      "row_center_in_closure": true,
+      "source_record_id": 81,
+      "witness_count_in_closure": 4,
+      "witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "witnesses_in_closure": [
+        0,
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "activation_ready_in_closure": true,
+      "bootstrap_core_witnesses": [
+        0,
+        1,
+        4
+      ],
+      "classification_assignment_id": "A152",
+      "closure_exposure_mode": "CENTER_AND_CORE_WITNESSES_IN_CLOSURE",
+      "closure_labels": [
+        0,
+        1,
+        4,
+        7
+      ],
+      "closure_size": 4,
+      "core_witness_count_in_closure": 3,
+      "core_witnesses_in_closure": [
+        0,
+        1,
+        4
+      ],
+      "deletion_seed": [
+        0,
+        1,
+        4
+      ],
+      "exposed_core_vertex": 2,
+      "full_row_contained_in_exposure_closure": false,
+      "outside_witnesses": [
+        6
+      ],
+      "outside_witnesses_in_closure": [],
+      "outside_witnesses_private": [
+        6
+      ],
+      "pressure_class": "ALREADY_PRESENT_IN_A_DELETION_CLOSURE",
+      "private_witnesses": [
+        6
+      ],
+      "roles": [
+        "strict_edge_row"
+      ],
+      "row_center": 7,
+      "row_center_in_closure": true,
+      "source_record_id": 151,
+      "witness_count_in_closure": 3,
+      "witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "witnesses_in_closure": [
+        0,
+        1,
+        4
+      ]
+    }
+  ],
+  "schema": "erdos97.bootstrap_t12_closure_exposed.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_t12_row_pressure.json",
+      "role": "source row-pressure records and deletion-closure exposures",
+      "schema": "erdos97.bootstrap_t12_row_pressure.v1",
+      "status": "BOOTSTRAP_T12_ROW_PRESSURE_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_CLOSURE_EXPOSED_DIAGNOSTIC_ONLY",
+  "summary": {
+    "activation_ready_count": 2,
+    "closure_exposed_row_record_count": 2,
+    "core_witness_only_rows_by_source_id": {
+      "151": [
+        7
+      ]
+    },
+    "core_witness_signatures": [
+      [
+        0,
+        1,
+        4
+      ]
+    ],
+    "exposed_core_vertices_by_source_id": {
+      "151": [
+        2
+      ],
+      "81": [
+        2
+      ]
+    },
+    "exposure_mode_counts": {
+      "CENTER_AND_CORE_WITNESSES_IN_CLOSURE": 1,
+      "CENTER_AND_FULL_ROW_IN_CLOSURE": 1
+    },
+    "forcing_target_status": "OPEN_TARGET_NOT_PROVED",
+    "full_row_contained_count": 1,
+    "full_row_contained_rows_by_source_id": {
+      "81": [
+        3
+      ]
+    },
+    "next_bridge_question": "Can a future bridge turn deletion-closure activation readiness into a genuine rich-class row-forcing lemma?",
+    "role_counts": {
+      "equality_connector_row": 1,
+      "strict_edge_row": 1
+    },
+    "row_center_in_closure_count": 2,
+    "row_centers_by_source_id": {
+      "151": [
+        7
+      ],
+      "81": [
+        3
+      ]
+    },
+    "source_record_ids": [
+      81,
+      151
+    ]
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

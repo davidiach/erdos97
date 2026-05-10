@@ -483,6 +483,12 @@ one-outside-label rows, and one outside-pair row. This is a diagnostic
 decomposition of the open target, not a theorem that any of those rows are
 forced by genuine geometry.
 
+The closure-exposed packet in `docs/bootstrap-t12-closure-exposed.md` isolates
+the two deletion-closure-exposed rows, `81:3` and `151:7`. Both are
+activation-ready in the deletion closure for core vertex `2`, but only `81:3`
+has its full selected row contained in that closure. This remains fixed-row
+proof-mining bookkeeping; it is not a rich-class row-forcing theorem.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

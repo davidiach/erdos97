@@ -1969,6 +1969,54 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_closure_exposed
+    path: data/certificates/bootstrap_t12_closure_exposed.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_closure_exposed.py
+    command: python scripts/check_bootstrap_t12_closure_exposed.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_closure_exposed.py
+    check_command: python scripts/check_bootstrap_t12_closure_exposed.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Closure-exposed-row packet for the two tight n=9 bootstrap/T12 records; not a proof that the missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_closure_exposed.v1
+      status: BOOTSTRAP_T12_CLOSURE_EXPOSED_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.source_record_ids:
+        - 81
+        - 151
+      summary.closure_exposed_row_record_count: 2
+      summary.row_centers_by_source_id.81:
+        - 3
+      summary.row_centers_by_source_id.151:
+        - 7
+      summary.exposed_core_vertices_by_source_id.81:
+        - 2
+      summary.exposed_core_vertices_by_source_id.151:
+        - 2
+      summary.exposure_mode_counts.CENTER_AND_CORE_WITNESSES_IN_CLOSURE: 1
+      summary.exposure_mode_counts.CENTER_AND_FULL_ROW_IN_CLOSURE: 1
+      summary.full_row_contained_count: 1
+      summary.activation_ready_count: 2
+      summary.row_center_in_closure_count: 2
+      summary.forcing_target_status: OPEN_TARGET_NOT_PROVED
+      provenance.generator: scripts/check_bootstrap_t12_closure_exposed.py
+      provenance.command: python scripts/check_bootstrap_t12_closure_exposed.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - closure exposure proves the missing rows are forced
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: n10_secondary_singleton_replay
     path: data/certificates/2026-05-05/n10_secondary.json
     kind: finite_case_draft_artifact

@@ -72,6 +72,13 @@ their row centers stay private, and one needs an outside pair with partial
 private-pair ledger support. This is still only a diagnostic for the next
 bridge lemma. See `docs/bootstrap-t12-row-pressure.md`.
 
+A closure-exposed subpacket isolates the two easiest row-pressure gaps:
+`81:3` and `151:7` are activation-ready in the deletion closure for core
+vertex `2`. Source `81` has the full selected row in that closure, while
+source `151` has only the row center and three core witnesses. This is
+proof-mining bookkeeping only, not a proof that either row is forced. See
+`docs/bootstrap-t12-closure-exposed.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

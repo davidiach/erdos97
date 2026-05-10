@@ -326,6 +326,10 @@ condition that the surviving multi-block family does not automatically satisfy:
   `docs/bootstrap-t12-row-pressure.md`, splitting the six missing row centers
   into deletion-closure-exposed rows, one-outside-label rows, and one
   outside-pair row with partial private-pair support.
+- bootstrap/T12 closure-exposed evidence, as recorded in
+  `docs/bootstrap-t12-closure-exposed.md`, isolating the two activation-ready
+  deletion-closure rows before attacking the one-outside-label and outside-pair
+  cases.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract
