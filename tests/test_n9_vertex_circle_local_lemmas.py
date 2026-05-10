@@ -16,10 +16,16 @@ from erdos97.n9_vertex_circle_local_lemmas import (
     T11_STRICT_CYCLE_LEMMA,
     T12_STRICT_CYCLE_LEMMA,
     assert_expected_local_lemma_scan,
+    local_lemma_scan_payload,
 )
 from scripts.check_n9_vertex_circle_local_lemmas import (
     DEFAULT_SELF_EDGE_PACKET,
     DEFAULT_STRICT_CYCLE_PACKET,
+    DEFAULT_T03_PACKET,
+    DEFAULT_T10_PACKET,
+    DEFAULT_T11_PACKET,
+    DEFAULT_T12_PACKET,
+    load_artifact,
     scan_payload,
 )
 
@@ -90,6 +96,113 @@ def test_local_lemma_scan_counts_and_scope(payload: dict[str, object]) -> None:
             "F16": [T12_STRICT_CYCLE_LEMMA],
         },
     }
+    assert payload["focused_note_crosscheck"] == [  # type: ignore[index]
+        {
+            "lemma_id": T03_SELECTED_PATH_SELF_EDGE,
+            "template_id": "T03",
+            "family_ids": ["F05", "F15"],
+            "proof_note_path": "docs/n9-vertex-circle-t03-self-edge-lemma.md",
+            "source_kind": "focused_packet",
+            "packet_key": "T03",
+            "packet_path": (
+                "data/certificates/n9_vertex_circle_t03_self_edge_lemma_packet.json"
+            ),
+            "check_status": "checked",
+            "families_checked": [
+                {"family_id": "F05", "assignment_count": 18, "orbit_size": 18},
+                {"family_id": "F15", "assignment_count": 2, "orbit_size": 2},
+            ],
+            "covered_assignment_count": 20,
+            "interpretation": (
+                "Aggregate scan instance matches the focused packet used by the "
+                "proof-facing note; this is a packet consistency check, not an "
+                "independent n=9 completeness proof."
+            ),
+        },
+        {
+            "lemma_id": T04_SELECTED_PATH_SELF_EDGE,
+            "template_id": "T04",
+            "family_ids": ["F13"],
+            "proof_note_path": "docs/n9-vertex-circle-t04-self-edge-lemma.md",
+            "source_kind": "template_packet",
+            "packet_key": None,
+            "packet_path": (
+                "data/certificates/n9_vertex_circle_self_edge_template_packet.json"
+            ),
+            "check_status": "checked",
+            "families_checked": [
+                {"family_id": "F13", "assignment_count": 2, "orbit_size": 2},
+            ],
+            "covered_assignment_count": 2,
+            "interpretation": (
+                "The T04 proof note is backed directly by the self-edge template "
+                "packet; the aggregate scan matches that source family record."
+            ),
+        },
+        {
+            "lemma_id": T10_STRICT_CYCLE_LEMMA,
+            "template_id": "T10",
+            "family_ids": ["F12"],
+            "proof_note_path": "docs/n9-vertex-circle-t10-strict-cycle-lemma.md",
+            "source_kind": "focused_packet",
+            "packet_key": "T10",
+            "packet_path": (
+                "data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json"
+            ),
+            "check_status": "checked",
+            "families_checked": [
+                {"family_id": "F12", "assignment_count": 18, "orbit_size": 18},
+            ],
+            "covered_assignment_count": 18,
+            "interpretation": (
+                "Aggregate scan instance matches the focused packet used by the "
+                "proof-facing note; this is a packet consistency check, not an "
+                "independent n=9 completeness proof."
+            ),
+        },
+        {
+            "lemma_id": T11_STRICT_CYCLE_LEMMA,
+            "template_id": "T11",
+            "family_ids": ["F07"],
+            "proof_note_path": "docs/n9-vertex-circle-t11-strict-cycle-lemma.md",
+            "source_kind": "focused_packet",
+            "packet_key": "T11",
+            "packet_path": (
+                "data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json"
+            ),
+            "check_status": "checked",
+            "families_checked": [
+                {"family_id": "F07", "assignment_count": 6, "orbit_size": 6},
+            ],
+            "covered_assignment_count": 6,
+            "interpretation": (
+                "Aggregate scan instance matches the focused packet used by the "
+                "proof-facing note; this is a packet consistency check, not an "
+                "independent n=9 completeness proof."
+            ),
+        },
+        {
+            "lemma_id": T12_STRICT_CYCLE_LEMMA,
+            "template_id": "T12",
+            "family_ids": ["F16"],
+            "proof_note_path": "docs/n9-vertex-circle-t12-strict-cycle-lemma.md",
+            "source_kind": "focused_packet",
+            "packet_key": "T12",
+            "packet_path": (
+                "data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json"
+            ),
+            "check_status": "checked",
+            "families_checked": [
+                {"family_id": "F16", "assignment_count": 2, "orbit_size": 2},
+            ],
+            "covered_assignment_count": 2,
+            "interpretation": (
+                "Aggregate scan instance matches the focused packet used by the "
+                "proof-facing note; this is a packet consistency check, not an "
+                "independent n=9 completeness proof."
+            ),
+        },
+    ]
 
 
 def test_shared_endpoint_instances_are_t02_families(payload: dict[str, object]) -> None:
@@ -105,6 +218,8 @@ def test_shared_endpoint_instances_are_t02_families(payload: dict[str, object]) 
         edge = instance["strict_inequality"]
         assert edge["outer_interval"] == [0, 3]
         assert edge["inner_interval"] == [0, 1]
+        assert edge["outer_span"] == 3
+        assert edge["inner_span"] == 1
         assert edge["outer_class"] == edge["inner_class"]
 
 
@@ -123,6 +238,8 @@ def test_nested_spoke_instances_use_quotient_not_direct_two_row(
         edge = instance["strict_inequality"]
         assert edge["outer_interval"] == [0, 3]
         assert edge["inner_interval"] == [1, 2]
+        assert edge["outer_span"] == 3
+        assert edge["inner_span"] == 1
         assert set(edge["outer_pair"]).isdisjoint(edge["inner_pair"])
         assert edge["outer_class"] == edge["inner_class"]
 
@@ -309,6 +426,44 @@ def test_assert_expected_rejects_count_drift(payload: dict[str, object]) -> None
 
     with pytest.raises(AssertionError, match="covered_assignment_count mismatch"):
         assert_expected_local_lemma_scan(tampered)
+
+
+def test_focused_packet_crosscheck_rejects_t03_row_drift() -> None:
+    self_edge_packet = load_artifact(DEFAULT_SELF_EDGE_PACKET)
+    strict_cycle_packet = load_artifact(DEFAULT_STRICT_CYCLE_PACKET)
+    t03_packet = load_artifact(DEFAULT_T03_PACKET)
+    t03_packet["family_packets"][0]["core_selected_rows"][0][1] = 8
+
+    with pytest.raises(AssertionError, match="F05 focused packet core_selected_rows mismatch"):
+        local_lemma_scan_payload(
+            self_edge_packet,
+            strict_cycle_packet,
+            focused_packets={
+                "T03": t03_packet,
+                "T10": load_artifact(DEFAULT_T10_PACKET),
+                "T11": load_artifact(DEFAULT_T11_PACKET),
+                "T12": load_artifact(DEFAULT_T12_PACKET),
+            },
+        )
+
+
+def test_focused_packet_crosscheck_rejects_t10_replay_status_drift() -> None:
+    self_edge_packet = load_artifact(DEFAULT_SELF_EDGE_PACKET)
+    strict_cycle_packet = load_artifact(DEFAULT_STRICT_CYCLE_PACKET)
+    t10_packet = load_artifact(DEFAULT_T10_PACKET)
+    t10_packet["family_packets"][0]["replay"]["status"] = "unknown"
+
+    with pytest.raises(AssertionError, match="F12 focused packet replay status mismatch"):
+        local_lemma_scan_payload(
+            self_edge_packet,
+            strict_cycle_packet,
+            focused_packets={
+                "T03": load_artifact(DEFAULT_T03_PACKET),
+                "T10": t10_packet,
+                "T11": load_artifact(DEFAULT_T11_PACKET),
+                "T12": load_artifact(DEFAULT_T12_PACKET),
+            },
+        )
 
 
 def test_local_lemma_scan_cli_json() -> None:

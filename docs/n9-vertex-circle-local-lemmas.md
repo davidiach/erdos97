@@ -405,6 +405,32 @@ family: F16
 covered assignments: 2
 ```
 
+## Focused-note crosscheck
+
+The aggregate checker also cross-checks the proof-facing focused notes that
+have already been extracted from the packet catalog:
+
+```text
+T03/F05,F15 -> docs/n9-vertex-circle-t03-self-edge-lemma.md
+T04/F13     -> docs/n9-vertex-circle-t04-self-edge-lemma.md
+T10/F12     -> docs/n9-vertex-circle-t10-strict-cycle-lemma.md
+T11/F07     -> docs/n9-vertex-circle-t11-strict-cycle-lemma.md
+T12/F16     -> docs/n9-vertex-circle-t12-strict-cycle-lemma.md
+```
+
+For T03, T10, T11, and T12 the scan loads the focused JSON packets and checks
+that the aggregate family rows, strict inequalities, equality paths, cycle
+steps, and assignment counts match the focused packet used by the note. T04 has
+no separate focused packet; its note is backed directly by the T04 family
+record in the self-edge template packet, and the aggregate scan checks that
+record instead.
+
+This crosscheck is intentionally modest. It says the aggregate proof-mining
+summary agrees with the focused proof-note packets and source template record.
+It does not independently prove that the template packets cover all `n=9`
+frontier assignments, and it does not promote the review-pending exhaustive
+checker.
+
 ## Scan summary
 
 The current local-lemma scan covers these review-pending template-packet

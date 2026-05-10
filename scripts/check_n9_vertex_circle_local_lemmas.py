@@ -25,6 +25,18 @@ DEFAULT_SELF_EDGE_PACKET = (
 DEFAULT_STRICT_CYCLE_PACKET = (
     ROOT / "data" / "certificates" / "n9_vertex_circle_strict_cycle_template_packet.json"
 )
+DEFAULT_T03_PACKET = (
+    ROOT / "data" / "certificates" / "n9_vertex_circle_t03_self_edge_lemma_packet.json"
+)
+DEFAULT_T10_PACKET = (
+    ROOT / "data" / "certificates" / "n9_vertex_circle_t10_strict_cycle_lemma_packet.json"
+)
+DEFAULT_T11_PACKET = (
+    ROOT / "data" / "certificates" / "n9_vertex_circle_t11_strict_cycle_lemma_packet.json"
+)
+DEFAULT_T12_PACKET = (
+    ROOT / "data" / "certificates" / "n9_vertex_circle_t12_strict_cycle_lemma_packet.json"
+)
 
 
 def load_artifact(path: Path) -> Any:
@@ -37,12 +49,22 @@ def scan_payload(
     *,
     self_edge_packet_path: Path = DEFAULT_SELF_EDGE_PACKET,
     strict_cycle_packet_path: Path = DEFAULT_STRICT_CYCLE_PACKET,
+    t03_packet_path: Path = DEFAULT_T03_PACKET,
+    t10_packet_path: Path = DEFAULT_T10_PACKET,
+    t11_packet_path: Path = DEFAULT_T11_PACKET,
+    t12_packet_path: Path = DEFAULT_T12_PACKET,
 ) -> dict[str, Any]:
     """Load source artifacts and return the local-lemma scan payload."""
 
     return local_lemma_scan_payload(
         load_artifact(self_edge_packet_path),
         load_artifact(strict_cycle_packet_path),
+        focused_packets={
+            "T03": load_artifact(t03_packet_path),
+            "T10": load_artifact(t10_packet_path),
+            "T11": load_artifact(t11_packet_path),
+            "T12": load_artifact(t12_packet_path),
+        },
     )
 
 
@@ -68,6 +90,12 @@ def summary_lines(payload: dict[str, Any]) -> list[str]:
             f"{lemma['covered_assignment_count']} assignments, "
             f"families {','.join(lemma['family_ids'])}"
         )
+    for item in payload["focused_note_crosscheck"]:
+        lines.append(
+            f"focused {item['template_id']}: {item['check_status']} "
+            f"against {item['proof_note_path']} "
+            f"families {','.join(item['family_ids'])}"
+        )
     special = payload["direct_two_row_nested_spoke_special_case"]
     lines.append(
         f"{special['lemma_id']}: {special['instance_count']} exact direct instances"
@@ -90,6 +118,30 @@ def main(argv: list[str] | None = None) -> int:
         help="Path to n9 strict-cycle template packet JSON.",
     )
     parser.add_argument(
+        "--t03-packet",
+        type=Path,
+        default=DEFAULT_T03_PACKET,
+        help="Path to focused T03 self-edge lemma packet JSON.",
+    )
+    parser.add_argument(
+        "--t10-packet",
+        type=Path,
+        default=DEFAULT_T10_PACKET,
+        help="Path to focused T10 strict-cycle lemma packet JSON.",
+    )
+    parser.add_argument(
+        "--t11-packet",
+        type=Path,
+        default=DEFAULT_T11_PACKET,
+        help="Path to focused T11 strict-cycle lemma packet JSON.",
+    )
+    parser.add_argument(
+        "--t12-packet",
+        type=Path,
+        default=DEFAULT_T12_PACKET,
+        help="Path to focused T12 strict-cycle lemma packet JSON.",
+    )
+    parser.add_argument(
         "--assert-expected",
         action="store_true",
         help="Assert the currently expected local-lemma scan counts.",
@@ -100,6 +152,10 @@ def main(argv: list[str] | None = None) -> int:
     payload = scan_payload(
         self_edge_packet_path=args.self_edge_packet,
         strict_cycle_packet_path=args.strict_cycle_packet,
+        t03_packet_path=args.t03_packet,
+        t10_packet_path=args.t10_packet,
+        t11_packet_path=args.t11_packet,
+        t12_packet_path=args.t12_packet,
     )
     if args.assert_expected:
         assert_expected_local_lemma_scan(payload)
