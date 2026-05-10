@@ -25,9 +25,11 @@ Use this queue when no more specific issue is selected.
    target.
 3. Strengthen the minimal fragile-cover bridge with one geometric necessary
    condition and test it against the block-6 negative controls.
-4. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
+4. Apply the bootstrap-core/private-halo weighted capacity checker to current
+   stuck/frontier motifs and record which packets survive the sharper ledger.
+5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
-5. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
+6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
    with an independent input-data replay.
 
 ## Task CB-N9-T01 - Extract Vertex-Circle Self-Edge Template
@@ -134,12 +136,15 @@ Read first:
 - `src/erdos97/fragile_hypergraph.py`
 - `scripts/check_fragile_hypergraph.py`
 - `docs/stuck-set-miner.md`
+- `docs/bootstrap-core-bridge.md`
+- `src/erdos97/bootstrap_cores.py`
 
 Commands:
 
 ```bash
 python scripts/check_fragile_hypergraph.py --json
 python scripts/check_fragile_hypergraph.py --blocks 2 --assert-ok --json
+python scripts/check_bootstrap_core_bridge.py --assert-expected
 python -m pytest tests/test_fragile_hypergraph.py -q
 ```
 

@@ -389,6 +389,35 @@ rule out radius-blockers using strict convexity, fragile-cover geometry, and
 the current exact obstruction stack, or construct an exact blocker escape
 mechanism. See `docs/adaptive-radius-blocker-bridge.md`.
 
+### Bootstrap-core closure rank and weighted capacity
+
+Status: `LEMMA` / bridge fork.
+
+Given the full family of rich distance classes at each bad vertex, define
+`cl(A)` by adding a center once three current vertices lie in one of its rich
+classes. Let `rho` be the minimum size of a set whose closure is all vertices.
+Then a polygon admits an ear-orderable selected-witness system if and only if
+`rho <= 3`, using the repo convention that the first three vertices form the
+base of the ear order.
+
+If `rho > 3` and `U` is an inclusion-minimal generator, then for every
+`u in U`, with `A_u = cl(U \ {u})` and `O = V \ U`, one has `u notin A_u` and
+`|C cap A_u| <= 2` for every rich class `C` at `u`. Thus the private halo
+`D_u = O \ A_u` contains at least `|C|-2` witnesses from each such class.
+
+Counting all private outside pairs gives the weighted cyclic capacity bound
+
+```text
+sum_{u in U} sum_{C in R(u)} binom(|C cap D_u|, 2)
+  <= sum_{{a,b} subset O} kappa_U(a,b)
+  = 2 binom(|O|, 2) - sum_R binom(|R|, 2),
+```
+
+where the last sum is over maximal consecutive outside-vertex runs in the
+cyclic order. This strengthens the one-pair-per-center radius-blocker bound
+but is still only a bridge target, not a proof of Erdos Problem #97. See
+`docs/bootstrap-core-bridge.md`.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

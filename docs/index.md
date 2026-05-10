@@ -120,6 +120,8 @@ put detailed reconciliation in the canonical synthesis.
   proof-mining targets.
 - [`adaptive-radius-blocker-bridge.md`](adaptive-radius-blocker-bridge.md):
   adaptive selected-witness peeling versus radius-blocker bridge fork.
+- [`bootstrap-core-bridge.md`](bootstrap-core-bridge.md): rich-triple closure
+  rank, bootstrap cores, private halos, and weighted cyclic capacity.
 - [`bridge-negative-controls.md`](bridge-negative-controls.md): exact
   guardrails for incidence-only and fragile-cover-only bridge claims.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`

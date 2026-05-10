@@ -96,6 +96,12 @@ This fork is useful because it handles the noncanonical selection issue: a real
 bad polygon may have several rich distance classes at a center, and fixed-row
 stuck sets do not see that disjunction.
 
+The stronger follow-up object is the bootstrap-core formulation in
+`docs/bootstrap-core-bridge.md`: it replaces a terminal blocker from one
+maximal peeling run by rich-triple closure rank, inclusion-minimal generating
+cores, deletion closures, private halos, and a weighted cyclic outside-pair
+capacity ledger.
+
 The next bridge target is therefore precise:
 
 ```text

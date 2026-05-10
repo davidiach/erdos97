@@ -121,6 +121,19 @@ block-6 fragile cover but still permits two disjoint blocks, so this is a
 necessary structural bridge only, not a contradiction and not the open
 ear-orderable bridge. See `docs/minimal-fragile-cover-bridge.md`.
 
+### Bootstrap-core bridge
+
+Status: `LEMMA` / bridge fork.
+
+For the full rich distance-class family, rich-triple closure rank is exactly
+the ear-orderable selected-witness bridge: rank at most 3 is equivalent to an
+ear-orderable selection. If the rank is greater than 3, any inclusion-minimal
+generating core has deletion closures and private halos that make it a
+radius-blocker with a weighted cyclic outside-pair capacity ledger. This is a
+necessary bridge target only; it is not a proof of Erdos Problem #97 and not a
+counterexample. See `docs/bootstrap-core-bridge.md` and
+`scripts/check_bootstrap_core_bridge.py`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.
