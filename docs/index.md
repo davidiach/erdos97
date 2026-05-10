@@ -135,6 +135,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-core-crosswalk.md`](bootstrap-core-crosswalk.md): checked
   singleton-rich bootstrap-core rank/capacity crosswalk for current fixed-row
   frontier motifs.
+- [`bootstrap-vertex-circle-overlay.md`](bootstrap-vertex-circle-overlay.md):
+  checked overlay joining the two tight `n=9` non-ear bootstrap rows to the
+  review-pending vertex-circle strict-cycle chain.
 - [`bridge-negative-controls.md`](bridge-negative-controls.md): exact
   guardrails for incidence-only and fragile-cover-only bridge claims.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`

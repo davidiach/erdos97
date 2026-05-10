@@ -63,6 +63,12 @@ their capacity margins are `8` and `6`. The sparse circulant cases have much
 larger margins, so this private-pair ledger alone is too weak to explain their
 known exact Kalmanson/Farkas obstructions.
 
+A follow-up overlay joins these two tight `n=9` rows to the review-pending
+vertex-circle strict-cycle certificate chain; see
+`docs/bootstrap-vertex-circle-overlay.md`. Both rows land on the `T12/F16`
+strict-cycle template by selected-row signature, but the strict-cycle local
+row cores are not contained in the bootstrap core.
+
 ## Reading
 
 The useful negative conclusion is narrow:

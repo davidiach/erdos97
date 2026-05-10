@@ -56,6 +56,9 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the bootstrap-core rank/capacity crosswalk on current fixed-row
   frontier motifs, read
   [`docs/bootstrap-core-crosswalk.md`](docs/bootstrap-core-crosswalk.md).
+- For the bootstrap-core / vertex-circle overlay on the tight `n=9`
+  non-ear-orderable rows, read
+  [`docs/bootstrap-vertex-circle-overlay.md`](docs/bootstrap-vertex-circle-overlay.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).

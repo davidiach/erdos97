@@ -148,6 +148,11 @@ local_repo:
       artifact: "data/certificates/bootstrap_core_crosswalk.json"
       verifier: "scripts/check_bootstrap_core_crosswalk.py"
       claim_scope: "fixed selected-row bridge diagnostic only; all audited cases have rank greater than 3 and survive weighted private-halo capacity; not a proof or counterexample"
+    - pattern: "bootstrap_vertex_circle_overlay"
+      status: "overlay of the two tight n=9 bootstrap-core rows with the review-pending vertex-circle strict-cycle chain"
+      artifact: "data/certificates/bootstrap_vertex_circle_overlay.json"
+      verifier: "scripts/check_bootstrap_vertex_circle_overlay.py"
+      claim_scope: "fixed selected-row proof-mining diagnostic only; both tight non-ear n=9 rows land on the T12/F16 strict-cycle template by selected-row signature, but this is not a proof of n=9, not a bridge proof, and not a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

@@ -142,6 +142,15 @@ realizability; see `docs/bootstrap-core-crosswalk.md`,
 `scripts/check_bootstrap_core_crosswalk.py`, and
 `data/certificates/bootstrap_core_crosswalk.json`.
 
+The companion bootstrap / vertex-circle overlay joins the two tight
+non-ear-orderable `n=9` crosswalk rows to the review-pending strict-cycle
+certificate chain by selected-row signature. Both land on the same `T12/F16`
+strict-cycle template, with capacity margins `8` and `6`, but the strict-cycle
+local row cores are not contained in the bootstrap core. This is proof-mining
+diagnostic information only; see `docs/bootstrap-vertex-circle-overlay.md`,
+`scripts/check_bootstrap_vertex_circle_overlay.py`, and
+`data/certificates/bootstrap_vertex_circle_overlay.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.
