@@ -471,6 +471,25 @@ the strict-cycle obstruction used in Lemma D. This is only a necessary local
 test: acyclicity of the strict quotient graph does not imply that the local
 core is geometrically realizable.
 
+### Finite descent corollary
+
+Let `H` be a nonempty finite set of selected-distance quotient classes touched
+by a local core. Suppose every class `C` in `H` has at least one strict
+quotient-graph edge
+
+```text
+C -> f(C)
+```
+
+with `f(C)` again in `H`. Then the local core is impossible. Starting from any
+class in `H` and repeatedly applying `f`, finiteness forces some class to
+repeat. The resulting closed walk contains a directed cycle, contradicting
+strict quotient-graph acyclicity.
+
+This corollary is often easier to target than an explicitly named cycle: it is
+enough to find a finite closed region of quotient classes with no strict
+descent sink.
+
 ## Focused-note crosscheck
 
 The aggregate checker also cross-checks the proof-facing focused notes that
