@@ -8,7 +8,7 @@ vertex-circle checker.
 from __future__ import annotations
 
 from collections import defaultdict
-from typing import Any, Iterable, Sequence
+from typing import Any, Iterable, Mapping, Sequence
 
 from erdos97.incidence_filters import chords_cross_in_order, normalize_chord
 from erdos97.vertex_circle_quotient_replay import (
@@ -79,11 +79,64 @@ EXPECTED_SUMMARY = {
     },
 }
 EXPECTED_DIRECT_TWO_ROW_INSTANCE_COUNT = 0
+EXPECTED_FOCUSED_NOTE_CROSSCHECK = {
+    T03_SELECTED_PATH_SELF_EDGE: {
+        "template_id": "T03",
+        "family_ids": ["F05", "F15"],
+        "proof_note_path": "docs/n9-vertex-circle-t03-self-edge-lemma.md",
+        "source_kind": "focused_packet",
+        "packet_key": "T03",
+        "packet_path": (
+            "data/certificates/n9_vertex_circle_t03_self_edge_lemma_packet.json"
+        ),
+    },
+    T04_SELECTED_PATH_SELF_EDGE: {
+        "template_id": "T04",
+        "family_ids": ["F13"],
+        "proof_note_path": "docs/n9-vertex-circle-t04-self-edge-lemma.md",
+        "source_kind": "template_packet",
+        "packet_key": None,
+        "packet_path": (
+            "data/certificates/n9_vertex_circle_self_edge_template_packet.json"
+        ),
+    },
+    T10_STRICT_CYCLE_LEMMA: {
+        "template_id": "T10",
+        "family_ids": ["F12"],
+        "proof_note_path": "docs/n9-vertex-circle-t10-strict-cycle-lemma.md",
+        "source_kind": "focused_packet",
+        "packet_key": "T10",
+        "packet_path": (
+            "data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json"
+        ),
+    },
+    T11_STRICT_CYCLE_LEMMA: {
+        "template_id": "T11",
+        "family_ids": ["F07"],
+        "proof_note_path": "docs/n9-vertex-circle-t11-strict-cycle-lemma.md",
+        "source_kind": "focused_packet",
+        "packet_key": "T11",
+        "packet_path": (
+            "data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json"
+        ),
+    },
+    T12_STRICT_CYCLE_LEMMA: {
+        "template_id": "T12",
+        "family_ids": ["F16"],
+        "proof_note_path": "docs/n9-vertex-circle-t12-strict-cycle-lemma.md",
+        "source_kind": "focused_packet",
+        "packet_key": "T12",
+        "packet_path": (
+            "data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json"
+        ),
+    },
+}
 
 
 def local_lemma_scan_payload(
     self_edge_packet: dict[str, Any],
     strict_cycle_packet: dict[str, Any],
+    focused_packets: Mapping[str, dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Return a JSON-safe scan of reusable local-lemma instances."""
 
@@ -183,6 +236,11 @@ def local_lemma_scan_payload(
         T04_SELECTED_PATH_SELF_EDGE: t04_selected_path,
         **strict_cycle_instances,
     }
+    focused_note_crosscheck = _focused_note_crosscheck(
+        lemma_instances,
+        self_edge_packet,
+        focused_packets or {},
+    )
 
     return {
         "schema": SCHEMA,
@@ -229,6 +287,7 @@ def local_lemma_scan_payload(
             lemma_instances,
             source_family_assignments,
         ),
+        "focused_note_crosscheck": focused_note_crosscheck,
         "interpretation": (
             "The listed local shapes are reusable obstruction candidates: each "
             "one produces either a reflexive strict edge or a directed strict "
@@ -259,6 +318,249 @@ def _source_family_assignments(
                 f"{previous} != {assignment_count}"
             )
     return assignments
+
+
+def _focused_note_crosscheck(
+    lemma_instances: Mapping[str, Sequence[dict[str, Any]]],
+    self_edge_packet: Mapping[str, Any],
+    focused_packets: Mapping[str, dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Cross-check aggregate records against focused proof-note packets."""
+
+    records = []
+    for lemma_id, expected in EXPECTED_FOCUSED_NOTE_CROSSCHECK.items():
+        family_ids = list(expected["family_ids"])
+        aggregate_instances = _instances_by_family(
+            lemma_instances.get(lemma_id, ()),
+            family_ids,
+        )
+        if expected["source_kind"] == "focused_packet":
+            packet_key = str(expected["packet_key"])
+            focused_packet = focused_packets.get(packet_key)
+            if focused_packet is None:
+                records.append(
+                    {
+                        "lemma_id": lemma_id,
+                        **expected,
+                        "check_status": "not_loaded",
+                        "families_checked": [],
+                        "covered_assignment_count": 0,
+                        "note": (
+                            "Focused packet was not supplied; aggregate scan "
+                            "still derives this lemma from the template packets."
+                        ),
+                    }
+                )
+                continue
+            check_summary = _check_focused_packet(
+                lemma_id,
+                expected,
+                aggregate_instances,
+                focused_packet,
+            )
+        else:
+            check_summary = _check_t04_template_record(
+                expected,
+                aggregate_instances,
+                self_edge_packet,
+            )
+        records.append(
+            {
+                "lemma_id": lemma_id,
+                **expected,
+                "check_status": "checked",
+                **check_summary,
+            }
+        )
+    return records
+
+
+def _instances_by_family(
+    instances: Sequence[dict[str, Any]],
+    family_ids: Sequence[str],
+) -> dict[str, dict[str, Any]]:
+    by_family = {
+        str(instance["family_id"]): instance
+        for instance in instances
+        if isinstance(instance, dict) and "family_id" in instance
+    }
+    missing = [family_id for family_id in family_ids if family_id not in by_family]
+    if missing:
+        raise AssertionError(f"aggregate scan missing focused families: {missing!r}")
+    return {family_id: by_family[family_id] for family_id in family_ids}
+
+
+def _check_focused_packet(
+    lemma_id: str,
+    expected: Mapping[str, Any],
+    aggregate_instances: Mapping[str, dict[str, Any]],
+    focused_packet: Mapping[str, Any],
+) -> dict[str, Any]:
+    template_id = str(expected["template_id"])
+    if focused_packet.get("template_id") != template_id:
+        raise AssertionError(f"{template_id} focused packet template mismatch")
+    if focused_packet.get("status") != "REVIEW_PENDING_DIAGNOSTIC_ONLY":
+        raise AssertionError(f"{template_id} focused packet status mismatch")
+    if focused_packet.get("trust") != TRUST:
+        raise AssertionError(f"{template_id} focused packet trust mismatch")
+    claim_scope = str(focused_packet.get("claim_scope", ""))
+    for forbidden in ("proof of n=9", "counterexample", "global status update"):
+        if f"not a {forbidden}" not in claim_scope and f"not an {forbidden}" not in claim_scope:
+            raise AssertionError(
+                f"{template_id} focused packet must explicitly reject {forbidden!r}"
+            )
+
+    family_packets = focused_packet.get("family_packets")
+    if not isinstance(family_packets, list):
+        raise AssertionError(f"{template_id} focused packet must contain family_packets")
+    packets_by_family = {
+        str(packet["family_id"]): packet
+        for packet in family_packets
+        if isinstance(packet, dict) and "family_id" in packet
+    }
+
+    checked = []
+    for family_id, aggregate in aggregate_instances.items():
+        packet = packets_by_family.get(family_id)
+        if packet is None:
+            raise AssertionError(f"{template_id} focused packet missing {family_id}")
+        _assert_family_common_fields(template_id, family_id, aggregate, packet)
+        if lemma_id in {T03_SELECTED_PATH_SELF_EDGE, T04_SELECTED_PATH_SELF_EDGE}:
+            _assert_self_edge_family_match(template_id, family_id, aggregate, packet)
+        else:
+            _assert_strict_cycle_family_match(template_id, family_id, aggregate, packet)
+        checked.append(
+            {
+                "family_id": family_id,
+                "assignment_count": int(aggregate["assignment_count"]),
+                "orbit_size": int(aggregate["orbit_size"]),
+            }
+        )
+
+    return {
+        "families_checked": checked,
+        "covered_assignment_count": sum(item["assignment_count"] for item in checked),
+        "interpretation": (
+            "Aggregate scan instance matches the focused packet used by the "
+            "proof-facing note; this is a packet consistency check, not an "
+            "independent n=9 completeness proof."
+        ),
+    }
+
+
+def _check_t04_template_record(
+    expected: Mapping[str, Any],
+    aggregate_instances: Mapping[str, dict[str, Any]],
+    self_edge_packet: Mapping[str, Any],
+) -> dict[str, Any]:
+    family_id = "F13"
+    aggregate = aggregate_instances[family_id]
+    family = _template_family_record(
+        self_edge_packet,
+        template_id=str(expected["template_id"]),
+        family_id=family_id,
+    )
+    _assert_family_common_fields(str(expected["template_id"]), family_id, aggregate, family)
+    _assert_self_edge_family_match(str(expected["template_id"]), family_id, aggregate, family)
+    return {
+        "families_checked": [
+            {
+                "family_id": family_id,
+                "assignment_count": int(aggregate["assignment_count"]),
+                "orbit_size": int(aggregate["orbit_size"]),
+            }
+        ],
+        "covered_assignment_count": int(aggregate["assignment_count"]),
+        "interpretation": (
+            "The T04 proof note is backed directly by the self-edge template "
+            "packet; the aggregate scan matches that source family record."
+        ),
+    }
+
+
+def _template_family_record(
+    packet: Mapping[str, Any],
+    *,
+    template_id: str,
+    family_id: str,
+) -> Mapping[str, Any]:
+    templates = packet.get("templates")
+    if not isinstance(templates, list):
+        raise AssertionError("self-edge packet must contain templates")
+    for template in templates:
+        if not isinstance(template, dict) or template.get("template_id") != template_id:
+            continue
+        records = template.get("family_records")
+        if not isinstance(records, list):
+            raise AssertionError(f"{template_id} must contain family_records")
+        for family in records:
+            if isinstance(family, dict) and family.get("family_id") == family_id:
+                return family
+    raise AssertionError(f"missing {template_id}/{family_id} family record")
+
+
+def _assert_family_common_fields(
+    template_id: str,
+    family_id: str,
+    aggregate: Mapping[str, Any],
+    packet: Mapping[str, Any],
+) -> None:
+    if aggregate.get("template_id") != template_id:
+        raise AssertionError(f"{family_id} aggregate template mismatch")
+    if "template_id" in packet and packet.get("template_id") != template_id:
+        raise AssertionError(f"{family_id} focused packet template mismatch")
+    for key in ("assignment_count", "orbit_size", "core_selected_rows"):
+        if aggregate.get(key) != packet.get(key):
+            raise AssertionError(f"{family_id} focused packet {key} mismatch")
+
+
+def _assert_self_edge_family_match(
+    template_id: str,
+    family_id: str,
+    aggregate: Mapping[str, Any],
+    packet: Mapping[str, Any],
+) -> None:
+    aggregate_strict = aggregate.get("strict_inequality")
+    packet_strict = packet.get("strict_inequality")
+    if not isinstance(aggregate_strict, Mapping) or not isinstance(packet_strict, Mapping):
+        raise AssertionError(f"{family_id} focused packet strict_inequality mismatch")
+    for key in (
+        "row",
+        "witness_order",
+        "outer_interval",
+        "inner_interval",
+        "outer_pair",
+        "inner_pair",
+        "outer_span",
+        "inner_span",
+    ):
+        if aggregate_strict.get(key) != packet_strict.get(key):
+            raise AssertionError(f"{family_id} focused packet strict_inequality mismatch")
+    if aggregate_strict.get("outer_class") != aggregate_strict.get("inner_class"):
+        raise AssertionError(f"{family_id} aggregate strict edge must be reflexive")
+    if packet_strict.get("outer_class") != packet_strict.get("inner_class"):
+        raise AssertionError(f"{family_id} focused packet strict edge must be reflexive")
+    equality = packet.get("distance_equality")
+    if aggregate.get("distance_equality") != equality:
+        raise AssertionError(f"{family_id} focused packet distance_equality mismatch")
+    if aggregate.get("direct_conditions", {}).get("holds") is not True:
+        variant = aggregate.get("direct_conditions", {}).get("variant")
+        if template_id in {"T03", "T04"} or variant == "selected_path_self_edge":
+            raise AssertionError(f"{family_id} selected-path conditions must hold")
+
+
+def _assert_strict_cycle_family_match(
+    template_id: str,
+    family_id: str,
+    aggregate: Mapping[str, Any],
+    packet: Mapping[str, Any],
+) -> None:
+    if aggregate.get("cycle_steps") != packet.get("cycle_steps"):
+        raise AssertionError(f"{family_id} focused packet cycle_steps mismatch")
+    if aggregate.get("replay_status") != "strict_cycle":
+        raise AssertionError(f"{family_id} aggregate replay_status mismatch")
+    if packet.get("cycle_length") != len(packet.get("cycle_steps", [])):
+        raise AssertionError(f"{family_id} focused packet cycle length mismatch")
 
 
 def assert_expected_local_lemma_scan(payload: dict[str, Any]) -> None:
@@ -340,6 +642,40 @@ def assert_expected_local_lemma_scan(payload: dict[str, Any]) -> None:
         "F16",
     ]:
         raise AssertionError("covered_family_ids mismatch")
+
+    crosscheck = payload.get("focused_note_crosscheck")
+    if not isinstance(crosscheck, list):
+        raise AssertionError("focused_note_crosscheck must be a list")
+    by_lemma = {
+        str(item.get("lemma_id")): item
+        for item in crosscheck
+        if isinstance(item, dict) and "lemma_id" in item
+    }
+    if set(by_lemma) != set(EXPECTED_FOCUSED_NOTE_CROSSCHECK):
+        raise AssertionError(f"focused-note lemma ids mismatch: {sorted(by_lemma)!r}")
+    for lemma_id, expected in EXPECTED_FOCUSED_NOTE_CROSSCHECK.items():
+        item = by_lemma[lemma_id]
+        for key in (
+            "template_id",
+            "family_ids",
+            "proof_note_path",
+            "source_kind",
+            "packet_path",
+        ):
+            if item.get(key) != expected[key]:
+                raise AssertionError(
+                    f"{lemma_id} focused-note {key} mismatch: "
+                    f"expected {expected[key]!r}, got {item.get(key)!r}"
+                )
+        if item.get("check_status") != "checked":
+            raise AssertionError(f"{lemma_id} focused-note crosscheck was not checked")
+        checked_families = [
+            str(checked.get("family_id"))
+            for checked in item.get("families_checked", [])
+            if isinstance(checked, dict)
+        ]
+        if checked_families != expected["family_ids"]:
+            raise AssertionError(f"{lemma_id} checked family ids mismatch")
 
 
 def _order_from_packet(packet: dict[str, Any]) -> tuple[int, ...]:
@@ -537,6 +873,7 @@ def _self_edge_instance(
         "orbit_size": int(family["orbit_size"]),
         "core_selected_rows": _rows_to_json(rows),
         "strict_inequality": _edge_to_json(edge),
+        "distance_equality": family.get("distance_equality"),
         "direct_conditions": direct_conditions,
         "simple_filter_violations": _simple_filter_violations(rows, order),
     }
@@ -622,6 +959,8 @@ def _rows_to_json(rows: Sequence[SelectedRow]) -> list[list[int]]:
 
 
 def _edge_to_json(edge: StrictInequality) -> dict[str, Any]:
+    outer_span = int(edge.outer_interval[1]) - int(edge.outer_interval[0])
+    inner_span = int(edge.inner_interval[1]) - int(edge.inner_interval[0])
     return {
         "row": edge.row,
         "witness_order": list(edge.witness_order),
@@ -631,6 +970,8 @@ def _edge_to_json(edge: StrictInequality) -> dict[str, Any]:
         "inner_pair": list(edge.inner_pair),
         "outer_class": list(edge.outer_class),
         "inner_class": list(edge.inner_class),
+        "outer_span": outer_span,
+        "inner_span": inner_span,
     }
 
 
