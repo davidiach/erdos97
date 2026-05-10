@@ -22947,6 +22947,164 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 674 - Endpoint-Control Product-Cancellation Survivor
+
+### Mathematical Subquestion
+
+Cycle 673 produced an abstract endpoint-control negative control whose fixed
+fragile rows extend to a full selected-row incidence pattern. The next exact
+question was:
+
+```text
+Does the row-circle product-cancellation gate kill every full selected-row
+extension of the endpoint-control negative-control fragile rows?
+```
+
+This tests whether the first metric layer beyond cap/crossing incidence is
+already strong enough to recover endpoint control for this benchmark.
+
+### Definitions and Assumptions
+
+Use the Cycle 673 fixed fragile rows on labels `0,...,10` in natural cyclic
+order:
+
+```text
+0 -> {1,3,5,6}
+1 -> {0,2,7,9}
+6 -> {0,4,8,10}
+```
+
+Here `0` is the base center and `1,6` are the endpoint labels in the base
+row. A full selected-row extension assigns one four-set row to every center
+while preserving the fixed rows and satisfying the selected-row cap/crossing
+checks.
+
+For any selected row whose witnesses are in cyclic order
+`w0,w1,w2,w3`, the row-circle Ptolemy identity is
+
+```text
+d02*d13 = d01*d23 + d03*d12.
+```
+
+The row-Ptolemy product-cancellation gate rejects a fixed full extension when
+selected-distance quotienting forces one product on the right or left to
+cancel, leaving a product of positive ordinary distances equal to zero.
+
+### Result Status
+
+Counterexample to an all-extension bridge subclaim:
+**Endpoint-Control Product-Cancellation Survivor**.
+
+### Argument Or Obstruction
+
+First, the displayed full extension from Cycle 673 is killed by the
+row-Ptolemy product-cancellation gate. The exact replay finds `4`
+certificates. The first certificate has:
+
+```text
+row: 2
+witness_order: [3,4,0,1]
+variant: cancel_d01_d23_via_d02_eq_d23_and_d13_eq_d01
+forced equalities:
+  d02 pair [0,3] = d23 pair [0,1]
+  d13 pair [1,4] = d01 pair [3,4]
+zero product: d03*d12
+```
+
+Thus the particular displayed extension is not compatible with the
+row-circle product-cancellation necessary condition.
+
+However, this fixed-extension obstruction does not survive the correct
+existential quantifier. A bounded deterministic all-extension search over the
+same fixed fragile rows finds a row-Ptolemy product-cancellation survivor
+after `44` nodes:
+
+```text
+0  -> {1,3,5,6}
+1  -> {0,2,7,9}
+2  -> {1,3,4,10}
+3  -> {2,4,5,7}
+4  -> {1,6,7,8}
+5  -> {0,2,3,6}
+6  -> {0,4,8,10}
+7  -> {1,2,4,9}
+8  -> {3,7,9,10}
+9  -> {2,5,8,10}
+10 -> {0,1,8,9}
+```
+
+For this full extension,
+`row_ptolemy_product_cancellation_certificates(rows, order)` returns no
+certificates.
+
+### Exact Scope
+
+This is an exact finite incidence/order and symbolic row-Ptolemy
+product-cancellation result. It is not a Euclidean realization certificate,
+not a counterexample to Erdos Problem #97, and not a counterexample to the
+full Endpoint Control Auxiliary Claim. The survivor only evades this one
+product-cancellation gate. It may still fail quotient-level Ptolemy
+feasibility, triangle inequalities, Kalmanson inequalities, global metric
+consistency, Euclidean realizability, or critical-radius ordering.
+
+### Files Changed
+
+- `docs/minimal-fragile-cover-bridge.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+The row-circle route remains useful, but a single fixed-extension
+product-cancellation certificate is not enough for endpoint control. Any
+successful endpoint-control bridge must either strengthen the metric layer or
+prove an all-extension statement that the current product-cancellation test
+alone does not provide.
+
+### Next Lead
+
+Apply a stronger metric gate to the displayed survivor: quotient-level
+Ptolemy feasibility, Kalmanson quotient-cone certificates in the natural
+order, or critical-radius inequalities. If that survivor also passes the next
+gate, it should become the small reusable benchmark for endpoint-control
+bridge proposals.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-674`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-674`.
+- The branch was started from `origin/main` at commit
+  `d237888d146dfcb0a432283a1717d4f820181625`, after PR #412 merged Cycle
+  673.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- Parallel agents were used for this cycle: one audited the mathematical
+  claim, and one audited PR/readiness state.
+
+### Validation
+
+- One-off exact replay for the displayed extension and the bounded survivor
+  search: passed. It verified `4` product-cancellation certificates for the
+  displayed extension, first at row `2` with witness order `[3,4,0,1]`, and
+  found the displayed survivor after `44` nodes with zero
+  product-cancellation certificates.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `593 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 673 - Endpoint-Control Fragile-Cover Negative Control
 
 ### Mathematical Subquestion

@@ -166,6 +166,40 @@ fragile rows and all row-circle constraints. Thus a bridge proof using this
 gate must either check all relevant extensions or prove that every extension
 falls to a row-circle certificate.
 
+### Endpoint-control row-Ptolemy audit
+
+The displayed full-row extension in the endpoint-control negative control
+above is rejected by the row-Ptolemy product-cancellation gate: the exact
+replay finds `4` certificates. The first one is centered at row `2`, whose
+cyclic witness order is `[3,4,0,1]`; selected-distance quotienting forces
+`d02=d23` and `d13=d01`, so Ptolemy forces the positive product `d03*d12` to
+vanish.
+
+This does not close the endpoint-control bridge. A bounded deterministic
+all-extension search over the same fixed fragile rows finds, after `44`
+nodes, a full selected-row extension with no row-Ptolemy
+product-cancellation certificate:
+
+```text
+0  -> {1,3,5,6}
+1  -> {0,2,7,9}
+2  -> {1,3,4,10}
+3  -> {2,4,5,7}
+4  -> {1,6,7,8}
+5  -> {0,2,3,6}
+6  -> {0,4,8,10}
+7  -> {1,2,4,9}
+8  -> {3,7,9,10}
+9  -> {2,5,8,10}
+10 -> {0,1,8,9}
+```
+
+Thus row-Ptolemy product-cancellation is useful for rejecting fixed full
+extensions, but it is not an all-extension obstruction for this
+endpoint-control benchmark. This survivor is not a Euclidean realization
+certificate; it only shows that a proof using this row-circle gate needs a
+stronger metric layer or an all-extension certificate.
+
 ### Bounded block-6 row-Ptolemy audit
 
 The following bounded exact audit tests this gate on the two-block fragile
