@@ -926,6 +926,150 @@ EXPECTED_LOW_SUPPORT_TERMINAL_EDIT_DISTANCE_AUDIT = {
         "failed_paircross:4,8:3,9->3,7": 6,
         "failed_paircross:4,8:9,11->7,11": 3,
     },
+    "not_legal_opened_opposite_arc_paircross_context_summary": {
+        "2,10:3,5->1,5": {
+            "raw_options": 6,
+            "after_paircross": 3,
+            "after_valid": 3,
+            "failed_paircross": 3,
+            "blocker_count_distribution": {"1": 1, "2": 2},
+            "blocker_kind_distribution": {
+                "noncrossing_two_overlap": 4,
+                "three_or_more_overlap": 1,
+            },
+            "blocker_role_distribution": {"fixed_row": 3, "other_added_row": 2},
+            "blocker_center_orbit_distribution": {
+                "0,6": 1,
+                "3,9": 2,
+                "5,11": 2,
+            },
+            "blocker_source_target_distribution": {
+                "noncrossing_two_overlap:2,3->0,5": 1,
+                "noncrossing_two_overlap:2,3->4,5": 1,
+                "noncrossing_two_overlap:2,5->0,1": 1,
+                "noncrossing_two_overlap:2,5->1,11": 1,
+                "three_or_more_overlap:0,2->1,3,4": 1,
+            },
+        },
+        "2,10:3,6->1,6": {
+            "raw_options": 6,
+            "after_paircross": 1,
+            "after_valid": 1,
+            "failed_paircross": 5,
+            "blocker_count_distribution": {"1": 4, "2": 1},
+            "blocker_kind_distribution": {
+                "noncrossing_two_overlap": 5,
+                "three_or_more_overlap": 1,
+            },
+            "blocker_role_distribution": {"fixed_row": 2, "other_added_row": 4},
+            "blocker_center_orbit_distribution": {
+                "0,6": 1,
+                "3,9": 1,
+                "5,11": 4,
+            },
+            "blocker_source_target_distribution": {
+                "noncrossing_two_overlap:2,11->4,6": 1,
+                "noncrossing_two_overlap:2,11->6,7": 1,
+                "noncrossing_two_overlap:2,5->0,1": 1,
+                "noncrossing_two_overlap:2,5->1,11": 1,
+                "noncrossing_two_overlap:2,9->6,8": 1,
+                "three_or_more_overlap:0,2->1,3,4": 1,
+            },
+        },
+        "2,10:3,9->1,9": {
+            "raw_options": 6,
+            "after_paircross": 0,
+            "after_valid": 0,
+            "failed_paircross": 6,
+            "blocker_count_distribution": {"1": 2, "2": 4},
+            "blocker_kind_distribution": {
+                "noncrossing_two_overlap": 7,
+                "three_or_more_overlap": 3,
+            },
+            "blocker_role_distribution": {"fixed_row": 4, "other_added_row": 6},
+            "blocker_center_orbit_distribution": {"0,6": 4, "5,11": 6},
+            "blocker_source_target_distribution": {
+                "noncrossing_two_overlap:2,5->1,9": 4,
+                "noncrossing_two_overlap:2,6->7,9": 1,
+                "noncrossing_two_overlap:2,6->8,9": 1,
+                "noncrossing_two_overlap:2,6->9,10": 1,
+                "three_or_more_overlap:0,2->1,3,4": 1,
+                "three_or_more_overlap:2,5->0,1,9": 1,
+                "three_or_more_overlap:2,5->1,9,11": 1,
+            },
+        },
+        "4,8:0,9->0,7": {
+            "raw_options": 6,
+            "after_paircross": 1,
+            "after_valid": 1,
+            "failed_paircross": 5,
+            "blocker_count_distribution": {"1": 4, "2": 1},
+            "blocker_kind_distribution": {
+                "noncrossing_two_overlap": 5,
+                "three_or_more_overlap": 1,
+            },
+            "blocker_role_distribution": {"fixed_row": 2, "other_added_row": 4},
+            "blocker_center_orbit_distribution": {
+                "0,6": 1,
+                "3,9": 1,
+                "5,11": 4,
+            },
+            "blocker_source_target_distribution": {
+                "noncrossing_two_overlap:3,8->0,2": 1,
+                "noncrossing_two_overlap:5,8->0,1": 1,
+                "noncrossing_two_overlap:5,8->0,10": 1,
+                "noncrossing_two_overlap:8,11->5,7": 1,
+                "noncrossing_two_overlap:8,11->6,7": 1,
+                "three_or_more_overlap:6,8->7,9,10": 1,
+            },
+        },
+        "4,8:3,9->3,7": {
+            "raw_options": 6,
+            "after_paircross": 0,
+            "after_valid": 0,
+            "failed_paircross": 6,
+            "blocker_count_distribution": {"1": 2, "2": 4},
+            "blocker_kind_distribution": {
+                "noncrossing_two_overlap": 7,
+                "three_or_more_overlap": 3,
+            },
+            "blocker_role_distribution": {"fixed_row": 4, "other_added_row": 6},
+            "blocker_center_orbit_distribution": {"0,6": 4, "5,11": 6},
+            "blocker_source_target_distribution": {
+                "noncrossing_two_overlap:0,8->1,3": 1,
+                "noncrossing_two_overlap:0,8->2,3": 1,
+                "noncrossing_two_overlap:0,8->3,4": 1,
+                "noncrossing_two_overlap:8,11->3,7": 4,
+                "three_or_more_overlap:6,8->7,9,10": 1,
+                "three_or_more_overlap:8,11->3,5,7": 1,
+                "three_or_more_overlap:8,11->3,6,7": 1,
+            },
+        },
+        "4,8:9,11->7,11": {
+            "raw_options": 6,
+            "after_paircross": 3,
+            "after_valid": 3,
+            "failed_paircross": 3,
+            "blocker_count_distribution": {"1": 1, "2": 2},
+            "blocker_kind_distribution": {
+                "noncrossing_two_overlap": 4,
+                "three_or_more_overlap": 1,
+            },
+            "blocker_role_distribution": {"fixed_row": 3, "other_added_row": 2},
+            "blocker_center_orbit_distribution": {
+                "0,6": 1,
+                "3,9": 2,
+                "5,11": 2,
+            },
+            "blocker_source_target_distribution": {
+                "noncrossing_two_overlap:8,11->5,7": 1,
+                "noncrossing_two_overlap:8,11->6,7": 1,
+                "noncrossing_two_overlap:8,9->10,11": 1,
+                "noncrossing_two_overlap:8,9->6,11": 1,
+                "three_or_more_overlap:6,8->7,9,10": 1,
+            },
+        },
+    },
     "not_legal_opened_opposite_arc_paircross_blocker_count_distribution": {
         "1": 14,
         "2": 14,
@@ -1984,6 +2128,72 @@ def _label_tuple_key(labels: tuple[int, ...]) -> str:
     return ",".join(str(label) for label in labels)
 
 
+def _new_paircross_context_summary() -> dict[str, Any]:
+    return {
+        "raw_options": 0,
+        "after_paircross": 0,
+        "after_valid": 0,
+        "failed_paircross": 0,
+        "blocker_count_distribution": Counter(),
+        "blocker_kind_distribution": Counter(),
+        "blocker_role_distribution": Counter(),
+        "blocker_center_orbit_distribution": Counter(),
+        "blocker_source_target_distribution": Counter(),
+    }
+
+
+def _paircross_context_summary_payload(
+    summary_by_context: Mapping[str, Mapping[str, Any]],
+) -> dict[str, Any]:
+    payload = {}
+    for context in sorted(summary_by_context):
+        summary = summary_by_context[context]
+        payload[context] = {
+            "raw_options": int(summary["raw_options"]),
+            "after_paircross": int(summary["after_paircross"]),
+            "after_valid": int(summary["after_valid"]),
+            "failed_paircross": int(summary["failed_paircross"]),
+            "blocker_count_distribution": _json_counter(
+                summary["blocker_count_distribution"]
+            ),
+            "blocker_kind_distribution": {
+                key: int(summary["blocker_kind_distribution"][key])
+                for key in sorted(summary["blocker_kind_distribution"])
+            },
+            "blocker_role_distribution": {
+                key: int(summary["blocker_role_distribution"][key])
+                for key in sorted(summary["blocker_role_distribution"])
+            },
+            "blocker_center_orbit_distribution": {
+                key: int(summary["blocker_center_orbit_distribution"][key])
+                for key in sorted(summary["blocker_center_orbit_distribution"])
+            },
+            "blocker_source_target_distribution": {
+                key: int(summary["blocker_source_target_distribution"][key])
+                for key in sorted(summary["blocker_source_target_distribution"])
+            },
+        }
+    return payload
+
+
+def _merge_paircross_context_summary(
+    total: dict[str, dict[str, Any]],
+    addition: Mapping[str, Mapping[str, Any]],
+) -> None:
+    for context, summary in addition.items():
+        entry = total.setdefault(context, _new_paircross_context_summary())
+        for key in ("raw_options", "after_paircross", "after_valid", "failed_paircross"):
+            entry[key] += summary[key]
+        for key in (
+            "blocker_count_distribution",
+            "blocker_kind_distribution",
+            "blocker_role_distribution",
+            "blocker_center_orbit_distribution",
+            "blocker_source_target_distribution",
+        ):
+            entry[key].update(summary[key])
+
+
 def _source_side(source: tuple[int, int], label: int) -> str:
     a, b = normalize_chord(*source)
     return "inside" if a < label < b else "outside"
@@ -2075,6 +2285,7 @@ def _not_legal_opened_paircross_profile(
     opposite_arc_paircross_blocker_roles: Counter[str] = Counter()
     opposite_arc_paircross_blocker_center_orbits: Counter[str] = Counter()
     opposite_arc_paircross_blocker_source_targets: Counter[str] = Counter()
+    opposite_arc_paircross_context_summary: dict[str, dict[str, Any]] = {}
     noncrossing_substitution_targets: Counter[str] = Counter()
     noncrossing_deletion_targets: Counter[str] = Counter()
     three_or_more_deletion_targets: Counter[str] = Counter()
@@ -2111,10 +2322,17 @@ def _not_legal_opened_paircross_profile(
                 f"{_chord_key(source)}:{_chord_key(old_target)}"
                 f"->{_chord_key(new_target)}"
             )
+            context_summary = opposite_arc_paircross_context_summary.setdefault(
+                context_key,
+                _new_paircross_context_summary(),
+            )
+            context_summary["raw_options"] += 1
             opposite_arc_paircross_contexts[f"all_options:{context_key}"] += 1
             blockers = _paircross_blockers(opened_center, row, assigned_after)
             if blockers:
+                context_summary["failed_paircross"] += 1
                 opposite_arc_paircross_contexts[f"failed_paircross:{context_key}"] += 1
+                context_summary["blocker_count_distribution"][len(blockers)] += 1
                 opposite_arc_paircross_blocker_counts[len(blockers)] += 1
                 for blocker_center, blocker_source, blocker_target, kind in blockers:
                     if blocker_center == changed_center:
@@ -2128,6 +2346,14 @@ def _not_legal_opened_paircross_profile(
                         if kind == "noncrossing_two_overlap"
                         else _label_tuple_key(blocker_target)
                     )
+                    context_summary["blocker_kind_distribution"][kind] += 1
+                    context_summary["blocker_role_distribution"][role] += 1
+                    context_summary["blocker_center_orbit_distribution"][
+                        _center_orbit_key(blocker_center)
+                    ] += 1
+                    context_summary["blocker_source_target_distribution"][
+                        f"{kind}:{_chord_key(blocker_source)}->{target_key}"
+                    ] += 1
                     opposite_arc_paircross_blocker_kinds[kind] += 1
                     opposite_arc_paircross_blocker_roles[role] += 1
                     opposite_arc_paircross_blocker_center_orbits[
@@ -2137,6 +2363,9 @@ def _not_legal_opened_paircross_profile(
                         f"{kind}:{_chord_key(blocker_source)}->{target_key}"
                     ] += 1
             else:
+                context_summary["after_paircross"] += 1
+                if row in after_valid_row_set:
+                    context_summary["after_valid"] += 1
                 opposite_arc_paircross_contexts[f"after_paircross:{context_key}"] += 1
         if row in after_paircross_row_set:
             substitution_layer_arcs[f"after_paircross:{layer_key}"] += 1
@@ -2243,6 +2472,9 @@ def _not_legal_opened_paircross_profile(
         "noncrossing_substitution_arcs": noncrossing_substitution_arcs,
         "substitution_layer_arcs": substitution_layer_arcs,
         "opposite_arc_paircross_contexts": opposite_arc_paircross_contexts,
+        "opposite_arc_paircross_context_summary": (
+            opposite_arc_paircross_context_summary
+        ),
         "opposite_arc_paircross_blocker_counts": (
             opposite_arc_paircross_blocker_counts
         ),
@@ -2351,6 +2583,10 @@ def _low_support_terminal_edit_distance_audit(
     not_legal_opened_opposite_arc_paircross_blocker_source_target_counts: Counter[
         str
     ] = Counter()
+    not_legal_opened_opposite_arc_paircross_context_summary: dict[
+        str,
+        dict[str, Any],
+    ] = {}
     not_legal_opened_noncrossing_substitution_target_counts: Counter[str] = Counter()
     not_legal_opened_noncrossing_deletion_target_counts: Counter[str] = Counter()
     not_legal_opened_three_or_more_deletion_target_counts: Counter[str] = Counter()
@@ -2529,6 +2765,10 @@ def _low_support_terminal_edit_distance_audit(
                         not_legal_opened_opposite_arc_paircross_context_counts.update(
                             switch_profile["opposite_arc_paircross_contexts"]
                         )
+                        _merge_paircross_context_summary(
+                            not_legal_opened_opposite_arc_paircross_context_summary,
+                            switch_profile["opposite_arc_paircross_context_summary"],
+                        )
                         not_legal_opened_opposite_arc_paircross_blocker_counts.update(
                             switch_profile["opposite_arc_paircross_blocker_counts"]
                         )
@@ -2700,6 +2940,11 @@ def _low_support_terminal_edit_distance_audit(
             key: int(not_legal_opened_opposite_arc_paircross_context_counts[key])
             for key in sorted(not_legal_opened_opposite_arc_paircross_context_counts)
         },
+        "not_legal_opened_opposite_arc_paircross_context_summary": (
+            _paircross_context_summary_payload(
+                not_legal_opened_opposite_arc_paircross_context_summary
+            )
+        ),
         "not_legal_opened_opposite_arc_paircross_blocker_count_distribution": (
             _json_counter(not_legal_opened_opposite_arc_paircross_blocker_counts)
         ),

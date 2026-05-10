@@ -398,6 +398,53 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
         "failed_paircross:4,8:3,9->3,7": 6,
         "failed_paircross:4,8:9,11->7,11": 3,
     }
+    context_summary = edit_distance_audit[
+        "not_legal_opened_opposite_arc_paircross_context_summary"
+    ]
+    assert context_summary["2,10:3,9->1,9"] == {
+        "raw_options": 6,
+        "after_paircross": 0,
+        "after_valid": 0,
+        "failed_paircross": 6,
+        "blocker_count_distribution": {"1": 2, "2": 4},
+        "blocker_kind_distribution": {
+            "noncrossing_two_overlap": 7,
+            "three_or_more_overlap": 3,
+        },
+        "blocker_role_distribution": {"fixed_row": 4, "other_added_row": 6},
+        "blocker_center_orbit_distribution": {"0,6": 4, "5,11": 6},
+        "blocker_source_target_distribution": {
+            "noncrossing_two_overlap:2,5->1,9": 4,
+            "noncrossing_two_overlap:2,6->7,9": 1,
+            "noncrossing_two_overlap:2,6->8,9": 1,
+            "noncrossing_two_overlap:2,6->9,10": 1,
+            "three_or_more_overlap:0,2->1,3,4": 1,
+            "three_or_more_overlap:2,5->0,1,9": 1,
+            "three_or_more_overlap:2,5->1,9,11": 1,
+        },
+    }
+    assert context_summary["4,8:3,9->3,7"] == {
+        "raw_options": 6,
+        "after_paircross": 0,
+        "after_valid": 0,
+        "failed_paircross": 6,
+        "blocker_count_distribution": {"1": 2, "2": 4},
+        "blocker_kind_distribution": {
+            "noncrossing_two_overlap": 7,
+            "three_or_more_overlap": 3,
+        },
+        "blocker_role_distribution": {"fixed_row": 4, "other_added_row": 6},
+        "blocker_center_orbit_distribution": {"0,6": 4, "5,11": 6},
+        "blocker_source_target_distribution": {
+            "noncrossing_two_overlap:0,8->1,3": 1,
+            "noncrossing_two_overlap:0,8->2,3": 1,
+            "noncrossing_two_overlap:0,8->3,4": 1,
+            "noncrossing_two_overlap:8,11->3,7": 4,
+            "three_or_more_overlap:6,8->7,9,10": 1,
+            "three_or_more_overlap:8,11->3,5,7": 1,
+            "three_or_more_overlap:8,11->3,6,7": 1,
+        },
+    }
     assert edit_distance_audit[
         "not_legal_opened_opposite_arc_paircross_blocker_count_distribution"
     ] == {"1": 14, "2": 14}

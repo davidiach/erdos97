@@ -607,6 +607,36 @@ blocker center orbit  incidences
 5,11                  24
 ```
 
+The per-context blocker summary further factors the thinning:
+
+```text
+context              raw  after  failed  blocker counts  blocker roles
+2,10:3,5 -> 1,5     6    3      3       1x1, 2x2        fixed 3, other-added 2
+2,10:3,6 -> 1,6     6    1      5       1x4, 2x1        fixed 2, other-added 4
+2,10:3,9 -> 1,9     6    0      6       1x2, 2x4        fixed 4, other-added 6
+4,8:0,9 -> 0,7      6    1      5       1x4, 2x1        fixed 2, other-added 4
+4,8:3,9 -> 3,7      6    0      6       1x2, 2x4        fixed 4, other-added 6
+4,8:9,11 -> 7,11    6    3      3       1x1, 2x2        fixed 3, other-added 2
+```
+
+Here `after` means after the pair/cross gate, and every after-pair/cross row
+also passes the pair-cap and indegree gates in this audit. The two zero-row
+contexts have the same coarse blocker profile: each has `6` raw candidates,
+`6` failures, `4` fixed-row blocker incidences from the `0,6` orbit, and `6`
+unchanged-added-row blocker incidences from the `5,11` orbit. For
+`2,10: 3,9 -> 1,9`, the unchanged added-row blocker is centered in the
+`5,11` orbit and repeatedly contributes the noncrossing target `1,9`; fixed
+rows in the `0,6` orbit cover the remaining variants. The block-swap mate is
+`4,8: 3,9 -> 3,7`, where the unchanged added-row blocker repeatedly
+contributes the noncrossing target `3,7`, again supplemented by fixed-row
+blockers in the `0,6` orbit.
+
+This finite pattern is the **Full Context Cover Obstruction**: in the two
+zero-survivor opposite-arc contexts, the unchanged added-row orbit and fixed
+row orbit together cover all six raw candidates before any can become a valid
+eighth row. It is an exact local obstruction in this audit, not a proof that
+the same cover is forced in every cyclic-order or metric setting.
+
 This gives a second exact obstruction to the naive converse of the
 opposite-arc rule: an opposite-arc substitution is necessary for repairing the
 changed-row conflict, but not sufficient for a globally pair/cross-admissible
