@@ -240,6 +240,25 @@ The obstruction is still local and fixed-order only. It does not show that
 every full-row extension of the endpoint-control fragile rows has such a
 certificate, and it does not prove endpoint control.
 
+The same fixed survivor has a small crossing-only cyclic-order frontier:
+
+```bash
+python scripts/check_endpoint_control_survivor_spine_pocket_orders.py --assert-expected --json
+```
+
+The checker recomputes the `17` two-overlap crossing constraints for this
+survivor and enumerates all cyclic orders satisfying them, modulo rotation and
+reversal. It visits `38` search nodes and finds exactly five normalized
+orders, all with spine form
+
+```text
+0,1,2,3, [4,5,6,7 pocket], 8,9,10.
+```
+
+This is not an obstruction by itself. It only says that any realization of
+this fixed full-row survivor must lie in one of those five crossing-compatible
+cyclic orders before any Kalmanson or metric-order certificate is applied.
+
 ### Bounded block-6 row-Ptolemy audit
 
 The following bounded exact audit tests this gate on the two-block fragile
