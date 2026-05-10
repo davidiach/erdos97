@@ -200,6 +200,29 @@ endpoint-control benchmark. This survivor is not a Euclidean realization
 certificate; it only shows that a proof using this row-circle gate needs a
 stronger metric layer or an all-extension certificate.
 
+The same endpoint-control survivor also passes the quotient-level
+row-Ptolemy feasibility test:
+
+```bash
+python scripts/check_endpoint_control_survivor_ptolemy_feasibility.py --assert-expected --json
+```
+
+The checker quotients ordinary pair distances by the selected-distance
+equalities of the survivor, obtains `25` distance classes, and verifies an
+explicit positive rational assignment satisfying all `11` row-Ptolemy
+identities. For example, class values include
+
+```text
+x0=1, x2=1/2, x4=3, x6=2, x14=19/4, x15=11/4.
+```
+
+This rules out a stronger but still quotient-level subclaim: selected-distance
+quotienting plus the row-circle Ptolemy equalities alone do not force a
+positivity contradiction for the endpoint-control survivor. The certificate
+is only algebraic feasibility for the quotient equations. It does not impose
+triangle inequalities, Kalmanson inequalities, global metric consistency,
+Euclidean realizability, or critical-radius ordering.
+
 ### Bounded block-6 row-Ptolemy audit
 
 The following bounded exact audit tests this gate on the two-block fragile

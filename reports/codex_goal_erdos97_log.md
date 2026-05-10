@@ -22947,6 +22947,178 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 675 - Endpoint-Control Quotient-Ptolemy Feasible Survivor
+
+### Mathematical Subquestion
+
+Cycle 674 found a full selected-row extension of the endpoint-control
+negative-control fragile rows with no row-Ptolemy product-cancellation
+certificate. The next exact question was:
+
+```text
+Does selected-distance quotienting plus the row-circle Ptolemy equalities
+already force a positivity contradiction for that fixed survivor/order?
+```
+
+This tests the next metric layer after product-cancellation while keeping the
+scope fixed to the Cycle 674 survivor in the natural cyclic order.
+
+### Definitions and Assumptions
+
+Use the Cycle 674 endpoint-control survivor on labels `0,...,10`:
+
+```text
+0  -> {1,3,5,6}
+1  -> {0,2,7,9}
+2  -> {1,3,4,10}
+3  -> {2,4,5,7}
+4  -> {1,6,7,8}
+5  -> {0,2,3,6}
+6  -> {0,4,8,10}
+7  -> {1,2,4,9}
+8  -> {3,7,9,10}
+9  -> {2,5,8,10}
+10 -> {0,1,8,9}
+```
+
+Let `x_k` denote the ordinary pair-distance quotient classes obtained by
+identifying the four center-to-witness distances in each selected row. For
+each row, write its witnesses in the natural cyclic order around the center.
+The row-circle Ptolemy identity is
+
+```text
+d02*d13 = d01*d23 + d03*d12.
+```
+
+The subquestion asks whether there exists a positive rational value for every
+quotient class satisfying all `11` such equations.
+
+### Result Status
+
+Positive feasibility certificate:
+**Endpoint-Control Quotient-Ptolemy Feasible Survivor**.
+
+### Argument Or Obstruction
+
+The exact checker
+`scripts/check_endpoint_control_survivor_ptolemy_feasibility.py` quotients
+the ordinary pair distances by the selected-distance equalities of the fixed
+survivor. It obtains `25` quotient classes and verifies the following
+positive rational assignment:
+
+```text
+x0=1, x1=1, x2=1/2, x3=1, x4=3,
+x5=1, x6=2, x7=3/4, x8=1, x9=1/4,
+x10=1, x11=2, x12=3, x13=1, x14=19/4,
+x15=11/4, x16=1/2, x17=1, x18=1, x19=1/2,
+x20=1, x21=1, x22=1/2, x23=1, x24=1.
+```
+
+For each of the `11` selected rows, substituting these class values into
+`d02*d13 = d01*d23 + d03*d12` gives an exact equality over `Fraction`s. For
+example, row `0` has witness order `[1,3,5,6]` and classes
+
+```text
+d01=x7, d02=x8, d03=x9, d12=x0, d13=x13, d23=x0,
+```
+
+so the identity reads
+
+```text
+1 * 1 = (3/4) * 1 + (1/4) * 1.
+```
+
+Row `6` has witness order `[8,10,0,4]` and classes
+
+```text
+d01=x6, d02=x4, d03=x0, d12=x6, d13=x18, d23=x2,
+```
+
+so the identity reads
+
+```text
+3 * 1 = 2 * (1/2) + 1 * 2.
+```
+
+Thus selected-distance quotienting plus row-circle Ptolemy equalities alone
+do not reject the fixed endpoint-control survivor.
+
+### Exact Scope
+
+This is an exact positive rational feasibility certificate for the fixed
+Cycle 674 survivor and natural cyclic order only. It is not a Euclidean
+realization certificate, not a metric certificate, not a counterexample to
+Erdos Problem #97, and not a counterexample to the full Endpoint Control
+Auxiliary Claim. It does not impose triangle inequalities, Kalmanson
+inequalities, global metric consistency, Euclidean realizability, or
+critical-radius ordering.
+
+### Files Changed
+
+- `docs/minimal-fragile-cover-bridge.md`
+- `reports/codex_goal_erdos97_log.md`
+- `scripts/check_endpoint_control_survivor_ptolemy_feasibility.py`
+- `tests/test_endpoint_control_survivor_ptolemy_feasibility.py`
+
+### Effect On The Attack
+
+The endpoint-control benchmark now survives two row-circle layers:
+product-cancellation and quotient-level row-Ptolemy feasibility. This shows
+that the row-circle Ptolemy equations alone are still too weak for the
+endpoint-control bridge. The next layer must use order/metric inequalities or
+minimality information not present in the quotient equations.
+
+### Next Lead
+
+Apply a Kalmanson quotient-cone search to the same fixed survivor in the
+natural cyclic order. A zero-sum Kalmanson/Farkas certificate would reject the
+fixed survivor/order exactly, while a miss would push the benchmark toward
+triangle/global-metric or critical-radius constraints.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-675`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-675`.
+- The branch was started from `origin/main` at commit
+  `d0aa2ffd9780cc716615738f2a6b60a004e8517a`, after PR #413 merged Cycle
+  674.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- Parallel read-only agents were used: one checked docs/workflow placement,
+  and one suggested the adjacent exact Ptolemy-log obstruction route.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_endpoint_control_survivor_ptolemy_feasibility.py
+  --assert-expected --json`: passed. It verified `25` distance classes, `11`
+  row-Ptolemy equations, and a positive rational assignment.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q
+  tests/test_endpoint_control_survivor_ptolemy_feasibility.py`: passed, `2`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check
+  scripts/check_endpoint_control_survivor_ptolemy_feasibility.py
+  tests/test_endpoint_control_survivor_ptolemy_feasibility.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `595 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 674 - Endpoint-Control Product-Cancellation Survivor
 
 ### Mathematical Subquestion
