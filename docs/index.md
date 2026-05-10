@@ -105,8 +105,9 @@ put detailed reconciliation in the canonical synthesis.
   follow-up catalog showing that every clean fifth-row state still has a clean
   legal sixth-row continuation, and that all added-center pairs support clean
   states, with compact row-content normal forms plus a seventh-row
-  continuation audit for the two minimum-support center pairs, so the block-6
-  closure is not sixth-row-local.
+  continuation audit and eighth-row terminal-pocket audit for the two
+  minimum-support center pairs, so the block-6 closure is not sixth- or
+  seventh-row-local.
 - [`sparse-frontier-diagnostic.md`](sparse-frontier-diagnostic.md): exact
   fixed-order witness-pair source diagnostic explaining the sparse/Sidon
   radius-propagation blind spot.

@@ -216,6 +216,147 @@ EXPECTED_LOW_SUPPORT_SEVENTH_AUDIT = {
         },
     },
 }
+EXPECTED_LOW_SUPPORT_EIGHTH_AUDIT = {
+    "clean_seven_states": 2252,
+    "clean_seven_states_with_clean_eighth": 2240,
+    "terminal_clean_seven_states": 12,
+    "ordered_legal_eighth_rows": 97982,
+    "ordered_clean_eighth_rows": 31636,
+    "ordered_self_edge_eighth_rows": 30272,
+    "ordered_strict_cycle_eighth_rows": 36074,
+    "unique_clean_eight_states": 15740,
+    "by_seven_center_triple": {
+        "1,4,5": {
+            "clean_seven_states": 160,
+            "clean_seven_states_with_clean_eighth": 160,
+            "eighth_status_counts": {
+                "ok": 2458,
+                "self_edge": 2080,
+                "strict_cycle": 2951,
+            },
+        },
+        "1,10,11": {
+            "clean_seven_states": 71,
+            "clean_seven_states_with_clean_eighth": 71,
+            "eighth_status_counts": {
+                "ok": 880,
+                "self_edge": 1341,
+                "strict_cycle": 1125,
+            },
+        },
+        "2,4,5": {
+            "clean_seven_states": 283,
+            "clean_seven_states_with_clean_eighth": 281,
+            "eighth_status_counts": {
+                "ok": 4792,
+                "self_edge": 3824,
+                "strict_cycle": 6583,
+            },
+        },
+        "2,10,11": {
+            "clean_seven_states": 362,
+            "clean_seven_states_with_clean_eighth": 361,
+            "eighth_status_counts": {
+                "ok": 4544,
+                "self_edge": 5072,
+                "strict_cycle": 4286,
+            },
+        },
+        "4,5,7": {
+            "clean_seven_states": 71,
+            "clean_seven_states_with_clean_eighth": 71,
+            "eighth_status_counts": {
+                "ok": 880,
+                "self_edge": 1341,
+                "strict_cycle": 1125,
+            },
+        },
+        "4,5,8": {
+            "clean_seven_states": 362,
+            "clean_seven_states_with_clean_eighth": 361,
+            "eighth_status_counts": {
+                "ok": 4544,
+                "self_edge": 5072,
+                "strict_cycle": 4286,
+            },
+        },
+        "4,5,10": {
+            "clean_seven_states": 95,
+            "clean_seven_states_with_clean_eighth": 95,
+            "eighth_status_counts": {
+                "ok": 1520,
+                "self_edge": 912,
+                "strict_cycle": 1145,
+            },
+        },
+        "4,5,11": {
+            "clean_seven_states": 155,
+            "clean_seven_states_with_clean_eighth": 152,
+            "eighth_status_counts": {
+                "ok": 1624,
+                "self_edge": 1907,
+                "strict_cycle": 1947,
+            },
+        },
+        "4,10,11": {
+            "clean_seven_states": 95,
+            "clean_seven_states_with_clean_eighth": 95,
+            "eighth_status_counts": {
+                "ok": 1520,
+                "self_edge": 912,
+                "strict_cycle": 1145,
+            },
+        },
+        "5,10,11": {
+            "clean_seven_states": 155,
+            "clean_seven_states_with_clean_eighth": 152,
+            "eighth_status_counts": {
+                "ok": 1624,
+                "self_edge": 1907,
+                "strict_cycle": 1947,
+            },
+        },
+        "7,10,11": {
+            "clean_seven_states": 160,
+            "clean_seven_states_with_clean_eighth": 160,
+            "eighth_status_counts": {
+                "ok": 2458,
+                "self_edge": 2080,
+                "strict_cycle": 2951,
+            },
+        },
+        "8,10,11": {
+            "clean_seven_states": 283,
+            "clean_seven_states_with_clean_eighth": 281,
+            "eighth_status_counts": {
+                "ok": 4792,
+                "self_edge": 3824,
+                "strict_cycle": 6583,
+            },
+        },
+    },
+    "first_clean_eighth_example": {
+        "seven_state": [
+            {"center": 1, "row": [0, 2, 7, 11]},
+            {"center": 10, "row": [0, 1, 6, 9]},
+            {"center": 11, "row": [2, 5, 6, 10]},
+        ],
+        "eighth": {"center": 8, "row": [0, 5, 7, 9]},
+    },
+    "first_terminal_seven_state": {
+        "seven_state": [
+            {"center": 2, "row": [0, 1, 6, 11]},
+            {"center": 10, "row": [0, 4, 6, 9]},
+            {"center": 11, "row": [3, 5, 6, 7]},
+        ],
+        "legal_eighth_rows": 9,
+        "eighth_status_counts": {
+            "ok": 0,
+            "self_edge": 7,
+            "strict_cycle": 2,
+        },
+    },
+}
 EXPECTED_BY_FIFTH_CENTER = {
     "1": {
         "clean_fifth": 21,
@@ -277,6 +418,7 @@ EXPECTED_BY_FIFTH_CENTER = {
 
 RowRecord = tuple[int, tuple[int, ...]]
 SixState = tuple[RowRecord, RowRecord]
+SevenState = tuple[RowRecord, RowRecord, RowRecord]
 CenterPair = tuple[int, int]
 LabelPair = tuple[int, int]
 
@@ -403,13 +545,26 @@ def _record_payload(record: RowRecord) -> dict[str, Any]:
     return {"center": center, "row": list(row)}
 
 
-def _low_support_seventh_extension_audit(
+def _center_tuple_key(centers: tuple[int, ...]) -> str:
+    return ",".join(str(center) for center in centers)
+
+
+def _initial_state_with_records(
+    records: tuple[RowRecord, ...],
+) -> tuple[dict[int, tuple[int, ...]], Counter[tuple[int, int]], Counter[int]]:
+    assigned, pair_counts, indegrees = _initial_state()
+    for center, row in records:
+        _add_row(assigned, pair_counts, indegrees, center, row)
+    return assigned, pair_counts, indegrees
+
+
+def _low_support_seventh_extension_scan(
     clean_six_states: set[SixState],
-) -> dict[str, Any]:
+) -> tuple[dict[str, Any], set[SevenState]]:
     options = _options()
     overall_status: Counter[str] = Counter()
     clean_six_with_clean_seventh = 0
-    unique_clean_seven_states: set[tuple[RowRecord, ...]] = set()
+    clean_seven_states: set[SevenState] = set()
     by_center_pair: dict[str, dict[str, Any]] = {}
 
     for center_pair in ((4, 5), (10, 11)):
@@ -424,9 +579,7 @@ def _low_support_seventh_extension_audit(
         first_clean_seventh_example: dict[str, Any] | None = None
 
         for state in matching_states:
-            assigned, pair_counts, indegrees = _initial_state()
-            for center, row in state:
-                _add_row(assigned, pair_counts, indegrees, center, row)
+            assigned, pair_counts, indegrees = _initial_state_with_records(state)
 
             local_clean_seventh = 0
             for seventh_center in range(N):
@@ -467,9 +620,10 @@ def _low_support_seventh_extension_audit(
                     if seventh_status == "ok":
                         local_clean_seventh += 1
                         seventh_record = (seventh_center, tuple(seventh_row))
-                        unique_clean_seven_states.add(
+                        clean_seven_state: SevenState = tuple(
                             tuple(sorted((*state, seventh_record)))
-                        )
+                        )  # type: ignore[assignment]
+                        clean_seven_states.add(clean_seven_state)
                         if first_clean_seventh_example is None:
                             first_clean_seventh_example = {
                                 "six_state": [
@@ -480,9 +634,6 @@ def _low_support_seventh_extension_audit(
             if local_clean_seventh:
                 pair_clean_six_with_clean += 1
                 clean_six_with_clean_seventh += 1
-
-            for center, row in reversed(state):
-                _remove_row(assigned, pair_counts, indegrees, center, row)
 
         by_center_pair[_center_pair_key(center_pair)] = {
             "clean_six_states": len(matching_states),
@@ -507,8 +658,115 @@ def _low_support_seventh_extension_audit(
         "ordered_clean_seventh_rows": int(overall_status["ok"]),
         "ordered_self_edge_seventh_rows": int(overall_status["self_edge"]),
         "ordered_strict_cycle_seventh_rows": int(overall_status["strict_cycle"]),
-        "unique_clean_seven_states": len(unique_clean_seven_states),
+        "unique_clean_seven_states": len(clean_seven_states),
         "by_center_pair": by_center_pair,
+    }, clean_seven_states
+
+
+def _low_support_eighth_extension_audit(
+    clean_seven_states: set[SevenState],
+) -> dict[str, Any]:
+    options = _options()
+    overall_status: Counter[str] = Counter()
+    clean_seven_with_clean_eighth = 0
+    unique_clean_eight_states: set[tuple[RowRecord, ...]] = set()
+    by_seven_center_triple: dict[str, dict[str, Any]] = {}
+    first_clean_eighth_example: dict[str, Any] | None = None
+    first_terminal_seven_state: dict[str, Any] | None = None
+
+    for state in sorted(clean_seven_states):
+        assigned, pair_counts, indegrees = _initial_state_with_records(state)
+        triple_key = _center_tuple_key(tuple(record[0] for record in state))
+        triple_entry = by_seven_center_triple.setdefault(
+            triple_key,
+            {
+                "clean_seven_states": 0,
+                "clean_seven_states_with_clean_eighth": 0,
+                "eighth_status_counts": Counter(),
+            },
+        )
+        triple_entry["clean_seven_states"] += 1
+        local_status: Counter[str] = Counter()
+        local_clean_eighth = 0
+
+        for eighth_center in range(N):
+            if eighth_center in assigned:
+                continue
+            for eighth_row in _valid_options(
+                eighth_center,
+                options,
+                assigned,
+                pair_counts,
+                indegrees,
+            ):
+                _add_row(
+                    assigned,
+                    pair_counts,
+                    indegrees,
+                    eighth_center,
+                    eighth_row,
+                )
+                eighth_status, _edge_count = _partial_vertex_circle_status(assigned)
+                _remove_row(
+                    assigned,
+                    pair_counts,
+                    indegrees,
+                    eighth_center,
+                    eighth_row,
+                )
+
+                overall_status[eighth_status] += 1
+                local_status[eighth_status] += 1
+                triple_entry["eighth_status_counts"][eighth_status] += 1
+                if eighth_status == "ok":
+                    local_clean_eighth += 1
+                    eighth_record = (eighth_center, tuple(eighth_row))
+                    unique_clean_eight_states.add(
+                        tuple(sorted((*state, eighth_record)))
+                    )
+                    if first_clean_eighth_example is None:
+                        first_clean_eighth_example = {
+                            "seven_state": [
+                                _record_payload(record) for record in state
+                            ],
+                            "eighth": _record_payload(eighth_record),
+                        }
+
+        if local_clean_eighth:
+            clean_seven_with_clean_eighth += 1
+            triple_entry["clean_seven_states_with_clean_eighth"] += 1
+        elif first_terminal_seven_state is None:
+            first_terminal_seven_state = {
+                "seven_state": [_record_payload(record) for record in state],
+                "legal_eighth_rows": sum(local_status.values()),
+                "eighth_status_counts": _status_counts(local_status),
+            }
+
+    return {
+        "clean_seven_states": len(clean_seven_states),
+        "clean_seven_states_with_clean_eighth": clean_seven_with_clean_eighth,
+        "terminal_clean_seven_states": (
+            len(clean_seven_states) - clean_seven_with_clean_eighth
+        ),
+        "ordered_legal_eighth_rows": sum(overall_status.values()),
+        "ordered_clean_eighth_rows": int(overall_status["ok"]),
+        "ordered_self_edge_eighth_rows": int(overall_status["self_edge"]),
+        "ordered_strict_cycle_eighth_rows": int(overall_status["strict_cycle"]),
+        "unique_clean_eight_states": len(unique_clean_eight_states),
+        "by_seven_center_triple": {
+            key: {
+                "clean_seven_states": int(value["clean_seven_states"]),
+                "clean_seven_states_with_clean_eighth": int(
+                    value["clean_seven_states_with_clean_eighth"]
+                ),
+                "eighth_status_counts": _status_counts(
+                    value["eighth_status_counts"]
+                ),
+            }
+            for key, value in sorted(by_seven_center_triple.items())
+        },
+        "first_clean_eighth_example": first_clean_eighth_example,
+        "first_terminal_seven_state": first_terminal_seven_state,
     }
 
 
@@ -621,6 +879,9 @@ def survivor_payload() -> dict[str, Any]:
     clean_by_center_pair_orbit: Counter[str] = Counter()
     for center_pair, count in clean_by_center_pair.items():
         clean_by_center_pair_orbit[_center_pair_orbit_key(center_pair)] += count
+    low_support_seventh_audit, low_support_clean_seven_states = (
+        _low_support_seventh_extension_scan(clean_six_states)
+    )
     totals = {
         "clean_fifth_rows": len(clean_fifth_rows),
         "clean_fifth_block_swap_orbits": clean_fifth_orbits,
@@ -643,7 +904,8 @@ def survivor_payload() -> dict[str, Any]:
         "claim_scope": (
             "Legal sixth rows after clean one-row extensions of the two-block "
             "block-6 fragile rows, plus legal seventh rows after the two "
-            "minimum-support six-row center pairs, in the natural cyclic "
+            "minimum-support six-row center pairs and legal eighth rows after "
+            "the resulting clean seven-row states, in the natural cyclic "
             "order; not a proof of Erdos Problem #97 and not a counterexample."
         ),
         "fixed_centers": sorted(assigned),
@@ -666,8 +928,9 @@ def survivor_payload() -> dict[str, Any]:
         "low_support_row_content_forms": _low_support_row_content_forms(
             clean_six_states
         ),
-        "low_support_seventh_extension_audit": (
-            _low_support_seventh_extension_audit(clean_six_states)
+        "low_support_seventh_extension_audit": low_support_seventh_audit,
+        "low_support_eighth_extension_audit": (
+            _low_support_eighth_extension_audit(low_support_clean_seven_states)
         ),
         "by_fifth_center": {
             center: {key: int(counter[key]) for key in sorted(counter)}
@@ -717,6 +980,14 @@ def assert_expected(payload: Mapping[str, Any]) -> None:
             "unexpected low-support seventh-extension audit: "
             f"{payload['low_support_seventh_extension_audit']!r}"
         )
+    if (
+        payload["low_support_eighth_extension_audit"]
+        != EXPECTED_LOW_SUPPORT_EIGHTH_AUDIT
+    ):
+        raise AssertionError(
+            "unexpected low-support eighth-extension audit: "
+            f"{payload['low_support_eighth_extension_audit']!r}"
+        )
     if payload["by_fifth_center"] != EXPECTED_BY_FIFTH_CENTER:
         raise AssertionError(
             f"unexpected by-fifth-center counts: {payload['by_fifth_center']!r}"
@@ -741,6 +1012,7 @@ def main() -> int:
         print(json.dumps(payload, indent=2, sort_keys=True))
     else:
         totals = payload["totals"]
+        eighth = payload["low_support_eighth_extension_audit"]
         print("block6 fragile sixth-row survivor catalog")
         print(
             "totals: "
@@ -748,6 +1020,12 @@ def main() -> int:
             f"ordered_sixth={totals['ordered_legal_sixth_rows_after_clean_fifth']} "
             f"ordered_clean_sixth={totals['ordered_clean_sixth_rows']} "
             f"unique_clean_six={totals['unique_clean_six_row_states']}"
+        )
+        print(
+            "low-support eighth audit: "
+            f"clean_seven={eighth['clean_seven_states']} "
+            f"clean_eighth={eighth['ordered_clean_eighth_rows']} "
+            f"terminal_seven={eighth['terminal_clean_seven_states']}"
         )
         if args.assert_expected:
             print("OK: block6 sixth-row survivor catalog matched expected counts")
