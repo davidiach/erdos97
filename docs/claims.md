@@ -186,6 +186,25 @@ obstruction for the abstract C29 Sidon selected-witness pattern, and it is not
 a proof of Erdos #97. Check it with
 `python scripts/check_kalmanson_certificate.py data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json --summary-json`.
 
+### Fixed-order Kalmanson/Farkas obstruction for the endpoint-control survivor
+
+Status: `EXACT_OBSTRUCTION` for one fixed selected-witness extension and one
+fixed cyclic order only.
+
+For the endpoint-control survivor recorded in
+`docs/minimal-fragile-cover-bridge.md`, in the natural cyclic order on labels
+`0,...,10`, the checked certificate in
+`scripts/check_endpoint_control_survivor_kalmanson_certificate.py` gives a
+positive integer combination of 22 strict Kalmanson distance inequalities
+whose total coefficient vector is exactly zero after quotienting by the
+selected-distance equalities. The weight sum is 89, and summing the strict
+inequalities gives `0 > 0`.
+
+This rejects only that fixed full selected-row extension and natural cyclic
+order. It is not an all-extension endpoint-control proof, not a Euclidean
+realizability theorem for the abstract fragile rows, and not a proof of
+Erdos #97.
+
 ## Lemmas
 
 ### Circle-intersection cap

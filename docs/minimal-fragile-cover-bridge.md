@@ -223,6 +223,23 @@ is only algebraic feasibility for the quotient equations. It does not impose
 triangle inequalities, Kalmanson inequalities, global metric consistency,
 Euclidean realizability, or critical-radius ordering.
 
+A stronger fixed-order Kalmanson quotient-cone layer does reject the same
+endpoint-control survivor in the natural cyclic order:
+
+```bash
+python scripts/check_endpoint_control_survivor_kalmanson_certificate.py --assert-expected --json
+```
+
+The certificate is a positive integer combination of `22` strict Kalmanson
+inequalities, with weight sum `89`, whose coefficient vector reduces to zero
+across the same `25` selected-distance quotient classes. Summing those strict
+inequalities gives `0 > 0`, so this fixed survivor/order is impossible. This
+does not contradict the quotient-Ptolemy feasibility result above: Ptolemy
+equalities alone are feasible, while Kalmanson order inequalities are not.
+The obstruction is still local and fixed-order only. It does not show that
+every full-row extension of the endpoint-control fragile rows has such a
+certificate, and it does not prove endpoint control.
+
 ### Bounded block-6 row-Ptolemy audit
 
 The following bounded exact audit tests this gate on the two-block fragile

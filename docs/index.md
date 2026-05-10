@@ -102,7 +102,8 @@ put detailed reconciliation in the canonical synthesis.
   by itself.
 - [`minimal-fragile-cover-bridge.md`](minimal-fragile-cover-bridge.md):
   partial bridge theorem showing that every minimal counterexample admits a
-  fragile-cover witness system; also records why this is not sufficient.
+  fragile-cover witness system; also records why this is not sufficient,
+  including endpoint-control survivor row-circle and Kalmanson audits.
 - [`block6-fragile-vertex-circle-extension-audit.md`](block6-fragile-vertex-circle-extension-audit.md):
   bounded audit showing that the two-block block-6 fragile-cover obstruction
   closes once full selected-row extension is combined with vertex-circle
