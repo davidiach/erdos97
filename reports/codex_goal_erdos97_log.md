@@ -22947,6 +22947,153 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 647 - Block-6 Terminal Seven-row Classification
+
+### Mathematical Subquestion
+
+Cycle 646 found `12` terminal clean seven-row states in the low-support
+block-6 branch. The next precise question was:
+
+```text
+Do those 12 terminal states collapse to a small exact classification under
+block-swap symmetry and same/opposite-block row-content profiles?
+```
+
+### Definitions and Assumptions
+
+The four fixed two-block block-6 fragile rows are:
+
+```text
+0 -> {1,2,3,4}
+3 -> {0,2,4,5}
+6 -> {7,8,9,10}
+9 -> {6,8,10,11}
+```
+
+The block-swap symmetry is the involution `sigma(i) = i+6 mod 12`. For an
+added row `c -> S`, the row-content split means the two labels of `S` in the
+same six-label block as `c` and the two labels of `S` in the opposite block.
+For the three added rows of a clean seven-row state, the profile records the
+same-block pair intersection multiset, same-block union size and degree
+multiset, and the analogous opposite-block data.
+
+### Result Status
+
+Exact classification:
+**Block-6 Terminal-pocket Six-orbit Classification**.
+
+The `12` terminal clean seven-row states form exactly `6` block-swap orbits,
+all of size `2`, and fall into exactly two row-content profile classes.
+
+### Argument Or Obstruction
+
+The checker now carries forward the terminal clean seven-row states found
+during the eighth-row audit and classifies them directly. No floating-point
+geometry or heuristic search is used.
+
+The row-content profile counts are:
+
+```text
+profile                                      terminal states  block-swap orbits
+same union 5, intersections 0,0,1;
+  opposite union 6, intersections 0,0,0      8                4
+same union 4, intersections 0,1,1;
+  opposite union 5, intersections 0,0,1      4                2
+```
+
+The terminal eighth-row obstruction splits are:
+
+```text
+legal eighth rows  self-edge  strict-cycle  terminal states
+9                  7          2             4
+19                 10         9             2
+9                  4          5             2
+9                  5          4             2
+11                 2          9             2
+```
+
+One representative from each block-swap orbit is:
+
+```text
+2  -> {0,1,6,11}; 10 -> {0,4,6,9}; 11 -> {3,5,6,7}  | legal 9, self 7, cycle 2
+2  -> {1,5,6,7};  4  -> {0,3,6,10}; 5  -> {0,1,8,11} | legal 19, self 10, cycle 9
+2  -> {1,5,6,7};  4  -> {0,3,6,10}; 5  -> {0,1,9,11} | legal 9, self 4, cycle 5
+4  -> {0,3,6,10}; 5  -> {0,1,9,11}; 11 -> {0,5,6,7}  | legal 9, self 7, cycle 2
+4  -> {0,3,8,11}; 5  -> {0,1,6,9};  11 -> {3,5,6,7}  | legal 9, self 5, cycle 4
+4  -> {0,3,9,11}; 5  -> {0,1,6,10}; 11 -> {3,5,6,7}  | legal 11, self 2, cycle 9
+```
+
+Applying `sigma` to these six representatives gives the other six terminal
+states.
+
+### Exact Scope
+
+This is an exact finite classification inside the two-block block-6
+natural-order selected-row extension tree. It covers only the `12` terminal
+clean seven-row states produced by the low-support `4,5` and `10,11` six-row
+families. It is not a Euclidean realizability result, is not a proof of Erdos
+Problem #97, and is not a counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+The exact terminal pockets are now small enough to be a plausible
+human-readable lemma target. A terminality lemma cannot use only the
+seven-center triple, because terminal states occur in triples that also have
+many extendable states. The two row-content profiles above are the next
+candidate hypotheses to test.
+
+### Next Lead
+
+For one of the two terminal profiles, try to prove directly that every legal
+eighth row creates either a quotient self-edge or a directed strict cycle,
+using only the fixed block-6 rows, block order, and the displayed
+same/opposite-block pair profile.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-647`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-647`.
+- The branch was based on `origin/main` at commit
+  `68e9741f30beee2de615ff9bab35d147d66c657a`, after PR #363 merged Cycle
+  646.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `python3 scripts/check_block6_fragile_sixth_row_survivors.py
+  --assert-expected --json`: passed; reported `12` terminal clean seven-row
+  states, `6` block-swap orbits, and two row-content profile classes of sizes
+  `8` and `4`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `540 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 646 - Block-6 Low-support Eighth-row Terminal Pockets
 
 ### Mathematical Subquestion
