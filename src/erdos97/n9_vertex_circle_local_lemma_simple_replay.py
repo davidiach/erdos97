@@ -217,33 +217,58 @@ def _coverage_errors(
     covered_family_count: int,
     covered_assignment_count: int,
 ) -> list[dict[str, str]]:
+    errors = []
     checks = [
         (
             "self-edge coverage",
             self_edge_family_count,
             EXPECTED_SELF_EDGE_FAMILY_COUNT,
-            int(self_edge_packet.get("self_edge_family_count", -1)),
+            _packet_count(
+                self_edge_packet,
+                "self_edge_family_count",
+                "self-edge coverage",
+                "family count",
+                errors,
+            ),
             "family count",
         ),
         (
             "self-edge coverage",
             self_edge_assignment_count,
             EXPECTED_SELF_EDGE_ASSIGNMENT_COUNT,
-            int(self_edge_packet.get("self_edge_assignment_count", -1)),
+            _packet_count(
+                self_edge_packet,
+                "self_edge_assignment_count",
+                "self-edge coverage",
+                "assignment count",
+                errors,
+            ),
             "assignment count",
         ),
         (
             "strict-cycle coverage",
             strict_cycle_family_count,
             EXPECTED_STRICT_CYCLE_FAMILY_COUNT,
-            int(strict_cycle_packet.get("strict_cycle_family_count", -1)),
+            _packet_count(
+                strict_cycle_packet,
+                "strict_cycle_family_count",
+                "strict-cycle coverage",
+                "family count",
+                errors,
+            ),
             "family count",
         ),
         (
             "strict-cycle coverage",
             strict_cycle_assignment_count,
             EXPECTED_STRICT_CYCLE_ASSIGNMENT_COUNT,
-            int(strict_cycle_packet.get("strict_cycle_assignment_count", -1)),
+            _packet_count(
+                strict_cycle_packet,
+                "strict_cycle_assignment_count",
+                "strict-cycle coverage",
+                "assignment count",
+                errors,
+            ),
             "assignment count",
         ),
         (
@@ -261,15 +286,28 @@ def _coverage_errors(
             "assignment count",
         ),
     ]
-    errors = []
     for scope, observed, expected, packet_value, label in checks:
         if observed != expected:
             errors.append(_error(scope, AssertionError(f"{label} {observed} != {expected}")))
-        if observed != packet_value:
+        if packet_value is not None and observed != packet_value:
             errors.append(
                 _error(scope, AssertionError(f"{label} {observed} != packet {packet_value}"))
             )
     return errors
+
+
+def _packet_count(
+    packet: Mapping[str, Any],
+    key: str,
+    scope: str,
+    label: str,
+    errors: list[dict[str, str]],
+) -> int | None:
+    try:
+        return int(packet.get(key, -1))
+    except (TypeError, ValueError):
+        errors.append(_error(scope, AssertionError(f"packet {label} is not an integer")))
+        return None
 
 
 def _order_from_packet(packet: Mapping[str, Any]) -> tuple[int, ...]:

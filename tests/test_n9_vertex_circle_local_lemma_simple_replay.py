@@ -96,6 +96,20 @@ def test_simple_packet_replay_rejects_strict_cycle_interval_drift() -> None:
     )
 
 
+def test_simple_packet_replay_reports_packet_count_drift() -> None:
+    self_edge_packet = load_artifact(DEFAULT_SELF_EDGE_PACKET)
+    strict_cycle_packet = load_artifact(DEFAULT_STRICT_CYCLE_PACKET)
+    self_edge_packet["self_edge_family_count"] = "many"
+
+    payload = simple_packet_replay_payload(self_edge_packet, strict_cycle_packet)
+
+    assert payload["validation_status"] == "failed"
+    assert {
+        "scope": "self-edge coverage",
+        "error": "packet family count is not an integer",
+    } in payload["validation_errors"]
+
+
 def test_simple_packet_replay_cli_json() -> None:
     result = subprocess.run(
         [
