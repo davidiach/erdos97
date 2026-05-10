@@ -94,6 +94,15 @@ every deletion halo; `[3,8]` and `[5,8]` also hit the private-pair ledger,
 while `[3,5]` is private-halo-only. This is still diagnostic bookkeeping only,
 not a row-forcing theorem. See `docs/bootstrap-t12-outside-pair.md`.
 
+A role-sensitive activation-support ledger now separates the witness subsets
+actually needed by the stored T12/F16 quotient certificate from the unproved
+row-forcing problem. It records five equality-connector pair requirements and
+two strict-edge endpoint-set requirements across the six missing row centers;
+in particular, source `151` row `7` is closure-exposed through `[0,1,4]` but
+still misses endpoint `6` for its strict edge. This remains diagnostic
+bookkeeping only, not a proof that any missing row is forced. See
+`docs/bootstrap-t12-activation-requirements.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

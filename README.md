@@ -74,6 +74,9 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the outside-pair subpacket isolating the remaining pair-supported T12
   row-pressure row, read
   [`docs/bootstrap-t12-outside-pair.md`](docs/bootstrap-t12-outside-pair.md).
+- For the role-sensitive T12 activation-support requirement ledger separating
+  connector pairs and strict-edge endpoint sets from unproved row forcing, read
+  [`docs/bootstrap-t12-activation-requirements.md`](docs/bootstrap-t12-activation-requirements.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).
