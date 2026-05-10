@@ -22947,6 +22947,171 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 624 - T02 Four-Family Local Self-Edge Proof Note
+
+### Mathematical Subquestion
+
+The `T02` self-edge packet covers four canonical families, `F01`, `F04`,
+`F08`, and `F14`, for 40 total review-pending `n=9` frontier assignments. The
+packet already records equality paths and strict witness-order edges, but the
+proof-facing note still primarily presented packet data. The narrow question
+for this cycle was:
+
+Can the four `T02` family cores be restated as standalone local lemmas whose
+contradictions follow directly from selected-distance equalities and
+vertex-circle monotonicity, without invoking the exhaustive `n=9` brancher?
+
+### Definitions and Assumptions
+
+For a selected row `S_c`, all distances `d(c,x)` with `x in S_c` are equal.
+Work in a strictly convex polygon with labels in cyclic order
+
+```text
+0,1,2,3,4,5,6,7,8.
+```
+
+Use the standard vertex-circle monotonicity fact: if several selected
+witnesses lie on one circle centered at a polygon vertex, then nested witness
+chords in the radial order around that center have strictly increasing
+ordinary length.
+
+The four `T02` local cores are:
+
+```text
+F01:
+S_0 = {1,2,3,8}
+S_1 = {0,2,4,7}
+S_8 = {0,1,4,5}
+
+F04:
+S_0 = {1,2,4,6}
+S_1 = {0,2,3,5}
+S_2 = {1,3,4,8}
+
+F08:
+S_0 = {1,2,4,8}
+S_1 = {0,2,3,5}
+S_8 = {0,1,3,7}
+
+F14:
+S_0 = {1,2,6,8}
+S_1 = {0,2,3,7}
+S_8 = {0,1,5,7}
+```
+
+### Result Status
+
+Proved local lemma:
+**T02 Four-Family Three-Row Self-Edge Lemma**.
+
+Each displayed three-row core is impossible in the stated cyclic order.
+
+### Argument
+
+For `F01`, the selected rows force
+
+```text
+d(1,8) = d(0,8)      from row 8,
+d(0,8) = d(0,1)      from row 0,
+d(0,1) = d(1,2)      from row 1.
+```
+
+Thus `d(1,8) = d(1,2)`. Row `0` has witness order `1,2,3,8`, so
+vertex-circle monotonicity gives `d(1,8) > d(1,2)`, contradiction.
+
+For `F04`, the selected rows force
+
+```text
+d(0,2) = d(0,1)      from row 0,
+d(0,1) = d(1,2)      from row 1,
+d(1,2) = d(2,3)      from row 2.
+```
+
+Thus `d(0,2) = d(2,3)`. Row `1` has witness order `2,3,5,0`, so
+vertex-circle monotonicity gives `d(0,2) > d(2,3)`, contradiction.
+
+For `F08` and `F14`, the selected rows force the same quotient equality as
+`F01`:
+
+```text
+d(1,8) = d(0,8) = d(0,1) = d(1,2).
+```
+
+In `F08`, row `0` has witness order `1,2,4,8`; in `F14`, row `0` has witness
+order `1,2,6,8`. In both cases vertex-circle monotonicity gives
+`d(1,8) > d(1,2)`, again contradicting the equality chain.
+
+Equivalently, each core identifies an outer and inner chord in the
+selected-distance quotient, while one vertex-circle row orients a strict edge
+from that quotient class to itself.
+
+### Exact Scope
+
+This is a local obstruction lemma for the four displayed selected-row cores
+in the stated cyclic order. It is independent of the exhaustive brancher once
+one of those cores is given.
+
+It does not prove the full `n=9` finite case, because the review-pending
+exhaustive checker is still needed to show that every `n=9` frontier
+assignment contains a recorded local obstruction template. It does not prove
+Erdos Problem #97 and does not give a counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-t02-self-edge-lemma.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect on the Attack
+
+This consolidates the largest remaining self-edge packet into direct
+proof-facing text: 40 review-pending `n=9` assignments now share a single
+three-row self-edge proof pattern, with only the witness-order row and
+transport endpoints changing. It strengthens the local-lemma library but does
+not bridge arbitrary selected-witness systems to the template catalog.
+
+### Next Lead
+
+Promote the `T03` two-family packet into the same direct proof-note format, or
+try to abstract the now-repeated three-step selected-path self-edge mechanism
+into a schematic lemma.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-624`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-624`.
+- The branch was based on `origin/main` at commit
+  `1fb8637674c58b4bccece93c0cce94e06cfd3d6f`, after PR #317 merged Cycle
+  623.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `python scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --check
+  --assert-expected --json`: passed; `T02` reports 40 assignments across
+  four families, all with `self_edge` replay status and no validation errors.
+- `python scripts/check_n9_vertex_circle_self_edge_template_packet.py --check
+  --assert-expected --json`: passed; the packet reports 158 self-edge
+  assignments, 13 self-edge families, 9 self-edge templates, and `T02: 40`.
+- `python scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+  --assert-expected --json`: passed; the catalog reports 184 covered
+  assignments, 12 templates, and no validation errors.
+- `python scripts/check_text_clean.py`: passed.
+- `python scripts/check_status_consistency.py`: passed.
+- `python scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `python -m ruff check .`: passed.
+- `python -m pytest -q`: passed after the final edits, `534 passed, 275
+  deselected in 68.70s`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 623 - T06/F11 Local Self-Edge Proof Note
 
 ### Mathematical Subquestion
