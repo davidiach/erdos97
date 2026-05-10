@@ -22947,6 +22947,151 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 632 - Row0 Root Enumeration Audit
+
+### Mathematical Subquestion
+
+The next frontier-soundness audit item was a narrow one:
+
+Does the `row0 choices: 70` count in the review-pending `n=9` vertex-circle
+exhaustive checker represent a literal enumeration of all possible selected
+witness rows at label `0`, rather than a hidden cyclic or dihedral symmetry
+quotient?
+
+### Definitions and Assumptions
+
+Work in the fixed labelled cyclic order `0,1,...,8`. A selected-witness row
+`S_i` is a 4-subset of the other eight labels. A full selected-witness
+assignment contains one row for every center, hence in particular a unique row
+`S_0`.
+
+### Result Status
+
+Proved and regression-tested local audit lemma:
+**Row0 Root Enumeration Lemma**.
+
+In the repo-native checker, `row0 choices: 70` is exactly
+`binom(8,4)`, the number of literal 4-subsets of `{1,2,3,4,5,6,7,8}`.
+
+### Argument
+
+For each fixed center `c`, the module constructs `OPTIONS[c]` as all masks of
+4-combinations of `[target for target in range(9) if target != c]`. The
+exhaustive search then starts with
+
+```python
+for row0 in OPTIONS[0]:
+    assign = {0: row0}
+```
+
+This is a partition of labelled full assignments by the value of the labelled
+row `S_0`. No row0 choice is replaced by an orbit representative, and no
+rotation/reflection identification is applied at this root loop.
+
+### Exact Audit
+
+The one-off exact audit reported:
+
+```text
+N: 9
+ROW_SIZE: 4
+binom(N-1, ROW_SIZE): 70
+options_per_center: [70,70,70,70,70,70,70,70,70]
+row0_count: 70
+row0_matches_literal_combinations: true
+all_centers_literal: true
+row0_unique: true
+row0_contains_center: false
+first row0 tuple: (1,2,3,4)
+last row0 tuple: (5,6,7,8)
+```
+
+The incoming archived script has the same root-loop structure, and the
+archived outputs report `row0 choices: 70` for both the vertex-circle-pruned
+run and the no-vertex-circle-pruning cross-check.
+
+### Exact Scope
+
+This proves only the row0-root enumeration fact. It does not prove the full
+`n=9` finite case, does not audit every pruning lemma, does not prove that
+minimum-remaining-options branching is harmless, and does not independently
+replay the 184 pre-vertex-circle assignments. It does not prove Erdos Problem
+#97 and does not give a counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-row0-root-audit.md`
+- `docs/index.md`
+- `tests/test_n9_vertex_circle_exhaustive.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect on the Attack
+
+One specific review concern from the `n=9` exhaustive-checker checklist is now
+separated: the 70 row0 roots are not a hidden symmetry quotient. The remaining
+frontier-soundness burden is in the pruning lemmas, dynamic branching order,
+and cross-checking the repo-native frontier against archive variants.
+
+### Next Lead
+
+Audit the dynamic minimum-remaining-options branch choice: prove it only
+chooses the next center to branch on and cannot skip any valid completion
+under the current partial assignment.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-632`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-632`.
+- The branch was based on `origin/main` at commit
+  `43d8902797591043efaa386905cf0eb1a8f0689b`, after PR #333 merged Cycle
+  631.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- One-off exact row0 audit passed, reporting `binom(N-1, ROW_SIZE): 70`,
+  `options_per_center: [70,70,70,70,70,70,70,70,70]`,
+  `row0_matches_literal_combinations: true`, `all_centers_literal: true`,
+  `row0_unique: true`, and `row0_contains_center: false`.
+- The archived incoming `n9_vertex_circle_exhaustive.py` source was inspected
+  and has the same `for row0 in OPTIONS[0]` root loop.
+- The archived outputs
+  `incoming/archive-output-2026-05-03/n9_vertex_circle_exhaustive_output.txt`
+  and
+  `incoming/archive-output-2026-05-03/n9_vertex_circle_crosscheck_output.txt`
+  both report `row0 choices: 70`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_exhaustive.py --assert-expected`
+  passed. It reported 70 row0 choices, 0 full assignments with
+  vertex-circle pruning, and 184 full assignments in the cross-check without
+  vertex-circle pruning.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_n9_vertex_circle_exhaustive.py -q -m "artifact"`
+  passed with 3 tests.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`
+  passed.
+- `git diff --check` passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`
+  passed with 534 passed and 276 deselected.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 631 - Vertex-circle Certificate-chain Reduction
 
 ### Mathematical Subquestion

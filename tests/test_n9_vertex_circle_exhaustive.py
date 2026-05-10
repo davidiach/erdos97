@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+from itertools import combinations
+from math import comb
 from pathlib import Path
 
 import pytest
@@ -12,6 +14,10 @@ from erdos97.n9_vertex_circle_exhaustive import (
     EXPECTED_MAIN_FULL,
     EXPECTED_MAIN_NODES,
     EXPECTED_MAIN_PRUNES,
+    MASK_BITS,
+    N,
+    OPTIONS,
+    ROW_SIZE,
     assert_expected_counts,
     summary_payload,
 )
@@ -58,3 +64,31 @@ def test_n9_vertex_circle_exhaustive_artifact_is_current(
 
     assert_expected_counts(checked_in)
     assert checked_in == n9_payload
+
+
+def test_n9_vertex_circle_row0_root_choices_are_literal_combinations(
+    n9_payload: dict[str, object],
+) -> None:
+    expected_count = comb(N - 1, ROW_SIZE)
+
+    assert expected_count == 70
+    assert [len(options) for options in OPTIONS] == [expected_count] * N
+
+    for center in range(N):
+        expected = list(
+            combinations(
+                [target for target in range(N) if target != center],
+                ROW_SIZE,
+            )
+        )
+        actual = [tuple(MASK_BITS[m]) for m in OPTIONS[center]]
+
+        assert actual == expected
+        assert len(set(OPTIONS[center])) == expected_count
+        assert all(center not in witnesses for witnesses in actual)
+
+    assert n9_payload["main_search"]["row0_choices"] == expected_count
+    assert (
+        n9_payload["cross_check_without_vertex_circle_pruning"]["row0_choices"]
+        == expected_count
+    )
