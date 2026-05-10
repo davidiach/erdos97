@@ -195,6 +195,40 @@ This does not disprove the actual Endpoint Control Auxiliary Claim, because
 the configuration is not a full counterexample and does not impose the
 minimality or global badness hypotheses.
 
+The shortcut remains false even if both endpoints are themselves locally bad.
+In cyclic order
+
+```text
+O, X1, L0, L1, X2, A1, A2, A3, A4, Y2, U1, U0, Y1
+```
+
+take the same `O,A1,A2,A3,A4,L0,L1,U0,U1` and add
+
+```text
+X1 = (3/25, -47/50)
+X2 = (69/290, -166/145)
+Y2 = (69/290, 166/145)
+Y1 = (3/25, 47/50).
+```
+
+All cyclic-order turn determinants remain exactly positive. The center `O`
+has the same exact four-point unit class `A={A1,A2,A3,A4}`, while endpoint
+`A1` has four outside points at squared distance `1/4`,
+
+```text
+X1, L0, L1, X2,
+```
+
+and endpoint `A4` has four outside points at squared distance `1/4`,
+
+```text
+Y1, U0, U1, Y2.
+```
+
+Thus endpoint badness plus the local critical circle class still does not
+supply endpoint control. Any proof must use additional global
+minimal-counterexample information, not only these local hypotheses.
+
 [^lit]: Public consolidation: `public-provenance.md#literature-digest`.
 [^forest]: Public consolidation: `public-provenance.md#forest-lemma-failure`.
 [^rank]: Public consolidation: `public-provenance.md#rank-and-bridge-status`.
