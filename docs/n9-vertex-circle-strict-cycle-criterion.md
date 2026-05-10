@@ -113,6 +113,42 @@ cross-wired schema gives
 D_06 > D_16 > D_06.
 ```
 
+### Why connector rows are needed
+
+A nondegenerate two-edge schema cannot be forced by the two strict rows alone.
+Here nondegenerate means that the four strict-edge endpoint pairs
+
+```text
+{a,c}, {a,b}, {f,h}, {g,h}
+```
+
+are pairwise distinct, and neither strict edge is already a quotient self-edge
+using only the two selected rows centered at `r` and `s`.
+
+Indeed, the two selected rows generate at most two star equivalence classes:
+
+```text
+A = {{r,x} : x in {a,b,c,d}},
+B = {{s,y} : y in {e,f,g,h}},
+```
+
+possibly merged if they share a pair. The row-`r` strict pairs `{a,c}` and
+`{a,b}` do not lie in `A`, and the row-`s` strict pairs `{f,h}` and `{g,h}` do
+not lie in `B`.
+
+For a nontrivial cross-wire `{a,b} ~ {f,h}` to hold, `{a,b}` must lie in `B`,
+`{f,h}` must lie in `A`, and the two stars must be merged. Similarly, the
+other cross-wire `{g,h} ~ {a,c}` forces `{a,c}` to lie in `B` and `{g,h}` to
+lie in `A`. But then both row-`r` strict pairs lie in `B`, so
+`{a,c} ~ {a,b}` and the first strict edge is already a self-edge; likewise
+both row-`s` strict pairs lie in `A`, so the second strict edge is also a
+self-edge. This contradicts nondegeneracy.
+
+Thus a genuine two-edge quotient cycle needs either an additional connector
+row, a longer selected-distance path, or it has already collapsed to a simpler
+self-edge obstruction. The `T10/F12` instance uses rows `0` and `6` as the
+connector rows beyond the two strict rows centered at `8` and `3`.
+
 ## Current Packet Audit
 
 The checked source artifact is
