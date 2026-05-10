@@ -93,6 +93,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`minimal-fragile-cover-bridge.md`](minimal-fragile-cover-bridge.md):
   partial bridge theorem showing that every minimal counterexample admits a
   fragile-cover witness system; also records why this is not sufficient.
+- [`block6-fragile-vertex-circle-extension-audit.md`](block6-fragile-vertex-circle-extension-audit.md):
+  bounded audit showing that the two-block block-6 fragile-cover obstruction
+  closes once full selected-row extension is combined with vertex-circle
+  quotient pruning in the natural order.
 - [`sparse-frontier-diagnostic.md`](sparse-frontier-diagnostic.md): exact
   fixed-order witness-pair source diagnostic explaining the sparse/Sidon
   radius-propagation blind spot.
