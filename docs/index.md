@@ -148,6 +148,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-activation-requirements.md`](bootstrap-t12-activation-requirements.md):
   role-sensitive diagnostic separating stored T12 connector-pair and
   strict-edge endpoint requirements from unproved row-forcing claims.
+- [`bootstrap-t12-bridge-target-map.md`](bootstrap-t12-bridge-target-map.md):
+  joined diagnostic naming the explicit next bridge-lemma target for each
+  missing T12/F16 row.
 - [`bootstrap-t12-row-pressure.md`](bootstrap-t12-row-pressure.md):
   row-pressure refinement classifying those missing T12 row centers by core
   deficit, deletion-closure exposure, and private-halo support.

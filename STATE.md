@@ -103,6 +103,14 @@ still misses endpoint `6` for its strict edge. This remains diagnostic
 bookkeeping only, not a proof that any missing row is forced. See
 `docs/bootstrap-t12-activation-requirements.md`.
 
+A joined T12 bridge-target map now names the next proof obligation for each of
+the six missing rows. It keeps the row-pressure packet, the connector/strict
+relation requirement, and the still-unproved row-forcing bridge target in
+separate columns. The hardest current targets are the hard strict endpoint
+rows `151:7` and `151:8`, plus the open connector-pair row `151:5`. This is
+still a proof-mining diagnostic only. See
+`docs/bootstrap-t12-bridge-target-map.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

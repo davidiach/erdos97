@@ -2042,6 +2042,64 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_bridge_target_map
+    path: data/certificates/bootstrap_t12_bridge_target_map.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_bridge_target_map.py
+    command: python scripts/check_bootstrap_t12_bridge_target_map.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_bridge_target_map.py
+    check_command: python scripts/check_bootstrap_t12_bridge_target_map.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Joined T12/F16 bridge-target map for the two tight n=9 bootstrap-core rows; not a proof that the missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_bridge_target_map.v1
+      status: BOOTSTRAP_T12_BRIDGE_TARGET_MAP_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.source_record_ids:
+        - 81
+        - 151
+      summary.row_target_count: 6
+      summary.row_centers_by_source_id.81:
+        - 3
+        - 8
+      summary.row_centers_by_source_id.151:
+        - 5
+        - 6
+        - 7
+        - 8
+      summary.requirement_count: 7
+      summary.requirement_kind_counts.equality_connector_pair: 5
+      summary.requirement_kind_counts.strict_edge_endpoint_set: 2
+      summary.relation_state_counts.BOOTSTRAP_CORE_SUFFICIENT: 2
+      summary.relation_state_counts.SUPPORT_SUFFICIENT: 2
+      summary.relation_state_counts.OPEN_CONNECTOR_REQUIREMENT: 1
+      summary.relation_state_counts.HARD_STRICT_ENDPOINT_REQUIREMENT: 2
+      summary.hard_strict_row_targets:
+        - "151:7"
+        - "151:8"
+      summary.open_connector_row_targets:
+        - "151:5"
+      summary.bridge_target_status: OPEN_TARGET_NOT_PROVED
+      provenance.generator: scripts/check_bootstrap_t12_bridge_target_map.py
+      provenance.command: python scripts/check_bootstrap_t12_bridge_target_map.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - bridge target map proves row forcing
+      - relation support proves row-center forcing
+      - hard strict endpoint rows are forced
+      - open connector pair is forced
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_row_pressure
     path: data/certificates/bootstrap_t12_row_pressure.json
     kind: proof_mining_diagnostic_artifact

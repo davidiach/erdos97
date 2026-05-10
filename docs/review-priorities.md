@@ -336,6 +336,14 @@ condition that the surviving multi-block family does not automatically satisfy:
 - bootstrap/T12 outside-pair evidence, as recorded in
   `docs/bootstrap-t12-outside-pair.md`, isolating the remaining row where the
   private-pair ledger has partial direct support.
+- bootstrap/T12 activation-requirement evidence, as recorded in
+  `docs/bootstrap-t12-activation-requirements.md`, separating connector-pair
+  and strict-edge endpoint requirements from the still-unproved row-forcing
+  step.
+- bootstrap/T12 bridge-target-map evidence, as recorded in
+  `docs/bootstrap-t12-bridge-target-map.md`, joining those packets into six
+  explicit next-lemma targets, with `151:7`, `151:8`, and `151:5` as the main
+  hard/open rows.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

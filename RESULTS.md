@@ -207,6 +207,17 @@ requirements remain hard. This is still diagnostic bookkeeping only; see
 `scripts/check_bootstrap_t12_activation_requirements.py`, and
 `data/certificates/bootstrap_t12_activation_requirements.json`.
 
+The bridge-target map joins the T12 row-pressure, support, and activation
+ledgers into six explicit next-lemma targets. It records two closure-exposed
+rows, three one-outside-label rows, and one outside-pair row; under its
+exclusive relation-state classification, two requirements are bootstrap-core
+sufficient, two are support-sufficient, one connector pair remains open, and
+two strict endpoint requirements remain hard. This is still diagnostic
+bookkeeping only; see
+`docs/bootstrap-t12-bridge-target-map.md`,
+`scripts/check_bootstrap_t12_bridge_target_map.py`, and
+`data/certificates/bootstrap_t12_bridge_target_map.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

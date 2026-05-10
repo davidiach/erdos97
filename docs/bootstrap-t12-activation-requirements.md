@@ -68,6 +68,9 @@ closure-sufficient requirements: 1
 hard strict requirements: 2
 ```
 
+The joined follow-up map in `docs/bootstrap-t12-bridge-target-map.md` uses
+these relation states to name the row-by-row bridge-lemma targets.
+
 ## Negative-Control Reading
 
 The main guardrail is source `151`, row `7`. The deletion closure exposes row

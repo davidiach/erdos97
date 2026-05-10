@@ -504,6 +504,20 @@ halo, and two also hit the private-pair ledger. This is still a diagnostic
 decomposition only, not a theorem that a private-pair ledger hit forces an
 equality-connector row in genuine geometry.
 
+The activation-requirement packet in
+`docs/bootstrap-t12-activation-requirements.md` separates the stored T12/F16
+relation requirements from row forcing. It records five equality-connector
+pair requirements and two strict-edge endpoint-set requirements across the six
+missing row centers, with source `151` row `7` as the main closure-exposure
+negative control: the row is exposed through `[0,1,4]` but still misses
+endpoint `6` for the strict edge.
+
+The bridge-target map in `docs/bootstrap-t12-bridge-target-map.md` joins the
+row-pressure, support, and activation-requirement packets into six explicit
+next-lemma targets. It is a proof-mining map only: the hard strict endpoint
+rows `151:7` and `151:8`, and the open connector-pair row `151:5`, remain
+unproved bridge obligations rather than forced geometric rows.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a
