@@ -22947,6 +22947,172 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 646 - Block-6 Low-support Eighth-row Terminal Pockets
+
+### Mathematical Subquestion
+
+Cycle 645 showed that the low-support disjoint-pair normal form is not
+seventh-row-local: all `56` clean six-row states admit a clean seventh-row
+continuation. The next precise question was:
+
+```text
+After the 2252 clean seven-row states in this low-support branch, does every
+legal eighth row force a vertex-circle quotient self-edge or directed strict
+cycle?
+```
+
+### Definitions and Assumptions
+
+The four fixed two-block block-6 fragile rows are still:
+
+```text
+0 -> {1,2,3,4}
+3 -> {0,2,4,5}
+6 -> {7,8,9,10}
+9 -> {6,8,10,11}
+```
+
+A low-support clean seven-row state is a clean seventh-row continuation of one
+of the `56` low-support clean six-row states in the `4,5` and `10,11`
+families. A legal eighth row is any valid selected row at a remaining
+nonfixed center satisfying the same incidence/order constraints as the
+block-6 extension checker. A clean eighth-row continuation is one whose
+selected-distance quotient has no vertex-circle self-edge and no directed
+strict cycle in the natural cyclic order.
+
+### Result Status
+
+Mixed exact audit:
+**Block-6 Low-support Eighth-row Terminal-pocket Audit**.
+
+The low-support branch still does not close at the eighth row: `2240` of the
+`2252` clean seven-row states have at least one clean eighth-row continuation.
+However, `12` clean seven-row states are terminal at the eighth-row level:
+every legal eighth row after those states forces a vertex-circle obstruction.
+
+### Argument Or Obstruction
+
+The checker enumerates every legal eighth row after each of the `2252` clean
+seven-row states. The ordered eighth-row continuations split as:
+
+```text
+legal eighth rows from low-support clean seven states: 97982
+vertex-circle-clean:                           31636
+self-edge obstruction:                          30272
+strict-cycle obstruction:                       36074
+clean seven-row states with clean eighth row:    2240 / 2252
+terminal clean seven-row states:                   12
+unique clean eight-row states:                  15740
+```
+
+The terminal states are distributed across seven-center triples as follows:
+
+```text
+seven centers  clean seven  terminal at eighth row
+1,4,5          160          0
+1,10,11        71           0
+2,4,5          283          2
+2,10,11        362          1
+4,5,7          71           0
+4,5,8          362          1
+4,5,10         95           0
+4,5,11         155          3
+4,10,11        95           0
+5,10,11        155          3
+7,10,11        160          0
+8,10,11        283          2
+```
+
+One explicit clean eight-row state is:
+
+```text
+1  -> {0,2,7,11}
+8  -> {0,5,7,9}
+10 -> {0,1,6,9}
+11 -> {2,5,6,10}
+```
+
+One explicit terminal clean seven-row state is:
+
+```text
+2  -> {0,1,6,11}
+10 -> {0,4,6,9}
+11 -> {3,5,6,7}
+```
+
+For that terminal state, there are `9` legal eighth rows: `7` self-edge
+obstructions and `2` strict-cycle obstructions.
+
+### Exact Scope
+
+This is an exact finite audit inside the two-block block-6 natural-order
+selected-row extension tree. It covers only legal eighth rows after the
+`2252` clean seven-row states generated from the `56` low-support clean
+six-row states in the `4,5` and `10,11` families. It does not establish
+Euclidean realizability of any clean abstract state, is not a proof of Erdos
+Problem #97, and is not a counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `docs/index.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This provides the first exact terminal pockets inside the low-support block-6
+branch, but it also rules out an eighth-row closure theorem for the whole
+low-support branch. A useful next proof-mining direction is to compare the
+`12` terminal seven-row states against the `2240` extendable seven-row states
+and isolate which row-content signatures force terminality.
+
+### Next Lead
+
+Classify the `12` terminal seven-row states up to block-swap and row-content
+features, then try to promote the terminal signatures into a human-readable
+local lemma.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-646`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-646`.
+- The branch was based on `origin/main` at commit
+  `3631767a992d88172bbdc2e8eaac4816d3028a74`, after PR #361 merged Cycle
+  645.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `python3 scripts/check_block6_fragile_sixth_row_survivors.py
+  --assert-expected --json`: passed; reported `97982` legal eighth rows after
+  the `2252` low-support clean seven-row states, with `31636` clean, `30272`
+  self-edge, `36074` strict-cycle, `2240` clean seven-row states admitting a
+  clean eighth row, and `12` terminal clean seven-row states.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `540 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 645 - Block-6 Low-support Seventh-row Continuations
 
 ### Mathematical Subquestion

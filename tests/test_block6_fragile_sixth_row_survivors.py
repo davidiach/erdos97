@@ -55,6 +55,24 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
         "self_edge": 120,
         "strict_cycle": 229,
     }
+    eighth_audit = payload["low_support_eighth_extension_audit"]
+    assert eighth_audit["clean_seven_states"] == 2252
+    assert eighth_audit["clean_seven_states_with_clean_eighth"] == 2240
+    assert eighth_audit["terminal_clean_seven_states"] == 12
+    assert eighth_audit["ordered_legal_eighth_rows"] == 97982
+    assert eighth_audit["ordered_clean_eighth_rows"] == 31636
+    assert eighth_audit["ordered_self_edge_eighth_rows"] == 30272
+    assert eighth_audit["ordered_strict_cycle_eighth_rows"] == 36074
+    assert eighth_audit["unique_clean_eight_states"] == 15740
+    assert eighth_audit["by_seven_center_triple"]["4,5,11"] == {
+        "clean_seven_states": 155,
+        "clean_seven_states_with_clean_eighth": 152,
+        "eighth_status_counts": {
+            "ok": 1624,
+            "self_edge": 1907,
+            "strict_cycle": 1947,
+        },
+    }
     assert payload["first_clean_sixth_example"] == {
         "fifth": {"center": 1, "row": [0, 2, 6, 7]},
         "sixth": {"center": 2, "row": [0, 1, 3, 8]},

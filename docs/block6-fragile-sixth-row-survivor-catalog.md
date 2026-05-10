@@ -157,6 +157,64 @@ satisfies the checker incidence/order filters and has vertex-circle status
 `ok` at the seven-row level. These are abstract selected-row states inside the
 bounded natural-order audit; they are not Euclidean realizability claims.
 
+## Low-support Eighth-row Audit
+
+Extending the same low-support branch one row deeper gives a mixed result. The
+branch still does not close globally: `2240` of the `2252` clean seven-row
+states have at least one clean eighth-row continuation. But `12` clean
+seven-row states are terminal at the eighth-row level: every legal eighth row
+after them forces a vertex-circle self-edge or strict cycle.
+
+```text
+legal eighth rows from low-support clean seven states: 97982
+vertex-circle-clean:                           31636
+self-edge obstruction:                          30272
+strict-cycle obstruction:                       36074
+clean seven-row states with clean eighth row:    2240 / 2252
+terminal clean seven-row states:                   12
+unique clean eight-row states:                  15740
+```
+
+The terminal states are distributed across the seven-center triples as follows:
+
+```text
+seven centers  clean seven  terminal at eighth row
+1,4,5          160          0
+1,10,11        71           0
+2,4,5          283          2
+2,10,11        362          1
+4,5,7          71           0
+4,5,8          362          1
+4,5,10         95           0
+4,5,11         155          3
+4,10,11        95           0
+5,10,11        155          3
+7,10,11        160          0
+8,10,11        283          2
+```
+
+One explicit clean eight-row state is:
+
+```text
+1  -> {0,2,7,11}
+8  -> {0,5,7,9}
+10 -> {0,1,6,9}
+11 -> {2,5,6,10}
+```
+
+One explicit terminal clean seven-row state is:
+
+```text
+2  -> {0,1,6,11}
+10 -> {0,4,6,9}
+11 -> {3,5,6,7}
+```
+
+For that terminal state, there are `9` legal eighth rows: `7` force a
+self-edge and `2` force a strict cycle. Thus the eighth-row audit supplies
+small terminal pockets but still does not produce a full low-support closure
+theorem.
+
 ## Center Counts
 
 ```text
@@ -197,7 +255,8 @@ The checker first reconstructs the `166` clean fifth rows, then enumerates
 every legal sixth row after each of them. It also computes the block-swap
 orbits for the clean fifth-row and clean six-row states. Finally, it audits
 every legal seventh row after the `56` low-support clean six-row states in the
-`4,5` and `10,11` minimum-support center-pair families.
+`4,5` and `10,11` minimum-support center-pair families, and every legal
+eighth row after the resulting `2252` clean seven-row states.
 
 ## Effect
 
@@ -208,9 +267,11 @@ extension tree. The center-pair normal-form audit also rules out a still
 coarser six-row proof based only on which two nonfixed centers have been
 selected. The minimum-support row-content audit gives a compact target for the
 next step, but the seventh-row continuation audit shows that even this compact
-target is not seventh-row-local.
+target is not seventh-row-local. The eighth-row audit finds the first terminal
+pockets inside the low-support branch, but most clean seven-row states still
+continue.
 
 The next useful step is to mine the `6047` clean six-row states for a smaller
-row-content normal-form family, or to extend the `56` low-support branches one
-more row to ask where the disjoint-pair survivor family first becomes forced
-into a quotient obstruction.
+row-content normal-form family, or to classify the `12` terminal seven-row
+states and compare their row-content signatures with the `2240` seven-row
+states that still extend cleanly.
