@@ -54,6 +54,65 @@ which is impossible for real distances.
 Equivalently, after quotienting ordinary pair distances by the selected-row
 equalities, the local row core has a directed strict cycle.
 
+## Two-edge Cross-wired Schema
+
+The smallest strict-cycle case has two vertex-circle rows. It is useful to
+state it without the packet labels.
+
+Suppose a selected row centered at `r` has four distinct witnesses in angular
+order
+
+```text
+a, b, c, d
+```
+
+and another selected row centered at `s` has four distinct witnesses in angular
+order
+
+```text
+e, f, g, h
+```
+
+The vertex-circle nesting lemma gives the two proper span inequalities
+
+```text
+D_ac > D_ab,
+D_fh > D_gh.
+```
+
+If selected-distance paths identify the inner pair of each strict edge with
+the outer pair of the other strict edge,
+
+```text
+D_ab = D_fh,
+D_gh = D_ac,
+```
+
+then the local core is unrealizable. Indeed,
+
+```text
+D_ac > D_ab = D_fh > D_gh = D_ac,
+```
+
+which is a strict two-cycle among real distance values.
+
+This schema is not a new completeness result. It is the `k=2` instance of the
+strict-cycle criterion with a concrete span-nesting certificate for each
+strict edge. It is useful because it separates the reusable proof object from
+the specific `T10/F12` labels: any selected-row core, in any larger polygon,
+that supplies the two nested chord inequalities and the two cross-wired
+selected-distance paths is impossible.
+
+The `T10/F12` focused packet is exactly one instance. The row centered at `8`
+has witness order `[0,3,6,7]`, giving `D_06 > D_03`; the row centered at `3`
+has witness order `[4,6,0,1]`, giving `D_16 > D_01`. Rows `3` and `6`
+identify `D_03 = D_36 = D_16`, and row `0` identifies `D_01 = D_06`, so the
+cross-wired schema gives
+
+```text
+D_06 > D_16 > D_06.
+```
+
 ## Current Packet Audit
 
 The checked source artifact is
