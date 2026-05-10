@@ -22947,6 +22947,178 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 638 - Vertex-circle Strict-edge Geometry Audit
+
+### Mathematical Subquestion
+
+After Cycle 637 audited the selected-indegree cap, the next
+frontier-soundness question was:
+
+Does the repo-native `n=9` vertex-circle checker create exactly the local
+strict edges justified by the vertex-circle proper-interval containment
+lemma?
+
+### Definitions and Assumptions
+
+Let `P` be a strictly convex polygon with vertices labelled in cyclic order.
+Fix a center `c` and a selected witness row
+
+```text
+S_c = {w_0,w_1,w_2,w_3}.
+```
+
+The selected-row condition says all four witnesses lie on one circle centered
+at `p_c`. Order the witnesses by their angular order around `p_c`; this is the
+polygon cyclic order with `c` removed, up to reversal.
+
+For `0 <= r < s <= 3`, write `[r,s]` for the witness interval with endpoints
+`w_r,w_s`. Say `[r,s]` properly contains `[u,v]` if
+
+```text
+r <= u < v <= s
+```
+
+and at least one endpoint inequality is strict.
+
+### Result Status
+
+Proved implementation-audit lemma:
+**Vertex-circle Proper-interval Strict-edge Lemma**.
+
+For every selected row, proper containment of witness intervals on the row's
+selected circle forces the containing witness-witness chord to be strictly
+longer. The two repo-native strict-edge implementations enumerate exactly
+those proper-containment applications for the natural `n=9` cyclic order.
+
+### Argument
+
+At a vertex of a strictly convex polygon, all other vertices lie in the angle
+between the two incident boundary rays, whose size is less than `pi`. Strict
+convexity prevents two other vertices from lying on the same ray from the
+center. Therefore the angular coordinates of the other vertices around the
+center are distinct, lie in an interval of length less than `pi`, and follow
+the polygon cyclic order, up to reversal.
+
+The four selected witnesses of row `c` lie on one circle centered at `p_c`,
+say with radius `R > 0`. If two selected witnesses have angular separation
+`theta`, then their ordinary chord length is
+
+```text
+2R sin(theta/2).
+```
+
+This is strictly increasing for `0 < theta < pi`. Proper interval containment
+gives a strictly larger angular separation for the outer interval than for
+the inner interval, so the containing chord is strictly longer.
+
+Reversing the witness order preserves interval containment, so the conclusion
+is independent of which cyclic orientation is used.
+
+The code-shape audit found that both
+`src/erdos97/n9_vertex_circle_exhaustive.py` and
+`src/erdos97/vertex_circle_quotient_replay.py` sort row witnesses by cyclic
+position relative to the center and add a strict edge exactly when the outer
+index interval properly contains the inner index interval:
+
+```text
+outer_start <= inner_start,
+inner_end <= outer_end,
+and at least one endpoint containment is strict.
+```
+
+For four witnesses, this gives exactly nine proper-containment strict edges
+per selected row. The checker does not add comparisons for non-contained
+intervals, which are not forced by cyclic order alone.
+
+### Exact Audit
+
+A one-off audit compared the strict-edge sets from the exhaustive checker and
+the quotient replay checker against a direct proper-interval-containment
+enumeration for every `n=9` center and every candidate 4-witness row.
+
+```text
+selected rows checked 630
+n9 strict-edge mismatches 0
+quotient replay strict-edge mismatches 0
+strict edges per selected row {9: 630}
+interval span histogram {'(2, 1)': 2520, '(3, 1)': 1890, '(3, 2)': 1260}
+total strict edges 5670
+```
+
+### Exact Scope
+
+This is not a full audit of the `n=9` checker. It audits only the local
+geometric rule that turns proper containment of witness intervals on one
+selected circle into strict witness-witness chord inequalities, and checks
+that the two strict-edge generators enumerate exactly those rule applications.
+
+It does not audit row0 coverage, minimum-remaining-options branching, the
+two-overlap crossing filter, witness-pair cap, selected-indegree cap,
+selected-distance quotienting, self-edge detection, strict-cycle detection,
+archive reconciliation, or the 184 pre-vertex-circle assignments. It does not
+prove the full `n=9` finite case. It does not prove Erdos Problem #97 and does
+not give a counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-strict-edge-geometry-audit.md`
+- `docs/index.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect on the Attack
+
+The frontier-soundness checklist is reduced by the main remaining local
+geometric input for the vertex-circle filter: the strict edges used by the
+quotient obstruction are exactly the proper-interval chord inequalities forced
+on one selected circle. The remaining review burden is now concentrated on
+selected-distance quotient replay, self-edge/strict-cycle extraction, and
+independent replay or archive reconciliation for the 184-assignment frontier.
+
+### Next Lead
+
+Audit the selected-distance quotient replay used after strict-edge generation:
+prove that selected rows union exactly the intended center-witness distance
+classes, and that a self-edge or directed strict cycle in the quotient graph is
+an immediate contradiction among real distances. The useful output would be a
+single quotient-graph soundness note tying the self-edge and strict-cycle
+criteria to the shared replay implementation.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-638`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-638`.
+- The branch was based on `origin/main` at commit
+  `a4b2e6083148f84053b451ed840936eeee6d3e5e`, after PR #345 merged Cycle
+  637.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- One-off strict-edge generator audit with `PYTHONPATH=src` passed, checking
+  `630` selected rows, with zero exhaustive-checker strict-edge mismatches,
+  zero quotient-replay strict-edge mismatches, and `5670` total strict edges.
+- `python scripts/check_text_clean.py` passed.
+- `python scripts/check_status_consistency.py` passed.
+- `python scripts/check_artifact_provenance.py` passed.
+- `git diff --check` passed.
+- `python -m ruff check .` passed.
+- `python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected
+  --json` passed, reproducing `16752` main-search nodes, `0` full assignments
+  with vertex-circle pruning, and `184` cross-check full assignments without
+  vertex-circle pruning.
+- `python -m pytest tests/test_n9_vertex_circle_exhaustive.py -q -m artifact`
+  passed: `3 passed`.
+- `python -m pytest -q` passed: `534 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 637 - Selected-indegree Cap Partial-prune Audit
 
 ### Mathematical Subquestion
