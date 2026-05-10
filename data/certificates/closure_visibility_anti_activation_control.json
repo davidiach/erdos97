@@ -1,0 +1,165 @@
+{
+  "claim_status": "abstract_incidence_closure_stress_test_only",
+  "claimed_bridge_that_this_falsifies": "If a deletion closure contains a target row center and three target witnesses, then the target center's active row contains those three target witnesses, or the specified target row is forced.",
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "date": "2026-05-10",
+  "expected_closure_steps": [
+    {
+      "closure": [
+        0,
+        1,
+        4
+      ],
+      "step": 0
+    },
+    {
+      "activate_center": 3,
+      "closure": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "step": 1,
+      "using_row_center": 3,
+      "using_triple": [
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "activate_center": 7,
+      "closure": [
+        0,
+        1,
+        3,
+        4,
+        7
+      ],
+      "step": 2,
+      "using_row_center": 7,
+      "using_triple": [
+        0,
+        3,
+        4
+      ]
+    }
+  ],
+  "expected_failure_of_target_activation": {
+    "target_center_activated_by_target_triple": false,
+    "target_center_in_final_closure": true,
+    "target_row_present_at_center": false,
+    "target_triple_contained_in_target_center_row": false,
+    "target_witnesses_in_final_closure": true
+  },
+  "expected_pairwise_checks": {
+    "four_uniformity": true,
+    "max_pairwise_row_intersection": 2,
+    "self_exclusion": true,
+    "two_overlap_crossing_pairs": [
+      {
+        "source_chord": [
+          3,
+          7
+        ],
+        "witness_chord": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  "nonclaims": [
+    "This is not a polygon.",
+    "This is not a counterexample to Erdos Problem #97.",
+    "This is not a Euclidean realizability certificate.",
+    "This does not refute activation lemmas that require provenance.",
+    "This does not refute activation lemmas with critical-row uniqueness or all-fourth obstruction hypotheses."
+  ],
+  "rich_rows": [
+    {
+      "activating_triple": [
+        0,
+        1,
+        4
+      ],
+      "center": 3,
+      "intended_activation_step": 1,
+      "role": "helper row: adds center 3 from the seed closure",
+      "witnesses": [
+        0,
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "activating_triple": [
+        0,
+        3,
+        4
+      ],
+      "center": 7,
+      "intended_activation_step": 2,
+      "role": "alternative row at target center; activates 7 through a different triple",
+      "witnesses": [
+        0,
+        3,
+        4,
+        8
+      ]
+    }
+  ],
+  "run_id": "RS-2026-05-10-A",
+  "seed_closure": [
+    0,
+    1,
+    4
+  ],
+  "source_provenance": {
+    "prompt_pack": "01_master_reusable_prompt.md after 00_common_prelude.md",
+    "source_run": "User-supplied GPT-5.5 Pro run RS-2026-05-10-A, shared on 2026-05-11."
+  },
+  "status": "EXACT_NEGATIVE_CONTROL",
+  "target": {
+    "center": 7,
+    "private_outside_witness": 6,
+    "source_row": "151:7-style closure-exposed target",
+    "target_row": [
+      0,
+      1,
+      4,
+      6
+    ],
+    "target_witnesses": [
+      0,
+      1,
+      4
+    ]
+  },
+  "title": "Closure-visibility anti-activation negative control",
+  "trust_label": "NEGATIVE_CONTROL",
+  "type": "closure_visibility_anti_activation_control_v1",
+  "vertices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ]
+}
