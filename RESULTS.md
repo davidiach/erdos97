@@ -176,6 +176,16 @@ target only; see `docs/bootstrap-t12-closure-exposed.md`,
 `scripts/check_bootstrap_t12_closure_exposed.py`, and
 `data/certificates/bootstrap_t12_closure_exposed.json`.
 
+The one-outside-label subpacket isolates the three singleton-support rows
+from the same ledger: `81:8`, `151:5`, and `151:8`. Each row has two
+bootstrap-core witnesses, two singleton outside supports, and a row center
+private in every deletion closure. In each row, exactly one support is private
+in all deletion halos and one is internal to the deletion closure for core
+vertex `2`. This is still diagnostic bookkeeping only; see
+`docs/bootstrap-t12-one-outside.md`,
+`scripts/check_bootstrap_t12_one_outside.py`, and
+`data/certificates/bootstrap_t12_one_outside.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

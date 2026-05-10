@@ -330,6 +330,9 @@ condition that the surviving multi-block family does not automatically satisfy:
   `docs/bootstrap-t12-closure-exposed.md`, isolating the two activation-ready
   deletion-closure rows before attacking the one-outside-label and outside-pair
   cases.
+- bootstrap/T12 one-outside-label evidence, as recorded in
+  `docs/bootstrap-t12-one-outside.md`, isolating the three singleton-support
+  rows where pair-capacity arguments do not directly apply.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

@@ -489,6 +489,14 @@ activation-ready in the deletion closure for core vertex `2`, but only `81:3`
 has its full selected row contained in that closure. This remains fixed-row
 proof-mining bookkeeping; it is not a rich-class row-forcing theorem.
 
+The one-outside-label packet in `docs/bootstrap-t12-one-outside.md` isolates
+the three singleton-support rows, `81:8`, `151:5`, and `151:8`. Each row has
+two bootstrap-core witnesses and a row center private in every deletion
+closure; in each row, one singleton support is private in all deletion halos
+and one is internal to the deletion closure for core vertex `2`. This is a
+diagnostic decomposition only, not a theorem that singleton supports or row
+centers are forced by Euclidean geometry.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

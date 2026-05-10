@@ -2017,6 +2017,64 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_one_outside
+    path: data/certificates/bootstrap_t12_one_outside.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_one_outside.py
+    command: python scripts/check_bootstrap_t12_one_outside.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_one_outside.py
+    check_command: python scripts/check_bootstrap_t12_one_outside.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: One-outside-label packet for the two tight n=9 bootstrap/T12 records; not a proof that the missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_one_outside.v1
+      status: BOOTSTRAP_T12_ONE_OUTSIDE_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.source_record_ids:
+        - 81
+        - 151
+      summary.one_outside_row_record_count: 3
+      summary.row_centers_by_source_id.81:
+        - 8
+      summary.row_centers_by_source_id.151:
+        - 5
+        - 8
+      summary.support_option_count: 6
+      summary.support_label_counts.5: 2
+      summary.support_label_counts.6: 1
+      summary.support_label_counts.7: 2
+      summary.support_label_counts.8: 1
+      summary.multirow_support_labels:
+        - 5
+        - 7
+      summary.support_label_mode_counts.INTERNAL_TO_ONE_DELETION_CLOSURE: 3
+      summary.support_label_mode_counts.PRIVATE_IN_ALL_DELETION_HALOS: 3
+      summary.private_halo_containment_count_distribution.3: 3
+      summary.private_halo_containment_count_distribution.4: 3
+      summary.row_center_private_in_all_deletions_count: 3
+      summary.ledger_private_pair_support_hit_count: 0
+      summary.role_counts.equality_connector_row: 3
+      summary.role_counts.strict_edge_row: 1
+      summary.activation_deficit_counts.1: 3
+      summary.forcing_target_status: OPEN_TARGET_NOT_PROVED
+      provenance.generator: scripts/check_bootstrap_t12_one_outside.py
+      provenance.command: python scripts/check_bootstrap_t12_one_outside.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - missing T12 row centers are forced
+      - one outside label proves missing rows are forced
+      - singleton support proves row-center forcing
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: n10_secondary_singleton_replay
     path: data/certificates/2026-05-05/n10_secondary.json
     kind: finite_case_draft_artifact

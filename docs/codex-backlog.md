@@ -40,6 +40,9 @@ Use this queue when no more specific issue is selected.
    outside-pair cases for the next bridge attempt. The closure-exposed
    subpacket in `docs/bootstrap-t12-closure-exposed.md` isolates the two
    activation-ready deletion-closure rows as the smallest next lemma target.
+   The one-outside-label subpacket in `docs/bootstrap-t12-one-outside.md`
+   isolates the three singleton-support rows where a future bridge would need
+   to force one outside label without relying on private-pair capacity.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
