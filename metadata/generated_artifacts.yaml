@@ -1675,6 +1675,53 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: bridge_lemma_frontier
+    path: data/certificates/bridge_lemma_frontier.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bridge_lemma_frontier.py
+    command: python scripts/check_bridge_lemma_frontier.py --write --assert-expected
+    checker: scripts/check_bridge_lemma_frontier.py
+    check_command: python scripts/check_bridge_lemma_frontier.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Finite n=8/n=9 ear-orderability and obstruction cross-tab for Bridge Lemma A' proof mining; not a proof of the bridge, not a proof of Erdos Problem #97, not a counterexample, and not an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bridge_lemma_frontier.v1
+      status: BRIDGE_LEMMA_FRONTIER_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      bridge_lemma_a_prime_status: OPEN_NOT_PROVED_OR_REFUTED
+      geometry.status: NOT_RUN
+      summary.n8_total: 15
+      summary.n8_ear_orderable: 11
+      summary.n8_non_ear_orderable: 4
+      summary.n8_non_ear_ids:
+        - 0
+        - 1
+        - 2
+        - 3
+      summary.n9_total: 184
+      summary.n9_ear_orderable: 182
+      summary.n9_non_ear_orderable: 2
+      summary.n9_non_ear_indices:
+        - 81
+        - 151
+      summary.n9_vertex_circle_status_counts.self_edge: 158
+      summary.n9_vertex_circle_status_counts.strict_cycle: 26
+      summary.proof_mining_target_count: 6
+      provenance.command: python scripts/check_bridge_lemma_frontier.py --write --assert-expected
+    forbidden_claims:
+      - Bridge Lemma A' is proved
+      - Bridge Lemma A' is refuted
+      - n=9 is proved
+      - n=8/n=9 finite diagnostics prove the general theorem
+      - independent review of the n=9 checker is complete
+      - numerical geometry output is a counterexample
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+
   - id: n10_vertex_circle_singleton_slices
     path: data/certificates/n10_vertex_circle_singleton_slices.json
     kind: finite_case_draft_artifact
