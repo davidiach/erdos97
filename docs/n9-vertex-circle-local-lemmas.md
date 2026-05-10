@@ -189,7 +189,38 @@ families: F05, F15
 covered assignments: 20
 ```
 
-## Lemma D: T10/F12 two-edge strict cycle
+## Lemma D: T04/F13 selected-path self-edge
+
+The T04/F13 local core is:
+
+```text
+0 -> {1,2,5,7}
+1 -> {2,3,6,8}
+3 -> {1,4,5,8}
+5 -> {1,3,6,7}
+```
+
+The selected-distance path gives:
+
+```text
+D_15 = D_35 = D_13 = D_12.
+```
+
+At center `0`, the witness order `1,2,5,7` gives:
+
+```text
+D_15 > D_12.
+```
+
+Thus the selected-distance quotient again has a reflexive strict edge. The
+checker finds this exact selected-path self-edge pattern in:
+
+```text
+family: F13
+covered assignments: 2
+```
+
+## Lemma E: T10/F12 two-edge strict cycle
 
 The T10/F12 local core is:
 
@@ -240,7 +271,7 @@ covered assignments: 18
 Again, the local core has no two-circle cap violation and no crossing-bisector
 order violation before the vertex-circle quotient step.
 
-## Lemma E: T11/F07 three-edge strict cycle
+## Lemma F: T11/F07 three-edge strict cycle
 
 The T11/F07 local core is:
 
@@ -283,7 +314,7 @@ family: F07
 covered assignments: 6
 ```
 
-## Lemma F: T12/F16 three-edge strict cycle
+## Lemma G: T12/F16 three-edge strict cycle
 
 The T12/F16 local core is:
 
@@ -332,21 +363,22 @@ The current local-lemma scan covers these review-pending template-packet
 families:
 
 ```text
-F01, F02, F03, F04, F05, F06, F07, F08, F09, F10, F11, F12, F14, F15, F16
+F01, F02, F03, F04, F05, F06, F07, F08, F09, F10, F11, F12, F13, F14, F15, F16
 ```
 
 The de-duplicated assignment coverage is:
 
 ```text
-182 of the 184 n=9 pre-vertex-circle assignments
+184 of the 184 n=9 pre-vertex-circle assignments
 ```
 
-The currently uncovered packet families are:
+There are no uncovered packet families in this aggregate scan:
 
 ```text
-F13
+none
 ```
 
 This is useful proof-mining coverage, not an `n=9` completeness proof. The
-remaining local family still needs proof-facing extraction from the T04
-self-edge side of the stored packet scan.
+aggregate scan treats the stored review-pending template packets as input data
+and does not independently prove that every `n=9` frontier assignment reduces
+to one of these local templates.

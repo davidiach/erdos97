@@ -17,12 +17,13 @@ that justifies doing it anyway.
 
 Use this queue when no more specific issue is selected.
 
-1. Close the remaining `n=9` vertex-circle self-edge local-template gap in the
-   aggregate local-lemma scan. The open packet family is `F13`, coming from
-   the T04 self-edge side.
-2. Review the aggregate `n=9` vertex-circle local-lemma scan against the
-   focused T10/T11/T12 strict-cycle proof notes, keeping it scoped as
-   proof-mining scaffolding rather than an `n=9` proof.
+1. Review the aggregate `n=9` vertex-circle local-lemma scan against the
+   focused T03/T04 self-edge proof notes and the focused T10/T11/T12
+   strict-cycle proof notes, keeping it scoped as proof-mining scaffolding
+   rather than an `n=9` proof.
+2. Audit whether the aggregate local-template coverage can be checked from the
+   stored packet JSON by a second, simpler replay that does not share the
+   current quotient-replay helper.
 3. Strengthen the minimal fragile-cover bridge with one geometric necessary
    condition and test it against the block-6 negative controls.
 4. Apply the bootstrap-core/private-halo weighted capacity checker to current
