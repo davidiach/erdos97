@@ -10,6 +10,7 @@ import pytest
 from erdos97.n9_vertex_circle_local_lemmas import (
     NESTED_SPOKE_LEMMA,
     SHARED_ENDPOINT_LEMMA,
+    T03_SELECTED_PATH_SELF_EDGE,
     T10_STRICT_CYCLE_LEMMA,
     T11_STRICT_CYCLE_LEMMA,
     T12_STRICT_CYCLE_LEMMA,
@@ -46,13 +47,14 @@ def test_local_lemma_scan_counts_and_scope(payload: dict[str, object]) -> None:
     assert payload["coverage_summary"] == {  # type: ignore[index]
         "source_assignment_count": 184,
         "source_family_count": 16,
-        "covered_assignment_count": 162,
-        "covered_family_count": 13,
+        "covered_assignment_count": 182,
+        "covered_family_count": 15,
         "covered_family_ids": [
             "F01",
             "F02",
             "F03",
             "F04",
+            "F05",
             "F06",
             "F07",
             "F08",
@@ -61,16 +63,18 @@ def test_local_lemma_scan_counts_and_scope(payload: dict[str, object]) -> None:
             "F11",
             "F12",
             "F14",
+            "F15",
             "F16",
         ],
-        "uncovered_assignment_count": 22,
-        "uncovered_family_count": 3,
-        "uncovered_family_ids": ["F05", "F13", "F15"],
+        "uncovered_assignment_count": 2,
+        "uncovered_family_count": 1,
+        "uncovered_family_ids": ["F13"],
         "family_to_lemmas": {
             "F01": [SHARED_ENDPOINT_LEMMA],
             "F02": [NESTED_SPOKE_LEMMA],
             "F03": [NESTED_SPOKE_LEMMA],
             "F04": [SHARED_ENDPOINT_LEMMA],
+            "F05": [T03_SELECTED_PATH_SELF_EDGE],
             "F06": [NESTED_SPOKE_LEMMA],
             "F07": [T11_STRICT_CYCLE_LEMMA],
             "F08": [SHARED_ENDPOINT_LEMMA],
@@ -79,6 +83,7 @@ def test_local_lemma_scan_counts_and_scope(payload: dict[str, object]) -> None:
             "F11": [NESTED_SPOKE_LEMMA],
             "F12": [T10_STRICT_CYCLE_LEMMA],
             "F14": [SHARED_ENDPOINT_LEMMA],
+            "F15": [T03_SELECTED_PATH_SELF_EDGE],
             "F16": [T12_STRICT_CYCLE_LEMMA],
         },
     }
@@ -144,6 +149,66 @@ def test_t10_strict_cycle_instance(payload: dict[str, object]) -> None:
     assert [edge["inner_pair"] for edge in instance["cycle_edges"]] == [[0, 3], [0, 1]]
 
 
+def test_t03_selected_path_self_edge_instances(payload: dict[str, object]) -> None:
+    lemma = _lemma(payload, T03_SELECTED_PATH_SELF_EDGE)
+
+    assert lemma["instance_count"] == 2
+    assert lemma["covered_assignment_count"] == 20
+    assert lemma["family_ids"] == ["F05", "F15"]
+    assert lemma["template_ids"] == ["T03"]
+    instances = {instance["family_id"]: instance for instance in lemma["instances"]}  # type: ignore[index]
+
+    f05 = instances["F05"]
+    assert f05["assignment_count"] == 18
+    assert f05["simple_filter_violations"] == []
+    assert f05["core_selected_rows"] == [
+        [1, 2, 5, 7, 8],
+        [2, 1, 3, 4, 8],
+        [3, 0, 2, 4, 7],
+        [6, 1, 3, 5, 7],
+    ]
+    assert f05["strict_inequality"]["row"] == 6
+    assert f05["strict_inequality"]["outer_pair"] == [3, 7]
+    assert f05["strict_inequality"]["inner_pair"] == [1, 7]
+    assert f05["direct_conditions"] == {
+        "variant": "selected_path_self_edge",
+        "start_pair": [3, 7],
+        "end_pair": [1, 7],
+        "path": [
+            {"row": 3, "next_pair": [2, 3]},
+            {"row": 2, "next_pair": [1, 2]},
+            {"row": 1, "next_pair": [1, 7]},
+        ],
+        "path_length": 3,
+        "holds": True,
+    }
+
+    f15 = instances["F15"]
+    assert f15["assignment_count"] == 2
+    assert f15["simple_filter_violations"] == []
+    assert f15["core_selected_rows"] == [
+        [0, 1, 3, 4, 8],
+        [1, 0, 2, 4, 5],
+        [2, 1, 3, 5, 6],
+        [3, 2, 4, 6, 7],
+    ]
+    assert f15["strict_inequality"]["row"] == 0
+    assert f15["strict_inequality"]["outer_pair"] == [1, 4]
+    assert f15["strict_inequality"]["inner_pair"] == [3, 4]
+    assert f15["direct_conditions"] == {
+        "variant": "selected_path_self_edge",
+        "start_pair": [1, 4],
+        "end_pair": [3, 4],
+        "path": [
+            {"row": 1, "next_pair": [1, 2]},
+            {"row": 2, "next_pair": [2, 3]},
+            {"row": 3, "next_pair": [3, 4]},
+        ],
+        "path_length": 3,
+        "holds": True,
+    }
+
+
 def test_t11_strict_cycle_instance(payload: dict[str, object]) -> None:
     lemma = _lemma(payload, T11_STRICT_CYCLE_LEMMA)
 
@@ -204,7 +269,7 @@ def test_t12_strict_cycle_instance(payload: dict[str, object]) -> None:
 
 def test_assert_expected_rejects_count_drift(payload: dict[str, object]) -> None:
     tampered = json.loads(json.dumps(payload))
-    tampered["coverage_summary"]["covered_assignment_count"] = 161
+    tampered["coverage_summary"]["covered_assignment_count"] = 181
 
     with pytest.raises(AssertionError, match="covered_assignment_count mismatch"):
         assert_expected_local_lemma_scan(tampered)
@@ -230,5 +295,5 @@ def test_local_lemma_scan_cli_json() -> None:
 
     parsed = json.loads(result.stdout)
     assert parsed["schema"] == "erdos97.n9_vertex_circle_local_lemmas.v1"
-    assert parsed["coverage_summary"]["covered_assignment_count"] == 162
-    assert parsed["coverage_summary"]["uncovered_family_ids"] == ["F05", "F13", "F15"]
+    assert parsed["coverage_summary"]["covered_assignment_count"] == 182
+    assert parsed["coverage_summary"]["uncovered_family_ids"] == ["F13"]

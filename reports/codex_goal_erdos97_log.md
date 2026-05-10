@@ -22947,6 +22947,160 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 661 - T03 Selected-path Self-edge Scan Closure
+
+### Mathematical Subquestion
+
+Cycle 660 left three aggregate local-lemma scan gaps: `F05`, `F13`, and
+`F15`. The earlier focused T03 packet already records local self-edge proof
+notes for `F05` and `F15`, so the narrow question was:
+
+```text
+Can the aggregate local-lemma scan absorb the existing T03/F05 and T03/F15
+selected-path self-edge packet without changing the review-pending scope?
+```
+
+### Definitions and Assumptions
+
+Use the stored review-pending `n=9` self-edge template packet
+`data/certificates/n9_vertex_circle_self_edge_template_packet.json`. A
+**selected-path self-edge** is a local core with:
+
+- a vertex-circle strict edge `p > q`; and
+- a selected-distance equality path identifying `p` and `q`.
+
+The equality path gives `D(p) = D(q)`, while the strict edge gives
+`D(p) > D(q)`, so the selected-distance quotient has a reflexive strict edge.
+This is a local contradiction only after the packet has already certified both
+the path and the strict edge.
+
+### Result Status
+
+Exact finite aggregation/refinement:
+**T03 Selected-path Self-edge Scan Closure**.
+
+### Argument Or Obstruction
+
+The focused T03 packet covers two families:
+
+```text
+T03/F05: 18 assignments
+T03/F15: 2 assignments
+```
+
+For `F05`, the selected rows force:
+
+```text
+D_37 = D_23 = D_12 = D_17,
+```
+
+and row `6` with witness order `7,1,3,5` forces:
+
+```text
+D_37 > D_17.
+```
+
+For `F15`, the selected rows force:
+
+```text
+D_14 = D_12 = D_23 = D_34,
+```
+
+and row `0` with witness order `1,3,4,8` forces:
+
+```text
+D_14 > D_34.
+```
+
+The aggregate scan now adds the named local-lemma id
+`t03_selected_path_self_edge` for these two families. The exact aggregate
+summary becomes:
+
+```text
+source families: 16
+source assignments: 184
+covered families: 15
+covered assignments: 182
+uncovered families: F13
+uncovered assignments: 2
+```
+
+### Exact Scope
+
+This result is exact for the stored review-pending T03 packet and the natural
+cyclic order of the stored `n=9` template scan. It is not an independent
+review of the exhaustive checker, not a proof of the full `n=9` finite case,
+not a general proof of Erdos Problem #97, and not a counterexample.
+
+### Files Changed
+
+- `src/erdos97/n9_vertex_circle_local_lemmas.py`
+- `tests/test_n9_vertex_circle_local_lemmas.py`
+- `docs/n9-vertex-circle-local-lemmas.md`
+- `docs/codex-backlog.md`
+- `docs/review-priorities.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This resolves whether `F05` and `F15` were genuinely missing or just missing
+from the aggregate scan: they were a bookkeeping/integration gap, since their
+focused packet and proof note already provided the local contradiction. The
+aggregate `n=9` local-lemma bridge is now one family away from covering all
+stored template-packet families.
+
+### Next Lead
+
+Attack `F13`, the last uncovered aggregate family. It comes from the T04
+self-edge packet and has only `2` assignments, so the next useful subquestion
+is whether its focused T04 proof note can be represented by the same
+selected-path self-edge criterion or needs its own named aggregate lemma id.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-661`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-661`.
+- The branch was started from `origin/main` at commit
+  `4346a4155c923ae05a038d5c81c37e42b1af9737`, after PR #394 merged Cycle
+  660.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_local_lemmas.py --assert-expected --json`:
+  passed; recorded `182` covered assignments from `15` families and uncovered
+  `F13`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py --check
+  --assert-expected --json`: passed; T03/F05 and T03/F15 have `20` total
+  assignments and replay status `self_edge`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_n9_vertex_circle_local_lemmas.py -q`: passed, `9 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check
+  src/erdos97/n9_vertex_circle_local_lemmas.py
+  tests/test_n9_vertex_circle_local_lemmas.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `571 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 660 - Strict-cycle Local-template Coverage Closure
 
 ### Mathematical Subquestion

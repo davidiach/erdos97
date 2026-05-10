@@ -135,7 +135,61 @@ strict-edge instances: 8
 Those instances use longer selected-distance quotient paths rather than the
 two-row shortcut.
 
-## Lemma C: T10/F12 two-edge strict cycle
+## Lemma C: T03 selected-path self-edge
+
+The T03 packet has two four-row local cores. For `F05`, the rows are:
+
+```text
+1 -> {2,5,7,8}
+2 -> {1,3,4,8}
+3 -> {0,2,4,7}
+6 -> {1,3,5,7}
+```
+
+The selected-distance path gives:
+
+```text
+D_37 = D_23 = D_12 = D_17.
+```
+
+At center `6`, the witness order `7,1,3,5` gives:
+
+```text
+D_37 > D_17.
+```
+
+Thus the quotient has a reflexive strict edge.
+
+For `F15`, the rows are:
+
+```text
+0 -> {1,3,4,8}
+1 -> {0,2,4,5}
+2 -> {1,3,5,6}
+3 -> {2,4,6,7}
+```
+
+The selected-distance path gives:
+
+```text
+D_14 = D_12 = D_23 = D_34.
+```
+
+At center `0`, the witness order `1,3,4,8` gives:
+
+```text
+D_14 > D_34.
+```
+
+Again the quotient has a reflexive strict edge. The checker finds this exact
+selected-path self-edge pattern in:
+
+```text
+families: F05, F15
+covered assignments: 20
+```
+
+## Lemma D: T10/F12 two-edge strict cycle
 
 The T10/F12 local core is:
 
@@ -186,7 +240,7 @@ covered assignments: 18
 Again, the local core has no two-circle cap violation and no crossing-bisector
 order violation before the vertex-circle quotient step.
 
-## Lemma D: T11/F07 three-edge strict cycle
+## Lemma E: T11/F07 three-edge strict cycle
 
 The T11/F07 local core is:
 
@@ -229,7 +283,7 @@ family: F07
 covered assignments: 6
 ```
 
-## Lemma E: T12/F16 three-edge strict cycle
+## Lemma F: T12/F16 three-edge strict cycle
 
 The T12/F16 local core is:
 
@@ -278,21 +332,21 @@ The current local-lemma scan covers these review-pending template-packet
 families:
 
 ```text
-F01, F02, F03, F04, F06, F07, F08, F09, F10, F11, F12, F14, F16
+F01, F02, F03, F04, F05, F06, F07, F08, F09, F10, F11, F12, F14, F15, F16
 ```
 
 The de-duplicated assignment coverage is:
 
 ```text
-162 of the 184 n=9 pre-vertex-circle assignments
+182 of the 184 n=9 pre-vertex-circle assignments
 ```
 
 The currently uncovered packet families are:
 
 ```text
-F05, F13, F15
+F13
 ```
 
 This is useful proof-mining coverage, not an `n=9` completeness proof. The
-remaining local families still need proof-facing extraction; all remaining
-families come from the T03/T04 self-edge side of the stored packet scan.
+remaining local family still needs proof-facing extraction from the T04
+self-edge side of the stored packet scan.
