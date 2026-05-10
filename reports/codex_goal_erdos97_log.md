@@ -22947,6 +22947,167 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 635 - Two-overlap Crossing Filter Audit
+
+### Mathematical Subquestion
+
+After Cycle 634 reduced the vertex-circle partial-pruning concern, the next
+frontier-soundness question was:
+
+Does the repo-native `n=9` vertex-circle checker implement exactly the
+radical-axis two-overlap crossing rule for selected rows, without silently
+using a stronger or different row-pair condition?
+
+### Definitions and Assumptions
+
+Let `P` be a strictly convex polygon in cyclic order. A selected-witness row
+`S_i` is a 4-set of labels different from its center `i`.
+
+For distinct centers `x,y`, write
+
+```text
+S_x cap S_y = {a,b}
+```
+
+when the two rows share exactly two selected witnesses. The source chord is
+`{x,y}` and the common-witness chord is `{a,b}`.
+
+This cycle assumes the standard selected-distance interpretation: each center
+is equidistant from all labels in its selected row.
+
+### Result Status
+
+Proved implementation-audit lemma:
+**N9 Two-overlap Crossing Equivalence Lemma**.
+
+For every pair of centers and every pair of candidate selected rows in the
+repo-native `n=9` checker, the precomputed compatibility table accepts exactly
+the row pairs satisfying:
+
+1. at most two common selected witnesses; and
+2. when there are exactly two common selected witnesses, alternating endpoints
+   of the source chord and common-witness chord in the fixed natural cyclic
+   order.
+
+### Argument
+
+The geometric necessity is the radical-axis crossing lemma. If
+`S_x cap S_y = {a,b}`, then both centers lie on the perpendicular bisector of
+segment `ab`, so the center line `xy` is that perpendicular bisector. The
+midpoint of `ab` lies in the relative interior of chord `ab` and in the convex
+hull. If `xy` were a polygon edge, its line would support the strictly convex
+polygon, but `a` and `b` lie on opposite sides of that line. Thus `xy` is not
+a polygon edge. The line through two nonadjacent vertices of a strictly convex
+polygon meets the polygon in exactly the chord segment `[x,y]`, so the
+midpoint of `ab` lies on `[x,y]`. Therefore the two chords cross,
+equivalently their cyclic-order endpoints alternate.
+
+The code-shape audit over
+`src/erdos97/n9_vertex_circle_exhaustive.py` found that the `COMPATIBLE` table
+sets `ok = False` when `len(common) > PAIR_CAP`, and when
+`len(common) == PAIR_CAP == 2` it sets
+`ok = chords_cross(source, target)`. The helper `rows_compatible` reads this
+table symmetrically, and `valid_options_for_center` applies it against every
+assigned row before any count or vertex-circle pruning.
+
+The crossing helper returns
+
+```text
+in_open_arc(a,b,c) != in_open_arc(a,b,d)
+```
+
+for disjoint chords, which is exactly the alternating-endpoints condition in
+the natural cyclic order. In the selected-row setting the source and
+common-witness chords are automatically disjoint, because `i notin S_i` and
+`j notin S_j`.
+
+### Exact Audit
+
+A one-off predicate audit compared `chords_cross` with the shared
+`incidence_filters.chords_cross_in_order` implementation on all nonagon chord
+pairs and recomputed expected row-pair compatibility for every center pair
+and candidate row-mask pair.
+
+```text
+chord_cross equivalence mismatches: 0
+compatibility errors: 0
+row-pair candidate overlap histogram:
+  0 common witnesses: 7560
+  1 common witness:   57960
+  2 common witnesses: 83160
+  3 common witnesses: 26460
+  4 common witnesses: 1260
+two-overlap crossing accepted: 27720
+two-overlap noncrossing rejected: 55440
+```
+
+### Exact Scope
+
+This is not a full audit of the `n=9` checker. It does not audit the
+witness-pair cap, indegree cap, vertex-circle strict-edge lemma,
+vertex-circle quotient obstruction, row0 coverage, archive reconciliation, or
+the 184 pre-vertex-circle assignments. It does not prove the full `n=9`
+finite case. It does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-two-overlap-crossing-audit.md`
+- `docs/index.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect on the Attack
+
+The frontier-soundness checklist is reduced by one row-level filter concern:
+the checker's two-overlap row compatibility condition matches the
+proof-facing radical-axis crossing lemma and the standard cyclic crossing
+predicate. The remaining review burden is concentrated on the witness-pair
+cap, indegree cap, vertex-circle strict-edge geometry, and independent replay
+or archive reconciliation for the 184-assignment frontier.
+
+### Next Lead
+
+Audit the witness-pair cap used by the `n=9` checker: for any unordered pair
+of witness labels `{a,b}`, prove that at most two selected rows can contain
+both labels, and confirm that the partial `witness_pair_counts[pidx] >= 2`
+prune is monotone under adding rows.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-635`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-635`.
+- The branch was based on `origin/main` at commit
+  `9bfde4340a4c290a26023d9db5b43a9c8f75d595`, after PR #339 merged Cycle
+  634.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- One-off predicate audit with `PYTHONPATH=src` passed, with zero crossing
+  predicate mismatches and zero compatibility-table errors across all nonagon
+  row-pair candidates.
+- `python scripts/check_text_clean.py` passed.
+- `python scripts/check_status_consistency.py` passed.
+- `python scripts/check_artifact_provenance.py` passed.
+- `git diff --check` passed.
+- `python -m ruff check .` passed.
+- `python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected
+  --json` passed, reproducing `16752` main-search nodes, `0` full assignments
+  with vertex-circle pruning, and `184` cross-check full assignments without
+  vertex-circle pruning.
+- `python -m pytest tests/test_n9_vertex_circle_exhaustive.py -q -m artifact`
+  passed: `3 passed`.
+- `python -m pytest -q` passed: `534 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 634 - Vertex-circle Partial-pruning Monotonicity Audit
 
 ### Mathematical Subquestion
