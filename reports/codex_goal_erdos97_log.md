@@ -22947,6 +22947,153 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 642 - Block-6 Sixth-row Survivor Catalog
+
+### Mathematical Subquestion
+
+Cycle 641 showed that the Cycle 640 two-block block-6 closure cannot be
+reduced to a fifth-row-only local lemma: `166` legal fifth-row states remain
+vertex-circle-clean. The next precise question was:
+
+```text
+After a clean legal fifth row, does every legal sixth row immediately force a
+vertex-circle quotient self-edge or strict cycle?
+```
+
+### Definitions and Assumptions
+
+The fixed two-block fragile rows remain:
+
+```text
+0 -> {1,2,3,4}
+3 -> {0,2,4,5}
+6 -> {7,8,9,10}
+9 -> {6,8,10,11}
+```
+
+A clean fifth-row state is one of the `166` legal fifth rows from Cycle 641
+whose five-row selected-distance quotient has no vertex-circle self-edge and
+no directed strict cycle. A legal sixth row is a row at a remaining center
+that satisfies the same incidence/order filters relative to the five assigned
+rows. Its status is computed from the selected-distance quotient and
+proper-interval strict edges of the resulting six rows in the natural cyclic
+order.
+
+### Result Status
+
+Counterexample to the sixth-row-only local-closure subclaim:
+**Block-6 Sixth-row Survivor Catalog**.
+
+Every one of the `166` clean fifth-row states has at least one legal sixth row
+that remains vertex-circle-clean. Thus the Cycle 640 two-block closure cannot
+be rewritten as a sixth-row-only local lemma.
+
+### Argument Or Obstruction
+
+The exact checker reconstructs the `166` clean fifth rows and enumerates every
+legal sixth row after each of them. The ordered sixth-row continuations split
+as:
+
+```text
+ordered legal sixth rows after clean fifth rows: 29844
+vertex-circle-clean:                         12094
+self-edge obstruction:                        8108
+strict-cycle obstruction:                     9642
+```
+
+Every clean fifth row has at least one clean sixth-row continuation. After
+forgetting the order in which the two nonfixed rows were added, there are
+`6047` distinct clean six-row states. The block-swap symmetry `i -> i+6 mod
+12` gives `3056` clean six-row orbits: `2991` two-element orbits and `65`
+fixed orbits.
+
+The center-by-center counts are:
+
+```text
+fifth center  clean fifth  legal sixth  ok    self_edge  strict_cycle
+1             21           3973         1512  1185       1276
+2             41           7178         2853  1916       2409
+4             7            1211         660   281        270
+5             14           2560         1022  672        866
+7             21           3973         1512  1185       1276
+8             41           7178         2853  1916       2409
+10            7            1211         660   281        270
+11            14           2560         1022  672        866
+```
+
+One explicit obstruction to the proposed sixth-row-only lemma is:
+
+```text
+1 -> {0,2,6,7}
+2 -> {0,1,3,8}
+```
+
+Together with the four fixed rows, these two rows are legal under the stated
+filters and have vertex-circle status `ok` at the six-row level.
+
+### Exact Scope
+
+This is a bounded two-row extension catalog for the two-block block-6 family
+in the natural cyclic order. It is not a proof of Erdos Problem #97 and is not
+a counterexample. The clean six-row states are not Euclidean realizability
+claims; they are only states not yet killed by the listed six-row
+incidence/order and vertex-circle quotient checks.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `docs/index.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This rules out the next shallow block-6 bridge reduction. The two-block
+closure from Cycle 640 is not a fifth-row-only or sixth-row-only theorem.
+There is still an exact eventual closure, but it lies deeper in the
+selected-row extension tree than a one- or two-connector local lemma.
+
+### Next Lead
+
+Mine the `6047` clean six-row states for normal forms under block-swap and
+row-order symmetries, or ask for the first row depth at which every branch has
+become vertex-circle obstructed. A useful proof-facing target would be a small
+catalog of clean six-row normal forms rather than another full-depth search.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-642`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-642`.
+- The branch was based on `origin/main` at commit
+  `897467e1d0e1906aeac2b8ba3f2544a9ee973aa8`, after PR #353 merged Cycle
+  641.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `python scripts/check_block6_fragile_sixth_row_survivors.py
+  --assert-expected --json`: passed, reproducing `166` clean fifth rows,
+  `12094` ordered clean sixth rows, `6047` unique clean six-row states, and
+  `3056` clean six-row block-swap orbits.
+- `python scripts/check_text_clean.py`: passed.
+- `python scripts/check_status_consistency.py`: passed.
+- `python scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `python -m ruff check .`: passed.
+- `python -m pytest tests/test_block6_fragile_sixth_row_survivors.py -q`:
+  passed, `2 passed`.
+- `python -m pytest -q`: passed, `540 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 641 - Block-6 Fifth-row Obstruction Catalog
 
 ### Mathematical Subquestion
