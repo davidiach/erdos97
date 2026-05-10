@@ -60,6 +60,10 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-hard-strict-endpoints.md` isolates rows `151:7` and
    `151:8`, where strict-edge endpoint sets are still incomplete after closure
    and singleton-support checks.
+   The open connector-pair subpacket in
+   `docs/bootstrap-t12-open-connector-pair.md` isolates row `151:5`, where the
+   connector pair `[7,8]` is still split across singleton support and partial
+   closure evidence.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker

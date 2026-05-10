@@ -193,6 +193,11 @@ local_repo:
       artifact: "data/certificates/bootstrap_t12_hard_strict_endpoints.json"
       verifier: "scripts/check_bootstrap_t12_hard_strict_endpoints.py"
       claim_scope: "fixed selected-row proof-mining diagnostic only; isolates incomplete strict-edge endpoint sets in rows 151:7 and 151:8, but does not prove endpoints or rows are forced and does not prove n=9 or the bridge"
+    - pattern: "bootstrap_t12_open_connector_pair"
+      status: "open connector-pair subpacket for the remaining open T12/F16 row target"
+      artifact: "data/certificates/bootstrap_t12_open_connector_pair.json"
+      verifier: "scripts/check_bootstrap_t12_open_connector_pair.py"
+      claim_scope: "fixed selected-row proof-mining diagnostic only; isolates incomplete equality-connector pair support in row 151:5, but does not prove endpoints or rows are forced and does not prove n=9 or the bridge"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

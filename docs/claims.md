@@ -525,6 +525,13 @@ only `[0,1]` of the strict endpoint set `[0,1,6]`; row `151:8` has singleton
 supports that split the strict endpoint set `[1,5,7]`. This is diagnostic
 bookkeeping only, not a lemma that strict endpoint sets are forced.
 
+The open connector-pair packet in
+`docs/bootstrap-t12-open-connector-pair.md` isolates the remaining open
+connector row. Row `151:5` needs equality-connector pair `[7,8]`, but the
+deletion closure for core vertex `2` and the two singleton supports each supply
+only one connector endpoint. This is diagnostic bookkeeping only, not a lemma
+that connector pairs or missing rows are forced.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

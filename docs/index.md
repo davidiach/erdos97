@@ -154,6 +154,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-hard-strict-endpoints.md`](bootstrap-t12-hard-strict-endpoints.md):
   focused packet isolating the hard strict-edge endpoint gaps in rows `151:7`
   and `151:8`.
+- [`bootstrap-t12-open-connector-pair.md`](bootstrap-t12-open-connector-pair.md):
+  focused packet isolating the open equality-connector pair gap in row
+  `151:5`.
 - [`bootstrap-t12-row-pressure.md`](bootstrap-t12-row-pressure.md):
   row-pressure refinement classifying those missing T12 row centers by core
   deficit, deletion-closure exposure, and private-halo support.

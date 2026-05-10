@@ -85,6 +85,11 @@ The hard strict-endpoint follow-up in
 control and the mixed row `151:8`, where singleton supports split the strict
 endpoint set.
 
+The open connector-pair follow-up in
+`docs/bootstrap-t12-open-connector-pair.md` isolates the second negative
+control, row `151:5`, where singleton supports and one deletion closure see
+only one endpoint of connector pair `[7,8]`.
+
 ## What This Does Not Prove
 
 This artifact does not prove that any missing T12 row is forced, does not prove

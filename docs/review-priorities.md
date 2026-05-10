@@ -348,6 +348,10 @@ condition that the surviving multi-block family does not automatically satisfy:
   `docs/bootstrap-t12-hard-strict-endpoints.md`, isolating `151:7` and
   `151:8` as the rows where strict-edge endpoint sets are still not supplied
   by closure exposure or singleton support.
+- bootstrap/T12 open connector-pair evidence, as recorded in
+  `docs/bootstrap-t12-open-connector-pair.md`, isolating `151:5` as the row
+  where connector pair `[7,8]` is still split across singleton support and
+  partial closure evidence.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

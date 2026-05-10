@@ -226,6 +226,14 @@ bookkeeping only; see `docs/bootstrap-t12-hard-strict-endpoints.md`,
 `scripts/check_bootstrap_t12_hard_strict_endpoints.py`, and
 `data/certificates/bootstrap_t12_hard_strict_endpoints.json`.
 
+The open connector-pair subpacket isolates the remaining open connector
+requirement from that map. Source `151`, row `5` needs connector pair `[7,8]`;
+the deletion closure for core vertex `2` and the singleton supports each see
+only one connector endpoint. This is still diagnostic bookkeeping only; see
+`docs/bootstrap-t12-open-connector-pair.md`,
+`scripts/check_bootstrap_t12_open_connector_pair.py`, and
+`data/certificates/bootstrap_t12_open_connector_pair.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.
