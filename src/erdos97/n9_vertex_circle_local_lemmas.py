@@ -555,11 +555,19 @@ def _assert_strict_cycle_family_match(
     aggregate: Mapping[str, Any],
     packet: Mapping[str, Any],
 ) -> None:
-    if aggregate.get("cycle_steps") != packet.get("cycle_steps"):
+    cycle_steps = packet.get("cycle_steps")
+    if not isinstance(cycle_steps, list):
         raise AssertionError(f"{family_id} focused packet cycle_steps mismatch")
+    if aggregate.get("cycle_steps") != cycle_steps:
+        raise AssertionError(f"{family_id} focused packet cycle_steps mismatch")
+    if aggregate.get("cycle_length") != packet.get("cycle_length"):
+        raise AssertionError(f"{family_id} focused packet cycle_length mismatch")
     if aggregate.get("replay_status") != "strict_cycle":
         raise AssertionError(f"{family_id} aggregate replay_status mismatch")
-    if packet.get("cycle_length") != len(packet.get("cycle_steps", [])):
+    replay = packet.get("replay")
+    if not isinstance(replay, Mapping) or replay.get("status") != "strict_cycle":
+        raise AssertionError(f"{family_id} focused packet replay status mismatch")
+    if packet.get("cycle_length") != len(cycle_steps):
         raise AssertionError(f"{family_id} focused packet cycle length mismatch")
 
 
@@ -887,6 +895,7 @@ def _strict_cycle_instance(
 ) -> dict[str, Any]:
     rows = parse_selected_rows(family["core_selected_rows"])
     replay = replay_vertex_circle_quotient(int(template.get("n", 9)), order, rows)
+    cycle_steps = family["cycle_steps"]
     return {
         "lemma_id": lemma_id,
         "template_id": str(template["template_id"]),
@@ -895,7 +904,8 @@ def _strict_cycle_instance(
         "assignment_count": int(family["assignment_count"]),
         "orbit_size": int(family["orbit_size"]),
         "core_selected_rows": _rows_to_json(rows),
-        "cycle_steps": family["cycle_steps"],
+        "cycle_length": int(family.get("cycle_length", len(cycle_steps))),
+        "cycle_steps": cycle_steps,
         "replay_status": replay.status,
         "cycle_edges": [_edge_to_json(edge) for edge in replay.cycle_edges],
         "simple_filter_violations": _simple_filter_violations(rows, order),

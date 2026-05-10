@@ -447,6 +447,25 @@ def test_focused_packet_crosscheck_rejects_t03_row_drift() -> None:
         )
 
 
+def test_focused_packet_crosscheck_rejects_t10_replay_status_drift() -> None:
+    self_edge_packet = load_artifact(DEFAULT_SELF_EDGE_PACKET)
+    strict_cycle_packet = load_artifact(DEFAULT_STRICT_CYCLE_PACKET)
+    t10_packet = load_artifact(DEFAULT_T10_PACKET)
+    t10_packet["family_packets"][0]["replay"]["status"] = "unknown"
+
+    with pytest.raises(AssertionError, match="F12 focused packet replay status mismatch"):
+        local_lemma_scan_payload(
+            self_edge_packet,
+            strict_cycle_packet,
+            focused_packets={
+                "T03": load_artifact(DEFAULT_T03_PACKET),
+                "T10": t10_packet,
+                "T11": load_artifact(DEFAULT_T11_PACKET),
+                "T12": load_artifact(DEFAULT_T12_PACKET),
+            },
+        )
+
+
 def test_local_lemma_scan_cli_json() -> None:
     result = subprocess.run(
         [
