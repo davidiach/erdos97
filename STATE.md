@@ -54,6 +54,12 @@ current fixed-row frontier motifs and records that the audited singleton-rich
 cases have rank greater than 3 but still pass the weighted capacity check; see
 `docs/bootstrap-core-crosswalk.md`.
 
+A second bootstrap-core diagnostic overlays the two tight non-ear-orderable
+`n=9` crosswalk rows with the review-pending vertex-circle strict-cycle chain.
+Both rows join by selected-row signature to the same `T12/F16` strict-cycle
+template, but neither strict-cycle core is contained in the bootstrap core. See
+`docs/bootstrap-vertex-circle-overlay.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

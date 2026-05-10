@@ -1824,6 +1824,48 @@ artifacts:
       - source-of-truth strongest result
       - general proof of Erdos Problem #97
 
+  - id: bootstrap_vertex_circle_overlay
+    path: data/certificates/bootstrap_vertex_circle_overlay.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_vertex_circle_overlay.py
+    command: python scripts/check_bootstrap_vertex_circle_overlay.py --write --assert-expected
+    checker: scripts/check_bootstrap_vertex_circle_overlay.py
+    check_command: python scripts/check_bootstrap_vertex_circle_overlay.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Overlay of the two non-ear-orderable n=9 bootstrap-core frontier assignments with the review-pending vertex-circle strict-cycle chain; not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_vertex_circle_overlay.v1
+      status: BOOTSTRAP_VERTEX_CIRCLE_OVERLAY_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_count: 2
+      summary.source_assignment_indices:
+        - 81
+        - 151
+      summary.classification_assignment_ids:
+        - A082
+        - A152
+      summary.template_counts.T12: 2
+      summary.family_counts.F16: 2
+      summary.cycle_length_counts.3: 2
+      summary.bootstrap_minimum_rank_counts.4: 2
+      summary.capacity_margins_by_source_id.81: 8
+      summary.capacity_margins_by_source_id.151: 6
+      summary.overlay_conclusion: T12_STRICT_CYCLE_SHARED_BUT_NOT_BOOTSTRAP_CORE_ONLY
+      provenance.generator: scripts/check_bootstrap_vertex_circle_overlay.py
+      provenance.command: python scripts/check_bootstrap_vertex_circle_overlay.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: n10_secondary_singleton_replay
     path: data/certificates/2026-05-05/n10_secondary.json
     kind: finite_case_draft_artifact

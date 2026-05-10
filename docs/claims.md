@@ -424,6 +424,13 @@ that the audited cases have rank greater than 3 but still pass weighted
 capacity, so it is negative diagnostic information about the strength of the
 ledger, not a new obstruction theorem.
 
+The companion overlay in `docs/bootstrap-vertex-circle-overlay.md` joins the
+two tight `n=9` non-ear-orderable crosswalk rows to the review-pending
+vertex-circle strict-cycle chain. Both rows land on the `T12/F16` strict-cycle
+template by selected-row signature, but their local strict-cycle row cores are
+not bootstrap-core-only. This is proof-mining scaffolding, not a proof of
+`n=9`, not a proof of the bridge, and not a global status update.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

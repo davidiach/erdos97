@@ -313,6 +313,10 @@ condition that the surviving multi-block family does not automatically satisfy:
   sparse/frontier motifs have rank greater than 3 but retain positive weighted
   capacity margin; any useful next condition should reduce that slack or add
   additional private-pair demand.
+- bootstrap / vertex-circle overlay evidence, as recorded in
+  `docs/bootstrap-vertex-circle-overlay.md`, showing that the two tight
+  non-ear-orderable `n=9` rows both join to the `T12/F16` strict-cycle template
+  but not by a bootstrap-core-only contradiction.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

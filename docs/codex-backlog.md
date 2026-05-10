@@ -26,10 +26,12 @@ Use this queue when no more specific issue is selected.
    current quotient-replay helper.
 3. Strengthen the minimal fragile-cover bridge with one geometric necessary
    condition and test it against the block-6 negative controls.
-4. Use the bootstrap-core crosswalk in
-   `docs/bootstrap-core-crosswalk.md` to design a sharper condition that
-   reduces private-halo capacity slack or adds private-pair demand; the current
-   singleton-rich stuck/frontier motifs all survive the weighted ledger.
+4. Use the bootstrap-core crosswalk and the bootstrap / vertex-circle overlay
+   in `docs/bootstrap-core-crosswalk.md` and
+   `docs/bootstrap-vertex-circle-overlay.md` to design a sharper condition.
+   The current singleton-rich stuck/frontier motifs all survive the weighted
+   ledger, while the two tight `n=9` non-ear rows both land on the `T12/F16`
+   strict-cycle template without yielding a bootstrap-core-only contradiction.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
