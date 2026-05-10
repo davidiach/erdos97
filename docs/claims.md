@@ -409,6 +409,40 @@ For witnesses on a circle centered at that vertex, chord length is
 This supports endpoint and short-base reductions, but those reductions still
 need their global bridge claims.[^digest]
 
+### Vertex-circle T01/F09 self-edge local lemma candidate
+
+Status: `REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE`.
+
+In a strictly convex nonagon with cyclic order `0,1,2,3,4,5,6,7,8`, suppose the
+following three selected rows are present:
+
+```text
+center 0: {1,2,4,8}
+center 1: {0,3,5,8}
+center 2: {0,1,4,6}
+```
+
+The selected-distance equalities force
+
+```text
+[1,8] = [0,1] = [0,2] = [1,2].
+```
+
+Meanwhile row `0` has witness order `[1,2,4,8]` around vertex `0`, so the
+vertex-circle chord monotonicity lemma gives the strict inequality
+
+```text
+[1,8] > [1,2].
+```
+
+Thus the selected-distance quotient has a reflexive strict edge, and no
+strictly convex realization can satisfy these exact local hypotheses. The
+packet label `T01/F09` is navigation only; the hypotheses are the displayed
+cyclic order and selected rows. This is not an `n=9` completeness proof, not a
+promotion of the review-pending exhaustive checker, and not a proof of Erdos
+Problem #97. Check the focused packet with
+`python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check --assert-expected --json`.
+
 ### Low-angle ascent for middle witnesses
 
 Let `alpha_p` be the interior angle at a bad vertex `p`, and let

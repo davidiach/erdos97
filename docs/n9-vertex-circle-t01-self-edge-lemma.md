@@ -1,144 +1,118 @@
-# n=9 Vertex-circle T01 Self-edge Local Lemma Packet
+# n=9 Vertex-circle T01 Self-edge Local Lemma Candidate
 
-Status: `REVIEW_PENDING_DIAGNOSTIC_ONLY`.
+Status: `REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE`.
 
-This note records one focused proof-mining packet for the `T01/F09`
-self-edge motif. It does not claim a proof of `n=9`, does not claim a
-counterexample, does not complete independent review of the exhaustive
-checker, and does not update the official/global status.
+This note extracts one proof-facing local obstruction from the
+review-pending `n=9` vertex-circle diagnostics. It does not claim a proof of
+`n=9`, does not claim a counterexample, does not complete independent review
+of the exhaustive checker, and does not update the official/global status of
+Erdos Problem #97.
 
-## Packet scope
+The labels `T01` and `F09` are retained only as packet/catalog navigation. They
+are not theorem hypotheses.
 
-The checked artifact is
-`data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json`.
-It is derived from:
+## Exact Local Hypotheses
 
-- `data/certificates/n9_vertex_circle_self_edge_template_packet.json`
-- `data/certificates/n9_vertex_circle_template_lemma_catalog.json`
-
-The packet covers the six T01 assignment ids:
+Let `p_0,...,p_8` be distinct vertices of a strictly convex nonagon in cyclic
+order
 
 ```text
-A014, A024, A031, A140, A166, A175
+0,1,2,3,4,5,6,7,8.
 ```
 
-The local core is the family `F09` three-row certificate:
+Assume the following three selected witness rows are present:
 
 ```text
-[0, 1, 2, 4, 8]
-[1, 0, 3, 5, 8]
-[2, 0, 1, 4, 6]
+center 0: {1,2,4,8}
+center 1: {0,3,5,8}
+center 2: {0,1,4,6}
 ```
 
-Here `[c, a, b, d, e]` means that `a,b,d,e` are the selected witnesses for
-center `c`, hence the four distances from `c` to those witnesses are equal.
-
-## Local lemma
-
-The following local obstruction is independent of the exhaustive `n=9`
-brancher.
-
-Assume a strictly convex polygon has labels appearing in cyclic order
+The selected-row hypothesis means that each listed center is equidistant from
+the four listed witnesses. In pair-distance notation, the rows give these
+selected-distance equalities among ordinary pair distances:
 
 ```text
-0,1,2,3,4,5,6,7,8
+row 1: [1,8] = [0,1]
+row 0: [0,1] = [0,2]
+row 2: [0,2] = [1,2]
 ```
 
-and contains the three selected rows
+Equivalently, the three rows force the selected-distance quotient chain
 
 ```text
-S_0 = {1,2,4,8}
-S_1 = {0,3,5,8}
-S_2 = {0,1,4,6}
+[1,8] = [0,1] = [0,2] = [1,2].
 ```
 
-Then these three rows cannot be realized.
+The checked packet recording this local shape is
+`data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json`. It is
+derived from the self-edge template packet and the template lemma catalog, but
+the local argument above uses only the three displayed selected rows plus the
+displayed cyclic order.
 
-Indeed, the selected-distance equalities give
+## Vertex-circle Strict Inequality
+
+At vertex `0`, the selected witnesses occur in boundary/angular order
 
 ```text
-d(1,8) = d(1,0)      from row 1,
-d(1,0) = d(0,2)      from row 0,
-d(0,2) = d(2,1)      from row 2.
+[1,2,4,8].
 ```
 
-Thus
+Since the nonagon is strictly convex, all other vertices lie in the open
+vertex cone at `0` except the adjacent boundary vertices on the cone rays.
+Thus this boundary order agrees with angular order about `p_0`.
+
+The four witnesses in row `0` lie on one circle centered at `p_0`. On one
+circle, chord length is strictly increasing with the central angle while the
+angle is below `pi`; the vertex cone at a strictly convex vertex has angle
+less than `pi`. The chord `[1,8]` spans the full interval from witness position
+`0` to `3`, while `[1,2]` spans the proper subinterval from position `0` to
+`1`. Therefore row `0` gives the strict vertex-circle inequality
 
 ```text
-d(1,8) = d(1,2).
+[1,8] > [1,2].
 ```
 
-On the other hand, the selected witnesses of row `0` lie on one circle
-centered at vertex `0`, and their radial order is
+## Contradiction
+
+The selected-distance rows identify `[1,8]` and `[1,2]` in the quotient, while
+the vertex-circle monotonicity step gives a strict inequality between the same
+two quotient classes:
 
 ```text
-1,2,4,8.
+[1,8] = [1,2]
+[1,8] > [1,2].
 ```
 
-In a strictly convex polygon, the rays from a vertex to the other vertices
-occur in the polygon's cyclic order inside an angle smaller than `pi`. On a
-fixed circle, chord length is strictly increasing with the enclosed central
-angle in this range. The chord `[1,8]` strictly contains the chord `[1,2]` in
-the row-`0` witness order, so
+Equivalently, the strict quotient graph has a reflexive strict edge. No
+Euclidean strictly convex realization satisfying the stated local hypotheses
+can exist.
 
-```text
-d(1,8) > d(1,2).
-```
+## Packet Replay
 
-This contradicts the equality above. Equivalently, after quotienting ordinary
-pair distances by the selected-distance equalities, row `0` creates a
-reflexive strict edge for the quotient class of `[1,8]` and `[1,2]`.
-
-The lemma is local: it rules out any selected-witness system containing these
-three rows in the stated cyclic order. It does not prove the full `n=9`
-finite case, because the exhaustive checker is still needed to show that every
-frontier assignment contains one of the recorded local obstruction templates.
-
-## Packet data
-
-For row `0`, the witness order `[1, 2, 4, 8]` gives the strict
-vertex-circle inequality
-
-```text
-[1, 8] > [1, 2]
-```
-
-The selected-distance equality path is:
-
-```text
-[1, 8] -- row 1 --> [0, 1]
-[0, 1] -- row 0 --> [0, 2]
-[0, 2] -- row 2 --> [1, 2]
-```
-
-Thus the packet isolates a local self-edge shape: a strict edge from a
-selected-distance quotient class back to itself.
-
-## Commands
-
-Generate and check the packet:
+The compact checker treats the JSON packet and its source packets as input
+data. It checks that the source packets are valid, verifies the three equality
+steps from selected rows, replays the vertex-circle quotient graph from the
+three local rows, and reports validation errors if the packet no longer
+supports the stated local lemma candidate.
 
 ```bash
-python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py \
-  --assert-expected \
-  --write
-
 python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py \
   --check \
   --assert-expected \
   --json
 ```
 
-Run the targeted artifact tests:
+Targeted artifact test:
 
 ```bash
 python -m pytest tests/test_n9_vertex_circle_t01_self_edge_lemma_packet.py -q -m "artifact"
 ```
 
-## Review standard
+## What This Does Not Prove
 
-Before treating this as a reusable local lemma, a reviewer should restate the
-incidence and cyclic-order hypotheses without relying on `T01` as a theorem
-name, then prove directly that the three rows force the displayed equality
-path and that row `0` gives the displayed strict inequality. The packet is a
-small replay aid for that review, not an independent proof of the `n=9` case.
+This local lemma candidate rules out only configurations satisfying the exact
+cyclic order and three selected rows displayed above. It does not enumerate all
+`n=9` selected-witness systems, does not promote the review-pending exhaustive
+`n=9` checker, does not rule out other vertex-circle templates, does not prove
+Erdos Problem #97, and does not produce or certify a counterexample.

@@ -7,7 +7,7 @@ checker.
 
 from __future__ import annotations
 
-from typing import Any, Sequence
+from typing import Any, Mapping, Sequence
 
 from erdos97 import n9_vertex_circle_exhaustive as n9
 from erdos97.n9_vertex_circle_self_edge_path_join import validate_equality_path
@@ -141,6 +141,74 @@ def equality_steps(equality: dict[str, Any]) -> list[dict[str, Any]]:
     return steps
 
 
+def _strict_interval_pair(
+    witness_order: Sequence[int],
+    interval: Sequence[int],
+) -> list[int]:
+    if len(interval) != 2:
+        raise AssertionError(f"strict interval must have two endpoints: {interval!r}")
+    start = int(interval[0])
+    end = int(interval[1])
+    if not 0 <= start < end < len(witness_order):
+        raise AssertionError(f"strict interval out of range: {interval!r}")
+    return [int(value) for value in pair(witness_order[start], witness_order[end])]
+
+
+def validate_strict_inequality_support(
+    rows: Sequence[Sequence[int]],
+    strict: Mapping[str, Any],
+    *,
+    order: Sequence[int],
+) -> None:
+    """Validate that a strict inequality is supported by one selected row."""
+
+    parsed_rows = parse_selected_rows(rows)
+    row_map = {row.center: row for row in parsed_rows}
+    strict_row = int(strict["row"])
+    if strict_row not in row_map:
+        raise AssertionError(f"strict row {strict_row} is not selected")
+    order_tuple = tuple(int(label) for label in order)
+    if sorted(order_tuple) != list(range(len(order_tuple))):
+        raise AssertionError("cyclic order must be a permutation of 0..n-1")
+    positions = {label: index for index, label in enumerate(order_tuple)}
+    witnesses = tuple(
+        sorted(
+            row_map[strict_row].witnesses,
+            key=lambda witness: (positions[witness] - positions[strict_row])
+            % len(order_tuple),
+        )
+    )
+    if list(witnesses) != [int(label) for label in strict["witness_order"]]:
+        raise AssertionError("strict witness order is not supported by the selected row")
+
+    outer_interval = [int(value) for value in strict["outer_interval"]]
+    inner_interval = [int(value) for value in strict["inner_interval"]]
+    if not (
+        outer_interval[0] <= inner_interval[0]
+        and inner_interval[1] <= outer_interval[1]
+        and (
+            outer_interval[0] < inner_interval[0]
+            or inner_interval[1] < outer_interval[1]
+        )
+    ):
+        raise AssertionError("strict outer interval must properly contain inner interval")
+
+    outer_pair = _strict_interval_pair(witnesses, outer_interval)
+    inner_pair = _strict_interval_pair(witnesses, inner_interval)
+    if outer_pair != [int(value) for value in pair(*strict["outer_pair"])]:
+        raise AssertionError("strict outer pair is not supported by its interval")
+    if inner_pair != [int(value) for value in pair(*strict["inner_pair"])]:
+        raise AssertionError("strict inner pair is not supported by its interval")
+    outer_span = outer_interval[1] - outer_interval[0]
+    inner_span = inner_interval[1] - inner_interval[0]
+    if outer_span <= inner_span:
+        raise AssertionError("strict outer span must be larger than inner span")
+    if int(strict["outer_span"]) != outer_span:
+        raise AssertionError("strict outer span mismatch")
+    if int(strict["inner_span"]) != inner_span:
+        raise AssertionError("strict inner span mismatch")
+
+
 def source_artifacts(
     self_edge_packet: dict[str, Any],
     template_catalog: dict[str, Any],
@@ -206,6 +274,11 @@ def _assert_source_records(
     equality = family["distance_equality"]
     strict = family["strict_inequality"]
     validate_equality_path(rows, equality)
+    validate_strict_inequality_support(rows, strict, order=list(n9.ORDER))
+    if pair(*strict["outer_pair"]) != pair(*equality["start_pair"]):
+        raise AssertionError("strict outer pair must start the equality path")
+    if pair(*strict["inner_pair"]) != pair(*equality["end_pair"]):
+        raise AssertionError("strict inner pair must end the equality path")
 
     if template["template_id"] != EXPECTED_TEMPLATE_ID:
         raise AssertionError("unexpected template id")

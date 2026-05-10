@@ -115,6 +115,35 @@ def test_t01_self_edge_lemma_packet_rejects_missing_no_proof_note() -> None:
     assert any("no-proof" in error for error in errors)
 
 
+def test_t01_self_edge_lemma_packet_rejects_tampered_local_lemma_steps() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    payload["local_lemma"]["selected_distance_equalities"][0]["right_pair"] = [2, 3]
+
+    errors = validate_payload(payload, recompute=False)
+
+    assert any("local_lemma selected_distance_equalities mismatch" in error for error in errors)
+
+
+def test_t01_self_edge_lemma_packet_rejects_unsupported_strict_interval() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    payload["strict_inequality"]["inner_interval"] = [1, 3]
+
+    errors = validate_payload(payload, recompute=False)
+
+    assert any("unexpected strict inequality" in error for error in errors)
+    assert any("strict inner pair is not supported" in error for error in errors)
+
+
+def test_t01_self_edge_lemma_packet_rejects_replay_primary_not_listed() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    payload["replay"]["self_edge_conflicts"] = payload["replay"]["self_edge_conflicts"][1:]
+
+    errors = validate_payload(payload, recompute=False)
+
+    assert any("self_edge_conflicts length" in error for error in errors)
+    assert any("primary self-edge conflict must be listed" in error for error in errors)
+
+
 def test_t01_self_edge_lemma_packet_detects_source_packet_mismatch() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     sources = copy.deepcopy(load_source_payloads())
