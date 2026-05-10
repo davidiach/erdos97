@@ -901,6 +901,42 @@ artifacts:
       - the relation-skeleton catalog is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_t10_paired_square_entry_audit
+    path: data/certificates/n9_t10_paired_square_entry_audit.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_n9_t10_paired_square_entry.py
+    command: python scripts/check_n9_t10_paired_square_entry.py --assert-expected --write
+    checker: scripts/check_n9_t10_paired_square_entry.py
+    check_command: python scripts/check_n9_t10_paired_square_entry.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Paired-square Kalmanson entry audit for the 18 T10/F12 n=9 vertex-circle strict-cycle assignments only; not a proof of n=9, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_t10_paired_square_entry_audit.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: Paired-square Kalmanson entry audit for the 18 T10/F12 n=9 vertex-circle strict-cycle assignments only; not a proof of n=9, not a counterexample, and not a global status update.
+      n: 9
+      row_size: 4
+      template_id: T10
+      assignment_count: 18
+      hit_assignment_count: 18
+      miss_assignment_count: 0
+      total_hit_count: 54
+      records_digest: e32ff6014b1388fa733ad1fdb244c945114e91d059374259c6eeb1742ba89558
+      provenance.command: python scripts/check_n9_t10_paired_square_entry.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - T10 proves n=9
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - the paired-square entry audit is an independent proof
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: n9_vertex_circle_t11_strict_cycle_lemma_packet
     path: data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json
     kind: certificate_diagnostic_artifact

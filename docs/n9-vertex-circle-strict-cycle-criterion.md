@@ -244,6 +244,45 @@ mismatch count:                    0
 audit digest: 49363955d3efebad841d4898d0d4695696fc4016dbad2a4c6d532edf15b667ab
 ```
 
+## Paired-square Entry Side Audit
+
+The `T10/F12` family also has a focused paired-square entry audit at
+`data/certificates/n9_t10_paired_square_entry_audit.json`. The audit checks
+the 18 `T10/F12` assignment instances against the Abstract Paired-Square Entry
+Lemma target from the Kalmanson route.
+
+For each assignment, the checker requires a literal incident residual pair
+`{i,n}` whose nonselected quotient class is the singleton `{i,n}`. It then
+requires two selected-center squares for that same residual pair, with
+opposite Kalmanson diagonal orientations, and verifies from the actual quotient
+class keys that their reduced vectors are exactly
+
+```text
+R_i - X_{i,n},
+X_{i,n} - R_i.
+```
+
+The resulting exact diagnostic counts are:
+
+```text
+assignments audited:          18
+assignments with an entry:    18
+assignments without an entry:  0
+literal singleton entries:    54
+audit digest: e32ff6014b1388fa733ad1fdb244c945114e91d059374259c6eeb1742ba89558
+```
+
+The artifact stores one representative paired-square entry for each assignment
+with a hit; the `literal singleton entries` count is the total number of
+surviving entries found across the assignments.
+
+This is a side audit, not the primary `T10/F12` contradiction and not a proof
+of `n=9`. The strict-cycle packet already supplies the local contradiction for
+these assignments. The paired-square audit only records that the Kalmanson
+entry mechanism has exact positive instances on the same 18 assignments after
+the singleton residual condition is enforced; it does not show that arbitrary
+vertex-circle connector states must expose such an entry.
+
 ## Scope
 
 This criterion is a local final-contradiction lemma. It applies only after
