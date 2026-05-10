@@ -22947,6 +22947,168 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 673 - Endpoint-Control Fragile-Cover Negative Control
+
+### Mathematical Subquestion
+
+Cycle 672 showed that local endpoint badness does not force endpoint control.
+The next exact question was:
+
+```text
+Do the minimal-counterexample fragile-cover axioms, together with the
+two-circle cap, crossing rule, and full selected-row incidence extension,
+already force endpoint control once the base center itself is critically
+covered?
+```
+
+This tests the combinatorial/global part of the endpoint-descent route before
+adding metric constraints such as row-circle identities, Kalmanson order
+constraints, or critical-radius inequalities.
+
+### Definitions and Assumptions
+
+Use the fragile-cover abstraction from
+`docs/minimal-fragile-cover-bridge.md`: retained critical rows are exact
+four-sets, cover all vertices, avoid their centers, satisfy the two-circle
+cap, and satisfy the crossing rule for two-overlaps. The optional full-row
+extension gate asks whether the partial fragile rows can be extended to a full
+selected-witness incidence pattern subject to the same cap/crossing filters.
+
+Endpoint-control failure at `m=4` is modeled abstractly by a base center whose
+base row contains two endpoints, and endpoint rows which contain the base
+center plus three outside labels. Such an endpoint row has three outside
+witnesses at the endpoint radius, exceeding the endpoint-control bound
+`m-3=1`.
+
+### Result Status
+
+Counterexample to an abstract bridge subclaim:
+**Endpoint-Control Fragile-Cover Negative Control**.
+
+### Argument Or Obstruction
+
+Consider the following compressed fragile rows on labels `0,...,10` in the
+natural cyclic order:
+
+```text
+0 -> {1,3,5,6}
+1 -> {0,2,7,9}
+6 -> {0,4,8,10}
+```
+
+Here `0` is the base center and `1,6` are the two endpoint labels in its row.
+The endpoint rows centered at `1` and `6` both contain `0` and three outside
+labels, so both endpoints fail the local `m=4` outside bound while the base
+center is itself covered by endpoint fragile rows.
+
+The generic fragile-cover checker verifies exactly:
+
+```text
+cover ok: true
+self-exclusion ok: true
+uniformity ok: true
+pairwise intersection ok: true
+crossing ok: true
+essential cover ok: true
+witness map ok: true
+```
+
+The full selected-row extension search also succeeds in `26` nodes. One full
+extension is:
+
+```text
+0  -> {1,3,5,6}
+1  -> {0,2,7,9}
+2  -> {0,1,3,4}
+3  -> {2,4,7,8}
+4  -> {1,5,7,10}
+5  -> {0,2,3,6}
+6  -> {0,4,8,10}
+7  -> {1,2,4,9}
+8  -> {3,7,9,10}
+9  -> {2,5,8,10}
+10 -> {0,6,8,9}
+```
+
+Thus the fragile-cover axioms, cap/crossing filters, essential row-use
+matching, and full selected-row incidence extendability do not by themselves
+force endpoint control.
+
+### Exact Scope
+
+This is an exact finite incidence/order obstruction only. It is not a
+Euclidean realization certificate, not a counterexample to Erdos Problem #97,
+and not a counterexample to the full Endpoint Control Auxiliary Claim. The
+model does not impose row-circle Ptolemy identities, selected-distance
+quotient metric consistency, Kalmanson inequalities, strict Euclidean
+realizability, or critical-radius ordering constraints.
+
+An overly broad exploratory search for a coordinate extension adding a
+critical row covering the Cycle 672 center was stopped because it was not a
+bounded verifier and produced no conclusion; it is not used as evidence here.
+
+### Files Changed
+
+- `docs/minimal-fragile-cover-bridge.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This moves the endpoint-descent target again. Cycles 671 and 672 showed that
+local convexity and endpoint badness are too weak. Cycle 673 shows that even
+adding the currently isolated fragile-cover axioms and full-row incidence
+extendability is still too weak. A successful endpoint-control proof must use
+a genuinely metric or stronger minimality ingredient: row-circle exact
+constraints, Kalmanson/order inequalities, critical-radius ordering, or a
+global boundary-chain capacity ledger not captured by the current fragile
+hypergraph checks.
+
+### Next Lead
+
+Apply the row-circle gate to the endpoint-control negative-control extension:
+check whether the displayed full selected-row extension has a row-Ptolemy
+product-cancellation obstruction, quotient-level Ptolemy infeasibility, or a
+Kalmanson quotient-cone certificate. If it survives those gates, it becomes a
+small reusable benchmark for any proposed endpoint-control bridge.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-673`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-673`.
+- The branch was started from `origin/main` at commit
+  `644263859a370e1c62abb71083f677ffeaadec69`, after PR #411 merged Cycle
+  672.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- Two read-only subagents ran in parallel: one analyzed the critical-tie
+  endpoint-control gap, and one assessed local propagation of the Cycle 672
+  endpoint-bad configuration.
+
+### Validation
+
+- One-off exact fragile-cover replay for the three-row compressed model:
+  passed. It verified cover, self-exclusion, four-uniformity, cap/crossing,
+  essential row matching, and the canonical witness map.
+- One-off full selected-row extension search for the same model: passed in
+  `26` nodes and returned the displayed extension.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `593 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 672 - Endpoint-Bad Local Failure Configuration
 
 ### Mathematical Subquestion

@@ -87,6 +87,48 @@ fragile rows, subject to self-exclusion, four-uniformity, the two-circle cap,
 and the two-overlap crossing rule. Passing this extension check is still not a
 Euclidean realization certificate.
 
+### Endpoint-control fragile-cover negative control
+
+The endpoint-control route cannot be proved from fragile-cover incidence,
+two-circle cap, crossing, and full-row extendability alone. A compressed
+endpoint-failure model on labels `0,...,10` has fragile rows
+
+```text
+0 -> {1,3,5,6}
+1 -> {0,2,7,9}
+6 -> {0,4,8,10}
+```
+
+Here `0` is the base center and `1,6` are the angular endpoints in the base
+row. Both endpoint rows contain `0` and three outside labels, so they model
+endpoint-control failure at `m=4` while also giving critical coverage of the
+base center.
+
+The generic fragile-cover checker verifies that this abstract system covers
+all `11` labels, satisfies self-exclusion and four-uniformity, has no
+pairwise intersection larger than two, has no crossing violation, and has an
+essential row-use matching. The full-row extension search also succeeds,
+visiting `26` nodes. One extension is:
+
+```text
+0  -> {1,3,5,6}
+1  -> {0,2,7,9}
+2  -> {0,1,3,4}
+3  -> {2,4,7,8}
+4  -> {1,5,7,10}
+5  -> {0,2,3,6}
+6  -> {0,4,8,10}
+7  -> {1,2,4,9}
+8  -> {3,7,9,10}
+9  -> {2,5,8,10}
+10 -> {0,6,8,9}
+```
+
+This is only an abstract incidence/order negative control, not a Euclidean
+realization certificate. Its role is to show that a proof of endpoint control
+must use a stronger metric or minimality ingredient than the currently
+isolated fragile-cover axioms plus full-row incidence extendability.
+
 ## Row-circle full-extension gate
 
 The full-row extension condition has an additional geometric gate that is not
