@@ -475,6 +475,35 @@ added witness label and only `4` open the removed witness label; the other
 `48` transitions open neither replacement label. Thus the one-row escape is
 usually indirect rather than a replacement simply opening its own label.
 
+The `6` not-legal openings all occur at centers in the block-swap orbit
+`2,8`. They are not caused by the pair-cap or indegree-cap filters. Before
+the one-row replacement, the opened center has zero pair/crossing-admissible
+rows; after the replacement it has either `7` or `8` pair/crossing-admissible
+rows, all of which also pass the pair-cap and indegree-cap filters:
+
+```text
+pair/crossing profile                       not-legal openings
+before=0, after=7, after fully valid=7      2
+before=0, after=8, after fully valid=8      4
+```
+
+Against the changed row, the `46` after-valid candidate rows had the following
+before/after crossing relations:
+
+```text
+relation before replacement  candidate rows
+noncrossing two-overlap       44
+three-or-more overlap          2
+
+relation after replacement   candidate rows
+zero-or-one overlap           36
+crossing two-overlap          10
+```
+
+So the previously not-legal openings are pure crossing-gate switches: the
+replacement either destroys a forbidden noncrossing two-overlap or changes it
+into an allowed crossing two-overlap.
+
 For example, the terminal state
 
 ```text

@@ -282,6 +282,35 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
     assert edit_distance_audit[
         "replacement_side_to_opened_prior_status_distribution"
     ]["opposite_block->self_only"] == 26
+    assert edit_distance_audit["not_legal_opened_instance_count"] == 6
+    assert edit_distance_audit["not_legal_opened_center_orbit_distribution"] == {
+        "2,8": 6
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_changed_center_orbit_distribution"
+    ] == {
+        "2,8": 2,
+        "4,10": 2,
+        "5,11": 2,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_paircross_profile_distribution"
+    ] == {
+        "before_paircross=0;after_paircross=7;after_valid=7": 2,
+        "before_paircross=0;after_paircross=8;after_valid=8": 4,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_before_changed_row_relation_distribution"
+    ] == {
+        "noncrossing_two_overlap": 44,
+        "three_or_more_overlap": 2,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_after_changed_row_relation_distribution"
+    ] == {
+        "crossing_two_overlap": 10,
+        "zero_or_one_overlap": 36,
+    }
     assert edit_distance_audit["changed_row_count_distribution_for_first_nearest"] == {
         "1": 12
     }
