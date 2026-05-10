@@ -57,6 +57,12 @@ The rows `81:3` and `151:7` each have three core witnesses and are already
 visible in the deletion closure for core vertex `2`. These are not the hard
 part of the row-center bridge.
 
+The focused closure-exposed packet
+[`bootstrap-t12-closure-exposed.md`](bootstrap-t12-closure-exposed.md) records
+this subcase separately. It distinguishes `81:3`, whose full selected row is
+inside the exposing deletion closure, from `151:7`, whose row center and three
+core witnesses are present while the outside witness remains private.
+
 The rows `81:8`, `151:5`, and `151:8` each have two core witnesses. They need
 one outside label to become activation-ready from the bootstrap core, while
 their row centers remain private across all deletion closures.

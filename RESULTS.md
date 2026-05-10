@@ -168,6 +168,14 @@ diagnostic bookkeeping only; see `docs/bootstrap-t12-row-pressure.md`,
 `scripts/check_bootstrap_t12_row_pressure.py`, and
 `data/certificates/bootstrap_t12_row_pressure.json`.
 
+The closure-exposed subpacket isolates the two deletion-closure-exposed rows
+from that ledger. Rows `81:3` and `151:7` share core witnesses `[0,1,4]` and
+are exposed by the deletion closure for core vertex `2`; only `81:3` has its
+full selected row contained in the closure. This is a smaller proof-mining
+target only; see `docs/bootstrap-t12-closure-exposed.md`,
+`scripts/check_bootstrap_t12_closure_exposed.py`, and
+`data/certificates/bootstrap_t12_closure_exposed.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

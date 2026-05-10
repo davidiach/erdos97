@@ -37,7 +37,9 @@ Use this queue when no more specific issue is selected.
    source `151` has only partial direct private-pair hits.
    The row-pressure refinement in `docs/bootstrap-t12-row-pressure.md` splits
    the missing rows into deletion-closure-exposed, one-outside-label, and
-   outside-pair cases for the next bridge attempt.
+   outside-pair cases for the next bridge attempt. The closure-exposed
+   subpacket in `docs/bootstrap-t12-closure-exposed.md` isolates the two
+   activation-ready deletion-closure rows as the smallest next lemma target.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker

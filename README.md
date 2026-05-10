@@ -65,6 +65,9 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the row-pressure refinement classifying those missing T12 row centers
   by core deficit, deletion-closure exposure, and private-halo support, read
   [`docs/bootstrap-t12-row-pressure.md`](docs/bootstrap-t12-row-pressure.md).
+- For the closure-exposed subpacket isolating the two activation-ready T12
+  row-pressure rows, read
+  [`docs/bootstrap-t12-closure-exposed.md`](docs/bootstrap-t12-closure-exposed.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).

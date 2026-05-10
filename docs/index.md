@@ -145,6 +145,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-row-pressure.md`](bootstrap-t12-row-pressure.md):
   row-pressure refinement classifying those missing T12 row centers by core
   deficit, deletion-closure exposure, and private-halo support.
+- [`bootstrap-t12-closure-exposed.md`](bootstrap-t12-closure-exposed.md):
+  focused packet isolating the two deletion-closure-exposed T12 row-pressure
+  gaps.
 - [`bridge-negative-controls.md`](bridge-negative-controls.md): exact
   guardrails for incidence-only and fragile-cover-only bridge claims.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`

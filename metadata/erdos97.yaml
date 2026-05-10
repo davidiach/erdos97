@@ -163,6 +163,11 @@ local_repo:
       artifact: "data/certificates/bootstrap_t12_row_pressure.json"
       verifier: "scripts/check_bootstrap_t12_row_pressure.py"
       claim_scope: "fixed selected-row proof-mining diagnostic only; classifies missing row centers by bootstrap-core deficit, deletion-closure exposure, and private-halo support, but does not prove that the missing rows are forced and does not prove n=9 or the bridge"
+    - pattern: "bootstrap_t12_closure_exposed"
+      status: "closure-exposed subpacket for the two activation-ready T12 row-pressure gaps"
+      artifact: "data/certificates/bootstrap_t12_closure_exposed.json"
+      verifier: "scripts/check_bootstrap_t12_closure_exposed.py"
+      claim_scope: "fixed selected-row proof-mining diagnostic only; isolates the deletion-closure-exposed rows 81:3 and 151:7, but does not prove that the missing rows are forced and does not prove n=9 or the bridge"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"
