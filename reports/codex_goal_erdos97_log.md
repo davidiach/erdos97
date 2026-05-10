@@ -22947,6 +22947,177 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 676 - Endpoint-Control Kalmanson Quotient-Cone Obstruction
+
+### Mathematical Subquestion
+
+Cycle 675 showed that the fixed endpoint-control survivor admits a positive
+quotient-level row-Ptolemy assignment. The next exact question was:
+
+```text
+Does the natural-order Kalmanson quotient cone reject the same fixed
+endpoint-control survivor?
+```
+
+This tests the next metric-order layer after row-Ptolemy feasibility, still
+with scope fixed to the Cycle 674 survivor and natural cyclic order.
+
+### Definitions and Assumptions
+
+Use the same full selected-row extension on labels `0,...,10`:
+
+```text
+0  -> {1,3,5,6}
+1  -> {0,2,7,9}
+2  -> {1,3,4,10}
+3  -> {2,4,5,7}
+4  -> {1,6,7,8}
+5  -> {0,2,3,6}
+6  -> {0,4,8,10}
+7  -> {1,2,4,9}
+8  -> {3,7,9,10}
+9  -> {2,5,8,10}
+10 -> {0,1,8,9}
+```
+
+Quotient ordinary pair-distance variables by the selected-distance equalities
+from these rows, giving `25` quotient classes. In the natural cyclic order,
+each ordered quadruple `a<b<c<d` supplies two strict Kalmanson inequalities:
+
+```text
+d(a,c)+d(b,d) > d(a,b)+d(c,d)
+d(a,c)+d(b,d) > d(a,d)+d(b,c).
+```
+
+A Kalmanson quotient-cone certificate is a positive integer combination of
+such strict inequalities whose coefficient vector becomes zero after the
+selected-distance quotient. Summing then gives the contradiction `0 > 0`.
+
+### Result Status
+
+Exact obstruction for a fixed survivor/order:
+**Endpoint-Control Kalmanson Quotient-Cone Obstruction**.
+
+### Argument Or Obstruction
+
+The certificate in
+`scripts/check_endpoint_control_survivor_kalmanson_certificate.py` lists `22`
+strict Kalmanson inequalities with positive integer weights. The weight sum is
+`89`, the maximum weight is `11`, and the combined vector is the zero vector
+across all `25` quotient classes.
+
+The support is:
+
+```text
+10*K1(0,1,2,6) + 3*K1(0,2,4,8) + 7*K1(0,2,5,7)
++ K2(0,2,6,9) + 2*K2(0,2,8,10) + 4*K2(0,4,7,8)
++ 3*K1(0,4,7,9) + 3*K2(0,4,9,10) + 7*K2(0,5,6,7)
++ 2*K2(0,5,8,9) + 11*K2(1,2,3,6) + K2(1,2,8,9)
++ 6*K1(1,3,4,9) + 2*K1(1,3,5,8) + 3*K1(1,3,7,10)
++ K2(1,5,6,8) + 2*K1(1,5,7,9) + 3*K2(1,5,9,10)
++ 3*K2(3,4,7,10) + 6*K2(3,6,8,9) + 6*K2(4,6,9,10)
++ 3*K2(5,7,8,10).
+```
+
+The generic quotient-cone checker verifies the selected-distance quotient,
+recomputes every Kalmanson row vector, applies the weights, and confirms:
+
+```text
+strict rows: 22
+distance classes: 25
+weight sum: 89
+max weight: 11
+zero sum verified: true
+combined nonzero coefficient count: 0
+```
+
+Therefore this fixed full selected-row extension and natural cyclic order are
+impossible in a strictly convex realization satisfying Kalmanson inequalities.
+
+### Exact Scope
+
+This is an exact obstruction for the fixed Cycle 674 survivor and natural
+cyclic order only. It is not an all-extension obstruction for the
+endpoint-control fragile rows, not an endpoint-control proof, not a Euclidean
+realization theorem, not a counterexample to Erdos Problem #97, and not a
+proof of Erdos Problem #97. It also does not contradict Cycle 675: the
+row-Ptolemy quotient equations are feasible, but the stronger natural-order
+Kalmanson inequalities are not.
+
+### Files Changed
+
+- `docs/claims.md`
+- `docs/index.md`
+- `docs/minimal-fragile-cover-bridge.md`
+- `reports/codex_goal_erdos97_log.md`
+- `scripts/check_endpoint_control_survivor_kalmanson_certificate.py`
+- `tests/test_endpoint_control_survivor_kalmanson_certificate.py`
+
+### Effect On The Attack
+
+The endpoint-control benchmark now separates three layers:
+product-cancellation is too weak, quotient-level row-Ptolemy feasibility is
+still too weak, but natural-order Kalmanson quotient-cone constraints kill
+this fixed survivor. This suggests the endpoint-control route should look for
+an all-extension or order-forced Kalmanson/metric-order argument, not for a
+row-circle-only argument.
+
+### Next Lead
+
+Test whether every full selected-row extension of the Cycle 673 fixed fragile
+rows either has a row-Ptolemy product-cancellation certificate or a
+natural-order Kalmanson quotient-cone certificate. If not, record the next
+survivor as a sharper endpoint-control benchmark.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-676`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-676`.
+- The branch was started from `origin/main` at commit
+  `c8a5ee994704eddf4bbce38275efa311473f2692`, after PR #415 merged Cycle
+  675.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- Parallel read-only agents were used: one reviewed Kalmanson/Farkas search
+  tooling, and one checked docs/workflow placement.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_endpoint_control_survivor_kalmanson_certificate.py
+  --assert-expected --json`: passed. It verified `22` strict Kalmanson rows,
+  `25` distance classes, weight sum `89`, max weight `11`, and exact zero
+  quotient sum.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q
+  tests/test_endpoint_control_survivor_kalmanson_certificate.py`: passed, `3`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff format
+  scripts/check_endpoint_control_survivor_kalmanson_certificate.py
+  tests/test_endpoint_control_survivor_kalmanson_certificate.py`: passed; `2`
+  files reformatted.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check
+  scripts/check_endpoint_control_survivor_kalmanson_certificate.py
+  tests/test_endpoint_control_survivor_kalmanson_certificate.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `602 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 675 - Endpoint-Control Quotient-Ptolemy Feasible Survivor
 
 ### Mathematical Subquestion
