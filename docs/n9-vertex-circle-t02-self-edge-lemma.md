@@ -28,7 +28,136 @@ F14:  2 assignments
 Each family has a three-row core and replays to a single self-edge conflict
 with 27 strict edges and no strict cycle.
 
-## Family cores
+Here `[c, a, b, d, e]` means that `a,b,d,e` are the selected witnesses for
+center `c`, hence the four distances from `c` to those witnesses are equal.
+
+## Local lemma
+
+The following local obstruction is independent of the exhaustive `n=9`
+brancher once one of the displayed row cores is given.
+
+Assume a strictly convex polygon has labels appearing in cyclic order
+
+```text
+0,1,2,3,4,5,6,7,8
+```
+
+and contains one of the four selected-row cores listed below. Then that row
+core cannot be realized.
+
+The geometric input used in every case is the same. For a fixed center row,
+the four selected witnesses lie on one circle centered at that row's vertex.
+In a strictly convex polygon, the rays from a vertex to the other vertices
+occur in polygon cyclic order inside an angle smaller than `pi`. Therefore,
+on the row circle, chord length is strictly increasing with the enclosed
+central angle in this range. If the row witness order is `a,b,c,d`, then the
+chord `[a,d]` strictly contains `[a,b]`, so `d(a,d) > d(a,b)`.
+
+For `F01`, the three selected rows are
+
+```text
+S_0 = {1,2,3,8}
+S_1 = {0,2,4,7}
+S_8 = {0,1,4,5}.
+```
+
+The selected-distance equalities give
+
+```text
+d(1,8) = d(0,8)      from row 8,
+d(0,8) = d(0,1)      from row 0,
+d(0,1) = d(1,2)      from row 1.
+```
+
+Thus `d(1,8) = d(1,2)`. But row `0` has witness order
+
+```text
+1,2,3,8,
+```
+
+so vertex-circle monotonicity gives `d(1,8) > d(1,2)`, a contradiction.
+
+For `F04`, the three selected rows are
+
+```text
+S_0 = {1,2,4,6}
+S_1 = {0,2,3,5}
+S_2 = {1,3,4,8}.
+```
+
+The selected-distance equalities give
+
+```text
+d(0,2) = d(0,1)      from row 0,
+d(0,1) = d(1,2)      from row 1,
+d(1,2) = d(2,3)      from row 2.
+```
+
+Thus `d(0,2) = d(2,3)`. But row `1` has witness order
+
+```text
+2,3,5,0,
+```
+
+so vertex-circle monotonicity gives `d(0,2) > d(2,3)`, a contradiction.
+
+For `F08`, the three selected rows are
+
+```text
+S_0 = {1,2,4,8}
+S_1 = {0,2,3,5}
+S_8 = {0,1,3,7}.
+```
+
+The selected-distance equalities give
+
+```text
+d(1,8) = d(0,8)      from row 8,
+d(0,8) = d(0,1)      from row 0,
+d(0,1) = d(1,2)      from row 1.
+```
+
+Thus `d(1,8) = d(1,2)`. But row `0` has witness order
+
+```text
+1,2,4,8,
+```
+
+so vertex-circle monotonicity gives `d(1,8) > d(1,2)`, a contradiction.
+
+For `F14`, the three selected rows are
+
+```text
+S_0 = {1,2,6,8}
+S_1 = {0,2,3,7}
+S_8 = {0,1,5,7}.
+```
+
+The selected-distance equalities give
+
+```text
+d(1,8) = d(0,8)      from row 8,
+d(0,8) = d(0,1)      from row 0,
+d(0,1) = d(1,2)      from row 1.
+```
+
+Thus `d(1,8) = d(1,2)`. But row `0` has witness order
+
+```text
+1,2,6,8,
+```
+
+so vertex-circle monotonicity gives `d(1,8) > d(1,2)`, a contradiction.
+
+Equivalently, in each family the selected-distance quotient identifies the
+outer and inner chord lengths, while one row creates a strict edge from that
+quotient class back to itself. This is a local obstruction only: it rules out
+selected-witness systems containing one of these row cores in the stated
+cyclic order. It does not prove the full `n=9` finite case, because the
+exhaustive checker is still needed to show that every frontier assignment
+contains one of the recorded local obstruction templates.
+
+## Packet data
 
 `F01`:
 
