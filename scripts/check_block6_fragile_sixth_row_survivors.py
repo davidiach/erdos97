@@ -35,8 +35,58 @@ EXPECTED_TOTALS = {
     "clean_fifth_rows_with_clean_sixth": 166,
     "unique_clean_six_row_states": 6047,
     "unique_clean_six_row_block_swap_orbits": 3056,
+    "clean_center_pairs": 28,
+    "clean_center_pair_block_swap_orbits": 16,
 }
 EXPECTED_CLEAN_SIX_ORBIT_SIZES = {"1": 65, "2": 2991}
+EXPECTED_CLEAN_BY_CENTER_PAIR = {
+    "1,2": 350,
+    "1,4": 98,
+    "1,5": 126,
+    "1,7": 256,
+    "1,8": 508,
+    "1,10": 69,
+    "1,11": 105,
+    "2,4": 182,
+    "2,5": 238,
+    "2,7": 508,
+    "2,8": 1074,
+    "2,10": 176,
+    "2,11": 325,
+    "4,5": 28,
+    "4,7": 69,
+    "4,8": 176,
+    "4,10": 36,
+    "4,11": 71,
+    "5,7": 105,
+    "5,8": 325,
+    "5,10": 71,
+    "5,11": 129,
+    "7,8": 350,
+    "7,10": 98,
+    "7,11": 126,
+    "8,10": 182,
+    "8,11": 238,
+    "10,11": 28,
+}
+EXPECTED_CLEAN_BY_CENTER_PAIR_ORBIT = {
+    "1,2|7,8": 700,
+    "1,4|7,10": 196,
+    "1,5|7,11": 252,
+    "1,7": 256,
+    "1,8|2,7": 1016,
+    "1,10|4,7": 138,
+    "1,11|5,7": 210,
+    "2,4|8,10": 364,
+    "2,5|8,11": 476,
+    "2,8": 1074,
+    "2,10|4,8": 352,
+    "2,11|5,8": 650,
+    "4,5|10,11": 56,
+    "4,10": 36,
+    "4,11|5,10": 142,
+    "5,11": 129,
+}
 EXPECTED_BY_FIFTH_CENTER = {
     "1": {
         "clean_fifth": 21,
@@ -98,6 +148,7 @@ EXPECTED_BY_FIFTH_CENTER = {
 
 RowRecord = tuple[int, tuple[int, ...]]
 SixState = tuple[RowRecord, RowRecord]
+CenterPair = tuple[int, int]
 
 
 def _json_counter(counter: Counter[Any]) -> dict[str, int]:
@@ -111,6 +162,19 @@ def _swap_label(label: int) -> int:
 def _block_swap_row(record: RowRecord) -> RowRecord:
     center, row = record
     return (_swap_label(center), tuple(sorted(_swap_label(label) for label in row)))
+
+
+def _center_pair_key(pair: CenterPair) -> str:
+    return f"{pair[0]},{pair[1]}"
+
+
+def _block_swap_center_pair(pair: CenterPair) -> CenterPair:
+    return tuple(sorted((_swap_label(pair[0]), _swap_label(pair[1]))))  # type: ignore[return-value]
+
+
+def _center_pair_orbit_key(pair: CenterPair) -> str:
+    orbit = sorted({pair, _block_swap_center_pair(pair)})
+    return "|".join(_center_pair_key(item) for item in orbit)
 
 
 def _block_swap_six_state(state: SixState) -> SixState:
@@ -220,6 +284,12 @@ def survivor_payload() -> dict[str, Any]:
 
     clean_fifth_orbits, clean_fifth_orbit_sizes = _orbit_count(clean_fifth_rows)
     clean_six_orbits, clean_six_orbit_sizes = _orbit_count(clean_six_states)
+    clean_by_center_pair: Counter[CenterPair] = Counter(
+        tuple(sorted((state[0][0], state[1][0]))) for state in clean_six_states
+    )
+    clean_by_center_pair_orbit: Counter[str] = Counter()
+    for center_pair, count in clean_by_center_pair.items():
+        clean_by_center_pair_orbit[_center_pair_orbit_key(center_pair)] += count
     totals = {
         "clean_fifth_rows": len(clean_fifth_rows),
         "clean_fifth_block_swap_orbits": clean_fifth_orbits,
@@ -232,6 +302,8 @@ def survivor_payload() -> dict[str, Any]:
         "clean_fifth_rows_with_clean_sixth": clean_fifth_with_clean_sixth,
         "unique_clean_six_row_states": len(clean_six_states),
         "unique_clean_six_row_block_swap_orbits": clean_six_orbits,
+        "clean_center_pairs": len(clean_by_center_pair),
+        "clean_center_pair_block_swap_orbits": len(clean_by_center_pair_orbit),
     }
 
     return {
@@ -251,6 +323,14 @@ def survivor_payload() -> dict[str, Any]:
             clean_fifth_orbit_sizes
         ),
         "clean_six_block_swap_orbit_sizes": _json_counter(clean_six_orbit_sizes),
+        "clean_by_center_pair": {
+            _center_pair_key(center_pair): int(clean_by_center_pair[center_pair])
+            for center_pair in sorted(clean_by_center_pair)
+        },
+        "clean_by_center_pair_orbit": {
+            key: int(clean_by_center_pair_orbit[key])
+            for key in sorted(clean_by_center_pair_orbit)
+        },
         "by_fifth_center": {
             center: {key: int(counter[key]) for key in sorted(counter)}
             for center, counter in sorted(by_fifth_center.items(), key=lambda item: int(item[0]))
@@ -270,6 +350,18 @@ def assert_expected(payload: Mapping[str, Any]) -> None:
         raise AssertionError(
             "unexpected clean-six orbit sizes: "
             f"{payload['clean_six_block_swap_orbit_sizes']!r}"
+        )
+    if payload["clean_by_center_pair"] != EXPECTED_CLEAN_BY_CENTER_PAIR:
+        raise AssertionError(
+            f"unexpected clean center-pair counts: {payload['clean_by_center_pair']!r}"
+        )
+    if (
+        payload["clean_by_center_pair_orbit"]
+        != EXPECTED_CLEAN_BY_CENTER_PAIR_ORBIT
+    ):
+        raise AssertionError(
+            "unexpected center-pair orbit counts: "
+            f"{payload['clean_by_center_pair_orbit']!r}"
         )
     if payload["by_fifth_center"] != EXPECTED_BY_FIFTH_CENTER:
         raise AssertionError(
