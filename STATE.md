@@ -66,6 +66,12 @@ direct private-pair hit, while source `151` needs row centers `5,6,7,8` and has
 only two direct private-pair hits. This is target bookkeeping only; it is not a
 proof that those rows are forced. See `docs/bootstrap-t12-forcing-targets.md`.
 
+A row-pressure refinement classifies those six missing T12 row centers: two
+are already exposed in a deletion closure, three need one outside label while
+their row centers stay private, and one needs an outside pair with partial
+private-pair ledger support. This is still only a diagnostic for the next
+bridge lemma. See `docs/bootstrap-t12-row-pressure.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

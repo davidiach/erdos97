@@ -322,6 +322,10 @@ condition that the surviving multi-block family does not automatically satisfy:
   direct private-pair hit and source `151` has only partial direct hits, so the
   next useful condition should force missing row centers or equality connectors
   rather than rely on private pairs alone.
+- bootstrap/T12 row-pressure evidence, as recorded in
+  `docs/bootstrap-t12-row-pressure.md`, splitting the six missing row centers
+  into deletion-closure-exposed rows, one-outside-label rows, and one
+  outside-pair row with partial private-pair support.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

@@ -160,6 +160,14 @@ open proof-mining target, not a proof that the missing rows are forced; see
 `scripts/check_bootstrap_t12_forcing_targets.py`, and
 `data/certificates/bootstrap_t12_forcing_targets.json`.
 
+The row-pressure refinement splits those six missing row centers by the kind
+of bridge ingredient they would need: two are already exposed in a deletion
+closure, three need one outside label while the row center remains private,
+and one needs an outside pair with two private-pair ledger hits. This is still
+diagnostic bookkeeping only; see `docs/bootstrap-t12-row-pressure.md`,
+`scripts/check_bootstrap_t12_row_pressure.py`, and
+`data/certificates/bootstrap_t12_row_pressure.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

@@ -142,6 +142,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-forcing-targets.md`](bootstrap-t12-forcing-targets.md):
   follow-up target ledger naming the missing `T12/F16` row centers and direct
   private-pair contacts for the two tight bootstrap rows.
+- [`bootstrap-t12-row-pressure.md`](bootstrap-t12-row-pressure.md):
+  row-pressure refinement classifying those missing T12 row centers by core
+  deficit, deletion-closure exposure, and private-halo support.
 - [`bridge-negative-controls.md`](bridge-negative-controls.md): exact
   guardrails for incidence-only and fragile-cover-only bridge claims.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`

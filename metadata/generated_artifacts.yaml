@@ -1917,6 +1917,58 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_row_pressure
+    path: data/certificates/bootstrap_t12_row_pressure.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_row_pressure.py
+    command: python scripts/check_bootstrap_t12_row_pressure.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_row_pressure.py
+    check_command: python scripts/check_bootstrap_t12_row_pressure.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Row-pressure diagnostic for the two tight n=9 bootstrap/T12 records; not a proof that the missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_row_pressure.v1
+      status: BOOTSTRAP_T12_ROW_PRESSURE_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_source_ids:
+        - 81
+        - 151
+      summary.row_gap_record_count: 6
+      summary.row_gap_centers_by_source_id.81:
+        - 3
+        - 8
+      summary.row_gap_centers_by_source_id.151:
+        - 5
+        - 6
+        - 7
+        - 8
+      summary.pressure_class_counts.ALREADY_PRESENT_IN_A_DELETION_CLOSURE: 2
+      summary.pressure_class_counts.NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER: 3
+      summary.pressure_class_counts.NEEDS_OUTSIDE_PAIR_AND_PRIVATE_CENTER: 1
+      summary.activation_deficit_counts.0: 2
+      summary.activation_deficit_counts.1: 3
+      summary.activation_deficit_counts.2: 1
+      summary.deletion_closure_exposed_row_count: 2
+      summary.row_center_private_in_all_deletions_count: 4
+      summary.ledger_private_pair_support_row_count: 1
+      summary.forcing_target_status: OPEN_TARGET_NOT_PROVED
+      provenance.generator: scripts/check_bootstrap_t12_row_pressure.py
+      provenance.command: python scripts/check_bootstrap_t12_row_pressure.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - row-pressure classes prove the missing rows are forced
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: n10_secondary_singleton_replay
     path: data/certificates/2026-05-05/n10_secondary.json
     kind: finite_case_draft_artifact

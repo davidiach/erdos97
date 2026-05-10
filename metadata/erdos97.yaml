@@ -158,6 +158,11 @@ local_repo:
       artifact: "data/certificates/bootstrap_t12_forcing_targets.json"
       verifier: "scripts/check_bootstrap_t12_forcing_targets.py"
       claim_scope: "fixed selected-row proof-mining diagnostic only; records missing T12/F16 row centers and direct private-pair contacts, but does not prove that the missing rows are forced and does not prove n=9 or the bridge"
+    - pattern: "bootstrap_t12_row_pressure"
+      status: "row-pressure classification for the missing T12/F16 row centers in the two tight n=9 bootstrap/T12 records"
+      artifact: "data/certificates/bootstrap_t12_row_pressure.json"
+      verifier: "scripts/check_bootstrap_t12_row_pressure.py"
+      claim_scope: "fixed selected-row proof-mining diagnostic only; classifies missing row centers by bootstrap-core deficit, deletion-closure exposure, and private-halo support, but does not prove that the missing rows are forced and does not prove n=9 or the bridge"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

@@ -1,0 +1,1164 @@
+{
+  "claim_scope": "Row-pressure diagnostic for the two tight n=9 bootstrap/T12 records; classifies missing T12/F16 row centers by bootstrap-core witness count, deletion-closure exposure, and private-halo support only. This does not prove that the missing rows are forced, does not prove n=9, does not prove the bridge, and does not claim a counterexample.",
+  "interpretation_warnings": [
+    "This classifies fixed selected-row gaps; it does not prove the row centers are forced.",
+    "Private-halo containment and ledger private-pair hits are bookkeeping contacts, not Euclidean certificates.",
+    "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_row_pressure.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_row_pressure.py"
+  },
+  "row_records": [
+    {
+      "activation_deficit_from_bootstrap_core": 0,
+      "bootstrap_core_witness_count": 3,
+      "bootstrap_core_witnesses": [
+        0,
+        1,
+        4
+      ],
+      "classification_assignment_id": "A082",
+      "deletion_closure_exposures": [
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            1,
+            2,
+            4
+          ],
+          "closure_size": 3,
+          "core_vertex": 0,
+          "deletion_seed": [
+            1,
+            2,
+            4
+          ],
+          "private_witnesses": [
+            6
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            1,
+            4
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            2,
+            4
+          ],
+          "closure_size": 3,
+          "core_vertex": 1,
+          "deletion_seed": [
+            0,
+            2,
+            4
+          ],
+          "private_witnesses": [
+            6
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            0,
+            4
+          ]
+        },
+        {
+          "activation_ready_in_closure": true,
+          "closure_labels": [
+            0,
+            1,
+            3,
+            4,
+            6
+          ],
+          "closure_size": 5,
+          "core_vertex": 2,
+          "deletion_seed": [
+            0,
+            1,
+            4
+          ],
+          "private_witnesses": [],
+          "row_center_in_closure": true,
+          "row_exposed_in_closure": true,
+          "witness_count_in_closure": 4,
+          "witnesses_in_closure": [
+            0,
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            1,
+            2
+          ],
+          "closure_size": 3,
+          "core_vertex": 4,
+          "deletion_seed": [
+            0,
+            1,
+            2
+          ],
+          "private_witnesses": [
+            6
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            0,
+            1
+          ]
+        }
+      ],
+      "exposed_deletion_core_vertices": [
+        2
+      ],
+      "ledger_private_pair_support_hit_count": 0,
+      "ledger_private_pair_support_hits": [],
+      "max_witness_count_in_deletion_closure": 4,
+      "outside_support_kind": "core_sufficient",
+      "outside_support_subsets": [],
+      "outside_witnesses": [
+        6
+      ],
+      "pressure_class": "ALREADY_PRESENT_IN_A_DELETION_CLOSURE",
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 3,
+      "row_center_private_core_vertices": [
+        0,
+        1,
+        4
+      ],
+      "row_center_private_in_all_deletion_closures": false,
+      "source_record_id": 81,
+      "support_hits": [],
+      "witnesses": [
+        0,
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "activation_deficit_from_bootstrap_core": 1,
+      "bootstrap_core_witness_count": 2,
+      "bootstrap_core_witnesses": [
+        0,
+        2
+      ],
+      "classification_assignment_id": "A082",
+      "deletion_closure_exposures": [
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            1,
+            2,
+            4
+          ],
+          "closure_size": 3,
+          "core_vertex": 0,
+          "deletion_seed": [
+            1,
+            2,
+            4
+          ],
+          "private_witnesses": [
+            5,
+            6
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 1,
+          "witnesses_in_closure": [
+            2
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            2,
+            4
+          ],
+          "closure_size": 3,
+          "core_vertex": 1,
+          "deletion_seed": [
+            0,
+            2,
+            4
+          ],
+          "private_witnesses": [
+            5,
+            6
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            0,
+            2
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            1,
+            3,
+            4,
+            6
+          ],
+          "closure_size": 5,
+          "core_vertex": 2,
+          "deletion_seed": [
+            0,
+            1,
+            4
+          ],
+          "private_witnesses": [
+            5
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            0,
+            6
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            1,
+            2
+          ],
+          "closure_size": 3,
+          "core_vertex": 4,
+          "deletion_seed": [
+            0,
+            1,
+            2
+          ],
+          "private_witnesses": [
+            5,
+            6
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            0,
+            2
+          ]
+        }
+      ],
+      "exposed_deletion_core_vertices": [],
+      "ledger_private_pair_support_hit_count": 0,
+      "ledger_private_pair_support_hits": [],
+      "max_witness_count_in_deletion_closure": 2,
+      "outside_support_kind": "outside_1_set",
+      "outside_support_subsets": [
+        [
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "outside_witnesses": [
+        5,
+        6
+      ],
+      "pressure_class": "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER",
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 8,
+      "row_center_private_core_vertices": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "row_center_private_in_all_deletion_closures": true,
+      "source_record_id": 81,
+      "support_hits": [
+        {
+          "ledger_private_pair_core_vertices": [],
+          "ledger_private_pair_hit": false,
+          "private_halo_containment_count": 4,
+          "private_halo_core_vertices": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "support": [
+            5
+          ]
+        },
+        {
+          "ledger_private_pair_core_vertices": [],
+          "ledger_private_pair_hit": false,
+          "private_halo_containment_count": 3,
+          "private_halo_core_vertices": [
+            0,
+            1,
+            4
+          ],
+          "support": [
+            6
+          ]
+        }
+      ],
+      "witnesses": [
+        0,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "activation_deficit_from_bootstrap_core": 1,
+      "bootstrap_core_witness_count": 2,
+      "bootstrap_core_witnesses": [
+        2,
+        4
+      ],
+      "classification_assignment_id": "A152",
+      "deletion_closure_exposures": [
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            1,
+            2,
+            4
+          ],
+          "closure_size": 3,
+          "core_vertex": 0,
+          "deletion_seed": [
+            1,
+            2,
+            4
+          ],
+          "private_witnesses": [
+            7,
+            8
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            2,
+            4
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            2,
+            4
+          ],
+          "closure_size": 3,
+          "core_vertex": 1,
+          "deletion_seed": [
+            0,
+            2,
+            4
+          ],
+          "private_witnesses": [
+            7,
+            8
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            2,
+            4
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            1,
+            4,
+            7
+          ],
+          "closure_size": 4,
+          "core_vertex": 2,
+          "deletion_seed": [
+            0,
+            1,
+            4
+          ],
+          "private_witnesses": [
+            8
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            4,
+            7
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            1,
+            2
+          ],
+          "closure_size": 3,
+          "core_vertex": 4,
+          "deletion_seed": [
+            0,
+            1,
+            2
+          ],
+          "private_witnesses": [
+            7,
+            8
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 1,
+          "witnesses_in_closure": [
+            2
+          ]
+        }
+      ],
+      "exposed_deletion_core_vertices": [],
+      "ledger_private_pair_support_hit_count": 0,
+      "ledger_private_pair_support_hits": [],
+      "max_witness_count_in_deletion_closure": 2,
+      "outside_support_kind": "outside_1_set",
+      "outside_support_subsets": [
+        [
+          7
+        ],
+        [
+          8
+        ]
+      ],
+      "outside_witnesses": [
+        7,
+        8
+      ],
+      "pressure_class": "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER",
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 5,
+      "row_center_private_core_vertices": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "row_center_private_in_all_deletion_closures": true,
+      "source_record_id": 151,
+      "support_hits": [
+        {
+          "ledger_private_pair_core_vertices": [],
+          "ledger_private_pair_hit": false,
+          "private_halo_containment_count": 3,
+          "private_halo_core_vertices": [
+            0,
+            1,
+            4
+          ],
+          "support": [
+            7
+          ]
+        },
+        {
+          "ledger_private_pair_core_vertices": [],
+          "ledger_private_pair_hit": false,
+          "private_halo_containment_count": 4,
+          "private_halo_core_vertices": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "support": [
+            8
+          ]
+        }
+      ],
+      "witnesses": [
+        2,
+        4,
+        7,
+        8
+      ]
+    },
+    {
+      "activation_deficit_from_bootstrap_core": 2,
+      "bootstrap_core_witness_count": 1,
+      "bootstrap_core_witnesses": [
+        0
+      ],
+      "classification_assignment_id": "A152",
+      "deletion_closure_exposures": [
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            1,
+            2,
+            4
+          ],
+          "closure_size": 3,
+          "core_vertex": 0,
+          "deletion_seed": [
+            1,
+            2,
+            4
+          ],
+          "private_witnesses": [
+            3,
+            5,
+            8
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 0,
+          "witnesses_in_closure": []
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            2,
+            4
+          ],
+          "closure_size": 3,
+          "core_vertex": 1,
+          "deletion_seed": [
+            0,
+            2,
+            4
+          ],
+          "private_witnesses": [
+            3,
+            5,
+            8
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 1,
+          "witnesses_in_closure": [
+            0
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            1,
+            4,
+            7
+          ],
+          "closure_size": 4,
+          "core_vertex": 2,
+          "deletion_seed": [
+            0,
+            1,
+            4
+          ],
+          "private_witnesses": [
+            3,
+            5,
+            8
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 1,
+          "witnesses_in_closure": [
+            0
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            1,
+            2
+          ],
+          "closure_size": 3,
+          "core_vertex": 4,
+          "deletion_seed": [
+            0,
+            1,
+            2
+          ],
+          "private_witnesses": [
+            3,
+            5,
+            8
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 1,
+          "witnesses_in_closure": [
+            0
+          ]
+        }
+      ],
+      "exposed_deletion_core_vertices": [],
+      "ledger_private_pair_support_hit_count": 2,
+      "ledger_private_pair_support_hits": [
+        {
+          "ledger_private_pair_core_vertices": [
+            0
+          ],
+          "ledger_private_pair_hit": true,
+          "private_halo_containment_count": 4,
+          "private_halo_core_vertices": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "support": [
+            3,
+            8
+          ]
+        },
+        {
+          "ledger_private_pair_core_vertices": [
+            2
+          ],
+          "ledger_private_pair_hit": true,
+          "private_halo_containment_count": 4,
+          "private_halo_core_vertices": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "support": [
+            5,
+            8
+          ]
+        }
+      ],
+      "max_witness_count_in_deletion_closure": 1,
+      "outside_support_kind": "outside_2_set",
+      "outside_support_subsets": [
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "outside_witnesses": [
+        3,
+        5,
+        8
+      ],
+      "pressure_class": "NEEDS_OUTSIDE_PAIR_AND_PRIVATE_CENTER",
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 6,
+      "row_center_private_core_vertices": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "row_center_private_in_all_deletion_closures": true,
+      "source_record_id": 151,
+      "support_hits": [
+        {
+          "ledger_private_pair_core_vertices": [],
+          "ledger_private_pair_hit": false,
+          "private_halo_containment_count": 4,
+          "private_halo_core_vertices": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "support": [
+            3,
+            5
+          ]
+        },
+        {
+          "ledger_private_pair_core_vertices": [
+            0
+          ],
+          "ledger_private_pair_hit": true,
+          "private_halo_containment_count": 4,
+          "private_halo_core_vertices": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "support": [
+            3,
+            8
+          ]
+        },
+        {
+          "ledger_private_pair_core_vertices": [
+            2
+          ],
+          "ledger_private_pair_hit": true,
+          "private_halo_containment_count": 4,
+          "private_halo_core_vertices": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "support": [
+            5,
+            8
+          ]
+        }
+      ],
+      "witnesses": [
+        0,
+        3,
+        5,
+        8
+      ]
+    },
+    {
+      "activation_deficit_from_bootstrap_core": 0,
+      "bootstrap_core_witness_count": 3,
+      "bootstrap_core_witnesses": [
+        0,
+        1,
+        4
+      ],
+      "classification_assignment_id": "A152",
+      "deletion_closure_exposures": [
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            1,
+            2,
+            4
+          ],
+          "closure_size": 3,
+          "core_vertex": 0,
+          "deletion_seed": [
+            1,
+            2,
+            4
+          ],
+          "private_witnesses": [
+            6
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            1,
+            4
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            2,
+            4
+          ],
+          "closure_size": 3,
+          "core_vertex": 1,
+          "deletion_seed": [
+            0,
+            2,
+            4
+          ],
+          "private_witnesses": [
+            6
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            0,
+            4
+          ]
+        },
+        {
+          "activation_ready_in_closure": true,
+          "closure_labels": [
+            0,
+            1,
+            4,
+            7
+          ],
+          "closure_size": 4,
+          "core_vertex": 2,
+          "deletion_seed": [
+            0,
+            1,
+            4
+          ],
+          "private_witnesses": [
+            6
+          ],
+          "row_center_in_closure": true,
+          "row_exposed_in_closure": true,
+          "witness_count_in_closure": 3,
+          "witnesses_in_closure": [
+            0,
+            1,
+            4
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            1,
+            2
+          ],
+          "closure_size": 3,
+          "core_vertex": 4,
+          "deletion_seed": [
+            0,
+            1,
+            2
+          ],
+          "private_witnesses": [
+            6
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            0,
+            1
+          ]
+        }
+      ],
+      "exposed_deletion_core_vertices": [
+        2
+      ],
+      "ledger_private_pair_support_hit_count": 0,
+      "ledger_private_pair_support_hits": [],
+      "max_witness_count_in_deletion_closure": 3,
+      "outside_support_kind": "core_sufficient",
+      "outside_support_subsets": [],
+      "outside_witnesses": [
+        6
+      ],
+      "pressure_class": "ALREADY_PRESENT_IN_A_DELETION_CLOSURE",
+      "roles": [
+        "strict_edge_row"
+      ],
+      "row_center": 7,
+      "row_center_private_core_vertices": [
+        0,
+        1,
+        4
+      ],
+      "row_center_private_in_all_deletion_closures": false,
+      "source_record_id": 151,
+      "support_hits": [],
+      "witnesses": [
+        0,
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "activation_deficit_from_bootstrap_core": 1,
+      "bootstrap_core_witness_count": 2,
+      "bootstrap_core_witnesses": [
+        1,
+        2
+      ],
+      "classification_assignment_id": "A152",
+      "deletion_closure_exposures": [
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            1,
+            2,
+            4
+          ],
+          "closure_size": 3,
+          "core_vertex": 0,
+          "deletion_seed": [
+            1,
+            2,
+            4
+          ],
+          "private_witnesses": [
+            5,
+            7
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            1,
+            2
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            2,
+            4
+          ],
+          "closure_size": 3,
+          "core_vertex": 1,
+          "deletion_seed": [
+            0,
+            2,
+            4
+          ],
+          "private_witnesses": [
+            5,
+            7
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 1,
+          "witnesses_in_closure": [
+            2
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            1,
+            4,
+            7
+          ],
+          "closure_size": 4,
+          "core_vertex": 2,
+          "deletion_seed": [
+            0,
+            1,
+            4
+          ],
+          "private_witnesses": [
+            5
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            1,
+            7
+          ]
+        },
+        {
+          "activation_ready_in_closure": false,
+          "closure_labels": [
+            0,
+            1,
+            2
+          ],
+          "closure_size": 3,
+          "core_vertex": 4,
+          "deletion_seed": [
+            0,
+            1,
+            2
+          ],
+          "private_witnesses": [
+            5,
+            7
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "witness_count_in_closure": 2,
+          "witnesses_in_closure": [
+            1,
+            2
+          ]
+        }
+      ],
+      "exposed_deletion_core_vertices": [],
+      "ledger_private_pair_support_hit_count": 0,
+      "ledger_private_pair_support_hits": [],
+      "max_witness_count_in_deletion_closure": 2,
+      "outside_support_kind": "outside_1_set",
+      "outside_support_subsets": [
+        [
+          5
+        ],
+        [
+          7
+        ]
+      ],
+      "outside_witnesses": [
+        5,
+        7
+      ],
+      "pressure_class": "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER",
+      "roles": [
+        "strict_edge_row",
+        "equality_connector_row"
+      ],
+      "row_center": 8,
+      "row_center_private_core_vertices": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "row_center_private_in_all_deletion_closures": true,
+      "source_record_id": 151,
+      "support_hits": [
+        {
+          "ledger_private_pair_core_vertices": [],
+          "ledger_private_pair_hit": false,
+          "private_halo_containment_count": 4,
+          "private_halo_core_vertices": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "support": [
+            5
+          ]
+        },
+        {
+          "ledger_private_pair_core_vertices": [],
+          "ledger_private_pair_hit": false,
+          "private_halo_containment_count": 3,
+          "private_halo_core_vertices": [
+            0,
+            1,
+            4
+          ],
+          "support": [
+            7
+          ]
+        }
+      ],
+      "witnesses": [
+        1,
+        2,
+        5,
+        7
+      ]
+    }
+  ],
+  "schema": "erdos97.bootstrap_t12_row_pressure.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_t12_forcing_targets.json",
+      "role": "missing T12/F16 row centers and direct cycle-pair contacts",
+      "schema": "erdos97.bootstrap_t12_forcing_targets.v1",
+      "status": "BOOTSTRAP_T12_FORCING_TARGET_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/bootstrap_vertex_circle_overlay.json",
+      "role": "bootstrap deletion closures and source overlay records",
+      "schema": "erdos97.bootstrap_vertex_circle_overlay.v1",
+      "status": "BOOTSTRAP_VERTEX_CIRCLE_OVERLAY_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_ROW_PRESSURE_DIAGNOSTIC_ONLY",
+  "summary": {
+    "activation_deficit_counts": {
+      "0": 2,
+      "1": 3,
+      "2": 1
+    },
+    "deletion_closure_exposed_row_count": 2,
+    "exposed_rows_by_source_id": {
+      "151": [
+        7
+      ],
+      "81": [
+        3
+      ]
+    },
+    "forcing_target_status": "OPEN_TARGET_NOT_PROVED",
+    "ledger_private_pair_support_row_count": 1,
+    "ledger_private_pair_support_rows_by_source_id": {
+      "151": [
+        6
+      ]
+    },
+    "next_bridge_question": "Can closure-exposed rows, one-outside-label rows, and the single outside-pair row be forced from genuine rich-class geometry rather than fixed selected-row bookkeeping?",
+    "outside_support_kind_counts": {
+      "core_sufficient": 2,
+      "outside_1_set": 3,
+      "outside_2_set": 1
+    },
+    "pressure_class_counts": {
+      "ALREADY_PRESENT_IN_A_DELETION_CLOSURE": 2,
+      "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER": 3,
+      "NEEDS_OUTSIDE_PAIR_AND_PRIVATE_CENTER": 1
+    },
+    "private_center_rows_by_source_id": {
+      "151": [
+        5,
+        6,
+        8
+      ],
+      "81": [
+        8
+      ]
+    },
+    "row_center_private_in_all_deletions_count": 4,
+    "row_gap_centers_by_source_id": {
+      "151": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "81": [
+        3,
+        8
+      ]
+    },
+    "row_gap_record_count": 6,
+    "target_source_ids": [
+      81,
+      151
+    ]
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

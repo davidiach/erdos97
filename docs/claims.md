@@ -456,6 +456,12 @@ outside the bootstrap core, and the direct private-pair contacts are absent for
 source `81` and partial for source `151`. This remains an open target ledger,
 not a theorem that the missing rows are forced.
 
+The row-pressure refinement in `docs/bootstrap-t12-row-pressure.md` classifies
+the six missing row centers into two deletion-closure-exposed rows, three
+one-outside-label rows, and one outside-pair row. This is a diagnostic
+decomposition of the open target, not a theorem that any of those rows are
+forced by genuine geometry.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a
