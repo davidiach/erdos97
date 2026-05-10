@@ -22947,6 +22947,162 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 654 - Block-6 Not-legal Opening Crossing-gate Audit
+
+### Mathematical Subquestion
+
+Cycle 653 found that `6` opened clean eighth-center incidences were not legal
+eighth centers before the nearest one-row replacement. The next precise
+question was:
+
+```text
+Are those not-legal openings caused by pair-cap or indegree-cap capacity
+changes, or by the cyclic pair/crossing admissibility gate?
+```
+
+### Definitions and Assumptions
+
+Use the same low-support block-6 branch, terminal clean seven-row states,
+same-class nearest terminal-to-extendable transitions, and opened clean
+eighth centers from Cycles 651-653.
+
+For a fixed candidate eighth center, the checker applies these row-admissible
+gates before the vertex-circle quotient obstruction:
+
+- pair/crossing: every two-row intersection has size at most two, and a
+  two-overlap must satisfy the radical-axis crossing rule in the fixed natural
+  cyclic order;
+- pair cap: no unordered witness pair appears in more than two selected rows;
+- indegree cap: no witness label exceeds the incidence count cap.
+
+A **not-legal opening** is an opened clean eighth center after a nearest
+transition that had no legal eighth rows before the transition.
+
+### Result Status
+
+Exact finite audit:
+**Block-6 Not-legal Opening Crossing-gate Audit**.
+
+### Argument Or Obstruction
+
+The `6` not-legal openings all occur at opened centers in the block-swap orbit
+`2,8`. Their changed-center orbit distribution is balanced:
+
+```text
+changed center orbit  not-legal openings
+2,8                   2
+4,10                  2
+5,11                  2
+```
+
+The replacement side split is:
+
+```text
+replacement side  not-legal openings
+same block        2
+opposite block    4
+```
+
+For all `6` openings, the opened center has zero pair/crossing-admissible
+rows before the one-row replacement. After the replacement, the opened center
+has either `7` or `8` pair/crossing-admissible rows, and all of those rows
+also pass the pair-cap and indegree-cap filters:
+
+```text
+pair/crossing profile                       not-legal openings
+before=0, after=7, after fully valid=7      2
+before=0, after=8, after fully valid=8      4
+```
+
+Across the `46` after-valid candidate rows for those six openings, comparing
+only against the changed row gives:
+
+```text
+relation before replacement  candidate rows
+noncrossing two-overlap       44
+three-or-more overlap          2
+
+relation after replacement   candidate rows
+zero-or-one overlap           36
+crossing two-overlap          10
+```
+
+Thus the not-legal openings are pure crossing-gate switches in this finite
+branch. The one-row replacement is not freeing a saturated witness-pair count
+or an indegree capacity; it changes the local two-row intersection with the
+would-be eighth row from a forbidden noncrossing two-overlap or three-overlap
+into either a zero/one-overlap or an allowed crossing two-overlap.
+
+### Exact Scope
+
+This is an exact finite audit inside the low-support two-block block-6
+natural-order selected-row extension tree. It covers only the `6` not-legal
+opened clean eighth-center incidences among the `88` opened incidences from
+Cycle 653. It is not a Euclidean realizability result, is not a proof of
+Erdos Problem #97, and is not a counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This sharpens the Cycle 653 obstruction: the previously not-legal openings do
+not require a new capacity mechanism. They are explained by the same
+radical-axis crossing rule that underlies the fragile-cover bridge. That makes
+the next proof-facing target more specific: find a cyclic-order condition
+under which one witness replacement changes every prospective eighth-row
+intersection from noncrossing to crossing or to size at most one.
+
+### Next Lead
+
+Compare the `44` forbidden noncrossing two-overlap candidate rows by their
+target chord relative to the source chord `(changed center, opened center)`.
+A useful next lemma would state a local cyclic-order interval condition for
+when replacing one endpoint in the changed row converts a whole family of
+noncrossing two-overlaps into admissible rows.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-654`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-654`.
+- The branch was started from `origin/main` at commit
+  `7f5ee8e193cd565ee6a8d51db8bd2f3c5678c813`, after PR #380 merged Cycle
+  653.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_block6_fragile_sixth_row_survivors.py --assert-expected
+  --json`: passed; reported `6` not-legal openings, all with
+  `before_paircross=0` and `after_valid` equal to `7` or `8`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `549 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 653 - Block-6 Opened-center Transition Audit
 
 ### Mathematical Subquestion

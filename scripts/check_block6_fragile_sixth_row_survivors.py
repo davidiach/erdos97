@@ -18,11 +18,15 @@ from scripts.check_block6_fragile_vertex_circle_extension import (  # noqa: E402
     N,
     _add_row,
     _initial_state,
+    _indegree_ok,
     _options,
+    _pair_cap_ok,
+    _paircross_ok,
     _partial_vertex_circle_status,
     _remove_row,
     _valid_options,
 )
+from erdos97.incidence_filters import chords_cross_in_order, normalize_chord  # noqa: E402
 
 STATUSES = ("ok", "self_edge", "strict_cycle")
 EXPECTED_TOTALS = {
@@ -828,6 +832,35 @@ EXPECTED_LOW_SUPPORT_TERMINAL_EDIT_DISTANCE_AUDIT = {
         "same_block->not_legal": 2,
         "same_block->self_only": 4,
         "same_block->strict_only": 10,
+    },
+    "not_legal_opened_instance_count": 6,
+    "not_legal_opened_center_distribution": {
+        "2": 3,
+        "8": 3,
+    },
+    "not_legal_opened_center_orbit_distribution": {
+        "2,8": 6,
+    },
+    "not_legal_opened_changed_center_orbit_distribution": {
+        "2,8": 2,
+        "4,10": 2,
+        "5,11": 2,
+    },
+    "not_legal_opened_replacement_side_distribution": {
+        "opposite_block": 4,
+        "same_block": 2,
+    },
+    "not_legal_opened_paircross_profile_distribution": {
+        "before_paircross=0;after_paircross=7;after_valid=7": 2,
+        "before_paircross=0;after_paircross=8;after_valid=8": 4,
+    },
+    "not_legal_opened_before_changed_row_relation_distribution": {
+        "noncrossing_two_overlap": 44,
+        "three_or_more_overlap": 2,
+    },
+    "not_legal_opened_after_changed_row_relation_distribution": {
+        "crossing_two_overlap": 10,
+        "zero_or_one_overlap": 36,
     },
     "class_summary": {
         (
@@ -1773,6 +1806,88 @@ def _eighth_center_status_kind(status_counts: Mapping[str, int]) -> str:
     return "none"
 
 
+def _changed_row_relation(
+    changed_center: int,
+    opened_center: int,
+    changed_row: tuple[int, ...],
+    opened_row: tuple[int, ...],
+) -> str:
+    overlap = sorted(set(changed_row) & set(opened_row))
+    if len(overlap) <= 1:
+        return "zero_or_one_overlap"
+    if len(overlap) > 2:
+        return "three_or_more_overlap"
+    source = normalize_chord(changed_center, opened_center)
+    target = normalize_chord(overlap[0], overlap[1])
+    if chords_cross_in_order(source, target, list(range(N))):
+        return "crossing_two_overlap"
+    return "noncrossing_two_overlap"
+
+
+def _not_legal_opened_paircross_profile(
+    terminal: SevenState,
+    extendable: SevenState,
+    opened_center: int,
+    changed_center: int,
+    terminal_changed_row: tuple[int, ...],
+    extendable_changed_row: tuple[int, ...],
+    options: Mapping[int, list[tuple[int, ...]]],
+) -> dict[str, Any]:
+    assigned_before, pair_counts_before, indegrees_before = (
+        _initial_state_with_records(terminal)
+    )
+    assigned_after, pair_counts_after, indegrees_after = _initial_state_with_records(
+        extendable
+    )
+    center_options = options[opened_center]
+    before_paircross_rows = [
+        row
+        for row in center_options
+        if _paircross_ok(opened_center, row, assigned_before)
+    ]
+    after_paircross_rows = [
+        row
+        for row in center_options
+        if _paircross_ok(opened_center, row, assigned_after)
+    ]
+    after_valid_rows = [
+        row
+        for row in after_paircross_rows
+        if _pair_cap_ok(row, pair_counts_after)
+        and _indegree_ok(row, indegrees_after)
+    ]
+    before_valid_rows = [
+        row
+        for row in before_paircross_rows
+        if _pair_cap_ok(row, pair_counts_before)
+        and _indegree_ok(row, indegrees_before)
+    ]
+    return {
+        "before_paircross": len(before_paircross_rows),
+        "before_valid": len(before_valid_rows),
+        "after_paircross": len(after_paircross_rows),
+        "after_valid": len(after_valid_rows),
+        "before_changed_row_relations": Counter(
+            _changed_row_relation(
+                changed_center,
+                opened_center,
+                terminal_changed_row,
+                row,
+            )
+            for row in after_valid_rows
+        ),
+        "after_changed_row_relations": Counter(
+            _changed_row_relation(
+                changed_center,
+                opened_center,
+                extendable_changed_row,
+                row,
+            )
+            for row in after_valid_rows
+        ),
+    }
+
+
 def _state_replacement_distance(left: SevenState, right: SevenState) -> int:
     right_by_center = {center: row for center, row in right}
     return sum(
@@ -1836,8 +1951,16 @@ def _low_support_terminal_edit_distance_audit(
     opened_contains_replacement_label_counts: Counter[str] = Counter()
     changed_to_opened_center_orbit_counts: Counter[str] = Counter()
     replacement_side_to_opened_prior_status_counts: Counter[str] = Counter()
+    not_legal_opened_center_counts: Counter[int] = Counter()
+    not_legal_opened_center_orbit_counts: Counter[str] = Counter()
+    not_legal_opened_changed_center_orbit_counts: Counter[str] = Counter()
+    not_legal_opened_replacement_side_counts: Counter[str] = Counter()
+    not_legal_opened_paircross_profile_counts: Counter[str] = Counter()
+    not_legal_opened_before_relation_counts: Counter[str] = Counter()
+    not_legal_opened_after_relation_counts: Counter[str] = Counter()
     nearest_transition_count = 0
     opened_center_instance_count = 0
+    not_legal_opened_instance_count = 0
     class_summary: dict[str, dict[str, Any]] = {}
     by_terminal: list[dict[str, Any]] = []
     options = _options()
@@ -1946,10 +2069,50 @@ def _low_support_terminal_edit_distance_audit(
                     changed_to_opened_center_orbit_counts[
                         f"{changed_center_orbit}->{_center_orbit_key(opened_center)}"
                     ] += 1
+                    replacement_side = _replacement_side(
+                        center,
+                        removed_label,
+                        added_label,
+                    )
                     replacement_side_to_opened_prior_status_counts[
-                        f"{_replacement_side(center, removed_label, added_label)}"
-                        f"->{prior_status}"
+                        f"{replacement_side}->{prior_status}"
                     ] += 1
+                    if prior_status == "not_legal":
+                        not_legal_opened_instance_count += 1
+                        terminal_changed_row = dict(terminal)[center]
+                        extendable_changed_row = dict(extendable)[center]
+                        switch_profile = _not_legal_opened_paircross_profile(
+                            terminal,
+                            extendable,
+                            opened_center,
+                            center,
+                            terminal_changed_row,
+                            extendable_changed_row,
+                            options,
+                        )
+                        not_legal_opened_center_counts[opened_center] += 1
+                        not_legal_opened_center_orbit_counts[
+                            _center_orbit_key(opened_center)
+                        ] += 1
+                        not_legal_opened_changed_center_orbit_counts[
+                            changed_center_orbit
+                        ] += 1
+                        not_legal_opened_replacement_side_counts[
+                            replacement_side
+                        ] += 1
+                        not_legal_opened_paircross_profile_counts[
+                            "before_paircross="
+                            f"{switch_profile['before_paircross']};"
+                            "after_paircross="
+                            f"{switch_profile['after_paircross']};"
+                            f"after_valid={switch_profile['after_valid']}"
+                        ] += 1
+                        not_legal_opened_before_relation_counts.update(
+                            switch_profile["before_changed_row_relations"]
+                        )
+                        not_legal_opened_after_relation_counts.update(
+                            switch_profile["after_changed_row_relations"]
+                        )
                 opened_center_prior_status_by_transition[
                     ";".join(
                         f"{status}:{transition_prior_statuses[status]}"
@@ -2030,6 +2193,34 @@ def _low_support_terminal_edit_distance_audit(
         "replacement_side_to_opened_prior_status_distribution": {
             key: int(replacement_side_to_opened_prior_status_counts[key])
             for key in sorted(replacement_side_to_opened_prior_status_counts)
+        },
+        "not_legal_opened_instance_count": not_legal_opened_instance_count,
+        "not_legal_opened_center_distribution": _json_counter(
+            not_legal_opened_center_counts
+        ),
+        "not_legal_opened_center_orbit_distribution": {
+            key: int(not_legal_opened_center_orbit_counts[key])
+            for key in sorted(not_legal_opened_center_orbit_counts)
+        },
+        "not_legal_opened_changed_center_orbit_distribution": {
+            key: int(not_legal_opened_changed_center_orbit_counts[key])
+            for key in sorted(not_legal_opened_changed_center_orbit_counts)
+        },
+        "not_legal_opened_replacement_side_distribution": {
+            key: int(not_legal_opened_replacement_side_counts[key])
+            for key in sorted(not_legal_opened_replacement_side_counts)
+        },
+        "not_legal_opened_paircross_profile_distribution": {
+            key: int(not_legal_opened_paircross_profile_counts[key])
+            for key in sorted(not_legal_opened_paircross_profile_counts)
+        },
+        "not_legal_opened_before_changed_row_relation_distribution": {
+            key: int(not_legal_opened_before_relation_counts[key])
+            for key in sorted(not_legal_opened_before_relation_counts)
+        },
+        "not_legal_opened_after_changed_row_relation_distribution": {
+            key: int(not_legal_opened_after_relation_counts[key])
+            for key in sorted(not_legal_opened_after_relation_counts)
         },
         "class_summary": class_summary,
         "by_terminal": by_terminal,
