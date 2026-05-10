@@ -898,6 +898,16 @@ EXPECTED_LOW_SUPPORT_TERMINAL_EDIT_DISTANCE_AUDIT = {
     "not_legal_opened_noncrossing_substitution_arc_distribution": {
         "candidate_contains_added:opposite_source_arcs->crossing_two_overlap": 8,
     },
+    "not_legal_opened_substitution_layer_arc_distribution": {
+        "after_paircross:candidate_contains_added:"
+        "opposite_source_arcs->crossing_two_overlap": 8,
+        "after_valid:candidate_contains_added:"
+        "opposite_source_arcs->crossing_two_overlap": 8,
+        "all_options:candidate_contains_added:"
+        "opposite_source_arcs->crossing_two_overlap": 36,
+        "all_options:candidate_contains_added:"
+        "same_source_arc->noncrossing_two_overlap": 60,
+    },
     "not_legal_opened_noncrossing_substitution_target_distribution": {
         "2,10:3,5->1,5": 3,
         "2,10:3,6->1,6": 1,
@@ -1978,9 +1988,38 @@ def _not_legal_opened_paircross_profile(
     three_or_more_switches: Counter[str] = Counter()
     crossing_creation_mechanisms: Counter[str] = Counter()
     noncrossing_substitution_arcs: Counter[str] = Counter()
+    substitution_layer_arcs: Counter[str] = Counter()
     noncrossing_substitution_targets: Counter[str] = Counter()
     noncrossing_deletion_targets: Counter[str] = Counter()
     three_or_more_deletion_targets: Counter[str] = Counter()
+    after_paircross_row_set = set(after_paircross_rows)
+    after_valid_row_set = set(after_valid_rows)
+    for row in center_options:
+        before_relation = _changed_row_relation(
+            changed_center,
+            opened_center,
+            terminal_changed_row,
+            row,
+        )
+        if before_relation != "noncrossing_two_overlap" or added_label not in row:
+            continue
+        before_overlap = tuple(sorted(set(terminal_changed_row) & set(row)))
+        if removed_label not in before_overlap:
+            continue
+        after_relation = _changed_row_relation(
+            changed_center,
+            opened_center,
+            extendable_changed_row,
+            row,
+        )
+        survivor = next(label for label in before_overlap if label != removed_label)
+        side_relation = _source_side_relation(source, survivor, added_label)
+        layer_key = f"candidate_contains_added:{side_relation}->{after_relation}"
+        substitution_layer_arcs[f"all_options:{layer_key}"] += 1
+        if row in after_paircross_row_set:
+            substitution_layer_arcs[f"after_paircross:{layer_key}"] += 1
+        if row in after_valid_row_set:
+            substitution_layer_arcs[f"after_valid:{layer_key}"] += 1
     for row in after_valid_rows:
         before_relation = _changed_row_relation(
             changed_center,
@@ -2080,6 +2119,7 @@ def _not_legal_opened_paircross_profile(
         "three_or_more_switches": three_or_more_switches,
         "crossing_creation_mechanisms": crossing_creation_mechanisms,
         "noncrossing_substitution_arcs": noncrossing_substitution_arcs,
+        "substitution_layer_arcs": substitution_layer_arcs,
         "noncrossing_substitution_targets": noncrossing_substitution_targets,
         "noncrossing_deletion_targets": noncrossing_deletion_targets,
         "three_or_more_deletion_targets": three_or_more_deletion_targets,
@@ -2163,6 +2203,7 @@ def _low_support_terminal_edit_distance_audit(
     not_legal_opened_three_or_more_switch_counts: Counter[str] = Counter()
     not_legal_opened_crossing_creation_mechanism_counts: Counter[str] = Counter()
     not_legal_opened_noncrossing_substitution_arc_counts: Counter[str] = Counter()
+    not_legal_opened_substitution_layer_arc_counts: Counter[str] = Counter()
     not_legal_opened_noncrossing_substitution_target_counts: Counter[str] = Counter()
     not_legal_opened_noncrossing_deletion_target_counts: Counter[str] = Counter()
     not_legal_opened_three_or_more_deletion_target_counts: Counter[str] = Counter()
@@ -2344,6 +2385,9 @@ def _low_support_terminal_edit_distance_audit(
                         not_legal_opened_noncrossing_substitution_arc_counts.update(
                             switch_profile["noncrossing_substitution_arcs"]
                         )
+                        not_legal_opened_substitution_layer_arc_counts.update(
+                            switch_profile["substitution_layer_arcs"]
+                        )
                         not_legal_opened_noncrossing_substitution_target_counts.update(
                             switch_profile["noncrossing_substitution_targets"]
                         )
@@ -2489,6 +2533,10 @@ def _low_support_terminal_edit_distance_audit(
         "not_legal_opened_noncrossing_substitution_arc_distribution": {
             key: int(not_legal_opened_noncrossing_substitution_arc_counts[key])
             for key in sorted(not_legal_opened_noncrossing_substitution_arc_counts)
+        },
+        "not_legal_opened_substitution_layer_arc_distribution": {
+            key: int(not_legal_opened_substitution_layer_arc_counts[key])
+            for key in sorted(not_legal_opened_substitution_layer_arc_counts)
         },
         "not_legal_opened_noncrossing_substitution_target_distribution": {
             key: int(not_legal_opened_noncrossing_substitution_target_counts[key])

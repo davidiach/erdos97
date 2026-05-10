@@ -551,6 +551,24 @@ witness with the changed row. The `2` three-or-more cases are a second
 crossing-creation mechanism: deleting the removed endpoint leaves the crossing
 target `1,7` across source `2,8`.
 
+This opposite-arc conclusion is forced by the pair/cross gate, not by raw row
+availability alone. In general, suppose a one-witness replacement changes row
+`R` to `R' = R - {r} + {a}`, an opened candidate row `Q` has old overlap
+`R cap Q = {r,s}`, and `Q` contains the added endpoint `a`. Then
+`R' cap Q = {a,s}`. If `a` and `s` lie in the same source arc of the chord
+joining the changed center to the opened center, the new target chord
+`{a,s}` is noncrossing. Since after-valid rows have already passed the
+pair/cross gate against `R'`, this same-arc substitution is impossible in the
+after-valid layer. The exact audit records the boundary:
+
+```text
+substitution layer and arc relation                         candidate rows
+all options, same source arc -> noncrossing two-overlap      60
+all options, opposite source arcs -> crossing two-overlap    36
+after pair/cross, opposite source arcs -> crossing two-overlap 8
+after valid, opposite source arcs -> crossing two-overlap      8
+```
+
 For example, the terminal state
 
 ```text
