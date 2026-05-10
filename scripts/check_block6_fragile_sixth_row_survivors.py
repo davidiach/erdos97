@@ -766,6 +766,69 @@ EXPECTED_LOW_SUPPORT_TERMINAL_EDIT_DISTANCE_AUDIT = {
         "10": 2,
         "13": 2,
     },
+    "opened_center_instance_count": 88,
+    "opened_center_distribution": {
+        "1": 4,
+        "2": 23,
+        "4": 15,
+        "5": 2,
+        "7": 4,
+        "8": 23,
+        "10": 15,
+        "11": 2,
+    },
+    "opened_center_orbit_distribution": {
+        "1,7": 8,
+        "2,8": 46,
+        "4,10": 30,
+        "5,11": 4,
+    },
+    "opened_center_prior_status_distribution": {
+        "mixed": 30,
+        "not_legal": 6,
+        "self_only": 30,
+        "strict_only": 22,
+    },
+    "opened_center_prior_status_by_transition": {
+        "mixed:1": 6,
+        "mixed:1;not_legal:1": 4,
+        "mixed:1;self_only:1": 4,
+        "mixed:1;strict_only:1": 10,
+        "mixed:1;strict_only:2": 2,
+        "mixed:2": 2,
+        "not_legal:1;self_only:1;strict_only:1": 2,
+        "self_only:1": 18,
+        "self_only:1;strict_only:1": 2,
+        "self_only:2": 2,
+        "strict_only:1": 4,
+    },
+    "opened_contains_replacement_label_distribution": {
+        "added_opened": 4,
+        "neither_opened": 48,
+        "removed_opened": 4,
+    },
+    "changed_to_opened_center_orbit_distribution": {
+        "2,8->1,7": 2,
+        "2,8->2,8": 6,
+        "2,8->4,10": 12,
+        "2,8->5,11": 2,
+        "4,10->2,8": 6,
+        "4,10->4,10": 4,
+        "4,10->5,11": 2,
+        "5,11->1,7": 6,
+        "5,11->2,8": 34,
+        "5,11->4,10": 14,
+    },
+    "replacement_side_to_opened_prior_status_distribution": {
+        "opposite_block->mixed": 18,
+        "opposite_block->not_legal": 4,
+        "opposite_block->self_only": 26,
+        "opposite_block->strict_only": 12,
+        "same_block->mixed": 12,
+        "same_block->not_legal": 2,
+        "same_block->self_only": 4,
+        "same_block->strict_only": 10,
+    },
     "class_summary": {
         (
             "2,10,11|same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
@@ -1696,6 +1759,20 @@ def _replacement_side(center: int, removed: int, added: int) -> str:
     return removed_side
 
 
+def _eighth_center_status_kind(status_counts: Mapping[str, int]) -> str:
+    if status_counts["ok"] > 0:
+        return "ok"
+    has_self_edge = status_counts["self_edge"] > 0
+    has_strict_cycle = status_counts["strict_cycle"] > 0
+    if has_self_edge and has_strict_cycle:
+        return "mixed"
+    if has_self_edge:
+        return "self_only"
+    if has_strict_cycle:
+        return "strict_only"
+    return "none"
+
+
 def _state_replacement_distance(left: SevenState, right: SevenState) -> int:
     right_by_center = {center: row for center, row in right}
     return sum(
@@ -1752,7 +1829,15 @@ def _low_support_terminal_edit_distance_audit(
     replacement_side_counts: Counter[str] = Counter()
     extendable_ok_center_counts: Counter[int] = Counter()
     extendable_ok_row_counts: Counter[int] = Counter()
+    opened_center_counts: Counter[int] = Counter()
+    opened_center_orbit_counts: Counter[str] = Counter()
+    opened_center_prior_status_counts: Counter[str] = Counter()
+    opened_center_prior_status_by_transition: Counter[str] = Counter()
+    opened_contains_replacement_label_counts: Counter[str] = Counter()
+    changed_to_opened_center_orbit_counts: Counter[str] = Counter()
+    replacement_side_to_opened_prior_status_counts: Counter[str] = Counter()
     nearest_transition_count = 0
+    opened_center_instance_count = 0
     class_summary: dict[str, dict[str, Any]] = {}
     by_terminal: list[dict[str, Any]] = []
     options = _options()
@@ -1764,6 +1849,11 @@ def _low_support_terminal_edit_distance_audit(
             raise AssertionError(f"terminal class has no extendable state: {key}")
         class_distances = []
         for terminal in entry["terminal"]:
+            terminal_eighth_counts = _state_eighth_center_counts(terminal, options)
+            terminal_prior_status_by_center = {
+                int(center): _eighth_center_status_kind(status_counts)
+                for center, status_counts in terminal_eighth_counts.items()
+            }
             distances = [
                 (_state_replacement_distance(terminal, extendable), extendable)
                 for extendable in entry["extendable"]
@@ -1820,6 +1910,52 @@ def _low_support_terminal_edit_distance_audit(
                 )
                 extendable_ok_center_counts[ok_center_count] += 1
                 extendable_ok_row_counts[ok_row_count] += 1
+                opened_centers = [
+                    int(center)
+                    for center, status_counts in sorted(
+                        extendable_eighth_counts.items(),
+                        key=lambda item: int(item[0]),
+                    )
+                    if status_counts["ok"] > 0
+                ]
+                opened_center_instance_count += len(opened_centers)
+                relation_parts = []
+                if added_label in opened_centers:
+                    relation_parts.append("added_opened")
+                if removed_label in opened_centers:
+                    relation_parts.append("removed_opened")
+                if not relation_parts:
+                    relation_parts.append("neither_opened")
+                opened_contains_replacement_label_counts[
+                    "+".join(relation_parts)
+                ] += 1
+
+                transition_prior_statuses: Counter[str] = Counter()
+                changed_center_orbit = _center_orbit_key(center)
+                for opened_center in opened_centers:
+                    prior_status = terminal_prior_status_by_center.get(
+                        opened_center,
+                        "not_legal",
+                    )
+                    opened_center_counts[opened_center] += 1
+                    opened_center_orbit_counts[
+                        _center_orbit_key(opened_center)
+                    ] += 1
+                    opened_center_prior_status_counts[prior_status] += 1
+                    transition_prior_statuses[prior_status] += 1
+                    changed_to_opened_center_orbit_counts[
+                        f"{changed_center_orbit}->{_center_orbit_key(opened_center)}"
+                    ] += 1
+                    replacement_side_to_opened_prior_status_counts[
+                        f"{_replacement_side(center, removed_label, added_label)}"
+                        f"->{prior_status}"
+                    ] += 1
+                opened_center_prior_status_by_transition[
+                    ";".join(
+                        f"{status}:{transition_prior_statuses[status]}"
+                        for status in sorted(transition_prior_statuses)
+                    )
+                ] += 1
 
             by_terminal.append(
                 {
@@ -1869,6 +2005,32 @@ def _low_support_terminal_edit_distance_audit(
         "extendable_ok_row_count_distribution": _json_counter(
             extendable_ok_row_counts
         ),
+        "opened_center_instance_count": opened_center_instance_count,
+        "opened_center_distribution": _json_counter(opened_center_counts),
+        "opened_center_orbit_distribution": {
+            key: int(opened_center_orbit_counts[key])
+            for key in sorted(opened_center_orbit_counts)
+        },
+        "opened_center_prior_status_distribution": {
+            key: int(opened_center_prior_status_counts[key])
+            for key in sorted(opened_center_prior_status_counts)
+        },
+        "opened_center_prior_status_by_transition": {
+            key: int(opened_center_prior_status_by_transition[key])
+            for key in sorted(opened_center_prior_status_by_transition)
+        },
+        "opened_contains_replacement_label_distribution": {
+            key: int(opened_contains_replacement_label_counts[key])
+            for key in sorted(opened_contains_replacement_label_counts)
+        },
+        "changed_to_opened_center_orbit_distribution": {
+            key: int(changed_to_opened_center_orbit_counts[key])
+            for key in sorted(changed_to_opened_center_orbit_counts)
+        },
+        "replacement_side_to_opened_prior_status_distribution": {
+            key: int(replacement_side_to_opened_prior_status_counts[key])
+            for key in sorted(replacement_side_to_opened_prior_status_counts)
+        },
         "class_summary": class_summary,
         "by_terminal": by_terminal,
     }

@@ -22947,6 +22947,163 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 653 - Block-6 Opened-center Transition Audit
+
+### Mathematical Subquestion
+
+Cycle 652 classified the nearest one-replacement terminal-to-extendable
+transitions in the low-support block-6 branch. The next precise question was:
+
+```text
+For each nearest transition, which previously obstructed or not-legal eighth
+centers become clean, and is the opened clean center simply the added or
+removed replacement label?
+```
+
+### Definitions and Assumptions
+
+Use the same finite branch, terminal clean seven-row states, same-class
+extendable states, and nearest transitions as Cycles 651 and 652. An
+**opened clean eighth center** for a nearest transition `(T,E)` is an eighth
+center with at least one clean eighth-row extension after `E`.
+
+For the corresponding terminal state `T`, the center's prior status is:
+
+- `self_only`: legal eighth rows existed at that center, and all failed by
+  quotient self-edge.
+- `strict_only`: legal eighth rows existed at that center, and all failed by
+  strict cycle.
+- `mixed`: legal eighth rows existed at that center, with both failure types.
+- `not_legal`: no legal eighth row at that center was present for `T`.
+
+The replacement-label relation records whether an opened center is the added
+label, the removed label, or neither.
+
+### Result Status
+
+Exact finite audit:
+**Block-6 Opened-center Transition Audit**.
+
+### Argument Or Obstruction
+
+Across the `56` nearest one-replacement transitions, the extendable states
+open `88` clean eighth-center incidences. The number of opened centers per
+transition is the same split as Cycle 652:
+
+```text
+opened clean eighth centers  nearest transitions
+1                            28
+2                            24
+3                            4
+```
+
+The opened-center block-swap orbit distribution is:
+
+```text
+opened center orbit  incidences
+1,7                  8
+2,8                  46
+4,10                 30
+5,11                 4
+```
+
+Relative to the terminal state before replacement, the opened centers had
+these prior statuses:
+
+```text
+prior status  incidences
+self_only     30
+mixed         30
+strict_only   22
+not_legal     6
+```
+
+The replacement-label relation is:
+
+```text
+relation        nearest transitions
+added_opened    4
+removed_opened  4
+neither_opened  48
+```
+
+Thus the most direct candidate explanation fails: in `48` of the `56`
+nearest transitions, no opened clean eighth center is the added or removed
+witness label. Also, `6` opened centers were not legal eighth centers before
+the replacement, so the transition can change the legal-center set itself and
+not merely remove a prior self-edge or strict-cycle obstruction at an already
+legal center.
+
+### Exact Scope
+
+This is an exact finite audit inside the low-support two-block block-6
+natural-order selected-row extension tree. It covers the `56` nearest
+same-class terminal-to-extendable transitions from the `12` terminal clean
+seven-row states and the `88` opened clean eighth-center incidences after
+those transitions. It is not a Euclidean realizability result, is not a proof
+of Erdos Problem #97, and is not a counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+The audit rules out a simple "the replacement opens its own label" lemma and
+also rules out a proof route that only tracks the previous obstruction kind at
+already legal eighth centers. The next invariant must see how the row
+replacement changes boundary-pair placement, center legality, and quotient
+self-edge or strict-cycle formation together.
+
+### Next Lead
+
+Inspect exact quotient paths for the `6` transitions that open `not_legal`
+centers, then compare them with the `self_only`, `mixed`, and `strict_only`
+openings. A useful next lemma would isolate a boundary-pair or cyclic-order
+sign condition that predicts when a one-row replacement changes center
+legality rather than only changing obstruction type.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-653`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-653`.
+- The branch was started from `origin/main` at commit
+  `d480d8c19dbf23dcebdff070b729658794839bb9`, after PR #375 merged Cycle
+  652.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_block6_fragile_sixth_row_survivors.py --assert-expected
+  --json`: passed; reported `56` nearest transitions and `88` opened
+  clean eighth-center incidences.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `542 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 652 - Block-6 Nearest-transition Signatures
 
 ### Mathematical Subquestion

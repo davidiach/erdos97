@@ -258,6 +258,30 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
         "10": 2,
         "13": 2,
     }
+    assert edit_distance_audit["opened_center_instance_count"] == 88
+    assert edit_distance_audit["opened_center_orbit_distribution"] == {
+        "1,7": 8,
+        "2,8": 46,
+        "4,10": 30,
+        "5,11": 4,
+    }
+    assert edit_distance_audit["opened_center_prior_status_distribution"] == {
+        "mixed": 30,
+        "not_legal": 6,
+        "self_only": 30,
+        "strict_only": 22,
+    }
+    assert edit_distance_audit["opened_contains_replacement_label_distribution"] == {
+        "added_opened": 4,
+        "neither_opened": 48,
+        "removed_opened": 4,
+    }
+    assert edit_distance_audit["changed_to_opened_center_orbit_distribution"][
+        "5,11->2,8"
+    ] == 34
+    assert edit_distance_audit[
+        "replacement_side_to_opened_prior_status_distribution"
+    ]["opposite_block->self_only"] == 26
     assert edit_distance_audit["changed_row_count_distribution_for_first_nearest"] == {
         "1": 12
     }
