@@ -78,7 +78,7 @@ repo-local facts with speculative or vague lemmas. In particular:
 
 - it describes `docs/n8-geometric-proof.md` as though it were the incidence
   enumeration certificate, but that file is a separate proof-note draft using
-  a base-apex/isoceles-triangle count;
+  a base-apex/isosceles-triangle count;
 - its alternation, cap, and extraction claims are not stated at the precision
   required by `docs/claims.md`;
 - the proposed large-to-8 extraction lemma is open and should not be presented
