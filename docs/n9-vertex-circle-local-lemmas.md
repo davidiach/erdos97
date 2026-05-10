@@ -497,6 +497,38 @@ It does not independently prove that the template packets cover all `n=9`
 frontier assignments, and it does not promote the review-pending exhaustive
 checker.
 
+## Second-source packet replay audit
+
+The companion checker
+`scripts/check_n9_vertex_circle_local_lemma_simple_replay.py` performs a
+smaller packet-level replay that deliberately does not call the quotient-replay
+helper used by the aggregate scan. Instead it reads only the stored self-edge
+and strict-cycle template packets and checks:
+
+```text
+self-edge records:   selected-row equality path + nested interval strict edge
+strict-cycle records: each strict edge + equality path to the next outer pair
+coverage counts:     13 self-edge families and 3 strict-cycle families
+```
+
+For a self-edge family, the replay verifies that every equality-path step is a
+selected-distance equality in the named row, that the stored outer and inner
+pairs are the endpoints of nested intervals in the row's cyclic witness order,
+and that the equality path identifies the strict inequality's outer and inner
+pairs. Thus the stored record itself describes a reflexive strict edge.
+
+For a strict-cycle family, the replay verifies each stored strict inequality in
+the same interval-containment way and checks that the selected-distance path
+from each inner pair ends at the next strict edge's outer pair, including the
+last-to-first closure.
+
+This is a consistency audit of stored local packet records, not an independent
+enumeration of the `n=9` frontier. A passing audit means the packet records
+contain enough local data to replay their contradictions without sharing the
+main quotient helper; it does not certify that the packet family list is
+complete, and it does not change the review-pending status of the exhaustive
+checker.
+
 ## Scan summary
 
 The current local-lemma scan covers these review-pending template-packet
