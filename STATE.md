@@ -118,6 +118,13 @@ while `151:8` has singleton supports that split endpoints `5` and `7`. This
 is diagnostic bookkeeping only, not a theorem that the missing endpoints are
 forced. See `docs/bootstrap-t12-hard-strict-endpoints.md`.
 
+An open connector-pair subpacket now isolates row `151:5`. Its stored
+equality connector needs outside pair `[7,8]`; the deletion closure for core
+vertex `2` sees only endpoint `7`, and singleton supports `7` and `8` split
+the pair one endpoint at a time. This is diagnostic bookkeeping only, not a
+theorem that the connector endpoints or row are forced. See
+`docs/bootstrap-t12-open-connector-pair.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

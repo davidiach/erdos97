@@ -2155,6 +2155,59 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_open_connector_pair
+    path: data/certificates/bootstrap_t12_open_connector_pair.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_open_connector_pair.py
+    command: python scripts/check_bootstrap_t12_open_connector_pair.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_open_connector_pair.py
+    check_command: python scripts/check_bootstrap_t12_open_connector_pair.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Open connector-pair diagnostic for the two tight n=9 bootstrap-core rows; not a proof that endpoints or missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_open_connector_pair.v1
+      status: BOOTSTRAP_T12_OPEN_CONNECTOR_PAIR_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.source_record_ids:
+        - 151
+      summary.open_connector_row_count: 1
+      summary.row_centers_by_source_id.151:
+        - 5
+      summary.open_connector_requirement_ids:
+        - "151:5:connector:1:0"
+      summary.open_connector_gap_type_counts.SINGLETON_SUPPORTS_SPLIT_CONNECTOR_PAIR: 1
+      summary.missing_connector_endpoint_label_counts.7: 1
+      summary.missing_connector_endpoint_label_counts.8: 1
+      summary.closure_sufficient_requirement_count: 0
+      summary.support_sufficient_requirement_count: 0
+      summary.partial_closure_count: 1
+      summary.partial_support_count: 2
+      summary.support_evaluation_status_counts.PARTIAL: 2
+      summary.closure_evaluation_status_counts.DISJOINT: 3
+      summary.closure_evaluation_status_counts.PARTIAL: 1
+      summary.split_singleton_partial_rows:
+        - "151:5"
+      summary.forcing_target_status: OPEN_TARGET_NOT_PROVED
+      provenance.generator: scripts/check_bootstrap_t12_open_connector_pair.py
+      provenance.command: python scripts/check_bootstrap_t12_open_connector_pair.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - connector endpoints are forced
+      - open connector pairs are forced
+      - partial closure exposure proves a connector pair
+      - singleton support proves connector pair forcing
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_row_pressure
     path: data/certificates/bootstrap_t12_row_pressure.json
     kind: proof_mining_diagnostic_artifact

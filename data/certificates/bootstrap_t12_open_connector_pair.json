@@ -1,0 +1,294 @@
+{
+  "claim_scope": "Open connector-pair diagnostic for the two tight n=9 bootstrap/T12 records; isolates the equality-connector pair requirement that remains unmet after bootstrap-core, support, and deletion-closure checks. This does not prove that the missing row or connector endpoints are forced, does not prove n=9, does not prove the bridge, and does not claim a counterexample.",
+  "interpretation_warnings": [
+    "This packet isolates a fixed selected-row equality-connector pair gap; it does not prove endpoints or rows are forced.",
+    "Singleton or deletion-closure partial visibility is bookkeeping, not a Euclidean rich-class certificate.",
+    "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_open_connector_pair.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_open_connector_pair.py"
+  },
+  "records": [
+    {
+      "bootstrap_core_witnesses": [
+        2,
+        4
+      ],
+      "bridge_lemma_target": "Explain how a singleton-activated row can also supply both outside endpoints of its equality-connector pair.",
+      "classification_assignment_id": "A152",
+      "closure_evaluations": [
+        {
+          "activation_ready_in_closure": false,
+          "available_required_witnesses": [],
+          "core_vertex": 0,
+          "missing_required_witnesses": [
+            7,
+            8
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "status": "DISJOINT"
+        },
+        {
+          "activation_ready_in_closure": false,
+          "available_required_witnesses": [],
+          "core_vertex": 1,
+          "missing_required_witnesses": [
+            7,
+            8
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "status": "DISJOINT"
+        },
+        {
+          "activation_ready_in_closure": false,
+          "available_required_witnesses": [
+            7
+          ],
+          "core_vertex": 2,
+          "missing_required_witnesses": [
+            8
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "status": "PARTIAL"
+        },
+        {
+          "activation_ready_in_closure": false,
+          "available_required_witnesses": [],
+          "core_vertex": 4,
+          "missing_required_witnesses": [
+            7,
+            8
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "status": "DISJOINT"
+        }
+      ],
+      "closure_sufficient_count": 0,
+      "connector_requirement_id": "151:5:connector:1:0",
+      "from_pair": [
+        5,
+        7
+      ],
+      "missing_connector_endpoint_count": 2,
+      "missing_from_bootstrap_core": [
+        7,
+        8
+      ],
+      "non_required_row_witnesses": [
+        2,
+        4
+      ],
+      "open_connector_gap_type": "SINGLETON_SUPPORTS_SPLIT_CONNECTOR_PAIR",
+      "outside_witnesses": [
+        7,
+        8
+      ],
+      "partial_closure_count": 1,
+      "partial_closures": [
+        {
+          "activation_ready_in_closure": false,
+          "available_required_witnesses": [
+            7
+          ],
+          "core_vertex": 2,
+          "missing_required_witnesses": [
+            8
+          ],
+          "row_center_in_closure": false,
+          "row_exposed_in_closure": false,
+          "status": "PARTIAL"
+        }
+      ],
+      "partial_support_count": 2,
+      "partial_supports": [
+        {
+          "available_required_witnesses": [
+            7
+          ],
+          "ledger_private_pair_hit": false,
+          "missing_required_witnesses": [
+            8
+          ],
+          "private_halo_core_vertices": [
+            0,
+            1,
+            4
+          ],
+          "status": "PARTIAL",
+          "support": [
+            7
+          ]
+        },
+        {
+          "available_required_witnesses": [
+            8
+          ],
+          "ledger_private_pair_hit": false,
+          "missing_required_witnesses": [
+            7
+          ],
+          "private_halo_core_vertices": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "status": "PARTIAL",
+          "support": [
+            8
+          ]
+        }
+      ],
+      "path_index": 0,
+      "pressure_class": "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER",
+      "required_witnesses": [
+        7,
+        8
+      ],
+      "requirement_size": 2,
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 5,
+      "row_target_status": "SINGLETON_ROW_OPEN_CONNECTOR_PAIR",
+      "source_record_id": 151,
+      "step_index": 1,
+      "support_evaluations": [
+        {
+          "available_required_witnesses": [
+            7
+          ],
+          "ledger_private_pair_hit": false,
+          "missing_required_witnesses": [
+            8
+          ],
+          "private_halo_core_vertices": [
+            0,
+            1,
+            4
+          ],
+          "status": "PARTIAL",
+          "support": [
+            7
+          ]
+        },
+        {
+          "available_required_witnesses": [
+            8
+          ],
+          "ledger_private_pair_hit": false,
+          "missing_required_witnesses": [
+            7
+          ],
+          "private_halo_core_vertices": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "status": "PARTIAL",
+          "support": [
+            8
+          ]
+        }
+      ],
+      "support_packet_summary": {
+        "ledger_private_pair_support_hit_count": 0,
+        "private_halo_containment_counts": [
+          3,
+          4
+        ],
+        "support_label_modes": [
+          "INTERNAL_TO_ONE_DELETION_CLOSURE",
+          "PRIVATE_IN_ALL_DELETION_HALOS"
+        ],
+        "support_labels": [
+          7,
+          8
+        ],
+        "support_packet": "bootstrap_t12_one_outside"
+      },
+      "support_sufficient_count": 0,
+      "to_pair": [
+        5,
+        8
+      ],
+      "witnesses": [
+        2,
+        4,
+        7,
+        8
+      ]
+    }
+  ],
+  "schema": "erdos97.bootstrap_t12_open_connector_pair.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_t12_activation_requirements.json",
+      "role": "source equality-connector pair requirements and evaluations",
+      "schema": "erdos97.bootstrap_t12_activation_requirements.v1",
+      "status": "BOOTSTRAP_T12_ACTIVATION_REQUIREMENTS_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/bootstrap_t12_bridge_target_map.json",
+      "role": "source open connector row target and bridge obligation",
+      "schema": "erdos97.bootstrap_t12_bridge_target_map.v1",
+      "status": "BOOTSTRAP_T12_BRIDGE_TARGET_MAP_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_OPEN_CONNECTOR_PAIR_DIAGNOSTIC_ONLY",
+  "summary": {
+    "closure_evaluation_status_counts": {
+      "DISJOINT": 3,
+      "PARTIAL": 1
+    },
+    "closure_sufficient_requirement_count": 0,
+    "forcing_target_status": "OPEN_TARGET_NOT_PROVED",
+    "missing_connector_endpoint_label_counts": {
+      "7": 1,
+      "8": 1
+    },
+    "next_bridge_question": "Can a singleton-activated row be forced to carry both outside endpoints of an equality-connector pair, rather than only one endpoint at a time?",
+    "open_connector_gap_type_counts": {
+      "SINGLETON_SUPPORTS_SPLIT_CONNECTOR_PAIR": 1
+    },
+    "open_connector_requirement_ids": [
+      "151:5:connector:1:0"
+    ],
+    "open_connector_row_count": 1,
+    "partial_closure_count": 1,
+    "partial_support_count": 2,
+    "pressure_class_counts": {
+      "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER": 1
+    },
+    "role_counts": {
+      "equality_connector_row": 1
+    },
+    "row_centers_by_source_id": {
+      "151": [
+        5
+      ]
+    },
+    "row_target_status_counts": {
+      "SINGLETON_ROW_OPEN_CONNECTOR_PAIR": 1
+    },
+    "source_record_ids": [
+      151
+    ],
+    "split_singleton_partial_rows": [
+      "151:5"
+    ],
+    "support_evaluation_status_counts": {
+      "PARTIAL": 2
+    },
+    "support_sufficient_requirement_count": 0
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}
