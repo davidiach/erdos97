@@ -44,6 +44,13 @@ from exact critical 4-ties. This is necessary structure only; the block-6
 abstract family shows that fragile-cover hypergraph constraints alone are too
 weak. See `docs/minimal-fragile-cover-bridge.md`.
 
+A separate rich-triple closure bridge records that ear-orderability is
+equivalent to bootstrap rank at most 3. Failure of that rank condition yields
+inclusion-minimal generating cores with deletion closures, private halos, and a
+weighted cyclic outside-pair capacity ledger. This is still only bridge
+bookkeeping, not a contradiction or counterexample. See
+`docs/bootstrap-core-bridge.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

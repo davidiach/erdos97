@@ -51,6 +51,8 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For a partial bridge theorem from minimality to fragile-cover witness
   systems, read
   [`docs/minimal-fragile-cover-bridge.md`](docs/minimal-fragile-cover-bridge.md).
+- For the rich-triple closure / bootstrap-core bridge fork, read
+  [`docs/bootstrap-core-bridge.md`](docs/bootstrap-core-bridge.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).

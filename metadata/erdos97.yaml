@@ -148,6 +148,11 @@ local_repo:
       status: "proved necessary structure for a minimal counterexample"
       document: "docs/minimal-fragile-cover-bridge.md"
       claim_scope: "partial bridge theorem only; not a contradiction, not the open ear-orderable bridge, and not a proof of Erdos #97"
+    - name: "bootstrap_core_bridge"
+      status: "proved rich-triple closure rank and weighted private-halo capacity bridge fork"
+      document: "docs/bootstrap-core-bridge.md"
+      verifier: "scripts/check_bootstrap_core_bridge.py"
+      claim_scope: "bridge bookkeeping only; not a contradiction, not a counterexample, and not a proof of Erdos #97"
   best_numerical_object: "B12_3x4_danzer_lift near-miss; rejected as proof/counterexample."
   main_entry_points:
     - "STATE.md"

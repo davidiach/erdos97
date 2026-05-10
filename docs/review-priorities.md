@@ -298,6 +298,9 @@ condition that the surviving multi-block family does not automatically satisfy:
 - adaptive radius-blocker analysis, as recorded in
   `docs/adaptive-radius-blocker-bridge.md`, which keeps all rich distance
   classes visible instead of fixing one selected row per center.
+- bootstrap-core/private-halo analysis, as recorded in
+  `docs/bootstrap-core-bridge.md`, which adds a `rho > 3` closure-rank witness,
+  deletion closures, and weighted cyclic outside-pair capacity.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract
