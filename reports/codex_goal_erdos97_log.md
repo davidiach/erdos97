@@ -22947,6 +22947,150 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 634 - Vertex-circle Partial-pruning Monotonicity Audit
+
+### Mathematical Subquestion
+
+After Cycle 633 isolated the minimum-remaining-options row-order heuristic,
+the next frontier-soundness question was:
+
+Once a partial `n=9` selected-witness assignment already has a vertex-circle
+quotient self-edge or directed strict cycle, can later selected rows repair
+that obstruction, or is the partial prune monotone?
+
+### Definitions and Assumptions
+
+Let `A` be a partial selected-witness assignment and `B` an extension of `A`.
+The selected rows of `A` generate an equivalence relation `~_A` on ordinary
+unordered vertex pairs by identifying the selected distances in each row. The
+extension `B` generates `~_B`.
+
+The strict graph has directed edges between selected-distance classes induced
+by vertex-circle strict chord containment in assigned rows.
+
+This cycle assumes the selected-row equalities and vertex-circle strict edges
+are valid necessary conditions. It audits only whether an already-detected
+quotient-graph contradiction can disappear after adding rows.
+
+### Result Status
+
+Proved conditional pruning lemma:
+**Vertex-circle Partial-pruning Monotonicity Lemma**.
+
+If a partial assignment has status `self_edge` or `strict_cycle`, then every
+extension has status `self_edge` or `strict_cycle` after recomputing the
+selected-distance quotient and strict graph.
+
+### Argument
+
+Adding rows only adds equality identifications, so `~_B` is coarser than
+`~_A`. Adding rows also only adds vertex-circle strict edges; it does not
+remove strict edges from rows already present in `A`.
+
+If `A` has a self-edge, some strict edge `p > q` satisfies `p ~_A q`. Since
+`~_B` is coarser, `p ~_B q`; the same strict edge is still present, so `B`
+has a self-edge.
+
+If `A` has a directed strict cycle among `~_A`-classes, map the classes in
+that cycle to their `~_B`-classes. The image is a closed directed walk in the
+`B` quotient graph. If any edge collapses to one `~_B`-class, `B` has a
+self-edge. Otherwise the closed directed walk has length at least two and
+contains a directed cycle. Thus `B` has a strict-cycle obstruction.
+
+### Exact Code-shape Audit
+
+The one-off static audit over
+`src/erdos97/n9_vertex_circle_exhaustive.py` reported:
+
+```text
+vertex_circle_status lines: 192-226
+self_edge return present: true
+strict_cycle return present: true
+uf union selected pairs present: true
+strict edges from assigned rows present: true
+partial prune call present: true
+```
+
+The inspected source recomputes the union-find quotient from currently
+assigned rows, scans strict edges from currently assigned rows, returns
+`self_edge` when a strict edge collapses inside one quotient class, detects
+directed strict cycles by DFS, and prunes a recursive branch immediately when
+the status is not `ok`.
+
+### Exact Scope
+
+This is not a full audit of the `n=9` checker. It does not prove the
+geometric vertex-circle strict-chord lemma, does not audit pair/crossing/count
+filters, does not independently replay the 184 pre-vertex-circle assignments,
+and does not prove the full `n=9` finite case. It does not prove Erdos
+Problem #97 and does not give a counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-partial-pruning-audit.md`
+- `docs/index.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect on the Attack
+
+The frontier-soundness checklist is reduced by one pruning concern:
+vertex-circle self-edge and strict-cycle partial prunes are monotone under
+adding rows. The remaining burden is now concentrated on the geometric
+necessity of the row-level filters and a second independent replay or archive
+reconciliation for the full 184-assignment frontier.
+
+### Next Lead
+
+Audit the pair/crossing/count filters one at a time, starting with the
+two-overlap crossing rule: if two selected rows share exactly two witnesses,
+prove the center-center chord and shared-witness chord must cross in cyclic
+order.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-634`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-634`.
+- The branch was based on `origin/main` at commit
+  `38fde816d460d686b9dc3fc99bb6514e1fde36f5`, after PR #337 merged Cycle
+  633.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- Source inspection of
+  `src/erdos97/n9_vertex_circle_exhaustive.py` confirmed that
+  `vertex_circle_status` recomputes the union-find quotient and strict graph
+  from assigned rows, returns `self_edge` when a strict edge collapses, and
+  detects directed strict cycles by DFS.
+- One-off static audit confirmed the `vertex_circle_status` source range,
+  `self_edge` return, `strict_cycle` return, selected-pair union-find unions,
+  strict-edge scan over assigned rows, and the partial-prune call in the
+  recursive search.
+- `python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected`
+  passed, with the expected review-pending counts:
+  `nodes visited: 16752`, `counts: {'partial_self_edge': 11271,
+  'partial_strict_cycle': 11011}` for the main search; the cross-check without
+  vertex-circle pruning visited `100817` nodes and found `184` full
+  assignments with final counts `{'self_edge': 158, 'strict_cycle': 26}`.
+- Targeted artifact pytest passed:
+  `python -m pytest tests/test_n9_vertex_circle_exhaustive.py -q -m "artifact"`
+  with result `3 passed`.
+- `python scripts/check_text_clean.py` passed.
+- `python scripts/check_status_consistency.py` passed.
+- `python scripts/check_artifact_provenance.py` passed.
+- `git diff --check` passed.
+- `python -m ruff check .` passed.
+- `python -m pytest -q` passed: `534 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 633 - MRO Branching Audit
 
 ### Mathematical Subquestion
