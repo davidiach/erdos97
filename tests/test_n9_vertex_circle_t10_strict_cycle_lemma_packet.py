@@ -144,6 +144,7 @@ def test_t10_strict_cycle_lemma_packet_rejects_tampered_step0_connector() -> Non
     errors = validate_payload(payload, recompute=False)
 
     assert any("F12 cycle_steps mismatch" in error for error in errors)
+    assert any("equality must end at next outer pair" in error for error in errors)
     assert any("expected T10 strict-cycle lemma packet" in error for error in errors)
 
 
@@ -165,6 +166,30 @@ def test_t10_strict_cycle_lemma_packet_rejects_tampered_strict_row() -> None:
     errors = validate_payload(payload, recompute=False)
 
     assert any("F12 cycle_steps mismatch" in error for error in errors)
+    assert any("strict_inequality is not supported" in error for error in errors)
+
+
+def test_t10_strict_cycle_lemma_packet_rejects_unsupported_strict_interval() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    packet = _f12(payload)
+    packet["cycle_steps"][1]["strict_inequality"]["outer_interval"] = [1, 2]  # type: ignore[index]
+
+    errors = validate_payload(payload, recompute=False)
+
+    assert any("F12 cycle_steps mismatch" in error for error in errors)
+    assert any("strict_inequality is not supported" in error for error in errors)
+
+
+def test_t10_strict_cycle_lemma_packet_rejects_tampered_local_lemma_steps() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    packet = _f12(payload)
+    packet["local_lemma"]["selected_distance_equalities"][0]["equality_steps"][0][  # type: ignore[index]
+        "row"
+    ] = 8
+
+    errors = validate_payload(payload, recompute=False)
+
+    assert any("local_lemma selected_distance_equalities" in error for error in errors)
 
 
 def test_t10_strict_cycle_lemma_packet_rejects_tampered_core_rows() -> None:
