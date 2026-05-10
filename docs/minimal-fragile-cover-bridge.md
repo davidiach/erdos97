@@ -124,6 +124,42 @@ fragile rows and all row-circle constraints. Thus a bridge proof using this
 gate must either check all relevant extensions or prove that every extension
 falls to a row-circle certificate.
 
+### Bounded block-6 row-Ptolemy audit
+
+The following bounded exact audit tests this gate on the two-block fragile
+negative control:
+
+```bash
+python scripts/check_block6_row_ptolemy_extensions.py --blocks 2 --max-extensions 3 --assert-survivor --json
+```
+
+In the deterministic full-extension order used by the checker, the first two
+full selected-row extensions are rejected by row-Ptolemy
+product-cancellation. The third extension has no row-Ptolemy
+product-cancellation certificate. Its selected rows are:
+
+```text
+0  -> {1,2,3,4}
+1  -> {3,6,9,11}
+2  -> {1,3,5,10}
+3  -> {0,2,4,5}
+4  -> {0,3,8,11}
+5  -> {0,1,6,7}
+6  -> {7,8,9,10}
+7  -> {1,5,6,8}
+8  -> {0,5,7,9}
+9  -> {6,8,10,11}
+10 -> {2,5,9,11}
+11 -> {0,4,6,10}
+```
+
+This is a counterexample to the overstrong subclaim that row-Ptolemy
+product-cancellation alone kills every full selected-row extension of the
+two-block block-6 fragile rows. It is not a counterexample to Erdos #97 and is
+not a Euclidean realization certificate. It only says that this particular
+row-circle gate must be strengthened, or applied through an all-extension
+certificate, before it can close the fragile-cover bridge.
+
 ## What This Does Not Prove
 
 The bridge is necessary, not sufficient. The checked block-6 family passes the
