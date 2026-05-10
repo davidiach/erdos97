@@ -311,6 +311,45 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
         "crossing_two_overlap": 10,
         "zero_or_one_overlap": 36,
     }
+    assert edit_distance_audit[
+        "not_legal_opened_before_forbidden_overlap_removed_endpoint_distribution"
+    ] == {
+        "noncrossing_two_overlap:contains_removed_endpoint": 44,
+        "three_or_more_overlap:contains_removed_endpoint": 2,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_noncrossing_target_arc_distribution"
+    ] == {
+        "diameter_arc": 14,
+        "long_arc": 30,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_noncrossing_switch_distribution"
+    ] == {
+        "candidate_contains_added->crossing_two_overlap": 8,
+        "candidate_omits_added->zero_or_one_overlap": 36,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_noncrossing_source_target_distribution"
+    ] == {
+        "2,10->3,5": 5,
+        "2,10->3,6": 2,
+        "2,5->0,11": 2,
+        "2,5->1,11": 6,
+        "2,8->0,11": 2,
+        "2,8->1,11": 5,
+        "2,8->5,6": 2,
+        "2,8->5,7": 5,
+        "4,8->0,9": 2,
+        "4,8->9,11": 5,
+        "8,11->5,6": 2,
+        "8,11->5,7": 6,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_three_or_more_switch_distribution"
+    ] == {
+        "contains_removed_endpoint->crossing_two_overlap": 2,
+    }
     assert edit_distance_audit["changed_row_count_distribution_for_first_nearest"] == {
         "1": 12
     }

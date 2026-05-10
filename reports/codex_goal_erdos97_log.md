@@ -22947,6 +22947,188 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 655 - Block-6 Removed-endpoint Source-arc Audit
+
+### Mathematical Subquestion
+
+Cycle 654 showed that the `6` not-legal opened-center incidences are pure
+pair/crossing-gate switches. The next precise question was:
+
+```text
+For the `44` before-replacement noncrossing two-overlap rows, how is the old
+target chord positioned relative to the source chord `(changed center,
+opened center)`, and which endpoint of the changed row is responsible for the
+switch?
+```
+
+### Definitions and Assumptions
+
+Use the same low-support block-6 branch, terminal clean seven-row states,
+same-class nearest terminal-to-extendable transitions, and not-legal opened
+eighth-center incidences from Cycle 654.
+
+For a not-legal opened center, let:
+
+- the **source chord** be the center pair `(changed center, opened center)`;
+- the **old target chord** be the two-label intersection of the terminal
+  changed row and an after-valid candidate eighth row, when that intersection
+  has size two;
+- the **removed endpoint** be the unique witness label removed from the
+  terminal changed row in the nearest one-row replacement;
+- the **added endpoint** be the unique witness label added by that
+  replacement.
+
+For a source chord in the natural cyclic order, a noncrossing old target chord
+is classified as lying in the long open arc, short open arc, or one of the two
+equal arcs when the source is a diameter.
+
+### Result Status
+
+Exact finite audit:
+**Block-6 Removed-endpoint Source-arc Audit**.
+
+### Argument Or Obstruction
+
+Every one of the `46` before-replacement forbidden overlaps among after-valid
+candidate rows contains the removed endpoint:
+
+```text
+before relation          removed endpoint status    candidate rows
+noncrossing two-overlap  contains removed endpoint  44
+three-or-more overlap    contains removed endpoint   2
+```
+
+Thus the not-legal opening is not caused by an arbitrary change elsewhere in
+the terminal row. The replacement removes one endpoint from every local
+before-replacement obstruction seen by the after-valid rows.
+
+Among the `44` noncrossing two-overlaps, the old target chord never lies in a
+short open arc of the source chord:
+
+```text
+old target arc class  candidate rows
+long arc              30
+diameter arc          14
+```
+
+The exact source-to-target distribution is:
+
+```text
+source -> old target chord  candidate rows
+2,10 -> 3,5                5
+2,10 -> 3,6                2
+2,5  -> 0,11               2
+2,5  -> 1,11               6
+2,8  -> 0,11               2
+2,8  -> 1,11               5
+2,8  -> 5,6                2
+2,8  -> 5,7                5
+4,8  -> 0,9                2
+4,8  -> 9,11               5
+8,11 -> 5,6                2
+8,11 -> 5,7                6
+```
+
+The after-replacement switch is also exact:
+
+```text
+noncrossing two-overlap switch                 candidate rows
+candidate omits added endpoint -> zero/one     36
+candidate contains added endpoint -> crossing   8
+
+three-or-more switch                            candidate rows
+contains removed endpoint -> crossing           2
+```
+
+So the finite mechanism has a compact form. The removed endpoint participates
+in every forbidden before-replacement overlap. Removing it either deletes the
+two-overlap entirely, or, in the cases where a two-overlap remains, leaves a
+crossing pair with the same source chord. The old noncrossing targets are
+confined to long or diameter arcs, never the short arc.
+
+### Exact Scope
+
+This is an exact finite audit inside the low-support two-block block-6
+natural-order selected-row extension tree. It covers the `46` after-valid
+candidate eighth rows attached to the `6` Cycle 654 not-legal opened-center
+incidences. It is not a Euclidean realizability result, is not a proof of
+Erdos Problem #97, and is not a counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+Cycle 654 reduced the not-legal openings to a crossing-gate switch. This cycle
+identifies the switch's local shape: the removed endpoint is the active
+endpoint in every before-replacement obstruction, and the old target chord is
+never on the short side of the source. A proof-facing version would be a
+cyclic-order lemma saying that a terminal row is fragile exactly when one
+removable endpoint hits all prospective eighth-row noncrossing targets in a
+long-or-diameter source arc.
+
+### Next Lead
+
+Try to prove or refute the following local conjecture in the block-6
+normal form:
+
+```text
+If a nearest one-row replacement opens a previously not-legal eighth center,
+then every after-valid candidate row had its before-replacement obstruction
+through the removed endpoint, and every old noncrossing target chord lies in a
+non-short source arc.
+```
+
+The smallest possible disproof would be an exact terminal-to-extendable
+transition in the same branch with a short-arc target or with an old
+noncrossing target omitting the removed endpoint.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-655`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-655`.
+- The branch was started from `origin/main` at commit
+  `3f96e3090f792d18893713d3fb6e34d46171c872`, after PR #381 merged Cycle
+  654.
+- Before updating the PR branch, it was rebased onto `origin/main` at commit
+  `07a2f3b61f8a3a4fcc53fb687d2d5f75da5da549`; the intervening main commit
+  touched n9 vertex-circle files and did not overlap this cycle's files.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_block6_fragile_sixth_row_survivors.py --assert-expected
+  --json`: passed; reported all `46` before-replacement forbidden overlaps
+  contain the removed endpoint, and all `44` noncrossing target chords are in
+  long or diameter arcs.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed on the rebased branch, `560 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 654 - Block-6 Not-legal Opening Crossing-gate Audit
 
 ### Mathematical Subquestion

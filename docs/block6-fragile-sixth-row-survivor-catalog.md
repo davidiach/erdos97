@@ -504,6 +504,35 @@ So the previously not-legal openings are pure crossing-gate switches: the
 replacement either destroys a forbidden noncrossing two-overlap or changes it
 into an allowed crossing two-overlap.
 
+The switch is even more rigid. Every one of the `46` before-replacement
+forbidden overlaps contains the removed witness endpoint. Among the `44`
+noncrossing two-overlaps, the old target chord is always contained in a
+non-short side of the source chord `(changed center, opened center)`: `30`
+lie in the long open arc and `14` lie in one of the two equal arcs of the
+diameter source `2,8`. None lie in a short open arc.
+
+```text
+source -> old target chord  candidate rows
+2,10 -> 3,5                5
+2,10 -> 3,6                2
+2,5  -> 0,11               2
+2,5  -> 1,11               6
+2,8  -> 0,11               2
+2,8  -> 1,11               5
+2,8  -> 5,6                2
+2,8  -> 5,7                5
+4,8  -> 0,9                2
+4,8  -> 9,11               5
+8,11 -> 5,6                2
+8,11 -> 5,7                6
+```
+
+For those `44` noncrossing two-overlaps, omitting the added endpoint gives
+`36` zero/one-overlap rows after replacement, while containing the added
+endpoint gives `8` crossing two-overlap rows. The remaining `2`
+three-or-more overlaps also contain the removed endpoint and collapse to
+crossing two-overlaps after replacement.
+
 For example, the terminal state
 
 ```text
