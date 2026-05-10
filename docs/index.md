@@ -97,6 +97,10 @@ put detailed reconciliation in the canonical synthesis.
   bounded audit showing that the two-block block-6 fragile-cover obstruction
   closes once full selected-row extension is combined with vertex-circle
   quotient pruning in the natural order.
+- [`block6-fragile-fifth-row-obstruction-catalog.md`](block6-fragile-fifth-row-obstruction-catalog.md):
+  one-step catalog showing that many legal fifth rows already hit the
+  vertex-circle quotient obstruction, while 166 remain clean and block a
+  fifth-row-only closure lemma.
 - [`sparse-frontier-diagnostic.md`](sparse-frontier-diagnostic.md): exact
   fixed-order witness-pair source diagnostic explaining the sparse/Sidon
   radius-propagation blind spot.
