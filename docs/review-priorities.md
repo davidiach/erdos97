@@ -344,6 +344,10 @@ condition that the surviving multi-block family does not automatically satisfy:
   `docs/bootstrap-t12-bridge-target-map.md`, joining those packets into six
   explicit next-lemma targets, with `151:7`, `151:8`, and `151:5` as the main
   hard/open rows.
+- bootstrap/T12 hard strict-endpoint evidence, as recorded in
+  `docs/bootstrap-t12-hard-strict-endpoints.md`, isolating `151:7` and
+  `151:8` as the rows where strict-edge endpoint sets are still not supplied
+  by closure exposure or singleton support.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

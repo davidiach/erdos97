@@ -56,6 +56,10 @@ Use this queue when no more specific issue is selected.
    targets: hard strict endpoint rows `151:7` and `151:8`, open connector-pair
    row `151:5`, and three relation-sufficient rows that still need row-forcing
    arguments.
+   The hard strict-endpoint subpacket in
+   `docs/bootstrap-t12-hard-strict-endpoints.md` isolates rows `151:7` and
+   `151:8`, where strict-edge endpoint sets are still incomplete after closure
+   and singleton-support checks.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker

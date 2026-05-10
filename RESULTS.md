@@ -218,6 +218,14 @@ bookkeeping only; see
 `scripts/check_bootstrap_t12_bridge_target_map.py`, and
 `data/certificates/bootstrap_t12_bridge_target_map.json`.
 
+The hard strict-endpoint subpacket isolates the two hard strict requirements
+from that map. Both occur in source `151`: row `7` is closure-exposed but still
+misses endpoint `6`, and row `8` has singleton supports that each supply only
+one of the outside strict endpoints `5` and `7`. This is still diagnostic
+bookkeeping only; see `docs/bootstrap-t12-hard-strict-endpoints.md`,
+`scripts/check_bootstrap_t12_hard_strict_endpoints.py`, and
+`data/certificates/bootstrap_t12_hard_strict_endpoints.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

@@ -1,0 +1,412 @@
+{
+  "claim_scope": "Hard strict-endpoint diagnostic for the two tight n=9 bootstrap/T12 records; isolates the strict-edge endpoint-set requirements that remain unmet after bootstrap-core, support, and deletion-closure checks. This does not prove that the missing rows or endpoints are forced, does not prove n=9, does not prove the bridge, and does not claim a counterexample.",
+  "interpretation_warnings": [
+    "This packet isolates fixed selected-row strict-edge endpoint gaps; it does not prove endpoints or rows are forced.",
+    "Partial closure or singleton support is bookkeeping, not a Euclidean rich-class certificate.",
+    "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_hard_strict_endpoints.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_hard_strict_endpoints.py"
+  },
+  "records": [
+    {
+      "bootstrap_core_witnesses": [
+        0,
+        1,
+        4
+      ],
+      "bridge_lemma_target": "Add the missing strict-edge endpoint to a closure-exposed row; this is the main negative control.",
+      "classification_assignment_id": "A152",
+      "closure_evaluations": [
+        {
+          "activation_ready_in_closure": false,
+          "available_required_witnesses": [
+            1
+          ],
+          "core_vertex": 0,
+          "missing_required_witnesses": [
+            0,
+            6
+          ],
+          "row_exposed_in_closure": false,
+          "status": "PARTIAL"
+        },
+        {
+          "activation_ready_in_closure": false,
+          "available_required_witnesses": [
+            0
+          ],
+          "core_vertex": 1,
+          "missing_required_witnesses": [
+            1,
+            6
+          ],
+          "row_exposed_in_closure": false,
+          "status": "PARTIAL"
+        },
+        {
+          "activation_ready_in_closure": true,
+          "available_required_witnesses": [
+            0,
+            1
+          ],
+          "core_vertex": 2,
+          "missing_required_witnesses": [
+            6
+          ],
+          "row_exposed_in_closure": true,
+          "status": "PARTIAL"
+        },
+        {
+          "activation_ready_in_closure": false,
+          "available_required_witnesses": [
+            0,
+            1
+          ],
+          "core_vertex": 4,
+          "missing_required_witnesses": [
+            6
+          ],
+          "row_exposed_in_closure": false,
+          "status": "PARTIAL"
+        }
+      ],
+      "closure_sufficient_count": 0,
+      "exposed_closure_evaluations": [
+        {
+          "activation_ready_in_closure": true,
+          "available_required_witnesses": [
+            0,
+            1
+          ],
+          "core_vertex": 2,
+          "missing_required_witnesses": [
+            6
+          ],
+          "row_exposed_in_closure": true,
+          "status": "PARTIAL"
+        }
+      ],
+      "hard_strict_gap_type": "CLOSURE_EXPOSED_MISSING_OUTSIDE_ENDPOINT",
+      "inner_pair": [
+        0,
+        1
+      ],
+      "missing_endpoint_count": 1,
+      "missing_from_bootstrap_core": [
+        6
+      ],
+      "non_required_row_witnesses": [
+        4
+      ],
+      "other_row_requirements": [],
+      "outer_pair": [
+        0,
+        6
+      ],
+      "outside_witnesses": [
+        6
+      ],
+      "partial_support_count": 0,
+      "partial_supports": [],
+      "pressure_class": "ALREADY_PRESENT_IN_A_DELETION_CLOSURE",
+      "required_witnesses": [
+        0,
+        1,
+        6
+      ],
+      "requirement_size": 3,
+      "roles": [
+        "strict_edge_row"
+      ],
+      "row_center": 7,
+      "row_target_status": "CLOSURE_EXPOSED_HARD_STRICT_ENDPOINT",
+      "source_record_id": 151,
+      "step_index": 0,
+      "strict_requirement_id": "151:7:strict:0",
+      "support_evaluations": [],
+      "support_sufficient_count": 0,
+      "witnesses": [
+        0,
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "bootstrap_core_witnesses": [
+        1,
+        2
+      ],
+      "bridge_lemma_target": "Separate the connector support, which one singleton can supply, from the strict-edge endpoint set, which remains unforced.",
+      "classification_assignment_id": "A152",
+      "closure_evaluations": [
+        {
+          "activation_ready_in_closure": false,
+          "available_required_witnesses": [
+            1
+          ],
+          "core_vertex": 0,
+          "missing_required_witnesses": [
+            5,
+            7
+          ],
+          "row_exposed_in_closure": false,
+          "status": "PARTIAL"
+        },
+        {
+          "activation_ready_in_closure": false,
+          "available_required_witnesses": [],
+          "core_vertex": 1,
+          "missing_required_witnesses": [
+            1,
+            5,
+            7
+          ],
+          "row_exposed_in_closure": false,
+          "status": "DISJOINT"
+        },
+        {
+          "activation_ready_in_closure": false,
+          "available_required_witnesses": [
+            1,
+            7
+          ],
+          "core_vertex": 2,
+          "missing_required_witnesses": [
+            5
+          ],
+          "row_exposed_in_closure": false,
+          "status": "PARTIAL"
+        },
+        {
+          "activation_ready_in_closure": false,
+          "available_required_witnesses": [
+            1
+          ],
+          "core_vertex": 4,
+          "missing_required_witnesses": [
+            5,
+            7
+          ],
+          "row_exposed_in_closure": false,
+          "status": "PARTIAL"
+        }
+      ],
+      "closure_sufficient_count": 0,
+      "exposed_closure_evaluations": [],
+      "hard_strict_gap_type": "SINGLETON_SUPPORTS_SPLIT_STRICT_ENDPOINTS",
+      "inner_pair": [
+        5,
+        7
+      ],
+      "missing_endpoint_count": 2,
+      "missing_from_bootstrap_core": [
+        5,
+        7
+      ],
+      "non_required_row_witnesses": [
+        2
+      ],
+      "other_row_requirements": [
+        {
+          "kind": "equality_connector_pair",
+          "missing_from_bootstrap_core": [
+            5
+          ],
+          "relation_state": "SUPPORT_SUFFICIENT",
+          "required_witnesses": [
+            2,
+            5
+          ],
+          "requirement_id": "151:8:connector:1:1"
+        }
+      ],
+      "outer_pair": [
+        1,
+        7
+      ],
+      "outside_witnesses": [
+        5,
+        7
+      ],
+      "partial_support_count": 2,
+      "partial_supports": [
+        {
+          "available_required_witnesses": [
+            1,
+            5
+          ],
+          "ledger_private_pair_hit": false,
+          "missing_required_witnesses": [
+            7
+          ],
+          "private_halo_core_vertices": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "status": "PARTIAL",
+          "support": [
+            5
+          ]
+        },
+        {
+          "available_required_witnesses": [
+            1,
+            7
+          ],
+          "ledger_private_pair_hit": false,
+          "missing_required_witnesses": [
+            5
+          ],
+          "private_halo_core_vertices": [
+            0,
+            1,
+            4
+          ],
+          "status": "PARTIAL",
+          "support": [
+            7
+          ]
+        }
+      ],
+      "pressure_class": "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER",
+      "required_witnesses": [
+        1,
+        5,
+        7
+      ],
+      "requirement_size": 3,
+      "roles": [
+        "strict_edge_row",
+        "equality_connector_row"
+      ],
+      "row_center": 8,
+      "row_target_status": "MIXED_SINGLETON_CONNECTOR_AND_HARD_STRICT",
+      "source_record_id": 151,
+      "step_index": 1,
+      "strict_requirement_id": "151:8:strict:1",
+      "support_evaluations": [
+        {
+          "available_required_witnesses": [
+            1,
+            5
+          ],
+          "ledger_private_pair_hit": false,
+          "missing_required_witnesses": [
+            7
+          ],
+          "private_halo_core_vertices": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "status": "PARTIAL",
+          "support": [
+            5
+          ]
+        },
+        {
+          "available_required_witnesses": [
+            1,
+            7
+          ],
+          "ledger_private_pair_hit": false,
+          "missing_required_witnesses": [
+            5
+          ],
+          "private_halo_core_vertices": [
+            0,
+            1,
+            4
+          ],
+          "status": "PARTIAL",
+          "support": [
+            7
+          ]
+        }
+      ],
+      "support_sufficient_count": 0,
+      "witnesses": [
+        1,
+        2,
+        5,
+        7
+      ]
+    }
+  ],
+  "schema": "erdos97.bootstrap_t12_hard_strict_endpoints.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_t12_activation_requirements.json",
+      "role": "source strict-edge endpoint requirements and evaluations",
+      "schema": "erdos97.bootstrap_t12_activation_requirements.v1",
+      "status": "BOOTSTRAP_T12_ACTIVATION_REQUIREMENTS_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/bootstrap_t12_bridge_target_map.json",
+      "role": "source hard strict row targets and bridge obligations",
+      "schema": "erdos97.bootstrap_t12_bridge_target_map.v1",
+      "status": "BOOTSTRAP_T12_BRIDGE_TARGET_MAP_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_HARD_STRICT_ENDPOINTS_DIAGNOSTIC_ONLY",
+  "summary": {
+    "closure_sufficient_requirement_count": 0,
+    "exposed_closure_partial_rows": [
+      "151:7"
+    ],
+    "forcing_target_status": "OPEN_TARGET_NOT_PROVED",
+    "hard_strict_gap_type_counts": {
+      "CLOSURE_EXPOSED_MISSING_OUTSIDE_ENDPOINT": 1,
+      "SINGLETON_SUPPORTS_SPLIT_STRICT_ENDPOINTS": 1
+    },
+    "hard_strict_requirement_ids": [
+      "151:7:strict:0",
+      "151:8:strict:1"
+    ],
+    "hard_strict_row_count": 2,
+    "missing_endpoint_label_counts": {
+      "5": 1,
+      "6": 1,
+      "7": 1
+    },
+    "next_bridge_question": "Can strict-edge endpoint sets be forced as complete rich-class subsets, rather than one endpoint at a time, in the T12/F16 bootstrap target?",
+    "other_relation_state_counts": {
+      "SUPPORT_SUFFICIENT": 1
+    },
+    "partial_support_count": 2,
+    "pressure_class_counts": {
+      "ALREADY_PRESENT_IN_A_DELETION_CLOSURE": 1,
+      "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER": 1
+    },
+    "role_counts": {
+      "equality_connector_row": 1,
+      "strict_edge_row": 2
+    },
+    "row_centers_by_source_id": {
+      "151": [
+        7,
+        8
+      ]
+    },
+    "row_target_status_counts": {
+      "CLOSURE_EXPOSED_HARD_STRICT_ENDPOINT": 1,
+      "MIXED_SINGLETON_CONNECTOR_AND_HARD_STRICT": 1
+    },
+    "source_record_ids": [
+      151
+    ],
+    "split_singleton_partial_rows": [
+      "151:8"
+    ],
+    "support_sufficient_requirement_count": 0
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

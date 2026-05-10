@@ -151,6 +151,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-bridge-target-map.md`](bootstrap-t12-bridge-target-map.md):
   joined diagnostic naming the explicit next bridge-lemma target for each
   missing T12/F16 row.
+- [`bootstrap-t12-hard-strict-endpoints.md`](bootstrap-t12-hard-strict-endpoints.md):
+  focused packet isolating the hard strict-edge endpoint gaps in rows `151:7`
+  and `151:8`.
 - [`bootstrap-t12-row-pressure.md`](bootstrap-t12-row-pressure.md):
   row-pressure refinement classifying those missing T12 row centers by core
   deficit, deletion-closure exposure, and private-halo support.

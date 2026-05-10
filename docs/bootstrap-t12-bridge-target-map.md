@@ -80,6 +80,11 @@ stored equality connector needs the outside pair `[7,8]`. A one-label row
 activation argument would still need to explain why the connector relation
 receives both endpoints.
 
+The hard strict-endpoint follow-up in
+`docs/bootstrap-t12-hard-strict-endpoints.md` isolates the first negative
+control and the mixed row `151:8`, where singleton supports split the strict
+endpoint set.
+
 ## What This Does Not Prove
 
 This artifact does not prove that any missing T12 row is forced, does not prove
