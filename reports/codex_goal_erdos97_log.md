@@ -22947,6 +22947,160 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 682 - Two-Row Nondegeneracy for Two-Edge Quotient Cycles
+
+### Mathematical Subquestion
+
+Can the two-edge vertex-circle quotient-cycle schema from Cycle 681 be forced
+by only the two rows that supply the two strict vertex-circle inequalities?
+
+This asks whether the next search target should be a two-row pattern or whether
+additional connector rows are structurally necessary for a genuine two-edge
+cycle.
+
+### Definitions and Assumptions
+
+Use the Cycle 681 notation. A first selected row is centered at `r` and has
+witness order
+
+```text
+a,b,c,d,
+```
+
+giving the strict edge
+
+```text
+D_ac > D_ab.
+```
+
+A second selected row is centered at `s` and has witness order
+
+```text
+e,f,g,h,
+```
+
+giving the strict edge
+
+```text
+D_fh > D_gh.
+```
+
+The only selected-distance equalities allowed in this subquestion are those
+from these two selected rows. Call the schema nondegenerate when the four
+endpoint pairs `{a,c}`, `{a,b}`, `{f,h}`, and `{g,h}` are pairwise distinct and
+neither strict edge is already a quotient self-edge under the two-row
+selected-distance quotient.
+
+### Result Status
+
+Proved local obstruction to an overstrong search target:
+**Two-Row Nondegeneracy Lemma**.
+
+### Argument Or Obstruction
+
+The two selected rows generate at most two star equivalence classes of ordinary
+pair distances:
+
+```text
+A = {{r,x} : x in {a,b,c,d}},
+B = {{s,y} : y in {e,f,g,h}},
+```
+
+possibly merged if a pair belongs to both stars. The row-`r` strict pairs
+`{a,c}` and `{a,b}` do not contain `r`, so they are not in `A`; they can be
+identified by the two-row quotient only by lying in `B`. Similarly, the row-`s`
+strict pairs `{f,h}` and `{g,h}` can be identified only by lying in `A`.
+
+For the cross-wire `{a,b} ~ {f,h}` to hold nontrivially, `{a,b}` must lie in
+`B`, `{f,h}` must lie in `A`, and the two stars must be connected. For the
+other cross-wire `{g,h} ~ {a,c}` to hold nontrivially, `{a,c}` must lie in `B`
+and `{g,h}` must lie in `A`.
+
+But then both row-`r` strict pairs `{a,c}` and `{a,b}` lie in `B`, so
+`{a,c} ~ {a,b}` and the first strict inequality is already a self-edge. Also
+both row-`s` strict pairs `{f,h}` and `{g,h}` lie in `A`, so the second strict
+inequality is already a self-edge. This contradicts nondegeneracy.
+
+Therefore a genuine two-edge quotient cycle cannot be supplied by only the two
+strict rows. It needs an additional connector row or a longer
+selected-distance path, unless the contradiction has already collapsed to a
+simpler self-edge.
+
+### Exact Scope
+
+This is a local quotient-combinatorial lemma about the two-edge schema. It does
+not say that arbitrary counterexamples contain the schema, does not prove
+`n=9`, does not promote any review-pending finite-case checker, does not prove
+Erdos Problem #97, and does not produce a counterexample.
+
+A one-off finite sanity check over small label sets confirmed the distinction:
+two-row cross-wires exist only in degenerate cases with an immediate self-edge
+or a repeated strict pair; no nondegenerate four-pair instance occurred through
+ten labels. The proof above is the actual evidence, not the finite check.
+
+### Files Changed
+
+- `docs/claims.md`
+- `docs/n9-vertex-circle-strict-cycle-criterion.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This rules out a tempting but too-small target. The next structural search
+should not look for a two-row source of the Cycle 681 schema; it should look
+for forced connector rows or short selected-distance paths. The `T10/F12`
+packet fits this: the strict rows are centered at `8` and `3`, while rows `0`
+and `6` provide the connector equalities.
+
+### Next Lead
+
+Classify the shortest nondegenerate connector patterns for the two-edge schema:
+one cross-wire can be an identity or one-row path, but a genuine four-pair
+two-cycle needs connector structure beyond the two strict rows. The useful
+next lemma would identify when a two-overlap or shared-center configuration
+forces such a connector row.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-682`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-682`.
+- The branch was started from `origin/main` at commit
+  `a35bc59cbf8e21476707d4653eccb4fd3148b6e2`, after PR #427 merged Cycle
+  681.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check
+  --assert-expected --json`: passed. It verified the `T10` focused packet
+  with `18` assignments, core size `4`, cycle length `2`, and no validation
+  errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --check
+  --assert-expected --json`: passed. It verified `3` strict-cycle templates
+  covering `26` assignments.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `617 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 681 - Two-Edge Vertex-Circle Quotient-Cycle Schema
 
 ### Mathematical Subquestion

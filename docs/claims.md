@@ -541,6 +541,30 @@ counterexamples contain such a core, does not prove `n=9`, and does not prove
 Erdos Problem #97. The focused `T10/F12` packet below is one checked instance
 of this schema.
 
+### Two-row nondegeneracy for two-edge quotient cycles
+
+Status: `LEMMA` for the two-edge vertex-circle schema.
+
+In the two-edge schema above, suppose the only selected-distance equalities
+available are those from the two rows producing the two strict
+vertex-circle inequalities. If the four strict-edge endpoint pairs are
+pairwise distinct, and neither strict edge is already a quotient self-edge,
+then the cross-wired equalities cannot both hold.
+
+The reason is purely combinatorial. The two rows generate only two star
+equivalence classes of pair distances, one for pairs from the first center to
+its four witnesses and one for pairs from the second center to its four
+witnesses, possibly merged along a common center-witness pair. For the two
+cross-wires to hold nontrivially, both strict pairs of the first row must lie
+in the second row's star, and both strict pairs of the second row must lie in
+the first row's star. Then each strict edge is already a self-edge, contrary
+to the nondegeneracy assumption.
+
+Thus a genuine two-edge quotient cycle needs an additional connector row or a
+longer selected-distance path, unless it has already collapsed to a simpler
+self-edge obstruction. This is a local structural fact only; it does not force
+such connector rows to exist in arbitrary counterexamples.
+
 ### Vertex-circle T01/F09 self-edge local lemma candidate
 
 Status: `REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE`.
