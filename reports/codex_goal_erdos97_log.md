@@ -22947,6 +22947,179 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 679 - Endpoint-Control Spine-Pocket Crossing Frontier
+
+### Mathematical Subquestion
+
+Cycle 676 killed the fixed endpoint-control survivor in the natural cyclic
+order by a Kalmanson quotient-cone certificate. A parallel side investigation
+in Cycle 678 suggested that the same survivor has only five cyclic orders
+compatible with the necessary two-overlap crossing constraints. This cycle
+asked:
+
+```text
+Can the crossing-only spine-pocket order frontier for the fixed endpoint-
+control survivor be replayed by a small exact checker?
+```
+
+This is a finite fixed-survivor benchmark, not an all-extension endpoint-
+control argument.
+
+### Definitions and Assumptions
+
+Use the fixed Cycle 674 full selected-row extension on labels `0,...,10`:
+
+```text
+0  -> {1,3,5,6}
+1  -> {0,2,7,9}
+2  -> {1,3,4,10}
+3  -> {2,4,5,7}
+4  -> {1,6,7,8}
+5  -> {0,2,3,6}
+6  -> {0,4,8,10}
+7  -> {1,2,4,9}
+8  -> {3,7,9,10}
+9  -> {2,5,8,10}
+10 -> {0,1,8,9}
+```
+
+For two rows `i,j` with `|S_i cap S_j|=2`, define
+
+```text
+phi({i,j}) = S_i cap S_j.
+```
+
+The necessary two-overlap crossing condition for a strictly convex selected-
+witness realization is that the source chord `{i,j}` crosses the witness
+chord `phi({i,j})` in the cyclic order.
+
+### Result Status
+
+Exact fixed-survivor crossing-only frontier:
+**Endpoint-Control Spine-Pocket Crossing Frontier**.
+
+### Argument Or Obstruction
+
+The checker
+`scripts/check_endpoint_control_survivor_spine_pocket_orders.py` recomputes
+the fixed survivor's `phi_map` using the shared incidence utilities. It finds
+exactly these `17` two-overlap crossing constraints:
+
+```text
+(0,2)->(1,3), (0,4)->(1,6), (0,5)->(3,6),
+(1,3)->(2,7), (1,5)->(0,2), (1,7)->(2,9),
+(1,8)->(7,9), (1,10)->(0,9), (2,6)->(4,10),
+(2,7)->(1,4), (2,8)->(3,10), (3,7)->(2,4),
+(3,9)->(2,5), (4,10)->(1,8), (6,9)->(8,10),
+(6,10)->(0,8), (7,10)->(1,9).
+```
+
+It then performs a normalized cyclic-order insertion search. The first
+crossing constraint fixes the initial four labels up to rotation and reversal
+as either `[0,1,2,3]` or `[0,3,2,1]`. At each step the search inserts the
+unplaced label touching the most nearly completed constraints, and it prunes
+only when a completed crossing constraint fails. The checker visits `38`
+nodes and finds exactly five normalized orders:
+
+```text
+0,1,2,3,4,5,6,7,8,9,10
+0,1,2,3,4,5,7,6,8,9,10
+0,1,2,3,4,7,5,6,8,9,10
+0,1,2,3,5,4,6,7,8,9,10
+0,1,2,3,5,4,7,6,8,9,10
+```
+
+Thus every cyclic order compatible with these crossing constraints has the
+spine-pocket form
+
+```text
+0,1,2,3, [pocket on {4,5,6,7}], 8,9,10,
+```
+
+with forced pocket relations `4<6`, `4<7`, and `5<6`.
+
+### Exact Scope
+
+This is exact only for the fixed Cycle 674 endpoint-control survivor and only
+for the necessary crossing-bisector constraints arising from two-overlap row
+pairs. It is not a metric realization certificate, not a Kalmanson obstruction
+for all five orders, not an all-extension endpoint-control proof, not a
+counterexample, and not a proof of Erdos Problem #97.
+
+It does strengthen the fixed-survivor route: the next metric-order check can
+target five crossing-compatible orders instead of an unstructured cyclic-order
+space.
+
+### Files Changed
+
+- `docs/minimal-fragile-cover-bridge.md`
+- `reports/codex_goal_erdos97_log.md`
+- `scripts/check_endpoint_control_survivor_spine_pocket_orders.py`
+- `tests/test_endpoint_control_survivor_spine_pocket_orders.py`
+
+### Effect On The Attack
+
+The endpoint-control survivor now has four exact layers:
+
+1. Row-Ptolemy product-cancellation does not kill it.
+2. Quotient-level row-Ptolemy equations are feasible.
+3. Natural-order Kalmanson quotient-cone constraints kill it.
+4. Crossing constraints reduce the remaining fixed-survivor cyclic-order
+   frontier to five spine-pocket orders.
+
+The immediate finite route is to replay or find Kalmanson quotient-cone
+certificates for the other four spine-pocket orders. If all five are killed,
+the fixed survivor is ruled out across every cyclic order satisfying the
+two-overlap crossing constraints, still without proving endpoint control.
+
+### Next Lead
+
+Add a five-order Kalmanson quotient-cone certificate checker for this fixed
+survivor. The natural-order certificate from Cycle 676 already covers the
+first order. The side investigation reported candidate small certificates for
+the remaining three nontrivial pocket orders, while one pocket order may reuse
+the natural-order certificate after relabeling or reversal.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-679`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-679`.
+- The branch was started from `origin/main` at commit
+  `423bff94e25cbb08dbd978e7c23dec7945d04f55`, after PR #420 merged Cycle
+  678.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_endpoint_control_survivor_spine_pocket_orders.py
+  --assert-expected --json`: passed. It verified `17` crossing constraints,
+  `5` normalized crossing-compatible orders, `38` search nodes, and exact
+  match to the expected spine-pocket frontier.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q
+  tests/test_endpoint_control_survivor_spine_pocket_orders.py`: passed, `4`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `614 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 678 - Four-Hit Rolle Normal-Incidence Lemma
 
 ### Mathematical Subquestion
