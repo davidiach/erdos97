@@ -135,7 +135,55 @@ strict-edge instances: 8
 Those instances use longer selected-distance quotient paths rather than the
 two-row shortcut.
 
-## Lemma C: T03 selected-path self-edge
+## Lemma C: selected-path self-edge criterion
+
+For an unordered pair `u,v`, write
+
+```text
+D_uv = |p_u - p_v|^2.
+```
+
+A **selected-distance path** from pair `P_0` to pair `P_m` is a sequence
+
+```text
+P_0, r_1, P_1, r_2, ..., r_m, P_m
+```
+
+such that each step has the form
+
+```text
+P_{t-1} = {r_t, x_t},
+P_t     = {r_t, y_t},
+x_t, y_t in S_{r_t}.
+```
+
+Each step is justified by the selected row `S_{r_t}`, so the path forces
+
+```text
+D(P_0) = D(P_1) = ... = D(P_m).
+```
+
+Now suppose a selected row `S_c` has four witnesses in angular order, up to
+reversal, such that the chord with endpoint pair `P_0` strictly contains the
+chord with endpoint pair `P_m` on the circle centered at `c`. Vertex-circle
+monotonicity gives
+
+```text
+D(P_0) > D(P_m).
+```
+
+The selected-distance path therefore forces a reflexive strict edge in the
+distance quotient:
+
+```text
+D(P_0) > D(P_m) = D(P_0),
+```
+
+which is impossible. This criterion is local and template-name-free: it only
+uses the displayed selected rows, the cyclic order around the strict row, and
+the selected-distance path.
+
+### T03 selected-path instances
 
 The T03 packet has two four-row local cores. For `F05`, the rows are:
 
@@ -189,7 +237,7 @@ families: F05, F15
 covered assignments: 20
 ```
 
-## Lemma D: T04/F13 selected-path self-edge
+### T04/F13 selected-path instance
 
 The T04/F13 local core is:
 
@@ -220,7 +268,7 @@ family: F13
 covered assignments: 2
 ```
 
-## Lemma E: T10/F12 two-edge strict cycle
+## Lemma D: T10/F12 two-edge strict cycle
 
 The T10/F12 local core is:
 
@@ -271,7 +319,7 @@ covered assignments: 18
 Again, the local core has no two-circle cap violation and no crossing-bisector
 order violation before the vertex-circle quotient step.
 
-## Lemma F: T11/F07 three-edge strict cycle
+## Lemma E: T11/F07 three-edge strict cycle
 
 The T11/F07 local core is:
 
@@ -314,7 +362,7 @@ family: F07
 covered assignments: 6
 ```
 
-## Lemma G: T12/F16 three-edge strict cycle
+## Lemma F: T12/F16 three-edge strict cycle
 
 The T12/F16 local core is:
 

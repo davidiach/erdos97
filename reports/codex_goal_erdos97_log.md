@@ -22947,6 +22947,128 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 663 - Selected-path Self-edge Criterion
+
+### Mathematical Subquestion
+
+Cycles 661 and 662 integrated the T03 and T04 selected-path self-edge packets
+into the aggregate local-lemma scan. The narrow question for this cycle was:
+
+```text
+Can the T03/T04 packet-specific selected-path arguments be replaced by a
+single template-name-free local criterion?
+```
+
+### Definitions and Assumptions
+
+For an unordered pair `u,v`, write `D_uv = |p_u - p_v|^2`. A
+**selected-distance path** from pair `P_0` to pair `P_m` is a sequence
+
+```text
+P_0, r_1, P_1, r_2, ..., r_m, P_m
+```
+
+such that each step has
+
+```text
+P_{t-1} = {r_t, x_t},
+P_t     = {r_t, y_t},
+x_t, y_t in S_{r_t}.
+```
+
+The selected row `S_{r_t}` gives `D(P_{t-1}) = D(P_t)`.
+
+### Result Status
+
+Proved local lemma:
+**Selected-path Self-edge Criterion**.
+
+### Argument Or Obstruction
+
+If row `S_c` has selected witnesses whose angular order makes the chord with
+endpoint pair `P_0` strictly contain the chord with endpoint pair `P_m`, then
+vertex-circle monotonicity gives
+
+```text
+D(P_0) > D(P_m).
+```
+
+If there is also a selected-distance path from `P_0` to `P_m`, the path gives
+
+```text
+D(P_0) = D(P_m).
+```
+
+Together these imply a reflexive strict edge,
+
+```text
+D(P_0) > D(P_m) = D(P_0),
+```
+
+which is impossible. This criterion is independent of the T03/T04 template
+names once the selected rows, the cyclic order around the strict row, and the
+selected-distance path are displayed.
+
+### Exact Scope
+
+This is a local obstruction criterion for selected-witness systems in a
+strictly convex polygon. It is not an independent review of the exhaustive
+`n=9` checker, not a proof of the full `n=9` finite case, not a general proof
+of Erdos Problem #97, and not a counterexample. It explains the T03/T04
+selected-path self-edge instances already recorded by the aggregate scan.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-local-lemmas.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This reduces a packet-specific proof-mining step to a reusable local lemma:
+any future packet or bridge argument only needs to exhibit a selected-distance
+path whose endpoints are separated by a strict vertex-circle containment edge.
+The result does not close the global scope gap; it only makes one local
+obstruction mechanism more portable and easier to review.
+
+### Next Lead
+
+Try the analogous abstraction for directed strict cycles: state a
+template-name-free quotient-cycle criterion and list T10/T11/T12 as instances.
+The stronger bridge question remains how to force arbitrary counterexamples
+to contain one of these quotient self-edge or strict-cycle structures.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-663`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-663`.
+- The branch was started from `origin/main` at commit
+  `08027ea84c74d33cc986fcdfbbd769ad7e842c02`, after PR #397 merged Cycle
+  662.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `574 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 662 - T04/F13 Aggregate Local-scan Closure
 
 ### Mathematical Subquestion
