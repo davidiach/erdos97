@@ -137,13 +137,13 @@ fixed selected-witness pattern of the exact concave alternating decagon has no
 cyclic order satisfying the two-overlap crossing filter. See
 `docs/two-orbit-radius-propagation.md`.
 
-[^lit]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md`.
-[^forest]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/11_forest_lemma_counterexample_review.md`.
-[^rank]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/03_RANK_AND_BRIDGE_STATUS.md`.
-[^alg]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/04_algebraic_and_semicircle_corrections.md`.
-[^repo]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md`.
-[^n39]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/12_n39_circulant_degeneracy.md`.
-[^paper]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/05_rank_scaling_and_verifier_review.md`.
-[^syn]: Source file: `erd archive/outputs/erdos97_synthesis.md`.
+[^lit]: Public consolidation: `public-provenance.md#literature-digest`.
+[^forest]: Public consolidation: `public-provenance.md#forest-lemma-failure`.
+[^rank]: Public consolidation: `public-provenance.md#rank-and-bridge-status`.
+[^alg]: Public consolidation: `public-provenance.md#algebraic-and-semicircle-corrections`.
+[^repo]: Public consolidation: `public-provenance.md#repository-handoff-and-claim-taxonomy`.
+[^n39]: Public consolidation: `public-provenance.md#n39-circulant-degeneracy`.
+[^paper]: Public consolidation: `public-provenance.md#paper-style-verifier-review`.
+[^syn]: Public consolidation: `public-provenance.md#canonical-synthesis`.
 [^canon]: Source file: `docs/canonical-synthesis.md`.
-[^p24]: Source files: `erd archive/outputs/data/1/linear_case_geometry_handoff.md` and `erd archive/outputs/data/1/verify_24_point_near_counterexample.py`.
+[^p24]: Public consolidation: `public-provenance.md#p24-metric-linear-negative-control`.

@@ -75,7 +75,9 @@ all `n=7` selected-witness equality patterns. See
 ### Machine-checked finite-case artifact: selected-witness incidence rules out n = 8
 
 Status: `MACHINE_CHECKED_FINITE_CASE_ARTIFACT` in repo-local sense. External
-review is still recommended before paper-style or public theorem claims.
+review is still recommended before paper-style or public theorem claims. The
+individual survivor-class kills are `EXACT_OBSTRUCTION_PER_SURVIVOR_CLASS`;
+the aggregate `n=8` exclusion is the machine-checked finite-case artifact.
 
 The incidence-completeness checker derives `n=8` indegree regularity from the
 column-pair cap, exhaustively enumerates all selected-witness systems satisfying

@@ -99,7 +99,7 @@ A certificate should contain:
 
 See `certificates/best_B12_certificate_template.json` for a placeholder format.
 
-[^repo]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md`.
-[^alg]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/04_algebraic_and_semicircle_corrections.md`.
-[^syn]: Source file: `erd archive/outputs/erdos97_synthesis.md`.
-[^rank]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/03_RANK_AND_BRIDGE_STATUS.md`.
+[^repo]: Public consolidation: `public-provenance.md#repository-handoff-and-claim-taxonomy`.
+[^alg]: Public consolidation: `public-provenance.md#algebraic-and-semicircle-corrections`.
+[^syn]: Public consolidation: `public-provenance.md#canonical-synthesis`.
+[^rank]: Public consolidation: `public-provenance.md#rank-and-bridge-status`.

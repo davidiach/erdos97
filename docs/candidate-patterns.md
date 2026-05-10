@@ -76,7 +76,7 @@ selected-witness patterns.
 | A9 | `C9_pm_2_4` | 9 | offsets `{-4,-2,2,4}` | palindromic circulant | exactly killed by mutual-rhombus midpoint equations; all labels collapse |
 | A10 | `C45_offsets_4_13_25_37` | 45 | offsets `{4,13,25,37}` | Sidon-type cyclic | exactly killed as a fixed abstract selected-witness incidence pattern: rows `0` and `12` share three witnesses `{4,25,37}`, violating the two-circle cap |
 
-[^repo]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md`.
-[^comp]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/04_COMPUTATIONAL_FINDINGS.md`.
-[^n39]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/12_n39_circulant_degeneracy.md`.
-[^syn]: Source file: `erd archive/outputs/erdos97_synthesis.md`.
+[^repo]: Public consolidation: `public-provenance.md#repository-handoff-and-claim-taxonomy`.
+[^comp]: Public consolidation: `public-provenance.md#computational-finding-digest`.
+[^n39]: Public consolidation: `public-provenance.md#n39-circulant-degeneracy`.
+[^syn]: Public consolidation: `public-provenance.md#canonical-synthesis`.

@@ -127,6 +127,9 @@ For `python scripts/analyze_n8_exact_survivors.py --check --json`, expected
 invariants:
 
 - status is `exact_obstruction_artifact_pending_independent_review`;
+- the per-class obstruction status is exact, while the aggregate `n=8`
+  exclusion remains a repo-local machine-checked finite-case artifact pending
+  independent review;
 - `survivor_classes` is `15`;
 - `cyclic_order_remaining_count` is `14`, with class `12` killed by cyclic
   order noncrossing;
@@ -221,6 +224,9 @@ Check:
 - A minimal standalone class `14` checker would be especially valuable because
   that obstruction combines Groebner reasoning with a strict-interior
   conclusion.
+- A Z3-independent replay path for the C19 all-order Kalmanson order UNSAT
+  certificate would reduce single-solver trust. A checkable SAT/SMT proof or a
+  pure finite-order checker is preferred over an UNSAT core alone.
 - Independent reproduction of `certificates/n8_exact_analysis.json`.
 - A Lean, SMT, interval, or algebraic certificate checker would be high value.
 
