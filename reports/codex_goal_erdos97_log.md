@@ -22947,6 +22947,153 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 644 - Block-6 Low-support Row-content Normal Forms
+
+### Mathematical Subquestion
+
+Cycle 643 showed that every unordered pair of nonfixed centers has at least
+one clean six-row survivor, but the pairs `4,5` and `10,11` have the minimum
+support: only `28` clean states each. The next precise question was:
+
+```text
+Do these two minimum-support center-pair families collapse to a compact
+row-content normal form?
+```
+
+### Definitions and Assumptions
+
+The four fixed two-block block-6 fragile rows are still:
+
+```text
+0 -> {1,2,3,4}
+3 -> {0,2,4,5}
+6 -> {7,8,9,10}
+9 -> {6,8,10,11}
+```
+
+A clean six-row state is a pair of additional legal rows at two distinct
+nonfixed centers whose selected-distance quotient has no vertex-circle
+self-edge and no directed strict cycle in the natural cyclic order.
+
+For a row at a center in one six-block, its row content is split into the two
+selected labels in the same six-block and the two selected labels in the
+opposite six-block.
+
+### Result Status
+
+Proved exact normal form:
+**Block-6 Low-support Disjoint-pair Normal Form**.
+
+The two minimum-support center-pair families are not arbitrary 28-state lists.
+Each is exactly a binary same-block choice times the ordered disjoint edges of
+a six-pair opposite-block pool.
+
+### Argument Or Obstruction
+
+For center pair `4,5`, the clean states are exactly:
+
+```text
+4 -> {0,3} union A
+5 -> {0,t} union B, where t in {1,4}
+```
+
+where `A` and `B` range over ordered disjoint pairs from
+
+```text
+{6,7}, {6,9}, {6,10}, {7,11}, {8,11}, {9,11}.
+```
+
+This pool has exactly `14` ordered disjoint pair edges, and the binary choice
+of `t` gives `14 * 2 = 28` clean states.
+
+By the block-swap `i -> i+6 mod 12`, the pair `10,11` has the corresponding
+normal form:
+
+```text
+10 -> {6,9} union A
+11 -> {6,t} union B, where t in {7,10}
+```
+
+where `A` and `B` range over ordered disjoint pairs from
+
+```text
+{0,1}, {0,3}, {0,4}, {1,5}, {2,5}, {3,5}.
+```
+
+Again all `14` ordered disjoint pair edges occur, with the binary choice of
+`t`, giving `28` clean states.
+
+The checker now asserts these normal forms directly: the actual opposite-pair
+edges equal all ordered disjoint edges from the listed six-pair pool, and all
+actual opposite-pair edges are disjoint.
+
+### Exact Scope
+
+This is an exact finite row-content classification for the two minimum-support
+center pairs in the two-block block-6 six-row survivor catalog, under the
+natural cyclic order and existing incidence/order plus vertex-circle filters.
+It is not a proof of Erdos Problem #97 and is not a counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `docs/index.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This is the first compact row-content normal form extracted from the block-6
+six-row survivors. It does not close the two-block family, but it replaces the
+least-supported `56` block-swap-related survivors with one reusable
+disjoint-pair template. A proof route can now ask why this disjoint-pair pool
+is forced, or whether every seventh-row extension of this template is killed.
+
+### Next Lead
+
+Run a seventh-row extension audit restricted to the disjoint-pair normal form,
+or prove a local lemma explaining why these six opposite-block pairs and only
+their ordered disjoint pairings survive the vertex-circle quotient.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-644`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-644`.
+- The branch was based on `origin/main` at commit
+  `59d9a3dedf73b241b63eda3a3e86fdd28c347682`, after PR #357 merged Cycle
+  643.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `python3 scripts/check_block6_fragile_sixth_row_survivors.py
+  --assert-expected --json`: passed; reported the `4,5` and `10,11`
+  low-support row-content forms with `28` clean states each, `14` ordered
+  disjoint opposite-pair edges each, and all disjoint pool edges present.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `540 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 643 - Block-6 Six-row Center-pair Normal Forms
 
 ### Mathematical Subquestion

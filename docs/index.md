@@ -104,7 +104,8 @@ put detailed reconciliation in the canonical synthesis.
 - [`block6-fragile-sixth-row-survivor-catalog.md`](block6-fragile-sixth-row-survivor-catalog.md):
   follow-up catalog showing that every clean fifth-row state still has a clean
   legal sixth-row continuation, and that all added-center pairs support clean
-  states, so the block-6 closure is not sixth-row-local.
+  states, with compact row-content normal forms for the two minimum-support
+  center pairs, so the block-6 closure is not sixth-row-local.
 - [`sparse-frontier-diagnostic.md`](sparse-frontier-diagnostic.md): exact
   fixed-order witness-pair source diagnostic explaining the sparse/Sidon
   radius-propagation blind spot.

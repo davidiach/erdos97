@@ -87,6 +87,76 @@ EXPECTED_CLEAN_BY_CENTER_PAIR_ORBIT = {
     "4,11|5,10": 142,
     "5,11": 129,
 }
+EXPECTED_LOW_SUPPORT_ROW_CONTENT_FORMS = {
+    "4,5": {
+        "clean_states": 28,
+        "same_block_pair_counts": {
+            "0,3|0,1": 14,
+            "0,3|0,4": 14,
+        },
+        "opposite_pair_pool": [
+            "6,7",
+            "6,9",
+            "6,10",
+            "7,11",
+            "8,11",
+            "9,11",
+        ],
+        "opposite_pair_edge_counts": {
+            "6,7|8,11": 2,
+            "6,7|9,11": 2,
+            "6,9|7,11": 2,
+            "6,9|8,11": 2,
+            "6,10|7,11": 2,
+            "6,10|8,11": 2,
+            "6,10|9,11": 2,
+            "7,11|6,9": 2,
+            "7,11|6,10": 2,
+            "8,11|6,7": 2,
+            "8,11|6,9": 2,
+            "8,11|6,10": 2,
+            "9,11|6,7": 2,
+            "9,11|6,10": 2,
+        },
+        "ordered_disjoint_opposite_pair_edges": 14,
+        "all_edges_disjoint": True,
+        "all_disjoint_pool_edges_present": True,
+    },
+    "10,11": {
+        "clean_states": 28,
+        "same_block_pair_counts": {
+            "6,9|6,7": 14,
+            "6,9|6,10": 14,
+        },
+        "opposite_pair_pool": [
+            "0,1",
+            "0,3",
+            "0,4",
+            "1,5",
+            "2,5",
+            "3,5",
+        ],
+        "opposite_pair_edge_counts": {
+            "0,1|2,5": 2,
+            "0,1|3,5": 2,
+            "0,3|1,5": 2,
+            "0,3|2,5": 2,
+            "0,4|1,5": 2,
+            "0,4|2,5": 2,
+            "0,4|3,5": 2,
+            "1,5|0,3": 2,
+            "1,5|0,4": 2,
+            "2,5|0,1": 2,
+            "2,5|0,3": 2,
+            "2,5|0,4": 2,
+            "3,5|0,1": 2,
+            "3,5|0,4": 2,
+        },
+        "ordered_disjoint_opposite_pair_edges": 14,
+        "all_edges_disjoint": True,
+        "all_disjoint_pool_edges_present": True,
+    },
+}
 EXPECTED_BY_FIFTH_CENTER = {
     "1": {
         "clean_fifth": 21,
@@ -149,6 +219,7 @@ EXPECTED_BY_FIFTH_CENTER = {
 RowRecord = tuple[int, tuple[int, ...]]
 SixState = tuple[RowRecord, RowRecord]
 CenterPair = tuple[int, int]
+LabelPair = tuple[int, int]
 
 
 def _json_counter(counter: Counter[Any]) -> dict[str, int]:
@@ -168,6 +239,22 @@ def _center_pair_key(pair: CenterPair) -> str:
     return f"{pair[0]},{pair[1]}"
 
 
+def _pair_edge_key(left: LabelPair, right: LabelPair) -> str:
+    return f"{_center_pair_key(left)}|{_center_pair_key(right)}"
+
+
+def _parse_label_pair(text: str) -> LabelPair:
+    left, right = text.split(",")
+    return (int(left), int(right))
+
+
+def _pair_edge_is_disjoint(key: str) -> bool:
+    left_text, right_text = key.split("|")
+    left = _parse_label_pair(left_text)
+    right = _parse_label_pair(right_text)
+    return set(left).isdisjoint(right)
+
+
 def _block_swap_center_pair(pair: CenterPair) -> CenterPair:
     return tuple(sorted((_swap_label(pair[0]), _swap_label(pair[1]))))  # type: ignore[return-value]
 
@@ -179,6 +266,73 @@ def _center_pair_orbit_key(pair: CenterPair) -> str:
 
 def _block_swap_six_state(state: SixState) -> SixState:
     return tuple(sorted(_block_swap_row(record) for record in state))  # type: ignore[return-value]
+
+
+def _split_row_by_center_block(center: int, row: tuple[int, ...]) -> tuple[LabelPair, LabelPair]:
+    block_start = 0 if center < N // 2 else N // 2
+    block = set(range(block_start, block_start + N // 2))
+    same = tuple(label for label in row if label in block)
+    opposite = tuple(label for label in row if label not in block)
+    if len(same) != 2 or len(opposite) != 2:
+        raise AssertionError(
+            f"row at center {center} does not split into two-and-two: {row!r}"
+        )
+    return same, opposite  # type: ignore[return-value]
+
+
+def _low_support_row_content_forms(
+    clean_six_states: set[SixState],
+) -> dict[str, dict[str, Any]]:
+    forms: dict[str, dict[str, Any]] = {}
+    for center_pair in ((4, 5), (10, 11)):
+        matching_states = [
+            state
+            for state in clean_six_states
+            if tuple(record[0] for record in state) == center_pair
+        ]
+        same_block_counts: Counter[str] = Counter()
+        opposite_edge_counts: Counter[str] = Counter()
+        opposite_pool: set[LabelPair] = set()
+
+        for (left_center, left_row), (right_center, right_row) in matching_states:
+            left_same, left_opposite = _split_row_by_center_block(
+                left_center,
+                left_row,
+            )
+            right_same, right_opposite = _split_row_by_center_block(
+                right_center,
+                right_row,
+            )
+            same_block_counts[_pair_edge_key(left_same, right_same)] += 1
+            opposite_edge_counts[
+                _pair_edge_key(left_opposite, right_opposite)
+            ] += 1
+            opposite_pool.add(left_opposite)
+            opposite_pool.add(right_opposite)
+
+        disjoint_edge_keys = {
+            _pair_edge_key(left, right)
+            for left in opposite_pool
+            for right in opposite_pool
+            if set(left).isdisjoint(right)
+        }
+        actual_edge_keys = set(opposite_edge_counts)
+        forms[_center_pair_key(center_pair)] = {
+            "clean_states": len(matching_states),
+            "same_block_pair_counts": dict(sorted(same_block_counts.items())),
+            "opposite_pair_pool": [
+                _center_pair_key(pair) for pair in sorted(opposite_pool)
+            ],
+            "opposite_pair_edge_counts": dict(
+                sorted(opposite_edge_counts.items())
+            ),
+            "ordered_disjoint_opposite_pair_edges": len(disjoint_edge_keys),
+            "all_edges_disjoint": all(
+                _pair_edge_is_disjoint(key) for key in actual_edge_keys
+            ),
+            "all_disjoint_pool_edges_present": actual_edge_keys == disjoint_edge_keys,
+        }
+    return forms
 
 
 def _orbit_count(states: set[RowRecord] | set[SixState]) -> tuple[int, Counter[int]]:
@@ -331,6 +485,9 @@ def survivor_payload() -> dict[str, Any]:
             key: int(clean_by_center_pair_orbit[key])
             for key in sorted(clean_by_center_pair_orbit)
         },
+        "low_support_row_content_forms": _low_support_row_content_forms(
+            clean_six_states
+        ),
         "by_fifth_center": {
             center: {key: int(counter[key]) for key in sorted(counter)}
             for center, counter in sorted(by_fifth_center.items(), key=lambda item: int(item[0]))
@@ -362,6 +519,14 @@ def assert_expected(payload: Mapping[str, Any]) -> None:
         raise AssertionError(
             "unexpected center-pair orbit counts: "
             f"{payload['clean_by_center_pair_orbit']!r}"
+        )
+    if (
+        payload["low_support_row_content_forms"]
+        != EXPECTED_LOW_SUPPORT_ROW_CONTENT_FORMS
+    ):
+        raise AssertionError(
+            "unexpected low-support row-content normal forms: "
+            f"{payload['low_support_row_content_forms']!r}"
         )
     if payload["by_fifth_center"] != EXPECTED_BY_FIFTH_CENTER:
         raise AssertionError(

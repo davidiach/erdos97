@@ -28,6 +28,15 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
     assert payload["clean_by_center_pair"]["2,8"] == 1074
     assert payload["clean_by_center_pair_orbit"]["4,5|10,11"] == 56
     assert payload["clean_by_center_pair_orbit"]["2,8"] == 1074
+    low_support_forms = payload["low_support_row_content_forms"]
+    assert low_support_forms["4,5"]["clean_states"] == 28
+    assert low_support_forms["4,5"]["all_disjoint_pool_edges_present"] is True
+    assert low_support_forms["10,11"]["clean_states"] == 28
+    assert low_support_forms["10,11"]["all_disjoint_pool_edges_present"] is True
+    assert low_support_forms["4,5"]["same_block_pair_counts"] == {
+        "0,3|0,1": 14,
+        "0,3|0,4": 14,
+    }
     assert payload["first_clean_sixth_example"] == {
         "fifth": {"center": 1, "row": [0, 2, 6, 7]},
         "sixth": {"center": 2, "row": [0, 1, 3, 8]},
