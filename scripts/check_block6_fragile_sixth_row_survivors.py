@@ -692,6 +692,7 @@ EXPECTED_LOW_SUPPORT_TERMINAL_EDIT_DISTANCE_AUDIT = {
     "terminal_triple_profile_classes": 6,
     "terminal_states_with_nearest_extendable": 12,
     "min_replacement_distribution": {"1": 12},
+    "nearest_transition_count": 56,
     "nearest_extendable_count_distribution": {
         "1": 2,
         "3": 2,
@@ -700,6 +701,71 @@ EXPECTED_LOW_SUPPORT_TERMINAL_EDIT_DISTANCE_AUDIT = {
         "7": 2,
     },
     "changed_row_count_distribution_for_first_nearest": {"1": 12},
+    "changed_center_distribution": {
+        "2": 7,
+        "4": 4,
+        "5": 17,
+        "8": 7,
+        "10": 4,
+        "11": 17,
+    },
+    "changed_center_orbit_distribution": {
+        "2,8": 14,
+        "4,10": 8,
+        "5,11": 34,
+    },
+    "changed_center_removed_added_distribution": {
+        "2:11->10": 1,
+        "2:5->4": 2,
+        "2:6->7": 1,
+        "2:6->8": 1,
+        "2:6->9": 1,
+        "2:7->9": 1,
+        "4:10->9": 1,
+        "4:8->7": 1,
+        "4:9->7": 1,
+        "4:9->8": 1,
+        "5:1->4": 5,
+        "5:11->10": 1,
+        "5:6->8": 1,
+        "5:6->9": 1,
+        "5:9->10": 1,
+        "5:9->6": 2,
+        "5:9->7": 3,
+        "5:9->8": 3,
+        "8:0->1": 1,
+        "8:0->2": 1,
+        "8:0->3": 1,
+        "8:1->3": 1,
+        "8:11->10": 2,
+        "8:5->4": 1,
+        "10:2->1": 1,
+        "10:3->1": 1,
+        "10:3->2": 1,
+        "10:4->3": 1,
+        "11:0->2": 1,
+        "11:0->3": 1,
+        "11:3->0": 2,
+        "11:3->1": 3,
+        "11:3->2": 3,
+        "11:3->4": 1,
+        "11:5->4": 1,
+        "11:7->10": 5,
+    },
+    "replacement_side_distribution": {"opposite_block": 42, "same_block": 14},
+    "extendable_ok_center_count_distribution": {"1": 28, "2": 24, "3": 4},
+    "extendable_ok_row_count_distribution": {
+        "1": 18,
+        "2": 16,
+        "3": 4,
+        "4": 4,
+        "5": 4,
+        "6": 2,
+        "7": 2,
+        "9": 2,
+        "10": 2,
+        "13": 2,
+    },
     "class_summary": {
         (
             "2,10,11|same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
@@ -1289,7 +1355,7 @@ def _low_support_terminal_classification(
     }
 
 
-def _terminal_state_eighth_center_counts(
+def _state_eighth_center_counts(
     state: SevenState,
     options: Mapping[int, list[tuple[int, ...]]],
 ) -> dict[str, dict[str, int]]:
@@ -1366,7 +1432,7 @@ def _low_support_terminal_eighth_center_audit(
 ) -> dict[str, Any]:
     options = _options()
     center_counts_by_state = {
-        state: _terminal_state_eighth_center_counts(state, options)
+        state: _state_eighth_center_counts(state, options)
         for state, _status in terminal_audits
     }
     status_by_state = {state: status for state, status in terminal_audits}
@@ -1613,6 +1679,23 @@ def _row_replacement_distance(left: tuple[int, ...], right: tuple[int, ...]) -> 
     return len(set(left) ^ set(right)) // 2
 
 
+def _center_orbit_key(center: int) -> str:
+    return ",".join(str(item) for item in sorted({center, _swap_label(center)}))
+
+
+def _replacement_side(center: int, removed: int, added: int) -> str:
+    center_block_start = 0 if center < N // 2 else N // 2
+    center_block = set(range(center_block_start, center_block_start + N // 2))
+    removed_side = "same_block" if removed in center_block else "opposite_block"
+    added_side = "same_block" if added in center_block else "opposite_block"
+    if removed_side != added_side:
+        raise AssertionError(
+            "nearest replacement changed same/opposite side: "
+            f"center={center}, removed={removed}, added={added}"
+        )
+    return removed_side
+
+
 def _state_replacement_distance(left: SevenState, right: SevenState) -> int:
     right_by_center = {center: row for center, row in right}
     return sum(
@@ -1663,8 +1746,16 @@ def _low_support_terminal_edit_distance_audit(
     min_replacements: Counter[int] = Counter()
     nearest_counts: Counter[int] = Counter()
     changed_row_counts: Counter[int] = Counter()
+    changed_center_counts: Counter[int] = Counter()
+    changed_center_orbit_counts: Counter[str] = Counter()
+    changed_center_removed_added_counts: Counter[str] = Counter()
+    replacement_side_counts: Counter[str] = Counter()
+    extendable_ok_center_counts: Counter[int] = Counter()
+    extendable_ok_row_counts: Counter[int] = Counter()
+    nearest_transition_count = 0
     class_summary: dict[str, dict[str, Any]] = {}
     by_terminal: list[dict[str, Any]] = []
+    options = _options()
 
     for key, entry in sorted(by_triple_profile.items()):
         if not entry["terminal"]:
@@ -1687,6 +1778,49 @@ def _low_support_terminal_edit_distance_audit(
             nearest_counts[len(nearest)] += 1
             changed_row_counts[len(changed_rows)] += 1
             class_distances.append(best_distance)
+            nearest_transition_count += len(nearest)
+
+            for extendable in nearest:
+                nearest_changed_rows = _changed_row_payload(terminal, extendable)
+                if len(nearest_changed_rows) != 1:
+                    raise AssertionError(
+                        "nearest transition changed more than one row: "
+                        f"{nearest_changed_rows!r}"
+                    )
+                changed_row = nearest_changed_rows[0]
+                removed = changed_row["removed"]
+                added = changed_row["added"]
+                if len(removed) != 1 or len(added) != 1:
+                    raise AssertionError(
+                        "nearest transition is not one-for-one: "
+                        f"{changed_row!r}"
+                    )
+                center = changed_row["center"]
+                removed_label = removed[0]
+                added_label = added[0]
+                changed_center_counts[center] += 1
+                changed_center_orbit_counts[_center_orbit_key(center)] += 1
+                changed_center_removed_added_counts[
+                    f"{center}:{removed_label}->{added_label}"
+                ] += 1
+                replacement_side_counts[
+                    _replacement_side(center, removed_label, added_label)
+                ] += 1
+                extendable_eighth_counts = _state_eighth_center_counts(
+                    extendable,
+                    options,
+                )
+                ok_center_count = sum(
+                    status_counts["ok"] > 0
+                    for status_counts in extendable_eighth_counts.values()
+                )
+                ok_row_count = sum(
+                    status_counts["ok"]
+                    for status_counts in extendable_eighth_counts.values()
+                )
+                extendable_ok_center_counts[ok_center_count] += 1
+                extendable_ok_row_counts[ok_row_count] += 1
+
             by_terminal.append(
                 {
                     "triple_profile": key,
@@ -1711,9 +1845,29 @@ def _low_support_terminal_edit_distance_audit(
         "terminal_triple_profile_classes": len(class_summary),
         "terminal_states_with_nearest_extendable": len(by_terminal),
         "min_replacement_distribution": _json_counter(min_replacements),
+        "nearest_transition_count": nearest_transition_count,
         "nearest_extendable_count_distribution": _json_counter(nearest_counts),
         "changed_row_count_distribution_for_first_nearest": _json_counter(
             changed_row_counts
+        ),
+        "changed_center_distribution": _json_counter(changed_center_counts),
+        "changed_center_orbit_distribution": {
+            key: int(changed_center_orbit_counts[key])
+            for key in sorted(changed_center_orbit_counts)
+        },
+        "changed_center_removed_added_distribution": {
+            key: int(changed_center_removed_added_counts[key])
+            for key in sorted(changed_center_removed_added_counts)
+        },
+        "replacement_side_distribution": {
+            key: int(replacement_side_counts[key])
+            for key in sorted(replacement_side_counts)
+        },
+        "extendable_ok_center_count_distribution": _json_counter(
+            extendable_ok_center_counts
+        ),
+        "extendable_ok_row_count_distribution": _json_counter(
+            extendable_ok_row_counts
         ),
         "class_summary": class_summary,
         "by_terminal": by_terminal,
