@@ -17,9 +17,9 @@ that justifies doing it anyway.
 
 Use this queue when no more specific issue is selected.
 
-1. Close one remaining `n=9` vertex-circle self-edge local-template gap in the
-   aggregate local-lemma scan. The open packet families are `F05`, `F13`, and
-   `F15`, coming from the T03/T04 self-edge side.
+1. Close the remaining `n=9` vertex-circle self-edge local-template gap in the
+   aggregate local-lemma scan. The open packet family is `F13`, coming from
+   the T04 self-edge side.
 2. Review the aggregate `n=9` vertex-circle local-lemma scan against the
    focused T10/T11/T12 strict-cycle proof notes, keeping it scoped as
    proof-mining scaffolding rather than an `n=9` proof.

@@ -29,6 +29,7 @@ CLAIM_SCOPE = (
 
 SHARED_ENDPOINT_LEMMA = "shared_endpoint_nested_self_edge"
 NESTED_SPOKE_LEMMA = "nested_spoke_quotient_self_edge"
+T03_SELECTED_PATH_SELF_EDGE = "t03_selected_path_self_edge"
 T10_STRICT_CYCLE_LEMMA = "t10_two_edge_strict_cycle"
 T11_STRICT_CYCLE_LEMMA = "t11_three_edge_strict_cycle"
 T12_STRICT_CYCLE_LEMMA = "t12_three_edge_strict_cycle"
@@ -49,6 +50,11 @@ EXPECTED_SUMMARY = {
         "family_ids": ["F02", "F03", "F06", "F09", "F10", "F11"],
         "instance_count": 8,
         "covered_assignment_count": 96,
+    },
+    T03_SELECTED_PATH_SELF_EDGE: {
+        "family_ids": ["F05", "F15"],
+        "instance_count": 2,
+        "covered_assignment_count": 20,
     },
     T10_STRICT_CYCLE_LEMMA: {
         "family_ids": ["F12"],
@@ -85,6 +91,7 @@ def local_lemma_scan_payload(
 
     shared_endpoint: list[dict[str, Any]] = []
     nested_spoke: list[dict[str, Any]] = []
+    t03_selected_path: list[dict[str, Any]] = []
     direct_two_row: list[dict[str, Any]] = []
 
     for template, family in _self_edge_family_records(self_edge_packet):
@@ -123,6 +130,18 @@ def local_lemma_scan_payload(
                             "lemma_id": DIRECT_TWO_ROW_VARIANT,
                         }
                     )
+            if _is_t03_selected_path_self_edge_shape(template, family, edge):
+                t03_selected_path.append(
+                    _self_edge_instance(
+                        lemma_id=T03_SELECTED_PATH_SELF_EDGE,
+                        template=template,
+                        family=family,
+                        rows=rows,
+                        order=order,
+                        edge=edge,
+                        direct_conditions=_selected_path_conditions(family),
+                    )
+                )
 
     strict_cycle_instances: dict[str, list[dict[str, Any]]] = {
         lemma_id: [] for lemma_id in STRICT_CYCLE_LEMMA_BY_TEMPLATE.values()
@@ -144,6 +163,7 @@ def local_lemma_scan_payload(
     lemma_instances = {
         SHARED_ENDPOINT_LEMMA: shared_endpoint,
         NESTED_SPOKE_LEMMA: nested_spoke,
+        T03_SELECTED_PATH_SELF_EDGE: t03_selected_path,
         **strict_cycle_instances,
     }
 
@@ -169,6 +189,7 @@ def local_lemma_scan_payload(
         "lemmas": [
             _lemma_summary(SHARED_ENDPOINT_LEMMA, shared_endpoint),
             _lemma_summary(NESTED_SPOKE_LEMMA, nested_spoke),
+            _lemma_summary(T03_SELECTED_PATH_SELF_EDGE, t03_selected_path),
             *(
                 _lemma_summary(lemma_id, strict_cycle_instances[lemma_id])
                 for lemma_id in STRICT_CYCLE_LEMMA_BY_TEMPLATE.values()
@@ -272,21 +293,22 @@ def assert_expected_local_lemma_scan(payload: dict[str, Any]) -> None:
         raise AssertionError("source_family_count mismatch")
     if coverage.get("source_assignment_count") != 184:
         raise AssertionError("source_assignment_count mismatch")
-    if coverage.get("covered_family_count") != 13:
+    if coverage.get("covered_family_count") != 15:
         raise AssertionError("covered_family_count mismatch")
-    if coverage.get("covered_assignment_count") != 162:
+    if coverage.get("covered_assignment_count") != 182:
         raise AssertionError("covered_assignment_count mismatch")
-    if coverage.get("uncovered_family_count") != 3:
+    if coverage.get("uncovered_family_count") != 1:
         raise AssertionError("uncovered_family_count mismatch")
-    if coverage.get("uncovered_assignment_count") != 22:
+    if coverage.get("uncovered_assignment_count") != 2:
         raise AssertionError("uncovered_assignment_count mismatch")
-    if coverage.get("uncovered_family_ids") != ["F05", "F13", "F15"]:
+    if coverage.get("uncovered_family_ids") != ["F13"]:
         raise AssertionError("uncovered_family_ids mismatch")
     if coverage.get("covered_family_ids") != [
         "F01",
         "F02",
         "F03",
         "F04",
+        "F05",
         "F06",
         "F07",
         "F08",
@@ -295,6 +317,7 @@ def assert_expected_local_lemma_scan(payload: dict[str, Any]) -> None:
         "F11",
         "F12",
         "F14",
+        "F15",
         "F16",
     ]:
         raise AssertionError("covered_family_ids mismatch")
@@ -432,6 +455,43 @@ def _direct_nested_spoke_conditions(
     }
 
 
+def _is_t03_selected_path_self_edge_shape(
+    template: dict[str, Any],
+    family: dict[str, Any],
+    edge: StrictInequality,
+) -> bool:
+    """Return whether the record is one of the checked T03 self-edge paths."""
+
+    if str(template.get("template_id")) != "T03":
+        return False
+    equality = family.get("distance_equality")
+    if not isinstance(equality, dict):
+        return False
+    return (
+        edge.outer_class == edge.inner_class
+        and _pair_list(edge.outer_pair) == _pair_list(equality.get("start_pair"))
+        and _pair_list(edge.inner_pair) == _pair_list(equality.get("end_pair"))
+    )
+
+
+def _selected_path_conditions(family: dict[str, Any]) -> dict[str, Any]:
+    equality = family["distance_equality"]
+    return {
+        "variant": "selected_path_self_edge",
+        "start_pair": _pair_list(equality["start_pair"]),
+        "end_pair": _pair_list(equality["end_pair"]),
+        "path": [
+            {
+                "row": int(step["row"]),
+                "next_pair": _pair_list(step["next_pair"]),
+            }
+            for step in equality["path"]
+        ],
+        "path_length": int(family["path_length"]),
+        "holds": True,
+    }
+
+
 def _self_edge_instance(
     *,
     lemma_id: str,
@@ -546,6 +606,15 @@ def _edge_to_json(edge: StrictInequality) -> dict[str, Any]:
         "outer_class": list(edge.outer_class),
         "inner_class": list(edge.inner_class),
     }
+
+
+def _pair_list(raw_pair: Any) -> list[int]:
+    if not isinstance(raw_pair, Sequence) or isinstance(raw_pair, str):
+        raise ValueError(f"expected pair sequence, got {raw_pair!r}")
+    values = [int(value) for value in raw_pair]
+    if len(values) != 2:
+        raise ValueError(f"expected pair length 2, got {raw_pair!r}")
+    return sorted(values)
 
 
 def _simple_filter_violations(

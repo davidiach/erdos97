@@ -155,8 +155,9 @@ Next steps:
   the first focused review-pending T01/F09 self-edge local lemma packet;
 - use `data/certificates/n9_vertex_circle_t02_self_edge_lemma_packet.json` as
   the next focused review-pending T02 multi-family self-edge local lemma packet;
-- use `data/certificates/n9_vertex_circle_t03_self_edge_lemma_packet.json` as
-  the next focused review-pending T03 multi-family self-edge local lemma packet;
+- use `data/certificates/n9_vertex_circle_t03_self_edge_lemma_packet.json` to
+  replay the focused review-pending T03 multi-family self-edge local lemma
+  packet;
 - use `data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json`
   to replay the focused review-pending T10/F12 strict-cycle local lemma packet;
 - use `data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json`
