@@ -22947,6 +22947,153 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 641 - Block-6 Fifth-row Obstruction Catalog
+
+### Mathematical Subquestion
+
+Cycle 640 showed that the two-block block-6 fragile-cover family has no full
+selected-witness extension surviving the vertex-circle quotient filter in the
+natural cyclic order. The next proof-facing question was whether that closure
+can be reduced to a one-step local lemma:
+
+```text
+After fixing the four block-6 fragile rows, does every legal fifth selected
+row immediately force a vertex-circle quotient self-edge or strict cycle?
+```
+
+### Definitions and Assumptions
+
+The fixed two-block fragile rows are:
+
+```text
+0 -> {1,2,3,4}
+3 -> {0,2,4,5}
+6 -> {7,8,9,10}
+9 -> {6,8,10,11}
+```
+
+A legal fifth row is a four-set at one remaining center that satisfies the
+same one-row incidence/order necessary conditions used in Cycle 640 relative
+to the fixed rows: self-exclusion, row size 4, selected-row pairwise
+intersection at most 2, radical-axis crossing for every two-overlap,
+witness-pair multiplicity at most 2, and selected indegree at most
+`floor(2*(12-1)/(4-1)) = 7`.
+
+The vertex-circle status is computed from the selected-distance quotient and
+proper-interval strict edges of just the five selected rows in the natural
+cyclic order.
+
+### Result Status
+
+Counterexample to the one-step local-closure subclaim:
+**Block-6 Fifth-row Survivor Catalog**.
+
+There are exactly `342` legal fifth rows. Of these, `176` already force a
+vertex-circle quotient obstruction, but `166` remain vertex-circle-clean at
+the five-row level. Therefore the two-block closure from Cycle 640 cannot be
+rewritten as a fifth-row-only local lemma.
+
+### Argument Or Obstruction
+
+The exact catalog checker enumerates every legal fifth row from the fixed
+two-block state and classifies its five-row vertex-circle quotient status.
+The totals are:
+
+```text
+total legal fifth rows: 342
+vertex-circle-clean:   166
+self-edge obstruction:  82
+strict-cycle obstruction: 94
+```
+
+The center-by-center counts are:
+
+```text
+center  legal  ok  self_edge  strict_cycle
+1       38     21  7          10
+2       64     41  13         10
+4       38     7   14         17
+5       31     14  7          10
+7       38     21  7          10
+8       64     41  13         10
+10      38     7   14         17
+11      31     14  7          10
+```
+
+One explicit obstruction to the proposed fifth-row-only lemma is:
+
+```text
+5 -> {0,1,6,7}
+```
+
+With the four fixed rows, this fifth row is legal under the stated filters
+and has vertex-circle status `ok` at the five-row level.
+
+### Exact Scope
+
+This is a bounded one-row extension catalog for the two-block block-6 family
+in the natural cyclic order. It is not a proof of Erdos Problem #97 and is not
+a counterexample. The clean fifth-row states are not Euclidean realizability
+claims; they are only states not yet killed by the listed five-row
+incidence/order and vertex-circle quotient checks.
+
+### Files Changed
+
+- `docs/block6-fragile-fifth-row-obstruction-catalog.md`
+- `docs/index.md`
+- `scripts/check_block6_fragile_fifth_row_obstructions.py`
+- `tests/test_block6_fragile_fifth_row_obstructions.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This sharpens the block-6 bridge route by ruling out a tempting but false
+local reduction. The proof cannot simply say that any connector row between
+the two fragile blocks closes immediately. However, the same audit gives a
+small exact catalog for the next normal-form step: more than half of the legal
+fifth rows already close, and the remaining `166` clean rows are now a
+manageable target.
+
+### Next Lead
+
+Quotient the `166` clean fifth-row states by the block-swap and reversal
+symmetries, then test whether every clean normal form closes after a sixth
+row. If not, record the smallest exact clean sixth-row obstruction to that
+stronger subclaim.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-641`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-641`.
+- The branch was based on `origin/main` at commit
+  `fb0aa3f4a77e2be1f41c5163f698ab1d5aeea3b7`, after PR #351 merged Cycle
+  640.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `python scripts/check_block6_fragile_fifth_row_obstructions.py
+  --assert-expected --json`: passed, reproducing `342` legal fifth rows,
+  with `166` vertex-circle-clean, `82` self-edge, and `94` strict-cycle
+  one-row statuses.
+- `python scripts/check_text_clean.py`: passed.
+- `python scripts/check_status_consistency.py`: passed.
+- `python scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `python -m ruff check .`: passed.
+- `python -m pytest tests/test_block6_fragile_fifth_row_obstructions.py -q`:
+  passed, `2 passed`.
+- `python -m pytest -q`: passed, `538 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 640 - Block-6 Fragile-cover Vertex-circle Extension Audit
 
 ### Mathematical Subquestion
