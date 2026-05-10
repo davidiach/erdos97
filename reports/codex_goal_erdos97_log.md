@@ -22947,6 +22947,184 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 629 - Selected-Path Self-Edge Criterion Page
+
+### Mathematical Subquestion
+
+After the focused `T07`, `T08`, and `T09` self-edge notes were promoted, the
+next narrow question was:
+
+Can the repeated `T01` through `T09` self-edge mechanism be stated as one
+reviewer-facing local criterion, with an exact audit that the current
+self-edge packet records all satisfy it?
+
+### Definitions and Assumptions
+
+For a selected row `S_c`, all distances `d(c,x)` with `x in S_c` are equal.
+These equalities generate a selected-distance quotient relation on unordered
+vertex pairs. Write `D(p)` for the distance value of a pair or quotient class
+`p`.
+
+A selected-distance equality path from `p` to `q` is a sequence
+
+```text
+p = p_0, p_1, ..., p_k = q
+```
+
+where each equality `D(p_j)=D(p_{j+1})` is forced by one selected row.
+
+A certified strict edge `p > q` is a local vertex-circle inequality already
+proved from a selected row's witness order, usually by nested chord
+monotonicity on that row circle.
+
+### Result Status
+
+Proved local criterion plus exact current-packet audit:
+**Selected-Path Self-Edge Criterion**.
+
+If a local row core has both a certified strict edge `p > q` and a
+selected-distance equality path from `p` to `q`, then the local row core is
+unrealizable.
+
+### Argument
+
+The equality path gives
+
+```text
+D(p)=D(q).
+```
+
+The certified strict edge gives
+
+```text
+D(p)>D(q).
+```
+
+These two statements are incompatible for real distances. Equivalently, after
+selected-distance quotienting, the local core has a reflexive strict edge.
+
+### Exact Current-Packet Audit
+
+A one-off exact JSON audit over
+`data/certificates/n9_vertex_circle_self_edge_template_packet.json` checked
+every self-edge family record for:
+
+```text
+strict_inequality.outer_pair == distance_equality.start_pair
+strict_inequality.inner_pair == distance_equality.end_pair
+```
+
+The audit found:
+
+```text
+family_records: 13
+assignments: 158
+path_counts: {3: 9, 4: 2, 5: 1, 6: 1}
+assignment_weighted_path_counts: {3: 86, 4: 36, 5: 18, 6: 18}
+mismatch_count: 0
+digest: c76e76eea27c61eca04a755ef0c7f15d4cf77f9513f55697da5ad1aa105172b4
+```
+
+The family records are:
+
+```text
+T01/F09: assignments=6 path=3 strict=[1,8] > [1,2]
+T02/F01: assignments=18 path=3 strict=[1,8] > [1,2]
+T02/F04: assignments=18 path=3 strict=[0,2] > [2,3]
+T02/F08: assignments=2 path=3 strict=[1,8] > [1,2]
+T02/F14: assignments=2 path=3 strict=[1,8] > [1,2]
+T03/F05: assignments=18 path=3 strict=[3,7] > [1,7]
+T03/F15: assignments=2 path=3 strict=[1,4] > [3,4]
+T04/F13: assignments=2 path=3 strict=[1,5] > [1,2]
+T05/F10: assignments=18 path=3 strict=[1,8] > [1,2]
+T06/F11: assignments=18 path=4 strict=[3,8] > [3,5]
+T07/F06: assignments=18 path=4 strict=[1,4] > [1,2]
+T08/F02: assignments=18 path=5 strict=[1,3] > [1,2]
+T09/F03: assignments=18 path=6 strict=[1,3] > [1,2]
+```
+
+### Exact Scope
+
+This is a local final-contradiction criterion. It does not independently
+prove the selected-distance equality paths or the vertex-circle strict edges;
+those remain the inputs checked in the individual focused packet notes and
+packet artifacts.
+
+It does not prove the full `n=9` finite case, because the review-pending
+exhaustive checker is still needed to show that every `n=9` frontier
+assignment contains a recorded local obstruction template. It does not prove
+Erdos Problem #97 and does not give a counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-self-edge-criterion.md`
+- `docs/index.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect on the Attack
+
+The self-edge side of the `n=9` vertex-circle catalog now has one explicit
+reviewer-facing final-contradiction criterion. The remaining proof pressure is
+not the last algebraic step of the self-edge contradiction; it is certifying
+the local inputs and proving the finite-to-local bridge from arbitrary
+frontier assignments to cataloged obstruction templates.
+
+### Next Lead
+
+Apply the same reviewer-facing consolidation to the strict-cycle templates,
+or attack the bridge: explain why the review-pending `n=9` exhaustive checker
+forces every frontier assignment into one of the 12 recorded local templates.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-629`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-629`.
+- The branch was based on `origin/main` at commit
+  `b76cff13c742bed78c9c44a92dca71727c3aa914`, after PR #327 merged Cycle
+  628.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_self_edge_template_packet.py --check
+  --assert-expected --json`
+  passed. The packet checker reported `ok: true`, 158 self-edge
+  assignments, 13 families, 9 templates, and no validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+  --assert-expected --json`
+  passed. The catalog checker reported `ok: true`, 184 covered assignments,
+  12 templates, and no validation errors.
+- One-off exact family-record audit over
+  `data/certificates/n9_vertex_circle_self_edge_template_packet.json`
+  passed. It checked all 13 family records, found mismatch count `0`, and
+  produced digest
+  `c76e76eea27c61eca04a755ef0c7f15d4cf77f9513f55697da5ad1aa105172b4`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`
+  passed.
+- `git diff --check` passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`
+  passed with 534 passed and 275 deselected.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 628 - T09/F03 Focused Self-Edge Proof Note
 
 ### Mathematical Subquestion
