@@ -186,21 +186,113 @@ covered assignments: 18
 Again, the local core has no two-circle cap violation and no crossing-bisector
 order violation before the vertex-circle quotient step.
 
+## Lemma D: T11/F07 three-edge strict cycle
+
+The T11/F07 local core is:
+
+```text
+0 -> {1,2,4,8}
+1 -> {0,2,3,5}
+5 -> {0,3,4,7}
+6 -> {1,5,7,8}
+```
+
+At center `1`, the row order gives:
+
+```text
+D_02 > D_03,
+D_03 > D_05.
+```
+
+Row `5` identifies `D_05 = D_57`. At center `6`, the row order gives:
+
+```text
+D_57 > D_15.
+```
+
+Rows `1` and `0` identify:
+
+```text
+D_15 = D_01 = D_02.
+```
+
+Combining these gives the directed strict cycle
+
+```text
+D_02 > D_03 > D_57 > D_02.
+```
+
+The checker finds this exact strict-cycle local core in:
+
+```text
+family: F07
+covered assignments: 6
+```
+
+## Lemma E: T12/F16 three-edge strict cycle
+
+The T12/F16 local core is:
+
+```text
+0 -> {1,3,6,7}
+1 -> {2,4,7,8}
+2 -> {0,3,5,8}
+3 -> {0,1,4,6}
+4 -> {1,2,5,7}
+8 -> {0,2,5,6}
+```
+
+At centers `2`, `1`, and `0`, respectively, vertex-circle chord monotonicity
+gives:
+
+```text
+D_03 > D_08,
+D_28 > D_24,
+D_17 > D_13.
+```
+
+The selected-row quotient identifies:
+
+```text
+D_08 = D_28,
+D_24 = D_14 = D_17,
+D_13 = D_03.
+```
+
+Combining these gives the directed strict cycle
+
+```text
+D_03 > D_28 > D_17 > D_03.
+```
+
+The checker finds this exact strict-cycle local core in:
+
+```text
+family: F16
+covered assignments: 2
+```
+
 ## Scan summary
 
 The current local-lemma scan covers these review-pending template-packet
 families:
 
 ```text
-F01, F02, F03, F04, F06, F08, F09, F10, F11, F12, F14
+F01, F02, F03, F04, F06, F07, F08, F09, F10, F11, F12, F14, F16
 ```
 
 The de-duplicated assignment coverage is:
 
 ```text
-154 of the 184 n=9 pre-vertex-circle assignments
+162 of the 184 n=9 pre-vertex-circle assignments
+```
+
+The currently uncovered packet families are:
+
+```text
+F05, F13, F15
 ```
 
 This is useful proof-mining coverage, not an `n=9` completeness proof. The
-remaining local families still need proof-facing extraction, especially the
-T03/T04 self-edge packets and the T11/T12 strict-cycle packets.
+remaining local families still need proof-facing extraction; all remaining
+families come from the T03/T04 self-edge side of the stored packet scan.

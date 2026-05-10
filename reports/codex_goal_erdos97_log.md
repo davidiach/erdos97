@@ -22947,6 +22947,164 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 660 - Strict-cycle Local-template Coverage Closure
+
+### Mathematical Subquestion
+
+The aggregate `n=9` vertex-circle local-lemma scan already covered the
+T10/F12 strict-cycle packet but left the focused T11/F07 and T12/F16
+strict-cycle proof packets outside the aggregate count. The precise question
+was:
+
+```text
+Can the aggregate local-lemma scan absorb the existing T11 and T12
+strict-cycle packets so that every stored strict-cycle local template is
+covered by a named review-pending local lemma?
+```
+
+### Definitions and Assumptions
+
+Use the stored review-pending `n=9` template packets:
+
+- `data/certificates/n9_vertex_circle_self_edge_template_packet.json`
+- `data/certificates/n9_vertex_circle_strict_cycle_template_packet.json`
+
+A **strict-cycle local-template instance** is a packet family whose selected
+rows force strict vertex-circle inequalities and whose selected-distance
+quotient identifies the inner pair of each strict edge with the next outer
+pair, producing a directed strict cycle. The aggregate scan is proof-mining
+scaffolding only: it treats the packet JSON as input data and does not
+enumerate all `n=9` selected-witness assignments.
+
+### Result Status
+
+Exact finite aggregation/refinement:
+**Strict-cycle Local-template Coverage Closure**.
+
+### Argument Or Obstruction
+
+The focused packet checkers already replay the two three-edge strict-cycle
+local lemmas:
+
+```text
+T11/F07: 6 assignments, 4 core rows, replay status strict_cycle
+T12/F16: 2 assignments, 6 core rows, replay status strict_cycle
+```
+
+The aggregate checker now maps strict-cycle template ids to three named local
+lemma ids:
+
+```text
+T10 -> t10_two_edge_strict_cycle
+T11 -> t11_three_edge_strict_cycle
+T12 -> t12_three_edge_strict_cycle
+```
+
+For T11/F07, the replayed local rows force:
+
+```text
+D_02 > D_03 > D_57 > D_02.
+```
+
+For T12/F16, the replayed local rows force:
+
+```text
+D_03 > D_28 > D_17 > D_03.
+```
+
+After adding T11 and T12 to the aggregate scan, the exact scan summary is:
+
+```text
+source families: 16
+source assignments: 184
+covered families: 13
+covered assignments: 162
+uncovered families: F05, F13, F15
+uncovered assignments: 22
+```
+
+Thus the stored strict-cycle side of the local-template packet scan is now
+fully represented in the aggregate local-lemma scan. The remaining aggregate
+gaps are all on the T03/T04 self-edge side.
+
+### Exact Scope
+
+This result is exact for the stored review-pending `n=9` vertex-circle
+template packets and their natural cyclic order. It is not an independent
+review of the exhaustive checker, not a proof of the full `n=9` finite case,
+not a general proof of Erdos Problem #97, and not a counterexample.
+
+### Files Changed
+
+- `src/erdos97/n9_vertex_circle_local_lemmas.py`
+- `scripts/check_n9_vertex_circle_local_lemmas.py`
+- `tests/test_n9_vertex_circle_local_lemmas.py`
+- `docs/n9-vertex-circle-local-lemmas.md`
+- `docs/codex-backlog.md`
+- `docs/review-priorities.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This closes the aggregate strict-cycle bookkeeping gap and leaves a sharper
+next target: the `22` uncovered review-pending assignments in `F05`, `F13`,
+and `F15`. The route toward a human-readable `n=9` bridge is now less vague:
+all strict-cycle packets are covered by local strict-cycle lemmas, while the
+remaining aggregate work is self-edge extraction.
+
+### Next Lead
+
+Attack `F05` and `F15` together because both come from T03 self-edge packets.
+The useful subquestion is whether their self-edge quotient paths share a
+single incidence lemma or whether one of them needs a distinct selected-row
+connector pattern.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-660`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-660`.
+- The branch was started from `origin/main` at commit
+  `04d871d0b29040c513f22aebaba4865643de820b`, after PR #392 merged Cycle
+  659.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_local_lemmas.py --assert-expected --json`:
+  passed; recorded `162` covered assignments from `13` families and
+  uncovered `F05`, `F13`, `F15`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py --check
+  --assert-expected --json`: passed; T11/F07 has `6` assignments and replay
+  status `strict_cycle`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py --check
+  --assert-expected --json`: passed; T12/F16 has `2` assignments and replay
+  status `strict_cycle`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_n9_vertex_circle_local_lemmas.py -q`: passed, `8 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `570 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 659 - Full Context Cover Obstruction
 
 ### Mathematical Subquestion

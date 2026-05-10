@@ -53,8 +53,13 @@ def summary_lines(payload: dict[str, Any]) -> list[str]:
     lines = [
         f"schema: {payload['schema']}",
         f"status: {payload['status']}",
+        f"source families: {coverage['source_family_count']}",
+        f"source assignments: {coverage['source_assignment_count']}",
         f"covered families: {coverage['covered_family_count']}",
         f"covered assignments: {coverage['covered_assignment_count']}",
+        f"uncovered families: {coverage['uncovered_family_count']}",
+        f"uncovered assignments: {coverage['uncovered_assignment_count']}",
+        f"uncovered family ids: {','.join(coverage['uncovered_family_ids'])}",
     ]
     for lemma in payload["lemmas"]:
         lines.append(
