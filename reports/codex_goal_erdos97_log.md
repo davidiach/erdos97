@@ -22947,6 +22947,213 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 677 - Separated Four-Hit Compactness Bridge
+
+### Mathematical Subquestion
+
+The fixed-order Kalmanson certificate in Cycle 676 is exact progress, but it
+still lives inside a fixed selected-row extension. To test a less
+certificate-driven route, this cycle asked:
+
+```text
+What exact compactness statement would let an infinite family of polygonal
+counterexamples produce a smooth or convex-body four-hit obstruction?
+```
+
+This is the smooth-curve side probe from `docs/prompt-roadmap.md`: whether a
+smooth strictly convex closed curve can have every boundary point lying at the
+center of a circle meeting the curve in at least four other boundary points.
+
+### Definitions and Assumptions
+
+Parametrize a strictly convex polygonal boundary `Gamma_m` by a continuous
+orientation-preserving map
+
+```text
+gamma_m: R/Z -> R^2.
+```
+
+The vertex parameters form a finite cyclic set `T_m subset R/Z`. The mesh is
+the maximum normalized cyclic gap between consecutive points of `T_m`.
+
+A selected-witness row at a vertex parameter `t in T_m` is a 4-set
+`{s_1,s_2,s_3,s_4} subset T_m \ {t}` such that
+
+```text
+|gamma_m(t)-gamma_m(s_1)| = ... = |gamma_m(t)-gamma_m(s_4)|.
+```
+
+The row is `delta`-separated if the five parameters
+
+```text
+t, s_1, s_2, s_3, s_4
+```
+
+are pairwise at cyclic distance at least `delta` in `R/Z`.
+
+A simple closed curve `Gamma=gamma(R/Z)`, with `gamma` injective on `R/Z`, is
+a four-hit curve if for every `t in R/Z` there are four distinct parameters
+`u_1,...,u_4`, all different from `t`, such that
+
+```text
+|gamma(t)-gamma(u_1)| = ... = |gamma(t)-gamma(u_4)|.
+```
+
+### Result Status
+
+Proved conditional bridge:
+**Separated Four-Hit Compactness Bridge**.
+
+### Argument
+
+Assume:
+
+1. `gamma_m` converges uniformly to a continuous injective parametrization
+   `gamma` of a convex closed curve `Gamma`.
+2. The vertex meshes of `T_m` tend to zero.
+3. Every vertex of `Gamma_m` has at least one selected-witness row.
+4. There is one fixed `delta>0` such that every chosen row is
+   `delta`-separated.
+
+Fix an arbitrary `t in R/Z`. Since the mesh tends to zero, choose vertex
+parameters `t_m in T_m` with `t_m -> t`. Let
+`s_{m,1},...,s_{m,4}` be a `delta`-separated selected row for `t_m`.
+
+The compactness of `(R/Z)^4` gives a subsequence, depending on `t`, for which
+
+```text
+s_{m,j} -> u_j,  j=1,...,4.
+```
+
+Pairwise `delta`-separation passes to the limit, so the five parameters
+`t,u_1,u_2,u_3,u_4` are distinct. Uniform convergence then gives, for every
+`j`,
+
+```text
+|gamma(t)-gamma(u_j)|
+  = lim_m |gamma_m(t_m)-gamma_m(s_{m,j})|.
+```
+
+For each `m`, the four quantities on the right are equal because
+`s_{m,1},...,s_{m,4}` are selected witnesses for `t_m`. Therefore the four
+limit distances are equal. Since `t` was arbitrary, `Gamma` is a four-hit
+curve.
+
+Because `gamma` is injective, the distinct limiting parameters give distinct
+boundary points. If the uniform limit is known in addition to be `C^2` and
+strictly convex, then the same argument produces a `C^2` strictly convex
+four-hit curve. Thus a proof of a Smooth Four-Hit Gap Lemma would rule out
+every counterexample sequence satisfying the four assumptions above.
+
+### Obstruction To The Naive Compactness Route
+
+The proof uses `delta`-separation exactly once: to keep the four witnesses
+distinct from each other and from the center in the limit. Without it, the
+same compactness argument can only produce four limiting parameters counted
+with multiplicity. The witnesses could collide with one another or with the
+center, and the limiting curve need not be four-hit.
+
+Thus the naive statement
+
+```text
+Every convergent sequence of polygonal counterexamples has a four-hit limit.
+```
+
+is not justified by compactness alone. A proof using this route must either
+prove a non-collision/separation lemma for minimal counterexamples, or prove a
+smooth obstruction strong enough to handle collisions through higher-order
+contact data.
+
+### Exact Scope
+
+This is a conditional compactness lemma, not a proof of Erdos Problem #97 and
+not a counterexample. It assumes an infinite sequence of polygonal
+counterexamples, uniform boundary convergence to a simple convex curve, mesh
+going to zero, and a uniform lower bound on cyclic separation of the center
+and its four selected witnesses. None of those assumptions is proved for
+arbitrary hypothetical counterexamples in this cycle.
+
+The result does not interact with finite `n <= 8` artifacts, the review-pending
+`n=9` or `n=10` artifacts, or the fixed-pattern Kalmanson certificates except
+as strategic guidance: it identifies witness collision as the missing
+finite-to-infinite bridge for the smooth route.
+
+### Files Changed
+
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+The smooth-curve route is now split into two exact subproblems:
+
+1. **Smooth Four-Hit Gap Lemma:** prove that no `C^2` strictly convex closed
+   curve is a four-hit curve, or at least no such curve has uniformly
+   separated four-hit witnesses.
+2. **Witness-Separation Bridge:** prove that a minimal polygonal
+   counterexample sequence can be chosen with a uniform witness-separation
+   lower bound, or classify the collision regimes that prevent this.
+
+This is a different direction from certificate search. It does not retire the
+Kalmanson/endpoint-control route, but it gives a precise way to avoid merely
+adding more fixed-order certificates.
+
+### Next Lead
+
+Try to prove a local normal-incidence lemma for the smooth side:
+
+```text
+If p on a C^1 strictly convex curve has four distinct same-radius witnesses,
+then the distance-to-p function has at least three nontrivial critical points
+between those witnesses, so p lies on at least three normal lines to the curve.
+```
+
+This would translate the Smooth Four-Hit Gap Lemma into a statement about
+normal-line multiplicity and evolute structure.
+
+A parallel finite side lead also looks sharper than a broad all-order sweep:
+for the fixed Cycle 674 endpoint-control survivor, test whether the
+two-overlap crossing constraints force exactly five dihedral spine-pocket
+cyclic orders, and whether those five orders replay small Kalmanson
+quotient-cone certificates. This would remain fixed-survivor only, but it
+would be a compact all-crossing-compatible-order benchmark for the existing
+endpoint-control survivor.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-677`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-677`.
+- The branch was started from `origin/main` at commit
+  `2772eea6a8a7884525ef315900385c44a743d7b4`, after PR #416 merged Cycle
+  676.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- One parallel read-only agent was used to investigate the all-cyclic-order
+  route for the fixed endpoint-control survivor while this smooth-route cycle
+  was developed. It proposed the five-order spine-pocket benchmark above as a
+  separate next lead.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `602 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 676 - Endpoint-Control Kalmanson Quotient-Cone Obstruction
 
 ### Mathematical Subquestion
