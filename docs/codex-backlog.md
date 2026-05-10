@@ -43,6 +43,9 @@ Use this queue when no more specific issue is selected.
    The one-outside-label subpacket in `docs/bootstrap-t12-one-outside.md`
    isolates the three singleton-support rows where a future bridge would need
    to force one outside label without relying on private-pair capacity.
+   The outside-pair subpacket in `docs/bootstrap-t12-outside-pair.md` isolates
+   the remaining pair-supported row, where private-pair capacity makes partial
+   direct contact but still does not force the missing equality connector.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker

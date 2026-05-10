@@ -150,6 +150,8 @@ put detailed reconciliation in the canonical synthesis.
   gaps.
 - [`bootstrap-t12-one-outside.md`](bootstrap-t12-one-outside.md):
   focused packet isolating the three singleton-support T12 row-pressure gaps.
+- [`bootstrap-t12-outside-pair.md`](bootstrap-t12-outside-pair.md):
+  focused packet isolating the remaining pair-supported T12 row-pressure gap.
 - [`bridge-negative-controls.md`](bridge-negative-controls.md): exact
   guardrails for incidence-only and fragile-cover-only bridge claims.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`

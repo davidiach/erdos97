@@ -333,6 +333,9 @@ condition that the surviving multi-block family does not automatically satisfy:
 - bootstrap/T12 one-outside-label evidence, as recorded in
   `docs/bootstrap-t12-one-outside.md`, isolating the three singleton-support
   rows where pair-capacity arguments do not directly apply.
+- bootstrap/T12 outside-pair evidence, as recorded in
+  `docs/bootstrap-t12-outside-pair.md`, isolating the remaining row where the
+  private-pair ledger has partial direct support.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

@@ -497,6 +497,13 @@ and one is internal to the deletion closure for core vertex `2`. This is a
 diagnostic decomposition only, not a theorem that singleton supports or row
 centers are forced by Euclidean geometry.
 
+The outside-pair packet in `docs/bootstrap-t12-outside-pair.md` isolates the
+single pair-supported row, `151:6`. It has one bootstrap-core witness and
+three outside-pair supports; all three supports are private in every deletion
+halo, and two also hit the private-pair ledger. This is still a diagnostic
+decomposition only, not a theorem that a private-pair ledger hit forces an
+equality-connector row in genuine geometry.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a
