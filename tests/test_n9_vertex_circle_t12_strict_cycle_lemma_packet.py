@@ -161,6 +161,7 @@ def test_t12_strict_cycle_lemma_packet_rejects_tampered_step0_connector() -> Non
     errors = validate_payload(payload, recompute=False)
 
     assert any("F16 cycle_steps mismatch" in error for error in errors)
+    assert any("equality must end at next outer pair" in error for error in errors)
     assert any("expected T12 strict-cycle lemma packet" in error for error in errors)
 
 
@@ -174,6 +175,29 @@ def test_t12_strict_cycle_lemma_packet_rejects_tampered_step1_closure() -> None:
     assert any("F16 cycle_steps mismatch" in error for error in errors)
 
 
+def test_t12_strict_cycle_lemma_packet_rejects_unsupported_strict_interval() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    packet = _f16(payload)
+    packet["cycle_steps"][2]["strict_inequality"]["outer_interval"] = [0, 1]  # type: ignore[index]
+
+    errors = validate_payload(payload, recompute=False)
+
+    assert any("F16 cycle_steps mismatch" in error for error in errors)
+    assert any("strict_inequality is not supported" in error for error in errors)
+
+
+def test_t12_strict_cycle_lemma_packet_rejects_tampered_local_lemma_steps() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    packet = _f16(payload)
+    packet["local_lemma"]["selected_distance_equalities"][1]["equality_steps"][0][  # type: ignore[index]
+        "row"
+    ] = 8
+
+    errors = validate_payload(payload, recompute=False)
+
+    assert any("local_lemma selected_distance_equalities" in error for error in errors)
+
+
 def test_t12_strict_cycle_lemma_packet_rejects_tampered_strict_row() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     packet = _f16(payload)
@@ -182,6 +206,7 @@ def test_t12_strict_cycle_lemma_packet_rejects_tampered_strict_row() -> None:
     errors = validate_payload(payload, recompute=False)
 
     assert any("F16 cycle_steps mismatch" in error for error in errors)
+    assert any("strict_inequality is not supported" in error for error in errors)
 
 
 def test_t12_strict_cycle_lemma_packet_rejects_tampered_core_rows() -> None:
