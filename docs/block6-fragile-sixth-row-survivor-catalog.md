@@ -353,6 +353,29 @@ The remaining orbit representatives are recorded by the checker output under
 `low_support_terminal_eighth_center_audit`. The split is equivariant under the
 block-swap map `i -> i+6 mod 12`.
 
+## Triple-plus-profile Terminality Audit
+
+Adding the seven-center triple to the row-content profile is still not enough
+to force terminality. Among the `2060` two-and-two clean seven-row states,
+there are `26` combined `(seven-center triple, row-content profile)` classes.
+The `12` terminal states occupy `6` of those classes, and every one of those
+`6` classes also contains extendable states:
+
+```text
+seven centers  terminal  extendable
+2,4,5          2         118
+2,10,11        1         293
+4,5,8          1         293
+4,5,11         3         152
+5,10,11        3         152
+8,10,11        2         118
+```
+
+Thus terminality is not determined by the seven-center triple together with
+the same/opposite-block row-content profile. The checker records one terminal
+and one extendable example in each terminal-containing combined class under
+`low_support_triple_profile_terminality_audit`.
+
 ## Center Counts
 
 ```text
@@ -395,7 +418,8 @@ orbits for the clean fifth-row and clean six-row states. Finally, it audits
 every legal seventh row after the `56` low-support clean six-row states in the
 `4,5` and `10,11` minimum-support center-pair families, and every legal
 eighth row after the resulting `2252` clean seven-row states, including the
-center-level split for the `12` terminal seven-row pockets.
+center-level split for the `12` terminal seven-row pockets and the
+triple-plus-profile terminality audit.
 
 ## Effect
 
@@ -415,4 +439,6 @@ row-content normal-form family, or to classify the `12` terminal seven-row
 states by a boundary-pair invariant that distinguishes them from the `2240`
 seven-row states that still extend cleanly. The eighth-center split rules out
 the coarsest possible terminal explanation: terminality is not concentrated at
-one eighth center or one obstruction type.
+one eighth center or one obstruction type. The triple-plus-profile audit also
+shows that terminality is not determined by adding the seven-center triple to
+the row-content profile.

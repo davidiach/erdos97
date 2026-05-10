@@ -22947,6 +22947,152 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 650 - Block-6 Triple-plus-profile Terminality Failure
+
+### Mathematical Subquestion
+
+Cycle 649 showed that terminal pockets have varied eighth-center obstruction
+splits. The next precise question was:
+
+```text
+Does the seven-center triple together with the same/opposite-block
+row-content profile determine eighth-row terminality?
+```
+
+### Definitions and Assumptions
+
+Use the low-support clean seven-row states from Cycles 646-649. A state is in
+the two-and-two profile domain when each of its three added rows has exactly
+two witnesses in the same six-label block as its center and two witnesses in
+the opposite block.
+
+The combined invariant is the pair:
+
+```text
+(sorted seven-center triple, same/opposite-block row-content profile).
+```
+
+Here the row-content profile is the union-size, pairwise-intersection, and
+degree-multiset profile from Cycle 648.
+
+### Result Status
+
+Failed lemma:
+**Triple-plus-profile Terminality Failure**.
+
+### Argument Or Obstruction
+
+The checker now groups all `2060` two-and-two clean seven-row states by the
+combined invariant above. These states form `26` combined classes. The `12`
+terminal states occupy `6` combined classes, and every one of those `6`
+classes also contains extendable clean seven-row states:
+
+```text
+seven centers  terminal  extendable
+2,4,5          2         118
+2,10,11        1         293
+4,5,8          1         293
+4,5,11         3         152
+5,10,11        3         152
+8,10,11        2         118
+```
+
+For example, the combined class with seven-center triple `2,4,5` and profile
+
+```text
+same_u=4,same_i=0,1,1,same_d=1,1,2,2|
+opposite_u=5,opposite_i=0,0,1,opposite_d=1,1,1,1,2
+```
+
+contains the terminal state:
+
+```text
+2 -> {1,5,6,7}
+4 -> {0,3,6,10}
+5 -> {0,1,8,11}
+```
+
+and the extendable state:
+
+```text
+2 -> {1,3,6,7}
+4 -> {0,3,6,9}
+5 -> {0,4,8,11}
+```
+
+Thus adding the seven-center triple to the row-content profile still does not
+produce a terminality criterion.
+
+### Exact Scope
+
+This is an exact finite audit inside the low-support two-block block-6
+natural-order selected-row extension tree. It covers all `2252` clean
+seven-row states in that branch and all `2060` states in the two-and-two
+profile domain. It is not a Euclidean realizability result, is not a proof of
+Erdos Problem #97, and is not a counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This blocks another plausible proof-mining route. Terminality is not captured
+by the center triple plus coarse row-content statistics; the distinguishing
+data must include exact witness labels or boundary-pair placement. The
+positive value is that terminal pockets remain localized: only `6` combined
+classes contain terminal states, so comparing terminal and extendable examples
+inside those classes is now the next exact target.
+
+### Next Lead
+
+Within each of the `6` terminal-containing combined classes, compute a minimal
+row-label edit distance from each terminal state to an extendable state in the
+same class, then inspect whether the changed witnesses align with the
+eighth-center obstruction split from Cycle 649.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-650`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-650`.
+- The branch was based on `origin/main` at commit
+  `01dd15fc0b88959c5d30bb4126e815ed17666c42`, after PR #368 merged Cycle
+  649.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_block6_fragile_sixth_row_survivors.py --assert-expected
+  --json`: passed; reported `26` two-and-two triple/profile classes, `6`
+  terminal triple/profile classes, and `6` terminal triple/profile classes
+  with extendable states.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `540 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 649 - Block-6 Terminal Eighth-center Split Audit
 
 ### Mathematical Subquestion

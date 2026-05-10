@@ -180,6 +180,31 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
         "7": {"ok": 0, "self_edge": 0, "strict_cycle": 2},
         "8": {"ok": 0, "self_edge": 3, "strict_cycle": 0},
     }
+    triple_profile_audit = payload["low_support_triple_profile_terminality_audit"]
+    assert triple_profile_audit["triple_profile_only_terminality_holds"] is False
+    assert triple_profile_audit["two_two_triple_profile_classes"] == 26
+    assert triple_profile_audit["terminal_triple_profile_classes"] == 6
+    assert triple_profile_audit[
+        "terminal_triple_profiles_with_extendable_states"
+    ] == 6
+    terminal_triple_key = (
+        "2,4,5|same_u=4,same_i=0,1,1,same_d=1,1,2,2|"
+        "opposite_u=5,opposite_i=0,0,1,opposite_d=1,1,1,1,2"
+    )
+    assert triple_profile_audit["terminal_triple_profile_counts"][
+        terminal_triple_key
+    ] == {
+        "clean_two_two_seven_states": 120,
+        "terminal": 2,
+        "extendable": 118,
+    }
+    assert triple_profile_audit["terminal_triple_profile_extendable_examples"][
+        terminal_triple_key
+    ]["extendable"] == [
+        {"center": 2, "row": [1, 3, 6, 7]},
+        {"center": 4, "row": [0, 3, 6, 9]},
+        {"center": 5, "row": [0, 4, 8, 11]},
+    ]
     assert payload["first_clean_sixth_example"] == {
         "fifth": {"center": 1, "row": [0, 2, 6, 7]},
         "sixth": {"center": 2, "row": [0, 1, 3, 8]},
