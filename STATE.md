@@ -87,6 +87,13 @@ to the deletion closure for core vertex `2`. This remains diagnostic
 bookkeeping only, not a row-forcing theorem. See
 `docs/bootstrap-t12-one-outside.md`.
 
+An outside-pair subpacket isolates the remaining row-pressure gap, `151:6`.
+It has one bootstrap-core witness, row center `6` private in every deletion
+closure, and three outside-pair supports. All three supports are private in
+every deletion halo; `[3,8]` and `[5,8]` also hit the private-pair ledger,
+while `[3,5]` is private-halo-only. This is still diagnostic bookkeeping only,
+not a row-forcing theorem. See `docs/bootstrap-t12-outside-pair.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

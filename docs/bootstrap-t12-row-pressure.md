@@ -77,6 +77,11 @@ The row `151:6` has only one core witness. It needs an outside pair, and two
 of its possible outside pairs, `[3,8]` and `[5,8]`, hit the existing
 private-pair ledger.
 
+The focused outside-pair packet
+[`bootstrap-t12-outside-pair.md`](bootstrap-t12-outside-pair.md) records this
+last subcase separately. It distinguishes the two ledger-hit support pairs
+from the private-halo-only support pair `[3,5]`.
+
 ## Reading
 
 This narrows the next proof-mining question:

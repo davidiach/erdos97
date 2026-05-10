@@ -186,6 +186,16 @@ vertex `2`. This is still diagnostic bookkeeping only; see
 `scripts/check_bootstrap_t12_one_outside.py`, and
 `data/certificates/bootstrap_t12_one_outside.json`.
 
+The outside-pair subpacket isolates the last row-pressure row, `151:6`. This
+equality-connector row has one bootstrap-core witness, three activation-ready
+outside-pair supports, and row center `6` private in every deletion closure.
+All three support pairs are private in every deletion halo; two supports,
+`[3,8]` and `[5,8]`, also hit the private-pair ledger, while `[3,5]` is
+private-halo-only. This is still diagnostic bookkeeping only; see
+`docs/bootstrap-t12-outside-pair.md`,
+`scripts/check_bootstrap_t12_outside_pair.py`, and
+`data/certificates/bootstrap_t12_outside_pair.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.
