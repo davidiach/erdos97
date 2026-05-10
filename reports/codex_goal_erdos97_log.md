@@ -22947,6 +22947,176 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 637 - Selected-indegree Cap Partial-prune Audit
+
+### Mathematical Subquestion
+
+After Cycle 636 audited the witness-pair cap, the next row-level
+frontier-soundness question was:
+
+Does the repo-native `n=9` vertex-circle checker implement exactly the
+selected-indegree cap
+
+```text
+MAX_INDEGREE = floor(2*(n-1)/(row_size-1)),
+```
+
+and is the partial `column_counts[target] >= MAX_INDEGREE` prune monotone
+under adding selected rows?
+
+### Definitions and Assumptions
+
+Let `P` be a strictly convex polygon and let `S_x` be the selected witness
+`row_size`-set for center `x`. For a fixed label `v`, define
+
+```text
+d_A(v) = #{ x in dom(A) : v in S_x }
+```
+
+for a partial selected-row assignment `A`.
+
+This cycle assumes the witness-pair cap from Cycle 636:
+
+```text
+#{ x : v,u in S_x } <= 2
+```
+
+for every unordered pair `{v,u}` with `u != v`.
+
+### Result Status
+
+Proved implementation-audit lemma:
+**N9 Selected-indegree Cap Monotonicity Lemma**.
+
+For every candidate row in the repo-native `n=9` checker, the
+`column_counts[target] >= MAX_INDEGREE` rejection is exactly the monotone
+partial form of the selected-indegree cap implied by the witness-pair cap.
+
+### Argument
+
+Fix a label `v`. Each selected row containing `v` contributes exactly
+`row_size-1` row-local witness pairs `{v,u}`. By the witness-pair cap, for
+each of the `n-1` possible labels `u != v`, the pair `{v,u}` can occur in at
+most two selected rows. Therefore
+
+```text
+(row_size-1) d(v) <= 2*(n-1),
+```
+
+and hence
+
+```text
+d(v) <= floor(2*(n-1)/(row_size-1)).
+```
+
+For `n = 9` and `row_size = 4`, this gives `d(v) <= floor(16/3) = 5`.
+
+For a partial assignment `A`, adding a candidate row containing `v` changes
+`d_A(v)` to `d_A(v) + 1`. Therefore, if `d_A(v) >= 5`, adding the candidate
+would force selected indegree at least `6`, impossible by the cap. Later rows
+only increase these counts and cannot repair the violation.
+
+Conversely, if every label in a candidate row currently has count at most
+`4`, then adding that row does not violate the selected-indegree cap. It may
+still be rejected by another necessary filter, but not by this cap.
+
+The code-shape audit over
+`src/erdos97/n9_vertex_circle_exhaustive.py` found that `MAX_INDEGREE` is
+computed as `(PAIR_CAP * (N - 1)) // (ROW_SIZE - 1)`; that
+`valid_options_for_center` rejects exactly when some selected label in the
+candidate row already has count at `MAX_INDEGREE`; and that the recursive
+search increments and decrements exactly those same four counts when adding
+and backtracking a row.
+
+### Exact Audit
+
+A one-off predicate audit checked the formula, every unique row-mask shape,
+every local count profile in `{0,1,2,3,4,5}^4` for every unique row mask, and
+the increment/decrement roundtrip.
+
+```text
+max indegree formula 5 5
+unique row masks 126
+row mask shape errors 0
+local column profiles tested 163296
+local column predicate mismatches 0
+increment/decrement roundtrip errors 0
+label frequency histogram across unique row masks {56: 9}
+```
+
+The histogram agrees with the independent count that each label in a 9-label
+universe occurs in `binom(8,3) = 56` four-row masks.
+
+### Exact Scope
+
+This is not a full audit of the `n=9` checker. It does not audit the
+two-overlap crossing filter, the witness-pair cap proof beyond using Cycle
+636, the vertex-circle strict-edge lemma, vertex-circle quotient obstruction,
+row0 coverage, archive reconciliation, or the 184 pre-vertex-circle
+assignments. It does not prove the full `n=9` finite case. It does not prove
+Erdos Problem #97 and does not give a counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-selected-indegree-cap-audit.md`
+- `docs/index.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect on the Attack
+
+The frontier-soundness checklist is reduced by another row-level filter
+concern: the checker's selected-indegree count prune is exactly the monotone
+partial form of an incidence-count consequence of the witness-pair cap. The
+remaining review burden is now concentrated on the vertex-circle strict-edge
+geometry and independent replay or archive reconciliation for the
+184-assignment frontier.
+
+### Next Lead
+
+Audit the vertex-circle strict-edge geometry: when four witnesses around a
+center lie in cyclic order and one witness chord interval strictly contains
+another, prove that the corresponding selected-distance quotient forces the
+implemented strict edge between distance classes. The useful output would be a
+short geometric lemma, or a precise obstruction explaining why the current
+implementation requires a narrower hypothesis.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-637`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-637`.
+- The branch was based on `origin/main` at commit
+  `858b0d282c0c8bbca00329152882b83721e29a9d`, after PR #343 merged Cycle
+  636.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- One-off predicate audit with `PYTHONPATH=src` passed, with
+  `MAX_INDEGREE = 5`, zero row-mask shape errors, zero local column predicate
+  mismatches across `163296` profiles, and zero increment/decrement roundtrip
+  errors.
+- `python scripts/check_text_clean.py` passed.
+- `python scripts/check_status_consistency.py` passed.
+- `python scripts/check_artifact_provenance.py` passed.
+- `git diff --check` passed.
+- `python -m ruff check .` passed.
+- `python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected
+  --json` passed, reproducing `16752` main-search nodes, `0` full assignments
+  with vertex-circle pruning, and `184` cross-check full assignments without
+  vertex-circle pruning.
+- `python -m pytest tests/test_n9_vertex_circle_exhaustive.py -q -m artifact`
+  passed: `3 passed`.
+- `python -m pytest -q` passed: `534 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 636 - Witness-pair Cap Partial-prune Audit
 
 ### Mathematical Subquestion
