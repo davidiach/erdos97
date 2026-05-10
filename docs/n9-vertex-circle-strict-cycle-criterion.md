@@ -194,6 +194,21 @@ proof that such a pattern must occur. Its use is negative: excluding the
 one-connector case requires an additional cyclic-order or geometric hypothesis,
 not just the selected-distance quotient.
 
+There is a related trap to avoid. If the proposed geometric hypothesis already
+includes both strict vertex-circle inequalities and the connector equality,
+then the two-edge strict-cycle criterion above has already made the local core
+unrealizable:
+
+```text
+D(A) > D(P) > D(D) = D(A).
+```
+
+Thus any additional claim that the connector row must also contain the shared
+pair `P` is vacuous under those hypotheses. The useful proof target is not to
+collapse the one-connector pattern after the strict cycle is present; it is to
+prove an entry lemma that forces one of these strict-cycle patterns from
+independent incidence, cyclic-order, or metric-order assumptions.
+
 ## Current Packet Audit
 
 The checked source artifact is

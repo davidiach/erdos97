@@ -22947,6 +22947,156 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 684 - Connector-Containment Vacuity Obstruction
+
+### Mathematical Subquestion
+
+Can the Cycle 683 one-connector `C/ID` case be turned into a geometric
+collapse lemma? The proposed condition was:
+
+```text
+If B = C is a literal shared pair and one connector row identifies D with A
+in a genuine strictly convex selected-witness system, then cyclic order or
+circle geometry forces the connector row to contain the literal shared pair P.
+```
+
+The intended use was to collapse the one-connector case to a simpler self-edge
+instead of treating it as a separate strict-cycle schema.
+
+### Definitions and Assumptions
+
+Write the one-connector two-edge pattern as
+
+```text
+A > P,
+P > D,
+A ~ D.
+```
+
+Here `A > P` and `P > D` are certified vertex-circle strict inequalities from
+two selected rows, `P` is the literal shared unordered pair, and `A ~ D` is the
+selected-distance equality supplied by one connector row.
+
+### Result Status
+
+Failed bridge:
+**Connector-Containment Vacuity Obstruction**.
+
+Promising replacement route:
+**One-Connector Paired-Square Entry Reduction**.
+
+### Argument Or Obstruction
+
+Under the strict-edge assumptions, the local core is already impossible:
+
+```text
+D(A) > D(P) > D(D) = D(A).
+```
+
+Therefore no genuine strictly convex selected-witness realization can satisfy
+the full hypothesis. Any further statement of the form "then the connector row
+must contain `P`" is true only vacuously. It does not simplify the proof route,
+because the strict-cycle criterion has already supplied the contradiction.
+
+If the strict vertex-circle order assumptions are removed, the proposed
+connector-containment conclusion is no longer supported by quotient
+combinatorics. Cycle 683 gives the exact local quotient obstruction: a
+connector row can identify `A` with `D` while leaving the literal shared pair
+`P` outside its selected star.
+
+A parallel read-only geometry pass confirmed the same boundary: the only
+nonvacuous exact reading is the strict path plus selected-star equality
+
+```text
+D(P_0) > D(P_1) > D(P_2) = D(P_0),
+```
+
+which is already a directed strict cycle. If the connector equality is
+unrelated to the first outer pair and second inner pair, the proof fails
+immediately; a connector row merely containing or avoiding the shared pair is
+not the invariant.
+
+### Exact Scope
+
+This is a logical obstruction to a proposed bridge lemma, not a Euclidean
+realization and not a selected-witness counterexample. It does not prove
+`n=9`, does not prove Erdos Problem #97, and does not produce a counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-strict-cycle-criterion.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+The one-connector route should not spend further effort trying to prove a
+post-contradiction connector-containment lemma. The useful task is an entry
+lemma: find independent incidence, cyclic-order, Kalmanson, or metric-order
+conditions that force a self-edge or strict-cycle schema before assuming the
+schema itself.
+
+The most concrete live replacement is Kalmanson quotient balance. The existing
+Incident Paired-Square Closure Criterion says that an incident residual
+comparison `R_i` versus `X_{i,n}` closes exactly when two selected-center
+squares for the same residual pair have opposite diagonal orientations. In
+that case the two Kalmanson rows quotient to
+
+```text
+R_i + R_{j_+} > X_{i,n} + R_{j_+},
+X_{i,n} + R_{j_-} > R_i + R_{j_-},
+```
+
+hence to
+
+```text
+R_i > X_{i,n} > R_i.
+```
+
+This is the Kalmanson analogue of a one-connector strict-cycle entry lemma:
+it does not rely on raw connector morphology, and it includes the exact
+quotient-balance condition that morphology-only attempts miss.
+
+### Next Lead
+
+Try to attach vertex-circle connector states to the paired-square criterion
+instead of to connector-containment. A precise testable candidate is:
+
+```text
+Vertex-Circle Connector to Paired-Square Entry Problem.
+Given a one- or two-connector vertex-circle state, either find an incident
+residual pair (i,n) with both an A-diagonal and a B-diagonal selected-center
+square, or prove that the failure is caused by square availability rather than
+boundary-order forcing.
+```
+
+This lead is still a reduction, not a proof. It must not be promoted unless
+the square availability and opposite diagonal forcing are checked exactly.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-684`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-684`.
+- The branch was started from `origin/main` at commit
+  `90b1cf52d98ab52021a5cbfc8344af4205e00859`, after PR #429 merged Cycle 683.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `git diff --check`: passed.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 683 - One-Connector Caveat for Two-Edge Quotient Cycles
 
 ### Mathematical Subquestion
