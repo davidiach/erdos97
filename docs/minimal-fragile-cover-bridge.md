@@ -160,6 +160,27 @@ not a Euclidean realization certificate. It only says that this particular
 row-circle gate must be strengthened, or applied through an all-extension
 certificate, before it can close the fragile-cover bridge.
 
+The survivor also passes a weaker quotient-level row-Ptolemy feasibility test:
+
+```bash
+python scripts/check_block6_survivor_ptolemy_feasibility.py --assert-expected --json
+```
+
+The checker quotients ordinary pair distances by the selected-distance
+equalities of the survivor, obtains `33` distance classes, and verifies an
+explicit positive rational assignment satisfying all `12` row-Ptolemy
+identities. For example, class values include
+
+```text
+x0=1, x5=3, x6=1/2, x9=1/2, x27=6, x32=3/2.
+```
+
+This rules out the next overstrong subclaim: selected-distance quotienting plus
+the row-circle Ptolemy equalities alone do not already force a positivity
+contradiction for the survivor. The certificate is only algebraic feasibility
+for the quotient equations. It does not impose triangle inequalities,
+Kalmanson inequalities, global metric consistency, or Euclidean realizability.
+
 ## What This Does Not Prove
 
 The bridge is necessary, not sufficient. The checked block-6 family passes the

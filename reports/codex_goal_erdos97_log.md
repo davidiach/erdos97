@@ -22947,6 +22947,159 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 669 - Quotient-Ptolemy Feasible Survivor
+
+### Mathematical Subquestion
+
+Cycle 668 found a full selected-row extension of the two-block block-6
+fragile negative control with zero row-Ptolemy product-cancellation
+certificates. The next narrow bridge question was:
+
+```text
+Do the selected-distance quotient equalities and all row-circle Ptolemy
+equations for that survivor already force a contradiction with positivity?
+```
+
+### Definitions and Assumptions
+
+Use the Cycle 668 survivor rows in the natural cyclic order:
+
+```text
+0  -> {1,2,3,4}
+1  -> {3,6,9,11}
+2  -> {1,3,5,10}
+3  -> {0,2,4,5}
+4  -> {0,3,8,11}
+5  -> {0,1,6,7}
+6  -> {7,8,9,10}
+7  -> {1,5,6,8}
+8  -> {0,5,7,9}
+9  -> {6,8,10,11}
+10 -> {2,5,9,11}
+11 -> {0,4,6,10}
+```
+
+Quotient ordinary pair-distance variables by the selected-distance equalities:
+for every center `i`, all four distances from `i` to its selected row are one
+quotient class. A quotient-level row-Ptolemy feasibility certificate is a
+positive rational value assigned to every quotient class such that every
+selected row satisfies
+
+```text
+d02*d13 = d01*d23 + d03*d12
+```
+
+in its cyclic witness order.
+
+### Result Status
+
+Exact positive feasibility certificate:
+**Quotient-Ptolemy Feasible Survivor**.
+
+### Argument Or Obstruction
+
+The new checker `scripts/check_block6_survivor_ptolemy_feasibility.py` builds
+the selected-distance quotient for the survivor. It obtains `33` ordinary
+distance classes and verifies the following positive rational assignment:
+
+```text
+x0=1, x1=4, x2=1, x3=1, x4=1, x5=3, x6=1/2, x7=2,
+x8=1, x9=1/2, x10=1, x11=1, x12=1, x13=1, x14=1, x15=1,
+x16=1, x17=1/2, x18=3, x19=4, x20=2, x21=1/2, x22=1,
+x23=1, x24=1, x25=1/2, x26=5, x27=6, x28=4, x29=1,
+x30=1, x31=1/2, x32=3/2.
+```
+
+All values are positive and all `12` row-Ptolemy equations verify exactly over
+the rationals. For instance row `0`, with witness order `[1,2,3,4]`, has
+
+```text
+d01=x0, d02=x5, d03=x6, d12=x0, d13=x9, d23=x0,
+```
+
+so the equation reads
+
+```text
+x5*x9 = x0*x0 + x6*x0,
+3*(1/2) = 1*1 + (1/2)*1.
+```
+
+Thus the quotient-level row-circle equations alone do not contradict
+positivity for the survivor. This is a counterexample only to the overstrong
+subclaim that quotienting plus row-Ptolemy identities already kills the
+survivor.
+
+### Exact Scope
+
+The certificate is exact for the fixed survivor rows above, the natural cyclic
+order, the selected-distance quotient computed by the repo's quotient helper,
+and the `12` row-Ptolemy equations. It does not impose triangle inequalities,
+Kalmanson inequalities, global metric consistency, coordinates, strict
+convexity determinants, or Euclidean realizability. It is not a counterexample
+to Erdos #97.
+
+### Files Changed
+
+- `docs/minimal-fragile-cover-bridge.md`
+- `reports/codex_goal_erdos97_log.md`
+- `scripts/check_block6_survivor_ptolemy_feasibility.py`
+- `tests/test_block6_survivor_ptolemy_feasibility.py`
+
+### Effect On The Attack
+
+The fragile-cover row-circle route needs a stronger exact ingredient than
+local product-cancellation or raw quotient-level Ptolemy feasibility. The next
+reasonable additions are global metric inequalities such as Kalmanson rows,
+triangle inequalities, vertex-circle strict inequalities, or an exact
+Euclidean realization/real-root obstruction.
+
+### Next Lead
+
+Apply one stronger necessary metric layer to the same survivor. The most
+direct proof-facing test is a quotient-cone search for a positive linear
+combination of Kalmanson inequalities that reduces to a nonpositive vector
+after the survivor's selected-distance quotient. A second useful test is to
+replay vertex-circle strict inequalities on the survivor and look for a
+self-edge or strict cycle.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-669`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-669`.
+- The branch was started from `origin/main` at commit
+  `6dd045385e0758b506906f57968c5202d209d5e8`, after PR #407 merged Cycle
+  668.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_block6_survivor_ptolemy_feasibility.py --assert-expected
+  --json`: passed; the audit reports `33` quotient classes, a positive
+  rational assignment, and `12` verified row-Ptolemy equations.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_survivor_ptolemy_feasibility.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `590 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 668 - Block-6 Row-Ptolemy Survivor
 
 ### Mathematical Subquestion
