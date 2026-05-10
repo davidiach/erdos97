@@ -22947,6 +22947,154 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 668 - Block-6 Row-Ptolemy Survivor
+
+### Mathematical Subquestion
+
+Cycle 667 isolated the row-circle full-extension gate. The narrow test for
+this cycle was:
+
+```text
+Does row-Ptolemy product-cancellation kill every deterministic full
+selected-row extension of the two-block block-6 fragile negative control, or
+is there an exact survivor extension?
+```
+
+### Definitions and Assumptions
+
+Use the two-block `block6_family` fragile rows. A full selected-row extension
+assigns one four-element selected row to every center, preserves the fixed
+fragile rows, and satisfies the pair/crossing incidence constraints used by
+the full-extension diagnostic.
+
+A row-Ptolemy product-cancellation certificate is the exact local obstruction
+from `docs/row-ptolemy-product-filter.md`: selected-distance quotienting in
+one selected row makes Ptolemy's row-circle identity force a positive chord
+product to be zero.
+
+The audit is bounded by the deterministic extension order and the requested
+`--max-extensions`/`--max-nodes` limits.
+
+### Result Status
+
+Exact bounded obstruction to an overstrong subclaim:
+**Block-6 Row-Ptolemy Survivor**.
+
+### Argument Or Obstruction
+
+The new bounded checker enumerates deterministic full selected-row extensions
+of the two-block fragile rows under the pair/crossing constraints and tests
+each extension for row-Ptolemy product-cancellation certificates.
+
+With `--blocks 2 --max-extensions 3 --assert-survivor`, it examines three
+extensions before finding a survivor. The first two extensions are killed by
+one row-Ptolemy product-cancellation certificate each. In both cases the first
+certificate is at row `6`, has witness order `[7,8,9,10]`, uses variant
+`cancel_d01_d23_via_d02_eq_d23_and_d13_eq_d01`, and forces zero product
+`d03*d12`.
+
+The third full extension has zero row-Ptolemy product-cancellation
+certificates:
+
+```text
+0  -> {1,2,3,4}
+1  -> {3,6,9,11}
+2  -> {1,3,5,10}
+3  -> {0,2,4,5}
+4  -> {0,3,8,11}
+5  -> {0,1,6,7}
+6  -> {7,8,9,10}
+7  -> {1,5,6,8}
+8  -> {0,5,7,9}
+9  -> {6,8,10,11}
+10 -> {2,5,9,11}
+11 -> {0,4,6,10}
+```
+
+Therefore row-Ptolemy product-cancellation alone cannot prove that every full
+selected-row extension of the two-block block-6 fragile rows is impossible.
+This refutes only that overstrong bridge subclaim.
+
+### Exact Scope
+
+The conclusion is exact inside the bounded deterministic audit:
+
+- `blocks = 2`;
+- `max_extensions = 3`;
+- `max_nodes = 100000`;
+- the checker reports `extensions_examined = 3`,
+  `extensions_killed_by_row_ptolemy_product_cancellation = 2`,
+  `survivor_found = true`, `nodes_visited = 47`, and
+  `hit_node_limit = false`.
+
+The survivor is not a Euclidean realization, not an algebraic row-circle
+solution, not a counterexample to Erdos #97, and not evidence that stronger
+row-circle certificates fail. It only blocks the product-cancellation-only
+all-extension route.
+
+### Files Changed
+
+- `docs/minimal-fragile-cover-bridge.md`
+- `reports/codex_goal_erdos97_log.md`
+- `scripts/check_block6_row_ptolemy_extensions.py`
+- `tests/test_block6_row_ptolemy_extensions.py`
+
+### Effect On The Attack
+
+Cycle 667's row-circle gate remains a necessary condition, but the simplest
+product-cancellation filter is too weak to close the two-block fragile
+negative control by itself. The bridge route now needs either stronger
+row-circle algebra, a complete all-extension certificate for a stronger
+certificate family, or a different minimal-counterexample reduction.
+
+### Next Lead
+
+Promote the survivor extension into the next exact row-circle algebra target:
+construct the selected-distance quotient classes for that extension, write the
+row-Ptolemy equations that remain after quotienting, and test whether the
+resulting positive system has an exact contradiction or a symbolic positive
+solution. If it survives, the route should shift away from local
+product-cancellation and toward higher-row compatibility.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-668`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-668`.
+- The branch was started from `origin/main` at commit
+  `18e3de94f7484489dbaa043f970f14b824dd1746`, after PR #405 merged Cycle
+  667.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_block6_row_ptolemy_extensions.py --blocks 2 --max-extensions
+  3 --assert-survivor --json`: passed; the audit reports three examined
+  extensions, two product-cancellation kills, one survivor, `47` visited
+  nodes, and no node-limit hit.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_row_ptolemy_extensions.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `588 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 667 - Row-circle Full-extension Gate
 
 ### Mathematical Subquestion
