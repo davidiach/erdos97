@@ -445,6 +445,36 @@ clean eighth centers after nearest transition  nearest transitions
 3                                              4
 ```
 
+Across those `56` transitions, the opened clean eighth-center choices give
+`88` transition-center incidences. Their block-swap orbit distribution is:
+
+```text
+opened eighth center orbit  incidences
+1,7                         8
+2,8                         46
+4,10                        30
+5,11                        4
+```
+
+Relative to the terminal state's legal eighth rows, the opened centers had
+these prior status types:
+
+```text
+prior status  incidences
+self only     30
+mixed         30
+strict only   22
+not legal     6
+```
+
+Here `self only` means all legal eighth rows at that center failed by quotient
+self-edge, `strict only` means all failed by strict cycle, and `mixed` means
+both failure types appeared. The `not legal` cases were not legal eighth
+centers at all before the one-row replacement. Only `4` transitions open the
+added witness label and only `4` open the removed witness label; the other
+`48` transitions open neither replacement label. Thus the one-row escape is
+usually indirect rather than a replacement simply opening its own label.
+
 For example, the terminal state
 
 ```text
