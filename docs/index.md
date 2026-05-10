@@ -275,6 +275,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`gpt55-solver-output-triage-2026-05-10.md`](gpt55-solver-output-triage-2026-05-10.md):
   triage of the first GPT-5.5/Opus solver-brief output batch; provenance and
   task-selection guidance only.
+- [`gpt-pro-output-triage-2026-05-10.md`](gpt-pro-output-triage-2026-05-10.md):
+  triage of three GPT Pro reconstructed-output notes; provenance and
+  task-selection guidance only.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`repo-roadmap.md`](repo-roadmap.md): staged repository plan.
