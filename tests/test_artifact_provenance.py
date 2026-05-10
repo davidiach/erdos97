@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from scripts.check_artifact_provenance import load_manifest, validate_manifest
+from scripts.check_artifact_provenance import load_manifest, sha256_file, validate_manifest
 
 
 def test_generated_artifact_manifest_is_valid() -> None:
@@ -137,3 +137,70 @@ def test_manifest_accepts_exact_certificate_diagnostic_trust(tmp_path: Path) -> 
     errors = validate_manifest(manifest)
 
     assert errors == []
+
+
+def test_manifest_accepts_matching_file_metadata(tmp_path: Path) -> None:
+    artifact = tmp_path / "artifact.json"
+    generator = tmp_path / "generator.py"
+    artifact.write_text(json.dumps({"status": "GOOD"}) + "\n", encoding="utf-8")
+    generator.write_text("print('ok')\n", encoding="utf-8")
+    manifest = {
+        "schema": "erdos97.generated_artifacts.v1",
+        "claim_scope": "test manifest only",
+        "artifacts": [
+            {
+                "id": "sample",
+                "path": str(artifact),
+                "kind": "test",
+                "generator": str(generator),
+                "command": f"python {generator}",
+                "direct_edit_allowed": False,
+                "provenance_mode": "manifest_only_legacy",
+                "trust": "EXACT_OBSTRUCTION",
+                "claim_scope": "test artifact only",
+                "json_top_level_type": "object",
+                "sha256": sha256_file(artifact),
+                "size_bytes": artifact.stat().st_size,
+                "expected_json": {"status": "GOOD"},
+                "forbidden_claims": ["general proof"],
+            }
+        ],
+    }
+
+    errors = validate_manifest(manifest)
+
+    assert errors == []
+
+
+def test_manifest_rejects_mismatched_file_metadata(tmp_path: Path) -> None:
+    artifact = tmp_path / "artifact.json"
+    generator = tmp_path / "generator.py"
+    artifact.write_text(json.dumps({"status": "GOOD"}) + "\n", encoding="utf-8")
+    generator.write_text("print('ok')\n", encoding="utf-8")
+    manifest = {
+        "schema": "erdos97.generated_artifacts.v1",
+        "claim_scope": "test manifest only",
+        "artifacts": [
+            {
+                "id": "sample",
+                "path": str(artifact),
+                "kind": "test",
+                "generator": str(generator),
+                "command": f"python {generator}",
+                "direct_edit_allowed": False,
+                "provenance_mode": "manifest_only_legacy",
+                "trust": "EXACT_OBSTRUCTION",
+                "claim_scope": "test artifact only",
+                "json_top_level_type": "object",
+                "sha256": "0" * 64,
+                "size_bytes": artifact.stat().st_size + 1,
+                "expected_json": {"status": "GOOD"},
+                "forbidden_claims": ["general proof"],
+            }
+        ],
+    }
+
+    errors = validate_manifest(manifest)
+
+    assert any(".sha256 is" in error for error in errors)
+    assert any(".size_bytes is" in error for error in errors)

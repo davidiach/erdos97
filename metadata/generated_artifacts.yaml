@@ -7,6 +7,10 @@ path_convention: >
   New generated checked artifacts live under data/certificates/. The top-level
   certificates/ directory is legacy/path-stable space for early n=8 artifacts
   and manual templates retained at their historical paths.
+optional_integrity_fields: >
+  Artifact entries may include sha256 and size_bytes fields. When present,
+  scripts/check_artifact_provenance.py verifies them against the current file
+  bytes without rerunning the generator.
 
 artifacts:
   - id: n8_reconstructed_survivors
