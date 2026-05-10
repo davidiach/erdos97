@@ -205,6 +205,27 @@ order. It is not an all-extension endpoint-control proof, not a Euclidean
 realizability theorem for the abstract fragile rows, and not a proof of
 Erdos #97.
 
+### Crossing-compatible Kalmanson/Farkas obstruction for the endpoint-control survivor
+
+Status: `EXACT_OBSTRUCTION` for one fixed selected-witness extension across
+its five crossing-compatible cyclic orders only.
+
+For the same endpoint-control survivor, the crossing-only frontier checker in
+`scripts/check_endpoint_control_survivor_spine_pocket_orders.py` proves that
+the necessary two-overlap crossing constraints leave exactly five normalized
+cyclic orders. The checker
+`scripts/check_endpoint_control_survivor_spine_pocket_kalmanson.py` then
+replays a positive integer Kalmanson quotient-cone certificate for each of the
+five orders. The strict-row counts are `[23, 12, 16, 10, 12]`, the weight sums
+are `[541, 51, 79, 27, 38]`, and each combined coefficient vector reduces
+exactly to zero across `25` selected-distance quotient classes.
+
+Check it with
+`python scripts/check_endpoint_control_survivor_spine_pocket_kalmanson.py --assert-expected --json`.
+This closes the fixed survivor at the crossing-compatible Kalmanson level. It
+does not rule out other full selected-row extensions of the same fragile rows,
+does not prove endpoint control, and is not a proof of Erdos #97.
+
 ## Lemmas
 
 ### Circle-intersection cap
