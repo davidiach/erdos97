@@ -80,6 +80,41 @@ center pair  clean states
 Thus no proof can close the two-block family at six rows using only the
 unordered pair of added centers. The obstruction depends on finer row content.
 
+## Minimum-support Row-content Normal Forms
+
+The two minimum center pairs, `4,5` and `10,11`, do have a compact exact
+row-content description. For `4,5`, the `28` clean states are exactly:
+
+```text
+4 -> {0,3} union A
+5 -> {0,t} union B, where t in {1,4}
+```
+
+where `A` and `B` are ordered disjoint pairs from
+
+```text
+{6,7}, {6,9}, {6,10}, {7,11}, {8,11}, {9,11}.
+```
+
+This six-pair pool has `14` ordered disjoint pair edges, and the binary choice
+of `t` gives `14 * 2 = 28` clean states.
+
+By block-swap, the `10,11` family is exactly:
+
+```text
+10 -> {6,9} union A
+11 -> {6,t} union B, where t in {7,10}
+```
+
+where `A` and `B` are ordered disjoint pairs from
+
+```text
+{0,1}, {0,3}, {0,4}, {1,5}, {2,5}, {3,5}.
+```
+
+Again all `14` ordered disjoint pair edges occur, with the binary choice of
+`t`, giving `28` clean states.
+
 ## Center Counts
 
 ```text
@@ -127,7 +162,9 @@ cannot be made into a fifth-row-only or sixth-row-only obstruction theorem.
 The obstruction is still real, but it occurs deeper in the selected-row
 extension tree. The center-pair normal-form audit also rules out a still
 coarser six-row proof based only on which two nonfixed centers have been
-selected.
+selected. The minimum-support row-content audit gives a compact target for the
+next step: explain, or extend, the disjoint-pair pool normal form rather than
+working with an unstructured list of `56` block-swap-related survivors.
 
 The next useful step is to mine the `6047` clean six-row states for a smaller
 row-content normal-form family or to ask for the first row depth at which
