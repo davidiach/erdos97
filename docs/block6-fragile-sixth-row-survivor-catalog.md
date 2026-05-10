@@ -215,6 +215,50 @@ self-edge and `2` force a strict cycle. Thus the eighth-row audit supplies
 small terminal pockets but still does not produce a full low-support closure
 theorem.
 
+## Terminal Seven-row Classification
+
+The `12` terminal clean seven-row states form exactly `6` orbits under the
+block-swap symmetry `i -> i+6 mod 12`; every orbit has size `2`.
+
+For each terminal state, split each added row into the two witnesses in the
+same block as its center and the two witnesses in the opposite block. The
+terminal row-content profiles are exactly:
+
+```text
+profile                                      terminal states  block-swap orbits
+same union 5, intersections 0,0,1;
+  opposite union 6, intersections 0,0,0      8                4
+same union 4, intersections 0,1,1;
+  opposite union 5, intersections 0,0,1      4                2
+```
+
+The terminal eighth-row obstruction splits are:
+
+```text
+legal eighth rows  self-edge  strict-cycle  terminal states
+9                  7          2             4
+19                 10         9             2
+9                  4          5             2
+9                  5          4             2
+11                 2          9             2
+```
+
+One representative from each block-swap orbit is:
+
+```text
+2  -> {0,1,6,11}; 10 -> {0,4,6,9}; 11 -> {3,5,6,7}  | legal 9, self 7, cycle 2
+2  -> {1,5,6,7};  4  -> {0,3,6,10}; 5  -> {0,1,8,11} | legal 19, self 10, cycle 9
+2  -> {1,5,6,7};  4  -> {0,3,6,10}; 5  -> {0,1,9,11} | legal 9, self 4, cycle 5
+4  -> {0,3,6,10}; 5  -> {0,1,9,11}; 11 -> {0,5,6,7}  | legal 9, self 7, cycle 2
+4  -> {0,3,8,11}; 5  -> {0,1,6,9};  11 -> {3,5,6,7}  | legal 9, self 5, cycle 4
+4  -> {0,3,9,11}; 5  -> {0,1,6,10}; 11 -> {3,5,6,7}  | legal 11, self 2, cycle 9
+```
+
+Applying the block-swap map to these six representatives gives the other six
+terminal states. This classification is useful as a proof-mining target: a
+terminality lemma must use more than the seven-center triple, but may only need
+the two row-content profiles above plus one short list of boundary variants.
+
 ## Center Counts
 
 ```text

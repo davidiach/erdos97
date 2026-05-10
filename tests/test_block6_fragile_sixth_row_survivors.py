@@ -73,6 +73,51 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
             "strict_cycle": 1947,
         },
     }
+    terminal_classification = payload[
+        "low_support_terminal_seven_state_classification"
+    ]
+    assert terminal_classification["terminal_clean_seven_states"] == 12
+    assert terminal_classification["block_swap_orbits"] == 6
+    assert terminal_classification["block_swap_orbit_sizes"] == {"2": 6}
+    assert terminal_classification["row_content_profile_counts"] == {
+        (
+            "same_u=4,same_i=0,1,1,same_d=1,1,2,2|"
+            "opposite_u=5,opposite_i=0,0,1,opposite_d=1,1,1,1,2"
+        ): 4,
+        (
+            "same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+            "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
+        ): 8,
+    }
+    assert terminal_classification["eighth_status_split_counts"] == {
+        "legal=9;self_edge=4;strict_cycle=5": 2,
+        "legal=9;self_edge=5;strict_cycle=4": 2,
+        "legal=9;self_edge=7;strict_cycle=2": 4,
+        "legal=11;self_edge=2;strict_cycle=9": 2,
+        "legal=19;self_edge=10;strict_cycle=9": 2,
+    }
+    assert terminal_classification["block_swap_orbit_representatives"][0] == {
+        "representative": [
+            {"center": 2, "row": [0, 1, 6, 11]},
+            {"center": 10, "row": [0, 4, 6, 9]},
+            {"center": 11, "row": [3, 5, 6, 7]},
+        ],
+        "block_swap_member": [
+            {"center": 4, "row": [0, 3, 6, 10]},
+            {"center": 5, "row": [0, 1, 9, 11]},
+            {"center": 8, "row": [0, 5, 6, 7]},
+        ],
+        "legal_eighth_rows": 9,
+        "eighth_status_counts": {
+            "ok": 0,
+            "self_edge": 7,
+            "strict_cycle": 2,
+        },
+        "row_content_profile": (
+            "same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+            "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
+        ),
+    }
     assert payload["first_clean_sixth_example"] == {
         "fifth": {"center": 1, "row": [0, 2, 6, 7]},
         "sixth": {"center": 2, "row": [0, 1, 3, 8]},

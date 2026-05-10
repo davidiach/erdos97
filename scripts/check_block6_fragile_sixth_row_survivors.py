@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Catalog block-6 sixth-row survivors and low-support seventh-row extensions."""
+"""Catalog block-6 low-support survivor and terminal-pocket structure."""
 
 from __future__ import annotations
 
@@ -357,6 +357,162 @@ EXPECTED_LOW_SUPPORT_EIGHTH_AUDIT = {
         },
     },
 }
+EXPECTED_LOW_SUPPORT_TERMINAL_CLASSIFICATION = {
+    "terminal_clean_seven_states": 12,
+    "block_swap_orbits": 6,
+    "block_swap_orbit_sizes": {"2": 6},
+    "row_content_profile_counts": {
+        (
+            "same_u=4,same_i=0,1,1,same_d=1,1,2,2|"
+            "opposite_u=5,opposite_i=0,0,1,opposite_d=1,1,1,1,2"
+        ): 4,
+        (
+            "same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+            "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
+        ): 8,
+    },
+    "eighth_status_split_counts": {
+        "legal=9;self_edge=4;strict_cycle=5": 2,
+        "legal=9;self_edge=5;strict_cycle=4": 2,
+        "legal=9;self_edge=7;strict_cycle=2": 4,
+        "legal=11;self_edge=2;strict_cycle=9": 2,
+        "legal=19;self_edge=10;strict_cycle=9": 2,
+    },
+    "block_swap_orbit_representatives": [
+        {
+            "representative": [
+                {"center": 2, "row": [0, 1, 6, 11]},
+                {"center": 10, "row": [0, 4, 6, 9]},
+                {"center": 11, "row": [3, 5, 6, 7]},
+            ],
+            "block_swap_member": [
+                {"center": 4, "row": [0, 3, 6, 10]},
+                {"center": 5, "row": [0, 1, 9, 11]},
+                {"center": 8, "row": [0, 5, 6, 7]},
+            ],
+            "legal_eighth_rows": 9,
+            "eighth_status_counts": {
+                "ok": 0,
+                "self_edge": 7,
+                "strict_cycle": 2,
+            },
+            "row_content_profile": (
+                "same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+                "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
+            ),
+        },
+        {
+            "representative": [
+                {"center": 2, "row": [1, 5, 6, 7]},
+                {"center": 4, "row": [0, 3, 6, 10]},
+                {"center": 5, "row": [0, 1, 8, 11]},
+            ],
+            "block_swap_member": [
+                {"center": 8, "row": [0, 1, 7, 11]},
+                {"center": 10, "row": [0, 4, 6, 9]},
+                {"center": 11, "row": [2, 5, 6, 7]},
+            ],
+            "legal_eighth_rows": 19,
+            "eighth_status_counts": {
+                "ok": 0,
+                "self_edge": 10,
+                "strict_cycle": 9,
+            },
+            "row_content_profile": (
+                "same_u=4,same_i=0,1,1,same_d=1,1,2,2|"
+                "opposite_u=5,opposite_i=0,0,1,opposite_d=1,1,1,1,2"
+            ),
+        },
+        {
+            "representative": [
+                {"center": 2, "row": [1, 5, 6, 7]},
+                {"center": 4, "row": [0, 3, 6, 10]},
+                {"center": 5, "row": [0, 1, 9, 11]},
+            ],
+            "block_swap_member": [
+                {"center": 8, "row": [0, 1, 7, 11]},
+                {"center": 10, "row": [0, 4, 6, 9]},
+                {"center": 11, "row": [3, 5, 6, 7]},
+            ],
+            "legal_eighth_rows": 9,
+            "eighth_status_counts": {
+                "ok": 0,
+                "self_edge": 4,
+                "strict_cycle": 5,
+            },
+            "row_content_profile": (
+                "same_u=4,same_i=0,1,1,same_d=1,1,2,2|"
+                "opposite_u=5,opposite_i=0,0,1,opposite_d=1,1,1,1,2"
+            ),
+        },
+        {
+            "representative": [
+                {"center": 4, "row": [0, 3, 6, 10]},
+                {"center": 5, "row": [0, 1, 9, 11]},
+                {"center": 11, "row": [0, 5, 6, 7]},
+            ],
+            "block_swap_member": [
+                {"center": 5, "row": [0, 1, 6, 11]},
+                {"center": 10, "row": [0, 4, 6, 9]},
+                {"center": 11, "row": [3, 5, 6, 7]},
+            ],
+            "legal_eighth_rows": 9,
+            "eighth_status_counts": {
+                "ok": 0,
+                "self_edge": 7,
+                "strict_cycle": 2,
+            },
+            "row_content_profile": (
+                "same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+                "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
+            ),
+        },
+        {
+            "representative": [
+                {"center": 4, "row": [0, 3, 8, 11]},
+                {"center": 5, "row": [0, 1, 6, 9]},
+                {"center": 11, "row": [3, 5, 6, 7]},
+            ],
+            "block_swap_member": [
+                {"center": 5, "row": [0, 1, 9, 11]},
+                {"center": 10, "row": [2, 5, 6, 9]},
+                {"center": 11, "row": [0, 3, 6, 7]},
+            ],
+            "legal_eighth_rows": 9,
+            "eighth_status_counts": {
+                "ok": 0,
+                "self_edge": 5,
+                "strict_cycle": 4,
+            },
+            "row_content_profile": (
+                "same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+                "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
+            ),
+        },
+        {
+            "representative": [
+                {"center": 4, "row": [0, 3, 9, 11]},
+                {"center": 5, "row": [0, 1, 6, 10]},
+                {"center": 11, "row": [3, 5, 6, 7]},
+            ],
+            "block_swap_member": [
+                {"center": 5, "row": [0, 1, 9, 11]},
+                {"center": 10, "row": [3, 5, 6, 9]},
+                {"center": 11, "row": [0, 4, 6, 7]},
+            ],
+            "legal_eighth_rows": 11,
+            "eighth_status_counts": {
+                "ok": 0,
+                "self_edge": 2,
+                "strict_cycle": 9,
+            },
+            "row_content_profile": (
+                "same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+                "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
+            ),
+        },
+    ],
+}
 EXPECTED_BY_FIFTH_CENTER = {
     "1": {
         "clean_fifth": 21,
@@ -421,6 +577,7 @@ SixState = tuple[RowRecord, RowRecord]
 SevenState = tuple[RowRecord, RowRecord, RowRecord]
 CenterPair = tuple[int, int]
 LabelPair = tuple[int, int]
+TerminalSevenAudit = tuple[SevenState, Counter[str]]
 
 
 def _json_counter(counter: Counter[Any]) -> dict[str, int]:
@@ -466,6 +623,10 @@ def _center_pair_orbit_key(pair: CenterPair) -> str:
 
 
 def _block_swap_six_state(state: SixState) -> SixState:
+    return tuple(sorted(_block_swap_row(record) for record in state))  # type: ignore[return-value]
+
+
+def _block_swap_seven_state(state: SevenState) -> SevenState:
     return tuple(sorted(_block_swap_row(record) for record in state))  # type: ignore[return-value]
 
 
@@ -538,6 +699,53 @@ def _low_support_row_content_forms(
 
 def _status_counts(counter: Counter[str]) -> dict[str, int]:
     return {status: int(counter[status]) for status in STATUSES}
+
+
+def _intersection_profile(pairs: list[LabelPair]) -> tuple[int, ...]:
+    return tuple(
+        sorted(
+            len(set(pairs[left]) & set(pairs[right]))
+            for left in range(len(pairs))
+            for right in range(left + 1, len(pairs))
+        )
+    )
+
+
+def _degree_multiset(pairs: list[LabelPair]) -> tuple[int, ...]:
+    return tuple(sorted(Counter(label for pair in pairs for label in pair).values()))
+
+
+def _row_content_profile_key(state: SevenState) -> str:
+    same_pairs: list[LabelPair] = []
+    opposite_pairs: list[LabelPair] = []
+    for center, row in state:
+        same, opposite = _split_row_by_center_block(center, row)
+        same_pairs.append(same)
+        opposite_pairs.append(opposite)
+
+    same_labels = set().union(*(set(pair) for pair in same_pairs))
+    opposite_labels = set().union(*(set(pair) for pair in opposite_pairs))
+    same_intersections = ",".join(str(value) for value in _intersection_profile(same_pairs))
+    opposite_intersections = ",".join(
+        str(value) for value in _intersection_profile(opposite_pairs)
+    )
+    same_degrees = ",".join(str(value) for value in _degree_multiset(same_pairs))
+    opposite_degrees = ",".join(
+        str(value) for value in _degree_multiset(opposite_pairs)
+    )
+    return (
+        f"same_u={len(same_labels)},same_i={same_intersections},"
+        f"same_d={same_degrees}|opposite_u={len(opposite_labels)},"
+        f"opposite_i={opposite_intersections},opposite_d={opposite_degrees}"
+    )
+
+
+def _status_split_key(counter: Counter[str]) -> str:
+    return (
+        f"legal={sum(counter.values())};"
+        f"self_edge={int(counter['self_edge'])};"
+        f"strict_cycle={int(counter['strict_cycle'])}"
+    )
 
 
 def _record_payload(record: RowRecord) -> dict[str, Any]:
@@ -665,12 +873,13 @@ def _low_support_seventh_extension_scan(
 
 def _low_support_eighth_extension_audit(
     clean_seven_states: set[SevenState],
-) -> dict[str, Any]:
+) -> tuple[dict[str, Any], list[TerminalSevenAudit]]:
     options = _options()
     overall_status: Counter[str] = Counter()
     clean_seven_with_clean_eighth = 0
     unique_clean_eight_states: set[tuple[RowRecord, ...]] = set()
     by_seven_center_triple: dict[str, dict[str, Any]] = {}
+    terminal_seven_state_audits: list[TerminalSevenAudit] = []
     first_clean_eighth_example: dict[str, Any] | None = None
     first_terminal_seven_state: dict[str, Any] | None = None
 
@@ -735,12 +944,14 @@ def _low_support_eighth_extension_audit(
         if local_clean_eighth:
             clean_seven_with_clean_eighth += 1
             triple_entry["clean_seven_states_with_clean_eighth"] += 1
-        elif first_terminal_seven_state is None:
-            first_terminal_seven_state = {
-                "seven_state": [_record_payload(record) for record in state],
-                "legal_eighth_rows": sum(local_status.values()),
-                "eighth_status_counts": _status_counts(local_status),
-            }
+        else:
+            terminal_seven_state_audits.append((state, Counter(local_status)))
+            if first_terminal_seven_state is None:
+                first_terminal_seven_state = {
+                    "seven_state": [_record_payload(record) for record in state],
+                    "legal_eighth_rows": sum(local_status.values()),
+                    "eighth_status_counts": _status_counts(local_status),
+                }
 
     return {
         "clean_seven_states": len(clean_seven_states),
@@ -767,6 +978,69 @@ def _low_support_eighth_extension_audit(
         },
         "first_clean_eighth_example": first_clean_eighth_example,
         "first_terminal_seven_state": first_terminal_seven_state,
+    }, terminal_seven_state_audits
+
+
+def _terminal_state_orbit_payload(
+    representative: SevenState,
+    block_swap_member: SevenState,
+    status: Counter[str],
+) -> dict[str, Any]:
+    return {
+        "representative": [_record_payload(record) for record in representative],
+        "block_swap_member": [_record_payload(record) for record in block_swap_member],
+        "legal_eighth_rows": sum(status.values()),
+        "eighth_status_counts": _status_counts(status),
+        "row_content_profile": _row_content_profile_key(representative),
+    }
+
+
+def _low_support_terminal_classification(
+    terminal_audits: list[TerminalSevenAudit],
+) -> dict[str, Any]:
+    status_by_state = {state: status for state, status in terminal_audits}
+    seen: set[SevenState] = set()
+    orbit_sizes: Counter[int] = Counter()
+    row_content_profiles: Counter[str] = Counter()
+    status_splits: Counter[str] = Counter()
+    orbit_representatives: list[dict[str, Any]] = []
+
+    for state, status in sorted(terminal_audits):
+        row_content_profiles[_row_content_profile_key(state)] += 1
+        status_splits[_status_split_key(status)] += 1
+        if state in seen:
+            continue
+
+        orbit = sorted({state, _block_swap_seven_state(state)})
+        seen.update(orbit)
+        orbit_sizes[len(orbit)] += 1
+        if len(orbit) != 2:
+            raise AssertionError(f"unexpected terminal block-swap orbit: {orbit!r}")
+        representative = orbit[0]
+        block_swap_member = orbit[1]
+        if representative not in status_by_state or block_swap_member not in status_by_state:
+            raise AssertionError("terminal block-swap orbit left terminal catalog")
+        if status_by_state[representative] != status_by_state[block_swap_member]:
+            raise AssertionError("terminal block-swap orbit changed status split")
+        orbit_representatives.append(
+            _terminal_state_orbit_payload(
+                representative,
+                block_swap_member,
+                status_by_state[representative],
+            )
+        )
+
+    return {
+        "terminal_clean_seven_states": len(terminal_audits),
+        "block_swap_orbits": sum(orbit_sizes.values()),
+        "block_swap_orbit_sizes": _json_counter(orbit_sizes),
+        "row_content_profile_counts": {
+            key: int(row_content_profiles[key]) for key in sorted(row_content_profiles)
+        },
+        "eighth_status_split_counts": {
+            key: int(status_splits[key]) for key in sorted(status_splits)
+        },
+        "block_swap_orbit_representatives": orbit_representatives,
     }
 
 
@@ -882,6 +1156,9 @@ def survivor_payload() -> dict[str, Any]:
     low_support_seventh_audit, low_support_clean_seven_states = (
         _low_support_seventh_extension_scan(clean_six_states)
     )
+    low_support_eighth_audit, low_support_terminal_audits = (
+        _low_support_eighth_extension_audit(low_support_clean_seven_states)
+    )
     totals = {
         "clean_fifth_rows": len(clean_fifth_rows),
         "clean_fifth_block_swap_orbits": clean_fifth_orbits,
@@ -929,8 +1206,9 @@ def survivor_payload() -> dict[str, Any]:
             clean_six_states
         ),
         "low_support_seventh_extension_audit": low_support_seventh_audit,
-        "low_support_eighth_extension_audit": (
-            _low_support_eighth_extension_audit(low_support_clean_seven_states)
+        "low_support_eighth_extension_audit": low_support_eighth_audit,
+        "low_support_terminal_seven_state_classification": (
+            _low_support_terminal_classification(low_support_terminal_audits)
         ),
         "by_fifth_center": {
             center: {key: int(counter[key]) for key in sorted(counter)}
@@ -987,6 +1265,14 @@ def assert_expected(payload: Mapping[str, Any]) -> None:
         raise AssertionError(
             "unexpected low-support eighth-extension audit: "
             f"{payload['low_support_eighth_extension_audit']!r}"
+        )
+    if (
+        payload["low_support_terminal_seven_state_classification"]
+        != EXPECTED_LOW_SUPPORT_TERMINAL_CLASSIFICATION
+    ):
+        raise AssertionError(
+            "unexpected low-support terminal classification: "
+            f"{payload['low_support_terminal_seven_state_classification']!r}"
         )
     if payload["by_fifth_center"] != EXPECTED_BY_FIFTH_CENTER:
         raise AssertionError(
