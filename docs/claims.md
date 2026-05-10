@@ -367,6 +367,28 @@ family checked by `scripts/check_fragile_hypergraph.py --blocks 2 --assert-ok`
 shows that fragile-cover hypergraph constraints alone are too weak to prove
 the problem. See `docs/minimal-fragile-cover-bridge.md`.
 
+### Adaptive peeling / radius-blocker alternative
+
+Status: `LEMMA` / bridge fork.
+
+Given the full family of rich distance classes at each bad vertex, adaptive
+reverse peeling has an exact alternative: either it reaches a three-vertex seed
+and constructs an ear-orderable selected-witness system, or it stops at a
+radius-blocker `U` in which every rich class at every center of `U` has at most
+two witnesses inside `U`.
+
+If a minimal counterexample avoids all ear-orderable selected-witness
+reductions, then it must contain such a radius-blocker. Writing
+`O = V \ U`, every rich class centered in `U` has at least two witnesses in
+`O`, and the perpendicular-bisector pair-sharing lemma gives
+`|U| <= |O|(|O|-1)`. Any fragile critical row centered inside `U` therefore
+has at most two witnesses in `U` and at least two outside.
+
+This is not a proof of Erdos Problem #97. It isolates the next bridge target:
+rule out radius-blockers using strict convexity, fragile-cover geometry, and
+the current exact obstruction stack, or construct an exact blocker escape
+mechanism. See `docs/adaptive-radius-blocker-bridge.md`.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

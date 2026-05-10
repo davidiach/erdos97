@@ -295,6 +295,9 @@ condition that the surviving multi-block family does not automatically satisfy:
 - exact row-circle constraints on the fragile rows;
 - interaction between fragile-cover rows and stuck-set/ear-orderability
   failures.
+- adaptive radius-blocker analysis, as recorded in
+  `docs/adaptive-radius-blocker-bridge.md`, which keeps all rich distance
+  classes visible instead of fixing one selected row per center.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract
