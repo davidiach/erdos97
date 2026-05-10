@@ -14,6 +14,10 @@ put detailed reconciliation in the canonical synthesis.
   artifacts and exact certificates.
 - [`review-priorities.md`](review-priorities.md): current independent-review
   priorities; planning guidance only, not mathematical evidence.
+- [`gpt55-solver-brief.md`](gpt55-solver-brief.md): front-loaded LLM
+  solver-steering brief with anti-loop guardrails, hard status boundaries, and
+  live frontier output contracts; prompt context only, not mathematical
+  evidence.
 - [`codex-strategy-instructions.md`](codex-strategy-instructions.md):
   Codex task-selection discipline centered on bridge theorems and
   non-overclaiming; planning guidance only, not mathematical evidence.
@@ -161,6 +165,9 @@ put detailed reconciliation in the canonical synthesis.
   contradictions, and directed strict-cycle contradictions.
 - [`n9-vertex-circle-template-lemma-catalog.md`](n9-vertex-circle-template-lemma-catalog.md):
   derived 12-template lemma-candidate catalog for proof-mining review.
+- [`n9-vertex-circle-local-lemmas.md`](n9-vertex-circle-local-lemmas.md):
+  review-pending proof-facing extraction of reusable vertex-circle self-edge
+  and strict-cycle local lemma candidates.
 - [`n9-vertex-circle-certificate-chain.md`](n9-vertex-circle-certificate-chain.md):
   assignment-id bridge from the review-pending `n=9` frontier artifacts to the
   12 local quotient-obstruction templates.
@@ -243,6 +250,9 @@ put detailed reconciliation in the canonical synthesis.
   evidence.
 - [`bridge-output-triage-2026-05-10.md`](bridge-output-triage-2026-05-10.md):
   triage of ten AI-generated bridge-output candidates; provenance only.
+- [`gpt55-solver-output-triage-2026-05-10.md`](gpt55-solver-output-triage-2026-05-10.md):
+  triage of the first GPT-5.5/Opus solver-brief output batch; provenance and
+  task-selection guidance only.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`repo-roadmap.md`](repo-roadmap.md): staged repository plan.
