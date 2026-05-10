@@ -32,6 +32,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   read [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 - For the derived `n=9` vertex-circle template lemma-candidate catalog, read
   [`docs/n9-vertex-circle-template-lemma-catalog.md`](docs/n9-vertex-circle-template-lemma-catalog.md).
+- For the first relation-skeleton extraction from focused `n=9`
+  vertex-circle local packets, read
+  [`docs/relation-skeleton-catalog.md`](docs/relation-skeleton-catalog.md).
 - For the review-pending `n=10` singleton-slice finite-case draft, read
   [`docs/n10-vertex-circle-singleton-slices.md`](docs/n10-vertex-circle-singleton-slices.md).
 - For a compact human-readable proof-note draft excluding bad convex octagons,
@@ -379,6 +382,7 @@ python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check --as
 python scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check --assert-expected --json
+python scripts/check_relation_skeleton_catalog.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_row_ptolemy_product_cancellations.py --check --json

@@ -48,6 +48,9 @@ put detailed reconciliation in the canonical synthesis.
   crossing CSP for two-overlap patterns.
 - [`vertex-circle-order-filter.md`](vertex-circle-order-filter.md): exact
   row-wise convexity-distance filter for cyclic orders.
+- [`relation-skeleton-catalog.md`](relation-skeleton-catalog.md): first
+  review-pending relation-skeleton extraction for T01 self-edge and T10
+  strict-cycle vertex-circle quotient motifs; proof-mining aid only.
 - [`reciprocal-radial-budget.md`](reciprocal-radial-budget.md): local
   middle-witness reciprocal-radial budget packet; a research packet, not a
   global obstruction.

@@ -864,6 +864,43 @@ artifacts:
       - the local lemma packet is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: relation_skeleton_catalog
+    path: data/certificates/relation_skeleton_catalog.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_relation_skeleton_catalog.py
+    command: python scripts/check_relation_skeleton_catalog.py --assert-expected --write
+    checker: scripts/check_relation_skeleton_catalog.py
+    check_command: python scripts/check_relation_skeleton_catalog.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Two-entry relation-skeleton catalog for focused n=9 vertex-circle selected-distance quotient obstructions; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.relation_skeleton_catalog.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: Two-entry relation-skeleton catalog for focused n=9 vertex-circle selected-distance quotient obstructions; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+      catalog_scope: vertex-circle selected-distance quotient skeletons
+      n: 9
+      row_size: 4
+      skeleton_count: 2
+      contradiction_type_counts.strict_directed_cycle: 1
+      contradiction_type_counts.strict_self_edge: 1
+      skeleton_ids:
+        - VC-T01-F09-strict-self-edge
+        - VC-T10-F12-strict-directed-cycle
+      provenance.command: python scripts/check_relation_skeleton_catalog.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - T01 or T10 proves n=9
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - template labels are theorem names
+      - the relation-skeleton catalog is an independent proof
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_t11_strict_cycle_lemma_packet
     path: data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json
     kind: certificate_diagnostic_artifact
