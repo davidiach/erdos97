@@ -44,10 +44,15 @@ from erdos97.n9_vertex_circle_t11_strict_cycle_lemma_packet import (  # noqa: E4
     STATUS,
     TRUST,
     assert_expected_t11_strict_cycle_lemma_packet,
+    equality_chain,
+    equality_steps,
     source_artifacts,
     t11_strict_cycle_lemma_packet_payload,
+    validate_strict_inequality_support,
 )
+from erdos97.n9_vertex_circle_self_edge_path_join import validate_equality_path  # noqa: E402
 from erdos97.path_display import display_path  # noqa: E402
+from erdos97.vertex_circle_quotient_replay import pair  # noqa: E402
 
 DEFAULT_ARTIFACT = (
     ROOT / "data" / "certificates" / "n9_vertex_circle_t11_strict_cycle_lemma_packet.json"
@@ -210,6 +215,26 @@ def _validate_local_lemma(packet: dict[str, Any], errors: list[str]) -> None:
     selected_equalities = lemma.get("selected_distance_equalities")
     if not isinstance(selected_equalities, list) or len(selected_equalities) != EXPECTED_CYCLE_LENGTH:
         errors.append("F07 local_lemma selected_distance_equalities must have three cycle steps")
+    elif isinstance(packet.get("cycle_steps"), list):
+        try:
+            expected_steps = [
+                {
+                    "cycle_step": index,
+                    "equality_steps": equality_steps(
+                        step["equality_to_next_outer_pair"]
+                    ),
+                }
+                for index, step in enumerate(packet["cycle_steps"])
+            ]
+        except (KeyError, TypeError, ValueError) as exc:
+            errors.append(f"F07 local_lemma selected_distance_equalities unsupported: {exc}")
+        else:
+            expect_equal(
+                errors,
+                "F07 local_lemma selected_distance_equalities",
+                selected_equalities,
+                expected_steps,
+            )
     strict_statements = lemma.get("strict_inequality_statements")
     if not isinstance(strict_statements, list) or len(strict_statements) != EXPECTED_CYCLE_LENGTH:
         errors.append("F07 local_lemma strict_inequality_statements must have three entries")
@@ -224,6 +249,91 @@ def _validate_local_lemma(packet: dict[str, Any], errors: list[str]) -> None:
         errors.append("F07 local_lemma contradiction must mention a directed strict cycle")
     if "reflexive strict edge" in contradiction or "self-edge" in contradiction:
         errors.append("F07 local_lemma contradiction must not describe a self-edge")
+
+
+def _expected_cycle_pair_chain(steps: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [
+        {
+            "cycle_step": index,
+            "strict_from_outer_pair": step["strict_inequality"]["outer_pair"],
+            "strict_to_inner_pair": step["strict_inequality"]["inner_pair"],
+            "equality_chain_to_next_outer_pair": equality_chain(
+                step["equality_to_next_outer_pair"]
+            ),
+            "next_outer_pair": steps[(index + 1) % len(steps)]["strict_inequality"][
+                "outer_pair"
+            ],
+        }
+        for index, step in enumerate(steps)
+    ]
+
+
+def _validate_cycle_step_support(
+    packet: dict[str, Any],
+    errors: list[str],
+    *,
+    order: Any,
+) -> None:
+    rows = packet.get("core_selected_rows")
+    steps = packet.get("cycle_steps")
+    if not isinstance(rows, list):
+        errors.append("F07 core_selected_rows must be a list")
+        return
+    if not isinstance(steps, list):
+        errors.append("F07 cycle_steps must be a list")
+        return
+    if len(steps) != EXPECTED_CYCLE_LENGTH:
+        errors.append("F07 cycle_steps must have three entries")
+        return
+    for index, step in enumerate(steps):
+        if not isinstance(step, dict):
+            errors.append(f"F07 cycle_steps[{index}] must be an object")
+            continue
+        strict = step.get("strict_inequality")
+        equality = step.get("equality_to_next_outer_pair")
+        if not isinstance(strict, dict):
+            errors.append(f"F07 cycle_steps[{index}] strict_inequality must be an object")
+            continue
+        if not isinstance(equality, dict):
+            errors.append(
+                f"F07 cycle_steps[{index}] equality_to_next_outer_pair must be an object"
+            )
+            continue
+        try:
+            validate_strict_inequality_support(rows, strict, order=order)
+        except (AssertionError, KeyError, TypeError, ValueError) as exc:
+            errors.append(
+                f"F07 cycle step {index} strict_inequality is not supported by "
+                f"selected rows: {exc}"
+            )
+        try:
+            validate_equality_path(rows, equality)
+        except (KeyError, TypeError, ValueError) as exc:
+            errors.append(
+                f"F07 cycle step {index} equality connector is not supported by "
+                f"selected rows: {exc}"
+            )
+        try:
+            next_strict = steps[(index + 1) % len(steps)]["strict_inequality"]
+            if pair(*equality["start_pair"]) != pair(*strict["inner_pair"]):
+                errors.append(
+                    f"F07 cycle step {index} equality must start at current inner pair"
+                )
+            if pair(*equality["end_pair"]) != pair(*next_strict["outer_pair"]):
+                errors.append(
+                    f"F07 cycle step {index} equality must end at next outer pair"
+                )
+        except (KeyError, TypeError, ValueError) as exc:
+            errors.append(f"F07 cycle step {index} closure validation failed: {exc}")
+    try:
+        expect_equal(
+            errors,
+            "F07 cycle_pair_chain",
+            packet.get("cycle_pair_chain"),
+            _expected_cycle_pair_chain(steps),
+        )
+    except (KeyError, TypeError, ValueError) as exc:
+        errors.append(f"F07 cycle_pair_chain unsupported: {exc}")
 
 
 def _validate_replay(packet: dict[str, Any], errors: list[str]) -> None:
@@ -264,7 +374,12 @@ def _validate_replay(packet: dict[str, Any], errors: list[str]) -> None:
             errors.append("F07 replay cycle edges must not include source-only spans")
 
 
-def _validate_family_packet(packet: dict[str, Any], errors: list[str]) -> None:
+def _validate_family_packet(
+    packet: dict[str, Any],
+    errors: list[str],
+    *,
+    order: Any,
+) -> None:
     if set(packet) != EXPECTED_FAMILY_PACKET_KEYS:
         errors.append(
             "F07 keys mismatch: "
@@ -284,6 +399,7 @@ def _validate_family_packet(packet: dict[str, Any], errors: list[str]) -> None:
         [list(row) for row in EXPECTED_CORE_SELECTED_ROWS],
     )
     expect_equal(errors, "F07 cycle_steps", packet.get("cycle_steps"), EXPECTED_CYCLE_STEPS)
+    _validate_cycle_step_support(packet, errors, order=order)
     _validate_local_lemma(packet, errors)
     _validate_replay(packet, errors)
 
@@ -354,8 +470,9 @@ def validate_payload(
         if not any("three directed strict inequalities" in item for item in interpretation):
             errors.append("interpretation must preserve the strict-cycle scope")
 
+    order = payload.get("cyclic_order", list(range(9)))
     for packet in _family_packets_by_id(payload, errors).values():
-        _validate_family_packet(packet, errors)
+        _validate_family_packet(packet, errors, order=order)
 
     _validate_sources(source_payloads, errors)
     expected_payload = None if errors else _expected_payload(source_payloads, errors)

@@ -1,174 +1,167 @@
-# n=9 Vertex-circle T11 Strict-cycle Local Lemma Packet
+# n=9 Vertex-circle T11 Strict-cycle Local Lemma Candidate
 
-Status: `REVIEW_PENDING_DIAGNOSTIC_ONLY`.
+Status: `REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE`.
 
-This note records one focused proof-mining packet for the single-family `T11`
-strict-cycle motif. It does not claim a proof of `n=9`, does not claim a
-counterexample, does not complete independent review of the exhaustive
-checker, and does not update the official/global status.
+This note extracts one proof-facing local obstruction from the
+review-pending `n=9` vertex-circle diagnostics. It does not claim a proof of
+`n=9`, does not claim a counterexample, does not complete independent review
+of the exhaustive checker, and does not update the official/global status of
+Erdos Problem #97.
 
-## Packet scope
+The labels `T11` and `F07` are retained only as packet/catalog navigation. They
+are not theorem hypotheses.
 
-The checked artifact is
-`data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json`.
-It is derived from:
+## Exact Local Hypotheses
 
-- `data/certificates/n9_vertex_circle_strict_cycle_template_packet.json`
-- `data/certificates/n9_vertex_circle_template_lemma_catalog.json`
-
-The packet covers 6 assignment ids in one family:
+Let `p_0,...,p_8` be distinct vertices of a strictly convex nonagon in cyclic
+order
 
 ```text
-F07: 6 assignments
+0,1,2,3,4,5,6,7,8.
 ```
 
-The family has a four-row core and replays to a directed strict cycle with 36
-strict edges, three cycle edges, and no self-edge conflict. The local
-obstruction is a three-step quotient cycle, not a reflexive self-edge.
-
-## Family core
-
-`F07`:
+Assume the following four selected witness rows are present:
 
 ```text
-[0, 1, 2, 4, 8]
-[1, 0, 2, 3, 5]
-[5, 0, 3, 4, 7]
-[6, 1, 5, 7, 8]
-
-strict: [0, 2] > [0, 3] from row 1
-empty connector: [0, 3] = [0, 3]
-
-strict: [0, 3] > [0, 5] from row 1
-path:   [0, 5] -> [5, 7]
-
-strict: [5, 7] > [1, 5] from row 6
-path:   [1, 5] -> [0, 1] -> [0, 2]
+center 0: {1,2,4,8}
+center 1: {0,2,3,5}
+center 5: {0,3,4,7}
+center 6: {1,5,7,8}
 ```
 
-Thus the packet isolates the directed cycle
+The selected-row hypothesis means that each listed center is equidistant from
+the four listed witnesses. In pair-distance notation, these rows give the
+selected-distance connector chains
 
 ```text
-[0, 2] > [0, 3] = [0, 3] > [0, 5] = [5, 7] > [1, 5] = [0, 1] = [0, 2].
+identity: [0,3] = [0,3]
+
+row 5: [0,5] = [5,7]
+
+row 1: [1,5] = [0,1]
+row 0: [0,1] = [0,2]
 ```
 
-## Local lemma
-
-The following local obstruction is independent of the exhaustive `n=9`
-brancher once the four displayed rows are assumed.
-
-Assume a strictly convex polygon has labels appearing in cyclic order
+or equivalently
 
 ```text
-0,1,2,3,4,5,6,7,8
+[0,3] = [0,3],
+[0,5] = [5,7],
+[1,5] = [0,1] = [0,2].
 ```
 
-and contains the four selected rows
+The checked packet recording this local shape is
+`data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json`. It is
+derived from the strict-cycle template packet and the template lemma catalog,
+but the local argument below uses only the four displayed selected rows plus
+the displayed cyclic order.
+
+## Vertex-circle Strict Inequalities
+
+At vertex `1`, the selected witnesses occur in boundary/angular order
 
 ```text
-S_0 = {1,2,4,8}
-S_1 = {0,2,3,5}
-S_5 = {0,3,4,7}
-S_6 = {1,5,7,8}
+[2,3,5,0].
 ```
 
-Then these four rows cannot be realized.
+Since the nonagon is strictly convex, boundary order agrees with angular order
+inside the vertex cone at `1`. The witnesses in row `1` lie on one circle
+centered at `p_1`, and chord length on that circle is strictly increasing with
+central angle below `pi`.
 
-First use row `1`. Its selected witnesses occur in cyclic order
+The chord `[0,2]` spans witness positions `0` to `3`, while `[0,3]` spans the
+proper subinterval `1` to `3`. Therefore
 
 ```text
-2,3,5,0.
+[0,2] > [0,3].                         (1)
 ```
 
-In a strictly convex polygon, the rays from a vertex to the other vertices
-occur in the polygon's cyclic order inside an angle smaller than `pi`. Since
-the row-`1` witnesses lie on one circle centered at vertex `1`, chord length
-on that circle is strictly increasing with the enclosed central angle in this
-range. The chord `[0,2]` strictly contains `[0,3]`, and `[0,3]` strictly
-contains `[0,5]`, in the row-`1` witness order. Hence
+The first connector is the identity `[0,3] = [0,3]`, so (1) is already the
+first quotient edge.
+
+The same row-`1` witness order also has `[0,3]` spanning positions `1` to `3`,
+while `[0,5]` spans the proper subinterval `2` to `3`. Hence
 
 ```text
-d(0,2) > d(0,3) > d(0,5).                (1)
+[0,3] > [0,5].                         (2)
 ```
 
-Row `5` identifies the last chord in (1) with the next outer chord:
+Using the selected-distance connector from row `5`,
 
 ```text
-d(0,5) = d(5,7)      from row 5.
+[0,5] = [5,7],
 ```
 
-Thus
+inequality (2) becomes
 
 ```text
-d(0,2) > d(0,3) > d(5,7).                (2)
+[0,3] > [5,7].                         (3)
 ```
 
-Next use row `6`. Its selected witnesses occur in cyclic order
+At vertex `6`, the selected witnesses occur in boundary/angular order
 
 ```text
-7,8,1,5.
+[7,8,1,5].
 ```
 
-The chord `[5,7]` strictly contains `[1,5]` in this row-`6` witness order, so
+The chord `[5,7]` spans witness positions `0` to `3`, while `[1,5]` spans the
+proper subinterval `2` to `3`. The same vertex-circle monotonicity gives
 
 ```text
-d(5,7) > d(1,5).                         (3)
+[5,7] > [1,5].                         (4)
 ```
 
-Rows `1` and `0` identify this inner chord with the first outer chord:
+Using the selected-distance connector from rows `1` and `0`,
 
 ```text
-d(1,5) = d(0,1)      from row 1,
-d(0,1) = d(0,2)      from row 0.
+[1,5] = [0,1] = [0,2],
 ```
 
-Therefore
+inequality (4) becomes
 
 ```text
-d(5,7) > d(0,2).                         (4)
+[5,7] > [0,2].                         (5)
 ```
 
-Combining (2) and (4) gives the impossible strict cycle
+## Contradiction
+
+The quotient inequalities (1), (3), and (5) form the directed strict cycle
 
 ```text
-d(0,2) > d(0,3) > d(5,7) > d(0,2).
+[0,2] > [0,3] > [5,7] > [0,2].
 ```
 
-Equivalently, after quotienting ordinary pair distances by the selected
-distance equalities, rows `1`, `5`, and `6` create a directed strict cycle of
-length three.
+Equivalently, after quotienting ordinary pair distances by the selected-row
+equalities, the strict quotient graph has a directed three-edge cycle. No
+Euclidean strictly convex realization satisfying the stated local hypotheses
+can exist.
 
-The lemma is local: it rules out any selected-witness system containing these
-four rows in the stated cyclic order. It does not prove the full `n=9` finite
-case, because the exhaustive checker is still needed to show that every
-frontier assignment contains one of the recorded local obstruction templates.
+## Packet Replay
 
-## Commands
-
-Generate and check the packet:
+The compact checker treats the JSON packet and its source packets as input
+data. It checks that the source packets are valid, verifies each selected-row
+equality connector, verifies that each strict inequality is supported by the
+stated row and cyclic witness interval, replays the vertex-circle quotient
+graph from the four local rows, and reports validation errors if the packet no
+longer supports the stated local lemma candidate.
 
 ```bash
-python scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py \
-  --assert-expected \
-  --write
-
 python scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py \
   --check \
   --assert-expected \
   --json
 ```
 
-Run the targeted artifact tests:
+Targeted artifact test:
 
 ```bash
 python -m pytest tests/test_n9_vertex_circle_t11_strict_cycle_lemma_packet.py -q -m "artifact"
 ```
 
-## Review standard
+## What This Does Not Prove
 
-Before treating this as a reusable local lemma, a reviewer should restate the
-incidence and cyclic-order hypotheses without relying on `T11` as a theorem
-name, then prove directly for the `F07` core that the listed rows force the
-three strict inequalities, the two nonempty connector chains, and the one
-empty identity connector. The packet is a small replay aid for that review, not
-an independent proof of the `n=9` case.
+This local lemma candidate rules out only configurations satisfying the exact
+cyclic order and four selected rows displayed above. It does not enumerate all
+`n=9` selected-witness systems, does not promote the review-pending exhaustive
+`n=9` checker, does not rule out other vertex-circle templates, does not prove
+Erdos Problem #97, and does not produce or certify a counterexample.
