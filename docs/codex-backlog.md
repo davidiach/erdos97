@@ -26,8 +26,10 @@ Use this queue when no more specific issue is selected.
    current quotient-replay helper.
 3. Strengthen the minimal fragile-cover bridge with one geometric necessary
    condition and test it against the block-6 negative controls.
-4. Apply the bootstrap-core/private-halo weighted capacity checker to current
-   stuck/frontier motifs and record which packets survive the sharper ledger.
+4. Use the bootstrap-core crosswalk in
+   `docs/bootstrap-core-crosswalk.md` to design a sharper condition that
+   reduces private-halo capacity slack or adds private-pair demand; the current
+   singleton-rich stuck/frontier motifs all survive the weighted ledger.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker

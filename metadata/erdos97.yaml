@@ -143,6 +143,11 @@ local_repo:
       status: "one fixed order escaped weaker diagnostics but is now killed by a full Kalmanson/Farkas fixed-order certificate"
       artifact: "data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json"
       claim_scope: "fixed-order exact obstruction only; not an all-order obstruction for the abstract pattern"
+    - pattern: "bootstrap_core_crosswalk"
+      status: "singleton-rich bootstrap-core rank/capacity crosswalk for current fixed-row frontier motifs"
+      artifact: "data/certificates/bootstrap_core_crosswalk.json"
+      verifier: "scripts/check_bootstrap_core_crosswalk.py"
+      claim_scope: "fixed selected-row bridge diagnostic only; all audited cases have rank greater than 3 and survive weighted private-halo capacity; not a proof or counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"
@@ -164,6 +169,8 @@ local_repo:
     - "docs/round2/round2_merged_report.md"
     - "docs/phi4-rectangle-trap.md"
     - "docs/minimal-fragile-cover-bridge.md"
+    - "docs/bootstrap-core-bridge.md"
+    - "docs/bootstrap-core-crosswalk.md"
     - "docs/reproduction-log.md"
     - "docs/verification-contract.md"
 
