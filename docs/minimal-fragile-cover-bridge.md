@@ -181,6 +181,21 @@ contradiction for the survivor. The certificate is only algebraic feasibility
 for the quotient equations. It does not impose triangle inequalities,
 Kalmanson inequalities, global metric consistency, or Euclidean realizability.
 
+A stronger metric-order layer does reject the same fixed survivor in the
+natural cyclic order:
+
+```bash
+python scripts/check_block6_survivor_kalmanson_certificate.py --assert-expected --json
+```
+
+The certificate is a positive integer combination of `31` strict Kalmanson
+inequalities, with weight sum `4294`, whose coefficient vector reduces to
+zero across the same `33` selected-distance quotient classes. Summing those
+strict inequalities gives `0 > 0`, so this fixed survivor/order is impossible.
+This is still a local obstruction only: it does not show that every
+full-row extension of the two-block fragile rows has such a certificate, and
+it does not rule out minimal counterexamples.
+
 ## What This Does Not Prove
 
 The bridge is necessary, not sufficient. The checked block-6 family passes the
