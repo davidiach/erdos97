@@ -51,6 +51,11 @@ Use this queue when no more specific issue is selected.
    connector-pair and strict-edge endpoint requirements from the still-unproved
    row-forcing step, with source `151` row `7` as the main closure-exposure
    negative control.
+   The bridge-target map in `docs/bootstrap-t12-bridge-target-map.md` joins the
+   row-pressure, support, and activation ledgers into six explicit next-lemma
+   targets: hard strict endpoint rows `151:7` and `151:8`, open connector-pair
+   row `151:5`, and three relation-sufficient rows that still need row-forcing
+   arguments.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker

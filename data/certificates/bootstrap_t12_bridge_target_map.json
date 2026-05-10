@@ -1,0 +1,534 @@
+{
+  "claim_scope": "Bridge-target map for the two tight n=9 bootstrap/T12 records; joins row-pressure classes, focused support packets, and role-sensitive activation requirements into explicit next-lemma targets. This does not prove that the missing rows are forced, does not prove n=9, does not prove the bridge, and does not claim a counterexample.",
+  "interpretation_warnings": [
+    "This map is a join of fixed selected-row diagnostics; it does not prove any missing T12 row is forced.",
+    "A bridge-lemma target is an open proof obligation, not a theorem or Euclidean certificate.",
+    "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_bridge_target_map.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_bridge_target_map.py"
+  },
+  "records": [
+    {
+      "activation_deficit_from_bootstrap_core": 0,
+      "bootstrap_core_witnesses": [
+        0,
+        1,
+        4
+      ],
+      "bridge_lemma_target": "Turn a full-row deletion-closure exposure into a genuine equality-connector rich class.",
+      "classification_assignment_id": "A082",
+      "outside_witnesses": [
+        6
+      ],
+      "pressure_class": "ALREADY_PRESENT_IN_A_DELETION_CLOSURE",
+      "relation_state_counts": {
+        "BOOTSTRAP_CORE_SUFFICIENT": 1
+      },
+      "requirement_count": 1,
+      "requirements": [
+        {
+          "bootstrap_core_status": "SUFFICIENT",
+          "closure_sufficient_count": 1,
+          "kind": "equality_connector_pair",
+          "missing_from_bootstrap_core": [],
+          "relation_state": "BOOTSTRAP_CORE_SUFFICIENT",
+          "required_witnesses": [
+            0,
+            1
+          ],
+          "requirement_id": "81:3:connector:2:0",
+          "support_sufficient_count": 0
+        }
+      ],
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 3,
+      "row_center_private_in_all_deletion_closures": false,
+      "row_target_status": "CLOSURE_FULL_ROW_CONNECTOR",
+      "source_record_id": 81,
+      "support_packet_summary": {
+        "closure_exposure_mode": "CENTER_AND_FULL_ROW_IN_CLOSURE",
+        "exposed_core_vertex": 2,
+        "full_row_contained_in_exposure_closure": true,
+        "outside_witnesses_private": [],
+        "support_packet": "bootstrap_t12_closure_exposed",
+        "witnesses_in_closure": [
+          0,
+          1,
+          4,
+          6
+        ]
+      },
+      "witnesses": [
+        0,
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "activation_deficit_from_bootstrap_core": 1,
+      "bootstrap_core_witnesses": [
+        0,
+        2
+      ],
+      "bridge_lemma_target": "Force the private row center plus one singleton outside support; the connector pair itself is already bootstrap-core visible.",
+      "classification_assignment_id": "A082",
+      "outside_witnesses": [
+        5,
+        6
+      ],
+      "pressure_class": "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER",
+      "relation_state_counts": {
+        "BOOTSTRAP_CORE_SUFFICIENT": 1
+      },
+      "requirement_count": 1,
+      "requirements": [
+        {
+          "bootstrap_core_status": "SUFFICIENT",
+          "closure_sufficient_count": 0,
+          "kind": "equality_connector_pair",
+          "missing_from_bootstrap_core": [],
+          "relation_state": "BOOTSTRAP_CORE_SUFFICIENT",
+          "required_witnesses": [
+            0,
+            2
+          ],
+          "requirement_id": "81:8:connector:0:0",
+          "support_sufficient_count": 2
+        }
+      ],
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 8,
+      "row_center_private_in_all_deletion_closures": true,
+      "row_target_status": "CORE_CONNECTOR_WITH_SINGLETON_ROW_ACTIVATION",
+      "source_record_id": 81,
+      "support_packet_summary": {
+        "ledger_private_pair_support_hit_count": 0,
+        "private_halo_containment_counts": [
+          4,
+          3
+        ],
+        "support_label_modes": [
+          "PRIVATE_IN_ALL_DELETION_HALOS",
+          "INTERNAL_TO_ONE_DELETION_CLOSURE"
+        ],
+        "support_labels": [
+          5,
+          6
+        ],
+        "support_packet": "bootstrap_t12_one_outside"
+      },
+      "witnesses": [
+        0,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "activation_deficit_from_bootstrap_core": 1,
+      "bootstrap_core_witnesses": [
+        2,
+        4
+      ],
+      "bridge_lemma_target": "Explain how a singleton-activated row can also supply both outside endpoints of its equality-connector pair.",
+      "classification_assignment_id": "A152",
+      "outside_witnesses": [
+        7,
+        8
+      ],
+      "pressure_class": "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER",
+      "relation_state_counts": {
+        "OPEN_CONNECTOR_REQUIREMENT": 1
+      },
+      "requirement_count": 1,
+      "requirements": [
+        {
+          "bootstrap_core_status": "DISJOINT",
+          "closure_sufficient_count": 0,
+          "kind": "equality_connector_pair",
+          "missing_from_bootstrap_core": [
+            7,
+            8
+          ],
+          "relation_state": "OPEN_CONNECTOR_REQUIREMENT",
+          "required_witnesses": [
+            7,
+            8
+          ],
+          "requirement_id": "151:5:connector:1:0",
+          "support_sufficient_count": 0
+        }
+      ],
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 5,
+      "row_center_private_in_all_deletion_closures": true,
+      "row_target_status": "SINGLETON_ROW_OPEN_CONNECTOR_PAIR",
+      "source_record_id": 151,
+      "support_packet_summary": {
+        "ledger_private_pair_support_hit_count": 0,
+        "private_halo_containment_counts": [
+          3,
+          4
+        ],
+        "support_label_modes": [
+          "INTERNAL_TO_ONE_DELETION_CLOSURE",
+          "PRIVATE_IN_ALL_DELETION_HALOS"
+        ],
+        "support_labels": [
+          7,
+          8
+        ],
+        "support_packet": "bootstrap_t12_one_outside"
+      },
+      "witnesses": [
+        2,
+        4,
+        7,
+        8
+      ]
+    },
+    {
+      "activation_deficit_from_bootstrap_core": 2,
+      "bootstrap_core_witnesses": [
+        0
+      ],
+      "bridge_lemma_target": "Promote the outside-pair support, with partial private-pair ledger contact, to an equality-connector row-forcing lemma.",
+      "classification_assignment_id": "A152",
+      "outside_witnesses": [
+        3,
+        5,
+        8
+      ],
+      "pressure_class": "NEEDS_OUTSIDE_PAIR_AND_PRIVATE_CENTER",
+      "relation_state_counts": {
+        "SUPPORT_SUFFICIENT": 1
+      },
+      "requirement_count": 1,
+      "requirements": [
+        {
+          "bootstrap_core_status": "PARTIAL",
+          "closure_sufficient_count": 0,
+          "kind": "equality_connector_pair",
+          "missing_from_bootstrap_core": [
+            8
+          ],
+          "relation_state": "SUPPORT_SUFFICIENT",
+          "required_witnesses": [
+            0,
+            8
+          ],
+          "requirement_id": "151:6:connector:2:0",
+          "support_sufficient_count": 2
+        }
+      ],
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 6,
+      "row_center_private_in_all_deletion_closures": true,
+      "row_target_status": "OUTSIDE_PAIR_CONNECTOR_PARTIAL_LEDGER",
+      "source_record_id": 151,
+      "support_packet_summary": {
+        "ledger_hit_support_pairs": [
+          [
+            3,
+            8
+          ],
+          [
+            5,
+            8
+          ]
+        ],
+        "ledger_miss_support_pairs": [
+          [
+            3,
+            5
+          ]
+        ],
+        "ledger_private_pair_support_hit_count": 2,
+        "support_packet": "bootstrap_t12_outside_pair",
+        "support_pair_modes": [
+          "PRIVATE_HALO_ONLY",
+          "LEDGER_PRIVATE_PAIR_HIT",
+          "LEDGER_PRIVATE_PAIR_HIT"
+        ],
+        "support_pairs": [
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            5,
+            8
+          ]
+        ]
+      },
+      "witnesses": [
+        0,
+        3,
+        5,
+        8
+      ]
+    },
+    {
+      "activation_deficit_from_bootstrap_core": 0,
+      "bootstrap_core_witnesses": [
+        0,
+        1,
+        4
+      ],
+      "bridge_lemma_target": "Add the missing strict-edge endpoint to a closure-exposed row; this is the main negative control.",
+      "classification_assignment_id": "A152",
+      "outside_witnesses": [
+        6
+      ],
+      "pressure_class": "ALREADY_PRESENT_IN_A_DELETION_CLOSURE",
+      "relation_state_counts": {
+        "HARD_STRICT_ENDPOINT_REQUIREMENT": 1
+      },
+      "requirement_count": 1,
+      "requirements": [
+        {
+          "bootstrap_core_status": "PARTIAL",
+          "closure_sufficient_count": 0,
+          "kind": "strict_edge_endpoint_set",
+          "missing_from_bootstrap_core": [
+            6
+          ],
+          "relation_state": "HARD_STRICT_ENDPOINT_REQUIREMENT",
+          "required_witnesses": [
+            0,
+            1,
+            6
+          ],
+          "requirement_id": "151:7:strict:0",
+          "support_sufficient_count": 0
+        }
+      ],
+      "roles": [
+        "strict_edge_row"
+      ],
+      "row_center": 7,
+      "row_center_private_in_all_deletion_closures": false,
+      "row_target_status": "CLOSURE_EXPOSED_HARD_STRICT_ENDPOINT",
+      "source_record_id": 151,
+      "support_packet_summary": {
+        "closure_exposure_mode": "CENTER_AND_CORE_WITNESSES_IN_CLOSURE",
+        "exposed_core_vertex": 2,
+        "full_row_contained_in_exposure_closure": false,
+        "outside_witnesses_private": [
+          6
+        ],
+        "support_packet": "bootstrap_t12_closure_exposed",
+        "witnesses_in_closure": [
+          0,
+          1,
+          4
+        ]
+      },
+      "witnesses": [
+        0,
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "activation_deficit_from_bootstrap_core": 1,
+      "bootstrap_core_witnesses": [
+        1,
+        2
+      ],
+      "bridge_lemma_target": "Separate the connector support, which one singleton can supply, from the strict-edge endpoint set, which remains unforced.",
+      "classification_assignment_id": "A152",
+      "outside_witnesses": [
+        5,
+        7
+      ],
+      "pressure_class": "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER",
+      "relation_state_counts": {
+        "HARD_STRICT_ENDPOINT_REQUIREMENT": 1,
+        "SUPPORT_SUFFICIENT": 1
+      },
+      "requirement_count": 2,
+      "requirements": [
+        {
+          "bootstrap_core_status": "PARTIAL",
+          "closure_sufficient_count": 0,
+          "kind": "strict_edge_endpoint_set",
+          "missing_from_bootstrap_core": [
+            5,
+            7
+          ],
+          "relation_state": "HARD_STRICT_ENDPOINT_REQUIREMENT",
+          "required_witnesses": [
+            1,
+            5,
+            7
+          ],
+          "requirement_id": "151:8:strict:1",
+          "support_sufficient_count": 0
+        },
+        {
+          "bootstrap_core_status": "PARTIAL",
+          "closure_sufficient_count": 0,
+          "kind": "equality_connector_pair",
+          "missing_from_bootstrap_core": [
+            5
+          ],
+          "relation_state": "SUPPORT_SUFFICIENT",
+          "required_witnesses": [
+            2,
+            5
+          ],
+          "requirement_id": "151:8:connector:1:1",
+          "support_sufficient_count": 1
+        }
+      ],
+      "roles": [
+        "strict_edge_row",
+        "equality_connector_row"
+      ],
+      "row_center": 8,
+      "row_center_private_in_all_deletion_closures": true,
+      "row_target_status": "MIXED_SINGLETON_CONNECTOR_AND_HARD_STRICT",
+      "source_record_id": 151,
+      "support_packet_summary": {
+        "ledger_private_pair_support_hit_count": 0,
+        "private_halo_containment_counts": [
+          4,
+          3
+        ],
+        "support_label_modes": [
+          "PRIVATE_IN_ALL_DELETION_HALOS",
+          "INTERNAL_TO_ONE_DELETION_CLOSURE"
+        ],
+        "support_labels": [
+          5,
+          7
+        ],
+        "support_packet": "bootstrap_t12_one_outside"
+      },
+      "witnesses": [
+        1,
+        2,
+        5,
+        7
+      ]
+    }
+  ],
+  "schema": "erdos97.bootstrap_t12_bridge_target_map.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_t12_row_pressure.json",
+      "role": "row pressure classes and core/outside witness deficits",
+      "schema": "erdos97.bootstrap_t12_row_pressure.v1",
+      "status": "BOOTSTRAP_T12_ROW_PRESSURE_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/bootstrap_t12_activation_requirements.json",
+      "role": "role-sensitive connector-pair and strict-edge endpoint requirements",
+      "schema": "erdos97.bootstrap_t12_activation_requirements.v1",
+      "status": "BOOTSTRAP_T12_ACTIVATION_REQUIREMENTS_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/bootstrap_t12_closure_exposed.json",
+      "role": "closure-exposed support packet",
+      "schema": "erdos97.bootstrap_t12_closure_exposed.v1",
+      "status": "BOOTSTRAP_T12_CLOSURE_EXPOSED_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/bootstrap_t12_one_outside.json",
+      "role": "one-outside-label support packet",
+      "schema": "erdos97.bootstrap_t12_one_outside.v1",
+      "status": "BOOTSTRAP_T12_ONE_OUTSIDE_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/bootstrap_t12_outside_pair.json",
+      "role": "outside-pair support packet",
+      "schema": "erdos97.bootstrap_t12_outside_pair.v1",
+      "status": "BOOTSTRAP_T12_OUTSIDE_PAIR_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_BRIDGE_TARGET_MAP_DIAGNOSTIC_ONLY",
+  "summary": {
+    "bridge_target_status": "OPEN_TARGET_NOT_PROVED",
+    "hard_strict_row_targets": [
+      "151:7",
+      "151:8"
+    ],
+    "next_bridge_question": "Can a role-aware geometric bridge force the listed row targets, or prove a real blocker escape, using rich-class geometry rather than fixed selected-row bookkeeping?",
+    "open_connector_row_targets": [
+      "151:5"
+    ],
+    "pressure_class_counts": {
+      "ALREADY_PRESENT_IN_A_DELETION_CLOSURE": 2,
+      "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER": 3,
+      "NEEDS_OUTSIDE_PAIR_AND_PRIVATE_CENTER": 1
+    },
+    "relation_state_counts": {
+      "BOOTSTRAP_CORE_SUFFICIENT": 2,
+      "HARD_STRICT_ENDPOINT_REQUIREMENT": 2,
+      "OPEN_CONNECTOR_REQUIREMENT": 1,
+      "SUPPORT_SUFFICIENT": 2
+    },
+    "requirement_count": 7,
+    "requirement_kind_counts": {
+      "equality_connector_pair": 5,
+      "strict_edge_endpoint_set": 2
+    },
+    "role_counts": {
+      "equality_connector_row": 5,
+      "strict_edge_row": 2
+    },
+    "row_centers_by_source_id": {
+      "151": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "81": [
+        3,
+        8
+      ]
+    },
+    "row_target_count": 6,
+    "row_target_status_counts": {
+      "CLOSURE_EXPOSED_HARD_STRICT_ENDPOINT": 1,
+      "CLOSURE_FULL_ROW_CONNECTOR": 1,
+      "CORE_CONNECTOR_WITH_SINGLETON_ROW_ACTIVATION": 1,
+      "MIXED_SINGLETON_CONNECTOR_AND_HARD_STRICT": 1,
+      "OUTSIDE_PAIR_CONNECTOR_PARTIAL_LEDGER": 1,
+      "SINGLETON_ROW_OPEN_CONNECTOR_PAIR": 1
+    },
+    "source_record_ids": [
+      81,
+      151
+    ],
+    "support_packet_counts": {
+      "bootstrap_t12_closure_exposed": 2,
+      "bootstrap_t12_one_outside": 3,
+      "bootstrap_t12_outside_pair": 1
+    }
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

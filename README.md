@@ -80,6 +80,9 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the role-sensitive T12 activation-support requirement ledger separating
   connector pairs and strict-edge endpoint sets from unproved row forcing, read
   [`docs/bootstrap-t12-activation-requirements.md`](docs/bootstrap-t12-activation-requirements.md).
+- For the joined T12 bridge-target map that names the exact next lemma target
+  for each missing row, read
+  [`docs/bootstrap-t12-bridge-target-map.md`](docs/bootstrap-t12-bridge-target-map.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).
