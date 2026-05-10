@@ -114,6 +114,9 @@ put detailed reconciliation in the canonical synthesis.
   vertex-circle strict-chord filter.
 - [`n9-vertex-circle-template-lemma-catalog.md`](n9-vertex-circle-template-lemma-catalog.md):
   derived 12-template lemma-candidate catalog for proof-mining review.
+- [`n9-vertex-circle-certificate-chain.md`](n9-vertex-circle-certificate-chain.md):
+  assignment-id bridge from the review-pending `n=9` frontier artifacts to the
+  12 local quotient-obstruction templates.
 - [`n9-vertex-circle-self-edge-criterion.md`](n9-vertex-circle-self-edge-criterion.md):
   selected-path self-edge criterion unifying the T01 through T09 local
   self-edge packets.

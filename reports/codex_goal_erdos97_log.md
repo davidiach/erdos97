@@ -22947,6 +22947,189 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 631 - Vertex-circle Certificate-chain Reduction
+
+### Mathematical Subquestion
+
+After the self-edge and strict-cycle criteria were isolated, the next narrow
+bridge question was:
+
+Can the current review-pending `n=9` vertex-circle artifacts be stated as a
+single exact assignment-id chain from the 184 pre-vertex-circle assignments to
+the 12 local quotient-obstruction templates, without promoting the finite-case
+status?
+
+### Definitions and Assumptions
+
+Let `U` be the set of labelled full selected-witness assignments in the
+review-pending `n=9` pre-vertex-circle frontier. A certificate-chain partition
+for `U` consists of:
+
+- a classification assigning every element of `U` to a status, dihedral
+  family, and local template id;
+- a self-edge path join whose assignment ids are exactly the self-edge part;
+- a strict-cycle path join whose assignment ids are exactly the strict-cycle
+  part; and
+- a template catalog whose assignment-id coverage is exactly `U`, with no
+  duplicate covered ids.
+
+### Result Status
+
+Reduction recorded:
+**N9 Vertex-circle Certificate-chain Partition Reduction**.
+
+Under the review-pending assumption that the exhaustive frontier source and
+artifact checkers are faithful, every assignment in the current 184-assignment
+frontier is routed to one recorded local quotient-graph obstruction template.
+
+### Argument
+
+The classification artifact provides the common assignment universe and labels
+each assignment as either `self_edge` or `strict_cycle`. The self-edge path
+join has exactly the self-edge assignment ids, and the strict-cycle path join
+has exactly the strict-cycle assignment ids. Those two subsets are disjoint
+and their union is the full classification universe. The template catalog then
+covers the same assignment-id universe with unique ids.
+
+Therefore the currently checked chain is an exact finite partition of the
+review-pending frontier into local obstruction templates. Combined with the
+Cycle 629 self-edge criterion and Cycle 630 strict-cycle criterion, this
+identifies the two remaining independent proof obligations: audit the
+exhaustive frontier source, and audit the local selected-row equality
+connectors and vertex-circle strict edges inside the templates.
+
+### Exact Audit
+
+The one-off JSON partition audit reported:
+
+```text
+classification assignment ids unique: true
+classification assignments:          184
+classification families:              16
+classification templates:             12
+classification status counts:         self_edge=158, strict_cycle=26
+self path join matches self subset:   true
+strict path join matches strict subset:true
+self/strict subsets disjoint:         true
+self/strict union equals frontier:    true
+catalog assignment ids unique:        true
+catalog ids match classification:     true
+audit digest: 62a4ef4da2fdd57b57efe5276791aafe7ed494b84b6e1c49b06205223351fc51
+```
+
+Template assignment counts:
+
+```text
+T01: 6
+T02: 40
+T03: 20
+T04: 2
+T05: 18
+T06: 18
+T07: 18
+T08: 18
+T09: 18
+T10: 18
+T11: 6
+T12: 2
+```
+
+### Exact Scope
+
+This is a bridge over checked assignment ids, not a new independent proof of
+the `n=9` finite case. It assumes the review-pending exhaustive frontier and
+the artifact replay checkers. It does not independently prove the local
+template inputs. It does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-certificate-chain.md`
+- `docs/index.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect on the Attack
+
+The `n=9` vertex-circle route is now split into a sharper checklist:
+
+1. frontier soundness: the exhaustive checker really produces the 184
+   pre-vertex-circle assignments from the stated necessary filters;
+2. bridge soundness: the assignment ids are exactly partitioned into the 12
+   local templates; and
+3. local soundness: the selected-row equality paths and vertex-circle strict
+   edges in each template are human-checkable.
+
+Cycle 631 addresses only the second item.
+
+### Next Lead
+
+Attack frontier soundness directly: audit the exhaustive checker's row0
+coverage, pruning lemmas, and no-hidden-symmetry assumptions, or build a
+second independent replay of the 184-assignment frontier.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-631`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-631`.
+- The branch was based on `origin/main` at commit
+  `deae0355461196f8e952883348863a7ea4427c40`, after PR #331 merged Cycle
+  630.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_exhaustive.py --assert-expected`
+  passed. It reported 70 row0 choices, 0 full assignments with
+  vertex-circle pruning, and 184 full assignments in the cross-check without
+  vertex-circle pruning, split as 158 self-edge and 26 strict-cycle
+  obstructions.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_frontier_motif_classification.py --check
+  --assert-expected --json`
+  passed. It reported `ok: true`, 184 assignments, 16 families, 12 templates,
+  and status counts `self_edge: 158`, `strict_cycle: 26`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_self_edge_path_join.py --check
+  --assert-expected --json`
+  passed. It reported `ok: true`, 158 self-edge assignments, 13 self-edge
+  families, 9 self-edge templates, and no validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_strict_cycle_path_join.py --check
+  --assert-expected --json`
+  passed. It reported `ok: true`, 26 strict-cycle assignments, 3 strict-cycle
+  families, 3 strict-cycle templates, and no validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+  --assert-expected --json`
+  passed. It reported `ok: true`, 184 covered assignments, 16 families, 12
+  templates, and no validation errors.
+- One-off JSON partition audit passed, with digest
+  `62a4ef4da2fdd57b57efe5276791aafe7ed494b84b6e1c49b06205223351fc51`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`
+  passed.
+- `git diff --check` passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`
+  passed with 534 passed and 275 deselected.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 630 - Directed Strict-Cycle Criterion Page
 
 ### Mathematical Subquestion
