@@ -22947,6 +22947,144 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 657 - Paircross-gate Source-arc Lemma
+
+### Mathematical Subquestion
+
+Cycle 656 left the following proposed local lemma:
+
+```text
+If an after-valid candidate row contains the added endpoint and its old
+noncrossing target contains the removed endpoint, then the added endpoint and
+the surviving old endpoint lie in opposite source arcs.
+```
+
+The question for this cycle was whether that statement needs a finite table,
+or whether it follows from a reusable definition-level gate.
+
+### Definitions and Assumptions
+
+Let `R` be the terminal changed row, and let
+`R' = R - {r} + {a}` be a one-witness nearest replacement. Let `Q` be a
+candidate row for an opened center. The source chord is the chord joining the
+changed center to the opened center.
+
+Assume:
+
+- `R cap Q = {r,s}` is a noncrossing two-overlap with the old row;
+- `Q` contains the added endpoint `a`;
+- `Q` is after-pair/cross admissible against the state containing `R'`.
+
+Call `s` the surviving old endpoint. The pair/cross gate is the row
+admissibility condition that any two-overlap between the new row and an
+assigned row must cross its source chord.
+
+### Result Status
+
+Proved lemma:
+**Paircross-gate Source-arc Lemma**.
+
+### Argument Or Obstruction
+
+Because the old overlap is exactly `{r,s}` and `a` is not in `R`, the new
+overlap is exactly:
+
+```text
+R' cap Q = {a,s}.
+```
+
+If `a` and `s` lie in the same open source arc, then the target chord `{a,s}`
+is noncrossing with the source chord. That contradicts after-pair/cross
+admissibility of `Q` against the state containing `R'`. Therefore every
+after-pair/cross candidate satisfying the hypotheses has `a` and `s` in
+opposite source arcs. In particular, every after-valid candidate row satisfying
+the hypotheses has the same opposite-arc conclusion.
+
+This proves that the Cycle 656 opposite-arc phenomenon is not a special
+numerical table accident; it is forced by the pair/cross gate once the
+replacement has reduced the overlap to `{a,s}`.
+
+The exact audit also shows why the stronger raw-row statement is false:
+
+```text
+substitution layer and arc relation                           candidate rows
+all options, same source arc -> noncrossing two-overlap        60
+all options, opposite source arcs -> crossing two-overlap      36
+after pair/cross, opposite source arcs -> crossing two-overlap 8
+after valid, opposite source arcs -> crossing two-overlap      8
+```
+
+So same-arc substitutions exist among raw row options, but all are rejected
+before the after-pair/cross layer.
+
+### Exact Scope
+
+The proof of the lemma is definition-level for one-witness replacements and
+the pair/cross gate. The recorded `60/36/8/8` counts are exact only for the
+low-support two-block block-6 terminal-edit branch. This is not a Euclidean
+realizability result, not a proof of Erdos Problem #97, and not a
+counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+The source-arc substitution lead is now discharged. The crossing creation in
+Cycle 656 follows from the existing pair/cross admissibility rule, while the
+raw-row counteraudit shows that pair/cross is genuinely doing the work. The
+next proof effort should move one layer earlier: explain why only `8` of the
+`36` raw opposite-arc substitutions survive the after-pair/cross gate, or
+extract a reusable condition that predicts after-pair/cross survival without
+enumerating row options.
+
+### Next Lead
+
+Analyze the `36 -> 8` opposite-arc thinning at the after-pair/cross gate. A
+useful next lemma would characterize which opposite-arc substitutions avoid
+new forbidden two-overlaps with the other assigned rows.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-657`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-657`.
+- The branch was started from `origin/main` at commit
+  `dedb9e49754e0cf717499b4481f3ddd4416e753a`, after PR #387 merged Cycle
+  656.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_block6_fragile_sixth_row_survivors.py --assert-expected
+  --json`: passed; recorded the `60/36/8/8` layer distribution above.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `562 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 656 - Block-6 Crossing-creation Mechanism Audit
 
 ### Mathematical Subquestion

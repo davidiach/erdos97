@@ -362,6 +362,26 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
         "candidate_contains_added:opposite_source_arcs->crossing_two_overlap": 8,
     }
     assert edit_distance_audit[
+        "not_legal_opened_substitution_layer_arc_distribution"
+    ] == {
+        (
+            "after_paircross:candidate_contains_added:"
+            "opposite_source_arcs->crossing_two_overlap"
+        ): 8,
+        (
+            "after_valid:candidate_contains_added:"
+            "opposite_source_arcs->crossing_two_overlap"
+        ): 8,
+        (
+            "all_options:candidate_contains_added:"
+            "opposite_source_arcs->crossing_two_overlap"
+        ): 36,
+        (
+            "all_options:candidate_contains_added:"
+            "same_source_arc->noncrossing_two_overlap"
+        ): 60,
+    }
+    assert edit_distance_audit[
         "not_legal_opened_noncrossing_substitution_target_distribution"
     ] == {
         "2,10:3,5->1,5": 3,
