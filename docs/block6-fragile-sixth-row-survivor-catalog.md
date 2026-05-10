@@ -115,6 +115,48 @@ where `A` and `B` are ordered disjoint pairs from
 Again all `14` ordered disjoint pair edges occur, with the binary choice of
 `t`, giving `28` clean states.
 
+## Low-support Seventh-row Continuations
+
+The low-support disjoint-pair normal form still does not close at the next
+row. Across the `56` block-swap-related clean six-row states from the `4,5`
+and `10,11` minimum-support families, every clean six-row state has at least
+one legal seventh row that remains vertex-circle-clean.
+
+```text
+legal seventh rows from low-support six states: 5590
+vertex-circle-clean:                         2252
+self-edge obstruction:                        1560
+strict-cycle obstruction:                     1778
+clean six-row states with clean seventh row:  56 / 56
+```
+
+For center pair `4,5`, the seventh-row split is `1126` clean, `780`
+self-edge, and `889` strict-cycle. The block-swap-related `10,11` family has
+the same aggregate split.
+
+One explicit clean seven-row state extending the `4,5` minimum-support family
+is:
+
+```text
+4 -> {0,3,6,9}
+5 -> {0,4,7,11}
+1 -> {2,5,6,7}
+```
+
+One explicit clean seven-row state extending the `10,11` minimum-support
+family is:
+
+```text
+10 -> {0,4,6,9}
+11 -> {3,5,6,7}
+1  -> {0,2,7,11}
+```
+
+Together with the four fixed block-6 fragile rows, each displayed state
+satisfies the checker incidence/order filters and has vertex-circle status
+`ok` at the seven-row level. These are abstract selected-row states inside the
+bounded natural-order audit; they are not Euclidean realizability claims.
+
 ## Center Counts
 
 ```text
@@ -153,7 +195,9 @@ python scripts/check_block6_fragile_sixth_row_survivors.py \
 
 The checker first reconstructs the `166` clean fifth rows, then enumerates
 every legal sixth row after each of them. It also computes the block-swap
-orbits for the clean fifth-row and clean six-row states.
+orbits for the clean fifth-row and clean six-row states. Finally, it audits
+every legal seventh row after the `56` low-support clean six-row states in the
+`4,5` and `10,11` minimum-support center-pair families.
 
 ## Effect
 
@@ -163,9 +207,10 @@ The obstruction is still real, but it occurs deeper in the selected-row
 extension tree. The center-pair normal-form audit also rules out a still
 coarser six-row proof based only on which two nonfixed centers have been
 selected. The minimum-support row-content audit gives a compact target for the
-next step: explain, or extend, the disjoint-pair pool normal form rather than
-working with an unstructured list of `56` block-swap-related survivors.
+next step, but the seventh-row continuation audit shows that even this compact
+target is not seventh-row-local.
 
 The next useful step is to mine the `6047` clean six-row states for a smaller
-row-content normal-form family or to ask for the first row depth at which
-every branch is forced into a quotient obstruction.
+row-content normal-form family, or to extend the `56` low-support branches one
+more row to ask where the disjoint-pair survivor family first becomes forced
+into a quotient obstruction.

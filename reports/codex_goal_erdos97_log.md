@@ -22947,6 +22947,156 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 645 - Block-6 Low-support Seventh-row Continuations
+
+### Mathematical Subquestion
+
+Cycle 644 gave a compact disjoint-pair normal form for the two
+minimum-support six-row center-pair families, `4,5` and `10,11`. The next
+precise question was:
+
+```text
+Does every legal seventh-row extension of these low-support six-row normal
+forms force a vertex-circle quotient self-edge or directed strict cycle?
+```
+
+### Definitions and Assumptions
+
+The four fixed two-block block-6 fragile rows are still:
+
+```text
+0 -> {1,2,3,4}
+3 -> {0,2,4,5}
+6 -> {7,8,9,10}
+9 -> {6,8,10,11}
+```
+
+A low-support clean six-row state is one of the `56`
+block-swap-related clean states in the `4,5` and `10,11` minimum-support
+center-pair families classified in Cycle 644. A legal seventh row is any
+valid selected row at a remaining nonfixed center satisfying the same
+incidence/order constraints as the block-6 extension checker. A clean
+seven-row state is one whose selected-distance quotient has no
+vertex-circle self-edge and no directed strict cycle in the natural cyclic
+order.
+
+### Result Status
+
+Counterexample to a subclaim:
+**Block-6 Low-support Seventh-row Survivor Audit**.
+
+The low-support disjoint-pair normal form is not seventh-row-local. Every one
+of the `56` low-support clean six-row states has at least one legal seventh
+row that remains vertex-circle-clean.
+
+### Argument Or Obstruction
+
+The checker enumerates every legal seventh row after each of the `56`
+low-support clean six-row states. The ordered seventh-row continuations split
+as:
+
+```text
+legal seventh rows from low-support six states: 5590
+vertex-circle-clean:                         2252
+self-edge obstruction:                        1560
+strict-cycle obstruction:                     1778
+clean six-row states with clean seventh row:  56 / 56
+```
+
+For the `4,5` family the split is `1126` clean, `780` self-edge, and `889`
+strict-cycle. The block-swap-related `10,11` family has the same aggregate
+split.
+
+One explicit clean continuation of a `4,5` low-support six-row state is:
+
+```text
+4 -> {0,3,6,9}
+5 -> {0,4,7,11}
+1 -> {2,5,6,7}
+```
+
+One explicit clean continuation of a `10,11` low-support six-row state is:
+
+```text
+10 -> {0,4,6,9}
+11 -> {3,5,6,7}
+1  -> {0,2,7,11}
+```
+
+Together with the four fixed block-6 rows, each displayed state has
+vertex-circle status `ok` at the seven-row level.
+
+### Exact Scope
+
+This is an exact finite audit inside the two-block block-6 natural-order
+selected-row extension tree. It covers only legal seventh rows after the
+`56` low-support clean six-row states from the `4,5` and `10,11` families. It
+does not establish Euclidean realizability of any clean abstract state, is not
+a proof of Erdos Problem #97, and is not a counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `docs/index.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This rules out the next tempting bridge theorem: the compact low-support
+disjoint-pair template cannot be closed by adding just one more row. The
+template remains useful because it is small and exact, but any proof route
+through this block-6 branch must either extend the selected-row tree deeper,
+find a stronger geometric invariant than the current vertex-circle quotient,
+or explain the disjoint-pair normal form structurally before applying a deeper
+closure argument.
+
+### Next Lead
+
+Extend the `56` low-support branches one more row, or search within the
+`2252` clean seven-row states for a smaller row-content or center-sequence
+normal form that explains where the obstruction begins.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-645`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-645`.
+- The branch was based on `origin/main` at commit
+  `2c38030fd07132dd0ce574dde4c2ee2ac7e0ce9c`, after PR #359 merged Cycle
+  644.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `python3 scripts/check_block6_fragile_sixth_row_survivors.py
+  --assert-expected --json`: passed; reported `5590` legal seventh rows after
+  the `56` low-support six-row states, with `2252` clean, `1560` self-edge,
+  `1778` strict-cycle, and all `56` clean six-row states admitting at least
+  one clean seventh row.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `540 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 644 - Block-6 Low-support Row-content Normal Forms
 
 ### Mathematical Subquestion
