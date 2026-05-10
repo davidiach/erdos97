@@ -1,0 +1,1762 @@
+{
+  "assignment_count": 18,
+  "claim_scope": "Paired-square Kalmanson entry audit for the 18 T10/F12 n=9 vertex-circle strict-cycle assignments only; not a proof of n=9, not a counterexample, and not a global status update.",
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "hit_assignment_count": 18,
+  "interpretation": [
+    "Each record audits one T10/F12 strict-cycle assignment.",
+    "Each record stores one representative incident residual pair whose nonselected class is the literal singleton pair.",
+    "The per-record hit_count and top-level total_hit_count count all surviving entries, not just the stored representatives.",
+    "The two selected-center squares have opposite Kalmanson diagonal orientations.",
+    "The stored quotient vectors are checked against actual selected and nonselected class keys.",
+    "The selected class may coincide across centers; center-uniqueness is not used by the cancellation.",
+    "This is a paired-square entry audit only; it is not an n=9 proof."
+  ],
+  "miss_assignment_count": 0,
+  "n": 9,
+  "provenance": {
+    "command": "python scripts/check_n9_t10_paired_square_entry.py --assert-expected --write",
+    "generator": "scripts/check_n9_t10_paired_square_entry.py"
+  },
+  "records": [
+    {
+      "assignment_id": "A020",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "0,4",
+          "center": 4,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              2,
+              7
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "nonselected_class_key": "2,7",
+          "positive_pairs": [
+            [
+              2,
+              5
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "quotient_vector": {
+            "1,2": 1,
+            "2,7": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "1,2",
+          "selected_witness": 5
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,3",
+          "center": 6,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              1,
+              2
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "nonselected_class_key": "2,7",
+          "positive_pairs": [
+            [
+              2,
+              7
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "quotient_vector": {
+            "1,2": -1,
+            "2,7": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "1,2",
+          "selected_witness": 1
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "2,7",
+        "nonselected_class_label": "X_2_7",
+        "nonselected_class_members": [
+          [
+            2,
+            7
+          ]
+        ],
+        "residual_pair": [
+          2,
+          7
+        ],
+        "selected_class_key": "1,2",
+        "selected_class_label": "R_2",
+        "selected_class_size": 10
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A040",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "1,2",
+          "center": 2,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "nonselected_class_key": "1,5",
+          "positive_pairs": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": 1,
+            "1,5": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,1",
+          "selected_witness": 4
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,3",
+          "center": 3,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "nonselected_class_key": "1,5",
+          "positive_pairs": [
+            [
+              1,
+              5
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": -1,
+            "1,5": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,1",
+          "selected_witness": 0
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "1,5",
+        "nonselected_class_label": "X_1_5",
+        "nonselected_class_members": [
+          [
+            1,
+            5
+          ]
+        ],
+        "residual_pair": [
+          1,
+          5
+        ],
+        "selected_class_key": "0,1",
+        "selected_class_label": "R_1",
+        "selected_class_size": 10
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A047",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "0,1",
+          "center": 1,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "nonselected_class_key": "0,5",
+          "positive_pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": 1,
+            "0,5": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,1",
+          "selected_witness": 2
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,3",
+          "center": 7,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "nonselected_class_key": "0,5",
+          "positive_pairs": [
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": -1,
+            "0,5": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,1",
+          "selected_witness": 1
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "0,5",
+        "nonselected_class_label": "X_0_5",
+        "nonselected_class_members": [
+          [
+            0,
+            5
+          ]
+        ],
+        "residual_pair": [
+          0,
+          5
+        ],
+        "selected_class_key": "0,1",
+        "selected_class_label": "R_0",
+        "selected_class_size": 10
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A071",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "1,5",
+          "center": 5,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              2,
+              7
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "nonselected_class_key": "2,7",
+          "positive_pairs": [
+            [
+              2,
+              6
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "quotient_vector": {
+            "0,2": 1,
+            "2,7": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,2",
+          "selected_witness": 6
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,6",
+          "center": 6,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "nonselected_class_key": "2,7",
+          "positive_pairs": [
+            [
+              2,
+              7
+            ],
+            [
+              0,
+              6
+            ]
+          ],
+          "quotient_vector": {
+            "0,2": -1,
+            "2,7": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,2",
+          "selected_witness": 0
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "2,7",
+        "nonselected_class_label": "X_2_7",
+        "nonselected_class_members": [
+          [
+            2,
+            7
+          ]
+        ],
+        "residual_pair": [
+          2,
+          7
+        ],
+        "selected_class_key": "0,2",
+        "selected_class_label": "R_2",
+        "selected_class_size": 7
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A080",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "1,3",
+          "center": 3,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              1,
+              6
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "nonselected_class_key": "1,6",
+          "positive_pairs": [
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": 1,
+            "1,6": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,1",
+          "selected_witness": 4
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,2",
+          "center": 5,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "nonselected_class_key": "1,6",
+          "positive_pairs": [
+            [
+              1,
+              6
+            ],
+            [
+              0,
+              5
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": -1,
+            "1,6": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,1",
+          "selected_witness": 0
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "1,6",
+        "nonselected_class_label": "X_1_6",
+        "nonselected_class_members": [
+          [
+            1,
+            6
+          ]
+        ],
+        "residual_pair": [
+          1,
+          6
+        ],
+        "selected_class_key": "0,1",
+        "selected_class_label": "R_1",
+        "selected_class_size": 10
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A081",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "0,4",
+          "center": 4,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              1,
+              6
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "nonselected_class_key": "1,6",
+          "positive_pairs": [
+            [
+              1,
+              5
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "quotient_vector": {
+            "1,2": 1,
+            "1,6": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "1,2",
+          "selected_witness": 5
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,2",
+          "center": 8,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              1,
+              2
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "nonselected_class_key": "1,6",
+          "positive_pairs": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "quotient_vector": {
+            "1,2": -1,
+            "1,6": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "1,2",
+          "selected_witness": 2
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "1,6",
+        "nonselected_class_label": "X_1_6",
+        "nonselected_class_members": [
+          [
+            1,
+            6
+          ]
+        ],
+        "residual_pair": [
+          1,
+          6
+        ],
+        "selected_class_key": "1,2",
+        "selected_class_label": "R_1",
+        "selected_class_size": 7
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A083",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "0,2",
+          "center": 2,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              3,
+              8
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "nonselected_class_key": "3,8",
+          "positive_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": 1,
+            "3,8": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,1",
+          "selected_witness": 0
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,2",
+          "center": 7,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              1,
+              3
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "nonselected_class_key": "3,8",
+          "positive_pairs": [
+            [
+              3,
+              8
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": -1,
+            "3,8": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,1",
+          "selected_witness": 1
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "3,8",
+        "nonselected_class_label": "X_3_8",
+        "nonselected_class_members": [
+          [
+            3,
+            8
+          ]
+        ],
+        "residual_pair": [
+          3,
+          8
+        ],
+        "selected_class_key": "0,1",
+        "selected_class_label": "R_3",
+        "selected_class_size": 7
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A093",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "0,1",
+          "center": 1,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "nonselected_class_key": "0,4",
+          "positive_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": 1,
+            "0,4": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,1",
+          "selected_witness": 3
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "1,5",
+          "center": 5,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "nonselected_class_key": "0,4",
+          "positive_pairs": [
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": -1,
+            "0,4": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,1",
+          "selected_witness": 1
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "0,4",
+        "nonselected_class_label": "X_0_4",
+        "nonselected_class_members": [
+          [
+            0,
+            4
+          ]
+        ],
+        "residual_pair": [
+          0,
+          4
+        ],
+        "selected_class_key": "0,1",
+        "selected_class_label": "R_0",
+        "selected_class_size": 10
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A095",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "0,2",
+          "center": 2,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              5
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "nonselected_class_key": "0,5",
+          "positive_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": 1,
+            "0,5": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,1",
+          "selected_witness": 3
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,2",
+          "center": 6,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "nonselected_class_key": "0,5",
+          "positive_pairs": [
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": -1,
+            "0,5": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,1",
+          "selected_witness": 1
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "0,5",
+        "nonselected_class_label": "X_0_5",
+        "nonselected_class_members": [
+          [
+            0,
+            5
+          ]
+        ],
+        "residual_pair": [
+          0,
+          5
+        ],
+        "selected_class_key": "0,1",
+        "selected_class_label": "R_0",
+        "selected_class_size": 10
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A111",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "0,3",
+          "center": 3,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              5
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "nonselected_class_key": "0,5",
+          "positive_pairs": [
+            [
+              0,
+              4
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": 1,
+            "0,5": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,1",
+          "selected_witness": 4
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,2",
+          "center": 7,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "nonselected_class_key": "0,5",
+          "positive_pairs": [
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": -1,
+            "0,5": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,1",
+          "selected_witness": 1
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "0,5",
+        "nonselected_class_label": "X_0_5",
+        "nonselected_class_members": [
+          [
+            0,
+            5
+          ]
+        ],
+        "residual_pair": [
+          0,
+          5
+        ],
+        "selected_class_key": "0,1",
+        "selected_class_label": "R_0",
+        "selected_class_size": 7
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A126",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "0,2",
+          "center": 2,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              3,
+              8
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "nonselected_class_key": "3,8",
+          "positive_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "quotient_vector": {
+            "0,2": 1,
+            "3,8": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,2",
+          "selected_witness": 0
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "1,4",
+          "center": 7,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "nonselected_class_key": "3,8",
+          "positive_pairs": [
+            [
+              3,
+              8
+            ],
+            [
+              2,
+              7
+            ]
+          ],
+          "quotient_vector": {
+            "0,2": -1,
+            "3,8": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,2",
+          "selected_witness": 2
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "3,8",
+        "nonselected_class_label": "X_3_8",
+        "nonselected_class_members": [
+          [
+            3,
+            8
+          ]
+        ],
+        "residual_pair": [
+          3,
+          8
+        ],
+        "selected_class_key": "0,2",
+        "selected_class_label": "R_3",
+        "selected_class_size": 10
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A147",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "0,1",
+          "center": 1,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "nonselected_class_key": "0,4",
+          "positive_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "quotient_vector": {
+            "0,2": 1,
+            "0,4": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,2",
+          "selected_witness": 3
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,1",
+          "center": 5,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "nonselected_class_key": "0,4",
+          "positive_pairs": [
+            [
+              0,
+              4
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "quotient_vector": {
+            "0,2": -1,
+            "0,4": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,2",
+          "selected_witness": 2
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "0,4",
+        "nonselected_class_label": "X_0_4",
+        "nonselected_class_members": [
+          [
+            0,
+            4
+          ]
+        ],
+        "residual_pair": [
+          0,
+          4
+        ],
+        "selected_class_key": "0,2",
+        "selected_class_label": "R_0",
+        "selected_class_size": 7
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A151",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "0,1",
+          "center": 2,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "nonselected_class_key": "1,5",
+          "positive_pairs": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": 1,
+            "1,5": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,1",
+          "selected_witness": 4
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,4",
+          "center": 4,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "nonselected_class_key": "1,5",
+          "positive_pairs": [
+            [
+              1,
+              5
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": -1,
+            "1,5": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,1",
+          "selected_witness": 0
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "1,5",
+        "nonselected_class_label": "X_1_5",
+        "nonselected_class_members": [
+          [
+            1,
+            5
+          ]
+        ],
+        "residual_pair": [
+          1,
+          5
+        ],
+        "selected_class_key": "0,1",
+        "selected_class_label": "R_1",
+        "selected_class_size": 10
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A153",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "0,1",
+          "center": 1,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              3,
+              7
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "nonselected_class_key": "3,7",
+          "positive_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "quotient_vector": {
+            "0,2": 1,
+            "3,7": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,2",
+          "selected_witness": 0
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,1",
+          "center": 6,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "nonselected_class_key": "3,7",
+          "positive_pairs": [
+            [
+              3,
+              7
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "quotient_vector": {
+            "0,2": -1,
+            "3,7": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,2",
+          "selected_witness": 2
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "3,7",
+        "nonselected_class_label": "X_3_7",
+        "nonselected_class_members": [
+          [
+            3,
+            7
+          ]
+        ],
+        "residual_pair": [
+          3,
+          7
+        ],
+        "selected_class_key": "0,2",
+        "selected_class_label": "R_3",
+        "selected_class_size": 10
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A154",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "1,2",
+          "center": 2,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              3,
+              7
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "nonselected_class_key": "3,7",
+          "positive_pairs": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              7
+            ]
+          ],
+          "quotient_vector": {
+            "1,2": 1,
+            "3,7": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "1,2",
+          "selected_witness": 1
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,2",
+          "center": 5,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "nonselected_class_key": "3,7",
+          "positive_pairs": [
+            [
+              3,
+              7
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "quotient_vector": {
+            "1,2": -1,
+            "3,7": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "1,2",
+          "selected_witness": 2
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "3,7",
+        "nonselected_class_label": "X_3_7",
+        "nonselected_class_members": [
+          [
+            3,
+            7
+          ]
+        ],
+        "residual_pair": [
+          3,
+          7
+        ],
+        "selected_class_key": "1,2",
+        "selected_class_label": "R_3",
+        "selected_class_size": 10
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A157",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "0,1",
+          "center": 1,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "nonselected_class_key": "0,4",
+          "positive_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "quotient_vector": {
+            "0,2": 1,
+            "0,4": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,2",
+          "selected_witness": 3
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,6",
+          "center": 5,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "nonselected_class_key": "0,4",
+          "positive_pairs": [
+            [
+              0,
+              4
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "quotient_vector": {
+            "0,2": -1,
+            "0,4": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,2",
+          "selected_witness": 2
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "0,4",
+        "nonselected_class_label": "X_0_4",
+        "nonselected_class_members": [
+          [
+            0,
+            4
+          ]
+        ],
+        "residual_pair": [
+          0,
+          4
+        ],
+        "selected_class_key": "0,2",
+        "selected_class_label": "R_0",
+        "selected_class_size": 10
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A164",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "0,3",
+          "center": 3,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "nonselected_class_key": "2,6",
+          "positive_pairs": [
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "quotient_vector": {
+            "0,3": 1,
+            "2,6": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,3",
+          "selected_witness": 5
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "0,2",
+          "center": 5,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              1,
+              2
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "nonselected_class_key": "2,6",
+          "positive_pairs": [
+            [
+              2,
+              6
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "quotient_vector": {
+            "0,3": -1,
+            "2,6": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,3",
+          "selected_witness": 1
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "2,6",
+        "nonselected_class_label": "X_2_6",
+        "nonselected_class_members": [
+          [
+            2,
+            6
+          ]
+        ],
+        "residual_pair": [
+          2,
+          6
+        ],
+        "selected_class_key": "0,3",
+        "selected_class_label": "R_2",
+        "selected_class_size": 10
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    },
+    {
+      "assignment_id": "A180",
+      "family_id": "F12",
+      "hit_count": 3,
+      "paired_square_entry": {
+        "a_square": {
+          "cancelling_class_key": "0,1",
+          "center": 1,
+          "forced_orientation": "A",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              2,
+              6
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "nonselected_class_key": "2,6",
+          "positive_pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": 1,
+            "2,6": -1
+          },
+          "reduction": "R_i > X_i_n",
+          "selected_class_key": "0,1",
+          "selected_witness": 0
+        },
+        "available_a_square_count": 2,
+        "available_b_square_count": 2,
+        "b_square": {
+          "cancelling_class_key": "1,4",
+          "center": 4,
+          "forced_orientation": "B",
+          "literal_square_lift": true,
+          "negative_pairs": [
+            [
+              1,
+              2
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "nonselected_class_key": "2,6",
+          "positive_pairs": [
+            [
+              2,
+              6
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "quotient_vector": {
+            "0,1": -1,
+            "2,6": 1
+          },
+          "reduction": "X_i_n > R_i",
+          "selected_class_key": "0,1",
+          "selected_witness": 1
+        },
+        "nonselected_class_is_singleton": true,
+        "nonselected_class_key": "2,6",
+        "nonselected_class_label": "X_2_6",
+        "nonselected_class_members": [
+          [
+            2,
+            6
+          ]
+        ],
+        "residual_pair": [
+          2,
+          6
+        ],
+        "selected_class_key": "0,1",
+        "selected_class_label": "R_2",
+        "selected_class_size": 10
+      },
+      "status": "paired_square_entry_found",
+      "template_id": "T10"
+    }
+  ],
+  "records_digest": "e32ff6014b1388fa733ad1fdb244c945114e91d059374259c6eeb1742ba89558",
+  "row_size": 4,
+  "schema": "erdos97.n9_t10_paired_square_entry_audit.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/n9_vertex_circle_frontier_motif_classification.json",
+      "role": "full selected rows for the 184 n=9 frontier assignments",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/n9_vertex_circle_strict_cycle_template_packet.json",
+      "role": "T10/F12 assignment ids and strict-cycle template metadata",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+  "template_id": "T10",
+  "total_hit_count": 54,
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

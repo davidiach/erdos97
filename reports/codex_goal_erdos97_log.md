@@ -22947,6 +22947,188 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 686 - T10 Literal Paired-square Entry Audit
+
+### Mathematical Subquestion
+
+For the `T10/F12` two-edge vertex-circle strict-cycle family, do the 18 stored
+assignment instances expose an exact incident residual pair satisfying the
+Abstract Paired-Square Entry Lemma inputs?
+
+The check is deliberately narrower than the first quotient-level search: the
+nonselected residual class must be the literal singleton `{i,n}`, and the two
+selected-center Kalmanson squares must reduce, under the actual selected-row
+quotient, to opposite vectors for that same singleton class.
+
+### Definitions and Assumptions
+
+Fix one selected-row assignment on labels `0,...,8`. Let the selected rows
+generate a selected-distance quotient on unordered label pairs. For a center
+`i`, selected witnesses `S_i`, and a residual label `n` not in `S_i union {i}`,
+write
+
+```text
+R_i = class({i,s}) for s in S_i,
+X_{i,n} = class({i,n}).
+```
+
+This audit only counts a residual pair when `X_{i,n}` is exactly the singleton
+quotient class `{i,n}` and `X_{i,n} != R_i`.
+
+A selected-center square for `(i,n)` is a pair `(s,j)` with `s in S_i`,
+`j` a selected-row center distinct from `i,n,s`, and `{n,s} subset S_j`.
+The raw Kalmanson row uses the four unordered pairs
+
+```text
+{i,s}, {j,n}, {i,n}, {j,s}.
+```
+
+It is an `A` square if the cyclic order makes `{i,s}` and `{j,n}` the
+crossing diagonal pair, and a `B` square if it makes `{i,n}` and `{j,s}` the
+crossing diagonal pair. After quotienting selected distances, an `A` square
+must reduce to `+R_i - X_{i,n}` and a `B` square must reduce to
+`+X_{i,n} - R_i`.
+
+The selected class may coincide across several centers. The audit records the
+actual quotient class keys and uses only the cancellation in the selected
+center row, not center-unique selected classes.
+
+### Result Status
+
+Proved finite diagnostic:
+**T10 Literal Paired-square Entry Coverage Audit**.
+
+### Argument Or Obstruction
+
+The new checker rebuilds the selected-distance quotient for each of the 18
+`T10/F12` assignments from
+`data/certificates/n9_vertex_circle_frontier_motif_classification.json`, using
+the `T10` assignment ids from
+`data/certificates/n9_vertex_circle_strict_cycle_template_packet.json`.
+
+For each candidate residual pair it rejects quotient-level candidates whose
+nonselected class has additional members. This singleton guard is the main
+correction to the broader one-off search: a purely quotient-level opposite
+orientation count gave many more candidates, but only 54 entries survive the
+literal residual condition.
+
+For one representative surviving entry per assignment, the checker stores one
+`A` square and one `B` square for the same residual pair, together with:
+
+- the raw positive and negative unordered pairs;
+- the selected and nonselected quotient class keys;
+- the singleton nonselected class members;
+- the reduced quotient vector for each square.
+
+Validation recomputes the artifact from the two source artifacts and rejects a
+record unless the `A` vector is exactly `{R_i: +1, X_{i,n}: -1}` and the `B`
+vector is exactly `{R_i: -1, X_{i,n}: +1}` using those stored class keys.
+
+The exact counts are:
+
+```text
+assignments audited:          18
+assignments with an entry:    18
+assignments without an entry:  0
+literal singleton entries:    54
+records digest: e32ff6014b1388fa733ad1fdb244c945114e91d059374259c6eeb1742ba89558
+```
+
+The `54` count is the total number of surviving literal singleton entries;
+the artifact expands one representative entry per assignment in detail.
+
+### Exact Scope
+
+This is a review-pending finite diagnostic over the stored `T10/F12`
+assignment packet only. It does not prove `n=9`, does not independently review
+the exhaustive checker, does not prove Erdos Problem #97, and does not produce
+a counterexample.
+
+It also does not replace the existing `T10/F12` strict-cycle contradiction.
+Those assignments were already locally obstructed by the directed strict-cycle
+packet. The value of this audit is proof-mining: it shows that the
+paired-square entry mechanism has exact positive instances on a known
+strict-cycle family after enforcing the singleton residual hypothesis.
+
+### Files Changed
+
+- `scripts/check_n9_t10_paired_square_entry.py`
+- `data/certificates/n9_t10_paired_square_entry_audit.json`
+- `tests/test_n9_t10_paired_square_entry.py`
+- `metadata/generated_artifacts.yaml`
+- `docs/n9-vertex-circle-strict-cycle-criterion.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This keeps the paired-square route alive but narrows it. Future bridge work
+must prove a genuine entry theorem that forces a singleton incident residual
+and opposite-orientation selected-center squares before an existing
+strict-cycle or self-edge packet has already supplied the contradiction.
+
+The useful guardrail from the parallel review is now explicit: quotient-level
+`R-X` support is not enough. The raw square lift and literal singleton
+residual class have to be checked.
+
+### Next Lead
+
+Run the same literal paired-square entry audit on the `T11/F07` and
+`T12/F16` strict-cycle packets, or attempt a human-readable lemma explaining
+why the `T10/F12` row geometry forces the singleton residual entries. If those
+families fail, classify whether the failure is singleton residual, square
+availability, or opposite diagonal orientation.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-686`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-686`.
+- The branch was started from `origin/main` at commit `4617093`, after PR #432
+  merged Cycle 685.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- Parallel read-only agents checked the T10/F12 source-artifact shape and the
+  potential C19-to-vertex-circle type mismatch. Their feedback led to the
+  singleton residual guard and actual quotient-vector validation.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_t10_paired_square_entry.py --check --assert-expected
+  --json`: passed, reporting 18 hit assignments, 0 miss assignments, 54
+  literal singleton entries, and digest
+  `e32ff6014b1388fa733ad1fdb244c945114e91d059374259c6eeb1742ba89558`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check
+  scripts/check_n9_t10_paired_square_entry.py
+  tests/test_n9_t10_paired_square_entry.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_n9_t10_paired_square_entry.py -q`: passed, `7` tests.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/enumerate_n8_incidence.py --summary`: passed, preserving 15
+  canonical survivor classes.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/analyze_n8_exact_survivors.py --check --json`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed after rebasing onto current `origin/main`, `648` passed and `281`
+  deselected.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `git diff --check`: passed before this log entry was appended and passed
+  again after the log update.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 685 - Abstract Paired-Square Entry Lemma
 
 ### Mathematical Subquestion
