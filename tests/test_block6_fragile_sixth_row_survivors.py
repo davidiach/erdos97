@@ -217,6 +217,47 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
         "6": 4,
         "7": 2,
     }
+    assert edit_distance_audit["nearest_transition_count"] == 56
+    assert edit_distance_audit["changed_center_distribution"] == {
+        "2": 7,
+        "4": 4,
+        "5": 17,
+        "8": 7,
+        "10": 4,
+        "11": 17,
+    }
+    assert edit_distance_audit["changed_center_orbit_distribution"] == {
+        "2,8": 14,
+        "4,10": 8,
+        "5,11": 34,
+    }
+    assert edit_distance_audit["replacement_side_distribution"] == {
+        "opposite_block": 42,
+        "same_block": 14,
+    }
+    assert edit_distance_audit["changed_center_removed_added_distribution"][
+        "5:1->4"
+    ] == 5
+    assert edit_distance_audit["changed_center_removed_added_distribution"][
+        "11:7->10"
+    ] == 5
+    assert edit_distance_audit["extendable_ok_center_count_distribution"] == {
+        "1": 28,
+        "2": 24,
+        "3": 4,
+    }
+    assert edit_distance_audit["extendable_ok_row_count_distribution"] == {
+        "1": 18,
+        "2": 16,
+        "3": 4,
+        "4": 4,
+        "5": 4,
+        "6": 2,
+        "7": 2,
+        "9": 2,
+        "10": 2,
+        "13": 2,
+    }
     assert edit_distance_audit["changed_row_count_distribution_for_first_nearest"] == {
         "1": 12
     }

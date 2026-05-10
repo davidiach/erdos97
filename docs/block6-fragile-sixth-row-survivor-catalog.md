@@ -415,6 +415,36 @@ nearest extendable states  terminal states
 7                          2
 ```
 
+Across all nearest terminal-to-extendable transitions, there are `56`
+one-replacement transitions. The changed center distribution is block-swap
+equivariant:
+
+```text
+changed center orbit  nearest transitions
+2,8                   14
+4,10                  8
+5,11                  34
+```
+
+The replacement preserves whether the changed witness lies in the center's
+same six-label block or in the opposite six-label block. The side split is:
+
+```text
+replacement side  nearest transitions
+same block        14
+opposite block    42
+```
+
+The nearest extendable states have only a small number of clean eighth-center
+choices:
+
+```text
+clean eighth centers after nearest transition  nearest transitions
+1                                              28
+2                                              24
+3                                              4
+```
+
 For example, the terminal state
 
 ```text
@@ -434,8 +464,8 @@ in the row centered at `2`:
 
 Thus no terminality lemma can be stable under even one witness replacement
 inside the same combined triple/profile class. The next useful invariant must
-see the exact boundary-pair placement that distinguishes those adjacent
-states.
+see the exact boundary-pair placement and changed-center orbit that
+distinguishes those adjacent states.
 
 ## Center Counts
 
@@ -505,4 +535,6 @@ one eighth center or one obstruction type. The triple-plus-profile audit also
 shows that terminality is not determined by adding the seven-center triple to
 the row-content profile. The edit-distance audit sharpens this failure:
 terminality can disappear after changing a single witness in one row while
-staying inside the same combined class.
+staying inside the same combined class. The nearest-transition classification
+also shows that the escapes are not explained by one exceptional changed
+center: all three nonfixed block-swap center orbits occur.

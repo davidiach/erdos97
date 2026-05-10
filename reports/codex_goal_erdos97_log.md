@@ -22947,6 +22947,159 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 652 - Block-6 Nearest-transition Signatures
+
+### Mathematical Subquestion
+
+Cycle 651 showed that every terminal clean seven-row state in the low-support
+block-6 branch is one witness replacement from a same-class extendable state.
+The next precise question was:
+
+```text
+Across all nearest terminal-to-extendable transitions, which centers and
+witness replacements occur, and how many clean eighth-center choices appear
+after the transition?
+```
+
+### Definitions and Assumptions
+
+Use the same terminal-containing combined triple/profile classes and row
+replacement distance from Cycle 651. A **nearest transition** is an ordered
+pair `(T,E)` where `T` is a terminal clean seven-row state, `E` is an
+extendable clean seven-row state in the same combined class, and the state
+replacement distance from `T` to `E` is minimal. Cycle 651 proved this minimum
+is `1` for all `12` terminal states.
+
+For a nearest transition, the checker records the changed row center, the
+removed and added witness labels, whether that replacement stayed in the
+center's same six-label block or opposite six-label block, and the number of
+eighth centers that have at least one clean eighth-row extension after `E`.
+
+### Result Status
+
+Exact finite audit:
+**Block-6 Nearest-transition Signature Audit**.
+
+### Argument Or Obstruction
+
+There are `56` nearest one-replacement transitions across the `12` terminal
+states. The changed-center distribution is:
+
+```text
+changed center  nearest transitions
+2               7
+4               4
+5               17
+8               7
+10              4
+11              17
+```
+
+Equivalently, by block-swap center orbit:
+
+```text
+changed center orbit  nearest transitions
+2,8                   14
+4,10                  8
+5,11                  34
+```
+
+The replacement never changes the same/opposite-block side of the modified
+witness. The side split is:
+
+```text
+replacement side  nearest transitions
+same block        14
+opposite block    42
+```
+
+The nearest extendable states expose only `1`, `2`, or `3` clean eighth
+centers:
+
+```text
+clean eighth centers after transition  nearest transitions
+1                                      28
+2                                      24
+3                                      4
+```
+
+The checker also records the full changed-center/removed/added distribution.
+The two highest-multiplicity signatures are `5:1->4` and `11:7->10`, with
+`5` transitions each.
+
+### Exact Scope
+
+This is an exact finite audit inside the same low-support two-block block-6
+natural-order selected-row extension tree as Cycles 646-651. It classifies
+the nearest same-class terminal-to-extendable transitions from the `12`
+terminal clean seven-row states. It is not a Euclidean realizability result,
+is not a proof of Erdos Problem #97, and is not a counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This rules out another overly simple local explanation: the one-step escapes
+are not caused by a single exceptional changed center. All three relevant
+block-swap center orbits occur, and most nearest transitions change an
+opposite-block witness. The audit points toward a boundary-pair or local
+order-sign invariant rather than a center-only invariant.
+
+### Next Lead
+
+For each nearest transition, compare the removed/added witness pair with the
+terminal state's self-only, strict-only, and mixed eighth-center obstruction
+sets. A useful next lemma would say which boundary-pair replacement opens a
+clean eighth center and why that replacement avoids the prior quotient
+self-edge or strict cycle.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-652`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-652`.
+- The branch was started from `origin/main` at commit
+  `dd8e63b2c0befd478bdda7be94528b62a52ab7df`, after PR #371 merged Cycle
+  651, then rebased onto `origin/main` at commit
+  `3e9b2b9f9b20cc6d7b88d2fceefddbc72efc29e7` after PR #372 merged, and
+  finally onto `origin/main` at commit
+  `723b4645d77d71edb6f0f73fc9f3c11c87e9a2fc` after subsequent research-loop
+  report updates landed.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_block6_fragile_sixth_row_survivors.py --assert-expected
+  --json`: passed; reported `56` nearest transitions, changed-center orbit
+  counts `14,8,34`, and clean eighth-center counts `28,24,4`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `542 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 651 - Block-6 One-replacement Terminal Fragility
 
 ### Mathematical Subquestion
