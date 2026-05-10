@@ -22947,6 +22947,138 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 659 - Full Context Cover Obstruction
+
+### Mathematical Subquestion
+
+Cycle 658 showed that only `8` of the `36` raw opposite-arc substitutions in
+the low-support block-6 terminal-edit audit survive the after-pair/cross gate.
+The next question was:
+
+```text
+Can the 42 other-row blocker incidences be factored by raw context, especially
+for the two contexts with zero surviving candidates?
+```
+
+### Definitions and Assumptions
+
+Use the Cycle 658 notation. A raw **opposite-arc substitution context** is
+specified by the source chord joining the changed center to the opened center,
+the old noncrossing target overlap with the terminal changed row, and the new
+crossing target overlap after the one-witness replacement.
+
+A **context cover** is the multiset of already assigned rows that block all
+raw candidates in one such context at the after-replacement pair/cross gate.
+Blockers are classified by:
+
+- blocker kind: noncrossing two-overlap or three-or-more overlap;
+- blocker role: fixed row or other unchanged added row;
+- blocker center orbit under the block-swap `i -> i+6 mod 12`.
+
+### Result Status
+
+Exact finite audit and obstruction:
+**Full Context Cover Obstruction**.
+
+### Argument Or Obstruction
+
+The checker now records a per-context summary in addition to the Cycle 658
+aggregate blocker counts. The six raw contexts split as follows:
+
+```text
+context              raw  after  valid  failed  blocker counts  blocker roles
+2,10:3,5 -> 1,5     6    3      3      3       1x1, 2x2        fixed 3, other-added 2
+2,10:3,6 -> 1,6     6    1      1      5       1x4, 2x1        fixed 2, other-added 4
+2,10:3,9 -> 1,9     6    0      0      6       1x2, 2x4        fixed 4, other-added 6
+4,8:0,9 -> 0,7      6    1      1      5       1x4, 2x1        fixed 2, other-added 4
+4,8:3,9 -> 3,7      6    0      0      6       1x2, 2x4        fixed 4, other-added 6
+4,8:9,11 -> 7,11    6    3      3      3       1x1, 2x2        fixed 3, other-added 2
+```
+
+The two zero-survivor contexts have the same coarse cover profile. In
+`2,10: 3,9 -> 1,9`, the `6` failed raw candidates have `10` blocker
+incidences: `4` from fixed rows in the `0,6` orbit and `6` from unchanged
+added rows in the `5,11` orbit. The unchanged added row repeatedly supplies
+the noncrossing target `1,9`, while fixed rows cover the remaining variants.
+
+The block-swap mate `4,8: 3,9 -> 3,7` has the same profile: `4` fixed-row
+blockers in the `0,6` orbit and `6` unchanged-added-row blockers in the
+`5,11` orbit. Here the repeated unchanged-added-row target is `3,7`.
+
+Thus, in these two exact contexts, the opposite-arc substitution repairs the
+changed-row conflict but the fixed row orbit plus unchanged added-row orbit
+cover every raw candidate before it can become a valid eighth row.
+
+### Exact Scope
+
+The counts are exact for the low-support two-block block-6 terminal-edit
+branch in the natural cyclic order. The result is not a Euclidean
+realizability statement, not a global theorem for Erdos Problem #97, and not a
+counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This refines the Cycle 658 obstruction from an aggregate blocker census into a
+context-level cover pattern. It strengthens the fragile-cover bridge by
+identifying exactly where the naive opposite-arc repair route dies: two raw
+contexts are not merely sparse after pair/cross; they are fully covered by a
+small pair of blocker orbits.
+
+### Next Lead
+
+Try to turn the repeated unchanged-added-row targets `1,9` and `3,7` into a
+human-readable boundary-pair lemma. The useful subclaim would explain, from
+the source/target placement and the low-support row-content profile, why the
+unchanged added row must cover four of the six raw candidates in each
+zero-survivor context.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-659`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-659`.
+- The branch was started from `origin/main` at commit
+  `8f71aa46ce4b6088452f7d37f28a1189bedeadbd`, after PR #391 merged Cycle
+  658.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_block6_fragile_sixth_row_survivors.py --assert-expected
+  --json`: passed; recorded the six per-context summaries above.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check
+  scripts/check_block6_fragile_sixth_row_survivors.py
+  tests/test_block6_fragile_sixth_row_survivors.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 658 - Other-row Paircross Thinning Obstruction
 
 ### Mathematical Subquestion
