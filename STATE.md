@@ -79,6 +79,14 @@ source `151` has only the row center and three core witnesses. This is
 proof-mining bookkeeping only, not a proof that either row is forced. See
 `docs/bootstrap-t12-closure-exposed.md`.
 
+A one-outside-label subpacket isolates the three singleton-support
+row-pressure gaps: `81:8`, `151:5`, and `151:8`. Each has two bootstrap-core
+witnesses and a row center private in every deletion closure; in each row, one
+singleton support is private in all deletion halos and one is already internal
+to the deletion closure for core vertex `2`. This remains diagnostic
+bookkeeping only, not a row-forcing theorem. See
+`docs/bootstrap-t12-one-outside.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

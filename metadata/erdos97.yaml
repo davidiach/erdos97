@@ -168,6 +168,11 @@ local_repo:
       artifact: "data/certificates/bootstrap_t12_closure_exposed.json"
       verifier: "scripts/check_bootstrap_t12_closure_exposed.py"
       claim_scope: "fixed selected-row proof-mining diagnostic only; isolates the deletion-closure-exposed rows 81:3 and 151:7, but does not prove that the missing rows are forced and does not prove n=9 or the bridge"
+    - pattern: "bootstrap_t12_one_outside"
+      status: "one-outside-label subpacket for the three singleton-support T12 row-pressure gaps"
+      artifact: "data/certificates/bootstrap_t12_one_outside.json"
+      verifier: "scripts/check_bootstrap_t12_one_outside.py"
+      claim_scope: "fixed selected-row proof-mining diagnostic only; isolates rows 81:8, 151:5, and 151:8 by singleton outside-label support, but does not prove missing rows are forced and does not prove n=9 or the bridge"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

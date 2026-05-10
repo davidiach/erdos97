@@ -148,6 +148,8 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-closure-exposed.md`](bootstrap-t12-closure-exposed.md):
   focused packet isolating the two deletion-closure-exposed T12 row-pressure
   gaps.
+- [`bootstrap-t12-one-outside.md`](bootstrap-t12-one-outside.md):
+  focused packet isolating the three singleton-support T12 row-pressure gaps.
 - [`bridge-negative-controls.md`](bridge-negative-controls.md): exact
   guardrails for incidence-only and fragile-cover-only bridge claims.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`

@@ -67,6 +67,12 @@ The rows `81:8`, `151:5`, and `151:8` each have two core witnesses. They need
 one outside label to become activation-ready from the bootstrap core, while
 their row centers remain private across all deletion closures.
 
+The focused one-outside-label packet
+[`bootstrap-t12-one-outside.md`](bootstrap-t12-one-outside.md) records this
+subcase separately. It distinguishes, for each row, the singleton support that
+is private in all deletion halos from the singleton support that is already
+internal to the deletion closure for core vertex `2`.
+
 The row `151:6` has only one core witness. It needs an outside pair, and two
 of its possible outside pairs, `[3,8]` and `[5,8]`, hit the existing
 private-pair ledger.
