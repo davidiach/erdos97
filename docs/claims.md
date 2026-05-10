@@ -472,6 +472,37 @@ promotion of the review-pending exhaustive checker, and not a proof of Erdos
 Problem #97. Check the focused packet with
 `python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check --assert-expected --json`.
 
+### Vertex-circle T10/F12 strict-cycle local lemma candidate
+
+Status: `REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE`.
+
+In a strictly convex nonagon with cyclic order `0,1,2,3,4,5,6,7,8`, suppose the
+following four selected rows are present:
+
+```text
+center 0: {1,2,5,6}
+center 3: {0,1,4,6}
+center 6: {1,3,4,7}
+center 8: {0,3,6,7}
+```
+
+Rows `3` and `6` force `[0,3] = [3,6] = [1,6]`, while row `0` forces
+`[0,1] = [0,6]`. The row-`8` witness order `[0,3,6,7]` gives
+`[0,6] > [0,3]`, and the row-`3` witness order `[4,6,0,1]` gives
+`[1,6] > [0,1]`. After selected-distance quotienting, these become
+
+```text
+[0,6] > [1,6] > [0,6].
+```
+
+Thus the strict quotient graph has a directed two-edge cycle, and no strictly
+convex realization can satisfy these exact local hypotheses. The packet label
+`T10/F12` is navigation only; the hypotheses are the displayed cyclic order
+and selected rows. This is not an `n=9` completeness proof, not a promotion of
+the review-pending exhaustive checker, and not a proof of Erdos Problem #97.
+Check the focused packet with
+`python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check --assert-expected --json`.
+
 ### Low-angle ascent for middle witnesses
 
 Let `alpha_p` be the interior angle at a bad vertex `p`, and let
