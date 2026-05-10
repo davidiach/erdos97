@@ -22947,6 +22947,184 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 681 - Two-Edge Vertex-Circle Quotient-Cycle Schema
+
+### Mathematical Subquestion
+
+Can the `T10/F12` vertex-circle strict-cycle packet be separated from its
+specific `n=9` labels and restated as a label-free local obstruction schema?
+
+This is a different route from the endpoint-control fixed-survivor work in
+Cycle 680. It tries to turn a finite local pattern into a reusable
+incidence/order lemma.
+
+### Definitions and Assumptions
+
+Work in any strictly convex polygon with selected witness rows. For an
+unordered pair `{u,v}`, write `D_uv` for its ordinary distance value; the same
+argument applies to squared distances because all distances are positive.
+
+Use the vertex-circle nesting lemma: if one selected row sees four witnesses
+in angular order `a,b,c,d`, then the chord interval for `{a,c}` properly
+contains the chord interval for `{a,b}`, so
+
+```text
+D_ac > D_ab.
+```
+
+Similarly, if another selected row sees witnesses in angular order `e,f,g,h`,
+then
+
+```text
+D_fh > D_gh.
+```
+
+A selected-distance path is a chain of equalities between pair distances,
+where each step is forced by one selected row.
+
+### Result Status
+
+Proved local lemma:
+**Two-Edge Vertex-Circle Quotient-Cycle Schema**.
+
+### Argument Or Obstruction
+
+Assume the two nested vertex-circle inequalities above and assume the local
+selected rows also force cross-wired equality paths
+
+```text
+D_ab = D_fh,
+D_gh = D_ac.
+```
+
+Then combining the inequalities and equalities gives
+
+```text
+D_ac > D_ab = D_fh > D_gh = D_ac,
+```
+
+which is impossible for real distance values. Equivalently, after
+selected-distance quotienting, the strict quotient graph has a directed
+two-cycle.
+
+The existing `T10/F12` packet is an exact instance of the schema:
+
+```text
+8-row order: [0,3,6,7] gives D_06 > D_03.
+3-row order: [4,6,0,1] gives D_16 > D_01.
+rows 3 and 6 identify D_03 = D_36 = D_16.
+row 0 identifies D_01 = D_06.
+```
+
+Thus the abstract schema specializes to
+
+```text
+D_06 > D_16 > D_06.
+```
+
+### Exact Scope
+
+This is a local exact obstruction under explicitly stated selected-row,
+cyclic-order, and selected-distance-path hypotheses. It does not prove that
+every `n=9` frontier assignment contains such a schema, does not promote the
+review-pending `n=9` exhaustive checker, does not prove Erdos Problem #97, and
+does not produce a counterexample.
+
+### Files Changed
+
+- `docs/claims.md`
+- `docs/n9-vertex-circle-strict-cycle-criterion.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+The cycle removes one layer of packet-specific notation from the smallest
+vertex-circle strict-cycle obstruction. The next bridge question is no longer
+"does T10 occur in the stored `n=9` packet?" but "do arbitrary
+selected-witness systems force a two-edge cross-wired nested-chord schema, or
+a finite descent region of the same type?"
+
+This is modest progress: it gives a reusable target for future structural
+arguments, but it does not itself supply the missing reduction from arbitrary
+counterexamples to such a target.
+
+### Parallel Fragile-Cover Reconnaissance
+
+A read-only fragile-cover pass tested a different possible bridge ingredient:
+short-gap radius propagation. For any full selected row, some consecutive
+angular witness gap is less than `pi/3`; if the short pair is `{a,b}` and
+`b in S_a`, then `r_a < r_i`, while if `a in S_b`, then `r_b < r_i`. A strict
+radius cycle is impossible.
+
+This gives a genuine geometric necessary condition for each fixed full
+selected-row extension and cyclic order. It did not reject the documented
+endpoint-control displayed extension, the endpoint-control Ptolemy survivor,
+the block-6 scripted survivor, or the first generated two-block block-6 full
+extension in natural order. Thus it is not currently a useful standalone
+fragile-cover obstruction. The remaining hard quantifier would be: every
+admissible full extension and cyclic order of a fragile candidate must be
+radius-cycle obstructed.
+
+### Next Lead
+
+Search for natural hypotheses that force the schema without naming `n=9`
+template labels. The most promising candidates are selected-distance paths of
+length at most two between nested witness chords, or a local row-intersection
+configuration that cross-wires two span-2-over-span-1 vertex-circle
+inequalities.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-681`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-681`.
+- The branch was started from `origin/main` at commit
+  `9cf18d3157e77095ecf1a912db2f95b50866df5c`, after PR #424 merged Cycle
+  680.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- Multiple parallel agents were used read-only for fragile-cover and
+  vertex-circle reconnaissance; no agent edited files.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check
+  --assert-expected --json`: passed. It verified the `T10` focused packet
+  with `18` assignments, core size `4`, cycle length `2`, and no validation
+  errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --check
+  --assert-expected --json`: passed. It verified `3` strict-cycle templates
+  covering `26` assignments.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+  --assert-expected --json`: passed. It verified `12` template records
+  covering `184` assignments in the review-pending packet catalog.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_local_lemma_simple_replay.py --check
+  --assert-expected --json`: passed. It replayed the stored local packet
+  contradictions without using the quotient-replay helper and reported
+  `validation_status: passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `617 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 680 - Endpoint-Control Spine-Pocket Kalmanson Closure
 
 ### Mathematical Subquestion

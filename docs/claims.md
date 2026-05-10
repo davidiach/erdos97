@@ -503,6 +503,44 @@ For witnesses on a circle centered at that vertex, chord length is
 This supports endpoint and short-base reductions, but those reductions still
 need their global bridge claims.[^digest]
 
+### Two-edge vertex-circle quotient-cycle schema
+
+Status: `LEMMA` for any fixed local row core satisfying the stated hypotheses.
+
+Suppose two selected rows have four distinct witnesses each, in angular orders
+
+```text
+a,b,c,d
+e,f,g,h
+```
+
+around their respective centers. Vertex-circle chord monotonicity gives
+
+```text
+D_ac > D_ab,
+D_fh > D_gh.
+```
+
+If selected-distance equality paths identify the inner pair of each strict
+edge with the outer pair of the other,
+
+```text
+D_ab = D_fh,
+D_gh = D_ac,
+```
+
+then no strictly convex selected-witness realization can satisfy that local
+core, because
+
+```text
+D_ac > D_ab = D_fh > D_gh = D_ac.
+```
+
+This is only a local obstruction schema. It does not say that arbitrary
+counterexamples contain such a core, does not prove `n=9`, and does not prove
+Erdos Problem #97. The focused `T10/F12` packet below is one checked instance
+of this schema.
+
 ### Vertex-circle T01/F09 self-edge local lemma candidate
 
 Status: `REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE`.
