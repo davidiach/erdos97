@@ -492,10 +492,10 @@ The two-point smallest-enclosing-circle case is controlled by known cap
 arguments. The three-support case remains open and would need a bridge lemma
 forcing enough witnesses into opposite caps.[^syn]
 
-[^small]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/02_SMALL_CASES_N5_N6_N7.md`.
-[^repo]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md`.
-[^digest]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md`.
-[^syn]: Source file: `erd archive/outputs/erdos97_synthesis.md`.
-[^alg]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/04_algebraic_and_semicircle_corrections.md`.
-[^paper]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/05_rank_scaling_and_verifier_review.md`.
-[^rank]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/03_RANK_AND_BRIDGE_STATUS.md`.
+[^small]: Public consolidation: `public-provenance.md#small-cases-n5-through-n8`.
+[^repo]: Public consolidation: `public-provenance.md#repository-handoff-and-claim-taxonomy`.
+[^digest]: Public consolidation: `public-provenance.md#literature-digest`.
+[^syn]: Public consolidation: `public-provenance.md#canonical-synthesis`.
+[^alg]: Public consolidation: `public-provenance.md#algebraic-and-semicircle-corrections`.
+[^paper]: Public consolidation: `public-provenance.md#paper-style-verifier-review`.
+[^rank]: Public consolidation: `public-provenance.md#rank-and-bridge-status`.

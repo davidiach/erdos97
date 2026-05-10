@@ -113,11 +113,11 @@ python scripts/check_n10_secondary_singleton_replay.py \
   --json
 ```
 
-Regenerate the checked-in artifact from the archived JSONL:
+Regenerate the checked-in artifact from the historical JSONL, if available:
 
 ```bash
 python scripts/check_n10_vertex_circle_singletons.py \
-  --import-jsonl "C:\Users\User\Desktop\code\erd archive\outputs\data\1\3\10\n10_rows.jsonl" \
+  --import-jsonl path/to/n10_rows.jsonl \
   --write \
   --assert-expected
 ```

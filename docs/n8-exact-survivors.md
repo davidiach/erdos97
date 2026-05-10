@@ -1,6 +1,13 @@
 # n=8 Exact Survivor Obstruction Artifact
 
-Status: `EXACT_OBSTRUCTION`.
+Status: `EXACT_OBSTRUCTION_PER_SURVIVOR_CLASS` and
+`MACHINE_CHECKED_FINITE_CASE_ARTIFACT_FOR_AGGREGATE_N8`.
+
+Each of the 15 reconstructed `n=8` selected-witness incidence survivor classes
+has an exact obstruction in this artifact. The aggregate statement that the
+selected-witness method rules out `n=8` remains repo-local and
+machine-checked pending independent review; it is not a paper-style public
+theorem claim by itself.
 
 This note records an exact obstruction pass over a reconstructed canonical list of
 15 `n=8` selected-witness incidence classes. The list was reconstructed from the
@@ -15,12 +22,12 @@ known incidence filters:
 - no same-color forced-parallel chords sharing an endpoint.
 
 The reconstruction produced exactly 15 simultaneous-relabeling classes. In this
-workspace, these classes were compared against the archived
-`erd archive/outputs/data/n8_exact_geometry_filter_results.json` artifact and
-matched exactly up to simultaneous relabeling. The independent incidence
-enumerator in `docs/n8-incidence-enumeration.md` now reproduces the same 15
-classes from the strong selected-witness convention and necessary incidence
-filters.
+workspace, these classes were also compared against the historical
+`n8_exact_geometry_filter_results.json` archive artifact and matched exactly up
+to simultaneous relabeling. That archive artifact is provenance only, not a
+public reproduction dependency. The independent incidence enumerator in
+`docs/n8-incidence-enumeration.md` now reproduces the same 15 classes from the
+strong selected-witness convention and necessary incidence filters.
 
 The archived IDs map to reconstructed IDs as follows:
 

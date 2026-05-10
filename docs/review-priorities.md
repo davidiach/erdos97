@@ -220,12 +220,19 @@ Review checklist:
 - the Z3 constraints encode exactly "not both ordered quadrilaterals occur";
 - replaying the stored clauses gives UNSAT without relying on the refinement
   search history;
+- the all-order UNSAT step is replayed by at least one Z3-independent route,
+  such as a DIMACS/DRAT/LRAT proof, another SMT solver with a checkable proof,
+  or a pure finite-order proof checker for the stored clauses;
+- an UNSAT core alone is not treated as a proof object unless a separate
+  checker verifies it;
 - the claim remains scoped to the fixed abstract `C19_skew` selected-witness
   pattern.
 
 Acceptance standard: a reviewer should either accept the certificate as an
-exact all-order obstruction for fixed abstract `C19_skew`, or identify a
-specific encoding or verifier gap.
+exact all-order obstruction for fixed abstract `C19_skew` with an independent
+UNSAT replay path, or identify a specific encoding, solver-trust, or verifier
+gap. Until then, the stored artifact remains a checked Z3 certificate rather
+than a solver-independent proof object.
 
 ## Priority 7b - audit the C19 sampled-prefix catalog prefilter
 

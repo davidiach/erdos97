@@ -264,13 +264,13 @@ archived-ID provenance mapping when the archive JSON is available.
 - Search related work on repeated distances, order-k Voronoi degeneracies, and
   metric oriented-matroid realizability before paper-style claims.[^repo]
 
-[^repo]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md`.
-[^small]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/02_SMALL_CASES_N5_N6_N7.md`.
-[^comp]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/04_COMPUTATIONAL_FINDINGS.md`.
-[^forest]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/11_forest_lemma_counterexample_review.md`.
-[^n39]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/12_n39_circulant_degeneracy.md`.
-[^rank]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/03_RANK_AND_BRIDGE_STATUS.md`.
-[^alg]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/04_algebraic_and_semicircle_corrections.md`.
-[^digest]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md`.
-[^syn]: Source file: `erd archive/outputs/erdos97_synthesis.md`.
+[^repo]: Public consolidation: `docs/public-provenance.md#repository-handoff-and-claim-taxonomy`.
+[^small]: Public consolidation: `docs/public-provenance.md#small-cases-n5-through-n8`.
+[^comp]: Public consolidation: `docs/public-provenance.md#computational-finding-digest`.
+[^forest]: Public consolidation: `docs/public-provenance.md#forest-lemma-failure`.
+[^n39]: Public consolidation: `docs/public-provenance.md#n39-circulant-degeneracy`.
+[^rank]: Public consolidation: `docs/public-provenance.md#rank-and-bridge-status`.
+[^alg]: Public consolidation: `docs/public-provenance.md#algebraic-and-semicircle-corrections`.
+[^digest]: Public consolidation: `docs/public-provenance.md#literature-digest`.
+[^syn]: Public consolidation: `docs/public-provenance.md#canonical-synthesis`.
 [^canon]: Source file: `docs/canonical-synthesis.md`.

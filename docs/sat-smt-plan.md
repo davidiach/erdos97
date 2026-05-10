@@ -65,7 +65,7 @@ search-convenience constraints only rules out that restricted class.[^repo]
 - Use SAT patterns as inputs to exactification, not as candidates by
   themselves.[^repo]
 
-[^repo]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md`.
-[^comp]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/04_COMPUTATIONAL_FINDINGS.md`.
-[^digest]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md`.
-[^small]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/02_SMALL_CASES_N5_N6_N7.md`.
+[^repo]: Public consolidation: `public-provenance.md#repository-handoff-and-claim-taxonomy`.
+[^comp]: Public consolidation: `public-provenance.md#computational-finding-digest`.
+[^digest]: Public consolidation: `public-provenance.md#literature-digest`.
+[^small]: Public consolidation: `public-provenance.md#small-cases-n5-through-n8`.

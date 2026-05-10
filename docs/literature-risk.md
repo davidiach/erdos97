@@ -59,9 +59,9 @@ are claimed here.
 - Treat any numerical near-equality as only numerical evidence unless it has an
   exact or certified verification artifact.[^repo]
 
-[^digest]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/generated_summaries/01_USEFUL_FINDINGS_DIGEST.md`.
-[^syn]: Source file: `erd archive/outputs/erdos97_synthesis.md`.
-[^repo]: Source file: `erd archive/outputs/useful_research_findings.zip::useful_research_findings/source_notes/16_repo_handoff_and_claim_taxonomy.md`.
+[^digest]: Public consolidation: `public-provenance.md#literature-digest`.
+[^syn]: Public consolidation: `public-provenance.md#canonical-synthesis`.
+[^repo]: Public consolidation: `public-provenance.md#repository-handoff-and-claim-taxonomy`.
 [^canon]: Source file: `docs/canonical-synthesis.md`.
 [^erdos97]: T. F. Bloom, "Erdos Problem #97," Erdos Problems, accessed 2026-04-30. <https://www.erdosproblems.com/97>
 [^erdos1987]: P. Erdos, "Some combinatorial and metric problems in geometry," Intuitive Geometry, Colloquia Mathematica Societatis Janos Bolyai 48, 167--177, 1987. <https://www.renyi.hu/~p_erdos/1987-27.pdf>
