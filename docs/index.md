@@ -132,6 +132,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-strict-edge-geometry-audit.md`](n9-vertex-circle-strict-edge-geometry-audit.md):
   local geometric audit of the vertex-circle proper-interval strict-edge rule
   used by the exhaustive `n=9` vertex-circle checker.
+- [`n9-vertex-circle-quotient-soundness-audit.md`](n9-vertex-circle-quotient-soundness-audit.md):
+  quotient-graph soundness audit for selected-distance unioning, self-edge
+  contradictions, and directed strict-cycle contradictions.
 - [`n9-vertex-circle-template-lemma-catalog.md`](n9-vertex-circle-template-lemma-catalog.md):
   derived 12-template lemma-candidate catalog for proof-mining review.
 - [`n9-vertex-circle-certificate-chain.md`](n9-vertex-circle-certificate-chain.md):
