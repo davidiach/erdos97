@@ -117,6 +117,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-self-edge-criterion.md`](n9-vertex-circle-self-edge-criterion.md):
   selected-path self-edge criterion unifying the T01 through T09 local
   self-edge packets.
+- [`n9-vertex-circle-strict-cycle-criterion.md`](n9-vertex-circle-strict-cycle-criterion.md):
+  directed strict-cycle criterion unifying the T10 through T12 local
+  strict-cycle packets.
 - [`n9-vertex-circle-t01-self-edge-lemma.md`](n9-vertex-circle-t01-self-edge-lemma.md):
   focused review-pending T01/F09 self-edge local lemma packet for proof
   mining.
