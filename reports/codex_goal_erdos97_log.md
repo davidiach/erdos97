@@ -22947,6 +22947,147 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 633 - MRO Branching Audit
+
+### Mathematical Subquestion
+
+After Cycle 632 separated the row0-root enumeration issue, the next
+frontier-soundness question was:
+
+Does the dynamic minimum-remaining-options choice in the review-pending `n=9`
+vertex-circle exhaustive checker merely choose the next row variable to branch
+on, rather than omitting any possible completion?
+
+### Definitions and Assumptions
+
+Let `A` be a partial selected-witness assignment. For each unassigned center
+`c`, let `V_c(A)` be the list of row masks for `c` that pass the current
+partial pair/crossing/count filters against `A`.
+
+This cycle assumes the current partial filters are necessary conditions. It
+audits only the effect of choosing the next center with minimum `|V_c(A)|`.
+
+### Result Status
+
+Proved conditional control-flow lemma:
+**Minimum-remaining-options Branching Lemma**.
+
+Conditional on the partial filters being sound, selecting an unassigned center
+with the fewest currently valid row masks changes only search order and cannot
+remove a completion.
+
+### Argument
+
+If some unassigned center `c` has `V_c(A)=empty`, then no full completion of
+`A` exists, because every completion needs a row at `c` and that row must pass
+the current partial filters. Returning at that node is therefore sound under
+the necessity assumption.
+
+Otherwise, let `c*` be the selected minimum-options center. Every full
+completion extending `A` has a unique row mask `m` at `c*`, and by definition
+`m in V_c*(A)`. The checker iterates over every `m in V_c*(A)`, so the branch
+containing that completion is visited. The choice of `c*` only changes which
+row variable is expanded next.
+
+### Exact Code-shape Audit
+
+The one-off static audit over
+`src/erdos97/n9_vertex_circle_exhaustive.py` reported:
+
+```text
+exhaustive_search functions: 1
+contains best_center: true
+contains best_options: true
+branches over "for m in best_options": true
+zero-options return present: true
+valid_options_for_center present: true
+```
+
+The inspected source shows that `valid_options_for_center` scans every mask in
+`OPTIONS[center]` and appends every candidate not rejected by current partial
+filters. The recursive search computes this list for every unassigned center,
+chooses a shortest list, returns only if the chosen list is empty, and
+otherwise loops over every mask in that list.
+
+### Exact Scope
+
+This is not a full audit of the `n=9` checker. It does not prove the
+geometric necessity of the pair/crossing/count filters, does not audit the
+vertex-circle partial pruning predicate, does not independently replay the
+184 pre-vertex-circle assignments, and does not prove the full `n=9` finite
+case. It does not prove Erdos Problem #97 and does not give a counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-mro-branching-audit.md`
+- `docs/index.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect on the Attack
+
+The frontier-soundness checklist is reduced by one control-flow concern:
+minimum-remaining-options branch selection is a row-order heuristic, not an
+additional quotient or pruning condition. The remaining burden is in the
+mathematical necessity of the filters and in independent replay or archive
+reconciliation.
+
+### Next Lead
+
+Audit vertex-circle partial pruning monotonicity: once a partial assignment
+has a quotient self-edge or directed strict cycle, show that no later selected
+rows can turn it back into a realizable full assignment.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-633`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-633`.
+- The branch was based on `origin/main` at commit
+  `bb7cb682c7e6cfd5ff002a46b13b5ca4291b9de8`, after PR #335 merged Cycle
+  632.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- Source inspection of
+  `src/erdos97/n9_vertex_circle_exhaustive.py` confirmed that
+  `valid_options_for_center` scans every candidate in `OPTIONS[center]`, the
+  recursive search computes options for every unassigned center, and the
+  branch loop iterates over every mask in the selected `best_options` list.
+- One-off static audit confirmed the presence of one `exhaustive_search`
+  function, `best_center`, `best_options`, the `for m in best_options` branch
+  loop, the zero-options return, and `valid_options_for_center`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_exhaustive.py --assert-expected`
+  passed. It reported 70 row0 choices, 0 full assignments with
+  vertex-circle pruning, and 184 full assignments in the cross-check without
+  vertex-circle pruning.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_n9_vertex_circle_exhaustive.py -q -m "artifact"`
+  passed with 3 tests.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`
+  passed.
+- `git diff --check` passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`
+  passed with 534 passed and 276 deselected.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 632 - Row0 Root Enumeration Audit
 
 ### Mathematical Subquestion
