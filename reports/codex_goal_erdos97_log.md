@@ -22947,6 +22947,159 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 680 - Endpoint-Control Spine-Pocket Kalmanson Closure
+
+### Mathematical Subquestion
+
+Do all five crossing-compatible spine-pocket cyclic orders for the fixed
+Cycle 674 endpoint-control survivor admit exact Kalmanson quotient-cone
+certificates?
+
+This asks only about the fixed full selected-row survivor from Cycle 674. It
+does not quantify over all full-row extensions of the endpoint-control fragile
+rows.
+
+### Definitions and Assumptions
+
+Use the fixed selected-row survivor on labels `0,...,10`:
+
+```text
+0  -> {1,3,5,6}
+1  -> {0,2,7,9}
+2  -> {1,3,4,10}
+3  -> {2,4,5,7}
+4  -> {1,6,7,8}
+5  -> {0,2,3,6}
+6  -> {0,4,8,10}
+7  -> {1,2,4,9}
+8  -> {3,7,9,10}
+9  -> {2,5,8,10}
+10 -> {0,1,8,9}
+```
+
+Use the five normalized cyclic orders found in Cycle 679 by enforcing every
+two-overlap crossing constraint for this survivor. A Kalmanson quotient-cone
+certificate is a positive integer linear combination of strict Kalmanson
+distance inequalities whose coefficient vector becomes exactly zero after
+quotienting by the selected-distance equalities of the survivor. Summing such
+a certificate gives `0 > 0`.
+
+### Result Status
+
+Exact obstruction for a fixed survivor across its crossing-compatible cyclic
+orders:
+**Endpoint-Control Spine-Pocket Kalmanson Closure**.
+
+### Argument Or Obstruction
+
+The checker
+`scripts/check_endpoint_control_survivor_spine_pocket_kalmanson.py` imports
+the Cycle 679 crossing-order frontier and replays one certificate for each of
+the five orders. Each certificate is verified by
+`check_quotient_cone_certificate`, so the replay checks the selected-distance
+quotient classes, strict Kalmanson rows, positive integer weights, and exact
+zero-sum condition.
+
+The verified certificate summary is:
+
+```text
+order  cyclic order                    strict rows  weight sum  max weight
+0      0,1,2,3,4,5,6,7,8,9,10          23           541         73
+1      0,1,2,3,4,5,7,6,8,9,10          12           51          11
+2      0,1,2,3,4,7,5,6,8,9,10          16           79          15
+3      0,1,2,3,5,4,6,7,8,9,10          10           27          6
+4      0,1,2,3,5,4,7,6,8,9,10          12           38          10
+```
+
+All five certificates have `25` distance classes, exact zero-sum `true`, and
+combined nonzero coefficient count `0`. Thus the fixed Cycle 674 full
+selected-row survivor is impossible in every cyclic order satisfying its
+necessary two-overlap crossing constraints.
+
+### Exact Scope
+
+This is an exact finite obstruction for one fixed full selected-row extension
+only. It uses the five-order crossing frontier from Cycle 679, so it covers all
+cyclic orders satisfying the necessary crossing constraints for that fixed
+survivor. It does not prove that every extension of the endpoint-control
+fragile rows falls to a Kalmanson certificate, does not prove endpoint control,
+does not give a Euclidean realization theorem, does not produce a
+counterexample, and does not prove Erdos Problem #97.
+
+### Files Changed
+
+- `docs/claims.md`
+- `docs/minimal-fragile-cover-bridge.md`
+- `reports/codex_goal_erdos97_log.md`
+- `scripts/check_endpoint_control_survivor_spine_pocket_kalmanson.py`
+- `tests/test_endpoint_control_survivor_spine_pocket_kalmanson.py`
+
+### Effect On The Attack
+
+The fixed endpoint-control survivor is now closed at the crossing-compatible
+Kalmanson level. This is genuine progress on the benchmark: after row-Ptolemy
+product-cancellation failed and quotient-Ptolemy feasibility survived, the
+metric-order layer rejects every crossing-compatible cyclic order for this
+particular full selected-row extension.
+
+The endpoint-control bridge remains open because a minimal counterexample
+would only require some full selected-row extension of the fragile rows, not
+this one extension. The next proof route must either extend the closure to all
+full selected-row extensions of the endpoint-control fragile rows, or extract a
+structural lemma explaining why any such extension reduces to a similar
+Kalmanson quotient-cone contradiction.
+
+### Next Lead
+
+Try to lift this from one full selected-row survivor to the endpoint-control
+fragile rows themselves. A useful intermediate target is a reusable template
+for the five certificates: identify common quotient classes or row families
+that are forced by the fragile rows plus crossing constraints, rather than by
+the arbitrary non-fragile row choices.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-680`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-680`.
+- The branch was started from `origin/main` at commit
+  `79e07bd37eba1a690fe792222ce365b8fbf59b3d`, after PR #421 merged Cycle
+  679.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- Multiple parallel agents were used read-only for narrow review and scope
+  checks; no agent edited files.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_endpoint_control_survivor_spine_pocket_kalmanson.py
+  --assert-expected --json`: passed. It verified `5` crossing-compatible
+  orders, `5` obstructed orders, strict-row counts `[23, 12, 16, 10, 12]`,
+  weight sums `[541, 51, 79, 27, 38]`, and exact zero-sum certificates across
+  `25` selected-distance quotient classes.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q
+  tests/test_endpoint_control_survivor_spine_pocket_kalmanson.py`: passed,
+  `3` passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `617 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 679 - Endpoint-Control Spine-Pocket Crossing Frontier
 
 ### Mathematical Subquestion

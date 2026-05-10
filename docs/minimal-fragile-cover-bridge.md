@@ -259,6 +259,26 @@ This is not an obstruction by itself. It only says that any realization of
 this fixed full-row survivor must lie in one of those five crossing-compatible
 cyclic orders before any Kalmanson or metric-order certificate is applied.
 
+The five crossing-compatible orders are all rejected by an exact Kalmanson
+quotient-cone replay:
+
+```bash
+python scripts/check_endpoint_control_survivor_spine_pocket_kalmanson.py --assert-expected --json
+```
+
+For the five orders above, the checker verifies positive integer combinations
+of strict Kalmanson inequalities with strict-row counts
+`[23, 12, 16, 10, 12]`, weight sums `[541, 51, 79, 27, 38]`, and maximum
+weights `[73, 11, 15, 6, 10]`. In each order, the combined coefficient vector
+reduces exactly to zero across the survivor's `25` selected-distance quotient
+classes. Therefore this fixed full-row survivor is impossible in every cyclic
+order satisfying its necessary two-overlap crossing constraints.
+
+This still has the same fixed-survivor quantifier. It is not an obstruction
+for every full-row extension of the endpoint-control fragile rows, not an
+endpoint-control proof, not a Euclidean non-realizability theorem for the
+abstract fragile rows, and not a proof of Erdos #97.
+
 ### Bounded block-6 row-Ptolemy audit
 
 The following bounded exact audit tests this gate on the two-block fragile
