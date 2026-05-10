@@ -266,4 +266,3 @@ replay row0 coverage and the 184 pre-vertex-circle obstruction classification,
 and review the geometric necessity of the vertex-circle self-edge/strict-cycle
 filter. It must keep the artifact review-pending unless a broader review
 decision explicitly promotes it.
-
