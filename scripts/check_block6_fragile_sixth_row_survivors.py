@@ -862,6 +862,35 @@ EXPECTED_LOW_SUPPORT_TERMINAL_EDIT_DISTANCE_AUDIT = {
         "crossing_two_overlap": 10,
         "zero_or_one_overlap": 36,
     },
+    "not_legal_opened_before_forbidden_overlap_removed_endpoint_distribution": {
+        "noncrossing_two_overlap:contains_removed_endpoint": 44,
+        "three_or_more_overlap:contains_removed_endpoint": 2,
+    },
+    "not_legal_opened_noncrossing_target_arc_distribution": {
+        "diameter_arc": 14,
+        "long_arc": 30,
+    },
+    "not_legal_opened_noncrossing_switch_distribution": {
+        "candidate_contains_added->crossing_two_overlap": 8,
+        "candidate_omits_added->zero_or_one_overlap": 36,
+    },
+    "not_legal_opened_noncrossing_source_target_distribution": {
+        "2,10->3,5": 5,
+        "2,10->3,6": 2,
+        "2,5->0,11": 2,
+        "2,5->1,11": 6,
+        "2,8->0,11": 2,
+        "2,8->1,11": 5,
+        "2,8->5,6": 2,
+        "2,8->5,7": 5,
+        "4,8->0,9": 2,
+        "4,8->9,11": 5,
+        "8,11->5,6": 2,
+        "8,11->5,7": 6,
+    },
+    "not_legal_opened_three_or_more_switch_distribution": {
+        "contains_removed_endpoint->crossing_two_overlap": 2,
+    },
     "class_summary": {
         (
             "2,10,11|same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
@@ -1824,6 +1853,30 @@ def _changed_row_relation(
     return "noncrossing_two_overlap"
 
 
+def _chord_key(chord: tuple[int, int]) -> str:
+    return f"{chord[0]},{chord[1]}"
+
+
+def _source_arc_class(source: tuple[int, int], target: tuple[int, int]) -> str:
+    source = normalize_chord(*source)
+    target = normalize_chord(*target)
+    if set(source) & set(target):
+        return "shares_source_endpoint"
+    a, b = source
+    inside_len = b - a - 1
+    outside_len = N - (b - a) - 1
+    target_inside = [a < endpoint < b for endpoint in target]
+    if target_inside[0] != target_inside[1]:
+        return "split_arcs"
+    target_side_len = inside_len if target_inside[0] else outside_len
+    other_side_len = outside_len if target_inside[0] else inside_len
+    if target_side_len > other_side_len:
+        return "long_arc"
+    if target_side_len < other_side_len:
+        return "short_arc"
+    return "diameter_arc"
+
+
 def _not_legal_opened_paircross_profile(
     terminal: SevenState,
     extendable: SevenState,
@@ -1862,6 +1915,58 @@ def _not_legal_opened_paircross_profile(
         if _pair_cap_ok(row, pair_counts_before)
         and _indegree_ok(row, indegrees_before)
     ]
+    removed_labels = sorted(set(terminal_changed_row) - set(extendable_changed_row))
+    added_labels = sorted(set(extendable_changed_row) - set(terminal_changed_row))
+    if len(removed_labels) != 1 or len(added_labels) != 1:
+        raise AssertionError(
+            "not-legal opening audit expects a one-for-one replacement: "
+            f"{terminal_changed_row!r} -> {extendable_changed_row!r}"
+        )
+    removed_label = removed_labels[0]
+    added_label = added_labels[0]
+    source = normalize_chord(changed_center, opened_center)
+    before_forbidden_overlap_removed_endpoint: Counter[str] = Counter()
+    noncrossing_target_arcs: Counter[str] = Counter()
+    noncrossing_switches: Counter[str] = Counter()
+    noncrossing_source_targets: Counter[str] = Counter()
+    three_or_more_switches: Counter[str] = Counter()
+    for row in after_valid_rows:
+        before_relation = _changed_row_relation(
+            changed_center,
+            opened_center,
+            terminal_changed_row,
+            row,
+        )
+        after_relation = _changed_row_relation(
+            changed_center,
+            opened_center,
+            extendable_changed_row,
+            row,
+        )
+        before_overlap = tuple(sorted(set(terminal_changed_row) & set(row)))
+        endpoint_status = (
+            "contains_removed_endpoint"
+            if removed_label in before_overlap
+            else "omits_removed_endpoint"
+        )
+        if before_relation in {"noncrossing_two_overlap", "three_or_more_overlap"}:
+            before_forbidden_overlap_removed_endpoint[
+                f"{before_relation}:{endpoint_status}"
+            ] += 1
+        if before_relation == "noncrossing_two_overlap":
+            target = normalize_chord(*before_overlap)
+            added_status = (
+                "candidate_contains_added"
+                if added_label in row
+                else "candidate_omits_added"
+            )
+            noncrossing_target_arcs[_source_arc_class(source, target)] += 1
+            noncrossing_switches[f"{added_status}->{after_relation}"] += 1
+            noncrossing_source_targets[
+                f"{_chord_key(source)}->{_chord_key(target)}"
+            ] += 1
+        elif before_relation == "three_or_more_overlap":
+            three_or_more_switches[f"{endpoint_status}->{after_relation}"] += 1
     return {
         "before_paircross": len(before_paircross_rows),
         "before_valid": len(before_valid_rows),
@@ -1885,6 +1990,13 @@ def _not_legal_opened_paircross_profile(
             )
             for row in after_valid_rows
         ),
+        "before_forbidden_overlap_removed_endpoint": (
+            before_forbidden_overlap_removed_endpoint
+        ),
+        "noncrossing_target_arcs": noncrossing_target_arcs,
+        "noncrossing_switches": noncrossing_switches,
+        "noncrossing_source_targets": noncrossing_source_targets,
+        "three_or_more_switches": three_or_more_switches,
     }
 
 
@@ -1958,6 +2070,11 @@ def _low_support_terminal_edit_distance_audit(
     not_legal_opened_paircross_profile_counts: Counter[str] = Counter()
     not_legal_opened_before_relation_counts: Counter[str] = Counter()
     not_legal_opened_after_relation_counts: Counter[str] = Counter()
+    not_legal_opened_before_removed_endpoint_counts: Counter[str] = Counter()
+    not_legal_opened_noncrossing_arc_counts: Counter[str] = Counter()
+    not_legal_opened_noncrossing_switch_counts: Counter[str] = Counter()
+    not_legal_opened_noncrossing_source_target_counts: Counter[str] = Counter()
+    not_legal_opened_three_or_more_switch_counts: Counter[str] = Counter()
     nearest_transition_count = 0
     opened_center_instance_count = 0
     not_legal_opened_instance_count = 0
@@ -2113,6 +2230,23 @@ def _low_support_terminal_edit_distance_audit(
                         not_legal_opened_after_relation_counts.update(
                             switch_profile["after_changed_row_relations"]
                         )
+                        not_legal_opened_before_removed_endpoint_counts.update(
+                            switch_profile[
+                                "before_forbidden_overlap_removed_endpoint"
+                            ]
+                        )
+                        not_legal_opened_noncrossing_arc_counts.update(
+                            switch_profile["noncrossing_target_arcs"]
+                        )
+                        not_legal_opened_noncrossing_switch_counts.update(
+                            switch_profile["noncrossing_switches"]
+                        )
+                        not_legal_opened_noncrossing_source_target_counts.update(
+                            switch_profile["noncrossing_source_targets"]
+                        )
+                        not_legal_opened_three_or_more_switch_counts.update(
+                            switch_profile["three_or_more_switches"]
+                        )
                 opened_center_prior_status_by_transition[
                     ";".join(
                         f"{status}:{transition_prior_statuses[status]}"
@@ -2221,6 +2355,26 @@ def _low_support_terminal_edit_distance_audit(
         "not_legal_opened_after_changed_row_relation_distribution": {
             key: int(not_legal_opened_after_relation_counts[key])
             for key in sorted(not_legal_opened_after_relation_counts)
+        },
+        "not_legal_opened_before_forbidden_overlap_removed_endpoint_distribution": {
+            key: int(not_legal_opened_before_removed_endpoint_counts[key])
+            for key in sorted(not_legal_opened_before_removed_endpoint_counts)
+        },
+        "not_legal_opened_noncrossing_target_arc_distribution": {
+            key: int(not_legal_opened_noncrossing_arc_counts[key])
+            for key in sorted(not_legal_opened_noncrossing_arc_counts)
+        },
+        "not_legal_opened_noncrossing_switch_distribution": {
+            key: int(not_legal_opened_noncrossing_switch_counts[key])
+            for key in sorted(not_legal_opened_noncrossing_switch_counts)
+        },
+        "not_legal_opened_noncrossing_source_target_distribution": {
+            key: int(not_legal_opened_noncrossing_source_target_counts[key])
+            for key in sorted(not_legal_opened_noncrossing_source_target_counts)
+        },
+        "not_legal_opened_three_or_more_switch_distribution": {
+            key: int(not_legal_opened_three_or_more_switch_counts[key])
+            for key in sorted(not_legal_opened_three_or_more_switch_counts)
         },
         "class_summary": class_summary,
         "by_terminal": by_terminal,
