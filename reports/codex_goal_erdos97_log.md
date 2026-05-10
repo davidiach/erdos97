@@ -22947,6 +22947,139 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 667 - Row-circle Full-extension Gate
+
+### Mathematical Subquestion
+
+The current minimal fragile-cover bridge has a full selected-row extension
+diagnostic, but that diagnostic is still incidence/order-only. The narrow
+bridge question for this cycle was:
+
+```text
+What exact row-circle condition must any full selected-row extension of a
+minimal-counterexample fragile cover also satisfy?
+```
+
+### Definitions and Assumptions
+
+Use the minimal fragile-cover bridge. A fragile-cover system from a minimal
+counterexample must extend to a full selected-witness incidence system by
+using each retained critical row at its fragile center and choosing one
+4-neighbor row at every other center.
+
+For a selected row `S_i={w0,w1,w2,w3}`, write the witnesses in cyclic order
+around the center `i`. Since they lie on one circle centered at `i`, Ptolemy's
+theorem gives the exact row-circle identity
+
+```text
+d02*d13 = d01*d23 + d03*d12,
+```
+
+where `dab=|p_{wa}p_{wb}|`.
+
+### Result Status
+
+Recorded necessary bridge gate:
+**Row-circle Full-extension Gate**.
+
+### Argument Or Obstruction
+
+Any full selected-row extension coming from a strictly convex
+counterexample must satisfy the row-circle Ptolemy identity for every selected
+row in the cyclic witness order. Therefore a fragile-cover candidate from a
+minimal counterexample cannot merely have an incidence/crossing full
+extension; it must have at least one full extension surviving all row-circle
+identities as well.
+
+The existing row-Ptolemy product-cancellation certificate gives one exact
+local rejection mechanism. If selected-distance quotienting in a proposed full
+extension forces, for example,
+
+```text
+d02 = d23
+d13 = d01,
+```
+
+then substituting into the row-circle identity forces `d03*d12=0`, impossible
+for distinct strictly convex vertices.
+
+The quantifier is the main guardrail: killing one arbitrary full extension is
+not enough to reject a fragile-cover family. A bridge proof using this gate
+must either check all relevant full extensions or prove that every extension
+has a row-circle certificate.
+
+### Exact Scope
+
+This is a necessary condition for minimal-counterexample fragile-cover
+extensions. It is not a complete fragile-cover obstruction, not a proof that
+the block-6 negative controls are impossible, not a proof of Erdos Problem
+#97, and not a counterexample.
+
+### Files Changed
+
+- `docs/minimal-fragile-cover-bridge.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+The fragile-cover bridge now records a genuine geometric gate beyond the
+hypergraph and full-extension incidence checks. It also prevents a common
+overclaim: one killed extension is only evidence about that extension, not
+about the fragile rows unless all extensions are covered.
+
+### Next Lead
+
+Run an all-extension audit for the two-block fragile negative control: enumerate
+full selected-row extensions under pair/crossing constraints, then test each
+extension for exact row-Ptolemy product-cancellation or stronger row-circle
+certificates. The useful outcomes would be either a survivor extension or a
+finite all-extension obstruction certificate.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-667`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-667`.
+- The branch was started from `origin/main` at commit
+  `f93a262b9aec9d840e8beec2fe9940925e554b7e`, after PR #404 merged Cycle
+  666.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_fragile_hypergraph.py --blocks 1 --json`: passed; the single
+  block-6 fragile atom passes the abstract fragile-cover checks.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_fragile_hypergraph.py --blocks 2 --assert-ok --json`: passed;
+  the two-block negative control still passes the abstract fragile-cover
+  checks.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_bridge_negative_controls.py --assert-expected`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_row_ptolemy_product_cancellations.py --check --json`:
+  passed; the artifact reports `26` hit assignments and `216` row-Ptolemy
+  certificates in its fixed `n=9` scope.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `586 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 666 - Finite Descent Trap
 
 ### Mathematical Subquestion

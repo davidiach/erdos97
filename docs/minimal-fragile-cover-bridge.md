@@ -87,6 +87,43 @@ fragile rows, subject to self-exclusion, four-uniformity, the two-circle cap,
 and the two-overlap crossing rule. Passing this extension check is still not a
 Euclidean realization certificate.
 
+## Row-circle full-extension gate
+
+The full-row extension condition has an additional geometric gate that is not
+captured by the fragile hypergraph checker. In any strictly convex
+counterexample, every selected row `S_i={w0,w1,w2,w3}` lies on one circle
+centered at `i`. If the witnesses are written in their cyclic order around
+`i`, then Ptolemy's theorem gives the exact row-circle identity
+
+```text
+d02*d13 = d01*d23 + d03*d12,
+```
+
+where `dab = |p_{wa}p_{wb}|`. Therefore a fragile-cover system from a minimal
+counterexample must admit at least one full selected-row extension that
+satisfies all such row-circle identities in the supplied cyclic order, in
+addition to the pair/crossing incidence checks above.
+
+One exact way this gate can reject a proposed full extension is the
+row-Ptolemy product-cancellation certificate from
+`docs/row-ptolemy-product-filter.md`. If selected-distance quotienting in the
+full extension forces, for example,
+
+```text
+d02 = d23
+d13 = d01,
+```
+
+then substituting into Ptolemy forces `d03*d12 = 0`, impossible for distinct
+strictly convex vertices.
+
+The quantifier is important. Killing one arbitrary full extension is not
+enough to reject a fragile-cover candidate: a minimal counterexample only
+requires existence of some full selected-row extension compatible with the
+fragile rows and all row-circle constraints. Thus a bridge proof using this
+gate must either check all relevant extensions or prove that every extension
+falls to a row-circle certificate.
+
 ## What This Does Not Prove
 
 The bridge is necessary, not sufficient. The checked block-6 family passes the
