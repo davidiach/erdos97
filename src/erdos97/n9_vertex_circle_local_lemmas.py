@@ -30,7 +30,14 @@ CLAIM_SCOPE = (
 SHARED_ENDPOINT_LEMMA = "shared_endpoint_nested_self_edge"
 NESTED_SPOKE_LEMMA = "nested_spoke_quotient_self_edge"
 T10_STRICT_CYCLE_LEMMA = "t10_two_edge_strict_cycle"
+T11_STRICT_CYCLE_LEMMA = "t11_three_edge_strict_cycle"
+T12_STRICT_CYCLE_LEMMA = "t12_three_edge_strict_cycle"
 DIRECT_TWO_ROW_VARIANT = "nested_spoke_direct_two_row_special_case"
+STRICT_CYCLE_LEMMA_BY_TEMPLATE = {
+    "T10": T10_STRICT_CYCLE_LEMMA,
+    "T11": T11_STRICT_CYCLE_LEMMA,
+    "T12": T12_STRICT_CYCLE_LEMMA,
+}
 
 EXPECTED_SUMMARY = {
     SHARED_ENDPOINT_LEMMA: {
@@ -47,6 +54,16 @@ EXPECTED_SUMMARY = {
         "family_ids": ["F12"],
         "instance_count": 1,
         "covered_assignment_count": 18,
+    },
+    T11_STRICT_CYCLE_LEMMA: {
+        "family_ids": ["F07"],
+        "instance_count": 1,
+        "covered_assignment_count": 6,
+    },
+    T12_STRICT_CYCLE_LEMMA: {
+        "family_ids": ["F16"],
+        "instance_count": 1,
+        "covered_assignment_count": 2,
     },
 }
 EXPECTED_DIRECT_TWO_ROW_INSTANCE_COUNT = 0
@@ -107,16 +124,27 @@ def local_lemma_scan_payload(
                         }
                     )
 
-    t10_instances = [
-        _strict_cycle_instance(template, family, order)
-        for template, family in _strict_cycle_family_records(strict_cycle_packet)
-        if template.get("template_id") == "T10"
-    ]
+    strict_cycle_instances: dict[str, list[dict[str, Any]]] = {
+        lemma_id: [] for lemma_id in STRICT_CYCLE_LEMMA_BY_TEMPLATE.values()
+    }
+    for template, family in _strict_cycle_family_records(strict_cycle_packet):
+        template_id = str(template.get("template_id"))
+        lemma_id = STRICT_CYCLE_LEMMA_BY_TEMPLATE.get(template_id)
+        if lemma_id is None:
+            continue
+        strict_cycle_instances[lemma_id].append(
+            _strict_cycle_instance(template, family, order, lemma_id)
+        )
+
+    source_family_assignments = _source_family_assignments(
+        self_edge_packet,
+        strict_cycle_packet,
+    )
 
     lemma_instances = {
         SHARED_ENDPOINT_LEMMA: shared_endpoint,
         NESTED_SPOKE_LEMMA: nested_spoke,
-        T10_STRICT_CYCLE_LEMMA: t10_instances,
+        **strict_cycle_instances,
     }
 
     return {
@@ -141,7 +169,10 @@ def local_lemma_scan_payload(
         "lemmas": [
             _lemma_summary(SHARED_ENDPOINT_LEMMA, shared_endpoint),
             _lemma_summary(NESTED_SPOKE_LEMMA, nested_spoke),
-            _lemma_summary(T10_STRICT_CYCLE_LEMMA, t10_instances),
+            *(
+                _lemma_summary(lemma_id, strict_cycle_instances[lemma_id])
+                for lemma_id in STRICT_CYCLE_LEMMA_BY_TEMPLATE.values()
+            ),
         ],
         "direct_two_row_nested_spoke_special_case": {
             "lemma_id": DIRECT_TWO_ROW_VARIANT,
@@ -155,7 +186,10 @@ def local_lemma_scan_payload(
             "instance_count": len(direct_two_row),
             "instances": direct_two_row,
         },
-        "coverage_summary": _coverage_summary(lemma_instances),
+        "coverage_summary": _coverage_summary(
+            lemma_instances,
+            source_family_assignments,
+        ),
         "interpretation": (
             "The listed local shapes are reusable obstruction candidates: each "
             "one produces either a reflexive strict edge or a directed strict "
@@ -164,6 +198,28 @@ def local_lemma_scan_payload(
             "selected-witness assignments."
         ),
     }
+
+
+def _source_family_assignments(
+    self_edge_packet: dict[str, Any],
+    strict_cycle_packet: dict[str, Any],
+) -> dict[str, int]:
+    """Return source packet family assignment counts keyed by family id."""
+
+    assignments: dict[str, int] = {}
+    for _template, family in (
+        *_self_edge_family_records(self_edge_packet),
+        *_strict_cycle_family_records(strict_cycle_packet),
+    ):
+        family_id = str(family["family_id"])
+        assignment_count = int(family["assignment_count"])
+        previous = assignments.setdefault(family_id, assignment_count)
+        if previous != assignment_count:
+            raise ValueError(
+                f"inconsistent assignment count for family {family_id}: "
+                f"{previous} != {assignment_count}"
+            )
+    return assignments
 
 
 def assert_expected_local_lemma_scan(payload: dict[str, Any]) -> None:
@@ -212,22 +268,34 @@ def assert_expected_local_lemma_scan(payload: dict[str, Any]) -> None:
     coverage = payload.get("coverage_summary")
     if not isinstance(coverage, dict):
         raise AssertionError("coverage_summary must be an object")
-    if coverage.get("covered_family_count") != 11:
+    if coverage.get("source_family_count") != 16:
+        raise AssertionError("source_family_count mismatch")
+    if coverage.get("source_assignment_count") != 184:
+        raise AssertionError("source_assignment_count mismatch")
+    if coverage.get("covered_family_count") != 13:
         raise AssertionError("covered_family_count mismatch")
-    if coverage.get("covered_assignment_count") != 154:
+    if coverage.get("covered_assignment_count") != 162:
         raise AssertionError("covered_assignment_count mismatch")
+    if coverage.get("uncovered_family_count") != 3:
+        raise AssertionError("uncovered_family_count mismatch")
+    if coverage.get("uncovered_assignment_count") != 22:
+        raise AssertionError("uncovered_assignment_count mismatch")
+    if coverage.get("uncovered_family_ids") != ["F05", "F13", "F15"]:
+        raise AssertionError("uncovered_family_ids mismatch")
     if coverage.get("covered_family_ids") != [
         "F01",
         "F02",
         "F03",
         "F04",
         "F06",
+        "F07",
         "F08",
         "F09",
         "F10",
         "F11",
         "F12",
         "F14",
+        "F16",
     ]:
         raise AssertionError("covered_family_ids mismatch")
 
@@ -392,11 +460,12 @@ def _strict_cycle_instance(
     template: dict[str, Any],
     family: dict[str, Any],
     order: Sequence[int],
+    lemma_id: str,
 ) -> dict[str, Any]:
     rows = parse_selected_rows(family["core_selected_rows"])
     replay = replay_vertex_circle_quotient(int(template.get("n", 9)), order, rows)
     return {
-        "lemma_id": T10_STRICT_CYCLE_LEMMA,
+        "lemma_id": lemma_id,
         "template_id": str(template["template_id"]),
         "template_key": str(template["template_key"]),
         "family_id": str(family["family_id"]),
@@ -431,6 +500,7 @@ def _lemma_summary(lemma_id: str, instances: Sequence[dict[str, Any]]) -> dict[s
 
 def _coverage_summary(
     lemma_instances: dict[str, Sequence[dict[str, Any]]],
+    source_family_assignments: dict[str, int],
 ) -> dict[str, Any]:
     family_to_assignments: dict[str, int] = {}
     family_to_lemmas: dict[str, list[str]] = defaultdict(list)
@@ -440,10 +510,20 @@ def _coverage_summary(
             family_to_assignments[family_id] = int(instance["assignment_count"])
             if lemma_id not in family_to_lemmas[family_id]:
                 family_to_lemmas[family_id].append(lemma_id)
+    uncovered_family_ids = sorted(
+        set(source_family_assignments) - set(family_to_assignments)
+    )
     return {
+        "source_family_count": len(source_family_assignments),
+        "source_assignment_count": sum(source_family_assignments.values()),
         "covered_family_count": len(family_to_assignments),
         "covered_family_ids": sorted(family_to_assignments),
         "covered_assignment_count": sum(family_to_assignments.values()),
+        "uncovered_family_count": len(uncovered_family_ids),
+        "uncovered_family_ids": uncovered_family_ids,
+        "uncovered_assignment_count": sum(
+            source_family_assignments[family_id] for family_id in uncovered_family_ids
+        ),
         "family_to_lemmas": {
             family_id: sorted(lemmas)
             for family_id, lemmas in sorted(family_to_lemmas.items())

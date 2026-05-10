@@ -17,12 +17,12 @@ that justifies doing it anyway.
 
 Use this queue when no more specific issue is selected.
 
-1. Extract one `n=9` vertex-circle self-edge local template into a
-   proof-facing lemma candidate and compact verifier. Start with the focused
-   T01/F09 packet unless another packet has a clearer review target.
-2. Extract one `n=9` strict-cycle local template into a proof-facing lemma
-   candidate and compact verifier. The T10/F12 packet is the first natural
-   target.
+1. Close one remaining `n=9` vertex-circle self-edge local-template gap in the
+   aggregate local-lemma scan. The open packet families are `F05`, `F13`, and
+   `F15`, coming from the T03/T04 self-edge side.
+2. Review the aggregate `n=9` vertex-circle local-lemma scan against the
+   focused T10/T11/T12 strict-cycle proof notes, keeping it scoped as
+   proof-mining scaffolding rather than an `n=9` proof.
 3. Strengthen the minimal fragile-cover bridge with one geometric necessary
    condition and test it against the block-6 negative controls.
 4. Apply the bootstrap-core/private-halo weighted capacity checker to current
