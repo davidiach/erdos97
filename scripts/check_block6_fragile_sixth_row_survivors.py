@@ -908,6 +908,71 @@ EXPECTED_LOW_SUPPORT_TERMINAL_EDIT_DISTANCE_AUDIT = {
         "all_options:candidate_contains_added:"
         "same_source_arc->noncrossing_two_overlap": 60,
     },
+    "not_legal_opened_opposite_arc_paircross_context_distribution": {
+        "after_paircross:2,10:3,5->1,5": 3,
+        "after_paircross:2,10:3,6->1,6": 1,
+        "after_paircross:4,8:0,9->0,7": 1,
+        "after_paircross:4,8:9,11->7,11": 3,
+        "all_options:2,10:3,5->1,5": 6,
+        "all_options:2,10:3,6->1,6": 6,
+        "all_options:2,10:3,9->1,9": 6,
+        "all_options:4,8:0,9->0,7": 6,
+        "all_options:4,8:3,9->3,7": 6,
+        "all_options:4,8:9,11->7,11": 6,
+        "failed_paircross:2,10:3,5->1,5": 3,
+        "failed_paircross:2,10:3,6->1,6": 5,
+        "failed_paircross:2,10:3,9->1,9": 6,
+        "failed_paircross:4,8:0,9->0,7": 5,
+        "failed_paircross:4,8:3,9->3,7": 6,
+        "failed_paircross:4,8:9,11->7,11": 3,
+    },
+    "not_legal_opened_opposite_arc_paircross_blocker_count_distribution": {
+        "1": 14,
+        "2": 14,
+    },
+    "not_legal_opened_opposite_arc_paircross_blocker_kind_distribution": {
+        "noncrossing_two_overlap": 32,
+        "three_or_more_overlap": 10,
+    },
+    "not_legal_opened_opposite_arc_paircross_blocker_role_distribution": {
+        "fixed_row": 18,
+        "other_added_row": 24,
+    },
+    "not_legal_opened_opposite_arc_paircross_blocker_center_orbit_distribution": {
+        "0,6": 12,
+        "3,9": 6,
+        "5,11": 24,
+    },
+    "not_legal_opened_opposite_arc_paircross_blocker_source_target_distribution": {
+        "noncrossing_two_overlap:0,8->1,3": 1,
+        "noncrossing_two_overlap:0,8->2,3": 1,
+        "noncrossing_two_overlap:0,8->3,4": 1,
+        "noncrossing_two_overlap:2,11->4,6": 1,
+        "noncrossing_two_overlap:2,11->6,7": 1,
+        "noncrossing_two_overlap:2,3->0,5": 1,
+        "noncrossing_two_overlap:2,3->4,5": 1,
+        "noncrossing_two_overlap:2,5->0,1": 2,
+        "noncrossing_two_overlap:2,5->1,11": 2,
+        "noncrossing_two_overlap:2,5->1,9": 4,
+        "noncrossing_two_overlap:2,6->7,9": 1,
+        "noncrossing_two_overlap:2,6->8,9": 1,
+        "noncrossing_two_overlap:2,6->9,10": 1,
+        "noncrossing_two_overlap:2,9->6,8": 1,
+        "noncrossing_two_overlap:3,8->0,2": 1,
+        "noncrossing_two_overlap:5,8->0,1": 1,
+        "noncrossing_two_overlap:5,8->0,10": 1,
+        "noncrossing_two_overlap:8,11->3,7": 4,
+        "noncrossing_two_overlap:8,11->5,7": 2,
+        "noncrossing_two_overlap:8,11->6,7": 2,
+        "noncrossing_two_overlap:8,9->10,11": 1,
+        "noncrossing_two_overlap:8,9->6,11": 1,
+        "three_or_more_overlap:0,2->1,3,4": 3,
+        "three_or_more_overlap:2,5->0,1,9": 1,
+        "three_or_more_overlap:2,5->1,9,11": 1,
+        "three_or_more_overlap:6,8->7,9,10": 3,
+        "three_or_more_overlap:8,11->3,5,7": 1,
+        "three_or_more_overlap:8,11->3,6,7": 1,
+    },
     "not_legal_opened_noncrossing_substitution_target_distribution": {
         "2,10:3,5->1,5": 3,
         "2,10:3,6->1,6": 1,
@@ -1100,7 +1165,9 @@ def _block_swap_seven_state(state: SevenState) -> SevenState:
     return tuple(sorted(_block_swap_row(record) for record in state))  # type: ignore[return-value]
 
 
-def _split_row_by_center_block(center: int, row: tuple[int, ...]) -> tuple[LabelPair, LabelPair]:
+def _split_row_by_center_block(
+    center: int, row: tuple[int, ...]
+) -> tuple[LabelPair, LabelPair]:
     block_start = 0 if center < N // 2 else N // 2
     block = set(range(block_start, block_start + N // 2))
     same = tuple(label for label in row if label in block)
@@ -1136,9 +1203,7 @@ def _low_support_row_content_forms(
                 right_row,
             )
             same_block_counts[_pair_edge_key(left_same, right_same)] += 1
-            opposite_edge_counts[
-                _pair_edge_key(left_opposite, right_opposite)
-            ] += 1
+            opposite_edge_counts[_pair_edge_key(left_opposite, right_opposite)] += 1
             opposite_pool.add(left_opposite)
             opposite_pool.add(right_opposite)
 
@@ -1155,9 +1220,7 @@ def _low_support_row_content_forms(
             "opposite_pair_pool": [
                 _center_pair_key(pair) for pair in sorted(opposite_pool)
             ],
-            "opposite_pair_edge_counts": dict(
-                sorted(opposite_edge_counts.items())
-            ),
+            "opposite_pair_edge_counts": dict(sorted(opposite_edge_counts.items())),
             "ordered_disjoint_opposite_pair_edges": len(disjoint_edge_keys),
             "all_edges_disjoint": all(
                 _pair_edge_is_disjoint(key) for key in actual_edge_keys
@@ -1195,7 +1258,9 @@ def _row_content_profile_key(state: SevenState) -> str:
 
     same_labels = set().union(*(set(pair) for pair in same_pairs))
     opposite_labels = set().union(*(set(pair) for pair in opposite_pairs))
-    same_intersections = ",".join(str(value) for value in _intersection_profile(same_pairs))
+    same_intersections = ",".join(
+        str(value) for value in _intersection_profile(same_pairs)
+    )
     opposite_intersections = ",".join(
         str(value) for value in _intersection_profile(opposite_pairs)
     )
@@ -1447,9 +1512,7 @@ def _low_support_eighth_extension_audit(
                 "clean_seven_states_with_clean_eighth": int(
                     value["clean_seven_states_with_clean_eighth"]
                 ),
-                "eighth_status_counts": _status_counts(
-                    value["eighth_status_counts"]
-                ),
+                "eighth_status_counts": _status_counts(value["eighth_status_counts"]),
             }
             for key, value in sorted(by_seven_center_triple.items())
         },
@@ -1495,7 +1558,10 @@ def _low_support_terminal_classification(
             raise AssertionError(f"unexpected terminal block-swap orbit: {orbit!r}")
         representative = orbit[0]
         block_swap_member = orbit[1]
-        if representative not in status_by_state or block_swap_member not in status_by_state:
+        if (
+            representative not in status_by_state
+            or block_swap_member not in status_by_state
+        ):
             raise AssertionError("terminal block-swap orbit left terminal catalog")
         if status_by_state[representative] != status_by_state[block_swap_member]:
             raise AssertionError("terminal block-swap orbit changed status split")
@@ -1618,8 +1684,7 @@ def _low_support_terminal_eighth_center_audit(
                 status_total[status_name] += count
         if status_total != status:
             raise AssertionError(
-                "terminal center split does not match terminal status: "
-                f"{state!r}"
+                f"terminal center split does not match terminal status: {state!r}"
             )
         if status_total["ok"] != 0:
             raise AssertionError(f"terminal state has a clean eighth row: {state!r}")
@@ -1633,10 +1698,7 @@ def _low_support_terminal_eighth_center_audit(
         block_swap_member = orbit[1]
         representative_counts = center_counts_by_state[representative]
         block_swap_counts = center_counts_by_state[block_swap_member]
-        if (
-            _block_swap_eighth_center_counts(representative_counts)
-            != block_swap_counts
-        ):
+        if _block_swap_eighth_center_counts(representative_counts) != block_swap_counts:
             raise AssertionError("terminal center split is not block-swap equivariant")
         if status_by_state[representative] != status_by_state[block_swap_member]:
             raise AssertionError("terminal block-swap orbit changed status split")
@@ -1721,9 +1783,7 @@ def _low_support_profile_terminality_audit(
         _row_content_profile_key(state) for state, _status in terminal_audits
     }
     terminal_profiles_with_extendable = sorted(
-        profile
-        for profile in terminal_profile_keys
-        if profile_extendable[profile] > 0
+        profile for profile in terminal_profile_keys if profile_extendable[profile] > 0
     )
     non_two_two_total = sum(non_two_two_by_triple.values())
 
@@ -1758,7 +1818,9 @@ def _low_support_profile_terminality_audit(
             else None
         ),
         "terminal_profile_extendable_examples": {
-            profile: [_record_payload(record) for record in extendable_examples[profile]]
+            profile: [
+                _record_payload(record) for record in extendable_examples[profile]
+            ]
             for profile in terminal_profiles_with_extendable
         },
     }
@@ -1894,6 +1956,26 @@ def _changed_row_relation(
     return "noncrossing_two_overlap"
 
 
+def _paircross_blockers(
+    center: int,
+    row: tuple[int, ...],
+    assigned: Mapping[int, tuple[int, ...]],
+) -> list[tuple[int, tuple[int, int], tuple[int, ...], str]]:
+    blockers = []
+    for other_center, other_row in assigned.items():
+        overlap = tuple(sorted(set(row) & set(other_row)))
+        if len(overlap) <= 1:
+            continue
+        source = normalize_chord(center, other_center)
+        if len(overlap) > 2:
+            blockers.append((other_center, source, overlap, "three_or_more_overlap"))
+            continue
+        target = normalize_chord(*overlap)
+        if not chords_cross_in_order(source, target, list(range(N))):
+            blockers.append((other_center, source, target, "noncrossing_two_overlap"))
+    return blockers
+
+
 def _chord_key(chord: tuple[int, int]) -> str:
     return f"{chord[0]},{chord[1]}"
 
@@ -1942,8 +2024,8 @@ def _not_legal_opened_paircross_profile(
     extendable_changed_row: tuple[int, ...],
     options: Mapping[int, list[tuple[int, ...]]],
 ) -> dict[str, Any]:
-    assigned_before, pair_counts_before, indegrees_before = (
-        _initial_state_with_records(terminal)
+    assigned_before, pair_counts_before, indegrees_before = _initial_state_with_records(
+        terminal
     )
     assigned_after, pair_counts_after, indegrees_after = _initial_state_with_records(
         extendable
@@ -1962,14 +2044,12 @@ def _not_legal_opened_paircross_profile(
     after_valid_rows = [
         row
         for row in after_paircross_rows
-        if _pair_cap_ok(row, pair_counts_after)
-        and _indegree_ok(row, indegrees_after)
+        if _pair_cap_ok(row, pair_counts_after) and _indegree_ok(row, indegrees_after)
     ]
     before_valid_rows = [
         row
         for row in before_paircross_rows
-        if _pair_cap_ok(row, pair_counts_before)
-        and _indegree_ok(row, indegrees_before)
+        if _pair_cap_ok(row, pair_counts_before) and _indegree_ok(row, indegrees_before)
     ]
     removed_labels = sorted(set(terminal_changed_row) - set(extendable_changed_row))
     added_labels = sorted(set(extendable_changed_row) - set(terminal_changed_row))
@@ -1989,11 +2069,18 @@ def _not_legal_opened_paircross_profile(
     crossing_creation_mechanisms: Counter[str] = Counter()
     noncrossing_substitution_arcs: Counter[str] = Counter()
     substitution_layer_arcs: Counter[str] = Counter()
+    opposite_arc_paircross_contexts: Counter[str] = Counter()
+    opposite_arc_paircross_blocker_counts: Counter[int] = Counter()
+    opposite_arc_paircross_blocker_kinds: Counter[str] = Counter()
+    opposite_arc_paircross_blocker_roles: Counter[str] = Counter()
+    opposite_arc_paircross_blocker_center_orbits: Counter[str] = Counter()
+    opposite_arc_paircross_blocker_source_targets: Counter[str] = Counter()
     noncrossing_substitution_targets: Counter[str] = Counter()
     noncrossing_deletion_targets: Counter[str] = Counter()
     three_or_more_deletion_targets: Counter[str] = Counter()
     after_paircross_row_set = set(after_paircross_rows)
     after_valid_row_set = set(after_valid_rows)
+    terminal_centers = set(dict(terminal))
     for row in center_options:
         before_relation = _changed_row_relation(
             changed_center,
@@ -2016,6 +2103,41 @@ def _not_legal_opened_paircross_profile(
         side_relation = _source_side_relation(source, survivor, added_label)
         layer_key = f"candidate_contains_added:{side_relation}->{after_relation}"
         substitution_layer_arcs[f"all_options:{layer_key}"] += 1
+        if side_relation == "opposite_source_arcs":
+            old_target = normalize_chord(*before_overlap)
+            after_overlap = tuple(sorted(set(extendable_changed_row) & set(row)))
+            new_target = normalize_chord(*after_overlap)
+            context_key = (
+                f"{_chord_key(source)}:{_chord_key(old_target)}"
+                f"->{_chord_key(new_target)}"
+            )
+            opposite_arc_paircross_contexts[f"all_options:{context_key}"] += 1
+            blockers = _paircross_blockers(opened_center, row, assigned_after)
+            if blockers:
+                opposite_arc_paircross_contexts[f"failed_paircross:{context_key}"] += 1
+                opposite_arc_paircross_blocker_counts[len(blockers)] += 1
+                for blocker_center, blocker_source, blocker_target, kind in blockers:
+                    if blocker_center == changed_center:
+                        role = "changed_row"
+                    elif blocker_center in terminal_centers:
+                        role = "other_added_row"
+                    else:
+                        role = "fixed_row"
+                    target_key = (
+                        _chord_key(blocker_target)  # type: ignore[arg-type]
+                        if kind == "noncrossing_two_overlap"
+                        else _label_tuple_key(blocker_target)
+                    )
+                    opposite_arc_paircross_blocker_kinds[kind] += 1
+                    opposite_arc_paircross_blocker_roles[role] += 1
+                    opposite_arc_paircross_blocker_center_orbits[
+                        _center_orbit_key(blocker_center)
+                    ] += 1
+                    opposite_arc_paircross_blocker_source_targets[
+                        f"{kind}:{_chord_key(blocker_source)}->{target_key}"
+                    ] += 1
+            else:
+                opposite_arc_paircross_contexts[f"after_paircross:{context_key}"] += 1
         if row in after_paircross_row_set:
             substitution_layer_arcs[f"after_paircross:{layer_key}"] += 1
         if row in after_valid_row_set:
@@ -2058,7 +2180,9 @@ def _not_legal_opened_paircross_profile(
             ] += 1
             source_target = f"{_chord_key(source)}:{_chord_key(target)}"
             if added_label in row:
-                survivor = next(label for label in before_overlap if label != removed_label)
+                survivor = next(
+                    label for label in before_overlap if label != removed_label
+                )
                 side_relation = _source_side_relation(source, survivor, added_label)
                 noncrossing_substitution_arcs[
                     f"candidate_contains_added:{side_relation}->{after_relation}"
@@ -2073,9 +2197,7 @@ def _not_legal_opened_paircross_profile(
                         "noncrossing_removed_to_added_substitution"
                     ] += 1
             else:
-                noncrossing_deletion_targets[
-                    f"{source_target}->{after_relation}"
-                ] += 1
+                noncrossing_deletion_targets[f"{source_target}->{after_relation}"] += 1
         elif before_relation == "three_or_more_overlap":
             three_or_more_switches[f"{endpoint_status}->{after_relation}"] += 1
             after_overlap = tuple(sorted(set(extendable_changed_row) & set(row)))
@@ -2120,6 +2242,18 @@ def _not_legal_opened_paircross_profile(
         "crossing_creation_mechanisms": crossing_creation_mechanisms,
         "noncrossing_substitution_arcs": noncrossing_substitution_arcs,
         "substitution_layer_arcs": substitution_layer_arcs,
+        "opposite_arc_paircross_contexts": opposite_arc_paircross_contexts,
+        "opposite_arc_paircross_blocker_counts": (
+            opposite_arc_paircross_blocker_counts
+        ),
+        "opposite_arc_paircross_blocker_kinds": (opposite_arc_paircross_blocker_kinds),
+        "opposite_arc_paircross_blocker_roles": (opposite_arc_paircross_blocker_roles),
+        "opposite_arc_paircross_blocker_center_orbits": (
+            opposite_arc_paircross_blocker_center_orbits
+        ),
+        "opposite_arc_paircross_blocker_source_targets": (
+            opposite_arc_paircross_blocker_source_targets
+        ),
         "noncrossing_substitution_targets": noncrossing_substitution_targets,
         "noncrossing_deletion_targets": noncrossing_deletion_targets,
         "three_or_more_deletion_targets": three_or_more_deletion_targets,
@@ -2129,8 +2263,7 @@ def _not_legal_opened_paircross_profile(
 def _state_replacement_distance(left: SevenState, right: SevenState) -> int:
     right_by_center = {center: row for center, row in right}
     return sum(
-        _row_replacement_distance(row, right_by_center[center])
-        for center, row in left
+        _row_replacement_distance(row, right_by_center[center]) for center, row in left
     )
 
 
@@ -2204,6 +2337,20 @@ def _low_support_terminal_edit_distance_audit(
     not_legal_opened_crossing_creation_mechanism_counts: Counter[str] = Counter()
     not_legal_opened_noncrossing_substitution_arc_counts: Counter[str] = Counter()
     not_legal_opened_substitution_layer_arc_counts: Counter[str] = Counter()
+    not_legal_opened_opposite_arc_paircross_context_counts: Counter[str] = Counter()
+    not_legal_opened_opposite_arc_paircross_blocker_counts: Counter[int] = Counter()
+    not_legal_opened_opposite_arc_paircross_blocker_kind_counts: Counter[str] = (
+        Counter()
+    )
+    not_legal_opened_opposite_arc_paircross_blocker_role_counts: Counter[str] = (
+        Counter()
+    )
+    not_legal_opened_opposite_arc_paircross_blocker_center_orbit_counts: Counter[
+        str
+    ] = Counter()
+    not_legal_opened_opposite_arc_paircross_blocker_source_target_counts: Counter[
+        str
+    ] = Counter()
     not_legal_opened_noncrossing_substitution_target_counts: Counter[str] = Counter()
     not_legal_opened_noncrossing_deletion_target_counts: Counter[str] = Counter()
     not_legal_opened_three_or_more_deletion_target_counts: Counter[str] = Counter()
@@ -2254,8 +2401,7 @@ def _low_support_terminal_edit_distance_audit(
                 added = changed_row["added"]
                 if len(removed) != 1 or len(added) != 1:
                     raise AssertionError(
-                        "nearest transition is not one-for-one: "
-                        f"{changed_row!r}"
+                        f"nearest transition is not one-for-one: {changed_row!r}"
                     )
                 center = changed_row["center"]
                 removed_label = removed[0]
@@ -2298,9 +2444,7 @@ def _low_support_terminal_edit_distance_audit(
                     relation_parts.append("removed_opened")
                 if not relation_parts:
                     relation_parts.append("neither_opened")
-                opened_contains_replacement_label_counts[
-                    "+".join(relation_parts)
-                ] += 1
+                opened_contains_replacement_label_counts["+".join(relation_parts)] += 1
 
                 transition_prior_statuses: Counter[str] = Counter()
                 changed_center_orbit = _center_orbit_key(center)
@@ -2310,9 +2454,7 @@ def _low_support_terminal_edit_distance_audit(
                         "not_legal",
                     )
                     opened_center_counts[opened_center] += 1
-                    opened_center_orbit_counts[
-                        _center_orbit_key(opened_center)
-                    ] += 1
+                    opened_center_orbit_counts[_center_orbit_key(opened_center)] += 1
                     opened_center_prior_status_counts[prior_status] += 1
                     transition_prior_statuses[prior_status] += 1
                     changed_to_opened_center_orbit_counts[
@@ -2346,9 +2488,7 @@ def _low_support_terminal_edit_distance_audit(
                         not_legal_opened_changed_center_orbit_counts[
                             changed_center_orbit
                         ] += 1
-                        not_legal_opened_replacement_side_counts[
-                            replacement_side
-                        ] += 1
+                        not_legal_opened_replacement_side_counts[replacement_side] += 1
                         not_legal_opened_paircross_profile_counts[
                             "before_paircross="
                             f"{switch_profile['before_paircross']};"
@@ -2363,9 +2503,7 @@ def _low_support_terminal_edit_distance_audit(
                             switch_profile["after_changed_row_relations"]
                         )
                         not_legal_opened_before_removed_endpoint_counts.update(
-                            switch_profile[
-                                "before_forbidden_overlap_removed_endpoint"
-                            ]
+                            switch_profile["before_forbidden_overlap_removed_endpoint"]
                         )
                         not_legal_opened_noncrossing_arc_counts.update(
                             switch_profile["noncrossing_target_arcs"]
@@ -2387,6 +2525,28 @@ def _low_support_terminal_edit_distance_audit(
                         )
                         not_legal_opened_substitution_layer_arc_counts.update(
                             switch_profile["substitution_layer_arcs"]
+                        )
+                        not_legal_opened_opposite_arc_paircross_context_counts.update(
+                            switch_profile["opposite_arc_paircross_contexts"]
+                        )
+                        not_legal_opened_opposite_arc_paircross_blocker_counts.update(
+                            switch_profile["opposite_arc_paircross_blocker_counts"]
+                        )
+                        not_legal_opened_opposite_arc_paircross_blocker_kind_counts.update(
+                            switch_profile["opposite_arc_paircross_blocker_kinds"]
+                        )
+                        not_legal_opened_opposite_arc_paircross_blocker_role_counts.update(
+                            switch_profile["opposite_arc_paircross_blocker_roles"]
+                        )
+                        not_legal_opened_opposite_arc_paircross_blocker_center_orbit_counts.update(
+                            switch_profile[
+                                "opposite_arc_paircross_blocker_center_orbits"
+                            ]
+                        )
+                        not_legal_opened_opposite_arc_paircross_blocker_source_target_counts.update(
+                            switch_profile[
+                                "opposite_arc_paircross_blocker_source_targets"
+                            ]
                         )
                         not_legal_opened_noncrossing_substitution_target_counts.update(
                             switch_profile["noncrossing_substitution_targets"]
@@ -2449,9 +2609,7 @@ def _low_support_terminal_edit_distance_audit(
         "extendable_ok_center_count_distribution": _json_counter(
             extendable_ok_center_counts
         ),
-        "extendable_ok_row_count_distribution": _json_counter(
-            extendable_ok_row_counts
-        ),
+        "extendable_ok_row_count_distribution": _json_counter(extendable_ok_row_counts),
         "opened_center_instance_count": opened_center_instance_count,
         "opened_center_distribution": _json_counter(opened_center_counts),
         "opened_center_orbit_distribution": {
@@ -2537,6 +2695,43 @@ def _low_support_terminal_edit_distance_audit(
         "not_legal_opened_substitution_layer_arc_distribution": {
             key: int(not_legal_opened_substitution_layer_arc_counts[key])
             for key in sorted(not_legal_opened_substitution_layer_arc_counts)
+        },
+        "not_legal_opened_opposite_arc_paircross_context_distribution": {
+            key: int(not_legal_opened_opposite_arc_paircross_context_counts[key])
+            for key in sorted(not_legal_opened_opposite_arc_paircross_context_counts)
+        },
+        "not_legal_opened_opposite_arc_paircross_blocker_count_distribution": (
+            _json_counter(not_legal_opened_opposite_arc_paircross_blocker_counts)
+        ),
+        "not_legal_opened_opposite_arc_paircross_blocker_kind_distribution": {
+            key: int(not_legal_opened_opposite_arc_paircross_blocker_kind_counts[key])
+            for key in sorted(
+                not_legal_opened_opposite_arc_paircross_blocker_kind_counts
+            )
+        },
+        "not_legal_opened_opposite_arc_paircross_blocker_role_distribution": {
+            key: int(not_legal_opened_opposite_arc_paircross_blocker_role_counts[key])
+            for key in sorted(
+                not_legal_opened_opposite_arc_paircross_blocker_role_counts
+            )
+        },
+        "not_legal_opened_opposite_arc_paircross_blocker_center_orbit_distribution": {
+            key: int(
+                not_legal_opened_opposite_arc_paircross_blocker_center_orbit_counts[key]
+            )
+            for key in sorted(
+                not_legal_opened_opposite_arc_paircross_blocker_center_orbit_counts
+            )
+        },
+        "not_legal_opened_opposite_arc_paircross_blocker_source_target_distribution": {
+            key: int(
+                not_legal_opened_opposite_arc_paircross_blocker_source_target_counts[
+                    key
+                ]
+            )
+            for key in sorted(
+                not_legal_opened_opposite_arc_paircross_blocker_source_target_counts
+            )
         },
         "not_legal_opened_noncrossing_substitution_target_distribution": {
             key: int(not_legal_opened_noncrossing_substitution_target_counts[key])
@@ -2701,9 +2896,7 @@ def survivor_payload() -> dict[str, Any]:
         "ordered_sixth_status_counts": {
             status: int(ordered_sixth_status[status]) for status in STATUSES
         },
-        "clean_fifth_block_swap_orbit_sizes": _json_counter(
-            clean_fifth_orbit_sizes
-        ),
+        "clean_fifth_block_swap_orbit_sizes": _json_counter(clean_fifth_orbit_sizes),
         "clean_six_block_swap_orbit_sizes": _json_counter(clean_six_orbit_sizes),
         "clean_by_center_pair": {
             _center_pair_key(center_pair): int(clean_by_center_pair[center_pair])
@@ -2722,9 +2915,7 @@ def survivor_payload() -> dict[str, Any]:
             _low_support_terminal_classification(low_support_terminal_audits)
         ),
         "low_support_terminal_eighth_center_audit": (
-            _low_support_terminal_eighth_center_audit(
-                low_support_terminal_audits
-            )
+            _low_support_terminal_eighth_center_audit(low_support_terminal_audits)
         ),
         "low_support_profile_terminality_audit": (
             _low_support_profile_terminality_audit(
@@ -2746,7 +2937,9 @@ def survivor_payload() -> dict[str, Any]:
         ),
         "by_fifth_center": {
             center: {key: int(counter[key]) for key in sorted(counter)}
-            for center, counter in sorted(by_fifth_center.items(), key=lambda item: int(item[0]))
+            for center, counter in sorted(
+                by_fifth_center.items(), key=lambda item: int(item[0])
+            )
         },
         "first_clean_sixth_example": first_clean_sixth_example,
     }
@@ -2768,10 +2961,7 @@ def assert_expected(payload: Mapping[str, Any]) -> None:
         raise AssertionError(
             f"unexpected clean center-pair counts: {payload['clean_by_center_pair']!r}"
         )
-    if (
-        payload["clean_by_center_pair_orbit"]
-        != EXPECTED_CLEAN_BY_CENTER_PAIR_ORBIT
-    ):
+    if payload["clean_by_center_pair_orbit"] != EXPECTED_CLEAN_BY_CENTER_PAIR_ORBIT:
         raise AssertionError(
             "unexpected center-pair orbit counts: "
             f"{payload['clean_by_center_pair_orbit']!r}"

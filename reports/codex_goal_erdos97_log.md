@@ -22947,6 +22947,162 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 658 - Other-row Paircross Thinning Obstruction
+
+### Mathematical Subquestion
+
+Cycle 657 proved that an after-pair/cross candidate repairing the changed-row
+conflict by a removed-to-added substitution must put the added endpoint and
+surviving old endpoint in opposite source arcs. The next question was:
+
+```text
+Among the 36 raw opposite-arc substitutions in the low-support block-6
+terminal-edit audit, why do only 8 survive the after-pair/cross gate?
+```
+
+### Definitions and Assumptions
+
+Use the Cycle 657 notation. Let `R` be the terminal changed row and let
+`R' = R - {r} + {a}` be a one-witness nearest replacement. Let `Q` be a row
+candidate for the opened center. The source chord for the changed-row test is
+the chord joining the changed center to the opened center.
+
+An **opposite-arc substitution** is a raw candidate `Q` such that:
+
+- `R cap Q = {r,s}` is a noncrossing two-overlap;
+- `Q` contains the added endpoint `a`;
+- the surviving old endpoint `s` and `a` lie in opposite source arcs.
+
+The pair/cross gate tests `Q` against every already assigned row after the
+replacement, not just against `R'`.
+
+### Result Status
+
+Proved definition-level lemma plus exact finite audit:
+**Other-row Paircross Thinning Obstruction**.
+
+### Argument Or Obstruction
+
+The definition-level part is short. For an opposite-arc substitution,
+
+```text
+R' cap Q = {a,s},
+```
+
+and `{a,s}` crosses the source chord by the opposite-arc hypothesis. Therefore
+`Q` passes the pair/cross test against the changed row `R'` itself. If `Q`
+still fails the after-replacement pair/cross gate, the failure must come from
+some other already assigned row.
+
+The exact block-6 low-support audit then classifies all such failures. The
+`36` raw opposite-arc substitutions split as:
+
+```text
+source: old target -> new target  raw  after pair/cross  failed pair/cross
+2,10: 3,5 -> 1,5                 6    3                 3
+2,10: 3,6 -> 1,6                 6    1                 5
+2,10: 3,9 -> 1,9                 6    0                 6
+4,8: 0,9 -> 0,7                 6    1                 5
+4,8: 3,9 -> 3,7                 6    0                 6
+4,8: 9,11 -> 7,11               6    3                 3
+```
+
+So the two contexts `2,10: 3,9 -> 1,9` and `4,8: 3,9 -> 3,7` are completely
+killed by other-row pair/cross conflicts.
+
+Across the `28` failed raw opposite-arc substitutions, `14` have one blocker
+and `14` have two blockers. The `42` blocker incidences split as:
+
+```text
+blocker kind             incidences
+noncrossing two-overlap  32
+three-or-more overlap    10
+
+blocker role       incidences
+fixed row          18
+other added row    24
+
+blocker center orbit  incidences
+0,6                   12
+3,9                    6
+5,11                  24
+```
+
+Thus opposite-arc substitution repairs the changed-row conflict but is not
+sufficient for global pair/cross admissibility. The remaining obstruction is
+independent interaction with the fixed rows and the unchanged added rows.
+
+### Exact Scope
+
+The definition-level lemma is valid for any one-witness replacement under the
+same pair/cross rule. The counts above are exact only for the low-support
+two-block block-6 terminal-edit branch in the natural cyclic order. This is
+not a Euclidean realizability result, not a proof of Erdos Problem #97, and
+not a counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+Cycle 657's source-arc lemma is now followed by the next gate: even after the
+changed row is repaired, other rows kill most raw opposite-arc candidates. This
+rules out the tempting converse that every opposite-arc substitution should
+survive pair/cross. A proof-facing route must now describe, without a table,
+which other-row overlaps are forced by each raw context.
+
+### Next Lead
+
+Try to factor the `42` blocker incidences into a smaller boundary-row pattern.
+The most useful next subclaim would predict the two completely killed contexts
+`2,10: 3,9 -> 1,9` and `4,8: 3,9 -> 3,7` from source/target placement plus the
+unchanged added-row profile.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-658`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-658`.
+- The branch was started from `origin/main` at commit
+  `3312762f64ab726dde34c4ee7b1f04d827e21108`, after PR #389 merged Cycle
+  657.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_block6_fragile_sixth_row_survivors.py --assert-expected
+  --json`: passed; recorded the `36/8/28` split and blocker distributions
+  above.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check
+  scripts/check_block6_fragile_sixth_row_survivors.py
+  tests/test_block6_fragile_sixth_row_survivors.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `562 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 657 - Paircross-gate Source-arc Lemma
 
 ### Mathematical Subquestion

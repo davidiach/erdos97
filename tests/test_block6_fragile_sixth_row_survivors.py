@@ -73,9 +73,7 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
             "strict_cycle": 1947,
         },
     }
-    terminal_classification = payload[
-        "low_support_terminal_seven_state_classification"
-    ]
+    terminal_classification = payload["low_support_terminal_seven_state_classification"]
     assert terminal_classification["terminal_clean_seven_states"] == 12
     assert terminal_classification["block_swap_orbits"] == 6
     assert terminal_classification["block_swap_orbit_sizes"] == {"2": 6}
@@ -184,9 +182,7 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
     assert triple_profile_audit["triple_profile_only_terminality_holds"] is False
     assert triple_profile_audit["two_two_triple_profile_classes"] == 26
     assert triple_profile_audit["terminal_triple_profile_classes"] == 6
-    assert triple_profile_audit[
-        "terminal_triple_profiles_with_extendable_states"
-    ] == 6
+    assert triple_profile_audit["terminal_triple_profiles_with_extendable_states"] == 6
     terminal_triple_key = (
         "2,4,5|same_u=4,same_i=0,1,1,same_d=1,1,2,2|"
         "opposite_u=5,opposite_i=0,0,1,opposite_d=1,1,1,1,2"
@@ -235,12 +231,13 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
         "opposite_block": 42,
         "same_block": 14,
     }
-    assert edit_distance_audit["changed_center_removed_added_distribution"][
-        "5:1->4"
-    ] == 5
-    assert edit_distance_audit["changed_center_removed_added_distribution"][
-        "11:7->10"
-    ] == 5
+    assert (
+        edit_distance_audit["changed_center_removed_added_distribution"]["5:1->4"] == 5
+    )
+    assert (
+        edit_distance_audit["changed_center_removed_added_distribution"]["11:7->10"]
+        == 5
+    )
     assert edit_distance_audit["extendable_ok_center_count_distribution"] == {
         "1": 28,
         "2": 24,
@@ -276,12 +273,16 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
         "neither_opened": 48,
         "removed_opened": 4,
     }
-    assert edit_distance_audit["changed_to_opened_center_orbit_distribution"][
-        "5,11->2,8"
-    ] == 34
-    assert edit_distance_audit[
-        "replacement_side_to_opened_prior_status_distribution"
-    ]["opposite_block->self_only"] == 26
+    assert (
+        edit_distance_audit["changed_to_opened_center_orbit_distribution"]["5,11->2,8"]
+        == 34
+    )
+    assert (
+        edit_distance_audit["replacement_side_to_opened_prior_status_distribution"][
+            "opposite_block->self_only"
+        ]
+        == 26
+    )
     assert edit_distance_audit["not_legal_opened_instance_count"] == 6
     assert edit_distance_audit["not_legal_opened_center_orbit_distribution"] == {
         "2,8": 6
@@ -293,9 +294,7 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
         "4,10": 2,
         "5,11": 2,
     }
-    assert edit_distance_audit[
-        "not_legal_opened_paircross_profile_distribution"
-    ] == {
+    assert edit_distance_audit["not_legal_opened_paircross_profile_distribution"] == {
         "before_paircross=0;after_paircross=7;after_valid=7": 2,
         "before_paircross=0;after_paircross=8;after_valid=8": 4,
     }
@@ -323,9 +322,7 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
         "diameter_arc": 14,
         "long_arc": 30,
     }
-    assert edit_distance_audit[
-        "not_legal_opened_noncrossing_switch_distribution"
-    ] == {
+    assert edit_distance_audit["not_legal_opened_noncrossing_switch_distribution"] == {
         "candidate_contains_added->crossing_two_overlap": 8,
         "candidate_omits_added->zero_or_one_overlap": 36,
     }
@@ -380,6 +377,48 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
             "all_options:candidate_contains_added:"
             "same_source_arc->noncrossing_two_overlap"
         ): 60,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_opposite_arc_paircross_context_distribution"
+    ] == {
+        "after_paircross:2,10:3,5->1,5": 3,
+        "after_paircross:2,10:3,6->1,6": 1,
+        "after_paircross:4,8:0,9->0,7": 1,
+        "after_paircross:4,8:9,11->7,11": 3,
+        "all_options:2,10:3,5->1,5": 6,
+        "all_options:2,10:3,6->1,6": 6,
+        "all_options:2,10:3,9->1,9": 6,
+        "all_options:4,8:0,9->0,7": 6,
+        "all_options:4,8:3,9->3,7": 6,
+        "all_options:4,8:9,11->7,11": 6,
+        "failed_paircross:2,10:3,5->1,5": 3,
+        "failed_paircross:2,10:3,6->1,6": 5,
+        "failed_paircross:2,10:3,9->1,9": 6,
+        "failed_paircross:4,8:0,9->0,7": 5,
+        "failed_paircross:4,8:3,9->3,7": 6,
+        "failed_paircross:4,8:9,11->7,11": 3,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_opposite_arc_paircross_blocker_count_distribution"
+    ] == {"1": 14, "2": 14}
+    assert edit_distance_audit[
+        "not_legal_opened_opposite_arc_paircross_blocker_kind_distribution"
+    ] == {
+        "noncrossing_two_overlap": 32,
+        "three_or_more_overlap": 10,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_opposite_arc_paircross_blocker_role_distribution"
+    ] == {
+        "fixed_row": 18,
+        "other_added_row": 24,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_opposite_arc_paircross_blocker_center_orbit_distribution"
+    ] == {
+        "0,6": 12,
+        "3,9": 6,
+        "5,11": 24,
     }
     assert edit_distance_audit[
         "not_legal_opened_noncrossing_substitution_target_distribution"
