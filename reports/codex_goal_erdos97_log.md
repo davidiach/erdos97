@@ -22947,6 +22947,199 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 672 - Endpoint-Bad Local Failure Configuration
+
+### Mathematical Subquestion
+
+Cycle 671 showed that strict convexity plus a local exact four-point circle
+class does not force endpoint control. The next stronger local question was:
+
+```text
+If both angular endpoints of the local four-point class are themselves bad by
+exact four-point endpoint circles, does simultaneous endpoint-control failure
+become impossible?
+```
+
+This tests whether endpoint badness, still without full minimality or global
+badness at every vertex, is enough to rescue the endpoint-descent shortcut.
+
+### Definitions and Assumptions
+
+Use a strictly convex point set with a center `O`, an exact four-point class
+
+```text
+A = {A1,A2,A3,A4}
+```
+
+at squared radius `1`, and angular endpoints `A1,A4` around `O`. Endpoint
+badness here means that each endpoint has four other displayed vertices on one
+circle centered at that endpoint.
+
+This is still a local model. It does not assume every displayed vertex is bad,
+does not assume the polygon is a minimal counterexample, and does not impose
+critical-tie assignments for all deleted vertices.
+
+### Result Status
+
+Counterexample to a stronger local subclaim:
+**Endpoint-Bad Local Failure Configuration**.
+
+### Argument Or Obstruction
+
+Use the following thirteen rational points in cyclic order:
+
+```text
+O, X1, L0, L1, X2, A1, A2, A3, A4, Y2, U1, U0, Y1
+```
+
+with coordinates
+
+```text
+O  = (0,0)
+X1 = (3/25, -47/50)
+L0 = (9/65, -129/130)
+L1 = (1/5, -11/10)
+X2 = (69/290, -166/145)
+A1 = (3/5, -4/5)
+A2 = (4/5, -3/5)
+A3 = (4/5, 3/5)
+A4 = (3/5, 4/5)
+Y2 = (69/290, 166/145)
+U1 = (1/5, 11/10)
+U0 = (9/65, 129/130)
+Y1 = (3/25, 47/50).
+```
+
+The exact left-turn determinants in the displayed cyclic order are
+
+```text
+141/625, 18/1625, 2/1625, 1/754, 17/580,
+1/290, 6/25, 6/25, 1/290, 17/580,
+1/754, 2/1625, 18/1625,
+```
+
+so the configuration is strictly convex.
+
+The center `O` has the exact four-point unit class:
+
+```text
+|OA1|^2 = |OA2|^2 = |OA3|^2 = |OA4|^2 = 1.
+```
+
+The other displayed points are not on this unit circle:
+
+```text
+|OX1|^2 = |OY1|^2 = 449/500,
+|OL0|^2 = |OU0|^2 = 261/260,
+|OL1|^2 = |OU1|^2 = 5/4,
+|OX2|^2 = |OY2|^2 = 793/580.
+```
+
+Endpoint `A1` is locally bad with four outside witnesses at squared distance
+`1/4`:
+
+```text
+|A1X1|^2 = |A1L0|^2 = |A1L1|^2 = |A1X2|^2 = 1/4.
+```
+
+Endpoint `A4` is also locally bad with four outside witnesses at squared
+distance `1/4`:
+
+```text
+|A4Y1|^2 = |A4U0|^2 = |A4U1|^2 = |A4Y2|^2 = 1/4.
+```
+
+Thus both endpoints are bad and both endpoints fail the local `m=4` outside
+bound. This exactly blocks the stronger shortcut:
+
+```text
+Strict convexity plus a local exact 4-tie at O plus endpoint badness forces
+at least one endpoint to be endpoint-controlled.
+```
+
+### Exact Scope
+
+This is not a counterexample to Erdos Problem #97, and it is not a
+counterexample to the full Endpoint Control Auxiliary Claim. Several displayed
+vertices are not bad. The construction does not impose minimality, does not
+assign a critical exact 4-tie to every deleted vertex, and does not use both
+boundary chains in a global outside-vertex ledger.
+
+The obstruction says the endpoint-descent proof must use still stronger
+global information than endpoint badness. In particular, the next viable
+statement must exploit minimal-counterexample critical-tie coverage or some
+capacity/chain argument spanning all outside vertices.
+
+### Files Changed
+
+- `docs/failed-ideas.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This sharpens Cycle 671. The endpoint-descent route cannot be repaired by
+adding only the fact that endpoints of `A` are bad vertices: there is a fully
+exact rational local geometry where both endpoints are bad and still have
+four outside witnesses on endpoint-centered circles. The proof target must
+therefore move from local endpoint geometry to a genuinely global
+minimal-counterexample endpoint-control lemma.
+
+### Next Lead
+
+Try to prove or refute a **Global Critical Endpoint-Control Lemma**:
+
+```text
+In a minimal counterexample, choose a critical exact 4-tie A at center i*.
+If both angular endpoints of A have outside four-ties, then the critical-tie
+assignments of the outside vertices force a two-circle-cap, crossing, or
+boundary-chain contradiction.
+```
+
+Cycle 672 shows why the lemma must include the critical-tie assignments of
+outside vertices; endpoint badness alone is too weak.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-672`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-672`.
+- The branch was started from `origin/main` at commit
+  `fb8650a9e6f5cac53c28be1701d72d7c19f53023`, after PR #410 merged Cycle
+  671.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- A read-only subagent was launched to independently verify and critique the
+  proposed thirteen-point local configuration.
+
+### Validation
+
+- Exact rational arithmetic check of the displayed coordinates: passed. It
+  verified all thirteen positive turn determinants, the four `O`-centered unit
+  distances, the four endpoint-centered outside witnesses at each endpoint,
+  and the fact that the eight outside endpoint witnesses are not on the `O`
+  unit circle.
+- Independent read-only verifier agent confirmed the same rational
+  configuration, checked the stronger oriented-edge condition that every
+  non-edge point lies strictly to the left of every oriented polygon edge, and
+  confirmed that the construction only refutes a local endpoint-descent
+  shortcut, not the global endpoint-control program.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `593 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 671 - Rational Simultaneous Endpoint-Failure Configuration
 
 ### Mathematical Subquestion
