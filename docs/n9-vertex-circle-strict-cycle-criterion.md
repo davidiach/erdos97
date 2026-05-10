@@ -149,6 +149,51 @@ row, a longer selected-distance path, or it has already collapsed to a simpler
 self-edge obstruction. The `T10/F12` instance uses rows `0` and `6` as the
 connector rows beyond the two strict rows centered at `8` and `3`.
 
+### One-connector caveat
+
+The previous paragraph does not rule out a one-extra-row pattern by quotient
+combinatorics alone. Write a two-edge schema abstractly as
+
+```text
+A > B,
+C > D,
+B = C,
+A ~ D.
+```
+
+Here `B = C` is a literal shared unordered pair, while `A ~ D` is supplied by
+one connector row. This can be nondegenerate as an abstract selected-distance
+quotient if the connector row does not also contain the literal shared pair.
+
+For example, use labels `0,...,6` and stipulate the following local rows:
+
+```text
+row centered at 4 has witness order 0,1,2,5,
+row centered at 6 has witness order 2,1,3,0,
+row centered at 0 has selected witnesses 2,3,4,5.
+```
+
+The two strict rows give
+
+```text
+D_02 > D_01,
+D_01 > D_03.
+```
+
+The connector row centered at `0` identifies `D_02 = D_03`, but it does not
+identify either of them with `D_01`, because label `1` is not selected in that
+connector row. Thus the quotient has a nondegenerate two-cycle
+
+```text
+D_02 > D_01 > D_03 = D_02.
+```
+
+This is only a local quotient model with stipulated witness orders; it is not
+a Euclidean realization, not a selected-witness counterexample, and not a
+proof that such a pattern must occur. Its use is negative: excluding the
+one-connector case requires an additional cyclic-order or geometric hypothesis,
+not just the selected-distance quotient.
+
 ## Current Packet Audit
 
 The checked source artifact is
