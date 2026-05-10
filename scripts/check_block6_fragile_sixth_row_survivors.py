@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Catalog sixth-row survivors after clean block-6 fifth rows."""
+"""Catalog block-6 sixth-row survivors and low-support seventh-row extensions."""
 
 from __future__ import annotations
 
@@ -155,6 +155,65 @@ EXPECTED_LOW_SUPPORT_ROW_CONTENT_FORMS = {
         "ordered_disjoint_opposite_pair_edges": 14,
         "all_edges_disjoint": True,
         "all_disjoint_pool_edges_present": True,
+    },
+}
+EXPECTED_LOW_SUPPORT_SEVENTH_AUDIT = {
+    "clean_six_states": 56,
+    "clean_six_states_with_clean_seventh": 56,
+    "ordered_legal_seventh_rows": 5590,
+    "ordered_clean_seventh_rows": 2252,
+    "ordered_self_edge_seventh_rows": 1560,
+    "ordered_strict_cycle_seventh_rows": 1778,
+    "unique_clean_seven_states": 2252,
+    "by_center_pair": {
+        "4,5": {
+            "clean_six_states": 28,
+            "clean_six_states_with_clean_seventh": 28,
+            "seventh_status_counts": {
+                "ok": 1126,
+                "self_edge": 780,
+                "strict_cycle": 889,
+            },
+            "by_seventh_center": {
+                "1": {"ok": 160, "self_edge": 0, "strict_cycle": 216},
+                "2": {"ok": 283, "self_edge": 280, "strict_cycle": 99},
+                "7": {"ok": 71, "self_edge": 117, "strict_cycle": 126},
+                "8": {"ok": 362, "self_edge": 120, "strict_cycle": 229},
+                "10": {"ok": 95, "self_edge": 163, "strict_cycle": 124},
+                "11": {"ok": 155, "self_edge": 100, "strict_cycle": 95},
+            },
+            "first_clean_seventh_example": {
+                "six_state": [
+                    {"center": 4, "row": [0, 3, 6, 9]},
+                    {"center": 5, "row": [0, 4, 7, 11]},
+                ],
+                "seventh": {"center": 1, "row": [2, 5, 6, 7]},
+            },
+        },
+        "10,11": {
+            "clean_six_states": 28,
+            "clean_six_states_with_clean_seventh": 28,
+            "seventh_status_counts": {
+                "ok": 1126,
+                "self_edge": 780,
+                "strict_cycle": 889,
+            },
+            "by_seventh_center": {
+                "1": {"ok": 71, "self_edge": 117, "strict_cycle": 126},
+                "2": {"ok": 362, "self_edge": 120, "strict_cycle": 229},
+                "4": {"ok": 95, "self_edge": 163, "strict_cycle": 124},
+                "5": {"ok": 155, "self_edge": 100, "strict_cycle": 95},
+                "7": {"ok": 160, "self_edge": 0, "strict_cycle": 216},
+                "8": {"ok": 283, "self_edge": 280, "strict_cycle": 99},
+            },
+            "first_clean_seventh_example": {
+                "six_state": [
+                    {"center": 10, "row": [0, 4, 6, 9]},
+                    {"center": 11, "row": [3, 5, 6, 7]},
+                ],
+                "seventh": {"center": 1, "row": [0, 2, 7, 11]},
+            },
+        },
     },
 }
 EXPECTED_BY_FIFTH_CENTER = {
@@ -335,6 +394,124 @@ def _low_support_row_content_forms(
     return forms
 
 
+def _status_counts(counter: Counter[str]) -> dict[str, int]:
+    return {status: int(counter[status]) for status in STATUSES}
+
+
+def _record_payload(record: RowRecord) -> dict[str, Any]:
+    center, row = record
+    return {"center": center, "row": list(row)}
+
+
+def _low_support_seventh_extension_audit(
+    clean_six_states: set[SixState],
+) -> dict[str, Any]:
+    options = _options()
+    overall_status: Counter[str] = Counter()
+    clean_six_with_clean_seventh = 0
+    unique_clean_seven_states: set[tuple[RowRecord, ...]] = set()
+    by_center_pair: dict[str, dict[str, Any]] = {}
+
+    for center_pair in ((4, 5), (10, 11)):
+        matching_states = [
+            state
+            for state in clean_six_states
+            if tuple(record[0] for record in state) == center_pair
+        ]
+        pair_status: Counter[str] = Counter()
+        by_seventh_center: dict[str, Counter[str]] = {}
+        pair_clean_six_with_clean = 0
+        first_clean_seventh_example: dict[str, Any] | None = None
+
+        for state in matching_states:
+            assigned, pair_counts, indegrees = _initial_state()
+            for center, row in state:
+                _add_row(assigned, pair_counts, indegrees, center, row)
+
+            local_clean_seventh = 0
+            for seventh_center in range(N):
+                if seventh_center in assigned:
+                    continue
+                center_counter = by_seventh_center.setdefault(
+                    str(seventh_center),
+                    Counter(),
+                )
+                for seventh_row in _valid_options(
+                    seventh_center,
+                    options,
+                    assigned,
+                    pair_counts,
+                    indegrees,
+                ):
+                    _add_row(
+                        assigned,
+                        pair_counts,
+                        indegrees,
+                        seventh_center,
+                        seventh_row,
+                    )
+                    seventh_status, _edge_count = _partial_vertex_circle_status(
+                        assigned
+                    )
+                    _remove_row(
+                        assigned,
+                        pair_counts,
+                        indegrees,
+                        seventh_center,
+                        seventh_row,
+                    )
+
+                    pair_status[seventh_status] += 1
+                    overall_status[seventh_status] += 1
+                    center_counter[seventh_status] += 1
+                    if seventh_status == "ok":
+                        local_clean_seventh += 1
+                        seventh_record = (seventh_center, tuple(seventh_row))
+                        unique_clean_seven_states.add(
+                            tuple(sorted((*state, seventh_record)))
+                        )
+                        if first_clean_seventh_example is None:
+                            first_clean_seventh_example = {
+                                "six_state": [
+                                    _record_payload(record) for record in state
+                                ],
+                                "seventh": _record_payload(seventh_record),
+                            }
+            if local_clean_seventh:
+                pair_clean_six_with_clean += 1
+                clean_six_with_clean_seventh += 1
+
+            for center, row in reversed(state):
+                _remove_row(assigned, pair_counts, indegrees, center, row)
+
+        by_center_pair[_center_pair_key(center_pair)] = {
+            "clean_six_states": len(matching_states),
+            "clean_six_states_with_clean_seventh": pair_clean_six_with_clean,
+            "seventh_status_counts": _status_counts(pair_status),
+            "by_seventh_center": {
+                center: _status_counts(counter)
+                for center, counter in sorted(
+                    by_seventh_center.items(),
+                    key=lambda item: int(item[0]),
+                )
+            },
+            "first_clean_seventh_example": first_clean_seventh_example,
+        }
+
+    return {
+        "clean_six_states": sum(
+            item["clean_six_states"] for item in by_center_pair.values()
+        ),
+        "clean_six_states_with_clean_seventh": clean_six_with_clean_seventh,
+        "ordered_legal_seventh_rows": sum(overall_status.values()),
+        "ordered_clean_seventh_rows": int(overall_status["ok"]),
+        "ordered_self_edge_seventh_rows": int(overall_status["self_edge"]),
+        "ordered_strict_cycle_seventh_rows": int(overall_status["strict_cycle"]),
+        "unique_clean_seven_states": len(unique_clean_seven_states),
+        "by_center_pair": by_center_pair,
+    }
+
+
 def _orbit_count(states: set[RowRecord] | set[SixState]) -> tuple[int, Counter[int]]:
     seen: set[Any] = set()
     sizes: Counter[int] = Counter()
@@ -465,8 +642,9 @@ def survivor_payload() -> dict[str, Any]:
         "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
         "claim_scope": (
             "Legal sixth rows after clean one-row extensions of the two-block "
-            "block-6 fragile rows in the natural cyclic order; not a proof of "
-            "Erdos Problem #97 and not a counterexample."
+            "block-6 fragile rows, plus legal seventh rows after the two "
+            "minimum-support six-row center pairs, in the natural cyclic "
+            "order; not a proof of Erdos Problem #97 and not a counterexample."
         ),
         "fixed_centers": sorted(assigned),
         "totals": totals,
@@ -487,6 +665,9 @@ def survivor_payload() -> dict[str, Any]:
         },
         "low_support_row_content_forms": _low_support_row_content_forms(
             clean_six_states
+        ),
+        "low_support_seventh_extension_audit": (
+            _low_support_seventh_extension_audit(clean_six_states)
         ),
         "by_fifth_center": {
             center: {key: int(counter[key]) for key in sorted(counter)}
@@ -527,6 +708,14 @@ def assert_expected(payload: Mapping[str, Any]) -> None:
         raise AssertionError(
             "unexpected low-support row-content normal forms: "
             f"{payload['low_support_row_content_forms']!r}"
+        )
+    if (
+        payload["low_support_seventh_extension_audit"]
+        != EXPECTED_LOW_SUPPORT_SEVENTH_AUDIT
+    ):
+        raise AssertionError(
+            "unexpected low-support seventh-extension audit: "
+            f"{payload['low_support_seventh_extension_audit']!r}"
         )
     if payload["by_fifth_center"] != EXPECTED_BY_FIFTH_CENTER:
         raise AssertionError(

@@ -37,6 +37,24 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
         "0,3|0,1": 14,
         "0,3|0,4": 14,
     }
+    seventh_audit = payload["low_support_seventh_extension_audit"]
+    assert seventh_audit["clean_six_states"] == 56
+    assert seventh_audit["clean_six_states_with_clean_seventh"] == 56
+    assert seventh_audit["ordered_legal_seventh_rows"] == 5590
+    assert seventh_audit["ordered_clean_seventh_rows"] == 2252
+    assert seventh_audit["ordered_self_edge_seventh_rows"] == 1560
+    assert seventh_audit["ordered_strict_cycle_seventh_rows"] == 1778
+    assert seventh_audit["unique_clean_seven_states"] == 2252
+    assert seventh_audit["by_center_pair"]["4,5"]["seventh_status_counts"] == {
+        "ok": 1126,
+        "self_edge": 780,
+        "strict_cycle": 889,
+    }
+    assert seventh_audit["by_center_pair"]["10,11"]["by_seventh_center"]["2"] == {
+        "ok": 362,
+        "self_edge": 120,
+        "strict_cycle": 229,
+    }
     assert payload["first_clean_sixth_example"] == {
         "fifth": {"center": 1, "row": [0, 2, 6, 7]},
         "sixth": {"center": 2, "row": [0, 1, 3, 8]},
