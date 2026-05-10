@@ -15,6 +15,64 @@ d(a,c) + d(b,d) > d(a,d) + d(b,c)
 
 The proof is by the diagonal-crossing point and strict triangle inequality. These are ordinary-distance inequalities. In the selected-witness problem, equality of squared selected distances implies equality of ordinary selected distances, so the ordinary-distance quotient is valid.
 
+## Paired-square entry lemma
+
+The following local form is useful when a Kalmanson certificate has already
+reduced to one selected spoke class and one incident nonselected class.
+
+Fix distinct labels `i` and `n`, with `{i,n}` not in the selected spoke class
+at `i`.
+Write
+
+```text
+R_i = class({i,s}) for selected witnesses s in S_i,
+X = class({i,n}).
+```
+
+Assume `X` is distinct from `R_i`; if it is already the same quotient class,
+the obstruction is a separate one-row or degenerate quotient case.
+
+Suppose there are two selected-center squares for the same incident residual
+pair. That is, for signs `+` and `-` there are selected witnesses
+`s_+`, `s_-` in `S_i` and selected centers `j_+`, `j_-` such that
+
+```text
+{n,s_+} subset S_{j_+},
+{n,s_-} subset S_{j_-}.
+```
+
+For each sign, the four labels `i,n,s_+,j_+` or `i,n,s_-,j_-` are assumed
+distinct, so the Kalmanson row is a genuine strict quadrilateral inequality.
+
+Assume the cyclic order forces the two strict Kalmanson inequalities
+
+```text
+d(i,s_+) + d(j_+,n) > d(i,n) + d(j_+,s_+),
+d(i,n) + d(j_-,s_-) > d(i,s_-) + d(j_-,n).
+```
+
+After selected-distance quotienting, the first inequality reduces to
+
+```text
+R_i + R_{j_+} > X + R_{j_+},
+```
+
+and hence to `R_i > X`. The second reduces to
+
+```text
+X + R_{j_-} > R_i + R_{j_-},
+```
+
+and hence to `X > R_i`. Adding the two strict inequalities gives `0 > 0`.
+
+This is a local entry lemma only. It does not prove that a selected-witness
+pattern must expose the two selected-center squares, and it does not replace a
+cyclic-order proof that the displayed matchings are diagonal. It records the
+exact quotient-balance condition needed once those two inputs are known.
+In particular, it should not be phrased as using both orientations of one
+square: a single fixed four-label cyclic order makes only one of the two square
+matchings diagonal.
+
 ## Certificate format
 
 The JSON certificate contains:

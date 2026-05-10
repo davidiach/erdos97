@@ -22947,6 +22947,176 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 685 - Abstract Paired-Square Entry Lemma
+
+### Mathematical Subquestion
+
+Can the Kalmanson paired-square closure used in earlier C19 incident
+`R-X` cycles be stated as a reusable local lemma independent of the fixed
+`C19_skew` notation?
+
+This follows the Cycle 684 pivot: use quotient balance as the entry invariant
+instead of connector morphology.
+
+### Definitions and Assumptions
+
+Work in any selected-distance quotient for a strictly convex polygon, using
+ordinary distances in the Kalmanson rows. Fix distinct labels `i` and `n` and
+a nonselected incident pair `{i,n}`. Write
+
+```text
+R_i = class({i,s}) for selected witnesses s in S_i,
+X = class({i,n}).
+```
+
+Assume `X` is distinct from `R_i`; if the quotient has already collapsed them,
+the mechanism is a one-row or degenerate quotient obstruction rather than the
+paired-square residual mechanism.
+
+A selected-center square for this residual pair is a choice of selected
+witness `s in S_i` and selected center `j` such that
+
+```text
+{n,s} subset S_j.
+```
+
+Then the four pairs
+
+```text
+{i,s}, {j,n}, {i,n}, {j,s}
+```
+
+quotient respectively to
+
+```text
+R_i, R_j, X, R_j.
+```
+
+### Result Status
+
+Proved local lemma:
+**Abstract Paired-Square Entry Lemma**.
+
+### Argument Or Obstruction
+
+Assume there are two selected-center squares `(s_+,j_+)` and `(s_-,j_-)` for
+the same residual pair `(i,n)`, and the cyclic order forces the two
+Kalmanson inequalities
+
+```text
+d(i,s_+) + d(j_+,n) > d(i,n) + d(j_+,s_+),
+d(i,n) + d(j_-,s_-) > d(i,s_-) + d(j_-,n).
+```
+
+For each sign, the four labels `i,n,s_+,j_+` or `i,n,s_-,j_-` are distinct.
+The displayed rows are opposite diagonal orientations across two selected-center
+squares. They are not "both orientations of one square"; a single fixed
+four-label cyclic order makes only one square matching diagonal.
+
+After quotienting selected distances, the first inequality becomes
+
+```text
+R_i + R_{j_+} > X + R_{j_+},
+```
+
+so it reduces to
+
+```text
+R_i > X.
+```
+
+The second inequality becomes
+
+```text
+X + R_{j_-} > R_i + R_{j_-},
+```
+
+so it reduces to
+
+```text
+X > R_i.
+```
+
+Adding gives the exact contradiction
+
+```text
+0 > 0.
+```
+
+This proof uses only the strict Kalmanson quadrilateral inequality for a fixed
+cyclic order and the selected-distance quotient. It is not specific to
+`C19_skew`; the C19 incident paired-square criterion is a state-level
+availability and boundary-order forcing problem for this abstract lemma.
+Square availability alone is not enough: the boundary or cyclic-order state
+must force the two displayed diagonal matchings exactly.
+
+### Exact Scope
+
+This is a local obstruction lemma. It does not prove that arbitrary
+selected-witness systems expose the two needed squares, does not prove
+all-order `C19_skew`, does not prove `n=9`, does not prove Erdos Problem #97,
+and does not produce a counterexample.
+
+The lemma applies to ordinary distances. This is compatible with the
+selected-witness problem because equality of squared selected distances gives
+equality of ordinary selected distances for distinct vertices.
+
+### Files Changed
+
+- `docs/round2/kalmanson_distance_filter.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This gives the Cycle 684 replacement route a named proof object. Future work
+should search for exact hypotheses that force the two inputs:
+
+1. availability of two selected-center squares for the same incident residual
+   pair; and
+2. cyclic-order forcing of opposite diagonal orientations.
+
+This is stronger than connector morphology because the exact quotient
+cancellation is built into the statement.
+
+### Next Lead
+
+Use the lemma as an audit target for vertex-circle connector states, starting
+with the `T10/F12` two-edge strict-cycle family. For each of its `18`
+assignment instances, ask whether the selected rows expose an incident residual
+comparison `R_i` versus `X_{i,n}` with two selected-center squares in opposite
+diagonal orientations. If an instance fails, record whether the failure is
+square availability, boundary-order forcing, or incident-residual reduction.
+
+The exact evidence needed is a per-assignment list of the candidate residual
+pair, the two selected-center squares, the forced Kalmanson rows, and the
+reduced quotient inequalities `R_i > X_{i,n}` and `X_{i,n} > R_i`; or an exact
+failure classification with assignment ids and a digest.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-685`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-685`.
+- The branch was started from `origin/main` at commit
+  `1bb18bb67b96851fe0cd414168809e0b19df4d91`, after PR #430 merged Cycle 684.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `git diff --check`: passed.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 684 - Connector-Containment Vacuity Obstruction
 
 ### Mathematical Subquestion
