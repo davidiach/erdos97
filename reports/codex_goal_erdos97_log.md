@@ -22947,6 +22947,139 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 670 - Survivor Kalmanson Certificate
+
+### Mathematical Subquestion
+
+Cycle 669 showed that the Cycle 668 survivor is feasible for the
+selected-distance quotient plus row-Ptolemy equations alone. The next exact
+metric-order question was:
+
+```text
+Does the natural-order Kalmanson quotient cone already obstruct that fixed
+survivor extension?
+```
+
+### Definitions and Assumptions
+
+Use the same two-block block-6 survivor rows and the natural cyclic order
+`[0,1,2,3,4,5,6,7,8,9,10,11]`. The selected-distance quotient has `33`
+ordinary pair-distance classes.
+
+For four vertices `a,b,c,d` in cyclic order, use the strict Kalmanson
+inequalities:
+
+```text
+K1: d(a,c)+d(b,d) > d(a,b)+d(c,d),
+K2: d(a,c)+d(b,d) > d(a,d)+d(b,c).
+```
+
+A Kalmanson quotient-cone certificate is a positive integer combination of
+such strict rows whose coefficient vector is coordinatewise nonpositive after
+selected-distance quotienting. In the stronger zero-sum case, the reduced
+coefficient vector is exactly zero, so summing the strict inequalities gives
+`0 > 0`.
+
+### Result Status
+
+Exact fixed-survivor obstruction:
+**Survivor Kalmanson Certificate**.
+
+### Argument Or Obstruction
+
+The new checker `scripts/check_block6_survivor_kalmanson_certificate.py`
+stores and verifies a `31`-row positive integer Kalmanson certificate for the
+fixed survivor and natural cyclic order. The generic quotient-cone checker
+confirms:
+
+```text
+strict rows: 31
+distance classes: 33
+weight sum: 4294
+max weight: 402
+combined nonzero coefficient count: 0
+zero sum verified: true
+```
+
+Thus the weighted sum of strict Kalmanson inequalities reduces to the zero
+linear form after selected-distance quotienting. Since each Kalmanson row is
+strictly positive in any strictly convex realization with that cyclic order,
+the sum would be strictly positive; the quotiented coefficient vector says the
+same sum is exactly zero. This gives an exact contradiction for this fixed
+survivor/order.
+
+### Exact Scope
+
+The result is exact for the fixed two-block block-6 survivor extension from
+Cycle 668 and the natural cyclic order only. It is not an all-extension audit
+for the two-block fragile rows, not an all-order obstruction for the survivor
+rows, not a proof that the block-6 fragile cover is impossible, not a
+counterexample, and not a proof of Erdos #97.
+
+### Files Changed
+
+- `docs/minimal-fragile-cover-bridge.md`
+- `reports/codex_goal_erdos97_log.md`
+- `scripts/check_block6_survivor_kalmanson_certificate.py`
+- `tests/test_block6_survivor_kalmanson_certificate.py`
+
+### Effect On The Attack
+
+This salvages a useful bridge direction after the product-cancellation and
+raw Ptolemy feasibility failures. The survivor is not metric-order feasible
+in the natural order once Kalmanson inequalities are included. However, the
+main bridge gap remains the quantifier over full selected-row extensions and
+cyclic orders: a minimal counterexample only needs one compatible extension
+surviving all necessary geometric constraints.
+
+### Next Lead
+
+Run a bounded all-extension Kalmanson audit for the two-block fragile negative
+control: enumerate deterministic full selected-row extensions under
+pair/crossing constraints, and for each extension search or replay a
+Kalmanson quotient-cone certificate. The key question is whether the first
+surviving extension was a one-off or whether every early extension falls to a
+metric-order certificate.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-670`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-670`.
+- The branch was started from `origin/main` at commit
+  `46bb7e0e64e9b68e2dd77337dffa24e250dd3bcd`, after PR #408 merged Cycle
+  669.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_block6_survivor_kalmanson_certificate.py --assert-expected
+  --json`: passed; the checker verifies a `31`-row zero-sum Kalmanson
+  quotient-cone certificate with weight sum `4294` over `33` quotient classes.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_survivor_kalmanson_certificate.py -q`: passed,
+  `3 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `593 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 669 - Quotient-Ptolemy Feasible Survivor
 
 ### Mathematical Subquestion
