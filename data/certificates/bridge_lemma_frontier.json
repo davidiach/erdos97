@@ -1,0 +1,2136 @@
+{
+  "bridge_lemma_a_prime_status": "OPEN_NOT_PROVED_OR_REFUTED",
+  "claim_scope": "Finite n=8/n=9 ear-orderability and obstruction cross-tab for Bridge Lemma A' proof mining; not a proof of the bridge, not a proof of Erdos Problem #97, not a counterexample, and not an official/global status update.",
+  "geometry": {
+    "interpretation": "Run scripts/check_bridge_lemma_frontier.py --run-geometry for optional numerical smoke probes. Numerical output is evidence only.",
+    "status": "NOT_RUN"
+  },
+  "interpretation_warnings": [
+    "All results are finite-frontier diagnostics, not a proof of Bridge Lemma A'.",
+    "The n=9 vertex-circle obstruction remains review-pending.",
+    "Numerical geometry probes, when enabled, are evidence only.",
+    "No general proof and no counterexample are claimed."
+  ],
+  "n8": {
+    "records": [
+      {
+        "ear_order": {
+          "exists": false,
+          "largest_closure_size": 5,
+          "order": null,
+          "seed": null
+        },
+        "ear_orderable": false,
+        "exact_obstructions": [
+          {
+            "detail": "y_2 lies in the rational PB-polynomial span",
+            "method": "pb_y2_span",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 0,
+        "n": 8
+      },
+      {
+        "ear_order": {
+          "exists": false,
+          "largest_closure_size": 5,
+          "order": null,
+          "seed": null
+        },
+        "ear_orderable": false,
+        "exact_obstructions": [
+          {
+            "detail": "y_2 lies in the rational PB-polynomial span",
+            "method": "pb_y2_span",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 1,
+        "n": 8
+      },
+      {
+        "ear_order": {
+          "exists": false,
+          "largest_closure_size": 5,
+          "order": null,
+          "seed": null
+        },
+        "ear_orderable": false,
+        "exact_obstructions": [
+          {
+            "detail": "y_2 lies in the rational PB-polynomial span",
+            "method": "pb_y2_span",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 2,
+        "n": 8
+      },
+      {
+        "ear_order": {
+          "exists": false,
+          "largest_closure_size": 5,
+          "order": null,
+          "seed": null
+        },
+        "ear_orderable": false,
+        "exact_obstructions": [
+          {
+            "detail": "Groebner substitution chain forces duplicate vertices",
+            "method": "class3_duplicate_vertex",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 3,
+        "n": 8
+      },
+      {
+        "ear_order": {
+          "exists": true,
+          "largest_closure_size": 8,
+          "order": [
+            0,
+            1,
+            6,
+            2,
+            4,
+            7,
+            3,
+            5
+          ],
+          "seed": [
+            0,
+            1,
+            6
+          ]
+        },
+        "ear_orderable": true,
+        "exact_obstructions": [
+          {
+            "detail": "Groebner substitution chain forces collinearity",
+            "method": "class4_collinearity",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 4,
+        "n": 8
+      },
+      {
+        "ear_order": {
+          "exists": true,
+          "largest_closure_size": 8,
+          "order": [
+            0,
+            1,
+            6,
+            2,
+            7,
+            3,
+            4,
+            5
+          ],
+          "seed": [
+            0,
+            1,
+            6
+          ]
+        },
+        "ear_orderable": true,
+        "exact_obstructions": [
+          {
+            "detail": "Groebner basis contains 1",
+            "method": "class5_groebner_contradiction",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 5,
+        "n": 8
+      },
+      {
+        "ear_order": {
+          "exists": true,
+          "largest_closure_size": 8,
+          "order": [
+            0,
+            2,
+            5,
+            1,
+            3,
+            7,
+            4,
+            6
+          ],
+          "seed": [
+            0,
+            2,
+            5
+          ]
+        },
+        "ear_orderable": true,
+        "exact_obstructions": [
+          {
+            "detail": "y_2 lies in the rational PB-polynomial span",
+            "method": "pb_y2_span",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 6,
+        "n": 8
+      },
+      {
+        "ear_order": {
+          "exists": true,
+          "largest_closure_size": 8,
+          "order": [
+            0,
+            1,
+            4,
+            6,
+            7,
+            2,
+            3,
+            5
+          ],
+          "seed": [
+            0,
+            1,
+            4
+          ]
+        },
+        "ear_orderable": true,
+        "exact_obstructions": [
+          {
+            "detail": "y_2 lies in the rational PB-polynomial span",
+            "method": "pb_y2_span",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 7,
+        "n": 8
+      },
+      {
+        "ear_order": {
+          "exists": true,
+          "largest_closure_size": 8,
+          "order": [
+            0,
+            1,
+            7,
+            5,
+            4,
+            6,
+            2,
+            3
+          ],
+          "seed": [
+            0,
+            1,
+            7
+          ]
+        },
+        "ear_orderable": true,
+        "exact_obstructions": [
+          {
+            "detail": "y_2 lies in the rational PB-polynomial span",
+            "method": "pb_y2_span",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 8,
+        "n": 8
+      },
+      {
+        "ear_order": {
+          "exists": true,
+          "largest_closure_size": 8,
+          "order": [
+            0,
+            1,
+            5,
+            7,
+            6,
+            3,
+            4,
+            2
+          ],
+          "seed": [
+            0,
+            1,
+            5
+          ]
+        },
+        "ear_orderable": true,
+        "exact_obstructions": [
+          {
+            "detail": "y_2 lies in the rational PB-polynomial span",
+            "method": "pb_y2_span",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 9,
+        "n": 8
+      },
+      {
+        "ear_order": {
+          "exists": true,
+          "largest_closure_size": 8,
+          "order": [
+            0,
+            1,
+            3,
+            7,
+            6,
+            4,
+            5,
+            2
+          ],
+          "seed": [
+            0,
+            1,
+            3
+          ]
+        },
+        "ear_orderable": true,
+        "exact_obstructions": [
+          {
+            "detail": "y_2 lies in the rational PB-polynomial span",
+            "method": "pb_y2_span",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 10,
+        "n": 8
+      },
+      {
+        "ear_order": {
+          "exists": true,
+          "largest_closure_size": 8,
+          "order": [
+            0,
+            1,
+            2,
+            6,
+            7,
+            4,
+            5,
+            3
+          ],
+          "seed": [
+            0,
+            1,
+            2
+          ]
+        },
+        "ear_orderable": true,
+        "exact_obstructions": [
+          {
+            "detail": "y_2 lies in the rational PB-polynomial span",
+            "method": "pb_y2_span",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 11,
+        "n": 8
+      },
+      {
+        "ear_order": {
+          "exists": true,
+          "largest_closure_size": 8,
+          "order": [
+            0,
+            1,
+            2,
+            7,
+            6,
+            4,
+            5,
+            3
+          ],
+          "seed": [
+            0,
+            1,
+            2
+          ]
+        },
+        "ear_orderable": true,
+        "exact_obstructions": [
+          {
+            "detail": "0 compatible cyclic orders",
+            "method": "cyclic_order_noncrossing",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 12,
+        "n": 8
+      },
+      {
+        "ear_order": {
+          "exists": true,
+          "largest_closure_size": 8,
+          "order": [
+            0,
+            1,
+            6,
+            4,
+            5,
+            7,
+            2,
+            3
+          ],
+          "seed": [
+            0,
+            1,
+            6
+          ]
+        },
+        "ear_orderable": true,
+        "exact_obstructions": [
+          {
+            "detail": "y_2 lies in the rational PB-polynomial span",
+            "method": "pb_y2_span",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 13,
+        "n": 8
+      },
+      {
+        "ear_order": {
+          "exists": true,
+          "largest_closure_size": 8,
+          "order": [
+            0,
+            1,
+            3,
+            7,
+            4,
+            5,
+            6,
+            2
+          ],
+          "seed": [
+            0,
+            1,
+            3
+          ]
+        },
+        "ear_orderable": true,
+        "exact_obstructions": [
+          {
+            "detail": "PB+ED Groebner branches exist only in configurations failing strict convexity",
+            "method": "class14_pb_ed_groebner_strict_interior",
+            "scope": "n=8 selected-witness survivor class",
+            "status": "EXACT_OBSTRUCTION"
+          }
+        ],
+        "id": 14,
+        "n": 8
+      }
+    ],
+    "source": "data/incidence/n8_reconstructed_15_survivors.json"
+  },
+  "n9": {
+    "records": [
+      {
+        "assignment_index": 0,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 1,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 2,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 3,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 4,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 5,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 6,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 7,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 8,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 9,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 10,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 11,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 12,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 13,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 14,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 15,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 16,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 17,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 18,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 19,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 20,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 21,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 22,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 23,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 24,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 25,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 26,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 27,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 28,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 29,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 30,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 31,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 32,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 33,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 34,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 35,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 36,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 37,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 38,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 39,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 40,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 41,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 42,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 43,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 44,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 45,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 46,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 47,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 48,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 49,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 50,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 51,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 52,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 53,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 54,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 55,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 56,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 57,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 58,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 59,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 60,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 61,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 62,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 63,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 64,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 65,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 66,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 67,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 68,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 69,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 70,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 71,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 72,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 73,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 74,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 75,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 76,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 77,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 78,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 79,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 80,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 81,
+        "circulant_offsets": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "ear_orderable": false,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 82,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 83,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 84,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 85,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 86,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 87,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 88,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 89,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 90,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 91,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 92,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 93,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 94,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 95,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 96,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 97,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 98,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 99,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 100,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 101,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 102,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 103,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 104,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 105,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 106,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 107,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 108,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 109,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 110,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 111,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 112,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 113,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 114,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 115,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 116,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 117,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 118,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 119,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 120,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 121,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 122,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 123,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 124,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 125,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 126,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 127,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 128,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 129,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 130,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 131,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 132,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 133,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 134,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 135,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 136,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 137,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 138,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 139,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 140,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 141,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 142,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 143,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 144,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 145,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 146,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 147,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 148,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 149,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 150,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 151,
+        "circulant_offsets": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "ear_orderable": false,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 152,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 153,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 154,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 155,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 156,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 157,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 158,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 159,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 160,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 161,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 162,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 163,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 164,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 165,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 166,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 167,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 168,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 169,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 170,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 171,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 172,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 173,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 174,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 175,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 176,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 177,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 178,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 179,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "strict_cycle"
+      },
+      {
+        "assignment_index": 180,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 181,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 182,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      },
+      {
+        "assignment_index": 183,
+        "ear_orderable": true,
+        "n": 9,
+        "vertex_circle_status": "self_edge"
+      }
+    ],
+    "source": "src/erdos97/n9_vertex_circle_exhaustive.py"
+  },
+  "proof_mining_targets": [
+    {
+      "ear_order": {
+        "exists": false,
+        "largest_closure": [
+          0,
+          1,
+          2,
+          3,
+          6
+        ],
+        "largest_closure_seed": [
+          0,
+          1,
+          6
+        ],
+        "largest_closure_size": 5,
+        "order": null,
+        "seed": null
+      },
+      "exact_obstructions": [
+        {
+          "detail": "y_2 lies in the rational PB-polynomial span",
+          "method": "pb_y2_span",
+          "scope": "n=8 selected-witness survivor class",
+          "status": "EXACT_OBSTRUCTION"
+        }
+      ],
+      "n": 8,
+      "selected_rows": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          0,
+          1,
+          2,
+          7
+        ],
+        [
+          0,
+          5,
+          6,
+          7
+        ],
+        [
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "source": "data/incidence/n8_reconstructed_15_survivors.json",
+      "source_record_id": 0,
+      "target_id": "n8-class-0",
+      "why": "Non-ear-orderable n=8 selected-witness survivor; small fixed-selection stuck target for Bridge Lemma A' proof mining."
+    },
+    {
+      "ear_order": {
+        "exists": false,
+        "largest_closure": [
+          0,
+          1,
+          2,
+          3,
+          6
+        ],
+        "largest_closure_seed": [
+          0,
+          1,
+          6
+        ],
+        "largest_closure_size": 5,
+        "order": null,
+        "seed": null
+      },
+      "exact_obstructions": [
+        {
+          "detail": "y_2 lies in the rational PB-polynomial span",
+          "method": "pb_y2_span",
+          "scope": "n=8 selected-witness survivor class",
+          "status": "EXACT_OBSTRUCTION"
+        }
+      ],
+      "n": 8,
+      "selected_rows": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          0,
+          1,
+          2,
+          7
+        ],
+        [
+          1,
+          5,
+          6,
+          7
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ],
+        [
+          3,
+          4,
+          5,
+          7
+        ],
+        [
+          2,
+          4,
+          5,
+          6
+        ]
+      ],
+      "source": "data/incidence/n8_reconstructed_15_survivors.json",
+      "source_record_id": 1,
+      "target_id": "n8-class-1",
+      "why": "Non-ear-orderable n=8 selected-witness survivor; small fixed-selection stuck target for Bridge Lemma A' proof mining."
+    },
+    {
+      "ear_order": {
+        "exists": false,
+        "largest_closure": [
+          0,
+          1,
+          2,
+          3,
+          6
+        ],
+        "largest_closure_seed": [
+          0,
+          1,
+          6
+        ],
+        "largest_closure_size": 5,
+        "order": null,
+        "seed": null
+      },
+      "exact_obstructions": [
+        {
+          "detail": "y_2 lies in the rational PB-polynomial span",
+          "method": "pb_y2_span",
+          "scope": "n=8 selected-witness survivor class",
+          "status": "EXACT_OBSTRUCTION"
+        }
+      ],
+      "n": 8,
+      "selected_rows": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          0,
+          1,
+          2,
+          7
+        ],
+        [
+          1,
+          5,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          6,
+          7
+        ],
+        [
+          3,
+          4,
+          5,
+          7
+        ],
+        [
+          0,
+          4,
+          5,
+          6
+        ]
+      ],
+      "source": "data/incidence/n8_reconstructed_15_survivors.json",
+      "source_record_id": 2,
+      "target_id": "n8-class-2",
+      "why": "Non-ear-orderable n=8 selected-witness survivor; small fixed-selection stuck target for Bridge Lemma A' proof mining."
+    },
+    {
+      "ear_order": {
+        "exists": false,
+        "largest_closure": [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        "largest_closure_seed": [
+          0,
+          1,
+          6
+        ],
+        "largest_closure_size": 5,
+        "order": null,
+        "seed": null
+      },
+      "exact_obstructions": [
+        {
+          "detail": "Groebner substitution chain forces duplicate vertices",
+          "method": "class3_duplicate_vertex",
+          "scope": "n=8 selected-witness survivor class",
+          "status": "EXACT_OBSTRUCTION"
+        }
+      ],
+      "n": 8,
+      "selected_rows": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          7
+        ],
+        [
+          0,
+          2,
+          6,
+          7
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "source": "data/incidence/n8_reconstructed_15_survivors.json",
+      "source_record_id": 3,
+      "target_id": "n8-class-3",
+      "why": "Non-ear-orderable n=8 selected-witness survivor; small fixed-selection stuck target for Bridge Lemma A' proof mining."
+    },
+    {
+      "circulant_offsets": [
+        1,
+        3,
+        6,
+        7
+      ],
+      "ear_order": {
+        "exists": false,
+        "largest_closure": [
+          0,
+          1,
+          3,
+          4,
+          6
+        ],
+        "largest_closure_seed": [
+          0,
+          1,
+          4
+        ],
+        "largest_closure_size": 5,
+        "order": null,
+        "seed": null
+      },
+      "exact_obstructions": [
+        {
+          "method": "vertex_circle_strict_cycle",
+          "scope": "n=9 selected-witness assignment in the review-pending checker",
+          "status": "EXACT_OBSTRUCTION_REVIEW_PENDING"
+        }
+      ],
+      "n": 9,
+      "selected_rows": [
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "source": "src/erdos97/n9_vertex_circle_exhaustive.py",
+      "source_record_id": 81,
+      "target_id": "n9-assignment-81",
+      "vertex_circle_status": "strict_cycle",
+      "why": "Non-ear-orderable n=9 selected-witness frontier assignment; killed by the review-pending exact vertex-circle obstruction and useful as an edge-case target for Bridge Lemma A' proof mining."
+    },
+    {
+      "circulant_offsets": [
+        2,
+        3,
+        6,
+        8
+      ],
+      "ear_order": {
+        "exists": false,
+        "largest_closure": [
+          0,
+          1,
+          4,
+          6,
+          7
+        ],
+        "largest_closure_seed": [
+          0,
+          1,
+          6
+        ],
+        "largest_closure_size": 5,
+        "order": null,
+        "seed": null
+      },
+      "exact_obstructions": [
+        {
+          "method": "vertex_circle_strict_cycle",
+          "scope": "n=9 selected-witness assignment in the review-pending checker",
+          "status": "EXACT_OBSTRUCTION_REVIEW_PENDING"
+        }
+      ],
+      "n": 9,
+      "selected_rows": [
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ]
+      ],
+      "source": "src/erdos97/n9_vertex_circle_exhaustive.py",
+      "source_record_id": 151,
+      "target_id": "n9-assignment-151",
+      "vertex_circle_status": "strict_cycle",
+      "why": "Non-ear-orderable n=9 selected-witness frontier assignment; killed by the review-pending exact vertex-circle obstruction and useful as an edge-case target for Bridge Lemma A' proof mining."
+    }
+  ],
+  "provenance": {
+    "command": "python scripts/check_bridge_lemma_frontier.py --write --assert-expected",
+    "generator": "scripts/check_bridge_lemma_frontier.py",
+    "sources": [
+      "data/incidence/n8_reconstructed_15_survivors.json",
+      "scripts/analyze_n8_exact_survivors.py",
+      "src/erdos97/n9_vertex_circle_exhaustive.py",
+      "src/erdos97/stuck_sets.py"
+    ]
+  },
+  "schema": "erdos97.bridge_lemma_frontier.v1",
+  "status": "BRIDGE_LEMMA_FRONTIER_DIAGNOSTIC_ONLY",
+  "summary": {
+    "n8_ear_orderable": 11,
+    "n8_non_ear_ids": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "n8_non_ear_orderable": 4,
+    "n8_total": 15,
+    "n9_cross_tabulation": {
+      "ear|ok": 0,
+      "ear|self_edge": 158,
+      "ear|strict_cycle": 24,
+      "non_ear|ok": 0,
+      "non_ear|self_edge": 0,
+      "non_ear|strict_cycle": 2
+    },
+    "n9_ear_orderable": 182,
+    "n9_non_ear_indices": [
+      81,
+      151
+    ],
+    "n9_non_ear_orderable": 2,
+    "n9_total": 184,
+    "n9_vertex_circle_status_counts": {
+      "self_edge": 158,
+      "strict_cycle": 26
+    },
+    "proof_mining_target_count": 6
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

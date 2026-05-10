@@ -1,6 +1,6 @@
 PYTHON ?= python
 
-.PHONY: verify-lint verify-fast verify-pytest-artifacts verify-pytest-all verify-n8 verify-kalmanson verify-n9-review verify-n10-review verify-artifacts audit-artifacts verify-all
+.PHONY: verify-lint verify-fast verify-pytest-artifacts verify-pytest-all verify-n8 verify-kalmanson verify-n9-review verify-bridge-frontier verify-n10-review verify-artifacts audit-artifacts verify-all
 
 verify-lint:
 	$(PYTHON) scripts/check_text_clean.py
@@ -64,11 +64,14 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
 	$(PYTHON) scripts/check_n9_base_apex_d3_artifact_join.py --check --json
 
+verify-bridge-frontier:
+	$(PYTHON) scripts/check_bridge_lemma_frontier.py --check --assert-expected --json
+
 verify-n10-review:
 	$(PYTHON) scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
 	$(PYTHON) scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json
 
-verify-artifacts: verify-n8 verify-kalmanson verify-n9-review verify-n10-review
+verify-artifacts: verify-n8 verify-kalmanson verify-n9-review verify-bridge-frontier verify-n10-review
 
 audit-artifacts:
 	$(PYTHON) scripts/check_status_consistency.py --max-official-status-age-days 90
