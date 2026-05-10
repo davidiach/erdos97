@@ -196,6 +196,17 @@ private-halo-only. This is still diagnostic bookkeeping only; see
 `scripts/check_bootstrap_t12_outside_pair.py`, and
 `data/certificates/bootstrap_t12_outside_pair.json`.
 
+The activation-support requirement ledger refines those T12 row gaps by
+separating relation requirements from unproved row forcing. Across the six
+missing row centers it records five equality-connector pair requirements and
+two strict-edge endpoint-set requirements. Two connector requirements are
+already satisfied at the bootstrap-core witness level, three requirements have
+stored support options that supply the needed witnesses, and two strict-edge
+requirements remain hard. This is still diagnostic bookkeeping only; see
+`docs/bootstrap-t12-activation-requirements.md`,
+`scripts/check_bootstrap_t12_activation_requirements.py`, and
+`data/certificates/bootstrap_t12_activation_requirements.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

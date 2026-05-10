@@ -1,0 +1,1368 @@
+{
+  "claim_scope": "Role-sensitive activation-requirement diagnostic for the two tight n=9 bootstrap/T12 records; records the minimal witness subsets needed for T12/F16 quotient connectors and strict edges only. This does not prove that the missing rows are forced, does not prove n=9, does not prove the bridge, and does not claim a counterexample.",
+  "interpretation_warnings": [
+    "This packet classifies fixed selected-row T12 activation requirements; it does not prove the rows are forced.",
+    "A connector pair or strict-edge endpoint set is a relation requirement, not a Euclidean rich-class certificate.",
+    "Support sufficiency is conditional on the row center/rich class being genuinely activated.",
+    "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_activation_requirements.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_activation_requirements.py"
+  },
+  "records": [
+    {
+      "bootstrap_core_witnesses": [
+        0,
+        1,
+        4
+      ],
+      "classification_assignment_id": "A082",
+      "diagnosis": {
+        "all_requirements_satisfied_by_bootstrap_core": true,
+        "any_requirement_satisfied_by_deletion_closure": true,
+        "any_requirement_satisfied_by_support_option": false,
+        "connector_requirement_count": 1,
+        "hard_strict_requirement_ids": [],
+        "strict_requirement_count": 0
+      },
+      "outside_support_kind": "core_sufficient",
+      "outside_support_subsets": [],
+      "outside_witnesses": [
+        6
+      ],
+      "pressure_class": "ALREADY_PRESENT_IN_A_DELETION_CLOSURE",
+      "requirement_count": 1,
+      "requirements": [
+        {
+          "bootstrap_core_status": "SUFFICIENT",
+          "bootstrap_core_witnesses": [
+            0,
+            1,
+            4
+          ],
+          "closure_evaluations": [
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                1,
+                4
+              ],
+              "closure_labels": [
+                1,
+                2,
+                4
+              ],
+              "core_vertex": 0,
+              "missing_required_witnesses": [
+                0
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                0,
+                4
+              ],
+              "closure_labels": [
+                0,
+                2,
+                4
+              ],
+              "core_vertex": 1,
+              "missing_required_witnesses": [
+                1
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            },
+            {
+              "activation_ready_in_closure": true,
+              "available_witnesses": [
+                0,
+                1,
+                4,
+                6
+              ],
+              "closure_labels": [
+                0,
+                1,
+                3,
+                4,
+                6
+              ],
+              "core_vertex": 2,
+              "missing_required_witnesses": [],
+              "row_center_in_closure": true,
+              "row_exposed_in_closure": true,
+              "status": "SUFFICIENT",
+              "witness_status": "SUFFICIENT"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                0,
+                1
+              ],
+              "closure_labels": [
+                0,
+                1,
+                2
+              ],
+              "core_vertex": 4,
+              "missing_required_witnesses": [],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "WITNESSES_ONLY",
+              "witness_status": "SUFFICIENT"
+            }
+          ],
+          "closure_sufficient_count": 1,
+          "connector_row": 3,
+          "from_pair": [
+            1,
+            3
+          ],
+          "kind": "equality_connector_pair",
+          "missing_from_bootstrap_core": [],
+          "path_index": 0,
+          "reason": "connector equality needs the two non-center endpoints in one rich class at the connector row center",
+          "required_witnesses": [
+            0,
+            1
+          ],
+          "requirement_id": "81:3:connector:2:0",
+          "requirement_size": 2,
+          "step_index": 2,
+          "support_evaluations": [],
+          "support_sufficient_count": 0,
+          "to_pair": [
+            0,
+            3
+          ]
+        }
+      ],
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 3,
+      "row_center_private_in_all_deletion_closures": false,
+      "source_record_id": 81,
+      "witnesses": [
+        0,
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "bootstrap_core_witnesses": [
+        0,
+        2
+      ],
+      "classification_assignment_id": "A082",
+      "diagnosis": {
+        "all_requirements_satisfied_by_bootstrap_core": true,
+        "any_requirement_satisfied_by_deletion_closure": false,
+        "any_requirement_satisfied_by_support_option": true,
+        "connector_requirement_count": 1,
+        "hard_strict_requirement_ids": [],
+        "strict_requirement_count": 0
+      },
+      "outside_support_kind": "outside_1_set",
+      "outside_support_subsets": [
+        [
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "outside_witnesses": [
+        5,
+        6
+      ],
+      "pressure_class": "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER",
+      "requirement_count": 1,
+      "requirements": [
+        {
+          "bootstrap_core_status": "SUFFICIENT",
+          "bootstrap_core_witnesses": [
+            0,
+            2
+          ],
+          "closure_evaluations": [
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                2
+              ],
+              "closure_labels": [
+                1,
+                2,
+                4
+              ],
+              "core_vertex": 0,
+              "missing_required_witnesses": [
+                0
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                0,
+                2
+              ],
+              "closure_labels": [
+                0,
+                2,
+                4
+              ],
+              "core_vertex": 1,
+              "missing_required_witnesses": [],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "WITNESSES_ONLY",
+              "witness_status": "SUFFICIENT"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                0,
+                6
+              ],
+              "closure_labels": [
+                0,
+                1,
+                3,
+                4,
+                6
+              ],
+              "core_vertex": 2,
+              "missing_required_witnesses": [
+                2
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                0,
+                2
+              ],
+              "closure_labels": [
+                0,
+                1,
+                2
+              ],
+              "core_vertex": 4,
+              "missing_required_witnesses": [],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "WITNESSES_ONLY",
+              "witness_status": "SUFFICIENT"
+            }
+          ],
+          "closure_sufficient_count": 0,
+          "connector_row": 8,
+          "from_pair": [
+            0,
+            8
+          ],
+          "kind": "equality_connector_pair",
+          "missing_from_bootstrap_core": [],
+          "path_index": 0,
+          "reason": "connector equality needs the two non-center endpoints in one rich class at the connector row center",
+          "required_witnesses": [
+            0,
+            2
+          ],
+          "requirement_id": "81:8:connector:0:0",
+          "requirement_size": 2,
+          "step_index": 0,
+          "support_evaluations": [
+            {
+              "available_witnesses": [
+                0,
+                2,
+                5
+              ],
+              "ledger_private_pair_hit": false,
+              "missing_required_witnesses": [],
+              "private_halo_core_vertices": [
+                0,
+                1,
+                2,
+                4
+              ],
+              "status": "SUFFICIENT",
+              "support": [
+                5
+              ]
+            },
+            {
+              "available_witnesses": [
+                0,
+                2,
+                6
+              ],
+              "ledger_private_pair_hit": false,
+              "missing_required_witnesses": [],
+              "private_halo_core_vertices": [
+                0,
+                1,
+                4
+              ],
+              "status": "SUFFICIENT",
+              "support": [
+                6
+              ]
+            }
+          ],
+          "support_sufficient_count": 2,
+          "to_pair": [
+            2,
+            8
+          ]
+        }
+      ],
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 8,
+      "row_center_private_in_all_deletion_closures": true,
+      "source_record_id": 81,
+      "witnesses": [
+        0,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "bootstrap_core_witnesses": [
+        2,
+        4
+      ],
+      "classification_assignment_id": "A152",
+      "diagnosis": {
+        "all_requirements_satisfied_by_bootstrap_core": false,
+        "any_requirement_satisfied_by_deletion_closure": false,
+        "any_requirement_satisfied_by_support_option": false,
+        "connector_requirement_count": 1,
+        "hard_strict_requirement_ids": [],
+        "strict_requirement_count": 0
+      },
+      "outside_support_kind": "outside_1_set",
+      "outside_support_subsets": [
+        [
+          7
+        ],
+        [
+          8
+        ]
+      ],
+      "outside_witnesses": [
+        7,
+        8
+      ],
+      "pressure_class": "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER",
+      "requirement_count": 1,
+      "requirements": [
+        {
+          "bootstrap_core_status": "DISJOINT",
+          "bootstrap_core_witnesses": [
+            2,
+            4
+          ],
+          "closure_evaluations": [
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                2,
+                4
+              ],
+              "closure_labels": [
+                1,
+                2,
+                4
+              ],
+              "core_vertex": 0,
+              "missing_required_witnesses": [
+                7,
+                8
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "DISJOINT",
+              "witness_status": "DISJOINT"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                2,
+                4
+              ],
+              "closure_labels": [
+                0,
+                2,
+                4
+              ],
+              "core_vertex": 1,
+              "missing_required_witnesses": [
+                7,
+                8
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "DISJOINT",
+              "witness_status": "DISJOINT"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                4,
+                7
+              ],
+              "closure_labels": [
+                0,
+                1,
+                4,
+                7
+              ],
+              "core_vertex": 2,
+              "missing_required_witnesses": [
+                8
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                2
+              ],
+              "closure_labels": [
+                0,
+                1,
+                2
+              ],
+              "core_vertex": 4,
+              "missing_required_witnesses": [
+                7,
+                8
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "DISJOINT",
+              "witness_status": "DISJOINT"
+            }
+          ],
+          "closure_sufficient_count": 0,
+          "connector_row": 5,
+          "from_pair": [
+            5,
+            7
+          ],
+          "kind": "equality_connector_pair",
+          "missing_from_bootstrap_core": [
+            7,
+            8
+          ],
+          "path_index": 0,
+          "reason": "connector equality needs the two non-center endpoints in one rich class at the connector row center",
+          "required_witnesses": [
+            7,
+            8
+          ],
+          "requirement_id": "151:5:connector:1:0",
+          "requirement_size": 2,
+          "step_index": 1,
+          "support_evaluations": [
+            {
+              "available_witnesses": [
+                2,
+                4,
+                7
+              ],
+              "ledger_private_pair_hit": false,
+              "missing_required_witnesses": [
+                8
+              ],
+              "private_halo_core_vertices": [
+                0,
+                1,
+                4
+              ],
+              "status": "PARTIAL",
+              "support": [
+                7
+              ]
+            },
+            {
+              "available_witnesses": [
+                2,
+                4,
+                8
+              ],
+              "ledger_private_pair_hit": false,
+              "missing_required_witnesses": [
+                7
+              ],
+              "private_halo_core_vertices": [
+                0,
+                1,
+                2,
+                4
+              ],
+              "status": "PARTIAL",
+              "support": [
+                8
+              ]
+            }
+          ],
+          "support_sufficient_count": 0,
+          "to_pair": [
+            5,
+            8
+          ]
+        }
+      ],
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 5,
+      "row_center_private_in_all_deletion_closures": true,
+      "source_record_id": 151,
+      "witnesses": [
+        2,
+        4,
+        7,
+        8
+      ]
+    },
+    {
+      "bootstrap_core_witnesses": [
+        0
+      ],
+      "classification_assignment_id": "A152",
+      "diagnosis": {
+        "all_requirements_satisfied_by_bootstrap_core": false,
+        "any_requirement_satisfied_by_deletion_closure": false,
+        "any_requirement_satisfied_by_support_option": true,
+        "connector_requirement_count": 1,
+        "hard_strict_requirement_ids": [],
+        "strict_requirement_count": 0
+      },
+      "outside_support_kind": "outside_2_set",
+      "outside_support_subsets": [
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "outside_witnesses": [
+        3,
+        5,
+        8
+      ],
+      "pressure_class": "NEEDS_OUTSIDE_PAIR_AND_PRIVATE_CENTER",
+      "requirement_count": 1,
+      "requirements": [
+        {
+          "bootstrap_core_status": "PARTIAL",
+          "bootstrap_core_witnesses": [
+            0
+          ],
+          "closure_evaluations": [
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [],
+              "closure_labels": [
+                1,
+                2,
+                4
+              ],
+              "core_vertex": 0,
+              "missing_required_witnesses": [
+                0,
+                8
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "DISJOINT",
+              "witness_status": "DISJOINT"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                0
+              ],
+              "closure_labels": [
+                0,
+                2,
+                4
+              ],
+              "core_vertex": 1,
+              "missing_required_witnesses": [
+                8
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                0
+              ],
+              "closure_labels": [
+                0,
+                1,
+                4,
+                7
+              ],
+              "core_vertex": 2,
+              "missing_required_witnesses": [
+                8
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                0
+              ],
+              "closure_labels": [
+                0,
+                1,
+                2
+              ],
+              "core_vertex": 4,
+              "missing_required_witnesses": [
+                8
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            }
+          ],
+          "closure_sufficient_count": 0,
+          "connector_row": 6,
+          "from_pair": [
+            6,
+            8
+          ],
+          "kind": "equality_connector_pair",
+          "missing_from_bootstrap_core": [
+            8
+          ],
+          "path_index": 0,
+          "reason": "connector equality needs the two non-center endpoints in one rich class at the connector row center",
+          "required_witnesses": [
+            0,
+            8
+          ],
+          "requirement_id": "151:6:connector:2:0",
+          "requirement_size": 2,
+          "step_index": 2,
+          "support_evaluations": [
+            {
+              "available_witnesses": [
+                0,
+                3,
+                5
+              ],
+              "ledger_private_pair_hit": false,
+              "missing_required_witnesses": [
+                8
+              ],
+              "private_halo_core_vertices": [
+                0,
+                1,
+                2,
+                4
+              ],
+              "status": "PARTIAL",
+              "support": [
+                3,
+                5
+              ]
+            },
+            {
+              "available_witnesses": [
+                0,
+                3,
+                8
+              ],
+              "ledger_private_pair_hit": true,
+              "missing_required_witnesses": [],
+              "private_halo_core_vertices": [
+                0,
+                1,
+                2,
+                4
+              ],
+              "status": "SUFFICIENT",
+              "support": [
+                3,
+                8
+              ]
+            },
+            {
+              "available_witnesses": [
+                0,
+                5,
+                8
+              ],
+              "ledger_private_pair_hit": true,
+              "missing_required_witnesses": [],
+              "private_halo_core_vertices": [
+                0,
+                1,
+                2,
+                4
+              ],
+              "status": "SUFFICIENT",
+              "support": [
+                5,
+                8
+              ]
+            }
+          ],
+          "support_sufficient_count": 2,
+          "to_pair": [
+            0,
+            6
+          ]
+        }
+      ],
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 6,
+      "row_center_private_in_all_deletion_closures": true,
+      "source_record_id": 151,
+      "witnesses": [
+        0,
+        3,
+        5,
+        8
+      ]
+    },
+    {
+      "bootstrap_core_witnesses": [
+        0,
+        1,
+        4
+      ],
+      "classification_assignment_id": "A152",
+      "diagnosis": {
+        "all_requirements_satisfied_by_bootstrap_core": false,
+        "any_requirement_satisfied_by_deletion_closure": false,
+        "any_requirement_satisfied_by_support_option": false,
+        "connector_requirement_count": 0,
+        "hard_strict_requirement_ids": [
+          "151:7:strict:0"
+        ],
+        "strict_requirement_count": 1
+      },
+      "outside_support_kind": "core_sufficient",
+      "outside_support_subsets": [],
+      "outside_witnesses": [
+        6
+      ],
+      "pressure_class": "ALREADY_PRESENT_IN_A_DELETION_CLOSURE",
+      "requirement_count": 1,
+      "requirements": [
+        {
+          "bootstrap_core_status": "PARTIAL",
+          "bootstrap_core_witnesses": [
+            0,
+            1,
+            4
+          ],
+          "closure_evaluations": [
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                1,
+                4
+              ],
+              "closure_labels": [
+                1,
+                2,
+                4
+              ],
+              "core_vertex": 0,
+              "missing_required_witnesses": [
+                0,
+                6
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                0,
+                4
+              ],
+              "closure_labels": [
+                0,
+                2,
+                4
+              ],
+              "core_vertex": 1,
+              "missing_required_witnesses": [
+                1,
+                6
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            },
+            {
+              "activation_ready_in_closure": true,
+              "available_witnesses": [
+                0,
+                1,
+                4
+              ],
+              "closure_labels": [
+                0,
+                1,
+                4,
+                7
+              ],
+              "core_vertex": 2,
+              "missing_required_witnesses": [
+                6
+              ],
+              "row_center_in_closure": true,
+              "row_exposed_in_closure": true,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                0,
+                1
+              ],
+              "closure_labels": [
+                0,
+                1,
+                2
+              ],
+              "core_vertex": 4,
+              "missing_required_witnesses": [
+                6
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            }
+          ],
+          "closure_sufficient_count": 0,
+          "inner_pair": [
+            0,
+            1
+          ],
+          "kind": "strict_edge_endpoint_set",
+          "missing_from_bootstrap_core": [
+            6
+          ],
+          "outer_pair": [
+            0,
+            6
+          ],
+          "reason": "strict vertex-circle comparison needs all endpoints of the outer and inner witness chords in one rich class",
+          "required_witnesses": [
+            0,
+            1,
+            6
+          ],
+          "requirement_id": "151:7:strict:0",
+          "requirement_size": 3,
+          "step_index": 0,
+          "strict_row": 7,
+          "support_evaluations": [],
+          "support_sufficient_count": 0
+        }
+      ],
+      "roles": [
+        "strict_edge_row"
+      ],
+      "row_center": 7,
+      "row_center_private_in_all_deletion_closures": false,
+      "source_record_id": 151,
+      "witnesses": [
+        0,
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "bootstrap_core_witnesses": [
+        1,
+        2
+      ],
+      "classification_assignment_id": "A152",
+      "diagnosis": {
+        "all_requirements_satisfied_by_bootstrap_core": false,
+        "any_requirement_satisfied_by_deletion_closure": false,
+        "any_requirement_satisfied_by_support_option": true,
+        "connector_requirement_count": 1,
+        "hard_strict_requirement_ids": [
+          "151:8:strict:1"
+        ],
+        "strict_requirement_count": 1
+      },
+      "outside_support_kind": "outside_1_set",
+      "outside_support_subsets": [
+        [
+          5
+        ],
+        [
+          7
+        ]
+      ],
+      "outside_witnesses": [
+        5,
+        7
+      ],
+      "pressure_class": "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER",
+      "requirement_count": 2,
+      "requirements": [
+        {
+          "bootstrap_core_status": "PARTIAL",
+          "bootstrap_core_witnesses": [
+            1,
+            2
+          ],
+          "closure_evaluations": [
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                1,
+                2
+              ],
+              "closure_labels": [
+                1,
+                2,
+                4
+              ],
+              "core_vertex": 0,
+              "missing_required_witnesses": [
+                5,
+                7
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                2
+              ],
+              "closure_labels": [
+                0,
+                2,
+                4
+              ],
+              "core_vertex": 1,
+              "missing_required_witnesses": [
+                1,
+                5,
+                7
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "DISJOINT",
+              "witness_status": "DISJOINT"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                1,
+                7
+              ],
+              "closure_labels": [
+                0,
+                1,
+                4,
+                7
+              ],
+              "core_vertex": 2,
+              "missing_required_witnesses": [
+                5
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                1,
+                2
+              ],
+              "closure_labels": [
+                0,
+                1,
+                2
+              ],
+              "core_vertex": 4,
+              "missing_required_witnesses": [
+                5,
+                7
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            }
+          ],
+          "closure_sufficient_count": 0,
+          "inner_pair": [
+            5,
+            7
+          ],
+          "kind": "strict_edge_endpoint_set",
+          "missing_from_bootstrap_core": [
+            5,
+            7
+          ],
+          "outer_pair": [
+            1,
+            7
+          ],
+          "reason": "strict vertex-circle comparison needs all endpoints of the outer and inner witness chords in one rich class",
+          "required_witnesses": [
+            1,
+            5,
+            7
+          ],
+          "requirement_id": "151:8:strict:1",
+          "requirement_size": 3,
+          "step_index": 1,
+          "strict_row": 8,
+          "support_evaluations": [
+            {
+              "available_witnesses": [
+                1,
+                2,
+                5
+              ],
+              "ledger_private_pair_hit": false,
+              "missing_required_witnesses": [
+                7
+              ],
+              "private_halo_core_vertices": [
+                0,
+                1,
+                2,
+                4
+              ],
+              "status": "PARTIAL",
+              "support": [
+                5
+              ]
+            },
+            {
+              "available_witnesses": [
+                1,
+                2,
+                7
+              ],
+              "ledger_private_pair_hit": false,
+              "missing_required_witnesses": [
+                5
+              ],
+              "private_halo_core_vertices": [
+                0,
+                1,
+                4
+              ],
+              "status": "PARTIAL",
+              "support": [
+                7
+              ]
+            }
+          ],
+          "support_sufficient_count": 0
+        },
+        {
+          "bootstrap_core_status": "PARTIAL",
+          "bootstrap_core_witnesses": [
+            1,
+            2
+          ],
+          "closure_evaluations": [
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                1,
+                2
+              ],
+              "closure_labels": [
+                1,
+                2,
+                4
+              ],
+              "core_vertex": 0,
+              "missing_required_witnesses": [
+                5
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                2
+              ],
+              "closure_labels": [
+                0,
+                2,
+                4
+              ],
+              "core_vertex": 1,
+              "missing_required_witnesses": [
+                5
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                1,
+                7
+              ],
+              "closure_labels": [
+                0,
+                1,
+                4,
+                7
+              ],
+              "core_vertex": 2,
+              "missing_required_witnesses": [
+                2,
+                5
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "DISJOINT",
+              "witness_status": "DISJOINT"
+            },
+            {
+              "activation_ready_in_closure": false,
+              "available_witnesses": [
+                1,
+                2
+              ],
+              "closure_labels": [
+                0,
+                1,
+                2
+              ],
+              "core_vertex": 4,
+              "missing_required_witnesses": [
+                5
+              ],
+              "row_center_in_closure": false,
+              "row_exposed_in_closure": false,
+              "status": "PARTIAL",
+              "witness_status": "PARTIAL"
+            }
+          ],
+          "closure_sufficient_count": 0,
+          "connector_row": 8,
+          "from_pair": [
+            5,
+            8
+          ],
+          "kind": "equality_connector_pair",
+          "missing_from_bootstrap_core": [
+            5
+          ],
+          "path_index": 1,
+          "reason": "connector equality needs the two non-center endpoints in one rich class at the connector row center",
+          "required_witnesses": [
+            2,
+            5
+          ],
+          "requirement_id": "151:8:connector:1:1",
+          "requirement_size": 2,
+          "step_index": 1,
+          "support_evaluations": [
+            {
+              "available_witnesses": [
+                1,
+                2,
+                5
+              ],
+              "ledger_private_pair_hit": false,
+              "missing_required_witnesses": [],
+              "private_halo_core_vertices": [
+                0,
+                1,
+                2,
+                4
+              ],
+              "status": "SUFFICIENT",
+              "support": [
+                5
+              ]
+            },
+            {
+              "available_witnesses": [
+                1,
+                2,
+                7
+              ],
+              "ledger_private_pair_hit": false,
+              "missing_required_witnesses": [
+                5
+              ],
+              "private_halo_core_vertices": [
+                0,
+                1,
+                4
+              ],
+              "status": "PARTIAL",
+              "support": [
+                7
+              ]
+            }
+          ],
+          "support_sufficient_count": 1,
+          "to_pair": [
+            2,
+            8
+          ]
+        }
+      ],
+      "roles": [
+        "strict_edge_row",
+        "equality_connector_row"
+      ],
+      "row_center": 8,
+      "row_center_private_in_all_deletion_closures": true,
+      "source_record_id": 151,
+      "witnesses": [
+        1,
+        2,
+        5,
+        7
+      ]
+    }
+  ],
+  "schema": "erdos97.bootstrap_t12_activation_requirements.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_vertex_circle_overlay.json",
+      "role": "source T12/F16 strict-cycle rows and cycle steps",
+      "schema": "erdos97.bootstrap_vertex_circle_overlay.v1",
+      "status": "BOOTSTRAP_VERTEX_CIRCLE_OVERLAY_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/bootstrap_t12_row_pressure.json",
+      "role": "source row-pressure records and support options",
+      "schema": "erdos97.bootstrap_t12_row_pressure.v1",
+      "status": "BOOTSTRAP_T12_ROW_PRESSURE_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_ACTIVATION_REQUIREMENTS_DIAGNOSTIC_ONLY",
+  "summary": {
+    "bootstrap_core_sufficient_requirement_count": 2,
+    "bootstrap_core_sufficient_requirement_ids": [
+      "81:3:connector:2:0",
+      "81:8:connector:0:0"
+    ],
+    "closure_sufficient_requirement_count": 1,
+    "closure_sufficient_requirement_ids": [
+      "81:3:connector:2:0"
+    ],
+    "forcing_target_status": "OPEN_TARGET_NOT_PROVED",
+    "hard_strict_requirement_count": 2,
+    "hard_strict_requirement_ids": [
+      "151:7:strict:0",
+      "151:8:strict:1"
+    ],
+    "main_negative_control": "source 151 row 7 is closure-exposed through witnesses [0,1,4], but its T12 strict edge needs endpoint set [0,1,6]",
+    "requirement_count": 7,
+    "requirement_kind_counts": {
+      "equality_connector_pair": 5,
+      "strict_edge_endpoint_set": 2
+    },
+    "row_centers_by_source_id": {
+      "151": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "81": [
+        3,
+        8
+      ]
+    },
+    "row_record_count": 6,
+    "source_record_ids": [
+      81,
+      151
+    ],
+    "support_sufficient_requirement_count": 3,
+    "support_sufficient_requirement_ids": [
+      "81:8:connector:0:0",
+      "151:6:connector:2:0",
+      "151:8:connector:1:1"
+    ]
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}
