@@ -291,6 +291,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="relation_skeleton_catalog",
+        command=(
+            "python",
+            "scripts/check_relation_skeleton_catalog.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Two-entry relation-skeleton catalog for focused n=9 "
+            "vertex-circle quotient motifs; proof-mining scaffolding only, "
+            "not a proof of n=9, counterexample, or independent review "
+            "completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_t11_strict_cycle_lemma_packet",
         command=(
             "python",
