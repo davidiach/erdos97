@@ -22947,6 +22947,183 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 671 - Rational Simultaneous Endpoint-Failure Configuration
+
+### Mathematical Subquestion
+
+After the fixed-survivor Kalmanson-certificate route started showing
+diminishing returns, I switched to the endpoint-descent program from the
+canonical synthesis. The narrow local question was:
+
+```text
+In the m=4 endpoint-descent setup, can both angular endpoints of the selected
+circle class have a radius containing two vertices outside A union {i*}?
+```
+
+Equivalently, can both endpoints fail the local version of the Endpoint
+Control inequality using only strict convexity and the displayed local circle
+class?
+
+### Definitions and Assumptions
+
+Let `O` play the role of `i*`, and let
+
+```text
+A = {A1,A2,A3,A4}
+```
+
+be a four-point unit circle class around `O`. In the `m=4` endpoint-control
+bound, an endpoint would be locally controlled if every endpoint-centered
+radius had at most `m-3=1` point outside `A union {O}`.
+
+The tested local subclaim intentionally ignores the global hypotheses that
+would hold in a true minimal counterexample. It asks only whether strict
+convexity plus the local circle class itself forbids simultaneous failure at
+both endpoints.
+
+### Result Status
+
+Counterexample to a local subclaim:
+**Rational Simultaneous Endpoint-Failure Configuration**.
+
+### Argument Or Obstruction
+
+Use the following nine rational points in cyclic order:
+
+```text
+O, L0, L1, A1, A2, A3, A4, U1, U0
+```
+
+with coordinates
+
+```text
+O  = (0,0)
+L0 = (9/65, -129/130)
+L1 = (1/5, -11/10)
+A1 = (3/5, -4/5)
+A2 = (4/5, -3/5)
+A3 = (4/5, 3/5)
+A4 = (3/5, 4/5)
+U1 = (1/5, 11/10)
+U0 = (9/65, 129/130).
+```
+
+The exact left-turn determinants in the displayed cyclic order are
+
+```text
+1161/4225, 3/65, 4/65, 1/50, 6/25,
+6/25, 1/50, 4/65, 3/65,
+```
+
+so the configuration is strictly convex.
+
+The four displayed `A` points are exactly unit-distance witnesses from `O`:
+
+```text
+|OA1|^2 = |OA2|^2 = |OA3|^2 = |OA4|^2 = 1.
+```
+
+The outside points are not on that unit circle:
+
+```text
+|OL0|^2 = |OU0|^2 = 261/260,
+|OL1|^2 = |OU1|^2 = 5/4.
+```
+
+The two angular endpoints of `A` around `O` are `A1` and `A4`. Both endpoints
+have two outside points on one endpoint-centered circle:
+
+```text
+|A1L0|^2 = |A1L1|^2 = 1/4,
+|A4U0|^2 = |A4U1|^2 = 1/4.
+```
+
+Thus both endpoints fail the local `m=4` outside bound. This exactly blocks
+the shortcut:
+
+```text
+Strict convexity plus a four-point local circle class around O forces at
+least one endpoint to have at most one outside point at every radius.
+```
+
+### Exact Scope
+
+This is not a counterexample to Erdos Problem #97, and it is not a
+counterexample to the full Endpoint Control Auxiliary Claim. The point set is
+only a local configuration; it does not satisfy the global badness condition,
+does not make every vertex have four equal-distance witnesses, and does not
+encode minimal-counterexample criticality.
+
+The obstruction only says that any endpoint-descent proof must use genuinely
+global information such as minimality, critical ties, both boundary chains, or
+some other outside-vertex ledger. It cannot rely on strict convexity plus the
+local `A=S_O(1)` endpoint geometry alone.
+
+### Files Changed
+
+- `docs/failed-ideas.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This is useful negative progress. It narrows the endpoint-descent route by
+removing a tempting local proof shortcut. The next viable endpoint-descent
+target is the minimal-counterexample version: combine the critical-tie lemma
+with endpoint control and ask whether a simultaneous endpoint-failure
+configuration can be embedded when `A` is a critical exact 4-tie in a minimal
+counterexample.
+
+### Next Lead
+
+Prove or refute the **Critical Endpoint-Control Lemma**:
+
+```text
+In a minimal counterexample, choose a critical exact 4-tie A at center i*.
+Then at least one angular endpoint of A has no radius containing two vertices
+outside A union {i*}.
+```
+
+The rational local configuration shows which hypotheses this stronger lemma
+must exploit: it must use minimality or global badness, not just local
+convexity.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-671`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-671`.
+- The branch was started from `origin/main` at commit
+  `4846aa36378403033ab78fa16e2fc989b26c74d7`, after PR #409 merged Cycle
+  670.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+- Three read-only subagents ran in parallel: one inspected the endpoint gap in
+  the repo, one searched for a local endpoint countermodel, and one compared
+  non-certificate proof routes.
+
+### Validation
+
+- Exact rational arithmetic check of the displayed coordinates: passed. It
+  verified all nine positive turn determinants, the four `O`-centered unit
+  distances, the two endpoint-centered outside pairs, and the fact that the
+  outside points are not on the `O` unit circle.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `593 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 670 - Survivor Kalmanson Certificate
 
 ### Mathematical Subquestion
