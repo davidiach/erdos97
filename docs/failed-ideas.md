@@ -137,6 +137,64 @@ fixed selected-witness pattern of the exact concave alternating decagon has no
 cyclic order satisfying the two-overlap crossing filter. See
 `docs/two-orbit-radius-propagation.md`.
 
+## 18. Local endpoint-control shortcut
+
+Failure mode: the endpoint-descent program still needs the global Endpoint
+Control Auxiliary Claim. It cannot be replaced by a purely local statement
+that the two angular endpoints of a selected local circle class cannot both
+have outside-filled equal-distance circles.
+
+There is an exact rational strictly convex 9-point configuration with a
+center `O`, four unit witnesses `A={A1,A2,A3,A4}`, and both angular endpoints
+failing the local outside bound for the `m=4` case. In cyclic order
+
+```text
+O, L0, L1, A1, A2, A3, A4, U1, U0
+```
+
+take
+
+```text
+O  = (0,0)
+L0 = (9/65, -129/130)
+L1 = (1/5, -11/10)
+A1 = (3/5, -4/5)
+A2 = (4/5, -3/5)
+A3 = (4/5, 3/5)
+A4 = (3/5, 4/5)
+U1 = (1/5, 11/10)
+U0 = (9/65, 129/130).
+```
+
+Then `A1,A2,A3,A4` are exactly the four displayed unit points from `O`.
+The endpoints `A1` and `A4` both have two equal-distance points outside
+`A union {O}`:
+
+```text
+|A1L0|^2 = |A1L1|^2 = 1/4,
+|A4U0|^2 = |A4U1|^2 = 1/4.
+```
+
+The outside points are not on the unit circle around `O`:
+
+```text
+|OL0|^2 = |OU0|^2 = 261/260,
+|OL1|^2 = |OU1|^2 = 5/4.
+```
+
+The cyclic-order turn determinants are exactly positive:
+
+```text
+1161/4225, 3/65, 4/65, 1/50, 6/25,
+6/25, 1/50, 4/65, 3/65.
+```
+
+This is a genuine local strictly convex obstruction to that shortcut.
+
+This does not disprove the actual Endpoint Control Auxiliary Claim, because
+the configuration is not a full counterexample and does not impose the
+minimality or global badness hypotheses.
+
 [^lit]: Public consolidation: `public-provenance.md#literature-digest`.
 [^forest]: Public consolidation: `public-provenance.md#forest-lemma-failure`.
 [^rank]: Public consolidation: `public-provenance.md#rank-and-bridge-status`.
