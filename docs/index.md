@@ -139,6 +139,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-vertex-circle-overlay.md`](bootstrap-vertex-circle-overlay.md):
   checked overlay joining the two tight `n=9` non-ear bootstrap rows to the
   review-pending vertex-circle strict-cycle chain.
+- [`bootstrap-t12-forcing-targets.md`](bootstrap-t12-forcing-targets.md):
+  follow-up target ledger naming the missing `T12/F16` row centers and direct
+  private-pair contacts for the two tight bootstrap rows.
 - [`bridge-negative-controls.md`](bridge-negative-controls.md): exact
   guardrails for incidence-only and fragile-cover-only bridge claims.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`

@@ -1,0 +1,672 @@
+{
+  "claim_scope": "Second-pass diagnostic on the two tight n=9 bootstrap-core rows that land on the review-pending T12/F16 vertex-circle strict-cycle template; records row-center and private-pair forcing targets only, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.",
+  "interpretation_warnings": [
+    "This is a proof-mining target ledger, not a proof of the bridge.",
+    "The input overlay is fixed selected-row data, not full geometric rich-class data.",
+    "Direct private-pair hits are diagnostic contacts, not Euclidean realizability evidence.",
+    "No general proof and no counterexample are claimed."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_forcing_targets.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_forcing_targets.py"
+  },
+  "records": [
+    {
+      "bootstrap_core": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "capacity_margin": 8,
+      "classification_assignment_id": "A082",
+      "cycle_length": 3,
+      "cycle_outside_labels": [
+        3,
+        7,
+        8
+      ],
+      "cycle_outside_labels_in_private_halos": [
+        3,
+        7,
+        8
+      ],
+      "cycle_row_centers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        8
+      ],
+      "diagnosis": {
+        "core_only_target_status": "BLOCKED_BY_ROW_GAPS",
+        "private_pair_only_target_status": "NO_DIRECT_HITS",
+        "recommended_next_target": "Prove a row-center or equality-connector forcing condition that supplies the missing T12/F16 local rows from the bootstrap-core/private-halo geometry."
+      },
+      "equality_connector_rows_subset_of_bootstrap_core": false,
+      "family_id": "F16",
+      "outside": [
+        3,
+        5,
+        6,
+        7,
+        8
+      ],
+      "private_halo_labels": [
+        3,
+        5,
+        6,
+        7,
+        8
+      ],
+      "private_pair_hit_count": 0,
+      "private_pair_hit_pairs": [],
+      "private_pair_hits": [],
+      "private_pair_records": [
+        {
+          "core_vertex": 0,
+          "pair": [
+            3,
+            6
+          ]
+        },
+        {
+          "core_vertex": 0,
+          "pair": [
+            3,
+            7
+          ]
+        },
+        {
+          "core_vertex": 4,
+          "pair": [
+            5,
+            7
+          ]
+        },
+        {
+          "core_vertex": 2,
+          "pair": [
+            5,
+            8
+          ]
+        },
+        {
+          "core_vertex": 0,
+          "pair": [
+            6,
+            7
+          ]
+        },
+        {
+          "core_vertex": 1,
+          "pair": [
+            7,
+            8
+          ]
+        }
+      ],
+      "row_gap_centers": [
+        3,
+        8
+      ],
+      "row_gap_count": 2,
+      "row_gap_role_counts": {
+        "equality_connector_row": 2
+      },
+      "row_gaps": [
+        {
+          "center": 3,
+          "roles": [
+            "equality_connector_row"
+          ],
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "center": 8,
+          "roles": [
+            "equality_connector_row"
+          ],
+          "witnesses": [
+            0,
+            2,
+            5,
+            6
+          ]
+        }
+      ],
+      "source_record_id": 81,
+      "strict_edge_rows_subset_of_bootstrap_core": true,
+      "template_id": "T12",
+      "unique_cycle_pair_location_counts": {
+        "core_core": 2,
+        "core_outside": 5
+      },
+      "unique_cycle_pairs": [
+        {
+          "location": "core_outside",
+          "pair": [
+            0,
+            3
+          ],
+          "roles": [
+            "connector_end_pair",
+            "connector_path_next_pair",
+            "strict_outer_pair"
+          ],
+          "rows": [
+            3
+          ],
+          "steps": [
+            0,
+            2
+          ]
+        },
+        {
+          "location": "core_outside",
+          "pair": [
+            0,
+            8
+          ],
+          "roles": [
+            "connector_start_pair",
+            "strict_inner_pair"
+          ],
+          "rows": [],
+          "steps": [
+            0
+          ]
+        },
+        {
+          "location": "core_outside",
+          "pair": [
+            2,
+            8
+          ],
+          "roles": [
+            "connector_end_pair",
+            "connector_path_next_pair",
+            "strict_outer_pair"
+          ],
+          "rows": [
+            8
+          ],
+          "steps": [
+            0,
+            1
+          ]
+        },
+        {
+          "location": "core_core",
+          "pair": [
+            2,
+            4
+          ],
+          "roles": [
+            "connector_start_pair",
+            "strict_inner_pair"
+          ],
+          "rows": [],
+          "steps": [
+            1
+          ]
+        },
+        {
+          "location": "core_outside",
+          "pair": [
+            1,
+            7
+          ],
+          "roles": [
+            "connector_end_pair",
+            "connector_path_next_pair",
+            "strict_outer_pair"
+          ],
+          "rows": [
+            1
+          ],
+          "steps": [
+            1,
+            2
+          ]
+        },
+        {
+          "location": "core_core",
+          "pair": [
+            1,
+            4
+          ],
+          "roles": [
+            "connector_path_next_pair"
+          ],
+          "rows": [
+            4
+          ],
+          "steps": [
+            1
+          ]
+        },
+        {
+          "location": "core_outside",
+          "pair": [
+            1,
+            3
+          ],
+          "roles": [
+            "connector_start_pair",
+            "strict_inner_pair"
+          ],
+          "rows": [],
+          "steps": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "bootstrap_core": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "capacity_margin": 6,
+      "classification_assignment_id": "A152",
+      "cycle_length": 3,
+      "cycle_outside_labels": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "cycle_outside_labels_in_private_halos": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "cycle_row_centers": [
+        0,
+        1,
+        5,
+        6,
+        7,
+        8
+      ],
+      "diagnosis": {
+        "core_only_target_status": "BLOCKED_BY_ROW_GAPS",
+        "private_pair_only_target_status": "PARTIAL_DIRECT_HITS_ONLY",
+        "recommended_next_target": "Prove a row-center or equality-connector forcing condition that supplies the missing T12/F16 local rows from the bootstrap-core/private-halo geometry."
+      },
+      "equality_connector_rows_subset_of_bootstrap_core": false,
+      "family_id": "F16",
+      "outside": [
+        3,
+        5,
+        6,
+        7,
+        8
+      ],
+      "private_halo_labels": [
+        3,
+        5,
+        6,
+        7,
+        8
+      ],
+      "private_pair_hit_count": 2,
+      "private_pair_hit_pairs": [
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "private_pair_hits": [
+        {
+          "location": "outside_outside",
+          "pair": [
+            5,
+            8
+          ],
+          "private_core_vertices": [
+            2
+          ]
+        },
+        {
+          "location": "outside_outside",
+          "pair": [
+            6,
+            8
+          ],
+          "private_core_vertices": [
+            0
+          ]
+        }
+      ],
+      "private_pair_records": [
+        {
+          "core_vertex": 0,
+          "pair": [
+            3,
+            6
+          ]
+        },
+        {
+          "core_vertex": 4,
+          "pair": [
+            3,
+            6
+          ]
+        },
+        {
+          "core_vertex": 1,
+          "pair": [
+            3,
+            7
+          ]
+        },
+        {
+          "core_vertex": 4,
+          "pair": [
+            3,
+            7
+          ]
+        },
+        {
+          "core_vertex": 0,
+          "pair": [
+            3,
+            8
+          ]
+        },
+        {
+          "core_vertex": 2,
+          "pair": [
+            5,
+            8
+          ]
+        },
+        {
+          "core_vertex": 4,
+          "pair": [
+            6,
+            7
+          ]
+        },
+        {
+          "core_vertex": 0,
+          "pair": [
+            6,
+            8
+          ]
+        }
+      ],
+      "row_gap_centers": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "row_gap_count": 4,
+      "row_gap_role_counts": {
+        "equality_connector_row": 3,
+        "strict_edge_row": 2
+      },
+      "row_gaps": [
+        {
+          "center": 5,
+          "roles": [
+            "equality_connector_row"
+          ],
+          "witnesses": [
+            2,
+            4,
+            7,
+            8
+          ]
+        },
+        {
+          "center": 6,
+          "roles": [
+            "equality_connector_row"
+          ],
+          "witnesses": [
+            0,
+            3,
+            5,
+            8
+          ]
+        },
+        {
+          "center": 7,
+          "roles": [
+            "strict_edge_row"
+          ],
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "center": 8,
+          "roles": [
+            "strict_edge_row",
+            "equality_connector_row"
+          ],
+          "witnesses": [
+            1,
+            2,
+            5,
+            7
+          ]
+        }
+      ],
+      "source_record_id": 151,
+      "strict_edge_rows_subset_of_bootstrap_core": false,
+      "template_id": "T12",
+      "unique_cycle_pair_location_counts": {
+        "core_core": 1,
+        "core_outside": 3,
+        "outside_outside": 3
+      },
+      "unique_cycle_pairs": [
+        {
+          "location": "core_outside",
+          "pair": [
+            0,
+            6
+          ],
+          "roles": [
+            "connector_end_pair",
+            "connector_path_next_pair",
+            "strict_outer_pair"
+          ],
+          "rows": [
+            6
+          ],
+          "steps": [
+            0,
+            2
+          ]
+        },
+        {
+          "location": "core_core",
+          "pair": [
+            0,
+            1
+          ],
+          "roles": [
+            "connector_start_pair",
+            "strict_inner_pair"
+          ],
+          "rows": [],
+          "steps": [
+            0
+          ]
+        },
+        {
+          "location": "core_outside",
+          "pair": [
+            1,
+            7
+          ],
+          "roles": [
+            "connector_end_pair",
+            "connector_path_next_pair",
+            "strict_outer_pair"
+          ],
+          "rows": [
+            1
+          ],
+          "steps": [
+            0,
+            1
+          ]
+        },
+        {
+          "location": "outside_outside",
+          "pair": [
+            5,
+            7
+          ],
+          "roles": [
+            "connector_start_pair",
+            "strict_inner_pair"
+          ],
+          "rows": [],
+          "steps": [
+            1
+          ]
+        },
+        {
+          "location": "core_outside",
+          "pair": [
+            2,
+            8
+          ],
+          "roles": [
+            "connector_end_pair",
+            "connector_path_next_pair",
+            "strict_outer_pair"
+          ],
+          "rows": [
+            8
+          ],
+          "steps": [
+            1,
+            2
+          ]
+        },
+        {
+          "location": "outside_outside",
+          "pair": [
+            5,
+            8
+          ],
+          "roles": [
+            "connector_path_next_pair"
+          ],
+          "rows": [
+            5
+          ],
+          "steps": [
+            1
+          ]
+        },
+        {
+          "location": "outside_outside",
+          "pair": [
+            6,
+            8
+          ],
+          "roles": [
+            "connector_start_pair",
+            "strict_inner_pair"
+          ],
+          "rows": [],
+          "steps": [
+            2
+          ]
+        }
+      ]
+    }
+  ],
+  "schema": "erdos97.bootstrap_t12_forcing_targets.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_vertex_circle_overlay.json",
+      "role": "source overlay joining tight bootstrap rows to T12/F16",
+      "schema": "erdos97.bootstrap_vertex_circle_overlay.v1",
+      "status": "BOOTSTRAP_VERTEX_CIRCLE_OVERLAY_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_FORCING_TARGET_DIAGNOSTIC_ONLY",
+  "summary": {
+    "all_records_have_direct_private_pair_hits": false,
+    "all_records_have_row_gaps": true,
+    "bootstrap_core": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "capacity_margins_by_source_id": {
+      "151": 6,
+      "81": 8
+    },
+    "classification_assignment_ids": [
+      "A082",
+      "A152"
+    ],
+    "family_counts": {
+      "F16": 2
+    },
+    "forcing_target_status": "OPEN_TARGET_NOT_PROVED",
+    "primary_next_target": "bootstrap core [0,1,2,4] plus tight private-halo geometry should force the missing T12/F16 row centers or equivalent equality connectors",
+    "private_pair_hit_counts_by_source_id": {
+      "151": 2,
+      "81": 0
+    },
+    "row_gap_centers_by_source_id": {
+      "151": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "81": [
+        3,
+        8
+      ]
+    },
+    "row_gap_counts_by_source_id": {
+      "151": 4,
+      "81": 2
+    },
+    "source_record_ids": [
+      81,
+      151
+    ],
+    "target_count": 2,
+    "template_counts": {
+      "T12": 2
+    },
+    "zero_private_pair_hit_source_ids": [
+      81
+    ]
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

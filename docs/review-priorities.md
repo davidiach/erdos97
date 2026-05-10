@@ -317,6 +317,11 @@ condition that the surviving multi-block family does not automatically satisfy:
   `docs/bootstrap-vertex-circle-overlay.md`, showing that the two tight
   non-ear-orderable `n=9` rows both join to the `T12/F16` strict-cycle template
   but not by a bootstrap-core-only contradiction.
+- bootstrap/T12 forcing-target evidence, as recorded in
+  `docs/bootstrap-t12-forcing-targets.md`, showing that source `81` has no
+  direct private-pair hit and source `151` has only partial direct hits, so the
+  next useful condition should force missing row centers or equality connectors
+  rather than rely on private pairs alone.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

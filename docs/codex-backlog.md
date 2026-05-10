@@ -32,6 +32,9 @@ Use this queue when no more specific issue is selected.
    The current singleton-rich stuck/frontier motifs all survive the weighted
    ledger, while the two tight `n=9` non-ear rows both land on the `T12/F16`
    strict-cycle template without yielding a bootstrap-core-only contradiction.
+   The follow-up `docs/bootstrap-t12-forcing-targets.md` refines this into a
+   row-center forcing target: source `81` has no direct private-pair hit, and
+   source `151` has only partial direct private-pair hits.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
