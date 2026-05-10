@@ -118,6 +118,40 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
             "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
         ),
     }
+    profile_audit = payload["low_support_profile_terminality_audit"]
+    assert profile_audit["profile_only_terminality_holds"] is False
+    assert profile_audit["clean_seven_states"] == 2252
+    assert profile_audit["non_two_two_clean_seven_states"] == 192
+    assert profile_audit["non_two_two_terminal_clean_seven_states"] == 0
+    assert profile_audit["two_two_clean_seven_states"] == 2060
+    assert profile_audit["two_two_profile_classes"] == 6
+    assert profile_audit["terminal_profile_classes"] == 2
+    assert profile_audit["terminal_profiles_with_extendable_states"] == 2
+    assert profile_audit["profile_counts"][
+        (
+            "same_u=4,same_i=0,1,1,same_d=1,1,2,2|"
+            "opposite_u=5,opposite_i=0,0,1,opposite_d=1,1,1,1,2"
+        )
+    ] == {
+        "clean_two_two_seven_states": 320,
+        "terminal": 4,
+        "extendable": 316,
+    }
+    assert profile_audit["profile_counts"][
+        (
+            "same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+            "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
+        )
+    ] == {
+        "clean_two_two_seven_states": 1230,
+        "terminal": 8,
+        "extendable": 1222,
+    }
+    assert profile_audit["first_non_two_two_example"] == [
+        {"center": 2, "row": [0, 1, 3, 7]},
+        {"center": 4, "row": [0, 3, 6, 9]},
+        {"center": 5, "row": [0, 4, 8, 11]},
+    ]
     assert payload["first_clean_sixth_example"] == {
         "fifth": {"center": 1, "row": [0, 2, 6, 7]},
         "sixth": {"center": 2, "row": [0, 1, 3, 8]},

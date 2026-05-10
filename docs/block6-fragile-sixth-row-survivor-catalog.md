@@ -259,6 +259,52 @@ terminal states. This classification is useful as a proof-mining target: a
 terminality lemma must use more than the seven-center triple, but may only need
 the two row-content profiles above plus one short list of boundary variants.
 
+## Profile-only Terminality Audit
+
+The two terminal row-content profiles are not sufficient by themselves. Among
+the `2252` clean seven-row states, `192` do not split every added row into
+two same-block and two opposite-block witnesses; all `192` are extendable at
+the eighth-row level.
+
+The remaining `2060` two-and-two clean seven-row states have exactly `6`
+row-content profiles. The two profiles that contain terminal states also
+contain many extendable states:
+
+```text
+profile summary                              clean states  terminal  extendable
+same u4, i011;  opposite u5, i001          320           4         316
+same u5, i001;  opposite u6, i000          1230          8         1222
+```
+
+Here `u` is the union size of the three same-block or opposite-block pairs,
+and `i` is the sorted pairwise-intersection multiset. Thus any terminality
+lemma for these pockets needs finer boundary data than this coarse
+same/opposite-block profile.
+
+A clean extendable state with the first terminal profile is:
+
+```text
+1 -> {3,5,6,7}
+4 -> {0,3,6,9}
+5 -> {0,4,8,11}
+```
+
+A clean extendable state with the second terminal profile is:
+
+```text
+1  -> {0,2,7,11}
+10 -> {0,1,6,9}
+11 -> {2,5,6,10}
+```
+
+One clean extendable state outside the two-and-two profile domain is:
+
+```text
+2 -> {0,1,3,7}
+4 -> {0,3,6,9}
+5 -> {0,4,8,11}
+```
+
 ## Center Counts
 
 ```text
