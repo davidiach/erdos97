@@ -22,6 +22,12 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
     assert payload["totals"]["clean_fifth_rows"] == 166
     assert payload["totals"]["clean_fifth_rows_with_clean_sixth"] == 166
     assert payload["totals"]["unique_clean_six_row_states"] == 6047
+    assert payload["totals"]["clean_center_pairs"] == 28
+    assert payload["totals"]["clean_center_pair_block_swap_orbits"] == 16
+    assert payload["clean_by_center_pair"]["4,5"] == 28
+    assert payload["clean_by_center_pair"]["2,8"] == 1074
+    assert payload["clean_by_center_pair_orbit"]["4,5|10,11"] == 56
+    assert payload["clean_by_center_pair_orbit"]["2,8"] == 1074
     assert payload["first_clean_sixth_example"] == {
         "fifth": {"center": 1, "row": [0, 2, 6, 7]},
         "sixth": {"center": 2, "row": [0, 1, 3, 8]},

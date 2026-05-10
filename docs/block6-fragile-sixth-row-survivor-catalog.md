@@ -38,6 +38,48 @@ are `6047` distinct clean six-row states. Under the block-swap symmetry
 `i -> i+6 mod 12`, these form `3056` orbits: `2991` two-element orbits and
 `65` fixed orbits.
 
+## Center-pair Normal Forms
+
+The clean six-row states are not concentrated in a small set of added-center
+pairs. Every one of the `28` unordered pairs of nonfixed centers supports at
+least one clean six-row state. Under block-swap, these `28` pairs form `16`
+center-pair orbits, and every orbit has positive clean support.
+
+```text
+center pair  clean states
+1,2          350
+1,4          98
+1,5          126
+1,7          256
+1,8          508
+1,10         69
+1,11         105
+2,4          182
+2,5          238
+2,7          508
+2,8          1074
+2,10         176
+2,11         325
+4,5          28
+4,7          69
+4,8          176
+4,10         36
+4,11         71
+5,7          105
+5,8          325
+5,10         71
+5,11         129
+7,8          350
+7,10         98
+7,11         126
+8,10         182
+8,11         238
+10,11        28
+```
+
+Thus no proof can close the two-block family at six rows using only the
+unordered pair of added centers. The obstruction depends on finer row content.
+
 ## Center Counts
 
 ```text
@@ -83,8 +125,10 @@ orbits for the clean fifth-row and clean six-row states.
 This rules out the next tempting local bridge reduction. The Cycle 640 closure
 cannot be made into a fifth-row-only or sixth-row-only obstruction theorem.
 The obstruction is still real, but it occurs deeper in the selected-row
-extension tree.
+extension tree. The center-pair normal-form audit also rules out a still
+coarser six-row proof based only on which two nonfixed centers have been
+selected.
 
 The next useful step is to mine the `6047` clean six-row states for a smaller
-normal-form family or to ask for the first row depth at which every branch is
-forced into a quotient obstruction.
+row-content normal-form family or to ask for the first row depth at which
+every branch is forced into a quotient obstruction.

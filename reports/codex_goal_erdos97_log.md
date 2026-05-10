@@ -22947,6 +22947,163 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 643 - Block-6 Six-row Center-pair Normal Forms
+
+### Mathematical Subquestion
+
+Cycle 642 showed that `6047` distinct six-row states remain
+vertex-circle-clean after adding two nonfixed rows to the two-block block-6
+fragile rows. The next smaller normal-form question was:
+
+```text
+Can the six-row survivors be excluded using only the unordered pair of
+nonfixed centers selected by the two added rows?
+```
+
+Equivalently, is there some unordered pair of nonfixed centers for which every
+legal pair of added rows already forces a vertex-circle quotient self-edge or
+strict cycle?
+
+### Definitions and Assumptions
+
+The four fixed rows are still:
+
+```text
+0 -> {1,2,3,4}
+3 -> {0,2,4,5}
+6 -> {7,8,9,10}
+9 -> {6,8,10,11}
+```
+
+A clean six-row state is a pair of additional legal rows at two distinct
+nonfixed centers whose six-row selected-distance quotient has no
+vertex-circle self-edge and no directed strict cycle in the natural cyclic
+order. Row order is ignored for the center-pair counts.
+
+The only symmetry used here is the block-swap `i -> i+6 mod 12`, which
+preserves the four fixed fragile rows.
+
+### Result Status
+
+Counterexample to the center-pair closure subclaim:
+**Block-6 Six-row Center-pair Survivor Catalog**.
+
+Every one of the `28` unordered pairs of nonfixed centers supports at least
+one clean six-row state. Under block-swap, these `28` center pairs form `16`
+orbits, and every orbit has positive clean support.
+
+### Argument Or Obstruction
+
+The exact checker from Cycle 642 was extended to project the `6047` clean
+six-row states to their unordered added-center pair. The clean counts are:
+
+```text
+center pair  clean states
+1,2          350
+1,4          98
+1,5          126
+1,7          256
+1,8          508
+1,10         69
+1,11         105
+2,4          182
+2,5          238
+2,7          508
+2,8          1074
+2,10         176
+2,11         325
+4,5          28
+4,7          69
+4,8          176
+4,10         36
+4,11         71
+5,7          105
+5,8          325
+5,10         71
+5,11         129
+7,8          350
+7,10         98
+7,11         126
+8,10         182
+8,11         238
+10,11        28
+```
+
+The minimum clean support is still positive: pairs `4,5` and `10,11` each
+support `28` clean six-row states. The maximum is the block-swap fixed pair
+`2,8`, which supports `1074` clean six-row states.
+
+Therefore a six-row proof cannot close the block-6 family by choosing, or
+forbidding, only an unordered pair of added centers. The actual obstruction
+must depend on row content or on deeper extension data.
+
+### Exact Scope
+
+This is a bounded center-pair projection of the two-block block-6 six-row
+survivor catalog in the natural cyclic order. It is not a proof of Erdos
+Problem #97 and is not a counterexample. Clean six-row states remain abstract
+states not yet killed by the listed six-row incidence/order and
+vertex-circle quotient checks; they are not Euclidean realizability claims.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `docs/index.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This sharpens the negative information from Cycles 641 and 642. The block-6
+two-block closure is not fifth-row-local, not sixth-row-local, and not even
+six-row center-pair-local. A useful proof-facing normal form now has to
+include row content, not just which centers have been added.
+
+### Next Lead
+
+Classify the low-support center-pair families, especially `4,5` and `10,11`,
+by row-content signatures. If those `28` clean states collapse to a very small
+row-content normal form, they may give a tractable next exact subclaim.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-643`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-643`.
+- The branch was based on `origin/main` at commit
+  `076d12ef109c8d39aa561e9ee303aaf816ac2d6b`, after PR #355 merged Cycle
+  642.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `python3 scripts/check_block6_fragile_sixth_row_survivors.py
+  --assert-expected --json`: passed; reported `6047` unique clean six-row
+  states, `28` clean center pairs, and `16` clean center-pair block-swap
+  orbits.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `540 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 642 - Block-6 Sixth-row Survivor Catalog
 
 ### Mathematical Subquestion
