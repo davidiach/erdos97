@@ -11,6 +11,7 @@ from erdos97.n9_vertex_circle_local_lemmas import (
     NESTED_SPOKE_LEMMA,
     SHARED_ENDPOINT_LEMMA,
     T03_SELECTED_PATH_SELF_EDGE,
+    T04_SELECTED_PATH_SELF_EDGE,
     T10_STRICT_CYCLE_LEMMA,
     T11_STRICT_CYCLE_LEMMA,
     T12_STRICT_CYCLE_LEMMA,
@@ -47,8 +48,8 @@ def test_local_lemma_scan_counts_and_scope(payload: dict[str, object]) -> None:
     assert payload["coverage_summary"] == {  # type: ignore[index]
         "source_assignment_count": 184,
         "source_family_count": 16,
-        "covered_assignment_count": 182,
-        "covered_family_count": 15,
+        "covered_assignment_count": 184,
+        "covered_family_count": 16,
         "covered_family_ids": [
             "F01",
             "F02",
@@ -62,13 +63,14 @@ def test_local_lemma_scan_counts_and_scope(payload: dict[str, object]) -> None:
             "F10",
             "F11",
             "F12",
+            "F13",
             "F14",
             "F15",
             "F16",
         ],
-        "uncovered_assignment_count": 2,
-        "uncovered_family_count": 1,
-        "uncovered_family_ids": ["F13"],
+        "uncovered_assignment_count": 0,
+        "uncovered_family_count": 0,
+        "uncovered_family_ids": [],
         "family_to_lemmas": {
             "F01": [SHARED_ENDPOINT_LEMMA],
             "F02": [NESTED_SPOKE_LEMMA],
@@ -82,6 +84,7 @@ def test_local_lemma_scan_counts_and_scope(payload: dict[str, object]) -> None:
             "F10": [NESTED_SPOKE_LEMMA],
             "F11": [NESTED_SPOKE_LEMMA],
             "F12": [T10_STRICT_CYCLE_LEMMA],
+            "F13": [T04_SELECTED_PATH_SELF_EDGE],
             "F14": [SHARED_ENDPOINT_LEMMA],
             "F15": [T03_SELECTED_PATH_SELF_EDGE],
             "F16": [T12_STRICT_CYCLE_LEMMA],
@@ -209,6 +212,39 @@ def test_t03_selected_path_self_edge_instances(payload: dict[str, object]) -> No
     }
 
 
+def test_t04_selected_path_self_edge_instance(payload: dict[str, object]) -> None:
+    lemma = _lemma(payload, T04_SELECTED_PATH_SELF_EDGE)
+
+    assert lemma["instance_count"] == 1
+    assert lemma["covered_assignment_count"] == 2
+    assert lemma["family_ids"] == ["F13"]
+    assert lemma["template_ids"] == ["T04"]
+    instance = lemma["instances"][0]  # type: ignore[index]
+    assert instance["assignment_count"] == 2
+    assert instance["simple_filter_violations"] == []
+    assert instance["core_selected_rows"] == [
+        [0, 1, 2, 5, 7],
+        [1, 2, 3, 6, 8],
+        [3, 1, 4, 5, 8],
+        [5, 1, 3, 6, 7],
+    ]
+    assert instance["strict_inequality"]["row"] == 0
+    assert instance["strict_inequality"]["outer_pair"] == [1, 5]
+    assert instance["strict_inequality"]["inner_pair"] == [1, 2]
+    assert instance["direct_conditions"] == {
+        "variant": "selected_path_self_edge",
+        "start_pair": [1, 5],
+        "end_pair": [1, 2],
+        "path": [
+            {"row": 5, "next_pair": [3, 5]},
+            {"row": 3, "next_pair": [1, 3]},
+            {"row": 1, "next_pair": [1, 2]},
+        ],
+        "path_length": 3,
+        "holds": True,
+    }
+
+
 def test_t11_strict_cycle_instance(payload: dict[str, object]) -> None:
     lemma = _lemma(payload, T11_STRICT_CYCLE_LEMMA)
 
@@ -295,5 +331,5 @@ def test_local_lemma_scan_cli_json() -> None:
 
     parsed = json.loads(result.stdout)
     assert parsed["schema"] == "erdos97.n9_vertex_circle_local_lemmas.v1"
-    assert parsed["coverage_summary"]["covered_assignment_count"] == 182
-    assert parsed["coverage_summary"]["uncovered_family_ids"] == ["F13"]
+    assert parsed["coverage_summary"]["covered_assignment_count"] == 184
+    assert parsed["coverage_summary"]["uncovered_family_ids"] == []

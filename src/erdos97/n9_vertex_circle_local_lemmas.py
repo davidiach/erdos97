@@ -30,6 +30,7 @@ CLAIM_SCOPE = (
 SHARED_ENDPOINT_LEMMA = "shared_endpoint_nested_self_edge"
 NESTED_SPOKE_LEMMA = "nested_spoke_quotient_self_edge"
 T03_SELECTED_PATH_SELF_EDGE = "t03_selected_path_self_edge"
+T04_SELECTED_PATH_SELF_EDGE = "t04_selected_path_self_edge"
 T10_STRICT_CYCLE_LEMMA = "t10_two_edge_strict_cycle"
 T11_STRICT_CYCLE_LEMMA = "t11_three_edge_strict_cycle"
 T12_STRICT_CYCLE_LEMMA = "t12_three_edge_strict_cycle"
@@ -55,6 +56,11 @@ EXPECTED_SUMMARY = {
         "family_ids": ["F05", "F15"],
         "instance_count": 2,
         "covered_assignment_count": 20,
+    },
+    T04_SELECTED_PATH_SELF_EDGE: {
+        "family_ids": ["F13"],
+        "instance_count": 1,
+        "covered_assignment_count": 2,
     },
     T10_STRICT_CYCLE_LEMMA: {
         "family_ids": ["F12"],
@@ -92,6 +98,7 @@ def local_lemma_scan_payload(
     shared_endpoint: list[dict[str, Any]] = []
     nested_spoke: list[dict[str, Any]] = []
     t03_selected_path: list[dict[str, Any]] = []
+    t04_selected_path: list[dict[str, Any]] = []
     direct_two_row: list[dict[str, Any]] = []
 
     for template, family in _self_edge_family_records(self_edge_packet):
@@ -130,10 +137,19 @@ def local_lemma_scan_payload(
                             "lemma_id": DIRECT_TWO_ROW_VARIANT,
                         }
                     )
-            if _is_t03_selected_path_self_edge_shape(template, family, edge):
-                t03_selected_path.append(
+            selected_path_lemma_id = _selected_path_self_edge_lemma_id(
+                template,
+                family,
+                edge,
+            )
+            if selected_path_lemma_id is not None:
+                selected_path_instances = {
+                    T03_SELECTED_PATH_SELF_EDGE: t03_selected_path,
+                    T04_SELECTED_PATH_SELF_EDGE: t04_selected_path,
+                }
+                selected_path_instances[selected_path_lemma_id].append(
                     _self_edge_instance(
-                        lemma_id=T03_SELECTED_PATH_SELF_EDGE,
+                        lemma_id=selected_path_lemma_id,
                         template=template,
                         family=family,
                         rows=rows,
@@ -164,6 +180,7 @@ def local_lemma_scan_payload(
         SHARED_ENDPOINT_LEMMA: shared_endpoint,
         NESTED_SPOKE_LEMMA: nested_spoke,
         T03_SELECTED_PATH_SELF_EDGE: t03_selected_path,
+        T04_SELECTED_PATH_SELF_EDGE: t04_selected_path,
         **strict_cycle_instances,
     }
 
@@ -190,6 +207,7 @@ def local_lemma_scan_payload(
             _lemma_summary(SHARED_ENDPOINT_LEMMA, shared_endpoint),
             _lemma_summary(NESTED_SPOKE_LEMMA, nested_spoke),
             _lemma_summary(T03_SELECTED_PATH_SELF_EDGE, t03_selected_path),
+            _lemma_summary(T04_SELECTED_PATH_SELF_EDGE, t04_selected_path),
             *(
                 _lemma_summary(lemma_id, strict_cycle_instances[lemma_id])
                 for lemma_id in STRICT_CYCLE_LEMMA_BY_TEMPLATE.values()
@@ -293,15 +311,15 @@ def assert_expected_local_lemma_scan(payload: dict[str, Any]) -> None:
         raise AssertionError("source_family_count mismatch")
     if coverage.get("source_assignment_count") != 184:
         raise AssertionError("source_assignment_count mismatch")
-    if coverage.get("covered_family_count") != 15:
+    if coverage.get("covered_family_count") != 16:
         raise AssertionError("covered_family_count mismatch")
-    if coverage.get("covered_assignment_count") != 182:
+    if coverage.get("covered_assignment_count") != 184:
         raise AssertionError("covered_assignment_count mismatch")
-    if coverage.get("uncovered_family_count") != 1:
+    if coverage.get("uncovered_family_count") != 0:
         raise AssertionError("uncovered_family_count mismatch")
-    if coverage.get("uncovered_assignment_count") != 2:
+    if coverage.get("uncovered_assignment_count") != 0:
         raise AssertionError("uncovered_assignment_count mismatch")
-    if coverage.get("uncovered_family_ids") != ["F13"]:
+    if coverage.get("uncovered_family_ids") != []:
         raise AssertionError("uncovered_family_ids mismatch")
     if coverage.get("covered_family_ids") != [
         "F01",
@@ -316,6 +334,7 @@ def assert_expected_local_lemma_scan(payload: dict[str, Any]) -> None:
         "F10",
         "F11",
         "F12",
+        "F13",
         "F14",
         "F15",
         "F16",
@@ -455,23 +474,30 @@ def _direct_nested_spoke_conditions(
     }
 
 
-def _is_t03_selected_path_self_edge_shape(
+def _selected_path_self_edge_lemma_id(
     template: dict[str, Any],
     family: dict[str, Any],
     edge: StrictInequality,
-) -> bool:
-    """Return whether the record is one of the checked T03 self-edge paths."""
+) -> str | None:
+    """Return the selected-path self-edge lemma id for checked packet records."""
 
-    if str(template.get("template_id")) != "T03":
-        return False
+    template_to_lemma = {
+        "T03": T03_SELECTED_PATH_SELF_EDGE,
+        "T04": T04_SELECTED_PATH_SELF_EDGE,
+    }
+    lemma_id = template_to_lemma.get(str(template.get("template_id")))
+    if lemma_id is None:
+        return None
     equality = family.get("distance_equality")
     if not isinstance(equality, dict):
-        return False
-    return (
+        return None
+    if (
         edge.outer_class == edge.inner_class
         and _pair_list(edge.outer_pair) == _pair_list(equality.get("start_pair"))
         and _pair_list(edge.inner_pair) == _pair_list(equality.get("end_pair"))
-    )
+    ):
+        return lemma_id
+    return None
 
 
 def _selected_path_conditions(family: dict[str, Any]) -> dict[str, Any]:

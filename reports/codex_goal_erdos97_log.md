@@ -22947,6 +22947,163 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 662 - T04/F13 Aggregate Local-scan Closure
+
+### Mathematical Subquestion
+
+Cycle 661 left exactly one aggregate local-lemma scan gap: family `F13`,
+coming from the T04 self-edge packet. The focused T04 proof note already
+records a four-row local self-edge contradiction. The narrow question was:
+
+```text
+Can the aggregate local-lemma scan absorb the existing T04/F13 proof note
+through the same selected-path self-edge criterion, without changing the
+review-pending scope?
+```
+
+### Definitions and Assumptions
+
+Use the stored review-pending `n=9` self-edge template packet
+`data/certificates/n9_vertex_circle_self_edge_template_packet.json`. A
+**selected-path self-edge** is a local core with:
+
+- a vertex-circle strict edge `p > q`; and
+- a selected-distance equality path identifying `p` and `q`.
+
+The equality path gives `D(p) = D(q)`, while the strict edge gives
+`D(p) > D(q)`, so the selected-distance quotient has a reflexive strict edge.
+The aggregate scan treats the stored packet as input data; it does not
+independently enumerate all `n=9` selected-witness assignments.
+
+### Result Status
+
+Exact finite aggregation/refinement:
+**T04/F13 Aggregate Local-scan Closure**.
+
+### Argument Or Obstruction
+
+The T04/F13 local core consists of the four selected rows:
+
+```text
+0 -> {1,2,5,7}
+1 -> {2,3,6,8}
+3 -> {1,4,5,8}
+5 -> {1,3,6,7}
+```
+
+The selected-distance path gives:
+
+```text
+D_15 = D_35 = D_13 = D_12.
+```
+
+At center `0`, the witness order `1,2,5,7` gives:
+
+```text
+D_15 > D_12.
+```
+
+Thus the quotient has a reflexive strict edge. The aggregate scan now adds the
+named local-lemma id `t04_selected_path_self_edge` for the stored `F13`
+packet. The exact aggregate summary becomes:
+
+```text
+source families: 16
+source assignments: 184
+covered families: 16
+covered assignments: 184
+uncovered families: none
+uncovered assignments: 0
+```
+
+### Exact Scope
+
+This result is exact for the stored review-pending T04/F13 packet and the
+natural cyclic order of the stored `n=9` template scan. It is not an
+independent review of the exhaustive checker, not a proof of the full `n=9`
+finite case, not a general proof of Erdos Problem #97, and not a
+counterexample.
+
+### Files Changed
+
+- `src/erdos97/n9_vertex_circle_local_lemmas.py`
+- `tests/test_n9_vertex_circle_local_lemmas.py`
+- `docs/n9-vertex-circle-local-lemmas.md`
+- `docs/codex-backlog.md`
+- `docs/review-priorities.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This closes the aggregate local-template coverage gap for the stored
+review-pending `n=9` vertex-circle template packets: every one of the `184`
+stored pre-vertex-circle assignments is now represented by a named local
+self-edge or strict-cycle lemma candidate in the aggregate scan. The result is
+useful proof-mining scaffolding because it turns the packet list into a
+smaller menu of local proof shapes, but it does not bridge arbitrary
+counterexamples to those shapes and does not independently validate the
+exhaustive `n=9` frontier.
+
+### Next Lead
+
+Audit the completed aggregate local-lemma scan against the focused proof notes
+with a second, simpler replay that treats the packet JSON as input but avoids
+sharing the current quotient-replay helper. A stronger mathematical lead is to
+abstract the T03/T04 selected-path self-edge mechanism into one cyclic-order
+lemma with explicit incidence hypotheses and no template names.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-662`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-662`.
+- The branch was started from `origin/main` at commit
+  `2aa9e53449b0ca8b8227388d855e18cab58f36e1`, after PR #395 merged Cycle
+  661.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_local_lemmas.py --assert-expected --json`:
+  passed; recorded `184` covered assignments from `16` families and no
+  uncovered families.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_self_edge_template_packet.py --check
+  --assert-expected --json`: passed; the self-edge packet reports `T04: 2`,
+  self-edge template count `9`, and no validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_template_lemma_catalog.py --check
+  --assert-expected --json`: passed; the catalog reports `184` covered
+  assignments, `12` templates, and no validation errors.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_n9_vertex_circle_local_lemmas.py -q`: passed, `10 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_n9_vertex_circle_self_edge_template_packet.py -q -m artifact`:
+  passed, `3 passed, 11 deselected`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check
+  src/erdos97/n9_vertex_circle_local_lemmas.py
+  tests/test_n9_vertex_circle_local_lemmas.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `572 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 661 - T03 Selected-path Self-edge Scan Closure
 
 ### Mathematical Subquestion
