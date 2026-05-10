@@ -22947,6 +22947,180 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 640 - Block-6 Fragile-cover Vertex-circle Extension Audit
+
+### Mathematical Subquestion
+
+The coverage-chain lead was already handled in Cycle 631, so this cycle moved
+to the remaining global bridge problem:
+
+For the two-block block-6 fragile-cover family from
+`docs/minimal-fragile-cover-bridge.md`, does there exist a full
+selected-witness extension that satisfies the standard incidence/order
+necessary conditions and also avoids the vertex-circle quotient self-edge /
+strict-cycle obstruction in the natural cyclic order?
+
+### Definitions and Assumptions
+
+For each six-label block `b,...,b+5`, the block-6 fragile rows are
+
+```text
+b   -> {b+1,b+2,b+3,b+4}
+b+3 -> {b,b+2,b+4,b+5}.
+```
+
+For two disjoint blocks this gives `n=12` with fixed fragile centers
+`0, 3, 6, 9`.
+
+A full selected extension assigns one 4-set row to every center, extends those
+four fixed fragile rows, and satisfies:
+
+- self-exclusion and row size 4;
+- pairwise selected-row intersection at most 2;
+- radical-axis crossing for every two-overlap;
+- witness-pair multiplicity at most 2;
+- selected indegree at most `floor(2*(12-1)/(4-1)) = 7`.
+
+A vertex-circle-clean extension has no selected-distance quotient self-edge
+and no directed strict cycle in the natural cyclic order.
+
+This cycle uses the Cycle 634 monotonicity lemma: once a partial assignment has
+a vertex-circle quotient self-edge or directed strict cycle, no extension can
+repair that obstruction.
+
+### Result Status
+
+Proved bounded finite-audit lemma:
+**Two-block Fragile-cover Vertex-circle Closure Lemma**.
+
+The two-block block-6 fragile-cover family has an incidence-level full
+selected extension, but no full selected extension survives vertex-circle
+quotient pruning under the natural cyclic order and the stated exact
+incidence/order filters.
+
+### Argument Or Obstruction
+
+The existing fragile-cover checker confirms:
+
+```text
+blocks=1: fragile-cover ok, full selected extension false
+blocks=2: fragile-cover ok, full selected extension true, nodes=17
+```
+
+Thus the two-block family remains an obstruction to a hypergraph-only
+fragile-cover proof route.
+
+The new one-off exact search fixed the two-block fragile rows and enumerated
+all remaining row choices by minimum-remaining-options branching, checking the
+listed incidence/order filters and applying monotone vertex-circle quotient
+pruning. Its output was:
+
+```text
+fixed rows {0: (1, 2, 3, 4), 3: (0, 2, 4, 5), 6: (7, 8, 9, 10), 9: (6, 8, 10, 11)}
+initial_vc ok
+result None
+nodes 1752
+zero_option_prunes 37
+vc_prunes {'self_edge': 645, 'strict_cycle': 768}
+solutions 0
+```
+
+Therefore every branch either runs out of legal incidence/order rows or hits a
+monotone vertex-circle quotient obstruction. The already-proved partial-pruning
+monotonicity lemma justifies treating those partial obstructions as closing
+all descendants.
+
+A terminal cross-check then reran the same fixed-row search without
+vertex-circle partial pruning and classified every full incidence/order
+extension at the end:
+
+```text
+full_extensions 105978
+nodes 320898
+zero_option_prunes 79547
+vertex_circle_status_counts {'self_edge': 105690, 'strict_cycle': 288}
+strict_edge_count_histogram {108: 105978}
+```
+
+This independent terminal classification agrees with the pruned search: no
+full extension is vertex-circle-clean.
+
+### Exact Scope
+
+This is only a bounded natural-order audit of the two-block block-6 family. It
+does not prove that every fragile-cover system, every full selected-witness
+system, or every minimal counterexample forces a vertex-circle quotient
+obstruction. It does not prove Erdos Problem #97 and does not give a
+counterexample.
+
+The conclusion is narrower: the known block-6 warning against
+fragile-cover-only reasoning is not, by itself, a warning against a stronger
+bridge that also uses full selected-row extension and vertex-circle quotient
+obstructions.
+
+### Files Changed
+
+- `docs/block6-fragile-vertex-circle-extension-audit.md`
+- `docs/index.md`
+- `scripts/check_block6_fragile_vertex_circle_extension.py`
+- `tests/test_block6_fragile_vertex_circle_extension.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This strengthens the forced-local-core bridge route in a small but exact way.
+The block-6 construction still defeats pure fragile-cover hypergraph
+constraints, but the natural two-block full-extension slice closes once
+vertex-circle quotient obstructions are admitted.
+
+The next proof-facing question is whether this is a special feature of the
+block-6 construction or an instance of a broader theorem: fragile-cover
+extensions plus the standard selected-row filters may force a quotient
+self-edge or strict cycle under additional cyclic-order hypotheses.
+
+### Next Lead
+
+Generalize the audit from the two-block block-6 family to a symbolic or
+parametric statement. A narrow next test is to classify the first
+vertex-circle obstruction reached in each branch by which fixed fragile rows
+participate, and decide whether the proof can be rewritten as a small
+case-free local lemma.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-640`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-640`.
+- The branch was based on `origin/main` at commit
+  `8d38422f930fe11a3762186932c1acd5e317753b`, after PR #349 merged Cycle
+  639.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `python3 scripts/check_fragile_hypergraph.py --blocks 2 --assert-ok
+  --check-full-extension --assert-full-extension --json` passed, confirming
+  the two-block fragile cover and one full selected extension.
+- `python3 scripts/check_fragile_hypergraph.py --blocks 1 --assert-ok
+  --check-full-extension --json` passed, confirming that the one-block
+  fragile cover is abstractly allowed but has no full selected extension.
+- `python scripts/check_block6_fragile_vertex_circle_extension.py
+  --assert-expected --json` passed, reproducing `nodes 1752`,
+  `zero_option_prunes 37`, `vc_prunes {'self_edge': 645, 'strict_cycle':
+  768}`, and `solutions 0`.
+- `python scripts/check_block6_fragile_vertex_circle_extension.py --terminal
+  --assert-expected --json` passed, classifying `105978` full
+  incidence/order extensions as `105690` self-edge obstructions and `288`
+  strict-cycle obstructions.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 639 - Vertex-circle Quotient Soundness Audit
 
 ### Mathematical Subquestion
