@@ -205,6 +205,35 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
         {"center": 4, "row": [0, 3, 6, 9]},
         {"center": 5, "row": [0, 4, 8, 11]},
     ]
+    edit_distance_audit = payload["low_support_terminal_edit_distance_audit"]
+    assert edit_distance_audit["terminal_clean_seven_states"] == 12
+    assert edit_distance_audit["terminal_triple_profile_classes"] == 6
+    assert edit_distance_audit["terminal_states_with_nearest_extendable"] == 12
+    assert edit_distance_audit["min_replacement_distribution"] == {"1": 12}
+    assert edit_distance_audit["nearest_extendable_count_distribution"] == {
+        "1": 2,
+        "3": 2,
+        "5": 2,
+        "6": 4,
+        "7": 2,
+    }
+    assert edit_distance_audit["changed_row_count_distribution_for_first_nearest"] == {
+        "1": 12
+    }
+    assert edit_distance_audit["class_summary"][terminal_triple_key] == {
+        "terminal_states": 2,
+        "extendable_states": 118,
+        "min_replacements_by_terminal": [1, 1],
+    }
+    assert edit_distance_audit["by_terminal"][0]["min_replacements"] == 1
+    assert edit_distance_audit["by_terminal"][0]["example_changed_rows"] == [
+        {
+            "center": 2,
+            "removed": [11],
+            "added": [10],
+            "row_replacements": 1,
+        }
+    ]
     assert payload["first_clean_sixth_example"] == {
         "fifth": {"center": 1, "row": [0, 2, 6, 7]},
         "sixth": {"center": 2, "row": [0, 1, 3, 8]},

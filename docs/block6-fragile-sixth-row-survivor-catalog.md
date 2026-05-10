@@ -376,6 +376,67 @@ the same/opposite-block row-content profile. The checker records one terminal
 and one extendable example in each terminal-containing combined class under
 `low_support_triple_profile_terminality_audit`.
 
+## Terminal-to-extendable Edit-distance Audit
+
+Within each terminal-containing triple/profile class, terminality is fragile:
+every terminal state is one witness replacement away from an extendable state
+in the same class.
+
+The row replacement distance between two clean seven-row states with the same
+centers is
+
+```text
+sum over added centers c of |row_T(c) triangle row_E(c)| / 2.
+```
+
+The exact minimum replacement distribution for the `12` terminal states is:
+
+```text
+minimum replacements  terminal states
+1                     12
+```
+
+For the nearest extendable states chosen by the checker, the changed-row count
+is also concentrated:
+
+```text
+changed rows in nearest example  terminal states
+1                                12
+```
+
+The number of nearest extendable states varies:
+
+```text
+nearest extendable states  terminal states
+1                          2
+3                          2
+5                          2
+6                          4
+7                          2
+```
+
+For example, the terminal state
+
+```text
+2  -> {0,1,6,11}
+10 -> {0,4,6,9}
+11 -> {3,5,6,7}
+```
+
+has a nearest extendable state obtained by replacing witness `11` with `10`
+in the row centered at `2`:
+
+```text
+2  -> {0,1,6,10}
+10 -> {0,4,6,9}
+11 -> {3,5,6,7}
+```
+
+Thus no terminality lemma can be stable under even one witness replacement
+inside the same combined triple/profile class. The next useful invariant must
+see the exact boundary-pair placement that distinguishes those adjacent
+states.
+
 ## Center Counts
 
 ```text
@@ -419,7 +480,8 @@ every legal seventh row after the `56` low-support clean six-row states in the
 `4,5` and `10,11` minimum-support center-pair families, and every legal
 eighth row after the resulting `2252` clean seven-row states, including the
 center-level split for the `12` terminal seven-row pockets and the
-triple-plus-profile terminality audit.
+triple-plus-profile terminality and terminal-to-extendable edit-distance
+audits.
 
 ## Effect
 
@@ -441,4 +503,6 @@ seven-row states that still extend cleanly. The eighth-center split rules out
 the coarsest possible terminal explanation: terminality is not concentrated at
 one eighth center or one obstruction type. The triple-plus-profile audit also
 shows that terminality is not determined by adding the seven-center triple to
-the row-content profile.
+the row-content profile. The edit-distance audit sharpens this failure:
+terminality can disappear after changing a single witness in one row while
+staying inside the same combined class.

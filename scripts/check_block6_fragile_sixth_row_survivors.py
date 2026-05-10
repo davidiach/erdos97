@@ -687,6 +687,70 @@ EXPECTED_LOW_SUPPORT_TRIPLE_PROFILE_TERMINALITY_AUDIT = {
         },
     },
 }
+EXPECTED_LOW_SUPPORT_TERMINAL_EDIT_DISTANCE_AUDIT = {
+    "terminal_clean_seven_states": 12,
+    "terminal_triple_profile_classes": 6,
+    "terminal_states_with_nearest_extendable": 12,
+    "min_replacement_distribution": {"1": 12},
+    "nearest_extendable_count_distribution": {
+        "1": 2,
+        "3": 2,
+        "5": 2,
+        "6": 4,
+        "7": 2,
+    },
+    "changed_row_count_distribution_for_first_nearest": {"1": 12},
+    "class_summary": {
+        (
+            "2,10,11|same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+            "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
+        ): {
+            "terminal_states": 1,
+            "extendable_states": 293,
+            "min_replacements_by_terminal": [1],
+        },
+        (
+            "2,4,5|same_u=4,same_i=0,1,1,same_d=1,1,2,2|"
+            "opposite_u=5,opposite_i=0,0,1,opposite_d=1,1,1,1,2"
+        ): {
+            "terminal_states": 2,
+            "extendable_states": 118,
+            "min_replacements_by_terminal": [1, 1],
+        },
+        (
+            "4,5,8|same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+            "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
+        ): {
+            "terminal_states": 1,
+            "extendable_states": 293,
+            "min_replacements_by_terminal": [1],
+        },
+        (
+            "4,5,11|same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+            "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
+        ): {
+            "terminal_states": 3,
+            "extendable_states": 152,
+            "min_replacements_by_terminal": [1, 1, 1],
+        },
+        (
+            "5,10,11|same_u=5,same_i=0,0,1,same_d=1,1,1,1,2|"
+            "opposite_u=6,opposite_i=0,0,0,opposite_d=1,1,1,1,1,1"
+        ): {
+            "terminal_states": 3,
+            "extendable_states": 152,
+            "min_replacements_by_terminal": [1, 1, 1],
+        },
+        (
+            "8,10,11|same_u=4,same_i=0,1,1,same_d=1,1,2,2|"
+            "opposite_u=5,opposite_i=0,0,1,opposite_d=1,1,1,1,2"
+        ): {
+            "terminal_states": 2,
+            "extendable_states": 118,
+            "min_replacements_by_terminal": [1, 1],
+        },
+    },
+}
 EXPECTED_BY_FIFTH_CENTER = {
     "1": {
         "clean_fifth": 21,
@@ -1545,6 +1609,117 @@ def _low_support_triple_profile_terminality_audit(
     }
 
 
+def _row_replacement_distance(left: tuple[int, ...], right: tuple[int, ...]) -> int:
+    return len(set(left) ^ set(right)) // 2
+
+
+def _state_replacement_distance(left: SevenState, right: SevenState) -> int:
+    right_by_center = {center: row for center, row in right}
+    return sum(
+        _row_replacement_distance(row, right_by_center[center])
+        for center, row in left
+    )
+
+
+def _changed_row_payload(left: SevenState, right: SevenState) -> list[dict[str, Any]]:
+    right_by_center = {center: row for center, row in right}
+    changed_rows = []
+    for center, row in left:
+        right_row = right_by_center[center]
+        removed = sorted(set(row) - set(right_row))
+        added = sorted(set(right_row) - set(row))
+        if removed or added:
+            changed_rows.append(
+                {
+                    "center": center,
+                    "removed": removed,
+                    "added": added,
+                    "row_replacements": len(removed),
+                }
+            )
+    return changed_rows
+
+
+def _low_support_terminal_edit_distance_audit(
+    clean_seven_states: set[SevenState],
+    terminal_audits: list[TerminalSevenAudit],
+) -> dict[str, Any]:
+    terminal_states = {state for state, _status in terminal_audits}
+    by_triple_profile: dict[str, dict[str, list[SevenState]]] = {}
+    for state in sorted(clean_seven_states):
+        profile = _optional_row_content_profile_key(state)
+        if profile is None:
+            continue
+        key = _triple_profile_key(state, profile)
+        entry = by_triple_profile.setdefault(
+            key,
+            {"terminal": [], "extendable": []},
+        )
+        if state in terminal_states:
+            entry["terminal"].append(state)
+        else:
+            entry["extendable"].append(state)
+
+    min_replacements: Counter[int] = Counter()
+    nearest_counts: Counter[int] = Counter()
+    changed_row_counts: Counter[int] = Counter()
+    class_summary: dict[str, dict[str, Any]] = {}
+    by_terminal: list[dict[str, Any]] = []
+
+    for key, entry in sorted(by_triple_profile.items()):
+        if not entry["terminal"]:
+            continue
+        if not entry["extendable"]:
+            raise AssertionError(f"terminal class has no extendable state: {key}")
+        class_distances = []
+        for terminal in entry["terminal"]:
+            distances = [
+                (_state_replacement_distance(terminal, extendable), extendable)
+                for extendable in entry["extendable"]
+            ]
+            best_distance = min(distance for distance, _state in distances)
+            nearest = [
+                state for distance, state in distances if distance == best_distance
+            ]
+            nearest_example = nearest[0]
+            changed_rows = _changed_row_payload(terminal, nearest_example)
+            min_replacements[best_distance] += 1
+            nearest_counts[len(nearest)] += 1
+            changed_row_counts[len(changed_rows)] += 1
+            class_distances.append(best_distance)
+            by_terminal.append(
+                {
+                    "triple_profile": key,
+                    "terminal": [_record_payload(record) for record in terminal],
+                    "min_replacements": best_distance,
+                    "nearest_extendable_count": len(nearest),
+                    "example_extendable": [
+                        _record_payload(record) for record in nearest_example
+                    ],
+                    "example_changed_rows": changed_rows,
+                }
+            )
+
+        class_summary[key] = {
+            "terminal_states": len(entry["terminal"]),
+            "extendable_states": len(entry["extendable"]),
+            "min_replacements_by_terminal": class_distances,
+        }
+
+    return {
+        "terminal_clean_seven_states": len(terminal_audits),
+        "terminal_triple_profile_classes": len(class_summary),
+        "terminal_states_with_nearest_extendable": len(by_terminal),
+        "min_replacement_distribution": _json_counter(min_replacements),
+        "nearest_extendable_count_distribution": _json_counter(nearest_counts),
+        "changed_row_count_distribution_for_first_nearest": _json_counter(
+            changed_row_counts
+        ),
+        "class_summary": class_summary,
+        "by_terminal": by_terminal,
+    }
+
+
 def _orbit_count(states: set[RowRecord] | set[SixState]) -> tuple[int, Counter[int]]:
     seen: set[Any] = set()
     sizes: Counter[int] = Counter()
@@ -1728,6 +1903,12 @@ def survivor_payload() -> dict[str, Any]:
                 low_support_terminal_audits,
             )
         ),
+        "low_support_terminal_edit_distance_audit": (
+            _low_support_terminal_edit_distance_audit(
+                low_support_clean_seven_states,
+                low_support_terminal_audits,
+            )
+        ),
         "by_fifth_center": {
             center: {key: int(counter[key]) for key in sorted(counter)}
             for center, counter in sorted(by_fifth_center.items(), key=lambda item: int(item[0]))
@@ -1814,6 +1995,13 @@ def assert_expected(payload: Mapping[str, Any]) -> None:
             raise AssertionError(
                 f"unexpected low-support triple/profile {key}: "
                 f"{triple_profile_audit[key]!r}"
+            )
+    edit_distance_audit = payload["low_support_terminal_edit_distance_audit"]
+    for key, expected in EXPECTED_LOW_SUPPORT_TERMINAL_EDIT_DISTANCE_AUDIT.items():
+        if edit_distance_audit[key] != expected:
+            raise AssertionError(
+                f"unexpected low-support terminal edit-distance {key}: "
+                f"{edit_distance_audit[key]!r}"
             )
     if payload["by_fifth_center"] != EXPECTED_BY_FIFTH_CENTER:
         raise AssertionError(

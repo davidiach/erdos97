@@ -22947,6 +22947,170 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 651 - Block-6 One-replacement Terminal Fragility
+
+### Mathematical Subquestion
+
+Cycle 650 showed that terminality is not determined by the seven-center triple
+plus the same/opposite-block row-content profile. The next precise question
+was:
+
+```text
+Within each terminal-containing triple/profile class, what is the minimum
+number of witness replacements needed to move a terminal state to an
+extendable state in the same class?
+```
+
+### Definitions and Assumptions
+
+Use the low-support clean seven-row states from Cycles 646-650. Two states are
+compared only when they have the same three added centers and lie in the same
+combined triple/profile class from Cycle 650.
+
+For two rows with the same center, define the row replacement distance as
+
+```text
+|row_T triangle row_E| / 2,
+```
+
+where `triangle` is symmetric difference. Since each row has four witnesses,
+this is the number of witnesses removed from the terminal row, equivalently
+the number added to reach the comparison row. The state replacement distance
+is the sum of this row distance over the three added centers.
+
+### Result Status
+
+Exact finite audit:
+**Block-6 One-replacement Terminal Fragility Audit**.
+
+### Argument Or Obstruction
+
+The checker compares each of the `12` terminal clean seven-row states with all
+extendable clean seven-row states in the same combined triple/profile class.
+Every terminal state has minimum state replacement distance `1` from an
+extendable state:
+
+```text
+minimum replacements  terminal states
+1                     12
+```
+
+The number of nearest extendable states varies, but every first nearest
+example chosen by the checker changes exactly one row:
+
+```text
+nearest extendable states  terminal states
+1                          2
+3                          2
+5                          2
+6                          4
+7                          2
+
+changed rows in first nearest example  terminal states
+1                                      12
+```
+
+The class-level minimum distances are:
+
+```text
+seven centers  terminal  extendable  minimum distances
+2,4,5          2         118         1,1
+2,10,11        1         293         1
+4,5,8          1         293         1
+4,5,11         3         152         1,1,1
+5,10,11        3         152         1,1,1
+8,10,11        2         118         1,1
+```
+
+For example, the terminal state
+
+```text
+2  -> {0,1,6,11}
+10 -> {0,4,6,9}
+11 -> {3,5,6,7}
+```
+
+has a nearest extendable state obtained by changing only the row centered at
+`2`, replacing witness `11` by witness `10`:
+
+```text
+2  -> {0,1,6,10}
+10 -> {0,4,6,9}
+11 -> {3,5,6,7}
+```
+
+Thus terminality is not stable under even one witness replacement inside a
+fixed combined triple/profile class.
+
+### Exact Scope
+
+This is an exact finite audit inside the same low-support two-block block-6
+natural-order selected-row extension tree as Cycles 646-650. It covers all
+`12` terminal clean seven-row states and all extendable states in their
+corresponding combined triple/profile classes. It is not a Euclidean
+realizability result, is not a proof of Erdos Problem #97, and is not a
+counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This rules out a stronger stability form of the Cycle 650 failed lemma:
+terminality can disappear after a single witness replacement while the
+seven-center triple and row-content profile remain fixed. Any proof-facing
+terminality invariant in this branch must see exact witness placement, likely
+the boundary-pair placement that controls the eighth-center obstruction split.
+
+### Next Lead
+
+Classify the single replacements by removed witness, added witness, changed
+center, and resulting eighth-center obstruction profile. The useful target is
+an exact local sign or boundary-pair invariant that separates the fragile
+terminal states from their one-step extendable neighbors.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-651`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-651`.
+- The branch was based on `origin/main` at commit
+  `f829b34766634be2ca41538a71463b1cac80de0b`, after PR #369 merged Cycle
+  650.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_block6_fragile_sixth_row_survivors.py --assert-expected
+  --json`: passed; reported `12` terminal states with nearest same-class
+  extendable states, all at minimum replacement distance `1`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `540 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 650 - Block-6 Triple-plus-profile Terminality Failure
 
 ### Mathematical Subquestion
