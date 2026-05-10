@@ -22947,6 +22947,165 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 683 - One-Connector Caveat for Two-Edge Quotient Cycles
+
+### Mathematical Subquestion
+
+After the Two-Row Nondegeneracy Lemma from Cycle 682, can the next shortest
+case be ruled out by quotient combinatorics alone? More precisely, can a
+nondegenerate two-edge vertex-circle quotient cycle be impossible when one
+cross-wire is a literal shared pair and the other cross-wire is supplied by one
+additional selected row?
+
+### Definitions and Assumptions
+
+Write the two strict inequalities abstractly as
+
+```text
+A > B,
+C > D.
+```
+
+The two-edge quotient-cycle schema needs `B ~ C` and `D ~ A`. The
+one-connector `C/ID` case means:
+
+```text
+B = C = P
+```
+
+as a literal unordered pair, while a single connector row centered at `t`
+identifies
+
+```text
+A = {t,u} ~ {t,v} = D.
+```
+
+Call the local quotient nondegenerate if `A`, `P`, and `D` are distinct
+quotient classes before applying the two strict inequalities. In particular,
+the connector row must not also contain the literal pair `P`.
+
+### Result Status
+
+Counterexample to an overstrong subclaim:
+**Single-Connector Caveat**.
+
+The failed subclaim is:
+
+```text
+One additional connector row can never realize a nondegenerate two-edge
+quotient cycle.
+```
+
+This subclaim is false at the pure quotient-combinatorial level.
+
+### Argument Or Obstruction
+
+Use labels `0,...,6` and stipulate the following local selected rows:
+
+```text
+row centered at 4 has witness order 0,1,2,5,
+row centered at 6 has witness order 2,1,3,0,
+row centered at 0 has selected witnesses 2,3,4,5.
+```
+
+The first strict row gives
+
+```text
+A = {0,2} > P = {0,1}.
+```
+
+The second strict row gives
+
+```text
+P = {0,1} > D = {0,3}.
+```
+
+The connector row centered at `0` identifies `{0,2}` and `{0,3}` because
+labels `2` and `3` are both selected in that row:
+
+```text
+A = {0,2} ~ {0,3} = D.
+```
+
+It does not identify `P = {0,1}` with them, because label `1` is not selected
+in the connector row. The quotient therefore has the nondegenerate two-cycle
+
+```text
+D_02 > D_01 > D_03 = D_02.
+```
+
+This gives an exact abstract obstruction to the attempted one-connector
+exclusion. The obstruction is not a Euclidean realization certificate: the row
+witness orders are stipulated local strict-edge data, and no global cyclic
+order, coordinates, or circle-realizability proof is supplied.
+
+### Exact Scope
+
+This is a counterexample only to the quotient-combinatorial subclaim above. It
+does not claim a selected-witness counterexample to Erdos Problem #97, does not
+prove any finite `n` case, does not promote the review-pending `n=9` checker,
+and does not prove that a one-connector schema can occur in an actual strictly
+convex selected-witness system.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-strict-cycle-criterion.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+This is real progress mostly in the negative direction. The current
+connector-classification route is beginning to hit diminishing returns if it
+stays purely quotient-combinatorial: after two strict rows are ruled out, the
+one-connector case survives as an abstract local quotient pattern. Any useful
+exclusion now has to add cyclic-order, circle-realizability, or Kalmanson-type
+input.
+
+### Next Lead
+
+Try to prove or refute the stronger geometric condition:
+
+```text
+Connector-Contains-Shared-Pair Condition.
+If B = C is a literal shared pair and one selected connector row identifies
+D with A in a genuine strictly convex selected-witness system, then cyclic
+order or circle geometry forces the connector row to contain the literal
+shared pair P as well.
+```
+
+If true, the one-connector `C/ID` case collapses to a self-edge in genuine
+geometry. If false, the next target should be the distinct-center two-connector
+bowtie rather than further quotient-only pruning.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-683`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-683`.
+- The branch was started from Cycle 682 commit
+  `bbc0e27f291ef2f5a6a21fc17f6e0d657b658fc9`, while PR #428 was still waiting
+  for GitHub Actions.
+- Before publication, PR #428 was squash-merged as
+  `bc71915af0ab0b469dfd9fd56eee05240be4c4bf`, and this branch was rebased
+  onto `origin/main` at that commit.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `git diff --check`: passed.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 682 - Two-Row Nondegeneracy for Two-Edge Quotient Cycles
 
 ### Mathematical Subquestion
