@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any, Sequence
@@ -14,6 +16,7 @@ import yaml
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANIFEST = REPO_ROOT / "metadata" / "generated_artifacts.yaml"
 SCHEMA = "erdos97.generated_artifacts.v1"
+SHA256_RE = re.compile(r"^[0-9a-fA-F]{64}$")
 
 KNOWN_TRUST = {
     "EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN",
@@ -55,6 +58,14 @@ def load_manifest(path: Path) -> dict[str, Any]:
 
 def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def dotted_get(payload: Any, dotted_key: str) -> Any:
@@ -119,6 +130,7 @@ def validate_artifact(
             errors.append(f"{label}.path does not exist: {raw_path}")
             payload = None
         else:
+            errors.extend(validate_file_metadata(artifact, path, label))
             try:
                 payload = load_json(path)
             except json.JSONDecodeError as exc:
@@ -171,6 +183,31 @@ def validate_artifact(
 
     if payload is not None:
         errors.extend(validate_json_payload(artifact, payload, label))
+    return errors
+
+
+def validate_file_metadata(artifact: dict[str, Any], path: Path, label: str) -> list[str]:
+    """Validate optional byte-for-byte artifact metadata."""
+    errors: list[str] = []
+
+    expected_sha = artifact.get("sha256")
+    if expected_sha is not None:
+        if not isinstance(expected_sha, str) or not SHA256_RE.fullmatch(expected_sha):
+            errors.append(f"{label}.sha256 must be a 64-character hex string when present")
+        else:
+            actual_sha = sha256_file(path)
+            if actual_sha != expected_sha.lower():
+                errors.append(f"{label}.sha256 is {actual_sha!r}, expected {expected_sha!r}")
+
+    expected_size = artifact.get("size_bytes")
+    if expected_size is not None:
+        if not isinstance(expected_size, int) or isinstance(expected_size, bool) or expected_size < 0:
+            errors.append(f"{label}.size_bytes must be a nonnegative integer when present")
+        else:
+            actual_size = path.stat().st_size
+            if actual_size != expected_size:
+                errors.append(f"{label}.size_bytes is {actual_size!r}, expected {expected_size!r}")
+
     return errors
 
 
