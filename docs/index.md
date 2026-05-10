@@ -24,12 +24,18 @@ put detailed reconciliation in the canonical synthesis.
 - [`canonical-synthesis.md`](canonical-synthesis.md): long-form canonical
   synthesis, claim taxonomy, failed-route reconciliation, and source/hash
   inventory.
+- [`glossary.md`](glossary.md): local vocabulary for selected witnesses,
+  claim scopes, exact obstructions, review-pending artifacts, and bridge
+  terms; navigation only, not mathematical evidence.
 - [`../RESULTS.md`](../RESULTS.md): compact results ledger.
 
 ## Claims and obstructions
 
 - [`claims.md`](claims.md): proved local facts, conditional programs, and
   proof-facing caveats.
+- [`boundary-atlas.md`](boundary-atlas.md): organized vocabulary for
+  degenerations, exact obstruction modes, solver-trust boundaries, and
+  literature-risk boundaries; not a source of claim status.
 - [`mutual-rhombus-filter.md`](mutual-rhombus-filter.md): crossing-bisector and
   mutual-midpoint filters for fixed selected-witness patterns.
 - [`phi4-rectangle-trap.md`](phi4-rectangle-trap.md): exact even
@@ -232,6 +238,12 @@ put detailed reconciliation in the canonical synthesis.
   killed incidence patterns.
 - [`verification-contract.md`](verification-contract.md): requirements for
   numerical candidates and certified counterexamples.
+- [`review-packet-template.md`](review-packet-template.md): claim-neutral
+  template for packaging finite-case artifacts, fixed-pattern certificates, and
+  local lemma candidates for independent review.
+- [`../papers/n8-reviewer-packet.md`](../papers/n8-reviewer-packet.md):
+  claim-neutral reviewer packet for the repo-local machine-checked `n=8`
+  selected-witness finite-case artifact.
 - [`../requirements-lock.txt`](../requirements-lock.txt): known-good direct
   dependency snapshot for reproduction.
 - [`exactification-plan.md`](exactification-plan.md): route from numerical
