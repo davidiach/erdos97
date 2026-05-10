@@ -22947,6 +22947,114 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 666 - Finite Descent Trap
+
+### Mathematical Subquestion
+
+Cycle 665 gave a strict quotient-graph acyclicity normal form. The next narrow
+bridge-facing question was:
+
+```text
+Can cyclicity be forced without first naming an explicit directed cycle?
+```
+
+### Definitions and Assumptions
+
+Use the selected-distance quotient and strict quotient graph from Cycle 665.
+A **closed strict descent region** is a nonempty finite set `H` of quotient
+classes such that every class `C` in `H` has at least one strict
+quotient-graph edge
+
+```text
+C -> f(C)
+```
+
+with `f(C)` again in `H`.
+
+### Result Status
+
+Proved local corollary:
+**Finite Descent Trap**.
+
+### Argument Or Obstruction
+
+Starting from any class in `H` and repeatedly applying the chosen descent
+map `f`, finiteness forces some quotient class to repeat. The resulting
+closed directed walk contains a directed cycle. By strict quotient-graph
+acyclicity, such a directed cycle is impossible in any strictly convex
+selected-witness realization.
+
+Equivalently, if a displayed local core forces a finite nonempty collection of
+quotient classes to have no strict-descent sink, then that local core is
+already obstructed. This is only graph theory after the selected-distance
+quotient and vertex-circle strict edges are defined, but it gives a useful
+target for bridge arguments: prove a closed descent region instead of finding
+the cycle by hand.
+
+### Exact Scope
+
+This is a local corollary of the strict quotient-graph acyclicity lemma. It
+does not say that the absence of a closed descent region implies realizability.
+It is not an independent review of the exhaustive `n=9` checker, not a proof
+of the full `n=9` finite case, not a general proof of Erdos Problem #97, and
+not a counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-local-lemmas.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+The quotient-graph route now has a bridge-friendly sufficient obstruction:
+find a finite quotient-class region with a strict descent from every class
+back into the same region. This does not close the global bridge, but it
+turns one possible proof target into a sink/non-sink statement that may be
+easier to force from local incidence or order hypotheses.
+
+### Next Lead
+
+Try to apply the finite descent trap to a concrete packet or bridge fragment
+without using the already known explicit cycle, or build the second simple
+packet replay that reconstructs strict quotient graphs and detects loops,
+cycles, and closed descent regions from stored JSON alone.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-666`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-666`.
+- The branch was started from `origin/main` at commit
+  `fa77b4b39d820967ef23ea736ce25f04d178adb4`, after PR #402 merged Cycle
+  665.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_n9_vertex_circle_local_lemmas.py --assert-expected --json`:
+  passed; the scan still reports `184` covered assignments from `16` families
+  and no uncovered families.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `580 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 665 - Strict Quotient-graph Acyclicity
 
 ### Mathematical Subquestion
