@@ -350,6 +350,47 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
     ] == {
         "contains_removed_endpoint->crossing_two_overlap": 2,
     }
+    assert edit_distance_audit[
+        "not_legal_opened_crossing_creation_mechanism_distribution"
+    ] == {
+        "noncrossing_removed_to_added_substitution": 8,
+        "three_or_more_removed_endpoint_deletion": 2,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_noncrossing_substitution_arc_distribution"
+    ] == {
+        "candidate_contains_added:opposite_source_arcs->crossing_two_overlap": 8,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_noncrossing_substitution_target_distribution"
+    ] == {
+        "2,10:3,5->1,5": 3,
+        "2,10:3,6->1,6": 1,
+        "4,8:0,9->0,7": 1,
+        "4,8:9,11->7,11": 3,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_noncrossing_deletion_target_distribution"
+    ] == {
+        "2,10:3,5->zero_or_one_overlap": 2,
+        "2,10:3,6->zero_or_one_overlap": 1,
+        "2,5:0,11->zero_or_one_overlap": 2,
+        "2,5:1,11->zero_or_one_overlap": 6,
+        "2,8:0,11->zero_or_one_overlap": 2,
+        "2,8:1,11->zero_or_one_overlap": 5,
+        "2,8:5,6->zero_or_one_overlap": 2,
+        "2,8:5,7->zero_or_one_overlap": 5,
+        "4,8:0,9->zero_or_one_overlap": 1,
+        "4,8:9,11->zero_or_one_overlap": 2,
+        "8,11:5,6->zero_or_one_overlap": 2,
+        "8,11:5,7->zero_or_one_overlap": 6,
+    }
+    assert edit_distance_audit[
+        "not_legal_opened_three_or_more_deletion_target_distribution"
+    ] == {
+        "2,8:1,5,7->1,7": 1,
+        "2,8:1,7,11->1,7": 1,
+    }
     assert edit_distance_audit["changed_row_count_distribution_for_first_nearest"] == {
         "1": 12
     }

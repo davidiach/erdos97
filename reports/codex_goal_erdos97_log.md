@@ -22947,6 +22947,166 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 656 - Block-6 Crossing-creation Mechanism Audit
+
+### Mathematical Subquestion
+
+Cycle 655 showed that every before-replacement forbidden overlap in the
+not-legal opening audit contains the removed endpoint. The next precise
+question was:
+
+```text
+Among the after-valid candidate rows, what distinguishes destroying a
+noncrossing two-overlap from converting it into an allowed crossing
+two-overlap?
+```
+
+### Definitions and Assumptions
+
+Use the same low-support block-6 branch, terminal clean seven-row states,
+same-class nearest terminal-to-extendable transitions, and not-legal opened
+eighth-center incidences from Cycles 654-655.
+
+For a noncrossing before-replacement two-overlap, the **surviving old endpoint**
+is the endpoint of the old target chord other than the removed endpoint. A
+**removed-to-added substitution** is the case where the candidate row also
+contains the added endpoint, so after replacement the new two-overlap is the
+chord joining the surviving old endpoint to the added endpoint.
+
+### Result Status
+
+Exact finite audit:
+**Block-6 Crossing-creation Mechanism Audit**.
+
+### Argument Or Obstruction
+
+The `10` crossing two-overlaps created after replacement split into exactly
+two mechanisms:
+
+```text
+crossing creation mechanism                 candidate rows
+noncrossing removed-to-added substitution    8
+three-or-more removed-endpoint deletion      2
+```
+
+For noncrossing two-overlaps, containing the added endpoint is exactly the
+substitution case in this finite audit. In all `8` substitution rows, the
+surviving old endpoint and the added endpoint lie in opposite source arcs, so
+the new target chord crosses the source:
+
+```text
+substitution arc relation                              candidate rows
+candidate contains added, opposite source arcs -> cross 8
+```
+
+The exact noncrossing substitution targets are:
+
+```text
+source: old target -> new target  candidate rows
+2,10: 3,5 -> 1,5                 3
+2,10: 3,6 -> 1,6                 1
+4,8: 0,9 -> 0,7                  1
+4,8: 9,11 -> 7,11                3
+```
+
+The remaining `36` noncrossing two-overlaps are deletion cases: the candidate
+row omits the added endpoint, so removing the active endpoint leaves at most
+one common witness with the changed row.
+
+The two three-or-more cases form a second crossing-creation mechanism:
+
+```text
+source: old overlap -> new target  candidate rows
+2,8: 1,5,7 -> 1,7                 1
+2,8: 1,7,11 -> 1,7                1
+```
+
+Thus, within this finite branch, a not-legal opening creates a crossing
+two-overlap only by either substituting the added endpoint across the source
+arc or by deleting the removed endpoint from a size-three overlap. Otherwise
+the obstruction is simply destroyed.
+
+### Exact Scope
+
+This is an exact finite audit inside the low-support two-block block-6
+natural-order selected-row extension tree. It covers the `46` after-valid
+candidate eighth rows attached to the `6` Cycle 654 not-legal opened-center
+incidences. It refines the Cycle 655 endpoint/arc audit. It is not a
+Euclidean realizability result, is not a proof of Erdos Problem #97, and is
+not a counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+Cycle 655 identified the removed endpoint as the active endpoint in every
+before-replacement obstruction. This cycle explains the remaining fork:
+either the candidate row omits the added endpoint and the obstruction
+disappears, or the candidate row contains the added endpoint on the opposite
+source arc and the obstruction becomes an allowed crossing. That is a more
+local cyclic-order target than the earlier broad terminality question.
+
+### Next Lead
+
+Try to prove the following source-arc substitution lemma in the block-6
+normal form:
+
+```text
+If an after-valid candidate row contains the added endpoint and its old
+noncrossing target contains the removed endpoint, then the added endpoint and
+the surviving old endpoint lie in opposite source arcs.
+```
+
+A disproof would be an exact not-legal opening row where the candidate
+contains the added endpoint but the substituted target remains noncrossing.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-656`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-656`.
+- The branch was started from `origin/main` at commit
+  `bad44e1f6afba839b6eddb47e1639cc3c0524fa7`, after PR #384 merged Cycle
+  655.
+- Before updating the PR branch, it was rebased onto `origin/main` at commit
+  `2d1befac0a37a3a68e6664c56975d4b0e88db576`; the intervening main commit
+  touched n9 vertex-circle files and did not overlap this cycle's block-6
+  audit files.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_block6_fragile_sixth_row_survivors.py --assert-expected
+  --json`: passed; reported `8` noncrossing removed-to-added substitution
+  crossing creations and `2` three-or-more deletion crossing creations.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed on the rebased branch, `562 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 655 - Block-6 Removed-endpoint Source-arc Audit
 
 ### Mathematical Subquestion

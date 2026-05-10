@@ -533,6 +533,24 @@ endpoint gives `8` crossing two-overlap rows. The remaining `2`
 three-or-more overlaps also contain the removed endpoint and collapse to
 crossing two-overlaps after replacement.
 
+The `8` noncrossing-to-crossing switches are exactly removed-to-added
+substitutions: the candidate row already contains the added endpoint, and the
+surviving old target endpoint and added endpoint lie in opposite source arcs.
+
+```text
+source: old target -> new target  candidate rows
+2,10: 3,5 -> 1,5                 3
+2,10: 3,6 -> 1,6                 1
+4,8: 0,9 -> 0,7                  1
+4,8: 9,11 -> 7,11                3
+```
+
+The other `36` noncrossing two-overlaps are deletions: the candidate row omits
+the added endpoint, so removing the active endpoint leaves at most one common
+witness with the changed row. The `2` three-or-more cases are a second
+crossing-creation mechanism: deleting the removed endpoint leaves the crossing
+target `1,7` across source `2,8`.
+
 For example, the terminal state
 
 ```text
