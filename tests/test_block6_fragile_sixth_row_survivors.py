@@ -152,6 +152,34 @@ def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:
         {"center": 4, "row": [0, 3, 6, 9]},
         {"center": 5, "row": [0, 4, 8, 11]},
     ]
+    terminal_center_audit = payload["low_support_terminal_eighth_center_audit"]
+    assert terminal_center_audit["terminal_clean_seven_states"] == 12
+    assert terminal_center_audit["block_swap_orbits"] == 6
+    assert terminal_center_audit["aggregate_by_eighth_center"] == {
+        "1": {"ok": 0, "self_edge": 7, "strict_cycle": 20},
+        "2": {"ok": 0, "self_edge": 14, "strict_cycle": 8},
+        "4": {"ok": 0, "self_edge": 12, "strict_cycle": 3},
+        "5": {"ok": 0, "self_edge": 2, "strict_cycle": 0},
+        "7": {"ok": 0, "self_edge": 7, "strict_cycle": 20},
+        "8": {"ok": 0, "self_edge": 14, "strict_cycle": 8},
+        "10": {"ok": 0, "self_edge": 12, "strict_cycle": 3},
+        "11": {"ok": 0, "self_edge": 2, "strict_cycle": 0},
+    }
+    assert terminal_center_audit["center_obstruction_profile_counts"] == {
+        "self_only_centers=0;strict_only_centers=3;mixed_centers=1": 2,
+        "self_only_centers=1;strict_only_centers=0;mixed_centers=4": 2,
+        "self_only_centers=1;strict_only_centers=1;mixed_centers=2": 2,
+        "self_only_centers=1;strict_only_centers=3;mixed_centers=1": 2,
+        "self_only_centers=3;strict_only_centers=1;mixed_centers=0": 4,
+    }
+    assert terminal_center_audit["block_swap_orbit_representatives"][0][
+        "representative_by_eighth_center"
+    ] == {
+        "1": {"ok": 0, "self_edge": 2, "strict_cycle": 0},
+        "4": {"ok": 0, "self_edge": 2, "strict_cycle": 0},
+        "7": {"ok": 0, "self_edge": 0, "strict_cycle": 2},
+        "8": {"ok": 0, "self_edge": 3, "strict_cycle": 0},
+    }
     assert payload["first_clean_sixth_example"] == {
         "fifth": {"center": 1, "row": [0, 2, 6, 7]},
         "sixth": {"center": 2, "row": [0, 1, 3, 8]},
