@@ -604,6 +604,27 @@ EXPECTED_LOW_SUPPORT_PROFILE_TERMINALITY_AUDIT = {
         ],
     },
 }
+EXPECTED_LOW_SUPPORT_TERMINAL_EIGHTH_CENTER_AUDIT = {
+    "terminal_clean_seven_states": 12,
+    "block_swap_orbits": 6,
+    "aggregate_by_eighth_center": {
+        "1": {"ok": 0, "self_edge": 7, "strict_cycle": 20},
+        "2": {"ok": 0, "self_edge": 14, "strict_cycle": 8},
+        "4": {"ok": 0, "self_edge": 12, "strict_cycle": 3},
+        "5": {"ok": 0, "self_edge": 2, "strict_cycle": 0},
+        "7": {"ok": 0, "self_edge": 7, "strict_cycle": 20},
+        "8": {"ok": 0, "self_edge": 14, "strict_cycle": 8},
+        "10": {"ok": 0, "self_edge": 12, "strict_cycle": 3},
+        "11": {"ok": 0, "self_edge": 2, "strict_cycle": 0},
+    },
+    "center_obstruction_profile_counts": {
+        "self_only_centers=0;strict_only_centers=3;mixed_centers=1": 2,
+        "self_only_centers=1;strict_only_centers=0;mixed_centers=4": 2,
+        "self_only_centers=1;strict_only_centers=1;mixed_centers=2": 2,
+        "self_only_centers=1;strict_only_centers=3;mixed_centers=1": 2,
+        "self_only_centers=3;strict_only_centers=1;mixed_centers=0": 4,
+    },
+}
 EXPECTED_BY_FIFTH_CENTER = {
     "1": {
         "clean_fifth": 21,
@@ -1142,6 +1163,170 @@ def _low_support_terminal_classification(
     }
 
 
+def _terminal_state_eighth_center_counts(
+    state: SevenState,
+    options: Mapping[int, list[tuple[int, ...]]],
+) -> dict[str, dict[str, int]]:
+    assigned, pair_counts, indegrees = _initial_state_with_records(state)
+    by_eighth_center: dict[str, dict[str, int]] = {}
+    for eighth_center in range(N):
+        if eighth_center in assigned:
+            continue
+        center_status: Counter[str] = Counter()
+        for eighth_row in _valid_options(
+            eighth_center,
+            options,
+            assigned,
+            pair_counts,
+            indegrees,
+        ):
+            _add_row(
+                assigned,
+                pair_counts,
+                indegrees,
+                eighth_center,
+                eighth_row,
+            )
+            eighth_status, _edge_count = _partial_vertex_circle_status(assigned)
+            _remove_row(
+                assigned,
+                pair_counts,
+                indegrees,
+                eighth_center,
+                eighth_row,
+            )
+            center_status[eighth_status] += 1
+        if center_status:
+            by_eighth_center[str(eighth_center)] = _status_counts(center_status)
+    return by_eighth_center
+
+
+def _center_obstruction_profile_key(
+    by_eighth_center: Mapping[str, Mapping[str, int]],
+) -> str:
+    self_only = 0
+    strict_only = 0
+    mixed = 0
+    for status_counts in by_eighth_center.values():
+        has_self_edge = status_counts["self_edge"] > 0
+        has_strict_cycle = status_counts["strict_cycle"] > 0
+        if has_self_edge and has_strict_cycle:
+            mixed += 1
+        elif has_self_edge:
+            self_only += 1
+        elif has_strict_cycle:
+            strict_only += 1
+        else:
+            raise AssertionError(
+                f"terminal eighth center has no obstruction: {status_counts!r}"
+            )
+    return (
+        f"self_only_centers={self_only};"
+        f"strict_only_centers={strict_only};mixed_centers={mixed}"
+    )
+
+
+def _block_swap_eighth_center_counts(
+    by_eighth_center: Mapping[str, Mapping[str, int]],
+) -> dict[str, dict[str, int]]:
+    return {
+        str(_swap_label(int(center))): dict(status_counts)
+        for center, status_counts in by_eighth_center.items()
+    }
+
+
+def _low_support_terminal_eighth_center_audit(
+    terminal_audits: list[TerminalSevenAudit],
+) -> dict[str, Any]:
+    options = _options()
+    center_counts_by_state = {
+        state: _terminal_state_eighth_center_counts(state, options)
+        for state, _status in terminal_audits
+    }
+    status_by_state = {state: status for state, status in terminal_audits}
+    aggregate_by_center: dict[str, Counter[str]] = {}
+    center_profiles: Counter[str] = Counter()
+    seen: set[SevenState] = set()
+    orbit_representatives: list[dict[str, Any]] = []
+
+    for state, status in sorted(terminal_audits):
+        by_eighth_center = center_counts_by_state[state]
+        status_total = Counter()
+        for center, center_status in by_eighth_center.items():
+            aggregate = aggregate_by_center.setdefault(center, Counter())
+            for status_name in STATUSES:
+                count = center_status[status_name]
+                aggregate[status_name] += count
+                status_total[status_name] += count
+        if status_total != status:
+            raise AssertionError(
+                "terminal center split does not match terminal status: "
+                f"{state!r}"
+            )
+        if status_total["ok"] != 0:
+            raise AssertionError(f"terminal state has a clean eighth row: {state!r}")
+        center_profiles[_center_obstruction_profile_key(by_eighth_center)] += 1
+
+        if state in seen:
+            continue
+        orbit = sorted({state, _block_swap_seven_state(state)})
+        seen.update(orbit)
+        representative = orbit[0]
+        block_swap_member = orbit[1]
+        representative_counts = center_counts_by_state[representative]
+        block_swap_counts = center_counts_by_state[block_swap_member]
+        if (
+            _block_swap_eighth_center_counts(representative_counts)
+            != block_swap_counts
+        ):
+            raise AssertionError("terminal center split is not block-swap equivariant")
+        if status_by_state[representative] != status_by_state[block_swap_member]:
+            raise AssertionError("terminal block-swap orbit changed status split")
+        orbit_representatives.append(
+            {
+                "representative": [
+                    _record_payload(record) for record in representative
+                ],
+                "block_swap_member": [
+                    _record_payload(record) for record in block_swap_member
+                ],
+                "representative_by_eighth_center": {
+                    center: representative_counts[center]
+                    for center in sorted(
+                        representative_counts,
+                        key=lambda value: int(value),
+                    )
+                },
+                "block_swap_by_eighth_center": {
+                    center: block_swap_counts[center]
+                    for center in sorted(
+                        block_swap_counts,
+                        key=lambda value: int(value),
+                    )
+                },
+                "center_obstruction_profile": _center_obstruction_profile_key(
+                    representative_counts
+                ),
+            }
+        )
+
+    return {
+        "terminal_clean_seven_states": len(terminal_audits),
+        "block_swap_orbits": len(orbit_representatives),
+        "aggregate_by_eighth_center": {
+            center: _status_counts(counter)
+            for center, counter in sorted(
+                aggregate_by_center.items(),
+                key=lambda item: int(item[0]),
+            )
+        },
+        "center_obstruction_profile_counts": {
+            key: int(center_profiles[key]) for key in sorted(center_profiles)
+        },
+        "block_swap_orbit_representatives": orbit_representatives,
+    }
+
+
 def _low_support_profile_terminality_audit(
     clean_seven_states: set[SevenState],
     terminal_audits: list[TerminalSevenAudit],
@@ -1387,6 +1572,11 @@ def survivor_payload() -> dict[str, Any]:
         "low_support_terminal_seven_state_classification": (
             _low_support_terminal_classification(low_support_terminal_audits)
         ),
+        "low_support_terminal_eighth_center_audit": (
+            _low_support_terminal_eighth_center_audit(
+                low_support_terminal_audits
+            )
+        ),
         "low_support_profile_terminality_audit": (
             _low_support_profile_terminality_audit(
                 low_support_clean_seven_states,
@@ -1465,6 +1655,13 @@ def assert_expected(payload: Mapping[str, Any]) -> None:
             "unexpected low-support profile terminality audit: "
             f"{payload['low_support_profile_terminality_audit']!r}"
         )
+    terminal_center_audit = payload["low_support_terminal_eighth_center_audit"]
+    for key, expected in EXPECTED_LOW_SUPPORT_TERMINAL_EIGHTH_CENTER_AUDIT.items():
+        if terminal_center_audit[key] != expected:
+            raise AssertionError(
+                f"unexpected low-support terminal eighth-center {key}: "
+                f"{terminal_center_audit[key]!r}"
+            )
     if payload["by_fifth_center"] != EXPECTED_BY_FIFTH_CENTER:
         raise AssertionError(
             f"unexpected by-fifth-center counts: {payload['by_fifth_center']!r}"

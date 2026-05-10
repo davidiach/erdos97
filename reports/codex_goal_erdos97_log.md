@@ -22947,6 +22947,165 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 649 - Block-6 Terminal Eighth-center Split Audit
+
+### Mathematical Subquestion
+
+Cycle 648 showed that the two terminal row-content profiles do not force
+eighth-row terminality. The next precise question was:
+
+```text
+For each terminal clean seven-row pocket, how do the remaining legal eighth
+rows split by eighth center and by vertex-circle obstruction type?
+```
+
+### Definitions and Assumptions
+
+The fixed block-6 fragile rows and the low-support clean seven-row terminal
+pockets are as in Cycles 646-648. A legal eighth row is any row returned by
+the existing incidence/order `_valid_options` filter for an unassigned center
+after a terminal clean seven-row state has been fixed.
+
+The vertex-circle status labels are the checker statuses:
+
+```text
+ok           no partial vertex-circle quotient obstruction found
+self_edge    selected-distance quotient plus order constraints force x < x
+strict_cycle selected-distance quotient plus order constraints force a strict
+             directed cycle
+```
+
+For a terminal state, an eighth center is **self-only** if all its legal rows
+are killed by self-edge, **strict-only** if all are killed by strict-cycle, and
+**mixed** if both obstruction types occur among legal rows for that center.
+
+### Result Status
+
+Exact finite audit:
+**Block-6 Terminal Eighth-center Split Audit**.
+
+### Argument Or Obstruction
+
+The checker now recomputes the legal eighth-row candidates for the `12`
+terminal clean seven-row states, splits them by eighth center, and verifies
+that the center split sums back to the terminal status counts from Cycle 647.
+It also verifies block-swap equivariance under `i -> i+6 mod 12`.
+
+Across all `12` terminal states there are `132` legal eighth-row candidates;
+none has status `ok`. The aggregate eighth-center split is:
+
+```text
+eighth center  self-edge  strict-cycle
+1              7          20
+2              14         8
+4              12         3
+5              2          0
+7              7          20
+8              14         8
+10             12         3
+11             2          0
+```
+
+Thus the aggregate terminal split is `70` self-edge obstructions and `62`
+strict-cycle obstructions. The terminal states fall into five exact
+center-obstruction profiles:
+
+```text
+self-only centers  strict-only centers  mixed centers  terminal states
+3                  1                    0              4
+1                  0                    4              2
+1                  1                    2              2
+1                  3                    1              2
+0                  3                    1              2
+```
+
+One representative terminal pocket has:
+
+```text
+2  -> {0,1,6,11}
+10 -> {0,4,6,9}
+11 -> {3,5,6,7}
+
+eighth center  self-edge  strict-cycle
+1              2          0
+4              2          0
+7              0          2
+8              3          0
+```
+
+The other five block-swap orbit representatives are recorded in the checker
+payload under `low_support_terminal_eighth_center_audit`.
+
+### Exact Scope
+
+This is an exact finite audit inside the low-support two-block block-6
+natural-order selected-row extension tree. It covers only the `12` terminal
+clean seven-row states found in Cycle 646. It is not a Euclidean
+realizability result, is not a proof of Erdos Problem #97, and is not a
+counterexample.
+
+### Files Changed
+
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+- `scripts/check_block6_fragile_sixth_row_survivors.py`
+- `tests/test_block6_fragile_sixth_row_survivors.py`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+The audit rules out another coarse explanation of terminality. Terminality is
+not concentrated at one eighth center, nor at one obstruction type: both
+self-edge and strict-cycle mechanisms are essential, and the mix varies across
+terminal pockets. A proof-mining lemma probably needs the exact boundary-pair
+placement inside a terminal pocket, not just the row-content profile or the
+remaining center set.
+
+### Next Lead
+
+Compare each terminal pocket against nearby extendable states with the same
+row-content profile and the same candidate eighth centers, then isolate the
+smallest boundary-pair move that changes one center from obstructed to
+extendable.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-649`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-649`.
+- The branch was based on `origin/main` at commit
+  `f0820afd8f8fb0c734fc7fed869766fe9c228eab`, after PR #366 merged Cycle
+  648.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_block6_fragile_sixth_row_survivors.py --assert-expected
+  --json`: passed; reported `12` terminal clean seven-row states, `6`
+  block-swap orbits, and aggregate eighth-center obstruction totals `70`
+  self-edge plus `62` strict-cycle.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest
+  tests/test_block6_fragile_sixth_row_survivors.py -q`: passed, `2 passed`.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `540 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 648 - Block-6 Profile-only Terminality Failure
 
 ### Mathematical Subquestion

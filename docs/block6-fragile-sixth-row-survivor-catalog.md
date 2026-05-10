@@ -305,6 +305,54 @@ One clean extendable state outside the two-and-two profile domain is:
 5 -> {0,4,8,11}
 ```
 
+## Terminal Eighth-center Split Audit
+
+A finer terminal-pocket audit splits the legal eighth-row candidates by their
+eighth center before applying the vertex-circle status test. Across the `12`
+terminal clean seven-row states there are `132` legal eighth rows, all
+obstructed:
+
+```text
+eighth center  self-edge  strict-cycle
+1              7          20
+2              14         8
+4              12         3
+5              2          0
+7              7          20
+8              14         8
+10             12         3
+11             2          0
+```
+
+Thus no terminal pocket has a hidden clean eighth continuation after center
+splitting. The center-level obstruction profiles across the `12` terminal
+states are:
+
+```text
+self-only centers  strict-only centers  mixed centers  terminal states
+3                  1                    0              4
+1                  0                    4              2
+1                  1                    2              2
+1                  3                    1              2
+0                  3                    1              2
+```
+
+The first block-swap orbit representative has the split:
+
+```text
+2  -> {0,1,6,11}; 10 -> {0,4,6,9}; 11 -> {3,5,6,7}
+
+eighth center  self-edge  strict-cycle
+1              2          0
+4              2          0
+7              0          2
+8              3          0
+```
+
+The remaining orbit representatives are recorded by the checker output under
+`low_support_terminal_eighth_center_audit`. The split is equivariant under the
+block-swap map `i -> i+6 mod 12`.
+
 ## Center Counts
 
 ```text
@@ -346,7 +394,8 @@ every legal sixth row after each of them. It also computes the block-swap
 orbits for the clean fifth-row and clean six-row states. Finally, it audits
 every legal seventh row after the `56` low-support clean six-row states in the
 `4,5` and `10,11` minimum-support center-pair families, and every legal
-eighth row after the resulting `2252` clean seven-row states.
+eighth row after the resulting `2252` clean seven-row states, including the
+center-level split for the `12` terminal seven-row pockets.
 
 ## Effect
 
@@ -363,5 +412,7 @@ continue.
 
 The next useful step is to mine the `6047` clean six-row states for a smaller
 row-content normal-form family, or to classify the `12` terminal seven-row
-states and compare their row-content signatures with the `2240` seven-row
-states that still extend cleanly.
+states by a boundary-pair invariant that distinguishes them from the `2240`
+seven-row states that still extend cleanly. The eighth-center split rules out
+the coarsest possible terminal explanation: terminality is not concentrated at
+one eighth center or one obstruction type.
