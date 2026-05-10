@@ -134,6 +134,14 @@ necessary bridge target only; it is not a proof of Erdos Problem #97 and not a
 counterexample. See `docs/bootstrap-core-bridge.md` and
 `scripts/check_bootstrap_core_bridge.py`.
 
+The checked bootstrap-core crosswalk applies the same singleton-rich
+bookkeeping to current fixed-row frontier motifs. All eight audited cyclic-order
+cases have rank greater than 3, and none violates the weighted private-halo
+capacity ledger. This is negative diagnostic information only, not evidence of
+realizability; see `docs/bootstrap-core-crosswalk.md`,
+`scripts/check_bootstrap_core_crosswalk.py`, and
+`data/certificates/bootstrap_core_crosswalk.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

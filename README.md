@@ -53,6 +53,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/minimal-fragile-cover-bridge.md`](docs/minimal-fragile-cover-bridge.md).
 - For the rich-triple closure / bootstrap-core bridge fork, read
   [`docs/bootstrap-core-bridge.md`](docs/bootstrap-core-bridge.md).
+- For the bootstrap-core rank/capacity crosswalk on current fixed-row
+  frontier motifs, read
+  [`docs/bootstrap-core-crosswalk.md`](docs/bootstrap-core-crosswalk.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).

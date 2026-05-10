@@ -196,3 +196,9 @@ python scripts/check_bootstrap_core_bridge.py --assert-expected
 The checked `C13_sidon_1_2_4_10` fixed-row benchmark is used only as a
 bookkeeping negative control. That fixed selected-witness pattern is already
 killed across all cyclic orders by the repo's exact Kalmanson/Farkas search.
+
+The follow-up diagnostic `docs/bootstrap-core-crosswalk.md` applies the same
+singleton-rich bookkeeping to current sparse/frontier fixed-row motifs. It
+records that these audited cases have rank greater than 3 but still pass the
+weighted private-halo capacity ledger, so the ledger is a bridge target rather
+than an obstruction by itself.

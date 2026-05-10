@@ -49,7 +49,10 @@ equivalent to bootstrap rank at most 3. Failure of that rank condition yields
 inclusion-minimal generating cores with deletion closures, private halos, and a
 weighted cyclic outside-pair capacity ledger. This is still only bridge
 bookkeeping, not a contradiction or counterexample. See
-`docs/bootstrap-core-bridge.md`.
+`docs/bootstrap-core-bridge.md`. A follow-up crosswalk applies this ledger to
+current fixed-row frontier motifs and records that the audited singleton-rich
+cases have rank greater than 3 but still pass the weighted capacity check; see
+`docs/bootstrap-core-crosswalk.md`.
 
 ## New exact fixed-pattern obstructions
 

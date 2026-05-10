@@ -418,6 +418,12 @@ cyclic order. This strengthens the one-pair-per-center radius-blocker bound
 but is still only a bridge target, not a proof of Erdos Problem #97. See
 `docs/bootstrap-core-bridge.md`.
 
+The companion crosswalk in `docs/bootstrap-core-crosswalk.md` applies this
+bookkeeping to current singleton-rich fixed-row frontier motifs. It records
+that the audited cases have rank greater than 3 but still pass weighted
+capacity, so it is negative diagnostic information about the strength of the
+ledger, not a new obstruction theorem.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

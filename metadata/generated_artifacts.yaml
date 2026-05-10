@@ -1786,6 +1786,44 @@ artifacts:
       - source-of-truth strongest result
       - general proof of Erdos Problem #97
 
+  - id: bootstrap_core_crosswalk
+    path: data/certificates/bootstrap_core_crosswalk.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_core_crosswalk.py
+    command: python scripts/check_bootstrap_core_crosswalk.py --write --assert-expected
+    checker: scripts/check_bootstrap_core_crosswalk.py
+    check_command: python scripts/check_bootstrap_core_crosswalk.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Bootstrap-core rank and private-halo capacity crosswalk for selected fixed-row frontier motifs; not a proof of the bridge, not a proof of Erdos Problem #97, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_core_crosswalk.v1
+      status: BOOTSTRAP_CORE_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.unique_selected_patterns: 6
+      summary.order_case_count: 8
+      summary.rank_gt_3_order_cases: 8
+      summary.minimum_rank_counts:
+        "4": 4
+        "5": 3
+        "6": 1
+      summary.weighted_capacity_obstruction_count: 0
+      summary.weighted_capacity_survivor_count: 8
+      base_apex_d3_reference.representative_count: 88
+      base_apex_d3_reference.bootstrap_core_audited: false
+      provenance.generator: scripts/check_bootstrap_core_crosswalk.py
+      provenance.command: python scripts/check_bootstrap_core_crosswalk.py --write --assert-expected
+    forbidden_claims:
+      - bootstrap-core capacity proves the bridge
+      - singleton-rich fixed rows certify Euclidean realizability
+      - positive capacity margin is a counterexample
+      - n=9 is proved
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+
   - id: n10_secondary_singleton_replay
     path: data/certificates/2026-05-05/n10_secondary.json
     kind: finite_case_draft_artifact

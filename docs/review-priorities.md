@@ -308,6 +308,11 @@ condition that the surviving multi-block family does not automatically satisfy:
 - bootstrap-core/private-halo analysis, as recorded in
   `docs/bootstrap-core-bridge.md`, which adds a `rho > 3` closure-rank witness,
   deletion closures, and weighted cyclic outside-pair capacity.
+- bootstrap-core crosswalk evidence, as recorded in
+  `docs/bootstrap-core-crosswalk.md`, showing that the current singleton-rich
+  sparse/frontier motifs have rank greater than 3 but retain positive weighted
+  capacity margin; any useful next condition should reduce that slack or add
+  additional private-pair demand.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract
