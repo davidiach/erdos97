@@ -123,6 +123,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-two-overlap-crossing-audit.md`](n9-vertex-circle-two-overlap-crossing-audit.md):
   row-level audit of the two-overlap radical-axis crossing filter in the
   exhaustive `n=9` vertex-circle checker.
+- [`n9-vertex-circle-witness-pair-cap-audit.md`](n9-vertex-circle-witness-pair-cap-audit.md):
+  row-level audit of the witness-pair cap and partial count pruning in the
+  exhaustive `n=9` vertex-circle checker.
 - [`n9-vertex-circle-template-lemma-catalog.md`](n9-vertex-circle-template-lemma-catalog.md):
   derived 12-template lemma-candidate catalog for proof-mining review.
 - [`n9-vertex-circle-certificate-chain.md`](n9-vertex-circle-certificate-chain.md):

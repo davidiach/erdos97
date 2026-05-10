@@ -22947,6 +22947,157 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 636 - Witness-pair Cap Partial-prune Audit
+
+### Mathematical Subquestion
+
+After Cycle 635 audited the two-overlap crossing filter, the next row-level
+frontier-soundness question was:
+
+Does the repo-native `n=9` vertex-circle checker implement exactly the
+geometric witness-pair cap, and is the partial
+`witness_pair_counts[pidx] >= 2` prune monotone under adding selected rows?
+
+### Definitions and Assumptions
+
+Let `P` be a strictly convex polygon and let `S_x` be the selected witness
+4-set for center `x`. For an unordered witness pair `{a,b}`, define
+
+```text
+c_A({a,b}) = #{ x in dom(A) : a,b in S_x }
+```
+
+for a partial selected-row assignment `A`.
+
+This cycle assumes the standard selected-distance interpretation: if
+`a,b in S_x`, then `|p_x-p_a| = |p_x-p_b|`.
+
+### Result Status
+
+Proved implementation-audit lemma:
+**N9 Witness-pair Cap Monotonicity Lemma**.
+
+For every candidate row in the repo-native `n=9` checker, the
+`witness_pair_counts[pidx] >= 2` rejection is exactly the monotone partial
+form of the geometric fact that at most two centers can select the same
+unordered witness pair.
+
+### Argument
+
+Fix distinct labels `a,b`. If a center `x` selects both `a` and `b`, then
+`p_x` lies on the perpendicular bisector of segment `p_a p_b`. A line meets
+the boundary of a strictly convex polygon in at most two vertices, so at most
+two centers can select both `a` and `b`.
+
+For a partial assignment `A`, adding a candidate row that contains `{a,b}`
+changes `c_A({a,b})` to `c_A({a,b}) + 1`. Therefore, if
+`c_A({a,b}) >= 2`, the candidate would force count at least `3`, impossible
+by the geometric cap. Later rows only add more selected rows and cannot
+decrease the count, so the rejection is monotone.
+
+Conversely, if every witness pair in a candidate row currently has count at
+most `1`, then adding that row does not violate the witness-pair cap. It may
+still be rejected by another necessary filter, but not by this cap.
+
+The code-shape audit over
+`src/erdos97/n9_vertex_circle_exhaustive.py` found that `ROW_PAIR_INDICES[m]`
+stores exactly the six unordered selected-witness pairs in row mask `m`; that
+`valid_options_for_center` rejects exactly when some stored pair count is
+already at `PAIR_CAP = 2`; and that the recursive search increments and
+decrements exactly those same six counts when adding and backtracking a row.
+
+### Exact Audit
+
+A one-off predicate audit recomputed row-pair indices from `MASK_BITS`, tested
+every local count profile in `{0,1,2}^6` for every unique row mask, and checked
+that the increment/decrement update returns to the original count vector.
+
+```text
+unique row masks: 126
+row-pair index mismatches: 0
+rows with non-six pair indices: 0
+local cap profiles tested: 91854
+local cap predicate mismatches: 0
+increment/decrement roundtrip errors: 0
+witness-pair frequency histogram across unique row masks:
+  21: 36
+```
+
+The histogram agrees with the independent count that each unordered pair in a
+9-label universe occurs in `binom(7,2) = 21` four-row masks.
+
+### Exact Scope
+
+This is not a full audit of the `n=9` checker. It does not audit the
+selected-indegree cap, the two-overlap crossing filter, the vertex-circle
+strict-edge lemma, vertex-circle quotient obstruction, row0 coverage, archive
+reconciliation, or the 184 pre-vertex-circle assignments. It does not prove
+the full `n=9` finite case. It does not prove Erdos Problem #97 and does not
+give a counterexample.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-witness-pair-cap-audit.md`
+- `docs/index.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect on the Attack
+
+The frontier-soundness checklist is reduced by one more row-level filter
+concern: the checker's witness-pair count prune is exactly the monotone
+partial form of the geometric line-intersection cap. The remaining review
+burden is now concentrated on the selected-indegree cap, vertex-circle
+strict-edge geometry, and independent replay or archive reconciliation for
+the 184-assignment frontier.
+
+### Next Lead
+
+Audit the selected-indegree cap used by the `n=9` checker:
+
+```text
+MAX_INDEGREE = floor(2*(n-1)/(row_size-1)).
+```
+
+The narrow task is to prove the incidence-count inequality that bounds each
+witness indegree under the pair-sharing cap, and to confirm that the partial
+`column_counts[target] >= MAX_INDEGREE` prune is monotone under adding rows.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-636`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-636`.
+- The branch was based on `origin/main` at commit
+  `8cbbf537bdc465f5b39f27da402ccc4f9f43c02c`, after PR #341 merged Cycle
+  635.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- One-off predicate audit with `PYTHONPATH=src` passed, with zero row-pair
+  index mismatches, zero local cap predicate mismatches across `91854`
+  profiles, and zero increment/decrement roundtrip errors.
+- `python scripts/check_text_clean.py` passed.
+- `python scripts/check_status_consistency.py` passed.
+- `python scripts/check_artifact_provenance.py` passed.
+- `git diff --check` passed.
+- `python -m ruff check .` passed.
+- `python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected
+  --json` passed, reproducing `16752` main-search nodes, `0` full assignments
+  with vertex-circle pruning, and `184` cross-check full assignments without
+  vertex-circle pruning.
+- `python -m pytest tests/test_n9_vertex_circle_exhaustive.py -q -m artifact`
+  passed: `3 passed`.
+- `python -m pytest -q` passed: `534 passed, 276 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 635 - Two-overlap Crossing Filter Audit
 
 ### Mathematical Subquestion
