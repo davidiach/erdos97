@@ -268,7 +268,33 @@ family: F13
 covered assignments: 2
 ```
 
-## Lemma D: T10/F12 two-edge strict cycle
+## Lemma D: quotient strict-cycle criterion
+
+A **quotient strict cycle** is a cyclic list of vertex-circle strict inequalities
+
+```text
+D(A_t) > D(B_t),  t = 1,...,m,
+```
+
+such that each inner pair `B_t` is identified with the next outer pair
+`A_{t+1}` by a selected-distance path, with indices taken cyclically. The
+selected-distance paths give
+
+```text
+D(B_t) = D(A_{t+1}).
+```
+
+Combining the strict inequalities and path equalities gives
+
+```text
+D(A_1) > D(A_2) > ... > D(A_m) > D(A_1),
+```
+
+which is impossible. This criterion is local and template-name-free: it only
+uses the displayed selected rows, the vertex-circle strict edges, and the
+selected-distance paths joining each strict edge to the next.
+
+### T10/F12 two-edge strict-cycle instance
 
 The T10/F12 local core is:
 
@@ -319,7 +345,7 @@ covered assignments: 18
 Again, the local core has no two-circle cap violation and no crossing-bisector
 order violation before the vertex-circle quotient step.
 
-## Lemma E: T11/F07 three-edge strict cycle
+### T11/F07 three-edge strict-cycle instance
 
 The T11/F07 local core is:
 
@@ -362,7 +388,7 @@ family: F07
 covered assignments: 6
 ```
 
-## Lemma F: T12/F16 three-edge strict cycle
+### T12/F16 three-edge strict-cycle instance
 
 The T12/F16 local core is:
 

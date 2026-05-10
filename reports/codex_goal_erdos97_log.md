@@ -22947,6 +22947,118 @@ witnesses admit the analogous quotient-cancellation classification.
 The overarching proof/counterexample goal remains open. No general proof and
 no exact counterexample are claimed.
 
+## 2026-05-10 - Cycle 664 - Quotient Strict-cycle Criterion
+
+### Mathematical Subquestion
+
+Cycle 663 abstracted the selected-path self-edge mechanism. The analogous
+strict-cycle question for this cycle was:
+
+```text
+Can the T10/T11/T12 packet-specific strict-cycle arguments be replaced by a
+single template-name-free quotient strict-cycle criterion?
+```
+
+### Definitions and Assumptions
+
+For an unordered pair `u,v`, write `D_uv = |p_u - p_v|^2`. A
+**quotient strict cycle** is a cyclic list of vertex-circle strict
+inequalities
+
+```text
+D(A_t) > D(B_t),  t = 1,...,m,
+```
+
+such that each inner pair `B_t` is identified with the next outer pair
+`A_{t+1}` by a selected-distance path, with indices taken cyclically. Each
+selected-distance path is made from selected rows, so it is an exact equality
+chain in the selected-distance quotient.
+
+### Result Status
+
+Proved local lemma:
+**Quotient Strict-cycle Criterion**.
+
+### Argument Or Obstruction
+
+For every `t`, the selected-distance path from `B_t` to `A_{t+1}` gives
+
+```text
+D(B_t) = D(A_{t+1}).
+```
+
+Combining this with the strict inequalities gives
+
+```text
+D(A_1) > D(A_2) > ... > D(A_m) > D(A_1),
+```
+
+which is impossible. This criterion is independent of the T10/T11/T12
+template names once the selected rows, vertex-circle strict edges, and
+selected-distance paths are displayed.
+
+### Exact Scope
+
+This is a local obstruction criterion for selected-witness systems in a
+strictly convex polygon. It is not an independent review of the exhaustive
+`n=9` checker, not a proof of the full `n=9` finite case, not a general proof
+of Erdos Problem #97, and not a counterexample. It explains the T10/T11/T12
+strict-cycle instances already recorded by the aggregate scan.
+
+### Files Changed
+
+- `docs/n9-vertex-circle-local-lemmas.md`
+- `reports/codex_goal_erdos97_log.md`
+
+### Effect On The Attack
+
+Together with the selected-path self-edge criterion, this gives a
+template-name-free language for the two local obstruction shapes currently
+used by the aggregate `n=9` vertex-circle local-lemma scan: reflexive strict
+edges and directed strict cycles in the selected-distance quotient. This is a
+useful proof-facing compression of the packet evidence, but it does not bridge
+arbitrary counterexamples to those local structures.
+
+### Next Lead
+
+Use the two generic quotient criteria to audit the aggregate local-lemma scan
+with a second, simpler replay that treats the stored packet JSON as input but
+does not share the current quotient-replay helper. The stronger mathematical
+lead remains to find a bridge forcing arbitrary counterexamples to contain a
+quotient self-edge or quotient strict cycle.
+
+### Traceability
+
+- Research cycle worktree:
+  `/private/tmp/erdos97-cycle-664`.
+- Branch during the cycle:
+  `codex/erdos97-cycle-664`.
+- The branch was started from `origin/main` at commit
+  `832b52715755060e2d30c71f1e51493b13ec0bde`, after PR #399 merged Cycle
+  663.
+- The primary checkout `/Users/openclaw/Desktop/code/erdos97` was already
+  dirty and was left unchanged during this cycle.
+- `origin` is connected to `https://github.com/davidiach/erdos97.git`.
+
+### Validation
+
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_text_clean.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_status_consistency.py`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python
+  scripts/check_artifact_provenance.py`: passed.
+- `git diff --check`: passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m ruff check .`:
+  passed.
+- `/Users/openclaw/Desktop/code/erdos97/.venv/bin/python -m pytest -q`:
+  passed, `574 passed, 278 deselected`.
+
+### Goal Status
+
+The overarching proof/counterexample goal remains open. No general proof and
+no exact counterexample are claimed.
+
 ## 2026-05-10 - Cycle 663 - Selected-path Self-edge Criterion
 
 ### Mathematical Subquestion
