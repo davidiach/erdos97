@@ -89,3 +89,9 @@ So the promising route is not simply to spend the existing capacity ledger
 harder. A future bridge needs an extra metric/order ingredient that turns
 private halos, row-center placement, or equality-connector availability into
 the missing `T12/F16` local rows.
+
+The row-pressure refinement in
+[`bootstrap-t12-row-pressure.md`](bootstrap-t12-row-pressure.md) decomposes
+those missing row centers into deletion-closure-exposed rows,
+one-outside-label rows, and one outside-pair row with partial private-pair
+ledger support.
