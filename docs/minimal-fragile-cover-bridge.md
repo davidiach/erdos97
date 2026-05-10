@@ -114,6 +114,14 @@ However, two disjoint blocks still pass the full-extension diagnostic. Thus
 full-row extendability is a real strengthening, but it is still far from a
 proof.
 
+There is also an exact geometric sharpness example for one six-vertex fragile
+block. The coordinates recorded in `docs/bridge-negative-controls.md` realize
+the two fragile rows as unique exact 4-ties in a strictly convex hexagon and
+satisfy the crossing/bisection geometry for their two-overlap. This does not
+make the block a counterexample: the other four centers are not bad. Its role
+is only to show that even exact local fragile-row geometry is not enough by
+itself.
+
 ## Research Use
 
 This bridge is still useful because it gives a necessary finite object for any

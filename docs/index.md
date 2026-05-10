@@ -97,6 +97,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`bridge-lemma-frontier.md`](bridge-lemma-frontier.md): replayable
   n=8/n=9 ear-orderability and obstruction cross-tab for Bridge Lemma A'
   proof-mining targets.
+- [`adaptive-radius-blocker-bridge.md`](adaptive-radius-blocker-bridge.md):
+  adaptive selected-witness peeling versus radius-blocker bridge fork.
+- [`bridge-negative-controls.md`](bridge-negative-controls.md): exact
+  guardrails for incidence-only and fragile-cover-only bridge claims.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`
   selected-witness obstruction.
 - [`n8-incidence-enumeration.md`](n8-incidence-enumeration.md): reproducible
@@ -164,6 +168,8 @@ put detailed reconciliation in the canonical synthesis.
 - [`prompt-roadmap.md`](prompt-roadmap.md): prompt-derived planning roadmap and
   next recommended workstreams; heuristic guidance only, not mathematical
   evidence.
+- [`bridge-output-triage-2026-05-10.md`](bridge-output-triage-2026-05-10.md):
+  triage of ten AI-generated bridge-output candidates; provenance only.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`repo-roadmap.md`](repo-roadmap.md): staged repository plan.
