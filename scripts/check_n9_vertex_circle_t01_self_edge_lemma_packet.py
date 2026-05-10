@@ -32,10 +32,14 @@ from erdos97.n9_vertex_circle_t01_self_edge_lemma_packet import (  # noqa: E402
     STATUS,
     TRUST,
     assert_expected_t01_self_edge_lemma_packet,
+    equality_steps,
     source_artifacts,
     t01_self_edge_lemma_packet_payload,
+    validate_strict_inequality_support,
 )
+from erdos97.n9_vertex_circle_self_edge_path_join import validate_equality_path  # noqa: E402
 from erdos97.path_display import display_path  # noqa: E402
+from erdos97.vertex_circle_quotient_replay import pair  # noqa: E402
 
 DEFAULT_ARTIFACT = (
     ROOT / "data" / "certificates" / "n9_vertex_circle_t01_self_edge_lemma_packet.json"
@@ -152,6 +156,18 @@ def _validate_local_lemma(payload: dict[str, Any], errors: list[str]) -> None:
     selected_equalities = lemma.get("selected_distance_equalities")
     if not isinstance(selected_equalities, list) or len(selected_equalities) != 3:
         errors.append("local_lemma selected_distance_equalities must have three steps")
+    elif isinstance(payload.get("distance_equality"), dict):
+        try:
+            expected_steps = equality_steps(payload["distance_equality"])
+        except (KeyError, TypeError, ValueError) as exc:
+            errors.append(f"local_lemma selected_distance_equalities unsupported: {exc}")
+        else:
+            expect_equal(
+                errors,
+                "local_lemma selected_distance_equalities",
+                selected_equalities,
+                expected_steps,
+            )
     statement = str(lemma.get("strict_inequality_statement", ""))
     if "[1, 8]" not in statement or "[1, 2]" not in statement:
         errors.append("local_lemma strict inequality statement must name [1, 8] and [1, 2]")
@@ -174,6 +190,13 @@ def _validate_replay(payload: dict[str, Any], errors: list[str]) -> None:
         replay.get("self_edge_conflict_count"),
         2,
     )
+    expect_equal(errors, "replay cycle_edge_count", replay.get("cycle_edge_count"), 0)
+    conflicts = replay.get("self_edge_conflicts")
+    if not isinstance(conflicts, list):
+        errors.append("replay self_edge_conflicts must be a list")
+        conflicts = []
+    elif len(conflicts) != replay.get("self_edge_conflict_count"):
+        errors.append("replay self_edge_conflicts length must match self_edge_conflict_count")
     primary = replay.get("primary_self_edge_conflict")
     if not isinstance(primary, dict):
         errors.append("replay primary_self_edge_conflict must be an object")
@@ -182,6 +205,45 @@ def _validate_replay(payload: dict[str, Any], errors: list[str]) -> None:
     expect_equal(errors, "primary witness_order", primary.get("witness_order"), [1, 2, 4, 8])
     expect_equal(errors, "primary outer_pair", primary.get("outer_pair"), [1, 8])
     expect_equal(errors, "primary inner_pair", primary.get("inner_pair"), [1, 2])
+    if primary.get("outer_class") != primary.get("inner_class"):
+        errors.append("primary self-edge conflict must have equal outer_class and inner_class")
+    if not any(
+        all(conflict.get(key) == primary.get(key) for key in conflict)
+        for conflict in conflicts
+        if isinstance(conflict, dict)
+    ):
+        errors.append("primary self-edge conflict must be listed in self_edge_conflicts")
+
+
+def _validate_local_support(payload: dict[str, Any], errors: list[str]) -> None:
+    rows = payload.get("core_selected_rows")
+    equality = payload.get("distance_equality")
+    strict = payload.get("strict_inequality")
+    order = payload.get("cyclic_order", list(range(9)))
+    if not isinstance(rows, list):
+        errors.append("core_selected_rows must be a list")
+        return
+    if not isinstance(equality, dict):
+        errors.append("distance_equality must be an object")
+        return
+    if not isinstance(strict, dict):
+        errors.append("strict_inequality must be an object")
+        return
+    try:
+        validate_equality_path(rows, equality)
+    except (KeyError, TypeError, ValueError) as exc:
+        errors.append(f"distance_equality is not supported by selected rows: {exc}")
+    try:
+        validate_strict_inequality_support(rows, strict, order=order)
+    except (AssertionError, KeyError, TypeError, ValueError) as exc:
+        errors.append(f"strict_inequality is not supported by selected rows: {exc}")
+    try:
+        if pair(*strict["outer_pair"]) != pair(*equality["start_pair"]):
+            errors.append("strict outer pair must start the equality path")
+        if pair(*strict["inner_pair"]) != pair(*equality["end_pair"]):
+            errors.append("strict inner pair must end the equality path")
+    except (KeyError, TypeError, ValueError) as exc:
+        errors.append(f"strict/equality endpoint validation failed: {exc}")
 
 
 def validate_payload(
@@ -275,6 +337,7 @@ def validate_payload(
 
     _validate_local_lemma(payload, errors)
     _validate_replay(payload, errors)
+    _validate_local_support(payload, errors)
     _validate_sources(source_payloads, errors)
     expected_payload = None if errors else _expected_payload(source_payloads, errors)
     if expected_payload is not None:
