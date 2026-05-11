@@ -157,6 +157,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-open-connector-pair.md`](bootstrap-t12-open-connector-pair.md):
   focused packet isolating the open equality-connector pair gap in row
   `151:5`.
+- [`bootstrap-t12-relation-sufficient-rows.md`](bootstrap-t12-relation-sufficient-rows.md):
+  focused packet isolating rows `81:3`, `81:8`, and `151:6`, where connector
+  relation evidence is already present but row/rich-class forcing remains
+  open.
 - [`bootstrap-t12-row-pressure.md`](bootstrap-t12-row-pressure.md):
   row-pressure refinement classifying those missing T12 row centers by core
   deficit, deletion-closure exposure, and private-halo support.

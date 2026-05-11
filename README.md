@@ -88,6 +88,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/bootstrap-t12-hard-strict-endpoints.md`](docs/bootstrap-t12-hard-strict-endpoints.md).
 - For the open connector-pair subpacket isolating row `151:5`, read
   [`docs/bootstrap-t12-open-connector-pair.md`](docs/bootstrap-t12-open-connector-pair.md).
+- For the relation-sufficient row subpacket isolating rows `81:3`, `81:8`,
+  and `151:6`, read
+  [`docs/bootstrap-t12-relation-sufficient-rows.md`](docs/bootstrap-t12-relation-sufficient-rows.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).

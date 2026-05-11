@@ -90,6 +90,12 @@ The open connector-pair follow-up in
 control, row `151:5`, where singleton supports and one deletion closure see
 only one endpoint of connector pair `[7,8]`.
 
+The relation-sufficient row follow-up in
+`docs/bootstrap-t12-relation-sufficient-rows.md` isolates the complementary
+positive-control bucket: rows `81:3`, `81:8`, and `151:6`, where connector
+relation evidence is already bootstrap-core sufficient or support-sufficient,
+but row/rich-class forcing remains an open bridge target.
+
 ## What This Does Not Prove
 
 This artifact does not prove that any missing T12 row is forced, does not prove
