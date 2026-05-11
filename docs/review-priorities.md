@@ -366,6 +366,11 @@ condition that the surviving multi-block family does not automatically satisfy:
   the connector pair `[0,1]`: any genuine rich class at center `3` containing
   that pair gives `[1,3]=[0,3]`, while a connector-avoiding activation must
   expose label `6` first.
+- bootstrap/T12 focused `81:3` order-escape evidence, as recorded in
+  `docs/bootstrap-t12-81-3-order-escape.md`, checking that the fixed
+  singleton-rich closure does not expose label `6` before center `3`; any
+  successful escape now needs genuine rich-class data that supplies label `6`
+  first, or a proof that no such supply exists.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

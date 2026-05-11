@@ -555,6 +555,14 @@ exists. Its value is to isolate the exact escape: every rich class at center
 `3` must avoid the pair `[0,1]`, and any connector-avoiding activation through
 the fixed witness set must use label `6` before center `3` activates.
 
+The order-resolved `81:3` fixed-row escape audit in
+`docs/bootstrap-t12-81-3-order-escape.md` shows that the existing fixed
+singleton-rich packet does not itself supply that escape. From seed `[0,1,4]`,
+center `3` is the only initial fixed-row activation and fires through
+`[0,1,4]`; label `6` enters only afterward through trigger `[0,3,4]`, which
+already uses center `3`. This is a fixed-row diagnostic only, not a theorem
+about all genuine rich-class catalogues.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

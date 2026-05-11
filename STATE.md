@@ -148,6 +148,14 @@ activation through the fixed row must first expose label `6`. This is still
 diagnostic bookkeeping only, not a row-forcing theorem. See
 `docs/bootstrap-t12-81-3-rich-triple-contract.md`.
 
+An order-resolved `81:3` fixed-row escape audit now checks that the current
+singleton-rich closure from seed `[0,1,4]` does not supply that escape: center
+`3` is the only initial activation, and label `6` is added only afterward via
+trigger `[0,3,4]`, which already uses center `3`. The remaining target is
+genuine rich-class data: either find a pre-`3` supply of label `6` that avoids
+the connector, or prove such a supply impossible under the minimal/rich-class
+hypotheses. See `docs/bootstrap-t12-81-3-order-escape.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

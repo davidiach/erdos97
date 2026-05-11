@@ -1,0 +1,453 @@
+{
+  "claim_scope": "Fixed singleton-rich order diagnostic for source 81 row 3: in the fixed selected-row closure from seed [0,1,4], center 3 activates before label 6 is available, and label 6 is then added using a trigger containing center 3. This refines the remaining connector-avoiding escape target, but does not prove genuine rich-class order, does not prove row forcing, does not prove n=9, does not prove the bridge, and does not claim a counterexample.",
+  "fixed_singleton_order_audit": {
+    "center_3_before_label_6": true,
+    "center_3_step": {
+      "added_center": 3,
+      "closure_before": [
+        0,
+        1,
+        4
+      ],
+      "label_6_available_before_step": false,
+      "label_6_supply_step": false,
+      "rich_class": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "rich_class_index": 0,
+      "step_index": 0,
+      "target_center_step": true,
+      "trigger_contains_connector_pair": true,
+      "trigger_depends_on_center_3": false,
+      "trigger_uses_label_6": false,
+      "trigger_witnesses": [
+        0,
+        1,
+        4
+      ]
+    },
+    "center_3_step_index": 0,
+    "center_3_trigger": [
+      0,
+      1,
+      4
+    ],
+    "center_3_trigger_forces_connector": true,
+    "classification_assignment_id": "A082",
+    "closure": [
+      0,
+      1,
+      3,
+      4,
+      6
+    ],
+    "enabled_after_seed_plus_center_3": [
+      {
+        "enabled_center": 6,
+        "rich_class": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "rich_class_index": 0,
+        "trigger_contains_connector_pair": false,
+        "trigger_uses_label_6": false,
+        "trigger_witnesses": [
+          0,
+          3,
+          4
+        ]
+      }
+    ],
+    "generates_all": false,
+    "initial_enabled_activations": [
+      {
+        "enabled_center": 3,
+        "rich_class": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "rich_class_index": 0,
+        "trigger_contains_connector_pair": true,
+        "trigger_uses_label_6": false,
+        "trigger_witnesses": [
+          0,
+          1,
+          4
+        ]
+      }
+    ],
+    "label_6_before_center_3": false,
+    "label_6_step_index": 1,
+    "label_6_supply_depends_on_center_3": true,
+    "label_6_supply_step": {
+      "added_center": 6,
+      "closure_before": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "label_6_available_before_step": false,
+      "label_6_supply_step": true,
+      "rich_class": [
+        0,
+        3,
+        4,
+        7
+      ],
+      "rich_class_index": 0,
+      "step_index": 1,
+      "target_center_step": false,
+      "trigger_contains_connector_pair": false,
+      "trigger_depends_on_center_3": true,
+      "trigger_uses_label_6": false,
+      "trigger_witnesses": [
+        0,
+        3,
+        4
+      ]
+    },
+    "label_6_supply_trigger": [
+      0,
+      3,
+      4
+    ],
+    "order": [
+      0,
+      1,
+      4,
+      3,
+      6
+    ],
+    "post_seed_steps": [
+      {
+        "added_center": 3,
+        "closure_before": [
+          0,
+          1,
+          4
+        ],
+        "label_6_available_before_step": false,
+        "label_6_supply_step": false,
+        "rich_class": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "rich_class_index": 0,
+        "step_index": 0,
+        "target_center_step": true,
+        "trigger_contains_connector_pair": true,
+        "trigger_depends_on_center_3": false,
+        "trigger_uses_label_6": false,
+        "trigger_witnesses": [
+          0,
+          1,
+          4
+        ]
+      },
+      {
+        "added_center": 6,
+        "closure_before": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "label_6_available_before_step": false,
+        "label_6_supply_step": true,
+        "rich_class": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "rich_class_index": 0,
+        "step_index": 1,
+        "target_center_step": false,
+        "trigger_contains_connector_pair": false,
+        "trigger_depends_on_center_3": true,
+        "trigger_uses_label_6": false,
+        "trigger_witnesses": [
+          0,
+          3,
+          4
+        ]
+      }
+    ],
+    "pre_3_label_6_supply_status": "NO_FIXED_SINGLETON_SUPPLY_BEFORE_CENTER_3",
+    "rich_class_model": "singleton_fixed_selected_rows",
+    "seed": [
+      0,
+      1,
+      4
+    ],
+    "selected_rows": [
+      [
+        1,
+        3,
+        6,
+        7
+      ],
+      [
+        2,
+        4,
+        7,
+        8
+      ],
+      [
+        0,
+        3,
+        5,
+        8
+      ],
+      [
+        0,
+        1,
+        4,
+        6
+      ],
+      [
+        1,
+        2,
+        5,
+        7
+      ],
+      [
+        2,
+        3,
+        6,
+        8
+      ],
+      [
+        0,
+        3,
+        4,
+        7
+      ],
+      [
+        1,
+        4,
+        5,
+        8
+      ],
+      [
+        0,
+        2,
+        5,
+        6
+      ]
+    ],
+    "source_record_id": 81,
+    "target_row_key": "81:3"
+  },
+  "interpretation_warnings": [
+    "This packet audits only the fixed singleton-rich closure order for source 81.",
+    "It does not prove that the fixed selected row 81:3 is a genuine rich class.",
+    "It does not rule out extra genuine rich classes that add label 6 before center 3.",
+    "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
+  ],
+  "order_resolved_escape_contract": {
+    "fixed_singleton_result": "The fixed singleton-rich closure does not realize that escape: center 3 is the only initial activation from [0,1,4], and label 6 is supplied only afterward by trigger [0,3,4].",
+    "fixed_singleton_status": "FIXED_SINGLETON_ORDER_ESCAPE_NOT_REALIZED",
+    "genuine_escape_certificate_needed": [
+      "a genuine rich class at some non-3 center that adds label 6 before center 3",
+      "or an exact proof that no such pre-3 label-6 supply exists",
+      "plus guardrails showing that any proposed supply does not already force the T12 connector"
+    ],
+    "required_for_connector_avoiding_activation": "Label 6 must be available before center 3 activates, because the connector-avoiding triples from [0,1,4,6] are [0,4,6] and [1,4,6].",
+    "status": "GENUINE_RICH_CLASS_PRE_3_LABEL_6_SUPPLY_OPEN"
+  },
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_81_3_order_escape.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_81_3_order_escape.py"
+  },
+  "schema": "erdos97.bootstrap_t12_81_3_order_escape.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_t12_81_3_rich_triple_contract.json",
+      "role": "source 81:3 connector-pair rich-triple contract",
+      "schema": "erdos97.bootstrap_t12_81_3_rich_triple_contract.v1",
+      "status": "BOOTSTRAP_T12_81_3_RICH_TRIPLE_CONTRACT_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/bootstrap_vertex_circle_overlay.json",
+      "role": "source selected rows and deletion-closure audit for source 81",
+      "schema": "erdos97.bootstrap_vertex_circle_overlay.v1",
+      "status": "BOOTSTRAP_VERTEX_CIRCLE_OVERLAY_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "source_rich_triple_contract": {
+    "connector_avoiding_activation_triples": [
+      [
+        0,
+        4,
+        6
+      ],
+      [
+        1,
+        4,
+        6
+      ]
+    ],
+    "connector_distance_pairs": [
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "connector_forcing_triples": [
+      [
+        0,
+        1,
+        4
+      ],
+      [
+        0,
+        1,
+        6
+      ]
+    ],
+    "connector_pair": [
+      0,
+      1
+    ],
+    "deletion_seed": [
+      0,
+      1,
+      4
+    ],
+    "escape_status": "CONNECTOR_ESCAPE_REQUIRES_RICH_CLASSES_AVOID_PAIR_0_1",
+    "rich_class_existence_status": "OPEN_TARGET_NOT_PROVED",
+    "source_artifact": "data/certificates/bootstrap_t12_81_3_rich_triple_contract.json",
+    "source_schema": "erdos97.bootstrap_t12_81_3_rich_triple_contract.v1",
+    "source_status": "BOOTSTRAP_T12_81_3_RICH_TRIPLE_CONTRACT_DIAGNOSTIC_ONLY",
+    "source_trust": "REVIEW_PENDING_DIAGNOSTIC",
+    "target_row_center": 3,
+    "target_row_key": "81:3",
+    "target_witnesses": [
+      0,
+      1,
+      4,
+      6
+    ]
+  },
+  "status": "BOOTSTRAP_T12_81_3_ORDER_ESCAPE_DIAGNOSTIC_ONLY",
+  "summary": {
+    "closure_labels": [
+      0,
+      1,
+      3,
+      4,
+      6
+    ],
+    "connector_avoiding_activation_triples": [
+      [
+        0,
+        4,
+        6
+      ],
+      [
+        1,
+        4,
+        6
+      ]
+    ],
+    "connector_distance_pairs": [
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "connector_forcing_triples": [
+      [
+        0,
+        1,
+        4
+      ],
+      [
+        0,
+        1,
+        6
+      ]
+    ],
+    "connector_pair": [
+      0,
+      1
+    ],
+    "deletion_seed": [
+      0,
+      1,
+      4
+    ],
+    "exposed_core_vertex": 2,
+    "fixed_singleton_center_3_before_label_6": true,
+    "fixed_singleton_center_3_step_index": 0,
+    "fixed_singleton_center_3_trigger": [
+      0,
+      1,
+      4
+    ],
+    "fixed_singleton_center_3_trigger_forces_connector": true,
+    "fixed_singleton_closure": [
+      0,
+      1,
+      3,
+      4,
+      6
+    ],
+    "fixed_singleton_label_6_before_center_3": false,
+    "fixed_singleton_label_6_step_index": 1,
+    "fixed_singleton_label_6_supply_depends_on_center_3": true,
+    "fixed_singleton_label_6_supply_trigger": [
+      0,
+      3,
+      4
+    ],
+    "fixed_singleton_order": [
+      0,
+      1,
+      4,
+      3,
+      6
+    ],
+    "fixed_singleton_order_status": "FIXED_SINGLETON_ORDER_ESCAPE_NOT_REALIZED",
+    "genuine_escape_status": "GENUINE_RICH_CLASS_PRE_3_LABEL_6_SUPPLY_OPEN",
+    "initial_enabled_centers": [
+      3
+    ],
+    "next_bridge_question": "Can a genuine rich-class catalogue add label 6 before center 3 without already forcing the connector, or can this pre-3 label-6 supply be ruled out under the minimal/rich-class hypotheses?",
+    "order_escape_gap_type": "FIXED_SINGLETON_ORDER_NOT_GENUINE_RICH_CLASS_ORDER",
+    "pre_3_label_6_supply_status": "NO_FIXED_SINGLETON_SUPPLY_BEFORE_CENTER_3",
+    "source_record_ids": [
+      81
+    ],
+    "target_row_center": 3,
+    "target_row_key": "81:3",
+    "target_witnesses": [
+      0,
+      1,
+      4,
+      6
+    ]
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

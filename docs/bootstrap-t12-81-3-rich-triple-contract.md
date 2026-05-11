@@ -96,6 +96,13 @@ needed connector without proving the full fixed row. A negative result should
 be packaged as an exact escape packet explaining how label `6` becomes
 available first without already forcing the connector.
 
+The follow-up order audit is recorded in
+`docs/bootstrap-t12-81-3-order-escape.md`. It checks that the fixed
+singleton-rich closure does not realize the connector-avoiding path: center
+`3` is the only initial activation from `[0,1,4]`, and label `6` is supplied
+only afterward by a trigger containing center `3`. The remaining target is now
+genuine rich-class data, not fixed-row closure order.
+
 ## What This Does Not Prove
 
 This artifact does not prove row forcing, rich-class existence, `n=9`, the
