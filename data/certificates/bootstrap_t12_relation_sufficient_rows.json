@@ -1,0 +1,298 @@
+{
+  "claim_scope": "Relation-sufficient row diagnostic for the two tight n=9 bootstrap/T12 records; isolates rows whose connector requirements are already supplied by bootstrap-core or support diagnostics, while row/rich-class forcing remains an open bridge target. This does not prove that the missing rows are forced, does not prove n=9, does not prove the bridge, and does not claim a counterexample.",
+  "interpretation_warnings": [
+    "This packet isolates relation-sufficient fixed selected rows; it does not prove row or rich-class forcing.",
+    "Bootstrap-core or support sufficiency for a role requirement is not a Euclidean certificate that the whole row is forced.",
+    "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_relation_sufficient_rows.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_relation_sufficient_rows.py"
+  },
+  "records": [
+    {
+      "activation_deficit_from_bootstrap_core": 0,
+      "bootstrap_core_witnesses": [
+        0,
+        1,
+        4
+      ],
+      "bridge_lemma_target": "Turn a full-row deletion-closure exposure into a genuine equality-connector rich class.",
+      "classification_assignment_id": "A082",
+      "outside_witnesses": [
+        6
+      ],
+      "pressure_class": "ALREADY_PRESENT_IN_A_DELETION_CLOSURE",
+      "relation_state_counts": {
+        "BOOTSTRAP_CORE_SUFFICIENT": 1
+      },
+      "relation_sufficient_requirement_count": 1,
+      "relation_sufficient_requirements": [
+        {
+          "bootstrap_core_status": "SUFFICIENT",
+          "closure_sufficient_count": 1,
+          "kind": "equality_connector_pair",
+          "missing_from_bootstrap_core": [],
+          "relation_state": "BOOTSTRAP_CORE_SUFFICIENT",
+          "required_witnesses": [
+            0,
+            1
+          ],
+          "requirement_id": "81:3:connector:2:0",
+          "support_sufficient_count": 0
+        }
+      ],
+      "requirement_count": 1,
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 3,
+      "row_center_private_in_all_deletion_closures": false,
+      "row_forcing_gap_type": "FULL_ROW_CLOSURE_EXPOSURE_NEEDS_RICH_CLASS_FORCING",
+      "row_target_status": "CLOSURE_FULL_ROW_CONNECTOR",
+      "source_record_id": 81,
+      "support_packet_summary": {
+        "closure_exposure_mode": "CENTER_AND_FULL_ROW_IN_CLOSURE",
+        "exposed_core_vertex": 2,
+        "full_row_contained_in_exposure_closure": true,
+        "outside_witnesses_private": [],
+        "support_packet": "bootstrap_t12_closure_exposed",
+        "witnesses_in_closure": [
+          0,
+          1,
+          4,
+          6
+        ]
+      },
+      "witnesses": [
+        0,
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "activation_deficit_from_bootstrap_core": 1,
+      "bootstrap_core_witnesses": [
+        0,
+        2
+      ],
+      "bridge_lemma_target": "Force the private row center plus one singleton outside support; the connector pair itself is already bootstrap-core visible.",
+      "classification_assignment_id": "A082",
+      "outside_witnesses": [
+        5,
+        6
+      ],
+      "pressure_class": "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER",
+      "relation_state_counts": {
+        "BOOTSTRAP_CORE_SUFFICIENT": 1
+      },
+      "relation_sufficient_requirement_count": 1,
+      "relation_sufficient_requirements": [
+        {
+          "bootstrap_core_status": "SUFFICIENT",
+          "closure_sufficient_count": 0,
+          "kind": "equality_connector_pair",
+          "missing_from_bootstrap_core": [],
+          "relation_state": "BOOTSTRAP_CORE_SUFFICIENT",
+          "required_witnesses": [
+            0,
+            2
+          ],
+          "requirement_id": "81:8:connector:0:0",
+          "support_sufficient_count": 2
+        }
+      ],
+      "requirement_count": 1,
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 8,
+      "row_center_private_in_all_deletion_closures": true,
+      "row_forcing_gap_type": "CORE_CONNECTOR_VISIBLE_NEEDS_PRIVATE_ROW_ACTIVATION",
+      "row_target_status": "CORE_CONNECTOR_WITH_SINGLETON_ROW_ACTIVATION",
+      "source_record_id": 81,
+      "support_packet_summary": {
+        "ledger_private_pair_support_hit_count": 0,
+        "private_halo_containment_counts": [
+          4,
+          3
+        ],
+        "support_label_modes": [
+          "PRIVATE_IN_ALL_DELETION_HALOS",
+          "INTERNAL_TO_ONE_DELETION_CLOSURE"
+        ],
+        "support_labels": [
+          5,
+          6
+        ],
+        "support_packet": "bootstrap_t12_one_outside"
+      },
+      "witnesses": [
+        0,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "activation_deficit_from_bootstrap_core": 2,
+      "bootstrap_core_witnesses": [
+        0
+      ],
+      "bridge_lemma_target": "Promote the outside-pair support, with partial private-pair ledger contact, to an equality-connector row-forcing lemma.",
+      "classification_assignment_id": "A152",
+      "outside_witnesses": [
+        3,
+        5,
+        8
+      ],
+      "pressure_class": "NEEDS_OUTSIDE_PAIR_AND_PRIVATE_CENTER",
+      "relation_state_counts": {
+        "SUPPORT_SUFFICIENT": 1
+      },
+      "relation_sufficient_requirement_count": 1,
+      "relation_sufficient_requirements": [
+        {
+          "bootstrap_core_status": "PARTIAL",
+          "closure_sufficient_count": 0,
+          "kind": "equality_connector_pair",
+          "missing_from_bootstrap_core": [
+            8
+          ],
+          "relation_state": "SUPPORT_SUFFICIENT",
+          "required_witnesses": [
+            0,
+            8
+          ],
+          "requirement_id": "151:6:connector:2:0",
+          "support_sufficient_count": 2
+        }
+      ],
+      "requirement_count": 1,
+      "roles": [
+        "equality_connector_row"
+      ],
+      "row_center": 6,
+      "row_center_private_in_all_deletion_closures": true,
+      "row_forcing_gap_type": "OUTSIDE_PAIR_SUPPORT_NEEDS_CONNECTOR_ROW_FORCING",
+      "row_target_status": "OUTSIDE_PAIR_CONNECTOR_PARTIAL_LEDGER",
+      "source_record_id": 151,
+      "support_packet_summary": {
+        "ledger_hit_support_pairs": [
+          [
+            3,
+            8
+          ],
+          [
+            5,
+            8
+          ]
+        ],
+        "ledger_miss_support_pairs": [
+          [
+            3,
+            5
+          ]
+        ],
+        "ledger_private_pair_support_hit_count": 2,
+        "support_packet": "bootstrap_t12_outside_pair",
+        "support_pair_modes": [
+          "PRIVATE_HALO_ONLY",
+          "LEDGER_PRIVATE_PAIR_HIT",
+          "LEDGER_PRIVATE_PAIR_HIT"
+        ],
+        "support_pairs": [
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            5,
+            8
+          ]
+        ]
+      },
+      "witnesses": [
+        0,
+        3,
+        5,
+        8
+      ]
+    }
+  ],
+  "schema": "erdos97.bootstrap_t12_relation_sufficient_rows.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_t12_bridge_target_map.json",
+      "role": "source relation states, support packets, and bridge targets",
+      "schema": "erdos97.bootstrap_t12_bridge_target_map.v1",
+      "status": "BOOTSTRAP_T12_BRIDGE_TARGET_MAP_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_RELATION_SUFFICIENT_ROWS_DIAGNOSTIC_ONLY",
+  "summary": {
+    "excluded_hard_or_open_rows": [
+      "151:5",
+      "151:7",
+      "151:8"
+    ],
+    "next_bridge_question": "Can relation-sufficient connector evidence be upgraded to genuine row/rich-class forcing for these three T12 targets?",
+    "pressure_class_counts": {
+      "ALREADY_PRESENT_IN_A_DELETION_CLOSURE": 1,
+      "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER": 1,
+      "NEEDS_OUTSIDE_PAIR_AND_PRIVATE_CENTER": 1
+    },
+    "relation_state_counts": {
+      "BOOTSTRAP_CORE_SUFFICIENT": 2,
+      "SUPPORT_SUFFICIENT": 1
+    },
+    "relation_sufficient_requirement_ids": [
+      "81:3:connector:2:0",
+      "81:8:connector:0:0",
+      "151:6:connector:2:0"
+    ],
+    "relation_sufficient_row_count": 3,
+    "requirement_kind_counts": {
+      "equality_connector_pair": 3
+    },
+    "role_counts": {
+      "equality_connector_row": 3
+    },
+    "row_centers_by_source_id": {
+      "151": [
+        6
+      ],
+      "81": [
+        3,
+        8
+      ]
+    },
+    "row_forcing_gap_type_counts": {
+      "CORE_CONNECTOR_VISIBLE_NEEDS_PRIVATE_ROW_ACTIVATION": 1,
+      "FULL_ROW_CLOSURE_EXPOSURE_NEEDS_RICH_CLASS_FORCING": 1,
+      "OUTSIDE_PAIR_SUPPORT_NEEDS_CONNECTOR_ROW_FORCING": 1
+    },
+    "row_forcing_target_status": "OPEN_TARGET_NOT_PROVED",
+    "row_target_status_counts": {
+      "CLOSURE_FULL_ROW_CONNECTOR": 1,
+      "CORE_CONNECTOR_WITH_SINGLETON_ROW_ACTIVATION": 1,
+      "OUTSIDE_PAIR_CONNECTOR_PARTIAL_LEDGER": 1
+    },
+    "source_record_ids": [
+      81,
+      151
+    ],
+    "support_packet_counts": {
+      "bootstrap_t12_closure_exposed": 1,
+      "bootstrap_t12_one_outside": 1,
+      "bootstrap_t12_outside_pair": 1
+    }
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

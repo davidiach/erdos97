@@ -234,6 +234,15 @@ only one connector endpoint. This is still diagnostic bookkeeping only; see
 `scripts/check_bootstrap_t12_open_connector_pair.py`, and
 `data/certificates/bootstrap_t12_open_connector_pair.json`.
 
+The relation-sufficient row subpacket isolates the three rows from that map
+whose connector requirements are already bootstrap-core sufficient or
+support-sufficient: `81:3`, `81:8`, and `151:6`. It keeps the remaining
+row/rich-class forcing target explicit rather than promoting relation evidence
+to a bridge theorem. This is still diagnostic bookkeeping only; see
+`docs/bootstrap-t12-relation-sufficient-rows.md`,
+`scripts/check_bootstrap_t12_relation_sufficient_rows.py`, and
+`data/certificates/bootstrap_t12_relation_sufficient_rows.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

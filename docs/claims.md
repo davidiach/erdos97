@@ -532,6 +532,12 @@ deletion closure for core vertex `2` and the two singleton supports each supply
 only one connector endpoint. This is diagnostic bookkeeping only, not a lemma
 that connector pairs or missing rows are forced.
 
+The relation-sufficient row packet in
+`docs/bootstrap-t12-relation-sufficient-rows.md` isolates rows `81:3`, `81:8`,
+and `151:6`. Their connector requirements are already bootstrap-core
+sufficient or support-sufficient, but this is still diagnostic bookkeeping
+only, not a lemma that those rows or rich classes are forced.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

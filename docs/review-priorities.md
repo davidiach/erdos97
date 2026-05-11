@@ -352,6 +352,10 @@ condition that the surviving multi-block family does not automatically satisfy:
   `docs/bootstrap-t12-open-connector-pair.md`, isolating `151:5` as the row
   where connector pair `[7,8]` is still split across singleton support and
   partial closure evidence.
+- bootstrap/T12 relation-sufficient row evidence, as recorded in
+  `docs/bootstrap-t12-relation-sufficient-rows.md`, isolating `81:3`, `81:8`,
+  and `151:6` as rows where connector relation evidence is present but
+  row/rich-class forcing remains open.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

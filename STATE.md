@@ -125,6 +125,13 @@ the pair one endpoint at a time. This is diagnostic bookkeeping only, not a
 theorem that the connector endpoints or row are forced. See
 `docs/bootstrap-t12-open-connector-pair.md`.
 
+A relation-sufficient row subpacket now isolates rows `81:3`, `81:8`, and
+`151:6`. Their stored connector requirements are already bootstrap-core
+sufficient or support-sufficient, but the packet keeps the row/rich-class
+forcing step open. This is diagnostic bookkeeping only, not a theorem that
+the relation-sufficient rows are forced. See
+`docs/bootstrap-t12-relation-sufficient-rows.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

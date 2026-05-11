@@ -2208,6 +2208,66 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_relation_sufficient_rows
+    path: data/certificates/bootstrap_t12_relation_sufficient_rows.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_relation_sufficient_rows.py
+    command: python scripts/check_bootstrap_t12_relation_sufficient_rows.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_relation_sufficient_rows.py
+    check_command: python scripts/check_bootstrap_t12_relation_sufficient_rows.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Relation-sufficient row diagnostic for the two tight n=9 bootstrap-core rows; not a proof that endpoints or missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_relation_sufficient_rows.v1
+      status: BOOTSTRAP_T12_RELATION_SUFFICIENT_ROWS_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.source_record_ids:
+        - 81
+        - 151
+      summary.relation_sufficient_row_count: 3
+      summary.row_centers_by_source_id.81:
+        - 3
+        - 8
+      summary.row_centers_by_source_id.151:
+        - 6
+      summary.relation_sufficient_requirement_ids:
+        - "81:3:connector:2:0"
+        - "81:8:connector:0:0"
+        - "151:6:connector:2:0"
+      summary.relation_state_counts.BOOTSTRAP_CORE_SUFFICIENT: 2
+      summary.relation_state_counts.SUPPORT_SUFFICIENT: 1
+      summary.requirement_kind_counts.equality_connector_pair: 3
+      summary.row_forcing_gap_type_counts.FULL_ROW_CLOSURE_EXPOSURE_NEEDS_RICH_CLASS_FORCING: 1
+      summary.row_forcing_gap_type_counts.CORE_CONNECTOR_VISIBLE_NEEDS_PRIVATE_ROW_ACTIVATION: 1
+      summary.row_forcing_gap_type_counts.OUTSIDE_PAIR_SUPPORT_NEEDS_CONNECTOR_ROW_FORCING: 1
+      summary.support_packet_counts.bootstrap_t12_closure_exposed: 1
+      summary.support_packet_counts.bootstrap_t12_one_outside: 1
+      summary.support_packet_counts.bootstrap_t12_outside_pair: 1
+      summary.excluded_hard_or_open_rows:
+        - "151:5"
+        - "151:7"
+        - "151:8"
+      summary.row_forcing_target_status: OPEN_TARGET_NOT_PROVED
+      provenance.generator: scripts/check_bootstrap_t12_relation_sufficient_rows.py
+      provenance.command: python scripts/check_bootstrap_t12_relation_sufficient_rows.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - connector relation evidence proves row forcing
+      - support sufficiency proves a rich class
+      - closure exposure proves a row is forced
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_row_pressure
     path: data/certificates/bootstrap_t12_row_pressure.json
     kind: proof_mining_diagnostic_artifact

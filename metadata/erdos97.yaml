@@ -198,6 +198,11 @@ local_repo:
       artifact: "data/certificates/bootstrap_t12_open_connector_pair.json"
       verifier: "scripts/check_bootstrap_t12_open_connector_pair.py"
       claim_scope: "fixed selected-row proof-mining diagnostic only; isolates incomplete equality-connector pair support in row 151:5, but does not prove endpoints or rows are forced and does not prove n=9 or the bridge"
+    - pattern: "bootstrap_t12_relation_sufficient_rows"
+      status: "relation-sufficient row subpacket for the three T12/F16 row targets whose connector requirements are already supplied"
+      artifact: "data/certificates/bootstrap_t12_relation_sufficient_rows.json"
+      verifier: "scripts/check_bootstrap_t12_relation_sufficient_rows.py"
+      claim_scope: "fixed selected-row proof-mining diagnostic only; isolates rows 81:3, 81:8, and 151:6 where connector relation evidence is present but row/rich-class forcing remains open, and does not prove n=9 or the bridge"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"
