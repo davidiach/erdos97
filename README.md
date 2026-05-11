@@ -98,6 +98,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   target from full-row forcing to the pair `[0,1]` and records the exact
   connector-avoiding escape, read
   [`docs/bootstrap-t12-81-3-rich-triple-contract.md`](docs/bootstrap-t12-81-3-rich-triple-contract.md).
+- For the order-resolved `81:3` fixed-row escape audit, where label `6`
+  appears only after center `3` in the fixed singleton-rich closure, read
+  [`docs/bootstrap-t12-81-3-order-escape.md`](docs/bootstrap-t12-81-3-order-escape.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).

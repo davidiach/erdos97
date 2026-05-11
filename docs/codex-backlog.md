@@ -76,9 +76,15 @@ Use this queue when no more specific issue is selected.
    The follow-up `81:3` rich-triple connector contract in
    `docs/bootstrap-t12-81-3-rich-triple-contract.md` reduces the next target:
    the stored T12 connector only needs witnesses `0` and `1` in one genuine
-   rich class at center `3`. The next useful PR should attack the
-   order-resolved escape: either force activation from `[0,1,4]`, or certify
-   how label `6` becomes available first without forcing the connector.
+   rich class at center `3`.
+   The order-resolved fixed-row escape audit in
+   `docs/bootstrap-t12-81-3-order-escape.md` shows the current singleton-rich
+   closure does not expose label `6` first: center `3` is the only initial
+   activation from `[0,1,4]`, and label `6` is added later by trigger
+   `[0,3,4]`. The next useful PR should leave fixed selected-row bookkeeping
+   and attack the genuine rich-class question directly: either exhibit a
+   pre-`3` rich-class supply of label `6` that avoids the connector, or prove
+   no such supply can satisfy the minimal/rich-class hypotheses.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker

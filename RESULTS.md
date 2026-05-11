@@ -266,6 +266,16 @@ or row is forced; see
 `scripts/check_bootstrap_t12_81_3_rich_triple_contract.py`, and
 `data/certificates/bootstrap_t12_81_3_rich_triple_contract.json`.
 
+The order-resolved `81:3` fixed-row escape audit checks the current
+singleton-rich closure order for that same seed. In the fixed selected-row
+model, `[0,1,4]` enables only center `3`, with trigger `[0,1,4]`; label `6`
+enters later through center `6` with trigger `[0,3,4]`, depending on center
+`3`. Thus the fixed packet does not realize the connector-avoiding escape.
+This is still diagnostic bookkeeping only, not a proof about genuine rich
+classes; see `docs/bootstrap-t12-81-3-order-escape.md`,
+`scripts/check_bootstrap_t12_81_3_order_escape.py`, and
+`data/certificates/bootstrap_t12_81_3_order_escape.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.
