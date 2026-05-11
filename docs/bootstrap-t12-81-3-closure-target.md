@@ -116,3 +116,11 @@ rich-class or equality-connector forcing?
 
 If not, the escape packet should say exactly how a realizable rich-class
 catalogue avoids the connector despite the fixed-row closure evidence.
+
+The follow-up packet
+`docs/bootstrap-t12-81-3-rich-triple-contract.md` records the first reduction
+of this question: full-row forcing is not needed for the stored connector. It
+is enough for a genuine rich class at center `3` to contain witnesses `0` and
+`1`; avoiding that connector requires every such rich class to avoid the pair
+`[0,1]`, so any connector-avoiding activation through the fixed witness set
+must expose label `6` first.

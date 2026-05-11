@@ -139,6 +139,15 @@ the final equality connector `[1,3]=[0,3]` in the `T12/F16` local strict-cycle
 packet. The missing step is still genuine row/rich-class forcing, not more
 fixed-row bookkeeping. See `docs/bootstrap-t12-81-3-closure-target.md`.
 
+A follow-up `81:3` rich-triple connector contract weakens that target: the
+full fixed row is not needed for the stored connector, only a genuine rich
+class at center `3` containing witnesses `0` and `1`. The checked packet proves
+only this local conditional and records the exact remaining escape: every rich
+class at center `3` must avoid the pair `[0,1]`, so any connector-avoiding
+activation through the fixed row must first expose label `6`. This is still
+diagnostic bookkeeping only, not a row-forcing theorem. See
+`docs/bootstrap-t12-81-3-rich-triple-contract.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

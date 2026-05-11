@@ -254,6 +254,18 @@ is still diagnostic bookkeeping only; see
 `scripts/check_bootstrap_t12_81_3_closure_target.py`, and
 `data/certificates/bootstrap_t12_81_3_closure_target.json`.
 
+The follow-up `81:3` rich-triple connector contract records the weaker local
+conditional actually needed by the T12 equality connector. Any genuine rich
+class at center `3` containing witnesses `0` and `1` gives `[1,3]=[0,3]`; the
+full fixed row `[0,1,4,6]` is not required for that connector. The packet also
+pins the connector-avoiding escape: activation through the fixed witness set
+must use `[0,4,6]` or `[1,4,6]`, so label `6` must be available before center
+`3`. This remains diagnostic bookkeeping only, not a proof that the rich class
+or row is forced; see
+`docs/bootstrap-t12-81-3-rich-triple-contract.md`,
+`scripts/check_bootstrap_t12_81_3_rich_triple_contract.py`, and
+`data/certificates/bootstrap_t12_81_3_rich_triple_contract.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.
