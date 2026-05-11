@@ -243,6 +243,17 @@ to a bridge theorem. This is still diagnostic bookkeeping only; see
 `scripts/check_bootstrap_t12_relation_sufficient_rows.py`, and
 `data/certificates/bootstrap_t12_relation_sufficient_rows.json`.
 
+The focused `81:3` closure-target packet extracts the cleanest current
+subcase from those ledgers. Source `81` row `3` is the unique
+relation-sufficient target whose full fixed selected row is contained in a
+deletion closure, with closure labels `[0,1,3,4,6]`; it is also the one-step
+T12 equality connector `[1,3]=[0,3]`. The packet records the exact remaining
+gap as fixed full-row closure evidence versus genuine rich-class forcing. This
+is still diagnostic bookkeeping only; see
+`docs/bootstrap-t12-81-3-closure-target.md`,
+`scripts/check_bootstrap_t12_81_3_closure_target.py`, and
+`data/certificates/bootstrap_t12_81_3_closure_target.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.
