@@ -203,6 +203,11 @@ local_repo:
       artifact: "data/certificates/bootstrap_t12_relation_sufficient_rows.json"
       verifier: "scripts/check_bootstrap_t12_relation_sufficient_rows.py"
       claim_scope: "fixed selected-row proof-mining diagnostic only; isolates rows 81:3, 81:8, and 151:6 where connector relation evidence is present but row/rich-class forcing remains open, and does not prove n=9 or the bridge"
+    - pattern: "bootstrap_t12_81_3_closure_target"
+      status: "focused target packet for the unique full-row closure-exposed and relation-sufficient T12/F16 row"
+      artifact: "data/certificates/bootstrap_t12_81_3_closure_target.json"
+      verifier: "scripts/check_bootstrap_t12_81_3_closure_target.py"
+      claim_scope: "fixed selected-row proof-mining diagnostic only; isolates row 81:3 as the first full-row closure target and final T12 connector, but does not prove row/rich-class forcing and does not prove n=9 or the bridge"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

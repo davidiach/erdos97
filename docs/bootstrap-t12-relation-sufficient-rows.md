@@ -68,6 +68,11 @@ stored connector pair `[0,1]` is already in the bootstrap core. A future bridge
 lemma would still need to turn this fixed-row closure exposure into an actual
 equality-connector rich class.
 
+The focused follow-up packet
+[`bootstrap-t12-81-3-closure-target.md`](bootstrap-t12-81-3-closure-target.md)
+extracts this single row as the current first target. It also records the row's
+conditional role as the final T12 equality connector `[1,3]=[0,3]`.
+
 Row `81:8` has connector pair `[0,2]` already in the bootstrap core, and its
 outside labels `[5,6]` have singleton support options. The missing step is not
 the relation itself; it is the geometric argument that a private row center

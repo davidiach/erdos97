@@ -356,6 +356,11 @@ condition that the surviving multi-block family does not automatically satisfy:
   `docs/bootstrap-t12-relation-sufficient-rows.md`, isolating `81:3`, `81:8`,
   and `151:6` as rows where connector relation evidence is present but
   row/rich-class forcing remains open.
+- bootstrap/T12 focused `81:3` closure-target evidence, as recorded in
+  `docs/bootstrap-t12-81-3-closure-target.md`, isolating the unique target
+  where full-row deletion-closure exposure, relation sufficiency, and the
+  final `T12/F16` equality connector role coincide; this is still an open
+  row/rich-class forcing target.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

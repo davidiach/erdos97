@@ -1,0 +1,258 @@
+{
+  "candidate_lemma_contract": {
+    "current_status": "open_diagnostic_target",
+    "desired_conclusion": [
+      "center 3 has a rich class containing witnesses [0,1,4,6]",
+      "or at least center 3 forces the equality connector [1,3]=[0,3]"
+    ],
+    "escape_packet_if_false": "construct a rich-class catalogue in which the deletion closure contains the fixed row labels but center 3 can avoid the required equality connector",
+    "known_insufficient_inputs": [
+      "fixed selected-row membership in a deletion closure",
+      "bootstrap-core sufficiency of the stored connector pair"
+    ],
+    "name": "81:3 full-row closure exposure to equality connector"
+  },
+  "claim_scope": "Focused diagnostic for source 81 row 3: the unique relation-sufficient T12/F16 target whose full fixed selected row is contained in a deletion closure, and the row that supplies the final T12 equality connector. This does not prove the row is forced, does not prove n=9, does not prove the bridge, and does not claim a counterexample.",
+  "interpretation_warnings": [
+    "This packet isolates one fixed selected row target; it does not prove row or rich-class forcing.",
+    "Full-row containment in a deletion closure is not by itself a Euclidean rich-class certificate.",
+    "The T12 connector role is conditional on the row being geometrically available.",
+    "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_81_3_closure_target.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_81_3_closure_target.py"
+  },
+  "schema": "erdos97.bootstrap_t12_81_3_closure_target.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_t12_closure_exposed.json",
+      "role": "source full-row deletion-closure exposure for 81:3",
+      "schema": "erdos97.bootstrap_t12_closure_exposed.v1",
+      "status": "BOOTSTRAP_T12_CLOSURE_EXPOSED_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/bootstrap_t12_relation_sufficient_rows.json",
+      "role": "source relation-sufficient connector requirement for 81:3",
+      "schema": "erdos97.bootstrap_t12_relation_sufficient_rows.v1",
+      "status": "BOOTSTRAP_T12_RELATION_SUFFICIENT_ROWS_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json",
+      "role": "source T12/F16 local strict-cycle connector role",
+      "schema": "erdos97.n9_vertex_circle_t12_strict_cycle_lemma_packet.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_81_3_CLOSURE_TARGET_DIAGNOSTIC_ONLY",
+  "summary": {
+    "closure_labels": [
+      0,
+      1,
+      3,
+      4,
+      6
+    ],
+    "deletion_seed": [
+      0,
+      1,
+      4
+    ],
+    "excluded_closure_exposed_rows": [
+      "151:7"
+    ],
+    "excluded_relation_sufficient_rows": [
+      "151:6",
+      "81:8"
+    ],
+    "exposed_core_vertex": 2,
+    "full_row_closure_relation_sufficient_target_count": 1,
+    "full_row_closure_relation_sufficient_targets": [
+      "81:3"
+    ],
+    "next_bridge_question": "Can the 81:3 full-row deletion-closure exposure be promoted to genuine rich-class or equality-connector forcing?",
+    "relation_sufficient_requirement_ids": [
+      "81:3:connector:2:0"
+    ],
+    "required_connector_pair": [
+      0,
+      1
+    ],
+    "row_forcing_gap_type": "FIXED_FULL_ROW_CLOSURE_NOT_RICH_CLASS_FORCING",
+    "row_forcing_target_status": "OPEN_TARGET_NOT_PROVED",
+    "source_record_ids": [
+      81
+    ],
+    "t12_connector_pair_chain": [
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "target_row_center": 3,
+    "target_row_key": "81:3",
+    "target_witnesses": [
+      0,
+      1,
+      4,
+      6
+    ]
+  },
+  "target_record": {
+    "bridge_lemma_target": "Turn a full-row deletion-closure exposure into a genuine equality-connector rich class.",
+    "classification_assignment_id": "A082",
+    "closure_exposure_mode": "CENTER_AND_FULL_ROW_IN_CLOSURE",
+    "closure_labels": [
+      0,
+      1,
+      3,
+      4,
+      6
+    ],
+    "closure_size": 5,
+    "deletion_seed": [
+      0,
+      1,
+      4
+    ],
+    "exposed_core_vertex": 2,
+    "full_row_contained_in_exposure_closure": true,
+    "known_evidence": [
+      "row center 3 is in the deletion closure for core vertex 2",
+      "all four fixed selected witnesses [0,1,4,6] are in that closure",
+      "the connector pair [0,1] is bootstrap-core sufficient",
+      "the row is a one-step equality connector in the T12/F16 local packet"
+    ],
+    "missing_geometric_promotion": [
+      "prove that closure membership forces a genuine rich class at center 3",
+      "or prove the weaker equality-connector forcing [1,3]=[0,3] at center 3",
+      "or exhibit a precise rich-class escape mechanism for this closure state"
+    ],
+    "outside_witnesses": [
+      6
+    ],
+    "outside_witnesses_in_closure": [
+      6
+    ],
+    "outside_witnesses_private": [],
+    "relation_requirement": {
+      "bootstrap_core_status": "SUFFICIENT",
+      "closure_sufficient_count": 1,
+      "kind": "equality_connector_pair",
+      "missing_from_bootstrap_core": [],
+      "relation_state": "BOOTSTRAP_CORE_SUFFICIENT",
+      "required_witnesses": [
+        0,
+        1
+      ],
+      "requirement_id": "81:3:connector:2:0",
+      "support_sufficient_count": 0
+    },
+    "roles": [
+      "equality_connector_row"
+    ],
+    "row_center": 3,
+    "row_center_in_closure": true,
+    "row_forcing_gap_type": "FIXED_FULL_ROW_CLOSURE_NOT_RICH_CLASS_FORCING",
+    "source_record_id": 81,
+    "t12_strict_cycle_role": {
+      "assignment_id": "A082",
+      "conditional_use": "Conditional: if a future bridge proves row 81:3 as a genuine rich class, this row supplies the T12 equality [1,3]=[0,3].",
+      "connector_pair_chain": [
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "cycle_step": 2,
+      "equality_step": {
+        "left_pair": [
+          1,
+          3
+        ],
+        "right_pair": [
+          0,
+          3
+        ],
+        "row": 3
+      },
+      "family_id": "F16",
+      "role": "final_equality_connector",
+      "row_center": 3,
+      "selected_row": [
+        3,
+        0,
+        1,
+        4,
+        6
+      ],
+      "strict_inequality_before_connector": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          1,
+          3
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          1,
+          2
+        ],
+        "outer_interval": [
+          0,
+          3
+        ],
+        "outer_pair": [
+          1,
+          7
+        ],
+        "outer_span": 3,
+        "row": 0,
+        "witness_order": [
+          1,
+          3,
+          6,
+          7
+        ]
+      },
+      "template_id": "T12",
+      "witnesses": [
+        0,
+        1,
+        4,
+        6
+      ]
+    },
+    "target_row_key": "81:3",
+    "witnesses": [
+      0,
+      1,
+      4,
+      6
+    ],
+    "witnesses_in_closure": [
+      0,
+      1,
+      4,
+      6
+    ]
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

@@ -2268,6 +2268,75 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_81_3_closure_target
+    path: data/certificates/bootstrap_t12_81_3_closure_target.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_81_3_closure_target.py
+    command: python scripts/check_bootstrap_t12_81_3_closure_target.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_81_3_closure_target.py
+    check_command: python scripts/check_bootstrap_t12_81_3_closure_target.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Focused 81:3 full-row closure target diagnostic; not a proof that the row is forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_81_3_closure_target.v1
+      status: BOOTSTRAP_T12_81_3_CLOSURE_TARGET_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "81:3"
+      summary.source_record_ids:
+        - 81
+      summary.target_row_center: 3
+      summary.target_witnesses:
+        - 0
+        - 1
+        - 4
+        - 6
+      summary.deletion_seed:
+        - 0
+        - 1
+        - 4
+      summary.exposed_core_vertex: 2
+      summary.closure_labels:
+        - 0
+        - 1
+        - 3
+        - 4
+        - 6
+      summary.full_row_closure_relation_sufficient_target_count: 1
+      summary.full_row_closure_relation_sufficient_targets:
+        - "81:3"
+      summary.relation_sufficient_requirement_ids:
+        - "81:3:connector:2:0"
+      summary.required_connector_pair:
+        - 0
+        - 1
+      summary.t12_connector_pair_chain:
+        - [1, 3]
+        - [0, 3]
+      summary.row_forcing_gap_type: FIXED_FULL_ROW_CLOSURE_NOT_RICH_CLASS_FORCING
+      summary.row_forcing_target_status: OPEN_TARGET_NOT_PROVED
+      target_record.full_row_contained_in_exposure_closure: true
+      target_record.relation_requirement.relation_state: BOOTSTRAP_CORE_SUFFICIENT
+      target_record.t12_strict_cycle_role.role: final_equality_connector
+      provenance.generator: scripts/check_bootstrap_t12_81_3_closure_target.py
+      provenance.command: python scripts/check_bootstrap_t12_81_3_closure_target.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - closure exposure proves row 81:3 is forced
+      - full-row containment proves a rich class
+      - the T12 connector role proves row forcing
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_row_pressure
     path: data/certificates/bootstrap_t12_row_pressure.json
     kind: proof_mining_diagnostic_artifact

@@ -91,6 +91,9 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the relation-sufficient row subpacket isolating rows `81:3`, `81:8`,
   and `151:6`, read
   [`docs/bootstrap-t12-relation-sufficient-rows.md`](docs/bootstrap-t12-relation-sufficient-rows.md).
+- For the focused `81:3` closure target, where full-row deletion-closure
+  exposure, relation sufficiency, and the final T12 connector role meet, read
+  [`docs/bootstrap-t12-81-3-closure-target.md`](docs/bootstrap-t12-81-3-closure-target.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).

@@ -68,6 +68,11 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-relation-sufficient-rows.md` isolates rows `81:3`,
    `81:8`, and `151:6`, where connector relation evidence is already present
    but row/rich-class forcing remains open.
+   The focused `81:3` closure-target packet in
+   `docs/bootstrap-t12-81-3-closure-target.md` is the first target in this
+   loop: full-row closure exposure and relation sufficiency meet there, and
+   the row supplies the final `T12/F16` connector only if a future bridge
+   proves genuine row/rich-class forcing.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker

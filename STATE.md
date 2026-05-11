@@ -132,6 +132,13 @@ forcing step open. This is diagnostic bookkeeping only, not a theorem that
 the relation-sufficient rows are forced. See
 `docs/bootstrap-t12-relation-sufficient-rows.md`.
 
+A focused `81:3` closure-target packet now isolates the sharpest current
+bridge subcase: source `81` row `3` is the unique relation-sufficient target
+whose full fixed selected row is contained in a deletion closure, and it is
+the final equality connector `[1,3]=[0,3]` in the `T12/F16` local strict-cycle
+packet. The missing step is still genuine row/rich-class forcing, not more
+fixed-row bookkeeping. See `docs/bootstrap-t12-81-3-closure-target.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

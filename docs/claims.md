@@ -538,6 +538,14 @@ and `151:6`. Their connector requirements are already bootstrap-core
 sufficient or support-sufficient, but this is still diagnostic bookkeeping
 only, not a lemma that those rows or rich classes are forced.
 
+The focused `81:3` closure-target packet in
+`docs/bootstrap-t12-81-3-closure-target.md` records the smallest current
+positive bridge target. Row `81:3` is the unique relation-sufficient row whose
+full fixed selected row lies in a deletion closure, and it supplies the final
+T12 equality connector `[1,3]=[0,3]` if the row is genuinely available. The
+packet keeps that conditional: it is not a lemma that closure membership
+forces a rich class or equality connector.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a
