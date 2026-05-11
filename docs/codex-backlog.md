@@ -73,6 +73,12 @@ Use this queue when no more specific issue is selected.
    loop: full-row closure exposure and relation sufficiency meet there, and
    the row supplies the final `T12/F16` connector only if a future bridge
    proves genuine row/rich-class forcing.
+   The follow-up `81:3` rich-triple connector contract in
+   `docs/bootstrap-t12-81-3-rich-triple-contract.md` reduces the next target:
+   the stored T12 connector only needs witnesses `0` and `1` in one genuine
+   rich class at center `3`. The next useful PR should attack the
+   order-resolved escape: either force activation from `[0,1,4]`, or certify
+   how label `6` becomes available first without forcing the connector.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker

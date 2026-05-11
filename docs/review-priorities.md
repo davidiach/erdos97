@@ -361,6 +361,11 @@ condition that the surviving multi-block family does not automatically satisfy:
   where full-row deletion-closure exposure, relation sufficiency, and the
   final `T12/F16` equality connector role coincide; this is still an open
   row/rich-class forcing target.
+- bootstrap/T12 focused `81:3` rich-triple contract evidence, as recorded in
+  `docs/bootstrap-t12-81-3-rich-triple-contract.md`, weakening the target to
+  the connector pair `[0,1]`: any genuine rich class at center `3` containing
+  that pair gives `[1,3]=[0,3]`, while a connector-avoiding activation must
+  expose label `6` first.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

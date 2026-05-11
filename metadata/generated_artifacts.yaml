@@ -2337,6 +2337,89 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_81_3_rich_triple_contract
+    path: data/certificates/bootstrap_t12_81_3_rich_triple_contract.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_81_3_rich_triple_contract.py
+    command: python scripts/check_bootstrap_t12_81_3_rich_triple_contract.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_81_3_rich_triple_contract.py
+    check_command: python scripts/check_bootstrap_t12_81_3_rich_triple_contract.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Focused 81:3 rich-triple connector contract diagnostic; proves only the local conditional from a genuine rich class at center 3 containing witnesses 0 and 1 to connector [1,3]=[0,3], not rich-class existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_81_3_rich_triple_contract.v1
+      status: BOOTSTRAP_T12_81_3_RICH_TRIPLE_CONTRACT_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "81:3"
+      summary.source_record_ids:
+        - 81
+      summary.target_row_center: 3
+      summary.target_witnesses:
+        - 0
+        - 1
+        - 4
+        - 6
+      summary.deletion_seed:
+        - 0
+        - 1
+        - 4
+      summary.exposed_core_vertex: 2
+      summary.closure_labels:
+        - 0
+        - 1
+        - 3
+        - 4
+        - 6
+      summary.connector_pair:
+        - 0
+        - 1
+      summary.connector_distance_pairs:
+        - [1, 3]
+        - [0, 3]
+      summary.connector_forcing_triples:
+        - [0, 1, 4]
+        - [0, 1, 6]
+      summary.connector_avoiding_activation_triples:
+        - [0, 4, 6]
+        - [1, 4, 6]
+      summary.seed_activation_triple:
+        - 0
+        - 1
+        - 4
+      summary.seed_activation_forces_connector: true
+      summary.full_row_forcing_required_for_connector: false
+      summary.local_conditional_lemma_status: EXACT_LOCAL_CONDITIONAL
+      summary.rich_class_existence_status: OPEN_TARGET_NOT_PROVED
+      summary.escape_status: CONNECTOR_ESCAPE_REQUIRES_RICH_CLASSES_AVOID_PAIR_0_1
+      summary.rich_triple_gap_type: PAIR_CONNECTOR_CONTRACT_NOT_RICH_CLASS_EXISTENCE
+      local_conditional_lemma.conclusion: The selected-distance equality [1,3]=[0,3] holds.
+      activation_triple_analysis.connector_avoiding_triples_all_use_outside_witness_6: true
+      escape_mechanism.outside_label_required_before_connector_avoiding_activation: 6
+      source_closure_target.source_schema: erdos97.bootstrap_t12_81_3_closure_target.v1
+      source_closure_target.row_forcing_gap_type: FIXED_FULL_ROW_CLOSURE_NOT_RICH_CLASS_FORCING
+      provenance.generator: scripts/check_bootstrap_t12_81_3_rich_triple_contract.py
+      provenance.command: python scripts/check_bootstrap_t12_81_3_rich_triple_contract.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - closure exposure proves row 81:3 is forced
+      - full-row containment proves a rich class
+      - the 81:3 rich class exists
+      - the 81:3 row is forced
+      - the connector-pair contract proves rich-class existence
+      - the connector-pair contract proves the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_row_pressure
     path: data/certificates/bootstrap_t12_row_pressure.json
     kind: proof_mining_diagnostic_artifact

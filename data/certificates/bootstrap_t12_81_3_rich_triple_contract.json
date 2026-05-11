@@ -1,0 +1,319 @@
+{
+  "activation_triple_analysis": {
+    "all_witness_triples": [
+      [
+        0,
+        1,
+        4
+      ],
+      [
+        0,
+        1,
+        6
+      ],
+      [
+        0,
+        4,
+        6
+      ],
+      [
+        1,
+        4,
+        6
+      ]
+    ],
+    "connector_avoiding_activation_triples": [
+      [
+        0,
+        4,
+        6
+      ],
+      [
+        1,
+        4,
+        6
+      ]
+    ],
+    "connector_avoiding_triples_all_use_outside_witness_6": true,
+    "connector_forcing_triples": [
+      [
+        0,
+        1,
+        4
+      ],
+      [
+        0,
+        1,
+        6
+      ]
+    ],
+    "connector_pair": [
+      0,
+      1
+    ],
+    "seed_activation_triple": [
+      0,
+      1,
+      4
+    ],
+    "seed_activation_uses_connector_pair": true,
+    "seed_activation_uses_outside_witness_6": false,
+    "target_witnesses": [
+      0,
+      1,
+      4,
+      6
+    ]
+  },
+  "claim_scope": "Focused local connector contract for source 81 row 3: any genuine rich class at center 3 that contains witnesses 0 and 1 supplies the T12/F16 equality connector [1,3]=[0,3]. This proves only that exact local conditional and the remaining escape shape; it does not prove the rich class exists, does not prove row forcing, does not prove n=9, does not prove the bridge, and does not claim a counterexample.",
+  "escape_mechanism": {
+    "available_connector_avoiding_triples_in_fixed_row": [
+      [
+        0,
+        4,
+        6
+      ],
+      [
+        1,
+        4,
+        6
+      ]
+    ],
+    "escape_condition": "To avoid the connector equality at center 3, every genuine rich class centered at 3 must avoid containing witnesses 0 and 1 together.",
+    "next_target": "Order-resolved rich-class closure: either force the seed activation [0,1,4] at center 3, or certify how label 6 becomes available first without already entering the connector.",
+    "outside_label_required_before_connector_avoiding_activation": 6,
+    "status": "CONNECTOR_ESCAPE_REQUIRES_RICH_CLASSES_AVOID_PAIR_0_1",
+    "why_label_6_matters": "The deletion seed [0,1,4] already contains the connector pair. The only triples from the fixed witness set that avoid that pair are [0,4,6] and [1,4,6], both of which require label 6 to be available before center 3 activates."
+  },
+  "interpretation_warnings": [
+    "This packet proves only the local conditional from a genuine rich class containing witnesses 0 and 1 to the connector equality [1,3]=[0,3].",
+    "It does not prove that such a rich class exists at center 3.",
+    "It does not prove full row 81:3, row/rich-class forcing, n=9, the bridge, or a counterexample.",
+    "Connector-avoiding activation remains an open exact escape mechanism requiring separate analysis."
+  ],
+  "local_conditional_lemma": {
+    "conclusion": "The selected-distance equality [1,3]=[0,3] holds.",
+    "hypothesis": "At center 3, a genuine rich distance class contains witnesses 0 and 1.",
+    "name": "81:3 connector-pair rich-class contract",
+    "non_claims": [
+      "does not prove any rich class contains witnesses 0 and 1",
+      "does not prove the full fixed row [0,1,4,6]",
+      "does not prove the T12/F16 local packet is geometrically available"
+    ],
+    "proof": "A rich distance class at center 3 consists of vertices at one common distance from p_3. If witnesses 0 and 1 both belong to such a class, then |p_3-p_1|=|p_3-p_0|, which is exactly the connector equality [1,3]=[0,3].",
+    "status": "EXACT_LOCAL_CONDITIONAL"
+  },
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_81_3_rich_triple_contract.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_81_3_rich_triple_contract.py"
+  },
+  "schema": "erdos97.bootstrap_t12_81_3_rich_triple_contract.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_t12_81_3_closure_target.json",
+      "role": "source focused 81:3 closure target packet",
+      "schema": "erdos97.bootstrap_t12_81_3_closure_target.v1",
+      "status": "BOOTSTRAP_T12_81_3_CLOSURE_TARGET_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "source_closure_target": {
+    "closure_labels": [
+      0,
+      1,
+      3,
+      4,
+      6
+    ],
+    "deletion_seed": [
+      0,
+      1,
+      4
+    ],
+    "exposed_core_vertex": 2,
+    "relation_requirement_id": "81:3:connector:2:0",
+    "required_connector_pair": [
+      0,
+      1
+    ],
+    "row_forcing_gap_type": "FIXED_FULL_ROW_CLOSURE_NOT_RICH_CLASS_FORCING",
+    "source_artifact": "data/certificates/bootstrap_t12_81_3_closure_target.json",
+    "source_schema": "erdos97.bootstrap_t12_81_3_closure_target.v1",
+    "source_status": "BOOTSTRAP_T12_81_3_CLOSURE_TARGET_DIAGNOSTIC_ONLY",
+    "source_trust": "REVIEW_PENDING_DIAGNOSTIC",
+    "t12_connector_pair_chain": [
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "t12_role": {
+      "assignment_id": "A082",
+      "conditional_use": "Conditional: if a future bridge proves row 81:3 as a genuine rich class, this row supplies the T12 equality [1,3]=[0,3].",
+      "connector_pair_chain": [
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "cycle_step": 2,
+      "equality_step": {
+        "left_pair": [
+          1,
+          3
+        ],
+        "right_pair": [
+          0,
+          3
+        ],
+        "row": 3
+      },
+      "family_id": "F16",
+      "role": "final_equality_connector",
+      "row_center": 3,
+      "selected_row": [
+        3,
+        0,
+        1,
+        4,
+        6
+      ],
+      "strict_inequality_before_connector": {
+        "inner_class": [
+          0,
+          1
+        ],
+        "inner_interval": [
+          0,
+          1
+        ],
+        "inner_pair": [
+          1,
+          3
+        ],
+        "inner_span": 1,
+        "outer_class": [
+          1,
+          2
+        ],
+        "outer_interval": [
+          0,
+          3
+        ],
+        "outer_pair": [
+          1,
+          7
+        ],
+        "outer_span": 3,
+        "row": 0,
+        "witness_order": [
+          1,
+          3,
+          6,
+          7
+        ]
+      },
+      "template_id": "T12",
+      "witnesses": [
+        0,
+        1,
+        4,
+        6
+      ]
+    },
+    "target_row_center": 3,
+    "target_row_key": "81:3",
+    "target_witnesses": [
+      0,
+      1,
+      4,
+      6
+    ]
+  },
+  "status": "BOOTSTRAP_T12_81_3_RICH_TRIPLE_CONTRACT_DIAGNOSTIC_ONLY",
+  "summary": {
+    "closure_labels": [
+      0,
+      1,
+      3,
+      4,
+      6
+    ],
+    "connector_avoiding_activation_triples": [
+      [
+        0,
+        4,
+        6
+      ],
+      [
+        1,
+        4,
+        6
+      ]
+    ],
+    "connector_distance_pairs": [
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "connector_forcing_triples": [
+      [
+        0,
+        1,
+        4
+      ],
+      [
+        0,
+        1,
+        6
+      ]
+    ],
+    "connector_pair": [
+      0,
+      1
+    ],
+    "deletion_seed": [
+      0,
+      1,
+      4
+    ],
+    "escape_status": "CONNECTOR_ESCAPE_REQUIRES_RICH_CLASSES_AVOID_PAIR_0_1",
+    "exposed_core_vertex": 2,
+    "full_row_forcing_required_for_connector": false,
+    "local_conditional_lemma_status": "EXACT_LOCAL_CONDITIONAL",
+    "next_bridge_question": "Can the real rich-class closure force activation at center 3 from the connector triple [0,1,4], or must any connector-avoiding activation first expose label 6?",
+    "rich_class_existence_status": "OPEN_TARGET_NOT_PROVED",
+    "rich_triple_gap_type": "PAIR_CONNECTOR_CONTRACT_NOT_RICH_CLASS_EXISTENCE",
+    "seed_activation_forces_connector": true,
+    "seed_activation_triple": [
+      0,
+      1,
+      4
+    ],
+    "source_record_ids": [
+      81
+    ],
+    "target_row_center": 3,
+    "target_row_key": "81:3",
+    "target_witnesses": [
+      0,
+      1,
+      4,
+      6
+    ]
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

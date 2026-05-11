@@ -94,6 +94,10 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the focused `81:3` closure target, where full-row deletion-closure
   exposure, relation sufficiency, and the final T12 connector role meet, read
   [`docs/bootstrap-t12-81-3-closure-target.md`](docs/bootstrap-t12-81-3-closure-target.md).
+- For the follow-up `81:3` rich-triple connector contract, which reduces the
+  target from full-row forcing to the pair `[0,1]` and records the exact
+  connector-avoiding escape, read
+  [`docs/bootstrap-t12-81-3-rich-triple-contract.md`](docs/bootstrap-t12-81-3-rich-triple-contract.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).

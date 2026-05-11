@@ -164,6 +164,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-81-3-closure-target.md`](bootstrap-t12-81-3-closure-target.md):
   focused packet isolating the unique `81:3` target where full-row closure
   exposure, relation sufficiency, and the final T12 connector role meet.
+- [`bootstrap-t12-81-3-rich-triple-contract.md`](bootstrap-t12-81-3-rich-triple-contract.md):
+  follow-up packet reducing the `81:3` target to the connector pair `[0,1]`
+  and recording the exact connector-avoiding escape through label `6`.
 - [`bootstrap-t12-row-pressure.md`](bootstrap-t12-row-pressure.md):
   row-pressure refinement classifying those missing T12 row centers by core
   deficit, deletion-closure exposure, and private-halo support.

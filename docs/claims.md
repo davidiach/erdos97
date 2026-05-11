@@ -546,6 +546,15 @@ T12 equality connector `[1,3]=[0,3]` if the row is genuinely available. The
 packet keeps that conditional: it is not a lemma that closure membership
 forces a rich class or equality connector.
 
+The follow-up `81:3` rich-triple connector contract in
+`docs/bootstrap-t12-81-3-rich-triple-contract.md` weakens the target from full
+row forcing to a pair-level local conditional. If a genuine rich class at
+center `3` contains witnesses `0` and `1`, then the connector equality
+`[1,3]=[0,3]` follows immediately. The packet does not prove such a rich class
+exists. Its value is to isolate the exact escape: every rich class at center
+`3` must avoid the pair `[0,1]`, and any connector-avoiding activation through
+the fixed witness set must use label `6` before center `3` activates.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a
