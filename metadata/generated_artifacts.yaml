@@ -688,6 +688,40 @@ artifacts:
       - the lemma catalog is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_vertex_circle_local_lemmas
+    path: data/certificates/n9_vertex_circle_local_lemmas.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_n9_vertex_circle_local_lemmas.py
+    command: python scripts/check_n9_vertex_circle_local_lemmas.py --assert-expected --write
+    checker: scripts/check_n9_vertex_circle_local_lemmas.py
+    check_command: python scripts/check_n9_vertex_circle_local_lemmas.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Proof-mining scan for reusable n-independent vertex-circle local lemmas; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_vertex_circle_local_lemmas.v1
+      status: REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      n: 9
+      coverage_summary.source_family_count: 16
+      coverage_summary.source_assignment_count: 184
+      coverage_summary.covered_family_count: 16
+      coverage_summary.covered_assignment_count: 184
+      coverage_summary.uncovered_family_count: 0
+      coverage_summary.uncovered_assignment_count: 0
+      direct_two_row_nested_spoke_special_case.instance_count: 0
+      provenance.command: python scripts/check_n9_vertex_circle_local_lemmas.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - template labels are theorem names
+      - the local-lemma scan is an independent proof
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_t01_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json
     kind: certificate_diagnostic_artifact

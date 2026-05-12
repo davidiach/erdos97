@@ -13,6 +13,17 @@ The companion checker is:
 python scripts/check_n9_vertex_circle_local_lemmas.py --assert-expected --json
 ```
 
+The stored artifact form is:
+
+```bash
+python scripts/check_n9_vertex_circle_local_lemmas.py --assert-expected --write
+python scripts/check_n9_vertex_circle_local_lemmas.py --check --assert-expected --json
+```
+
+It writes `data/certificates/n9_vertex_circle_local_lemmas.json`. The artifact
+is a replayable proof-mining summary of the local template packets, not an
+independent `n=9` proof artifact.
+
 It scans only the stored local-core template packets:
 
 - `data/certificates/n9_vertex_circle_self_edge_template_packet.json`
