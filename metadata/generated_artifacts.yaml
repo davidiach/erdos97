@@ -943,6 +943,41 @@ artifacts:
       - the local lemma packet is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_t10_strict_cycle_minireplay
+    path: data/certificates/n9_t10_strict_cycle_minireplay.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_n9_t10_strict_cycle_minireplay.py
+    command: python scripts/check_n9_t10_strict_cycle_minireplay.py --write --assert-expected
+    checker: scripts/check_n9_t10_strict_cycle_minireplay.py
+    check_command: python scripts/check_n9_t10_strict_cycle_minireplay.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Minimal input-data replay of the focused T10/F12 strict-cycle local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_t10_strict_cycle_minireplay.v1
+      status: REVIEW_PENDING_T10_STRICT_CYCLE_MINIREPLAY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      ok: true
+      source_packet: data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json
+      source_packet_schema: erdos97.n9_vertex_circle_t10_strict_cycle_lemma_packet.v1
+      replay.source_template_id: T10
+      replay.source_family_id: F12
+      replay.core_row_count: 4
+      replay.cycle_length: 2
+      replay.strict_cycle_contradiction: true
+      provenance.command: python scripts/check_n9_t10_strict_cycle_minireplay.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - T10 proves n=9
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - template labels are theorem names
+      - the mini-replay is an independent proof
+      - general proof of Erdos Problem #97
+
   - id: relation_skeleton_catalog
     path: data/certificates/relation_skeleton_catalog.json
     kind: certificate_diagnostic_artifact
