@@ -1,0 +1,206 @@
+{
+  "claim_scope": "Minimal input-data replay of the focused T12/F16 strict-cycle local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.",
+  "interpretation": "Three selected-distance connector paths identify each strict edge's inner pair with the next strict edge's outer pair, closing a directed strict cycle.",
+  "ok": true,
+  "provenance": {
+    "command": "python scripts/check_n9_t12_strict_cycle_minireplay.py --write --assert-expected",
+    "generator": "scripts/check_n9_t12_strict_cycle_minireplay.py"
+  },
+  "replay": {
+    "core_centers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      8
+    ],
+    "core_row_count": 6,
+    "cycle_length": 3,
+    "cycle_steps": [
+      {
+        "cycle_step": 0,
+        "equality_chain_to_next_outer_pair": [
+          [
+            0,
+            8
+          ],
+          [
+            2,
+            8
+          ]
+        ],
+        "equality_steps": [
+          {
+            "left_pair": [
+              0,
+              8
+            ],
+            "right_pair": [
+              2,
+              8
+            ],
+            "row": 8
+          }
+        ],
+        "strict_inequality": {
+          "inner_interval": [
+            2,
+            3
+          ],
+          "inner_pair": [
+            0,
+            8
+          ],
+          "inner_span": 1,
+          "outer_interval": [
+            0,
+            3
+          ],
+          "outer_pair": [
+            0,
+            3
+          ],
+          "outer_span": 3,
+          "row": 2,
+          "witness_order": [
+            3,
+            5,
+            8,
+            0
+          ]
+        }
+      },
+      {
+        "cycle_step": 1,
+        "equality_chain_to_next_outer_pair": [
+          [
+            2,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            7
+          ]
+        ],
+        "equality_steps": [
+          {
+            "left_pair": [
+              2,
+              4
+            ],
+            "right_pair": [
+              1,
+              4
+            ],
+            "row": 4
+          },
+          {
+            "left_pair": [
+              1,
+              4
+            ],
+            "right_pair": [
+              1,
+              7
+            ],
+            "row": 1
+          }
+        ],
+        "strict_inequality": {
+          "inner_interval": [
+            0,
+            1
+          ],
+          "inner_pair": [
+            2,
+            4
+          ],
+          "inner_span": 1,
+          "outer_interval": [
+            0,
+            3
+          ],
+          "outer_pair": [
+            2,
+            8
+          ],
+          "outer_span": 3,
+          "row": 1,
+          "witness_order": [
+            2,
+            4,
+            7,
+            8
+          ]
+        }
+      },
+      {
+        "cycle_step": 2,
+        "equality_chain_to_next_outer_pair": [
+          [
+            1,
+            3
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "equality_steps": [
+          {
+            "left_pair": [
+              1,
+              3
+            ],
+            "right_pair": [
+              0,
+              3
+            ],
+            "row": 3
+          }
+        ],
+        "strict_inequality": {
+          "inner_interval": [
+            0,
+            1
+          ],
+          "inner_pair": [
+            1,
+            3
+          ],
+          "inner_span": 1,
+          "outer_interval": [
+            0,
+            3
+          ],
+          "outer_pair": [
+            1,
+            7
+          ],
+          "outer_span": 3,
+          "row": 0,
+          "witness_order": [
+            1,
+            3,
+            6,
+            7
+          ]
+        }
+      }
+    ],
+    "source_family_id": "F16",
+    "source_template_id": "T12",
+    "strict_cycle_contradiction": true
+  },
+  "schema": "erdos97.n9_t12_strict_cycle_minireplay.v1",
+  "source_packet": "data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json",
+  "source_packet_schema": "erdos97.n9_vertex_circle_t12_strict_cycle_lemma_packet.v1",
+  "status": "REVIEW_PENDING_T12_STRICT_CYCLE_MINIREPLAY",
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "validation_errors": []
+}
