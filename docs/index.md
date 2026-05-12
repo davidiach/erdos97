@@ -48,6 +48,9 @@ put detailed reconciliation in the canonical synthesis.
   crossing CSP for two-overlap patterns.
 - [`vertex-circle-order-filter.md`](vertex-circle-order-filter.md): exact
   row-wise convexity-distance filter for cyclic orders.
+- [`turn-inequality-lemma.md`](turn-inequality-lemma.md): proof-facing note for
+  the candidate exterior-turn inequalities used in the review-pending `n=9`
+  turn-frontier replay.
 - [`relation-skeleton-catalog.md`](relation-skeleton-catalog.md): first
   review-pending relation-skeleton extraction for T01 self-edge and T10
   strict-cycle vertex-circle quotient motifs; proof-mining aid only.
@@ -194,6 +197,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-exhaustive.md`](n9-vertex-circle-exhaustive.md):
   review-pending exhaustive `n=9` selected-witness checker using the
   vertex-circle strict-chord filter.
+- [`n9-turn-inequality-frontier.md`](n9-turn-inequality-frontier.md):
+  review-pending replay of 184 `n=9` selected-witness assignments killed by
+  candidate exterior-turn Farkas certificates; not a proof of `n=9`.
 - [`n9-vertex-circle-row0-root-audit.md`](n9-vertex-circle-row0-root-audit.md):
   row0-root enumeration audit for the exhaustive `n=9` vertex-circle checker.
 - [`n9-vertex-circle-mro-branching-audit.md`](n9-vertex-circle-mro-branching-audit.md):
@@ -270,6 +276,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n10-vertex-circle-singleton-slices.md`](n10-vertex-circle-singleton-slices.md):
   review-pending `n=10` singleton-slice finite-case draft, including the
   secondary first-five replay cross-check.
+- [`n10-turn-row0-pilot.md`](n10-turn-row0-pilot.md): bounded `n=10`
+  row0-index-0 turn-frontier pilot; finite bookkeeping only, not a proof of
+  `n=10`.
 - [`octagon-trap.html`](octagon-trap.html): interactive visualization of the
   isosceles-triangle count and octagon equality trap.
 - [`reproduction-log.md`](reproduction-log.md): fast, artifact, and exhaustive
@@ -316,6 +325,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`gpt-pro-output-triage-2026-05-10.md`](gpt-pro-output-triage-2026-05-10.md):
   triage of three GPT Pro reconstructed-output notes; provenance and
   task-selection guidance only.
+- [`gpt-pro-followup-triage-2026-05-11.md`](gpt-pro-followup-triage-2026-05-11.md):
+  triage of later GPT Pro follow-up notes; provenance and task-selection
+  guidance only.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`repo-roadmap.md`](repo-roadmap.md): staged repository plan.
