@@ -270,6 +270,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-t10-strict-cycle-lemma.md`](n9-vertex-circle-t10-strict-cycle-lemma.md):
   focused review-pending T10/F12 strict-cycle local lemma packet for proof
   mining.
+- [`n9-t10-strict-cycle-minireplay.md`](n9-t10-strict-cycle-minireplay.md):
+  minimal input-data replay of the T10/F12 local strict-cycle equality
+  connectors and chord containments; proof-mining scaffolding only.
 - [`n9-vertex-circle-t11-strict-cycle-lemma.md`](n9-vertex-circle-t11-strict-cycle-lemma.md):
   focused review-pending T11/F07 strict-cycle local lemma packet for proof
   mining.
