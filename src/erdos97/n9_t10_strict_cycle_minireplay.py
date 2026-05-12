@@ -15,6 +15,13 @@ STATUS = "REVIEW_PENDING_T10_STRICT_CYCLE_MINIREPLAY"
 TRUST = "REVIEW_PENDING_DIAGNOSTIC"
 SOURCE_PACKET_SCHEMA = "erdos97.n9_vertex_circle_t10_strict_cycle_lemma_packet.v1"
 SOURCE_PACKET = "data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json"
+TEMPLATE_ID = "T10"
+FAMILY_ID = "F12"
+EXPECTED_CYCLE_LENGTH = 2
+EXPECTED_STRICT_WITNESS_ORDERS = [
+    [0, 3, 6, 7],
+    [4, 6, 0, 1],
+]
 
 
 def _pair(value: Any, label: str, errors: list[str]) -> list[int]:
@@ -141,6 +148,8 @@ def _replay_strict(
     rows: dict[int, list[int]],
     label: str,
     errors: list[str],
+    *,
+    expected_witness_order: list[int],
 ) -> dict[str, object]:
     if not isinstance(strict, dict):
         errors.append(f"{label} strict_inequality must be an object")
@@ -158,6 +167,8 @@ def _replay_strict(
         errors.append(f"{label} strict_inequality uses missing row {row}")
     elif sorted(row_witnesses) != sorted(witness_order):
         errors.append(f"{label} strict_inequality witness_order must list row witnesses")
+    if witness_order != expected_witness_order:
+        errors.append(f"{label} strict_inequality witness_order changed")
 
     outer_pair = _pair(strict.get("outer_pair"), f"{label}.outer_pair", errors)
     inner_pair = _pair(strict.get("inner_pair"), f"{label}.inner_pair", errors)
@@ -209,10 +220,10 @@ def _family_packet(packet: dict[str, Any], errors: list[str]) -> dict[str, Any]:
     matches = [
         family_packet
         for family_packet in packets
-        if isinstance(family_packet, dict) and family_packet.get("family_id") == "F12"
+        if isinstance(family_packet, dict) and family_packet.get("family_id") == FAMILY_ID
     ]
     if len(matches) != 1:
-        errors.append(f"expected exactly one F12 family packet, got {len(matches)}")
+        errors.append(f"expected exactly one {FAMILY_ID} family packet, got {len(matches)}")
         return {}
     return matches[0]
 
@@ -222,7 +233,7 @@ def replay_packet(packet: dict[str, Any]) -> tuple[dict[str, object], list[str]]
     errors: list[str] = []
     if packet.get("schema") != SOURCE_PACKET_SCHEMA:
         errors.append(f"unexpected source schema: {packet.get('schema')!r}")
-    if packet.get("template_id") != "T10":
+    if packet.get("template_id") != TEMPLATE_ID:
         errors.append(f"unexpected template_id: {packet.get('template_id')!r}")
     if packet.get("cyclic_order") != list(range(9)):
         errors.append("cyclic_order must be the natural nonagon order")
@@ -230,15 +241,18 @@ def replay_packet(packet: dict[str, Any]) -> tuple[dict[str, object], list[str]]
     family = _family_packet(packet, errors)
     if not family:
         return {}, errors
-    if family.get("family_id") != "F12":
+    if family.get("family_id") != FAMILY_ID:
         errors.append(f"unexpected family_id: {family.get('family_id')!r}")
     rows = _rows(family.get("core_selected_rows"), errors)
     cycle_steps = family.get("cycle_steps")
     if not isinstance(cycle_steps, list):
         errors.append("cycle_steps must be a list")
         return {}, errors
-    if len(cycle_steps) != 2:
-        errors.append(f"expected a two-step strict cycle, got {len(cycle_steps)}")
+    if len(cycle_steps) != EXPECTED_CYCLE_LENGTH:
+        errors.append(
+            f"expected a {EXPECTED_CYCLE_LENGTH}-step strict cycle, "
+            f"got {len(cycle_steps)}"
+        )
 
     steps: list[dict[str, object]] = []
     strict_summaries: list[dict[str, object]] = []
@@ -255,6 +269,9 @@ def replay_packet(packet: dict[str, Any]) -> tuple[dict[str, object], list[str]]
             rows,
             label,
             errors,
+            expected_witness_order=EXPECTED_STRICT_WITNESS_ORDERS[
+                index % len(EXPECTED_STRICT_WITNESS_ORDERS)
+            ],
         )
         equality_chain, equality_steps = _replay_equality(
             raw_step.get("equality_to_next_outer_pair"),
@@ -276,7 +293,10 @@ def replay_packet(packet: dict[str, Any]) -> tuple[dict[str, object], list[str]]
 
     closes = False
     if (
-        len(strict_summaries) == len(equality_chains) == len(clean_steps) == 2
+        len(strict_summaries)
+        == len(equality_chains)
+        == len(clean_steps)
+        == EXPECTED_CYCLE_LENGTH
         and all(strict_summaries)
         and all(clean_steps)
     ):
@@ -306,7 +326,7 @@ def replay_packet(packet: dict[str, Any]) -> tuple[dict[str, object], list[str]]
             "next_outer_pair": strict_summaries[(index + 1) % len(strict_summaries)].get(
                 "outer_pair"
             )
-            if len(strict_summaries) == 2 and all(strict_summaries)
+            if len(strict_summaries) == EXPECTED_CYCLE_LENGTH and all(strict_summaries)
             else None,
         }
         for index, step in enumerate(steps)

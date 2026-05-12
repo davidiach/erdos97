@@ -84,6 +84,18 @@ def test_t10_minireplay_reports_malformed_pairs_without_crashing() -> None:
     assert any("does not start at row center" in error for error in errors)
 
 
+def test_t10_minireplay_pins_strict_witness_order() -> None:
+    packet = _source_packet()
+    family = packet["family_packets"][0]  # type: ignore[index]
+    step = family["cycle_steps"][0]  # type: ignore[index]
+    strict = step["strict_inequality"]  # type: ignore[index]
+    strict["witness_order"] = [3, 6, 7, 0]  # type: ignore[index]
+
+    _, errors = replay_packet(packet)
+
+    assert any("strict_inequality witness_order changed" in error for error in errors)
+
+
 @pytest.mark.artifact
 def test_t10_minireplay_payload_validates_against_source() -> None:
     packet = _source_packet()
