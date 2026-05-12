@@ -589,10 +589,161 @@ def summary_payload() -> dict[str, object]:
     }
 
 
+def _compare_expected_fields(
+    errors: list[str],
+    section_name: str,
+    section: dict[str, object],
+    expected_fields: dict[str, object],
+) -> None:
+    for key, expected in expected_fields.items():
+        if section.get(key) != expected:
+            errors.append(
+                f"{section_name}.{key} mismatch: "
+                f"{section.get(key)!r} != {expected!r}"
+            )
+
+
+def validate_payload(payload: dict[str, object]) -> list[str]:
+    """Validate a stored n=9 turn-inequality frontier payload."""
+    errors: list[str] = []
+    if payload.get("schema") != "erdos97.n9_turn_inequality_frontier.v1":
+        errors.append("unexpected schema")
+    if payload.get("n") != N:
+        errors.append(f"unexpected n: {payload.get('n')!r}")
+    if payload.get("row_size") != ROW_SIZE:
+        errors.append(f"unexpected row_size: {payload.get('row_size')!r}")
+
+    source = payload.get("source_frontier")
+    turn_system = payload.get("turn_system")
+    z3_replay = payload.get("z3_replay")
+    farkas_replay = payload.get("farkas_replay")
+    farkas_certificates = payload.get("farkas_certificates")
+    benchmarks = payload.get("benchmarks")
+    if not isinstance(source, dict):
+        errors.append("missing source_frontier object")
+    if not isinstance(turn_system, dict):
+        errors.append("missing turn_system object")
+    if not isinstance(z3_replay, dict):
+        errors.append("missing z3_replay object")
+    if not isinstance(farkas_replay, dict):
+        errors.append("missing farkas_replay object")
+    if not isinstance(farkas_certificates, list):
+        errors.append("missing farkas_certificates list")
+    if not isinstance(benchmarks, list):
+        errors.append("missing benchmarks list")
+    if errors:
+        return errors
+
+    assert isinstance(source, dict)
+    assert isinstance(turn_system, dict)
+    assert isinstance(z3_replay, dict)
+    assert isinstance(farkas_replay, dict)
+    assert isinstance(farkas_certificates, list)
+    assert isinstance(benchmarks, list)
+
+    frontier = normalize_pattern_list(enumerate_pair_crossing_count_frontier())
+    indegree_rows = [tuple(indegrees(rows)) for rows in frontier]
+    side_cap_violations = [
+        len(side_sensitive_pair_cap_violations(rows)) for rows in frontier
+    ]
+    turn_counts = [len(turn_inequality_terms_for_pattern(rows)) for rows in frontier]
+
+    _compare_expected_fields(
+        errors,
+        "source_frontier",
+        source,
+        {
+            "assignment_count": len(frontier),
+            "assignment_sha256": frontier_sha256(frontier),
+            "indegree_distribution": _histogram(indegree_rows),
+            "side_sensitive_pair_cap_violation_count_histogram": _histogram(
+                side_cap_violations
+            ),
+        },
+    )
+    _compare_expected_fields(
+        errors,
+        "turn_system",
+        turn_system,
+        {"inequality_count_histogram": _histogram(turn_counts)},
+    )
+
+    certificate_errors: list[str] = []
+    certificate_summaries: list[dict[str, object]] = []
+    if len(farkas_certificates) != len(frontier):
+        certificate_errors.append(
+            "certificate count mismatch: "
+            f"{len(farkas_certificates)} stored vs {len(frontier)} frontier assignments"
+        )
+    for index, (rows, certificate) in enumerate(
+        zip(frontier, farkas_certificates), start=1
+    ):
+        if not isinstance(certificate, dict):
+            certificate_errors.append(f"certificate {index} is not an object")
+            continue
+        if certificate.get("assignment_index_1based") != index:
+            certificate_errors.append(
+                f"certificate {index} has assignment index "
+                f"{certificate.get('assignment_index_1based')!r}"
+            )
+            continue
+        try:
+            certificate_summaries.append(
+                verify_turn_farkas_certificate(rows, certificate)
+            )
+        except ValueError as exc:
+            certificate_errors.append(f"certificate {index}: {exc}")
+    errors.extend(certificate_errors)
+
+    _compare_expected_fields(
+        errors,
+        "z3_replay",
+        z3_replay,
+        {
+            "status_counts": {"unsat": len(frontier)},
+            "sat_count": 0,
+            "unsat_count": len(frontier),
+            "unknown_count": 0,
+        },
+    )
+    _compare_expected_fields(
+        errors,
+        "farkas_replay",
+        farkas_replay,
+        {
+            "certificate_count": len(farkas_certificates),
+            "certificate_sha256": farkas_certificate_sha256(farkas_certificates),
+            "lambda_histogram": _histogram(
+                [summary["lambda"] for summary in certificate_summaries]
+            ),
+            "term_count_histogram": _histogram(
+                [summary["term_count"] for summary in certificate_summaries]
+            ),
+            "deficit_histogram": _histogram(
+                [summary["deficit"] for summary in certificate_summaries]
+            ),
+            "max_variable_coefficient_histogram": _histogram(
+                [
+                    summary["max_variable_coefficient"]
+                    for summary in certificate_summaries
+                ]
+            ),
+        },
+    )
+
+    expected_benchmark = side_cap_benchmark_summary(frontier)
+    if benchmarks != [expected_benchmark]:
+        errors.append("benchmarks mismatch")
+    return errors
+
+
 def assert_expected_payload(payload: dict[str, object] | None = None) -> None:
     """Assert stable counts and benchmark fields for the replay artifact."""
     if payload is None:
         payload = summary_payload()
+    validation_errors = validate_payload(payload)
+    if validation_errors:
+        raise AssertionError(validation_errors[:5])
     if payload.get("schema") != "erdos97.n9_turn_inequality_frontier.v1":
         raise AssertionError("unexpected schema")
     source = payload.get("source_frontier")
@@ -654,9 +805,6 @@ def assert_expected_payload(payload: dict[str, object] | None = None) -> None:
         != EXPECTED_FARKAS_CERTIFICATE_SHA256
     ):
         raise AssertionError("stored Farkas certificates do not match expected hash")
-    farkas_errors = validate_farkas_certificates(payload)
-    if farkas_errors:
-        raise AssertionError(f"invalid Farkas certificates: {farkas_errors[:3]}")
     benchmark = benchmarks[0]
     if not isinstance(benchmark, dict):
         raise AssertionError("malformed benchmark")

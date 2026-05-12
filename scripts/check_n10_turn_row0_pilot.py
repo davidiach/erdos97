@@ -59,11 +59,12 @@ def main() -> int:
 
     start = perf_counter()
     payload = _load(artifact) if args.check else summary_payload()
-    errors = validate_payload(payload)
-    if errors:
-        raise SystemExit("; ".join(errors[:5]))
     if args.assert_expected:
         assert_expected_payload(payload)
+    else:
+        errors = validate_payload(payload)
+        if errors:
+            raise SystemExit("; ".join(errors[:5]))
     elapsed = perf_counter() - start
 
     if args.write:

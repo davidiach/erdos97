@@ -80,3 +80,5 @@ def test_tiny_payload_validation_checks_stored_fields() -> None:
     errors = validate_payload(payload)
 
     assert any("assignment_sha256 mismatch" in error for error in errors)
+    assert any("turn_sat_escape_count mismatch" in error for error in errors)
+    assert any("turn_sat_escape_self_edges mismatch" in error for error in errors)

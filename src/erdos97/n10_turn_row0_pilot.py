@@ -380,7 +380,10 @@ def validate_payload(payload: dict[str, object]) -> list[str]:
             errors.append(f"assignment {expected_index} has no rows")
             continue
         try:
-            _validate_full_assignment(rows)
+            normalized_rows = normalize_pattern(rows)
+            _validate_full_assignment(normalized_rows)
+            if rows != normalized_rows:
+                raise ValueError("rows are not stored in normalized order")
             if record.get("assignment_index_1based") != expected_index:
                 raise ValueError("assignment index mismatch")
             turn_status = record.get("turn_status")
@@ -388,15 +391,15 @@ def validate_payload(payload: dict[str, object]) -> list[str]:
                 certificate = record.get("turn_certificate")
                 if not isinstance(certificate, dict):
                     raise ValueError("missing turn certificate")
-                verify_turn_farkas_certificate(rows, certificate, n=N)
+                verify_turn_farkas_certificate(normalized_rows, certificate, n=N)
             elif turn_status == "sat":
                 model = record.get("turn_model")
                 if not isinstance(model, list):
                     raise ValueError("missing turn model")
-                _verify_turn_model(rows, [str(value) for value in model])
+                _verify_turn_model(normalized_rows, [str(value) for value in model])
             else:
                 raise ValueError(f"unexpected turn status {turn_status!r}")
-            vertex_status = _vertex_circle_status(rows)
+            vertex_status = _vertex_circle_status(normalized_rows)
             if record.get("vertex_circle_status") != vertex_status:
                 raise ValueError("vertex-circle status mismatch")
         except ValueError as exc:
@@ -409,6 +412,28 @@ def validate_payload(payload: dict[str, object]) -> list[str]:
         for record in records
         if isinstance(record, dict) and record.get("turn_status") == "farkas_unsat"
     ]
+    turn_sat_self_edges = []
+    for record in records:
+        if not isinstance(record, dict) or record.get("turn_status") != "sat":
+            continue
+        rows = record.get("rows")
+        if not isinstance(rows, list):
+            continue
+        try:
+            turn_sat_self_edges.append(
+                {
+                    "assignment_index_1based": record.get(
+                        "assignment_index_1based"
+                    ),
+                    "self_edge": first_self_edge_conflict(rows),
+                }
+            )
+        except ValueError as exc:
+            errors.append(
+                "assignment "
+                f"{record.get('assignment_index_1based')}: SAT escape self-edge "
+                f"mismatch: {exc}"
+            )
     expected_fields = {
         "full_assignment_count": len(records),
         "assignment_sha256": _stable_sha256([record.get("rows") for record in records]),
@@ -416,6 +441,8 @@ def validate_payload(payload: dict[str, object]) -> list[str]:
         "vertex_circle_status_counts": dict(sorted(vertex_counts.items())),
         "turn_farkas_certificate_count": len(certificates),
         "turn_farkas_certificate_sha256": _stable_sha256(certificates),
+        "turn_sat_escape_count": len(turn_sat_self_edges),
+        "turn_sat_escape_self_edges": turn_sat_self_edges,
     }
     for key, expected in expected_fields.items():
         if payload.get(key) != expected:
@@ -442,6 +469,7 @@ def assert_expected_payload(payload: dict[str, object] | None = None) -> None:
         },
         "turn_farkas_certificate_count": EXPECTED_TURN_FARKAS_UNSAT,
         "turn_farkas_certificate_sha256": EXPECTED_CERTIFICATE_SHA256,
+        "turn_sat_escape_count": EXPECTED_TURN_SAT_VERTEX_SELF_EDGE,
     }
     for key, expected_value in expected.items():
         if payload.get(key) != expected_value:

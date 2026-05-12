@@ -7,6 +7,7 @@ from erdos97.n9_turn_inequality_frontier import (
     side_sensitive_pair_cap_violations,
     turn_inequality_terms_for_pattern,
     turn_z3_status,
+    validate_payload,
     verify_turn_farkas_certificate,
     vertex_circle_status_for_pattern,
 )
@@ -49,3 +50,16 @@ def test_side_cap_benchmark_has_integer_farkas_certificate() -> None:
     assert summary["deficit"] == 1
     assert summary["rhs_sum"] > 4 * summary["lambda"]
     assert summary["max_variable_coefficient"] <= summary["lambda"]
+
+
+def test_payload_validation_rejects_malformed_check_payload() -> None:
+    errors = validate_payload(
+        {
+            "schema": "erdos97.n9_turn_inequality_frontier.v1",
+            "n": 9,
+            "row_size": 4,
+        }
+    )
+
+    assert "missing source_frontier object" in errors
+    assert "missing farkas_certificates list" in errors

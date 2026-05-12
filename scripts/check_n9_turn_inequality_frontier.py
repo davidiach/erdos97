@@ -17,6 +17,7 @@ if str(SRC) not in sys.path:
 from erdos97.n9_turn_inequality_frontier import (  # noqa: E402
     assert_expected_payload,
     summary_payload,
+    validate_payload,
 )
 from erdos97.path_display import display_path  # noqa: E402
 
@@ -91,9 +92,13 @@ def main(argv: list[str] | None = None) -> int:
 
     start = perf_counter()
     payload = _load_json(artifact) if args.check else summary_payload()
-    elapsed = perf_counter() - start
     if args.assert_expected:
         assert_expected_payload(payload)
+    else:
+        errors = validate_payload(payload)
+        if errors:
+            raise SystemExit("; ".join(errors[:5]))
+    elapsed = perf_counter() - start
 
     if args.write:
         _write_json(out, payload)
