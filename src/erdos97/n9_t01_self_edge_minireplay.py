@@ -57,6 +57,8 @@ def _rows(packet: dict[str, Any], errors: list[str]) -> dict[int, list[int]]:
 
 
 def _other_endpoint(pair_value: list[int], center: int) -> int | None:
+    if len(pair_value) != 2:
+        return None
     if center == pair_value[0]:
         return pair_value[1]
     if center == pair_value[1]:

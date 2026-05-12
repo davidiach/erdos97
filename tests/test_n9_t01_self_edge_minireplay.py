@@ -57,6 +57,18 @@ def test_t01_minireplay_rejects_broken_equality_step() -> None:
     assert any("stored equality_chain mismatch" in error for error in errors)
 
 
+def test_t01_minireplay_reports_malformed_pairs_without_crashing() -> None:
+    packet = _source_packet()
+    equality = packet["distance_equality"]
+    assert isinstance(equality, dict)
+    equality["start_pair"] = [1]
+
+    _, errors = replay_packet(packet)
+
+    assert "distance_equality.start_pair must be a two-element list" in errors
+    assert any("does not start at row center" in error for error in errors)
+
+
 @pytest.mark.artifact
 def test_t01_minireplay_payload_validates_against_source() -> None:
     packet = _source_packet()
