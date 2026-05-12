@@ -261,6 +261,47 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_turn_inequality_frontier
+    path: data/certificates/n9_turn_inequality_frontier.json
+    kind: finite_case_artifact
+    generator: scripts/check_n9_turn_inequality_frontier.py
+    command: python scripts/check_n9_turn_inequality_frontier.py --assert-expected --write
+    checker: scripts/check_n9_turn_inequality_frontier.py
+    check_command: python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    claim_scope: Candidate n=9 selected-witness turn-inequality frontier replay; not a proof of n=9, not an independent review of the exhaustive checker, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_turn_inequality_frontier.v1
+      status: REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY
+      trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+      n: 9
+      row_size: 4
+      source_frontier.assignment_count: 184
+      source_frontier.assignment_sha256: d7807b69b9de27da17fa851b3325b1e26cfa0b6d86277abeda4bc4e3454b8e01
+      source_frontier.side_sensitive_pair_cap_violation_count_histogram.0: 184
+      turn_system.inequality_count_histogram.108: 184
+      farkas_replay.certificate_count: 184
+      farkas_replay.certificate_sha256: 1aed1b1f78178b967f93a3894e67cf9a0c314441a94423c8f24f2e0b8cb9bf89
+      farkas_replay.lambda_histogram.1: 180
+      farkas_replay.lambda_histogram.2: 4
+      farkas_replay.term_count_histogram.5: 180
+      farkas_replay.term_count_histogram.9: 4
+      farkas_replay.deficit_histogram.1: 184
+      z3_replay.unsat_count: 184
+      z3_replay.sat_count: 0
+      z3_replay.unknown_count: 0
+      provenance.command: python scripts/check_n9_turn_inequality_frontier.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - independent review complete
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_local_core_packet
     path: data/certificates/n9_vertex_circle_local_core_packet.json
     kind: certificate_diagnostic_artifact
@@ -1857,6 +1898,43 @@ artifacts:
       - n=10 is proved
       - official/global status update
       - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+
+  - id: n10_turn_row0_pilot
+    path: data/certificates/n10_turn_row0_pilot.json
+    kind: exploratory_ledger_artifact
+    generator: scripts/check_n10_turn_row0_pilot.py
+    command: python scripts/check_n10_turn_row0_pilot.py --assert-expected --write
+    checker: scripts/check_n10_turn_row0_pilot.py
+    check_command: python scripts/check_n10_turn_row0_pilot.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    claim_scope: Bounded n=10 row0-index-0 turn-frontier pilot; not a proof of n=10, not a complete n=10 search, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n10_turn_row0_pilot.v1
+      status: EXPLORATORY_ROW0_TURN_FRONTIER_PILOT
+      trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+      n: 10
+      row_size: 4
+      row0_index: 0
+      full_assignment_count: 160
+      assignment_sha256: ec0fa48ec4db8a4a133bffbd86647ade7f33444a1ccb7eea098aae04df4d42b7
+      turn_status_counts.farkas_unsat: 156
+      turn_status_counts.sat: 4
+      vertex_circle_status_counts.self_edge: 160
+      turn_farkas_certificate_count: 156
+      turn_farkas_certificate_sha256: c55eb78466233cc7c9c379ffd1d8d555304349e4bc4eaf588c79be5638ee4a55
+      turn_sat_escape_count: 4
+      provenance.command: python scripts/check_n10_turn_row0_pilot.py --assert-expected --write
+    forbidden_claims:
+      - n=10 is proved
+      - turn inequalities close n=10
+      - row0 pilot is a completeness result
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
       - general proof of Erdos Problem #97
 
   - id: bootstrap_core_crosswalk
