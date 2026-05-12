@@ -27,6 +27,7 @@ from scripts.check_n9_vertex_circle_local_lemmas import (
     DEFAULT_T12_PACKET,
     load_artifact,
     scan_payload,
+    validate_payload,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -428,6 +429,29 @@ def test_assert_expected_rejects_count_drift(payload: dict[str, object]) -> None
         assert_expected_local_lemma_scan(tampered)
 
 
+def test_validate_payload_rejects_provenance_drift(payload: dict[str, object]) -> None:
+    tampered = json.loads(json.dumps(payload))
+    tampered["provenance"]["command"] = "python changed.py"
+
+    errors = validate_payload(tampered, payload)
+
+    assert any("provenance mismatch" in error for error in errors)
+    assert "local-lemma scan payload mismatch" in errors
+
+
+def test_payload_provenance_is_not_shared_mutable_state() -> None:
+    payload = scan_payload()
+    payload["provenance"]["command"] = "python changed.py"  # type: ignore[index]
+
+    with pytest.raises(AssertionError, match="provenance mismatch"):
+        assert_expected_local_lemma_scan(payload)
+
+    fresh_payload = scan_payload()
+    assert fresh_payload["provenance"]["command"] == (  # type: ignore[index]
+        "python scripts/check_n9_vertex_circle_local_lemmas.py --assert-expected --write"
+    )
+
+
 def test_focused_packet_crosscheck_rejects_t03_row_drift() -> None:
     self_edge_packet = load_artifact(DEFAULT_SELF_EDGE_PACKET)
     strict_cycle_packet = load_artifact(DEFAULT_STRICT_CYCLE_PACKET)
@@ -488,3 +512,54 @@ def test_local_lemma_scan_cli_json() -> None:
     assert parsed["schema"] == "erdos97.n9_vertex_circle_local_lemmas.v1"
     assert parsed["coverage_summary"]["covered_assignment_count"] == 184
     assert parsed["coverage_summary"]["uncovered_family_ids"] == []
+
+
+def test_local_lemma_scan_cli_write_and_check(tmp_path: Path) -> None:
+    artifact = tmp_path / "n9_vertex_circle_local_lemmas.json"
+    write_result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_local_lemmas.py",
+            "--write",
+            "--out",
+            str(artifact),
+            "--assert-expected",
+            "--json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    write_summary = json.loads(write_result.stdout)
+    assert write_summary["ok"] is True
+    assert write_summary["covered_assignment_count"] == 184
+    stored = json.loads(artifact.read_text(encoding="utf-8"))
+    assert stored["provenance"] == {
+        "generator": "scripts/check_n9_vertex_circle_local_lemmas.py",
+        "command": (
+            "python scripts/check_n9_vertex_circle_local_lemmas.py "
+            "--assert-expected --write"
+        ),
+    }
+
+    check_result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_local_lemmas.py",
+            "--check",
+            "--artifact",
+            str(artifact),
+            "--assert-expected",
+            "--json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    check_summary = json.loads(check_result.stdout)
+    assert check_summary["ok"] is True
+    assert check_summary["lemma_count"] == 7

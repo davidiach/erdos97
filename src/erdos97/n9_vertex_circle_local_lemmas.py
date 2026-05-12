@@ -26,6 +26,10 @@ CLAIM_SCOPE = (
     "This is not a proof of n=9, not a counterexample, not an independent "
     "review of the exhaustive checker, and not a global status update."
 )
+PROVENANCE = {
+    "generator": "scripts/check_n9_vertex_circle_local_lemmas.py",
+    "command": "python scripts/check_n9_vertex_circle_local_lemmas.py --assert-expected --write",
+}
 
 SHARED_ENDPOINT_LEMMA = "shared_endpoint_nested_self_edge"
 NESTED_SPOKE_LEMMA = "nested_spoke_quotient_self_edge"
@@ -295,6 +299,7 @@ def local_lemma_scan_payload(
             "stored template-packet local cores and does not enumerate all n=9 "
             "selected-witness assignments."
         ),
+        "provenance": dict(PROVENANCE),
     }
 
 
@@ -580,6 +585,8 @@ def assert_expected_local_lemma_scan(payload: dict[str, Any]) -> None:
         raise AssertionError(f"status mismatch: {payload.get('status')!r}")
     if payload.get("trust") != TRUST:
         raise AssertionError(f"trust mismatch: {payload.get('trust')!r}")
+    if payload.get("provenance") != PROVENANCE:
+        raise AssertionError(f"provenance mismatch: {payload.get('provenance')!r}")
     claim_scope = str(payload.get("claim_scope", ""))
     for forbidden in ("proof of n=9", "counterexample", "global status update"):
         if f"not a {forbidden}" not in claim_scope and f"not an {forbidden}" not in claim_scope:
