@@ -651,6 +651,15 @@ This remains a finite proof-mining diagnostic only, not a proof of outside-pair
 support existence, row forcing, `n=9`, the bootstrap bridge, or Erdos Problem
 #97.
 
+The source-`151` singleton-support audit in
+`docs/bootstrap-t12-151-singleton-support-audit.md` covers rows `151:5` and
+`151:8`. In both fixed source-`151` neighborhoods, only the original target row
+survives among the nine singleton-support activation rows; in the one-row-drop
+relaxations, the only survivors also keep the dropped row equal to its
+original source-`151` row. This remains a finite proof-mining diagnostic only,
+not a proof of singleton support existence, row forcing, `n=9`, the bootstrap
+bridge, or Erdos Problem #97.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

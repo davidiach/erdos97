@@ -200,6 +200,8 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-151-6-outside-pair-audit.md`](bootstrap-t12-151-6-outside-pair-audit.md):
   source-`151` row-`6` outside-pair audit showing only the original row
   survives the fixed-neighborhood and one-row-drop activation-row scans.
+- [`bootstrap-t12-151-singleton-support-audit.md`](bootstrap-t12-151-singleton-support-audit.md):
+  source-`151` singleton-support audit covering rows `151:5` and `151:8`.
 - [`bootstrap-t12-row-pressure.md`](bootstrap-t12-row-pressure.md):
   row-pressure refinement classifying those missing T12 row centers by core
   deficit, deletion-closure exposure, and private-halo support.

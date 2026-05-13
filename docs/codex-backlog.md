@@ -132,7 +132,10 @@ Use this queue when no more specific issue is selected.
    for the remaining relation-sufficient row target: no non-original row-`6`
    activation survivor appears in the fixed source-`151` neighborhood or a
    one-row-drop relaxation, but genuine outside-pair support existence and row
-   forcing remain open.
+   forcing remain open. The source-`151` singleton-support audit in
+   `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
+   audit shape to rows `151:5` and `151:8`; it also leaves the genuine
+   support-existence and row-forcing bridge questions open.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker

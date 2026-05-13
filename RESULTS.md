@@ -390,6 +390,20 @@ See `docs/bootstrap-t12-151-6-outside-pair-audit.md`,
 `scripts/check_bootstrap_t12_151_6_outside_pair_audit.py`, and
 `data/certificates/bootstrap_t12_151_6_outside_pair_audit.json`.
 
+The source-`151` singleton-support audit covers the two remaining
+one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses
+bootstrap-core witnesses `[2,4]` and singleton supports `7` and `8`; row
+`151:8` uses bootstrap-core witnesses `[1,2]` and singleton supports `5` and
+`7`. Each target has nine activation rows. In the fixed source-`151`
+neighborhoods, only the original target rows `[2,4,7,8]` and `[1,2,5,7]`
+survive the row-pair, witness-pair, and crossing filters. The one-row-drop
+relaxations again have only trivial original-neighborhood survivors. This is
+still a finite diagnostic only, not a proof of singleton support existence,
+row forcing, `n=9`, or the bootstrap bridge. See
+`docs/bootstrap-t12-151-singleton-support-audit.md`,
+`scripts/check_bootstrap_t12_151_singleton_support_audit.py`, and
+`data/certificates/bootstrap_t12_151_singleton_support_audit.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

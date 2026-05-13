@@ -395,6 +395,12 @@ condition that the surviving multi-block family does not automatically satisfy:
   row-`6` activation survivor under basic incidence/crossing filters. The
   remaining target is still genuine outside-pair support or row-forcing
   geometry, not a proof that row `6` is forced.
+- bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
+  in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
+  `151:5` and `151:8` have no non-original activation survivor in the fixed
+  source-`151` neighborhood or one-row-drop relaxation. The remaining target
+  is still genuine singleton-support or row-forcing geometry, not a proof that
+  either row is forced.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract
