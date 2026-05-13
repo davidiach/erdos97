@@ -515,12 +515,13 @@ T05/F10     -> docs/n9-vertex-circle-t05-self-edge-lemma.md
 T06/F11     -> docs/n9-vertex-circle-t06-self-edge-lemma.md
 T07/F06     -> docs/n9-vertex-circle-t07-self-edge-lemma.md
 T08/F02     -> docs/n9-vertex-circle-t08-self-edge-lemma.md
+T09/F03     -> docs/n9-vertex-circle-t09-self-edge-lemma.md
 T10/F12     -> docs/n9-vertex-circle-t10-strict-cycle-lemma.md
 T11/F07     -> docs/n9-vertex-circle-t11-strict-cycle-lemma.md
 T12/F16     -> docs/n9-vertex-circle-t12-strict-cycle-lemma.md
 ```
 
-For T01, T02, T03, T04, T05, T06, T07, T08, T10, T11, and T12 the scan loads the focused JSON
+For T01, T02, T03, T04, T05, T06, T07, T08, T09, T10, T11, and T12 the scan loads the focused JSON
 packets and checks that the aggregate family rows, strict inequalities,
 equality paths, cycle steps, and assignment counts match the focused packet
 used by the note.

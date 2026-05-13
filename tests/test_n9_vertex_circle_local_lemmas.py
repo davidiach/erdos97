@@ -29,6 +29,7 @@ from scripts.check_n9_vertex_circle_local_lemmas import (
     DEFAULT_T06_PACKET,
     DEFAULT_T07_PACKET,
     DEFAULT_T08_PACKET,
+    DEFAULT_T09_PACKET,
     DEFAULT_T10_PACKET,
     DEFAULT_T11_PACKET,
     DEFAULT_T12_PACKET,
@@ -221,6 +222,31 @@ def test_local_lemma_scan_counts_and_scope(payload: dict[str, object]) -> None:
             "check_status": "checked",
             "families_checked": [
                 {"family_id": "F02", "assignment_count": 18, "orbit_size": 18},
+            ],
+            "covered_assignment_count": 18,
+            "interpretation": (
+                "Aggregate scan family rows match the focused packet, and the "
+                "focused packet supplies a valid alternate reflexive self-edge "
+                "certificate for the same family. The aggregate nested-spoke "
+                "strict edge is not required to be the same strict edge as the "
+                "proof-facing note; this remains a packet consistency check, not "
+                "an independent n=9 completeness proof."
+            ),
+        },
+        {
+            "lemma_id": NESTED_SPOKE_LEMMA,
+            "template_id": "T09",
+            "family_ids": ["F03"],
+            "proof_note_path": "docs/n9-vertex-circle-t09-self-edge-lemma.md",
+            "source_kind": "focused_packet",
+            "crosscheck_mode": "alternate_self_edge_certificate",
+            "packet_key": "T09",
+            "packet_path": (
+                "data/certificates/n9_vertex_circle_t09_self_edge_lemma_packet.json"
+            ),
+            "check_status": "checked",
+            "families_checked": [
+                {"family_id": "F03", "assignment_count": 18, "orbit_size": 18},
             ],
             "covered_assignment_count": 18,
             "interpretation": (
@@ -630,6 +656,7 @@ def test_focused_packet_crosscheck_rejects_t01_path_drift() -> None:
                 "T06": load_artifact(DEFAULT_T06_PACKET),
                 "T07": load_artifact(DEFAULT_T07_PACKET),
                 "T08": load_artifact(DEFAULT_T08_PACKET),
+                "T09": load_artifact(DEFAULT_T09_PACKET),
                 "T10": load_artifact(DEFAULT_T10_PACKET),
                 "T11": load_artifact(DEFAULT_T11_PACKET),
                 "T12": load_artifact(DEFAULT_T12_PACKET),
@@ -656,6 +683,7 @@ def test_focused_packet_crosscheck_rejects_t05_path_drift() -> None:
                 "T06": load_artifact(DEFAULT_T06_PACKET),
                 "T07": load_artifact(DEFAULT_T07_PACKET),
                 "T08": load_artifact(DEFAULT_T08_PACKET),
+                "T09": load_artifact(DEFAULT_T09_PACKET),
                 "T10": load_artifact(DEFAULT_T10_PACKET),
                 "T11": load_artifact(DEFAULT_T11_PACKET),
                 "T12": load_artifact(DEFAULT_T12_PACKET),
@@ -682,6 +710,7 @@ def test_focused_packet_crosscheck_rejects_t06_path_drift() -> None:
                 "T06": t06_packet,
                 "T07": load_artifact(DEFAULT_T07_PACKET),
                 "T08": load_artifact(DEFAULT_T08_PACKET),
+                "T09": load_artifact(DEFAULT_T09_PACKET),
                 "T10": load_artifact(DEFAULT_T10_PACKET),
                 "T11": load_artifact(DEFAULT_T11_PACKET),
                 "T12": load_artifact(DEFAULT_T12_PACKET),
@@ -708,6 +737,7 @@ def test_focused_packet_crosscheck_rejects_t07_path_drift() -> None:
                 "T06": load_artifact(DEFAULT_T06_PACKET),
                 "T07": t07_packet,
                 "T08": load_artifact(DEFAULT_T08_PACKET),
+                "T09": load_artifact(DEFAULT_T09_PACKET),
                 "T10": load_artifact(DEFAULT_T10_PACKET),
                 "T11": load_artifact(DEFAULT_T11_PACKET),
                 "T12": load_artifact(DEFAULT_T12_PACKET),
@@ -734,6 +764,34 @@ def test_focused_packet_crosscheck_rejects_t08_path_drift() -> None:
                 "T06": load_artifact(DEFAULT_T06_PACKET),
                 "T07": load_artifact(DEFAULT_T07_PACKET),
                 "T08": t08_packet,
+                "T09": load_artifact(DEFAULT_T09_PACKET),
+                "T10": load_artifact(DEFAULT_T10_PACKET),
+                "T11": load_artifact(DEFAULT_T11_PACKET),
+                "T12": load_artifact(DEFAULT_T12_PACKET),
+            },
+        )
+
+
+def test_focused_packet_crosscheck_rejects_t09_path_drift() -> None:
+    self_edge_packet = load_artifact(DEFAULT_SELF_EDGE_PACKET)
+    strict_cycle_packet = load_artifact(DEFAULT_STRICT_CYCLE_PACKET)
+    t09_packet = load_artifact(DEFAULT_T09_PACKET)
+    t09_packet["family_packets"][0]["distance_equality"]["path"][0]["next_pair"] = [1, 7]
+
+    with pytest.raises(AssertionError, match="F03 focused packet equality path step mismatch"):
+        local_lemma_scan_payload(
+            self_edge_packet,
+            strict_cycle_packet,
+            focused_packets={
+                "T01": load_artifact(DEFAULT_T01_PACKET),
+                "T02": load_artifact(DEFAULT_T02_PACKET),
+                "T03": load_artifact(DEFAULT_T03_PACKET),
+                "T04": load_artifact(DEFAULT_T04_PACKET),
+                "T05": load_artifact(DEFAULT_T05_PACKET),
+                "T06": load_artifact(DEFAULT_T06_PACKET),
+                "T07": load_artifact(DEFAULT_T07_PACKET),
+                "T08": load_artifact(DEFAULT_T08_PACKET),
+                "T09": t09_packet,
                 "T10": load_artifact(DEFAULT_T10_PACKET),
                 "T11": load_artifact(DEFAULT_T11_PACKET),
                 "T12": load_artifact(DEFAULT_T12_PACKET),
@@ -760,6 +818,7 @@ def test_focused_packet_crosscheck_rejects_t02_path_drift() -> None:
                 "T06": load_artifact(DEFAULT_T06_PACKET),
                 "T07": load_artifact(DEFAULT_T07_PACKET),
                 "T08": load_artifact(DEFAULT_T08_PACKET),
+                "T09": load_artifact(DEFAULT_T09_PACKET),
                 "T10": load_artifact(DEFAULT_T10_PACKET),
                 "T11": load_artifact(DEFAULT_T11_PACKET),
                 "T12": load_artifact(DEFAULT_T12_PACKET),
@@ -811,6 +870,7 @@ def test_focused_packet_crosscheck_rejects_t10_replay_status_drift() -> None:
                 "T06": load_artifact(DEFAULT_T06_PACKET),
                 "T07": load_artifact(DEFAULT_T07_PACKET),
                 "T08": load_artifact(DEFAULT_T08_PACKET),
+                "T09": load_artifact(DEFAULT_T09_PACKET),
                 "T10": t10_packet,
                 "T11": load_artifact(DEFAULT_T11_PACKET),
                 "T12": load_artifact(DEFAULT_T12_PACKET),
