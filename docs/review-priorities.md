@@ -167,7 +167,7 @@ Next steps:
   to replay the focused review-pending T11/F07 strict-cycle local lemma packet;
 - use `data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json`
   to replay the focused review-pending T12/F16 strict-cycle local lemma packet;
-- review the aggregate local-lemma scan after the T03/T04 self-edge and
+- review the aggregate local-lemma scan after the T02/T03/T04 self-edge and
   T10/T11/T12 strict-cycle integrations, keeping it scoped as proof-mining
   coverage of stored packets rather than an independent `n=9` proof;
 - test whether the same motifs appear in the P18 obstruction and fail in the

@@ -84,6 +84,16 @@ EXPECTED_SUMMARY = {
 }
 EXPECTED_DIRECT_TWO_ROW_INSTANCE_COUNT = 0
 EXPECTED_FOCUSED_NOTE_CROSSCHECK = {
+    SHARED_ENDPOINT_LEMMA: {
+        "template_id": "T02",
+        "family_ids": ["F01", "F04", "F08", "F14"],
+        "proof_note_path": "docs/n9-vertex-circle-t02-self-edge-lemma.md",
+        "source_kind": "focused_packet",
+        "packet_key": "T02",
+        "packet_path": (
+            "data/certificates/n9_vertex_circle_t02_self_edge_lemma_packet.json"
+        ),
+    },
     T03_SELECTED_PATH_SELF_EDGE: {
         "template_id": "T03",
         "family_ids": ["F05", "F15"],
@@ -430,7 +440,11 @@ def _check_focused_packet(
         if packet is None:
             raise AssertionError(f"{template_id} focused packet missing {family_id}")
         _assert_family_common_fields(template_id, family_id, aggregate, packet)
-        if lemma_id in {T03_SELECTED_PATH_SELF_EDGE, T04_SELECTED_PATH_SELF_EDGE}:
+        if lemma_id in {
+            SHARED_ENDPOINT_LEMMA,
+            T03_SELECTED_PATH_SELF_EDGE,
+            T04_SELECTED_PATH_SELF_EDGE,
+        }:
             _assert_self_edge_family_match(template_id, family_id, aggregate, packet)
         else:
             _assert_strict_cycle_family_match(template_id, family_id, aggregate, packet)
