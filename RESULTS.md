@@ -289,6 +289,17 @@ bootstrap bridge; see `docs/bootstrap-t12-81-3-escape-candidates.md`,
 `scripts/check_bootstrap_t12_81_3_escape_candidates.py`, and
 `data/certificates/bootstrap_t12_81_3_escape_candidates.json`.
 
+The one-row-drop follow-up relaxes that fixed-row-neighborhood guard one step
+further. For each of the seven source-`81` rows outside centers `3` and `6`,
+it drops that one row and enumerates all `70` replacement 4-sets while keeping
+the same center-`6` supply and center-`3` connector-avoiding replacement
+space. All `19600` candidates fail the same basic row-pair, witness-pair, or
+crossing filters. This is still a finite diagnostic only, not a proof of
+genuine rich-class order, `n=9`, or the bootstrap bridge; see
+`docs/bootstrap-t12-81-3-escape-one-row-drop.md`,
+`scripts/check_bootstrap_t12_81_3_escape_one_row_drop.py`, and
+`data/certificates/bootstrap_t12_81_3_escape_one_row_drop.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

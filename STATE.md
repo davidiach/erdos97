@@ -156,6 +156,16 @@ genuine rich-class data: either find a pre-`3` supply of label `6` that avoids
 the connector, or prove such a supply impossible under the minimal/rich-class
 hypotheses. See `docs/bootstrap-t12-81-3-order-escape.md`.
 
+The relaxed `81:3` escape-candidate scans probe that remaining target under
+fixed-row-neighborhood hypotheses. The first scan replaces centers `3` and `6`
+while preserving the other seven source-`81` rows and finds no surviving
+basic incidence/crossing candidate. The one-row-drop scan then allows any one
+of those seven preserved rows to move as an arbitrary 4-set; all `19600`
+candidates again fail the basic filters. This is still proof-mining
+bookkeeping only, not a theorem about all genuine rich-class catalogues. See
+`docs/bootstrap-t12-81-3-escape-candidates.md` and
+`docs/bootstrap-t12-81-3-escape-one-row-drop.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic
