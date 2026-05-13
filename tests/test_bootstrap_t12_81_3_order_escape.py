@@ -10,10 +10,12 @@ import pytest
 
 from erdos97.bootstrap_t12_81_3_order_escape import (
     DEFAULT_ARTIFACT,
+    EXPECTED_LABEL_6_FIXED_CLASS,
     FIXED_SINGLETON_ORDER_STATUS,
     GENUINE_ESCAPE_STATUS,
     ORDER_ESCAPE_GAP,
     PRE_3_LABEL_6_SUPPLY_STATUS,
+    SAME_CENTER_DISJOINTNESS_GUARD_STATUS,
     assert_expected_payload,
     build_t12_81_3_order_escape_payload,
 )
@@ -61,6 +63,14 @@ def test_81_3_order_escape_summary_pins_order() -> None:
     assert summary["fixed_singleton_center_3_trigger_forces_connector"]
     assert summary["fixed_singleton_label_6_supply_trigger"] == [0, 3, 4]
     assert summary["fixed_singleton_label_6_supply_depends_on_center_3"]
+    assert summary["fixed_center_6_class"] == EXPECTED_LABEL_6_FIXED_CLASS
+    assert summary["fixed_center_6_class_seed_overlap"] == [0, 4]
+    assert summary["max_seed_overlap_for_additional_center_6_class"] == 1
+    assert not summary["additional_center_6_class_can_trigger_from_seed"]
+    assert (
+        summary["same_center_disjointness_guard_status"]
+        == SAME_CENTER_DISJOINTNESS_GUARD_STATUS
+    )
     assert summary["fixed_singleton_order_status"] == FIXED_SINGLETON_ORDER_STATUS
     assert summary["pre_3_label_6_supply_status"] == PRE_3_LABEL_6_SUPPLY_STATUS
     assert summary["genuine_escape_status"] == GENUINE_ESCAPE_STATUS
@@ -122,14 +132,51 @@ def test_81_3_order_escape_steps_show_6_depends_on_3() -> None:
     assert label_6_step["trigger_depends_on_center_3"]
 
 
+def test_81_3_order_escape_same_center_disjointness_guard() -> None:
+    payload = build_t12_81_3_order_escape_payload()
+    guard = payload["same_center_disjointness_guard"]
+
+    assert guard["status"] == SAME_CENTER_DISJOINTNESS_GUARD_STATUS
+    assert guard["center"] == 6
+    assert guard["fixed_center_6_class"] == EXPECTED_LABEL_6_FIXED_CLASS
+    assert guard["deletion_seed"] == [0, 1, 4]
+    assert guard["fixed_class_seed_overlap"] == [0, 4]
+    assert guard["seed_labels_available_to_additional_center_6_classes"] == [1]
+    assert guard["max_seed_overlap_for_additional_center_6_class"] == 1
+    assert guard["trigger_threshold"] == 3
+    assert not guard["can_additional_center_6_class_trigger_from_seed"]
+
+    candidates = guard["candidate_pre_3_supply_classes"]
+    assert [candidate["candidate_fourth"] for candidate in candidates] == [
+        2,
+        3,
+        5,
+        7,
+        8,
+    ]
+    for candidate in candidates:
+        assert not candidate["preserves_same_center_disjointness"]
+        assert {0, 4}.issubset(candidate["fixed_center_6_class_overlap"])
+        assert candidate["rejection_reason"] == (
+            "overlaps the preserved center-6 fixed class"
+        )
+
+
 def test_81_3_order_escape_contract_names_remaining_target() -> None:
     payload = build_t12_81_3_order_escape_payload()
     contract = payload["order_resolved_escape_contract"]
 
     assert contract["status"] == GENUINE_ESCAPE_STATUS
     assert contract["fixed_singleton_status"] == FIXED_SINGLETON_ORDER_STATUS
+    assert (
+        contract["same_center_disjointness_guard_status"]
+        == SAME_CENTER_DISJOINTNESS_GUARD_STATUS
+    )
     assert "Label 6 must be available before center 3" in contract[
         "required_for_connector_avoiding_activation"
+    ]
+    assert "same-center disjointness prevents" in contract[
+        "fixed_row_preservation_guard"
     ]
     assert "does not realize that escape" in contract["fixed_singleton_result"]
     assert any(

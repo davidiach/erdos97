@@ -58,10 +58,12 @@ CLAIM_SCOPE = (
     "Fixed singleton-rich order diagnostic for source 81 row 3: in the fixed "
     "selected-row closure from seed [0,1,4], center 3 activates before label "
     "6 is available, and label 6 is then added using a trigger containing "
-    "center 3. This refines the remaining connector-avoiding escape target, "
-    "but does not prove genuine rich-class order, does not prove row forcing, "
-    "does not prove n=9, does not prove the bridge, and does not claim a "
-    "counterexample."
+    "center 3. The packet also records the same-center disjointness guard "
+    "showing that an extra center-6 class preserving the fixed center-6 row "
+    "cannot trigger label 6 from the seed. This refines the remaining "
+    "connector-avoiding escape target, but does not prove genuine rich-class "
+    "order, does not prove row forcing, does not prove n=9, does not prove the "
+    "bridge, and does not claim a counterexample."
 )
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_ARTIFACT = (
@@ -77,6 +79,10 @@ EXPECTED_INITIAL_ENABLED_CENTERS = [3]
 EXPECTED_CENTER_3_TRIGGER = [0, 1, 4]
 EXPECTED_LABEL_6_TRIGGER = [0, 3, 4]
 EXPECTED_LABEL_6_SUPPLY_CENTER = 6
+EXPECTED_LABEL_6_FIXED_CLASS = [0, 3, 4, 7]
+SAME_CENTER_DISJOINTNESS_GUARD_STATUS = (
+    "NO_PRE_3_LABEL_6_SUPPLY_PRESERVING_CENTER_6_FIXED_CLASS"
+)
 
 
 def _int_list(values: Iterable[Any]) -> list[int]:
@@ -234,6 +240,75 @@ def _fixed_singleton_order_audit() -> dict[str, object]:
     }
 
 
+def _same_center_disjointness_guard(
+    selected_rows: Sequence[Any],
+) -> dict[str, object]:
+    """Audit extra center-6 classes under same-center disjointness.
+
+    Distinct distance classes at one center are disjoint: a target vertex has
+    one distance from that center.  Thus, if the fixed source-81 row at center
+    6 is preserved as a genuine rich class, any additional center-6 rich class
+    is disjoint from it.
+    """
+
+    fixed_class = _int_list(selected_rows[EXPECTED_LABEL_6_SUPPLY_CENTER])
+    if fixed_class != EXPECTED_LABEL_6_FIXED_CLASS:
+        raise AssertionError("source 81 center-6 fixed class drifted")
+
+    seed = set(TARGET_DELETION_SEED)
+    fixed_class_set = set(fixed_class)
+    available_seed_labels = sorted(seed - fixed_class_set)
+    candidate_fourths = [
+        label
+        for label in range(9)
+        if label not in seed and label != EXPECTED_LABEL_6_SUPPLY_CENTER
+    ]
+    candidates: list[dict[str, object]] = []
+    for fourth in candidate_fourths:
+        candidate = sorted([*TARGET_DELETION_SEED, fourth])
+        fixed_overlap = sorted(set(candidate) & fixed_class_set)
+        candidates.append(
+            {
+                "candidate_center": EXPECTED_LABEL_6_SUPPLY_CENTER,
+                "candidate_class": candidate,
+                "candidate_fourth": fourth,
+                "fixed_center_6_class_overlap": fixed_overlap,
+                "preserves_same_center_disjointness": not fixed_overlap,
+                "rejection_reason": (
+                    "overlaps the preserved center-6 fixed class"
+                    if fixed_overlap
+                    else None
+                ),
+            }
+        )
+
+    return {
+        "status": SAME_CENTER_DISJOINTNESS_GUARD_STATUS,
+        "scope": (
+            "Applies only if the source-81 center-6 fixed selected row is "
+            "preserved as a genuine distance class."
+        ),
+        "same_center_disjointness_rule": (
+            "Distinct rich distance classes at the same center are disjoint, "
+            "because each target vertex has a unique distance from that center."
+        ),
+        "center": EXPECTED_LABEL_6_SUPPLY_CENTER,
+        "fixed_center_6_class": fixed_class,
+        "deletion_seed": TARGET_DELETION_SEED,
+        "fixed_class_seed_overlap": sorted(seed & fixed_class_set),
+        "seed_labels_available_to_additional_center_6_classes": available_seed_labels,
+        "max_seed_overlap_for_additional_center_6_class": len(available_seed_labels),
+        "trigger_threshold": 3,
+        "can_additional_center_6_class_trigger_from_seed": False,
+        "candidate_pre_3_supply_classes": candidates,
+        "remaining_gap": (
+            "This guard does not prove center-3 rich-class activation and does "
+            "not rule out hypotheses that do not preserve the center-6 fixed "
+            "row as a genuine class."
+        ),
+    }
+
+
 def _rich_triple_source_summary() -> dict[str, object]:
     payload = build_t12_81_3_rich_triple_contract_payload()
     summary = payload.get("summary")
@@ -265,6 +340,10 @@ def build_t12_81_3_order_escape_payload() -> dict[str, object]:
     """Return the deterministic order-resolved fixed-row escape packet."""
 
     order_audit = _fixed_singleton_order_audit()
+    selected_rows = order_audit.get("selected_rows")
+    if not isinstance(selected_rows, Sequence):
+        raise AssertionError("selected_rows must be a sequence")
+    disjointness_guard = _same_center_disjointness_guard(selected_rows)
     rich_triple_summary = _rich_triple_source_summary()
     payload: dict[str, object] = {
         "schema": SCHEMA,
@@ -275,6 +354,7 @@ def build_t12_81_3_order_escape_payload() -> dict[str, object]:
             "This packet audits only the fixed singleton-rich closure order for source 81.",
             "It does not prove that the fixed selected row 81:3 is a genuine rich class.",
             "It does not rule out extra genuine rich classes that add label 6 before center 3.",
+            "The same-center disjointness guard assumes the source-81 center-6 row is preserved as a genuine class.",
             "No n=9 finite-case status, bridge status, official status, or counterexample status changes.",
         ],
         "summary": {
@@ -321,6 +401,19 @@ def build_t12_81_3_order_escape_payload() -> dict[str, object]:
             "fixed_singleton_label_6_supply_depends_on_center_3": order_audit[
                 "label_6_supply_depends_on_center_3"
             ],
+            "fixed_center_6_class": disjointness_guard["fixed_center_6_class"],
+            "fixed_center_6_class_seed_overlap": disjointness_guard[
+                "fixed_class_seed_overlap"
+            ],
+            "max_seed_overlap_for_additional_center_6_class": disjointness_guard[
+                "max_seed_overlap_for_additional_center_6_class"
+            ],
+            "additional_center_6_class_can_trigger_from_seed": disjointness_guard[
+                "can_additional_center_6_class_trigger_from_seed"
+            ],
+            "same_center_disjointness_guard_status": disjointness_guard[
+                "status"
+            ],
             "fixed_singleton_order_status": FIXED_SINGLETON_ORDER_STATUS,
             "pre_3_label_6_supply_status": PRE_3_LABEL_6_SUPPLY_STATUS,
             "genuine_escape_status": GENUINE_ESCAPE_STATUS,
@@ -333,13 +426,23 @@ def build_t12_81_3_order_escape_payload() -> dict[str, object]:
             ),
         },
         "fixed_singleton_order_audit": order_audit,
+        "same_center_disjointness_guard": disjointness_guard,
         "order_resolved_escape_contract": {
             "status": GENUINE_ESCAPE_STATUS,
             "fixed_singleton_status": FIXED_SINGLETON_ORDER_STATUS,
+            "same_center_disjointness_guard_status": disjointness_guard[
+                "status"
+            ],
             "required_for_connector_avoiding_activation": (
                 "Label 6 must be available before center 3 activates, because "
                 "the connector-avoiding triples from [0,1,4,6] are [0,4,6] "
                 "and [1,4,6]."
+            ),
+            "fixed_row_preservation_guard": (
+                "If the source-81 center-6 row [0,3,4,7] is preserved as a "
+                "genuine distance class, same-center disjointness prevents any "
+                "additional center-6 class from containing the seed triple "
+                "[0,1,4]."
             ),
             "fixed_singleton_result": (
                 "The fixed singleton-rich closure does not realize that escape: "
@@ -426,6 +529,13 @@ def assert_expected_payload(payload: Mapping[str, Any]) -> None:
         "fixed_singleton_center_3_trigger_forces_connector": True,
         "fixed_singleton_label_6_supply_trigger": EXPECTED_LABEL_6_TRIGGER,
         "fixed_singleton_label_6_supply_depends_on_center_3": True,
+        "fixed_center_6_class": EXPECTED_LABEL_6_FIXED_CLASS,
+        "fixed_center_6_class_seed_overlap": [0, 4],
+        "max_seed_overlap_for_additional_center_6_class": 1,
+        "additional_center_6_class_can_trigger_from_seed": False,
+        "same_center_disjointness_guard_status": (
+            SAME_CENTER_DISJOINTNESS_GUARD_STATUS
+        ),
         "fixed_singleton_order_status": FIXED_SINGLETON_ORDER_STATUS,
         "pre_3_label_6_supply_status": PRE_3_LABEL_6_SUPPLY_STATUS,
         "genuine_escape_status": GENUINE_ESCAPE_STATUS,
@@ -444,6 +554,8 @@ def assert_expected_payload(payload: Mapping[str, Any]) -> None:
         raise AssertionError("warnings must preserve the row-forcing gap")
     if not any("extra genuine rich classes" in str(warning) for warning in warnings):
         raise AssertionError("warnings must preserve the genuine escape gap")
+    if not any("center-6 row is preserved" in str(warning) for warning in warnings):
+        raise AssertionError("warnings must preserve the disjointness guard scope")
 
     audit = payload.get("fixed_singleton_order_audit")
     if not isinstance(audit, Mapping):
@@ -507,6 +619,40 @@ def assert_expected_payload(payload: Mapping[str, Any]) -> None:
     if not label_6_step.get("trigger_depends_on_center_3"):
         raise AssertionError("label 6 supply must depend on center 3")
 
+    guard = payload.get("same_center_disjointness_guard")
+    if not isinstance(guard, Mapping):
+        raise AssertionError("same_center_disjointness_guard must be a mapping")
+    expected_guard = {
+        "status": SAME_CENTER_DISJOINTNESS_GUARD_STATUS,
+        "center": EXPECTED_LABEL_6_SUPPLY_CENTER,
+        "fixed_center_6_class": EXPECTED_LABEL_6_FIXED_CLASS,
+        "deletion_seed": TARGET_DELETION_SEED,
+        "fixed_class_seed_overlap": [0, 4],
+        "seed_labels_available_to_additional_center_6_classes": [1],
+        "max_seed_overlap_for_additional_center_6_class": 1,
+        "trigger_threshold": 3,
+        "can_additional_center_6_class_trigger_from_seed": False,
+    }
+    for key, expected in expected_guard.items():
+        if guard.get(key) != expected:
+            raise AssertionError(
+                f"same_center_disjointness_guard {key} is {guard.get(key)!r}, "
+                f"expected {expected!r}"
+            )
+    candidates = guard.get("candidate_pre_3_supply_classes")
+    if not isinstance(candidates, Sequence) or len(candidates) != 5:
+        raise AssertionError("expected five candidate pre-3 supply classes")
+    for candidate in candidates:
+        if not isinstance(candidate, Mapping):
+            raise AssertionError("candidate pre-3 supply classes must be mappings")
+        if candidate.get("preserves_same_center_disjointness"):
+            raise AssertionError("candidate unexpectedly preserves disjointness")
+        overlap = candidate.get("fixed_center_6_class_overlap")
+        if not isinstance(overlap, Sequence) or not {0, 4}.issubset(
+            set(_int_list(overlap))
+        ):
+            raise AssertionError("candidate must overlap fixed class in seed labels")
+
     contract = payload.get("order_resolved_escape_contract")
     if not isinstance(contract, Mapping):
         raise AssertionError("order_resolved_escape_contract must be a mapping")
@@ -514,6 +660,11 @@ def assert_expected_payload(payload: Mapping[str, Any]) -> None:
         raise AssertionError("genuine escape contract status drifted")
     if contract.get("fixed_singleton_status") != FIXED_SINGLETON_ORDER_STATUS:
         raise AssertionError("fixed singleton status drifted")
+    if (
+        contract.get("same_center_disjointness_guard_status")
+        != SAME_CENTER_DISJOINTNESS_GUARD_STATUS
+    ):
+        raise AssertionError("same-center disjointness guard status drifted")
 
     source = payload.get("source_rich_triple_contract")
     if not isinstance(source, Mapping):

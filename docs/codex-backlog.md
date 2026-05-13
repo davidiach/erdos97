@@ -81,10 +81,14 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-81-3-order-escape.md` shows the current singleton-rich
    closure does not expose label `6` first: center `3` is the only initial
    activation from `[0,1,4]`, and label `6` is added later by trigger
-   `[0,3,4]`. The next useful PR should leave fixed selected-row bookkeeping
+   `[0,3,4]`. It now also records the same-center disjointness guard: if the
+   source-`81` center-`6` fixed row `[0,3,4,7]` is preserved as a genuine
+   class, no additional center-`6` class can contain the seed triple
+   `[0,1,4]`. The next useful PR should leave fixed selected-row preservation
    and attack the genuine rich-class question directly: either exhibit a
-   pre-`3` rich-class supply of label `6` that avoids the connector, or prove
-   no such supply can satisfy the minimal/rich-class hypotheses.
+   pre-`3` rich-class supply of label `6` that avoids the connector without
+   preserving that center-`6` row, or prove no such supply can satisfy the
+   minimal/rich-class hypotheses.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker

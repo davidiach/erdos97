@@ -65,6 +65,36 @@ So the fixed selected-row bookkeeping does not realize the connector-avoiding
 escape. In that model, label `6` is supplied only by a trigger that already
 uses center `3`.
 
+## Same-Center Disjointness Guard
+
+There is one extra fixed-row-preservation guard. The source `81` fixed row at
+center `6` is:
+
+```text
+center 6: [0,3,4,7]
+```
+
+Distinct rich distance classes at a single center are disjoint, because each
+target vertex has a unique distance from that center. Therefore, if this
+center-`6` row is preserved as a genuine rich class, any additional center-`6`
+class must avoid `0`, `3`, `4`, and `7`.
+
+But a pre-`3` supply of label `6` from the deletion seed `[0,1,4]` would need
+an additional center-`6` rich class containing all three seed labels. This is
+impossible while preserving the fixed center-`6` row, since the seed labels
+`0` and `4` already lie in `[0,3,4,7]`.
+
+So the checked guard status is:
+
+```text
+NO_PRE_3_LABEL_6_SUPPLY_PRESERVING_CENTER_6_FIXED_CLASS
+```
+
+This guard is conditional on preserving the fixed source-`81` center-`6` row.
+It does not prove that center `3` activates, does not prove that row `81:3` is
+genuine, and does not rule out bridge hypotheses that do not preserve the
+center-`6` fixed row as a genuine distance class.
+
 ## Remaining Escape
 
 The remaining exact escape status is:
