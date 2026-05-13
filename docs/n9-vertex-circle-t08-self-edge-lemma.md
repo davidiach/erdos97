@@ -9,12 +9,11 @@ checker, and does not update the official/global status.
 
 ## Packet scope
 
-The checked source artifact is
-`data/certificates/n9_vertex_circle_self_edge_template_packet.json`, whose
-`T08` record is derived from:
+The checked focused artifact is
+`data/certificates/n9_vertex_circle_t08_self_edge_lemma_packet.json`. It is
+derived from:
 
-- `data/certificates/n9_vertex_circle_self_edge_path_join.json`
-- `data/certificates/n9_vertex_circle_core_templates.json`
+- `data/certificates/n9_vertex_circle_self_edge_template_packet.json`
 - `data/certificates/n9_vertex_circle_template_lemma_catalog.json`
 
 The template covers 18 assignment ids:
@@ -129,15 +128,14 @@ a selected-distance quotient class back to itself.
 
 ## Commands
 
-Check the source packet and the combined template catalog:
+Generate and check the packet:
 
 ```bash
-python scripts/check_n9_vertex_circle_self_edge_template_packet.py \
-  --check \
+python scripts/check_n9_vertex_circle_t08_self_edge_lemma_packet.py \
   --assert-expected \
-  --json
+  --write
 
-python scripts/check_n9_vertex_circle_template_lemma_catalog.py \
+python scripts/check_n9_vertex_circle_t08_self_edge_lemma_packet.py \
   --check \
   --assert-expected \
   --json
@@ -146,7 +144,7 @@ python scripts/check_n9_vertex_circle_template_lemma_catalog.py \
 Run the targeted artifact tests:
 
 ```bash
-python -m pytest tests/test_n9_vertex_circle_self_edge_template_packet.py -q -m "artifact"
+python -m pytest tests/test_n9_vertex_circle_t08_self_edge_lemma_packet.py -q
 ```
 
 ## Review standard
