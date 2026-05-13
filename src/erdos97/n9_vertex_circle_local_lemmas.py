@@ -134,6 +134,18 @@ EXPECTED_FOCUSED_NOTE_CROSSCHECK = (
         ),
     },
     {
+        "lemma_id": NESTED_SPOKE_LEMMA,
+        "template_id": "T08",
+        "family_ids": ["F02"],
+        "proof_note_path": "docs/n9-vertex-circle-t08-self-edge-lemma.md",
+        "source_kind": "focused_packet",
+        "crosscheck_mode": "alternate_self_edge_certificate",
+        "packet_key": "T08",
+        "packet_path": (
+            "data/certificates/n9_vertex_circle_t08_self_edge_lemma_packet.json"
+        ),
+    },
+    {
         "lemma_id": SHARED_ENDPOINT_LEMMA,
         "template_id": "T02",
         "family_ids": ["F01", "F04", "F08", "F14"],
@@ -694,8 +706,8 @@ def _assert_alternate_self_edge_certificate_match(
     ):
         if primary.get(key) != packet_strict.get(key):
             raise AssertionError(f"{family_id} focused packet primary conflict mismatch")
-    if template_id not in {"T01", "T05", "T06", "T07"}:
-        raise AssertionError("alternate self-edge certificate mode is currently T01/T05/T06/T07-only")
+    if template_id not in {"T01", "T05", "T06", "T07", "T08"}:
+        raise AssertionError("alternate self-edge certificate mode is currently T01/T05/T06/T07/T08-only")
 
 
 def _assert_packet_equality_path(

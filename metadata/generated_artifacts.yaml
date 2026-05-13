@@ -1103,6 +1103,50 @@ artifacts:
       - the local lemma packet is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_vertex_circle_t08_self_edge_lemma_packet
+    path: data/certificates/n9_vertex_circle_t08_self_edge_lemma_packet.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_n9_vertex_circle_t08_self_edge_lemma_packet.py
+    command: python scripts/check_n9_vertex_circle_t08_self_edge_lemma_packet.py --assert-expected --write
+    checker: scripts/check_n9_vertex_circle_t08_self_edge_lemma_packet.py
+    check_command: python scripts/check_n9_vertex_circle_t08_self_edge_lemma_packet.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Focused T08/F02 self-edge local lemma packet for eighteen n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_vertex_circle_t08_self_edge_lemma_packet.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: Focused T08/F02 self-edge local lemma packet for eighteen n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+      n: 9
+      row_size: 4
+      template_id: T08
+      template_key: self_edge|rows=6|strict_edges=54|conflicts=2:1:1x4,3:1:0x2,3:1:1x2,3:2:1x1
+      assignment_count: 18
+      family_count: 1
+      family_ids:
+        - F02
+      family_assignment_counts.F02: 18
+      family_orbit_sizes.F02: 18
+      orbit_size_sum: 18
+      core_size: 6
+      strict_edge_count: 54
+      path_length_counts.5: 18
+      shared_endpoint_counts.1: 18
+      "selected_path_shape_counts.2:1:1:path=5": 18
+      provenance.command: python scripts/check_n9_vertex_circle_t08_self_edge_lemma_packet.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - T08 proves n=9
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - template labels are theorem names
+      - the local lemma packet is an independent proof
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_t10_strict_cycle_lemma_packet
     path: data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json
     kind: certificate_diagnostic_artifact
