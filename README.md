@@ -117,6 +117,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/bootstrap-t12-81-3-trigger-uniqueness.md`](docs/bootstrap-t12-81-3-trigger-uniqueness.md),
   then
   [`docs/bootstrap-t12-81-3-escape-rich-support-csp.md`](docs/bootstrap-t12-81-3-escape-rich-support-csp.md).
+- For the source-`81` row-`8` singleton-support audit, where all fixed and
+  one-row-drop activation-row survivors keep the original row `8`, read
+  [`docs/bootstrap-t12-81-8-singleton-support-audit.md`](docs/bootstrap-t12-81-8-singleton-support-audit.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).

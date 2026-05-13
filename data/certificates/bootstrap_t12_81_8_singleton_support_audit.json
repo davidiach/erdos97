@@ -1,0 +1,1227 @@
+{
+  "candidate_generation": {
+    "candidate_rule": "4-sets at center 8 containing bootstrap-core witnesses [0,2] and at least one singleton support label from [5,6].",
+    "target_center_candidate_classes": [
+      [
+        0,
+        1,
+        2,
+        5
+      ],
+      [
+        0,
+        1,
+        2,
+        6
+      ],
+      [
+        0,
+        2,
+        3,
+        5
+      ],
+      [
+        0,
+        2,
+        3,
+        6
+      ],
+      [
+        0,
+        2,
+        4,
+        5
+      ],
+      [
+        0,
+        2,
+        4,
+        6
+      ],
+      [
+        0,
+        2,
+        5,
+        6
+      ],
+      [
+        0,
+        2,
+        5,
+        7
+      ],
+      [
+        0,
+        2,
+        6,
+        7
+      ]
+    ]
+  },
+  "claim_scope": "Fixed selected-row-neighborhood singleton-support audit for source 81 row 8. It enumerates the nine center-8 selected rows containing bootstrap-core witnesses [0,2] and one singleton support label, then checks the fixed source-81 neighborhood and a one-row-drop relaxation by row-pair, witness-pair, and crossing filters. The only survivors keep the original row 8 and, in the one-row-drop scan, also keep the dropped row equal to its original source-81 row. This does not prove singleton support existence, row forcing, does not prove n=9, does not prove the bridge, and is not a counterexample.",
+  "fixed_neighborhood_candidates": [
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            3,
+            8
+          ],
+          "witness_chord": [
+            0,
+            1
+          ]
+        },
+        {
+          "source_chord": [
+            7,
+            8
+          ],
+          "witness_chord": [
+            1,
+            5
+          ]
+        }
+      ],
+      "is_original_row": false,
+      "passes_basic_incidence_crossing_filters": false,
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            4,
+            8
+          ],
+          "intersection": [
+            1,
+            2,
+            5
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "target_center": 8,
+      "target_center_class": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            4,
+            7,
+            8
+          ],
+          "pair": [
+            1,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            8
+          ],
+          "witness_chord": [
+            1,
+            6
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            8
+          ],
+          "witness_chord": [
+            1,
+            2
+          ]
+        }
+      ],
+      "is_original_row": false,
+      "passes_basic_incidence_crossing_filters": false,
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            8
+          ],
+          "intersection": [
+            0,
+            1,
+            6
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "target_center": 8,
+      "target_center_class": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            0,
+            3,
+            8
+          ],
+          "pair": [
+            1,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            5,
+            8
+          ],
+          "witness_chord": [
+            2,
+            3
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            3
+          ]
+        }
+      ],
+      "is_original_row": false,
+      "passes_basic_incidence_crossing_filters": false,
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            2,
+            8
+          ],
+          "intersection": [
+            0,
+            3,
+            5
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "target_center": 8,
+      "target_center_class": [
+        0,
+        2,
+        3,
+        5
+      ],
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            2,
+            6,
+            8
+          ],
+          "pair": [
+            0,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            8
+          ],
+          "witness_chord": [
+            3,
+            6
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            3
+          ]
+        }
+      ],
+      "is_original_row": false,
+      "passes_basic_incidence_crossing_filters": false,
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            5,
+            8
+          ],
+          "intersection": [
+            2,
+            3,
+            6
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "target_center": 8,
+      "target_center_class": [
+        0,
+        2,
+        3,
+        6
+      ],
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            2,
+            6,
+            8
+          ],
+          "pair": [
+            0,
+            3
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            0,
+            5,
+            8
+          ],
+          "pair": [
+            3,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            8
+          ],
+          "witness_chord": [
+            2,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            7,
+            8
+          ],
+          "witness_chord": [
+            4,
+            5
+          ]
+        }
+      ],
+      "is_original_row": false,
+      "passes_basic_incidence_crossing_filters": false,
+      "rejection_category": "witness_pair+crossing",
+      "rejection_reasons": [
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [],
+      "target_center": 8,
+      "target_center_class": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            8
+          ],
+          "pair": [
+            0,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            8
+          ],
+          "witness_chord": [
+            2,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            4
+          ]
+        }
+      ],
+      "is_original_row": false,
+      "passes_basic_incidence_crossing_filters": false,
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            8
+          ],
+          "intersection": [
+            0,
+            4,
+            6
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "target_center": 8,
+      "target_center_class": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            8
+          ],
+          "pair": [
+            0,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [],
+      "is_original_row": true,
+      "passes_basic_incidence_crossing_filters": true,
+      "rejection_category": "survive",
+      "rejection_reasons": [],
+      "row_pair_cap_violations": [],
+      "target_center": 8,
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "witness_pair_cap_violations": []
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            8
+          ],
+          "witness_chord": [
+            2,
+            7
+          ]
+        }
+      ],
+      "is_original_row": false,
+      "passes_basic_incidence_crossing_filters": false,
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            4,
+            8
+          ],
+          "intersection": [
+            2,
+            5,
+            7
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "target_center": 8,
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            4,
+            8
+          ],
+          "pair": [
+            2,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            8
+          ],
+          "witness_chord": [
+            6,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            1,
+            8
+          ],
+          "witness_chord": [
+            2,
+            7
+          ]
+        }
+      ],
+      "is_original_row": false,
+      "passes_basic_incidence_crossing_filters": false,
+      "rejection_category": "witness_pair+crossing",
+      "rejection_reasons": [
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [],
+      "target_center": 8,
+      "target_center_class": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            4,
+            8
+          ],
+          "pair": [
+            2,
+            7
+          ]
+        }
+      ]
+    }
+  ],
+  "interpretation_warnings": [
+    "This audit preserves the source-81 selected-row neighborhood, or drops exactly one non-target row in the relaxation.",
+    "A row containing bootstrap-core witnesses plus a singleton support is activation bookkeeping, not a proof that a genuine rich class exists.",
+    "The audit uses incidence and crossing filters only, not Euclidean realizability.",
+    "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
+  ],
+  "one_row_drop": {
+    "candidate_count": 5040,
+    "per_dropped_center": [
+      {
+        "candidate_count": 630,
+        "dropped_center": 0,
+        "rejection_category_counts": {
+          "crossing": 3,
+          "row_pair+crossing": 3,
+          "row_pair+witness_pair": 4,
+          "row_pair+witness_pair+crossing": 593,
+          "survive": 1,
+          "witness_pair+crossing": 26
+        },
+        "replacement_row_count": 70,
+        "source_row": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "surviving_candidate_count": 1
+      },
+      {
+        "candidate_count": 630,
+        "dropped_center": 1,
+        "rejection_category_counts": {
+          "crossing": 4,
+          "row_pair+crossing": 3,
+          "row_pair+witness_pair": 8,
+          "row_pair+witness_pair+crossing": 590,
+          "survive": 1,
+          "witness_pair+crossing": 24
+        },
+        "replacement_row_count": 70,
+        "source_row": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "surviving_candidate_count": 1
+      },
+      {
+        "candidate_count": 630,
+        "dropped_center": 2,
+        "rejection_category_counts": {
+          "crossing": 8,
+          "row_pair+witness_pair": 4,
+          "row_pair+witness_pair+crossing": 582,
+          "survive": 1,
+          "witness_pair+crossing": 35
+        },
+        "replacement_row_count": 70,
+        "source_row": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "surviving_candidate_count": 1
+      },
+      {
+        "candidate_count": 630,
+        "dropped_center": 3,
+        "rejection_category_counts": {
+          "crossing": 13,
+          "row_pair+witness_pair": 4,
+          "row_pair+witness_pair+crossing": 573,
+          "survive": 1,
+          "witness_pair+crossing": 39
+        },
+        "replacement_row_count": 70,
+        "source_row": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "surviving_candidate_count": 1
+      },
+      {
+        "candidate_count": 630,
+        "dropped_center": 4,
+        "rejection_category_counts": {
+          "crossing": 9,
+          "row_pair+witness_pair": 4,
+          "row_pair+witness_pair+crossing": 578,
+          "survive": 1,
+          "witness_pair+crossing": 38
+        },
+        "replacement_row_count": 70,
+        "source_row": [
+          1,
+          2,
+          5,
+          7
+        ],
+        "surviving_candidate_count": 1
+      },
+      {
+        "candidate_count": 630,
+        "dropped_center": 5,
+        "rejection_category_counts": {
+          "crossing": 3,
+          "row_pair+witness_pair": 4,
+          "row_pair+witness_pair+crossing": 587,
+          "survive": 1,
+          "witness_pair+crossing": 35
+        },
+        "replacement_row_count": 70,
+        "source_row": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "surviving_candidate_count": 1
+      },
+      {
+        "candidate_count": 630,
+        "dropped_center": 6,
+        "rejection_category_counts": {
+          "crossing": 4,
+          "row_pair+crossing": 4,
+          "row_pair+witness_pair": 4,
+          "row_pair+witness_pair+crossing": 595,
+          "survive": 1,
+          "witness_pair+crossing": 22
+        },
+        "replacement_row_count": 70,
+        "source_row": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "surviving_candidate_count": 1
+      },
+      {
+        "candidate_count": 630,
+        "dropped_center": 7,
+        "rejection_category_counts": {
+          "crossing": 3,
+          "row_pair+crossing": 1,
+          "row_pair+witness_pair": 4,
+          "row_pair+witness_pair+crossing": 594,
+          "survive": 1,
+          "witness_pair+crossing": 27
+        },
+        "replacement_row_count": 70,
+        "source_row": [
+          1,
+          4,
+          5,
+          8
+        ],
+        "surviving_candidate_count": 1
+      }
+    ],
+    "per_target_center_class": [
+      {
+        "candidate_count": 560,
+        "rejection_category_counts": {
+          "crossing": 3,
+          "row_pair+crossing": 1,
+          "row_pair+witness_pair+crossing": 552,
+          "witness_pair+crossing": 4
+        },
+        "surviving_candidate_count": 0,
+        "target_center_class": [
+          0,
+          1,
+          2,
+          5
+        ],
+        "target_center_class_is_original": false
+      },
+      {
+        "candidate_count": 560,
+        "rejection_category_counts": {
+          "crossing": 4,
+          "row_pair+crossing": 3,
+          "row_pair+witness_pair+crossing": 548,
+          "witness_pair+crossing": 5
+        },
+        "surviving_candidate_count": 0,
+        "target_center_class": [
+          0,
+          1,
+          2,
+          6
+        ],
+        "target_center_class_is_original": false
+      },
+      {
+        "candidate_count": 560,
+        "rejection_category_counts": {
+          "crossing": 5,
+          "row_pair+witness_pair+crossing": 550,
+          "witness_pair+crossing": 5
+        },
+        "surviving_candidate_count": 0,
+        "target_center_class": [
+          0,
+          2,
+          3,
+          5
+        ],
+        "target_center_class_is_original": false
+      },
+      {
+        "candidate_count": 560,
+        "rejection_category_counts": {
+          "row_pair+witness_pair+crossing": 553,
+          "witness_pair+crossing": 7
+        },
+        "surviving_candidate_count": 0,
+        "target_center_class": [
+          0,
+          2,
+          3,
+          6
+        ],
+        "target_center_class_is_original": false
+      },
+      {
+        "candidate_count": 560,
+        "rejection_category_counts": {
+          "crossing": 4,
+          "row_pair+witness_pair+crossing": 472,
+          "witness_pair+crossing": 84
+        },
+        "surviving_candidate_count": 0,
+        "target_center_class": [
+          0,
+          2,
+          4,
+          5
+        ],
+        "target_center_class_is_original": false
+      },
+      {
+        "candidate_count": 560,
+        "rejection_category_counts": {
+          "crossing": 3,
+          "row_pair+crossing": 4,
+          "row_pair+witness_pair+crossing": 548,
+          "witness_pair+crossing": 5
+        },
+        "surviving_candidate_count": 0,
+        "target_center_class": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "target_center_class_is_original": false
+      },
+      {
+        "candidate_count": 560,
+        "rejection_category_counts": {
+          "crossing": 24,
+          "row_pair+witness_pair": 32,
+          "row_pair+witness_pair+crossing": 448,
+          "survive": 8,
+          "witness_pair+crossing": 48
+        },
+        "surviving_candidate_count": 8,
+        "target_center_class": [
+          0,
+          2,
+          5,
+          6
+        ],
+        "target_center_class_is_original": true
+      },
+      {
+        "candidate_count": 560,
+        "rejection_category_counts": {
+          "crossing": 1,
+          "row_pair+crossing": 3,
+          "row_pair+witness_pair": 4,
+          "row_pair+witness_pair+crossing": 546,
+          "witness_pair+crossing": 6
+        },
+        "surviving_candidate_count": 0,
+        "target_center_class": [
+          0,
+          2,
+          5,
+          7
+        ],
+        "target_center_class_is_original": false
+      },
+      {
+        "candidate_count": 560,
+        "rejection_category_counts": {
+          "crossing": 3,
+          "row_pair+witness_pair+crossing": 475,
+          "witness_pair+crossing": 82
+        },
+        "surviving_candidate_count": 0,
+        "target_center_class": [
+          0,
+          2,
+          6,
+          7
+        ],
+        "target_center_class_is_original": false
+      }
+    ],
+    "rejection_category_counts": {
+      "crossing": 47,
+      "row_pair+crossing": 11,
+      "row_pair+witness_pair": 36,
+      "row_pair+witness_pair+crossing": 4692,
+      "survive": 8,
+      "witness_pair+crossing": 246
+    },
+    "survivors": [
+      {
+        "dropped_center": 0,
+        "dropped_center_class": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "dropped_center_class_is_original": true,
+        "target_center_class": [
+          0,
+          2,
+          5,
+          6
+        ],
+        "target_center_class_is_original": true
+      },
+      {
+        "dropped_center": 1,
+        "dropped_center_class": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "dropped_center_class_is_original": true,
+        "target_center_class": [
+          0,
+          2,
+          5,
+          6
+        ],
+        "target_center_class_is_original": true
+      },
+      {
+        "dropped_center": 2,
+        "dropped_center_class": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "dropped_center_class_is_original": true,
+        "target_center_class": [
+          0,
+          2,
+          5,
+          6
+        ],
+        "target_center_class_is_original": true
+      },
+      {
+        "dropped_center": 3,
+        "dropped_center_class": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "dropped_center_class_is_original": true,
+        "target_center_class": [
+          0,
+          2,
+          5,
+          6
+        ],
+        "target_center_class_is_original": true
+      },
+      {
+        "dropped_center": 4,
+        "dropped_center_class": [
+          1,
+          2,
+          5,
+          7
+        ],
+        "dropped_center_class_is_original": true,
+        "target_center_class": [
+          0,
+          2,
+          5,
+          6
+        ],
+        "target_center_class_is_original": true
+      },
+      {
+        "dropped_center": 5,
+        "dropped_center_class": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "dropped_center_class_is_original": true,
+        "target_center_class": [
+          0,
+          2,
+          5,
+          6
+        ],
+        "target_center_class_is_original": true
+      },
+      {
+        "dropped_center": 6,
+        "dropped_center_class": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "dropped_center_class_is_original": true,
+        "target_center_class": [
+          0,
+          2,
+          5,
+          6
+        ],
+        "target_center_class_is_original": true
+      },
+      {
+        "dropped_center": 7,
+        "dropped_center_class": [
+          1,
+          4,
+          5,
+          8
+        ],
+        "dropped_center_class_is_original": true,
+        "target_center_class": [
+          0,
+          2,
+          5,
+          6
+        ],
+        "target_center_class_is_original": true
+      }
+    ]
+  },
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_81_8_singleton_support_audit.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_81_8_singleton_support_audit.py"
+  },
+  "schema": "erdos97.bootstrap_t12_81_8_singleton_support_audit.v1",
+  "source_one_outside_packet": {
+    "path": "data/certificates/bootstrap_t12_one_outside.json",
+    "schema": "erdos97.bootstrap_t12_one_outside.v1",
+    "status": "BOOTSTRAP_T12_ONE_OUTSIDE_DIAGNOSTIC_ONLY"
+  },
+  "source_one_outside_record": {
+    "bootstrap_core_witnesses": [
+      0,
+      2
+    ],
+    "outside_witnesses": [
+      5,
+      6
+    ],
+    "pressure_class": "NEEDS_ONE_OUTSIDE_LABEL_AND_PRIVATE_CENTER",
+    "row_center": 8,
+    "row_center_private_in_all_deletion_closures": true,
+    "source_record_id": 81,
+    "support_label_modes": {
+      "INTERNAL_TO_ONE_DELETION_CLOSURE": 1,
+      "PRIVATE_IN_ALL_DELETION_HALOS": 1
+    },
+    "support_labels": [
+      5,
+      6
+    ],
+    "witnesses": [
+      0,
+      2,
+      5,
+      6
+    ]
+  },
+  "source_rows": {
+    "0": [
+      1,
+      3,
+      6,
+      7
+    ],
+    "1": [
+      2,
+      4,
+      7,
+      8
+    ],
+    "2": [
+      0,
+      3,
+      5,
+      8
+    ],
+    "3": [
+      0,
+      1,
+      4,
+      6
+    ],
+    "4": [
+      1,
+      2,
+      5,
+      7
+    ],
+    "5": [
+      2,
+      3,
+      6,
+      8
+    ],
+    "6": [
+      0,
+      3,
+      4,
+      7
+    ],
+    "7": [
+      1,
+      4,
+      5,
+      8
+    ],
+    "8": [
+      0,
+      2,
+      5,
+      6
+    ]
+  },
+  "status": "BOOTSTRAP_T12_81_8_SINGLETON_SUPPORT_AUDIT_DIAGNOSTIC_ONLY",
+  "summary": {
+    "bootstrap_core_witnesses": [
+      0,
+      2
+    ],
+    "cyclic_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "fixed_neighborhood_candidate_count": 9,
+    "fixed_neighborhood_non_original_survivor_count": 0,
+    "fixed_neighborhood_rejection_category_counts": {
+      "row_pair+witness_pair+crossing": 6,
+      "survive": 1,
+      "witness_pair+crossing": 2
+    },
+    "fixed_neighborhood_surviving_candidate_count": 1,
+    "one_row_drop_candidate_count": 5040,
+    "one_row_drop_centers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "one_row_drop_non_original_row8_survivor_count": 0,
+    "one_row_drop_rejection_category_counts": {
+      "crossing": 47,
+      "row_pair+crossing": 11,
+      "row_pair+witness_pair": 36,
+      "row_pair+witness_pair+crossing": 4692,
+      "survive": 8,
+      "witness_pair+crossing": 246
+    },
+    "one_row_drop_replacement_count_per_center": 70,
+    "one_row_drop_surviving_candidate_count": 8,
+    "one_row_drop_survivors_all_original_rows": true,
+    "original_target_center_class": [
+      0,
+      2,
+      5,
+      6
+    ],
+    "remaining_gap": "This does not prove singleton support existence, does not prove the row is forced by minimal or rich-class geometry, does not allow two or more other rows to move, and does not model additional auxiliary rich supports.",
+    "scan_status": "ONLY_ORIGINAL_ROW8_SURVIVES_FIXED_AND_ONE_ROW_DROP_SUPPORT_AUDITS",
+    "singleton_support_labels": [
+      5,
+      6
+    ],
+    "source_record_ids": [
+      81
+    ],
+    "target_center": 8,
+    "target_center_candidate_count": 9,
+    "target_row_key": "81:8"
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

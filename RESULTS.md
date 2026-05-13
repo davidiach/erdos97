@@ -362,6 +362,20 @@ forcing, `n=9`, or the bootstrap bridge. See
 `scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py`, and
 `data/certificates/bootstrap_t12_81_3_escape_rich_support_csp.json`.
 
+The source-`81` row-`8` singleton-support audit probes the other
+relation-sufficient source-`81` row. Center `8` has bootstrap-core witnesses
+`[0,2]` and singleton support labels `5` and `6`; the audit enumerates the
+nine selected rows containing `[0,2]` and one of those supports. In the fixed
+source-`81` neighborhood, only the original row `[0,2,5,6]` survives the
+row-pair, witness-pair, and crossing filters. In the one-row-drop relaxation,
+all eight survivors are trivial original-neighborhood survivors: row `8`
+remains `[0,2,5,6]`, and the dropped row remains its original source-`81` row.
+This is still a finite diagnostic only, not a proof of singleton support
+existence, row forcing, `n=9`, or the bootstrap bridge. See
+`docs/bootstrap-t12-81-8-singleton-support-audit.md`,
+`scripts/check_bootstrap_t12_81_8_singleton_support_audit.py`, and
+`data/certificates/bootstrap_t12_81_8_singleton_support_audit.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

@@ -3387,6 +3387,97 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_81_8_singleton_support_audit
+    path: data/certificates/bootstrap_t12_81_8_singleton_support_audit.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_81_8_singleton_support_audit.py
+    command: python scripts/check_bootstrap_t12_81_8_singleton_support_audit.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_81_8_singleton_support_audit.py
+    check_command: python scripts/check_bootstrap_t12_81_8_singleton_support_audit.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-81 row-8 singleton-support activation-row audit; no non-original row-8 activation survivor exists in the fixed source-81 neighborhood or one-row-drop relaxation under basic incidence/crossing filters, but this is not singleton-support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_81_8_singleton_support_audit.v1
+      status: BOOTSTRAP_T12_81_8_SINGLETON_SUPPORT_AUDIT_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "81:8"
+      summary.source_record_ids:
+        - 81
+      summary.cyclic_order:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+      summary.target_center: 8
+      summary.bootstrap_core_witnesses:
+        - 0
+        - 2
+      summary.singleton_support_labels:
+        - 5
+        - 6
+      summary.original_target_center_class:
+        - 0
+        - 2
+        - 5
+        - 6
+      summary.target_center_candidate_count: 9
+      summary.fixed_neighborhood_candidate_count: 9
+      summary.fixed_neighborhood_surviving_candidate_count: 1
+      summary.fixed_neighborhood_non_original_survivor_count: 0
+      summary.fixed_neighborhood_rejection_category_counts.row_pair+witness_pair+crossing: 6
+      summary.fixed_neighborhood_rejection_category_counts.witness_pair+crossing: 2
+      summary.fixed_neighborhood_rejection_category_counts.survive: 1
+      summary.one_row_drop_centers:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+      summary.one_row_drop_replacement_count_per_center: 70
+      summary.one_row_drop_candidate_count: 5040
+      summary.one_row_drop_surviving_candidate_count: 8
+      summary.one_row_drop_non_original_row8_survivor_count: 0
+      summary.one_row_drop_survivors_all_original_rows: true
+      summary.one_row_drop_rejection_category_counts.crossing: 47
+      summary.one_row_drop_rejection_category_counts.row_pair+crossing: 11
+      summary.one_row_drop_rejection_category_counts.row_pair+witness_pair: 36
+      summary.one_row_drop_rejection_category_counts.row_pair+witness_pair+crossing: 4692
+      summary.one_row_drop_rejection_category_counts.witness_pair+crossing: 246
+      summary.one_row_drop_rejection_category_counts.survive: 8
+      summary.scan_status: ONLY_ORIGINAL_ROW8_SURVIVES_FIXED_AND_ONE_ROW_DROP_SUPPORT_AUDITS
+      source_one_outside_packet.schema: erdos97.bootstrap_t12_one_outside.v1
+      source_one_outside_record.support_labels:
+        - 5
+        - 6
+      provenance.generator: scripts/check_bootstrap_t12_81_8_singleton_support_audit.py
+      provenance.command: python scripts/check_bootstrap_t12_81_8_singleton_support_audit.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - singleton support proves row-center forcing
+      - the 81:8 row is forced
+      - the 81:8 singleton support exists
+      - the 81:8 audit proves the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_row_pressure
     path: data/certificates/bootstrap_t12_row_pressure.json
     kind: proof_mining_diagnostic_artifact
