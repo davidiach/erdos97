@@ -185,6 +185,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-81-3-escape-full-neighborhood.md`](bootstrap-t12-81-3-escape-full-neighborhood.md):
   full-neighborhood CSP allowing all seven other source-`81` rows to move
   while centers `3` and `6` use the same one-class replacement spaces.
+- [`bootstrap-t12-81-3-escape-auxiliary-csp.md`](bootstrap-t12-81-3-escape-auxiliary-csp.md):
+  auxiliary-rich-class CSP allowing the center-`3` connector and center-`6`
+  supply classes to be extra classes while selected rows remain free.
 - [`bootstrap-t12-row-pressure.md`](bootstrap-t12-row-pressure.md):
   row-pressure refinement classifying those missing T12 row centers by core
   deficit, deletion-closure exposure, and private-halo support.

@@ -101,15 +101,18 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the order-resolved `81:3` fixed-row escape audit, where label `6`
   appears only after center `3` in the fixed singleton-rich closure, read
   [`docs/bootstrap-t12-81-3-order-escape.md`](docs/bootstrap-t12-81-3-order-escape.md).
-- For the relaxed `81:3` escape-candidate scans, which replace centers `3`
-  and `6` and then allow one, two, or all other source-`81` rows to move, read
+- For the relaxed `81:3` escape-candidate scans and auxiliary-class CSP, which
+  probe center-`3` connector and center-`6` supply escapes around source `81`,
+  read
   [`docs/bootstrap-t12-81-3-escape-candidates.md`](docs/bootstrap-t12-81-3-escape-candidates.md)
   and
   [`docs/bootstrap-t12-81-3-escape-one-row-drop.md`](docs/bootstrap-t12-81-3-escape-one-row-drop.md),
   then
   [`docs/bootstrap-t12-81-3-escape-two-row-drop.md`](docs/bootstrap-t12-81-3-escape-two-row-drop.md)
   and
-  [`docs/bootstrap-t12-81-3-escape-full-neighborhood.md`](docs/bootstrap-t12-81-3-escape-full-neighborhood.md).
+  [`docs/bootstrap-t12-81-3-escape-full-neighborhood.md`](docs/bootstrap-t12-81-3-escape-full-neighborhood.md),
+  plus
+  [`docs/bootstrap-t12-81-3-escape-auxiliary-csp.md`](docs/bootstrap-t12-81-3-escape-auxiliary-csp.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).

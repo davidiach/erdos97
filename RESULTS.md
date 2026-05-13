@@ -321,6 +321,19 @@ bridge; see `docs/bootstrap-t12-81-3-escape-full-neighborhood.md`,
 `scripts/check_bootstrap_t12_81_3_escape_full_neighborhood.py`, and
 `data/certificates/bootstrap_t12_81_3_escape_full_neighborhood.json`.
 
+The auxiliary-rich-class CSP relaxes the selected-row role of those two escape
+classes. The center-`6` supply class and center-`3` connector class may exist
+as auxiliary rich classes, while the selected rows at centers `3` and `6` may
+be either those classes or disjoint classes. All seven other selected rows are
+arbitrary. The implicit selected-row space has `1317668800000000` assignments;
+exact backtracking visits `1287` nodes and finds no complete assignment under
+the row-pair, witness-pair, crossing, and same-center disjointness filters.
+This remains a finite diagnostic only, not a proof of genuine rich-class
+order, `n=9`, or the bootstrap bridge; see
+`docs/bootstrap-t12-81-3-escape-auxiliary-csp.md`,
+`scripts/check_bootstrap_t12_81_3_escape_auxiliary_csp.py`, and
+`data/certificates/bootstrap_t12_81_3_escape_auxiliary_csp.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

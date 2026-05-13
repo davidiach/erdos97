@@ -600,6 +600,15 @@ satisfying the same basic filters. This remains a finite proof-mining
 diagnostic only, not a proof of row forcing, `n=9`, the bootstrap bridge, or
 Erdos Problem #97.
 
+The auxiliary-rich-class CSP in
+`docs/bootstrap-t12-81-3-escape-auxiliary-csp.md` treats the center-`6` supply
+class and center-`3` connector class as auxiliary rich classes rather than
+necessarily selected rows. The selected rows at centers `3` and `6` may equal
+those auxiliary classes or be disjoint from them. Exact backtracking proves no
+complete assignment satisfies the same basic filters plus same-center
+disjointness. This remains a finite proof-mining diagnostic only, not a proof
+of row forcing, `n=9`, the bootstrap bridge, or Erdos Problem #97.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a
