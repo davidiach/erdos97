@@ -98,7 +98,11 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-81-3-escape-one-row-drop.md` then allows any one of
    those seven preserved rows to move as an arbitrary 4-set. All `19600`
    candidates still fail the basic row-pair, witness-pair, or crossing
-   filters. The next useful PR must either relax two or more of those seven
+   filters.
+   The two-row-drop scan in
+   `docs/bootstrap-t12-81-3-escape-two-row-drop.md` allows any pair of those
+   seven rows to move. All `4116000` candidates still fail the same basic
+   filters. The next useful PR must either relax three or more of those seven
    rows at once, introduce a stronger genuine rich-class/minimality hypothesis
    that justifies preserving enough rows, or move to a different bridge target.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order

@@ -228,6 +228,11 @@ local_repo:
       artifact: "data/certificates/bootstrap_t12_81_3_escape_one_row_drop.json"
       verifier: "scripts/check_bootstrap_t12_81_3_escape_one_row_drop.py"
       claim_scope: "fixed selected-row-neighborhood proof-mining diagnostic only; for each of the seven source-81 rows outside centers 3 and 6, allows that one row to move as an arbitrary 4-set and rules out 19600 candidates by basic incidence/crossing filters, but does not prove genuine rich-class order, row forcing, n=9, or the bridge"
+    - pattern: "bootstrap_t12_81_3_escape_two_row_drop"
+      status: "two-row-drop replacement scan for the 81:3 pre-3 label-6 escape"
+      artifact: "data/certificates/bootstrap_t12_81_3_escape_two_row_drop.json"
+      verifier: "scripts/check_bootstrap_t12_81_3_escape_two_row_drop.py"
+      claim_scope: "fixed selected-row-neighborhood proof-mining diagnostic only; for each pair of the seven source-81 rows outside centers 3 and 6, allows both rows to move as arbitrary 4-sets and rules out 4116000 candidates by basic incidence/crossing filters, but does not prove genuine rich-class order, row forcing, n=9, or the bridge"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

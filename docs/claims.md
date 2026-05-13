@@ -583,6 +583,14 @@ under the basic row-pair, witness-pair, and crossing filters. This remains a
 finite proof-mining diagnostic only, not a proof of row forcing, `n=9`, the
 bootstrap bridge, or Erdos Problem #97.
 
+The two-row-drop follow-up in
+`docs/bootstrap-t12-81-3-escape-two-row-drop.md` allows any pair of those seven
+preserved rows to move as arbitrary 4-sets while also replacing centers `3`
+and `6` as above. It checks `4116000` candidates and again finds no survivor
+under the same basic filters. This remains a finite proof-mining diagnostic
+only, not a proof of row forcing, `n=9`, the bootstrap bridge, or Erdos
+Problem #97.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a
