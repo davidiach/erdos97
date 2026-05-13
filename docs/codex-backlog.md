@@ -93,9 +93,14 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-81-3-escape-candidates.md` now drops preservation of
    the source-`81` center-`3` and center-`6` rows while preserving the other
    seven rows. All `40` one-class replacement candidates fail the basic
-   incidence/crossing filters. The next useful PR must either relax the
-   preservation of those seven rows or introduce an additional genuine
-   rich-class/minimality hypothesis that justifies preserving enough of them.
+   incidence/crossing filters.
+   The one-row-drop follow-up in
+   `docs/bootstrap-t12-81-3-escape-one-row-drop.md` then allows any one of
+   those seven preserved rows to move as an arbitrary 4-set. All `19600`
+   candidates still fail the basic row-pair, witness-pair, or crossing
+   filters. The next useful PR must either relax two or more of those seven
+   rows at once, introduce a stronger genuine rich-class/minimality hypothesis
+   that justifies preserving enough rows, or move to a different bridge target.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker

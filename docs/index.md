@@ -173,6 +173,12 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-81-3-order-escape.md`](bootstrap-t12-81-3-order-escape.md):
   order-resolved fixed-row packet showing label `6` is not exposed before
   center `3` in the current singleton-rich closure.
+- [`bootstrap-t12-81-3-escape-candidates.md`](bootstrap-t12-81-3-escape-candidates.md):
+  relaxed fixed-row-neighborhood scan replacing centers `3` and `6` for the
+  `81:3` pre-`3` label-`6` escape.
+- [`bootstrap-t12-81-3-escape-one-row-drop.md`](bootstrap-t12-81-3-escape-one-row-drop.md):
+  one-row-drop relaxation allowing one additional source-`81` row to move
+  while checking the same escape route.
 - [`bootstrap-t12-row-pressure.md`](bootstrap-t12-row-pressure.md):
   row-pressure refinement classifying those missing T12 row centers by core
   deficit, deletion-closure exposure, and private-halo support.
