@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+import json
+import subprocess
+import sys
 from copy import deepcopy
+from pathlib import Path
 
 from erdos97.closure_activation_negative_controls import (
     assert_full_row_anti_activation_expected,
@@ -20,6 +24,9 @@ from erdos97.closure_activation_negative_controls import (
     visibility_anti_activation_summary,
     wrong_fourth_negative_control_certificate,
 )
+
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_wrong_fourth_negative_control_replays_expected_status() -> None:
@@ -172,6 +179,26 @@ def test_rich_class_activation_controls_reject_crossing_loss() -> None:
 
     assert any("pair_checks" in error for error in errors)
     assert any("passes_intended_negative_control" in error for error in errors)
+
+
+def test_rich_class_activation_controls_default_artifact_cli_check() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_closure_activation_negative_controls.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    summary = json.loads(result.stdout)
+    assert summary["ok"] is True
+    assert summary["control_count"] == 4
 
 
 def test_visibility_anti_activation_control_replays_expected_status() -> None:
