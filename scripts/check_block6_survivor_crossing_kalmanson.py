@@ -282,8 +282,19 @@ def audit() -> dict[str, object]:
     """Replay the crossing frontier and every stored Kalmanson certificate."""
     constraints = crossing_constraints()
     orders, nodes_visited = enumerate_crossing_orders()
+    expected_order_index = {
+        tuple(order): index for index, order in enumerate(EXPECTED_ORDERS)
+    }
+    missing_certificate_orders = [
+        order for order in orders if tuple(order) not in expected_order_index
+    ]
+    if missing_certificate_orders:
+        raise AssertionError(
+            "enumerated crossing order has no stored Kalmanson certificate: "
+            f"{missing_certificate_orders[0]}"
+        )
     certificates = [
-        certificate_for_order(index) for index in range(len(EXPECTED_ORDERS))
+        certificate_for_order(expected_order_index[tuple(order)]) for order in orders
     ]
     checks = [check_quotient_cone_certificate(cert) for cert in certificates]
     order_summaries = []
