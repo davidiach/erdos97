@@ -306,6 +306,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_t05_self_edge_lemma_packet",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_t05_self_edge_lemma_packet.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Focused T05/F10 n=9 self-edge local lemma packet; "
+            "proof-mining scaffolding only, not a proof of n=9, "
+            "counterexample, or independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_t10_strict_cycle_lemma_packet",
         command=(
             "python",

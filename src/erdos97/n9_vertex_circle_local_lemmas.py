@@ -83,8 +83,9 @@ EXPECTED_SUMMARY = {
     },
 }
 EXPECTED_DIRECT_TWO_ROW_INSTANCE_COUNT = 0
-EXPECTED_FOCUSED_NOTE_CROSSCHECK = {
-    NESTED_SPOKE_LEMMA: {
+EXPECTED_FOCUSED_NOTE_CROSSCHECK = (
+    {
+        "lemma_id": NESTED_SPOKE_LEMMA,
         "template_id": "T01",
         "family_ids": ["F09"],
         "proof_note_path": "docs/n9-vertex-circle-t01-self-edge-lemma.md",
@@ -95,7 +96,20 @@ EXPECTED_FOCUSED_NOTE_CROSSCHECK = {
             "data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json"
         ),
     },
-    SHARED_ENDPOINT_LEMMA: {
+    {
+        "lemma_id": NESTED_SPOKE_LEMMA,
+        "template_id": "T05",
+        "family_ids": ["F10"],
+        "proof_note_path": "docs/n9-vertex-circle-t05-self-edge-lemma.md",
+        "source_kind": "focused_packet",
+        "crosscheck_mode": "alternate_self_edge_certificate",
+        "packet_key": "T05",
+        "packet_path": (
+            "data/certificates/n9_vertex_circle_t05_self_edge_lemma_packet.json"
+        ),
+    },
+    {
+        "lemma_id": SHARED_ENDPOINT_LEMMA,
         "template_id": "T02",
         "family_ids": ["F01", "F04", "F08", "F14"],
         "proof_note_path": "docs/n9-vertex-circle-t02-self-edge-lemma.md",
@@ -105,7 +119,8 @@ EXPECTED_FOCUSED_NOTE_CROSSCHECK = {
             "data/certificates/n9_vertex_circle_t02_self_edge_lemma_packet.json"
         ),
     },
-    T03_SELECTED_PATH_SELF_EDGE: {
+    {
+        "lemma_id": T03_SELECTED_PATH_SELF_EDGE,
         "template_id": "T03",
         "family_ids": ["F05", "F15"],
         "proof_note_path": "docs/n9-vertex-circle-t03-self-edge-lemma.md",
@@ -115,7 +130,8 @@ EXPECTED_FOCUSED_NOTE_CROSSCHECK = {
             "data/certificates/n9_vertex_circle_t03_self_edge_lemma_packet.json"
         ),
     },
-    T04_SELECTED_PATH_SELF_EDGE: {
+    {
+        "lemma_id": T04_SELECTED_PATH_SELF_EDGE,
         "template_id": "T04",
         "family_ids": ["F13"],
         "proof_note_path": "docs/n9-vertex-circle-t04-self-edge-lemma.md",
@@ -125,7 +141,8 @@ EXPECTED_FOCUSED_NOTE_CROSSCHECK = {
             "data/certificates/n9_vertex_circle_t04_self_edge_lemma_packet.json"
         ),
     },
-    T10_STRICT_CYCLE_LEMMA: {
+    {
+        "lemma_id": T10_STRICT_CYCLE_LEMMA,
         "template_id": "T10",
         "family_ids": ["F12"],
         "proof_note_path": "docs/n9-vertex-circle-t10-strict-cycle-lemma.md",
@@ -135,7 +152,8 @@ EXPECTED_FOCUSED_NOTE_CROSSCHECK = {
             "data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json"
         ),
     },
-    T11_STRICT_CYCLE_LEMMA: {
+    {
+        "lemma_id": T11_STRICT_CYCLE_LEMMA,
         "template_id": "T11",
         "family_ids": ["F07"],
         "proof_note_path": "docs/n9-vertex-circle-t11-strict-cycle-lemma.md",
@@ -145,7 +163,8 @@ EXPECTED_FOCUSED_NOTE_CROSSCHECK = {
             "data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json"
         ),
     },
-    T12_STRICT_CYCLE_LEMMA: {
+    {
+        "lemma_id": T12_STRICT_CYCLE_LEMMA,
         "template_id": "T12",
         "family_ids": ["F16"],
         "proof_note_path": "docs/n9-vertex-circle-t12-strict-cycle-lemma.md",
@@ -155,7 +174,7 @@ EXPECTED_FOCUSED_NOTE_CROSSCHECK = {
             "data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json"
         ),
     },
-}
+)
 
 
 def local_lemma_scan_payload(
@@ -354,7 +373,8 @@ def _focused_note_crosscheck(
     """Cross-check aggregate records against focused proof-note packets."""
 
     records = []
-    for lemma_id, expected in EXPECTED_FOCUSED_NOTE_CROSSCHECK.items():
+    for expected in EXPECTED_FOCUSED_NOTE_CROSSCHECK:
+        lemma_id = str(expected["lemma_id"])
         family_ids = list(expected["family_ids"])
         aggregate_instances = _instances_by_family(
             lemma_instances.get(lemma_id, ()),
@@ -366,7 +386,6 @@ def _focused_note_crosscheck(
             if focused_packet is None:
                 records.append(
                     {
-                        "lemma_id": lemma_id,
                         **expected,
                         "check_status": "not_loaded",
                         "families_checked": [],
@@ -392,7 +411,6 @@ def _focused_note_crosscheck(
             )
         records.append(
             {
-                "lemma_id": lemma_id,
                 **expected,
                 "check_status": "checked",
                 **check_summary,
@@ -640,8 +658,8 @@ def _assert_alternate_self_edge_certificate_match(
     ):
         if primary.get(key) != packet_strict.get(key):
             raise AssertionError(f"{family_id} focused packet primary conflict mismatch")
-    if template_id != "T01":
-        raise AssertionError("alternate self-edge certificate mode is currently T01-only")
+    if template_id not in {"T01", "T05"}:
+        raise AssertionError("alternate self-edge certificate mode is currently T01/T05-only")
 
 
 def _assert_packet_equality_path(
@@ -806,16 +824,22 @@ def assert_expected_local_lemma_scan(payload: dict[str, Any]) -> None:
     crosscheck = payload.get("focused_note_crosscheck")
     if not isinstance(crosscheck, list):
         raise AssertionError("focused_note_crosscheck must be a list")
-    by_lemma = {
-        str(item.get("lemma_id")): item
-        for item in crosscheck
-        if isinstance(item, dict) and "lemma_id" in item
+    expected_by_key = {
+        (str(item["lemma_id"]), str(item["template_id"])): item
+        for item in EXPECTED_FOCUSED_NOTE_CROSSCHECK
     }
-    if set(by_lemma) != set(EXPECTED_FOCUSED_NOTE_CROSSCHECK):
-        raise AssertionError(f"focused-note lemma ids mismatch: {sorted(by_lemma)!r}")
-    for lemma_id, expected in EXPECTED_FOCUSED_NOTE_CROSSCHECK.items():
-        item = by_lemma[lemma_id]
+    by_key = {
+        (str(item.get("lemma_id")), str(item.get("template_id"))): item
+        for item in crosscheck
+        if isinstance(item, dict) and "lemma_id" in item and "template_id" in item
+    }
+    if set(by_key) != set(expected_by_key):
+        raise AssertionError(f"focused-note keys mismatch: {sorted(by_key)!r}")
+    for key_tuple, expected in expected_by_key.items():
+        item = by_key[key_tuple]
+        label = "/".join(key_tuple)
         for key in (
+            "lemma_id",
             "template_id",
             "family_ids",
             "proof_note_path",
@@ -824,18 +848,18 @@ def assert_expected_local_lemma_scan(payload: dict[str, Any]) -> None:
         ):
             if item.get(key) != expected[key]:
                 raise AssertionError(
-                    f"{lemma_id} focused-note {key} mismatch: "
+                    f"{label} focused-note {key} mismatch: "
                     f"expected {expected[key]!r}, got {item.get(key)!r}"
                 )
         if item.get("check_status") != "checked":
-            raise AssertionError(f"{lemma_id} focused-note crosscheck was not checked")
+            raise AssertionError(f"{label} focused-note crosscheck was not checked")
         checked_families = [
             str(checked.get("family_id"))
             for checked in item.get("families_checked", [])
             if isinstance(checked, dict)
         ]
         if checked_families != expected["family_ids"]:
-            raise AssertionError(f"{lemma_id} checked family ids mismatch")
+            raise AssertionError(f"{label} checked family ids mismatch")
 
 
 def _order_from_packet(packet: dict[str, Any]) -> tuple[int, ...]:

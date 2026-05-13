@@ -161,14 +161,17 @@ Next steps:
 - use `data/certificates/n9_vertex_circle_t04_self_edge_lemma_packet.json` to
   replay the focused review-pending T04/F13 four-row selected-path self-edge
   proof note;
+- use `data/certificates/n9_vertex_circle_t05_self_edge_lemma_packet.json` to
+  replay the focused review-pending T05/F10 nested-spoke alternate self-edge
+  proof note;
 - use `data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json`
   to replay the focused review-pending T10/F12 strict-cycle local lemma packet;
 - use `data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json`
   to replay the focused review-pending T11/F07 strict-cycle local lemma packet;
 - use `data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json`
   to replay the focused review-pending T12/F16 strict-cycle local lemma packet;
-- review the aggregate local-lemma scan after the T01/T02/T03/T04 self-edge and
-  T10/T11/T12 strict-cycle integrations, keeping it scoped as proof-mining
+- review the aggregate local-lemma scan after the T01/T02/T03/T04/T05 self-edge
+  and T10/T11/T12 strict-cycle integrations, keeping it scoped as proof-mining
   coverage of stored packets rather than an independent `n=9` proof;
 - test whether the same motifs appear in the P18 obstruction and fail in the
   recorded `C19_skew` vertex-circle-only survivor, which is now retired as a
