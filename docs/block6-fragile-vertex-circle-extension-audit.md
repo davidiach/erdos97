@@ -156,7 +156,7 @@ closes all full extensions for this block-6 benchmark, while Kalmanson closes
 only the named fixed survivor across its four crossing-compatible cyclic
 orders. It does not claim an all-extension, all-order obstruction.
 
-The next bounded widening checks the first 100 deterministic terminal full
+The next bounded widening checks two deterministic windows of terminal full
 extensions from this audit across all of their crossing-compatible cyclic
 orders:
 
@@ -164,10 +164,15 @@ orders:
 python scripts/check_block6_terminal_crossing_vertex_circle_sample.py \
   --assert-expected \
   --json
+
+python scripts/check_block6_terminal_crossing_vertex_circle_sample.py \
+  --offset 100 \
+  --assert-expected \
+  --json
 ```
 
-In that sample, the crossing-order frontiers contain `440` total cyclic orders
-and every one is vertex-circle obstructed by a quotient self-edge. The largest
-frontier in the sample has `15` crossing-compatible orders. This is a
-diagnostic sample only: it does not close the remaining all-extension,
-all-order block-6 bridge gap.
+Across those two sampled windows, `200` terminal extensions produce `796`
+crossing-compatible cyclic orders, and every one is vertex-circle obstructed
+by a quotient self-edge. The largest frontier in the checked windows has `15`
+crossing-compatible orders. This is a diagnostic sample only: it does not close
+the remaining all-extension, all-order block-6 bridge gap.

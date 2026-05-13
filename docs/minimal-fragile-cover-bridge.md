@@ -411,13 +411,14 @@ claim scope:
 
 ```bash
 python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --assert-expected --json
+python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --offset 100 --assert-expected --json
 ```
 
-It takes the first `100` deterministic terminal full extensions from the
+It takes two deterministic windows of `100` terminal full extensions from the
 natural-order block-6 audit, enumerates all crossing-compatible cyclic orders
-for each, and classifies the resulting `440` orders by the vertex-circle
-quotient filter. Every sampled crossing order is killed by a self-edge. This
-is still only a deterministic sample and not an all-extension, all-order
+for each, and classifies the resulting `796` orders by the vertex-circle
+quotient filter. Every sampled crossing order is killed by a self-edge. This is
+still only a deterministic sample and not an all-extension, all-order
 obstruction.
 
 ## What This Does Not Prove
