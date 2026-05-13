@@ -31,6 +31,9 @@ DEFAULT_SELF_EDGE_PACKET = (
 DEFAULT_STRICT_CYCLE_PACKET = (
     ROOT / "data" / "certificates" / "n9_vertex_circle_strict_cycle_template_packet.json"
 )
+DEFAULT_T02_PACKET = (
+    ROOT / "data" / "certificates" / "n9_vertex_circle_t02_self_edge_lemma_packet.json"
+)
 DEFAULT_T03_PACKET = (
     ROOT / "data" / "certificates" / "n9_vertex_circle_t03_self_edge_lemma_packet.json"
 )
@@ -74,6 +77,7 @@ def scan_payload(
     *,
     self_edge_packet_path: Path = DEFAULT_SELF_EDGE_PACKET,
     strict_cycle_packet_path: Path = DEFAULT_STRICT_CYCLE_PACKET,
+    t02_packet_path: Path = DEFAULT_T02_PACKET,
     t03_packet_path: Path = DEFAULT_T03_PACKET,
     t04_packet_path: Path = DEFAULT_T04_PACKET,
     t10_packet_path: Path = DEFAULT_T10_PACKET,
@@ -86,6 +90,7 @@ def scan_payload(
         load_artifact(self_edge_packet_path),
         load_artifact(strict_cycle_packet_path),
         focused_packets={
+            "T02": load_artifact(t02_packet_path),
             "T03": load_artifact(t03_packet_path),
             "T04": load_artifact(t04_packet_path),
             "T10": load_artifact(t10_packet_path),
@@ -204,6 +209,12 @@ def main(argv: list[str] | None = None) -> int:
         help="Path to n9 strict-cycle template packet JSON.",
     )
     parser.add_argument(
+        "--t02-packet",
+        type=Path,
+        default=DEFAULT_T02_PACKET,
+        help="Path to focused T02 self-edge lemma packet JSON.",
+    )
+    parser.add_argument(
         "--t03-packet",
         type=Path,
         default=DEFAULT_T03_PACKET,
@@ -255,6 +266,7 @@ def main(argv: list[str] | None = None) -> int:
     payload = scan_payload(
         self_edge_packet_path=_resolve(args.self_edge_packet),
         strict_cycle_packet_path=_resolve(args.strict_cycle_packet),
+        t02_packet_path=_resolve(args.t02_packet),
         t03_packet_path=_resolve(args.t03_packet),
         t04_packet_path=_resolve(args.t04_packet),
         t10_packet_path=_resolve(args.t10_packet),

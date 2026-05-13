@@ -97,6 +97,45 @@
   "focused_note_crosscheck": [
     {
       "check_status": "checked",
+      "covered_assignment_count": 40,
+      "families_checked": [
+        {
+          "assignment_count": 18,
+          "family_id": "F01",
+          "orbit_size": 18
+        },
+        {
+          "assignment_count": 18,
+          "family_id": "F04",
+          "orbit_size": 18
+        },
+        {
+          "assignment_count": 2,
+          "family_id": "F08",
+          "orbit_size": 2
+        },
+        {
+          "assignment_count": 2,
+          "family_id": "F14",
+          "orbit_size": 2
+        }
+      ],
+      "family_ids": [
+        "F01",
+        "F04",
+        "F08",
+        "F14"
+      ],
+      "interpretation": "Aggregate scan instance matches the focused packet used by the proof-facing note; this is a packet consistency check, not an independent n=9 completeness proof.",
+      "lemma_id": "shared_endpoint_nested_self_edge",
+      "packet_key": "T02",
+      "packet_path": "data/certificates/n9_vertex_circle_t02_self_edge_lemma_packet.json",
+      "proof_note_path": "docs/n9-vertex-circle-t02-self-edge-lemma.md",
+      "source_kind": "focused_packet",
+      "template_id": "T02"
+    },
+    {
+      "check_status": "checked",
       "covered_assignment_count": 20,
       "families_checked": [
         {

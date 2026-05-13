@@ -21,6 +21,7 @@ from erdos97.n9_vertex_circle_local_lemmas import (
 from scripts.check_n9_vertex_circle_local_lemmas import (
     DEFAULT_SELF_EDGE_PACKET,
     DEFAULT_STRICT_CYCLE_PACKET,
+    DEFAULT_T02_PACKET,
     DEFAULT_T03_PACKET,
     DEFAULT_T04_PACKET,
     DEFAULT_T10_PACKET,
@@ -99,6 +100,30 @@ def test_local_lemma_scan_counts_and_scope(payload: dict[str, object]) -> None:
         },
     }
     assert payload["focused_note_crosscheck"] == [  # type: ignore[index]
+        {
+            "lemma_id": SHARED_ENDPOINT_LEMMA,
+            "template_id": "T02",
+            "family_ids": ["F01", "F04", "F08", "F14"],
+            "proof_note_path": "docs/n9-vertex-circle-t02-self-edge-lemma.md",
+            "source_kind": "focused_packet",
+            "packet_key": "T02",
+            "packet_path": (
+                "data/certificates/n9_vertex_circle_t02_self_edge_lemma_packet.json"
+            ),
+            "check_status": "checked",
+            "families_checked": [
+                {"family_id": "F01", "assignment_count": 18, "orbit_size": 18},
+                {"family_id": "F04", "assignment_count": 18, "orbit_size": 18},
+                {"family_id": "F08", "assignment_count": 2, "orbit_size": 2},
+                {"family_id": "F14", "assignment_count": 2, "orbit_size": 2},
+            ],
+            "covered_assignment_count": 40,
+            "interpretation": (
+                "Aggregate scan instance matches the focused packet used by the "
+                "proof-facing note; this is a packet consistency check, not an "
+                "independent n=9 completeness proof."
+            ),
+        },
         {
             "lemma_id": T03_SELECTED_PATH_SELF_EDGE,
             "template_id": "T03",
@@ -454,6 +479,27 @@ def test_payload_provenance_is_not_shared_mutable_state() -> None:
     )
 
 
+def test_focused_packet_crosscheck_rejects_t02_path_drift() -> None:
+    self_edge_packet = load_artifact(DEFAULT_SELF_EDGE_PACKET)
+    strict_cycle_packet = load_artifact(DEFAULT_STRICT_CYCLE_PACKET)
+    t02_packet = load_artifact(DEFAULT_T02_PACKET)
+    t02_packet["family_packets"][0]["distance_equality"]["path"][0]["next_pair"] = [0, 7]
+
+    with pytest.raises(AssertionError, match="F01 focused packet distance_equality mismatch"):
+        local_lemma_scan_payload(
+            self_edge_packet,
+            strict_cycle_packet,
+            focused_packets={
+                "T02": t02_packet,
+                "T03": load_artifact(DEFAULT_T03_PACKET),
+                "T04": load_artifact(DEFAULT_T04_PACKET),
+                "T10": load_artifact(DEFAULT_T10_PACKET),
+                "T11": load_artifact(DEFAULT_T11_PACKET),
+                "T12": load_artifact(DEFAULT_T12_PACKET),
+            },
+        )
+
+
 def test_focused_packet_crosscheck_rejects_t03_row_drift() -> None:
     self_edge_packet = load_artifact(DEFAULT_SELF_EDGE_PACKET)
     strict_cycle_packet = load_artifact(DEFAULT_STRICT_CYCLE_PACKET)
@@ -465,6 +511,7 @@ def test_focused_packet_crosscheck_rejects_t03_row_drift() -> None:
             self_edge_packet,
             strict_cycle_packet,
             focused_packets={
+                "T02": load_artifact(DEFAULT_T02_PACKET),
                 "T03": t03_packet,
                 "T04": load_artifact(DEFAULT_T04_PACKET),
                 "T10": load_artifact(DEFAULT_T10_PACKET),
@@ -485,6 +532,7 @@ def test_focused_packet_crosscheck_rejects_t10_replay_status_drift() -> None:
             self_edge_packet,
             strict_cycle_packet,
             focused_packets={
+                "T02": load_artifact(DEFAULT_T02_PACKET),
                 "T03": load_artifact(DEFAULT_T03_PACKET),
                 "T04": load_artifact(DEFAULT_T04_PACKET),
                 "T10": t10_packet,
