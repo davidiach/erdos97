@@ -258,6 +258,11 @@ local_repo:
       artifact: "data/certificates/bootstrap_t12_81_8_singleton_support_audit.json"
       verifier: "scripts/check_bootstrap_t12_81_8_singleton_support_audit.py"
       claim_scope: "proof-mining diagnostic only; enumerates the nine center-8 rows containing bootstrap-core witnesses [0,2] and singleton support label 5 or 6, and finds no non-original row-8 survivor in the fixed source-81 neighborhood or one-row-drop relaxation, but does not prove singleton support existence, row forcing, n=9, or the bridge"
+    - pattern: "bootstrap_t12_151_6_outside_pair_audit"
+      status: "outside-pair activation-row audit for the 151:6 relation-sufficient target"
+      artifact: "data/certificates/bootstrap_t12_151_6_outside_pair_audit.json"
+      verifier: "scripts/check_bootstrap_t12_151_6_outside_pair_audit.py"
+      claim_scope: "proof-mining diagnostic only; enumerates the thirteen center-6 rows containing bootstrap-core witness [0] and outside support pair [3,5], [3,8], or [5,8], and finds no non-original row-6 survivor in the fixed source-151 neighborhood or one-row-drop relaxation, but does not prove outside-pair support existence, row forcing, n=9, or the bridge"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"
