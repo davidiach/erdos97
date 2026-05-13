@@ -14,23 +14,13 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
+from erdos97.fragile_benchmarks import (  # noqa: E402
+    block6_two_block_survivor_extension_3_rows,
+)
 from erdos97.quotient_cone import pair, selected_distance_quotient  # noqa: E402
 
 
-SURVIVOR_ROWS: list[list[int]] = [
-    [1, 2, 3, 4],
-    [3, 6, 9, 11],
-    [1, 3, 5, 10],
-    [0, 2, 4, 5],
-    [0, 3, 8, 11],
-    [0, 1, 6, 7],
-    [7, 8, 9, 10],
-    [1, 5, 6, 8],
-    [0, 5, 7, 9],
-    [6, 8, 10, 11],
-    [2, 5, 9, 11],
-    [0, 4, 6, 10],
-]
+SURVIVOR_ROWS: list[list[int]] = block6_two_block_survivor_extension_3_rows()
 
 EXPECTED_CLASS_COUNT = 33
 
