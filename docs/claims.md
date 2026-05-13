@@ -560,8 +560,11 @@ The order-resolved `81:3` fixed-row escape audit in
 singleton-rich packet does not itself supply that escape. From seed `[0,1,4]`,
 center `3` is the only initial fixed-row activation and fires through
 `[0,1,4]`; label `6` enters only afterward through trigger `[0,3,4]`, which
-already uses center `3`. This is a fixed-row diagnostic only, not a theorem
-about all genuine rich-class catalogues.
+already uses center `3`. It also records a same-center disjointness guard:
+if the source-`81` center-`6` fixed row `[0,3,4,7]` is preserved as a genuine
+class, then no additional center-`6` class can contain the seed triple
+`[0,1,4]`. This is still a fixed-row-preservation diagnostic only, not a
+theorem about all genuine rich-class catalogues.
 
 ### n=8 witness indegree regularity
 

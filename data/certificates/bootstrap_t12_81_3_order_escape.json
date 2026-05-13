@@ -1,5 +1,5 @@
 {
-  "claim_scope": "Fixed singleton-rich order diagnostic for source 81 row 3: in the fixed selected-row closure from seed [0,1,4], center 3 activates before label 6 is available, and label 6 is then added using a trigger containing center 3. This refines the remaining connector-avoiding escape target, but does not prove genuine rich-class order, does not prove row forcing, does not prove n=9, does not prove the bridge, and does not claim a counterexample.",
+  "claim_scope": "Fixed singleton-rich order diagnostic for source 81 row 3: in the fixed selected-row closure from seed [0,1,4], center 3 activates before label 6 is available, and label 6 is then added using a trigger containing center 3. The packet also records the same-center disjointness guard showing that an extra center-6 class preserving the fixed center-6 row cannot trigger label 6 from the seed. This refines the remaining connector-avoiding escape target, but does not prove genuine rich-class order, does not prove row forcing, does not prove n=9, does not prove the bridge, and does not claim a counterexample.",
   "fixed_singleton_order_audit": {
     "center_3_before_label_6": true,
     "center_3_step": {
@@ -253,9 +253,11 @@
     "This packet audits only the fixed singleton-rich closure order for source 81.",
     "It does not prove that the fixed selected row 81:3 is a genuine rich class.",
     "It does not rule out extra genuine rich classes that add label 6 before center 3.",
+    "The same-center disjointness guard assumes the source-81 center-6 row is preserved as a genuine class.",
     "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
   ],
   "order_resolved_escape_contract": {
+    "fixed_row_preservation_guard": "If the source-81 center-6 row [0,3,4,7] is preserved as a genuine distance class, same-center disjointness prevents any additional center-6 class from containing the seed triple [0,1,4].",
     "fixed_singleton_result": "The fixed singleton-rich closure does not realize that escape: center 3 is the only initial activation from [0,1,4], and label 6 is supplied only afterward by trigger [0,3,4].",
     "fixed_singleton_status": "FIXED_SINGLETON_ORDER_ESCAPE_NOT_REALIZED",
     "genuine_escape_certificate_needed": [
@@ -264,11 +266,124 @@
       "plus guardrails showing that any proposed supply does not already force the T12 connector"
     ],
     "required_for_connector_avoiding_activation": "Label 6 must be available before center 3 activates, because the connector-avoiding triples from [0,1,4,6] are [0,4,6] and [1,4,6].",
+    "same_center_disjointness_guard_status": "NO_PRE_3_LABEL_6_SUPPLY_PRESERVING_CENTER_6_FIXED_CLASS",
     "status": "GENUINE_RICH_CLASS_PRE_3_LABEL_6_SUPPLY_OPEN"
   },
   "provenance": {
     "command": "python scripts/check_bootstrap_t12_81_3_order_escape.py --write --assert-expected",
     "generator": "scripts/check_bootstrap_t12_81_3_order_escape.py"
+  },
+  "same_center_disjointness_guard": {
+    "can_additional_center_6_class_trigger_from_seed": false,
+    "candidate_pre_3_supply_classes": [
+      {
+        "candidate_center": 6,
+        "candidate_class": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "candidate_fourth": 2,
+        "fixed_center_6_class_overlap": [
+          0,
+          4
+        ],
+        "preserves_same_center_disjointness": false,
+        "rejection_reason": "overlaps the preserved center-6 fixed class"
+      },
+      {
+        "candidate_center": 6,
+        "candidate_class": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "candidate_fourth": 3,
+        "fixed_center_6_class_overlap": [
+          0,
+          3,
+          4
+        ],
+        "preserves_same_center_disjointness": false,
+        "rejection_reason": "overlaps the preserved center-6 fixed class"
+      },
+      {
+        "candidate_center": 6,
+        "candidate_class": [
+          0,
+          1,
+          4,
+          5
+        ],
+        "candidate_fourth": 5,
+        "fixed_center_6_class_overlap": [
+          0,
+          4
+        ],
+        "preserves_same_center_disjointness": false,
+        "rejection_reason": "overlaps the preserved center-6 fixed class"
+      },
+      {
+        "candidate_center": 6,
+        "candidate_class": [
+          0,
+          1,
+          4,
+          7
+        ],
+        "candidate_fourth": 7,
+        "fixed_center_6_class_overlap": [
+          0,
+          4,
+          7
+        ],
+        "preserves_same_center_disjointness": false,
+        "rejection_reason": "overlaps the preserved center-6 fixed class"
+      },
+      {
+        "candidate_center": 6,
+        "candidate_class": [
+          0,
+          1,
+          4,
+          8
+        ],
+        "candidate_fourth": 8,
+        "fixed_center_6_class_overlap": [
+          0,
+          4
+        ],
+        "preserves_same_center_disjointness": false,
+        "rejection_reason": "overlaps the preserved center-6 fixed class"
+      }
+    ],
+    "center": 6,
+    "deletion_seed": [
+      0,
+      1,
+      4
+    ],
+    "fixed_center_6_class": [
+      0,
+      3,
+      4,
+      7
+    ],
+    "fixed_class_seed_overlap": [
+      0,
+      4
+    ],
+    "max_seed_overlap_for_additional_center_6_class": 1,
+    "remaining_gap": "This guard does not prove center-3 rich-class activation and does not rule out hypotheses that do not preserve the center-6 fixed row as a genuine class.",
+    "same_center_disjointness_rule": "Distinct rich distance classes at the same center are disjoint, because each target vertex has a unique distance from that center.",
+    "scope": "Applies only if the source-81 center-6 fixed selected row is preserved as a genuine distance class.",
+    "seed_labels_available_to_additional_center_6_classes": [
+      1
+    ],
+    "status": "NO_PRE_3_LABEL_6_SUPPLY_PRESERVING_CENTER_6_FIXED_CLASS",
+    "trigger_threshold": 3
   },
   "schema": "erdos97.bootstrap_t12_81_3_order_escape.v1",
   "source_artifacts": [
@@ -348,6 +463,7 @@
   },
   "status": "BOOTSTRAP_T12_81_3_ORDER_ESCAPE_DIAGNOSTIC_ONLY",
   "summary": {
+    "additional_center_6_class_can_trigger_from_seed": false,
     "closure_labels": [
       0,
       1,
@@ -399,6 +515,16 @@
       4
     ],
     "exposed_core_vertex": 2,
+    "fixed_center_6_class": [
+      0,
+      3,
+      4,
+      7
+    ],
+    "fixed_center_6_class_seed_overlap": [
+      0,
+      4
+    ],
     "fixed_singleton_center_3_before_label_6": true,
     "fixed_singleton_center_3_step_index": 0,
     "fixed_singleton_center_3_trigger": [
@@ -434,9 +560,11 @@
     "initial_enabled_centers": [
       3
     ],
+    "max_seed_overlap_for_additional_center_6_class": 1,
     "next_bridge_question": "Can a genuine rich-class catalogue add label 6 before center 3 without already forcing the connector, or can this pre-3 label-6 supply be ruled out under the minimal/rich-class hypotheses?",
     "order_escape_gap_type": "FIXED_SINGLETON_ORDER_NOT_GENUINE_RICH_CLASS_ORDER",
     "pre_3_label_6_supply_status": "NO_FIXED_SINGLETON_SUPPLY_BEFORE_CENTER_3",
+    "same_center_disjointness_guard_status": "NO_PRE_3_LABEL_6_SUPPLY_PRESERVING_CENTER_6_FIXED_CLASS",
     "source_record_ids": [
       81
     ],
