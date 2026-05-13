@@ -19,6 +19,13 @@ CLAIM_SCOPE = (
     "not an independent review of the exhaustive checker, and not a global "
     "status update."
 )
+PROVENANCE = {
+    "generator": "scripts/check_n9_vertex_circle_local_lemma_simple_replay.py",
+    "command": (
+        "python scripts/check_n9_vertex_circle_local_lemma_simple_replay.py "
+        "--assert-expected --write"
+    ),
+}
 
 EXPECTED_SELF_EDGE_ASSIGNMENT_COUNT = 158
 EXPECTED_SELF_EDGE_FAMILY_COUNT = 13
@@ -133,6 +140,7 @@ def simple_packet_replay_payload(
             "contradictions without the quotient-replay helper. It does not "
             "certify that the packet family list is complete for n=9."
         ),
+        "provenance": dict(PROVENANCE),
     }
 
 
@@ -145,6 +153,8 @@ def assert_expected_simple_packet_replay(payload: Mapping[str, Any]) -> None:
         raise AssertionError(f"status mismatch: {payload.get('status')!r}")
     if payload.get("trust") != TRUST:
         raise AssertionError(f"trust mismatch: {payload.get('trust')!r}")
+    if payload.get("provenance") != PROVENANCE:
+        raise AssertionError(f"provenance mismatch: {payload.get('provenance')!r}")
     claim_scope = str(payload.get("claim_scope", ""))
     for forbidden in ("proof of n=9", "counterexample", "global status update"):
         if f"not a {forbidden}" not in claim_scope and f"not an {forbidden}" not in claim_scope:

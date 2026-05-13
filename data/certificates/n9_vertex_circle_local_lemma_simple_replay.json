@@ -1,0 +1,224 @@
+{
+  "claim_scope": "Second-source packet-level audit for the aggregate n=9 vertex-circle local-lemma coverage. This is not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.",
+  "coverage_summary": {
+    "covered_assignment_count": 184,
+    "covered_family_count": 16,
+    "expected_assignment_count": 184,
+    "expected_family_count": 16,
+    "self_edge_assignment_count": 158,
+    "self_edge_family_count": 13,
+    "strict_cycle_assignment_count": 26,
+    "strict_cycle_family_count": 3
+  },
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "interpretation": "A passed audit says the stored local packet records contain enough data to replay their local reflexive strict-edge or strict-cycle contradictions without the quotient-replay helper. It does not certify that the packet family list is complete for n=9.",
+  "method": "Packet-level replay from selected rows, stored equality paths, and stored cyclic interval strict inequalities; this module does not call the quotient-replay helper or enumerate assignments.",
+  "n": 9,
+  "provenance": {
+    "command": "python scripts/check_n9_vertex_circle_local_lemma_simple_replay.py --assert-expected --write",
+    "generator": "scripts/check_n9_vertex_circle_local_lemma_simple_replay.py"
+  },
+  "schema": "erdos97.n9_vertex_circle_local_lemma_simple_replay.v1",
+  "self_edge": {
+    "assignment_count": 158,
+    "family_count": 13,
+    "records": [
+      {
+        "assignment_count": 6,
+        "core_size": 3,
+        "family_id": "F09",
+        "obstruction_kind": "reflexive_strict_edge",
+        "orbit_size": 6,
+        "replayed_step_count": 3,
+        "template_id": "T01",
+        "template_key": "self_edge|rows=3|strict_edges=27|conflicts=3:1:0x1,3:1:1x1"
+      },
+      {
+        "assignment_count": 18,
+        "core_size": 3,
+        "family_id": "F01",
+        "obstruction_kind": "reflexive_strict_edge",
+        "orbit_size": 18,
+        "replayed_step_count": 3,
+        "template_id": "T02",
+        "template_key": "self_edge|rows=3|strict_edges=27|conflicts=3:1:1x1"
+      },
+      {
+        "assignment_count": 18,
+        "core_size": 3,
+        "family_id": "F04",
+        "obstruction_kind": "reflexive_strict_edge",
+        "orbit_size": 18,
+        "replayed_step_count": 3,
+        "template_id": "T02",
+        "template_key": "self_edge|rows=3|strict_edges=27|conflicts=3:1:1x1"
+      },
+      {
+        "assignment_count": 2,
+        "core_size": 3,
+        "family_id": "F08",
+        "obstruction_kind": "reflexive_strict_edge",
+        "orbit_size": 2,
+        "replayed_step_count": 3,
+        "template_id": "T02",
+        "template_key": "self_edge|rows=3|strict_edges=27|conflicts=3:1:1x1"
+      },
+      {
+        "assignment_count": 2,
+        "core_size": 3,
+        "family_id": "F14",
+        "obstruction_kind": "reflexive_strict_edge",
+        "orbit_size": 2,
+        "replayed_step_count": 3,
+        "template_id": "T02",
+        "template_key": "self_edge|rows=3|strict_edges=27|conflicts=3:1:1x1"
+      },
+      {
+        "assignment_count": 18,
+        "core_size": 4,
+        "family_id": "F05",
+        "obstruction_kind": "reflexive_strict_edge",
+        "orbit_size": 18,
+        "replayed_step_count": 3,
+        "template_id": "T03",
+        "template_key": "self_edge|rows=4|strict_edges=36|conflicts=2:1:1x1"
+      },
+      {
+        "assignment_count": 2,
+        "core_size": 4,
+        "family_id": "F15",
+        "obstruction_kind": "reflexive_strict_edge",
+        "orbit_size": 2,
+        "replayed_step_count": 3,
+        "template_id": "T03",
+        "template_key": "self_edge|rows=4|strict_edges=36|conflicts=2:1:1x1"
+      },
+      {
+        "assignment_count": 2,
+        "core_size": 4,
+        "family_id": "F13",
+        "obstruction_kind": "reflexive_strict_edge",
+        "orbit_size": 2,
+        "replayed_step_count": 3,
+        "template_id": "T04",
+        "template_key": "self_edge|rows=4|strict_edges=36|conflicts=2:1:1x2"
+      },
+      {
+        "assignment_count": 18,
+        "core_size": 4,
+        "family_id": "F10",
+        "obstruction_kind": "reflexive_strict_edge",
+        "orbit_size": 18,
+        "replayed_step_count": 3,
+        "template_id": "T05",
+        "template_key": "self_edge|rows=4|strict_edges=36|conflicts=3:1:0x1,3:1:1x1"
+      },
+      {
+        "assignment_count": 18,
+        "core_size": 5,
+        "family_id": "F11",
+        "obstruction_kind": "reflexive_strict_edge",
+        "orbit_size": 18,
+        "replayed_step_count": 4,
+        "template_id": "T06",
+        "template_key": "self_edge|rows=5|strict_edges=45|conflicts=2:1:1x1,3:1:0x1,3:1:1x1"
+      },
+      {
+        "assignment_count": 18,
+        "core_size": 5,
+        "family_id": "F06",
+        "obstruction_kind": "reflexive_strict_edge",
+        "orbit_size": 18,
+        "replayed_step_count": 4,
+        "template_id": "T07",
+        "template_key": "self_edge|rows=5|strict_edges=45|conflicts=2:1:1x3,3:1:0x1,3:1:1x1,3:2:1x1"
+      },
+      {
+        "assignment_count": 18,
+        "core_size": 6,
+        "family_id": "F02",
+        "obstruction_kind": "reflexive_strict_edge",
+        "orbit_size": 18,
+        "replayed_step_count": 5,
+        "template_id": "T08",
+        "template_key": "self_edge|rows=6|strict_edges=54|conflicts=2:1:1x4,3:1:0x2,3:1:1x2,3:2:1x1"
+      },
+      {
+        "assignment_count": 18,
+        "core_size": 6,
+        "family_id": "F03",
+        "obstruction_kind": "reflexive_strict_edge",
+        "orbit_size": 18,
+        "replayed_step_count": 6,
+        "template_id": "T09",
+        "template_key": "self_edge|rows=6|strict_edges=54|conflicts=2:1:1x5,3:1:0x2,3:1:1x4,3:2:1x2"
+      }
+    ]
+  },
+  "source_artifacts": [
+    {
+      "path": "data/certificates/n9_vertex_circle_self_edge_template_packet.json",
+      "role": "source self-edge template packet",
+      "schema": "erdos97.n9_vertex_circle_self_edge_template_packet.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/n9_vertex_circle_strict_cycle_template_packet.json",
+      "role": "source strict-cycle template packet",
+      "schema": "erdos97.n9_vertex_circle_strict_cycle_template_packet.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "REVIEW_PENDING_PACKET_AUDIT",
+  "strict_cycle": {
+    "assignment_count": 26,
+    "family_count": 3,
+    "records": [
+      {
+        "assignment_count": 18,
+        "core_size": 4,
+        "family_id": "F12",
+        "obstruction_kind": "directed_strict_cycle",
+        "orbit_size": 18,
+        "replayed_step_count": 2,
+        "template_id": "T10",
+        "template_key": "strict_cycle|rows=4|strict_edges=36|cycle=2|spans=2:1x2"
+      },
+      {
+        "assignment_count": 6,
+        "core_size": 4,
+        "family_id": "F07",
+        "obstruction_kind": "directed_strict_cycle",
+        "orbit_size": 6,
+        "replayed_step_count": 3,
+        "template_id": "T11",
+        "template_key": "strict_cycle|rows=4|strict_edges=36|cycle=3|spans=2:1x1,3:1x1,3:2x1"
+      },
+      {
+        "assignment_count": 2,
+        "core_size": 6,
+        "family_id": "F16",
+        "obstruction_kind": "directed_strict_cycle",
+        "orbit_size": 2,
+        "replayed_step_count": 3,
+        "template_id": "T12",
+        "template_key": "strict_cycle|rows=6|strict_edges=54|cycle=3|spans=3:1x3"
+      }
+    ]
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

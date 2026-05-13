@@ -246,6 +246,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_local_lemma_simple_replay",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_local_lemma_simple_replay.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Second-source packet-level audit for aggregate n=9 vertex-circle "
+            "local-lemma coverage; not a proof of n=9, counterexample, or "
+            "independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_t01_self_edge_lemma_packet",
         command=(
             "python",

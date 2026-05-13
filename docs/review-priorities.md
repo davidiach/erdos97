@@ -185,6 +185,9 @@ Next steps:
 - review the aggregate local-lemma scan after the T01/T02/T03/T04/T05/T06/T07/T08/T09
   self-edge and T10/T11/T12 strict-cycle integrations, keeping it scoped as proof-mining
   coverage of stored packets rather than an independent `n=9` proof;
+- use `data/certificates/n9_vertex_circle_local_lemma_simple_replay.json` to
+  replay the aggregate local-template coverage from stored packet JSON without
+  sharing the main quotient-replay helper;
 - test whether the same motifs appear in the P18 obstruction and fail in the
   recorded `C19_skew` vertex-circle-only survivor, which is now retired as a
   fixed abstract pattern by the separate Z3 Kalmanson certificate;

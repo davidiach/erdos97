@@ -431,9 +431,17 @@ python scripts/check_n9_vertex_circle_self_edge_template_packet.py --check --ass
 python scripts/check_n9_vertex_circle_strict_cycle_path_join.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_template_lemma_catalog.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_local_lemmas.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_local_lemma_simple_replay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_t04_self_edge_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_t05_self_edge_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_t06_self_edge_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_t07_self_edge_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_t08_self_edge_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_t09_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check --assert-expected --json
 python scripts/check_relation_skeleton_catalog.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py --check --assert-expected --json
