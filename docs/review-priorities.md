@@ -158,9 +158,9 @@ Next steps:
 - use `data/certificates/n9_vertex_circle_t03_self_edge_lemma_packet.json` to
   replay the focused review-pending T03 multi-family self-edge local lemma
   packet;
-- use `docs/n9-vertex-circle-t04-self-edge-lemma.md` to review the focused
-  T04/F13 four-row selected-path self-edge proof note against the aggregate
-  local-lemma scan;
+- use `data/certificates/n9_vertex_circle_t04_self_edge_lemma_packet.json` to
+  replay the focused review-pending T04/F13 four-row selected-path self-edge
+  proof note;
 - use `data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json`
   to replay the focused review-pending T10/F12 strict-cycle local lemma packet;
 - use `data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json`

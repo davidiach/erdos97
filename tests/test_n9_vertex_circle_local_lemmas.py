@@ -22,6 +22,7 @@ from scripts.check_n9_vertex_circle_local_lemmas import (
     DEFAULT_SELF_EDGE_PACKET,
     DEFAULT_STRICT_CYCLE_PACKET,
     DEFAULT_T03_PACKET,
+    DEFAULT_T04_PACKET,
     DEFAULT_T10_PACKET,
     DEFAULT_T11_PACKET,
     DEFAULT_T12_PACKET,
@@ -125,10 +126,10 @@ def test_local_lemma_scan_counts_and_scope(payload: dict[str, object]) -> None:
             "template_id": "T04",
             "family_ids": ["F13"],
             "proof_note_path": "docs/n9-vertex-circle-t04-self-edge-lemma.md",
-            "source_kind": "template_packet",
-            "packet_key": None,
+            "source_kind": "focused_packet",
+            "packet_key": "T04",
             "packet_path": (
-                "data/certificates/n9_vertex_circle_self_edge_template_packet.json"
+                "data/certificates/n9_vertex_circle_t04_self_edge_lemma_packet.json"
             ),
             "check_status": "checked",
             "families_checked": [
@@ -136,8 +137,9 @@ def test_local_lemma_scan_counts_and_scope(payload: dict[str, object]) -> None:
             ],
             "covered_assignment_count": 2,
             "interpretation": (
-                "The T04 proof note is backed directly by the self-edge template "
-                "packet; the aggregate scan matches that source family record."
+                "Aggregate scan instance matches the focused packet used by the "
+                "proof-facing note; this is a packet consistency check, not an "
+                "independent n=9 completeness proof."
             ),
         },
         {
@@ -464,6 +466,7 @@ def test_focused_packet_crosscheck_rejects_t03_row_drift() -> None:
             strict_cycle_packet,
             focused_packets={
                 "T03": t03_packet,
+                "T04": load_artifact(DEFAULT_T04_PACKET),
                 "T10": load_artifact(DEFAULT_T10_PACKET),
                 "T11": load_artifact(DEFAULT_T11_PACKET),
                 "T12": load_artifact(DEFAULT_T12_PACKET),
@@ -483,6 +486,7 @@ def test_focused_packet_crosscheck_rejects_t10_replay_status_drift() -> None:
             strict_cycle_packet,
             focused_packets={
                 "T03": load_artifact(DEFAULT_T03_PACKET),
+                "T04": load_artifact(DEFAULT_T04_PACKET),
                 "T10": t10_packet,
                 "T11": load_artifact(DEFAULT_T11_PACKET),
                 "T12": load_artifact(DEFAULT_T12_PACKET),

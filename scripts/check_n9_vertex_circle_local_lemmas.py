@@ -34,6 +34,9 @@ DEFAULT_STRICT_CYCLE_PACKET = (
 DEFAULT_T03_PACKET = (
     ROOT / "data" / "certificates" / "n9_vertex_circle_t03_self_edge_lemma_packet.json"
 )
+DEFAULT_T04_PACKET = (
+    ROOT / "data" / "certificates" / "n9_vertex_circle_t04_self_edge_lemma_packet.json"
+)
 DEFAULT_T10_PACKET = (
     ROOT / "data" / "certificates" / "n9_vertex_circle_t10_strict_cycle_lemma_packet.json"
 )
@@ -72,6 +75,7 @@ def scan_payload(
     self_edge_packet_path: Path = DEFAULT_SELF_EDGE_PACKET,
     strict_cycle_packet_path: Path = DEFAULT_STRICT_CYCLE_PACKET,
     t03_packet_path: Path = DEFAULT_T03_PACKET,
+    t04_packet_path: Path = DEFAULT_T04_PACKET,
     t10_packet_path: Path = DEFAULT_T10_PACKET,
     t11_packet_path: Path = DEFAULT_T11_PACKET,
     t12_packet_path: Path = DEFAULT_T12_PACKET,
@@ -83,6 +87,7 @@ def scan_payload(
         load_artifact(strict_cycle_packet_path),
         focused_packets={
             "T03": load_artifact(t03_packet_path),
+            "T04": load_artifact(t04_packet_path),
             "T10": load_artifact(t10_packet_path),
             "T11": load_artifact(t11_packet_path),
             "T12": load_artifact(t12_packet_path),
@@ -211,6 +216,12 @@ def main(argv: list[str] | None = None) -> int:
         help="Path to focused T10 strict-cycle lemma packet JSON.",
     )
     parser.add_argument(
+        "--t04-packet",
+        type=Path,
+        default=DEFAULT_T04_PACKET,
+        help="Path to focused T04 self-edge lemma packet JSON.",
+    )
+    parser.add_argument(
         "--t11-packet",
         type=Path,
         default=DEFAULT_T11_PACKET,
@@ -245,6 +256,7 @@ def main(argv: list[str] | None = None) -> int:
         self_edge_packet_path=_resolve(args.self_edge_packet),
         strict_cycle_packet_path=_resolve(args.strict_cycle_packet),
         t03_packet_path=_resolve(args.t03_packet),
+        t04_packet_path=_resolve(args.t04_packet),
         t10_packet_path=_resolve(args.t10_packet),
         t11_packet_path=_resolve(args.t11_packet),
         t12_packet_path=_resolve(args.t12_packet),

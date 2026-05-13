@@ -135,12 +135,12 @@
       "family_ids": [
         "F13"
       ],
-      "interpretation": "The T04 proof note is backed directly by the self-edge template packet; the aggregate scan matches that source family record.",
+      "interpretation": "Aggregate scan instance matches the focused packet used by the proof-facing note; this is a packet consistency check, not an independent n=9 completeness proof.",
       "lemma_id": "t04_selected_path_self_edge",
-      "packet_key": null,
-      "packet_path": "data/certificates/n9_vertex_circle_self_edge_template_packet.json",
+      "packet_key": "T04",
+      "packet_path": "data/certificates/n9_vertex_circle_t04_self_edge_lemma_packet.json",
       "proof_note_path": "docs/n9-vertex-circle-t04-self-edge-lemma.md",
-      "source_kind": "template_packet",
+      "source_kind": "focused_packet",
       "template_id": "T04"
     },
     {
