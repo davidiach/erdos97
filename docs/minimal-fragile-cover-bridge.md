@@ -406,6 +406,20 @@ gap is still all full extensions across all compatible cyclic orders, or a
 genuine minimal/rich-class geometric reduction that avoids fixing one selected
 row at each center too early.
 
+A bounded crossing-order sample begins to probe that gap without changing the
+claim scope:
+
+```bash
+python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --assert-expected --json
+```
+
+It takes the first `100` deterministic terminal full extensions from the
+natural-order block-6 audit, enumerates all crossing-compatible cyclic orders
+for each, and classifies the resulting `440` orders by the vertex-circle
+quotient filter. Every sampled crossing order is killed by a self-edge. This
+is still only a deterministic sample and not an all-extension, all-order
+obstruction.
+
 ## What This Does Not Prove
 
 The bridge is necessary, not sufficient. The checked block-6 family passes the
