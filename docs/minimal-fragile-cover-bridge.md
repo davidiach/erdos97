@@ -385,6 +385,27 @@ Euclidean realization certificate, not a counterexample, and not an
 obstruction for or against other full-row extensions of the two-block fragile
 rows.
 
+A compact crosswalk now keeps these fixed-survivor and all-extension layers in
+one checked place:
+
+```bash
+python scripts/check_block6_fragile_filter_crosswalk.py --assert-expected --json
+```
+
+The crosswalk verifies that the shared fixed survivor is exactly the third
+row-Ptolemy full-extension survivor; it has no row-Ptolemy
+product-cancellation certificate, has a positive quotient-Ptolemy assignment,
+passes fixed-order radius propagation, is killed by a natural-order
+vertex-circle self-edge, and is killed across all four crossing-compatible
+orders by Kalmanson certificates. The same payload also points to the older
+natural-order all-extension vertex-circle audit, where the pruned search closes
+with zero clean full extensions.
+
+This is bookkeeping, not a new global obstruction. The remaining block-6 bridge
+gap is still all full extensions across all compatible cyclic orders, or a
+genuine minimal/rich-class geometric reduction that avoids fixing one selected
+row at each center too early.
+
 ## What This Does Not Prove
 
 The bridge is necessary, not sufficient. The checked block-6 family passes the

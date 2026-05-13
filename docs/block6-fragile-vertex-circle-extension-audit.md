@@ -140,3 +140,18 @@ obstructions in the natural cyclic order, the two-block family closes.
 The next bridge target should test whether this closure is special to the
 block-6 construction or reflects a broader principle for fragile-cover
 extensions.
+
+## Crosswalk
+
+The fixed full-row survivor used by the row-Ptolemy, radius-propagation, and
+Kalmanson diagnostics is one terminal extension inside this natural-order
+audit. Reproduce the current filter-layer crosswalk with:
+
+```bash
+python scripts/check_block6_fragile_filter_crosswalk.py --assert-expected --json
+```
+
+That script records the exact quantifier split: natural-order vertex-circle
+closes all full extensions for this block-6 benchmark, while Kalmanson closes
+only the named fixed survivor across its four crossing-compatible cyclic
+orders. It does not claim an all-extension, all-order obstruction.
