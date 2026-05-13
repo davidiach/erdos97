@@ -507,6 +507,7 @@ The aggregate checker also cross-checks the proof-facing focused notes that
 have already been extracted from the packet catalog:
 
 ```text
+T01/F09 -> docs/n9-vertex-circle-t01-self-edge-lemma.md
 T02/F01,F04,F08,F14 -> docs/n9-vertex-circle-t02-self-edge-lemma.md
 T03/F05,F15 -> docs/n9-vertex-circle-t03-self-edge-lemma.md
 T04/F13     -> docs/n9-vertex-circle-t04-self-edge-lemma.md
@@ -515,9 +516,10 @@ T11/F07     -> docs/n9-vertex-circle-t11-strict-cycle-lemma.md
 T12/F16     -> docs/n9-vertex-circle-t12-strict-cycle-lemma.md
 ```
 
-For T02, T03, T04, T10, T11, and T12 the scan loads the focused JSON packets and
-checks that the aggregate family rows, strict inequalities, equality paths,
-cycle steps, and assignment counts match the focused packet used by the note.
+For T01, T02, T03, T04, T10, T11, and T12 the scan loads the focused JSON
+packets and checks that the aggregate family rows, strict inequalities,
+equality paths, cycle steps, and assignment counts match the focused packet
+used by the note.
 
 This crosscheck is intentionally modest. It says the aggregate proof-mining
 summary agrees with the focused proof-note packets and source template record.
