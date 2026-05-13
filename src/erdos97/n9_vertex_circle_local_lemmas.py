@@ -109,6 +109,19 @@ EXPECTED_FOCUSED_NOTE_CROSSCHECK = (
         ),
     },
     {
+        "lemma_id": NESTED_SPOKE_LEMMA,
+        "template_id": "T06",
+        "family_ids": ["F11"],
+        "proof_note_path": "docs/n9-vertex-circle-t06-self-edge-lemma.md",
+        "source_kind": "focused_packet",
+        "crosscheck_mode": "alternate_self_edge_certificate",
+        "aggregate_outer_pair_match_required": False,
+        "packet_key": "T06",
+        "packet_path": (
+            "data/certificates/n9_vertex_circle_t06_self_edge_lemma_packet.json"
+        ),
+    },
+    {
         "lemma_id": SHARED_ENDPOINT_LEMMA,
         "template_id": "T02",
         "family_ids": ["F01", "F04", "F08", "F14"],
@@ -474,6 +487,9 @@ def _check_focused_packet(
                 family_id,
                 aggregate,
                 packet,
+                require_aggregate_outer_match=bool(
+                    expected.get("aggregate_outer_pair_match_required", True)
+                ),
             )
         elif lemma_id in {
             SHARED_ENDPOINT_LEMMA,
@@ -495,7 +511,12 @@ def _check_focused_packet(
         "families_checked": checked,
         "covered_assignment_count": sum(item["assignment_count"] for item in checked),
         "interpretation": (
-            _focused_packet_interpretation(crosscheck_mode)
+            _focused_packet_interpretation(
+                crosscheck_mode,
+                require_aggregate_outer_match=bool(
+                    expected.get("aggregate_outer_pair_match_required", True)
+                ),
+            )
         ),
     }
 
@@ -618,6 +639,8 @@ def _assert_alternate_self_edge_certificate_match(
     family_id: str,
     aggregate: Mapping[str, Any],
     packet: Mapping[str, Any],
+    *,
+    require_aggregate_outer_match: bool,
 ) -> None:
     aggregate_strict = aggregate.get("strict_inequality")
     packet_strict = packet.get("strict_inequality")
@@ -635,10 +658,11 @@ def _assert_alternate_self_edge_certificate_match(
     if packet_strict.get("inner_pair") != equality.get("end_pair"):
         raise AssertionError(f"{family_id} focused strict/equality end mismatch")
     _assert_packet_equality_path(family_id, packet, equality)
-    if aggregate_strict.get("outer_pair") != packet_strict.get("outer_pair"):
-        raise AssertionError(f"{family_id} alternate certificate outer-pair mismatch")
-    if aggregate.get("distance_equality", {}).get("start_pair") != equality.get("start_pair"):
-        raise AssertionError(f"{family_id} alternate certificate equality-start mismatch")
+    if require_aggregate_outer_match:
+        if aggregate_strict.get("outer_pair") != packet_strict.get("outer_pair"):
+            raise AssertionError(f"{family_id} alternate certificate outer-pair mismatch")
+        if aggregate.get("distance_equality", {}).get("start_pair") != equality.get("start_pair"):
+            raise AssertionError(f"{family_id} alternate certificate equality-start mismatch")
 
     replay = packet.get("replay")
     if not isinstance(replay, Mapping) or replay.get("status") != "self_edge":
@@ -658,8 +682,8 @@ def _assert_alternate_self_edge_certificate_match(
     ):
         if primary.get(key) != packet_strict.get(key):
             raise AssertionError(f"{family_id} focused packet primary conflict mismatch")
-    if template_id not in {"T01", "T05"}:
-        raise AssertionError("alternate self-edge certificate mode is currently T01/T05-only")
+    if template_id not in {"T01", "T05", "T06"}:
+        raise AssertionError("alternate self-edge certificate mode is currently T01/T05/T06-only")
 
 
 def _assert_packet_equality_path(
@@ -700,8 +724,22 @@ def _assert_packet_equality_path(
         raise AssertionError(f"{family_id} focused packet equality path end mismatch")
 
 
-def _focused_packet_interpretation(crosscheck_mode: str) -> str:
+def _focused_packet_interpretation(
+    crosscheck_mode: str,
+    *,
+    require_aggregate_outer_match: bool,
+) -> str:
     if crosscheck_mode == "alternate_self_edge_certificate":
+        if not require_aggregate_outer_match:
+            return (
+                "Aggregate scan family rows match the focused packet, and the "
+                "focused packet supplies a valid alternate reflexive self-edge "
+                "certificate for the same family. The proof-facing strict edge "
+                "and equality path are checked inside the focused packet; they "
+                "are not required to share the aggregate nested-spoke strict "
+                "edge endpoint. This remains a packet consistency check, not "
+                "an independent n=9 completeness proof."
+            )
         return (
             "Aggregate scan family rows match the focused packet, and the "
             "focused packet supplies a valid alternate reflexive self-edge "
