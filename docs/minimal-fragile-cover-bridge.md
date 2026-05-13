@@ -351,6 +351,23 @@ This is still a local obstruction only: it does not show that every
 full-row extension of the two-block fragile rows has such a certificate, and
 it does not rule out minimal counterexamples.
 
+The same fixed survivor also passes the critical-radius propagation filter:
+
+```bash
+python scripts/check_block6_survivor_radius_propagation.py --assert-pass --json
+```
+
+There are `531441` formal choices of one short witness gap per row in the
+natural cyclic order. The replay uses the standard early-exit search and finds
+one acyclic choice after `13` nodes. This is a useful negative result for the
+critical-radius route: selected-distance quotienting, row-Ptolemy feasibility,
+and fixed-order radius-propagation all remain compatible for this survivor.
+The later Kalmanson certificate is genuinely stronger for this fixed order.
+This pass is not an exhaustive listing of radius-propagation choices, not a
+Euclidean realization certificate, not a counterexample, and not an
+obstruction for or against other full-row extensions of the two-block fragile
+rows.
+
 ## What This Does Not Prove
 
 The bridge is necessary, not sufficient. The checked block-6 family passes the
