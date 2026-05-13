@@ -1,0 +1,5348 @@
+{
+  "candidate_generation": {
+    "center_3_connector_avoiding_classes": [
+      {
+        "activation_triple": [
+          0,
+          4,
+          6
+        ],
+        "fourth": 2,
+        "rich_class": [
+          0,
+          2,
+          4,
+          6
+        ]
+      },
+      {
+        "activation_triple": [
+          0,
+          4,
+          6
+        ],
+        "fourth": 5,
+        "rich_class": [
+          0,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "activation_triple": [
+          0,
+          4,
+          6
+        ],
+        "fourth": 7,
+        "rich_class": [
+          0,
+          4,
+          6,
+          7
+        ]
+      },
+      {
+        "activation_triple": [
+          0,
+          4,
+          6
+        ],
+        "fourth": 8,
+        "rich_class": [
+          0,
+          4,
+          6,
+          8
+        ]
+      },
+      {
+        "activation_triple": [
+          1,
+          4,
+          6
+        ],
+        "fourth": 2,
+        "rich_class": [
+          1,
+          2,
+          4,
+          6
+        ]
+      },
+      {
+        "activation_triple": [
+          1,
+          4,
+          6
+        ],
+        "fourth": 5,
+        "rich_class": [
+          1,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "activation_triple": [
+          1,
+          4,
+          6
+        ],
+        "fourth": 7,
+        "rich_class": [
+          1,
+          4,
+          6,
+          7
+        ]
+      },
+      {
+        "activation_triple": [
+          1,
+          4,
+          6
+        ],
+        "fourth": 8,
+        "rich_class": [
+          1,
+          4,
+          6,
+          8
+        ]
+      }
+    ],
+    "center_6_supply_classes": [
+      [
+        0,
+        1,
+        2,
+        4
+      ],
+      [
+        0,
+        1,
+        3,
+        4
+      ],
+      [
+        0,
+        1,
+        4,
+        5
+      ],
+      [
+        0,
+        1,
+        4,
+        7
+      ],
+      [
+        0,
+        1,
+        4,
+        8
+      ]
+    ]
+  },
+  "candidates": [
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            6
+          ],
+          "witness_chord": [
+            2,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            2,
+            6
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            2
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            6
+          ],
+          "intersection": [
+            0,
+            2,
+            4
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            3,
+            8
+          ],
+          "intersection": [
+            0,
+            2,
+            6
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "supply_fourth": 2,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "target_center_fourth": 2,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            8
+          ],
+          "pair": [
+            0,
+            2
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            3,
+            6
+          ],
+          "pair": [
+            2,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            5,
+            8
+          ],
+          "pair": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            6
+          ],
+          "witness_chord": [
+            2,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            2,
+            3
+          ],
+          "witness_chord": [
+            0,
+            5
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            7
+          ],
+          "witness_chord": [
+            4,
+            5
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            2
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            8
+          ],
+          "intersection": [
+            0,
+            5,
+            6
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "supply_fourth": 2,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "target_center_fourth": 5,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            2,
+            3,
+            8
+          ],
+          "pair": [
+            0,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            3
+          ],
+          "witness_chord": [
+            6,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            1,
+            6
+          ],
+          "witness_chord": [
+            2,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            2
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "crossing",
+      "rejection_reasons": [
+        "crossing"
+      ],
+      "row_pair_cap_violations": [],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "supply_fourth": 2,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "target_center_fourth": 7,
+      "witness_pair_cap_violations": []
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            1,
+            6
+          ],
+          "witness_chord": [
+            2,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            2,
+            3
+          ],
+          "witness_chord": [
+            0,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            6,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            2
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "witness_pair+crossing",
+      "rejection_reasons": [
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "supply_fourth": 2,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        6,
+        8
+      ],
+      "target_center_fourth": 8,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            3,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            6
+          ],
+          "witness_chord": [
+            2,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            2,
+            6
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            2
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            6
+          ],
+          "intersection": [
+            1,
+            2,
+            4
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "supply_fourth": 2,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        2,
+        4,
+        6
+      ],
+      "target_center_fourth": 2,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            4,
+            6
+          ],
+          "pair": [
+            1,
+            2
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            3,
+            6
+          ],
+          "pair": [
+            2,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            5,
+            8
+          ],
+          "pair": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            6
+          ],
+          "witness_chord": [
+            2,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            5
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            8
+          ],
+          "witness_chord": [
+            5,
+            6
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            2
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "supply_fourth": 2,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "target_center_fourth": 5,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            4,
+            7
+          ],
+          "pair": [
+            1,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            1,
+            6
+          ],
+          "witness_chord": [
+            2,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            2
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            0,
+            3
+          ],
+          "intersection": [
+            1,
+            6,
+            7
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "supply_fourth": 2,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        6,
+        7
+      ],
+      "target_center_fourth": 7,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            0,
+            3,
+            4
+          ],
+          "pair": [
+            1,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            1,
+            6
+          ],
+          "witness_chord": [
+            2,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            6,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            2
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "supply_fourth": 2,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        6,
+        8
+      ],
+      "target_center_fourth": 8,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            3,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            6
+          ],
+          "witness_chord": [
+            1,
+            3
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            2,
+            6
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            8
+          ],
+          "intersection": [
+            0,
+            2,
+            6
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "supply_fourth": 3,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "target_center_fourth": 2,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            5,
+            8
+          ],
+          "pair": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            6
+          ],
+          "witness_chord": [
+            1,
+            3
+          ]
+        },
+        {
+          "source_chord": [
+            2,
+            3
+          ],
+          "witness_chord": [
+            0,
+            5
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            7
+          ],
+          "witness_chord": [
+            4,
+            5
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            8
+          ],
+          "intersection": [
+            0,
+            5,
+            6
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "supply_fourth": 3,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "target_center_fourth": 5,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            2,
+            3,
+            8
+          ],
+          "pair": [
+            0,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            3
+          ],
+          "witness_chord": [
+            6,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            0,
+            6
+          ],
+          "witness_chord": [
+            1,
+            3
+          ]
+        },
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "crossing",
+      "rejection_reasons": [
+        "crossing"
+      ],
+      "row_pair_cap_violations": [],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "supply_fourth": 3,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "target_center_fourth": 7,
+      "witness_pair_cap_violations": []
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            6
+          ],
+          "witness_chord": [
+            1,
+            3
+          ]
+        },
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            2,
+            3
+          ],
+          "witness_chord": [
+            0,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            6,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "witness_pair+crossing",
+      "rejection_reasons": [
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "supply_fourth": 3,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        6,
+        8
+      ],
+      "target_center_fourth": 8,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            3,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            6
+          ],
+          "witness_chord": [
+            1,
+            3
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            2,
+            6
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "witness_pair+crossing",
+      "rejection_reasons": [
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "supply_fourth": 3,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        2,
+        4,
+        6
+      ],
+      "target_center_fourth": 2,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            5,
+            8
+          ],
+          "pair": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            6
+          ],
+          "witness_chord": [
+            1,
+            3
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            5
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            8
+          ],
+          "witness_chord": [
+            5,
+            6
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "supply_fourth": 3,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "target_center_fourth": 5,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            4,
+            7
+          ],
+          "pair": [
+            1,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            6
+          ],
+          "witness_chord": [
+            1,
+            3
+          ]
+        },
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            0,
+            3
+          ],
+          "intersection": [
+            1,
+            6,
+            7
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "supply_fourth": 3,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        6,
+        7
+      ],
+      "target_center_fourth": 7,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            0,
+            3,
+            4
+          ],
+          "pair": [
+            1,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            6
+          ],
+          "witness_chord": [
+            1,
+            3
+          ]
+        },
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            6,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "supply_fourth": 3,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        6,
+        8
+      ],
+      "target_center_fourth": 8,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            3,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            2,
+            6
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            5
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            8
+          ],
+          "intersection": [
+            0,
+            2,
+            6
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "supply_fourth": 5,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "target_center_fourth": 2,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            2,
+            6,
+            8
+          ],
+          "pair": [
+            0,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            4,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            5,
+            8
+          ],
+          "pair": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            2,
+            3
+          ],
+          "witness_chord": [
+            0,
+            5
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            7
+          ],
+          "witness_chord": [
+            4,
+            5
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            5
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            6
+          ],
+          "intersection": [
+            0,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            3,
+            8
+          ],
+          "intersection": [
+            0,
+            5,
+            6
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "supply_fourth": 5,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "target_center_fourth": 5,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 4,
+          "centers": [
+            2,
+            3,
+            6,
+            8
+          ],
+          "pair": [
+            0,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            4,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            3
+          ],
+          "witness_chord": [
+            6,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            5
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "supply_fourth": 5,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "target_center_fourth": 7,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            2,
+            6,
+            8
+          ],
+          "pair": [
+            0,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            4,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            2,
+            3
+          ],
+          "witness_chord": [
+            0,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            6,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            5
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "supply_fourth": 5,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        6,
+        8
+      ],
+      "target_center_fourth": 8,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            2,
+            6,
+            8
+          ],
+          "pair": [
+            0,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            4,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            3,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            2,
+            6
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            5
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "supply_fourth": 5,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        2,
+        4,
+        6
+      ],
+      "target_center_fourth": 2,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            2,
+            6,
+            8
+          ],
+          "pair": [
+            0,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            4,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            5,
+            8
+          ],
+          "pair": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            5
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            8
+          ],
+          "witness_chord": [
+            5,
+            6
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            5
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            6
+          ],
+          "intersection": [
+            1,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            3,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "supply_fourth": 5,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "target_center_fourth": 5,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            2,
+            6,
+            8
+          ],
+          "pair": [
+            0,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 4,
+          "centers": [
+            3,
+            4,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            5
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            0,
+            3
+          ],
+          "intersection": [
+            1,
+            6,
+            7
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "supply_fourth": 5,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        6,
+        7
+      ],
+      "target_center_fourth": 7,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            2,
+            6,
+            8
+          ],
+          "pair": [
+            0,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            4,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            0,
+            3,
+            4
+          ],
+          "pair": [
+            1,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            6,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            8
+          ],
+          "witness_chord": [
+            0,
+            5
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "supply_fourth": 5,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        6,
+        8
+      ],
+      "target_center_fourth": 8,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            2,
+            6,
+            8
+          ],
+          "pair": [
+            0,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            4,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            3,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            2,
+            6
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            8
+          ],
+          "intersection": [
+            0,
+            2,
+            6
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        7
+      ],
+      "supply_fourth": 7,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "target_center_fourth": 2,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            0,
+            4,
+            6
+          ],
+          "pair": [
+            1,
+            7
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            5,
+            8
+          ],
+          "pair": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            2,
+            3
+          ],
+          "witness_chord": [
+            0,
+            5
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            7
+          ],
+          "witness_chord": [
+            4,
+            5
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            8
+          ],
+          "intersection": [
+            0,
+            5,
+            6
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        7
+      ],
+      "supply_fourth": 7,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "target_center_fourth": 5,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            2,
+            3,
+            8
+          ],
+          "pair": [
+            0,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            0,
+            4,
+            6
+          ],
+          "pair": [
+            1,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            3
+          ],
+          "witness_chord": [
+            6,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            6
+          ],
+          "intersection": [
+            0,
+            4,
+            7
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        7
+      ],
+      "supply_fourth": 7,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "target_center_fourth": 7,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            0,
+            4,
+            6
+          ],
+          "pair": [
+            1,
+            7
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            3,
+            6
+          ],
+          "pair": [
+            4,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            2,
+            3
+          ],
+          "witness_chord": [
+            0,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            6,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "witness_pair+crossing",
+      "rejection_reasons": [
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        7
+      ],
+      "supply_fourth": 7,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        6,
+        8
+      ],
+      "target_center_fourth": 8,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            0,
+            4,
+            6
+          ],
+          "pair": [
+            1,
+            7
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            3,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            2,
+            6
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "witness_pair+crossing",
+      "rejection_reasons": [
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        7
+      ],
+      "supply_fourth": 7,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        2,
+        4,
+        6
+      ],
+      "target_center_fourth": 2,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            0,
+            4,
+            6
+          ],
+          "pair": [
+            1,
+            7
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            5,
+            8
+          ],
+          "pair": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            5
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            8
+          ],
+          "witness_chord": [
+            5,
+            6
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        7
+      ],
+      "supply_fourth": 7,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "target_center_fourth": 5,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            4,
+            7
+          ],
+          "pair": [
+            1,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            0,
+            4,
+            6
+          ],
+          "pair": [
+            1,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            0,
+            3
+          ],
+          "intersection": [
+            1,
+            6,
+            7
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            3,
+            6
+          ],
+          "intersection": [
+            1,
+            4,
+            7
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        7
+      ],
+      "supply_fourth": 7,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        6,
+        7
+      ],
+      "target_center_fourth": 7,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 4,
+          "centers": [
+            0,
+            3,
+            4,
+            6
+          ],
+          "pair": [
+            1,
+            7
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            3,
+            6
+          ],
+          "pair": [
+            4,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            6,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            4,
+            6
+          ],
+          "witness_chord": [
+            1,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            6,
+            7
+          ],
+          "witness_chord": [
+            1,
+            4
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        7
+      ],
+      "supply_fourth": 7,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        6,
+        8
+      ],
+      "target_center_fourth": 8,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            0,
+            4,
+            6
+          ],
+          "pair": [
+            1,
+            7
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            3,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            2,
+            6
+          ],
+          "witness_chord": [
+            0,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            2,
+            6
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            8
+          ],
+          "intersection": [
+            0,
+            2,
+            6
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        8
+      ],
+      "supply_fourth": 8,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "target_center_fourth": 2,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            5,
+            8
+          ],
+          "pair": [
+            2,
+            6
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            6,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            2,
+            3
+          ],
+          "witness_chord": [
+            0,
+            5
+          ]
+        },
+        {
+          "source_chord": [
+            2,
+            6
+          ],
+          "witness_chord": [
+            0,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            7
+          ],
+          "witness_chord": [
+            4,
+            5
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            8
+          ],
+          "intersection": [
+            0,
+            5,
+            6
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        8
+      ],
+      "supply_fourth": 8,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "target_center_fourth": 5,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            2,
+            3,
+            8
+          ],
+          "pair": [
+            0,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            6,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            0,
+            3
+          ],
+          "witness_chord": [
+            6,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            2,
+            6
+          ],
+          "witness_chord": [
+            0,
+            8
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        8
+      ],
+      "supply_fourth": 8,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "target_center_fourth": 7,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            6,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            2,
+            3
+          ],
+          "witness_chord": [
+            0,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            2,
+            6
+          ],
+          "witness_chord": [
+            0,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            6,
+            8
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            6
+          ],
+          "intersection": [
+            0,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        8
+      ],
+      "supply_fourth": 8,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        0,
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        4,
+        6,
+        8
+      ],
+      "target_center_fourth": 8,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            2,
+            3,
+            6
+          ],
+          "pair": [
+            0,
+            8
+          ]
+        },
+        {
+          "center_count": 4,
+          "centers": [
+            1,
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            2,
+            6
+          ],
+          "witness_chord": [
+            0,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            2,
+            6
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        8
+      ],
+      "supply_fourth": 8,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        2,
+        4,
+        6
+      ],
+      "target_center_fourth": 2,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            5,
+            8
+          ],
+          "pair": [
+            2,
+            6
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            6,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            2,
+            6
+          ],
+          "witness_chord": [
+            0,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            5
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            8
+          ],
+          "witness_chord": [
+            5,
+            6
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            5
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        8
+      ],
+      "supply_fourth": 8,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "target_center_fourth": 5,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            4,
+            7
+          ],
+          "pair": [
+            1,
+            5
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            6,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            7
+          ]
+        },
+        {
+          "source_chord": [
+            2,
+            6
+          ],
+          "witness_chord": [
+            0,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            4
+          ],
+          "witness_chord": [
+            1,
+            7
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            0,
+            3
+          ],
+          "intersection": [
+            1,
+            6,
+            7
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        8
+      ],
+      "supply_fourth": 8,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        6,
+        7
+      ],
+      "target_center_fourth": 7,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            0,
+            3,
+            4
+          ],
+          "pair": [
+            1,
+            7
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            1,
+            6,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "crossing_violations": [
+        {
+          "source_chord": [
+            1,
+            3
+          ],
+          "witness_chord": [
+            4,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            2,
+            6
+          ],
+          "witness_chord": [
+            0,
+            8
+          ]
+        },
+        {
+          "source_chord": [
+            3,
+            5
+          ],
+          "witness_chord": [
+            6,
+            8
+          ]
+        }
+      ],
+      "passes_basic_incidence_crossing_filters": false,
+      "preserved_row_centers": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "rejection_category": "row_pair+witness_pair+crossing",
+      "rejection_reasons": [
+        "row_pair",
+        "witness_pair",
+        "crossing"
+      ],
+      "row_pair_cap_violations": [
+        {
+          "centers": [
+            3,
+            6
+          ],
+          "intersection": [
+            1,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            3,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        },
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            8
+          ],
+          "intersection_size": 3
+        }
+      ],
+      "supply_center": 6,
+      "supply_class": [
+        0,
+        1,
+        4,
+        8
+      ],
+      "supply_fourth": 8,
+      "target_center": 3,
+      "target_center_activation_triple": [
+        1,
+        4,
+        6
+      ],
+      "target_center_class": [
+        1,
+        4,
+        6,
+        8
+      ],
+      "target_center_fourth": 8,
+      "witness_pair_cap_violations": [
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            4
+          ]
+        },
+        {
+          "center_count": 3,
+          "centers": [
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            1,
+            8
+          ]
+        },
+        {
+          "center_count": 4,
+          "centers": [
+            1,
+            3,
+            6,
+            7
+          ],
+          "pair": [
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  ],
+  "claim_scope": "Relaxed 81:3 escape-candidate scan preserving the seven source-81 rows outside centers 3 and 6. It enumerates the 40 basic ways to supply label 6 before center 3 and then activate center 3 through a connector-avoiding triple; all fail row-pair, witness-pair, or crossing filters. This is not a proof of genuine rich-class order, not a proof of row forcing, not a proof of n=9, not a proof of the bridge, and not a counterexample.",
+  "interpretation_warnings": [
+    "This scan preserves only the seven source-81 rows outside centers 3 and 6.",
+    "Rows 3 and 6 are replaced by one candidate rich class each.",
+    "The scan uses incidence and crossing filters only, not Euclidean realizability.",
+    "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
+  ],
+  "preserved_source_rows": {
+    "0": [
+      1,
+      3,
+      6,
+      7
+    ],
+    "1": [
+      2,
+      4,
+      7,
+      8
+    ],
+    "2": [
+      0,
+      3,
+      5,
+      8
+    ],
+    "4": [
+      1,
+      2,
+      5,
+      7
+    ],
+    "5": [
+      2,
+      3,
+      6,
+      8
+    ],
+    "7": [
+      1,
+      4,
+      5,
+      8
+    ],
+    "8": [
+      0,
+      2,
+      5,
+      6
+    ]
+  },
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_81_3_escape_candidates.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_81_3_escape_candidates.py"
+  },
+  "schema": "erdos97.bootstrap_t12_81_3_escape_candidates.v1",
+  "source_order_escape": {
+    "genuine_escape_status": "GENUINE_RICH_CLASS_PRE_3_LABEL_6_SUPPLY_OPEN",
+    "path": "data/certificates/bootstrap_t12_81_3_order_escape.json",
+    "schema": "erdos97.bootstrap_t12_81_3_order_escape.v1",
+    "status": "BOOTSTRAP_T12_81_3_ORDER_ESCAPE_DIAGNOSTIC_ONLY"
+  },
+  "status": "BOOTSTRAP_T12_81_3_ESCAPE_CANDIDATE_SCAN_DIAGNOSTIC_ONLY",
+  "summary": {
+    "candidate_count": 40,
+    "center_3_connector_avoiding_class_count": 8,
+    "center_6_supply_class_count": 5,
+    "connector_pair": [
+      0,
+      1
+    ],
+    "cyclic_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "deletion_seed": [
+      0,
+      1,
+      4
+    ],
+    "preserved_row_centers": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      7,
+      8
+    ],
+    "rejection_category_counts": {
+      "crossing": 2,
+      "row_pair+witness_pair+crossing": 33,
+      "witness_pair+crossing": 5
+    },
+    "remaining_gap": "This does not rule out escape mechanisms that fail to preserve the other source-81 rows, use richer catalogues than one replacement class at centers 3 and 6, or require additional minimal/rich-class hypotheses.",
+    "replaced_row_centers": [
+      3,
+      6
+    ],
+    "scan_status": "NO_BASIC_FILTER_SURVIVORS_UNDER_SOURCE81_OTHER_ROWS_PRESERVED",
+    "source_record_ids": [
+      81
+    ],
+    "supply_center": 6,
+    "surviving_candidate_count": 0,
+    "target_center": 3,
+    "target_row_key": "81:3"
+  },
+  "survivors": [],
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

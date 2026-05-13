@@ -566,6 +566,15 @@ class, then no additional center-`6` class can contain the seed triple
 `[0,1,4]`. This is still a fixed-row-preservation diagnostic only, not a
 theorem about all genuine rich-class catalogues.
 
+The relaxed `81:3` escape-candidate scan in
+`docs/bootstrap-t12-81-3-escape-candidates.md` drops preservation of the
+center-`3` and center-`6` rows while preserving the other seven source-`81`
+rows. It enumerates all `40` one-class replacement candidates for pre-`3`
+label-`6` supply followed by connector-avoiding center-`3` activation, and all
+fail basic row-pair, witness-pair, or crossing filters. This is still a
+fixed-row-neighborhood diagnostic only, not a theorem about all genuine
+rich-class catalogues.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

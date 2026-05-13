@@ -270,11 +270,24 @@ The order-resolved `81:3` fixed-row escape audit checks the current
 singleton-rich closure order for that same seed. In the fixed selected-row
 model, `[0,1,4]` enables only center `3`, with trigger `[0,1,4]`; label `6`
 enters later through center `6` with trigger `[0,3,4]`, depending on center
-`3`. Thus the fixed packet does not realize the connector-avoiding escape.
-This is still diagnostic bookkeeping only, not a proof about genuine rich
-classes; see `docs/bootstrap-t12-81-3-order-escape.md`,
+`3`. Thus the fixed packet does not realize the connector-avoiding escape. It
+also records that, if the source-`81` center-`6` row `[0,3,4,7]` is preserved
+as genuine, same-center disjointness blocks any additional center-`6` class
+from containing the seed triple `[0,1,4]`. This is still diagnostic
+bookkeeping only, not a proof about genuine rich classes; see
+`docs/bootstrap-t12-81-3-order-escape.md`,
 `scripts/check_bootstrap_t12_81_3_order_escape.py`, and
 `data/certificates/bootstrap_t12_81_3_order_escape.json`.
+
+The relaxed `81:3` escape-candidate scan then drops preservation of the
+source-`81` center-`3` and center-`6` rows while preserving the other seven
+rows. It enumerates the `40` one-class replacement candidates for pre-`3`
+label-`6` supply followed by connector-avoiding center-`3` activation. All
+`40` fail the basic row-pair, witness-pair, or crossing filters. This remains
+a fixed-row-neighborhood diagnostic only, not a proof of `n=9` or the
+bootstrap bridge; see `docs/bootstrap-t12-81-3-escape-candidates.md`,
+`scripts/check_bootstrap_t12_81_3_escape_candidates.py`, and
+`data/certificates/bootstrap_t12_81_3_escape_candidates.json`.
 
 ### Fixed-pattern exact obstructions
 

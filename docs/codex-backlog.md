@@ -89,6 +89,13 @@ Use this queue when no more specific issue is selected.
    pre-`3` rich-class supply of label `6` that avoids the connector without
    preserving that center-`6` row, or prove no such supply can satisfy the
    minimal/rich-class hypotheses.
+   The relaxed escape-candidate scan in
+   `docs/bootstrap-t12-81-3-escape-candidates.md` now drops preservation of
+   the source-`81` center-`3` and center-`6` rows while preserving the other
+   seven rows. All `40` one-class replacement candidates fail the basic
+   incidence/crossing filters. The next useful PR must either relax the
+   preservation of those seven rows or introduce an additional genuine
+   rich-class/minimality hypothesis that justifies preserving enough of them.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
