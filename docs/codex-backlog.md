@@ -107,10 +107,14 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-81-3-escape-full-neighborhood.md` now lets all seven of
    those rows move simultaneously and proves no complete basic-filter
    assignment exists in the implicit `329417200000000`-assignment space. The
-   next useful PR must therefore either introduce a stronger genuine
-   rich-class/minimality hypothesis that justifies the one-class replacement
-   spaces at centers `3` and `6`, allow richer multi-class catalogues at those
-   centers, or move to a different bridge target.
+   auxiliary-rich-class CSP in
+   `docs/bootstrap-t12-81-3-escape-auxiliary-csp.md` then lets the center-`3`
+   connector and center-`6` supply classes exist as auxiliary rich classes
+   while selected rows at those centers are free to be equal or disjoint. It
+   also has no basic-filter survivor. The next useful PR must therefore either
+   allow richer multi-auxiliary catalogues at centers `3` and `6`, introduce a
+   genuine rich-class/minimality hypothesis strong enough to forbid those
+   catalogues, or move to a different bridge target.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker

@@ -166,13 +166,18 @@ of those seven rows to move and all `4116000` candidates fail as well. This is
 now subsumed by a full-neighborhood CSP: with centers `3` and `6` still using
 the same one-class replacement spaces, all seven other source-`81` rows may be
 arbitrary 4-sets, and the exact backtracker finds no complete basic-filter
-assignment in the implicit `329417200000000`-assignment space. This is still
-proof-mining bookkeeping only, not a theorem about all genuine rich-class
-catalogues. See
+assignment in the implicit `329417200000000`-assignment space. The auxiliary
+CSP then lets the center-`3` connector and center-`6` supply classes exist as
+extra rich classes while selected rows at those centers may be equal or
+disjoint; it rules out the implicit `1317668800000000` selected-row assignment
+space under the same basic filters plus same-center disjointness. This is
+still proof-mining bookkeeping only, not a theorem about all genuine
+rich-class catalogues. See
 `docs/bootstrap-t12-81-3-escape-candidates.md` and
 `docs/bootstrap-t12-81-3-escape-one-row-drop.md`, plus
 `docs/bootstrap-t12-81-3-escape-two-row-drop.md` and
-`docs/bootstrap-t12-81-3-escape-full-neighborhood.md`.
+`docs/bootstrap-t12-81-3-escape-full-neighborhood.md`, and then
+`docs/bootstrap-t12-81-3-escape-auxiliary-csp.md`.
 
 ## New exact fixed-pattern obstructions
 
