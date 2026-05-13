@@ -167,13 +167,16 @@ Next steps:
 - use `data/certificates/n9_vertex_circle_t06_self_edge_lemma_packet.json` to
   replay the focused review-pending T06/F11 nested-spoke alternate self-edge
   proof note;
+- use `data/certificates/n9_vertex_circle_t07_self_edge_lemma_packet.json` to
+  replay the focused review-pending T07/F06 nested-spoke alternate self-edge
+  proof note;
 - use `data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json`
   to replay the focused review-pending T10/F12 strict-cycle local lemma packet;
 - use `data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json`
   to replay the focused review-pending T11/F07 strict-cycle local lemma packet;
 - use `data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json`
   to replay the focused review-pending T12/F16 strict-cycle local lemma packet;
-- review the aggregate local-lemma scan after the T01/T02/T03/T04/T05/T06
+- review the aggregate local-lemma scan after the T01/T02/T03/T04/T05/T06/T07
   self-edge and T10/T11/T12 strict-cycle integrations, keeping it scoped as proof-mining
   coverage of stored packets rather than an independent `n=9` proof;
 - test whether the same motifs appear in the P18 obstruction and fail in the
