@@ -378,6 +378,11 @@ condition that the surviving multi-block family does not automatically satisfy:
   trigger family is same-center unique. The remaining target is outside those
   specified trigger families or a genuine rich-class/minimality hypothesis,
   not more copies of the same supply or connector trigger at the same center.
+- bootstrap/T12 focused `81:3` rich-support evidence, as recorded in
+  `docs/bootstrap-t12-81-3-escape-rich-support-csp.md`, extending the auxiliary
+  escape CSP from 4-set trigger classes to larger rich supports at centers `3`
+  and `6`. The remaining target is now support existence, additional
+  auxiliary supports at other centers, or a different bridge target.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

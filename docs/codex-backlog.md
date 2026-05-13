@@ -115,10 +115,13 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-81-3-trigger-uniqueness.md` checks that richer
    catalogues cannot contain two classes from the specified center-`6` supply
    family or two classes from the specified center-`3` connector-avoiding
-   family, because the classes pairwise intersect at the same center. The next
-   useful PR must therefore either allow replacement classes outside those
-   specified trigger families, introduce a genuine rich-class/minimality
-   hypothesis strong enough to forbid those outside replacements, or move to a
+   family, because the classes pairwise intersect at the same center. The
+   rich-support CSP in
+   `docs/bootstrap-t12-81-3-escape-rich-support-csp.md` then lets those
+   auxiliary objects be supports larger than four labels and still finds no
+   complete basic-filter assignment. The next useful PR must therefore either
+   introduce a genuine rich-class/minimality hypothesis that forces such a
+   support to exist, add other-center auxiliary supports, or move to a
    different bridge target.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.

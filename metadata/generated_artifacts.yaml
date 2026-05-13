@@ -3292,6 +3292,101 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_81_3_escape_rich_support_csp
+    path: data/certificates/bootstrap_t12_81_3_escape_rich_support_csp.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py
+    command: python scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py
+    check_command: python scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Rich-support auxiliary CSP for the 81:3 pre-3 label-6 escape; no complete selected-row assignment exists in the implicit 996734092900000000-assignment space under basic incidence/crossing/same-center-disjointness filters, but this is not support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_81_3_escape_rich_support_csp.v1
+      status: BOOTSTRAP_T12_81_3_ESCAPE_RICH_SUPPORT_CSP_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "81:3"
+      summary.source_record_ids:
+        - 81
+      summary.cyclic_order:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+      summary.deletion_seed:
+        - 0
+        - 1
+        - 4
+      summary.connector_pair:
+        - 0
+        - 1
+      summary.supply_center: 6
+      summary.target_center: 3
+      summary.free_selected_row_centers:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+      summary.auxiliary_support_centers:
+        - 3
+        - 6
+      summary.center_6_supply_support_count: 31
+      summary.center_3_connector_avoiding_support_count: 30
+      summary.fixed_auxiliary_support_pair_count: 930
+      summary.free_row_replacement_count_per_non_auxiliary_center: 70
+      summary.implicit_selected_assignment_space_size: 996734092900000000
+      summary.search_node_count: 2169
+      summary.empty_domain_count: 1268
+      summary.initial_auxiliary_support_pair_incompatible_count: 700
+      summary.initial_auxiliary_support_pair_searched_count: 230
+      summary.complete_solution_count: 0
+      summary.surviving_assignment_count: 0
+      summary.scan_status: NO_BASIC_FILTER_SURVIVORS_WITH_RICH_SUPPORT_AUXILIARIES
+      support_generation.center_6_supply_support_size_histogram.4: 5
+      support_generation.center_6_supply_support_size_histogram.5: 10
+      support_generation.center_6_supply_support_size_histogram.6: 10
+      support_generation.center_6_supply_support_size_histogram.7: 5
+      support_generation.center_6_supply_support_size_histogram.8: 1
+      support_generation.center_3_connector_support_size_histogram.4: 8
+      support_generation.center_3_connector_support_size_histogram.5: 12
+      support_generation.center_3_connector_support_size_histogram.6: 8
+      support_generation.center_3_connector_support_size_histogram.7: 2
+      support_generation.center_6_total_selected_row_choices_over_supports: 455
+      support_generation.center_3_total_selected_row_choices_over_supports: 266
+      source_trigger_uniqueness_audit.schema: erdos97.bootstrap_t12_81_3_trigger_uniqueness.v1
+      source_trigger_uniqueness_audit.scan_status: SPECIFIED_TRIGGER_FAMILIES_ARE_SAME_CENTER_UNIQUE
+      provenance.generator: scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py
+      provenance.command: python scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - the 81:3 rich support exists
+      - the 81:3 row is forced
+      - the rich-support CSP proves genuine rich-class order
+      - the rich-support CSP proves no pre-3 label-6 supply exists
+      - the rich-support CSP proves the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_row_pressure
     path: data/certificates/bootstrap_t12_row_pressure.json
     kind: proof_mining_diagnostic_artifact
