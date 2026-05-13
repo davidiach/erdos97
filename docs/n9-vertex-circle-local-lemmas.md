@@ -514,12 +514,9 @@ T11/F07     -> docs/n9-vertex-circle-t11-strict-cycle-lemma.md
 T12/F16     -> docs/n9-vertex-circle-t12-strict-cycle-lemma.md
 ```
 
-For T03, T10, T11, and T12 the scan loads the focused JSON packets and checks
-that the aggregate family rows, strict inequalities, equality paths, cycle
-steps, and assignment counts match the focused packet used by the note. T04 has
-no separate focused packet; its note is backed directly by the T04 family
-record in the self-edge template packet, and the aggregate scan checks that
-record instead.
+For T03, T04, T10, T11, and T12 the scan loads the focused JSON packets and
+checks that the aggregate family rows, strict inequalities, equality paths,
+cycle steps, and assignment counts match the focused packet used by the note.
 
 This crosscheck is intentionally modest. It says the aggregate proof-mining
 summary agrees with the focused proof-note packets and source template record.

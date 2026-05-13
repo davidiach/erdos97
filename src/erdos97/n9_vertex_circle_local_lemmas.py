@@ -98,10 +98,10 @@ EXPECTED_FOCUSED_NOTE_CROSSCHECK = {
         "template_id": "T04",
         "family_ids": ["F13"],
         "proof_note_path": "docs/n9-vertex-circle-t04-self-edge-lemma.md",
-        "source_kind": "template_packet",
-        "packet_key": None,
+        "source_kind": "focused_packet",
+        "packet_key": "T04",
         "packet_path": (
-            "data/certificates/n9_vertex_circle_self_edge_template_packet.json"
+            "data/certificates/n9_vertex_circle_t04_self_edge_lemma_packet.json"
         ),
     },
     T10_STRICT_CYCLE_LEMMA: {
