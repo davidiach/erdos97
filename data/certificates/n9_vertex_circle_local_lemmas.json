@@ -208,6 +208,28 @@
     },
     {
       "check_status": "checked",
+      "covered_assignment_count": 18,
+      "crosscheck_mode": "alternate_self_edge_certificate",
+      "families_checked": [
+        {
+          "assignment_count": 18,
+          "family_id": "F03",
+          "orbit_size": 18
+        }
+      ],
+      "family_ids": [
+        "F03"
+      ],
+      "interpretation": "Aggregate scan family rows match the focused packet, and the focused packet supplies a valid alternate reflexive self-edge certificate for the same family. The aggregate nested-spoke strict edge is not required to be the same strict edge as the proof-facing note; this remains a packet consistency check, not an independent n=9 completeness proof.",
+      "lemma_id": "nested_spoke_quotient_self_edge",
+      "packet_key": "T09",
+      "packet_path": "data/certificates/n9_vertex_circle_t09_self_edge_lemma_packet.json",
+      "proof_note_path": "docs/n9-vertex-circle-t09-self-edge-lemma.md",
+      "source_kind": "focused_packet",
+      "template_id": "T09"
+    },
+    {
+      "check_status": "checked",
       "covered_assignment_count": 40,
       "families_checked": [
         {
