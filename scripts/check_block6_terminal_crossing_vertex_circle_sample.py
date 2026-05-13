@@ -39,64 +39,114 @@ Rows = list[list[int]]
 Constraint = tuple[Chord, Chord]
 
 DEFAULT_LIMIT = 100
-EXPECTED_DEFAULT_SUMMARY = {
-    "terminal_extensions_examined": 100,
-    "total_crossing_orders": 440,
-    "extensions_with_vc_clean_crossing_order": 0,
-    "vertex_circle_order_status_counts": {"self_edge": 440},
-    "max_crossing_order_count": 15,
-    "crossing_search_node_min": 40,
-    "crossing_search_node_max": 272,
-    "order_count_histogram": {
-        "2": 31,
-        "3": 18,
-        "4": 24,
-        "5": 3,
-        "6": 5,
-        "8": 8,
-        "9": 3,
-        "10": 2,
-        "11": 3,
-        "12": 2,
-        "15": 1,
+EXPECTED_WINDOWS = {
+    (0, 100): {
+        "terminal_extensions_examined": 100,
+        "total_crossing_orders": 440,
+        "extensions_with_vc_clean_crossing_order": 0,
+        "vertex_circle_order_status_counts": {"self_edge": 440},
+        "max_crossing_order_count": 15,
+        "crossing_search_node_min": 40,
+        "crossing_search_node_max": 272,
+        "order_count_histogram": {
+            "2": 31,
+            "3": 18,
+            "4": 24,
+            "5": 3,
+            "6": 5,
+            "8": 8,
+            "9": 3,
+            "10": 2,
+            "11": 3,
+            "12": 2,
+            "15": 1,
+        },
+        "constraint_order_histogram": {
+            "16,2": 1,
+            "16,3": 3,
+            "16,5": 1,
+            "16,8": 1,
+            "16,11": 1,
+            "16,15": 1,
+            "17,2": 3,
+            "17,3": 3,
+            "17,4": 3,
+            "17,5": 2,
+            "17,6": 1,
+            "17,8": 4,
+            "17,9": 1,
+            "17,10": 1,
+            "17,11": 2,
+            "18,2": 11,
+            "18,3": 1,
+            "18,4": 10,
+            "18,6": 1,
+            "18,8": 2,
+            "18,9": 1,
+            "18,10": 1,
+            "18,12": 1,
+            "19,2": 12,
+            "19,3": 4,
+            "19,4": 9,
+            "19,6": 2,
+            "19,8": 1,
+            "19,12": 1,
+            "20,2": 3,
+            "20,3": 5,
+            "20,4": 2,
+            "20,6": 1,
+            "20,9": 1,
+            "21,2": 1,
+            "21,3": 2,
+        },
     },
-    "constraint_order_histogram": {
-        "16,2": 1,
-        "16,3": 3,
-        "16,5": 1,
-        "16,8": 1,
-        "16,11": 1,
-        "16,15": 1,
-        "17,2": 3,
-        "17,3": 3,
-        "17,4": 3,
-        "17,5": 2,
-        "17,6": 1,
-        "17,8": 4,
-        "17,9": 1,
-        "17,10": 1,
-        "17,11": 2,
-        "18,2": 11,
-        "18,3": 1,
-        "18,4": 10,
-        "18,6": 1,
-        "18,8": 2,
-        "18,9": 1,
-        "18,10": 1,
-        "18,12": 1,
-        "19,2": 12,
-        "19,3": 4,
-        "19,4": 9,
-        "19,6": 2,
-        "19,8": 1,
-        "19,12": 1,
-        "20,2": 3,
-        "20,3": 5,
-        "20,4": 2,
-        "20,6": 1,
-        "20,9": 1,
-        "21,2": 1,
-        "21,3": 2,
+    (100, 100): {
+        "terminal_extensions_examined": 100,
+        "total_crossing_orders": 356,
+        "extensions_with_vc_clean_crossing_order": 0,
+        "vertex_circle_order_status_counts": {"self_edge": 356},
+        "max_crossing_order_count": 14,
+        "crossing_search_node_min": 26,
+        "crossing_search_node_max": 308,
+        "order_count_histogram": {
+            "1": 27,
+            "2": 23,
+            "3": 5,
+            "4": 25,
+            "6": 2,
+            "8": 12,
+            "9": 4,
+            "10": 1,
+            "14": 1,
+        },
+        "constraint_order_histogram": {
+            "15,1": 1,
+            "15,10": 1,
+            "16,1": 3,
+            "16,4": 2,
+            "16,6": 1,
+            "16,9": 3,
+            "16,14": 1,
+            "17,1": 5,
+            "17,2": 5,
+            "17,3": 2,
+            "17,4": 6,
+            "17,6": 1,
+            "17,8": 4,
+            "17,9": 1,
+            "18,1": 10,
+            "18,2": 3,
+            "18,3": 3,
+            "18,4": 13,
+            "18,8": 8,
+            "19,1": 6,
+            "19,2": 9,
+            "19,4": 3,
+            "20,1": 2,
+            "20,2": 4,
+            "20,4": 1,
+            "21,2": 2,
+        },
     },
 }
 
@@ -112,20 +162,24 @@ def _json_pair_counter(counter: Counter[tuple[int, int]]) -> dict[str, int]:
     }
 
 
-def terminal_extensions(limit: int) -> Iterator[Rows]:
-    """Yield the first deterministic terminal full extensions."""
+def terminal_extensions(limit: int, *, offset: int = 0) -> Iterator[tuple[int, Rows]]:
+    """Yield a deterministic window of terminal full extensions."""
 
     assigned, pair_counts, indegrees = _initial_state()
     options = _options()
+    seen = 0
     yielded = 0
 
-    def search() -> Iterator[Rows]:
-        nonlocal yielded
+    def search() -> Iterator[tuple[int, Rows]]:
+        nonlocal seen, yielded
         if yielded >= limit:
             return
         if len(assigned) == N:
+            seen += 1
+            if seen <= offset:
+                return
             yielded += 1
-            yield [list(assigned[center]) for center in range(N)]
+            yield seen, [list(assigned[center]) for center in range(N)]
             return
 
         best_center: int | None = None
@@ -231,7 +285,7 @@ def _vertex_circle_status(rows: Rows, order: Sequence[int]) -> str:
     return "ok"
 
 
-def audit(limit: int = DEFAULT_LIMIT) -> dict[str, Any]:
+def audit(limit: int = DEFAULT_LIMIT, *, offset: int = 0) -> dict[str, Any]:
     """Return the sampled crossing-order vertex-circle audit."""
 
     status_counts: Counter[str] = Counter()
@@ -241,7 +295,7 @@ def audit(limit: int = DEFAULT_LIMIT) -> dict[str, Any]:
     clean_extension_records: list[dict[str, object]] = []
     sample_records: list[dict[str, object]] = []
 
-    for extension_index, rows in enumerate(terminal_extensions(limit), start=1):
+    for extension_index, rows in terminal_extensions(limit, offset=offset):
         crossing_orders, nodes, constraint_count = enumerate_crossing_orders(rows)
         crossing_node_counts.append(nodes)
         order_count_histogram[len(crossing_orders)] += 1
@@ -298,6 +352,7 @@ def audit(limit: int = DEFAULT_LIMIT) -> dict[str, Any]:
             "a proof of Erdos Problem #97, and not a counterexample."
         ),
         "terminal_extension_limit": limit,
+        "terminal_extension_offset": offset,
         "summary": summary,
         "sample_records": sample_records,
         "first_clean_extension_record": (
@@ -306,8 +361,9 @@ def audit(limit: int = DEFAULT_LIMIT) -> dict[str, Any]:
         "interpretation": (
             "The default sample checks the first 100 deterministic terminal "
             "full extensions from the natural-order block-6 audit across all "
-            "their two-overlap crossing-compatible cyclic orders. The default "
-            "packet finds no vertex-circle-clean crossing order in that sample."
+            "their two-overlap crossing-compatible cyclic orders. Nonzero "
+            "offsets replay later deterministic windows. The checked packets "
+            "find no vertex-circle-clean crossing order in their samples."
         ),
     }
 
@@ -317,9 +373,14 @@ def assert_expected(payload: Mapping[str, Any]) -> None:
         raise AssertionError("unexpected status")
     if "not a proof" not in payload["claim_scope"]:
         raise AssertionError("claim scope lost no-proof note")
-    if payload["terminal_extension_limit"] != DEFAULT_LIMIT:
-        raise AssertionError("expected default sample limit")
-    if payload["summary"] != EXPECTED_DEFAULT_SUMMARY:
+    key = (
+        int(payload["terminal_extension_offset"]),
+        int(payload["terminal_extension_limit"]),
+    )
+    expected = EXPECTED_WINDOWS.get(key)
+    if expected is None:
+        raise AssertionError(f"no stored expectation for sample window {key}")
+    if payload["summary"] != expected:
         raise AssertionError(f"unexpected summary: {payload['summary']!r}")
 
 
@@ -327,14 +388,15 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json", action="store_true", help="print full JSON payload")
     parser.add_argument("--limit", type=int, default=DEFAULT_LIMIT)
+    parser.add_argument("--offset", type=int, default=0)
     parser.add_argument(
         "--assert-expected",
         action="store_true",
-        help="assert the default expected sample counts",
+        help="assert stored expected sample-window counts",
     )
     args = parser.parse_args()
 
-    payload = audit(limit=args.limit)
+    payload = audit(limit=args.limit, offset=args.offset)
     if args.assert_expected:
         assert_expected(payload)
 
