@@ -351,6 +351,23 @@ This is still a local obstruction only: it does not show that every
 full-row extension of the two-block fragile rows has such a certificate, and
 it does not rule out minimal counterexamples.
 
+A crossing-order upgrade verifies the same fixed survivor across all cyclic
+orders compatible with its two-overlap crossing constraints:
+
+```bash
+python scripts/check_block6_survivor_crossing_kalmanson.py --assert-expected --json
+```
+
+The checker recomputes the `18` crossing constraints, enumerates exactly `4`
+normalized crossing-compatible cyclic orders, and verifies one exact
+Kalmanson quotient-cone certificate for each order. The certificate row counts
+are `[9, 27, 26, 21]`, with weight sums `[13, 576, 820, 85]`.
+Therefore this one full selected-row extension is obstructed in every cyclic
+order allowed by its necessary crossing constraints. The quantifier is still
+fixed-survivor only: this does not show that every full selected-row extension
+of the two-block fragile rows has such a certificate, and it does not rule out
+minimal counterexamples.
+
 The same fixed survivor also passes the critical-radius propagation filter:
 
 ```bash
