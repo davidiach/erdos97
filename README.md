@@ -123,6 +123,10 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the source-`151` row-`6` outside-pair audit, where all fixed and
   one-row-drop activation-row survivors keep the original row `6`, read
   [`docs/bootstrap-t12-151-6-outside-pair-audit.md`](docs/bootstrap-t12-151-6-outside-pair-audit.md).
+- For the source-`151` singleton-support audit covering rows `5` and `8`,
+  where all fixed and one-row-drop activation-row survivors keep the original
+  target rows, read
+  [`docs/bootstrap-t12-151-singleton-support-audit.md`](docs/bootstrap-t12-151-singleton-support-audit.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).
