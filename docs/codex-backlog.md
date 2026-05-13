@@ -126,7 +126,13 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-81-8-singleton-support-audit.md` is one such adjacent
    target: it finds no non-original row-`8` activation survivor in the fixed
    source-`81` neighborhood or a one-row-drop relaxation, but still leaves
-   genuine singleton-support existence and row forcing open.
+   genuine singleton-support existence and row forcing open. The
+   source-`151` row-`6` outside-pair audit in
+   `docs/bootstrap-t12-151-6-outside-pair-audit.md` does the analogous check
+   for the remaining relation-sufficient row target: no non-original row-`6`
+   activation survivor appears in the fixed source-`151` neighborhood or a
+   one-row-drop relaxation, but genuine outside-pair support existence and row
+   forcing remain open.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker

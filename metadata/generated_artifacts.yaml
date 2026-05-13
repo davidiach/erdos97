@@ -3478,6 +3478,100 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_outside_pair_audit
+    path: data/certificates/bootstrap_t12_151_6_outside_pair_audit.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_outside_pair_audit.py
+    command: python scripts/check_bootstrap_t12_151_6_outside_pair_audit.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_outside_pair_audit.py
+    check_command: python scripts/check_bootstrap_t12_151_6_outside_pair_audit.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 outside-pair activation-row audit; no non-original row-6 activation survivor exists in the fixed source-151 neighborhood or one-row-drop relaxation under basic incidence/crossing filters, but this is not outside-pair support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_outside_pair_audit.v1
+      status: BOOTSTRAP_T12_151_6_OUTSIDE_PAIR_AUDIT_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.source_record_ids:
+        - 151
+      summary.cyclic_order:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+      summary.target_center: 6
+      summary.bootstrap_core_witnesses:
+        - 0
+      summary.outside_support_pairs:
+        - [3, 5]
+        - [3, 8]
+        - [5, 8]
+      summary.original_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 8
+      summary.target_center_candidate_count: 13
+      summary.fixed_neighborhood_candidate_count: 13
+      summary.fixed_neighborhood_surviving_candidate_count: 1
+      summary.fixed_neighborhood_non_original_survivor_count: 0
+      summary.fixed_neighborhood_rejection_category_counts.crossing: 2
+      summary.fixed_neighborhood_rejection_category_counts.row_pair+witness_pair+crossing: 9
+      summary.fixed_neighborhood_rejection_category_counts.witness_pair+crossing: 1
+      summary.fixed_neighborhood_rejection_category_counts.survive: 1
+      summary.one_row_drop_centers:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 7
+        - 8
+      summary.one_row_drop_replacement_count_per_center: 70
+      summary.one_row_drop_candidate_count: 7280
+      summary.one_row_drop_surviving_candidate_count: 8
+      summary.one_row_drop_non_original_row6_survivor_count: 0
+      summary.one_row_drop_survivors_all_original_rows: true
+      summary.one_row_drop_rejection_category_counts.crossing: 118
+      summary.one_row_drop_rejection_category_counts.row_pair+crossing: 15
+      summary.one_row_drop_rejection_category_counts.row_pair+witness_pair: 36
+      summary.one_row_drop_rejection_category_counts.row_pair+witness_pair+crossing: 6824
+      summary.one_row_drop_rejection_category_counts.witness_pair+crossing: 279
+      summary.one_row_drop_rejection_category_counts.survive: 8
+      summary.scan_status: ONLY_ORIGINAL_ROW6_SURVIVES_FIXED_AND_ONE_ROW_DROP_SUPPORT_AUDITS
+      source_outside_pair_packet.schema: erdos97.bootstrap_t12_outside_pair.v1
+      source_outside_pair_record.support_pairs:
+        - [3, 5]
+        - [3, 8]
+        - [5, 8]
+      source_overlay_packet.schema: erdos97.bootstrap_vertex_circle_overlay.v1
+      provenance.generator: scripts/check_bootstrap_t12_151_6_outside_pair_audit.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_outside_pair_audit.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - the 151:6 outside support exists
+      - the 151:6 audit proves the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_row_pressure
     path: data/certificates/bootstrap_t12_row_pressure.json
     kind: proof_mining_diagnostic_artifact

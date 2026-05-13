@@ -376,6 +376,20 @@ existence, row forcing, `n=9`, or the bootstrap bridge. See
 `scripts/check_bootstrap_t12_81_8_singleton_support_audit.py`, and
 `data/certificates/bootstrap_t12_81_8_singleton_support_audit.json`.
 
+The source-`151` row-`6` outside-pair audit probes the remaining
+relation-sufficient row target. Center `6` has bootstrap-core witness `[0]`
+and outside support pairs `[3,5]`, `[3,8]`, and `[5,8]`; the audit enumerates
+the thirteen selected rows containing `[0]` and one of those support pairs. In
+the fixed source-`151` neighborhood, only the original row `[0,3,5,8]`
+survives the row-pair, witness-pair, and crossing filters. In the one-row-drop
+relaxation, all eight survivors are trivial original-neighborhood survivors:
+row `6` remains `[0,3,5,8]`, and the dropped row remains its original
+source-`151` row. This is still a finite diagnostic only, not a proof of
+outside-pair support existence, row forcing, `n=9`, or the bootstrap bridge.
+See `docs/bootstrap-t12-151-6-outside-pair-audit.md`,
+`scripts/check_bootstrap_t12_151_6_outside_pair_audit.py`, and
+`data/certificates/bootstrap_t12_151_6_outside_pair_audit.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

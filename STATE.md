@@ -202,6 +202,16 @@ incidence/crossing bookkeeping only, not singleton-support existence, row
 forcing, `n=9`, or the bridge. See
 `docs/bootstrap-t12-81-8-singleton-support-audit.md`.
 
+A source-`151` row-`6` outside-pair audit now probes the remaining
+relation-sufficient row target. It enumerates the thirteen center-`6` rows
+containing bootstrap-core witness `[0]` and one outside support pair from
+`[3,5]`, `[3,8]`, or `[5,8]`; only the original row `[0,3,5,8]` survives with
+the fixed source-`151` neighborhood. A one-row-drop relaxation checks `7280`
+candidates and again has no non-original row-`6` survivor. This remains basic
+incidence/crossing bookkeeping only, not outside-pair support existence, row
+forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-151-6-outside-pair-audit.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

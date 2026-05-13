@@ -640,6 +640,17 @@ dropped row equal to its original source-`81` row. This remains a finite
 proof-mining diagnostic only, not a proof of singleton support existence, row
 forcing, `n=9`, the bootstrap bridge, or Erdos Problem #97.
 
+The source-`151` row-`6` outside-pair audit in
+`docs/bootstrap-t12-151-6-outside-pair-audit.md` checks the remaining
+relation-sufficient row target. It enumerates the thirteen center-`6` rows
+that contain bootstrap-core witness `[0]` and one outside support pair from
+`[3,5]`, `[3,8]`, or `[5,8]`. Only the original row `[0,3,5,8]` survives in
+the fixed source-`151` neighborhood; in the one-row-drop relaxation, the only
+survivors also keep the dropped row equal to its original source-`151` row.
+This remains a finite proof-mining diagnostic only, not a proof of outside-pair
+support existence, row forcing, `n=9`, the bootstrap bridge, or Erdos Problem
+#97.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a
