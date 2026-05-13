@@ -630,6 +630,16 @@ filters. This remains a finite proof-mining diagnostic only, not a proof of
 support existence, row forcing, `n=9`, the bootstrap bridge, or Erdos Problem
 #97.
 
+The source-`81` row-`8` singleton-support audit in
+`docs/bootstrap-t12-81-8-singleton-support-audit.md` checks a neighboring
+relation-sufficient row target. It enumerates the nine center-`8` rows that
+contain bootstrap-core witnesses `[0,2]` and one singleton support from
+`[5,6]`. Only the original row `[0,2,5,6]` survives in the fixed source-`81`
+neighborhood; in the one-row-drop relaxation, the only survivors also keep the
+dropped row equal to its original source-`81` row. This remains a finite
+proof-mining diagnostic only, not a proof of singleton support existence, row
+forcing, `n=9`, the bootstrap bridge, or Erdos Problem #97.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

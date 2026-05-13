@@ -192,6 +192,16 @@ does not prove the supports exist, row forcing, `n=9`, or the bridge. See
 `docs/bootstrap-t12-81-3-trigger-uniqueness.md`, plus
 `docs/bootstrap-t12-81-3-escape-rich-support-csp.md`.
 
+A source-`81` row-`8` singleton-support audit now probes the other
+relation-sufficient target in source `81`. It enumerates the nine center-`8`
+rows containing bootstrap-core witnesses `[0,2]` and one singleton support
+label from `[5,6]`; only the original row `[0,2,5,6]` survives with the fixed
+source-`81` neighborhood. A one-row-drop relaxation checks `5040` candidates
+and again has no non-original row-`8` survivor. This remains basic
+incidence/crossing bookkeeping only, not singleton-support existence, row
+forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-81-8-singleton-support-audit.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

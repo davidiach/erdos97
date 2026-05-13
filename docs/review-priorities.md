@@ -383,6 +383,12 @@ condition that the surviving multi-block family does not automatically satisfy:
   escape CSP from 4-set trigger classes to larger rich supports at centers `3`
   and `6`. The remaining target is now support existence, additional
   auxiliary supports at other centers, or a different bridge target.
+- bootstrap/T12 focused `81:8` singleton-support evidence, as recorded in
+  `docs/bootstrap-t12-81-8-singleton-support-audit.md`, showing that the fixed
+  source-`81` neighborhood and one-row-drop relaxation have no non-original
+  row-`8` activation survivor under basic incidence/crossing filters. The
+  remaining target is still genuine singleton-support or row-forcing
+  geometry, not a proof that row `8` is forced.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract
