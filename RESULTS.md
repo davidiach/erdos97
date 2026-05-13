@@ -310,6 +310,17 @@ a proof of genuine rich-class order, `n=9`, or the bootstrap bridge; see
 `scripts/check_bootstrap_t12_81_3_escape_two_row_drop.py`, and
 `data/certificates/bootstrap_t12_81_3_escape_two_row_drop.json`.
 
+The full-neighborhood CSP then lets all seven source-`81` rows outside centers
+`3` and `6` move at once, while keeping the same one-class replacement spaces
+at centers `3` and `6`. The implicit space has `329417200000000` assignments.
+Exact backtracking with the basic row-pair, witness-pair, and crossing filters
+visits `1177` search nodes and finds no complete assignment. This subsumes the
+one- and two-row fixed-neighborhood stress tests, but remains a diagnostic
+only: it is not a proof of genuine rich-class order, `n=9`, or the bootstrap
+bridge; see `docs/bootstrap-t12-81-3-escape-full-neighborhood.md`,
+`scripts/check_bootstrap_t12_81_3_escape_full_neighborhood.py`, and
+`data/certificates/bootstrap_t12_81_3_escape_full_neighborhood.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

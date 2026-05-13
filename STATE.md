@@ -163,11 +163,16 @@ basic incidence/crossing candidate. The one-row-drop scan then allows any one
 of those seven preserved rows to move as an arbitrary 4-set; all `19600`
 candidates again fail the basic filters. The two-row-drop scan allows any pair
 of those seven rows to move and all `4116000` candidates fail as well. This is
-still proof-mining bookkeeping only, not a theorem about all genuine
-rich-class catalogues. See
+now subsumed by a full-neighborhood CSP: with centers `3` and `6` still using
+the same one-class replacement spaces, all seven other source-`81` rows may be
+arbitrary 4-sets, and the exact backtracker finds no complete basic-filter
+assignment in the implicit `329417200000000`-assignment space. This is still
+proof-mining bookkeeping only, not a theorem about all genuine rich-class
+catalogues. See
 `docs/bootstrap-t12-81-3-escape-candidates.md` and
 `docs/bootstrap-t12-81-3-escape-one-row-drop.md`, plus
-`docs/bootstrap-t12-81-3-escape-two-row-drop.md`.
+`docs/bootstrap-t12-81-3-escape-two-row-drop.md` and
+`docs/bootstrap-t12-81-3-escape-full-neighborhood.md`.
 
 ## New exact fixed-pattern obstructions
 

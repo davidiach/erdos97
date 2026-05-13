@@ -591,6 +591,15 @@ under the same basic filters. This remains a finite proof-mining diagnostic
 only, not a proof of row forcing, `n=9`, the bootstrap bridge, or Erdos
 Problem #97.
 
+The full-neighborhood CSP in
+`docs/bootstrap-t12-81-3-escape-full-neighborhood.md` allows all seven of those
+rows to move simultaneously while keeping the same one-class replacement
+spaces at centers `3` and `6`. It proves by exact backtracking that the
+implicit `329417200000000`-assignment space has no complete assignment
+satisfying the same basic filters. This remains a finite proof-mining
+diagnostic only, not a proof of row forcing, `n=9`, the bootstrap bridge, or
+Erdos Problem #97.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a
