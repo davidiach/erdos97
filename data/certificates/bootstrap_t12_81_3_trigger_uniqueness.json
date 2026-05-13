@@ -1,0 +1,1431 @@
+{
+  "claim_scope": "Same-center disjointness audit for the specified 81:3 escape trigger families. It proves only that the center-6 supply-trigger family contains no two pairwise disjoint classes, and the center-3 connector-avoiding trigger family contains no two pairwise disjoint classes. Therefore a genuine rich-class catalogue at those centers can contain at most one class from each specified family. This is not a proof of genuine rich-class order, not a proof of row forcing, not a proof of n=9, not a proof of the bridge, and not a counterexample.",
+  "family_audits": {
+    "center_3_connector_avoiding": {
+      "all_pairs_intersect": true,
+      "center": 3,
+      "class_count": 8,
+      "classes": [
+        [
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          0,
+          4,
+          5,
+          6
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ],
+        [
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          1,
+          4,
+          5,
+          6
+        ],
+        [
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ]
+      ],
+      "common_trigger": [
+        4,
+        6
+      ],
+      "disjoint_pair_count": 0,
+      "family_name": "center_3_connector_avoiding_classes_using_label_6",
+      "intersection_size_histogram": {
+        "2": 12,
+        "3": 16
+      },
+      "max_same_center_pairwise_disjoint_family_size": 1,
+      "pair_count": 28,
+      "pairwise_intersections": [
+        {
+          "class_indices": [
+            0,
+            1
+          ],
+          "intersection": [
+            0,
+            4,
+            6
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            2,
+            4,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "class_indices": [
+            0,
+            2
+          ],
+          "intersection": [
+            0,
+            4,
+            6
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            2,
+            4,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "class_indices": [
+            0,
+            3
+          ],
+          "intersection": [
+            0,
+            4,
+            6
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            2,
+            4,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "class_indices": [
+            0,
+            4
+          ],
+          "intersection": [
+            2,
+            4,
+            6
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            2,
+            4,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            2,
+            4,
+            6
+          ]
+        },
+        {
+          "class_indices": [
+            0,
+            5
+          ],
+          "intersection": [
+            4,
+            6
+          ],
+          "intersection_size": 2,
+          "left_class": [
+            0,
+            2,
+            4,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "class_indices": [
+            0,
+            6
+          ],
+          "intersection": [
+            4,
+            6
+          ],
+          "intersection_size": 2,
+          "left_class": [
+            0,
+            2,
+            4,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "class_indices": [
+            0,
+            7
+          ],
+          "intersection": [
+            4,
+            6
+          ],
+          "intersection_size": 2,
+          "left_class": [
+            0,
+            2,
+            4,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "class_indices": [
+            1,
+            2
+          ],
+          "intersection": [
+            0,
+            4,
+            6
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            4,
+            5,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "class_indices": [
+            1,
+            3
+          ],
+          "intersection": [
+            0,
+            4,
+            6
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            4,
+            5,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "class_indices": [
+            1,
+            4
+          ],
+          "intersection": [
+            4,
+            6
+          ],
+          "intersection_size": 2,
+          "left_class": [
+            0,
+            4,
+            5,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            2,
+            4,
+            6
+          ]
+        },
+        {
+          "class_indices": [
+            1,
+            5
+          ],
+          "intersection": [
+            4,
+            5,
+            6
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            4,
+            5,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "class_indices": [
+            1,
+            6
+          ],
+          "intersection": [
+            4,
+            6
+          ],
+          "intersection_size": 2,
+          "left_class": [
+            0,
+            4,
+            5,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "class_indices": [
+            1,
+            7
+          ],
+          "intersection": [
+            4,
+            6
+          ],
+          "intersection_size": 2,
+          "left_class": [
+            0,
+            4,
+            5,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "class_indices": [
+            2,
+            3
+          ],
+          "intersection": [
+            0,
+            4,
+            6
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            4,
+            6,
+            7
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "class_indices": [
+            2,
+            4
+          ],
+          "intersection": [
+            4,
+            6
+          ],
+          "intersection_size": 2,
+          "left_class": [
+            0,
+            4,
+            6,
+            7
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            2,
+            4,
+            6
+          ]
+        },
+        {
+          "class_indices": [
+            2,
+            5
+          ],
+          "intersection": [
+            4,
+            6
+          ],
+          "intersection_size": 2,
+          "left_class": [
+            0,
+            4,
+            6,
+            7
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "class_indices": [
+            2,
+            6
+          ],
+          "intersection": [
+            4,
+            6,
+            7
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            4,
+            6,
+            7
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "class_indices": [
+            2,
+            7
+          ],
+          "intersection": [
+            4,
+            6
+          ],
+          "intersection_size": 2,
+          "left_class": [
+            0,
+            4,
+            6,
+            7
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "class_indices": [
+            3,
+            4
+          ],
+          "intersection": [
+            4,
+            6
+          ],
+          "intersection_size": 2,
+          "left_class": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            2,
+            4,
+            6
+          ]
+        },
+        {
+          "class_indices": [
+            3,
+            5
+          ],
+          "intersection": [
+            4,
+            6
+          ],
+          "intersection_size": 2,
+          "left_class": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "class_indices": [
+            3,
+            6
+          ],
+          "intersection": [
+            4,
+            6
+          ],
+          "intersection_size": 2,
+          "left_class": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "class_indices": [
+            3,
+            7
+          ],
+          "intersection": [
+            4,
+            6,
+            8
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "class_indices": [
+            4,
+            5
+          ],
+          "intersection": [
+            1,
+            4,
+            6
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            1,
+            2,
+            4,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "class_indices": [
+            4,
+            6
+          ],
+          "intersection": [
+            1,
+            4,
+            6
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            1,
+            2,
+            4,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "class_indices": [
+            4,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            6
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            1,
+            2,
+            4,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "class_indices": [
+            5,
+            6
+          ],
+          "intersection": [
+            1,
+            4,
+            6
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            1,
+            4,
+            5,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "class_indices": [
+            5,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            6
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            1,
+            4,
+            5,
+            6
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "class_indices": [
+            6,
+            7
+          ],
+          "intersection": [
+            1,
+            4,
+            6
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            1,
+            4,
+            6,
+            7
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            1,
+            4,
+            6,
+            8
+          ]
+        }
+      ],
+      "selected_row_option_count_histogram": {
+        "2": 8
+      },
+      "selected_row_option_records": [
+        {
+          "auxiliary_class": [
+            0,
+            2,
+            4,
+            6
+          ],
+          "selected_row_options_equal_or_disjoint": [
+            [
+              0,
+              2,
+              4,
+              6
+            ],
+            [
+              1,
+              5,
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "auxiliary_class": [
+            0,
+            4,
+            5,
+            6
+          ],
+          "selected_row_options_equal_or_disjoint": [
+            [
+              0,
+              4,
+              5,
+              6
+            ],
+            [
+              1,
+              2,
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "auxiliary_class": [
+            0,
+            4,
+            6,
+            7
+          ],
+          "selected_row_options_equal_or_disjoint": [
+            [
+              0,
+              4,
+              6,
+              7
+            ],
+            [
+              1,
+              2,
+              5,
+              8
+            ]
+          ]
+        },
+        {
+          "auxiliary_class": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "selected_row_options_equal_or_disjoint": [
+            [
+              0,
+              4,
+              6,
+              8
+            ],
+            [
+              1,
+              2,
+              5,
+              7
+            ]
+          ]
+        },
+        {
+          "auxiliary_class": [
+            1,
+            2,
+            4,
+            6
+          ],
+          "selected_row_options_equal_or_disjoint": [
+            [
+              1,
+              2,
+              4,
+              6
+            ],
+            [
+              0,
+              5,
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "auxiliary_class": [
+            1,
+            4,
+            5,
+            6
+          ],
+          "selected_row_options_equal_or_disjoint": [
+            [
+              1,
+              4,
+              5,
+              6
+            ],
+            [
+              0,
+              2,
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "auxiliary_class": [
+            1,
+            4,
+            6,
+            7
+          ],
+          "selected_row_options_equal_or_disjoint": [
+            [
+              1,
+              4,
+              6,
+              7
+            ],
+            [
+              0,
+              2,
+              5,
+              8
+            ]
+          ]
+        },
+        {
+          "auxiliary_class": [
+            1,
+            4,
+            6,
+            8
+          ],
+          "selected_row_options_equal_or_disjoint": [
+            [
+              1,
+              4,
+              6,
+              8
+            ],
+            [
+              0,
+              2,
+              5,
+              7
+            ]
+          ]
+        }
+      ]
+    },
+    "center_6_supply": {
+      "all_pairs_intersect": true,
+      "center": 6,
+      "class_count": 5,
+      "classes": [
+        [
+          0,
+          1,
+          2,
+          4
+        ],
+        [
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          4,
+          5
+        ],
+        [
+          0,
+          1,
+          4,
+          7
+        ],
+        [
+          0,
+          1,
+          4,
+          8
+        ]
+      ],
+      "common_trigger": [
+        0,
+        1,
+        4
+      ],
+      "disjoint_pair_count": 0,
+      "family_name": "center_6_supply_classes_containing_deletion_seed",
+      "intersection_size_histogram": {
+        "3": 10
+      },
+      "max_same_center_pairwise_disjoint_family_size": 1,
+      "pair_count": 10,
+      "pairwise_intersections": [
+        {
+          "class_indices": [
+            0,
+            1
+          ],
+          "intersection": [
+            0,
+            1,
+            4
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            1,
+            3,
+            4
+          ]
+        },
+        {
+          "class_indices": [
+            0,
+            2
+          ],
+          "intersection": [
+            0,
+            1,
+            4
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            1,
+            4,
+            5
+          ]
+        },
+        {
+          "class_indices": [
+            0,
+            3
+          ],
+          "intersection": [
+            0,
+            1,
+            4
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            1,
+            4,
+            7
+          ]
+        },
+        {
+          "class_indices": [
+            0,
+            4
+          ],
+          "intersection": [
+            0,
+            1,
+            4
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            1,
+            4,
+            8
+          ]
+        },
+        {
+          "class_indices": [
+            1,
+            2
+          ],
+          "intersection": [
+            0,
+            1,
+            4
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            1,
+            3,
+            4
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            1,
+            4,
+            5
+          ]
+        },
+        {
+          "class_indices": [
+            1,
+            3
+          ],
+          "intersection": [
+            0,
+            1,
+            4
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            1,
+            3,
+            4
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            1,
+            4,
+            7
+          ]
+        },
+        {
+          "class_indices": [
+            1,
+            4
+          ],
+          "intersection": [
+            0,
+            1,
+            4
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            1,
+            3,
+            4
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            1,
+            4,
+            8
+          ]
+        },
+        {
+          "class_indices": [
+            2,
+            3
+          ],
+          "intersection": [
+            0,
+            1,
+            4
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            1,
+            4,
+            5
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            1,
+            4,
+            7
+          ]
+        },
+        {
+          "class_indices": [
+            2,
+            4
+          ],
+          "intersection": [
+            0,
+            1,
+            4
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            1,
+            4,
+            5
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            1,
+            4,
+            8
+          ]
+        },
+        {
+          "class_indices": [
+            3,
+            4
+          ],
+          "intersection": [
+            0,
+            1,
+            4
+          ],
+          "intersection_size": 3,
+          "left_class": [
+            0,
+            1,
+            4,
+            7
+          ],
+          "pairwise_disjoint": false,
+          "right_class": [
+            0,
+            1,
+            4,
+            8
+          ]
+        }
+      ],
+      "selected_row_option_count_histogram": {
+        "2": 5
+      },
+      "selected_row_option_records": [
+        {
+          "auxiliary_class": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "selected_row_options_equal_or_disjoint": [
+            [
+              0,
+              1,
+              2,
+              4
+            ],
+            [
+              3,
+              5,
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "auxiliary_class": [
+            0,
+            1,
+            3,
+            4
+          ],
+          "selected_row_options_equal_or_disjoint": [
+            [
+              0,
+              1,
+              3,
+              4
+            ],
+            [
+              2,
+              5,
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "auxiliary_class": [
+            0,
+            1,
+            4,
+            5
+          ],
+          "selected_row_options_equal_or_disjoint": [
+            [
+              0,
+              1,
+              4,
+              5
+            ],
+            [
+              2,
+              3,
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "auxiliary_class": [
+            0,
+            1,
+            4,
+            7
+          ],
+          "selected_row_options_equal_or_disjoint": [
+            [
+              0,
+              1,
+              4,
+              7
+            ],
+            [
+              2,
+              3,
+              5,
+              8
+            ]
+          ]
+        },
+        {
+          "auxiliary_class": [
+            0,
+            1,
+            4,
+            8
+          ],
+          "selected_row_options_equal_or_disjoint": [
+            [
+              0,
+              1,
+              4,
+              8
+            ],
+            [
+              2,
+              3,
+              5,
+              7
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "interpretation_warnings": [
+    "This audit is internal to the specified center-6 supply-trigger family and center-3 connector-avoiding family.",
+    "It does not enumerate rich classes outside those specified trigger families.",
+    "It does not prove that either trigger class exists in a genuine counterexample.",
+    "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py"
+  },
+  "same_center_disjointness_rule": "At one fixed center, two distinct rich distance classes are disjoint: if they shared a witness, the two radii would be equal and the classes would be the same distance class.",
+  "schema": "erdos97.bootstrap_t12_81_3_trigger_uniqueness.v1",
+  "source_auxiliary_csp": {
+    "path": "data/certificates/bootstrap_t12_81_3_escape_auxiliary_csp.json",
+    "scan_status": "NO_BASIC_FILTER_SURVIVORS_WITH_AUXILIARY_SUPPLY_AND_CONNECTOR_CLASSES",
+    "schema": "erdos97.bootstrap_t12_81_3_escape_auxiliary_csp.v1",
+    "status": "BOOTSTRAP_T12_81_3_ESCAPE_AUXILIARY_CSP_DIAGNOSTIC_ONLY"
+  },
+  "status": "BOOTSTRAP_T12_81_3_TRIGGER_UNIQUENESS_DIAGNOSTIC_ONLY",
+  "summary": {
+    "catalogue_gap_removed": "Within these specified trigger families, a richer catalogue cannot contain two center-6 supply triggers or two center-3 connector-avoiding triggers at the same center, because any two such classes intersect.",
+    "center_3_connector_avoiding_class_count": 8,
+    "center_3_connector_disjoint_pair_count": 0,
+    "center_3_connector_intersection_size_histogram": {
+      "2": 12,
+      "3": 16
+    },
+    "center_3_connector_max_same_center_pairwise_disjoint_family_size": 1,
+    "center_3_connector_pair_count": 28,
+    "center_3_selected_row_option_count_histogram": {
+      "2": 8
+    },
+    "center_6_selected_row_option_count_histogram": {
+      "2": 5
+    },
+    "center_6_supply_class_count": 5,
+    "center_6_supply_disjoint_pair_count": 0,
+    "center_6_supply_intersection_size_histogram": {
+      "3": 10
+    },
+    "center_6_supply_max_same_center_pairwise_disjoint_family_size": 1,
+    "center_6_supply_pair_count": 10,
+    "connector_pair": [
+      0,
+      1
+    ],
+    "cyclic_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "deletion_seed": [
+      0,
+      1,
+      4
+    ],
+    "remaining_gap": "This does not rule out replacement classes outside the specified trigger families, does not prove trigger-class existence, and does not add new minimal/rich-class forcing hypotheses.",
+    "same_center_trigger_uniqueness_status": "SPECIFIED_TRIGGER_FAMILIES_ARE_SAME_CENTER_UNIQUE",
+    "source_record_ids": [
+      81
+    ],
+    "supply_center": 6,
+    "target_center": 3,
+    "target_row_key": "81:3"
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

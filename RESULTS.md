@@ -334,6 +334,19 @@ order, `n=9`, or the bootstrap bridge; see
 `scripts/check_bootstrap_t12_81_3_escape_auxiliary_csp.py`, and
 `data/certificates/bootstrap_t12_81_3_escape_auxiliary_csp.json`.
 
+The trigger-family uniqueness audit checks the two specified auxiliary trigger
+families from that CSP. All five center-`6` supply classes containing
+`[0,1,4]` pairwise intersect, and all eight center-`3` connector-avoiding
+classes using label `6` pairwise intersect. Thus same-center distance-class
+disjointness permits at most one class from each specified trigger family, and
+for any fixed auxiliary trigger the selected row at that center has exactly
+two equal-or-disjoint 4-set options: the trigger itself or the unique disjoint
+complement. This is only a proof-mining audit of those trigger families; it
+does not prove trigger-class existence, row forcing, `n=9`, or the bootstrap
+bridge. See `docs/bootstrap-t12-81-3-trigger-uniqueness.md`,
+`scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py`, and
+`data/certificates/bootstrap_t12_81_3_trigger_uniqueness.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

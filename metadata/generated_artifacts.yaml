@@ -3219,6 +3219,79 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_81_3_trigger_uniqueness
+    path: data/certificates/bootstrap_t12_81_3_trigger_uniqueness.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py
+    command: python scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py
+    check_command: python scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Same-center disjointness audit for the specified 81:3 supply and connector trigger families; each specified family has maximum pairwise-disjoint subfamily size 1, but this is not genuine rich-class order, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_81_3_trigger_uniqueness.v1
+      status: BOOTSTRAP_T12_81_3_TRIGGER_UNIQUENESS_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "81:3"
+      summary.source_record_ids:
+        - 81
+      summary.cyclic_order:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+      summary.deletion_seed:
+        - 0
+        - 1
+        - 4
+      summary.connector_pair:
+        - 0
+        - 1
+      summary.supply_center: 6
+      summary.target_center: 3
+      summary.center_6_supply_class_count: 5
+      summary.center_6_supply_pair_count: 10
+      summary.center_6_supply_intersection_size_histogram.3: 10
+      summary.center_6_supply_disjoint_pair_count: 0
+      summary.center_6_supply_max_same_center_pairwise_disjoint_family_size: 1
+      summary.center_6_selected_row_option_count_histogram.2: 5
+      summary.center_3_connector_avoiding_class_count: 8
+      summary.center_3_connector_pair_count: 28
+      summary.center_3_connector_intersection_size_histogram.2: 12
+      summary.center_3_connector_intersection_size_histogram.3: 16
+      summary.center_3_connector_disjoint_pair_count: 0
+      summary.center_3_connector_max_same_center_pairwise_disjoint_family_size: 1
+      summary.center_3_selected_row_option_count_histogram.2: 8
+      summary.same_center_trigger_uniqueness_status: SPECIFIED_TRIGGER_FAMILIES_ARE_SAME_CENTER_UNIQUE
+      source_auxiliary_csp.schema: erdos97.bootstrap_t12_81_3_escape_auxiliary_csp.v1
+      source_auxiliary_csp.scan_status: NO_BASIC_FILTER_SURVIVORS_WITH_AUXILIARY_SUPPLY_AND_CONNECTOR_CLASSES
+      provenance.generator: scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py
+      provenance.command: python scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - the 81:3 rich class exists
+      - the 81:3 row is forced
+      - trigger-family uniqueness proves genuine rich-class order
+      - trigger-family uniqueness proves no pre-3 label-6 supply exists
+      - trigger-family uniqueness proves the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_row_pressure
     path: data/certificates/bootstrap_t12_row_pressure.json
     kind: proof_mining_diagnostic_artifact

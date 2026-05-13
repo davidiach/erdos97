@@ -243,6 +243,11 @@ local_repo:
       artifact: "data/certificates/bootstrap_t12_81_3_escape_auxiliary_csp.json"
       verifier: "scripts/check_bootstrap_t12_81_3_escape_auxiliary_csp.py"
       claim_scope: "fixed selected-row-neighborhood proof-mining diagnostic only; treats the center-6 supply class and center-3 connector class as auxiliary rich classes while selected rows at those centers may equal or be disjoint from them, and rules out the implicit 1317668800000000 selected-row assignment space by basic incidence/crossing/same-center-disjointness backtracking, but does not prove genuine rich-class order, row forcing, n=9, or the bridge"
+    - pattern: "bootstrap_t12_81_3_trigger_uniqueness"
+      status: "same-center disjointness audit for the specified 81:3 supply and connector trigger families"
+      artifact: "data/certificates/bootstrap_t12_81_3_trigger_uniqueness.json"
+      verifier: "scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py"
+      claim_scope: "proof-mining diagnostic only; shows the specified center-6 supply-trigger family and center-3 connector-avoiding trigger family each have maximum same-center pairwise-disjoint subfamily size 1, but does not prove trigger-class existence, row forcing, n=9, or the bridge"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"
