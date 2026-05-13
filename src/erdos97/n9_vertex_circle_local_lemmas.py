@@ -84,6 +84,17 @@ EXPECTED_SUMMARY = {
 }
 EXPECTED_DIRECT_TWO_ROW_INSTANCE_COUNT = 0
 EXPECTED_FOCUSED_NOTE_CROSSCHECK = {
+    NESTED_SPOKE_LEMMA: {
+        "template_id": "T01",
+        "family_ids": ["F09"],
+        "proof_note_path": "docs/n9-vertex-circle-t01-self-edge-lemma.md",
+        "source_kind": "focused_packet",
+        "crosscheck_mode": "alternate_self_edge_certificate",
+        "packet_key": "T01",
+        "packet_path": (
+            "data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json"
+        ),
+    },
     SHARED_ENDPOINT_LEMMA: {
         "template_id": "T02",
         "family_ids": ["F01", "F04", "F08", "F14"],
@@ -425,9 +436,7 @@ def _check_focused_packet(
                 f"{template_id} focused packet must explicitly reject {forbidden!r}"
             )
 
-    family_packets = focused_packet.get("family_packets")
-    if not isinstance(family_packets, list):
-        raise AssertionError(f"{template_id} focused packet must contain family_packets")
+    family_packets = _focused_family_packets(template_id, focused_packet)
     packets_by_family = {
         str(packet["family_id"]): packet
         for packet in family_packets
@@ -435,12 +444,20 @@ def _check_focused_packet(
     }
 
     checked = []
+    crosscheck_mode = str(expected.get("crosscheck_mode", "same_instance"))
     for family_id, aggregate in aggregate_instances.items():
         packet = packets_by_family.get(family_id)
         if packet is None:
             raise AssertionError(f"{template_id} focused packet missing {family_id}")
         _assert_family_common_fields(template_id, family_id, aggregate, packet)
-        if lemma_id in {
+        if crosscheck_mode == "alternate_self_edge_certificate":
+            _assert_alternate_self_edge_certificate_match(
+                template_id,
+                family_id,
+                aggregate,
+                packet,
+            )
+        elif lemma_id in {
             SHARED_ENDPOINT_LEMMA,
             T03_SELECTED_PATH_SELF_EDGE,
             T04_SELECTED_PATH_SELF_EDGE,
@@ -460,11 +477,21 @@ def _check_focused_packet(
         "families_checked": checked,
         "covered_assignment_count": sum(item["assignment_count"] for item in checked),
         "interpretation": (
-            "Aggregate scan instance matches the focused packet used by the "
-            "proof-facing note; this is a packet consistency check, not an "
-            "independent n=9 completeness proof."
+            _focused_packet_interpretation(crosscheck_mode)
         ),
     }
+
+
+def _focused_family_packets(
+    template_id: str,
+    focused_packet: Mapping[str, Any],
+) -> list[Mapping[str, Any]]:
+    family_packets = focused_packet.get("family_packets")
+    if isinstance(family_packets, list):
+        return [packet for packet in family_packets if isinstance(packet, Mapping)]
+    if "family_id" in focused_packet:
+        return [focused_packet]
+    raise AssertionError(f"{template_id} focused packet must contain family packet data")
 
 
 def _check_t04_template_record(
@@ -566,6 +593,110 @@ def _assert_self_edge_family_match(
         variant = aggregate.get("direct_conditions", {}).get("variant")
         if template_id in {"T03", "T04"} or variant == "selected_path_self_edge":
             raise AssertionError(f"{family_id} selected-path conditions must hold")
+
+
+def _assert_alternate_self_edge_certificate_match(
+    template_id: str,
+    family_id: str,
+    aggregate: Mapping[str, Any],
+    packet: Mapping[str, Any],
+) -> None:
+    aggregate_strict = aggregate.get("strict_inequality")
+    packet_strict = packet.get("strict_inequality")
+    equality = packet.get("distance_equality")
+    if not isinstance(aggregate_strict, Mapping) or not isinstance(packet_strict, Mapping):
+        raise AssertionError(f"{family_id} focused packet strict_inequality mismatch")
+    if not isinstance(equality, Mapping):
+        raise AssertionError(f"{family_id} focused packet distance_equality mismatch")
+    if packet_strict.get("outer_class") != packet_strict.get("inner_class"):
+        raise AssertionError(f"{family_id} focused packet strict edge must be reflexive")
+    if aggregate_strict.get("outer_class") != aggregate_strict.get("inner_class"):
+        raise AssertionError(f"{family_id} aggregate strict edge must be reflexive")
+    if packet_strict.get("outer_pair") != equality.get("start_pair"):
+        raise AssertionError(f"{family_id} focused strict/equality start mismatch")
+    if packet_strict.get("inner_pair") != equality.get("end_pair"):
+        raise AssertionError(f"{family_id} focused strict/equality end mismatch")
+    _assert_packet_equality_path(family_id, packet, equality)
+    if aggregate_strict.get("outer_pair") != packet_strict.get("outer_pair"):
+        raise AssertionError(f"{family_id} alternate certificate outer-pair mismatch")
+    if aggregate.get("distance_equality", {}).get("start_pair") != equality.get("start_pair"):
+        raise AssertionError(f"{family_id} alternate certificate equality-start mismatch")
+
+    replay = packet.get("replay")
+    if not isinstance(replay, Mapping) or replay.get("status") != "self_edge":
+        raise AssertionError(f"{family_id} focused packet replay status mismatch")
+    if replay.get("selected_row_count") != packet.get("core_size"):
+        raise AssertionError(f"{family_id} focused packet replay row count mismatch")
+    primary = replay.get("primary_self_edge_conflict")
+    if not isinstance(primary, Mapping):
+        raise AssertionError(f"{family_id} focused packet primary conflict mismatch")
+    for key in (
+        "row",
+        "witness_order",
+        "outer_interval",
+        "inner_interval",
+        "outer_pair",
+        "inner_pair",
+    ):
+        if primary.get(key) != packet_strict.get(key):
+            raise AssertionError(f"{family_id} focused packet primary conflict mismatch")
+    if template_id != "T01":
+        raise AssertionError("alternate self-edge certificate mode is currently T01-only")
+
+
+def _assert_packet_equality_path(
+    family_id: str,
+    packet: Mapping[str, Any],
+    equality: Mapping[str, Any],
+) -> None:
+    rows = packet.get("core_selected_rows")
+    if not isinstance(rows, Sequence) or isinstance(rows, str):
+        raise AssertionError(f"{family_id} focused packet rows mismatch")
+    row_map: dict[int, set[int]] = {}
+    for raw_row in rows:
+        if not isinstance(raw_row, Sequence) or isinstance(raw_row, str) or len(raw_row) != 5:
+            raise AssertionError(f"{family_id} focused packet rows mismatch")
+        center = int(raw_row[0])
+        row_map[center] = {int(value) for value in raw_row[1:]}
+
+    current = [int(value) for value in equality.get("start_pair", [])]
+    steps = equality.get("path")
+    if not isinstance(steps, Sequence) or isinstance(steps, str):
+        raise AssertionError(f"{family_id} focused packet equality path mismatch")
+    for step in steps:
+        if not isinstance(step, Mapping):
+            raise AssertionError(f"{family_id} focused packet equality path mismatch")
+        row = int(step["row"])
+        next_pair = [int(value) for value in step["next_pair"]]
+        witnesses = row_map.get(row)
+        if witnesses is None:
+            raise AssertionError(f"{family_id} focused packet equality path row mismatch")
+        if row not in current or row not in next_pair:
+            raise AssertionError(f"{family_id} focused packet equality path step mismatch")
+        left_other = next(value for value in current if value != row)
+        right_other = next(value for value in next_pair if value != row)
+        if left_other not in witnesses or right_other not in witnesses:
+            raise AssertionError(f"{family_id} focused packet equality path witness mismatch")
+        current = next_pair
+    if current != equality.get("end_pair"):
+        raise AssertionError(f"{family_id} focused packet equality path end mismatch")
+
+
+def _focused_packet_interpretation(crosscheck_mode: str) -> str:
+    if crosscheck_mode == "alternate_self_edge_certificate":
+        return (
+            "Aggregate scan family rows match the focused packet, and the "
+            "focused packet supplies a valid alternate reflexive self-edge "
+            "certificate for the same family. The aggregate nested-spoke "
+            "strict edge is not required to be the same strict edge as the "
+            "proof-facing note; this remains a packet consistency check, not "
+            "an independent n=9 completeness proof."
+        )
+    return (
+        "Aggregate scan instance matches the focused packet used by the "
+        "proof-facing note; this is a packet consistency check, not an "
+        "independent n=9 completeness proof."
+    )
 
 
 def _assert_strict_cycle_family_match(
