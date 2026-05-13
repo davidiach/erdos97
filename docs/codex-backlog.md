@@ -18,7 +18,7 @@ that justifies doing it anyway.
 Use this queue when no more specific issue is selected.
 
 1. Review the aggregate `n=9` vertex-circle local-lemma scan against the
-   focused T01/T02/T03/T04/T05/T06 self-edge packets and the focused T10/T11/T12
+   focused T01/T02/T03/T04/T05/T06/T07 self-edge packets and the focused T10/T11/T12
    strict-cycle packets, keeping it scoped as proof-mining scaffolding rather
    than an `n=9` proof.
 2. Audit whether the aggregate local-template coverage can be checked from the
