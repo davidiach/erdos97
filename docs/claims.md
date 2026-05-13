@@ -619,6 +619,17 @@ catalogue. This narrows the auxiliary-CSP catalogue gap only; it does not prove
 trigger-class existence, row forcing, `n=9`, the bootstrap bridge, or Erdos
 Problem #97.
 
+The rich-support auxiliary CSP in
+`docs/bootstrap-t12-81-3-escape-rich-support-csp.md` extends that audit by
+allowing the center-`6` supply object and center-`3` connector-avoiding object
+to be rich supports of size larger than four. It checks all 930 support pairs
+from 31 supply supports and 30 connector-avoiding supports, with selected rows
+at those centers allowed to be 4-subsets of the support or disjoint 4-sets.
+Exact backtracking leaves no complete assignment satisfying the same basic
+filters. This remains a finite proof-mining diagnostic only, not a proof of
+support existence, row forcing, `n=9`, the bootstrap bridge, or Erdos Problem
+#97.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

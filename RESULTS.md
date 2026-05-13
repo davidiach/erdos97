@@ -347,6 +347,21 @@ bridge. See `docs/bootstrap-t12-81-3-trigger-uniqueness.md`,
 `scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py`, and
 `data/certificates/bootstrap_t12_81_3_trigger_uniqueness.json`.
 
+The rich-support auxiliary CSP then allows those two auxiliary objects to be
+larger rich distance-class supports. It enumerates 31 center-`6` supply
+supports containing `[0,1,4]` and 30 center-`3` connector-avoiding supports
+using label `6`, for 930 fixed auxiliary support pairs. Selected rows at
+centers `3` and `6` may be any 4-subset of the auxiliary support or any
+disjoint 4-set; the other seven selected rows are arbitrary. The implicit
+selected-row space has `996734092900000000` assignments, and exact
+backtracking visits `2169` nodes with no complete assignment under the
+row-pair, witness-pair, crossing, and same-center disjointness filters. This
+is still a finite diagnostic only, not a proof of support existence, row
+forcing, `n=9`, or the bootstrap bridge. See
+`docs/bootstrap-t12-81-3-escape-rich-support-csp.md`,
+`scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py`, and
+`data/certificates/bootstrap_t12_81_3_escape_rich_support_csp.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

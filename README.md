@@ -101,8 +101,8 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the order-resolved `81:3` fixed-row escape audit, where label `6`
   appears only after center `3` in the fixed singleton-rich closure, read
   [`docs/bootstrap-t12-81-3-order-escape.md`](docs/bootstrap-t12-81-3-order-escape.md).
-- For the relaxed `81:3` escape-candidate scans, auxiliary-class CSP, and
-  trigger-family uniqueness audit, which probe center-`3` connector and
+- For the relaxed `81:3` escape-candidate scans, auxiliary/rich-support CSPs,
+  and trigger-family uniqueness audit, which probe center-`3` connector and
   center-`6` supply escapes around source `81`, read
   [`docs/bootstrap-t12-81-3-escape-candidates.md`](docs/bootstrap-t12-81-3-escape-candidates.md)
   and
@@ -114,7 +114,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   plus
   [`docs/bootstrap-t12-81-3-escape-auxiliary-csp.md`](docs/bootstrap-t12-81-3-escape-auxiliary-csp.md)
   and
-  [`docs/bootstrap-t12-81-3-trigger-uniqueness.md`](docs/bootstrap-t12-81-3-trigger-uniqueness.md).
+  [`docs/bootstrap-t12-81-3-trigger-uniqueness.md`](docs/bootstrap-t12-81-3-trigger-uniqueness.md),
+  then
+  [`docs/bootstrap-t12-81-3-escape-rich-support-csp.md`](docs/bootstrap-t12-81-3-escape-rich-support-csp.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).
