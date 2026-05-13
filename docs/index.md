@@ -179,6 +179,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-81-3-escape-one-row-drop.md`](bootstrap-t12-81-3-escape-one-row-drop.md):
   one-row-drop relaxation allowing one additional source-`81` row to move
   while checking the same escape route.
+- [`bootstrap-t12-81-3-escape-two-row-drop.md`](bootstrap-t12-81-3-escape-two-row-drop.md):
+  two-row-drop relaxation allowing a pair of additional source-`81` rows to
+  move while checking the same escape route.
 - [`bootstrap-t12-row-pressure.md`](bootstrap-t12-row-pressure.md):
   row-pressure refinement classifying those missing T12 row centers by core
   deficit, deletion-closure exposure, and private-halo support.

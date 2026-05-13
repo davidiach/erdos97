@@ -300,6 +300,16 @@ genuine rich-class order, `n=9`, or the bootstrap bridge; see
 `scripts/check_bootstrap_t12_81_3_escape_one_row_drop.py`, and
 `data/certificates/bootstrap_t12_81_3_escape_one_row_drop.json`.
 
+The two-row-drop follow-up repeats the same finite stress test while allowing
+any pair of the seven source-`81` rows outside centers `3` and `6` to move.
+For each dropped pair it checks all `70 * 70` replacement-row choices, for a
+total of `4116000` candidates. All candidates fail the same basic row-pair,
+witness-pair, or crossing filters. This is still a finite diagnostic only, not
+a proof of genuine rich-class order, `n=9`, or the bootstrap bridge; see
+`docs/bootstrap-t12-81-3-escape-two-row-drop.md`,
+`scripts/check_bootstrap_t12_81_3_escape_two_row_drop.py`, and
+`data/certificates/bootstrap_t12_81_3_escape_two_row_drop.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

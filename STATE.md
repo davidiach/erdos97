@@ -161,10 +161,13 @@ fixed-row-neighborhood hypotheses. The first scan replaces centers `3` and `6`
 while preserving the other seven source-`81` rows and finds no surviving
 basic incidence/crossing candidate. The one-row-drop scan then allows any one
 of those seven preserved rows to move as an arbitrary 4-set; all `19600`
-candidates again fail the basic filters. This is still proof-mining
-bookkeeping only, not a theorem about all genuine rich-class catalogues. See
+candidates again fail the basic filters. The two-row-drop scan allows any pair
+of those seven rows to move and all `4116000` candidates fail as well. This is
+still proof-mining bookkeeping only, not a theorem about all genuine
+rich-class catalogues. See
 `docs/bootstrap-t12-81-3-escape-candidates.md` and
-`docs/bootstrap-t12-81-3-escape-one-row-drop.md`.
+`docs/bootstrap-t12-81-3-escape-one-row-drop.md`, plus
+`docs/bootstrap-t12-81-3-escape-two-row-drop.md`.
 
 ## New exact fixed-pattern obstructions
 
