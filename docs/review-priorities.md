@@ -371,6 +371,13 @@ condition that the surviving multi-block family does not automatically satisfy:
   singleton-rich closure does not expose label `6` before center `3`; any
   successful escape now needs genuine rich-class data that supplies label `6`
   first, or a proof that no such supply exists.
+- bootstrap/T12 focused `81:3` escape-CSP evidence, as recorded in
+  `docs/bootstrap-t12-81-3-escape-auxiliary-csp.md` and
+  `docs/bootstrap-t12-81-3-trigger-uniqueness.md`, ruling out the specified
+  one-supply/one-connector auxiliary trigger model and showing each specified
+  trigger family is same-center unique. The remaining target is outside those
+  specified trigger families or a genuine rich-class/minimality hypothesis,
+  not more copies of the same supply or connector trigger at the same center.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

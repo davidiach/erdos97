@@ -172,12 +172,18 @@ extra rich classes while selected rows at those centers may be equal or
 disjoint; it rules out the implicit `1317668800000000` selected-row assignment
 space under the same basic filters plus same-center disjointness. This is
 still proof-mining bookkeeping only, not a theorem about all genuine
-rich-class catalogues. See
+rich-class catalogues. A follow-up trigger-family uniqueness audit checks that
+the specified center-`6` supply family and center-`3` connector-avoiding family
+are each same-center unique: all pairs inside either family intersect, so a
+genuine rich-class catalogue can contain at most one class from each specified
+trigger family. This narrows the auxiliary-CSP wording only; it still does not
+prove trigger-class existence, row forcing, `n=9`, or the bridge. See
 `docs/bootstrap-t12-81-3-escape-candidates.md` and
 `docs/bootstrap-t12-81-3-escape-one-row-drop.md`, plus
 `docs/bootstrap-t12-81-3-escape-two-row-drop.md` and
 `docs/bootstrap-t12-81-3-escape-full-neighborhood.md`, and then
-`docs/bootstrap-t12-81-3-escape-auxiliary-csp.md`.
+`docs/bootstrap-t12-81-3-escape-auxiliary-csp.md` and
+`docs/bootstrap-t12-81-3-trigger-uniqueness.md`.
 
 ## New exact fixed-pattern obstructions
 

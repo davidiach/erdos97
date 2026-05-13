@@ -188,6 +188,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-81-3-escape-auxiliary-csp.md`](bootstrap-t12-81-3-escape-auxiliary-csp.md):
   auxiliary-rich-class CSP allowing the center-`3` connector and center-`6`
   supply classes to be extra classes while selected rows remain free.
+- [`bootstrap-t12-81-3-trigger-uniqueness.md`](bootstrap-t12-81-3-trigger-uniqueness.md):
+  same-center disjointness audit showing the specified center-`6` supply and
+  center-`3` connector trigger families are each internally unique.
 - [`bootstrap-t12-row-pressure.md`](bootstrap-t12-row-pressure.md):
   row-pressure refinement classifying those missing T12 row centers by core
   deficit, deletion-closure exposure, and private-halo support.

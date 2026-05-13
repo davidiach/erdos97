@@ -609,6 +609,16 @@ complete assignment satisfies the same basic filters plus same-center
 disjointness. This remains a finite proof-mining diagnostic only, not a proof
 of row forcing, `n=9`, the bootstrap bridge, or Erdos Problem #97.
 
+The trigger-family uniqueness audit in
+`docs/bootstrap-t12-81-3-trigger-uniqueness.md` checks the specified auxiliary
+trigger families used by that CSP. Since any two classes in the center-`6`
+supply family intersect, and any two classes in the center-`3`
+connector-avoiding family intersect, same-center distance-class disjointness
+allows at most one class from each specified family in a genuine rich-class
+catalogue. This narrows the auxiliary-CSP catalogue gap only; it does not prove
+trigger-class existence, row forcing, `n=9`, the bootstrap bridge, or Erdos
+Problem #97.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

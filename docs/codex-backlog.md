@@ -111,10 +111,15 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-81-3-escape-auxiliary-csp.md` then lets the center-`3`
    connector and center-`6` supply classes exist as auxiliary rich classes
    while selected rows at those centers are free to be equal or disjoint. It
-   also has no basic-filter survivor. The next useful PR must therefore either
-   allow richer multi-auxiliary catalogues at centers `3` and `6`, introduce a
-   genuine rich-class/minimality hypothesis strong enough to forbid those
-   catalogues, or move to a different bridge target.
+   also has no basic-filter survivor. The trigger-family uniqueness audit in
+   `docs/bootstrap-t12-81-3-trigger-uniqueness.md` checks that richer
+   catalogues cannot contain two classes from the specified center-`6` supply
+   family or two classes from the specified center-`3` connector-avoiding
+   family, because the classes pairwise intersect at the same center. The next
+   useful PR must therefore either allow replacement classes outside those
+   specified trigger families, introduce a genuine rich-class/minimality
+   hypothesis strong enough to forbid those outside replacements, or move to a
+   different bridge target.
 5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
    certificates and emit verifier-backed template records.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
