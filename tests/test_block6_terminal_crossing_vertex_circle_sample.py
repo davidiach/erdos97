@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+import json
 import subprocess
 import sys
 from pathlib import Path
 
 from scripts.check_block6_terminal_crossing_vertex_circle_sample import (
+    FULL_SWEEP_OUT,
     assert_expected,
+    assert_expected_full_sweep,
     assert_expected_packet,
     audit,
     sample_packet_payload,
@@ -50,6 +53,18 @@ def test_block6_terminal_crossing_vertex_circle_sample_packet() -> None:
     assert payload["summary"]["total_crossing_orders"] == 796
     assert payload["summary"]["vertex_circle_order_status_counts"] == {
         "self_edge": 796,
+    }
+
+
+def test_block6_terminal_crossing_vertex_circle_full_sweep_artifact() -> None:
+    payload = json.loads(FULL_SWEEP_OUT.read_text(encoding="utf-8"))
+
+    assert_expected_full_sweep(payload)
+    assert payload["summary"]["terminal_extensions_examined"] == 105978
+    assert payload["summary"]["total_crossing_orders"] == 385517
+    assert payload["summary"]["vertex_circle_order_status_counts"] == {
+        "self_edge": 384318,
+        "strict_cycle": 1199,
     }
 
 
