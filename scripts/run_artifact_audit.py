@@ -44,6 +44,20 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         claim_scope="Repo-local n=8 exact survivor obstruction audit pending external review.",
     ),
     AuditCommand(
+        ident="n8_independent_obstruction_recheck",
+        command=(
+            "python",
+            "scripts/independent_n8_obstruction_recheck.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "SymPy-free independent cross-check for n=8 cyclic-order counts "
+            "and 11 of 15 survivor-class obstructions; repo-local audit "
+            "pending external review, not a public theorem claim."
+        ),
+    ),
+    AuditCommand(
         ident="round2_certificates",
         command=("python", "scripts/check_round2_certificates.py"),
         claim_scope="Fixed-pattern and fixed-order round-two certificate regression checks only.",

@@ -92,6 +92,13 @@ used. See `docs/n8-incidence-enumeration.md`,
 `docs/n8-exact-survivors.md`, `data/incidence/n8_incidence_completeness.json`,
 and `certificates/n8_exact_analysis.json`.
 
+The independent SymPy-free recheck in `docs/n8-independent-obstruction.md`
+uses separate rational-arithmetic code to reproduce the cyclic-order counts
+for all 15 classes and independently kill 11 classes. It intentionally leaves
+the Groebner-dependent classes `3`, `4`, `5`, and `14` to the original exact
+survivor checker, so it is an audit-strengthening cross-check rather than an
+independent public proof.
+
 ### Proof-note draft: geometric exclusion of n <= 8
 
 Status: proof-note draft; independent review requested.

@@ -227,6 +227,9 @@ put detailed reconciliation in the canonical synthesis.
   `n=8` incidence-completeness enumeration.
 - [`n8-exact-survivors.md`](n8-exact-survivors.md): exact obstruction pass for
   the 15 `n=8` incidence survivor classes.
+- [`n8-independent-obstruction.md`](n8-independent-obstruction.md): SymPy-free
+  cross-check of the `n=8` cyclic-order counts and 11 survivor-class
+  obstructions.
 - [`n8-geometric-proof.md`](n8-geometric-proof.md): proof-note draft giving a
   compact geometric obstruction for bad convex octagons via isosceles-triangle
   counting and exterior-turn angles.

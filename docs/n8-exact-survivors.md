@@ -196,6 +196,7 @@ Run from the repository root after installing the development dependencies:
 ```bash
 pip install -e .[dev]
 python scripts/independent_check_n8_artifacts.py --check --json
+python scripts/independent_n8_obstruction_recheck.py --check --json
 python scripts/analyze_n8_exact_survivors.py --check --json
 python scripts/analyze_n8_exact_survivors.py --check --json --check-compatible-orders-data data/incidence/n8_compatible_orders.json --check-exact-analysis-data certificates/n8_exact_analysis.json
 pytest -q
@@ -218,6 +219,12 @@ survivor JSON, incidence-completeness artifact, compatible-order artifact, and
 exact-analysis artifact agree with each other. It reports this as a repo-local
 artifact audit pending external review, not as a standalone public theorem
 claim.
+
+The `independent_n8_obstruction_recheck.py` entrypoint is a SymPy-free
+second-source replay for the parts that do not require Groebner machinery: it
+recomputes the compatible cyclic-order counts for all 15 classes and
+independently kills 11 classes. It does not cover the Groebner-based classes
+`3`, `4`, `5`, and `14`.
 
 The expanded polynomial systems and full compatible cyclic-order lists are stored
 as reproducibility artifacts:

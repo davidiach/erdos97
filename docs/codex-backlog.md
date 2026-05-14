@@ -196,7 +196,12 @@ Use this queue when no more specific issue is selected.
    C13/C19 template records and C25/C29 availability records now exist, but
    they are not cyclic-order coverage or obstructions for the larger frontier.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
-   with an independent input-data replay.
+   with an independent input-data replay. The current SymPy-free
+   `n=8` replay command,
+   `python scripts/independent_n8_obstruction_recheck.py --check --json`,
+   covers the cyclic-order counts and 11 non-Groebner survivor-class kills;
+   the remaining `n=8` audit gap is still the Groebner-based classes `3`,
+   `4`, `5`, and especially `14`.
 
 ## Task CB-N9-T01 - Extract Vertex-Circle Self-Edge Template
 
