@@ -28,11 +28,24 @@ from erdos97.vertex_circle_order_filter import (  # noqa: E402
 )
 
 
+DEFAULT_OUT = (
+    ROOT
+    / "data"
+    / "certificates"
+    / "block6_fragile_vertex_circle_extension_audit.json"
+)
 N = 12
 ROW_SIZE = 4
 ORDER = list(range(N))
 PAIR_CAP = 2
 INDEGREE_CAP = (2 * (N - 1)) // (ROW_SIZE - 1)
+PROVENANCE = {
+    "generator": "scripts/check_block6_fragile_vertex_circle_extension.py",
+    "command": (
+        "python scripts/check_block6_fragile_vertex_circle_extension.py "
+        "--assert-expected --write"
+    ),
+}
 EXPECTED_PRUNED = {
     "result": "closed",
     "nodes": 1752,
@@ -348,10 +361,12 @@ def audit_payload(*, include_terminal: bool, max_nodes: int = 2_000_000) -> dict
     payload: dict[str, Any] = {
         "schema": "erdos97.block6_fragile_vertex_circle_extension_audit.v1",
         "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+        "trust": "REVIEW_PENDING_DIAGNOSTIC",
         "claim_scope": (
             "Two-block block-6 fragile-cover extension audit in the natural "
             "cyclic order; not a proof of Erdos Problem #97 and not a counterexample."
         ),
+        "provenance": PROVENANCE,
         "n": N,
         "row_size": ROW_SIZE,
         "cyclic_order": ORDER,
@@ -365,11 +380,38 @@ def audit_payload(*, include_terminal: bool, max_nodes: int = 2_000_000) -> dict
     return payload
 
 
+def _resolve_repo_path(path: Path) -> Path:
+    return path if path.is_absolute() else ROOT / path
+
+
+def load_json(path: Path) -> object:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def write_json(payload: Mapping[str, Any], path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(payload, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
+def compare_artifact(payload: Mapping[str, Any], path: Path) -> None:
+    checked = load_json(path)
+    if checked != payload:
+        raise AssertionError(f"checked artifact is stale: {path.relative_to(ROOT)}")
+
+
 def assert_expected(payload: Mapping[str, Any], *, include_terminal: bool) -> None:
     if payload["status"] != "REVIEW_PENDING_DIAGNOSTIC_ONLY":
         raise AssertionError("unexpected status")
+    if payload["trust"] != "REVIEW_PENDING_DIAGNOSTIC":
+        raise AssertionError("unexpected trust label")
     if "not a proof" not in payload["claim_scope"]:
         raise AssertionError("claim scope lost no-proof note")
+    if payload["provenance"] != PROVENANCE:
+        raise AssertionError("unexpected provenance")
     pruned = dict(payload["pruned_search"])
     pruned_subset = {key: pruned[key] for key in EXPECTED_PRUNED}
     if pruned_subset != EXPECTED_PRUNED:
@@ -396,12 +438,29 @@ def main() -> int:
         action="store_true",
         help="assert the current expected audit counts",
     )
+    parser.add_argument(
+        "--out",
+        type=Path,
+        default=DEFAULT_OUT,
+        help="artifact path for --write or --check",
+    )
+    parser.add_argument("--write", action="store_true", help="write the checked artifact")
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="compare the regenerated payload against the checked artifact",
+    )
     parser.add_argument("--max-nodes", type=int, default=2_000_000)
     args = parser.parse_args()
 
     payload = audit_payload(include_terminal=args.terminal, max_nodes=args.max_nodes)
     if args.assert_expected:
         assert_expected(payload, include_terminal=args.terminal)
+    artifact_path = _resolve_repo_path(args.out)
+    if args.write:
+        write_json(payload, artifact_path)
+    if args.check:
+        compare_artifact(payload, artifact_path)
 
     if args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))

@@ -401,6 +401,16 @@ orders by Kalmanson certificates. The same payload also points to the older
 natural-order all-extension vertex-circle audit, where the pruned search closes
 with zero clean full extensions.
 
+That natural-order all-extension audit is now stored as a checked artifact:
+
+```bash
+python scripts/check_block6_fragile_vertex_circle_extension.py --check --assert-expected --json
+```
+
+```text
+data/certificates/block6_fragile_vertex_circle_extension_audit.json
+```
+
 This is bookkeeping, not a new global obstruction. The remaining block-6 bridge
 gap is still all full extensions across all compatible cyclic orders, or a
 genuine minimal/rich-class geometric reduction that avoids fixing one selected

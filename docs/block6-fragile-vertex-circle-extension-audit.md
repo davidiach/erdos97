@@ -80,8 +80,23 @@ Reproduce the pruned audit with:
 
 ```bash
 python scripts/check_block6_fragile_vertex_circle_extension.py \
+  --check \
   --assert-expected \
   --json
+```
+
+The checked artifact is:
+
+```text
+data/certificates/block6_fragile_vertex_circle_extension_audit.json
+```
+
+Rewrite it after an intentional generator change with:
+
+```bash
+python scripts/check_block6_fragile_vertex_circle_extension.py \
+  --assert-expected \
+  --write
 ```
 
 The audit reported:

@@ -1,0 +1,66 @@
+{
+  "claim_scope": "Two-block block-6 fragile-cover extension audit in the natural cyclic order; not a proof of Erdos Problem #97 and not a counterexample.",
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "fixed_rows": {
+    "0": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "3": [
+      0,
+      2,
+      4,
+      5
+    ],
+    "6": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "9": [
+      6,
+      8,
+      10,
+      11
+    ]
+  },
+  "n": 12,
+  "pair_cap": 2,
+  "provenance": {
+    "command": "python scripts/check_block6_fragile_vertex_circle_extension.py --assert-expected --write",
+    "generator": "scripts/check_block6_fragile_vertex_circle_extension.py"
+  },
+  "pruned_search": {
+    "initial_vc": "ok",
+    "max_nodes": 2000000,
+    "nodes": 1752,
+    "result": "closed",
+    "solutions": 0,
+    "vc_prunes": {
+      "self_edge": 645,
+      "strict_cycle": 768
+    },
+    "zero_option_prunes": 37
+  },
+  "row_size": 4,
+  "schema": "erdos97.block6_fragile_vertex_circle_extension_audit.v1",
+  "selected_indegree_cap": 7,
+  "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

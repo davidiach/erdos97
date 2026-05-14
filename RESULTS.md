@@ -121,6 +121,14 @@ block-6 fragile cover but still permits two disjoint blocks, so this is a
 necessary structural bridge only, not a contradiction and not the open
 ear-orderable bridge. See `docs/minimal-fragile-cover-bridge.md`.
 
+The stored block-6 vertex-circle full-extension audit adds a stronger geometric
+gate for that same two-block negative control in the natural cyclic order: all
+full selected-row extensions are closed by vertex-circle quotient self-edge or
+strict-cycle obstructions. This rejects one abstract family that passes the
+fragile-cover hypergraph and full-extension checks, but it is still not an
+all-order/all-extension bridge proof. See
+`docs/block6-fragile-vertex-circle-extension-audit.md`.
+
 ### Bootstrap-core bridge
 
 Status: `LEMMA` / bridge fork.

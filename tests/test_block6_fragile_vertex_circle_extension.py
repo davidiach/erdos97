@@ -31,6 +31,7 @@ def test_block6_checker_cli_json() -> None:
         [
             sys.executable,
             "scripts/check_block6_fragile_vertex_circle_extension.py",
+            "--check",
             "--assert-expected",
             "--json",
         ],

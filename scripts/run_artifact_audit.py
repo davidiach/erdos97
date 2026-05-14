@@ -692,6 +692,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="block6_fragile_vertex_circle_extension",
+        command=(
+            "python",
+            "scripts/check_block6_fragile_vertex_circle_extension.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Two-block block-6 fragile-cover full-extension vertex-circle "
+            "audit in the natural cyclic order; not a proof of the fragile "
+            "bridge, Erdos Problem #97, or a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",

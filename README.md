@@ -54,6 +54,9 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For a partial bridge theorem from minimality to fragile-cover witness
   systems, read
   [`docs/minimal-fragile-cover-bridge.md`](docs/minimal-fragile-cover-bridge.md).
+- For the first stored geometric gate on the block-6 fragile-cover negative
+  control, read
+  [`docs/block6-fragile-vertex-circle-extension-audit.md`](docs/block6-fragile-vertex-circle-extension-audit.md).
 - For the rich-triple closure / bootstrap-core bridge fork, read
   [`docs/bootstrap-core-bridge.md`](docs/bootstrap-core-bridge.md).
 - For the bootstrap-core rank/capacity crosswalk on current fixed-row
@@ -463,6 +466,8 @@ python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json
 python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json
 python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
 python scripts/check_n9_base_apex_d3_artifact_join.py --check --json
+python scripts/check_bridge_lemma_frontier.py --check --assert-expected --json
+python scripts/check_block6_fragile_vertex_circle_extension.py --check --assert-expected --json
 python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
 python scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json
 ```
