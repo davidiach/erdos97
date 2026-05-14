@@ -54,6 +54,15 @@ and spot-checks selected row0 singletons `0`, `63`, and `125` for the n=10
 artifact. A full repo-native n=10 rerun is intentionally not part of the fast
 tier; it should be treated as artifact-tier work.
 
+The input-data audit
+`scripts/check_n10_singleton_input_audit.py` checks the stored singleton JSON
+without rerunning the search and without using the generic search helper for
+row0 coverage. It recomputes the 126 row0 witness choices directly as the
+lexicographic 4-subsets of labels `1..9`, then checks the row indices,
+singleton ranges, witness masks, explicit witness lists, and aggregate count
+arithmetic. This is a stored-data consistency audit only, not a terminal
+conflict replay and not an `n=10` proof.
+
 ## Secondary first-five replay
 
 The archived secondary artifact
@@ -81,6 +90,15 @@ Validate the imported artifact counts:
 
 ```bash
 python scripts/check_n10_vertex_circle_singletons.py --assert-expected
+```
+
+Validate the stored singleton JSON as input data:
+
+```bash
+python scripts/check_n10_singleton_input_audit.py \
+  --check \
+  --assert-expected \
+  --json
 ```
 
 Validate the artifact and rerun selected row0 singletons `0`, `63`, and `125`

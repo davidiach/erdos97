@@ -914,6 +914,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n10_singleton_input_audit",
+        command=(
+            "python",
+            "scripts/check_n10_singleton_input_audit.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Input-data audit for all 126 draft n=10 singleton slices; checks "
+            "stored row0 coverage and aggregate arithmetic only, not a search "
+            "rerun, proof of n=10, counterexample, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n10_secondary_singleton_replay",
         command=(
             "python",
