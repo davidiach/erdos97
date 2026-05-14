@@ -135,6 +135,26 @@ This is reusable-template guidance for future searches. It does not search new
 orders, certify any new pattern, or transfer either all-order obstruction to
 arbitrary selected-witness systems.
 
+## C25/C29 Sparse-Frontier Template Availability
+
+The sparse-frontier availability diagnostic
+
+```bash
+python scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json
+```
+
+checks the registered `C25_sidon_2_5_9_14` and
+`C29_sidon_1_3_7_15` fixed abstract selected-witness patterns. It recomputes
+their selected-distance quotient vector tables and records that both expose
+the same two coefficient-template shapes found in the checked C13/C19 pilots:
+one selected-distance class against one selected-distance class, and two
+selected-distance classes against two selected-distance classes.
+
+This is availability only. It does not search cyclic orders, does not prove
+that every order contains such a pair, does not obstruct C25 or C29, and does
+not transfer either C13/C19 all-order obstruction to the larger sparse
+frontier.
+
 ## Interpretation
 
 Safe claim:

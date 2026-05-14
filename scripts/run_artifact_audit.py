@@ -122,6 +122,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="kalmanson_sparse_frontier_templates",
+        command=(
+            "python",
+            "scripts/analyze_kalmanson_sparse_frontier_templates.py",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Coefficient-template availability diagnostic for registered "
+            "C25/C29 sparse-frontier patterns; not a cyclic-order search, "
+            "proof of Erdos Problem #97, counterexample, or all-order "
+            "obstruction."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_review_pending",
         command=("python", "scripts/check_n9_vertex_circle_exhaustive.py", "--assert-expected", "--json"),
         claim_scope="Review-pending n=9 selected-witness finite-case checker; not an official/global status update.",
