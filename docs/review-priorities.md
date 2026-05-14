@@ -469,6 +469,17 @@ condition that the surviving multi-block family does not automatically satisfy:
   this is still not all-order closure. The next bridge/filter step should
   either widen beyond this oriented-block slice or state a genuine
   minimal/rich-class hypothesis.
+- block-6 first-block-forward two-orientation evidence, as recorded in
+  `data/certificates/block6_forward_block_two_orientation_closure.json`,
+  joins the forward-second-block vertex-circle sweep with the
+  reversed-second-block two-stage packet. It checks `924` closed normalized
+  shuffle orders when the first block stays forward and the second block is
+  forward or reversed.
+  This is still not first-block-reversed coverage, arbitrary-order closure, or
+  a fragile-bridge proof; the next useful widening should either justify the
+  missing orientation symmetry by a checked invariant, replay the missing
+  orientations directly, or move to a richer minimal/rich-class bridge
+  hypothesis.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

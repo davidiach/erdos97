@@ -101,6 +101,14 @@ The compact crosswalk
 combined arithmetic for this bounded family: `446` vertex-circle closures plus
 `16` Kalmanson clean-row closures cover the `462` reversed-block shuffle
 orders.
+The follow-up first-block-forward two-orientation crosswalk joins that packet
+to the original forward-second-block sweep: `462` forward-second-block
+vertex-circle closures plus the `462` reversed-second-block two-stage closures
+cover `924` normalized first-block-forward shuffle orders. This is still only
+a bounded fixed-order-family diagnostic; it does not include
+first-block-reversed orientations, arbitrary cyclic orders, all selected-row
+systems, the fragile bridge, or Erdos #97. See
+`data/certificates/block6_forward_block_two_orientation_closure.json`.
 
 A separate rich-triple closure bridge records that ear-orderability is
 equivalent to bootstrap rank at most 3. Failure of that rank condition yields

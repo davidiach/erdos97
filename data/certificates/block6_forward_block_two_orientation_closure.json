@@ -1,0 +1,69 @@
+{
+  "claim_scope": "Cross-artifact fixed-order-family diagnostic for the 924 normalized block-6 shuffle orders with the first six-label block kept in forward orientation and the second block allowed in forward or reversed orientation. It combines 462 vertex-circle closures from the forward-second-block packet with the 462-order reversed-second-block two-stage closure packet. This does not include first-block-reversed orientations, arbitrary cyclic orders, all selected-row systems, the fragile bridge, a proof of Erdos Problem #97, or a counterexample.",
+  "family_crosswalk": [
+    {
+      "closed_order_count": 462,
+      "closure_methods": {
+        "vertex_circle_quotient": 462
+      },
+      "name": "forward_second_block",
+      "order_count": 462,
+      "path": "data/certificates/block6_shuffle_order_vertex_circle_sweep.json",
+      "schema": "erdos97.block6_shuffle_order_vertex_circle_sweep.v1",
+      "second_block_orientation": "forward",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY"
+    },
+    {
+      "closed_order_count": 462,
+      "closure_methods": {
+        "kalmanson_after_vertex_circle_escape": 16,
+        "vertex_circle_quotient": 446
+      },
+      "name": "reversed_second_block",
+      "order_count": 462,
+      "path": "data/certificates/block6_reversed_block_two_stage_closure.json",
+      "schema": "erdos97.block6_reversed_block_two_stage_closure.v1",
+      "second_block_orientation": "reversed",
+      "status": "BOUNDED_FIXED_ORDER_FAMILY_TWO_STAGE_CLOSURE_DIAGNOSTIC"
+    }
+  ],
+  "interpretation": "For the two block-preserving shuffle families with first block in forward orientation, the forward-second-block packet closes all 462 orders by vertex-circle quotient pruning. The reversed-second-block packet closes 446 orders by vertex-circle pruning and the remaining 16 stored clean escape rows by fixed-order Kalmanson certificates. The aggregate 924-order count is a convenience crosswalk only and does not widen to first-block-reversed or arbitrary cyclic orders.",
+  "provenance": {
+    "command": "python scripts/check_block6_forward_block_two_orientation_closure.py --write --assert-expected",
+    "generator": "scripts/check_block6_forward_block_two_orientation_closure.py"
+  },
+  "schema": "erdos97.block6_forward_block_two_orientation_closure.v1",
+  "source_artifacts": {
+    "forward_second_block_vertex_circle": {
+      "path": "data/certificates/block6_shuffle_order_vertex_circle_sweep.json",
+      "schema": "erdos97.block6_shuffle_order_vertex_circle_sweep.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY"
+    },
+    "reversed_second_block_two_stage": {
+      "path": "data/certificates/block6_reversed_block_two_stage_closure.json",
+      "schema": "erdos97.block6_reversed_block_two_stage_closure.v1",
+      "status": "BOUNDED_FIXED_ORDER_FAMILY_TWO_STAGE_CLOSURE_DIAGNOSTIC"
+    }
+  },
+  "status": "BOUNDED_FIXED_ORDER_TWO_ORIENTATION_CLOSURE_DIAGNOSTIC",
+  "summary": {
+    "combined_closed_order_count": 924,
+    "combined_closure_complete": true,
+    "first_block_orientation": "forward",
+    "forward_second_block_closed_order_count": 462,
+    "forward_second_block_order_count": 462,
+    "kalmanson_after_vertex_circle_escape_count": 16,
+    "method_counts": {
+      "forward_second_block_vertex_circle": 462,
+      "reversed_second_block_kalmanson_after_vertex_circle_escape": 16,
+      "reversed_second_block_vertex_circle": 446
+    },
+    "reversed_clean_escape_order_count": 16,
+    "reversed_second_block_closed_order_count": 462,
+    "reversed_second_block_order_count": 462,
+    "second_block_orientation_count": 2,
+    "total_family_order_count": 924,
+    "vertex_circle_closed_order_count": 908
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

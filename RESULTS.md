@@ -188,6 +188,15 @@ the two packets line up on the same 16 clean indices and that the combined
 bounded family count is complete: `446 + 16 = 462`. This is still only the
 reversed-second-block fixed-order family.
 
+The first-block-forward two-orientation crosswalk
+`data/certificates/block6_forward_block_two_orientation_closure.json` then
+joins the original forward-second-block sweep with that reversed-block packet.
+It verifies `462 + 462 = 924` closed normalized shuffle orders when the first
+block orientation is fixed forward and the second block is either forward or
+reversed. This is a convenience cross-artifact diagnostic only; it does not
+cover first-block-reversed orientations, arbitrary cyclic orders, all
+selected-row systems, the fragile bridge, or Erdos Problem #97.
+
 ### Bootstrap-core bridge
 
 Status: `LEMMA` / bridge fork.
