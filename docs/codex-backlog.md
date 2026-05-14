@@ -31,7 +31,11 @@ Use this queue when no more specific issue is selected.
    family-by-family. The follow-up crosswalk
    `python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json`
    connects the same local-lemma accounting back to the review-pending
-   exhaustive count artifact and motif classification.
+   exhaustive count artifact and motif classification. The relation-skeleton
+   crosswalk
+   `python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json`
+   connects the compact 16-skeleton proof-mining catalog to the same
+   aggregate/simple-replay family accounting.
 3. Continue the minimal fragile-cover bridge after the stored block-6
    vertex-circle full-extension audit
    `data/certificates/block6_fragile_vertex_circle_extension_audit.json`.

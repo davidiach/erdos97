@@ -486,6 +486,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="relation_skeleton_local_lemma_crosswalk",
+        command=(
+            "python",
+            "scripts/check_relation_skeleton_local_lemma_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Cross-artifact audit joining the relation-skeleton catalog to "
+            "the aggregate n=9 local-lemma scan and simple replay; not a "
+            "proof of n=9, counterexample, or independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_t11_strict_cycle_lemma_packet",
         command=(
             "python",
