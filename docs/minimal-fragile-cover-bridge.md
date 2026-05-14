@@ -470,6 +470,25 @@ natural-order generator. All four fixed-order searches still close by
 order-specific vertex-circle quotient pruning. This is fixed-order evidence
 only, not all-order closure.
 
+A larger fixed-order-family sweep now checks every block-preserving shuffle
+order:
+
+```bash
+python scripts/check_block6_shuffle_order_vertex_circle_sweep.py --check --assert-expected --json
+```
+
+```text
+data/certificates/block6_shuffle_order_vertex_circle_sweep.json
+```
+
+The family has `462` normalized cyclic orders: label `0` is fixed first, the
+internal order of `0,1,2,3,4,5` and `6,7,8,9,10,11` is preserved, and the two
+blocks are shuffled. All `462` order-specific full-extension searches close by
+vertex-circle quotient pruning. The sweep also confirms the natural-order
+generator gap at scale: `457` of the first terminal extensions for these orders
+fail the natural-order crossing rule. This remains a bounded family
+diagnostic, not all-order closure or a fragile-cover bridge proof.
+
 ## What This Does Not Prove
 
 The bridge is necessary, not sufficient. The checked block-6 family passes the

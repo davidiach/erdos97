@@ -252,3 +252,29 @@ strict-cycle quotient obstructions.
 This is not all-order closure. Its value is to separate the next gap cleanly:
 the natural-order generator is incomplete for fixed-order reasoning, but the
 same vertex-circle gate survives several non-natural fixed orders.
+
+The next bounded family sweep widens the fixed-order side:
+
+```bash
+python scripts/check_block6_shuffle_order_vertex_circle_sweep.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
+```text
+data/certificates/block6_shuffle_order_vertex_circle_sweep.json
+```
+
+This sweep checks all `462` normalized cyclic orders that keep the internal
+order of labels `0,1,2,3,4,5` and `6,7,8,9,10,11` but shuffle the two blocks.
+All `462` order-specific full-extension searches close under vertex-circle
+quotient pruning. The artifact records `458` orders with a legal terminal
+selected-row extension, `4` orders with no terminal extension, and `457` first
+terminal extensions outside the natural-order terminal generator. The pruned
+searches visit `735,652` nodes and close by `276,230` self-edge and `316,519`
+strict-cycle quotient obstructions.
+
+This is still a bounded fixed-order-family diagnostic, not all-order closure.
+It does not cover cyclic orders that permute labels inside a block, arbitrary
+block-6 full selected-row systems, or a genuine minimal/rich-class bridge.

@@ -45,7 +45,13 @@ Use this queue when no more specific issue is selected.
    `data/certificates/block6_fixed_order_vertex_circle_probe.json` confirms
    this gap is concrete: three non-natural orders have terminal extensions
    outside the natural-order generator, although all four probed fixed orders
-   still close under order-specific vertex-circle pruning.
+   still close under order-specific vertex-circle pruning. The block-preserving
+   shuffle-order sweep
+   `data/certificates/block6_shuffle_order_vertex_circle_sweep.json` widens
+   that check to all `462` normalized shuffles preserving internal order within
+   each six-label block; every such fixed-order search closes, while the
+   remaining gap is still arbitrary cyclic orders and a genuine
+   minimal/rich-class bridge.
 4. Use the bootstrap-core crosswalk and the bootstrap / vertex-circle overlay
    in `docs/bootstrap-core-crosswalk.md` and
    `docs/bootstrap-vertex-circle-overlay.md` to design a sharper condition.

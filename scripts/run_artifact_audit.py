@@ -760,6 +760,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="block6_shuffle_order_vertex_circle_sweep",
+        command=(
+            "python",
+            "scripts/check_block6_shuffle_order_vertex_circle_sweep.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Fixed-order sweep over all block-preserving shuffle cyclic orders "
+            "for the two-block block-6 fragile rows; bounded family "
+            "diagnostic only, not all-order closure, not a fragile-bridge "
+            "proof, not a proof of Erdos Problem #97, and not a "
+            "counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",

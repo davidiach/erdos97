@@ -75,6 +75,15 @@ vertex-circle quotient pruning. This is fixed-order evidence only, not
 all-order closure. See
 `data/certificates/block6_fixed_order_vertex_circle_probe.json`.
 
+A block-preserving shuffle-order sweep widens that fixed-order diagnostic to
+all `462` normalized cyclic orders that keep the two six-label block orders
+internally fixed while shuffling the blocks. All `462` order-specific
+full-extension searches close by vertex-circle quotient pruning; `458` orders
+have a legal terminal extension, and `457` first terminal extensions are
+outside the natural-order terminal generator. This is still a bounded
+fixed-order-family diagnostic, not all-order closure. See
+`data/certificates/block6_shuffle_order_vertex_circle_sweep.json`.
+
 A separate rich-triple closure bridge records that ear-orderability is
 equivalent to bootstrap rank at most 3. Failure of that rank condition yields
 inclusion-minimal generating cores with deletion closures, private halos, and a
