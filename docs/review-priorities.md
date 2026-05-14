@@ -129,6 +129,19 @@ Acceptance standard: a written review should either promote the checker to the
 same repo-local finite-case status as `n <= 8`, or identify the exact
 mathematical or implementation gap.
 
+Current input-data audit:
+
+```bash
+python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json
+```
+
+This command recomputes the row-0 coverage directly as the 70 lexicographic
+4-subsets of labels `1..8`, checks the stored row-0 witness lists and masks,
+and verifies summary arithmetic from the checked-in JSON. It is a small audit
+of the "no hidden row0 quotient" checklist item only; it does not rerun the
+brancher, replay vertex-circle certificates, prove `n=9`, or complete
+independent review.
+
 ## Priority 6 - mine a reusable vertex-circle lemma
 
 Target: `docs/n9-vertex-circle-obstruction-shapes.md` and

@@ -227,6 +227,8 @@ selected-witness assignments after the pair/crossing/count filters, and the
 vertex-circle filter kills all 184 by exact self-edge or strict-cycle
 obstructions. This is not yet promoted to the source-of-truth strongest local
 result; independent review is required before any public theorem-style claim.
+The companion input-data audit checks the stored row0 witness coverage and
+summary arithmetic without rerunning the brancher.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
 An incoming `n=10` singleton-slice continuation is now recorded as a
@@ -441,6 +443,7 @@ python scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --j
 python scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json
 python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --check-artifact reports/c19_kalmanson_z3_clause_diagnostics.json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
+python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_core_templates.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_frontier_motif_classification.py --check --assert-expected --json

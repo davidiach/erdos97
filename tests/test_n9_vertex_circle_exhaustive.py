@@ -92,3 +92,8 @@ def test_n9_vertex_circle_row0_root_choices_are_literal_combinations(
         n9_payload["cross_check_without_vertex_circle_pruning"]["row0_choices"]
         == expected_count
     )
+    assert n9_payload["row0_choice_count_expected"] == expected_count
+    assert n9_payload["row0_witnesses"] == [
+        list(combo) for combo in combinations(range(1, N), ROW_SIZE)
+    ]
+    assert n9_payload["row0_masks"] == OPTIONS[0]
