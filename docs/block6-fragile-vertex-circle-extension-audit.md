@@ -325,3 +325,21 @@ after quotienting by selected-distance equalities. This closes only the 16
 stored fixed-order escape rows from the reversed-block negative control; it
 does not prove all cyclic orders, all block-6 selected-row systems, the
 fragile bridge, or Erdos Problem #97.
+
+A compact two-stage crosswalk records the bounded-family closure arithmetic:
+
+```bash
+python scripts/check_block6_reversed_block_two_stage_closure.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
+```text
+data/certificates/block6_reversed_block_two_stage_closure.json
+```
+
+It checks that the Kalmanson packet certifies exactly the 16 clean indices from
+the vertex-circle negative control, so `446` vertex-circle closures plus `16`
+Kalmanson closures cover the `462` reversed-second-block shuffle orders. This
+is only a cross-artifact fixed-order-family closure, not a new bridge theorem.

@@ -522,6 +522,12 @@ oriented-block sweep into all-order closure, but it shows that the first
 vertex-circle-clean negative-control rows are eliminated by an existing
 metric-order filter.
 
+The compact crosswalk
+`data/certificates/block6_reversed_block_two_stage_closure.json` verifies the
+two-stage count for this bounded slice: the `446` vertex-circle closures and
+the `16` Kalmanson clean-row closures account for all `462` orders in the
+reversed-second-block shuffle family.
+
 ## What This Does Not Prove
 
 The bridge is necessary, not sufficient. The checked block-6 family passes the

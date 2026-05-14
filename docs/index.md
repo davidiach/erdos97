@@ -116,7 +116,7 @@ put detailed reconciliation in the canonical synthesis.
   quotient pruning in the natural order, plus later crossing-order,
   fixed-order, block-preserving shuffle-order diagnostic widenings, the
   reversed-block shuffle escape packet, and the fixed-order Kalmanson replay
-  of its 16 clean rows.
+  of its 16 clean rows plus their two-stage closure crosswalk.
 - [`block6-fragile-fifth-row-obstruction-catalog.md`](block6-fragile-fifth-row-obstruction-catalog.md):
   one-step catalog showing that many legal fifth rows already hit the
   vertex-circle quotient obstruction, while 166 remain clean and block a

@@ -182,6 +182,12 @@ for the stored fixed rows and fixed cyclic orders only, not an all-order
 obstruction or fragile-bridge proof; see
 `data/certificates/block6_reversed_block_clean_kalmanson.json`.
 
+The companion two-stage crosswalk
+`data/certificates/block6_reversed_block_two_stage_closure.json` checks that
+the two packets line up on the same 16 clean indices and that the combined
+bounded family count is complete: `446 + 16 = 462`. This is still only the
+reversed-second-block fixed-order family.
+
 ### Bootstrap-core bridge
 
 Status: `LEMMA` / bridge fork.

@@ -2605,6 +2605,46 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: block6_reversed_block_two_stage_closure
+    path: data/certificates/block6_reversed_block_two_stage_closure.json
+    kind: cross_artifact_closure_diagnostic
+    generator: scripts/check_block6_reversed_block_two_stage_closure.py
+    command: python scripts/check_block6_reversed_block_two_stage_closure.py --write --assert-expected
+    checker: scripts/check_block6_reversed_block_two_stage_closure.py
+    check_command: python scripts/check_block6_reversed_block_two_stage_closure.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Two-stage fixed-order-family crosswalk for the 462 reversed-second-block shuffle orders. Combines 446 vertex-circle quotient closures with 16 exact fixed-order Kalmanson clean-row closures; not all-order closure, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.block6_reversed_block_two_stage_closure.v1
+      status: BOUNDED_FIXED_ORDER_FAMILY_TWO_STAGE_CLOSURE_DIAGNOSTIC
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.family_order_count: 462
+      summary.vertex_circle_closed_order_count: 446
+      summary.vertex_circle_clean_order_count: 16
+      summary.kalmanson_obstructed_clean_order_count: 16
+      summary.combined_closed_order_count: 462
+      summary.combined_closure_complete: true
+      summary.source_clean_indices_match: true
+      summary.kalmanson_strict_rows_total: 394
+      summary.kalmanson_weight_sum_total: 16850
+      summary.method_counts.vertex_circle_quotient: 446
+      summary.method_counts.kalmanson_after_vertex_circle_escape: 16
+      provenance.generator: scripts/check_block6_reversed_block_two_stage_closure.py
+      provenance.command: python scripts/check_block6_reversed_block_two_stage_closure.py --write --assert-expected
+    forbidden_claims:
+      - reversed-block two-stage closure proves all cyclic orders
+      - reversed-block two-stage closure proves the fragile bridge
+      - all block-6 full extensions are obstructed across all orders
+      - arbitrary oriented-block shuffles are all obstructed
+      - minimal counterexamples are ruled out
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: speculative_circulant_frontier_obstructions
     path: data/certificates/speculative_circulant_frontier_obstructions.json
     kind: certificate_artifact

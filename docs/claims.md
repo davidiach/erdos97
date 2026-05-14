@@ -246,6 +246,10 @@ cyclic orders. It is not all-order closure for the oriented-block family, not a
 fragile-bridge proof, not a proof of Erdos #97, and not a counterexample.
 Check it with
 `python scripts/check_block6_reversed_block_clean_kalmanson.py --check --assert-expected --json`.
+The companion crosswalk
+`data/certificates/block6_reversed_block_two_stage_closure.json` only checks
+that this 16-row packet lines up with the reversed-block vertex-circle packet,
+giving the bounded-family count `446 + 16 = 462`.
 
 ## Lemmas
 

@@ -96,6 +96,11 @@ certificates, totaling `394` strict rows and weight sum `16850`; this closes
 only that bounded escape set, not all oriented-block shuffles, arbitrary
 orders, the fragile bridge, or Erdos #97. See
 `data/certificates/block6_reversed_block_clean_kalmanson.json`.
+The compact crosswalk
+`data/certificates/block6_reversed_block_two_stage_closure.json` verifies the
+combined arithmetic for this bounded family: `446` vertex-circle closures plus
+`16` Kalmanson clean-row closures cover the `462` reversed-block shuffle
+orders.
 
 A separate rich-triple closure bridge records that ear-orderability is
 equivalent to bootstrap rank at most 3. Failure of that rank condition yields

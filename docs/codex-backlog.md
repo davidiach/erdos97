@@ -57,9 +57,11 @@ Use this queue when no more specific issue is selected.
    fixed orders have vertex-circle-clean full selected-row extensions. The
    follow-up `data/certificates/block6_reversed_block_clean_kalmanson.json`
    closes those 16 stored fixed assignment/order pairs by exact Kalmanson
-   quotient-cone certificates. The next useful PR should widen beyond this
-   oriented-block slice, or explain which richer bridge hypothesis would rule
-   out the remaining arbitrary-order gap.
+   quotient-cone certificates, and
+   `data/certificates/block6_reversed_block_two_stage_closure.json` records the
+   combined `446 + 16 = 462` closure crosswalk. The next useful PR should widen
+   beyond this oriented-block slice, or explain which richer bridge hypothesis
+   would rule out the remaining arbitrary-order gap.
 4. Use the bootstrap-core crosswalk and the bootstrap / vertex-circle overlay
    in `docs/bootstrap-core-crosswalk.md` and
    `docs/bootstrap-vertex-circle-overlay.md` to design a sharper condition.
