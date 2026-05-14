@@ -25,7 +25,10 @@ Use this queue when no more specific issue is selected.
    `data/certificates/n9_vertex_circle_local_lemma_simple_replay.json` as a
    reviewer-facing input for the aggregate local-template coverage. The replay
    checks the packet JSON without sharing the main quotient-replay helper, but
-   it is still a packet audit rather than an `n=9` proof.
+   it is still a packet audit rather than an `n=9` proof. The crosswalk command
+   `python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --json`
+   compares that simple replay with the aggregate local-lemma scan
+   family-by-family.
 3. Continue the minimal fragile-cover bridge after the stored block-6
    vertex-circle full-extension audit
    `data/certificates/block6_fragile_vertex_circle_extension_audit.json`.

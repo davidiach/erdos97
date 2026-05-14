@@ -573,6 +573,24 @@ main quotient helper; it does not certify that the packet family list is
 complete, and it does not change the review-pending status of the exhaustive
 checker.
 
+## Aggregate/simple-replay crosswalk
+
+The crosswalk checker
+`scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py` joins the
+aggregate local-lemma scan to the second-source replay artifact. It checks
+that both stored artifacts agree, family by family, on all 16 template
+families and 184 assignments, including the split into 13 self-edge families
+and 3 strict-cycle families:
+
+```bash
+python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --json
+```
+
+This is reviewer-facing packet bookkeeping only. It says the quotient-helper
+aggregate scan and the simpler replay audit describe the same stored local
+template coverage. It does not certify that the packet family list is complete
+for `n=9`, and it does not promote the review-pending exhaustive checker.
+
 ## Scan summary
 
 The current local-lemma scan covers these review-pending template-packet

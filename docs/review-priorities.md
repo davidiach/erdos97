@@ -188,6 +188,10 @@ Next steps:
 - use `data/certificates/n9_vertex_circle_local_lemma_simple_replay.json` to
   replay the aggregate local-template coverage from stored packet JSON without
   sharing the main quotient-replay helper;
+- use
+  `scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --json`
+  to compare the aggregate local-lemma scan and simple replay
+  family-by-family;
 - test whether the same motifs appear in the P18 obstruction and fail in the
   recorded `C19_skew` vertex-circle-only survivor, which is now retired as a
   fixed abstract pattern by the separate Z3 Kalmanson certificate;
