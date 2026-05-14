@@ -456,6 +456,12 @@ condition that the surviving multi-block family does not automatically satisfy:
   two six-label blocks while shuffling the blocks. Every order-specific
   full-extension search closes by vertex-circle pruning, but this remains a
   bounded fixed-order-family diagnostic rather than all-order closure.
+- block-6 reversed-second-block shuffle evidence, as recorded in
+  `data/certificates/block6_reversed_block_shuffle_vertex_circle_escape.json`.
+  This companion oriented-block family has `16` vertex-circle-clean fixed-order
+  escape rows, so it is a negative control for relying on the vertex-circle
+  gate alone. The next bridge/filter step should attack those clean rows with a
+  stronger metric-order condition or a genuine minimal/rich-class hypothesis.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

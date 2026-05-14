@@ -164,6 +164,16 @@ the natural-order terminal generator. This is still a bounded fixed-order-family
 diagnostic only, not all-order closure; see
 `data/certificates/block6_shuffle_order_vertex_circle_sweep.json`.
 
+The companion reversed-second-block shuffle sweep checks the `462` normalized
+orders that preserve `1,2,3,4,5` in the first block and `11,10,9,8,7,6` in the
+second. This records a negative control for the current vertex-circle gate:
+`446` orders close, but `16` orders have a vertex-circle-clean full selected-row
+extension before any stronger metric-order filter is applied. The artifact
+stores those 16 clean abstract row systems as fixed-order escape targets. They
+are not Euclidean realizations, not counterexamples, and not evidence of
+all-order closure; see
+`data/certificates/block6_reversed_block_shuffle_vertex_circle_escape.json`.
+
 ### Bootstrap-core bridge
 
 Status: `LEMMA` / bridge fork.

@@ -51,7 +51,12 @@ Use this queue when no more specific issue is selected.
    that check to all `462` normalized shuffles preserving internal order within
    each six-label block; every such fixed-order search closes, while the
    remaining gap is still arbitrary cyclic orders and a genuine
-   minimal/rich-class bridge.
+   minimal/rich-class bridge. The reversed-second-block companion sweep
+   `data/certificates/block6_reversed_block_shuffle_vertex_circle_escape.json`
+   now records the first boundary case for this gate: `16` oriented-block
+   fixed orders have vertex-circle-clean full selected-row extensions. The
+   next useful PR should attack those 16 clean rows with a stronger fixed-order
+   filter, or explain which richer bridge hypothesis would rule them out.
 4. Use the bootstrap-core crosswalk and the bootstrap / vertex-circle overlay
    in `docs/bootstrap-core-crosswalk.md` and
    `docs/bootstrap-vertex-circle-overlay.md` to design a sharper condition.

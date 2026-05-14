@@ -489,6 +489,23 @@ generator gap at scale: `457` of the first terminal extensions for these orders
 fail the natural-order crossing rule. This remains a bounded family
 diagnostic, not all-order closure or a fragile-cover bridge proof.
 
+A companion oriented-block slice reverses the internal order of the second
+block:
+
+```bash
+python scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py --check --assert-expected --json
+```
+
+```text
+data/certificates/block6_reversed_block_shuffle_vertex_circle_escape.json
+```
+
+In this family, `446` of the `462` fixed orders still close under the
+vertex-circle quotient gate, but `16` fixed orders have a clean full
+selected-row extension. The artifact records those rows as escape targets for
+the next layer. This is a negative-control diagnostic: a clean quotient row
+system is not a Euclidean realization and not a counterexample.
+
 ## What This Does Not Prove
 
 The bridge is necessary, not sufficient. The checked block-6 family passes the

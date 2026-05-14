@@ -1,0 +1,6396 @@
+{
+  "claim_scope": "Fixed-order-family negative-control diagnostic for the two-block block-6 fragile rows. The sweep records 16 orders where the current vertex-circle quotient gate finds a clean full extension. This is not a counterexample, not Euclidean realizability, not all-order closure, not a fragile-bridge proof, and not a proof of Erdos Problem #97.",
+  "clean_order_records": [
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            9,
+            11
+          ],
+          [
+            1,
+            4,
+            8,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            3,
+            5,
+            7,
+            10
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            2,
+            5,
+            6,
+            8
+          ],
+          [
+            0,
+            3,
+            5,
+            11
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            5,
+            9,
+            11
+          ],
+          [
+            3,
+            4,
+            6,
+            9
+          ]
+        ],
+        "first_terminal_search_nodes": 8,
+        "first_terminal_zero_option_prunes": 0,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 5,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              3,
+              4
+            ]
+          },
+          {
+            "source": [
+              1,
+              8
+            ],
+            "target": [
+              0,
+              11
+            ]
+          },
+          {
+            "source": [
+              2,
+              10
+            ],
+            "target": [
+              1,
+              11
+            ]
+          },
+          {
+            "source": [
+              4,
+              6
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          {
+            "source": [
+              8,
+              10
+            ],
+            "target": [
+              5,
+              11
+            ]
+          }
+        ]
+      },
+      "index": 13,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        11,
+        10,
+        4,
+        5,
+        9,
+        8,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            6,
+            11
+          ],
+          [
+            0,
+            1,
+            3,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            7,
+            10
+          ],
+          [
+            0,
+            4,
+            9,
+            11
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            1,
+            5,
+            8,
+            11
+          ],
+          [
+            2,
+            6,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            4,
+            6,
+            9
+          ],
+          [
+            3,
+            5,
+            6,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 355,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 166,
+          "strict_cycle": 106
+        },
+        "zero_option_prunes": 9
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            5,
+            6,
+            10
+          ],
+          [
+            1,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ],
+          [
+            2,
+            7,
+            8,
+            11
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            1,
+            5,
+            9,
+            11
+          ],
+          [
+            3,
+            5,
+            7,
+            10
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            3,
+            9,
+            11
+          ],
+          [
+            2,
+            3,
+            6,
+            9
+          ]
+        ],
+        "first_terminal_search_nodes": 83,
+        "first_terminal_zero_option_prunes": 35,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 5,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              2,
+              3
+            ]
+          },
+          {
+            "source": [
+              1,
+              11
+            ],
+            "target": [
+              2,
+              6
+            ]
+          },
+          {
+            "source": [
+              2,
+              8
+            ],
+            "target": [
+              3,
+              5
+            ]
+          },
+          {
+            "source": [
+              5,
+              6
+            ],
+            "target": [
+              7,
+              8
+            ]
+          },
+          {
+            "source": [
+              10,
+              11
+            ],
+            "target": [
+              3,
+              9
+            ]
+          }
+        ]
+      },
+      "index": 36,
+      "order": [
+        0,
+        1,
+        2,
+        11,
+        3,
+        10,
+        4,
+        9,
+        8,
+        5,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            6,
+            11
+          ],
+          [
+            0,
+            1,
+            3,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            9,
+            11
+          ],
+          [
+            0,
+            4,
+            7,
+            10
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            1,
+            5,
+            8,
+            11
+          ],
+          [
+            3,
+            5,
+            6,
+            7
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            4,
+            6,
+            9
+          ],
+          [
+            2,
+            3,
+            6,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 999,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 330,
+          "strict_cycle": 387
+        },
+        "zero_option_prunes": 26
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            5,
+            6,
+            10
+          ],
+          [
+            0,
+            3,
+            8,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            7,
+            10
+          ],
+          [
+            2,
+            6,
+            7,
+            8
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            4,
+            9,
+            11
+          ],
+          [
+            3,
+            4,
+            6,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            1,
+            6,
+            9
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 349,
+        "first_terminal_zero_option_prunes": 190,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 7,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              8
+            ],
+            "target": [
+              3,
+              4
+            ]
+          },
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              1,
+              3
+            ]
+          },
+          {
+            "source": [
+              2,
+              7
+            ],
+            "target": [
+              0,
+              11
+            ]
+          },
+          {
+            "source": [
+              4,
+              6
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          {
+            "source": [
+              5,
+              6
+            ],
+            "target": [
+              7,
+              8
+            ]
+          },
+          {
+            "source": [
+              5,
+              9
+            ],
+            "target": [
+              6,
+              8
+            ]
+          },
+          {
+            "source": [
+              7,
+              8
+            ],
+            "target": [
+              4,
+              9
+            ]
+          }
+        ]
+      },
+      "index": 43,
+      "order": [
+        0,
+        1,
+        2,
+        11,
+        3,
+        10,
+        9,
+        8,
+        4,
+        5,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            9,
+            11
+          ],
+          [
+            0,
+            1,
+            3,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            8,
+            11
+          ],
+          [
+            0,
+            4,
+            7,
+            10
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            1,
+            5,
+            6,
+            8
+          ],
+          [
+            3,
+            5,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            3,
+            4,
+            6,
+            9
+          ],
+          [
+            2,
+            3,
+            6,
+            7
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 6761,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 2370,
+          "strict_cycle": 2953
+        },
+        "zero_option_prunes": 136
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            5,
+            9,
+            11
+          ],
+          [
+            0,
+            3,
+            8,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            2,
+            6,
+            7,
+            8
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            3,
+            5,
+            6,
+            9
+          ],
+          [
+            0,
+            3,
+            7,
+            10
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            4,
+            9,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 9,
+        "first_terminal_zero_option_prunes": 1,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 7,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              10
+            ],
+            "target": [
+              1,
+              4
+            ]
+          },
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              1,
+              3
+            ]
+          },
+          {
+            "source": [
+              4,
+              5
+            ],
+            "target": [
+              6,
+              7
+            ]
+          },
+          {
+            "source": [
+              4,
+              6
+            ],
+            "target": [
+              7,
+              8
+            ]
+          },
+          {
+            "source": [
+              4,
+              9
+            ],
+            "target": [
+              6,
+              8
+            ]
+          },
+          {
+            "source": [
+              7,
+              11
+            ],
+            "target": [
+              3,
+              5
+            ]
+          },
+          {
+            "source": [
+              8,
+              11
+            ],
+            "target": [
+              3,
+              7
+            ]
+          }
+        ]
+      },
+      "index": 44,
+      "order": [
+        0,
+        1,
+        2,
+        11,
+        3,
+        10,
+        9,
+        8,
+        4,
+        7,
+        5,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            9,
+            11
+          ],
+          [
+            0,
+            1,
+            3,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            7,
+            11
+          ],
+          [
+            0,
+            4,
+            6,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            1,
+            5,
+            8,
+            11
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            3,
+            5,
+            6,
+            9
+          ],
+          [
+            2,
+            3,
+            6,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 1863,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 628,
+          "strict_cycle": 806
+        },
+        "zero_option_prunes": 28
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            5,
+            6,
+            10
+          ],
+          [
+            1,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ],
+          [
+            2,
+            7,
+            8,
+            11
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            5,
+            9,
+            11
+          ],
+          [
+            3,
+            5,
+            7,
+            10
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            4,
+            9,
+            11
+          ],
+          [
+            2,
+            3,
+            6,
+            9
+          ]
+        ],
+        "first_terminal_search_nodes": 143,
+        "first_terminal_zero_option_prunes": 68,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 5,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              10
+            ],
+            "target": [
+              1,
+              4
+            ]
+          },
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              2,
+              3
+            ]
+          },
+          {
+            "source": [
+              1,
+              11
+            ],
+            "target": [
+              2,
+              6
+            ]
+          },
+          {
+            "source": [
+              2,
+              8
+            ],
+            "target": [
+              3,
+              5
+            ]
+          },
+          {
+            "source": [
+              5,
+              6
+            ],
+            "target": [
+              7,
+              8
+            ]
+          }
+        ]
+      },
+      "index": 51,
+      "order": [
+        0,
+        1,
+        2,
+        11,
+        10,
+        3,
+        4,
+        9,
+        8,
+        5,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            6,
+            11
+          ],
+          [
+            0,
+            1,
+            3,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            9,
+            11
+          ],
+          [
+            0,
+            4,
+            7,
+            10
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            1,
+            5,
+            8,
+            11
+          ],
+          [
+            3,
+            5,
+            6,
+            7
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            4,
+            6,
+            9
+          ],
+          [
+            2,
+            3,
+            6,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 4130,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 1562,
+          "strict_cycle": 1661
+        },
+        "zero_option_prunes": 82
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            9,
+            11
+          ],
+          [
+            1,
+            4,
+            10,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ],
+          [
+            0,
+            3,
+            8,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            4,
+            8,
+            11
+          ],
+          [
+            3,
+            5,
+            7,
+            10
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            3,
+            4,
+            6,
+            9
+          ],
+          [
+            1,
+            2,
+            5,
+            8
+          ]
+        ],
+        "first_terminal_search_nodes": 59,
+        "first_terminal_zero_option_prunes": 26,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 7,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              10
+            ],
+            "target": [
+              3,
+              4
+            ]
+          },
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              1,
+              2
+            ]
+          },
+          {
+            "source": [
+              1,
+              5
+            ],
+            "target": [
+              0,
+              9
+            ]
+          },
+          {
+            "source": [
+              1,
+              7
+            ],
+            "target": [
+              0,
+              11
+            ]
+          },
+          {
+            "source": [
+              2,
+              9
+            ],
+            "target": [
+              10,
+              11
+            ]
+          },
+          {
+            "source": [
+              5,
+              6
+            ],
+            "target": [
+              8,
+              9
+            ]
+          },
+          {
+            "source": [
+              5,
+              7
+            ],
+            "target": [
+              0,
+              8
+            ]
+          }
+        ]
+      },
+      "index": 91,
+      "order": [
+        0,
+        1,
+        11,
+        2,
+        3,
+        10,
+        4,
+        9,
+        5,
+        8,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            5,
+            7,
+            11
+          ],
+          [
+            0,
+            1,
+            3,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            7,
+            10
+          ],
+          [
+            0,
+            4,
+            8,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            5,
+            6,
+            8
+          ],
+          [
+            2,
+            6,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            3,
+            5,
+            6,
+            9
+          ],
+          [
+            1,
+            4,
+            6,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 374,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 159,
+          "strict_cycle": 124
+        },
+        "zero_option_prunes": 3
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            5,
+            6,
+            11
+          ],
+          [
+            1,
+            4,
+            9,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            3,
+            5,
+            7,
+            10
+          ],
+          [
+            0,
+            3,
+            8,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            4,
+            8,
+            11
+          ],
+          [
+            2,
+            7,
+            9,
+            11
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ],
+          [
+            1,
+            2,
+            5,
+            8
+          ]
+        ],
+        "first_terminal_search_nodes": 27,
+        "first_terminal_zero_option_prunes": 10,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 5,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              1,
+              2
+            ]
+          },
+          {
+            "source": [
+              2,
+              8
+            ],
+            "target": [
+              9,
+              11
+            ]
+          },
+          {
+            "source": [
+              4,
+              6
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          {
+            "source": [
+              5,
+              6
+            ],
+            "target": [
+              8,
+              9
+            ]
+          },
+          {
+            "source": [
+              5,
+              7
+            ],
+            "target": [
+              0,
+              8
+            ]
+          }
+        ]
+      },
+      "index": 95,
+      "order": [
+        0,
+        1,
+        11,
+        2,
+        3,
+        10,
+        9,
+        4,
+        5,
+        8,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            5,
+            7,
+            11
+          ],
+          [
+            0,
+            1,
+            3,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            7,
+            10
+          ],
+          [
+            0,
+            4,
+            8,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            5,
+            6,
+            8
+          ],
+          [
+            2,
+            6,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            3,
+            5,
+            6,
+            9
+          ],
+          [
+            1,
+            4,
+            6,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 4386,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 1677,
+          "strict_cycle": 1735
+        },
+        "zero_option_prunes": 102
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            4,
+            6,
+            7,
+            11
+          ],
+          [
+            0,
+            3,
+            7,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            1,
+            6,
+            9
+          ],
+          [
+            0,
+            4,
+            8,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            3,
+            8,
+            11
+          ],
+          [
+            2,
+            7,
+            9,
+            11
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            3,
+            5,
+            9,
+            11
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 341,
+        "first_terminal_zero_option_prunes": 187,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 7,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              1,
+              2
+            ]
+          },
+          {
+            "source": [
+              2,
+              6
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          {
+            "source": [
+              4,
+              5
+            ],
+            "target": [
+              0,
+              9
+            ]
+          },
+          {
+            "source": [
+              5,
+              6
+            ],
+            "target": [
+              8,
+              9
+            ]
+          },
+          {
+            "source": [
+              5,
+              7
+            ],
+            "target": [
+              0,
+              8
+            ]
+          },
+          {
+            "source": [
+              7,
+              10
+            ],
+            "target": [
+              3,
+              11
+            ]
+          },
+          {
+            "source": [
+              8,
+              11
+            ],
+            "target": [
+              2,
+              7
+            ]
+          }
+        ]
+      },
+      "index": 141,
+      "order": [
+        0,
+        1,
+        11,
+        10,
+        2,
+        3,
+        4,
+        9,
+        5,
+        8,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            7,
+            11
+          ],
+          [
+            1,
+            3,
+            9,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            9,
+            10
+          ],
+          [
+            0,
+            1,
+            8,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            3,
+            5,
+            6,
+            8
+          ],
+          [
+            4,
+            6,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            2,
+            5,
+            6,
+            9
+          ],
+          [
+            1,
+            4,
+            6,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 5172,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 1801,
+          "strict_cycle": 2233
+        },
+        "zero_option_prunes": 103
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            6,
+            7
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            3,
+            5,
+            6,
+            8
+          ],
+          [
+            0,
+            1,
+            8,
+            11
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            3,
+            5,
+            9
+          ],
+          [
+            2,
+            7,
+            9,
+            11
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            2,
+            5,
+            8
+          ],
+          [
+            1,
+            3,
+            6,
+            10
+          ]
+        ],
+        "first_terminal_search_nodes": 8,
+        "first_terminal_zero_option_prunes": 0,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 6,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              10
+            ],
+            "target": [
+              1,
+              2
+            ]
+          },
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              1,
+              3
+            ]
+          },
+          {
+            "source": [
+              1,
+              8
+            ],
+            "target": [
+              2,
+              7
+            ]
+          },
+          {
+            "source": [
+              2,
+              6
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          {
+            "source": [
+              4,
+              9
+            ],
+            "target": [
+              6,
+              8
+            ]
+          },
+          {
+            "source": [
+              4,
+              10
+            ],
+            "target": [
+              5,
+              8
+            ]
+          }
+        ]
+      },
+      "index": 149,
+      "order": [
+        0,
+        1,
+        11,
+        10,
+        2,
+        3,
+        9,
+        8,
+        4,
+        5,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            9,
+            11
+          ],
+          [
+            0,
+            1,
+            3,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            2,
+            6,
+            7,
+            8
+          ],
+          [
+            0,
+            4,
+            6,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            1,
+            5,
+            8,
+            11
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            3,
+            5,
+            6,
+            9
+          ],
+          [
+            1,
+            2,
+            6,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 5596,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 2853,
+          "strict_cycle": 1840
+        },
+        "zero_option_prunes": 89
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            5,
+            6,
+            10
+          ],
+          [
+            0,
+            3,
+            7,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            2,
+            6,
+            7,
+            8
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            3,
+            8,
+            11
+          ],
+          [
+            4,
+            7,
+            9,
+            11
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            3,
+            9,
+            11
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 8,
+        "first_terminal_zero_option_prunes": 0,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 9,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              10
+            ],
+            "target": [
+              1,
+              3
+            ]
+          },
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              1,
+              2
+            ]
+          },
+          {
+            "source": [
+              1,
+              2
+            ],
+            "target": [
+              3,
+              10
+            ]
+          },
+          {
+            "source": [
+              2,
+              5
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          {
+            "source": [
+              2,
+              6
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          {
+            "source": [
+              4,
+              5
+            ],
+            "target": [
+              6,
+              7
+            ]
+          },
+          {
+            "source": [
+              4,
+              6
+            ],
+            "target": [
+              7,
+              8
+            ]
+          },
+          {
+            "source": [
+              4,
+              9
+            ],
+            "target": [
+              6,
+              8
+            ]
+          },
+          {
+            "source": [
+              7,
+              10
+            ],
+            "target": [
+              3,
+              11
+            ]
+          }
+        ]
+      },
+      "index": 150,
+      "order": [
+        0,
+        1,
+        11,
+        10,
+        2,
+        3,
+        9,
+        8,
+        4,
+        7,
+        5,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            5,
+            9,
+            11
+          ],
+          [
+            0,
+            3,
+            9,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            2,
+            6,
+            7,
+            8
+          ],
+          [
+            0,
+            4,
+            6,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            1,
+            8,
+            11
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            8
+          ],
+          [
+            1,
+            2,
+            6,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 3760,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 1293,
+          "strict_cycle": 1690
+        },
+        "zero_option_prunes": 91
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            5,
+            6,
+            9
+          ],
+          [
+            0,
+            3,
+            7,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            2,
+            7,
+            8,
+            11
+          ],
+          [
+            0,
+            4,
+            6,
+            7
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            1,
+            6,
+            8
+          ],
+          [
+            1,
+            4,
+            9,
+            11
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            2,
+            9,
+            11
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 8,
+        "first_terminal_zero_option_prunes": 0,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 7,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              8
+            ],
+            "target": [
+              1,
+              4
+            ]
+          },
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              1,
+              2
+            ]
+          },
+          {
+            "source": [
+              2,
+              5
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          {
+            "source": [
+              2,
+              6
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          {
+            "source": [
+              3,
+              10
+            ],
+            "target": [
+              0,
+              2
+            ]
+          },
+          {
+            "source": [
+              4,
+              6
+            ],
+            "target": [
+              7,
+              8
+            ]
+          },
+          {
+            "source": [
+              4,
+              10
+            ],
+            "target": [
+              2,
+              11
+            ]
+          }
+        ]
+      },
+      "index": 151,
+      "order": [
+        0,
+        1,
+        11,
+        10,
+        2,
+        3,
+        9,
+        8,
+        4,
+        7,
+        6,
+        5
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            5,
+            9,
+            11
+          ],
+          [
+            0,
+            3,
+            9,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            6,
+            7
+          ],
+          [
+            0,
+            4,
+            6,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            1,
+            8,
+            11
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            8
+          ],
+          [
+            1,
+            2,
+            6,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 472,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 186,
+          "strict_cycle": 190
+        },
+        "zero_option_prunes": 5
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            5,
+            6,
+            10
+          ],
+          [
+            0,
+            3,
+            7,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            2,
+            6,
+            7,
+            9
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            3,
+            8,
+            11
+          ],
+          [
+            4,
+            5,
+            9,
+            11
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            3,
+            9,
+            11
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 8,
+        "first_terminal_zero_option_prunes": 0,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 9,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              10
+            ],
+            "target": [
+              1,
+              3
+            ]
+          },
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              1,
+              2
+            ]
+          },
+          {
+            "source": [
+              1,
+              2
+            ],
+            "target": [
+              3,
+              10
+            ]
+          },
+          {
+            "source": [
+              2,
+              5
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          {
+            "source": [
+              2,
+              6
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          {
+            "source": [
+              3,
+              8
+            ],
+            "target": [
+              4,
+              5
+            ]
+          },
+          {
+            "source": [
+              4,
+              5
+            ],
+            "target": [
+              6,
+              7
+            ]
+          },
+          {
+            "source": [
+              4,
+              6
+            ],
+            "target": [
+              7,
+              9
+            ]
+          },
+          {
+            "source": [
+              7,
+              10
+            ],
+            "target": [
+              3,
+              11
+            ]
+          }
+        ]
+      },
+      "index": 157,
+      "order": [
+        0,
+        1,
+        11,
+        10,
+        2,
+        9,
+        3,
+        4,
+        8,
+        7,
+        5,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            5,
+            6,
+            10
+          ],
+          [
+            0,
+            3,
+            9,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            7,
+            11
+          ],
+          [
+            0,
+            4,
+            6,
+            8
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            1,
+            5,
+            9,
+            11
+          ],
+          [
+            2,
+            6,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            4,
+            6,
+            9
+          ],
+          [
+            0,
+            1,
+            2,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 3387,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 1277,
+          "strict_cycle": 1456
+        },
+        "zero_option_prunes": 46
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            4,
+            6,
+            7,
+            11
+          ],
+          [
+            0,
+            3,
+            7,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            2,
+            7,
+            8,
+            11
+          ],
+          [
+            0,
+            3,
+            6,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            1,
+            6,
+            8
+          ],
+          [
+            1,
+            3,
+            9,
+            11
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            2,
+            9,
+            11
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 9,
+        "first_terminal_zero_option_prunes": 1,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 8,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              8
+            ],
+            "target": [
+              1,
+              3
+            ]
+          },
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              1,
+              2
+            ]
+          },
+          {
+            "source": [
+              1,
+              4
+            ],
+            "target": [
+              7,
+              11
+            ]
+          },
+          {
+            "source": [
+              2,
+              6
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          {
+            "source": [
+              3,
+              10
+            ],
+            "target": [
+              0,
+              2
+            ]
+          },
+          {
+            "source": [
+              4,
+              6
+            ],
+            "target": [
+              7,
+              8
+            ]
+          },
+          {
+            "source": [
+              4,
+              10
+            ],
+            "target": [
+              2,
+              11
+            ]
+          },
+          {
+            "source": [
+              5,
+              8
+            ],
+            "target": [
+              3,
+              9
+            ]
+          }
+        ]
+      },
+      "index": 167,
+      "order": [
+        0,
+        1,
+        11,
+        10,
+        2,
+        9,
+        8,
+        3,
+        4,
+        7,
+        6,
+        5
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            5,
+            9,
+            11
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            7,
+            11
+          ],
+          [
+            0,
+            4,
+            6,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            1,
+            5,
+            8,
+            11
+          ],
+          [
+            3,
+            6,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            1,
+            3,
+            8
+          ],
+          [
+            1,
+            2,
+            6,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 4757,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 1578,
+          "strict_cycle": 2258
+        },
+        "zero_option_prunes": 101
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            9,
+            11
+          ],
+          [
+            3,
+            5,
+            10,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            1,
+            5,
+            6,
+            9
+          ],
+          [
+            1,
+            7,
+            8,
+            11
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            2,
+            5,
+            6,
+            8
+          ],
+          [
+            3,
+            4,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            1,
+            3,
+            8
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 8,
+        "first_terminal_zero_option_prunes": 0,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 6,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              8
+            ],
+            "target": [
+              3,
+              4
+            ]
+          },
+          {
+            "source": [
+              0,
+              10
+            ],
+            "target": [
+              1,
+              3
+            ]
+          },
+          {
+            "source": [
+              2,
+              9
+            ],
+            "target": [
+              10,
+              11
+            ]
+          },
+          {
+            "source": [
+              4,
+              7
+            ],
+            "target": [
+              5,
+              6
+            ]
+          },
+          {
+            "source": [
+              5,
+              6
+            ],
+            "target": [
+              7,
+              8
+            ]
+          },
+          {
+            "source": [
+              10,
+              11
+            ],
+            "target": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "index": 250,
+      "order": [
+        0,
+        11,
+        1,
+        2,
+        10,
+        9,
+        3,
+        8,
+        4,
+        5,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            5,
+            7,
+            11
+          ],
+          [
+            0,
+            1,
+            3,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            7,
+            10
+          ],
+          [
+            4,
+            6,
+            7,
+            8
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            4,
+            9,
+            11
+          ],
+          [
+            3,
+            4,
+            6,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            5,
+            6,
+            9
+          ],
+          [
+            0,
+            2,
+            6,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 2012,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 759,
+          "strict_cycle": 902
+        },
+        "zero_option_prunes": 12
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            10,
+            11
+          ],
+          [
+            1,
+            4,
+            9,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            9,
+            10
+          ],
+          [
+            0,
+            1,
+            8,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            1,
+            5,
+            6,
+            8
+          ],
+          [
+            2,
+            5,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 8,
+        "first_terminal_zero_option_prunes": 0,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 13,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              10
+            ],
+            "target": [
+              1,
+              3
+            ]
+          },
+          {
+            "source": [
+              1,
+              4
+            ],
+            "target": [
+              0,
+              10
+            ]
+          },
+          {
+            "source": [
+              1,
+              9
+            ],
+            "target": [
+              10,
+              11
+            ]
+          },
+          {
+            "source": [
+              2,
+              5
+            ],
+            "target": [
+              1,
+              9
+            ]
+          },
+          {
+            "source": [
+              4,
+              5
+            ],
+            "target": [
+              0,
+              9
+            ]
+          },
+          {
+            "source": [
+              4,
+              6
+            ],
+            "target": [
+              9,
+              10
+            ]
+          },
+          {
+            "source": [
+              5,
+              6
+            ],
+            "target": [
+              8,
+              9
+            ]
+          },
+          {
+            "source": [
+              5,
+              7
+            ],
+            "target": [
+              1,
+              8
+            ]
+          },
+          {
+            "source": [
+              5,
+              11
+            ],
+            "target": [
+              0,
+              1
+            ]
+          },
+          {
+            "source": [
+              7,
+              10
+            ],
+            "target": [
+              1,
+              5
+            ]
+          },
+          {
+            "source": [
+              7,
+              11
+            ],
+            "target": [
+              1,
+              6
+            ]
+          },
+          {
+            "source": [
+              8,
+              10
+            ],
+            "target": [
+              5,
+              7
+            ]
+          },
+          {
+            "source": [
+              10,
+              11
+            ],
+            "target": [
+              1,
+              7
+            ]
+          }
+        ]
+      },
+      "index": 267,
+      "order": [
+        0,
+        11,
+        1,
+        10,
+        2,
+        3,
+        4,
+        9,
+        5,
+        8,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            5,
+            7,
+            11
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            9,
+            11
+          ],
+          [
+            0,
+            4,
+            8,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            3,
+            5,
+            6,
+            8
+          ],
+          [
+            2,
+            6,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            5,
+            6,
+            9
+          ],
+          [
+            0,
+            3,
+            6,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 882,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 297,
+          "strict_cycle": 396
+        },
+        "zero_option_prunes": 9
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            9,
+            11
+          ],
+          [
+            1,
+            4,
+            9,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            1,
+            5,
+            6,
+            9
+          ],
+          [
+            1,
+            7,
+            8,
+            11
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            3,
+            5,
+            10
+          ],
+          [
+            3,
+            4,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            1,
+            3,
+            8
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 8,
+        "first_terminal_zero_option_prunes": 0,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 7,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              8
+            ],
+            "target": [
+              3,
+              4
+            ]
+          },
+          {
+            "source": [
+              0,
+              10
+            ],
+            "target": [
+              1,
+              3
+            ]
+          },
+          {
+            "source": [
+              2,
+              4
+            ],
+            "target": [
+              1,
+              9
+            ]
+          },
+          {
+            "source": [
+              2,
+              6
+            ],
+            "target": [
+              9,
+              10
+            ]
+          },
+          {
+            "source": [
+              5,
+              6
+            ],
+            "target": [
+              7,
+              8
+            ]
+          },
+          {
+            "source": [
+              7,
+              10
+            ],
+            "target": [
+              0,
+              3
+            ]
+          },
+          {
+            "source": [
+              10,
+              11
+            ],
+            "target": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "index": 275,
+      "order": [
+        0,
+        11,
+        1,
+        10,
+        2,
+        3,
+        9,
+        8,
+        4,
+        5,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            5,
+            6,
+            7
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            2,
+            7,
+            9,
+            11
+          ],
+          [
+            0,
+            4,
+            7,
+            8
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            3,
+            5,
+            8,
+            11
+          ],
+          [
+            3,
+            4,
+            6,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            1,
+            2,
+            8
+          ],
+          [
+            0,
+            3,
+            6,
+            10
+          ]
+        ],
+        "initial_vc": "ok",
+        "nodes": 2705,
+        "result": "found",
+        "solutions": 1,
+        "vc_prunes": {
+          "self_edge": 907,
+          "strict_cycle": 1233
+        },
+        "zero_option_prunes": 62
+      }
+    }
+  ],
+  "family_definition": "All 462 normalized cyclic orders obtained by keeping label 0 first, preserving the first block tail as 1,2,3,4,5, preserving the second block in reverse order 11,10,9,8,7,6, and shuffling the remaining labels of the two blocks. By cyclic reversal, this is the companion orientation family to the first-block-reversed, second-block-forward shuffles.",
+  "first_terminal_natural_failure_histogram": {
+    "10": 28,
+    "11": 7,
+    "12": 1,
+    "13": 2,
+    "2": 2,
+    "3": 9,
+    "4": 20,
+    "5": 51,
+    "6": 105,
+    "7": 93,
+    "8": 73,
+    "9": 67
+  },
+  "interpretation": "Unlike the forward/forward block-preserving shuffle family, this second-block-reversed family is not closed by the vertex-circle gate alone. The stored clean rows identify the next fixed-order escape targets for stronger filters such as Kalmanson, row-circle Ptolemy, radius propagation, or a minimal/rich-class bridge.",
+  "no_terminal_order_records": [
+    {
+      "first_terminal_search_nodes": 2544,
+      "first_terminal_zero_option_prunes": 1703,
+      "index": 214,
+      "order": [
+        0,
+        11,
+        1,
+        2,
+        3,
+        4,
+        10,
+        9,
+        8,
+        7,
+        5,
+        6
+      ]
+    },
+    {
+      "first_terminal_search_nodes": 4661,
+      "first_terminal_zero_option_prunes": 2931,
+      "index": 215,
+      "order": [
+        0,
+        11,
+        1,
+        2,
+        3,
+        4,
+        10,
+        9,
+        8,
+        7,
+        6,
+        5
+      ]
+    },
+    {
+      "first_terminal_search_nodes": 2680,
+      "first_terminal_zero_option_prunes": 1734,
+      "index": 456,
+      "order": [
+        0,
+        11,
+        10,
+        9,
+        8,
+        7,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "first_terminal_search_nodes": 5101,
+      "first_terminal_zero_option_prunes": 3223,
+      "index": 457,
+      "order": [
+        0,
+        11,
+        10,
+        9,
+        8,
+        7,
+        1,
+        2,
+        3,
+        4,
+        6,
+        5
+      ]
+    }
+  ],
+  "provenance": {
+    "command": "python scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py --write --assert-expected",
+    "generator": "scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py"
+  },
+  "sample_records": [
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            6,
+            7,
+            11
+          ],
+          [
+            1,
+            3,
+            8,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            3,
+            5,
+            6,
+            10
+          ],
+          [
+            0,
+            1,
+            6,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            2,
+            5,
+            6,
+            8
+          ],
+          [
+            1,
+            5,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            4,
+            7,
+            11
+          ],
+          [
+            0,
+            3,
+            5,
+            8
+          ]
+        ],
+        "first_terminal_search_nodes": 343,
+        "first_terminal_zero_option_prunes": 185,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 4,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              1,
+              7
+            ],
+            "target": [
+              2,
+              6
+            ]
+          },
+          {
+            "source": [
+              2,
+              11
+            ],
+            "target": [
+              3,
+              8
+            ]
+          },
+          {
+            "source": [
+              4,
+              7
+            ],
+            "target": [
+              5,
+              6
+            ]
+          },
+          {
+            "source": [
+              5,
+              8
+            ],
+            "target": [
+              1,
+              9
+            ]
+          }
+        ]
+      },
+      "index": 0,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        11,
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": null,
+        "initial_vc": "ok",
+        "nodes": 1245,
+        "result": "closed",
+        "solutions": 0,
+        "vc_prunes": {
+          "self_edge": 437,
+          "strict_cycle": 532
+        },
+        "zero_option_prunes": 43
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            8,
+            11
+          ],
+          [
+            1,
+            4,
+            9,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            3,
+            5,
+            7,
+            11
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            3,
+            5,
+            6,
+            8
+          ],
+          [
+            2,
+            5,
+            7,
+            10
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            3,
+            9,
+            11
+          ],
+          [
+            4,
+            5,
+            6,
+            9
+          ]
+        ],
+        "first_terminal_search_nodes": 92,
+        "first_terminal_zero_option_prunes": 43,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 6,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              1,
+              10
+            ],
+            "target": [
+              0,
+              11
+            ]
+          },
+          {
+            "source": [
+              2,
+              11
+            ],
+            "target": [
+              4,
+              9
+            ]
+          },
+          {
+            "source": [
+              3,
+              11
+            ],
+            "target": [
+              4,
+              5
+            ]
+          },
+          {
+            "source": [
+              4,
+              8
+            ],
+            "target": [
+              5,
+              7
+            ]
+          },
+          {
+            "source": [
+              4,
+              10
+            ],
+            "target": [
+              3,
+              11
+            ]
+          },
+          {
+            "source": [
+              7,
+              11
+            ],
+            "target": [
+              5,
+              6
+            ]
+          }
+        ]
+      },
+      "index": 1,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        11,
+        5,
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": null,
+        "initial_vc": "ok",
+        "nodes": 590,
+        "result": "closed",
+        "solutions": 0,
+        "vc_prunes": {
+          "self_edge": 157,
+          "strict_cycle": 349
+        },
+        "zero_option_prunes": 0
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            8,
+            11
+          ],
+          [
+            1,
+            4,
+            9,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            3,
+            5,
+            7,
+            11
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            3,
+            5,
+            6,
+            8
+          ],
+          [
+            2,
+            5,
+            7,
+            10
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            3,
+            9,
+            11
+          ],
+          [
+            4,
+            5,
+            6,
+            9
+          ]
+        ],
+        "first_terminal_search_nodes": 105,
+        "first_terminal_zero_option_prunes": 54,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 6,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              1,
+              10
+            ],
+            "target": [
+              0,
+              11
+            ]
+          },
+          {
+            "source": [
+              2,
+              11
+            ],
+            "target": [
+              4,
+              9
+            ]
+          },
+          {
+            "source": [
+              3,
+              11
+            ],
+            "target": [
+              4,
+              5
+            ]
+          },
+          {
+            "source": [
+              4,
+              8
+            ],
+            "target": [
+              5,
+              7
+            ]
+          },
+          {
+            "source": [
+              4,
+              10
+            ],
+            "target": [
+              3,
+              11
+            ]
+          },
+          {
+            "source": [
+              7,
+              11
+            ],
+            "target": [
+              5,
+              6
+            ]
+          }
+        ]
+      },
+      "index": 2,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        11,
+        10,
+        5,
+        9,
+        8,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": null,
+        "initial_vc": "ok",
+        "nodes": 426,
+        "result": "closed",
+        "solutions": 0,
+        "vc_prunes": {
+          "self_edge": 200,
+          "strict_cycle": 146
+        },
+        "zero_option_prunes": 0
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            5,
+            6,
+            10
+          ],
+          [
+            1,
+            3,
+            8,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            3,
+            5,
+            7,
+            11
+          ],
+          [
+            0,
+            3,
+            8,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            2,
+            5,
+            6,
+            8
+          ],
+          [
+            2,
+            7,
+            9,
+            11
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            4,
+            9,
+            11
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 20,
+        "first_terminal_zero_option_prunes": 6,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 2,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              1,
+              7
+            ],
+            "target": [
+              5,
+              6
+            ]
+          },
+          {
+            "source": [
+              5,
+              6
+            ],
+            "target": [
+              8,
+              9
+            ]
+          }
+        ]
+      },
+      "index": 3,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        11,
+        10,
+        9,
+        5,
+        8,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": null,
+        "initial_vc": "ok",
+        "nodes": 500,
+        "result": "closed",
+        "solutions": 0,
+        "vc_prunes": {
+          "self_edge": 206,
+          "strict_cycle": 192
+        },
+        "zero_option_prunes": 2
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            4,
+            6,
+            9,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            3,
+            5,
+            6,
+            10
+          ],
+          [
+            2,
+            7,
+            8,
+            11
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            2,
+            5,
+            6,
+            9
+          ],
+          [
+            4,
+            5,
+            7,
+            10
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            3,
+            9,
+            11
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 14,
+        "first_terminal_zero_option_prunes": 3,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 3,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              3,
+              8
+            ],
+            "target": [
+              4,
+              5
+            ]
+          },
+          {
+            "source": [
+              4,
+              7
+            ],
+            "target": [
+              5,
+              6
+            ]
+          },
+          {
+            "source": [
+              5,
+              6
+            ],
+            "target": [
+              7,
+              8
+            ]
+          }
+        ]
+      },
+      "index": 4,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        11,
+        10,
+        9,
+        8,
+        5,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": null,
+        "initial_vc": "ok",
+        "nodes": 349,
+        "result": "closed",
+        "solutions": 0,
+        "vc_prunes": {
+          "self_edge": 148,
+          "strict_cycle": 147
+        },
+        "zero_option_prunes": 0
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            5,
+            6,
+            9
+          ],
+          [
+            1,
+            4,
+            9,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            3,
+            5,
+            8,
+            9
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            1,
+            5,
+            8,
+            11
+          ],
+          [
+            0,
+            4,
+            7,
+            10
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            3,
+            9,
+            11
+          ],
+          [
+            3,
+            4,
+            6,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 11,
+        "first_terminal_zero_option_prunes": 2,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 6,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              3,
+              4
+            ]
+          },
+          {
+            "source": [
+              1,
+              4
+            ],
+            "target": [
+              5,
+              9
+            ]
+          },
+          {
+            "source": [
+              2,
+              7
+            ],
+            "target": [
+              1,
+              11
+            ]
+          },
+          {
+            "source": [
+              4,
+              6
+            ],
+            "target": [
+              8,
+              9
+            ]
+          },
+          {
+            "source": [
+              5,
+              11
+            ],
+            "target": [
+              6,
+              7
+            ]
+          },
+          {
+            "source": [
+              8,
+              11
+            ],
+            "target": [
+              4,
+              7
+            ]
+          }
+        ]
+      },
+      "index": 20,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        11,
+        10,
+        9,
+        4,
+        8,
+        7,
+        5,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": null,
+        "initial_vc": "ok",
+        "nodes": 1506,
+        "result": "closed",
+        "solutions": 0,
+        "vc_prunes": {
+          "self_edge": 623,
+          "strict_cycle": 541
+        },
+        "zero_option_prunes": 7
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            9,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ],
+          [
+            0,
+            3,
+            8,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            4,
+            8,
+            11
+          ],
+          [
+            2,
+            5,
+            7,
+            10
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            4,
+            9,
+            11
+          ],
+          [
+            2,
+            3,
+            6,
+            10
+          ]
+        ],
+        "first_terminal_search_nodes": 38,
+        "first_terminal_zero_option_prunes": 16,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 7,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              10
+            ],
+            "target": [
+              1,
+              4
+            ]
+          },
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              2,
+              3
+            ]
+          },
+          {
+            "source": [
+              1,
+              5
+            ],
+            "target": [
+              0,
+              9
+            ]
+          },
+          {
+            "source": [
+              1,
+              7
+            ],
+            "target": [
+              0,
+              11
+            ]
+          },
+          {
+            "source": [
+              5,
+              6
+            ],
+            "target": [
+              8,
+              9
+            ]
+          },
+          {
+            "source": [
+              5,
+              7
+            ],
+            "target": [
+              0,
+              8
+            ]
+          },
+          {
+            "source": [
+              7,
+              10
+            ],
+            "target": [
+              4,
+              11
+            ]
+          }
+        ]
+      },
+      "index": 50,
+      "order": [
+        0,
+        1,
+        2,
+        11,
+        10,
+        3,
+        4,
+        9,
+        5,
+        8,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": null,
+        "initial_vc": "ok",
+        "nodes": 7819,
+        "result": "closed",
+        "solutions": 0,
+        "vc_prunes": {
+          "self_edge": 2837,
+          "strict_cycle": 3237
+        },
+        "zero_option_prunes": 198
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            7,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            9
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            3,
+            5,
+            7,
+            10
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            3,
+            8,
+            11
+          ],
+          [
+            2,
+            6,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            4,
+            7,
+            11
+          ],
+          [
+            2,
+            5,
+            6,
+            10
+          ]
+        ],
+        "first_terminal_search_nodes": 9,
+        "first_terminal_zero_option_prunes": 1,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 8,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              10
+            ],
+            "target": [
+              1,
+              4
+            ]
+          },
+          {
+            "source": [
+              1,
+              5
+            ],
+            "target": [
+              0,
+              7
+            ]
+          },
+          {
+            "source": [
+              1,
+              7
+            ],
+            "target": [
+              0,
+              11
+            ]
+          },
+          {
+            "source": [
+              1,
+              8
+            ],
+            "target": [
+              2,
+              7
+            ]
+          },
+          {
+            "source": [
+              4,
+              6
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          {
+            "source": [
+              4,
+              11
+            ],
+            "target": [
+              5,
+              10
+            ]
+          },
+          {
+            "source": [
+              5,
+              8
+            ],
+            "target": [
+              6,
+              7
+            ]
+          },
+          {
+            "source": [
+              8,
+              11
+            ],
+            "target": [
+              2,
+              6
+            ]
+          }
+        ]
+      },
+      "index": 100,
+      "order": [
+        0,
+        1,
+        11,
+        2,
+        3,
+        10,
+        9,
+        8,
+        4,
+        7,
+        5,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": null,
+        "initial_vc": "ok",
+        "nodes": 2831,
+        "result": "closed",
+        "solutions": 0,
+        "vc_prunes": {
+          "self_edge": 1062,
+          "strict_cycle": 1175
+        },
+        "zero_option_prunes": 50
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            5,
+            8,
+            11
+          ],
+          [
+            1,
+            4,
+            9,
+            11
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            5,
+            6,
+            7,
+            11
+          ],
+          [
+            0,
+            3,
+            6,
+            10
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            1,
+            6,
+            8
+          ],
+          [
+            0,
+            3,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            2,
+            9,
+            11
+          ],
+          [
+            1,
+            2,
+            5,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 8,
+        "first_terminal_zero_option_prunes": 0,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 5,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              11
+            ],
+            "target": [
+              1,
+              2
+            ]
+          },
+          {
+            "source": [
+              1,
+              4
+            ],
+            "target": [
+              5,
+              11
+            ]
+          },
+          {
+            "source": [
+              3,
+              10
+            ],
+            "target": [
+              0,
+              2
+            ]
+          },
+          {
+            "source": [
+              4,
+              11
+            ],
+            "target": [
+              5,
+              7
+            ]
+          },
+          {
+            "source": [
+              5,
+              8
+            ],
+            "target": [
+              0,
+              3
+            ]
+          }
+        ]
+      },
+      "index": 200,
+      "order": [
+        0,
+        1,
+        11,
+        10,
+        9,
+        8,
+        2,
+        3,
+        7,
+        6,
+        4,
+        5
+      ],
+      "pruned_search": {
+        "first_clean_rows": null,
+        "initial_vc": "ok",
+        "nodes": 4014,
+        "result": "closed",
+        "solutions": 0,
+        "vc_prunes": {
+          "self_edge": 1325,
+          "strict_cycle": 1982
+        },
+        "zero_option_prunes": 109
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            10,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            9,
+            10
+          ],
+          [
+            0,
+            1,
+            8,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            1,
+            5,
+            6,
+            8
+          ],
+          [
+            2,
+            5,
+            7,
+            9
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            1,
+            4,
+            9,
+            11
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 8,
+        "first_terminal_zero_option_prunes": 0,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 10,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              10
+            ],
+            "target": [
+              1,
+              4
+            ]
+          },
+          {
+            "source": [
+              1,
+              4
+            ],
+            "target": [
+              0,
+              10
+            ]
+          },
+          {
+            "source": [
+              1,
+              9
+            ],
+            "target": [
+              10,
+              11
+            ]
+          },
+          {
+            "source": [
+              2,
+              8
+            ],
+            "target": [
+              5,
+              7
+            ]
+          },
+          {
+            "source": [
+              4,
+              5
+            ],
+            "target": [
+              0,
+              9
+            ]
+          },
+          {
+            "source": [
+              4,
+              6
+            ],
+            "target": [
+              9,
+              10
+            ]
+          },
+          {
+            "source": [
+              5,
+              6
+            ],
+            "target": [
+              8,
+              9
+            ]
+          },
+          {
+            "source": [
+              5,
+              7
+            ],
+            "target": [
+              1,
+              8
+            ]
+          },
+          {
+            "source": [
+              5,
+              11
+            ],
+            "target": [
+              0,
+              1
+            ]
+          },
+          {
+            "source": [
+              7,
+              11
+            ],
+            "target": [
+              1,
+              6
+            ]
+          }
+        ]
+      },
+      "index": 232,
+      "order": [
+        0,
+        11,
+        1,
+        2,
+        10,
+        3,
+        4,
+        9,
+        5,
+        8,
+        7,
+        6
+      ],
+      "pruned_search": {
+        "first_clean_rows": null,
+        "initial_vc": "ok",
+        "nodes": 3817,
+        "result": "closed",
+        "solutions": 0,
+        "vc_prunes": {
+          "self_edge": 1428,
+          "strict_cycle": 1518
+        },
+        "zero_option_prunes": 45
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            9,
+            11
+          ],
+          [
+            1,
+            4,
+            9,
+            10
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            1,
+            5,
+            9,
+            11
+          ],
+          [
+            0,
+            3,
+            6,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            2,
+            3,
+            8,
+            11
+          ],
+          [
+            3,
+            5,
+            7,
+            10
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            1,
+            3,
+            8
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 15,
+        "first_terminal_zero_option_prunes": 3,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 8,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              7
+            ],
+            "target": [
+              2,
+              3
+            ]
+          },
+          {
+            "source": [
+              0,
+              10
+            ],
+            "target": [
+              1,
+              3
+            ]
+          },
+          {
+            "source": [
+              1,
+              4
+            ],
+            "target": [
+              9,
+              11
+            ]
+          },
+          {
+            "source": [
+              1,
+              5
+            ],
+            "target": [
+              0,
+              9
+            ]
+          },
+          {
+            "source": [
+              2,
+              4
+            ],
+            "target": [
+              1,
+              9
+            ]
+          },
+          {
+            "source": [
+              2,
+              6
+            ],
+            "target": [
+              9,
+              10
+            ]
+          },
+          {
+            "source": [
+              5,
+              10
+            ],
+            "target": [
+              0,
+              3
+            ]
+          },
+          {
+            "source": [
+              10,
+              11
+            ],
+            "target": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "index": 300,
+      "order": [
+        0,
+        11,
+        1,
+        10,
+        2,
+        9,
+        8,
+        7,
+        6,
+        3,
+        4,
+        5
+      ],
+      "pruned_search": {
+        "first_clean_rows": null,
+        "initial_vc": "ok",
+        "nodes": 3734,
+        "result": "closed",
+        "solutions": 0,
+        "vc_prunes": {
+          "self_edge": 1369,
+          "strict_cycle": 1689
+        },
+        "zero_option_prunes": 26
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            5,
+            7,
+            10
+          ],
+          [
+            1,
+            4,
+            6,
+            9
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            1,
+            5,
+            8,
+            11
+          ],
+          [
+            0,
+            3,
+            6,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            0,
+            1,
+            3,
+            10
+          ],
+          [
+            3,
+            7,
+            9,
+            11
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            2,
+            9,
+            11
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 8,
+        "first_terminal_zero_option_prunes": 0,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 7,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              0,
+              7
+            ],
+            "target": [
+              1,
+              3
+            ]
+          },
+          {
+            "source": [
+              1,
+              6
+            ],
+            "target": [
+              7,
+              10
+            ]
+          },
+          {
+            "source": [
+              2,
+              5
+            ],
+            "target": [
+              6,
+              9
+            ]
+          },
+          {
+            "source": [
+              3,
+              10
+            ],
+            "target": [
+              0,
+              2
+            ]
+          },
+          {
+            "source": [
+              5,
+              7
+            ],
+            "target": [
+              0,
+              3
+            ]
+          },
+          {
+            "source": [
+              5,
+              8
+            ],
+            "target": [
+              3,
+              9
+            ]
+          },
+          {
+            "source": [
+              7,
+              11
+            ],
+            "target": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "index": 400,
+      "order": [
+        0,
+        11,
+        10,
+        1,
+        9,
+        8,
+        2,
+        7,
+        6,
+        3,
+        4,
+        5
+      ],
+      "pruned_search": {
+        "first_clean_rows": null,
+        "initial_vc": "ok",
+        "nodes": 864,
+        "result": "closed",
+        "solutions": 0,
+        "vc_prunes": {
+          "self_edge": 339,
+          "strict_cycle": 349
+        },
+        "zero_option_prunes": 22
+      }
+    },
+    {
+      "first_terminal_extension": {
+        "first_terminal_rows": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            5,
+            6,
+            10
+          ],
+          [
+            0,
+            1,
+            3,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            3,
+            5,
+            7,
+            11
+          ],
+          [
+            0,
+            3,
+            6,
+            9
+          ],
+          [
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            2,
+            5,
+            6,
+            8
+          ],
+          [
+            4,
+            7,
+            9,
+            11
+          ],
+          [
+            6,
+            8,
+            10,
+            11
+          ],
+          [
+            0,
+            2,
+            9,
+            11
+          ],
+          [
+            0,
+            1,
+            6,
+            7
+          ]
+        ],
+        "first_terminal_search_nodes": 15,
+        "first_terminal_zero_option_prunes": 3,
+        "has_terminal_extension": true,
+        "natural_order_crossing_failure_count": 3,
+        "natural_order_crossing_failures": [
+          {
+            "source": [
+              1,
+              7
+            ],
+            "target": [
+              5,
+              6
+            ]
+          },
+          {
+            "source": [
+              2,
+              11
+            ],
+            "target": [
+              0,
+              1
+            ]
+          },
+          {
+            "source": [
+              3,
+              10
+            ],
+            "target": [
+              0,
+              2
+            ]
+          }
+        ]
+      },
+      "index": 461,
+      "order": [
+        0,
+        11,
+        10,
+        9,
+        8,
+        7,
+        6,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "pruned_search": {
+        "first_clean_rows": null,
+        "initial_vc": "ok",
+        "nodes": 1468,
+        "result": "closed",
+        "solutions": 0,
+        "vc_prunes": {
+          "self_edge": 476,
+          "strict_cycle": 665
+        },
+        "zero_option_prunes": 50
+      }
+    }
+  ],
+  "schema": "erdos97.block6_reversed_block_shuffle_vertex_circle_escape.v1",
+  "status": "REVIEW_PENDING_NEGATIVE_CONTROL_DIAGNOSTIC_ONLY",
+  "summary": {
+    "closed_order_count": 446,
+    "first_terminal_nodes_max": 5339,
+    "first_terminal_nodes_min": 8,
+    "orders_with_clean_pruned_solution": 16,
+    "orders_with_terminal_extension": 458,
+    "orders_without_terminal_extension": 4,
+    "outside_natural_generator_first_extension_count": 458,
+    "pruned_node_max": 19924,
+    "pruned_node_max_order_index": 179,
+    "pruned_node_min": 329,
+    "shuffle_order_count": 462,
+    "total_first_terminal_nodes": 30681,
+    "total_first_terminal_zero_option_prunes": 16372,
+    "total_pruned_nodes": 1424672,
+    "total_pruned_zero_option_prunes": 28366,
+    "vc_prunes": {
+      "self_edge": 536464,
+      "strict_cycle": 598113
+    }
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}
