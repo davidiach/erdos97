@@ -476,6 +476,7 @@ python scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py --che
 python scripts/check_block6_reversed_block_clean_kalmanson.py --check --assert-expected --json
 python scripts/check_block6_reversed_block_two_stage_closure.py --check --assert-expected --json
 python scripts/check_block6_forward_block_two_orientation_closure.py --check --assert-expected --json
+python scripts/check_block6_oriented_block_reversal_closure.py --check --assert-expected --json
 python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
 python scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json
 ```

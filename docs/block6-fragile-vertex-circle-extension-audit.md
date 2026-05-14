@@ -364,3 +364,26 @@ the `462` reversed-second-block two-stage closures. This is still only a
 bounded fixed-order-family diagnostic. It does not cover first-block-reversed
 orientations, arbitrary cyclic orders, all selected-row systems, the fragile
 bridge, or Erdos Problem #97.
+
+The oriented-block reversal crosswalk adds those first-block-reversed
+orientations by an explicit cyclic-reversal map:
+
+```bash
+python scripts/check_block6_oriented_block_reversal_closure.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
+```text
+data/certificates/block6_oriented_block_reversal_closure.json
+```
+
+It generates all four oriented-block shuffle families and checks that cyclic
+reversal bijects `forward-forward` with `reversed-reversed`, and
+`forward-reversed` with `reversed-forward`. Because reversing cyclic orientation
+preserves the selected-distance equalities and the local vertex-circle /
+Kalmanson obstructions, this transfers the bounded closure count to `1848`
+oriented-block shuffle orders. This still does not cover arbitrary cyclic
+orders, selected-row systems outside the block-preserving family, the fragile
+bridge, or Erdos Problem #97.

@@ -847,6 +847,25 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="block6_oriented_block_reversal_closure",
+        command=(
+            "python",
+            "scripts/check_block6_oriented_block_reversal_closure.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Cross-artifact closure count for all four oriented-block block-6 "
+            "shuffle families using direct first-block-forward closures plus "
+            "cyclic reversal duality for first-block-reversed families. "
+            "Bounded oriented-block shuffles only, not arbitrary cyclic "
+            "orders, not all selected-row systems, not a fragile-bridge "
+            "proof, not a proof of Erdos Problem #97, and not a "
+            "counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",

@@ -1,0 +1,545 @@
+{
+  "claim_scope": "Cross-artifact fixed-order-family diagnostic for the 1848 normalized block-6 oriented-block shuffle orders, where each six-label block is kept internally forward or reversed and the two blocks are shuffled. It uses the first-block-forward two-orientation packet for 924 direct closures and exact cyclic reversal duality for the 924 first-block-reversed orders. This is not arbitrary cyclic-order closure, not all selected-row systems, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.",
+  "interpretation": "The first-block-forward packet directly covers the two orientation families with first block forward. Normalized cyclic reversal maps the forward-forward family bijectively to the reversed-reversed family and the forward-reversed family bijectively to the reversed-forward family. Since reversing polygon orientation does not change the distance equalities or the local obstruction certificates, the same bounded closure counts transfer to all four oriented-block shuffle families.",
+  "orientation_family_crosswalk": [
+    {
+      "closed_order_count": 462,
+      "closure_methods": {
+        "vertex_circle_quotient": 462
+      },
+      "closure_source": "direct_source",
+      "first_block_orientation": "forward",
+      "name": "forward_forward",
+      "order_count": 462,
+      "second_block_orientation": "forward"
+    },
+    {
+      "closed_order_count": 462,
+      "closure_methods": {
+        "kalmanson_after_vertex_circle_escape": 16,
+        "vertex_circle_quotient": 446
+      },
+      "closure_source": "direct_source",
+      "first_block_orientation": "forward",
+      "name": "forward_reversed",
+      "order_count": 462,
+      "second_block_orientation": "reversed"
+    },
+    {
+      "closed_order_count": 462,
+      "closure_methods": {
+        "kalmanson_after_vertex_circle_escape": 16,
+        "vertex_circle_quotient": 446
+      },
+      "closure_source": "cyclic_reversal_of_forward_reversed",
+      "first_block_orientation": "reversed",
+      "name": "reversed_forward",
+      "order_count": 462,
+      "second_block_orientation": "forward"
+    },
+    {
+      "closed_order_count": 462,
+      "closure_methods": {
+        "vertex_circle_quotient": 462
+      },
+      "closure_source": "cyclic_reversal_of_forward_forward",
+      "first_block_orientation": "reversed",
+      "name": "reversed_reversed",
+      "order_count": 462,
+      "second_block_orientation": "reversed"
+    }
+  ],
+  "provenance": {
+    "command": "python scripts/check_block6_oriented_block_reversal_closure.py --write --assert-expected",
+    "generator": "scripts/check_block6_oriented_block_reversal_closure.py"
+  },
+  "reversal_pair_samples": {
+    "forward_forward_to_reversed_reversed": [
+      {
+        "source_index": 0,
+        "source_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "target_index": 461,
+        "target_order": [
+          0,
+          11,
+          10,
+          9,
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1
+        ]
+      },
+      {
+        "source_index": 1,
+        "source_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "target_index": 460,
+        "target_order": [
+          0,
+          11,
+          10,
+          9,
+          8,
+          7,
+          5,
+          6,
+          4,
+          3,
+          2,
+          1
+        ]
+      },
+      {
+        "source_index": 2,
+        "source_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          5,
+          8,
+          9,
+          10,
+          11
+        ],
+        "target_index": 455,
+        "target_order": [
+          0,
+          11,
+          10,
+          9,
+          8,
+          5,
+          7,
+          6,
+          4,
+          3,
+          2,
+          1
+        ]
+      },
+      {
+        "source_index": 50,
+        "source_order": [
+          0,
+          1,
+          2,
+          6,
+          7,
+          3,
+          4,
+          8,
+          5,
+          9,
+          10,
+          11
+        ],
+        "target_index": 431,
+        "target_order": [
+          0,
+          11,
+          10,
+          9,
+          5,
+          8,
+          4,
+          3,
+          7,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "source_index": 214,
+        "source_order": [
+          0,
+          6,
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9,
+          10,
+          5,
+          11
+        ],
+        "target_index": 331,
+        "target_order": [
+          0,
+          11,
+          5,
+          10,
+          9,
+          8,
+          7,
+          4,
+          3,
+          2,
+          1,
+          6
+        ]
+      },
+      {
+        "source_index": 275,
+        "source_order": [
+          0,
+          6,
+          1,
+          7,
+          2,
+          3,
+          8,
+          9,
+          4,
+          5,
+          10,
+          11
+        ],
+        "target_index": 362,
+        "target_order": [
+          0,
+          11,
+          10,
+          5,
+          4,
+          9,
+          8,
+          3,
+          2,
+          7,
+          1,
+          6
+        ]
+      },
+      {
+        "source_index": 461,
+        "source_order": [
+          0,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "target_index": 0,
+        "target_order": [
+          0,
+          5,
+          4,
+          3,
+          2,
+          1,
+          11,
+          10,
+          9,
+          8,
+          7,
+          6
+        ]
+      }
+    ],
+    "forward_reversed_to_reversed_forward": [
+      {
+        "source_index": 0,
+        "source_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          11,
+          10,
+          9,
+          8,
+          7,
+          6
+        ],
+        "target_index": 461,
+        "target_order": [
+          0,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          5,
+          4,
+          3,
+          2,
+          1
+        ]
+      },
+      {
+        "source_index": 1,
+        "source_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          11,
+          5,
+          10,
+          9,
+          8,
+          7,
+          6
+        ],
+        "target_index": 460,
+        "target_order": [
+          0,
+          6,
+          7,
+          8,
+          9,
+          10,
+          5,
+          11,
+          4,
+          3,
+          2,
+          1
+        ]
+      },
+      {
+        "source_index": 2,
+        "source_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          11,
+          10,
+          5,
+          9,
+          8,
+          7,
+          6
+        ],
+        "target_index": 455,
+        "target_order": [
+          0,
+          6,
+          7,
+          8,
+          9,
+          5,
+          10,
+          11,
+          4,
+          3,
+          2,
+          1
+        ]
+      },
+      {
+        "source_index": 50,
+        "source_order": [
+          0,
+          1,
+          2,
+          11,
+          10,
+          3,
+          4,
+          9,
+          5,
+          8,
+          7,
+          6
+        ],
+        "target_index": 431,
+        "target_order": [
+          0,
+          6,
+          7,
+          8,
+          5,
+          9,
+          4,
+          3,
+          10,
+          11,
+          2,
+          1
+        ]
+      },
+      {
+        "source_index": 214,
+        "source_order": [
+          0,
+          11,
+          1,
+          2,
+          3,
+          4,
+          10,
+          9,
+          8,
+          7,
+          5,
+          6
+        ],
+        "target_index": 331,
+        "target_order": [
+          0,
+          6,
+          5,
+          7,
+          8,
+          9,
+          10,
+          4,
+          3,
+          2,
+          1,
+          11
+        ]
+      },
+      {
+        "source_index": 275,
+        "source_order": [
+          0,
+          11,
+          1,
+          10,
+          2,
+          3,
+          9,
+          8,
+          4,
+          5,
+          7,
+          6
+        ],
+        "target_index": 362,
+        "target_order": [
+          0,
+          6,
+          7,
+          5,
+          4,
+          8,
+          9,
+          3,
+          2,
+          10,
+          1,
+          11
+        ]
+      },
+      {
+        "source_index": 461,
+        "source_order": [
+          0,
+          11,
+          10,
+          9,
+          8,
+          7,
+          6,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "target_index": 0,
+        "target_order": [
+          0,
+          5,
+          4,
+          3,
+          2,
+          1,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      }
+    ]
+  },
+  "reversal_rule": {
+    "description": "Cyclic reversal keeps label 0 first and reverses the remaining 11 labels. The vertex-circle quotient and Kalmanson strict inequality obstructions used by the source packets are unchanged by reversing cyclic orientation.",
+    "normalized_cyclic_reverse": "[0] + reversed(order[1:])"
+  },
+  "schema": "erdos97.block6_oriented_block_reversal_closure.v1",
+  "source_artifacts": {
+    "first_block_forward_two_orientation": {
+      "path": "data/certificates/block6_forward_block_two_orientation_closure.json",
+      "schema": "erdos97.block6_forward_block_two_orientation_closure.v1",
+      "status": "BOUNDED_FIXED_ORDER_TWO_ORIENTATION_CLOSURE_DIAGNOSTIC"
+    }
+  },
+  "status": "BOUNDED_ORIENTED_BLOCK_REVERSAL_CLOSURE_DIAGNOSTIC",
+  "summary": {
+    "combined_closed_order_count": 1848,
+    "combined_closure_complete": true,
+    "direct_source_order_count": 924,
+    "method_counts": {
+      "kalmanson_after_vertex_circle_escape_by_reversal": 16,
+      "kalmanson_after_vertex_circle_escape_direct": 16,
+      "kalmanson_after_vertex_circle_escape_total": 32,
+      "vertex_circle_quotient_by_reversal": 908,
+      "vertex_circle_quotient_direct": 908,
+      "vertex_circle_quotient_total": 1816
+    },
+    "orders_per_orientation_family": 462,
+    "orientation_family_count": 4,
+    "reversal_dual_order_count": 924,
+    "reversal_pair_counts": {
+      "forward_forward_to_reversed_reversed": 462,
+      "forward_reversed_to_reversed_forward": 462
+    },
+    "total_oriented_order_count": 1848
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}
