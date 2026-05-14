@@ -10,23 +10,34 @@ update the official/global status of Erdos Problem #97.
 ## Scope
 
 The checked artifact is
-`data/certificates/relation_skeleton_catalog.json`. It currently contains seven
-vertex-circle selected-distance quotient skeletons extracted from focused
-local lemma packets:
+`data/certificates/relation_skeleton_catalog.json`. It currently contains
+sixteen vertex-circle selected-distance quotient skeletons extracted from the
+focused local lemma packets:
 
 ```text
 VC-T01-F09-strict-self-edge
+VC-T02-F01-strict-self-edge
+VC-T02-F04-strict-self-edge
+VC-T02-F08-strict-self-edge
+VC-T02-F14-strict-self-edge
 VC-T03-F05-strict-self-edge
 VC-T03-F15-strict-self-edge
 VC-T04-F13-strict-self-edge
+VC-T05-F10-strict-self-edge
+VC-T06-F11-strict-self-edge
+VC-T07-F06-strict-self-edge
+VC-T08-F02-strict-self-edge
+VC-T09-F03-strict-self-edge
 VC-T10-F12-strict-directed-cycle
 VC-T11-F07-strict-directed-cycle
 VC-T12-F16-strict-directed-cycle
 ```
 
-This is still smaller than the full 12-template `n=9` catalog. The goal is to
-give reviewers a reusable object shape before adding Kalmanson, row-Ptolemy,
-or all remaining vertex-circle templates.
+This matches the family-level coverage of the stored aggregate local-lemma
+packet layer: 13 strict self-edge families and 3 strict-cycle families, covering
+184 labelled pre-vertex-circle frontier assignments in that review-pending
+packet accounting. It is still a proof-mining catalog, not an independent
+review of that packet layer or the exhaustive `n=9` checker.
 
 ## Skeleton Fields
 
@@ -80,6 +91,21 @@ The row-0 vertex-circle order `[1,2,4,8]` gives the strict inequality
 
 Thus the selected-distance quotient strict graph has a strict self-edge.
 
+### T02 Shared-endpoint Self-edges
+
+The T02 packet contributes four shared-endpoint self-edge skeletons:
+
+```text
+F01: [1,8] = [0,8] = [0,1] = [1,2]
+F04: [0,2] = [0,1] = [1,2] = [2,3]
+F08: [1,8] = [0,8] = [0,1] = [1,2]
+F14: [1,8] = [0,8] = [0,1] = [1,2]
+```
+
+Each skeleton records one vertex-circle strict edge whose outer and inner
+ordinary pair distances are identified by the displayed selected-distance
+chain, producing a reflexive strict edge in the quotient graph.
+
 ### T03/F05 And T03/F15 Self-edges
 
 The two T03 family packets are recorded as separate skeletons because their
@@ -116,6 +142,21 @@ The selected-distance path gives:
 
 Row `0` has witness order `[1,2,5,7]`, so vertex-circle monotonicity gives
 `[1,5] > [1,2]`. Thus the quotient graph has a strict self-edge.
+
+### T05-T09 Selected-path Self-edges
+
+The T05 through T09 packets add five more selected-path self-edge skeletons:
+
+```text
+T05/F10: [1,8] = [7,8] = [2,7] = [1,2]
+T06/F11: [3,8] = [6,8] = [6,7] = [5,7] = [3,5]
+T07/F06: [1,4] = [4,5] = [5,6] = [2,6] = [1,2]
+T08/F02: [1,3] = [1,7] = [6,7] = [5,6] = [2,5] = [1,2]
+T09/F03: [1,3] = [0,1] = [0,8] = [4,8] = [3,4] = [2,3] = [1,2]
+```
+
+As with T03 and T04, each selected path identifies the endpoints of a stored
+vertex-circle strict inequality, yielding a strict self-edge after quotienting.
 
 ### T10/F12 Strict Cycle
 

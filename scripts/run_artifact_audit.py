@@ -479,7 +479,7 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "--json",
         ),
         claim_scope=(
-            "Seven-entry relation-skeleton catalog for focused n=9 "
+            "Sixteen-entry relation-skeleton catalog for focused n=9 "
             "vertex-circle quotient motifs; proof-mining scaffolding only, "
             "not a proof of n=9, counterexample, or independent review "
             "completion."
