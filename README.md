@@ -32,7 +32,7 @@ This repository is a public research log and reproducibility workspace for Erdő
   read [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 - For the derived `n=9` vertex-circle template lemma-candidate catalog, read
   [`docs/n9-vertex-circle-template-lemma-catalog.md`](docs/n9-vertex-circle-template-lemma-catalog.md).
-- For the first relation-skeleton extraction from focused `n=9`
+- For the relation-skeleton extraction from focused `n=9`
   vertex-circle local packets, read
   [`docs/relation-skeleton-catalog.md`](docs/relation-skeleton-catalog.md).
 - For the review-pending `n=10` singleton-slice finite-case draft, read

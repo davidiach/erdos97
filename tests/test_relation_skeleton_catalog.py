@@ -10,6 +10,7 @@ import pytest
 
 from erdos97.relation_skeleton_catalog import (
     EXPECTED_SKELETON_IDS,
+    EXPECTED_SOURCE_ARTIFACTS,
     assert_expected_relation_skeleton_catalog,
     relation_skeleton_catalog_payload,
 )
@@ -39,11 +40,11 @@ def test_relation_skeleton_catalog_counts_and_scope() -> None:
     assert "not a proof of n=9" in payload["claim_scope"]
     assert "not a counterexample" in payload["claim_scope"]
     assert "not an independent review" in payload["claim_scope"]
-    assert payload["skeleton_count"] == 2
+    assert payload["skeleton_count"] == 7
     assert payload["skeleton_ids"] == list(EXPECTED_SKELETON_IDS)
     assert payload["contradiction_type_counts"] == {
-        "strict_directed_cycle": 1,
-        "strict_self_edge": 1,
+        "strict_directed_cycle": 3,
+        "strict_self_edge": 4,
     }
 
 
@@ -51,6 +52,7 @@ def test_relation_skeleton_catalog_records_t01_self_edge() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     skeleton = _skeletons_by_id(payload)["VC-T01-F09-strict-self-edge"]
 
+    assert skeleton["source_packet"] == EXPECTED_SOURCE_ARTIFACTS[0]
     assert skeleton["source_template_id"] == "T01"
     assert skeleton["source_family_id"] == "F09"
     assert skeleton["contradiction_type"] == "strict_self_edge"
@@ -84,6 +86,7 @@ def test_relation_skeleton_catalog_records_t10_strict_cycle() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     skeleton = _skeletons_by_id(payload)["VC-T10-F12-strict-directed-cycle"]
 
+    assert skeleton["source_packet"] == EXPECTED_SOURCE_ARTIFACTS[3]
     assert skeleton["source_template_id"] == "T10"
     assert skeleton["source_family_id"] == "F12"
     assert skeleton["contradiction_type"] == "strict_directed_cycle"
@@ -118,6 +121,65 @@ def test_relation_skeleton_catalog_records_t10_strict_cycle() -> None:
     ]
 
 
+def test_relation_skeleton_catalog_records_new_self_edge_families() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    skeletons = _skeletons_by_id(payload)
+
+    expected = {
+        "VC-T03-F05-strict-self-edge": (
+            EXPECTED_SOURCE_ARTIFACTS[1],
+            "T03",
+            "F05",
+            18,
+            [[3, 7], [2, 3], [1, 2], [1, 7]],
+        ),
+        "VC-T03-F15-strict-self-edge": (
+            EXPECTED_SOURCE_ARTIFACTS[1],
+            "T03",
+            "F15",
+            2,
+            [[1, 4], [1, 2], [2, 3], [3, 4]],
+        ),
+        "VC-T04-F13-strict-self-edge": (
+            EXPECTED_SOURCE_ARTIFACTS[2],
+            "T04",
+            "F13",
+            2,
+            [[1, 5], [3, 5], [1, 3], [1, 2]],
+        ),
+    }
+    for skeleton_id, (source_packet, template_id, family_id, assignment_count, equality_chain) in expected.items():
+        skeleton = skeletons[skeleton_id]
+        assert skeleton["source_packet"] == source_packet
+        assert skeleton["source_template_id"] == template_id
+        assert skeleton["source_family_id"] == family_id
+        assert skeleton["contradiction_type"] == "strict_self_edge"
+        assert skeleton["coverage"]["assignment_count"] == assignment_count  # type: ignore[index]
+        assert skeleton["relation_quotient"]["equality_chains"] == [equality_chain]  # type: ignore[index]
+        assert len(skeleton["relation_quotient"]["strict_edges"]) == 1  # type: ignore[index]
+        assert skeleton["conclusion"]["kind"] == "strict_self_edge"  # type: ignore[index]
+
+
+def test_relation_skeleton_catalog_records_new_strict_cycle_families() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    skeletons = _skeletons_by_id(payload)
+
+    expected = {
+        "VC-T11-F07-strict-directed-cycle": (EXPECTED_SOURCE_ARTIFACTS[4], "T11", "F07", 6, 3),
+        "VC-T12-F16-strict-directed-cycle": (EXPECTED_SOURCE_ARTIFACTS[5], "T12", "F16", 2, 3),
+    }
+    for skeleton_id, (source_packet, template_id, family_id, assignment_count, cycle_length) in expected.items():
+        skeleton = skeletons[skeleton_id]
+        assert skeleton["source_packet"] == source_packet
+        assert skeleton["source_template_id"] == template_id
+        assert skeleton["source_family_id"] == family_id
+        assert skeleton["contradiction_type"] == "strict_directed_cycle"
+        assert skeleton["coverage"]["assignment_count"] == assignment_count  # type: ignore[index]
+        assert skeleton["conclusion"]["kind"] == "strict_directed_cycle"  # type: ignore[index]
+        assert skeleton["conclusion"]["cycle_length"] == cycle_length  # type: ignore[index]
+        assert len(skeleton["relation_quotient"]["strict_edges"]) == cycle_length  # type: ignore[index]
+
+
 def test_relation_skeleton_catalog_checker_passes_lightweight() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     errors = validate_payload(payload, recompute=False)
@@ -125,7 +187,7 @@ def test_relation_skeleton_catalog_checker_passes_lightweight() -> None:
 
     assert errors == []
     assert summary["ok"] is True
-    assert summary["skeleton_count"] == 2
+    assert summary["skeleton_count"] == 7
     assert summary["skeleton_ids"] == list(EXPECTED_SKELETON_IDS)
 
 
@@ -179,7 +241,11 @@ def test_relation_skeleton_catalog_artifact_matches_generator() -> None:
 
     assert checked_in == relation_skeleton_catalog_payload(
         sources["t01_packet"],
+        sources["t03_packet"],
+        sources["t04_packet"],
         sources["t10_packet"],
+        sources["t11_packet"],
+        sources["t12_packet"],
     )
 
 
@@ -203,7 +269,7 @@ def test_relation_skeleton_catalog_checker_cli_json() -> None:
     assert result.stderr == ""
     payload = json.loads(result.stdout)
     assert payload["ok"] is True
-    assert payload["skeleton_count"] == 2
+    assert payload["skeleton_count"] == 7
     assert payload["skeleton_ids"] == list(EXPECTED_SKELETON_IDS)
 
 
