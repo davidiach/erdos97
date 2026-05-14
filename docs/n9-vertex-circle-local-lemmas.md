@@ -546,6 +546,15 @@ strict-cycle records: each strict edge + equality path to the next outer pair
 coverage counts:     13 self-edge families and 3 strict-cycle families
 ```
 
+The stored audit artifact is
+`data/certificates/n9_vertex_circle_local_lemma_simple_replay.json`; regenerate
+and check it with:
+
+```bash
+python scripts/check_n9_vertex_circle_local_lemma_simple_replay.py --assert-expected --write
+python scripts/check_n9_vertex_circle_local_lemma_simple_replay.py --check --assert-expected --json
+```
+
 For a self-edge family, the replay verifies that every equality-path step is a
 selected-distance equality in the named row, that the stored outer and inner
 pairs are the endpoints of nested intervals in the row's cyclic witness order,

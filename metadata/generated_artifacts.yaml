@@ -722,6 +722,42 @@ artifacts:
       - the local-lemma scan is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_vertex_circle_local_lemma_simple_replay
+    path: data/certificates/n9_vertex_circle_local_lemma_simple_replay.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_n9_vertex_circle_local_lemma_simple_replay.py
+    command: python scripts/check_n9_vertex_circle_local_lemma_simple_replay.py --assert-expected --write
+    checker: scripts/check_n9_vertex_circle_local_lemma_simple_replay.py
+    check_command: python scripts/check_n9_vertex_circle_local_lemma_simple_replay.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Second-source packet-level audit for aggregate n=9 vertex-circle local-lemma coverage; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_vertex_circle_local_lemma_simple_replay.v1
+      status: REVIEW_PENDING_PACKET_AUDIT
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      n: 9
+      validation_status: passed
+      coverage_summary.covered_family_count: 16
+      coverage_summary.covered_assignment_count: 184
+      coverage_summary.self_edge_family_count: 13
+      coverage_summary.self_edge_assignment_count: 158
+      coverage_summary.strict_cycle_family_count: 3
+      coverage_summary.strict_cycle_assignment_count: 26
+      coverage_summary.expected_family_count: 16
+      coverage_summary.expected_assignment_count: 184
+      provenance.command: python scripts/check_n9_vertex_circle_local_lemma_simple_replay.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - template labels are theorem names
+      - the simple replay audit is an independent proof
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_t01_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json
     kind: certificate_diagnostic_artifact

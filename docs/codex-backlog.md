@@ -21,9 +21,11 @@ Use this queue when no more specific issue is selected.
    focused T01/T02/T03/T04/T05/T06/T07/T08/T09 self-edge packets and the focused T10/T11/T12
    strict-cycle packets, keeping it scoped as proof-mining scaffolding rather
    than an `n=9` proof.
-2. Audit whether the aggregate local-template coverage can be checked from the
-   stored packet JSON by a second, simpler replay that does not share the
-   current quotient-replay helper.
+2. Use the stored simple replay artifact
+   `data/certificates/n9_vertex_circle_local_lemma_simple_replay.json` as a
+   reviewer-facing input for the aggregate local-template coverage. The replay
+   checks the packet JSON without sharing the main quotient-replay helper, but
+   it is still a packet audit rather than an `n=9` proof.
 3. Strengthen the minimal fragile-cover bridge with one geometric necessary
    condition and test it against the block-6 negative controls.
 4. Use the bootstrap-core crosswalk and the bootstrap / vertex-circle overlay
