@@ -2475,6 +2475,49 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: block6_shuffle_order_vertex_circle_sweep
+    path: data/certificates/block6_shuffle_order_vertex_circle_sweep.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_block6_shuffle_order_vertex_circle_sweep.py
+    command: python scripts/check_block6_shuffle_order_vertex_circle_sweep.py --write --assert-expected
+    checker: scripts/check_block6_shuffle_order_vertex_circle_sweep.py
+    check_command: python scripts/check_block6_shuffle_order_vertex_circle_sweep.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: All 462 normalized block-preserving shuffle cyclic orders for the two-block block-6 fragile rows close under order-specific vertex-circle pruning. Bounded fixed-order-family diagnostic only, not all-order closure, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.block6_shuffle_order_vertex_circle_sweep.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.shuffle_order_count: 462
+      summary.orders_with_terminal_extension: 458
+      summary.orders_without_terminal_extension: 4
+      summary.closed_order_count: 462
+      summary.orders_with_clean_pruned_solution: 0
+      summary.outside_natural_generator_first_extension_count: 457
+      summary.total_first_terminal_nodes: 56377
+      summary.total_first_terminal_zero_option_prunes: 30529
+      summary.total_pruned_nodes: 735652
+      summary.total_pruned_zero_option_prunes: 11903
+      summary.pruned_node_max_order_index: 232
+      summary.vc_prunes.self_edge: 276230
+      summary.vc_prunes.strict_cycle: 316519
+      provenance.generator: scripts/check_block6_shuffle_order_vertex_circle_sweep.py
+      provenance.command: python scripts/check_block6_shuffle_order_vertex_circle_sweep.py --write --assert-expected
+    forbidden_claims:
+      - fragile covers prove the theorem
+      - block-preserving shuffle orders prove the fragile bridge
+      - all cyclic orders are obstructed
+      - all block-6 full extensions are obstructed across all orders
+      - row systems outside the block-preserving shuffle family are obstructed
+      - minimal counterexamples are ruled out
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: speculative_circulant_frontier_obstructions
     path: data/certificates/speculative_circulant_frontier_obstructions.json
     kind: certificate_artifact

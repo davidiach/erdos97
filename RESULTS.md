@@ -153,6 +153,17 @@ fixed-order searches close under order-specific vertex-circle pruning. The
 probe is fixed-order diagnostic evidence only, not all-order closure; see
 `data/certificates/block6_fixed_order_vertex_circle_probe.json`.
 
+The follow-up block-preserving shuffle-order sweep checks all `462` normalized
+cyclic orders that preserve internal order inside the two six-label blocks
+while shuffling the blocks. Every order-specific full-extension search closes
+under vertex-circle quotient pruning, with `276,230` self-edge prunes and
+`316,519` strict-cycle prunes. The sweep records `458` orders with a legal
+terminal selected-row extension and `4` with no terminal extension; `457` first
+terminal extensions fail the natural-order crossing rule, so they are outside
+the natural-order terminal generator. This is still a bounded fixed-order-family
+diagnostic only, not all-order closure; see
+`data/certificates/block6_shuffle_order_vertex_circle_sweep.json`.
+
 ### Bootstrap-core bridge
 
 Status: `LEMMA` / bridge fork.

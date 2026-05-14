@@ -450,6 +450,12 @@ condition that the surviving multi-block family does not automatically satisfy:
   generator, but all four fixed-order searches close by order-specific
   vertex-circle pruning. This is fixed-order diagnostic evidence only, not
   all-order closure.
+- block-6 block-preserving shuffle-order evidence, as recorded in
+  `data/certificates/block6_shuffle_order_vertex_circle_sweep.json`, checking
+  all `462` normalized cyclic orders that preserve internal order inside the
+  two six-label blocks while shuffling the blocks. Every order-specific
+  full-extension search closes by vertex-circle pruning, but this remains a
+  bounded fixed-order-family diagnostic rather than all-order closure.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract
