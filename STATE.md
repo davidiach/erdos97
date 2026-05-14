@@ -45,6 +45,14 @@ the Groebner-based classes `3`, `4`, `5`, and `14`, so it is a defensive
 cross-check rather than an independent replacement for the full exact
 survivor artifact. See `docs/n8-independent-obstruction.md`.
 
+The class `14` Groebner-dependent branch now has a small focused audit checker:
+`scripts/check_n8_class14_certificate.py --check --json` rebuilds that one
+`PB+ED` system, compares the stored Groebner basis, derives the four real
+branches, and verifies by exact orientation signs that each branch has four
+hull vertices and four strict interior labels. This is still repo-local audit
+support pending external review, not a public theorem claim. See
+`docs/n8-class14-certificate.md`.
+
 For the general bridge problem, minimality now gives a small proved foothold:
 every minimal counterexample admits a partial fragile-cover witness system made
 from exact critical 4-ties. This is necessary structure only; the block-6

@@ -99,6 +99,12 @@ the Groebner-dependent classes `3`, `4`, `5`, and `14` to the original exact
 survivor checker, so it is an audit-strengthening cross-check rather than an
 independent public proof.
 
+A focused class `14` audit in `docs/n8-class14-certificate.md` rebuilds only
+that class's `PB+ED` polynomial system, compares the stored Groebner basis,
+derives the four real branches, and verifies exact strict-interior failure on
+each branch. This isolates the most delicate survivor-class obstruction for
+review; it is not a new public theorem claim.
+
 ### Proof-note draft: geometric exclusion of n <= 8
 
 Status: proof-note draft; independent review requested.

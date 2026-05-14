@@ -86,6 +86,17 @@ standalone certificate file with a minimal verifier that checks:
 This should be small enough for an external reviewer to audit without reading
 the full search pipeline.
 
+Current focused entrypoint:
+
+```bash
+python scripts/check_n8_class14_certificate.py --check --json
+```
+
+This checker rebuilds only the class `14` `PB+ED` system from the checked-in
+survivor rows, compares the stored Groebner basis, derives the four real
+branches, and verifies exact strict-interior failure. It remains a repo-local
+audit pending external review.
+
 ## Priority 4 - pin literature coverage
 
 Before any paper-style or public theorem-style claim, run a literature sweep
