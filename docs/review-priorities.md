@@ -192,6 +192,10 @@ Next steps:
   `scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --json`
   to compare the aggregate local-lemma scan and simple replay
   family-by-family;
+- use
+  `scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json`
+  to compare the review-pending exhaustive counts, motif classification, and
+  local-lemma replay chain without rerunning the brancher;
 - test whether the same motifs appear in the P18 obstruction and fail in the
   recorded `C19_skew` vertex-circle-only survivor, which is now retired as a
   fixed abstract pattern by the separate Z3 Kalmanson certificate;

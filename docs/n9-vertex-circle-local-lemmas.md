@@ -591,6 +591,17 @@ aggregate scan and the simpler replay audit describe the same stored local
 template coverage. It does not certify that the packet family list is complete
 for `n=9`, and it does not promote the review-pending exhaustive checker.
 
+The related exhaustive/local-lemma crosswalk checks the upstream count chain
+from the review-pending exhaustive artifact through the motif classification
+before joining to the local-lemma replay artifacts:
+
+```bash
+python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json
+```
+
+That command is also an artifact-accounting audit only; it does not rerun the
+exhaustive brancher or complete independent review.
+
 ## Scan summary
 
 The current local-lemma scan covers these review-pending template-packet
