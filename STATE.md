@@ -118,6 +118,15 @@ bookkeeping, not arbitrary cyclic-order closure, all selected-row closure, the
 fragile bridge, or Erdos #97. See
 `data/certificates/block6_oriented_block_reversal_closure.json`.
 
+The block-6 row-depth survivor diagnostics record why still more local bridge
+subclaims fail inside the same negative-control family: all `166` clean
+fifth-row states admit a clean sixth row, every unordered added-center pair
+has clean six-row support, and the low-support branch has many clean seventh
+and eighth-row continuations before only `12` clean seven-row states become
+eighth-row terminal. This is bounded natural-order proof-mining information,
+not a fragile-bridge proof or Euclidean realization claim. See
+`docs/block6-fragile-sixth-row-survivor-catalog.md`.
+
 A separate rich-triple closure bridge records that ear-orderability is
 equivalent to bootstrap rank at most 3. Failure of that rank condition yields
 inclusion-minimal generating cores with deletion closures, private halos, and a

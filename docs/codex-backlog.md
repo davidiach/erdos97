@@ -77,7 +77,11 @@ Use this queue when no more specific issue is selected.
    explicit cyclic reversal to cover the two first-block-reversed orientation
    families as well, for `1848` oriented-block shuffle orders. The next useful
    PR should widen beyond block-preserving shuffles, or explain which richer
-   bridge hypothesis would rule out the remaining arbitrary-order gap.
+   bridge hypothesis would rule out the remaining arbitrary-order gap. The
+   row-depth scout
+   `python scripts/check_block6_fragile_sixth_row_survivors.py --assert-expected --json`
+   records a bounded negative control against fifth-row-only and
+   sixth-row-only closure claims before attempting such a bridge.
 4. Use the bootstrap-core crosswalk and the bootstrap / vertex-circle overlay
    in `docs/bootstrap-core-crosswalk.md` and
    `docs/bootstrap-vertex-circle-overlay.md` to design a sharper condition.

@@ -781,6 +781,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="block6_fragile_sixth_row_survivors",
+        command=(
+            "python",
+            "scripts/check_block6_fragile_sixth_row_survivors.py",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Block-6 row-depth survivor catalog for legal sixth rows after "
+            "clean fifth-row states and low-support seventh/eighth-row "
+            "continuations; bounded natural-order negative control only, not "
+            "a fragile-bridge proof, not a proof of Erdos Problem #97, and "
+            "not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="block6_terminal_crossing_vertex_circle_sample",
         command=(
             "python",

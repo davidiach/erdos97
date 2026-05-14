@@ -514,6 +514,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   outside the packet, so the next useful widening should leave the
   block-preserving orientation family or state a genuine minimal/rich-class
   bridge hypothesis.
+- block-6 row-depth survivor evidence, as recorded in
+  `docs/block6-fragile-sixth-row-survivor-catalog.md` and checked by
+  `scripts/check_block6_fragile_sixth_row_survivors.py --assert-expected --json`.
+  It shows that fifth-row-only and sixth-row-only closure subclaims fail:
+  all `166` clean fifth-row states admit a clean sixth row, and the
+  low-support branch still has many clean seventh/eighth continuations. This
+  is useful mainly as a negative control for bridge hypotheses that are too
+  local.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

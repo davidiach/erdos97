@@ -57,6 +57,12 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For the stored geometric gates and fixed-order widenings on the block-6
   fragile-cover negative control, read
   [`docs/block6-fragile-vertex-circle-extension-audit.md`](docs/block6-fragile-vertex-circle-extension-audit.md).
+- For the block-6 fifth/sixth-row survivor diagnostics, which explain why
+  very local closure subclaims fail before the stronger full-extension gates
+  take over, read
+  [`docs/block6-fragile-fifth-row-obstruction-catalog.md`](docs/block6-fragile-fifth-row-obstruction-catalog.md)
+  and
+  [`docs/block6-fragile-sixth-row-survivor-catalog.md`](docs/block6-fragile-sixth-row-survivor-catalog.md).
 - For the rich-triple closure / bootstrap-core bridge fork, read
   [`docs/bootstrap-core-bridge.md`](docs/bootstrap-core-bridge.md).
 - For the bootstrap-core rank/capacity crosswalk on current fixed-row
