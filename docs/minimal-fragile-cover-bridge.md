@@ -452,6 +452,24 @@ cover selected-row systems outside that natural-order terminal generator, so
 the remaining bridge gap is either a generator-independent all-order closure or
 a genuine minimal/rich-class reduction.
 
+A fixed-order probe now checks that this gap is real but not immediately fatal
+to the vertex-circle method:
+
+```bash
+python scripts/check_block6_fixed_order_vertex_circle_probe.py --check --assert-expected --json
+```
+
+```text
+data/certificates/block6_fixed_order_vertex_circle_probe.json
+```
+
+The probe uses the natural order and three non-natural cyclic orders. In all
+three non-natural orders, the first terminal selected-row extension fails the
+natural-order crossing rule, so those extensions were outside the previous
+natural-order generator. All four fixed-order searches still close by
+order-specific vertex-circle quotient pruning. This is fixed-order evidence
+only, not all-order closure.
+
 ## What This Does Not Prove
 
 The bridge is necessary, not sufficient. The checked block-6 family passes the

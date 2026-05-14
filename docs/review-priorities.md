@@ -443,6 +443,13 @@ condition that the surviving multi-block family does not automatically satisfy:
   cycles). This still does not cover selected-row systems outside the
   natural-order terminal generator, so it remains a bounded diagnostic rather
   than all-extension/all-order closure.
+- block-6 fixed-order probe evidence, as recorded in
+  `data/certificates/block6_fixed_order_vertex_circle_probe.json`, checking
+  the natural order and three non-natural cyclic orders. The non-natural probes
+  each have a legal terminal selected-row extension outside the natural-order
+  generator, but all four fixed-order searches close by order-specific
+  vertex-circle pruning. This is fixed-order diagnostic evidence only, not
+  all-order closure.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

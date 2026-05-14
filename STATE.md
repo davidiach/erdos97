@@ -67,6 +67,14 @@ cover selected-row systems outside that natural-order terminal generator and is
 not a fragile-bridge proof. See
 `data/certificates/block6_terminal_crossing_vertex_circle_full_sweep.json`.
 
+A fixed-order block-6 probe now confirms the generator gap is concrete: three
+non-natural cyclic orders have legal terminal selected-row extensions that fail
+the natural-order crossing rule. For the natural order and those three
+non-natural orders, the order-specific full-extension search still closes by
+vertex-circle quotient pruning. This is fixed-order evidence only, not
+all-order closure. See
+`data/certificates/block6_fixed_order_vertex_circle_probe.json`.
+
 A separate rich-triple closure bridge records that ear-orderability is
 equivalent to bootstrap rank at most 3. Failure of that rank condition yields
 inclusion-minimal generating cores with deletion closures, private halos, and a

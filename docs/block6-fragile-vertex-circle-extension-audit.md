@@ -227,3 +227,28 @@ This is a stronger bounded diagnostic, not a theorem-level closure. It does
 not cover row systems outside the natural-order terminal generator, does not
 prove all block-6 cyclic orders are obstructed, and does not prove the fragile
 bridge.
+
+The next fixed-order probe makes that generator gap concrete:
+
+```bash
+python scripts/check_block6_fixed_order_vertex_circle_probe.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
+```text
+data/certificates/block6_fixed_order_vertex_circle_probe.json
+```
+
+It checks the natural order plus three fixed non-natural cyclic orders. In
+each non-natural order, the first legal terminal extension fails the natural
+cyclic crossing rule, so it is genuinely outside the natural-order terminal
+generator. Nevertheless, all four probed fixed orders close under the
+order-specific vertex-circle-pruned full-extension search. The four probes
+visit `3,917` pruned search nodes and close by `1,390` self-edge and `1,726`
+strict-cycle quotient obstructions.
+
+This is not all-order closure. Its value is to separate the next gap cleanly:
+the natural-order generator is incomplete for fixed-order reasoning, but the
+same vertex-circle gate survives several non-natural fixed orders.

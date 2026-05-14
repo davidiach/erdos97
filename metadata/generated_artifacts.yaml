@@ -2436,6 +2436,45 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: block6_fixed_order_vertex_circle_probe
+    path: data/certificates/block6_fixed_order_vertex_circle_probe.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_block6_fixed_order_vertex_circle_probe.py
+    command: python scripts/check_block6_fixed_order_vertex_circle_probe.py --write --assert-expected
+    checker: scripts/check_block6_fixed_order_vertex_circle_probe.py
+    check_command: python scripts/check_block6_fixed_order_vertex_circle_probe.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Four fixed cyclic-order probes for the two-block block-6 fragile rows, including three non-natural orders whose first terminal extensions fail the natural-order crossing rule; each probed fixed order closes under order-specific vertex-circle pruning. Fixed-order diagnostic only, not all-order closure, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.block6_fixed_order_vertex_circle_probe.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.probe_order_count: 4
+      summary.non_natural_order_count: 3
+      summary.closed_order_count: 4
+      summary.orders_with_terminal_extension: 4
+      summary.non_natural_first_extensions_outside_natural_generator: 3
+      summary.total_pruned_nodes: 3917
+      summary.total_zero_option_prunes: 97
+      summary.vc_prunes.self_edge: 1390
+      summary.vc_prunes.strict_cycle: 1726
+      provenance.generator: scripts/check_block6_fixed_order_vertex_circle_probe.py
+      provenance.command: python scripts/check_block6_fixed_order_vertex_circle_probe.py --write --assert-expected
+    forbidden_claims:
+      - fragile covers prove the theorem
+      - fixed-order probes prove the fragile bridge
+      - all cyclic orders are obstructed
+      - all block-6 full extensions are obstructed across all orders
+      - row systems outside the probed orders are obstructed
+      - minimal counterexamples are ruled out
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: speculative_circulant_frontier_obstructions
     path: data/certificates/speculative_circulant_frontier_obstructions.json
     kind: certificate_artifact

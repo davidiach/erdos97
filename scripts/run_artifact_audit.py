@@ -743,6 +743,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="block6_fixed_order_vertex_circle_probe",
+        command=(
+            "python",
+            "scripts/check_block6_fixed_order_vertex_circle_probe.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Fixed-order probe for four block-6 cyclic orders, including "
+            "three non-natural orders whose first terminal extensions are "
+            "outside the natural-order generator; not all-order closure, not "
+            "a fragile-bridge proof, not a proof of Erdos Problem #97, and "
+            "not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",

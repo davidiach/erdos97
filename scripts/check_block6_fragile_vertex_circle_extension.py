@@ -90,9 +90,10 @@ def _paircross_ok(
     center: int,
     row: Sequence[int],
     assigned: Mapping[int, Sequence[int]],
+    order: Sequence[int] = ORDER,
 ) -> bool:
     return all(
-        _selected_pair_ok(center, row, other, other_row, ORDER)
+        _selected_pair_ok(center, row, other, other_row, order)
         for other, other_row in assigned.items()
     )
 
@@ -138,7 +139,10 @@ def _json_counter(counter: Counter[Any]) -> dict[str, int]:
     return {str(key): int(counter[key]) for key in sorted(counter)}
 
 
-def _partial_vertex_circle_status(assigned: Mapping[int, Sequence[int]]) -> tuple[str, int]:
+def _partial_vertex_circle_status(
+    assigned: Mapping[int, Sequence[int]],
+    order: Sequence[int] = ORDER,
+) -> tuple[str, int]:
     """Return the partial quotient-obstruction status for assigned rows."""
 
     uf = UnionFind(_all_pairs(N))
@@ -149,7 +153,7 @@ def _partial_vertex_circle_status(assigned: Mapping[int, Sequence[int]]) -> tupl
 
     edges: list[StrictInequality] = []
     for center, row in assigned.items():
-        witnesses = angular_witness_order(ORDER, center, row)
+        witnesses = angular_witness_order(order, center, row)
         for outer_start in range(ROW_SIZE):
             for outer_end in range(outer_start + 1, ROW_SIZE):
                 for inner_start in range(ROW_SIZE):
@@ -189,12 +193,14 @@ def _partial_vertex_circle_status(assigned: Mapping[int, Sequence[int]]) -> tupl
     return "ok", len(edges)
 
 
-def _initial_state() -> tuple[Rows, Counter[tuple[int, int]], Counter[int]]:
+def _initial_state(
+    order: Sequence[int] = ORDER,
+) -> tuple[Rows, Counter[tuple[int, int]], Counter[int]]:
     assigned: Rows = {}
     pair_counts: Counter[tuple[int, int]] = Counter()
     indegrees: Counter[int] = Counter()
     for center, row in _fixed_rows().items():
-        if not _paircross_ok(center, row, assigned):
+        if not _paircross_ok(center, row, assigned, order):
             raise AssertionError("fixed rows fail pair/crossing check")
         if not _pair_cap_ok(row, pair_counts):
             raise AssertionError("fixed rows fail pair cap")
@@ -210,22 +216,27 @@ def _valid_options(
     assigned: Mapping[int, Sequence[int]],
     pair_counts: Counter[tuple[int, int]],
     indegrees: Counter[int],
+    order: Sequence[int] = ORDER,
 ) -> list[tuple[int, ...]]:
     return [
         row
         for row in options[center]
-        if _paircross_ok(center, row, assigned)
+        if _paircross_ok(center, row, assigned, order)
         and _pair_cap_ok(row, pair_counts)
         and _indegree_ok(row, indegrees)
     ]
 
 
-def pruned_search_payload(*, max_nodes: int = 2_000_000) -> dict[str, Any]:
+def pruned_search_payload(
+    *,
+    max_nodes: int = 2_000_000,
+    order: Sequence[int] = ORDER,
+) -> dict[str, Any]:
     """Search for a vertex-circle-clean extension using monotone pruning."""
 
-    assigned, pair_counts, indegrees = _initial_state()
+    assigned, pair_counts, indegrees = _initial_state(order)
     options = _options()
-    initial_status, _edge_count = _partial_vertex_circle_status(assigned)
+    initial_status, _edge_count = _partial_vertex_circle_status(assigned, order)
     nodes = 0
     zero_option_prunes = 0
     vc_prunes: Counter[str] = Counter()
@@ -236,7 +247,7 @@ def pruned_search_payload(*, max_nodes: int = 2_000_000) -> dict[str, Any]:
         if nodes >= max_nodes:
             return "limit"
         if len(assigned) == N:
-            status, _edge_count = _partial_vertex_circle_status(assigned)
+            status, _edge_count = _partial_vertex_circle_status(assigned, order)
             if status == "ok":
                 solutions += 1
                 return "found"
@@ -254,6 +265,7 @@ def pruned_search_payload(*, max_nodes: int = 2_000_000) -> dict[str, Any]:
                 assigned,
                 pair_counts,
                 indegrees,
+                order,
             )
             if best_options is None or len(viable) < len(best_options):
                 best_center = center
@@ -267,7 +279,7 @@ def pruned_search_payload(*, max_nodes: int = 2_000_000) -> dict[str, Any]:
         for row in best_options:
             nodes += 1
             _add_row(assigned, pair_counts, indegrees, best_center, row)
-            status, _edge_count = _partial_vertex_circle_status(assigned)
+            status, _edge_count = _partial_vertex_circle_status(assigned, order)
             if status == "ok":
                 result = search()
                 if result in {"limit", "found"}:
