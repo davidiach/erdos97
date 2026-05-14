@@ -28,6 +28,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/n8-incidence-enumeration.md`](docs/n8-incidence-enumeration.md).
 - For the `n=8` exact survivor obstruction artifact, read
   [`docs/n8-exact-survivors.md`](docs/n8-exact-survivors.md).
+- For the SymPy-free independent recheck of the `n=8` cyclic-order counts and
+  11 survivor-class obstructions, read
+  [`docs/n8-independent-obstruction.md`](docs/n8-independent-obstruction.md).
 - For the review-pending exhaustive `n=9` vertex-circle finite-case checker,
   read [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 - For the derived `n=9` vertex-circle template lemma-candidate catalog, read

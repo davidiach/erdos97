@@ -38,6 +38,13 @@ equal-distance algebra kills the other 14. See
 External independent review remains recommended before public theorem-style
 claims.
 
+A separate SymPy-free independent recheck covers the cyclic-order counts for
+all 15 `n=8` survivor classes and independently kills 11 of them by
+cyclic-order or rational linear-span arguments. It deliberately does not cover
+the Groebner-based classes `3`, `4`, `5`, and `14`, so it is a defensive
+cross-check rather than an independent replacement for the full exact
+survivor artifact. See `docs/n8-independent-obstruction.md`.
+
 For the general bridge problem, minimality now gives a small proved foothold:
 every minimal counterexample admits a partial fragile-cover witness system made
 from exact critical 4-ties. This is necessary structure only; the block-6
