@@ -2645,6 +2645,51 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: block6_forward_block_two_orientation_closure
+    path: data/certificates/block6_forward_block_two_orientation_closure.json
+    kind: cross_artifact_closure_diagnostic
+    generator: scripts/check_block6_forward_block_two_orientation_closure.py
+    command: python scripts/check_block6_forward_block_two_orientation_closure.py --write --assert-expected
+    checker: scripts/check_block6_forward_block_two_orientation_closure.py
+    check_command: python scripts/check_block6_forward_block_two_orientation_closure.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Cross-artifact fixed-order-family diagnostic for the 924 first-block-forward block-6 shuffle orders with the second block in either forward or reversed orientation. Combines 462 forward-second-block vertex-circle closures with the 462-order reversed-second-block two-stage packet; not first-block-reversed orientations, not arbitrary cyclic orders, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.block6_forward_block_two_orientation_closure.v1
+      status: BOUNDED_FIXED_ORDER_TWO_ORIENTATION_CLOSURE_DIAGNOSTIC
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.first_block_orientation: forward
+      summary.second_block_orientation_count: 2
+      summary.forward_second_block_order_count: 462
+      summary.reversed_second_block_order_count: 462
+      summary.total_family_order_count: 924
+      summary.forward_second_block_closed_order_count: 462
+      summary.reversed_second_block_closed_order_count: 462
+      summary.combined_closed_order_count: 924
+      summary.combined_closure_complete: true
+      summary.vertex_circle_closed_order_count: 908
+      summary.kalmanson_after_vertex_circle_escape_count: 16
+      summary.reversed_clean_escape_order_count: 16
+      summary.method_counts.forward_second_block_vertex_circle: 462
+      summary.method_counts.reversed_second_block_vertex_circle: 446
+      summary.method_counts.reversed_second_block_kalmanson_after_vertex_circle_escape: 16
+      provenance.generator: scripts/check_block6_forward_block_two_orientation_closure.py
+      provenance.command: python scripts/check_block6_forward_block_two_orientation_closure.py --write --assert-expected
+    forbidden_claims:
+      - two-orientation block-6 closure proves all cyclic orders
+      - first-block-forward closure covers first-block-reversed orientations
+      - first-block-forward closure proves arbitrary oriented-block shuffles
+      - two-orientation block-6 closure proves the fragile bridge
+      - all block-6 full extensions are obstructed across all orders
+      - minimal counterexamples are ruled out
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: speculative_circulant_frontier_obstructions
     path: data/certificates/speculative_circulant_frontier_obstructions.json
     kind: certificate_artifact

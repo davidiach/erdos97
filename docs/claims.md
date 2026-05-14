@@ -251,6 +251,14 @@ The companion crosswalk
 that this 16-row packet lines up with the reversed-block vertex-circle packet,
 giving the bounded-family count `446 + 16 = 462`.
 
+The first-block-forward two-orientation crosswalk
+`data/certificates/block6_forward_block_two_orientation_closure.json` only
+joins this reversed-block count to the forward-second-block vertex-circle
+sweep, giving `462 + 462 = 924` closed normalized shuffle orders under the
+extra convention that the first block remains in forward orientation. It is
+not a claim about first-block-reversed orientations, arbitrary cyclic orders,
+all selected-row systems, the fragile bridge, Erdos #97, or a counterexample.
+
 ## Lemmas
 
 ### Circle-intersection cap

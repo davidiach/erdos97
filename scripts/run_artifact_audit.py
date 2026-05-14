@@ -828,6 +828,25 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="block6_forward_block_two_orientation_closure",
+        command=(
+            "python",
+            "scripts/check_block6_forward_block_two_orientation_closure.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Cross-artifact closure count for the first-block-forward "
+            "two-orientation block-6 shuffle families: 462 forward-second-"
+            "block vertex-circle closures plus the 462-order reversed-second-"
+            "block two-stage packet. Bounded family only, not first-block-"
+            "reversed orientations, not arbitrary cyclic orders, not a "
+            "fragile-bridge proof, not a proof of Erdos Problem #97, and "
+            "not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",

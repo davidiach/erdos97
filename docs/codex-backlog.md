@@ -59,8 +59,12 @@ Use this queue when no more specific issue is selected.
    closes those 16 stored fixed assignment/order pairs by exact Kalmanson
    quotient-cone certificates, and
    `data/certificates/block6_reversed_block_two_stage_closure.json` records the
-   combined `446 + 16 = 462` closure crosswalk. The next useful PR should widen
-   beyond this oriented-block slice, or explain which richer bridge hypothesis
+   combined `446 + 16 = 462` closure crosswalk. The follow-up
+   `data/certificates/block6_forward_block_two_orientation_closure.json` joins
+   that packet to the forward-second-block sweep, checking `924` normalized
+   first-block-forward shuffle orders. The next useful PR should either justify
+   or directly replay the missing first-block-reversed orientations, widen
+   beyond block-preserving shuffles, or explain which richer bridge hypothesis
    would rule out the remaining arbitrary-order gap.
 4. Use the bootstrap-core crosswalk and the bootstrap / vertex-circle overlay
    in `docs/bootstrap-core-crosswalk.md` and

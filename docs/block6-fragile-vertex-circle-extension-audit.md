@@ -343,3 +343,24 @@ It checks that the Kalmanson packet certifies exactly the 16 clean indices from
 the vertex-circle negative control, so `446` vertex-circle closures plus `16`
 Kalmanson closures cover the `462` reversed-second-block shuffle orders. This
 is only a cross-artifact fixed-order-family closure, not a new bridge theorem.
+
+A second compact crosswalk joins the original forward-second-block shuffle
+sweep to that reversed-block two-stage packet:
+
+```bash
+python scripts/check_block6_forward_block_two_orientation_closure.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
+```text
+data/certificates/block6_forward_block_two_orientation_closure.json
+```
+
+It verifies `924` closed normalized shuffle orders with the first block fixed
+in forward orientation: `462` forward-second-block vertex-circle closures plus
+the `462` reversed-second-block two-stage closures. This is still only a
+bounded fixed-order-family diagnostic. It does not cover first-block-reversed
+orientations, arbitrary cyclic orders, all selected-row systems, the fragile
+bridge, or Erdos Problem #97.
