@@ -29,10 +29,15 @@ Use this queue when no more specific issue is selected.
 3. Continue the minimal fragile-cover bridge after the stored block-6
    vertex-circle full-extension audit
    `data/certificates/block6_fragile_vertex_circle_extension_audit.json`.
-   The current geometric gate rejects the two-block block-6 control in the
-   natural cyclic order, so the next useful widening is all compatible cyclic
-   orders, all full extensions, or a minimal/rich-class hypothesis that avoids
-   fixing one selected row at each center too early.
+   The stored crossing-order sample
+   `data/certificates/block6_terminal_crossing_vertex_circle_sample.json`
+   now checks two deterministic terminal-extension windows across all of
+   their crossing-compatible cyclic orders, with all `796` sampled orders
+   killed by a vertex-circle self-edge. The current geometric gate rejects the
+   two-block block-6 control in the natural cyclic order and samples two
+   crossing-order windows, so the next useful widening is still all compatible
+   cyclic orders, all full extensions, or a minimal/rich-class hypothesis that
+   avoids fixing one selected row at each center too early.
 4. Use the bootstrap-core crosswalk and the bootstrap / vertex-circle overlay
    in `docs/bootstrap-core-crosswalk.md` and
    `docs/bootstrap-vertex-circle-overlay.md` to design a sharper condition.

@@ -1,0 +1,321 @@
+{
+  "claim_scope": "Two deterministic windows of terminal full extensions from the two-block block-6 fragile family, checked across their crossing-compatible cyclic orders by the vertex-circle quotient filter. This is a sample only: not an all-extension proof, not an all-order proof, not a proof of Erdos Problem #97, and not a counterexample.",
+  "interpretation": "The packet stores two deterministic 100-extension windows starting at offsets 0 and 100. Every sampled crossing-compatible cyclic order is killed by a vertex-circle quotient self-edge, but the packet remains a bounded diagnostic sample.",
+  "provenance": {
+    "command": "python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --write --assert-expected",
+    "generator": "scripts/check_block6_terminal_crossing_vertex_circle_sample.py"
+  },
+  "sample_windows": [
+    {
+      "terminal_extension_limit": 100,
+      "terminal_extension_offset": 0
+    },
+    {
+      "terminal_extension_limit": 100,
+      "terminal_extension_offset": 100
+    }
+  ],
+  "schema": "erdos97.block6_terminal_crossing_vertex_circle_sample_packet.v1",
+  "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+  "summary": {
+    "crossing_search_node_max": 308,
+    "crossing_search_node_min": 26,
+    "extensions_with_vc_clean_crossing_order": 0,
+    "max_crossing_order_count": 15,
+    "sample_window_count": 2,
+    "terminal_extensions_examined": 200,
+    "total_crossing_orders": 796,
+    "vertex_circle_order_status_counts": {
+      "self_edge": 796
+    }
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "windows": [
+    {
+      "claim_scope": "Deterministic first-terminal-extension sample for the two-block block-6 fragile family. This is not an all-extension proof, not a proof of Erdos Problem #97, and not a counterexample.",
+      "first_clean_extension_record": null,
+      "interpretation": "The default sample checks the first 100 deterministic terminal full extensions from the natural-order block-6 audit across all their two-overlap crossing-compatible cyclic orders. Nonzero offsets replay later deterministic windows. The checked packets find no vertex-circle-clean crossing order in their samples.",
+      "sample_records": [
+        {
+          "crossing_constraint_count": 19,
+          "crossing_order_count": 12,
+          "crossing_search_nodes": 108,
+          "extension_index": 1,
+          "first_row1": [
+            3,
+            6,
+            9,
+            11
+          ],
+          "vertex_circle_status_counts": {
+            "self_edge": 12
+          }
+        },
+        {
+          "crossing_constraint_count": 18,
+          "crossing_order_count": 12,
+          "crossing_search_nodes": 126,
+          "extension_index": 2,
+          "first_row1": [
+            3,
+            6,
+            9,
+            11
+          ],
+          "vertex_circle_status_counts": {
+            "self_edge": 12
+          }
+        },
+        {
+          "crossing_constraint_count": 18,
+          "crossing_order_count": 4,
+          "crossing_search_nodes": 146,
+          "extension_index": 3,
+          "first_row1": [
+            3,
+            6,
+            9,
+            11
+          ],
+          "vertex_circle_status_counts": {
+            "self_edge": 4
+          }
+        },
+        {
+          "crossing_constraint_count": 19,
+          "crossing_order_count": 4,
+          "crossing_search_nodes": 88,
+          "extension_index": 4,
+          "first_row1": [
+            3,
+            6,
+            9,
+            11
+          ],
+          "vertex_circle_status_counts": {
+            "self_edge": 4
+          }
+        },
+        {
+          "crossing_constraint_count": 20,
+          "crossing_order_count": 4,
+          "crossing_search_nodes": 88,
+          "extension_index": 5,
+          "first_row1": [
+            3,
+            6,
+            9,
+            11
+          ],
+          "vertex_circle_status_counts": {
+            "self_edge": 4
+          }
+        }
+      ],
+      "schema": "erdos97.block6_terminal_crossing_vertex_circle_sample.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "summary": {
+        "constraint_order_histogram": {
+          "16,11": 1,
+          "16,15": 1,
+          "16,2": 1,
+          "16,3": 3,
+          "16,5": 1,
+          "16,8": 1,
+          "17,10": 1,
+          "17,11": 2,
+          "17,2": 3,
+          "17,3": 3,
+          "17,4": 3,
+          "17,5": 2,
+          "17,6": 1,
+          "17,8": 4,
+          "17,9": 1,
+          "18,10": 1,
+          "18,12": 1,
+          "18,2": 11,
+          "18,3": 1,
+          "18,4": 10,
+          "18,6": 1,
+          "18,8": 2,
+          "18,9": 1,
+          "19,12": 1,
+          "19,2": 12,
+          "19,3": 4,
+          "19,4": 9,
+          "19,6": 2,
+          "19,8": 1,
+          "20,2": 3,
+          "20,3": 5,
+          "20,4": 2,
+          "20,6": 1,
+          "20,9": 1,
+          "21,2": 1,
+          "21,3": 2
+        },
+        "crossing_search_node_max": 272,
+        "crossing_search_node_min": 40,
+        "extensions_with_vc_clean_crossing_order": 0,
+        "max_crossing_order_count": 15,
+        "order_count_histogram": {
+          "10": 2,
+          "11": 3,
+          "12": 2,
+          "15": 1,
+          "2": 31,
+          "3": 18,
+          "4": 24,
+          "5": 3,
+          "6": 5,
+          "8": 8,
+          "9": 3
+        },
+        "terminal_extensions_examined": 100,
+        "total_crossing_orders": 440,
+        "vertex_circle_order_status_counts": {
+          "self_edge": 440
+        }
+      },
+      "terminal_extension_limit": 100,
+      "terminal_extension_offset": 0,
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "claim_scope": "Deterministic first-terminal-extension sample for the two-block block-6 fragile family. This is not an all-extension proof, not a proof of Erdos Problem #97, and not a counterexample.",
+      "first_clean_extension_record": null,
+      "interpretation": "The default sample checks the first 100 deterministic terminal full extensions from the natural-order block-6 audit across all their two-overlap crossing-compatible cyclic orders. Nonzero offsets replay later deterministic windows. The checked packets find no vertex-circle-clean crossing order in their samples.",
+      "sample_records": [
+        {
+          "crossing_constraint_count": 18,
+          "crossing_order_count": 2,
+          "crossing_search_nodes": 86,
+          "extension_index": 101,
+          "first_row1": [
+            2,
+            5,
+            7,
+            11
+          ],
+          "vertex_circle_status_counts": {
+            "self_edge": 2
+          }
+        },
+        {
+          "crossing_constraint_count": 19,
+          "crossing_order_count": 2,
+          "crossing_search_nodes": 42,
+          "extension_index": 102,
+          "first_row1": [
+            2,
+            5,
+            7,
+            11
+          ],
+          "vertex_circle_status_counts": {
+            "self_edge": 2
+          }
+        },
+        {
+          "crossing_constraint_count": 19,
+          "crossing_order_count": 2,
+          "crossing_search_nodes": 84,
+          "extension_index": 103,
+          "first_row1": [
+            2,
+            5,
+            7,
+            11
+          ],
+          "vertex_circle_status_counts": {
+            "self_edge": 2
+          }
+        },
+        {
+          "crossing_constraint_count": 19,
+          "crossing_order_count": 4,
+          "crossing_search_nodes": 114,
+          "extension_index": 104,
+          "first_row1": [
+            2,
+            5,
+            7,
+            11
+          ],
+          "vertex_circle_status_counts": {
+            "self_edge": 4
+          }
+        },
+        {
+          "crossing_constraint_count": 18,
+          "crossing_order_count": 8,
+          "crossing_search_nodes": 160,
+          "extension_index": 105,
+          "first_row1": [
+            2,
+            5,
+            7,
+            11
+          ],
+          "vertex_circle_status_counts": {
+            "self_edge": 8
+          }
+        }
+      ],
+      "schema": "erdos97.block6_terminal_crossing_vertex_circle_sample.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "summary": {
+        "constraint_order_histogram": {
+          "15,1": 1,
+          "15,10": 1,
+          "16,1": 3,
+          "16,14": 1,
+          "16,4": 2,
+          "16,6": 1,
+          "16,9": 3,
+          "17,1": 5,
+          "17,2": 5,
+          "17,3": 2,
+          "17,4": 6,
+          "17,6": 1,
+          "17,8": 4,
+          "17,9": 1,
+          "18,1": 10,
+          "18,2": 3,
+          "18,3": 3,
+          "18,4": 13,
+          "18,8": 8,
+          "19,1": 6,
+          "19,2": 9,
+          "19,4": 3,
+          "20,1": 2,
+          "20,2": 4,
+          "20,4": 1,
+          "21,2": 2
+        },
+        "crossing_search_node_max": 308,
+        "crossing_search_node_min": 26,
+        "extensions_with_vc_clean_crossing_order": 0,
+        "max_crossing_order_count": 14,
+        "order_count_histogram": {
+          "1": 27,
+          "10": 1,
+          "14": 1,
+          "2": 23,
+          "3": 5,
+          "4": 25,
+          "6": 2,
+          "8": 12,
+          "9": 4
+        },
+        "terminal_extensions_examined": 100,
+        "total_crossing_orders": 356,
+        "vertex_circle_order_status_counts": {
+          "self_edge": 356
+        }
+      },
+      "terminal_extension_limit": 100,
+      "terminal_extension_offset": 100,
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ]
+}

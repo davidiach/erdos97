@@ -6,7 +6,9 @@ from pathlib import Path
 
 from scripts.check_block6_terminal_crossing_vertex_circle_sample import (
     assert_expected,
+    assert_expected_packet,
     audit,
+    sample_packet_payload,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,6 +41,18 @@ def test_block6_terminal_crossing_vertex_circle_sample_second_window() -> None:
     assert payload["first_clean_extension_record"] is None
 
 
+def test_block6_terminal_crossing_vertex_circle_sample_packet() -> None:
+    payload = sample_packet_payload()
+
+    assert_expected_packet(payload)
+    assert payload["summary"]["sample_window_count"] == 2
+    assert payload["summary"]["terminal_extensions_examined"] == 200
+    assert payload["summary"]["total_crossing_orders"] == 796
+    assert payload["summary"]["vertex_circle_order_status_counts"] == {
+        "self_edge": 796,
+    }
+
+
 def test_block6_terminal_crossing_vertex_circle_sample_cli() -> None:
     result = subprocess.run(
         [
@@ -46,6 +60,25 @@ def test_block6_terminal_crossing_vertex_circle_sample_cli() -> None:
             "scripts/check_block6_terminal_crossing_vertex_circle_sample.py",
             "--offset",
             "100",
+            "--assert-expected",
+            "--json",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 0
+    assert result.stderr == ""
+
+
+def test_block6_terminal_crossing_vertex_circle_sample_packet_cli() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_block6_terminal_crossing_vertex_circle_sample.py",
+            "--check",
             "--assert-expected",
             "--json",
         ],

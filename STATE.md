@@ -51,6 +51,13 @@ self-edge / strict-cycle filter. This is still a natural-order diagnostic, not
 an all-order/all-extension bridge proof. See
 `docs/block6-fragile-vertex-circle-extension-audit.md`.
 
+A checked block-6 crossing-order sample now widens that diagnostic without
+changing its scope: two deterministic terminal-extension windows, covering
+`200` full extensions and `796` crossing-compatible cyclic orders, are all
+killed by vertex-circle quotient self-edges. This is still a bounded sample,
+not an all-extension or all-order obstruction. See
+`data/certificates/block6_terminal_crossing_vertex_circle_sample.json`.
+
 A separate rich-triple closure bridge records that ear-orderability is
 equivalent to bootstrap rank at most 3. Failure of that rank condition yields
 inclusion-minimal generating cores with deletion closures, private halos, and a

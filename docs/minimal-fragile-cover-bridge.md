@@ -420,8 +420,11 @@ A bounded crossing-order sample begins to probe that gap without changing the
 claim scope:
 
 ```bash
-python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --assert-expected --json
-python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --offset 100 --assert-expected --json
+python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --check --assert-expected --json
+```
+
+```text
+data/certificates/block6_terminal_crossing_vertex_circle_sample.json
 ```
 
 It takes two deterministic windows of `100` terminal full extensions from the

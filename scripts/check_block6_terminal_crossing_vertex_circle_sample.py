@@ -39,6 +39,20 @@ Rows = list[list[int]]
 Constraint = tuple[Chord, Chord]
 
 DEFAULT_LIMIT = 100
+DEFAULT_OUT = (
+    ROOT
+    / "data"
+    / "certificates"
+    / "block6_terminal_crossing_vertex_circle_sample.json"
+)
+DEFAULT_WINDOWS = ((0, 100), (100, 100))
+PROVENANCE = {
+    "generator": "scripts/check_block6_terminal_crossing_vertex_circle_sample.py",
+    "command": (
+        "python scripts/check_block6_terminal_crossing_vertex_circle_sample.py "
+        "--write --assert-expected"
+    ),
+}
 EXPECTED_WINDOWS = {
     (0, 100): {
         "terminal_extensions_examined": 100,
@@ -346,6 +360,7 @@ def audit(limit: int = DEFAULT_LIMIT, *, offset: int = 0) -> dict[str, Any]:
     return {
         "schema": "erdos97.block6_terminal_crossing_vertex_circle_sample.v1",
         "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+        "trust": "REVIEW_PENDING_DIAGNOSTIC",
         "claim_scope": (
             "Deterministic first-terminal-extension sample for the two-block "
             "block-6 fragile family. This is not an all-extension proof, not "
@@ -368,9 +383,82 @@ def audit(limit: int = DEFAULT_LIMIT, *, offset: int = 0) -> dict[str, Any]:
     }
 
 
+def sample_packet_payload(
+    windows: Sequence[tuple[int, int]] = DEFAULT_WINDOWS,
+) -> dict[str, Any]:
+    """Return the stored two-window crossing-order sample packet."""
+
+    samples = [audit(limit=limit, offset=offset) for offset, limit in windows]
+    status_counts: Counter[str] = Counter()
+    total_extensions = 0
+    total_crossing_orders = 0
+    clean_extensions = 0
+    max_crossing_order_count = 0
+    node_mins: list[int] = []
+    node_maxes: list[int] = []
+
+    for sample in samples:
+        summary = sample["summary"]
+        total_extensions += int(summary["terminal_extensions_examined"])
+        total_crossing_orders += int(summary["total_crossing_orders"])
+        clean_extensions += int(summary["extensions_with_vc_clean_crossing_order"])
+        max_crossing_order_count = max(
+            max_crossing_order_count,
+            int(summary["max_crossing_order_count"]),
+        )
+        node_mins.append(int(summary["crossing_search_node_min"]))
+        node_maxes.append(int(summary["crossing_search_node_max"]))
+        status_counts.update(
+            {
+                status: int(count)
+                for status, count in summary[
+                    "vertex_circle_order_status_counts"
+                ].items()
+            }
+        )
+
+    return {
+        "schema": "erdos97.block6_terminal_crossing_vertex_circle_sample_packet.v1",
+        "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+        "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        "claim_scope": (
+            "Two deterministic windows of terminal full extensions from the "
+            "two-block block-6 fragile family, checked across their "
+            "crossing-compatible cyclic orders by the vertex-circle quotient "
+            "filter. This is a sample only: not an all-extension proof, not "
+            "an all-order proof, not a proof of Erdos Problem #97, and not a "
+            "counterexample."
+        ),
+        "provenance": PROVENANCE,
+        "sample_windows": [
+            {"terminal_extension_offset": offset, "terminal_extension_limit": limit}
+            for offset, limit in windows
+        ],
+        "summary": {
+            "sample_window_count": len(samples),
+            "terminal_extensions_examined": total_extensions,
+            "total_crossing_orders": total_crossing_orders,
+            "extensions_with_vc_clean_crossing_order": clean_extensions,
+            "vertex_circle_order_status_counts": _json_counter(status_counts),
+            "max_crossing_order_count": max_crossing_order_count,
+            "crossing_search_node_min": min(node_mins, default=0),
+            "crossing_search_node_max": max(node_maxes, default=0),
+        },
+        "windows": samples,
+        "interpretation": (
+            "The packet stores two deterministic 100-extension windows "
+            "starting at offsets 0 and 100. Every sampled crossing-compatible "
+            "cyclic order is killed by a vertex-circle quotient self-edge, "
+            "but the packet remains a bounded diagnostic sample."
+        ),
+    }
+
+
 def assert_expected(payload: Mapping[str, Any]) -> None:
     if payload["status"] != "REVIEW_PENDING_DIAGNOSTIC_ONLY":
         raise AssertionError("unexpected status")
+    if payload["trust"] != "REVIEW_PENDING_DIAGNOSTIC":
+        raise AssertionError("unexpected trust label")
     if "not a proof" not in payload["claim_scope"]:
         raise AssertionError("claim scope lost no-proof note")
     key = (
@@ -384,27 +472,121 @@ def assert_expected(payload: Mapping[str, Any]) -> None:
         raise AssertionError(f"unexpected summary: {payload['summary']!r}")
 
 
+def assert_expected_packet(payload: Mapping[str, Any]) -> None:
+    if payload["status"] != "REVIEW_PENDING_DIAGNOSTIC_ONLY":
+        raise AssertionError("unexpected packet status")
+    if payload["trust"] != "REVIEW_PENDING_DIAGNOSTIC":
+        raise AssertionError("unexpected packet trust label")
+    if "not a proof" not in payload["claim_scope"]:
+        raise AssertionError("packet claim scope lost no-proof note")
+    if "sample only" not in payload["claim_scope"]:
+        raise AssertionError("packet claim scope lost sample-only note")
+    if payload["provenance"] != PROVENANCE:
+        raise AssertionError("unexpected packet provenance")
+    windows = list(payload["windows"])
+    expected_windows = [
+        (int(window["terminal_extension_offset"]), int(window["terminal_extension_limit"]))
+        for window in windows
+    ]
+    if expected_windows != list(DEFAULT_WINDOWS):
+        raise AssertionError(f"unexpected sample windows: {expected_windows!r}")
+    for window in windows:
+        assert_expected(window)
+    expected_summary = {
+        "sample_window_count": 2,
+        "terminal_extensions_examined": 200,
+        "total_crossing_orders": 796,
+        "extensions_with_vc_clean_crossing_order": 0,
+        "vertex_circle_order_status_counts": {"self_edge": 796},
+        "max_crossing_order_count": 15,
+        "crossing_search_node_min": 26,
+        "crossing_search_node_max": 308,
+    }
+    if payload["summary"] != expected_summary:
+        raise AssertionError(f"unexpected packet summary: {payload['summary']!r}")
+
+
+def _resolve_repo_path(path: Path) -> Path:
+    return path if path.is_absolute() else ROOT / path
+
+
+def load_json(path: Path) -> object:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def write_json(payload: Mapping[str, Any], path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(payload, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
+def compare_artifact(payload: Mapping[str, Any], path: Path) -> None:
+    checked = load_json(path)
+    if checked != payload:
+        raise AssertionError(f"checked artifact is stale: {path.relative_to(ROOT)}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json", action="store_true", help="print full JSON payload")
     parser.add_argument("--limit", type=int, default=DEFAULT_LIMIT)
     parser.add_argument("--offset", type=int, default=0)
     parser.add_argument(
+        "--packet",
+        action="store_true",
+        help="emit the stored two-window sample packet instead of one window",
+    )
+    parser.add_argument(
         "--assert-expected",
         action="store_true",
         help="assert stored expected sample-window counts",
     )
+    parser.add_argument(
+        "--out",
+        type=Path,
+        default=DEFAULT_OUT,
+        help="artifact path for --write or --check",
+    )
+    parser.add_argument("--write", action="store_true", help="write the checked packet")
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="compare the regenerated packet against the checked artifact",
+    )
     args = parser.parse_args()
 
-    payload = audit(limit=args.limit, offset=args.offset)
+    packet_mode = args.packet or args.write or args.check
+    if packet_mode and (args.limit != DEFAULT_LIMIT or args.offset != 0):
+        parser.error("--limit and --offset apply only to single-window output")
+
+    payload = sample_packet_payload() if packet_mode else audit(limit=args.limit, offset=args.offset)
     if args.assert_expected:
-        assert_expected(payload)
+        if packet_mode:
+            assert_expected_packet(payload)
+        else:
+            assert_expected(payload)
+    artifact_path = _resolve_repo_path(args.out)
+    if args.write:
+        write_json(payload, artifact_path)
+    if args.check:
+        compare_artifact(payload, artifact_path)
 
     if args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     else:
         summary = payload["summary"]
         print("block6 terminal crossing vertex-circle sample")
+        if packet_mode:
+            print(f"sample windows: {summary['sample_window_count']}")
+        else:
+            print(
+                "window: "
+                f"offset={payload['terminal_extension_offset']} "
+                f"limit={payload['terminal_extension_limit']}"
+            )
         print(f"terminal extensions: {summary['terminal_extensions_examined']}")
         print(f"crossing orders: {summary['total_crossing_orders']}")
         print(

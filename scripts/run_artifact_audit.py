@@ -707,6 +707,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="block6_terminal_crossing_vertex_circle_sample",
+        command=(
+            "python",
+            "scripts/check_block6_terminal_crossing_vertex_circle_sample.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Two deterministic block-6 terminal-extension windows checked "
+            "across crossing-compatible cyclic orders by the vertex-circle "
+            "quotient filter; sample only, not all-extension or all-order "
+            "closure, not a proof of Erdos Problem #97, and not a "
+            "counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",
