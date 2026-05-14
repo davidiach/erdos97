@@ -259,6 +259,15 @@ extra convention that the first block remains in forward orientation. It is
 not a claim about first-block-reversed orientations, arbitrary cyclic orders,
 all selected-row systems, the fragile bridge, Erdos #97, or a counterexample.
 
+The oriented-block reversal crosswalk
+`data/certificates/block6_oriented_block_reversal_closure.json` only transfers
+those counts across the exact cyclic-order reversal map
+`[0] + reversed(order[1:])`. It verifies `462` reversal pairs from
+`forward-forward` to `reversed-reversed` and `462` reversal pairs from
+`forward-reversed` to `reversed-forward`, giving `1848` closed oriented-block
+shuffle orders. It is not a claim about arbitrary cyclic orders, all
+selected-row systems, the fragile bridge, Erdos #97, or a counterexample.
+
 ## Lemmas
 
 ### Circle-intersection cap

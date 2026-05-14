@@ -480,6 +480,15 @@ condition that the surviving multi-block family does not automatically satisfy:
   missing orientation symmetry by a checked invariant, replay the missing
   orientations directly, or move to a richer minimal/rich-class bridge
   hypothesis.
+- block-6 oriented-block reversal evidence, as recorded in
+  `data/certificates/block6_oriented_block_reversal_closure.json`, verifies
+  that cyclic reversal maps the two first-block-forward families bijectively
+  to the two first-block-reversed families. It therefore transfers the same
+  bounded closure counts to `1848` oriented-block shuffle orders. This still
+  leaves arbitrary cyclic orders and non-block-preserving selected-row systems
+  outside the packet, so the next useful widening should leave the
+  block-preserving orientation family or state a genuine minimal/rich-class
+  bridge hypothesis.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

@@ -197,6 +197,17 @@ reversed. This is a convenience cross-artifact diagnostic only; it does not
 cover first-block-reversed orientations, arbitrary cyclic orders, all
 selected-row systems, the fragile bridge, or Erdos Problem #97.
 
+The oriented-block reversal crosswalk
+`data/certificates/block6_oriented_block_reversal_closure.json` adds the two
+first-block-reversed orientation families by explicit cyclic reversal duality.
+It verifies that the generated `forward-forward` orders reverse bijectively to
+the `reversed-reversed` orders, and `forward-reversed` orders reverse
+bijectively to the `reversed-forward` orders. This gives `1848` closed
+oriented-block shuffle orders by transfer from the first-block-forward packet.
+The scope remains bounded to block-preserving oriented shuffles; it is not
+arbitrary cyclic-order closure, all selected-row closure, the fragile bridge,
+or Erdos Problem #97.
+
 ### Bootstrap-core bridge
 
 Status: `LEMMA` / bridge fork.

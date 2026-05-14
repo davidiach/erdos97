@@ -117,7 +117,8 @@ put detailed reconciliation in the canonical synthesis.
   fixed-order, block-preserving shuffle-order diagnostic widenings, the
   reversed-block shuffle escape packet, and the fixed-order Kalmanson replay
   of its 16 clean rows plus their two-stage and first-block-forward
-  two-orientation closure crosswalks.
+  two-orientation closure crosswalks, followed by the oriented-block reversal
+  closure crosswalk.
 - [`block6-fragile-fifth-row-obstruction-catalog.md`](block6-fragile-fifth-row-obstruction-catalog.md):
   one-step catalog showing that many legal fifth rows already hit the
   vertex-circle quotient obstruction, while 166 remain clean and block a

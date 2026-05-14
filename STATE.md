@@ -109,6 +109,14 @@ a bounded fixed-order-family diagnostic; it does not include
 first-block-reversed orientations, arbitrary cyclic orders, all selected-row
 systems, the fragile bridge, or Erdos #97. See
 `data/certificates/block6_forward_block_two_orientation_closure.json`.
+A further reversal-duality crosswalk generates all four oriented-block shuffle
+families and verifies that cyclic reversal maps `forward-forward` to
+`reversed-reversed`, and `forward-reversed` to `reversed-forward`. This
+transfers the first-block-forward closure counts to `1848` normalized
+oriented-block shuffle orders. It is still only bounded block-preserving order
+bookkeeping, not arbitrary cyclic-order closure, all selected-row closure, the
+fragile bridge, or Erdos #97. See
+`data/certificates/block6_oriented_block_reversal_closure.json`.
 
 A separate rich-triple closure bridge records that ear-orderability is
 equivalent to bootstrap rank at most 3. Failure of that rank condition yields
