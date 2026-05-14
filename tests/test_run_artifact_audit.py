@@ -259,3 +259,8 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json"
         in command_texts
     )
+    assert (
+        "python scripts/check_block6_fragile_sixth_row_survivors.py "
+        "--assert-expected --json"
+        in command_texts
+    )

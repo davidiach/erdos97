@@ -208,6 +208,16 @@ The scope remains bounded to block-preserving oriented shuffles; it is not
 arbitrary cyclic-order closure, all selected-row closure, the fragile bridge,
 or Erdos Problem #97.
 
+The block-6 fifth/sixth-row survivor diagnostics are exact bounded negative
+controls for overly local bridge claims. They show that all `166` clean
+fifth-row states have a clean legal sixth-row continuation, every unordered
+added-center pair supports clean six-row states, and the low-support branch
+continues through many clean seventh and eighth rows before only `12` clean
+seven-row states become terminal at the eighth-row test. This is natural-order
+proof-mining bookkeeping only, not a fragile-bridge proof or realizability
+claim; see `docs/block6-fragile-sixth-row-survivor-catalog.md` and
+`scripts/check_block6_fragile_sixth_row_survivors.py`.
+
 ### Bootstrap-core bridge
 
 Status: `LEMMA` / bridge fork.
