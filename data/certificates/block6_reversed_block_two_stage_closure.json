@@ -1,0 +1,410 @@
+{
+  "claim_scope": "Two-stage fixed-order-family crosswalk for the 462 reversed-second-block shuffle orders only. It combines vertex-circle quotient closure for 446 orders with exact fixed-order Kalmanson certificates for the 16 stored vertex-circle-clean escape rows. This is not all-order closure, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.",
+  "clean_order_crosswalk": [
+    {
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        11,
+        10,
+        4,
+        5,
+        9,
+        8,
+        7,
+        6
+      ],
+      "distance_classes": 36,
+      "index": 13,
+      "max_weight": 87,
+      "strict_rows": 30,
+      "weight_sum": 1232,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        11,
+        3,
+        10,
+        4,
+        9,
+        8,
+        5,
+        7,
+        6
+      ],
+      "distance_classes": 34,
+      "index": 36,
+      "max_weight": 196,
+      "strict_rows": 27,
+      "weight_sum": 994,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        11,
+        3,
+        10,
+        9,
+        8,
+        4,
+        5,
+        7,
+        6
+      ],
+      "distance_classes": 35,
+      "index": 43,
+      "max_weight": 18,
+      "strict_rows": 25,
+      "weight_sum": 206,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        11,
+        3,
+        10,
+        9,
+        8,
+        4,
+        7,
+        5,
+        6
+      ],
+      "distance_classes": 34,
+      "index": 44,
+      "max_weight": 230,
+      "strict_rows": 23,
+      "weight_sum": 1941,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        11,
+        10,
+        3,
+        4,
+        9,
+        8,
+        5,
+        7,
+        6
+      ],
+      "distance_classes": 34,
+      "index": 51,
+      "max_weight": 9,
+      "strict_rows": 20,
+      "weight_sum": 52,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        11,
+        2,
+        3,
+        10,
+        4,
+        9,
+        5,
+        8,
+        7,
+        6
+      ],
+      "distance_classes": 35,
+      "index": 91,
+      "max_weight": 236,
+      "strict_rows": 30,
+      "weight_sum": 2991,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        11,
+        2,
+        3,
+        10,
+        9,
+        4,
+        5,
+        8,
+        7,
+        6
+      ],
+      "distance_classes": 35,
+      "index": 95,
+      "max_weight": 23,
+      "strict_rows": 28,
+      "weight_sum": 275,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        11,
+        10,
+        2,
+        3,
+        4,
+        9,
+        5,
+        8,
+        7,
+        6
+      ],
+      "distance_classes": 35,
+      "index": 141,
+      "max_weight": 130,
+      "strict_rows": 25,
+      "weight_sum": 659,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        11,
+        10,
+        2,
+        3,
+        9,
+        8,
+        4,
+        5,
+        7,
+        6
+      ],
+      "distance_classes": 33,
+      "index": 149,
+      "max_weight": 53,
+      "strict_rows": 29,
+      "weight_sum": 514,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        11,
+        10,
+        2,
+        3,
+        9,
+        8,
+        4,
+        7,
+        5,
+        6
+      ],
+      "distance_classes": 31,
+      "index": 150,
+      "max_weight": 20,
+      "strict_rows": 17,
+      "weight_sum": 105,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        11,
+        10,
+        2,
+        3,
+        9,
+        8,
+        4,
+        7,
+        6,
+        5
+      ],
+      "distance_classes": 32,
+      "index": 151,
+      "max_weight": 134,
+      "strict_rows": 25,
+      "weight_sum": 860,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        11,
+        10,
+        2,
+        9,
+        3,
+        4,
+        8,
+        7,
+        5,
+        6
+      ],
+      "distance_classes": 34,
+      "index": 157,
+      "max_weight": 2,
+      "strict_rows": 7,
+      "weight_sum": 8,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        11,
+        10,
+        2,
+        9,
+        8,
+        3,
+        4,
+        7,
+        6,
+        5
+      ],
+      "distance_classes": 32,
+      "index": 167,
+      "max_weight": 268,
+      "strict_rows": 24,
+      "weight_sum": 1776,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        11,
+        1,
+        2,
+        10,
+        9,
+        3,
+        8,
+        4,
+        5,
+        7,
+        6
+      ],
+      "distance_classes": 34,
+      "index": 250,
+      "max_weight": 35,
+      "strict_rows": 31,
+      "weight_sum": 607,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        11,
+        1,
+        10,
+        2,
+        3,
+        4,
+        9,
+        5,
+        8,
+        7,
+        6
+      ],
+      "distance_classes": 34,
+      "index": 267,
+      "max_weight": 375,
+      "strict_rows": 31,
+      "weight_sum": 4002,
+      "zero_sum_verified": true
+    },
+    {
+      "cyclic_order": [
+        0,
+        11,
+        1,
+        10,
+        2,
+        3,
+        9,
+        8,
+        4,
+        5,
+        7,
+        6
+      ],
+      "distance_classes": 31,
+      "index": 275,
+      "max_weight": 65,
+      "strict_rows": 22,
+      "weight_sum": 628,
+      "zero_sum_verified": true
+    }
+  ],
+  "interpretation": "Within the reversed-second-block shuffle family, the vertex-circle gate closes 446 fixed orders and leaves 16 clean assignment/order pairs. The clean set is exactly the set certified by the fixed-order Kalmanson packet, so the combined two-stage gate closes this bounded 462-order family.",
+  "provenance": {
+    "command": "python scripts/check_block6_reversed_block_two_stage_closure.py --write --assert-expected",
+    "generator": "scripts/check_block6_reversed_block_two_stage_closure.py"
+  },
+  "schema": "erdos97.block6_reversed_block_two_stage_closure.v1",
+  "source_artifacts": {
+    "clean_kalmanson": {
+      "path": "data/certificates/block6_reversed_block_clean_kalmanson.json",
+      "schema": "erdos97.block6_reversed_block_clean_kalmanson.v1",
+      "status": "EXACT_FIXED_ORDER_OBSTRUCTIONS_FOR_REVERSED_BLOCK_VC_CLEAN_ROWS"
+    },
+    "vertex_circle_escape": {
+      "path": "data/certificates/block6_reversed_block_shuffle_vertex_circle_escape.json",
+      "schema": "erdos97.block6_reversed_block_shuffle_vertex_circle_escape.v1",
+      "status": "REVIEW_PENDING_NEGATIVE_CONTROL_DIAGNOSTIC_ONLY"
+    }
+  },
+  "status": "BOUNDED_FIXED_ORDER_FAMILY_TWO_STAGE_CLOSURE_DIAGNOSTIC",
+  "summary": {
+    "clean_order_indices": [
+      13,
+      36,
+      43,
+      44,
+      51,
+      91,
+      95,
+      141,
+      149,
+      150,
+      151,
+      157,
+      167,
+      250,
+      267,
+      275
+    ],
+    "combined_closed_order_count": 462,
+    "combined_closure_complete": true,
+    "family_order_count": 462,
+    "kalmanson_obstructed_clean_order_count": 16,
+    "kalmanson_strict_rows_total": 394,
+    "kalmanson_weight_sum_total": 16850,
+    "method_counts": {
+      "kalmanson_after_vertex_circle_escape": 16,
+      "vertex_circle_quotient": 446
+    },
+    "source_clean_indices_match": true,
+    "vertex_circle_clean_order_count": 16,
+    "vertex_circle_closed_order_count": 446
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

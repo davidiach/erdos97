@@ -463,8 +463,11 @@ condition that the surviving multi-block family does not automatically satisfy:
   gate alone. The follow-up
   `data/certificates/block6_reversed_block_clean_kalmanson.json` closes those
   16 stored fixed assignment/order pairs by exact Kalmanson quotient-cone
-  certificates, but this is still not all-order closure. The next bridge/filter
-  step should either widen beyond this oriented-block slice or state a genuine
+  certificates. The compact
+  `data/certificates/block6_reversed_block_two_stage_closure.json` crosswalk
+  verifies the combined `446 + 16 = 462` count for this bounded family, but
+  this is still not all-order closure. The next bridge/filter step should
+  either widen beyond this oriented-block slice or state a genuine
   minimal/rich-class hypothesis.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
