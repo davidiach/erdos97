@@ -96,6 +96,20 @@ inspection aid for the fixed abstract `C19_skew` certificate only. It does not
 add a proof, search new cyclic orders, transfer the obstruction to any other
 pattern, or update the global Erdos #97 status.
 
+The C13/C19 coefficient-template diagnostic is:
+
+```bash
+python scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --json
+```
+
+It checks the existing all-order C13 artifact and replays the C19 Z3
+certificate, then classifies the quotient-vector inverse pairs available to
+both fixed abstract patterns. Both pilots have the same two coefficient
+templates: one selected-distance class against one selected-distance class, and
+two selected-distance classes against two selected-distance classes. This is
+template-mining guidance only; it does not transfer the fixed-pattern
+obstructions to arbitrary selected-witness systems.
+
 ## Reproduction
 
 Regenerate the artifact:

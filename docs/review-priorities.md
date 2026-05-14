@@ -305,6 +305,11 @@ orders by exact two-inequality Kalmanson inverse-pair methods. Use them as
 benchmarks for the larger frontier:
 
 - classify the inverse-pair templates that prune C13 and C19;
+- use
+  `scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --json`
+  as the current C13/C19 coefficient-template diagnostic: both fixed pilots
+  expose only the one-class-vs-one-class and two-classes-vs-two-classes
+  quotient-vector inverse templates;
 - test whether the same templates appear in newly mined sparse incidence
   patterns;
 - use the recorded C29 fixed-order certificate

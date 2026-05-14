@@ -351,6 +351,7 @@ python scripts/check_round2_certificates.py
 python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json
 python scripts/check_kalmanson_two_order_z3.py --certificate data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat
 python scripts/analyze_kalmanson_certificates.py
+python scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --json
 ```
 
 Expected artifacts:
@@ -361,6 +362,9 @@ Expected artifacts:
 - optional all-order Z3 clause-template diagnostics such as
   `reports/c19_kalmanson_z3_clause_diagnostics.json`, kept separate from the
   underlying SMT replay certificate.
+- optional C13/C19 coefficient-template diagnostics such as
+  `scripts/analyze_kalmanson_inverse_pair_templates.py`, kept separate from
+  any transfer claim to other selected-witness patterns.
 
 Acceptance criteria:
 
