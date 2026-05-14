@@ -427,6 +427,13 @@ condition that the surviving multi-block family does not automatically satisfy:
   gate. This rejects one abstract family that passes fragile-cover hypergraph
   checks, but it remains natural-order and all-order/all-extension bridge work
   is still open.
+- block-6 crossing-order sample evidence, as recorded in
+  `data/certificates/block6_terminal_crossing_vertex_circle_sample.json`,
+  checking two deterministic terminal-extension windows across all of their
+  crossing-compatible cyclic orders. The `200` sampled terminal extensions
+  yield `796` crossing-compatible orders, all killed by a vertex-circle
+  quotient self-edge. This remains a bounded diagnostic sample only, not an
+  all-extension or all-order obstruction.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

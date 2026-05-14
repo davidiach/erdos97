@@ -177,13 +177,23 @@ orders:
 
 ```bash
 python scripts/check_block6_terminal_crossing_vertex_circle_sample.py \
+  --check \
   --assert-expected \
   --json
+```
 
+The checked sample packet is:
+
+```text
+data/certificates/block6_terminal_crossing_vertex_circle_sample.json
+```
+
+Rewrite it after an intentional generator change with:
+
+```bash
 python scripts/check_block6_terminal_crossing_vertex_circle_sample.py \
-  --offset 100 \
-  --assert-expected \
-  --json
+  --write \
+  --assert-expected
 ```
 
 Across those two sampled windows, `200` terminal extensions produce `796`

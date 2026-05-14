@@ -129,6 +129,13 @@ fragile-cover hypergraph and full-extension checks, but it is still not an
 all-order/all-extension bridge proof. See
 `docs/block6-fragile-vertex-circle-extension-audit.md`.
 
+The follow-up crossing-order sample stores two deterministic terminal-extension
+windows from that audit. Across `200` sampled full extensions, the crossing
+enumerator finds `796` crossing-compatible cyclic orders, and every sampled
+order is killed by a vertex-circle quotient self-edge. This is only a bounded
+diagnostic sample, not all-extension or all-order closure; see
+`data/certificates/block6_terminal_crossing_vertex_circle_sample.json`.
+
 ### Bootstrap-core bridge
 
 Status: `LEMMA` / bridge fork.

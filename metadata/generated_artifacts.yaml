@@ -2356,6 +2356,44 @@ artifacts:
       - source-of-truth strongest result
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
+
+  - id: block6_terminal_crossing_vertex_circle_sample
+    path: data/certificates/block6_terminal_crossing_vertex_circle_sample.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_block6_terminal_crossing_vertex_circle_sample.py
+    command: python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --write --assert-expected
+    checker: scripts/check_block6_terminal_crossing_vertex_circle_sample.py
+    check_command: python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Two deterministic block-6 terminal-extension windows checked across crossing-compatible cyclic orders by the vertex-circle quotient filter; sample only, not all-extension or all-order closure, not a proof of Erdos Problem #97, not a counterexample, and not an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.block6_terminal_crossing_vertex_circle_sample_packet.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.sample_window_count: 2
+      summary.terminal_extensions_examined: 200
+      summary.total_crossing_orders: 796
+      summary.extensions_with_vc_clean_crossing_order: 0
+      summary.vertex_circle_order_status_counts.self_edge: 796
+      summary.max_crossing_order_count: 15
+      summary.crossing_search_node_min: 26
+      summary.crossing_search_node_max: 308
+      provenance.generator: scripts/check_block6_terminal_crossing_vertex_circle_sample.py
+      provenance.command: python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --write --assert-expected
+    forbidden_claims:
+      - fragile covers prove the theorem
+      - crossing-order sample proves the fragile bridge
+      - all block-6 cyclic orders are obstructed
+      - all block-6 full extensions are obstructed across all orders
+      - all fragile-cover extensions are obstructed
+      - minimal counterexamples are ruled out
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
   - id: speculative_circulant_frontier_obstructions
     path: data/certificates/speculative_circulant_frontier_obstructions.json
     kind: certificate_artifact
