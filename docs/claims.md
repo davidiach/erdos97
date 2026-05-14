@@ -226,6 +226,27 @@ This closes the fixed survivor at the crossing-compatible Kalmanson level. It
 does not rule out other full selected-row extensions of the same fragile rows,
 does not prove endpoint control, and is not a proof of Erdos #97.
 
+### Fixed-order Kalmanson/Farkas obstruction for reversed-block clean rows
+
+Status: `EXACT_OBSTRUCTION` for 16 fixed selected-witness extensions in their
+recorded fixed cyclic orders only.
+
+The reversed-second-block shuffle negative-control artifact
+`data/certificates/block6_reversed_block_shuffle_vertex_circle_escape.json`
+records 16 fixed assignment/order pairs that remain clean under the
+vertex-circle quotient gate. The checked follow-up
+`data/certificates/block6_reversed_block_clean_kalmanson.json` gives an exact
+Kalmanson quotient-cone certificate for each of those 16 pairs. Across the
+packet, the certificates use `394` strict Kalmanson rows with total weight
+`16850`, and every combined coefficient vector is exactly zero after
+selected-distance quotienting.
+
+This closes only the 16 stored fixed selected-row assignments in the stored
+cyclic orders. It is not all-order closure for the oriented-block family, not a
+fragile-bridge proof, not a proof of Erdos #97, and not a counterexample.
+Check it with
+`python scripts/check_block6_reversed_block_clean_kalmanson.py --check --assert-expected --json`.
+
 ## Lemmas
 
 ### Circle-intersection cap

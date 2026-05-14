@@ -2562,6 +2562,49 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: block6_reversed_block_clean_kalmanson
+    path: data/certificates/block6_reversed_block_clean_kalmanson.json
+    kind: fixed_order_exact_certificate_artifact
+    generator: scripts/check_block6_reversed_block_clean_kalmanson.py
+    command: python scripts/check_block6_reversed_block_clean_kalmanson.py --write --assert-expected
+    checker: scripts/check_block6_reversed_block_clean_kalmanson.py
+    check_command: python scripts/check_block6_reversed_block_clean_kalmanson.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: Exact fixed-order Kalmanson quotient-cone certificates for the 16 vertex-circle-clean rows from the reversed-second-block shuffle negative-control packet. Fixed selected-row assignments and fixed cyclic orders only; not all-order closure, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.block6_reversed_block_clean_kalmanson.v1
+      status: EXACT_FIXED_ORDER_OBSTRUCTIONS_FOR_REVERSED_BLOCK_VC_CLEAN_ROWS
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      summary.source_clean_order_count: 16
+      summary.obstructed_clean_order_count: 16
+      summary.strict_rows_total: 394
+      summary.strict_rows_min: 7
+      summary.strict_rows_max: 31
+      summary.weight_sum_total: 16850
+      summary.weight_sum_min: 8
+      summary.weight_sum_max: 4002
+      summary.max_weight_overall: 375
+      summary.distance_classes_min: 31
+      summary.distance_classes_max: 36
+      summary.kind_counts.K1_diag_gt_sides: 169
+      summary.kind_counts.K2_diag_gt_other: 225
+      provenance.generator: scripts/check_block6_reversed_block_clean_kalmanson.py
+      provenance.command: python scripts/check_block6_reversed_block_clean_kalmanson.py --write --assert-expected
+    forbidden_claims:
+      - reversed-block clean rows are Euclidean realizations
+      - reversed-block clean rows are counterexamples
+      - fixed-order Kalmanson certificates prove all cyclic orders
+      - reversed-block clean Kalmanson replay proves the fragile bridge
+      - all block-6 full extensions are obstructed across all orders
+      - minimal counterexamples are ruled out
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: speculative_circulant_frontier_obstructions
     path: data/certificates/speculative_circulant_frontier_obstructions.json
     kind: certificate_artifact

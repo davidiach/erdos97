@@ -460,8 +460,12 @@ condition that the surviving multi-block family does not automatically satisfy:
   `data/certificates/block6_reversed_block_shuffle_vertex_circle_escape.json`.
   This companion oriented-block family has `16` vertex-circle-clean fixed-order
   escape rows, so it is a negative control for relying on the vertex-circle
-  gate alone. The next bridge/filter step should attack those clean rows with a
-  stronger metric-order condition or a genuine minimal/rich-class hypothesis.
+  gate alone. The follow-up
+  `data/certificates/block6_reversed_block_clean_kalmanson.json` closes those
+  16 stored fixed assignment/order pairs by exact Kalmanson quotient-cone
+  certificates, but this is still not all-order closure. The next bridge/filter
+  step should either widen beyond this oriented-block slice or state a genuine
+  minimal/rich-class hypothesis.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract

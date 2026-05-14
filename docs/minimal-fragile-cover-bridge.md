@@ -506,6 +506,22 @@ selected-row extension. The artifact records those rows as escape targets for
 the next layer. This is a negative-control diagnostic: a clean quotient row
 system is not a Euclidean realization and not a counterexample.
 
+The next fixed-order layer closes those 16 recorded escape rows by exact
+Kalmanson quotient-cone certificates:
+
+```bash
+python scripts/check_block6_reversed_block_clean_kalmanson.py --check --assert-expected --json
+```
+
+```text
+data/certificates/block6_reversed_block_clean_kalmanson.json
+```
+
+The packet is still fixed-row and fixed-order only. It does not turn the
+oriented-block sweep into all-order closure, but it shows that the first
+vertex-circle-clean negative-control rows are eliminated by an existing
+metric-order filter.
+
 ## What This Does Not Prove
 
 The bridge is necessary, not sufficient. The checked block-6 family passes the
