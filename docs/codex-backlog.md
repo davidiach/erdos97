@@ -203,9 +203,11 @@ Use this queue when no more specific issue is selected.
    the focused class `14` replay command,
    `python scripts/check_n8_class14_certificate.py --check --json`, now
    isolates the PB+ED Groebner/strict-interior certificate for that class.
-   The remaining `n=8` audit gap is smaller but still includes independent
-   review of the Groebner-based classes `3`, `4`, and `5`, plus external
-   review of the new class `14` checker.
+   The residual replay command,
+   `python scripts/check_n8_residual_certificates.py --check --json`,
+   isolates the class `3`, `4`, and `5` duplicate, collinearity, and
+   Groebner-y2 certificates. The remaining `n=8` audit gap is now external
+   review of these focused checkers and the underlying artifact assumptions.
 
 ## Task CB-N9-T01 - Extract Vertex-Circle Self-Edge Template
 

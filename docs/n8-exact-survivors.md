@@ -198,6 +198,7 @@ pip install -e .[dev]
 python scripts/independent_check_n8_artifacts.py --check --json
 python scripts/independent_n8_obstruction_recheck.py --check --json
 python scripts/check_n8_class14_certificate.py --check --json
+python scripts/check_n8_residual_certificates.py --check --json
 python scripts/analyze_n8_exact_survivors.py --check --json
 python scripts/analyze_n8_exact_survivors.py --check --json --check-compatible-orders-data data/incidence/n8_compatible_orders.json --check-exact-analysis-data certificates/n8_exact_analysis.json
 pytest -q
@@ -232,6 +233,11 @@ larger exact checker. It rebuilds the class `14` perpendicular-bisector plus
 equal-distance system, compares the stored Groebner basis, derives the four
 real branches, and verifies exact strict-interior failure branch by branch.
 
+The `check_n8_residual_certificates.py` entrypoint isolates classes `3`, `4`,
+and `5` from the same larger checker. It verifies the duplicate-vertex,
+collinearity, and class `5` Groebner-y2 certificates from the stored survivor
+rows and exact-analysis data.
+
 The expanded polynomial systems and full compatible cyclic-order lists are stored
 as reproducibility artifacts:
 
@@ -246,7 +252,8 @@ certificates/n8_polynomial_systems.txt
 
 The incidence-completeness gap is closed in this repository by
 `data/incidence/n8_incidence_completeness.json`. The remaining risk is ordinary
-computer-assisted-proof review: independently review the class `3`, `4`, and
-`14` exact certificates and the checker implementations before making an
-external theorem claim. The focused class `14` checker is intended to make that
-review smaller, not to replace external review.
+computer-assisted-proof review: independently review the classes `3`, `4`,
+`5`, and `14` exact certificates and the checker implementations before making
+an external theorem claim. The focused class `14` checker is intended to make
+that review smaller, and the residual checker does the same for classes `3`,
+`4`, and `5`; neither replaces external review.

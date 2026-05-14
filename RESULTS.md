@@ -105,6 +105,11 @@ derives the four real branches, and verifies exact strict-interior failure on
 each branch. This isolates the most delicate survivor-class obstruction for
 review; it is not a new public theorem claim.
 
+A companion residual audit in `docs/n8-residual-certificates.md` isolates
+classes `3`, `4`, and `5`: duplicate vertices, collinearity, and the class `5`
+Groebner-y2 contradiction after the recorded substitutions. It is another
+repo-local review aid, not a status upgrade.
+
 ### Proof-note draft: geometric exclusion of n <= 8
 
 Status: proof-note draft; independent review requested.
