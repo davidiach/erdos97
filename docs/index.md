@@ -51,9 +51,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`turn-inequality-lemma.md`](turn-inequality-lemma.md): proof-facing note for
   the candidate exterior-turn inequalities used in the review-pending `n=9`
   turn-frontier replay.
-- [`relation-skeleton-catalog.md`](relation-skeleton-catalog.md): first
-  review-pending relation-skeleton extraction for T01 self-edge and T10
-  strict-cycle vertex-circle quotient motifs; proof-mining aid only.
+- [`relation-skeleton-catalog.md`](relation-skeleton-catalog.md):
+  review-pending relation-skeleton extraction for selected T01/T03/T04
+  self-edge and T10/T11/T12 strict-cycle vertex-circle quotient motifs;
+  proof-mining aid only.
 - [`reciprocal-radial-budget.md`](reciprocal-radial-budget.md): local
   middle-witness reciprocal-radial budget packet; a research packet, not a
   global obstruction.

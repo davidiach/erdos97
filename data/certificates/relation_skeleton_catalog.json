@@ -1,9 +1,9 @@
 {
   "catalog_scope": "vertex-circle selected-distance quotient skeletons",
-  "claim_scope": "Two-entry relation-skeleton catalog for focused n=9 vertex-circle selected-distance quotient obstructions; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.",
+  "claim_scope": "Seven-entry relation-skeleton catalog for focused n=9 vertex-circle selected-distance quotient obstructions; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.",
   "contradiction_type_counts": {
-    "strict_directed_cycle": 1,
-    "strict_self_edge": 1
+    "strict_directed_cycle": 3,
+    "strict_self_edge": 4
   },
   "cyclic_order": [
     0,
@@ -17,7 +17,7 @@
     8
   ],
   "interpretation": [
-    "This catalog extracts relation skeletons from two focused local lemma packets.",
+    "This catalog extracts relation skeletons from focused local lemma packets.",
     "Each entry separates selected-distance quotient equalities from vertex-circle strict inequalities.",
     "The catalog is intended to support reusable local-lemma review and bridge proof mining.",
     "No proof of the n=9 case is claimed.",
@@ -30,10 +30,15 @@
   },
   "row_size": 4,
   "schema": "erdos97.relation_skeleton_catalog.v1",
-  "skeleton_count": 2,
+  "skeleton_count": 7,
   "skeleton_ids": [
     "VC-T01-F09-strict-self-edge",
-    "VC-T10-F12-strict-directed-cycle"
+    "VC-T03-F05-strict-self-edge",
+    "VC-T03-F15-strict-self-edge",
+    "VC-T04-F13-strict-self-edge",
+    "VC-T10-F12-strict-directed-cycle",
+    "VC-T11-F07-strict-directed-cycle",
+    "VC-T12-F16-strict-directed-cycle"
   ],
   "skeletons": [
     {
@@ -212,6 +217,537 @@
       "source_family_id": "F09",
       "source_packet": "data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json",
       "source_template_id": "T01",
+      "verifier": "python scripts/check_relation_skeleton_catalog.py --check --assert-expected --json"
+    },
+    {
+      "conclusion": {
+        "contradiction_statement": "The strict graph has a reflexive strict edge after selected-distance quotienting.",
+        "kind": "strict_self_edge",
+        "obstruction": "strict edge from a quotient class to itself",
+        "quotient_class": [
+          0,
+          3
+        ],
+        "strict_from_pair": [
+          3,
+          7
+        ],
+        "strict_to_pair": [
+          1,
+          7
+        ]
+      },
+      "contradiction_type": "strict_self_edge",
+      "coverage": {
+        "assignment_count": 18,
+        "families": [
+          "F05"
+        ],
+        "family_count": 1,
+        "orbit_size_sum": 18
+      },
+      "does_not_prove": [
+        "n=9",
+        "Erdos Problem #97",
+        "a counterexample",
+        "independent review of the n=9 exhaustive checker"
+      ],
+      "hypotheses": {
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "minimal_local_hypotheses": [
+          "natural cyclic order on labels 0..8",
+          "the listed 4 selected rows are exact equidistant 4-tie rows",
+          "strict convexity makes vertex-circle chord monotonicity applicable",
+          "only the displayed local rows and quotient relations are used"
+        ],
+        "selected_rows": [
+          [
+            1,
+            2,
+            5,
+            7,
+            8
+          ],
+          [
+            2,
+            1,
+            3,
+            4,
+            8
+          ],
+          [
+            3,
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            6,
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "obstruction_system": "vertex_circle_selected_distance_quotient",
+      "relation_quotient": {
+        "equality_chains": [
+          [
+            [
+              3,
+              7
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              7
+            ]
+          ]
+        ],
+        "equality_steps": [
+          {
+            "left_pair": [
+              3,
+              7
+            ],
+            "right_pair": [
+              2,
+              3
+            ],
+            "row": 3
+          },
+          {
+            "left_pair": [
+              2,
+              3
+            ],
+            "right_pair": [
+              1,
+              2
+            ],
+            "row": 2
+          },
+          {
+            "left_pair": [
+              1,
+              2
+            ],
+            "right_pair": [
+              1,
+              7
+            ],
+            "row": 1
+          }
+        ],
+        "strict_edges": [
+          {
+            "inner_class": [
+              0,
+              3
+            ],
+            "inner_pair": [
+              1,
+              7
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              7
+            ],
+            "outer_span": 2,
+            "row": 6,
+            "source": "vertex_circle_chord_monotonicity",
+            "witness_order": [
+              7,
+              1,
+              3,
+              5
+            ]
+          }
+        ]
+      },
+      "review_status": "review_pending",
+      "skeleton_id": "VC-T03-F05-strict-self-edge",
+      "source_family_id": "F05",
+      "source_packet": "data/certificates/n9_vertex_circle_t03_self_edge_lemma_packet.json",
+      "source_template_id": "T03",
+      "verifier": "python scripts/check_relation_skeleton_catalog.py --check --assert-expected --json"
+    },
+    {
+      "conclusion": {
+        "contradiction_statement": "The strict graph has a reflexive strict edge after selected-distance quotienting.",
+        "kind": "strict_self_edge",
+        "obstruction": "strict edge from a quotient class to itself",
+        "quotient_class": [
+          0,
+          1
+        ],
+        "strict_from_pair": [
+          1,
+          4
+        ],
+        "strict_to_pair": [
+          3,
+          4
+        ]
+      },
+      "contradiction_type": "strict_self_edge",
+      "coverage": {
+        "assignment_count": 2,
+        "families": [
+          "F15"
+        ],
+        "family_count": 1,
+        "orbit_size_sum": 2
+      },
+      "does_not_prove": [
+        "n=9",
+        "Erdos Problem #97",
+        "a counterexample",
+        "independent review of the n=9 exhaustive checker"
+      ],
+      "hypotheses": {
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "minimal_local_hypotheses": [
+          "natural cyclic order on labels 0..8",
+          "the listed 4 selected rows are exact equidistant 4-tie rows",
+          "strict convexity makes vertex-circle chord monotonicity applicable",
+          "only the displayed local rows and quotient relations are used"
+        ],
+        "selected_rows": [
+          [
+            0,
+            1,
+            3,
+            4,
+            8
+          ],
+          [
+            1,
+            0,
+            2,
+            4,
+            5
+          ],
+          [
+            2,
+            1,
+            3,
+            5,
+            6
+          ],
+          [
+            3,
+            2,
+            4,
+            6,
+            7
+          ]
+        ]
+      },
+      "obstruction_system": "vertex_circle_selected_distance_quotient",
+      "relation_quotient": {
+        "equality_chains": [
+          [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              4
+            ]
+          ]
+        ],
+        "equality_steps": [
+          {
+            "left_pair": [
+              1,
+              4
+            ],
+            "right_pair": [
+              1,
+              2
+            ],
+            "row": 1
+          },
+          {
+            "left_pair": [
+              1,
+              2
+            ],
+            "right_pair": [
+              2,
+              3
+            ],
+            "row": 2
+          },
+          {
+            "left_pair": [
+              2,
+              3
+            ],
+            "right_pair": [
+              3,
+              4
+            ],
+            "row": 3
+          }
+        ],
+        "strict_edges": [
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              3,
+              4
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_pair": [
+              1,
+              4
+            ],
+            "outer_span": 2,
+            "row": 0,
+            "source": "vertex_circle_chord_monotonicity",
+            "witness_order": [
+              1,
+              3,
+              4,
+              8
+            ]
+          }
+        ]
+      },
+      "review_status": "review_pending",
+      "skeleton_id": "VC-T03-F15-strict-self-edge",
+      "source_family_id": "F15",
+      "source_packet": "data/certificates/n9_vertex_circle_t03_self_edge_lemma_packet.json",
+      "source_template_id": "T03",
+      "verifier": "python scripts/check_relation_skeleton_catalog.py --check --assert-expected --json"
+    },
+    {
+      "conclusion": {
+        "contradiction_statement": "The strict graph has a reflexive strict edge after selected-distance quotienting.",
+        "kind": "strict_self_edge",
+        "obstruction": "strict edge from a quotient class to itself",
+        "quotient_class": [
+          0,
+          1
+        ],
+        "strict_from_pair": [
+          1,
+          5
+        ],
+        "strict_to_pair": [
+          1,
+          2
+        ]
+      },
+      "contradiction_type": "strict_self_edge",
+      "coverage": {
+        "assignment_count": 2,
+        "families": [
+          "F13"
+        ],
+        "family_count": 1,
+        "orbit_size_sum": 2
+      },
+      "does_not_prove": [
+        "n=9",
+        "Erdos Problem #97",
+        "a counterexample",
+        "independent review of the n=9 exhaustive checker"
+      ],
+      "hypotheses": {
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "minimal_local_hypotheses": [
+          "natural cyclic order on labels 0..8",
+          "the listed 4 selected rows are exact equidistant 4-tie rows",
+          "strict convexity makes vertex-circle chord monotonicity applicable",
+          "only the displayed local rows and quotient relations are used"
+        ],
+        "selected_rows": [
+          [
+            0,
+            1,
+            2,
+            5,
+            7
+          ],
+          [
+            1,
+            2,
+            3,
+            6,
+            8
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            5,
+            1,
+            3,
+            6,
+            7
+          ]
+        ]
+      },
+      "obstruction_system": "vertex_circle_selected_distance_quotient",
+      "relation_quotient": {
+        "equality_chains": [
+          [
+            [
+              1,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        ],
+        "equality_steps": [
+          {
+            "left_pair": [
+              1,
+              5
+            ],
+            "right_pair": [
+              3,
+              5
+            ],
+            "row": 5
+          },
+          {
+            "left_pair": [
+              3,
+              5
+            ],
+            "right_pair": [
+              1,
+              3
+            ],
+            "row": 3
+          },
+          {
+            "left_pair": [
+              1,
+              3
+            ],
+            "right_pair": [
+              1,
+              2
+            ],
+            "row": 1
+          }
+        ],
+        "strict_edges": [
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_pair": [
+              1,
+              5
+            ],
+            "outer_span": 2,
+            "row": 0,
+            "source": "vertex_circle_chord_monotonicity",
+            "witness_order": [
+              1,
+              2,
+              5,
+              7
+            ]
+          }
+        ]
+      },
+      "review_status": "review_pending",
+      "skeleton_id": "VC-T04-F13-strict-self-edge",
+      "source_family_id": "F13",
+      "source_packet": "data/certificates/n9_vertex_circle_t04_self_edge_lemma_packet.json",
+      "source_template_id": "T04",
       "verifier": "python scripts/check_relation_skeleton_catalog.py --check --assert-expected --json"
     },
     {
@@ -499,6 +1035,690 @@
       "source_packet": "data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json",
       "source_template_id": "T10",
       "verifier": "python scripts/check_relation_skeleton_catalog.py --check --assert-expected --json"
+    },
+    {
+      "conclusion": {
+        "contradiction_statement": "The strict graph has a directed strict cycle of length 3 after selected-distance quotienting.",
+        "cycle_length": 3,
+        "kind": "strict_directed_cycle",
+        "obstruction": "directed strict cycle in the quotient graph",
+        "quotient_cycle": [
+          {
+            "cycle_step": 0,
+            "equality_chain_to_next_outer_pair": [
+              [
+                0,
+                3
+              ]
+            ],
+            "next_outer_pair": [
+              0,
+              3
+            ],
+            "strict_from_pair": [
+              0,
+              2
+            ],
+            "strict_to_pair": [
+              0,
+              3
+            ]
+          },
+          {
+            "cycle_step": 1,
+            "equality_chain_to_next_outer_pair": [
+              [
+                0,
+                5
+              ],
+              [
+                5,
+                7
+              ]
+            ],
+            "next_outer_pair": [
+              5,
+              7
+            ],
+            "strict_from_pair": [
+              0,
+              3
+            ],
+            "strict_to_pair": [
+              0,
+              5
+            ]
+          },
+          {
+            "cycle_step": 2,
+            "equality_chain_to_next_outer_pair": [
+              [
+                1,
+                5
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "next_outer_pair": [
+              0,
+              2
+            ],
+            "strict_from_pair": [
+              5,
+              7
+            ],
+            "strict_to_pair": [
+              1,
+              5
+            ]
+          }
+        ]
+      },
+      "contradiction_type": "strict_directed_cycle",
+      "coverage": {
+        "assignment_count": 6,
+        "families": [
+          "F07"
+        ],
+        "family_count": 1,
+        "orbit_size_sum": 6
+      },
+      "does_not_prove": [
+        "n=9",
+        "Erdos Problem #97",
+        "a counterexample",
+        "independent review of the n=9 exhaustive checker"
+      ],
+      "hypotheses": {
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "minimal_local_hypotheses": [
+          "natural cyclic order on labels 0..8",
+          "the listed 4 selected rows are exact equidistant 4-tie rows",
+          "strict convexity makes vertex-circle chord monotonicity applicable",
+          "only the displayed local rows and quotient relations are used"
+        ],
+        "selected_rows": [
+          [
+            0,
+            1,
+            2,
+            4,
+            8
+          ],
+          [
+            1,
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            5,
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            6,
+            1,
+            5,
+            7,
+            8
+          ]
+        ]
+      },
+      "obstruction_system": "vertex_circle_selected_distance_quotient",
+      "relation_quotient": {
+        "equality_chains": [
+          [
+            [
+              0,
+              3
+            ]
+          ],
+          [
+            [
+              0,
+              5
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          [
+            [
+              1,
+              5
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ]
+        ],
+        "equality_steps": [
+          {
+            "cycle_step": 0,
+            "equality_steps": []
+          },
+          {
+            "cycle_step": 1,
+            "equality_steps": [
+              {
+                "left_pair": [
+                  0,
+                  5
+                ],
+                "right_pair": [
+                  5,
+                  7
+                ],
+                "row": 5
+              }
+            ]
+          },
+          {
+            "cycle_step": 2,
+            "equality_steps": [
+              {
+                "left_pair": [
+                  1,
+                  5
+                ],
+                "right_pair": [
+                  0,
+                  1
+                ],
+                "row": 1
+              },
+              {
+                "left_pair": [
+                  0,
+                  1
+                ],
+                "right_pair": [
+                  0,
+                  2
+                ],
+                "row": 0
+              }
+            ]
+          }
+        ],
+        "strict_edges": [
+          {
+            "inner_class": [
+              0,
+              3
+            ],
+            "inner_pair": [
+              0,
+              3
+            ],
+            "inner_span": 2,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_pair": [
+              0,
+              2
+            ],
+            "outer_span": 3,
+            "row": 1,
+            "source": "vertex_circle_chord_monotonicity",
+            "witness_order": [
+              2,
+              3,
+              5,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              5
+            ],
+            "inner_pair": [
+              0,
+              5
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              3
+            ],
+            "outer_span": 2,
+            "row": 1,
+            "source": "vertex_circle_chord_monotonicity",
+            "witness_order": [
+              2,
+              3,
+              5,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              5
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              5
+            ],
+            "outer_pair": [
+              5,
+              7
+            ],
+            "outer_span": 3,
+            "row": 6,
+            "source": "vertex_circle_chord_monotonicity",
+            "witness_order": [
+              7,
+              8,
+              1,
+              5
+            ]
+          }
+        ]
+      },
+      "review_status": "review_pending",
+      "skeleton_id": "VC-T11-F07-strict-directed-cycle",
+      "source_family_id": "F07",
+      "source_packet": "data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json",
+      "source_template_id": "T11",
+      "verifier": "python scripts/check_relation_skeleton_catalog.py --check --assert-expected --json"
+    },
+    {
+      "conclusion": {
+        "contradiction_statement": "The strict graph has a directed strict cycle of length 3 after selected-distance quotienting.",
+        "cycle_length": 3,
+        "kind": "strict_directed_cycle",
+        "obstruction": "directed strict cycle in the quotient graph",
+        "quotient_cycle": [
+          {
+            "cycle_step": 0,
+            "equality_chain_to_next_outer_pair": [
+              [
+                0,
+                8
+              ],
+              [
+                2,
+                8
+              ]
+            ],
+            "next_outer_pair": [
+              2,
+              8
+            ],
+            "strict_from_pair": [
+              0,
+              3
+            ],
+            "strict_to_pair": [
+              0,
+              8
+            ]
+          },
+          {
+            "cycle_step": 1,
+            "equality_chain_to_next_outer_pair": [
+              [
+                2,
+                4
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                7
+              ]
+            ],
+            "next_outer_pair": [
+              1,
+              7
+            ],
+            "strict_from_pair": [
+              2,
+              8
+            ],
+            "strict_to_pair": [
+              2,
+              4
+            ]
+          },
+          {
+            "cycle_step": 2,
+            "equality_chain_to_next_outer_pair": [
+              [
+                1,
+                3
+              ],
+              [
+                0,
+                3
+              ]
+            ],
+            "next_outer_pair": [
+              0,
+              3
+            ],
+            "strict_from_pair": [
+              1,
+              7
+            ],
+            "strict_to_pair": [
+              1,
+              3
+            ]
+          }
+        ]
+      },
+      "contradiction_type": "strict_directed_cycle",
+      "coverage": {
+        "assignment_count": 2,
+        "families": [
+          "F16"
+        ],
+        "family_count": 1,
+        "orbit_size_sum": 2
+      },
+      "does_not_prove": [
+        "n=9",
+        "Erdos Problem #97",
+        "a counterexample",
+        "independent review of the n=9 exhaustive checker"
+      ],
+      "hypotheses": {
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "minimal_local_hypotheses": [
+          "natural cyclic order on labels 0..8",
+          "the listed 6 selected rows are exact equidistant 4-tie rows",
+          "strict convexity makes vertex-circle chord monotonicity applicable",
+          "only the displayed local rows and quotient relations are used"
+        ],
+        "selected_rows": [
+          [
+            0,
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            1,
+            2,
+            4,
+            7,
+            8
+          ],
+          [
+            2,
+            0,
+            3,
+            5,
+            8
+          ],
+          [
+            3,
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            4,
+            1,
+            2,
+            5,
+            7
+          ],
+          [
+            8,
+            0,
+            2,
+            5,
+            6
+          ]
+        ]
+      },
+      "obstruction_system": "vertex_circle_selected_distance_quotient",
+      "relation_quotient": {
+        "equality_chains": [
+          [
+            [
+              0,
+              8
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          [
+            [
+              2,
+              4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          [
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        ],
+        "equality_steps": [
+          {
+            "cycle_step": 0,
+            "equality_steps": [
+              {
+                "left_pair": [
+                  0,
+                  8
+                ],
+                "right_pair": [
+                  2,
+                  8
+                ],
+                "row": 8
+              }
+            ]
+          },
+          {
+            "cycle_step": 1,
+            "equality_steps": [
+              {
+                "left_pair": [
+                  2,
+                  4
+                ],
+                "right_pair": [
+                  1,
+                  4
+                ],
+                "row": 4
+              },
+              {
+                "left_pair": [
+                  1,
+                  4
+                ],
+                "right_pair": [
+                  1,
+                  7
+                ],
+                "row": 1
+              }
+            ]
+          },
+          {
+            "cycle_step": 2,
+            "equality_steps": [
+              {
+                "left_pair": [
+                  1,
+                  3
+                ],
+                "right_pair": [
+                  0,
+                  3
+                ],
+                "row": 3
+              }
+            ]
+          }
+        ],
+        "strict_edges": [
+          {
+            "inner_class": [
+              0,
+              2
+            ],
+            "inner_pair": [
+              0,
+              8
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_pair": [
+              0,
+              3
+            ],
+            "outer_span": 3,
+            "row": 2,
+            "source": "vertex_circle_chord_monotonicity",
+            "witness_order": [
+              3,
+              5,
+              8,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              2,
+              4
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              2,
+              8
+            ],
+            "outer_span": 3,
+            "row": 1,
+            "source": "vertex_circle_chord_monotonicity",
+            "witness_order": [
+              2,
+              4,
+              7,
+              8
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              3
+            ],
+            "inner_span": 1,
+            "outer_class": [
+              1,
+              2
+            ],
+            "outer_pair": [
+              1,
+              7
+            ],
+            "outer_span": 3,
+            "row": 0,
+            "source": "vertex_circle_chord_monotonicity",
+            "witness_order": [
+              1,
+              3,
+              6,
+              7
+            ]
+          }
+        ]
+      },
+      "review_status": "review_pending",
+      "skeleton_id": "VC-T12-F16-strict-directed-cycle",
+      "source_family_id": "F16",
+      "source_packet": "data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json",
+      "source_template_id": "T12",
+      "verifier": "python scripts/check_relation_skeleton_catalog.py --check --assert-expected --json"
     }
   ],
   "source_artifacts": [
@@ -510,9 +1730,37 @@
       "trust": "REVIEW_PENDING_DIAGNOSTIC"
     },
     {
+      "path": "data/certificates/n9_vertex_circle_t03_self_edge_lemma_packet.json",
+      "role": "focused T03 self-edge local lemma packet",
+      "schema": "erdos97.n9_vertex_circle_t03_self_edge_lemma_packet.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/n9_vertex_circle_t04_self_edge_lemma_packet.json",
+      "role": "focused T04/F13 self-edge local lemma packet",
+      "schema": "erdos97.n9_vertex_circle_t04_self_edge_lemma_packet.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
       "path": "data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json",
       "role": "focused T10/F12 strict-cycle local lemma packet",
       "schema": "erdos97.n9_vertex_circle_t10_strict_cycle_lemma_packet.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json",
+      "role": "focused T11/F07 strict-cycle local lemma packet",
+      "schema": "erdos97.n9_vertex_circle_t11_strict_cycle_lemma_packet.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json",
+      "role": "focused T12/F16 strict-cycle local lemma packet",
+      "schema": "erdos97.n9_vertex_circle_t12_strict_cycle_lemma_packet.v1",
       "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
       "trust": "REVIEW_PENDING_DIAGNOSTIC"
     }
