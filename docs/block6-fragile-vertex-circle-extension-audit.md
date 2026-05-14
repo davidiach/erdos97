@@ -278,3 +278,28 @@ strict-cycle quotient obstructions.
 This is still a bounded fixed-order-family diagnostic, not all-order closure.
 It does not cover cyclic orders that permute labels inside a block, arbitrary
 block-6 full selected-row systems, or a genuine minimal/rich-class bridge.
+
+The first oriented-block companion slice exposes the boundary of this gate:
+
+```bash
+python scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
+```text
+data/certificates/block6_reversed_block_shuffle_vertex_circle_escape.json
+```
+
+Here the first block is kept in order `1,2,3,4,5` after label `0`, while the
+second block is kept in reverse order `11,10,9,8,7,6`, and the two oriented
+blocks are shuffled. Among the `462` normalized orders in this family, `446`
+close under vertex-circle quotient pruning and `16` have a vertex-circle-clean
+full selected-row extension. The artifact stores those 16 clean abstract row
+systems as fixed-order escape targets.
+
+These escapes are not counterexamples and not Euclidean realizations. They
+show only that the vertex-circle quotient gate alone does not close this wider
+oriented-block family; the next attack needs a stronger metric-order filter or
+a genuine minimal/rich-class bridge condition on those clean rows.

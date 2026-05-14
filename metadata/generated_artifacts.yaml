@@ -2518,6 +2518,50 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: block6_reversed_block_shuffle_vertex_circle_escape
+    path: data/certificates/block6_reversed_block_shuffle_vertex_circle_escape.json
+    kind: negative_control_diagnostic_artifact
+    generator: scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py
+    command: python scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py --write --assert-expected
+    checker: scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py
+    check_command: python scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Reversed-second-block shuffle negative-control packet for the two-block block-6 fragile rows. Records 16 vertex-circle-clean fixed-order abstract selected-row extensions; not Euclidean realizability, not a counterexample, not all-order closure, not a fragile-bridge proof, and not a proof of Erdos Problem #97.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.block6_reversed_block_shuffle_vertex_circle_escape.v1
+      status: REVIEW_PENDING_NEGATIVE_CONTROL_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.shuffle_order_count: 462
+      summary.orders_with_terminal_extension: 458
+      summary.orders_without_terminal_extension: 4
+      summary.closed_order_count: 446
+      summary.orders_with_clean_pruned_solution: 16
+      summary.outside_natural_generator_first_extension_count: 458
+      summary.total_first_terminal_nodes: 30681
+      summary.total_first_terminal_zero_option_prunes: 16372
+      summary.total_pruned_nodes: 1424672
+      summary.total_pruned_zero_option_prunes: 28366
+      summary.pruned_node_max_order_index: 179
+      summary.vc_prunes.self_edge: 536464
+      summary.vc_prunes.strict_cycle: 598113
+      provenance.generator: scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py
+      provenance.command: python scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py --write --assert-expected
+    forbidden_claims:
+      - clean quotient rows are Euclidean realizations
+      - clean quotient rows are counterexamples
+      - reversed-block shuffles prove the fragile bridge
+      - all cyclic orders are obstructed
+      - all block-6 full extensions are obstructed across all orders
+      - all reversed-block clean rows are realizable
+      - minimal counterexamples are ruled out
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: speculative_circulant_frontier_obstructions
     path: data/certificates/speculative_circulant_frontier_obstructions.json
     kind: certificate_artifact

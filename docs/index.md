@@ -114,7 +114,8 @@ put detailed reconciliation in the canonical synthesis.
   bounded audit showing that the two-block block-6 fragile-cover obstruction
   closes once full selected-row extension is combined with vertex-circle
   quotient pruning in the natural order, plus later crossing-order,
-  fixed-order, and block-preserving shuffle-order diagnostic widenings.
+  fixed-order, block-preserving shuffle-order diagnostic widenings, and the
+  reversed-block shuffle escape packet.
 - [`block6-fragile-fifth-row-obstruction-catalog.md`](block6-fragile-fifth-row-obstruction-catalog.md):
   one-step catalog showing that many legal fifth rows already hit the
   vertex-circle quotient obstruction, while 166 remain clean and block a

@@ -80,6 +80,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_block6_terminal_crossing_vertex_circle_sample.py --full-sweep --check --assert-expected --json
 	$(PYTHON) scripts/check_block6_fixed_order_vertex_circle_probe.py --check --assert-expected --json
 	$(PYTHON) scripts/check_block6_shuffle_order_vertex_circle_sweep.py --check --assert-expected --json
+	$(PYTHON) scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py --check --assert-expected --json
 
 verify-n10-review:
 	$(PYTHON) scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125

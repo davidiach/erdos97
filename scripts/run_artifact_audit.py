@@ -777,6 +777,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="block6_reversed_block_shuffle_vertex_circle_escape",
+        command=(
+            "python",
+            "scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Reversed-second-block shuffle negative-control packet for the "
+            "two-block block-6 fragile rows; records 16 vertex-circle-clean "
+            "fixed-order abstract row systems, not Euclidean realizations, "
+            "not counterexamples, not all-order closure, not a fragile-bridge "
+            "proof, and not a proof of Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",

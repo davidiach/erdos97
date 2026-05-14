@@ -84,6 +84,14 @@ outside the natural-order terminal generator. This is still a bounded
 fixed-order-family diagnostic, not all-order closure. See
 `data/certificates/block6_shuffle_order_vertex_circle_sweep.json`.
 
+A companion reversed-second-block shuffle sweep records the first real boundary
+of this vertex-circle gate: among the `462` normalized orders preserving
+`1,2,3,4,5` in the first block and `11,10,9,8,7,6` in the second, `446` close
+but `16` have a vertex-circle-clean full selected-row extension. These clean
+abstract rows are not Euclidean realizations and not counterexamples; they are
+the next fixed-order escape targets for stronger filters. See
+`data/certificates/block6_reversed_block_shuffle_vertex_circle_escape.json`.
+
 A separate rich-triple closure bridge records that ear-orderability is
 equivalent to bootstrap rank at most 3. Failure of that rank condition yields
 inclusion-minimal generating cores with deletion closures, private halos, and a
