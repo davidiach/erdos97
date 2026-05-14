@@ -602,6 +602,19 @@ python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --chec
 That command is also an artifact-accounting audit only; it does not rerun the
 exhaustive brancher or complete independent review.
 
+The relation-skeleton/local-lemma crosswalk checks the downstream
+proof-mining view: it joins the 16-entry relation-skeleton catalog to the same
+aggregate/simple-replay family accounting:
+
+```bash
+python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json
+```
+
+This verifies that the compact quotient-relation skeletons agree with the
+stored local-lemma layer on template ids, family ids, obstruction kind, and
+assignment counts. It remains a packet audit, not a completeness proof for
+`n=9`.
+
 ## Scan summary
 
 The current local-lemma scan covers these review-pending template-packet

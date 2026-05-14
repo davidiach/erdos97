@@ -215,6 +215,19 @@ Run the targeted artifact tests:
 python -m pytest tests/test_relation_skeleton_catalog.py -q -m "artifact"
 ```
 
+Cross-check the catalog against the aggregate local-lemma scan and the simple
+packet replay:
+
+```bash
+python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json
+```
+
+This crosswalk is an accounting audit. It checks that the 16 relation
+skeletons and the local-lemma replay chain agree family by family on template
+ids, family ids, obstruction kind, and assignment counts. It does not certify
+that the local-lemma packets are complete for `n=9`, and it does not review the
+exhaustive brancher.
+
 ## Review Standard
 
 A reviewer should be able to restate each skeleton as a local lemma without
