@@ -200,8 +200,12 @@ Use this queue when no more specific issue is selected.
    `n=8` replay command,
    `python scripts/independent_n8_obstruction_recheck.py --check --json`,
    covers the cyclic-order counts and 11 non-Groebner survivor-class kills;
-   the remaining `n=8` audit gap is still the Groebner-based classes `3`,
-   `4`, `5`, and especially `14`.
+   the focused class `14` replay command,
+   `python scripts/check_n8_class14_certificate.py --check --json`, now
+   isolates the PB+ED Groebner/strict-interior certificate for that class.
+   The remaining `n=8` audit gap is smaller but still includes independent
+   review of the Groebner-based classes `3`, `4`, and `5`, plus external
+   review of the new class `14` checker.
 
 ## Task CB-N9-T01 - Extract Vertex-Circle Self-Edge Template
 

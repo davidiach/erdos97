@@ -230,6 +230,8 @@ put detailed reconciliation in the canonical synthesis.
 - [`n8-independent-obstruction.md`](n8-independent-obstruction.md): SymPy-free
   cross-check of the `n=8` cyclic-order counts and 11 survivor-class
   obstructions.
+- [`n8-class14-certificate.md`](n8-class14-certificate.md): focused audit of
+  the class `14` Groebner basis and strict-interior obstruction.
 - [`n8-geometric-proof.md`](n8-geometric-proof.md): proof-note draft giving a
   compact geometric obstruction for bad convex octagons via isosceles-triangle
   counting and exterior-turn angles.

@@ -41,6 +41,7 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/independent_n8_obstruction_recheck.py --check --json"
         in command_texts
     )
+    assert "python scripts/check_n8_class14_certificate.py --check --json" in command_texts
     assert (
         "python scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --json"
         in command_texts
