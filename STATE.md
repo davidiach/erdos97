@@ -53,6 +53,13 @@ hull vertices and four strict interior labels. This is still repo-local audit
 support pending external review, not a public theorem claim. See
 `docs/n8-class14-certificate.md`.
 
+A companion residual checker,
+`scripts/check_n8_residual_certificates.py --check --json`, isolates the
+class `3`, `4`, and `5` duplicate, collinearity, and Groebner-y2 certificates.
+It verifies the stored substitution chains and ideal equivalence for class `5`
+without importing the full exact survivor checker. This is also repo-local
+audit support pending external review. See `docs/n8-residual-certificates.md`.
+
 For the general bridge problem, minimality now gives a small proved foothold:
 every minimal counterexample admits a partial fragile-cover witness system made
 from exact critical 4-ties. This is necessary structure only; the block-6

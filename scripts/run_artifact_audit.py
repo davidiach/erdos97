@@ -72,6 +72,20 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n8_residual_certificate_audit",
+        command=(
+            "python",
+            "scripts/check_n8_residual_certificates.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Focused audit of the n=8 class 3, 4, and 5 duplicate, "
+            "collinearity, and Groebner-y2 certificates; repo-local exact "
+            "obstruction audit pending external review, not a public theorem claim."
+        ),
+    ),
+    AuditCommand(
         ident="round2_certificates",
         command=("python", "scripts/check_round2_certificates.py"),
         claim_scope="Fixed-pattern and fixed-order round-two certificate regression checks only.",

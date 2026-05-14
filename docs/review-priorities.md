@@ -90,12 +90,14 @@ Current focused entrypoint:
 
 ```bash
 python scripts/check_n8_class14_certificate.py --check --json
+python scripts/check_n8_residual_certificates.py --check --json
 ```
 
-This checker rebuilds only the class `14` `PB+ED` system from the checked-in
-survivor rows, compares the stored Groebner basis, derives the four real
-branches, and verifies exact strict-interior failure. It remains a repo-local
-audit pending external review.
+The class `14` checker rebuilds only the class `14` `PB+ED` system from the
+checked-in survivor rows, compares the stored Groebner basis, derives the four
+real branches, and verifies exact strict-interior failure. The residual checker
+does the analogous focused replay for classes `3`, `4`, and `5`. Both remain
+repo-local audits pending external review.
 
 ## Priority 4 - pin literature coverage
 

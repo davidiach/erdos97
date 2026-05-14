@@ -33,6 +33,8 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/n8-independent-obstruction.md`](docs/n8-independent-obstruction.md).
 - For the focused class `14` Groebner/strict-interior audit, read
   [`docs/n8-class14-certificate.md`](docs/n8-class14-certificate.md).
+- For the focused residual class `3`, `4`, and `5` certificate audit, read
+  [`docs/n8-residual-certificates.md`](docs/n8-residual-certificates.md).
 - For the review-pending exhaustive `n=9` vertex-circle finite-case checker,
   read [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 - For the derived `n=9` vertex-circle template lemma-candidate catalog, read
