@@ -44,6 +44,13 @@ from exact critical 4-ties. This is necessary structure only; the block-6
 abstract family shows that fragile-cover hypergraph constraints alone are too
 weak. See `docs/minimal-fragile-cover-bridge.md`.
 
+A stored block-6 vertex-circle full-extension audit adds one geometric gate to
+that negative control: in the natural cyclic order, the two-block block-6
+family has no full selected-row extension surviving the vertex-circle quotient
+self-edge / strict-cycle filter. This is still a natural-order diagnostic, not
+an all-order/all-extension bridge proof. See
+`docs/block6-fragile-vertex-circle-extension-audit.md`.
+
 A separate rich-triple closure bridge records that ear-orderability is
 equivalent to bootstrap rank at most 3. Failure of that rank condition yields
 inclusion-minimal generating cores with deletion closures, private halos, and a

@@ -26,8 +26,13 @@ Use this queue when no more specific issue is selected.
    reviewer-facing input for the aggregate local-template coverage. The replay
    checks the packet JSON without sharing the main quotient-replay helper, but
    it is still a packet audit rather than an `n=9` proof.
-3. Strengthen the minimal fragile-cover bridge with one geometric necessary
-   condition and test it against the block-6 negative controls.
+3. Continue the minimal fragile-cover bridge after the stored block-6
+   vertex-circle full-extension audit
+   `data/certificates/block6_fragile_vertex_circle_extension_audit.json`.
+   The current geometric gate rejects the two-block block-6 control in the
+   natural cyclic order, so the next useful widening is all compatible cyclic
+   orders, all full extensions, or a minimal/rich-class hypothesis that avoids
+   fixing one selected row at each center too early.
 4. Use the bootstrap-core crosswalk and the bootstrap / vertex-circle overlay
    in `docs/bootstrap-core-crosswalk.md` and
    `docs/bootstrap-vertex-circle-overlay.md` to design a sharper condition.

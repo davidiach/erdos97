@@ -2316,6 +2316,46 @@ artifacts:
       - official/global status update
       - source-of-truth strongest result
       - general proof of Erdos Problem #97
+
+  - id: block6_fragile_vertex_circle_extension_audit
+    path: data/certificates/block6_fragile_vertex_circle_extension_audit.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_block6_fragile_vertex_circle_extension.py
+    command: python scripts/check_block6_fragile_vertex_circle_extension.py --assert-expected --write
+    checker: scripts/check_block6_fragile_vertex_circle_extension.py
+    check_command: python scripts/check_block6_fragile_vertex_circle_extension.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Two-block block-6 fragile-cover full-extension vertex-circle audit in the natural cyclic order; not a proof of the fragile bridge, not a proof of Erdos Problem #97, not a counterexample, and not an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.block6_fragile_vertex_circle_extension_audit.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      n: 12
+      row_size: 4
+      pair_cap: 2
+      selected_indegree_cap: 7
+      pruned_search.initial_vc: ok
+      pruned_search.result: closed
+      pruned_search.nodes: 1752
+      pruned_search.zero_option_prunes: 37
+      pruned_search.vc_prunes.self_edge: 645
+      pruned_search.vc_prunes.strict_cycle: 768
+      pruned_search.solutions: 0
+      provenance.generator: scripts/check_block6_fragile_vertex_circle_extension.py
+      provenance.command: python scripts/check_block6_fragile_vertex_circle_extension.py --assert-expected --write
+    forbidden_claims:
+      - fragile covers prove the theorem
+      - vertex-circle full-extension gate proves the fragile bridge
+      - all block-6 cyclic orders are obstructed
+      - all fragile-cover extensions are obstructed
+      - minimal counterexamples are ruled out
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
   - id: speculative_circulant_frontier_obstructions
     path: data/certificates/speculative_circulant_frontier_obstructions.json
     kind: certificate_artifact

@@ -419,6 +419,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   source-`151` neighborhood or one-row-drop relaxation. The remaining target
   is still genuine singleton-support or row-forcing geometry, not a proof that
   either row is forced.
+- block-6 vertex-circle full-extension evidence, as recorded in
+  `data/certificates/block6_fragile_vertex_circle_extension_audit.json` and
+  `docs/block6-fragile-vertex-circle-extension-audit.md`, showing that the
+  two-block block-6 negative control has no natural-order full selected-row
+  extension surviving the vertex-circle quotient self-edge / strict-cycle
+  gate. This rejects one abstract family that passes fragile-cover hypergraph
+  checks, but it remains natural-order and all-order/all-extension bridge work
+  is still open.
 
 Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract
