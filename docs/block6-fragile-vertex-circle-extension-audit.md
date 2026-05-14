@@ -303,3 +303,25 @@ These escapes are not counterexamples and not Euclidean realizations. They
 show only that the vertex-circle quotient gate alone does not close this wider
 oriented-block family; the next attack needs a stronger metric-order filter or
 a genuine minimal/rich-class bridge condition on those clean rows.
+
+A follow-up fixed-order metric-order packet attacks exactly those 16 clean
+rows:
+
+```bash
+python scripts/check_block6_reversed_block_clean_kalmanson.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
+```text
+data/certificates/block6_reversed_block_clean_kalmanson.json
+```
+
+All 16 stored assignment/order pairs have exact Kalmanson quotient-cone
+certificates. The packet records `394` strict Kalmanson rows in total, total
+weight `16850`, and zero combined coefficient vector for every certificate
+after quotienting by selected-distance equalities. This closes only the 16
+stored fixed-order escape rows from the reversed-block negative control; it
+does not prove all cyclic orders, all block-6 selected-row systems, the
+fragile bridge, or Erdos Problem #97.

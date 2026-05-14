@@ -174,6 +174,14 @@ are not Euclidean realizations, not counterexamples, and not evidence of
 all-order closure; see
 `data/certificates/block6_reversed_block_shuffle_vertex_circle_escape.json`.
 
+A follow-up fixed-order Kalmanson packet closes exactly those 16 clean
+assignment/order pairs by quotient-cone certificates. The certificates use
+`394` strict Kalmanson rows in total, with total weight `16850`; every combined
+coefficient vector vanishes after selected-distance quotienting. This is exact
+for the stored fixed rows and fixed cyclic orders only, not an all-order
+obstruction or fragile-bridge proof; see
+`data/certificates/block6_reversed_block_clean_kalmanson.json`.
+
 ### Bootstrap-core bridge
 
 Status: `LEMMA` / bridge fork.

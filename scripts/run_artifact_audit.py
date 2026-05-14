@@ -794,6 +794,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="block6_reversed_block_clean_kalmanson",
+        command=(
+            "python",
+            "scripts/check_block6_reversed_block_clean_kalmanson.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Exact fixed-order Kalmanson quotient-cone certificates for the "
+            "16 reversed-block vertex-circle-clean escape rows; fixed-row "
+            "and fixed-order only, not all-order closure, not a "
+            "fragile-bridge proof, not a proof of Erdos Problem #97, and "
+            "not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",
