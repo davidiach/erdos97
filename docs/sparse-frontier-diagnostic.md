@@ -310,6 +310,20 @@ inverse-pair filter on this instance. It still proves only this fixed
 selected-witness pattern plus this fixed cyclic order, not all cyclic orders of
 the abstract C29 pattern.
 
+The command
+
+```bash
+python scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json
+```
+
+adds a pattern-level template-availability diagnostic for the C25 and C29
+abstract sparse-frontier entries. It records that both patterns expose the same
+two selected-distance quotient coefficient templates seen in the checked
+C13/C19 all-order Kalmanson pilots. This is not branch coverage and not an
+obstruction: it only says the relevant inverse-pair vocabulary exists in the
+fixed abstract patterns, not that any cyclic order must realize one of those
+pairs.
+
 The first constrained numerical run on the registered `C13` sparse-filter order
 is:
 

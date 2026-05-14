@@ -310,8 +310,11 @@ benchmarks for the larger frontier:
   as the current C13/C19 coefficient-template diagnostic: both fixed pilots
   expose only the one-class-vs-one-class and two-classes-vs-two-classes
   quotient-vector inverse templates;
-- test whether the same templates appear in newly mined sparse incidence
-  patterns;
+- use
+  `scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json`
+  as the current C25/C29 sparse-frontier template-availability diagnostic:
+  both larger Sidon patterns expose the same two quotient-vector inverse
+  templates, but this is not cyclic-order coverage or an obstruction;
 - use the recorded C29 fixed-order certificate
   `data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json` as the
   benchmark for full-cone Kalmanson/Farkas certificates that are not visible to

@@ -42,6 +42,15 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json"
+        in command_texts
+    )
+    assert ordered_command_texts.index(
+        "python scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json"
+    )
+    assert (
         "python scripts/analyze_kalmanson_z3_clauses.py --assert-expected "
         "--check-artifact reports/c19_kalmanson_z3_clause_diagnostics.json"
         in command_texts

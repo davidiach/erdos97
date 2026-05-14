@@ -184,8 +184,9 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine
    support-existence and row-forcing bridge questions open.
-5. Classify Kalmanson inverse-pair templates from the C13/C19 all-order
-   certificates and emit verifier-backed template records.
+5. Extend the Kalmanson template diagnostics toward order-search coverage:
+   C13/C19 template records and C25/C29 availability records now exist, but
+   they are not cyclic-order coverage or obstructions for the larger frontier.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
    with an independent input-data replay.
 
@@ -352,6 +353,7 @@ python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalma
 python scripts/check_kalmanson_two_order_z3.py --certificate data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat
 python scripts/analyze_kalmanson_certificates.py
 python scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --json
+python scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json
 ```
 
 Expected artifacts:
@@ -365,6 +367,9 @@ Expected artifacts:
 - optional C13/C19 coefficient-template diagnostics such as
   `scripts/analyze_kalmanson_inverse_pair_templates.py`, kept separate from
   any transfer claim to other selected-witness patterns.
+- optional C25/C29 sparse-frontier template-availability diagnostics such as
+  `scripts/analyze_kalmanson_sparse_frontier_templates.py`, kept separate from
+  cyclic-order coverage or all-order obstruction claims.
 
 Acceptance criteria:
 
