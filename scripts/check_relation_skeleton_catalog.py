@@ -4,10 +4,12 @@
 from __future__ import annotations
 
 import argparse
+import importlib
 import json
 import sys
 from pathlib import Path
-from typing import Any, Sequence
+from types import ModuleType
+from typing import Any, Mapping, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
@@ -17,42 +19,14 @@ SCRIPTS = ROOT / "scripts"
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
-from check_n9_vertex_circle_t01_self_edge_lemma_packet import (  # noqa: E402
-    DEFAULT_ARTIFACT as DEFAULT_T01_PACKET,
-    load_source_payloads as load_t01_sources,
-    validate_payload as validate_t01_packet,
-)
-from check_n9_vertex_circle_t03_self_edge_lemma_packet import (  # noqa: E402
-    DEFAULT_ARTIFACT as DEFAULT_T03_PACKET,
-    load_source_payloads as load_t03_sources,
-    validate_payload as validate_t03_packet,
-)
-from check_n9_vertex_circle_t04_self_edge_lemma_packet import (  # noqa: E402
-    DEFAULT_ARTIFACT as DEFAULT_T04_PACKET,
-    load_source_payloads as load_t04_sources,
-    validate_payload as validate_t04_packet,
-)
-from check_n9_vertex_circle_t10_strict_cycle_lemma_packet import (  # noqa: E402
-    DEFAULT_ARTIFACT as DEFAULT_T10_PACKET,
-    load_source_payloads as load_t10_sources,
-    validate_payload as validate_t10_packet,
-)
-from check_n9_vertex_circle_t11_strict_cycle_lemma_packet import (  # noqa: E402
-    DEFAULT_ARTIFACT as DEFAULT_T11_PACKET,
-    load_source_payloads as load_t11_sources,
-    validate_payload as validate_t11_packet,
-)
-from check_n9_vertex_circle_t12_strict_cycle_lemma_packet import (  # noqa: E402
-    DEFAULT_ARTIFACT as DEFAULT_T12_PACKET,
-    load_source_payloads as load_t12_sources,
-    validate_payload as validate_t12_packet,
-)
 from erdos97.path_display import display_path  # noqa: E402
 from erdos97.relation_skeleton_catalog import (  # noqa: E402
     CLAIM_SCOPE,
     EXPECTED_CONTRADICTION_TYPE_COUNTS,
+    EXPECTED_FAMILY_DETAILS,
     EXPECTED_SKELETON_IDS,
     EXPECTED_SOURCE_ARTIFACTS,
+    FOCUSED_TEMPLATE_IDS,
     PROVENANCE,
     SCHEMA,
     STATUS,
@@ -62,6 +36,19 @@ from erdos97.relation_skeleton_catalog import (  # noqa: E402
 )
 
 DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "relation_skeleton_catalog.json"
+FOCUSED_CHECKERS: dict[str, ModuleType] = {
+    template_id: importlib.import_module(
+        "check_n9_vertex_circle_"
+        f"t{int(template_id[1:]):02d}_"
+        f"{'self_edge' if int(template_id[1:]) < 10 else 'strict_cycle'}"
+        "_lemma_packet"
+    )
+    for template_id in FOCUSED_TEMPLATE_IDS
+}
+DEFAULT_FOCUSED_PACKET_PATHS = {
+    template_id: checker.DEFAULT_ARTIFACT
+    for template_id, checker in FOCUSED_CHECKERS.items()
+}
 
 EXPECTED_TOP_LEVEL_KEYS = {
     "catalog_scope",
@@ -127,35 +114,25 @@ def expect_equal(errors: list[str], label: str, actual: Any, expected: Any) -> N
 
 def load_source_payloads(
     *,
-    t01_packet_path: Path = DEFAULT_T01_PACKET,
-    t03_packet_path: Path = DEFAULT_T03_PACKET,
-    t04_packet_path: Path = DEFAULT_T04_PACKET,
-    t10_packet_path: Path = DEFAULT_T10_PACKET,
-    t11_packet_path: Path = DEFAULT_T11_PACKET,
-    t12_packet_path: Path = DEFAULT_T12_PACKET,
+    packet_paths: Mapping[str, Path] | None = None,
 ) -> dict[str, Any]:
     """Load source packets used by the relation-skeleton catalog."""
 
+    paths = dict(DEFAULT_FOCUSED_PACKET_PATHS)
+    if packet_paths is not None:
+        paths.update(packet_paths)
     return {
-        "t01_packet": load_artifact(_resolve(t01_packet_path)),
-        "t03_packet": load_artifact(_resolve(t03_packet_path)),
-        "t04_packet": load_artifact(_resolve(t04_packet_path)),
-        "t10_packet": load_artifact(_resolve(t10_packet_path)),
-        "t11_packet": load_artifact(_resolve(t11_packet_path)),
-        "t12_packet": load_artifact(_resolve(t12_packet_path)),
+        f"{template_id.lower()}_packet": load_artifact(_resolve(paths[template_id]))
+        for template_id in FOCUSED_TEMPLATE_IDS
     }
 
 
 def _validate_sources(source_payloads: dict[str, Any], errors: list[str]) -> None:
-    validators = (
-        ("T01", "t01_packet", load_t01_sources, validate_t01_packet),
-        ("T03", "t03_packet", load_t03_sources, validate_t03_packet),
-        ("T04", "t04_packet", load_t04_sources, validate_t04_packet),
-        ("T10", "t10_packet", load_t10_sources, validate_t10_packet),
-        ("T11", "t11_packet", load_t11_sources, validate_t11_packet),
-        ("T12", "t12_packet", load_t12_sources, validate_t12_packet),
-    )
-    for label, key, load_sources, validate in validators:
+    for label in FOCUSED_TEMPLATE_IDS:
+        key = f"{label.lower()}_packet"
+        checker = FOCUSED_CHECKERS[label]
+        load_sources = checker.load_source_payloads
+        validate = checker.validate_payload
         packet = source_payloads.get(key)
         if not isinstance(packet, dict):
             errors.append(f"source {label} packet must be an object")
@@ -177,12 +154,10 @@ def _expected_payload(
 ) -> dict[str, Any] | None:
     try:
         return relation_skeleton_catalog_payload(
-            source_payloads["t01_packet"],
-            source_payloads["t03_packet"],
-            source_payloads["t04_packet"],
-            source_payloads["t10_packet"],
-            source_payloads["t11_packet"],
-            source_payloads["t12_packet"],
+            {
+                template_id: source_payloads[f"{template_id.lower()}_packet"]
+                for template_id in FOCUSED_TEMPLATE_IDS
+            }
         )
     except (AssertionError, KeyError, TypeError, ValueError) as exc:
         errors.append(f"source-bound relation skeleton catalog failed: {exc}")
@@ -275,7 +250,7 @@ def _validate_t10_skeleton(skeleton: dict[str, Any], errors: list[str]) -> None:
         skeleton.get("contradiction_type"),
         "strict_directed_cycle",
     )
-    expect_equal(errors, "T10 source_packet", skeleton.get("source_packet"), EXPECTED_SOURCE_ARTIFACTS[3])
+    expect_equal(errors, "T10 source_packet", skeleton.get("source_packet"), EXPECTED_SOURCE_ARTIFACTS[9])
     expect_equal(errors, "T10 source_template_id", skeleton.get("source_template_id"), "T10")
     expect_equal(errors, "T10 source_family_id", skeleton.get("source_family_id"), "F12")
     coverage = skeleton.get("coverage")
@@ -312,40 +287,20 @@ def _validate_skeletons(payload: dict[str, Any], errors: list[str]) -> None:
     skeletons = _skeletons_by_id(payload, errors)
     if EXPECTED_SKELETON_IDS[0] in skeletons:
         _validate_t01_skeleton(skeletons[EXPECTED_SKELETON_IDS[0]], errors)
-    if EXPECTED_SKELETON_IDS[4] in skeletons:
-        _validate_t10_skeleton(skeletons[EXPECTED_SKELETON_IDS[4]], errors)
-    expected_family_counts = {
-        "VC-T03-F05-strict-self-edge": (EXPECTED_SOURCE_ARTIFACTS[1], "T03", "F05", "strict_self_edge", 18, 1),
-        "VC-T03-F15-strict-self-edge": (EXPECTED_SOURCE_ARTIFACTS[1], "T03", "F15", "strict_self_edge", 2, 1),
-        "VC-T04-F13-strict-self-edge": (EXPECTED_SOURCE_ARTIFACTS[2], "T04", "F13", "strict_self_edge", 2, 1),
-        "VC-T11-F07-strict-directed-cycle": (
-            EXPECTED_SOURCE_ARTIFACTS[4],
-            "T11",
-            "F07",
-            "strict_directed_cycle",
-            6,
-            3,
-        ),
-        "VC-T12-F16-strict-directed-cycle": (
-            EXPECTED_SOURCE_ARTIFACTS[5],
-            "T12",
-            "F16",
-            "strict_directed_cycle",
-            2,
-            3,
-        ),
-    }
+    if "VC-T10-F12-strict-directed-cycle" in skeletons:
+        _validate_t10_skeleton(skeletons["VC-T10-F12-strict-directed-cycle"], errors)
+    source_by_template = dict(zip(FOCUSED_TEMPLATE_IDS, EXPECTED_SOURCE_ARTIFACTS, strict=True))
     for skeleton_id, (
-        source_packet,
         template_id,
         family_id,
         contradiction_type,
         assignment_count,
         strict_edge_count,
-    ) in expected_family_counts.items():
+    ) in EXPECTED_FAMILY_DETAILS.items():
         skeleton = skeletons.get(skeleton_id)
         if skeleton is None:
             continue
+        source_packet = source_by_template[template_id]
         expect_equal(errors, f"{skeleton_id} source_packet", skeleton.get("source_packet"), source_packet)
         expect_equal(errors, f"{skeleton_id} source_template_id", skeleton.get("source_template_id"), template_id)
         expect_equal(errors, f"{skeleton_id} source_family_id", skeleton.get("source_family_id"), family_id)
@@ -408,7 +363,7 @@ def validate_payload(
         "n": 9,
         "row_size": 4,
         "cyclic_order": list(range(9)),
-        "skeleton_count": 7,
+        "skeleton_count": len(EXPECTED_SKELETON_IDS),
         "skeleton_ids": list(EXPECTED_SKELETON_IDS),
         "contradiction_type_counts": EXPECTED_CONTRADICTION_TYPE_COUNTS,
         "provenance": PROVENANCE,
@@ -474,12 +429,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--check", action="store_true", help="validate an existing artifact")
     parser.add_argument("--json", action="store_true", help="print stable JSON summary")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--t01-packet", type=Path, default=DEFAULT_T01_PACKET)
-    parser.add_argument("--t03-packet", type=Path, default=DEFAULT_T03_PACKET)
-    parser.add_argument("--t04-packet", type=Path, default=DEFAULT_T04_PACKET)
-    parser.add_argument("--t10-packet", type=Path, default=DEFAULT_T10_PACKET)
-    parser.add_argument("--t11-packet", type=Path, default=DEFAULT_T11_PACKET)
-    parser.add_argument("--t12-packet", type=Path, default=DEFAULT_T12_PACKET)
+    for template_id in FOCUSED_TEMPLATE_IDS:
+        parser.add_argument(
+            f"--{template_id.lower()}-packet",
+            type=Path,
+            default=DEFAULT_FOCUSED_PACKET_PATHS[template_id],
+            help=f"Path to focused {template_id} local lemma packet JSON.",
+        )
     return parser.parse_args(argv)
 
 
@@ -498,12 +454,10 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     try:
         sources = load_source_payloads(
-            t01_packet_path=args.t01_packet,
-            t03_packet_path=args.t03_packet,
-            t04_packet_path=args.t04_packet,
-            t10_packet_path=args.t10_packet,
-            t11_packet_path=args.t11_packet,
-            t12_packet_path=args.t12_packet,
+            packet_paths={
+                template_id: getattr(args, f"{template_id.lower()}_packet")
+                for template_id in FOCUSED_TEMPLATE_IDS
+            }
         )
     except (OSError, json.JSONDecodeError) as exc:
         print(f"FAILED: could not load source artifacts: {exc}", file=sys.stderr)
@@ -511,12 +465,10 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     if args.write:
         payload = relation_skeleton_catalog_payload(
-            sources["t01_packet"],
-            sources["t03_packet"],
-            sources["t04_packet"],
-            sources["t10_packet"],
-            sources["t11_packet"],
-            sources["t12_packet"],
+            {
+                template_id: sources[f"{template_id.lower()}_packet"]
+                for template_id in FOCUSED_TEMPLATE_IDS
+            }
         )
         if args.assert_expected:
             assert_expected_relation_skeleton_catalog(payload)
