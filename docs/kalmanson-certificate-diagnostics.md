@@ -116,6 +116,25 @@ This is an inspection aid for the already checked fixed abstract `C19_skew`
 all-order certificate. It is not an independent proof, not a statement about
 all C19-like patterns, and not a proof of Erdos Problem #97.
 
+## C13/C19 Inverse-Pair Template Diagnostic
+
+The coefficient-template diagnostic
+
+```bash
+python scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --json
+```
+
+checks the existing all-order C13 artifact and replays the all-order C19 Z3
+certificate, then summarizes all quotient-vector inverse pairs in the two
+fixed abstract patterns. The output is intentionally small: both pilots use
+only two coefficient templates after selected-distance quotienting,
+`D_A > D_B` versus `D_B > D_A` and
+`D_A + D_B > D_C + D_D` versus the reversed two-class sum.
+
+This is reusable-template guidance for future searches. It does not search new
+orders, certify any new pattern, or transfer either all-order obstruction to
+arbitrary selected-witness systems.
+
 ## Interpretation
 
 Safe claim:

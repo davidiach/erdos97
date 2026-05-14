@@ -108,6 +108,20 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         claim_scope="All-order obstruction for one fixed abstract C13 selected-witness pattern only.",
     ),
     AuditCommand(
+        ident="kalmanson_inverse_pair_templates",
+        command=(
+            "python",
+            "scripts/analyze_kalmanson_inverse_pair_templates.py",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Coefficient-template diagnostic for checked C13/C19 all-order "
+            "Kalmanson inverse-pair pilots; not a proof of Erdos Problem #97, "
+            "counterexample, or transfer to other selected-witness patterns."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_review_pending",
         command=("python", "scripts/check_n9_vertex_circle_exhaustive.py", "--assert-expected", "--json"),
         claim_scope="Review-pending n=9 selected-witness finite-case checker; not an official/global status update.",
