@@ -9,6 +9,7 @@ from scripts.check_block6_reversed_block_shuffle_vertex_circle_escape import (
     EXPECTED_CLEAN_INDICES,
     OUT,
     assert_expected,
+    check_artifact,
     payload,
     reversed_second_block_shuffle_orders,
 )
@@ -44,6 +45,15 @@ def test_reversed_block_shuffle_escape_artifact() -> None:
     assert "not a counterexample" in data["claim_scope"]
 
 
+def test_reversed_block_shuffle_escape_check_artifact_replay() -> None:
+    data = check_artifact()
+
+    assert data["summary"]["orders_with_clean_pruned_solution"] == 16
+    assert [record["index"] for record in data["clean_order_records"]] == (
+        EXPECTED_CLEAN_INDICES
+    )
+
+
 def test_reversed_block_shuffle_escape_cli_partial() -> None:
     result = subprocess.run(
         [
@@ -51,6 +61,25 @@ def test_reversed_block_shuffle_escape_cli_partial() -> None:
             "scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py",
             "--indices",
             "0,13",
+            "--json",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 0
+    assert result.stderr == ""
+
+
+def test_reversed_block_shuffle_escape_cli_check_replays_artifact() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py",
+            "--check",
+            "--assert-expected",
             "--json",
         ],
         cwd=ROOT,

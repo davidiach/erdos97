@@ -414,6 +414,15 @@ def _resolve_repo_path(path: Path) -> Path:
     return path if path.is_absolute() else ROOT / path
 
 
+def check_artifact(path: Path = OUT) -> dict[str, Any]:
+    """Replay the stored artifact without regenerating the full sweep."""
+
+    artifact_path = _resolve_repo_path(path)
+    data = json.loads(artifact_path.read_text(encoding="utf-8"))
+    assert_expected(data)
+    return data
+
+
 def _parse_indices(raw_indices: Sequence[str]) -> list[int] | None:
     if not raw_indices:
         return None
@@ -427,7 +436,14 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json", action="store_true", help="print full JSON payload")
     parser.add_argument("--write", action="store_true", help="write the artifact")
-    parser.add_argument("--check", action="store_true", help="compare with artifact")
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help=(
+            "replay the stored artifact; when combined with --write, compare "
+            "the regenerated payload with the artifact"
+        ),
+    )
     parser.add_argument("--out", type=Path, default=OUT, help="artifact path")
     parser.add_argument(
         "--assert-expected",
@@ -450,16 +466,19 @@ def main() -> int:
     if indices is not None and (args.write or args.check or args.assert_expected):
         parser.error("--indices is incompatible with --write, --check, and --assert-expected")
 
-    data = payload(indices=indices)
-    if args.assert_expected:
-        assert_expected(data)
     artifact_path = _resolve_repo_path(args.out)
-    if args.write:
-        write_json(data, artifact_path)
-    if args.check:
+    if args.check and not args.write:
+        data = check_artifact(artifact_path)
+    else:
+        data = payload(indices=indices)
+        if args.write:
+            write_json(data, artifact_path)
+    if args.check and args.write:
         checked = json.loads(artifact_path.read_text(encoding="utf-8"))
         if checked != data:
             raise AssertionError(f"artifact differs from generated payload: {artifact_path}")
+    if args.assert_expected:
+        assert_expected(data)
 
     if args.json:
         print(json.dumps(data, indent=2, sort_keys=True))
