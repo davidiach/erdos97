@@ -96,6 +96,20 @@ It verifies only that the checked-in artifacts agree on the same
 review-pending `184 = 158 + 26` frontier accounting and the same 16 motif
 families.
 
+The input-data audit command
+`scripts/check_n9_vertex_circle_input_audit.py` treats the checked-in
+exhaustive JSON as stored data:
+
+```bash
+python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json
+```
+
+It recomputes the row-0 choices directly as the 70 lexicographic 4-subsets of
+labels `1..8`, checks the stored witness lists and masks, and verifies the
+summary count arithmetic and no-overclaiming scope. It does not rerun the
+brancher, replay vertex-circle certificates, prove `n=9`, or complete the
+independent review.
+
 ## Commands
 
 Run the stable checker and assert the expected counts:

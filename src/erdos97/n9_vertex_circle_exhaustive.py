@@ -74,6 +74,18 @@ def bits(m: int) -> list[int]:
     return [idx for idx in range(N) if (m >> idx) & 1]
 
 
+def option_witnesses(center: int) -> list[list[int]]:
+    """Return selected-witness options for ``center`` as sorted label lists."""
+
+    return [list(MASK_BITS[m]) for m in OPTIONS[center]]
+
+
+def option_masks(center: int) -> list[int]:
+    """Return selected-witness option masks for ``center``."""
+
+    return list(OPTIONS[center])
+
+
 def in_open_arc(a: int, b: int, x: int) -> bool:
     """Return whether x lies strictly on the cyclic arc a -> b."""
     return ((x - a) % N) < ((b - a) % N) and x != a and x != b
@@ -345,6 +357,9 @@ def summary_payload() -> dict[str, object]:
         "n": N,
         "row_size": ROW_SIZE,
         "cyclic_order": list(ORDER),
+        "row0_choice_count_expected": len(OPTIONS[0]),
+        "row0_witnesses": option_witnesses(0),
+        "row0_masks": option_masks(0),
         "filters": [
             "two selected rows share at most two witnesses",
             "two-overlap source and witness chords cross in the cyclic order",

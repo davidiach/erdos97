@@ -391,6 +391,10 @@ selected-witness systems after the pair/crossing/count filters and kills all
 candidate repo-local finite-case extension only; it does not change the
 official/global falsifiable/open status, and it is not promoted beyond the
 current `n <= 8` source-of-truth result until independent review.
+The companion input-data audit
+`scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json`
+checks the stored row0 witness coverage and summary arithmetic without
+rerunning the brancher. It is a review aid only, not an `n=9` proof.
 
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)

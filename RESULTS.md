@@ -623,6 +623,13 @@ branching, finds 184 full assignments passing the pair/crossing/count filters,
 then classifies all 184 as exact vertex-circle obstructions: 158 self-edges and
 26 strict cycles.
 
+The companion input-data audit
+`scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json`
+recomputes the row-0 choices as the 70 lexicographic 4-subsets of labels
+`1..8` and checks the stored witness lists, masks, summary counts, and
+no-overclaiming scope. It does not rerun the brancher or replay the
+vertex-circle certificates.
+
 This is a candidate extension of the repo-local finite-case pipeline to `n=9`,
 but it is not yet the source-of-truth strongest result. The raw incoming bundle
 also contains 184-pattern/16-orbit and 102-certificate Kalmanson verifier

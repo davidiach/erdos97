@@ -36,6 +36,10 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json`
    connects the compact 16-skeleton proof-mining catalog to the same
    aggregate/simple-replay family accounting.
+   The input-data audit
+   `python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json`
+   now separately checks the stored row0 witness coverage and summary
+   arithmetic for the exhaustive artifact without rerunning the brancher.
 3. Continue the minimal fragile-cover bridge after the stored block-6
    vertex-circle full-extension audit
    `data/certificates/block6_fragile_vertex_circle_extension_audit.json`.
@@ -208,6 +212,10 @@ Use this queue when no more specific issue is selected.
    isolates the class `3`, `4`, and `5` duplicate, collinearity, and
    Groebner-y2 certificates. The remaining `n=8` audit gap is now external
    review of these focused checkers and the underlying artifact assumptions.
+   The first `n=9` input-data replay command,
+   `python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json`,
+   covers row0 choices and summary arithmetic only; the brancher, pruning
+   lemmas, and vertex-circle certificates still need review.
 
 ## Task CB-N9-T01 - Extract Vertex-Circle Self-Edge Template
 

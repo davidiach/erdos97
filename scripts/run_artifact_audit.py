@@ -184,6 +184,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         claim_scope="Review-pending n=9 selected-witness finite-case checker; not an official/global status update.",
     ),
     AuditCommand(
+        ident="n9_vertex_circle_input_audit",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_input_audit.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Input-data audit for the review-pending n=9 vertex-circle "
+            "artifact; checks stored row0 coverage and summary arithmetic "
+            "only, not a brancher rerun, proof of n=9, counterexample, or "
+            "official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_local_core_packet",
         command=(
             "python",
