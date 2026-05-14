@@ -146,6 +146,13 @@ terminal generator, so it is not all-extension/all-order block-6 closure and
 not a fragile-bridge proof; see
 `data/certificates/block6_terminal_crossing_vertex_circle_full_sweep.json`.
 
+The fixed-order block-6 probe then checks the natural order plus three
+non-natural cyclic orders. Each non-natural order has a legal terminal
+selected-row extension outside the natural-order generator, but all four
+fixed-order searches close under order-specific vertex-circle pruning. The
+probe is fixed-order diagnostic evidence only, not all-order closure; see
+`data/certificates/block6_fixed_order_vertex_circle_probe.json`.
+
 ### Bootstrap-core bridge
 
 Status: `LEMMA` / bridge fork.

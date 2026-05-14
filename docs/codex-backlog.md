@@ -41,7 +41,11 @@ Use this queue when no more specific issue is selected.
    row systems outside that natural-order terminal generator, so the next
    useful widening is a generator-independent all-order closure or a
    minimal/rich-class hypothesis that avoids fixing one selected row at each
-   center too early.
+   center too early. The fixed-order probe
+   `data/certificates/block6_fixed_order_vertex_circle_probe.json` confirms
+   this gap is concrete: three non-natural orders have terminal extensions
+   outside the natural-order generator, although all four probed fixed orders
+   still close under order-specific vertex-circle pruning.
 4. Use the bootstrap-core crosswalk and the bootstrap / vertex-circle overlay
    in `docs/bootstrap-core-crosswalk.md` and
    `docs/bootstrap-vertex-circle-overlay.md` to design a sharper condition.
