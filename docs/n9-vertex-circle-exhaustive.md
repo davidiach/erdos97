@@ -82,6 +82,20 @@ canonical family cycles.
 lemma-candidate crosswalk for proof mining. All of these are review-pending
 diagnostics only, not independent proofs and not status promotions.
 
+The audit command
+`scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py` checks the
+stored accounting chain from this exhaustive artifact to the motif
+classification and then to the aggregate/simple local-lemma replay artifacts:
+
+```bash
+python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json
+```
+
+This command does not rerun or independently review the exhaustive brancher.
+It verifies only that the checked-in artifacts agree on the same
+review-pending `184 = 158 + 26` frontier accounting and the same 16 motif
+families.
+
 ## Commands
 
 Run the stable checker and assert the expected counts:

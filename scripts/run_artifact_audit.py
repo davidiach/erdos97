@@ -276,6 +276,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_exhaustive_local_lemma_crosswalk",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Cross-artifact audit joining the review-pending n=9 exhaustive "
+            "count artifact to the local-lemma replay chain; not a proof of "
+            "n=9, counterexample, or independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_t01_self_edge_lemma_packet",
         command=(
             "python",

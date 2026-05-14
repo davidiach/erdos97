@@ -28,7 +28,10 @@ Use this queue when no more specific issue is selected.
    it is still a packet audit rather than an `n=9` proof. The crosswalk command
    `python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --json`
    compares that simple replay with the aggregate local-lemma scan
-   family-by-family.
+   family-by-family. The follow-up crosswalk
+   `python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json`
+   connects the same local-lemma accounting back to the review-pending
+   exhaustive count artifact and motif classification.
 3. Continue the minimal fragile-cover bridge after the stored block-6
    vertex-circle full-extension audit
    `data/certificates/block6_fragile_vertex_circle_extension_audit.json`.
