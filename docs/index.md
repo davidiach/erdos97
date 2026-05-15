@@ -335,6 +335,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n10-turn-row0-pilot.md`](n10-turn-row0-pilot.md): bounded `n=10`
   row0-index-0 turn-frontier pilot; finite bookkeeping only, not a proof of
   `n=10`.
+- [`n10-turn-row0-escape-self-edges.md`](n10-turn-row0-escape-self-edges.md):
+  compact row0-local self-edge templates for the four weak-turn SAT escapes
+  in the bounded `n=10` row0 pilot.
 - [`octagon-trap.html`](octagon-trap.html): interactive visualization of the
   isosceles-triangle count and octagon equality trap.
 - [`reproduction-log.md`](reproduction-log.md): fast, artifact, and exhaustive

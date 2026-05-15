@@ -2872,6 +2872,50 @@ artifacts:
       - counterexample to Erdos Problem #97
       - general proof of Erdos Problem #97
 
+  - id: n10_turn_row0_escape_self_edges
+    path: data/certificates/n10_turn_row0_escape_self_edges.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_n10_turn_row0_escape_self_edges.py
+    command: python scripts/check_n10_turn_row0_escape_self_edges.py --write --assert-expected
+    checker: scripts/check_n10_turn_row0_escape_self_edges.py
+    check_command: python scripts/check_n10_turn_row0_escape_self_edges.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    claim_scope: Derived diagnostic for the four weak-turn SAT escapes in the bounded n=10 row0-index-0 pilot; records only their row0-local vertex-circle self-edge templates, not a proof of n=10, not a complete n=10 search, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n10_turn_row0_escape_self_edges.v1
+      status: N10_ROW0_ESCAPE_SELF_EDGE_TEMPLATE_DIAGNOSTIC
+      trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+      source_artifact: data/certificates/n10_turn_row0_pilot.json
+      summary.source_turn_sat_escape_count: 4
+      summary.row0_self_edge_count: 4
+      summary.distinct_template_count: 4
+      summary.common_witness_order:
+        - 1
+        - 2
+        - 3
+        - 4
+      summary.common_equal_distance_class:
+        - 0
+        - 1
+      summary.row_counts.0: 4
+      summary.shared_endpoint_count_distribution.1: 4
+      summary.path_length_histogram.3: 1
+      summary.path_length_histogram.4: 1
+      summary.path_length_histogram.5: 1
+      summary.path_length_histogram.7: 1
+      provenance.command: python scripts/check_n10_turn_row0_escape_self_edges.py --write --assert-expected
+    forbidden_claims:
+      - n=10 is proved
+      - turn inequalities close n=10
+      - row0 pilot is a completeness result
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
   - id: bootstrap_core_crosswalk
     path: data/certificates/bootstrap_core_crosswalk.json
     kind: proof_mining_diagnostic_artifact

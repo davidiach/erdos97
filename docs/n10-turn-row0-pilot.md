@@ -59,4 +59,5 @@ are still killed by the existing vertex-circle self-edge filter.
 So the next proof-facing move should not be "turn inequalities alone scale to
 `n=10`." A realistic next step is to combine turn certificates with a compact
 vertex-circle self-edge template, or to mine the four weak-turn escapes for a
-small reusable obstruction.
+small reusable obstruction. The derived self-edge template artifact in
+`docs/n10-turn-row0-escape-self-edges.md` records that compact target.
