@@ -406,6 +406,31 @@ artifacts:
       - motif classification is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_vertex_circle_frontier_comparison
+    path: data/certificates/n9_vertex_circle_frontier_comparison.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/compare_n9_vertex_circle_frontier.py
+    command: python scripts/compare_n9_vertex_circle_frontier.py --assert-expected --write
+    checker: scripts/compare_n9_vertex_circle_frontier.py
+    check_command: python scripts/compare_n9_vertex_circle_frontier.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Review-pending comparison of exact n=9 local-core embeddings with recorded P18/C19 frontier vertex-circle behavior; not a proof of n=9, not a counterexample, not a transfer theorem, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      type: n9_vertex_circle_frontier_comparison_v1
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      scope: Compare exact n=9 local cores with P18 and C19 frontier vertex-circle behavior.
+      n9_local_core_artifact: data/certificates/n9_vertex_circle_local_cores.json
+    forbidden_claims:
+      - n=9 is proved
+      - exact core comparison is a transfer theorem
+      - P18 proves C19
+      - C19_skew is a counterexample
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_self_edge_path_join
     path: data/certificates/n9_vertex_circle_self_edge_path_join.json
     kind: certificate_diagnostic_artifact

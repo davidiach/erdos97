@@ -387,6 +387,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_frontier_comparison",
+        command=(
+            "python",
+            "scripts/compare_n9_vertex_circle_frontier.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Comparison of exact n=9 local-core embeddings against recorded "
+            "P18/C19 frontier patterns and vertex-circle behavior; not a "
+            "proof of n=9, counterexample, transfer theorem, or "
+            "official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_frontier_assignment_audit",
         command=(
             "python",

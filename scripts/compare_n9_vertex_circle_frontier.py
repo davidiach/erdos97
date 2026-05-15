@@ -20,6 +20,27 @@ from erdos97.n9_vertex_circle_frontier_comparison import (  # noqa: E402
 from erdos97.path_display import display_path  # noqa: E402
 
 DEFAULT_OUT = ROOT / "data" / "certificates" / "n9_vertex_circle_frontier_comparison.json"
+DEFAULT_ARTIFACT = DEFAULT_OUT
+
+
+def load_json(path: Path) -> object:
+    with path.open("r", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def artifact_check_errors(payload: object, artifact: Path) -> list[str]:
+    try:
+        checked = load_json(artifact)
+    except OSError as exc:
+        return [f"could not load {display_path(artifact, ROOT)}: {exc}"]
+    except json.JSONDecodeError as exc:
+        return [f"could not parse {display_path(artifact, ROOT)} as JSON: {exc}"]
+
+    if checked != payload:
+        return [
+            f"generated payload differs from {display_path(artifact, ROOT)}",
+        ]
+    return []
 
 
 def main() -> int:
@@ -27,12 +48,28 @@ def main() -> int:
     parser.add_argument("--json", action="store_true", help="print stable JSON")
     parser.add_argument("--write", action="store_true", help="write stable JSON artifact")
     parser.add_argument("--out", default=str(DEFAULT_OUT), help="path used by --write")
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="compare generated payload with --artifact",
+    )
+    parser.add_argument(
+        "--artifact",
+        default=str(DEFAULT_ARTIFACT),
+        help="artifact path used by --check",
+    )
     parser.add_argument("--assert-expected", action="store_true")
     args = parser.parse_args()
 
     payload = frontier_comparison_summary()
     if args.assert_expected:
         assert_expected_frontier_comparison(payload)
+    check_errors: list[str] = []
+    if args.check:
+        artifact = Path(args.artifact)
+        if not artifact.is_absolute():
+            artifact = ROOT / artifact
+        check_errors = artifact_check_errors(payload, artifact)
     if args.write:
         out = Path(args.out)
         out.parent.mkdir(parents=True, exist_ok=True)
@@ -51,8 +88,15 @@ def main() -> int:
             print(f"{result['pattern']} vertex-circle status: {result['status']}")
         if args.assert_expected:
             print("OK: frontier comparison counts verified")
+        if args.check and not check_errors:
+            print(f"OK: artifact is current at {display_path(artifact, ROOT)}")
         if args.write:
             print(f"wrote {display_path(args.out, ROOT)}")
+    if check_errors:
+        print("FAILED: n=9 vertex-circle frontier comparison check failed", file=sys.stderr)
+        for error in check_errors:
+            print(f"- {error}", file=sys.stderr)
+        return 1
     return 0
 
 

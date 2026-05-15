@@ -214,6 +214,18 @@ edge chains. It is stored-certificate bookkeeping only, not frontier coverage,
 brancher soundness, incidence-filter soundness, dihedral orbit bookkeeping, or
 a proof of `n=9`.
 
+Current frontier comparison:
+
+```bash
+python scripts/compare_n9_vertex_circle_frontier.py --check --assert-expected --json
+```
+
+This command checks the stored P18/C19 comparison artifact against the current
+local-core and vertex-circle helpers. It records zero exact n=9 local-core
+embeddings into the recorded P18 and C19 patterns, preserves the P18
+strict-cycle and C19 fixed-order pass guardrails, and does not prove `n=9`,
+provide a counterexample, or supply a transfer theorem.
+
 Current frontier-assignment audit:
 
 ```bash

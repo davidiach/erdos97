@@ -44,13 +44,25 @@ quotient-graph vertex-circle obstruction is not enough by itself.
 
 ## Reproduction
 
-Generate and check the comparison artifact:
+Check the stored comparison artifact:
+
+```bash
+python scripts/compare_n9_vertex_circle_frontier.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
+Regenerate the comparison artifact:
 
 ```bash
 python scripts/compare_n9_vertex_circle_frontier.py \
   --assert-expected \
   --write
 ```
+
+The check command is also registered in `scripts/run_artifact_audit.py` and
+`metadata/generated_artifacts.yaml` as a review-pending diagnostic artifact.
 
 Run the targeted artifact test:
 
