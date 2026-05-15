@@ -52,6 +52,10 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json`
    checks selected-distance quotient status agreement on the stored local-core
    and frontier rows.
+   The incidence-filter replay
+   `python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json`
+   checks the row-level two-overlap crossing, witness-pair cap, and
+   selected-indegree cap tables.
 3. Continue the minimal fragile-cover bridge after the stored block-6
    vertex-circle full-extension audit
    `data/certificates/block6_fragile_vertex_circle_extension_audit.json`.
@@ -241,6 +245,11 @@ Use this queue when no more specific issue is selected.
    covers selected-distance quotient status agreement on stored local-core and
    frontier rows only; branch coverage and strict-edge geometry remain separate
    review scopes.
+   The incidence-filter command,
+   `python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json`,
+   covers only row-level two-overlap crossing, witness-pair capacity, and
+   selected-indegree capacity; brancher replay and vertex-circle pruning remain
+   separate review scopes.
 
 ## Task CB-N9-T01 - Extract Vertex-Circle Self-Edge Template
 

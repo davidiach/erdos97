@@ -639,6 +639,11 @@ The strict-edge geometry audit
 checks that every candidate selected row produces exactly the proper-interval
 strict inequalities used by the checker, with `5,670` total local strict
 edges across 630 candidate rows. This is local rule verification only.
+The incidence-filter audit
+`scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json`
+checks the row-level two-overlap crossing table, witness-pair cap predicate,
+and selected-indegree cap predicate. This is row-filter implementation
+agreement only.
 The quotient-soundness audit
 `scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json`
 checks that the stored local-core rows and 184 stored frontier assignments get

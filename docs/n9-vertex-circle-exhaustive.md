@@ -110,6 +110,17 @@ summary count arithmetic and no-overclaiming scope. It does not rerun the
 brancher, replay vertex-circle certificates, prove `n=9`, or complete the
 independent review.
 
+The incidence-filter audit command checks the row-level two-overlap crossing,
+witness-pair cap, and selected-indegree cap tables:
+
+```bash
+python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
+```
+
+It recomputes the finite row-pair and row-mask predicates directly and compares
+them with the checker tables. It is a row-level filter audit only, not a
+brancher replay, strict-edge geometry audit, or quotient-soundness audit.
+
 The MRO branching replay command checks a separate fixed center order against
 the stored dynamic minimum-remaining-options artifact:
 
