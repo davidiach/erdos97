@@ -509,6 +509,7 @@ python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --chec
 python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t04_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t05_self_edge_lemma_packet.py --check --assert-expected --json
