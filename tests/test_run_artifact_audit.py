@@ -425,6 +425,18 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/check_n9_t01_self_edge_minireplay.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py "
+        "--check --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_t01_self_edge_minireplay.py "
+        "--check --assert-expected --json"
+    )
+    assert (
         "python scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py "
         "--check --assert-expected --json"
         in command_texts
@@ -440,14 +452,62 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/check_n9_t10_strict_cycle_minireplay.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
+    assert (
+        "python scripts/check_n9_t10_paired_square_entry.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py "
+        "--check --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_t10_strict_cycle_minireplay.py "
+        "--check --assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_t10_strict_cycle_minireplay.py "
+        "--check --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_t10_paired_square_entry.py "
+        "--check --assert-expected --json"
+    )
+    assert (
         "python scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py "
         "--check --assert-expected --json"
         in command_texts
     )
     assert (
+        "python scripts/check_n9_t11_strict_cycle_minireplay.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py "
+        "--check --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_t11_strict_cycle_minireplay.py "
+        "--check --assert-expected --json"
+    )
+    assert (
         "python scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py "
         "--check --assert-expected --json"
         in command_texts
+    )
+    assert (
+        "python scripts/check_n9_t12_strict_cycle_minireplay.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py "
+        "--check --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_t12_strict_cycle_minireplay.py "
+        "--check --assert-expected --json"
     )
     assert (
         "python scripts/check_n10_vertex_circle_singletons.py --assert-expected "
