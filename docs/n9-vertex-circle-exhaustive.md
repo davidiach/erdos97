@@ -110,6 +110,18 @@ summary count arithmetic and no-overclaiming scope. It does not rerun the
 brancher, replay vertex-circle certificates, prove `n=9`, or complete the
 independent review.
 
+The MRO branching replay command checks a separate fixed center order against
+the stored dynamic minimum-remaining-options artifact:
+
+```bash
+python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json
+```
+
+It closes the fixed-order vertex-circle-pruned search and reaches the same
+`184 = 158 + 26` no-vertex-circle frontier classification. It is a
+branch-order audit only, not a proof of the filters or a completed `n=9`
+review.
+
 ## Commands
 
 Run the stable checker and assert the expected counts:

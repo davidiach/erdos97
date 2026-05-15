@@ -200,6 +200,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_mro_branching_replay",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_mro_branching_replay.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Fixed-center-order replay audit for the review-pending n=9 "
+            "vertex-circle artifact; checks dynamic-MRO branching agreement "
+            "only, not filter soundness, proof of n=9, counterexample, or "
+            "official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_local_core_packet",
         command=(
             "python",

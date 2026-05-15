@@ -142,6 +142,19 @@ of the "no hidden row0 quotient" checklist item only; it does not rerun the
 brancher, replay vertex-circle certificates, prove `n=9`, or complete
 independent review.
 
+Current branching-order replay:
+
+```bash
+python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json
+```
+
+This command reruns the search with a fixed center order `0,1,...,8` after row
+`0`, reusing the same necessary-filter helpers. It checks that the fixed order
+also closes the vertex-circle-pruned search and reaches the same `184`
+pre-vertex-circle frontier classification as the dynamic MRO artifact. It does
+not prove the filters, independently replay vertex-circle geometry, prove
+`n=9`, or complete review.
+
 ## Priority 6 - mine a reusable vertex-circle lemma
 
 Target: `docs/n9-vertex-circle-obstruction-shapes.md` and
