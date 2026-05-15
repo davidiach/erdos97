@@ -230,7 +230,8 @@ result; independent review is required before any public theorem-style claim.
 The companion input-data audit checks the stored row0 witness coverage and
 summary arithmetic without rerunning the brancher. A fixed-center-order replay
 checks agreement with the dynamic minimum-remaining-options brancher but still
-does not prove the pruning lemmas.
+does not prove the pruning lemmas. A strict-edge geometry audit checks the
+local proper-interval inequality generator for all candidate selected rows.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
 An incoming `n=10` singleton-slice continuation is now recorded as a
@@ -447,6 +448,7 @@ python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --check-artifac
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_core_templates.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_frontier_motif_classification.py --check --assert-expected --json

@@ -122,6 +122,18 @@ It closes the fixed-order vertex-circle-pruned search and reaches the same
 branch-order audit only, not a proof of the filters or a completed `n=9`
 review.
 
+The strict-edge geometry audit command checks the local vertex-circle
+inequality generator:
+
+```bash
+python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
+```
+
+It independently enumerates proper interval containments for all 630 candidate
+selected rows and compares them with the checker strict-edge table. This is a
+local geometry-rule audit only, not selected-distance quotient or exhaustive
+coverage review.
+
 ## Commands
 
 Run the stable checker and assert the expected counts:

@@ -155,6 +155,18 @@ pre-vertex-circle frontier classification as the dynamic MRO artifact. It does
 not prove the filters, independently replay vertex-circle geometry, prove
 `n=9`, or complete review.
 
+Current strict-edge geometry audit:
+
+```bash
+python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
+```
+
+This command independently enumerates all proper interval containments for the
+630 candidate selected rows and compares them with the checker strict-edge
+table. It addresses the vertex-circle strict-edge generator only; it does not
+review selected-distance quotient soundness, branch coverage, the crossing
+filters, prove `n=9`, or complete review.
+
 ## Priority 6 - mine a reusable vertex-circle lemma
 
 Target: `docs/n9-vertex-circle-obstruction-shapes.md` and

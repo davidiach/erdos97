@@ -399,6 +399,10 @@ A fixed-center-order replay,
 `scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`,
 checks agreement with the dynamic minimum-remaining-options brancher on the
 closed search and 184-frontier classification. It is also a review aid only.
+The strict-edge geometry audit
+`scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json`
+checks the local proper-interval inequality generator for all 630 candidate
+selected rows, while leaving quotient and coverage review separate.
 
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)

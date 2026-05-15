@@ -44,6 +44,10 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`
    now reruns the same filters with fixed center order and checks agreement
    with the dynamic minimum-remaining-options artifact.
+   The strict-edge geometry replay
+   `python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json`
+   independently checks the proper-interval strict-edge generator for all
+   candidate selected rows.
 3. Continue the minimal fragile-cover bridge after the stored block-6
    vertex-circle full-extension audit
    `data/certificates/block6_fragile_vertex_circle_extension_audit.json`.
@@ -224,6 +228,10 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`,
    covers the branch-order checklist item only; the pruning lemmas and
    vertex-circle certificates still need separate review.
+   The strict-edge geometry command,
+   `python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json`,
+   covers the local vertex-circle strict-edge generator only; quotient
+   soundness and exhaustive coverage still need separate review.
 
 ## Task CB-N9-T01 - Extract Vertex-Circle Self-Edge Template
 
