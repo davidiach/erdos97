@@ -167,6 +167,18 @@ table. It addresses the vertex-circle strict-edge generator only; it does not
 review selected-distance quotient soundness, branch coverage, the crossing
 filters, prove `n=9`, or complete review.
 
+Current quotient-soundness audit:
+
+```bash
+python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json
+```
+
+This command checks stored local-core rows, stored full frontier assignments,
+and stored transformed frontier cores against three quotient/status views: the
+exhaustive checker, the reusable quotient replay helper, and a small direct
+quotient/status replay. It does not audit branch coverage, strict-edge
+geometry, prove `n=9`, or complete review.
+
 ## Priority 6 - mine a reusable vertex-circle lemma
 
 Target: `docs/n9-vertex-circle-obstruction-shapes.md` and

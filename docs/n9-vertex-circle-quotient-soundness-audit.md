@@ -101,6 +101,22 @@ either obstruction is already a contradiction.
 
 ## One-off Audits
 
+The audit is now replayable:
+
+```bash
+python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json
+```
+
+The script compares three status implementations on the stored local-core
+packet and the stored 184 frontier assignments: the repo-native exhaustive
+checker, the reusable quotient replay helper, and a small direct
+quotient/status replay inside the audit command. It also checks the transformed
+core rows stored in the frontier-classification artifact. This is an
+implementation-agreement audit only, not branch coverage or geometry review.
+
+The following transcript snippets are the historical one-off checks that the
+replay command now stabilizes.
+
 The local-core replay bundle was checked directly:
 
 ```text

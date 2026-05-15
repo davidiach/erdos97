@@ -275,6 +275,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_quotient_soundness",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_quotient_soundness.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Selected-distance quotient status agreement audit for stored "
+            "n=9 local-core rows and frontier assignments; not row coverage, "
+            "brancher coverage, strict-edge geometry, proof of n=9, "
+            "counterexample, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_self_edge_path_join",
         command=(
             "python",

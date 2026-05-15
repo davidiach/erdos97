@@ -403,6 +403,11 @@ The strict-edge geometry audit
 `scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json`
 checks the local proper-interval inequality generator for all 630 candidate
 selected rows, while leaving quotient and coverage review separate.
+The quotient-soundness audit
+`scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json`
+checks selected-distance quotient status agreement on the stored local-core
+rows, stored full frontier assignments, and stored transformed frontier cores.
+It leaves branch coverage and strict-edge geometry review separate.
 
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)
