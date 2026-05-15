@@ -556,11 +556,12 @@ python scripts/check_n9_vertex_circle_local_lemma_simple_replay.py --check --ass
 ```
 
 The focused mini-replay artifacts are even smaller packet-specific inputs. The
-T02 replay now checks the four stored self-edge family packets without sharing
-the aggregate quotient helper:
+T02 and T03 replays now check their stored self-edge family packets without
+sharing the aggregate quotient helper:
 
 ```bash
 python scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json
+python scripts/check_n9_t03_self_edge_minireplay.py --check --assert-expected --json
 ```
 
 For a self-edge family, the replay verifies that every equality-path step is a

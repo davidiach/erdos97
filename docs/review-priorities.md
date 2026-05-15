@@ -383,6 +383,7 @@ Next steps:
 - use the focused mini-replay commands
   `scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json`,
   `scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json`,
+  `scripts/check_n9_t03_self_edge_minireplay.py --check --assert-expected --json`,
   `scripts/check_n9_t10_strict_cycle_minireplay.py --check --assert-expected --json`,
   `scripts/check_n9_t11_strict_cycle_minireplay.py --check --assert-expected --json`,
   and
