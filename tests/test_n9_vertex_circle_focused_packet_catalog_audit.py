@@ -9,6 +9,7 @@ from scripts.check_n9_vertex_circle_focused_packet_catalog_audit import (
     DEFAULT_LOCAL_LEMMAS,
     DEFAULT_PACKET_PATHS,
     DEFAULT_TEMPLATE_CATALOG,
+    DEFAULT_TEMPLATE_PACKET_PATHS,
     assert_expected_focused_packet_catalog_audit,
     focused_packet_catalog_audit_payload,
     load_json,
@@ -38,6 +39,9 @@ def test_focused_packet_catalog_audit_counts_and_scope() -> None:
     assert summary["covered_family_count"] == 16
     assert summary["status_counts"] == {"self_edge": 9, "strict_cycle": 3}
     assert summary["status_assignment_counts"] == {"self_edge": 158, "strict_cycle": 26}
+    assert summary["source_template_packet_count"] == 12
+    assert summary["source_template_mismatch_count"] == 0
+    assert summary["source_template_allowed_omitted_field_count"] == 14
 
 
 def test_focused_packet_catalog_audit_rejects_packet_coverage_drift(
@@ -96,6 +100,52 @@ def test_focused_packet_catalog_audit_rejects_local_lemma_crosscheck_drift(
     assert "T01: aggregate focused crosscheck mismatch" in payload["validation_errors"]
     summary = payload["focused_packet_catalog_audit"]
     assert summary["focused_crosscheck_mismatch_count"] == 1
+
+
+def test_focused_packet_catalog_audit_rejects_source_template_record_drift(
+    tmp_path: Path,
+) -> None:
+    t01_path = tmp_path / "t01_packet.json"
+    t01_packet = load_json(DEFAULT_PACKET_PATHS["T01"])
+    t01_packet["source_template_record"]["strict_edge_count"] = 999
+    _write_json(t01_path, t01_packet)
+    packet_paths = dict(DEFAULT_PACKET_PATHS)
+    packet_paths["T01"] = t01_path
+
+    payload = focused_packet_catalog_audit_payload(packet_paths=packet_paths)
+
+    assert payload["validation_status"] == "failed"
+    assert (
+        "T01: source_template_record stored field mismatch: ['strict_edge_count']"
+        in payload["validation_errors"]
+    )
+    summary = payload["focused_packet_catalog_audit"]
+    assert summary["source_template_mismatch_count"] == 1
+    assert summary["source_template_field_mismatch_count"] == 1
+
+
+def test_focused_packet_catalog_audit_rejects_source_template_packet_drift(
+    tmp_path: Path,
+) -> None:
+    self_edge_path = tmp_path / "self_edge_template_packet.json"
+    self_edge_packet = load_json(DEFAULT_TEMPLATE_PACKET_PATHS["self_edge"])
+    self_edge_packet["templates"][0]["strict_edge_count"] = 999
+    _write_json(self_edge_path, self_edge_packet)
+    template_packet_paths = dict(DEFAULT_TEMPLATE_PACKET_PATHS)
+    template_packet_paths["self_edge"] = self_edge_path
+
+    payload = focused_packet_catalog_audit_payload(
+        template_packet_paths=template_packet_paths,
+    )
+
+    assert payload["validation_status"] == "failed"
+    assert (
+        "T01: source_template_record stored field mismatch: ['strict_edge_count']"
+        in payload["validation_errors"]
+    )
+    summary = payload["focused_packet_catalog_audit"]
+    assert summary["source_template_mismatch_count"] == 1
+    assert summary["source_template_field_mismatch_count"] == 1
 
 
 def test_focused_packet_catalog_audit_cli_json() -> None:

@@ -350,8 +350,9 @@ Next steps:
   coverage of stored packets rather than an independent `n=9` proof;
 - use
   `scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --json`
-  to cross-check the 12 focused packet JSON files against the template catalog
-  and aggregate focused-note ledger before reviewing packet soundness;
+  to cross-check the 12 focused packet JSON files against the source template
+  packets, template catalog, and aggregate focused-note ledger before reviewing
+  packet soundness;
 - use `data/certificates/n9_vertex_circle_local_lemma_simple_replay.json` to
   replay the aggregate local-template coverage from stored packet JSON without
   sharing the main quotient-replay helper;

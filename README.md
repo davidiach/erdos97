@@ -257,8 +257,8 @@ A local-core subset audit checks that each compact local-core packet is an
 actual subset of its full motif representative and already obstructs by a
 direct quotient replay.
 A focused packet catalog audit checks that the 12 proof-facing focused
-local-lemma packets agree with the template catalog and aggregate
-focused-note crosschecks; this is packet/catalog bookkeeping only.
+local-lemma packets agree with the source template packets, template catalog,
+and aggregate focused-note crosschecks; this is packet/catalog bookkeeping only.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
 An incoming `n=10` singleton-slice continuation is now recorded as a
