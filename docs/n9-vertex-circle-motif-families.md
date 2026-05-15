@@ -49,6 +49,14 @@ canonical representatives and orbit sizes, and checks that the 184 stored
 classification rows are exactly the disjoint orbit union. This is still
 review-pending bookkeeping, not a proof of `n=9`.
 
+The motif-obstruction audit
+`scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json`
+treats the 16 stored representatives as input and replays their representative
+obstruction records. It recomputes the selected-distance quotient classes and
+all vertex-circle strict interval edges, then checks the stored self-edge
+conflict plus equality path or the stored strict-cycle edge chain. This is a
+stored-certificate audit only, not frontier coverage or a proof of `n=9`.
+
 The self-edge equality-path join
 `data/certificates/n9_vertex_circle_self_edge_path_join.json` then restricts
 to the 158 self-edge assignments and stores the transformed equality path that
@@ -163,6 +171,11 @@ python scripts/check_n9_vertex_circle_frontier_motif_classification.py \
   --json
 
 python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py \
+  --check \
+  --assert-expected \
+  --json
+
+python scripts/check_n9_vertex_circle_motif_obstruction_audit.py \
   --check \
   --assert-expected \
   --json

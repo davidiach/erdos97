@@ -73,6 +73,10 @@ Use this queue when no more specific issue is selected.
    independently checks the stored 16 motif representatives, their labelled
    dihedral orbits, and the assignment-to-orbit maps in the frontier
    classification artifact.
+   The motif-obstruction audit
+   `python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json`
+   checks the stored representative self-edge paths and strict-cycle records
+   for those 16 motif families with a small local quotient replay.
    The frontier-assignment audit
    `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`
    checks the stored 184 frontier assignments directly against row shape,
@@ -296,6 +300,12 @@ Use this queue when no more specific issue is selected.
    covers only stored motif-family orbit bookkeeping and assignment-to-orbit
    agreement; frontier coverage, filter soundness, vertex-circle geometry, and
    quotient soundness remain separate review scopes.
+   The motif-obstruction audit command,
+   `python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json`,
+   covers only stored representative obstruction records for the 16 motif
+   families; frontier coverage, brancher soundness, incidence-filter
+   soundness, dihedral orbit bookkeeping, and full n=9 review remain separate
+   scopes.
    The frontier-assignment command,
    `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`,
    covers only the stored 184 frontier rows under those base predicates;

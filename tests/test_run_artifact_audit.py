@@ -263,6 +263,11 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/check_n9_vertex_circle_motif_obstruction_audit.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
+    assert (
         "python scripts/check_n9_vertex_circle_frontier_assignment_audit.py "
         "--check --assert-expected --json"
         in command_texts
@@ -286,6 +291,13 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
     )
     assert ordered_command_texts.index(
         "python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py "
+        "--check --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_motif_obstruction_audit.py "
+        "--check --assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_motif_obstruction_audit.py "
         "--check --assert-expected --json"
     ) < ordered_command_texts.index(
         "python scripts/check_n9_vertex_circle_frontier_assignment_audit.py "

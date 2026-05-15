@@ -176,6 +176,20 @@ union with stable canonical label maps. This is orbit bookkeeping only, not
 frontier coverage, filter soundness, strict-edge geometry, quotient soundness,
 or a completed `n=9` review.
 
+The motif-obstruction audit command checks the stored representative
+certificates for those 16 motif families:
+
+```bash
+python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json
+```
+
+It recomputes the selected-distance quotient classes and vertex-circle
+strict interval inequalities with a small local implementation, then verifies
+each stored self-edge equality path or strict-cycle edge chain. This is
+stored-certificate bookkeeping only, not frontier coverage, brancher
+soundness, incidence-filter soundness, dihedral orbit bookkeeping, or a
+completed `n=9` review.
+
 The frontier-assignment audit command checks the stored 184 frontier rows
 directly against the base incidence/order filters:
 

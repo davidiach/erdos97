@@ -201,6 +201,19 @@ crosswalks the 184 stored classification rows back to the disjoint motif
 orbits. It is orbit bookkeeping only, not frontier coverage, filter soundness,
 or a proof of `n=9`.
 
+Current motif-obstruction audit:
+
+```bash
+python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json
+```
+
+This command treats the stored 16 motif representatives as inputs, recomputes
+selected-distance quotient classes and vertex-circle strict interval edges,
+and checks the stored representative self-edge equality paths or strict-cycle
+edge chains. It is stored-certificate bookkeeping only, not frontier coverage,
+brancher soundness, incidence-filter soundness, dihedral orbit bookkeeping, or
+a proof of `n=9`.
+
 Current frontier-assignment audit:
 
 ```bash

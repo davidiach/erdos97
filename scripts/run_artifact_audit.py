@@ -355,6 +355,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_motif_obstruction_audit",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_motif_obstruction_audit.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Stored-certificate audit for the 16 n=9 motif representative "
+            "self-edge paths and strict-cycle records; not frontier coverage, "
+            "brancher soundness, proof of n=9, counterexample, or "
+            "official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_frontier_assignment_audit",
         command=(
             "python",
