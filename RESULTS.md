@@ -656,6 +656,11 @@ checks all 94,024 nonempty selected-row subsets of the stored 184 frontier
 assignments. It finds zero checker/replay status mismatches and zero stored
 extension violations for obstructed subsets. This is stored-frontier pruning
 diagnostics only.
+The frontier-assignment audit
+`scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`
+checks the stored 184 frontier assignments directly. It records zero row-shape,
+center-coverage, crossing, witness-pair-cap, and selected-indegree-cap errors;
+this is stored-frontier diagnostics only.
 
 This is a candidate extension of the repo-local finite-case pipeline to `n=9`,
 but it is not yet the source-of-truth strongest result. The raw incoming bundle

@@ -56,6 +56,10 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json`
    checks the row-level two-overlap crossing, witness-pair cap, and
    selected-indegree cap tables.
+   The frontier-assignment audit
+   `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`
+   checks the stored 184 frontier assignments directly against row shape,
+   row-pair crossing, witness-pair capacity, and selected-indegree capacity.
    The partial-pruning replay
    `python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`
    checks all nonempty selected-row subsets of the stored 184 frontier
@@ -255,6 +259,11 @@ Use this queue when no more specific issue is selected.
    covers only row-level two-overlap crossing, witness-pair capacity, and
    selected-indegree capacity; brancher replay and vertex-circle pruning remain
    separate review scopes.
+   The frontier-assignment command,
+   `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`,
+   covers only the stored 184 frontier rows under those base predicates;
+   brancher coverage, strict-edge geometry, quotient soundness, and pruning
+   remain separate review scopes.
 
 ## Task CB-N9-T01 - Extract Vertex-Circle Self-Edge Template
 

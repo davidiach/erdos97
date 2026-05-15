@@ -153,6 +153,18 @@ witness-pair cap predicate, and selected-indegree cap predicate. It does not
 rerun the brancher, audit strict-edge geometry, review selected-distance
 quotient soundness, prove `n=9`, or complete review.
 
+Current frontier-assignment audit:
+
+```bash
+python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json
+```
+
+This command checks the stored 184 frontier assignments directly for row
+shape, center coverage, pairwise row-intersection caps, two-overlap crossing,
+witness-pair capacity, and selected-indegree capacity. It does not prove
+frontier coverage, brancher soundness, strict-edge geometry, selected-distance
+quotient soundness, `n=9`, or complete review.
+
 Current branching-order replay:
 
 ```bash

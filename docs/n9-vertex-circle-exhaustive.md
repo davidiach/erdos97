@@ -121,6 +121,19 @@ It recomputes the finite row-pair and row-mask predicates directly and compares
 them with the checker tables. It is a row-level filter audit only, not a
 brancher replay, strict-edge geometry audit, or quotient-soundness audit.
 
+The frontier-assignment audit command checks the stored 184 frontier rows
+directly against the base incidence/order filters:
+
+```bash
+python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json
+```
+
+It verifies row shape, center coverage, pairwise row-intersection cap,
+two-overlap crossing, witness-pair capacity, and selected-indegree capacity on
+the stored frontier assignments. This is stored-frontier diagnostics only, not
+frontier coverage, brancher soundness, strict-edge geometry, quotient
+soundness, or a completed `n=9` review.
+
 The MRO branching replay command checks a separate fixed center order against
 the stored dynamic minimum-remaining-options artifact:
 
