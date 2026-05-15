@@ -567,6 +567,25 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/check_n9_t02_self_edge_minireplay.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py "
+        "--check --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_t02_self_edge_minireplay.py "
+        "--check --assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_t02_self_edge_minireplay.py "
+        "--check --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py "
+        "--check --assert-expected --json"
+    )
+    assert (
         "python scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py "
         "--check --assert-expected --json"
         in command_texts
