@@ -339,6 +339,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_dihedral_orbit_audit",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_dihedral_orbit_audit.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Second-source dihedral orbit bookkeeping audit for the stored "
+            "n=9 motif-family and frontier-classification artifacts; not "
+            "frontier coverage, filter soundness, proof of n=9, "
+            "counterexample, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_frontier_assignment_audit",
         command=(
             "python",

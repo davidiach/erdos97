@@ -441,7 +441,12 @@ branch-choice implementation diagnostics only. The frontier-coverage crosswalk
 reruns the dynamic no-vertex-circle brancher and compares the generated 184
 complete selected-row assignments, in order, with the stored frontier
 motif-classification artifact. It is coverage bookkeeping against the current
-brancher, not filter soundness or a proof of `n=9`.
+brancher, not filter soundness or a proof of `n=9`. The dihedral-orbit audit
+`scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`
+then treats the stored motif and frontier-classification artifacts as inputs,
+replays the dihedral relabeling action independently, and checks canonical
+representatives, orbit sizes, orbit disjointness, and assignment-to-orbit maps.
+It is orbit bookkeeping only, not frontier coverage or a proof of `n=9`.
 
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)

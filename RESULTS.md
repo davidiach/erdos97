@@ -676,7 +676,11 @@ implementation diagnostics only. The frontier-coverage crosswalk
 reruns the dynamic no-vertex-circle brancher and verifies that its 184
 complete selected-row assignments match the stored frontier classification
 artifact row-for-row, with zero status mismatches. This is stored-frontier
-coverage bookkeeping only.
+coverage bookkeeping only. The dihedral-orbit audit
+`scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`
+independently replays the 18 dihedral relabelings for the stored motif-family
+representatives and cross-checks the 184 frontier-classification rows against
+those disjoint orbits. It is orbit bookkeeping only.
 
 This is a candidate extension of the repo-local finite-case pipeline to `n=9`,
 but it is not yet the source-of-truth strongest result. The raw incoming bundle
