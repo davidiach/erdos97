@@ -232,6 +232,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_dynamic_mro_choices",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_dynamic_mro_choices.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Dynamic minimum-remaining-options choice audit for n=9 center "
+            "selection and all remaining-center option counts; not filter "
+            "soundness, strict-edge geometry, proof of n=9, counterexample, "
+            "or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_mro_branching_replay",
         command=(
             "python",

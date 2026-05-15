@@ -165,6 +165,18 @@ against a direct implementation. It does not prove dynamic-MRO branch coverage,
 strict-edge geometry, selected-distance quotient soundness, `n=9`, or complete
 review.
 
+Current dynamic-MRO choice audit:
+
+```bash
+python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json
+```
+
+This command replays the actual minimum-remaining-options branch choice with
+and without vertex-circle pruning. It recomputes all unassigned-center option
+lists directly at every reached state and checks first-minimum tie breaking.
+It does not prove filter soundness, strict-edge geometry, selected-distance
+quotient soundness, `n=9`, or complete review.
+
 Current frontier-assignment audit:
 
 ```bash

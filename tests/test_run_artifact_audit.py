@@ -182,6 +182,11 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--assert-expected --json"
         in command_texts
     )
+    assert (
+        "python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check "
+        "--assert-expected --json"
+        in command_texts
+    )
     assert ordered_command_texts.index(
         "python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json"
     ) < ordered_command_texts.index(
@@ -204,6 +209,13 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
     )
     assert ordered_command_texts.index(
         "python scripts/check_n9_vertex_circle_branch_options.py --check "
+        "--assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check "
+        "--assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check "
         "--assert-expected --json"
     ) < ordered_command_texts.index(
         "python scripts/check_n9_vertex_circle_mro_branching_replay.py --check "
