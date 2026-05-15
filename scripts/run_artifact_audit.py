@@ -1141,6 +1141,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bridge_lemma_frontier",
+        command=(
+            "python",
+            "scripts/check_bridge_lemma_frontier.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Finite n=8/n=9 ear-orderability and obstruction cross-tab for "
+            "Bridge Lemma A' proof mining; not a proof of the bridge, not a "
+            "proof of Erdos Problem #97, not a counterexample, and not an "
+            "official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="block6_fragile_vertex_circle_extension",
         command=(
             "python",
