@@ -1,0 +1,81 @@
+from __future__ import annotations
+
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+from erdos97 import n9_vertex_circle_exhaustive as n9
+from erdos97.vertex_circle_quotient_replay import parse_selected_rows
+from scripts.check_n9_vertex_circle_quotient_soundness import (
+    EXPECTED_FRONTIER_CORE,
+    EXPECTED_FRONTIER_FULL,
+    EXPECTED_LOCAL_CORE,
+    assert_expected_quotient_soundness,
+    direct_quotient_result,
+    quotient_soundness_payload,
+)
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_direct_quotient_result_matches_checker_for_sample_rows() -> None:
+    rows = parse_selected_rows(
+        [
+            [0, 1, 2, 3, 8],
+            [1, 0, 2, 4, 7],
+            [8, 0, 1, 4, 5],
+        ]
+    )
+    direct = direct_quotient_result(n9.N, n9.ORDER, rows)
+
+    assert direct.status == "self_edge"
+    assert direct.selected_row_count == 3
+    assert direct.strict_edge_count == 27
+    assert direct.self_edge_count > 0
+    assert direct.row_equality_component_violations == 0
+
+
+def test_quotient_soundness_expected_counts_and_scope() -> None:
+    payload = quotient_soundness_payload()
+
+    assert_expected_quotient_soundness(payload)
+    assert payload["validation_status"] == "passed"
+    assert payload["local_core_packet"]["row_set_count"] == EXPECTED_LOCAL_CORE["row_set_count"]
+    assert (
+        payload["frontier_full_assignments"]["selected_row_total"]
+        == EXPECTED_FRONTIER_FULL["selected_row_total"]
+    )
+    assert (
+        payload["frontier_core_assignments"]["spoke_pairs_checked"]
+        == EXPECTED_FRONTIER_CORE["spoke_pairs_checked"]
+    )
+    assert "strict-edge geometry" in payload["claim_scope"]
+    assert "counterexample" in payload["claim_scope"]
+    assert "official/global status update" in payload["claim_scope"]
+
+
+def test_quotient_soundness_cli_json() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_quotient_soundness.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    parsed = json.loads(result.stdout)
+    assert parsed["validation_status"] == "passed"
+    assert parsed["local_core_packet"]["status_counts"] == {
+        "self_edge": 13,
+        "strict_cycle": 3,
+    }
+    assert parsed["frontier_full_assignments"]["strict_edge_count_histogram"] == {
+        "81": 184
+    }

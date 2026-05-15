@@ -134,6 +134,17 @@ selected rows and compares them with the checker strict-edge table. This is a
 local geometry-rule audit only, not selected-distance quotient or exhaustive
 coverage review.
 
+The quotient-soundness audit command checks selected-distance quotient status
+agreement on the stored local-core and frontier rows:
+
+```bash
+python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json
+```
+
+It compares the exhaustive checker, the reusable quotient replay helper, and a
+small direct quotient/status replay. This is implementation agreement only, not
+branch coverage, strict-edge geometry, or a completed `n=9` review.
+
 ## Commands
 
 Run the stable checker and assert the expected counts:

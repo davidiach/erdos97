@@ -639,6 +639,12 @@ The strict-edge geometry audit
 checks that every candidate selected row produces exactly the proper-interval
 strict inequalities used by the checker, with `5,670` total local strict
 edges across 630 candidate rows. This is local rule verification only.
+The quotient-soundness audit
+`scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json`
+checks that the stored local-core rows and 184 stored frontier assignments get
+the same selected-distance quotient status from the exhaustive checker, the
+reusable replay helper, and a small direct replay. This is implementation
+agreement only.
 
 This is a candidate extension of the repo-local finite-case pipeline to `n=9`,
 but it is not yet the source-of-truth strongest result. The raw incoming bundle

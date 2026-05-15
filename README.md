@@ -231,7 +231,9 @@ The companion input-data audit checks the stored row0 witness coverage and
 summary arithmetic without rerunning the brancher. A fixed-center-order replay
 checks agreement with the dynamic minimum-remaining-options brancher but still
 does not prove the pruning lemmas. A strict-edge geometry audit checks the
-local proper-interval inequality generator for all candidate selected rows.
+local proper-interval inequality generator for all candidate selected rows. A
+quotient-soundness audit checks selected-distance quotient status agreement on
+the stored local-core and frontier rows.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
 An incoming `n=10` singleton-slice continuation is now recorded as a
@@ -452,6 +454,7 @@ python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-e
 python scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_core_templates.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_frontier_motif_classification.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_self_edge_path_join.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_self_edge_template_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_strict_cycle_path_join.py --check --assert-expected --json
