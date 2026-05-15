@@ -661,6 +661,11 @@ The frontier-assignment audit
 checks the stored 184 frontier assignments directly. It records zero row-shape,
 center-coverage, crossing, witness-pair-cap, and selected-indegree-cap errors;
 this is stored-frontier diagnostics only.
+The branch-option audit
+`scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`
+checks 520,598 no-vertex-circle fixed-order option contexts and finds zero
+helper/direct option mismatches and zero maintained-count mismatches. This is
+branch-option implementation diagnostics only.
 
 This is a candidate extension of the repo-local finite-case pipeline to `n=9`,
 but it is not yet the source-of-truth strongest result. The raw incoming bundle

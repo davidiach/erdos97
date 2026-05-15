@@ -56,6 +56,10 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json`
    checks the row-level two-overlap crossing, witness-pair cap, and
    selected-indegree cap tables.
+   The branch-option audit
+   `python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`
+   checks fixed-order no-vertex-circle helper options and maintained count
+   arrays against a direct predicate implementation.
    The frontier-assignment audit
    `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`
    checks the stored 184 frontier assignments directly against row shape,
@@ -259,6 +263,11 @@ Use this queue when no more specific issue is selected.
    covers only row-level two-overlap crossing, witness-pair capacity, and
    selected-indegree capacity; brancher replay and vertex-circle pruning remain
    separate review scopes.
+   The branch-option command,
+   `python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`,
+   covers only fixed-order no-vertex-circle helper-option agreement and
+   maintained count arrays; dynamic-MRO coverage and vertex-circle pruning
+   remain separate review scopes.
    The frontier-assignment command,
    `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`,
    covers only the stored 184 frontier rows under those base predicates;
