@@ -23,6 +23,12 @@ DEFAULT_TEMPLATE_CATALOG = (
 DEFAULT_LOCAL_LEMMAS = (
     ROOT / "data" / "certificates" / "n9_vertex_circle_local_lemmas.json"
 )
+DEFAULT_TEMPLATE_PACKET_PATHS = {
+    "self_edge": ROOT / "data" / "certificates" / "n9_vertex_circle_self_edge_template_packet.json",
+    "strict_cycle": (
+        ROOT / "data" / "certificates" / "n9_vertex_circle_strict_cycle_template_packet.json"
+    ),
+}
 DEFAULT_PACKET_PATHS = {
     "T01": ROOT / "data" / "certificates" / "n9_vertex_circle_t01_self_edge_lemma_packet.json",
     "T02": ROOT / "data" / "certificates" / "n9_vertex_circle_t02_self_edge_lemma_packet.json",
@@ -45,9 +51,9 @@ CLAIM_SCOPE = (
     "JSON-only cross-artifact audit for the review-pending n=9 vertex-circle "
     "focused local-lemma packets. It checks that T01..T12 packet coverage, "
     "source catalog records, and aggregate focused-note crosschecks agree with "
-    "the template lemma catalog and local-lemma scan. It does not prove packet "
-    "soundness, local-lemma completeness, frontier coverage, n=9, a "
-    "counterexample, or any official/global status update."
+    "the template lemma catalog, source template packets, and local-lemma scan. "
+    "It does not prove packet soundness, local-lemma completeness, frontier "
+    "coverage, n=9, a counterexample, or any official/global status update."
 )
 PROVENANCE = {
     "generator": "scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py",
@@ -62,6 +68,15 @@ EXPECTED_STATUS_COUNTS = {"self_edge": 9, "strict_cycle": 3}
 EXPECTED_STATUS_ASSIGNMENT_COUNTS = {"self_edge": 158, "strict_cycle": 26}
 EXPECTED_FAMILY_COUNT = 16
 EXPECTED_ASSIGNMENT_COUNT = 184
+ALLOWED_SOURCE_TEMPLATE_OMISSIONS = {
+    template_id: {"family_records"} for template_id in EXPECTED_TEMPLATE_IDS
+}
+ALLOWED_SOURCE_TEMPLATE_OMISSIONS["T01"].update(
+    {"orbit_size_sum", "shared_endpoint_counts"}
+)
+EXPECTED_ALLOWED_SOURCE_TEMPLATE_OMISSION_COUNT = sum(
+    len(fields) for fields in ALLOWED_SOURCE_TEMPLATE_OMISSIONS.values()
+)
 
 
 def load_json(path: Path) -> Any:
@@ -74,6 +89,7 @@ def focused_packet_catalog_audit_payload(
     *,
     template_catalog_path: Path = DEFAULT_TEMPLATE_CATALOG,
     local_lemmas_path: Path = DEFAULT_LOCAL_LEMMAS,
+    template_packet_paths: Mapping[str, Path] | None = None,
     packet_paths: Mapping[str, Path] | None = None,
 ) -> dict[str, Any]:
     """Return a JSON-only focused-packet/catalog cross-audit payload."""
@@ -84,13 +100,27 @@ def focused_packet_catalog_audit_payload(
     }
     catalog_path = _resolve(template_catalog_path)
     local_path = _resolve(local_lemmas_path)
+    resolved_template_packets = {
+        kind: _resolve(path)
+        for kind, path in (template_packet_paths or DEFAULT_TEMPLATE_PACKET_PATHS).items()
+    }
     catalog = load_json(catalog_path)
     local_lemmas = load_json(local_path)
+    template_packets = {
+        kind: load_json(path) for kind, path in resolved_template_packets.items()
+    }
     packets = {
         template_id: load_json(path) for template_id, path in resolved_packets.items()
     }
     errors: list[str] = []
-    summary = _audit(catalog, local_lemmas, packets, resolved_packets, errors)
+    summary = _audit(
+        catalog,
+        local_lemmas,
+        template_packets,
+        packets,
+        resolved_packets,
+        errors,
+    )
     return {
         "schema": SCHEMA,
         "status": STATUS,
@@ -114,6 +144,22 @@ def focused_packet_catalog_audit_payload(
                 "status": local_lemmas.get("status") if isinstance(local_lemmas, Mapping) else None,
                 "trust": local_lemmas.get("trust") if isinstance(local_lemmas, Mapping) else None,
             },
+            *[
+                {
+                    "path": display_path(path, ROOT),
+                    "role": f"{kind.replace('_', '-')} template packet",
+                    "schema": template_packets.get(kind, {}).get("schema")
+                    if isinstance(template_packets.get(kind), Mapping)
+                    else None,
+                    "status": template_packets.get(kind, {}).get("status")
+                    if isinstance(template_packets.get(kind), Mapping)
+                    else None,
+                    "trust": template_packets.get(kind, {}).get("trust")
+                    if isinstance(template_packets.get(kind), Mapping)
+                    else None,
+                }
+                for kind, path in sorted(resolved_template_packets.items())
+            ],
         ],
         "packet_artifacts": [
             {
@@ -135,8 +181,9 @@ def focused_packet_catalog_audit_payload(
         "validation_errors": errors,
         "interpretation": (
             "A passed audit says the stored focused packets, template catalog, "
-            "and aggregate local-lemma focused-note crosschecks agree on the "
-            "T01..T12 coverage ledger. This is packet/catalog bookkeeping only."
+            "source template packets, and aggregate local-lemma focused-note "
+            "crosschecks agree on the T01..T12 coverage ledger. This is "
+            "packet/catalog bookkeeping only."
         ),
         "provenance": dict(PROVENANCE),
     }
@@ -182,11 +229,18 @@ def assert_expected_focused_packet_catalog_audit(payload: Mapping[str, Any]) -> 
         "missing_packet_template_count": 0,
         "extra_packet_template_count": 0,
         "source_catalog_mismatch_count": 0,
-        "source_template_mismatch_count": 0,
         "catalog_coverage_mismatch_count": 0,
         "focused_crosscheck_mismatch_count": 0,
+        "source_template_packet_count": 12,
         "duplicate_assignment_id_count": 0,
         "duplicate_family_id_count": 0,
+        "source_template_mismatch_count": 0,
+        "source_template_field_mismatch_count": 0,
+        "source_template_extra_field_count": 0,
+        "source_template_unexpected_missing_field_count": 0,
+        "source_template_allowed_omitted_field_count": (
+            EXPECTED_ALLOWED_SOURCE_TEMPLATE_OMISSION_COUNT
+        ),
     }
     for key, value in expected.items():
         if summary.get(key) != value:
@@ -196,17 +250,23 @@ def assert_expected_focused_packet_catalog_audit(payload: Mapping[str, Any]) -> 
 def _audit(
     catalog: Any,
     local_lemmas: Any,
+    template_packets: Mapping[str, Any],
     packets: Mapping[str, Any],
     packet_paths: Mapping[str, Path],
     errors: list[str],
 ) -> dict[str, Any]:
     catalog_records = _catalog_records(catalog, errors)
     focused_records = _focused_records(local_lemmas, errors)
+    source_template_records = _source_template_records(template_packets, errors)
     packet_records: list[dict[str, Any]] = []
     source_catalog_mismatch_count = 0
-    source_template_mismatch_count = 0
     catalog_coverage_mismatch_count = 0
     focused_crosscheck_mismatch_count = 0
+    source_template_mismatch_count = 0
+    source_template_field_mismatch_count = 0
+    source_template_extra_field_count = 0
+    source_template_unexpected_missing_field_count = 0
+    source_template_allowed_omitted_field_count = 0
     assignment_ids: list[str] = []
     family_ids: list[str] = []
     status_counts: Counter[str] = Counter()
@@ -242,10 +302,30 @@ def _audit(
                 catalog_coverage_mismatch_count += 1
                 errors.append(f"{template_id}: packet coverage does not match catalog")
             source_template = packet.get("source_template_record")
-            template_key = catalog_record.get("template_key")
-            if not isinstance(source_template, Mapping) or source_template.get("template_key") != template_key:
+            template_comparison = _source_template_comparison(
+                template_id,
+                source_template,
+                source_template_records.get(template_id),
+            )
+            record["source_template_stored_field_count"] = template_comparison[
+                "stored_field_count"
+            ]
+            record["source_template_allowed_omitted_fields"] = template_comparison[
+                "allowed_omitted_fields"
+            ]
+            source_template_field_mismatch_count += len(
+                template_comparison["field_mismatches"]
+            )
+            source_template_extra_field_count += len(template_comparison["extra_fields"])
+            source_template_unexpected_missing_field_count += len(
+                template_comparison["unexpected_missing_fields"]
+            )
+            source_template_allowed_omitted_field_count += len(
+                template_comparison["allowed_omitted_fields"]
+            )
+            if not template_comparison["matches"]:
                 source_template_mismatch_count += 1
-                errors.append(f"{template_id}: source_template_record template_key mismatch")
+                errors.extend(template_comparison["errors"])
 
         focused = focused_records.get(template_id)
         if focused is None:
@@ -266,6 +346,7 @@ def _audit(
         "packet_count": len(packet_records),
         "catalog_template_count": len(catalog_records),
         "focused_crosscheck_count": len(focused_records),
+        "source_template_packet_count": len(source_template_records),
         "covered_assignment_count": len(assignment_ids),
         "covered_family_count": len(set(family_ids)),
         "template_ids": [record["template_id"] for record in packet_records],
@@ -275,6 +356,14 @@ def _audit(
         "extra_packet_template_count": len(extra_template_ids),
         "source_catalog_mismatch_count": source_catalog_mismatch_count,
         "source_template_mismatch_count": source_template_mismatch_count,
+        "source_template_field_mismatch_count": source_template_field_mismatch_count,
+        "source_template_extra_field_count": source_template_extra_field_count,
+        "source_template_unexpected_missing_field_count": (
+            source_template_unexpected_missing_field_count
+        ),
+        "source_template_allowed_omitted_field_count": (
+            source_template_allowed_omitted_field_count
+        ),
         "catalog_coverage_mismatch_count": catalog_coverage_mismatch_count,
         "focused_crosscheck_mismatch_count": focused_crosscheck_mismatch_count,
         "duplicate_assignment_id_count": duplicate_assignment_id_count,
@@ -320,6 +409,30 @@ def _focused_records(local_lemmas: Any, errors: list[str]) -> dict[str, Mapping[
         if template_id in records:
             errors.append(f"duplicate focused template id: {template_id}")
         records[template_id] = item
+    return records
+
+
+def _source_template_records(
+    template_packets: Mapping[str, Any],
+    errors: list[str],
+) -> dict[str, Mapping[str, Any]]:
+    records: dict[str, Mapping[str, Any]] = {}
+    for kind, payload in sorted(template_packets.items()):
+        if not isinstance(payload, Mapping):
+            errors.append(f"{kind}: template packet must be an object")
+            continue
+        templates = payload.get("templates")
+        if not isinstance(templates, list):
+            errors.append(f"{kind}: template packet templates must be a list")
+            continue
+        for item in templates:
+            if not isinstance(item, Mapping):
+                errors.append(f"{kind}: template packet records must be objects")
+                continue
+            template_id = str(item.get("template_id"))
+            if template_id in records:
+                errors.append(f"duplicate source template id: {template_id}")
+            records[template_id] = item
     return records
 
 
@@ -371,6 +484,68 @@ def _packet_record(
         "family_orbit_sizes": dict(sorted(family_orbit_sizes.items())),
         "orbit_size_sum": orbit_size_sum,
         "core_size": int(packet.get("core_size", -1)),
+    }
+
+
+def _source_template_comparison(
+    template_id: str,
+    source_template: Any,
+    source_record: Mapping[str, Any] | None,
+) -> dict[str, Any]:
+    if not isinstance(source_template, Mapping):
+        return {
+            "matches": False,
+            "errors": [f"{template_id}: source_template_record must be an object"],
+            "stored_field_count": 0,
+            "field_mismatches": [],
+            "extra_fields": [],
+            "unexpected_missing_fields": [],
+            "allowed_omitted_fields": [],
+        }
+    if source_record is None:
+        return {
+            "matches": False,
+            "errors": [f"{template_id}: missing source template packet record"],
+            "stored_field_count": len(source_template),
+            "field_mismatches": [],
+            "extra_fields": sorted(set(source_template)),
+            "unexpected_missing_fields": [],
+            "allowed_omitted_fields": [],
+        }
+
+    expected_keys = set(source_record)
+    stored_keys = set(source_template)
+    allowed_omitted = ALLOWED_SOURCE_TEMPLATE_OMISSIONS.get(template_id, set())
+    missing = expected_keys - stored_keys
+    unexpected_missing = sorted(missing - allowed_omitted)
+    allowed_missing = sorted(missing & allowed_omitted)
+    extra_fields = sorted(stored_keys - expected_keys)
+    field_mismatches = sorted(
+        key for key in stored_keys & expected_keys if source_template[key] != source_record[key]
+    )
+    errors = []
+    if field_mismatches:
+        errors.append(
+            f"{template_id}: source_template_record stored field mismatch: "
+            f"{field_mismatches!r}"
+        )
+    if extra_fields:
+        errors.append(
+            f"{template_id}: source_template_record extra fields: {extra_fields!r}"
+        )
+    if unexpected_missing:
+        errors.append(
+            f"{template_id}: source_template_record unexpected missing fields: "
+            f"{unexpected_missing!r}"
+        )
+    return {
+        "matches": not errors,
+        "errors": errors,
+        "stored_field_count": len(source_template),
+        "field_mismatches": field_mismatches,
+        "extra_fields": extra_fields,
+        "unexpected_missing_fields": unexpected_missing,
+        "allowed_omitted_fields": allowed_missing,
     }
 
 

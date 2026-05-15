@@ -537,10 +537,10 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
         claim_scope=(
             "JSON-only cross-artifact audit for the 12 focused n=9 "
-            "local-lemma packets against the template catalog and aggregate "
-            "focused-note crosschecks; not packet soundness, local-lemma "
-            "completeness, frontier coverage, proof of n=9, counterexample, "
-            "or official/global status update."
+            "local-lemma packets against the source template packets, "
+            "template catalog, and aggregate focused-note crosschecks; not "
+            "packet soundness, local-lemma completeness, frontier coverage, "
+            "proof of n=9, counterexample, or official/global status update."
         ),
     ),
     AuditCommand(

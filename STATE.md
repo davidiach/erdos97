@@ -461,10 +461,11 @@ direct quotient replay. It is compact-core bookkeeping only, not local-lemma
 completeness or a proof of `n=9`.
 The focused packet catalog audit
 `scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --json`
-checks that the 12 focused local-lemma packets, template catalog records, and
-aggregate focused-note crosschecks agree on the same `184` assignments and
-16 families. It is packet/catalog bookkeeping only, not packet soundness,
-local-lemma completeness, frontier coverage, or a proof of `n=9`.
+checks that the 12 focused local-lemma packets, source template packet records,
+template catalog records, and aggregate focused-note crosschecks agree on the
+same `184` assignments and 16 families. It is packet/catalog bookkeeping only,
+not packet soundness, local-lemma completeness, frontier coverage, or a proof
+of `n=9`.
 
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)
