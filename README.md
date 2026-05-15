@@ -44,6 +44,10 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/relation-skeleton-catalog.md`](docs/relation-skeleton-catalog.md).
 - For the review-pending `n=10` singleton-slice finite-case draft, read
   [`docs/n10-vertex-circle-singleton-slices.md`](docs/n10-vertex-circle-singleton-slices.md).
+- For the bounded `n=10` row0 turn-frontier pilot and its weak-turn escape
+  self-edge templates, read
+  [`docs/n10-turn-row0-pilot.md`](docs/n10-turn-row0-pilot.md) and
+  [`docs/n10-turn-row0-escape-self-edges.md`](docs/n10-turn-row0-escape-self-edges.md).
 - For a compact human-readable proof-note draft excluding bad convex octagons,
   read [`docs/n8-geometric-proof.md`](docs/n8-geometric-proof.md).
 - For an interactive visualization of that proof idea, open
@@ -575,6 +579,7 @@ python scripts/check_block6_reversed_block_two_stage_closure.py --check --assert
 python scripts/check_block6_forward_block_two_orientation_closure.py --check --assert-expected --json
 python scripts/check_block6_oriented_block_reversal_closure.py --check --assert-expected --json
 python scripts/check_n10_turn_row0_pilot.py --check --assert-expected --json
+python scripts/check_n10_turn_row0_escape_self_edges.py --check --assert-expected --json
 python scripts/check_n10_singleton_input_audit.py --check --assert-expected --json
 python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
 python scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json

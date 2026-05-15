@@ -780,6 +780,17 @@ certificate format before any public theorem-style use. It is not promoted to
 the source-of-truth strongest result. See
 `docs/n10-vertex-circle-singleton-slices.md`.
 
+The bounded `n=10` row0-index-0 turn pilot in
+`data/certificates/n10_turn_row0_pilot.json` is finite bookkeeping only. It
+records 160 raw assignments in the first row0 slice: 156 have weak-turn Farkas
+certificates, and the four weak-turn SAT escapes are all killed by row0-local
+vertex-circle self-edges. The derived artifact
+`data/certificates/n10_turn_row0_escape_self_edges.json` records those four
+first self-edge templates compactly. This is proof-mining evidence only, not a
+complete n=10 search, not a proof of `n=10`, and not a counterexample. See
+`docs/n10-turn-row0-pilot.md` and
+`docs/n10-turn-row0-escape-self-edges.md`.
+
 The row-circle Ptolemy diagnostic in
 `docs/row-circle-ptolemy-nlp.md` adds the Ptolemy equality forced by each
 selected witness quadruple being concyclic around its center. It numerically

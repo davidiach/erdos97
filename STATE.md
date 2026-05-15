@@ -505,6 +505,14 @@ the n=9 counts and spot-checks row0 singleton IDs `0`, `63`, and `125`, but the
 n=10 package is an audit target only and is not promoted to the source-of-truth
 finite-case result.
 
+The bounded `n=10` row0-index-0 turn pilot remains finite bookkeeping only:
+turn inequalities kill 156 of 160 raw assignments, while the four weak-turn SAT
+escapes are all killed by row0-local vertex-circle self-edge templates. The
+derived template artifact records those four first self-edges compactly; it is
+not a proof of `n=10`, not a complete `n=10` search, and not a counterexample.
+See `docs/n10-turn-row0-pilot.md` and
+`docs/n10-turn-row0-escape-self-edges.md`.
+
 ## Best saved near-miss
 
 The best saved near-miss is still the historical `B12_3x4_danzer_lift`
