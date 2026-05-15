@@ -121,6 +121,20 @@ It recomputes the finite row-pair and row-mask predicates directly and compares
 them with the checker tables. It is a row-level filter audit only, not a
 brancher replay, strict-edge geometry audit, or quotient-soundness audit.
 
+The branch-option audit command checks the branch helper against a direct
+implementation on fixed-order no-vertex-circle search states:
+
+```bash
+python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json
+```
+
+It walks 520,598 nonterminal option contexts, compares
+`valid_options_for_center` with direct row-pair crossing, witness-pair
+capacity, and selected-indegree predicates, and also compares maintained count
+arrays with direct recomputation. This is branch-option implementation
+diagnostics only, not dynamic-MRO branch coverage, strict-edge geometry,
+quotient soundness, or a completed `n=9` review.
+
 The frontier-assignment audit command checks the stored 184 frontier rows
 directly against the base incidence/order filters:
 

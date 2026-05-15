@@ -240,6 +240,9 @@ nonempty selected-row subsets of the stored 184 frontier assignments for
 monotone obstruction persistence and checker/replay status agreement only.
 A frontier-assignment audit checks the stored frontier rows directly against
 the base row-shape, crossing, witness-pair, and selected-indegree predicates.
+A branch-option audit compares the fixed-order branch helper options and
+maintained count arrays against a direct recomputation on every
+no-vertex-circle fixed-order search state.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
 An incoming `n=10` singleton-slice continuation is now recorded as a
@@ -456,6 +459,7 @@ python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --check-artifac
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json

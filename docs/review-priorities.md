@@ -153,6 +153,18 @@ witness-pair cap predicate, and selected-indegree cap predicate. It does not
 rerun the brancher, audit strict-edge geometry, review selected-distance
 quotient soundness, prove `n=9`, or complete review.
 
+Current branch-option audit:
+
+```bash
+python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json
+```
+
+This command walks the no-vertex-circle fixed-order search states and compares
+the helper `valid_options_for_center` predicate and maintained count arrays
+against a direct implementation. It does not prove dynamic-MRO branch coverage,
+strict-edge geometry, selected-distance quotient soundness, `n=9`, or complete
+review.
+
 Current frontier-assignment audit:
 
 ```bash

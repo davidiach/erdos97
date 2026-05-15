@@ -216,6 +216,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_branch_options",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_branch_options.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Fixed-order branch-option predicate audit for n=9 helper "
+            "options and maintained count arrays; not dynamic-MRO branch "
+            "coverage, strict-edge geometry, proof of n=9, counterexample, "
+            "or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_mro_branching_replay",
         command=(
             "python",
