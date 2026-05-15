@@ -453,6 +453,12 @@ treats the stored motif representatives as input and verifies their stored
 self-edge equality paths or strict-cycle edge chains by recomputing quotient
 classes and strict interval edges. It is stored-certificate bookkeeping only,
 not frontier coverage, brancher soundness, or a proof of `n=9`.
+The local-core subset audit
+`scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`
+checks that the compact local-core packet rows are exact subsets of the stored
+full motif representatives and already force the same obstruction status by
+direct quotient replay. It is compact-core bookkeeping only, not local-lemma
+completeness or a proof of `n=9`.
 
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)

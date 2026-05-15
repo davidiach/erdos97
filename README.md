@@ -253,6 +253,9 @@ checks orbit sizes, disjointness, and assignment-to-orbit maps.
 A motif-obstruction audit then treats those 16 stored representatives as
 input and verifies their stored self-edge equality paths or strict-cycle edge
 records with a small local quotient replay.
+A local-core subset audit checks that each compact local-core packet is an
+actual subset of its full motif representative and already obstructs by a
+direct quotient replay.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
 An incoming `n=10` singleton-slice continuation is now recorded as a
@@ -475,6 +478,7 @@ python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-e
 python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_core_templates.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_frontier_motif_classification.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json

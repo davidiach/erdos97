@@ -97,6 +97,13 @@ most 6 selected rows. Its template diagnostic groups those 16 local cores into
 12 replay-derived shape buckets: 9 self-edge templates and 3 strict-cycle
 templates. These buckets are review aids for lemma mining; they are not an
 independent n=9 proof path.
+The local-core subset audit
+`scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`
+treats the motif-family artifact and compact local-core packet as inputs. It
+checks that each compact core is a literal subset of its full motif
+representative and that the compact rows alone still force the recorded
+self-edge or strict-cycle obstruction. This is cross-artifact bookkeeping
+only, not a local-lemma completeness theorem.
 
 The derived catalog
 `data/certificates/n9_vertex_circle_template_lemma_catalog.json` puts those 12
@@ -176,6 +183,11 @@ python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py \
   --json
 
 python scripts/check_n9_vertex_circle_motif_obstruction_audit.py \
+  --check \
+  --assert-expected \
+  --json
+
+python scripts/check_n9_vertex_circle_local_core_subset_audit.py \
   --check \
   --assert-expected \
   --json
