@@ -185,9 +185,74 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_bridge_lemma_frontier.py --check "
         "--assert-expected --json"
     )
-    assert ordered_command_texts.index(
+    bootstrap_bridge_commands = (
+        "python scripts/check_bootstrap_core_crosswalk.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_vertex_circle_overlay.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_forcing_targets.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_row_pressure.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_closure_exposed.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_one_outside.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_outside_pair.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_activation_requirements.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_bridge_target_map.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_hard_strict_endpoints.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_open_connector_pair.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_relation_sufficient_rows.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_81_3_closure_target.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_81_3_rich_triple_contract.py "
+        "--check --assert-expected --json",
+        "python scripts/check_bootstrap_t12_81_3_order_escape.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_81_3_escape_candidates.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_81_3_escape_one_row_drop.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_81_3_escape_two_row_drop.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_81_3_escape_full_neighborhood.py "
+        "--check --assert-expected --json",
+        "python scripts/check_bootstrap_t12_81_3_escape_auxiliary_csp.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py "
+        "--check --assert-expected --json",
+        "python scripts/check_bootstrap_t12_81_8_singleton_support_audit.py "
+        "--check --assert-expected --json",
+        "python scripts/check_bootstrap_t12_151_6_outside_pair_audit.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_151_singleton_support_audit.py --check "
+        "--assert-expected --json",
+        "python scripts/check_closure_activation_negative_controls.py --check "
+        "--assert-expected --json",
+    )
+    for command in bootstrap_bridge_commands:
+        assert command in command_texts
+
+    previous_command = (
         "python scripts/check_bridge_lemma_frontier.py --check "
         "--assert-expected --json"
+    )
+    for command in bootstrap_bridge_commands:
+        assert ordered_command_texts.index(previous_command) < ordered_command_texts.index(
+            command
+        )
+        previous_command = command
+    assert ordered_command_texts.index(
+        bootstrap_bridge_commands[-1]
     ) < ordered_command_texts.index(
         "python scripts/check_block6_fragile_vertex_circle_extension.py "
         "--check --assert-expected --json"

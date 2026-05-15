@@ -1173,6 +1173,397 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_core_crosswalk",
+        command=(
+            "python",
+            "scripts/check_bootstrap_core_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Bootstrap-core rank and private-halo capacity crosswalk for "
+            "selected fixed-row frontier motifs; not a proof of the bridge, "
+            "not a proof of Erdos Problem #97, not a counterexample, and not "
+            "a global status update."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_vertex_circle_overlay",
+        command=(
+            "python",
+            "scripts/check_bootstrap_vertex_circle_overlay.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Overlay of the two non-ear-orderable n=9 bootstrap-core rows "
+            "with the review-pending vertex-circle strict-cycle chain; not a "
+            "proof of n=9, the bridge, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_forcing_targets",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_forcing_targets.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "T12/F16 forcing-target ledger for the two tight n=9 "
+            "bootstrap-core rows; not a proof that missing rows are forced, "
+            "not a proof of n=9, the bridge, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_row_pressure",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_row_pressure.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Row-pressure diagnostic for the two tight n=9 bootstrap/T12 "
+            "records; not a proof that missing rows are forced, not a proof "
+            "of n=9, the bridge, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_closure_exposed",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_closure_exposed.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Closure-exposed-row packet for the two tight n=9 bootstrap/T12 "
+            "records; not a proof that missing rows are forced, not a proof "
+            "of n=9, the bridge, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_one_outside",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_one_outside.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "One-outside-label packet for the two tight n=9 bootstrap/T12 "
+            "records; not a proof that missing rows are forced, not a proof "
+            "of n=9, the bridge, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_outside_pair",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_outside_pair.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Outside-pair packet for the two tight n=9 bootstrap/T12 records; "
+            "not a proof that the missing row is forced, not a proof of n=9, "
+            "the bridge, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_activation_requirements",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_activation_requirements.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Role-sensitive T12/F16 activation-support requirement diagnostic "
+            "for the two tight n=9 bootstrap-core rows; not a row-forcing, "
+            "n=9, bridge, or counterexample claim."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_bridge_target_map",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_bridge_target_map.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Joined T12/F16 bridge-target map for the two tight n=9 "
+            "bootstrap-core rows; not a proof that missing rows are forced, "
+            "not a proof of n=9, the bridge, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_hard_strict_endpoints",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_hard_strict_endpoints.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Hard strict-endpoint diagnostic for the two tight n=9 "
+            "bootstrap-core rows; not a proof that endpoints or missing rows "
+            "are forced, not a proof of n=9, the bridge, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_open_connector_pair",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_open_connector_pair.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Open connector-pair diagnostic for the two tight n=9 "
+            "bootstrap-core rows; not a proof that endpoints or missing rows "
+            "are forced, not a proof of n=9, the bridge, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_relation_sufficient_rows",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_relation_sufficient_rows.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Relation-sufficient row diagnostic for the two tight n=9 "
+            "bootstrap-core rows; not a proof that endpoints or missing rows "
+            "are forced, not a proof of n=9, the bridge, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_81_3_closure_target",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_closure_target.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Focused 81:3 full-row closure target diagnostic; not a proof "
+            "that the row is forced, not a proof of n=9, the bridge, or a "
+            "counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_81_3_rich_triple_contract",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_rich_triple_contract.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Focused 81:3 rich-triple connector contract diagnostic; proves "
+            "only the local conditional from a genuine rich class containing "
+            "witnesses 0 and 1, not rich-class existence or row forcing."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_81_3_order_escape",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_order_escape.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Focused 81:3 order-resolved fixed-row escape diagnostic; not "
+            "genuine rich-class order, not row forcing, not a proof of n=9, "
+            "the bridge, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_81_3_escape_candidates",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_escape_candidates.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Relaxed 81:3 escape-candidate scan preserving seven source-81 "
+            "rows outside centers 3 and 6; not genuine rich-class order, row "
+            "forcing, an n=9 proof, a bridge proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_81_3_escape_one_row_drop",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_escape_one_row_drop.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "One-row-drop relaxation of the 81:3 escape-candidate scan; not "
+            "genuine rich-class order, row forcing, an n=9 proof, a bridge "
+            "proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_81_3_escape_two_row_drop",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_escape_two_row_drop.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Two-row-drop relaxation of the 81:3 escape-candidate scan; not "
+            "genuine rich-class order, row forcing, an n=9 proof, a bridge "
+            "proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_81_3_escape_full_neighborhood",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_escape_full_neighborhood.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Full-neighborhood CSP relaxation of the 81:3 escape-candidate "
+            "scan; not genuine rich-class order, row forcing, an n=9 proof, "
+            "a bridge proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_81_3_escape_auxiliary_csp",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_escape_auxiliary_csp.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Auxiliary-rich-class CSP relaxation of the 81:3 escape scan; "
+            "not genuine rich-class order, row forcing, an n=9 proof, a "
+            "bridge proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_81_3_trigger_uniqueness",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Same-center disjointness audit for specified 81:3 supply and "
+            "connector trigger families; not genuine rich-class order, row "
+            "forcing, an n=9 proof, a bridge proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_81_3_escape_rich_support_csp",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Rich-support auxiliary CSP for the 81:3 pre-3 label-6 escape; "
+            "not support existence, row forcing, an n=9 proof, a bridge "
+            "proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_81_8_singleton_support_audit",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_8_singleton_support_audit.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Source-81 row-8 singleton-support activation-row audit; not "
+            "singleton-support existence, row forcing, an n=9 proof, a bridge "
+            "proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_151_6_outside_pair_audit",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_outside_pair_audit.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Source-151 row-6 outside-pair activation-row audit; not "
+            "outside-pair support existence, row forcing, an n=9 proof, a "
+            "bridge proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_151_singleton_support_audit",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_singleton_support_audit.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Source-151 singleton-support activation-row audit for rows 5 and "
+            "8; not singleton-support existence, row forcing, an n=9 proof, "
+            "a bridge proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="closure_activation_negative_controls",
+        command=(
+            "python",
+            "scripts/check_closure_activation_negative_controls.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Abstract rich-class closure activation negative controls only; "
+            "not a Euclidean realization, not a proof of n=9, not a proof of "
+            "the bootstrap bridge, and not a proof of Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
         ident="block6_fragile_vertex_circle_extension",
         command=(
             "python",
