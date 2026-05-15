@@ -1,6 +1,6 @@
 # n=9 Vertex-circle Partial-pruning Audit
 
-Status: `REVIEW_PENDING_DIAGNOSTIC_ONLY`.
+Status: `REVIEW_PENDING_PARTIAL_PRUNING_AUDIT`.
 
 This note audits one narrow pruning question in the repo-native `n=9`
 vertex-circle exhaustive checker: once a partial assignment already has a
@@ -74,7 +74,7 @@ else:
     counts[f"partial_{status}"] += 1
 ```
 
-A one-off static audit reported:
+An earlier one-off static audit reported:
 
 ```text
 vertex_circle_status lines: 192-226
@@ -95,7 +95,44 @@ It does not prove the geometric vertex-circle strict-chord lemma, does not
 audit the pair/crossing/count filters, does not independently replay the 184
 pre-vertex-circle assignments, and does not prove the full `n=9` finite case.
 
+## Stored-frontier Replay
+
+The command
+`scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`
+turns the monotonicity note into a stored-frontier diagnostic. It scans every
+nonempty subset of selected rows from the 184 stored pre-vertex-circle frontier
+assignments in
+`data/certificates/n9_vertex_circle_frontier_motif_classification.json`.
+
+The replay checks:
+
+- 184 stored assignments;
+- 94,024 nonempty row subsets;
+- 58,606 obstructed subsets;
+- zero checker/replay status mismatches;
+- zero cases where an obstructed subset extends to a stored full assignment
+  that is vertex-circle clean.
+
+The subset status counts are:
+
+```text
+ok:           35418
+self_edge:    24890
+strict_cycle: 33716
+```
+
+This does not prove frontier coverage, brancher soundness, strict-edge
+geometry, selected-distance quotient soundness, `n=9`, a counterexample, or
+any official/global status update. It is a reproducibility check for the
+partial-pruning step on the stored frontier only.
+
 ## Commands
+
+Run the stored-frontier partial-pruning audit:
+
+```bash
+python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json
+```
 
 Run the exhaustive checker and the targeted artifact test:
 
@@ -104,4 +141,3 @@ python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected
 
 python -m pytest tests/test_n9_vertex_circle_exhaustive.py -q -m "artifact"
 ```
-

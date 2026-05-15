@@ -650,6 +650,12 @@ checks that the stored local-core rows and 184 stored frontier assignments get
 the same selected-distance quotient status from the exhaustive checker, the
 reusable replay helper, and a small direct replay. This is implementation
 agreement only.
+The partial-pruning audit
+`scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`
+checks all 94,024 nonempty selected-row subsets of the stored 184 frontier
+assignments. It finds zero checker/replay status mismatches and zero stored
+extension violations for obstructed subsets. This is stored-frontier pruning
+diagnostics only.
 
 This is a candidate extension of the repo-local finite-case pipeline to `n=9`,
 but it is not yet the source-of-truth strongest result. The raw incoming bundle

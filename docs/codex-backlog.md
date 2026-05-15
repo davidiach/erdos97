@@ -56,6 +56,11 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json`
    checks the row-level two-overlap crossing, witness-pair cap, and
    selected-indegree cap tables.
+   The partial-pruning replay
+   `python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`
+   checks all nonempty selected-row subsets of the stored 184 frontier
+   assignments for monotone obstruction persistence and checker/replay status
+   agreement only.
 3. Continue the minimal fragile-cover bridge after the stored block-6
    vertex-circle full-extension audit
    `data/certificates/block6_fragile_vertex_circle_extension_audit.json`.
