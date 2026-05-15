@@ -106,6 +106,18 @@ backtracking.
 
 ## One-off Audit
 
+The audit is now replayable together with the other row-level incidence
+filters:
+
+```bash
+python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
+```
+
+The command recomputes the selected-indegree formula, local cap predicate,
+update roundtrip, and label frequency histogram from the stored checker tables.
+The transcript below records the historical one-off counts now stabilized by
+that command.
+
 A one-off audit checked the formula, every unique row-mask shape, every local
 count profile in `{0,1,2,3,4,5}^4` for every unique row mask, and the
 increment/decrement roundtrip.

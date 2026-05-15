@@ -75,6 +75,18 @@ belong to `S_i cap S_j`.
 
 ## One-off Audit
 
+The audit is now replayable together with the other row-level incidence
+filters:
+
+```bash
+python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
+```
+
+The command recomputes the two-overlap crossing table for every pair of
+centers and every pair of selected-row masks, then compares it with the
+checker compatibility table. The transcript below records the historical
+one-off counts now stabilized by that command.
+
 A one-off predicate audit compared the checker with the shared
 `incidence_filters.chords_cross_in_order` implementation on all nonagon chord
 pairs and recomputed the row-pair compatibility rule for every pair of centers

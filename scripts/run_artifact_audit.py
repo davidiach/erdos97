@@ -200,6 +200,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_incidence_filters",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_incidence_filters.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Row-level incidence filter audit for n=9 two-overlap crossing, "
+            "witness-pair cap, and selected-indegree cap; not brancher "
+            "replay, strict-edge geometry, quotient soundness, proof of n=9, "
+            "counterexample, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_mro_branching_replay",
         command=(
             "python",

@@ -82,6 +82,18 @@ backtracking.
 
 ## One-off Audit
 
+The audit is now replayable together with the other row-level incidence
+filters:
+
+```bash
+python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
+```
+
+The command recomputes the row-pair indices, local cap predicate, update
+roundtrip, and witness-pair frequency histogram from the stored checker tables.
+The transcript below records the historical one-off counts now stabilized by
+that command.
+
 A one-off audit recomputed the row-pair indices from `MASK_BITS`, tested every
 local count profile in `{0,1,2}^6` for every unique row mask, and checked that
 the increment/decrement update returns to the original count vector.
@@ -111,4 +123,3 @@ the vertex-circle strict-edge lemma, the vertex-circle quotient obstruction,
 row0 coverage, archive reconciliation, or the 184 frontier assignments. It
 does not prove the full `n=9` finite case, does not prove Erdos Problem #97,
 and does not give a counterexample.
-

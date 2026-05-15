@@ -228,10 +228,12 @@ vertex-circle filter kills all 184 by exact self-edge or strict-cycle
 obstructions. This is not yet promoted to the source-of-truth strongest local
 result; independent review is required before any public theorem-style claim.
 The companion input-data audit checks the stored row0 witness coverage and
-summary arithmetic without rerunning the brancher. A fixed-center-order replay
-checks agreement with the dynamic minimum-remaining-options brancher but still
-does not prove the pruning lemmas. A strict-edge geometry audit checks the
-local proper-interval inequality generator for all candidate selected rows. A
+summary arithmetic without rerunning the brancher. An incidence-filter audit
+checks the row-level two-overlap crossing, witness-pair cap, and
+selected-indegree cap tables. A fixed-center-order replay checks agreement
+with the dynamic minimum-remaining-options brancher but still does not prove
+the pruning lemmas. A strict-edge geometry audit checks the local
+proper-interval inequality generator for all candidate selected rows. A
 quotient-soundness audit checks selected-distance quotient status agreement on
 the stored local-core and frontier rows.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
@@ -449,6 +451,7 @@ python scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected 
 python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --check-artifact reports/c19_kalmanson_z3_clause_diagnostics.json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json

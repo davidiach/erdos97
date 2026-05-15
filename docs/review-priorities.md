@@ -142,6 +142,17 @@ of the "no hidden row0 quotient" checklist item only; it does not rerun the
 brancher, replay vertex-circle certificates, prove `n=9`, or complete
 independent review.
 
+Current incidence-filter audit:
+
+```bash
+python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
+```
+
+This command recomputes the row-level two-overlap crossing table,
+witness-pair cap predicate, and selected-indegree cap predicate. It does not
+rerun the brancher, audit strict-edge geometry, review selected-distance
+quotient soundness, prove `n=9`, or complete review.
+
 Current branching-order replay:
 
 ```bash
