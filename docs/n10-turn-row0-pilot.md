@@ -27,6 +27,9 @@ python scripts/check_n10_turn_row0_pilot.py --assert-expected --write
 python scripts/check_n10_turn_row0_pilot.py --check --assert-expected --json
 ```
 
+The check command is also registered in the scheduled/manual artifact audit
+runner (`make audit-artifacts`).
+
 ## Result
 
 The row0-index-0 slice has:
