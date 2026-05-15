@@ -238,6 +238,8 @@ quotient-soundness audit checks selected-distance quotient status agreement on
 the stored local-core and frontier rows. A partial-pruning audit checks all
 nonempty selected-row subsets of the stored 184 frontier assignments for
 monotone obstruction persistence and checker/replay status agreement only.
+A frontier-assignment audit checks the stored frontier rows directly against
+the base row-shape, crossing, witness-pair, and selected-indegree predicates.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
 An incoming `n=10` singleton-slice continuation is now recorded as a
@@ -459,6 +461,7 @@ python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-e
 python scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_core_templates.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_frontier_motif_classification.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_self_edge_path_join.py --check --assert-expected --json

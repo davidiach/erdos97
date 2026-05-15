@@ -419,6 +419,12 @@ checks all 94,024 nonempty selected-row subsets of the stored 184 frontier
 assignments for monotone obstruction persistence and checker/replay status
 agreement. It is stored-frontier diagnostics only and leaves frontier coverage,
 brancher soundness, strict-edge geometry, and quotient soundness separate.
+The frontier-assignment audit
+`scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`
+checks the stored 184 frontier assignments directly for row shape, center
+coverage, row-pair intersection/crossing, witness-pair capacity, and
+selected-indegree capacity. It is stored-frontier diagnostics only, not
+frontier coverage or brancher soundness.
 
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)

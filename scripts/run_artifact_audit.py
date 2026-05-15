@@ -291,6 +291,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_frontier_assignment_audit",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_frontier_assignment_audit.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Stored-frontier assignment audit for n=9 row shape, row-pair "
+            "crossing, witness-pair capacity, and selected-indegree capacity; "
+            "not frontier coverage, brancher soundness, strict-edge "
+            "geometry, proof of n=9, counterexample, or official/global "
+            "status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_quotient_soundness",
         command=(
             "python",
