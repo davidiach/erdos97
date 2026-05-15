@@ -40,6 +40,16 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json`
    connects the compact 16-skeleton proof-mining catalog to the same
    aggregate/simple-replay family accounting.
+   The focused mini-replay commands
+   `python scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json`,
+   `python scripts/check_n9_t10_strict_cycle_minireplay.py --check --assert-expected --json`,
+   `python scripts/check_n9_t11_strict_cycle_minireplay.py --check --assert-expected --json`,
+   and
+   `python scripts/check_n9_t12_strict_cycle_minireplay.py --check --assert-expected --json`
+   replay the smallest currently extracted self-edge and strict-cycle packet
+   inputs. The T10 paired-square entry audit
+   `python scripts/check_n9_t10_paired_square_entry.py --check --assert-expected --json`
+   remains a diagnostic companion, not a theorem.
    The input-data audit
    `python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json`
    now separately checks the stored row0 witness coverage and summary

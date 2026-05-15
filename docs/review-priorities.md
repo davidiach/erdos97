@@ -380,6 +380,17 @@ Next steps:
   `scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json`
   to compare the 16-entry relation-skeleton catalog with the same
   aggregate/simple-replay local-lemma family accounting;
+- use the focused mini-replay commands
+  `scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json`,
+  `scripts/check_n9_t10_strict_cycle_minireplay.py --check --assert-expected --json`,
+  `scripts/check_n9_t11_strict_cycle_minireplay.py --check --assert-expected --json`,
+  and
+  `scripts/check_n9_t12_strict_cycle_minireplay.py --check --assert-expected --json`
+  as minimal input-data replays for the currently extracted self-edge and
+  strict-cycle packets;
+- use
+  `scripts/check_n9_t10_paired_square_entry.py --check --assert-expected --json`
+  as a T10/F12 diagnostic companion only, not a theorem;
 - test whether the same motifs appear in the P18 obstruction and fail in the
   recorded `C19_skew` vertex-circle-only survivor, which is now retired as a
   fixed abstract pattern by the separate Z3 Kalmanson certificate;

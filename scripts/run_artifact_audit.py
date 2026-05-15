@@ -620,6 +620,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_t01_self_edge_minireplay",
+        command=(
+            "python",
+            "scripts/check_n9_t01_self_edge_minireplay.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Minimal input-data replay of the focused T01/F09 self-edge "
+            "local lemma packet; proof-mining scaffolding only, not a proof "
+            "of n=9, counterexample, or independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_t02_self_edge_lemma_packet",
         command=(
             "python",
@@ -755,6 +770,36 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_t10_strict_cycle_minireplay",
+        command=(
+            "python",
+            "scripts/check_n9_t10_strict_cycle_minireplay.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Minimal input-data replay of the focused T10/F12 strict-cycle "
+            "local lemma packet; proof-mining scaffolding only, not a proof "
+            "of n=9, counterexample, or independent review completion."
+        ),
+    ),
+    AuditCommand(
+        ident="n9_t10_paired_square_entry_audit",
+        command=(
+            "python",
+            "scripts/check_n9_t10_paired_square_entry.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Paired-square entry audit for the focused T10/F12 strict-cycle "
+            "assignments; proof-mining diagnostics only, not a proof of "
+            "n=9, counterexample, or global status update."
+        ),
+    ),
+    AuditCommand(
         ident="relation_skeleton_catalog",
         command=(
             "python",
@@ -801,6 +846,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_t11_strict_cycle_minireplay",
+        command=(
+            "python",
+            "scripts/check_n9_t11_strict_cycle_minireplay.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Minimal input-data replay of the focused T11/F07 strict-cycle "
+            "local lemma packet; proof-mining scaffolding only, not a proof "
+            "of n=9, counterexample, or independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_t12_strict_cycle_lemma_packet",
         command=(
             "python",
@@ -813,6 +873,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "Focused T12/F16 n=9 strict-cycle local lemma packet; "
             "proof-mining scaffolding only, not a proof of n=9, "
             "counterexample, or independent review completion."
+        ),
+    ),
+    AuditCommand(
+        ident="n9_t12_strict_cycle_minireplay",
+        command=(
+            "python",
+            "scripts/check_n9_t12_strict_cycle_minireplay.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Minimal input-data replay of the focused T12/F16 strict-cycle "
+            "local lemma packet; proof-mining scaffolding only, not a proof "
+            "of n=9, counterexample, or independent review completion."
         ),
     ),
     AuditCommand(
