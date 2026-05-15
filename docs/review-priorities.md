@@ -177,6 +177,17 @@ lists directly at every reached state and checks first-minimum tie breaking.
 It does not prove filter soundness, strict-edge geometry, selected-distance
 quotient soundness, `n=9`, or complete review.
 
+Current frontier-coverage crosswalk:
+
+```bash
+python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json
+```
+
+This command reruns the dynamic no-vertex-circle brancher and compares the 184
+generated complete selected-row assignments with the stored frontier
+classification artifact. It does not prove filter soundness, strict-edge
+geometry, selected-distance quotient soundness, `n=9`, or complete review.
+
 Current frontier-assignment audit:
 
 ```bash

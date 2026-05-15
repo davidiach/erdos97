@@ -264,6 +264,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_frontier_coverage_crosswalk",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Dynamic no-vertex-circle frontier coverage crosswalk against "
+            "the stored n=9 frontier motif-classification artifact; not "
+            "filter soundness, strict-edge geometry, proof of n=9, "
+            "counterexample, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_strict_edge_geometry",
         command=(
             "python",

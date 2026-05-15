@@ -436,7 +436,12 @@ audit
 replays the actual minimum-remaining-options center choice with and without
 vertex-circle pruning. It checks direct all-center option counts, first-minimum
 tie breaking, and maintained count arrays at every reached state; it is still
-branch-choice implementation diagnostics only.
+branch-choice implementation diagnostics only. The frontier-coverage crosswalk
+`scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json`
+reruns the dynamic no-vertex-circle brancher and compares the generated 184
+complete selected-row assignments, in order, with the stored frontier
+motif-classification artifact. It is coverage bookkeeping against the current
+brancher, not filter soundness or a proof of `n=9`.
 
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)

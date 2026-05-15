@@ -244,7 +244,10 @@ A branch-option audit compares the fixed-order branch helper options and
 maintained count arrays against a direct recomputation on every
 no-vertex-circle fixed-order search state. A dynamic-MRO choice audit replays
 the actual minimum-remaining-options brancher and checks every reached state
-against direct all-center option counts and first-minimum tie breaking.
+against direct all-center option counts and first-minimum tie breaking. A
+frontier-coverage crosswalk regenerates the 184 dynamic no-vertex complete
+assignments and compares them row-for-row with the stored frontier
+classification artifact.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
 An incoming `n=10` singleton-slice continuation is now recorded as a
@@ -464,6 +467,7 @@ python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expe
 python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_core_templates.py --check --assert-expected --json

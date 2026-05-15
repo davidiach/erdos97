@@ -149,6 +149,20 @@ and zero maintained-count mismatches. This is dynamic branch-choice
 implementation diagnostics only, not filter soundness, strict-edge geometry,
 quotient soundness, or a completed `n=9` review.
 
+The frontier-coverage crosswalk command compares regenerated dynamic frontier
+rows against the stored motif-classification artifact:
+
+```bash
+python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json
+```
+
+It reruns the dynamic no-vertex-circle brancher, collects the 184 complete
+selected-row assignments, and checks that the generated row sequence, row set,
+and vertex-circle status labels match the stored frontier classification. This
+is stored-frontier coverage bookkeeping against the current brancher, not
+filter soundness, strict-edge geometry, quotient soundness, or a completed
+`n=9` review.
+
 The frontier-assignment audit command checks the stored 184 frontier rows
 directly against the base incidence/order filters:
 
