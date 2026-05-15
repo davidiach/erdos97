@@ -743,6 +743,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_t04_self_edge_minireplay",
+        command=(
+            "python",
+            "scripts/check_n9_t04_self_edge_minireplay.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Minimal input-data replay of the focused T04/F13 self-edge "
+            "local lemma packet; proof-mining scaffolding only, not a proof "
+            "of n=9, counterexample, or independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_t05_self_edge_lemma_packet",
         command=(
             "python",
