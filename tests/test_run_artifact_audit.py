@@ -552,6 +552,18 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--check --assert-expected --json"
     )
     assert (
+        "python scripts/check_n10_turn_row0_pilot.py --check "
+        "--assert-expected --json"
+        in command_texts
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n10_turn_row0_pilot.py --check "
+        "--assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n10_vertex_circle_singletons.py --assert-expected "
+        "--spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125"
+    )
+    assert (
         "python scripts/check_n10_vertex_circle_singletons.py --assert-expected "
         "--spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125"
         in command_texts

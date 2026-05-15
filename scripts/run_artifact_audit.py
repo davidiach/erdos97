@@ -1363,6 +1363,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n10_turn_row0_pilot",
+        command=(
+            "python",
+            "scripts/check_n10_turn_row0_pilot.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Bounded n=10 row0-index-0 turn-frontier pilot; not a proof of "
+            "n=10, not a complete n=10 search, not a counterexample, and "
+            "not a global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",
