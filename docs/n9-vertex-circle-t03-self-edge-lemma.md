@@ -162,6 +162,13 @@ Run the targeted artifact tests:
 python -m pytest tests/test_n9_vertex_circle_t03_self_edge_lemma_packet.py -q -m "artifact"
 ```
 
+The smaller mini-replay treats the checked packet as input data and replays
+only the two local equality-chain/self-edge contradictions:
+
+```bash
+python scripts/check_n9_t03_self_edge_minireplay.py --check --assert-expected --json
+```
+
 ## Review standard
 
 Before treating this as a reusable local lemma, a reviewer should restate the
