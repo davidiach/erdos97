@@ -30,6 +30,9 @@ Regenerate and compare the checked artifact:
 python scripts/check_bridge_lemma_frontier.py --check --assert-expected --json
 ```
 
+This check is also registered in the scheduled/manual artifact audit runner
+(`make audit-artifacts`).
+
 Rewrite the artifact after an intentional generator change:
 
 ```bash
