@@ -188,6 +188,19 @@ generated complete selected-row assignments with the stored frontier
 classification artifact. It does not prove filter soundness, strict-edge
 geometry, selected-distance quotient soundness, `n=9`, or complete review.
 
+Current dihedral-orbit audit:
+
+```bash
+python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json
+```
+
+This command treats the stored motif-family artifact and frontier
+classification as inputs. It independently replays the cyclic/reflection
+dihedral relabelings, checks canonical representatives and orbit sizes, and
+crosswalks the 184 stored classification rows back to the disjoint motif
+orbits. It is orbit bookkeeping only, not frontier coverage, filter soundness,
+or a proof of `n=9`.
+
 Current frontier-assignment audit:
 
 ```bash

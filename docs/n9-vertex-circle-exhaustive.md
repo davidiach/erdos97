@@ -163,6 +163,19 @@ is stored-frontier coverage bookkeeping against the current brancher, not
 filter soundness, strict-edge geometry, quotient soundness, or a completed
 `n=9` review.
 
+The dihedral-orbit audit command checks stored motif-family orbit bookkeeping:
+
+```bash
+python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json
+```
+
+It independently enumerates the 18 dihedral relabelings of the stored 16
+motif representatives, checks canonical representatives and orbit sizes, and
+verifies that the stored frontier-classification rows match the disjoint orbit
+union with stable canonical label maps. This is orbit bookkeeping only, not
+frontier coverage, filter soundness, strict-edge geometry, quotient soundness,
+or a completed `n=9` review.
+
 The frontier-assignment audit command checks the stored 184 frontier rows
 directly against the base incidence/order filters:
 

@@ -68,6 +68,11 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json`
    compares regenerated dynamic no-vertex complete assignments with the
    stored frontier classification artifact.
+   The dihedral-orbit audit
+   `python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`
+   independently checks the stored 16 motif representatives, their labelled
+   dihedral orbits, and the assignment-to-orbit maps in the frontier
+   classification artifact.
    The frontier-assignment audit
    `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`
    checks the stored 184 frontier assignments directly against row shape,
@@ -286,6 +291,11 @@ Use this queue when no more specific issue is selected.
    covers only generated-vs-stored frontier row agreement for the current
    dynamic brancher; filter soundness, vertex-circle geometry, and quotient
    soundness remain separate review scopes.
+   The dihedral-orbit audit command,
+   `python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`,
+   covers only stored motif-family orbit bookkeeping and assignment-to-orbit
+   agreement; frontier coverage, filter soundness, vertex-circle geometry, and
+   quotient soundness remain separate review scopes.
    The frontier-assignment command,
    `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`,
    covers only the stored 184 frontier rows under those base predicates;
