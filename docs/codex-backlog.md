@@ -64,6 +64,10 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json`
    checks the actual minimum-remaining-options center choice against direct
    all-center option counts and first-minimum tie breaking.
+   The frontier-coverage crosswalk
+   `python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json`
+   compares regenerated dynamic no-vertex complete assignments with the
+   stored frontier classification artifact.
    The frontier-assignment audit
    `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`
    checks the stored 184 frontier assignments directly against row shape,
@@ -277,6 +281,11 @@ Use this queue when no more specific issue is selected.
    covers only the actual dynamic center-choice implementation and all-center
    option-count agreement; filter soundness, vertex-circle geometry, and
    quotient soundness remain separate review scopes.
+   The frontier-coverage crosswalk command,
+   `python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json`,
+   covers only generated-vs-stored frontier row agreement for the current
+   dynamic brancher; filter soundness, vertex-circle geometry, and quotient
+   soundness remain separate review scopes.
    The frontier-assignment command,
    `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`,
    covers only the stored 184 frontier rows under those base predicates;

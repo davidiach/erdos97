@@ -671,7 +671,12 @@ checks the actual minimum-remaining-options center choice on both dynamic
 searches. It recomputes all unassigned-center option lists at every reached
 state, finds zero center-choice mismatches, zero helper/direct option
 mismatches, and zero maintained-count mismatches. This is branch-choice
-implementation diagnostics only.
+implementation diagnostics only. The frontier-coverage crosswalk
+`scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json`
+reruns the dynamic no-vertex-circle brancher and verifies that its 184
+complete selected-row assignments match the stored frontier classification
+artifact row-for-row, with zero status mismatches. This is stored-frontier
+coverage bookkeeping only.
 
 This is a candidate extension of the repo-local finite-case pipeline to `n=9`,
 but it is not yet the source-of-truth strongest result. The raw incoming bundle
