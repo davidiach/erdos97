@@ -53,6 +53,21 @@ Run the targeted artifact tests:
 python -m pytest tests/test_n9_vertex_circle_template_lemma_catalog.py -q -m "artifact"
 ```
 
+Cross-check the focused proof-facing packets against this catalog and the
+aggregate local-lemma focused-note ledger:
+
+```bash
+python scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py \
+  --check \
+  --assert-expected \
+  --json
+```
+
+That audit is JSON bookkeeping only. It verifies agreement among checked-in
+packet, catalog, and aggregate scan records; it does not prove packet
+soundness, local-lemma completeness, frontier coverage, `n=9`, or a
+counterexample.
+
 ## Review standard
 
 Before any lemma is promoted from this catalog, a reviewer should restate its

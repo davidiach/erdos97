@@ -348,6 +348,10 @@ Next steps:
 - review the aggregate local-lemma scan after the T01/T02/T03/T04/T05/T06/T07/T08/T09
   self-edge and T10/T11/T12 strict-cycle integrations, keeping it scoped as proof-mining
   coverage of stored packets rather than an independent `n=9` proof;
+- use
+  `scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --json`
+  to cross-check the 12 focused packet JSON files against the template catalog
+  and aggregate focused-note ledger before reviewing packet soundness;
 - use `data/certificates/n9_vertex_circle_local_lemma_simple_replay.json` to
   replay the aggregate local-template coverage from stored packet JSON without
   sharing the main quotient-replay helper;

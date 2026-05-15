@@ -20,7 +20,10 @@ Use this queue when no more specific issue is selected.
 1. Review the aggregate `n=9` vertex-circle local-lemma scan against the
    focused T01/T02/T03/T04/T05/T06/T07/T08/T09 self-edge packets and the focused T10/T11/T12
    strict-cycle packets, keeping it scoped as proof-mining scaffolding rather
-   than an `n=9` proof.
+   than an `n=9` proof. The focused packet catalog audit command
+   `python scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --json`
+   now checks that the focused packet coverage, source catalog records, and
+   aggregate focused-note crosschecks agree before packet soundness review.
 2. Use the stored simple replay artifact
    `data/certificates/n9_vertex_circle_local_lemma_simple_replay.json` as a
    reviewer-facing input for the aggregate local-template coverage. The replay
