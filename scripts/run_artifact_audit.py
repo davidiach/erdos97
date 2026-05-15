@@ -179,6 +179,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="speculative_circulant_frontier_obstructions",
+        command=(
+            "python",
+            "scripts/check_speculative_circulant_frontier_obstructions.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Exact cleanup for selected speculative circulant patterns: C45 "
+            "is killed as a fixed abstract selected-witness incidence pattern "
+            "by the two-circle cap, while C41, C43, C49, and R44 are "
+            "fixed-natural-order diagnostics only. No general proof of Erdos "
+            "Problem #97 and no counterexample are claimed."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_review_pending",
         command=("python", "scripts/check_n9_vertex_circle_exhaustive.py", "--assert-expected", "--json"),
         claim_scope="Review-pending n=9 selected-witness finite-case checker; not an official/global status update.",

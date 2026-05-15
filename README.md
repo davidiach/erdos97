@@ -471,6 +471,7 @@ python scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n
 python scripts/check_kalmanson_two_order_z3.py --certificate data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat
 python scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --json
 python scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json
+python scripts/check_speculative_circulant_frontier_obstructions.py --check --json
 python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --check-artifact reports/c19_kalmanson_z3_clause_diagnostics.json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json

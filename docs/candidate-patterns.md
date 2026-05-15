@@ -52,7 +52,8 @@ The checked cleanup artifact
 one exact abstract-incidence kill and four natural-order diagnostics for this
 group. The C41, C43, C49, and R44 observations below are fixed-natural-order
 only; they do not rule out arbitrary cyclic orders for the same abstract
-selected-witness patterns.
+selected-witness patterns. Its checker is registered in the scheduled/manual
+artifact audit runner (`make audit-artifacts`).
 
 | Rank | Name | n | Formula | Type | Current status |
 |---:|---|---:|---|---|---|
