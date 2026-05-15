@@ -3,7 +3,12 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+import yaml
+
 from scripts.run_artifact_audit import AUDIT_COMMANDS, AuditCommand, command_text, run_audit_command, sha256_bytes
+
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_sha256_bytes_is_stable() -> None:
@@ -26,6 +31,19 @@ def test_run_audit_command_records_metadata(tmp_path: Path) -> None:
     assert (tmp_path / record["stdout_path"]).read_bytes() == b"ok\n"
     assert (tmp_path / record["stderr_path"]).read_bytes() == b""
     assert len(record["combined_output_sha256"]) == 64
+
+
+def test_audit_commands_cover_generated_artifact_check_commands() -> None:
+    metadata = yaml.safe_load((ROOT / "metadata/generated_artifacts.yaml").read_text(encoding="utf-8"))
+    audit_commands = {command_text(command.command) for command in AUDIT_COMMANDS}
+
+    missing = []
+    for artifact in metadata["artifacts"]:
+        check_command = artifact.get("check_command")
+        if check_command and check_command not in audit_commands:
+            missing.append(f"{artifact['id']}: {check_command}")
+
+    assert missing == []
 
 
 def test_audit_commands_include_registered_followup_checkers() -> None:
