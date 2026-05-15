@@ -307,6 +307,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_partial_pruning",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_partial_pruning.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Stored-frontier subset replay for n=9 vertex-circle partial "
+            "pruning; checks monotone obstruction persistence and "
+            "checker/replay status agreement only, not frontier coverage, "
+            "brancher soundness, strict-edge geometry, proof of n=9, "
+            "counterexample, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_self_edge_path_join",
         command=(
             "python",

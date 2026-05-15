@@ -413,6 +413,12 @@ The quotient-soundness audit
 checks selected-distance quotient status agreement on the stored local-core
 rows, stored full frontier assignments, and stored transformed frontier cores.
 It leaves branch coverage and strict-edge geometry review separate.
+The partial-pruning audit
+`scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`
+checks all 94,024 nonempty selected-row subsets of the stored 184 frontier
+assignments for monotone obstruction persistence and checker/replay status
+agreement. It is stored-frontier diagnostics only and leaves frontier coverage,
+brancher soundness, strict-edge geometry, and quotient soundness separate.
 
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)

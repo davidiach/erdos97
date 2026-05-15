@@ -190,6 +190,18 @@ exhaustive checker, the reusable quotient replay helper, and a small direct
 quotient/status replay. It does not audit branch coverage, strict-edge
 geometry, prove `n=9`, or complete review.
 
+Current partial-pruning audit:
+
+```bash
+python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json
+```
+
+This command scans all nonempty selected-row subsets of the 184 stored
+pre-vertex-circle frontier assignments. It checks monotone obstruction
+persistence and checker/replay status agreement on those stored subsets only.
+It does not prove frontier coverage, brancher soundness, strict-edge geometry,
+selected-distance quotient soundness, `n=9`, or complete review.
+
 ## Priority 6 - mine a reusable vertex-circle lemma
 
 Target: `docs/n9-vertex-circle-obstruction-shapes.md` and
