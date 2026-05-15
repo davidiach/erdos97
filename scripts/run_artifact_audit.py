@@ -184,6 +184,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         claim_scope="Review-pending n=9 selected-witness finite-case checker; not an official/global status update.",
     ),
     AuditCommand(
+        ident="n9_turn_inequality_frontier",
+        command=(
+            "python",
+            "scripts/check_n9_turn_inequality_frontier.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Review-pending n=9 turn-inequality frontier replay with stored "
+            "integer dual certificates; not a proof of n=9, counterexample, "
+            "geometric lemma review, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_input_audit",
         command=(
             "python",

@@ -629,6 +629,12 @@ recomputes the row-0 choices as the 70 lexicographic 4-subsets of labels
 `1..8` and checks the stored witness lists, masks, summary counts, and
 no-overclaiming scope. It does not rerun the brancher or replay the
 vertex-circle certificates.
+The turn-inequality frontier replay
+`scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json`
+checks stored integer dual certificates for the candidate weak turn system on
+all 184 regenerated pair/crossing/count frontier assignments. It records all
+184 weak systems as arithmetically infeasible, but the geometric turn lemma and
+indexing conventions remain review-pending, so this does not promote `n=9`.
 A fixed-center-order replay command,
 `scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`,
 also closes the vertex-circle-pruned search and reaches the same

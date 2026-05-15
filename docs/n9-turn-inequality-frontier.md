@@ -29,6 +29,9 @@ python scripts/check_n9_turn_inequality_frontier.py --assert-expected --write
 python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json
 ```
 
+The check command is also registered in `scripts/run_artifact_audit.py` and
+listed in the raw audit command set in `README.md`.
+
 ## Candidate Turn Lemma
 
 Let `tau_i` be exterior turns and set `t_i = 2*tau_i/pi`, so

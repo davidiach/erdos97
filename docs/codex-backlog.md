@@ -50,6 +50,11 @@ Use this queue when no more specific issue is selected.
    inputs. The T10 paired-square entry audit
    `python scripts/check_n9_t10_paired_square_entry.py --check --assert-expected --json`
    remains a diagnostic companion, not a theorem.
+   The turn-inequality frontier replay
+   `python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json`
+   checks stored integer dual certificates for all 184 regenerated
+   pair/crossing/count frontier assignments under the candidate weak turn
+   system; the geometric turn lemma and indexing remain review bottlenecks.
    The input-data audit
    `python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json`
    now separately checks the stored row0 witness coverage and summary
