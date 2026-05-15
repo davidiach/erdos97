@@ -634,6 +634,11 @@ A fixed-center-order replay command,
 also closes the vertex-circle-pruned search and reaches the same
 `184 = 158 + 26` pre-vertex-circle frontier classification as the dynamic
 minimum-remaining-options artifact. This checks branch-order agreement only.
+The strict-edge geometry audit
+`scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json`
+checks that every candidate selected row produces exactly the proper-interval
+strict inequalities used by the checker, with `5,670` total local strict
+edges across 630 candidate rows. This is local rule verification only.
 
 This is a candidate extension of the repo-local finite-case pipeline to `n=9`,
 but it is not yet the source-of-truth strongest result. The raw incoming bundle

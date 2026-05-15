@@ -216,6 +216,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_strict_edge_geometry",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_strict_edge_geometry.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Strict-edge geometry rule audit for every candidate n=9 "
+            "selected row; not row coverage, brancher coverage, quotient "
+            "soundness, proof of n=9, counterexample, or official/global "
+            "status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_local_core_packet",
         command=(
             "python",
