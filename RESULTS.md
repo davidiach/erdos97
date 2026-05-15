@@ -687,6 +687,11 @@ treats the 16 stored motif representatives as input and checks their
 representative self-edge equality paths or strict-cycle edge chains after
 recomputing quotient classes and strict interval edges. It is
 stored-certificate bookkeeping only.
+The local-core subset audit
+`scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`
+checks that the compact local-core packet rows are exact subsets of the stored
+full motif representatives and already force the same obstruction status by
+direct quotient replay. It is compact-core bookkeeping only.
 
 This is a candidate extension of the repo-local finite-case pipeline to `n=9`,
 but it is not yet the source-of-truth strongest result. The raw incoming bundle

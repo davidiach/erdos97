@@ -310,6 +310,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_local_core_subset_audit",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_local_core_subset_audit.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Cross-artifact audit checking compact n=9 local cores are "
+            "subsets of stored full motif representatives and obstruct by "
+            "direct quotient replay; not frontier coverage, proof of n=9, "
+            "counterexample, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_core_templates",
         command=(
             "python",

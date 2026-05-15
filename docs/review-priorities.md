@@ -295,6 +295,10 @@ Next steps:
   quotient-cycle local templates, using the focused T10/T11/T12 notes;
 - use `docs/n9-vertex-circle-local-cores.md` as the row-local certificate list
   to keep those lemmas small;
+- use
+  `scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`
+  to compare the compact row-local certificates against the full motif
+  representatives and verify that the compact rows alone still obstruct;
 - use `data/certificates/n9_vertex_circle_self_edge_path_join.json` as the
   assignment-level replay aid for transformed self-edge equality paths;
 - use `data/certificates/n9_vertex_circle_self_edge_template_packet.json` to

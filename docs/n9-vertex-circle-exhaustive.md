@@ -77,6 +77,10 @@ strict-cycle assignments. Its local-core cycle-length counts (`2: 18`,
 `data/certificates/n9_vertex_circle_strict_cycle_template_packet.json`
 compresses those strict-cycle joins to 3 template-level reviewer records with
 canonical family cycles.
+`data/certificates/n9_vertex_circle_local_core_packet.json` keeps one compact
+row-local certificate for each of the 16 motif representatives, and the
+local-core subset audit checks that those compact rows are exact subsets of
+the full representatives and already force the same obstruction.
 `data/certificates/n9_vertex_circle_template_lemma_catalog.json` combines the
 9 self-edge templates and 3 strict-cycle templates into one derived
 lemma-candidate crosswalk for proof mining. All of these are review-pending
@@ -189,6 +193,19 @@ each stored self-edge equality path or strict-cycle edge chain. This is
 stored-certificate bookkeeping only, not frontier coverage, brancher
 soundness, incidence-filter soundness, dihedral orbit bookkeeping, or a
 completed `n=9` review.
+
+The local-core subset audit command checks the compact local cores against the
+full motif representatives:
+
+```bash
+python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json
+```
+
+It verifies that every compact local-core row is copied from the corresponding
+full motif representative and that the compact row set alone gives the stored
+self-edge or strict-cycle status under a direct quotient replay. This is
+cross-artifact bookkeeping only, not local-lemma completeness or a completed
+`n=9` review.
 
 The frontier-assignment audit command checks the stored 184 frontier rows
 directly against the base incidence/order filters:

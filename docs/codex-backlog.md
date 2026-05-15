@@ -77,6 +77,11 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json`
    checks the stored representative self-edge paths and strict-cycle records
    for those 16 motif families with a small local quotient replay.
+   The local-core subset audit
+   `python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`
+   checks that the compact row-local certificates are exact subsets of their
+   stored full motif representatives and already obstruct by direct quotient
+   replay.
    The frontier-assignment audit
    `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`
    checks the stored 184 frontier assignments directly against row shape,
@@ -306,6 +311,11 @@ Use this queue when no more specific issue is selected.
    families; frontier coverage, brancher soundness, incidence-filter
    soundness, dihedral orbit bookkeeping, and full n=9 review remain separate
    scopes.
+   The local-core subset audit command,
+   `python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`,
+   covers only the compact-core-to-full-representative subset relation and
+   compact-core obstruction replay; local-lemma completeness, frontier
+   coverage, brancher soundness, and full n=9 review remain separate scopes.
    The frontier-assignment command,
    `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`,
    covers only the stored 184 frontier rows under those base predicates;
