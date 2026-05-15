@@ -391,6 +391,12 @@ Next steps:
 - use
   `scripts/check_n9_t10_paired_square_entry.py --check --assert-expected --json`
   as a T10/F12 diagnostic companion only, not a theorem;
+- use
+  `scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json`
+  to audit the stored integer dual certificates for the candidate weak
+  turn-inequality system on all 184 regenerated n=9 frontier assignments,
+  while keeping the geometric turn lemma and indexing conventions
+  review-pending;
 - test whether the same motifs appear in the P18 obstruction and fail in the
   recorded `C19_skew` vertex-circle-only survivor, which is now retired as a
   fixed abstract pattern by the separate Z3 Kalmanson certificate;
