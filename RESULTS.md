@@ -687,6 +687,13 @@ treats the 16 stored motif representatives as input and checks their
 representative self-edge equality paths or strict-cycle edge chains after
 recomputing quotient classes and strict interval edges. It is
 stored-certificate bookkeeping only.
+The frontier comparison
+`scripts/compare_n9_vertex_circle_frontier.py --check --assert-expected --json`
+checks the stored P18/C19 comparison artifact against the current local-core
+and vertex-circle helpers. It records zero exact n=9 local-core embeddings into
+the recorded P18 and C19 patterns, while preserving the P18 strict-cycle and
+C19 fixed-order pass guardrails. It is comparison diagnostics only, not a
+transfer theorem, counterexample, or proof of `n=9`.
 The local-core subset audit
 `scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`
 checks that the compact local-core packet rows are exact subsets of the stored

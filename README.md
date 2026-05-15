@@ -486,6 +486,7 @@ python scripts/check_n9_vertex_circle_core_templates.py --check --assert-expecte
 python scripts/check_n9_vertex_circle_frontier_motif_classification.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json
+python scripts/compare_n9_vertex_circle_frontier.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json
