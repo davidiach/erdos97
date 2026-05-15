@@ -665,7 +665,13 @@ The branch-option audit
 `scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`
 checks 520,598 no-vertex-circle fixed-order option contexts and finds zero
 helper/direct option mismatches and zero maintained-count mismatches. This is
-branch-option implementation diagnostics only.
+branch-option implementation diagnostics only. The dynamic-MRO choice audit
+`scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json`
+checks the actual minimum-remaining-options center choice on both dynamic
+searches. It recomputes all unassigned-center option lists at every reached
+state, finds zero center-choice mismatches, zero helper/direct option
+mismatches, and zero maintained-count mismatches. This is branch-choice
+implementation diagnostics only.
 
 This is a candidate extension of the repo-local finite-case pipeline to `n=9`,
 but it is not yet the source-of-truth strongest result. The raw incoming bundle

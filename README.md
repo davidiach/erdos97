@@ -242,7 +242,9 @@ A frontier-assignment audit checks the stored frontier rows directly against
 the base row-shape, crossing, witness-pair, and selected-indegree predicates.
 A branch-option audit compares the fixed-order branch helper options and
 maintained count arrays against a direct recomputation on every
-no-vertex-circle fixed-order search state.
+no-vertex-circle fixed-order search state. A dynamic-MRO choice audit replays
+the actual minimum-remaining-options brancher and checks every reached state
+against direct all-center option counts and first-minimum tie breaking.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
 An incoming `n=10` singleton-slice continuation is now recorded as a
@@ -460,6 +462,7 @@ python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json

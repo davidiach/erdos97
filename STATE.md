@@ -430,7 +430,13 @@ The branch-option audit
 walks the fixed-order no-vertex-circle search states and compares
 `valid_options_for_center` plus maintained count arrays against a direct
 implementation. It is a branch-option implementation audit only, not
-dynamic-MRO coverage or vertex-circle geometry review.
+dynamic-MRO coverage or vertex-circle geometry review. The dynamic-MRO choice
+audit
+`scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json`
+replays the actual minimum-remaining-options center choice with and without
+vertex-circle pruning. It checks direct all-center option counts, first-minimum
+tie breaking, and maintained count arrays at every reached state; it is still
+branch-choice implementation diagnostics only.
 
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)

@@ -135,6 +135,20 @@ arrays with direct recomputation. This is branch-option implementation
 diagnostics only, not dynamic-MRO branch coverage, strict-edge geometry,
 quotient soundness, or a completed `n=9` review.
 
+The dynamic-MRO choice audit command checks the actual dynamic branch choice:
+
+```bash
+python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json
+```
+
+It replays the vertex-circle-pruned search and the no-vertex-circle
+cross-check, recomputes every unassigned center's option list with a direct
+predicate at every reached state, and checks first-minimum tie breaking. It
+records zero center-choice mismatches, zero helper/direct option mismatches,
+and zero maintained-count mismatches. This is dynamic branch-choice
+implementation diagnostics only, not filter soundness, strict-edge geometry,
+quotient soundness, or a completed `n=9` review.
+
 The frontier-assignment audit command checks the stored 184 frontier rows
 directly against the base incidence/order filters:
 
