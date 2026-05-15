@@ -395,6 +395,10 @@ The companion input-data audit
 `scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json`
 checks the stored row0 witness coverage and summary arithmetic without
 rerunning the brancher. It is a review aid only, not an `n=9` proof.
+A fixed-center-order replay,
+`scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`,
+checks agreement with the dynamic minimum-remaining-options brancher on the
+closed search and 184-frontier classification. It is also a review aid only.
 
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)

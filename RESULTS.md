@@ -629,6 +629,11 @@ recomputes the row-0 choices as the 70 lexicographic 4-subsets of labels
 `1..8` and checks the stored witness lists, masks, summary counts, and
 no-overclaiming scope. It does not rerun the brancher or replay the
 vertex-circle certificates.
+A fixed-center-order replay command,
+`scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`,
+also closes the vertex-circle-pruned search and reaches the same
+`184 = 158 + 26` pre-vertex-circle frontier classification as the dynamic
+minimum-remaining-options artifact. This checks branch-order agreement only.
 
 This is a candidate extension of the repo-local finite-case pipeline to `n=9`,
 but it is not yet the source-of-truth strongest result. The raw incoming bundle
