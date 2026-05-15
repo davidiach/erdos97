@@ -250,6 +250,9 @@ assignments and compares them row-for-row with the stored frontier
 classification artifact. A dihedral-orbit audit independently replays the
 18 cyclic/reflection relabelings for the stored 16 motif representatives and
 checks orbit sizes, disjointness, and assignment-to-orbit maps.
+A motif-obstruction audit then treats those 16 stored representatives as
+input and verifies their stored self-edge equality paths or strict-cycle edge
+records with a small local quotient replay.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
 An incoming `n=10` singleton-slice continuation is now recorded as a
@@ -475,6 +478,7 @@ python scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expe
 python scripts/check_n9_vertex_circle_core_templates.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_frontier_motif_classification.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json

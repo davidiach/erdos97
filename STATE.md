@@ -447,6 +447,12 @@ then treats the stored motif and frontier-classification artifacts as inputs,
 replays the dihedral relabeling action independently, and checks canonical
 representatives, orbit sizes, orbit disjointness, and assignment-to-orbit maps.
 It is orbit bookkeeping only, not frontier coverage or a proof of `n=9`.
+The motif-obstruction audit
+`scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json`
+treats the stored motif representatives as input and verifies their stored
+self-edge equality paths or strict-cycle edge chains by recomputing quotient
+classes and strict interval edges. It is stored-certificate bookkeeping only,
+not frontier coverage, brancher soundness, or a proof of `n=9`.
 
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)
