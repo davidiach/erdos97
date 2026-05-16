@@ -11,6 +11,48 @@ Erdos Problem #97.
 The labels `T01` and `F09` are retained only as packet/catalog navigation. They
 are not theorem hypotheses.
 
+## Reusable Five-label Form
+
+The local obstruction does not intrinsically use all nine labels. It has the
+following reusable shape.
+
+Let `C,A,B,D,E` be five distinct vertices of a strictly convex polygon, with
+`A,B,D,E` occurring in that order in the vertex cone at `C`; the first and
+last of these vertices may lie on the two boundary rays of the cone. Assume:
+
+```text
+center C selects A,B,D,E
+center A selects C,E
+center B selects A,C
+```
+
+Here "center X selects Y,Z" means that the selected witness row at `X`
+contains both `Y` and `Z`, so `|XY|=|XZ|`. The first row says that
+`A,B,D,E` lie on one circle centered at `C`.
+
+Then the selected-distance equalities give
+
+```text
+|AE| = |AC| = |CB| = |AB|.
+```
+
+But on the circle centered at `C`, the chord `AE` strictly contains the chord
+`AB` in angular span, because the witnesses occur as `A,B,D,E` inside an
+angle smaller than `pi`. Thus
+
+```text
+|AE| > |AB|,
+```
+
+contradicting the equality chain. Therefore no strictly convex realization can
+satisfy this five-label local pattern.
+
+The n=9 packet below is the specialization
+
+```text
+C=0, A=1, B=2, D=4, E=8.
+```
+
 ## Exact Local Hypotheses
 
 Let `p_0,...,p_8` be distinct vertices of a strictly convex nonagon in cyclic
