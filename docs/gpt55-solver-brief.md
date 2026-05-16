@@ -393,7 +393,7 @@ Start from:
 
 - `docs/n9-vertex-circle-template-lemma-catalog.md`
 - `data/certificates/n9_vertex_circle_template_lemma_catalog.json`
-- focused T01/T02/T03/T04/T05/T06/T07/T08 self-edge packets and T10/T11/T12
+- focused T01/T02/T03/T04/T05/T06/T07/T08/T09 self-edge packets and T10/T11/T12
   strict-cycle packets.
 
 ### L2. Strengthen the minimal fragile-cover bridge
