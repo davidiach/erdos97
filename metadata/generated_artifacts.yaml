@@ -1454,6 +1454,45 @@ artifacts:
       - the local lemma packet is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_t08_self_edge_minireplay
+    path: data/certificates/n9_t08_self_edge_minireplay.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_n9_t08_self_edge_minireplay.py
+    command: python scripts/check_n9_t08_self_edge_minireplay.py --write --assert-expected
+    checker: scripts/check_n9_t08_self_edge_minireplay.py
+    check_command: python scripts/check_n9_t08_self_edge_minireplay.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Minimal input-data replay of the focused T08/F02 self-edge local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_t08_self_edge_minireplay.v1
+      status: REVIEW_PENDING_T08_SELF_EDGE_MINIREPLAY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      ok: true
+      source_packet: data/certificates/n9_vertex_circle_t08_self_edge_lemma_packet.json
+      source_packet_schema: erdos97.n9_vertex_circle_t08_self_edge_lemma_packet.v1
+      replay.source_template_id: T08
+      replay.family_count: 1
+      replay.family_ids:
+        - F02
+      replay.assignment_count: 18
+      replay.assignment_counts.F02: 18
+      replay.path_length_counts.5: 1
+      replay.strict_rows.F02: 0
+      replay.all_self_edge_contradictions: true
+      provenance.command: python scripts/check_n9_t08_self_edge_minireplay.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - T08 proves n=9
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - template labels are theorem names
+      - the mini-replay is an independent proof
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_t09_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t09_self_edge_lemma_packet.json
     kind: certificate_diagnostic_artifact
