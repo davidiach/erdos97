@@ -1342,6 +1342,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="radius_blocker_vertex_circle_pilot",
+        command=(
+            "python",
+            "scripts/check_radius_blocker_vertex_circle_pilot.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Finite exact-four-row radius-blocker packet diagnostic; not a "
+            "proof of the adaptive blocker bridge, not a proof of Erdos "
+            "Problem #97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_core_crosswalk",
         command=(
             "python",
