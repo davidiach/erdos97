@@ -565,8 +565,12 @@ condition that the surviving multi-block family does not automatically satisfy:
 - the full `n=9` exact-four radius-blocker packet recorded in
   `docs/n9-full-radius-blocker-vertex-circle-packet.md`, where the fixed
   natural-order blocker `{0,1,2,3}` has 90 incidence survivors and all are
-  vertex-circle obstructed. This is finite packet evidence only; the next
-  review target is widening blocker placements and cyclic orders.
+  vertex-circle obstructed.
+- the natural-order `n=9` radius-blocker shape sweep recorded in
+  `docs/n9-radius-blocker-shape-sweep.md`, where all `10` cyclic-dihedral
+  four-blocker shapes have obstructed incidence survivors. This is finite
+  packet evidence only; the next review target is widening cyclic orders and
+  exact-four semantics.
 - bootstrap-core/private-halo analysis, as recorded in
   `docs/bootstrap-core-bridge.md`, which adds a `rho > 3` closure-rank witness,
   deletion closures, and weighted cyclic outside-pair capacity.

@@ -1373,6 +1373,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_radius_blocker_shape_sweep",
+        command=(
+            "python",
+            "scripts/check_n9_radius_blocker_shape_sweep.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Natural-order n=9 exact-four row-option sweep over all 10 "
+            "dihedral classes of four-vertex blockers; all incidence "
+            "survivors are vertex-circle obstructed, but this is not a proof "
+            "of Erdos Problem #97 and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_core_crosswalk",
         command=(
             "python",
