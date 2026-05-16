@@ -135,12 +135,18 @@ python scripts/check_n9_vertex_circle_t07_self_edge_lemma_packet.py \
   --check \
   --assert-expected \
   --json
+
+python scripts/check_n9_t07_self_edge_minireplay.py \
+  --check \
+  --assert-expected \
+  --json
 ```
 
 Run the targeted artifact tests:
 
 ```bash
 python -m pytest tests/test_n9_vertex_circle_t07_self_edge_lemma_packet.py -q
+python -m pytest tests/test_n9_t07_self_edge_minireplay.py -q
 ```
 
 ## Review standard

@@ -519,6 +519,7 @@ python scripts/check_n9_t05_self_edge_minireplay.py --check --assert-expected --
 python scripts/check_n9_vertex_circle_t06_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_t06_self_edge_minireplay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t07_self_edge_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_t07_self_edge_minireplay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t08_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t09_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check --assert-expected --json
