@@ -871,6 +871,11 @@ artifacts:
       source_packet_schema: erdos97.n9_vertex_circle_t01_self_edge_lemma_packet.v1
       replay.source_template_id: T01
       replay.source_family_id: F09
+      replay.family_count: 1
+      replay.family_ids:
+        - F09
+      replay.assignment_count: 6
+      replay.assignment_counts.F09: 6
       replay.core_row_count: 3
       replay.equality_step_count: 3
       replay.self_edge_contradiction: true
@@ -1647,6 +1652,11 @@ artifacts:
       source_packet_schema: erdos97.n9_vertex_circle_t10_strict_cycle_lemma_packet.v1
       replay.source_template_id: T10
       replay.source_family_id: F12
+      replay.family_count: 1
+      replay.family_ids:
+        - F12
+      replay.assignment_count: 18
+      replay.assignment_counts.F12: 18
       replay.core_row_count: 4
       replay.cycle_length: 2
       replay.strict_cycle_contradiction: true
@@ -1826,6 +1836,11 @@ artifacts:
       source_packet_schema: erdos97.n9_vertex_circle_t11_strict_cycle_lemma_packet.v1
       replay.source_template_id: T11
       replay.source_family_id: F07
+      replay.family_count: 1
+      replay.family_ids:
+        - F07
+      replay.assignment_count: 6
+      replay.assignment_counts.F07: 6
       replay.core_row_count: 4
       replay.cycle_length: 3
       replay.strict_cycle_contradiction: true
@@ -1911,6 +1926,11 @@ artifacts:
       source_packet_schema: erdos97.n9_vertex_circle_t12_strict_cycle_lemma_packet.v1
       replay.source_template_id: T12
       replay.source_family_id: F16
+      replay.family_count: 1
+      replay.family_ids:
+        - F16
+      replay.assignment_count: 2
+      replay.assignment_counts.F16: 2
       replay.core_row_count: 6
       replay.cycle_length: 3
       replay.strict_cycle_contradiction: true

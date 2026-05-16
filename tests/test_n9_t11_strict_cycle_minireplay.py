@@ -27,6 +27,9 @@ def test_t11_minireplay_replays_local_strict_cycle() -> None:
     replay, errors = replay_packet(packet)
 
     assert errors == []
+    assert replay["family_ids"] == ["F07"]
+    assert replay["assignment_count"] == 6
+    assert replay["assignment_counts"] == {"F07": 6}
     assert replay["core_centers"] == [0, 1, 5, 6]
     assert replay["cycle_length"] == 3
     assert replay["strict_cycle_contradiction"] is True

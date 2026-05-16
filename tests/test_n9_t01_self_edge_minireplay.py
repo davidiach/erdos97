@@ -27,6 +27,9 @@ def test_t01_minireplay_replays_local_self_edge() -> None:
     replay, errors = replay_packet(packet)
 
     assert errors == []
+    assert replay["family_ids"] == ["F09"]
+    assert replay["assignment_count"] == 6
+    assert replay["assignment_counts"] == {"F09": 6}
     assert replay["equality_chain"] == [[1, 8], [0, 1], [0, 2], [1, 2]]
     assert replay["self_edge_contradiction"] is True
     assert replay["strict_inequality"] == {

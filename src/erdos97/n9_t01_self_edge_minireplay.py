@@ -14,6 +14,8 @@ STATUS = "REVIEW_PENDING_T01_SELF_EDGE_MINIREPLAY"
 TRUST = "REVIEW_PENDING_DIAGNOSTIC"
 SOURCE_PACKET_SCHEMA = "erdos97.n9_vertex_circle_t01_self_edge_lemma_packet.v1"
 SOURCE_PACKET = "data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json"
+EXPECTED_ASSIGNMENT_COUNT = 6
+EXPECTED_ASSIGNMENT_COUNTS = {"F09": 6}
 
 
 def _pair(value: Any, label: str, errors: list[str]) -> list[int]:
@@ -221,6 +223,10 @@ def replay_packet(packet: dict[str, Any]) -> tuple[dict[str, object], list[str]]
     summary = {
         "source_template_id": packet.get("template_id"),
         "source_family_id": packet.get("family_id"),
+        "family_count": 1,
+        "family_ids": [packet.get("family_id")],
+        "assignment_count": packet.get("assignment_count"),
+        "assignment_counts": {str(packet.get("family_id")): packet.get("assignment_count")},
         "core_row_count": len(rows),
         "core_centers": sorted(rows),
         "equality_chain": equality_chain,
@@ -234,6 +240,10 @@ def replay_packet(packet: dict[str, Any]) -> tuple[dict[str, object], list[str]]
             and equality_chain[-1] == strict_summary.get("inner_pair")
         ),
     }
+    if summary["assignment_count"] != EXPECTED_ASSIGNMENT_COUNT:
+        errors.append(f"unexpected assignment_count {summary['assignment_count']!r}")
+    if summary["assignment_counts"] != EXPECTED_ASSIGNMENT_COUNTS:
+        errors.append(f"unexpected assignment_counts {summary['assignment_counts']!r}")
     if not summary["self_edge_contradiction"]:
         errors.append("strict inequality does not close on an equality-chain self-edge")
     return summary, errors
@@ -294,6 +304,10 @@ def assert_expected_payload(payload: dict[str, Any]) -> None:
     expected = {
         "source_template_id": "T01",
         "source_family_id": "F09",
+        "family_count": 1,
+        "family_ids": ["F09"],
+        "assignment_count": EXPECTED_ASSIGNMENT_COUNT,
+        "assignment_counts": EXPECTED_ASSIGNMENT_COUNTS,
         "core_row_count": 3,
         "core_centers": [0, 1, 2],
         "equality_chain": [[1, 8], [0, 1], [0, 2], [1, 2]],
