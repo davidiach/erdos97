@@ -1,0 +1,144 @@
+{
+  "claim_scope": "Minimal input-data replay of the focused T06/F11 self-edge local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.",
+  "interpretation": "The T06/F11 family packet identifies the strict outer and inner chord pairs by selected-distance equality steps, while its listed vertex-circle row makes the outer chord strictly longer than the inner chord.",
+  "ok": true,
+  "provenance": {
+    "command": "python scripts/check_n9_t06_self_edge_minireplay.py --write --assert-expected",
+    "generator": "scripts/check_n9_t06_self_edge_minireplay.py"
+  },
+  "replay": {
+    "all_self_edge_contradictions": true,
+    "assignment_count": 18,
+    "assignment_counts": {
+      "F11": 18
+    },
+    "family_count": 1,
+    "family_ids": [
+      "F11"
+    ],
+    "family_replays": [
+      {
+        "assignment_count": 18,
+        "core_centers": [
+          1,
+          5,
+          6,
+          7,
+          8
+        ],
+        "core_row_count": 5,
+        "equality_chain": [
+          [
+            3,
+            8
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "equality_step_count": 4,
+        "equality_steps": [
+          {
+            "left_pair": [
+              3,
+              8
+            ],
+            "right_pair": [
+              6,
+              8
+            ],
+            "row": 8
+          },
+          {
+            "left_pair": [
+              6,
+              8
+            ],
+            "right_pair": [
+              6,
+              7
+            ],
+            "row": 6
+          },
+          {
+            "left_pair": [
+              6,
+              7
+            ],
+            "right_pair": [
+              5,
+              7
+            ],
+            "row": 7
+          },
+          {
+            "left_pair": [
+              5,
+              7
+            ],
+            "right_pair": [
+              3,
+              5
+            ],
+            "row": 5
+          }
+        ],
+        "family_id": "F11",
+        "self_edge_contradiction": true,
+        "strict_inequality": {
+          "inner_interval": [
+            0,
+            1
+          ],
+          "inner_pair": [
+            3,
+            5
+          ],
+          "inner_span": 1,
+          "outer_interval": [
+            0,
+            2
+          ],
+          "outer_pair": [
+            3,
+            8
+          ],
+          "outer_span": 2,
+          "row": 1,
+          "witness_order": [
+            3,
+            5,
+            8,
+            0
+          ]
+        }
+      }
+    ],
+    "path_length_counts": {
+      "4": 1
+    },
+    "source_template_id": "T06",
+    "strict_rows": {
+      "F11": 1
+    }
+  },
+  "schema": "erdos97.n9_t06_self_edge_minireplay.v1",
+  "source_packet": "data/certificates/n9_vertex_circle_t06_self_edge_lemma_packet.json",
+  "source_packet_schema": "erdos97.n9_vertex_circle_t06_self_edge_lemma_packet.v1",
+  "status": "REVIEW_PENDING_T06_SELF_EDGE_MINIREPLAY",
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "validation_errors": []
+}
