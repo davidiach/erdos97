@@ -526,6 +526,18 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py "
         "--check --assert-expected --json"
     ) < ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py "
+        "--check --assert-expected --json"
+    )
+    assert (
+        "python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py "
+        "--check --assert-expected --json"
+    ) < ordered_command_texts.index(
         "python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py "
         "--check --assert-expected --json"
     )

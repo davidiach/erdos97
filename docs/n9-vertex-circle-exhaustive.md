@@ -91,6 +91,11 @@ checks that the 12 focused packet JSON files, the source template packets, the
 template catalog, and the aggregate local-lemma focused-note ledger agree on
 packet coverage. This is bookkeeping only, not packet soundness or an `n=9`
 proof.
+The focused mini-replay crosswalk
+`scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --json`
+then joins those focused packets to their 12 packet-specific mini-replay
+artifacts, checking identity, families, source schemas, obstruction flags, and
+compact local shape counts only.
 
 The audit command
 `scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py` checks the
