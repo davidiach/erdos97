@@ -81,8 +81,14 @@ python scripts/check_n9_vertex_circle_self_edge_template_packet.py --check --ass
 python scripts/check_n9_vertex_circle_strict_cycle_path_join.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_template_lemma_catalog.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_local_lemmas.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_local_lemma_simple_replay.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py --check --assert-expected --json
@@ -100,8 +106,14 @@ python scripts/check_n9_t08_self_edge_minireplay.py --check --assert-expected --
 python scripts/check_n9_vertex_circle_t09_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_t09_self_edge_minireplay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_t10_strict_cycle_minireplay.py --check --assert-expected --json
+python scripts/check_n9_t10_paired_square_entry.py --check --assert-expected --json
+python scripts/check_relation_skeleton_catalog.py --check --assert-expected --json
+python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_t11_strict_cycle_minireplay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_t12_strict_cycle_minireplay.py --check --assert-expected --json
 python scripts/check_n9_row_ptolemy_product_cancellations.py --check --json
 python scripts/check_n9_row_ptolemy_family_signatures.py --check --assert-expected --json
 python scripts/check_n9_row_ptolemy_order_sensitivity.py --check --assert-expected --json
