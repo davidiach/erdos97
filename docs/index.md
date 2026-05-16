@@ -147,6 +147,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`radius-blocker-vertex-circle-pilot.md`](radius-blocker-vertex-circle-pilot.md):
   first exact-four-row radius-blocker packet diagnostic using vertex-circle
   quotient replay; bridge tooling only, not a proof.
+- [`n9-full-radius-blocker-vertex-circle-packet.md`](n9-full-radius-blocker-vertex-circle-packet.md):
+  full exact-four row-option packet for the fixed `n=9` natural-order blocker
+  `{0,1,2,3}`; all incidence survivors are vertex-circle obstructed, but this
+  is still finite packet evidence only.
 - [`bootstrap-core-bridge.md`](bootstrap-core-bridge.md): rich-triple closure
   rank, bootstrap cores, private halos, and weighted cyclic capacity.
 - [`bootstrap-core-crosswalk.md`](bootstrap-core-crosswalk.md): checked

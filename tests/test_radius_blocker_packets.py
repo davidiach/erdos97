@@ -7,6 +7,7 @@ from erdos97.bridge_negative_controls import c13_sidon_rows
 from erdos97.radius_blocker_packets import (
     analyze_radius_blocker_packet,
     exact_four_rich_classes_from_rows,
+    full_exact_four_radius_blocker_rich_classes,
     row_options_from_rich_classes,
 )
 
@@ -47,6 +48,27 @@ def test_packet_accepts_multiple_exact_four_options() -> None:
     assert result.row_option_counts[0] == 2
     assert result.raw_selection_upper_bound == 2
     assert not result.aborted
+
+
+def test_full_exact_four_radius_blocker_options_enforce_blocker() -> None:
+    rich_classes = full_exact_four_radius_blocker_rich_classes(9, [0, 1, 2, 3])
+
+    assert [len(rows) for rows in rich_classes] == [
+        65,
+        65,
+        65,
+        65,
+        70,
+        70,
+        70,
+        70,
+        70,
+    ]
+    for center in [0, 1, 2, 3]:
+        assert all(
+            len({0, 1, 2, 3}.intersection(row)) <= 2
+            for row in rich_classes[center]
+        )
 
 
 def test_large_rich_classes_are_rejected_until_semantics_are_added() -> None:
