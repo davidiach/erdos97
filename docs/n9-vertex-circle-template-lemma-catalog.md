@@ -61,12 +61,17 @@ python scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py \
   --check \
   --assert-expected \
   --json
+
+python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py \
+  --check \
+  --assert-expected \
+  --json
 ```
 
 That audit is JSON bookkeeping only. It verifies agreement among checked-in
-packet, source-template, catalog, and aggregate scan records; it does not
-prove packet soundness, local-lemma completeness, frontier coverage, `n=9`, or
-a counterexample.
+packet, source-template, catalog, aggregate scan, and mini-replay records; it
+does not prove packet soundness, local-lemma completeness, frontier coverage,
+`n=9`, or a counterexample.
 
 ## Review standard
 

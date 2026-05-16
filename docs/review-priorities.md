@@ -365,6 +365,11 @@ Next steps:
   to cross-check the 12 focused packet JSON files against the source template
   packets, template catalog, and aggregate focused-note ledger before reviewing
   packet soundness;
+- use
+  `scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --json`
+  to join the same 12 focused packets to their packet-specific mini-replay
+  artifacts, checking identity, source schemas, families, obstruction flags,
+  and compact shape counts only;
 - use `data/certificates/n9_vertex_circle_local_lemma_simple_replay.json` to
   replay the aggregate local-template coverage from stored packet JSON without
   sharing the main quotient-replay helper;

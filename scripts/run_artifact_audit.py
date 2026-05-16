@@ -591,6 +591,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_focused_minireplay_crosswalk",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "JSON-only cross-artifact audit joining the 12 focused n=9 "
+            "local-lemma packets to their mini-replay artifacts; not "
+            "mini-replay soundness, packet soundness, local-lemma "
+            "completeness, frontier coverage, proof of n=9, counterexample, "
+            "or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_local_lemma_simple_replay",
         command=(
             "python",
