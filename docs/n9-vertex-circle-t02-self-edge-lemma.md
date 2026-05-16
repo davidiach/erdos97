@@ -53,6 +53,34 @@ on the row circle, chord length is strictly increasing with the enclosed
 central angle in this range. If the row witness order is `a,b,c,d`, then the
 chord `[a,d]` strictly contains `[a,b]`, so `d(a,d) > d(a,b)`.
 
+All four packet families are instances of this reusable five-label form. Let
+`C,A,B,D,E` be distinct vertices of a strictly convex polygon, with
+`A,B,D,E` occurring in that order in the vertex cone at `C`; the first and
+last of these vertices may lie on the two boundary rays of the cone. Assume:
+
+```text
+center C selects A,B,D,E
+center E selects A,C
+center A selects B,C
+```
+
+Then the selected-distance equalities give
+
+```text
+|AE| = |CE| = |CA| = |AB|.
+```
+
+The first equality comes from the row at `E`, the second from the row at `C`,
+and the third from the row at `A`. But row `C` puts `A,B,D,E` on one circle
+centered at `C`, so the outer chord `AE` has strictly larger angular span
+than the inner chord `AB`. Hence
+
+```text
+|AE| > |AB|,
+```
+
+contradicting the equality chain.
+
 For `F01`, the three selected rows are
 
 ```text
