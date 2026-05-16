@@ -174,6 +174,13 @@ incidence survivors are all vertex-circle obstructed (`1,164` self-edges and
 proof, a bridge proof, or a counterexample. See
 `docs/n9-radius-blocker-shape-sweep.md`.
 
+The order-reduction crosswalk records that any supplied cyclic order and
+four-blocker subset for this exact-four packet relabels to natural order by
+sending `order[i]` to `i`. Thus arbitrary cyclic-order placements of a
+four-blocker reduce to the stored `126` labelled natural-order blocker
+coverage, still only within the exact-four packet semantics. See
+`docs/n9-radius-blocker-order-reduction.md`.
+
 A second bootstrap-core diagnostic overlays the two tight non-ear-orderable
 `n=9` crosswalk rows with the review-pending vertex-circle strict-cycle chain.
 Both rows join by selected-row signature to the same `T12/F16` strict-cycle

@@ -278,6 +278,15 @@ a bridge proof, and not a counterexample. See
 `scripts/check_n9_radius_blocker_shape_sweep.py`, and
 `data/certificates/n9_radius_blocker_shape_sweep.json`.
 
+The order-reduction crosswalk for that sweep records the relabelling
+`order[i] -> i`, which sends any supplied cyclic order and four-blocker subset
+to a natural-order labelled four-blocker already covered by the shape sweep.
+This closes the cyclic-order placement gap only for the exact-four packet
+semantics; it does not handle richer classes and does not prove the bridge.
+See `docs/n9-radius-blocker-order-reduction.md`,
+`scripts/check_n9_radius_blocker_order_reduction_crosswalk.py`, and
+`data/certificates/n9_radius_blocker_order_reduction_crosswalk.json`.
+
 The companion bootstrap / vertex-circle overlay joins the two tight
 non-ear-orderable `n=9` crosswalk rows to the review-pending strict-cycle
 certificate chain by selected-row signature. Both land on the same `T12/F16`

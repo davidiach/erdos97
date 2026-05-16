@@ -1389,6 +1389,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_radius_blocker_order_reduction_crosswalk",
+        command=(
+            "python",
+            "scripts/check_n9_radius_blocker_order_reduction_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Order-reduction crosswalk for the n=9 exact-four radius-blocker "
+            "shape sweep; arbitrary cyclic-order placements of a "
+            "four-blocker reduce to the stored natural-order shape sweep, "
+            "but this is not a proof of Erdos Problem #97 and not a "
+            "counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_core_crosswalk",
         command=(
             "python",
