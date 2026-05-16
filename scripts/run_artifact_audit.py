@@ -1688,6 +1688,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="closure_activation_wrong_fourth_negative_control",
+        command=(
+            "python",
+            "scripts/check_closure_activation_wrong_fourth_negative_control.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Wrong-fourth closure activation negative control only; not a "
+            "Euclidean realization, not a proof of row forcing, not a proof "
+            "of the bootstrap bridge, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="closure_activation_negative_controls",
         command=(
             "python",
@@ -1700,6 +1715,36 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "Abstract rich-class closure activation negative controls only; "
             "not a Euclidean realization, not a proof of n=9, not a proof of "
             "the bootstrap bridge, and not a proof of Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
+        ident="bootstrap_t12_anti_activation_negative_control",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_anti_activation_negative_control.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Full selected-row anti-activation negative control only; not a "
+            "Euclidean realization, not a proof of row forcing, not a proof "
+            "of the bootstrap bridge, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="closure_visibility_anti_activation_control",
+        command=(
+            "python",
+            "scripts/check_closure_visibility_anti_activation_control.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Closure-visibility anti-activation negative control only; not a "
+            "Euclidean realization, not a proof of row forcing, not a proof "
+            "of the bootstrap bridge, and not a counterexample."
         ),
     ),
     AuditCommand(

@@ -5003,6 +5003,35 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: closure_activation_wrong_fourth_negative_control
+    path: data/certificates/closure_activation_wrong_fourth_negative_control.json
+    kind: negative_control_artifact
+    generator: scripts/check_closure_activation_wrong_fourth_negative_control.py
+    command: python scripts/check_closure_activation_wrong_fourth_negative_control.py --write --assert-expected
+    checker: scripts/check_closure_activation_wrong_fourth_negative_control.py
+    check_command: python scripts/check_closure_activation_wrong_fourth_negative_control.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: REVIEW_PENDING_PROVENANCE
+    claim_scope: Wrong-fourth closure activation negative control only; not a Euclidean realization, not a proof of row forcing, not a proof of the bootstrap bridge, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      type: closure_activation_wrong_fourth_negative_control_v1
+      status: EXACT_NEGATIVE_CONTROL
+      trust_label: NEGATIVE_CONTROL
+      claim_status: abstract_incidence_closure_stress_test_only
+      run_id: RS-2026-05-10-A
+      n: 10
+    forbidden_claims:
+      - closure activation proves row forcing
+      - wrong-fourth control proves a bridge lemma
+      - n=9 is proved
+      - bootstrap bridge is proved
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: closure_activation_negative_controls
     path: data/certificates/closure_activation_negative_controls.json
     kind: negative_control_artifact
@@ -5026,6 +5055,64 @@ artifacts:
       - rich-class closure proves row forcing
       - n=9 is proved
       - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap bridge is proved
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
+  - id: bootstrap_t12_anti_activation_negative_control
+    path: data/certificates/bootstrap_t12_anti_activation_negative_control.json
+    kind: negative_control_artifact
+    generator: scripts/check_bootstrap_t12_anti_activation_negative_control.py
+    command: python scripts/check_bootstrap_t12_anti_activation_negative_control.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_anti_activation_negative_control.py
+    check_command: python scripts/check_bootstrap_t12_anti_activation_negative_control.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: REVIEW_PENDING_PROVENANCE
+    claim_scope: Full selected-row closure anti-activation negative control only; not a Euclidean realization, not a proof of row forcing, not a proof of the bootstrap bridge, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      type: bootstrap_t12_full_row_anti_activation_negative_control_v1
+      status: EXACT_NEGATIVE_CONTROL
+      trust_label: NEGATIVE_CONTROL
+      claim_status: abstract_full_selected_row_closure_stress_test_only
+      run_id: RS-2026-05-10-A
+      n: 10
+    forbidden_claims:
+      - closure activation proves row forcing
+      - anti-activation control proves a bridge lemma
+      - n=9 is proved
+      - bootstrap bridge is proved
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
+  - id: closure_visibility_anti_activation_control
+    path: data/certificates/closure_visibility_anti_activation_control.json
+    kind: negative_control_artifact
+    generator: scripts/check_closure_visibility_anti_activation_control.py
+    command: python scripts/check_closure_visibility_anti_activation_control.py --write --assert-expected
+    checker: scripts/check_closure_visibility_anti_activation_control.py
+    check_command: python scripts/check_closure_visibility_anti_activation_control.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: REVIEW_PENDING_PROVENANCE
+    claim_scope: Closure-visibility anti-activation negative control only; not a Euclidean realization, not a proof of row forcing, not a proof of the bootstrap bridge, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      type: closure_visibility_anti_activation_control_v1
+      status: EXACT_NEGATIVE_CONTROL
+      trust_label: NEGATIVE_CONTROL
+      claim_status: abstract_incidence_closure_stress_test_only
+      run_id: RS-2026-05-10-A
+    forbidden_claims:
+      - closure visibility proves row forcing
+      - closure activation proves row forcing
+      - visibility control proves a bridge lemma
+      - n=9 is proved
       - bootstrap bridge is proved
       - official/global status update
       - source-of-truth strongest result

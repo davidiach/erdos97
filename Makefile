@@ -95,6 +95,10 @@ verify-n9-review:
 
 verify-bridge-frontier:
 	$(PYTHON) scripts/check_bridge_lemma_frontier.py --check --assert-expected --json
+	$(PYTHON) scripts/check_closure_activation_wrong_fourth_negative_control.py --check --assert-expected --json
+	$(PYTHON) scripts/check_closure_activation_negative_controls.py --check --assert-expected --json
+	$(PYTHON) scripts/check_bootstrap_t12_anti_activation_negative_control.py --check --assert-expected --json
+	$(PYTHON) scripts/check_closure_visibility_anti_activation_control.py --check --assert-expected --json
 	$(PYTHON) scripts/check_block6_fragile_vertex_circle_extension.py --check --assert-expected --json
 	$(PYTHON) scripts/check_block6_terminal_crossing_vertex_circle_sample.py --check --assert-expected --json
 	$(PYTHON) scripts/check_block6_terminal_crossing_vertex_circle_sample.py --full-sweep --check --assert-expected --json
