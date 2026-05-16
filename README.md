@@ -577,7 +577,10 @@ python scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py --check --ass
 python scripts/check_bootstrap_t12_81_8_singleton_support_audit.py --check --assert-expected --json
 python scripts/check_bootstrap_t12_151_6_outside_pair_audit.py --check --assert-expected --json
 python scripts/check_bootstrap_t12_151_singleton_support_audit.py --check --assert-expected --json
+python scripts/check_closure_activation_wrong_fourth_negative_control.py --check --assert-expected --json
 python scripts/check_closure_activation_negative_controls.py --check --assert-expected --json
+python scripts/check_bootstrap_t12_anti_activation_negative_control.py --check --assert-expected --json
+python scripts/check_closure_visibility_anti_activation_control.py --check --assert-expected --json
 python scripts/check_block6_fragile_vertex_circle_extension.py --check --assert-expected --json
 python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --check --assert-expected --json
 python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --full-sweep --check --assert-expected --json

@@ -254,7 +254,13 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--assert-expected --json",
         "python scripts/check_bootstrap_t12_151_singleton_support_audit.py --check "
         "--assert-expected --json",
+        "python scripts/check_closure_activation_wrong_fourth_negative_control.py "
+        "--check --assert-expected --json",
         "python scripts/check_closure_activation_negative_controls.py --check "
+        "--assert-expected --json",
+        "python scripts/check_bootstrap_t12_anti_activation_negative_control.py "
+        "--check --assert-expected --json",
+        "python scripts/check_closure_visibility_anti_activation_control.py --check "
         "--assert-expected --json",
     )
     for command in bootstrap_bridge_commands:
