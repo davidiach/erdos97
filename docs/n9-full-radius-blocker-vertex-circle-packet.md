@@ -54,6 +54,8 @@ because the cyclic order and blocker subset are fixed and the packet is
 restricted to exact four-row classes.
 
 The dihedral blocker-placement widening is now recorded in
-`docs/n9-radius-blocker-shape-sweep.md`. The useful next widening is
-non-natural cyclic orders that arise from current stuck-set and fragile-cover
-searches, or a replay semantics for rich classes larger than four.
+`docs/n9-radius-blocker-shape-sweep.md`, and
+`docs/n9-radius-blocker-order-reduction.md` records why arbitrary cyclic-order
+placements of the same exact-four four-blocker packet reduce to that shape
+sweep. The useful next widening is a replay semantics for rich classes larger
+than four.

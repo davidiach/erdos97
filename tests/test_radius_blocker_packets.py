@@ -12,6 +12,7 @@ from erdos97.radius_blocker_packets import (
     exact_four_rich_classes_from_rows,
     full_exact_four_radius_blocker_rich_classes,
     row_options_from_rich_classes,
+    subset_positions_in_order,
 )
 
 
@@ -91,6 +92,14 @@ def test_dihedral_four_blocker_representatives_cover_n9_subsets() -> None:
     )
     assert sum(len(dihedral_subset_images(9, rep)) for rep in representatives) == 126
     assert canonical_dihedral_subset(9, [5, 6, 7, 8]) == (0, 1, 2, 3)
+
+
+def test_subset_positions_in_order_reduces_blocker_to_natural_order() -> None:
+    order = (3, 0, 8, 1, 4, 2, 5, 7, 6)
+    natural_blocker = subset_positions_in_order(order, [0, 2, 6, 8])
+
+    assert natural_blocker == (1, 2, 5, 8)
+    assert canonical_dihedral_subset(9, natural_blocker) == (0, 1, 3, 6)
 
 
 def test_large_rich_classes_are_rejected_until_semantics_are_added() -> None:

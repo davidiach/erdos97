@@ -66,6 +66,8 @@ all dihedrally distinct four-vertex blocker shapes in the fixed natural order.
 It is still not a proof of the full adaptive blocker bridge, because the cyclic
 order is fixed and the packet is restricted to exact four-row rich classes.
 
-The useful next widening is non-natural cyclic orders or a rich-class replay
-semantics that handles classes larger than four without prematurely choosing
-one exact four-subset.
+The order-reduction crosswalk in `docs/n9-radius-blocker-order-reduction.md`
+records why arbitrary cyclic-order placements of a four-blocker reduce to this
+natural-order shape sweep for the exact-four packet. The useful next widening
+is therefore a rich-class replay semantics that handles classes larger than
+four without prematurely choosing one exact four-subset.

@@ -154,6 +154,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-radius-blocker-shape-sweep.md`](n9-radius-blocker-shape-sweep.md):
   natural-order exact-four row-option sweep over all `10` cyclic-dihedral
   four-blocker shapes; finite packet evidence only.
+- [`n9-radius-blocker-order-reduction.md`](n9-radius-blocker-order-reduction.md):
+  relabelling crosswalk reducing arbitrary cyclic-order placements of the
+  exact-four four-blocker packet to the natural-order shape sweep.
 - [`bootstrap-core-bridge.md`](bootstrap-core-bridge.md): rich-triple closure
   rank, bootstrap cores, private halos, and weighted cyclic capacity.
 - [`bootstrap-core-crosswalk.md`](bootstrap-core-crosswalk.md): checked

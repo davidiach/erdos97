@@ -1,0 +1,307 @@
+{
+  "claim_scope": "Order-reduction crosswalk for the n=9 exact-four radius-blocker shape sweep. It records that any supplied cyclic order and four-blocker subset relabels to the natural-order labelled four-blocker coverage already stored in the shape sweep. This does not prove n=9, does not prove the adaptive blocker bridge, and is not a counterexample.",
+  "interpretation_warnings": [
+    "This is a relabelling crosswalk for exact-four row-option packets only.",
+    "It does not add richer-than-four rich-class semantics.",
+    "It does not classify arbitrary n=9 rich-class systems.",
+    "No general proof and no counterexample are claimed."
+  ],
+  "provenance": {
+    "command": "python scripts/check_n9_radius_blocker_order_reduction_crosswalk.py --write --assert-expected",
+    "generator": "scripts/check_n9_radius_blocker_order_reduction_crosswalk.py",
+    "sources": [
+      "data/certificates/n9_radius_blocker_shape_sweep.json",
+      "src/erdos97/radius_blocker_packets.py"
+    ]
+  },
+  "reduction_rule": {
+    "blocker_image": "the transformed blocker is sorted(label_map[label] for label in blocker)",
+    "label_map": "for a cyclic order order, send each label order[i] to i",
+    "why_this_matches_the_shape_sweep": "The exact-four row-option rule depends only on the center label and blocker membership. Under this relabelling, row options, row-pair crossing in the supplied order, witness-pair caps, indegree caps, and selected-distance vertex-circle replay are transported to the natural-order packet for the transformed blocker."
+  },
+  "sample_reductions": [
+    {
+      "blocker": [
+        0,
+        2,
+        6,
+        8
+      ],
+      "canonical_representative": [
+        0,
+        1,
+        3,
+        6
+      ],
+      "natural_blocker": [
+        1,
+        2,
+        5,
+        8
+      ],
+      "order": [
+        3,
+        0,
+        8,
+        1,
+        4,
+        2,
+        5,
+        7,
+        6
+      ]
+    },
+    {
+      "blocker": [
+        1,
+        3,
+        4,
+        8
+      ],
+      "canonical_representative": [
+        0,
+        1,
+        3,
+        6
+      ],
+      "natural_blocker": [
+        0,
+        2,
+        5,
+        8
+      ],
+      "order": [
+        4,
+        7,
+        1,
+        5,
+        0,
+        8,
+        2,
+        6,
+        3
+      ]
+    },
+    {
+      "blocker": [
+        0,
+        1,
+        5,
+        7
+      ],
+      "canonical_representative": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "natural_blocker": [
+        4,
+        5,
+        6,
+        8
+      ],
+      "order": [
+        8,
+        6,
+        4,
+        2,
+        0,
+        7,
+        5,
+        3,
+        1
+      ]
+    }
+  ],
+  "schema": "erdos97.n9_radius_blocker_order_reduction_crosswalk.v1",
+  "shape_representatives": [
+    {
+      "blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "dihedral_orbit_size": 9,
+      "incidence_survivors": 90,
+      "vertex_circle_status_counts": {
+        "self_edge": 70,
+        "strict_cycle": 20
+      }
+    },
+    {
+      "blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "dihedral_orbit_size": 18,
+      "incidence_survivors": 118,
+      "vertex_circle_status_counts": {
+        "self_edge": 97,
+        "strict_cycle": 21
+      }
+    },
+    {
+      "blocker": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "dihedral_orbit_size": 18,
+      "incidence_survivors": 111,
+      "vertex_circle_status_counts": {
+        "self_edge": 93,
+        "strict_cycle": 18
+      }
+    },
+    {
+      "blocker": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "dihedral_orbit_size": 9,
+      "incidence_survivors": 148,
+      "vertex_circle_status_counts": {
+        "self_edge": 134,
+        "strict_cycle": 14
+      }
+    },
+    {
+      "blocker": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "dihedral_orbit_size": 18,
+      "incidence_survivors": 142,
+      "vertex_circle_status_counts": {
+        "self_edge": 121,
+        "strict_cycle": 21
+      }
+    },
+    {
+      "blocker": [
+        0,
+        1,
+        3,
+        6
+      ],
+      "dihedral_orbit_size": 18,
+      "incidence_survivors": 141,
+      "vertex_circle_status_counts": {
+        "self_edge": 125,
+        "strict_cycle": 16
+      }
+    },
+    {
+      "blocker": [
+        0,
+        1,
+        3,
+        7
+      ],
+      "dihedral_orbit_size": 9,
+      "incidence_survivors": 136,
+      "vertex_circle_status_counts": {
+        "self_edge": 120,
+        "strict_cycle": 16
+      }
+    },
+    {
+      "blocker": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "dihedral_orbit_size": 9,
+      "incidence_survivors": 168,
+      "vertex_circle_status_counts": {
+        "self_edge": 144,
+        "strict_cycle": 24
+      }
+    },
+    {
+      "blocker": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "dihedral_orbit_size": 9,
+      "incidence_survivors": 158,
+      "vertex_circle_status_counts": {
+        "self_edge": 136,
+        "strict_cycle": 22
+      }
+    },
+    {
+      "blocker": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "dihedral_orbit_size": 9,
+      "incidence_survivors": 146,
+      "vertex_circle_status_counts": {
+        "self_edge": 124,
+        "strict_cycle": 22
+      }
+    }
+  ],
+  "source_shape_sweep": {
+    "path": "data/certificates/n9_radius_blocker_shape_sweep.json",
+    "schema": "erdos97.radius_blocker_vertex_circle_packet.v1",
+    "sha256": "a5291621ebf8a3ef8cc7eb9502933ef768c4da81b314096ffaea68aa96b19100",
+    "status": "RADIUS_BLOCKER_VERTEX_CIRCLE_DIAGNOSTIC_ONLY",
+    "summary": {
+      "all_cases_finished": true,
+      "all_cases_have_radius_blocker": true,
+      "all_dihedral_labelled_blockers_covered": true,
+      "all_incidence_survivors_obstructed": true,
+      "dihedral_orbit_size_counts": {
+        "18": 4,
+        "9": 6
+      },
+      "labelled_blocker_count": 126,
+      "n": 9,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "shape_count": 10,
+      "total_incidence_survivors": 1358,
+      "total_nodes_visited": 754505,
+      "vertex_circle_status_totals": {
+        "self_edge": 1164,
+        "strict_cycle": 194
+      }
+    },
+    "trust": "REVIEW_PENDING_DIAGNOSTIC"
+  },
+  "status": "N9_RADIUS_BLOCKER_ORDER_REDUCTION_DIAGNOSTIC_ONLY",
+  "summary": {
+    "all_labelled_four_blockers_covered": true,
+    "covered_labelled_blocker_count": 126,
+    "n": 9,
+    "order_reduction_scope": "Every supplied cyclic order and four-blocker subset relabels to natural order by sending order[i] to i.",
+    "sample_reduction_count": 3,
+    "source_shape_count": 10
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

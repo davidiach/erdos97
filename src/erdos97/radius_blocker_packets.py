@@ -70,6 +70,20 @@ def dihedral_subset_representatives(n: int, size: int) -> tuple[Subset, ...]:
     )
 
 
+def subset_positions_in_order(order: Sequence[int], subset: Iterable[int]) -> Subset:
+    """Relabel ``subset`` by positions in ``order``.
+
+    The returned subset is the image of the original labels under the unique
+    relabelling that sends the supplied cyclic order to natural order.
+    """
+
+    order_tuple = tuple(int(label) for label in order)
+    _validate_order(order_tuple, len(order_tuple))
+    subset_tuple = _validate_subset(len(order_tuple), subset)
+    positions = {label: index for index, label in enumerate(order_tuple)}
+    return tuple(sorted(positions[label] for label in subset_tuple))
+
+
 @dataclass(frozen=True)
 class PacketConfig:
     """Search controls for a radius-blocker packet."""
