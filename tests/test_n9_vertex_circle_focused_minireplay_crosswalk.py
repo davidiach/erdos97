@@ -37,8 +37,8 @@ def test_focused_minireplay_crosswalk_counts_and_scope() -> None:
     assert summary["source_assignment_count"] == 184
     assert summary["source_family_count"] == 16
     assert summary["obstruction_flagged_count"] == 12
-    assert summary["assignment_count_repeated_total"] == 152
-    assert summary["assignment_count_source_only_total"] == 32
+    assert summary["assignment_count_repeated_total"] == 184
+    assert summary["assignment_count_source_only_total"] == 0
 
 
 def test_focused_minireplay_crosswalk_rejects_source_packet_drift(

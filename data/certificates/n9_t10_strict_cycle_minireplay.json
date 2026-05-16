@@ -7,6 +7,10 @@
     "generator": "scripts/check_n9_t10_strict_cycle_minireplay.py"
   },
   "replay": {
+    "assignment_count": 18,
+    "assignment_counts": {
+      "F12": 18
+    },
     "core_centers": [
       0,
       3,
@@ -137,6 +141,10 @@
           ]
         }
       }
+    ],
+    "family_count": 1,
+    "family_ids": [
+      "F12"
     ],
     "source_family_id": "F12",
     "source_template_id": "T10",

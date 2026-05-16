@@ -7,6 +7,10 @@
     "generator": "scripts/check_n9_t01_self_edge_minireplay.py"
   },
   "replay": {
+    "assignment_count": 6,
+    "assignment_counts": {
+      "F09": 6
+    },
     "core_centers": [
       0,
       1,
@@ -66,6 +70,10 @@
         ],
         "row": 2
       }
+    ],
+    "family_count": 1,
+    "family_ids": [
+      "F09"
     ],
     "self_edge_contradiction": true,
     "source_family_id": "F09",

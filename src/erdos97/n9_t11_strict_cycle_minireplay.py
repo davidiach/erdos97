@@ -18,6 +18,8 @@ SOURCE_PACKET = "data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packe
 TEMPLATE_ID = "T11"
 FAMILY_ID = "F07"
 EXPECTED_CYCLE_LENGTH = 3
+EXPECTED_ASSIGNMENT_COUNT = 6
+EXPECTED_ASSIGNMENT_COUNTS = {"F07": 6}
 EXPECTED_STRICT_WITNESS_ORDERS = [
     [2, 3, 5, 0],
     [2, 3, 5, 0],
@@ -339,12 +341,20 @@ def replay_packet(packet: dict[str, Any]) -> tuple[dict[str, object], list[str]]
     summary = {
         "source_template_id": packet.get("template_id"),
         "source_family_id": family.get("family_id"),
+        "family_count": 1,
+        "family_ids": [family.get("family_id")],
+        "assignment_count": packet.get("assignment_count"),
+        "assignment_counts": {str(family.get("family_id")): packet.get("assignment_count")},
         "core_row_count": len(rows),
         "core_centers": sorted(rows),
         "cycle_length": len(cycle_steps),
         "cycle_steps": steps,
         "strict_cycle_contradiction": closes,
     }
+    if summary["assignment_count"] != EXPECTED_ASSIGNMENT_COUNT:
+        errors.append(f"unexpected assignment_count {summary['assignment_count']!r}")
+    if summary["assignment_counts"] != EXPECTED_ASSIGNMENT_COUNTS:
+        errors.append(f"unexpected assignment_counts {summary['assignment_counts']!r}")
     if not closes:
         errors.append("strict inequalities and equality connectors do not close a cycle")
     return summary, errors
@@ -409,6 +419,10 @@ def assert_expected_payload(payload: dict[str, Any]) -> None:
     expected = {
         "source_template_id": TEMPLATE_ID,
         "source_family_id": FAMILY_ID,
+        "family_count": 1,
+        "family_ids": [FAMILY_ID],
+        "assignment_count": EXPECTED_ASSIGNMENT_COUNT,
+        "assignment_counts": EXPECTED_ASSIGNMENT_COUNTS,
         "core_row_count": 4,
         "core_centers": [0, 1, 5, 6],
         "cycle_length": EXPECTED_CYCLE_LENGTH,

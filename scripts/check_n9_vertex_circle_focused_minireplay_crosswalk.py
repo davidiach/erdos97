@@ -82,9 +82,9 @@ EXPECTED_STATUS_COUNTS = {"self_edge": 9, "strict_cycle": 3}
 EXPECTED_STATUS_ASSIGNMENT_COUNTS = {"self_edge": 158, "strict_cycle": 26}
 EXPECTED_FAMILY_COUNT = 16
 EXPECTED_ASSIGNMENT_COUNT = 184
-EXPECTED_REPEATED_ASSIGNMENT_COUNT = 152
-EXPECTED_SOURCE_ONLY_ASSIGNMENT_COUNT = 32
-EXPECTED_SOURCE_ONLY_TEMPLATES = ["T01", "T10", "T11", "T12"]
+EXPECTED_REPEATED_ASSIGNMENT_COUNT = 184
+EXPECTED_SOURCE_ONLY_ASSIGNMENT_COUNT = 0
+EXPECTED_SOURCE_ONLY_TEMPLATES: list[str] = []
 EXPECTED_SELF_EDGE_PATH_LENGTH_COUNTS = {"3": 9, "4": 2, "5": 1, "6": 1}
 EXPECTED_STRICT_CYCLE_LENGTH_COUNTS = {"2": 1, "3": 2}
 
@@ -182,8 +182,8 @@ def assert_expected_focused_minireplay_crosswalk(payload: Mapping[str, Any]) -> 
         "source_assignment_count": EXPECTED_ASSIGNMENT_COUNT,
         "source_family_count": EXPECTED_FAMILY_COUNT,
         "obstruction_flagged_count": 12,
-        "assignment_count_repeated_template_count": 8,
-        "assignment_count_source_only_template_count": 4,
+        "assignment_count_repeated_template_count": 12,
+        "assignment_count_source_only_template_count": 0,
         "assignment_count_repeated_total": EXPECTED_REPEATED_ASSIGNMENT_COUNT,
         "assignment_count_source_only_total": EXPECTED_SOURCE_ONLY_ASSIGNMENT_COUNT,
         "assignment_count_source_only_templates": EXPECTED_SOURCE_ONLY_TEMPLATES,
