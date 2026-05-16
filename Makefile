@@ -36,9 +36,24 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 	$(PYTHON) scripts/analyze_n9_vertex_circle_obstruction_shapes.py --check --assert-expected --json
 	$(PYTHON) scripts/analyze_n9_vertex_circle_motif_families.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_core_templates.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_frontier_motif_classification.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json
+	$(PYTHON) scripts/compare_n9_vertex_circle_frontier.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_self_edge_path_join.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_self_edge_template_packet.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_strict_cycle_path_join.py --check --assert-expected --json
