@@ -326,6 +326,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-t08-self-edge-lemma.md`](n9-vertex-circle-t08-self-edge-lemma.md):
   focused review-pending T08/F02 self-edge local lemma packet for proof
   mining.
+- [`n9-t08-self-edge-minireplay.md`](n9-t08-self-edge-minireplay.md):
+  minimal input-data replay of the T08/F02 local self-edge family packet;
+  proof-mining scaffolding only.
 - [`n9-vertex-circle-t09-self-edge-lemma.md`](n9-vertex-circle-t09-self-edge-lemma.md):
   focused review-pending T09/F03 self-edge local lemma packet for proof
   mining.
