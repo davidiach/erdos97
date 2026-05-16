@@ -72,6 +72,11 @@ Generate and check the diagnostic artifact:
 python scripts/analyze_n9_vertex_circle_obstruction_shapes.py \
   --assert-expected \
   --write
+
+python scripts/analyze_n9_vertex_circle_obstruction_shapes.py \
+  --check \
+  --assert-expected \
+  --json
 ```
 
 Run the targeted artifact test:

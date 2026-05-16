@@ -261,6 +261,69 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_vertex_circle_obstruction_shapes
+    path: data/certificates/n9_vertex_circle_obstruction_shapes.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/analyze_n9_vertex_circle_obstruction_shapes.py
+    command: python scripts/analyze_n9_vertex_circle_obstruction_shapes.py --assert-expected --write
+    checker: scripts/analyze_n9_vertex_circle_obstruction_shapes.py
+    check_command: python scripts/analyze_n9_vertex_circle_obstruction_shapes.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Obstruction-shape diagnostic for the 184 n=9 pre-vertex-circle selected-witness assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      n: 9
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      pre_vertex_circle_search.full_assignments: 184
+      obstruction_status_counts.self_edge: 158
+      obstruction_status_counts.strict_cycle: 26
+      strict_cycle_summary.cycle_length_counts.2: 22
+      strict_cycle_summary.cycle_length_counts.3: 4
+      self_edge_summary.max_equality_path_length: 8
+    forbidden_claims:
+      - n=9 is proved
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - obstruction-shape diagnostic is an independent proof
+      - general proof of Erdos Problem #97
+
+  - id: n9_vertex_circle_motif_families
+    path: data/certificates/n9_vertex_circle_motif_families.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/analyze_n9_vertex_circle_motif_families.py
+    command: python scripts/analyze_n9_vertex_circle_motif_families.py --assert-expected --write
+    checker: scripts/analyze_n9_vertex_circle_motif_families.py
+    check_command: python scripts/analyze_n9_vertex_circle_motif_families.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Dihedral motif-family diagnostic for the 184 n=9 pre-vertex-circle selected-witness assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      n: 9
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      pre_vertex_circle_search.full_assignments: 184
+      obstruction_status_counts.self_edge: 158
+      obstruction_status_counts.strict_cycle: 26
+      dihedral_incidence_families.family_count: 16
+      dihedral_incidence_families.orbit_size_counts.2: 5
+      dihedral_incidence_families.orbit_size_counts.6: 2
+      dihedral_incidence_families.orbit_size_counts.18: 9
+      dihedral_incidence_families.status_family_counts.self_edge: 13
+      dihedral_incidence_families.status_family_counts.strict_cycle: 3
+      loose_obstruction_shapes.self_edge_shape_family_count: 16
+      loose_obstruction_shapes.strict_cycle_span_family_count: 8
+    forbidden_claims:
+      - n=9 is proved
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - motif-family diagnostic is an independent proof
+      - general proof of Erdos Problem #97
+
   - id: n9_turn_inequality_frontier
     path: data/certificates/n9_turn_inequality_frontier.json
     kind: finite_case_artifact
