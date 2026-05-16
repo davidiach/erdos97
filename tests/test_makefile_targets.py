@@ -255,3 +255,36 @@ def test_verify_bridge_frontier_includes_bootstrap_audits() -> None:
 
     positions = [commands.index(command) for command in expected_chain]
     assert positions == sorted(positions)
+
+
+def test_verify_n10_review_includes_turn_audits() -> None:
+    commands = _make_target_commands("verify-n10-review")
+    expected_chain = [
+        (
+            "python scripts/check_n10_turn_row0_pilot.py "
+            "--check --assert-expected --json"
+        ),
+        (
+            "python scripts/check_n10_turn_row0_escape_self_edges.py "
+            "--check --assert-expected --json"
+        ),
+        (
+            "python scripts/check_n10_singleton_input_audit.py "
+            "--check --assert-expected --json"
+        ),
+        (
+            "python scripts/check_n10_vertex_circle_singletons.py "
+            "--assert-expected --spot-check-row0 0 --spot-check-row0 63 "
+            "--spot-check-row0 125"
+        ),
+        (
+            "python scripts/check_n10_secondary_singleton_replay.py "
+            "--check --assert-expected --json"
+        ),
+    ]
+
+    for command in expected_chain:
+        assert command in commands
+
+    positions = [commands.index(command) for command in expected_chain]
+    assert positions == sorted(positions)
