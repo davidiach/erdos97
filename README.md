@@ -478,6 +478,8 @@ python scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected 
 python scripts/check_speculative_circulant_frontier_obstructions.py --check --json
 python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --check-artifact reports/c19_kalmanson_z3_clause_diagnostics.json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
+python scripts/analyze_n9_vertex_circle_obstruction_shapes.py --check --assert-expected --json
+python scripts/analyze_n9_vertex_circle_motif_families.py --check --assert-expected --json
 python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json

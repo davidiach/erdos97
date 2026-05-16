@@ -163,6 +163,11 @@ Generate and check the motif-family artifact:
 python scripts/analyze_n9_vertex_circle_motif_families.py \
   --assert-expected \
   --write
+
+python scripts/analyze_n9_vertex_circle_motif_families.py \
+  --check \
+  --assert-expected \
+  --json
 ```
 
 Generate and check the assignment-level motif classification:

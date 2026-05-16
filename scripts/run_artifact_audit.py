@@ -200,6 +200,36 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         claim_scope="Review-pending n=9 selected-witness finite-case checker; not an official/global status update.",
     ),
     AuditCommand(
+        ident="n9_vertex_circle_obstruction_shapes",
+        command=(
+            "python",
+            "scripts/analyze_n9_vertex_circle_obstruction_shapes.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Review-pending n=9 obstruction-shape diagnostic for the stored "
+            "pre-vertex-circle frontier; not a proof of n=9, counterexample, "
+            "independent review completion, or official/global status update."
+        ),
+    ),
+    AuditCommand(
+        ident="n9_vertex_circle_motif_families",
+        command=(
+            "python",
+            "scripts/analyze_n9_vertex_circle_motif_families.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Review-pending n=9 motif-family diagnostic for the stored "
+            "pre-vertex-circle frontier; not a proof of n=9, counterexample, "
+            "independent review completion, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_turn_inequality_frontier",
         command=(
             "python",
