@@ -125,6 +125,10 @@ Use this queue when no more specific issue is selected.
 3. Continue the minimal fragile-cover bridge after the stored block-6
    vertex-circle full-extension audit
    `data/certificates/block6_fragile_vertex_circle_extension_audit.json`.
+   Use `scripts/check_radius_blocker_vertex_circle_pilot.py --check --assert-expected --json`
+   as the first exact-four row-option packet replay for radius-blocker shapes,
+   then mine true multi-option blocker packets rather than only fixed selected
+   rows.
    The stored crossing-order sample
    `data/certificates/block6_terminal_crossing_vertex_circle_sample.json`
    now checks two deterministic terminal-extension windows across all of

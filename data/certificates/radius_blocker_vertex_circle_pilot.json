@@ -1,0 +1,1279 @@
+{
+  "cases": [
+    {
+      "aborted": false,
+      "all_incidence_survivors_obstructed": true,
+      "blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "claim_scope": "Finite exact-four-row radius-blocker packet diagnostic. It may obstruct the encoded row-option packet under the supplied cyclic order, but it is not a proof of the adaptive blocker bridge, not a proof of Erdos Problem #97, and not a counterexample.",
+      "incidence_survivors": 1,
+      "interpretation": "Diagnostic for this finite exact-four row-option packet only. A positive obstruction count does not prove the adaptive radius-blocker bridge or Erdos Problem #97.",
+      "n": 13,
+      "name": "C13_sidon_fixed_rows_natural_order",
+      "nodes_visited": 13,
+      "obstruction_examples": {
+        "strict_cycle": [
+          {
+            "selected_rows": [
+              [
+                1,
+                2,
+                4,
+                10
+              ],
+              [
+                2,
+                3,
+                5,
+                11
+              ],
+              [
+                3,
+                4,
+                6,
+                12
+              ],
+              [
+                0,
+                4,
+                5,
+                7
+              ],
+              [
+                1,
+                5,
+                6,
+                8
+              ],
+              [
+                2,
+                6,
+                7,
+                9
+              ],
+              [
+                3,
+                7,
+                8,
+                10
+              ],
+              [
+                4,
+                8,
+                9,
+                11
+              ],
+              [
+                5,
+                9,
+                10,
+                12
+              ],
+              [
+                0,
+                6,
+                10,
+                11
+              ],
+              [
+                1,
+                7,
+                11,
+                12
+              ],
+              [
+                0,
+                2,
+                8,
+                12
+              ],
+              [
+                0,
+                1,
+                3,
+                9
+              ]
+            ],
+            "vertex_circle_replay": {
+              "cycle_edges": [
+                {
+                  "inner_class": [
+                    0,
+                    5
+                  ],
+                  "inner_interval": [
+                    1,
+                    3
+                  ],
+                  "inner_pair": [
+                    0,
+                    5
+                  ],
+                  "outer_class": [
+                    0,
+                    1
+                  ],
+                  "outer_interval": [
+                    0,
+                    3
+                  ],
+                  "outer_pair": [
+                    0,
+                    4
+                  ],
+                  "row": 3,
+                  "witness_order": [
+                    4,
+                    5,
+                    7,
+                    0
+                  ]
+                },
+                {
+                  "inner_class": [
+                    2,
+                    5
+                  ],
+                  "inner_interval": [
+                    1,
+                    2
+                  ],
+                  "inner_pair": [
+                    5,
+                    7
+                  ],
+                  "outer_class": [
+                    0,
+                    5
+                  ],
+                  "outer_interval": [
+                    1,
+                    3
+                  ],
+                  "outer_pair": [
+                    0,
+                    5
+                  ],
+                  "row": 3,
+                  "witness_order": [
+                    4,
+                    5,
+                    7,
+                    0
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    3
+                  ],
+                  "inner_interval": [
+                    1,
+                    2
+                  ],
+                  "inner_pair": [
+                    3,
+                    5
+                  ],
+                  "outer_class": [
+                    2,
+                    5
+                  ],
+                  "outer_interval": [
+                    0,
+                    2
+                  ],
+                  "outer_pair": [
+                    2,
+                    5
+                  ],
+                  "row": 1,
+                  "witness_order": [
+                    2,
+                    3,
+                    5,
+                    11
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    1
+                  ],
+                  "inner_interval": [
+                    0,
+                    1
+                  ],
+                  "inner_pair": [
+                    0,
+                    1
+                  ],
+                  "outer_class": [
+                    0,
+                    3
+                  ],
+                  "outer_interval": [
+                    0,
+                    2
+                  ],
+                  "outer_pair": [
+                    0,
+                    3
+                  ],
+                  "row": 12,
+                  "witness_order": [
+                    0,
+                    1,
+                    3,
+                    9
+                  ]
+                }
+              ],
+              "n": 13,
+              "obstructed": true,
+              "order": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12
+              ],
+              "selected_row_count": 13,
+              "self_edge_conflicts": [],
+              "status": "strict_cycle",
+              "strict_edge_count": 117,
+              "type": "vertex_circle_quotient_replay_result"
+            }
+          }
+        ]
+      },
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "radius_blocker_ok": true,
+      "raw_selection_upper_bound": 1,
+      "rejection_counts": {},
+      "row_option_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "schema": "erdos97.radius_blocker_vertex_circle_packet.v1",
+      "status": "RADIUS_BLOCKER_VERTEX_CIRCLE_DIAGNOSTIC_ONLY",
+      "survivor_examples": [],
+      "trust": "REVIEW_PENDING_DIAGNOSTIC",
+      "vertex_circle_status_counts": {
+        "strict_cycle": 1
+      }
+    },
+    {
+      "aborted": false,
+      "all_incidence_survivors_obstructed": true,
+      "blocker": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "claim_scope": "Finite exact-four-row radius-blocker packet diagnostic. It may obstruct the encoded row-option packet under the supplied cyclic order, but it is not a proof of the adaptive blocker bridge, not a proof of Erdos Problem #97, and not a counterexample.",
+      "incidence_survivors": 1,
+      "interpretation": "Diagnostic for this finite exact-four row-option packet only. A positive obstruction count does not prove the adaptive radius-blocker bridge or Erdos Problem #97.",
+      "n": 12,
+      "name": "two_block_no_forward_fixed_rows",
+      "nodes_visited": 12,
+      "obstruction_examples": {
+        "self_edge": [
+          {
+            "selected_rows": [
+              [
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                3,
+                6,
+                7,
+                11
+              ],
+              [
+                1,
+                5,
+                9,
+                11
+              ],
+              [
+                0,
+                2,
+                4,
+                5
+              ],
+              [
+                0,
+                3,
+                6,
+                9
+              ],
+              [
+                0,
+                2,
+                10,
+                11
+              ],
+              [
+                7,
+                8,
+                9,
+                10
+              ],
+              [
+                0,
+                1,
+                8,
+                9
+              ],
+              [
+                4,
+                5,
+                7,
+                11
+              ],
+              [
+                6,
+                8,
+                10,
+                11
+              ],
+              [
+                1,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                3,
+                5,
+                8
+              ]
+            ],
+            "vertex_circle_replay": {
+              "cycle_edges": [],
+              "n": 12,
+              "obstructed": true,
+              "order": [
+                0,
+                4,
+                3,
+                1,
+                2,
+                5,
+                6,
+                10,
+                9,
+                7,
+                8,
+                11
+              ],
+              "selected_row_count": 12,
+              "self_edge_conflicts": [
+                {
+                  "inner_class": [
+                    0,
+                    5
+                  ],
+                  "inner_interval": [
+                    1,
+                    2
+                  ],
+                  "inner_pair": [
+                    9,
+                    11
+                  ],
+                  "outer_class": [
+                    0,
+                    5
+                  ],
+                  "outer_interval": [
+                    0,
+                    2
+                  ],
+                  "outer_pair": [
+                    5,
+                    11
+                  ],
+                  "row": 2,
+                  "witness_order": [
+                    5,
+                    9,
+                    11,
+                    1
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    5
+                  ],
+                  "inner_interval": [
+                    1,
+                    2
+                  ],
+                  "inner_pair": [
+                    0,
+                    11
+                  ],
+                  "outer_class": [
+                    0,
+                    5
+                  ],
+                  "outer_interval": [
+                    1,
+                    3
+                  ],
+                  "outer_pair": [
+                    2,
+                    11
+                  ],
+                  "row": 5,
+                  "witness_order": [
+                    10,
+                    11,
+                    0,
+                    2
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    5
+                  ],
+                  "inner_interval": [
+                    0,
+                    1
+                  ],
+                  "inner_pair": [
+                    9,
+                    10
+                  ],
+                  "outer_class": [
+                    0,
+                    5
+                  ],
+                  "outer_interval": [
+                    0,
+                    2
+                  ],
+                  "outer_pair": [
+                    7,
+                    10
+                  ],
+                  "row": 6,
+                  "witness_order": [
+                    10,
+                    9,
+                    7,
+                    8
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    5
+                  ],
+                  "inner_interval": [
+                    1,
+                    2
+                  ],
+                  "inner_pair": [
+                    7,
+                    9
+                  ],
+                  "outer_class": [
+                    0,
+                    5
+                  ],
+                  "outer_interval": [
+                    0,
+                    2
+                  ],
+                  "outer_pair": [
+                    7,
+                    10
+                  ],
+                  "row": 6,
+                  "witness_order": [
+                    10,
+                    9,
+                    7,
+                    8
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    5
+                  ],
+                  "inner_interval": [
+                    1,
+                    2
+                  ],
+                  "inner_pair": [
+                    7,
+                    9
+                  ],
+                  "outer_class": [
+                    0,
+                    5
+                  ],
+                  "outer_interval": [
+                    1,
+                    3
+                  ],
+                  "outer_pair": [
+                    8,
+                    9
+                  ],
+                  "row": 6,
+                  "witness_order": [
+                    10,
+                    9,
+                    7,
+                    8
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    5
+                  ],
+                  "inner_interval": [
+                    2,
+                    3
+                  ],
+                  "inner_pair": [
+                    7,
+                    8
+                  ],
+                  "outer_class": [
+                    0,
+                    5
+                  ],
+                  "outer_interval": [
+                    1,
+                    3
+                  ],
+                  "outer_pair": [
+                    8,
+                    9
+                  ],
+                  "row": 6,
+                  "witness_order": [
+                    10,
+                    9,
+                    7,
+                    8
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    5
+                  ],
+                  "inner_interval": [
+                    0,
+                    1
+                  ],
+                  "inner_pair": [
+                    8,
+                    11
+                  ],
+                  "outer_class": [
+                    0,
+                    5
+                  ],
+                  "outer_interval": [
+                    0,
+                    2
+                  ],
+                  "outer_pair": [
+                    6,
+                    8
+                  ],
+                  "row": 9,
+                  "witness_order": [
+                    8,
+                    11,
+                    6,
+                    10
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    5
+                  ],
+                  "inner_interval": [
+                    0,
+                    1
+                  ],
+                  "inner_pair": [
+                    1,
+                    7
+                  ],
+                  "outer_class": [
+                    0,
+                    5
+                  ],
+                  "outer_interval": [
+                    0,
+                    3
+                  ],
+                  "outer_pair": [
+                    6,
+                    7
+                  ],
+                  "row": 10,
+                  "witness_order": [
+                    7,
+                    1,
+                    5,
+                    6
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    5
+                  ],
+                  "inner_interval": [
+                    1,
+                    3
+                  ],
+                  "inner_pair": [
+                    1,
+                    6
+                  ],
+                  "outer_class": [
+                    0,
+                    5
+                  ],
+                  "outer_interval": [
+                    0,
+                    3
+                  ],
+                  "outer_pair": [
+                    6,
+                    7
+                  ],
+                  "row": 10,
+                  "witness_order": [
+                    7,
+                    1,
+                    5,
+                    6
+                  ]
+                }
+              ],
+              "status": "self_edge",
+              "strict_edge_count": 108,
+              "type": "vertex_circle_quotient_replay_result"
+            }
+          }
+        ]
+      },
+      "order": [
+        0,
+        4,
+        3,
+        1,
+        2,
+        5,
+        6,
+        10,
+        9,
+        7,
+        8,
+        11
+      ],
+      "radius_blocker_ok": true,
+      "raw_selection_upper_bound": 1,
+      "rejection_counts": {},
+      "row_option_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "schema": "erdos97.radius_blocker_vertex_circle_packet.v1",
+      "status": "RADIUS_BLOCKER_VERTEX_CIRCLE_DIAGNOSTIC_ONLY",
+      "survivor_examples": [],
+      "trust": "REVIEW_PENDING_DIAGNOSTIC",
+      "vertex_circle_status_counts": {
+        "self_edge": 1
+      }
+    },
+    {
+      "aborted": false,
+      "all_incidence_survivors_obstructed": true,
+      "blocker": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "claim_scope": "Finite exact-four-row radius-blocker packet diagnostic. It may obstruct the encoded row-option packet under the supplied cyclic order, but it is not a proof of the adaptive blocker bridge, not a proof of Erdos Problem #97, and not a counterexample.",
+      "incidence_survivors": 1,
+      "interpretation": "Diagnostic for this finite exact-four row-option packet only. A positive obstruction count does not prove the adaptive radius-blocker bridge or Erdos Problem #97.",
+      "n": 12,
+      "name": "block6_two_copy_full_extension_fixed_rows",
+      "nodes_visited": 12,
+      "obstruction_examples": {
+        "self_edge": [
+          {
+            "selected_rows": [
+              [
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                3,
+                6,
+                9,
+                11
+              ],
+              [
+                1,
+                3,
+                5,
+                8
+              ],
+              [
+                0,
+                2,
+                4,
+                5
+              ],
+              [
+                0,
+                3,
+                8,
+                11
+              ],
+              [
+                0,
+                1,
+                6,
+                7
+              ],
+              [
+                7,
+                8,
+                9,
+                10
+              ],
+              [
+                0,
+                4,
+                6,
+                9
+              ],
+              [
+                0,
+                5,
+                7,
+                10
+              ],
+              [
+                6,
+                8,
+                10,
+                11
+              ],
+              [
+                2,
+                5,
+                9,
+                11
+              ],
+              [
+                1,
+                5,
+                6,
+                10
+              ]
+            ],
+            "vertex_circle_replay": {
+              "cycle_edges": [],
+              "n": 12,
+              "obstructed": true,
+              "order": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              "selected_row_count": 12,
+              "self_edge_conflicts": [
+                {
+                  "inner_class": [
+                    0,
+                    7
+                  ],
+                  "inner_interval": [
+                    1,
+                    2
+                  ],
+                  "inner_pair": [
+                    6,
+                    9
+                  ],
+                  "outer_class": [
+                    0,
+                    7
+                  ],
+                  "outer_interval": [
+                    1,
+                    3
+                  ],
+                  "outer_pair": [
+                    6,
+                    11
+                  ],
+                  "row": 1,
+                  "witness_order": [
+                    3,
+                    6,
+                    9,
+                    11
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    7
+                  ],
+                  "inner_interval": [
+                    2,
+                    3
+                  ],
+                  "inner_pair": [
+                    9,
+                    11
+                  ],
+                  "outer_class": [
+                    0,
+                    7
+                  ],
+                  "outer_interval": [
+                    1,
+                    3
+                  ],
+                  "outer_pair": [
+                    6,
+                    11
+                  ],
+                  "row": 1,
+                  "witness_order": [
+                    3,
+                    6,
+                    9,
+                    11
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    1
+                  ],
+                  "inner_interval": [
+                    2,
+                    3
+                  ],
+                  "inner_pair": [
+                    0,
+                    2
+                  ],
+                  "outer_class": [
+                    0,
+                    1
+                  ],
+                  "outer_interval": [
+                    1,
+                    3
+                  ],
+                  "outer_pair": [
+                    2,
+                    5
+                  ],
+                  "row": 3,
+                  "witness_order": [
+                    4,
+                    5,
+                    0,
+                    2
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    7
+                  ],
+                  "inner_interval": [
+                    0,
+                    1
+                  ],
+                  "inner_pair": [
+                    6,
+                    7
+                  ],
+                  "outer_class": [
+                    0,
+                    7
+                  ],
+                  "outer_interval": [
+                    0,
+                    3
+                  ],
+                  "outer_pair": [
+                    1,
+                    6
+                  ],
+                  "row": 5,
+                  "witness_order": [
+                    6,
+                    7,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    7
+                  ],
+                  "inner_interval": [
+                    1,
+                    2
+                  ],
+                  "inner_pair": [
+                    0,
+                    7
+                  ],
+                  "outer_class": [
+                    0,
+                    7
+                  ],
+                  "outer_interval": [
+                    0,
+                    3
+                  ],
+                  "outer_pair": [
+                    1,
+                    6
+                  ],
+                  "row": 5,
+                  "witness_order": [
+                    6,
+                    7,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    7
+                  ],
+                  "inner_interval": [
+                    1,
+                    2
+                  ],
+                  "inner_pair": [
+                    8,
+                    9
+                  ],
+                  "outer_class": [
+                    0,
+                    7
+                  ],
+                  "outer_interval": [
+                    0,
+                    2
+                  ],
+                  "outer_pair": [
+                    7,
+                    9
+                  ],
+                  "row": 6,
+                  "witness_order": [
+                    7,
+                    8,
+                    9,
+                    10
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    7
+                  ],
+                  "inner_interval": [
+                    0,
+                    1
+                  ],
+                  "inner_pair": [
+                    10,
+                    11
+                  ],
+                  "outer_class": [
+                    0,
+                    7
+                  ],
+                  "outer_interval": [
+                    0,
+                    2
+                  ],
+                  "outer_pair": [
+                    6,
+                    10
+                  ],
+                  "row": 9,
+                  "witness_order": [
+                    10,
+                    11,
+                    6,
+                    8
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    7
+                  ],
+                  "inner_interval": [
+                    1,
+                    2
+                  ],
+                  "inner_pair": [
+                    6,
+                    11
+                  ],
+                  "outer_class": [
+                    0,
+                    7
+                  ],
+                  "outer_interval": [
+                    0,
+                    2
+                  ],
+                  "outer_pair": [
+                    6,
+                    10
+                  ],
+                  "row": 9,
+                  "witness_order": [
+                    10,
+                    11,
+                    6,
+                    8
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    7
+                  ],
+                  "inner_interval": [
+                    0,
+                    2
+                  ],
+                  "inner_pair": [
+                    5,
+                    11
+                  ],
+                  "outer_class": [
+                    0,
+                    7
+                  ],
+                  "outer_interval": [
+                    0,
+                    3
+                  ],
+                  "outer_pair": [
+                    9,
+                    11
+                  ],
+                  "row": 10,
+                  "witness_order": [
+                    11,
+                    2,
+                    5,
+                    9
+                  ]
+                },
+                {
+                  "inner_class": [
+                    0,
+                    7
+                  ],
+                  "inner_interval": [
+                    2,
+                    3
+                  ],
+                  "inner_pair": [
+                    6,
+                    10
+                  ],
+                  "outer_class": [
+                    0,
+                    7
+                  ],
+                  "outer_interval": [
+                    1,
+                    3
+                  ],
+                  "outer_pair": [
+                    5,
+                    10
+                  ],
+                  "row": 11,
+                  "witness_order": [
+                    1,
+                    5,
+                    6,
+                    10
+                  ]
+                }
+              ],
+              "status": "self_edge",
+              "strict_edge_count": 108,
+              "type": "vertex_circle_quotient_replay_result"
+            }
+          }
+        ]
+      },
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "radius_blocker_ok": true,
+      "raw_selection_upper_bound": 1,
+      "rejection_counts": {},
+      "row_option_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "schema": "erdos97.radius_blocker_vertex_circle_packet.v1",
+      "status": "RADIUS_BLOCKER_VERTEX_CIRCLE_DIAGNOSTIC_ONLY",
+      "survivor_examples": [],
+      "trust": "REVIEW_PENDING_DIAGNOSTIC",
+      "vertex_circle_status_counts": {
+        "self_edge": 1
+      }
+    }
+  ],
+  "claim_scope": "Finite exact-four-row radius-blocker packet diagnostic. It may obstruct the encoded row-option packet under the supplied cyclic order, but it is not a proof of the adaptive blocker bridge, not a proof of Erdos Problem #97, and not a counterexample.",
+  "interpretation_warnings": [
+    "This is a fixed exact-four row-option pilot, not a proof of the blocker bridge.",
+    "The C13 case is already retired by a stronger all-order Kalmanson certificate.",
+    "The two-block cases are bridge stress controls, not Euclidean counterexamples.",
+    "No general proof and no counterexample are claimed."
+  ],
+  "provenance": {
+    "command": "python scripts/check_radius_blocker_vertex_circle_pilot.py --write --assert-expected",
+    "generator": "scripts/check_radius_blocker_vertex_circle_pilot.py",
+    "sources": [
+      "src/erdos97/radius_blocker_packets.py",
+      "src/erdos97/adaptive_blockers.py",
+      "src/erdos97/vertex_circle_quotient_replay.py",
+      "src/erdos97/bridge_negative_controls.py"
+    ]
+  },
+  "schema": "erdos97.radius_blocker_vertex_circle_packet.v1",
+  "status": "RADIUS_BLOCKER_VERTEX_CIRCLE_DIAGNOSTIC_ONLY",
+  "summary": {
+    "all_cases_have_radius_blocker": true,
+    "all_incidence_survivors_obstructed": true,
+    "case_count": 3,
+    "total_incidence_survivors": 3,
+    "vertex_circle_status_totals": {
+      "self_edge": 2,
+      "strict_cycle": 1
+    }
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

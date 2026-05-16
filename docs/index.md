@@ -144,6 +144,9 @@ put detailed reconciliation in the canonical synthesis.
   proof-mining targets.
 - [`adaptive-radius-blocker-bridge.md`](adaptive-radius-blocker-bridge.md):
   adaptive selected-witness peeling versus radius-blocker bridge fork.
+- [`radius-blocker-vertex-circle-pilot.md`](radius-blocker-vertex-circle-pilot.md):
+  first exact-four-row radius-blocker packet diagnostic using vertex-circle
+  quotient replay; bridge tooling only, not a proof.
 - [`bootstrap-core-bridge.md`](bootstrap-core-bridge.md): rich-triple closure
   rank, bootstrap cores, private halos, and weighted cyclic capacity.
 - [`bootstrap-core-crosswalk.md`](bootstrap-core-crosswalk.md): checked
