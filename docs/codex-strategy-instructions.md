@@ -87,7 +87,7 @@ Useful work:
   template, and what the template does not prove.
 
 Good inputs include `docs/n9-vertex-circle-template-lemma-catalog.md`, the
-focused T01/T02/T03/T04/T05 self-edge notes, the focused T10/T11/T12
+focused T01/T02/T03/T04/T05/T06 self-edge notes, the focused T10/T11/T12
 strict-cycle notes, and their checked JSON packets under `data/certificates/`.
 
 ### Stronger fragile-cover bridges

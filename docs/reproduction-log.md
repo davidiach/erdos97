@@ -70,6 +70,8 @@ python scripts/check_n9_vertex_circle_t04_self_edge_lemma_packet.py --check --as
 python scripts/check_n9_t04_self_edge_minireplay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t05_self_edge_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_t05_self_edge_minireplay.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_t06_self_edge_lemma_packet.py --check --assert-expected --json
+python scripts/check_n9_t06_self_edge_minireplay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py --check --assert-expected --json
