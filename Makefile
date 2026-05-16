@@ -154,6 +154,8 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_block6_oriented_block_reversal_closure.py --check --assert-expected --json
 
 verify-n10-review:
+	$(PYTHON) scripts/check_n10_turn_row0_pilot.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n10_turn_row0_escape_self_edges.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n10_singleton_input_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
 	$(PYTHON) scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json
