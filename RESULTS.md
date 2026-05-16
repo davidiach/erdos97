@@ -257,6 +257,16 @@ realizability; see `docs/bootstrap-core-crosswalk.md`,
 `scripts/check_bootstrap_core_crosswalk.py`, and
 `data/certificates/bootstrap_core_crosswalk.json`.
 
+The full `n=9` exact-four radius-blocker packet fixes the natural cyclic order
+and blocker `{0,1,2,3}`, then quantifies over every exact four-row compatible
+with that blocker. After the row-pair, witness-pair, indegree, and two-overlap
+crossing filters, it finds `90` incidence survivors; all `90` are killed by
+vertex-circle replay (`70` self-edges and `20` strict cycles). This is finite
+packet evidence only, not an `n=9` theorem, not a bridge proof, and not a
+counterexample. See `docs/n9-full-radius-blocker-vertex-circle-packet.md`,
+`scripts/check_n9_full_radius_blocker_vertex_circle_packet.py`, and
+`data/certificates/n9_full_radius_blocker_vertex_circle_packet.json`.
+
 The companion bootstrap / vertex-circle overlay joins the two tight
 non-ear-orderable `n=9` crosswalk rows to the review-pending strict-cycle
 certificate chain by selected-row signature. Both land on the same `T12/F16`

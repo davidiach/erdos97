@@ -562,6 +562,11 @@ condition that the surviving multi-block family does not automatically satisfy:
   `docs/radius-blocker-vertex-circle-pilot.md`, as a first replayable packet
   format for testing blocker shapes against quotient self-edges and strict
   cycles.
+- the full `n=9` exact-four radius-blocker packet recorded in
+  `docs/n9-full-radius-blocker-vertex-circle-packet.md`, where the fixed
+  natural-order blocker `{0,1,2,3}` has 90 incidence survivors and all are
+  vertex-circle obstructed. This is finite packet evidence only; the next
+  review target is widening blocker placements and cyclic orders.
 - bootstrap-core/private-halo analysis, as recorded in
   `docs/bootstrap-core-bridge.md`, which adds a `rho > 3` closure-rank witness,
   deletion closures, and weighted cyclic outside-pair capacity.

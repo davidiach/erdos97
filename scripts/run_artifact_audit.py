@@ -1357,6 +1357,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_full_radius_blocker_vertex_circle_packet",
+        command=(
+            "python",
+            "scripts/check_n9_full_radius_blocker_vertex_circle_packet.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Full exact-four row-option packet for n=9, natural cyclic order, "
+            "and blocker {0,1,2,3}; all incidence survivors are vertex-circle "
+            "obstructed, but this is not a proof of Erdos Problem #97 and not "
+            "a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_core_crosswalk",
         command=(
             "python",

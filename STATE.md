@@ -159,6 +159,13 @@ current fixed-row frontier motifs and records that the audited singleton-rich
 cases have rank greater than 3 but still pass the weighted capacity check; see
 `docs/bootstrap-core-crosswalk.md`.
 
+The full `n=9` exact-four radius-blocker packet fixes natural order and blocker
+`{0,1,2,3}` and quantifies over all exact four-row choices compatible with that
+blocker. Its 90 incidence survivors are all vertex-circle obstructed (`70`
+self-edges and `20` strict cycles). This is finite packet evidence only, not an
+`n=9` proof, a bridge proof, or a counterexample. See
+`docs/n9-full-radius-blocker-vertex-circle-packet.md`.
+
 A second bootstrap-core diagnostic overlays the two tight non-ear-orderable
 `n=9` crosswalk rows with the review-pending vertex-circle strict-cycle chain.
 Both rows join by selected-row signature to the same `T12/F16` strict-cycle

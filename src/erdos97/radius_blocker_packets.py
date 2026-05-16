@@ -12,7 +12,7 @@ from collections import Counter
 from dataclasses import dataclass
 from itertools import combinations
 from math import prod
-from typing import Mapping, Sequence
+from typing import Iterable, Mapping, Sequence
 
 from erdos97.adaptive_blockers import RichClasses, is_radius_blocker, validate_rich_classes
 from erdos97.incidence_filters import chords_cross_in_order, normalize_chord
@@ -89,6 +89,43 @@ def exact_four_rich_classes_from_rows(rows: Sequence[Sequence[int]]) -> RichClas
             raise ValueError(f"row {center} selects its center")
         out.append((normalized,))
     return tuple(out)
+
+
+def full_exact_four_radius_blocker_rich_classes(
+    n: int,
+    blocker: Iterable[int],
+    threshold: int = 3,
+) -> tuple[tuple[Row, ...], ...]:
+    """Return all exact-four rows compatible with ``blocker`` being blocked.
+
+    For centers inside the blocker, every row option is required to contain
+    fewer than ``threshold`` blocker vertices.  For centers outside the
+    blocker, all exact four-subsets avoiding the center are allowed.
+    """
+
+    if n < 4:
+        raise ValueError(f"expected at least four centers, got {n}")
+    if threshold <= 0:
+        raise ValueError("threshold must be positive")
+    blocker_set = set(int(label) for label in blocker)
+    bad = sorted(label for label in blocker_set if label < 0 or label >= n)
+    if bad:
+        raise ValueError(f"blocker contains out-of-range labels: {bad}")
+    if len(blocker_set) < threshold + 1:
+        raise ValueError(
+            f"blocker must have at least {threshold + 1} vertices, got "
+            f"{len(blocker_set)}"
+        )
+
+    options: list[tuple[Row, ...]] = []
+    for center in range(n):
+        center_options: list[Row] = []
+        for row in combinations((label for label in range(n) if label != center), 4):
+            if center in blocker_set and len(blocker_set.intersection(row)) >= threshold:
+                continue
+            center_options.append((row[0], row[1], row[2], row[3]))
+        options.append(tuple(center_options))
+    return tuple(options)
 
 
 def row_options_from_rich_classes(rich_classes: RichClasses) -> tuple[tuple[Row, ...], ...]:
