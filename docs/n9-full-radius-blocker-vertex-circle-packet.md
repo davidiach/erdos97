@@ -53,6 +53,7 @@ natural order. It is still not a proof of the full adaptive blocker bridge,
 because the cyclic order and blocker subset are fixed and the packet is
 restricted to exact four-row classes.
 
-The useful next widening is to repeat the same full-packet check over dihedrally
-distinct blocker placements and then over non-natural cyclic orders that arise
-from current stuck-set and fragile-cover searches.
+The dihedral blocker-placement widening is now recorded in
+`docs/n9-radius-blocker-shape-sweep.md`. The useful next widening is
+non-natural cyclic orders that arise from current stuck-set and fragile-cover
+searches, or a replay semantics for rich classes larger than four.

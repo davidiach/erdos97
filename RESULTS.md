@@ -267,6 +267,17 @@ counterexample. See `docs/n9-full-radius-blocker-vertex-circle-packet.md`,
 `scripts/check_n9_full_radius_blocker_vertex_circle_packet.py`, and
 `data/certificates/n9_full_radius_blocker_vertex_circle_packet.json`.
 
+The natural-order `n=9` radius-blocker shape sweep widens the same exact-four
+packet to all `10` cyclic-dihedral four-blocker representatives. Their orbit
+sizes sum to all `126` labelled four-vertex blockers in the fixed natural
+order. After the same filters, the sweep finds `1,358` incidence survivors;
+all are killed by vertex-circle replay (`1,164` self-edges and `194` strict
+cycles). This is still finite packet evidence only, not an `n=9` theorem, not
+a bridge proof, and not a counterexample. See
+`docs/n9-radius-blocker-shape-sweep.md`,
+`scripts/check_n9_radius_blocker_shape_sweep.py`, and
+`data/certificates/n9_radius_blocker_shape_sweep.json`.
+
 The companion bootstrap / vertex-circle overlay joins the two tight
 non-ear-orderable `n=9` crosswalk rows to the review-pending strict-cycle
 certificate chain by selected-row signature. Both land on the same `T12/F16`

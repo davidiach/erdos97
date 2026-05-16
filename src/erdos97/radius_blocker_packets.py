@@ -25,6 +25,7 @@ from erdos97.vertex_circle_quotient_replay import (
 Pair = tuple[int, int]
 Row = tuple[int, int, int, int]
 Rows = list[list[int]]
+Subset = tuple[int, ...]
 
 SCHEMA = "erdos97.radius_blocker_vertex_circle_packet.v1"
 STATUS = "RADIUS_BLOCKER_VERTEX_CIRCLE_DIAGNOSTIC_ONLY"
@@ -35,6 +36,38 @@ CLAIM_SCOPE = (
     "not a proof of the adaptive blocker bridge, not a proof of Erdos Problem "
     "#97, and not a counterexample."
 )
+
+
+def dihedral_subset_images(n: int, subset: Iterable[int]) -> tuple[Subset, ...]:
+    """Return the cyclic-dihedral images of a labelled subset."""
+
+    subset_tuple = _validate_subset(n, subset)
+    images: set[Subset] = set()
+    for shift in range(n):
+        images.add(tuple(sorted((label + shift) % n for label in subset_tuple)))
+        images.add(tuple(sorted((shift - label) % n for label in subset_tuple)))
+    return tuple(sorted(images))
+
+
+def canonical_dihedral_subset(n: int, subset: Iterable[int]) -> Subset:
+    """Return the lexicographic cyclic-dihedral representative of ``subset``."""
+
+    return dihedral_subset_images(n, subset)[0]
+
+
+def dihedral_subset_representatives(n: int, size: int) -> tuple[Subset, ...]:
+    """Return labelled ``size``-subset representatives up to dihedral symmetry."""
+
+    if size < 0 or size > n:
+        raise ValueError(f"invalid subset size {size} for n={n}")
+    return tuple(
+        sorted(
+            {
+                canonical_dihedral_subset(n, subset)
+                for subset in combinations(range(n), size)
+            }
+        )
+    )
 
 
 @dataclass(frozen=True)
@@ -363,6 +396,18 @@ def _validate_order(order: Sequence[int], n: int) -> None:
         raise ValueError(
             f"cyclic order is not a permutation; missing={missing}, extra={extra}"
         )
+
+
+def _validate_subset(n: int, subset: Iterable[int]) -> Subset:
+    if n <= 0:
+        raise ValueError(f"expected positive n, got {n}")
+    subset_tuple = tuple(sorted(int(label) for label in subset))
+    if len(set(subset_tuple)) != len(subset_tuple):
+        raise ValueError(f"subset contains duplicate labels: {subset_tuple!r}")
+    bad = [label for label in subset_tuple if label < 0 or label >= n]
+    if bad:
+        raise ValueError(f"subset contains out-of-range labels: {bad}")
+    return subset_tuple
 
 
 def _pair(left: int, right: int) -> Pair:

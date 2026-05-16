@@ -6,6 +6,9 @@ from erdos97.adaptive_blockers import first_blocker
 from erdos97.bridge_negative_controls import c13_sidon_rows
 from erdos97.radius_blocker_packets import (
     analyze_radius_blocker_packet,
+    canonical_dihedral_subset,
+    dihedral_subset_images,
+    dihedral_subset_representatives,
     exact_four_rich_classes_from_rows,
     full_exact_four_radius_blocker_rich_classes,
     row_options_from_rich_classes,
@@ -69,6 +72,25 @@ def test_full_exact_four_radius_blocker_options_enforce_blocker() -> None:
             len({0, 1, 2, 3}.intersection(row)) <= 2
             for row in rich_classes[center]
         )
+
+
+def test_dihedral_four_blocker_representatives_cover_n9_subsets() -> None:
+    representatives = dihedral_subset_representatives(9, 4)
+
+    assert representatives == (
+        (0, 1, 2, 3),
+        (0, 1, 2, 4),
+        (0, 1, 2, 5),
+        (0, 1, 3, 4),
+        (0, 1, 3, 5),
+        (0, 1, 3, 6),
+        (0, 1, 3, 7),
+        (0, 1, 4, 5),
+        (0, 1, 4, 6),
+        (0, 2, 4, 6),
+    )
+    assert sum(len(dihedral_subset_images(9, rep)) for rep in representatives) == 126
+    assert canonical_dihedral_subset(9, [5, 6, 7, 8]) == (0, 1, 2, 3)
 
 
 def test_large_rich_classes_are_rejected_until_semantics_are_added() -> None:

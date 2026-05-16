@@ -166,6 +166,14 @@ self-edges and `20` strict cycles). This is finite packet evidence only, not an
 `n=9` proof, a bridge proof, or a counterexample. See
 `docs/n9-full-radius-blocker-vertex-circle-packet.md`.
 
+The natural-order `n=9` radius-blocker shape sweep repeats that exact-four
+packet over all `10` cyclic-dihedral four-blocker shapes, covering all `126`
+labelled four-vertex blockers in the fixed natural order. Its `1,358`
+incidence survivors are all vertex-circle obstructed (`1,164` self-edges and
+`194` strict cycles). This is still finite packet evidence only, not an `n=9`
+proof, a bridge proof, or a counterexample. See
+`docs/n9-radius-blocker-shape-sweep.md`.
+
 A second bootstrap-core diagnostic overlays the two tight non-ear-orderable
 `n=9` crosswalk rows with the review-pending vertex-circle strict-cycle chain.
 Both rows join by selected-row signature to the same `T12/F16` strict-cycle

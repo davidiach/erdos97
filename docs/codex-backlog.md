@@ -132,9 +132,12 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_full_radius_blocker_vertex_circle_packet.py --check --assert-expected --json`,
    which checks the natural-order `n=9` blocker `{0,1,2,3}` over all exact
    four-row choices compatible with that blocker and records 90 incidence
-   survivors, all vertex-circle obstructed. This is still finite packet
-   evidence only; the next widening is dihedral blocker placements and
-   non-natural cyclic orders.
+   survivors, all vertex-circle obstructed. The next shape widening is now
+   `python scripts/check_n9_radius_blocker_shape_sweep.py --check --assert-expected --json`,
+   which checks all `10` cyclic-dihedral four-blocker shapes in the natural
+   order and records `1,358` incidence survivors, all vertex-circle
+   obstructed. This is still finite packet evidence only; the next widening is
+   non-natural cyclic orders and richer-than-exact-four class semantics.
    The stored crossing-order sample
    `data/certificates/block6_terminal_crossing_vertex_circle_sample.json`
    now checks two deterministic terminal-extension windows across all of
