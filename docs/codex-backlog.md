@@ -2,11 +2,16 @@
 
 Status: operational planning guidance only; not mathematical evidence.
 
-Live open issues were checked through GitHub on 2026-05-04. This backlog is a
-Codex-facing companion to `docs/review-priorities.md`; it does not change the
-repository claims. No general proof and no counterexample are claimed, and the
-official/global status remains falsifiable/open unless manually rechecked and
-updated from the official source.
+Live open issues were rechecked through GitHub on 2026-05-17. The legacy
+issues `#5`, `#81`, `#82`, and `#83` now have an explicit repository crosswalk
+in `docs/open-issue-resolution-crosswalk.md`, checked by
+`python scripts/check_open_issue_resolution_crosswalk.py --assert-expected --json`.
+That crosswalk recommends closing those issues as scoped issue-resolution
+bookkeeping only. This backlog is a Codex-facing companion to
+`docs/review-priorities.md`; it does not change the repository claims. No
+general proof and no counterexample are claimed, and the official/global status
+remains falsifiable/open unless manually rechecked and updated from the
+official source.
 
 For task-selection discipline, read `docs/codex-strategy-instructions.md`.
 Before starting a task, identify which bridge it might strengthen; if it does
