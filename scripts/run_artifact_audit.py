@@ -1473,6 +1473,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_radius_blocker_rich_extension_product_pilot",
+        command=(
+            "python",
+            "scripts/check_n9_radius_blocker_rich_extension_product_pilot.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "One-packet full rich-extension product replay for the first "
+            "maximum-size generated n=9 radius-blocker packet; finite packet "
+            "evidence only, not the full 20-packet product, not a proof of "
+            "Erdos Problem #97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_core_crosswalk",
         command=(
             "python",

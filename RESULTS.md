@@ -334,6 +334,20 @@ counterexample. See
 `scripts/check_n9_radius_blocker_rich_extension_neighborhood.py`, and
 `data/certificates/n9_radius_blocker_rich_extension_neighborhood.json`.
 
+A one-packet rich-extension product pilot then exhausts the first maximum-size
+source packet in the generated family:
+`n9_full_exact_four_radius_blocker_shape_U0135_natural_order:self_edge:0`.
+It checks all `196,608` radius-blocker-preserving size-five extension variants
+for that packet, `1,769,472` size-five rich classes, and `44,236,800` strict
+edges. All variants are quotient-obstructed by self-edges, with `33,895,908`
+total self-edge conflicts. This remains finite packet evidence only, not the
+full product over all `20` generated packets, not arbitrary rich-class
+classification, not an `n=9` theorem, not a bridge proof, and not a
+counterexample. See
+`docs/n9-radius-blocker-rich-extension-product-pilot.md`,
+`scripts/check_n9_radius_blocker_rich_extension_product_pilot.py`, and
+`data/certificates/n9_radius_blocker_rich_extension_product_pilot.json`.
+
 The companion bootstrap / vertex-circle overlay joins the two tight
 non-ear-orderable `n=9` crosswalk rows to the review-pending strict-cycle
 certificate chain by selected-row signature. Both land on the same `T12/F16`

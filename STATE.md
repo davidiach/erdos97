@@ -216,6 +216,16 @@ strict edges. This remains finite neighborhood evidence only, not a full
 rich-class catalogue, not an `n=9` proof, and not a bridge proof. See
 `docs/n9-radius-blocker-rich-extension-neighborhood.md`.
 
+A one-packet rich-extension product pilot now exhausts the first maximum-size
+source packet from that generated family:
+`n9_full_exact_four_radius_blocker_shape_U0135_natural_order:self_edge:0`.
+It checks all `196,608` radius-blocker-preserving size-five extension variants
+for that packet, and all are obstructed by quotient self-edges, with
+`33,895,908` total self-edge conflicts across `44,236,800` strict edges. This
+is still finite packet evidence only, not the full `20`-packet product, not an
+arbitrary rich-class classification, not an `n=9` proof, and not a bridge
+proof. See `docs/n9-radius-blocker-rich-extension-product-pilot.md`.
+
 A second bootstrap-core diagnostic overlays the two tight non-ear-orderable
 `n=9` crosswalk rows with the review-pending vertex-circle strict-cycle chain.
 Both rows join by selected-row signature to the same `T12/F16` strict-cycle

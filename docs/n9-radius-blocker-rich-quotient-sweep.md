@@ -44,6 +44,8 @@ adaptive radius-blocker bridge, and does not prove Erdos Problem #97.
 
 The follow-up `docs/n9-radius-blocker-rich-extension-neighborhood.md` checks a
 bounded Hamming-distance neighborhood of size-five extension choices around
-these generated packets. The next wider target is still the full extension
-product for a carefully chosen packet or a genuine minimal/rich-class bridge
-hypothesis.
+these generated packets, and
+`docs/n9-radius-blocker-rich-extension-product-pilot.md` exhausts one
+maximum-size packet's full extension product. The next wider target is another
+selected-packet product replay, a batched product sweep with stronger pruning,
+or a genuine minimal/rich-class bridge hypothesis.

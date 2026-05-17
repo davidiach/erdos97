@@ -163,9 +163,15 @@ Use this queue when no more specific issue is selected.
    varies the added labels by every Hamming-distance `1` or `2`
    radius-blocker-preserving replacement around those packets, checking
    `5,996` variants; all are quotient-obstructed by self-edges. This is still
-   finite neighborhood evidence only; the next widening is the full extension
-   product for a carefully chosen packet or a principled rich-class bridge
-   hypothesis rather than more baseline-neighborhood sampling.
+   finite neighborhood evidence only. The one-packet full rich-extension
+   product pilot
+   `python scripts/check_n9_radius_blocker_rich_extension_product_pilot.py --check --assert-expected --json`
+   exhausts the first maximum-size generated packet, checking `196,608`
+   variants; all are quotient-obstructed by self-edges. This is still finite
+   packet evidence only. The next widening is another selected-packet product
+   replay, a batched full-product sweep with stronger pruning, or a principled
+   rich-class bridge hypothesis rather than more baseline-neighborhood
+   sampling.
    The stored crossing-order sample
    `data/certificates/block6_terminal_crossing_vertex_circle_sample.json`
    now checks two deterministic terminal-extension windows across all of
