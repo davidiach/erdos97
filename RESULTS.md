@@ -299,6 +299,16 @@ See `docs/n9-radius-blocker-rich-projection-pilot.md`,
 `scripts/check_n9_radius_blocker_rich_projection_pilot.py`, and
 `data/certificates/n9_radius_blocker_rich_projection_pilot.json`.
 
+A full rich-class quotient replay now checks the same synthetic size-five
+family without choosing selected four-subsets. It unions all center-to-witness
+distances in each rich class and generates nested-chord inequalities from each
+full class. The resulting quotient has `225` strict edges and is obstructed by
+`193` self-edge conflicts. This is one finite rich-class family only, not an
+`n=9` theorem, not a bridge proof, and not a counterexample. See
+`docs/n9-radius-blocker-rich-quotient-pilot.md`,
+`scripts/check_n9_radius_blocker_rich_quotient_pilot.py`, and
+`data/certificates/n9_radius_blocker_rich_quotient_pilot.json`.
+
 The companion bootstrap / vertex-circle overlay joins the two tight
 non-ear-orderable `n=9` crosswalk rows to the review-pending strict-cycle
 certificate chain by selected-row signature. Both land on the same `T12/F16`

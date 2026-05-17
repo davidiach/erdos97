@@ -1423,6 +1423,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_radius_blocker_rich_quotient_pilot",
+        command=(
+            "python",
+            "scripts/check_n9_radius_blocker_rich_quotient_pilot.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Full rich-class vertex-circle quotient replay for one bounded "
+            "n=9 synthetic size-five radius-blocker family; checks the full "
+            "class equalities and nested-chord inequalities without choosing "
+            "exact four-subsets, but this is not a proof of Erdos Problem "
+            "#97 and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_core_crosswalk",
         command=(
             "python",

@@ -50,3 +50,7 @@ reduce to exact-four packets, and it does not classify `n=9`.
 The useful next target is a full rich-class quotient replay, or a bridge lemma
 showing that a suitable four-subset projection is sound for the obstruction
 being used.
+
+The follow-up `docs/n9-radius-blocker-rich-quotient-pilot.md` implements that
+full rich-class quotient replay for this same synthetic size-five family. It
+is still a one-family diagnostic, not a classification.
