@@ -153,9 +153,14 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_radius_blocker_rich_quotient_pilot.py --check --assert-expected --json`
    checks the same synthetic size-five family without choosing four-subsets:
    it generates `225` strict edges and is blocked by `193` self-edge
-   conflicts. This is still finite packet evidence only; the next widening is
-   quantifying full richer-than-exact-four quotient replay over generated
-   radius-blocker rich-class packets.
+   conflicts. The generated rich-class quotient sweep
+   `python scripts/check_n9_radius_blocker_rich_quotient_sweep.py --check --assert-expected --json`
+   repeats the full replay over `20` size-five packets derived from the stored
+   self-edge and strict-cycle obstruction examples for all `10` four-blocker
+   shapes; all `20` are quotient-obstructed by self-edges. This is still
+   finite packet evidence only; the next widening is a principled
+   rich-class catalogue or bridge hypothesis rather than synthetic examples
+   generated from stored exact-four obstructions.
    The stored crossing-order sample
    `data/certificates/block6_terminal_crossing_vertex_circle_sample.json`
    now checks two deterministic terminal-extension windows across all of

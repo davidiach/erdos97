@@ -68,7 +68,8 @@ This repository is a public research log and reproducibility workspace for Erdő
 - For radius-blocker packet diagnostics, including the full exact-four
   natural-order `n=9` blocker `{0,1,2,3}` packet, the natural-order
   four-blocker shape sweep, its order-reduction crosswalk, a bounded
-  richer-class projection pilot, and a full rich-class quotient replay pilot,
+  richer-class projection pilot, a full rich-class quotient replay pilot, and
+  a generated rich-class quotient sweep,
   read
   [`docs/radius-blocker-vertex-circle-pilot.md`](docs/radius-blocker-vertex-circle-pilot.md)
   and
@@ -80,7 +81,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   and
   [`docs/n9-radius-blocker-rich-projection-pilot.md`](docs/n9-radius-blocker-rich-projection-pilot.md)
   and
-  [`docs/n9-radius-blocker-rich-quotient-pilot.md`](docs/n9-radius-blocker-rich-quotient-pilot.md).
+  [`docs/n9-radius-blocker-rich-quotient-pilot.md`](docs/n9-radius-blocker-rich-quotient-pilot.md)
+  and
+  [`docs/n9-radius-blocker-rich-quotient-sweep.md`](docs/n9-radius-blocker-rich-quotient-sweep.md).
 - For the stored geometric gates and fixed-order widenings on the block-6
   fragile-cover negative control, read
   [`docs/block6-fragile-vertex-circle-extension-audit.md`](docs/block6-fragile-vertex-circle-extension-audit.md).

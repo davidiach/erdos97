@@ -163,6 +163,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-radius-blocker-rich-quotient-pilot.md`](n9-radius-blocker-rich-quotient-pilot.md):
   full vertex-circle quotient replay for one synthetic size-five rich-class
   family; still finite packet evidence only.
+- [`n9-radius-blocker-rich-quotient-sweep.md`](n9-radius-blocker-rich-quotient-sweep.md):
+  generated full rich-class quotient replay over the stored shape-sweep
+  obstruction examples; finite packet evidence only.
 - [`bootstrap-core-bridge.md`](bootstrap-core-bridge.md): rich-triple closure
   rank, bootstrap cores, private halos, and weighted cyclic capacity.
 - [`bootstrap-core-crosswalk.md`](bootstrap-core-crosswalk.md): checked
