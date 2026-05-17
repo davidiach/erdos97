@@ -1456,6 +1456,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_radius_blocker_rich_extension_neighborhood",
+        command=(
+            "python",
+            "scripts/check_n9_radius_blocker_rich_extension_neighborhood.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Bounded n=9 rich-extension neighborhood replay for 5,996 "
+            "Hamming-distance <= 2 size-five variants around the generated "
+            "radius-blocker quotient-sweep packets; finite neighborhood "
+            "evidence only, not a proof of Erdos Problem #97 and not a "
+            "counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_core_crosswalk",
         command=(
             "python",

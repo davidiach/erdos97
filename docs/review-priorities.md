@@ -585,9 +585,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   `docs/n9-radius-blocker-rich-quotient-sweep.md`, which quantifies that
   replay over `20` synthetic size-five packets derived from the stored
   self-edge and strict-cycle obstruction examples for all `10` four-blocker
-  shapes. This is still generated finite packet evidence only; the next review
-  target is a principled rich-class catalogue or bridge hypothesis rather than
-  examples generated from stored exact-four obstructions.
+  shapes. This is still generated finite packet evidence only.
+- the bounded rich-extension neighborhood recorded in
+  `docs/n9-radius-blocker-rich-extension-neighborhood.md`, which varies the
+  added labels around those `20` packets by every Hamming-distance `1` or `2`
+  radius-blocker-preserving replacement and checks `5,996` quotient-obstructed
+  variants. This is still finite neighborhood evidence only; the next review
+  target is the full extension product for a carefully chosen packet or a
+  principled rich-class bridge hypothesis.
 - bootstrap-core/private-halo analysis, as recorded in
   `docs/bootstrap-core-bridge.md`, which adds a `rho > 3` closure-rank witness,
   deletion closures, and weighted cyclic outside-pair capacity.
