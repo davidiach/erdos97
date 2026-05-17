@@ -1440,6 +1440,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_radius_blocker_rich_quotient_sweep",
+        command=(
+            "python",
+            "scripts/check_n9_radius_blocker_rich_quotient_sweep.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Generated full rich-class quotient replay for 20 synthetic "
+            "size-five n=9 radius-blocker packets derived from stored "
+            "shape-sweep obstruction examples; finite packet evidence only, "
+            "not a proof of Erdos Problem #97 and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_core_crosswalk",
         command=(
             "python",

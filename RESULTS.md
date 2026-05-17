@@ -309,6 +309,18 @@ full class. The resulting quotient has `225` strict edges and is obstructed by
 `scripts/check_n9_radius_blocker_rich_quotient_pilot.py`, and
 `data/certificates/n9_radius_blocker_rich_quotient_pilot.json`.
 
+A generated rich-class quotient sweep widens that full replay to `20`
+synthetic size-five packets, one stored self-edge example and one stored
+strict-cycle example for each of the `10` natural-order four-blocker shapes.
+The sweep checks `180` size-five rich classes and `4,500` strict edges; all
+`20` packets are quotient-obstructed by self-edges, with `3,533` total
+self-edge conflicts. This remains generated finite packet evidence only, not
+arbitrary rich-class classification, not an `n=9` theorem, not a bridge proof,
+and not a counterexample. See
+`docs/n9-radius-blocker-rich-quotient-sweep.md`,
+`scripts/check_n9_radius_blocker_rich_quotient_sweep.py`, and
+`data/certificates/n9_radius_blocker_rich_quotient_sweep.json`.
+
 The companion bootstrap / vertex-circle overlay joins the two tight
 non-ear-orderable `n=9` crosswalk rows to the review-pending strict-cycle
 certificate chain by selected-row signature. Both land on the same `T12/F16`

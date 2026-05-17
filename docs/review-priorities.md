@@ -580,8 +580,14 @@ condition that the surviving multi-block family does not automatically satisfy:
 - the full rich-class quotient replay pilot recorded in
   `docs/n9-radius-blocker-rich-quotient-pilot.md`, which checks the same
   synthetic size-five family without choosing four-subsets. This is finite
-  packet evidence only; the next review target is quantifying that replay over
-  generated radius-blocker rich-class packets.
+  packet evidence only.
+- the generated full rich-class quotient sweep recorded in
+  `docs/n9-radius-blocker-rich-quotient-sweep.md`, which quantifies that
+  replay over `20` synthetic size-five packets derived from the stored
+  self-edge and strict-cycle obstruction examples for all `10` four-blocker
+  shapes. This is still generated finite packet evidence only; the next review
+  target is a principled rich-class catalogue or bridge hypothesis rather than
+  examples generated from stored exact-four obstructions.
 - bootstrap-core/private-halo analysis, as recorded in
   `docs/bootstrap-core-bridge.md`, which adds a `rho > 3` closure-rank witness,
   deletion closures, and weighted cyclic outside-pair capacity.

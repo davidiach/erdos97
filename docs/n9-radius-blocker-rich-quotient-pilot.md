@@ -43,6 +43,6 @@ forgets equality information inside the selected size-five classes. It still
 checks only one synthetic rich-class family, so it does not prove the adaptive
 radius-blocker bridge, `n=9`, or Erdos Problem #97.
 
-The useful next target is to quantify this full rich-class quotient replay
-over a generated family of radius-blocker rich-class packets rather than one
-stored pilot family.
+The follow-up `docs/n9-radius-blocker-rich-quotient-sweep.md` quantifies this
+full rich-class quotient replay over generated size-five packets derived from
+the stored shape-sweep obstruction examples.
