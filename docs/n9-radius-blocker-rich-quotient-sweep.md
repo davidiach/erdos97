@@ -42,6 +42,8 @@ enumeration of arbitrary rich-class catalogues. It does not prove that all
 radius-blockers are impossible, does not prove `n=9`, does not prove the
 adaptive radius-blocker bridge, and does not prove Erdos Problem #97.
 
-The next useful widening is to generate richer packets from a principled
-rich-class catalogue or bridge hypothesis, rather than from the two stored
-obstruction examples per exact-four blocker shape.
+The follow-up `docs/n9-radius-blocker-rich-extension-neighborhood.md` checks a
+bounded Hamming-distance neighborhood of size-five extension choices around
+these generated packets. The next wider target is still the full extension
+product for a carefully chosen packet or a genuine minimal/rich-class bridge
+hypothesis.

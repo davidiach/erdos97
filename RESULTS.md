@@ -321,6 +321,19 @@ and not a counterexample. See
 `scripts/check_n9_radius_blocker_rich_quotient_sweep.py`, and
 `data/certificates/n9_radius_blocker_rich_quotient_sweep.json`.
 
+A bounded rich-extension neighborhood sweep varies the added labels in that
+generated baseline. It enumerates every radius-blocker-preserving
+Hamming-distance `1` or `2` replacement around the `20` baseline packets,
+checking `5,996` variants, `53,964` size-five rich classes, and `1,349,100`
+strict edges. All `5,996` variants are quotient-obstructed by self-edges, with
+`1,017,368` total self-edge conflicts. This remains finite neighborhood
+evidence only, not the full extension-product catalogue, not arbitrary
+rich-class classification, not an `n=9` theorem, not a bridge proof, and not a
+counterexample. See
+`docs/n9-radius-blocker-rich-extension-neighborhood.md`,
+`scripts/check_n9_radius_blocker_rich_extension_neighborhood.py`, and
+`data/certificates/n9_radius_blocker_rich_extension_neighborhood.json`.
+
 The companion bootstrap / vertex-circle overlay joins the two tight
 non-ear-orderable `n=9` crosswalk rows to the review-pending strict-cycle
 certificate chain by selected-row signature. Both land on the same `T12/F16`

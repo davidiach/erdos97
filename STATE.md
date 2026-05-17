@@ -207,6 +207,15 @@ finite packet evidence only, not arbitrary rich-class classification, not an
 `n=9` proof, and not a bridge proof. See
 `docs/n9-radius-blocker-rich-quotient-sweep.md`.
 
+A bounded rich-extension neighborhood sweep now varies the added labels in
+those `20` generated packets. It checks the baseline plus every Hamming-distance
+`1` or `2` replacement by radius-blocker-preserving size-five extensions,
+covering `5,996` variants. All `5,996` variants are obstructed by quotient
+self-edges, with `1,017,368` total self-edge conflicts across `1,349,100`
+strict edges. This remains finite neighborhood evidence only, not a full
+rich-class catalogue, not an `n=9` proof, and not a bridge proof. See
+`docs/n9-radius-blocker-rich-extension-neighborhood.md`.
+
 A second bootstrap-core diagnostic overlays the two tight non-ear-orderable
 `n=9` crosswalk rows with the review-pending vertex-circle strict-cycle chain.
 Both rows join by selected-row signature to the same `T12/F16` strict-cycle

@@ -158,9 +158,14 @@ Use this queue when no more specific issue is selected.
    repeats the full replay over `20` size-five packets derived from the stored
    self-edge and strict-cycle obstruction examples for all `10` four-blocker
    shapes; all `20` are quotient-obstructed by self-edges. This is still
-   finite packet evidence only; the next widening is a principled
-   rich-class catalogue or bridge hypothesis rather than synthetic examples
-   generated from stored exact-four obstructions.
+   finite packet evidence only. The bounded rich-extension neighborhood
+   `python scripts/check_n9_radius_blocker_rich_extension_neighborhood.py --check --assert-expected --json`
+   varies the added labels by every Hamming-distance `1` or `2`
+   radius-blocker-preserving replacement around those packets, checking
+   `5,996` variants; all are quotient-obstructed by self-edges. This is still
+   finite neighborhood evidence only; the next widening is the full extension
+   product for a carefully chosen packet or a principled rich-class bridge
+   hypothesis rather than more baseline-neighborhood sampling.
    The stored crossing-order sample
    `data/certificates/block6_terminal_crossing_vertex_circle_sample.json`
    now checks two deterministic terminal-extension windows across all of
