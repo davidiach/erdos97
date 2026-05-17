@@ -50,6 +50,9 @@ not an enumeration of arbitrary rich-class catalogues. It does not prove that
 all radius-blockers are impossible, does not prove `n=9`, does not prove the
 adaptive radius-blocker bridge, and does not prove Erdos Problem #97.
 
-The next useful widening is either the full extension-product catalogue for a
-carefully chosen small packet, or a genuine minimal/rich-class bridge
-hypothesis that narrows which richer catalogues must be checked.
+The follow-up `docs/n9-radius-blocker-rich-extension-product-pilot.md` exhausts
+the full extension-product catalogue for one maximum-size generated packet.
+The next useful widening is either another selected-packet product replay, a
+batched full-product sweep with stronger pruning, or a genuine
+minimal/rich-class bridge hypothesis that narrows which richer catalogues must
+be checked.

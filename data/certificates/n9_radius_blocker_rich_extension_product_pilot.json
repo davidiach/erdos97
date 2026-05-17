@@ -1,0 +1,1279 @@
+{
+  "claim_scope": "One-packet n=9 full rich-extension product replay. It selects the first maximum-size source packet from the generated radius-blocker quotient-sweep packet family and replays every radius-blocker-preserving size-five added-label choice for that packet. This is finite packet evidence only: it is not an n=9 proof, not a proof of the adaptive blocker bridge, and not a counterexample.",
+  "interpretation_warnings": [
+    "This checks the full extension product for one selected source packet only.",
+    "It does not enumerate the full product for all 20 source packets.",
+    "It does not enumerate arbitrary rich-class catalogues.",
+    "It does not prove the adaptive radius-blocker bridge.",
+    "No general proof and no counterexample are claimed."
+  ],
+  "product_rule": {
+    "catalogue": "For each row, enumerate every extra label that preserves the actual radius-blocker condition: inside-blocker centers must stay below three blocker vertices, while outside-blocker centers are unconstrained by blocker intersection.",
+    "variants": "Replay the full Cartesian product of those row extension choices for the selected source packet."
+  },
+  "provenance": {
+    "command": "python scripts/check_n9_radius_blocker_rich_extension_product_pilot.py --write --assert-expected",
+    "generator": "scripts/check_n9_radius_blocker_rich_extension_product_pilot.py",
+    "sources": [
+      "data/certificates/n9_radius_blocker_shape_sweep.json",
+      "scripts/check_n9_radius_blocker_rich_quotient_sweep.py",
+      "scripts/check_n9_radius_blocker_rich_extension_neighborhood.py",
+      "src/erdos97/adaptive_blockers.py",
+      "src/erdos97/vertex_circle_quotient_replay.py"
+    ]
+  },
+  "schema": "erdos97.n9_radius_blocker_rich_extension_product_pilot.v1",
+  "selected_packet": {
+    "all_variants_obstructed": true,
+    "all_variants_radius_blockers": true,
+    "blocker": [
+      0,
+      1,
+      3,
+      5
+    ],
+    "case_index": 4,
+    "case_name": "n9_full_exact_four_radius_blocker_shape_U0135_natural_order",
+    "first_self_edge_row_counts": {
+      "0": 196608
+    },
+    "hamming_distance_counts": {
+      "0": 1,
+      "1": 26,
+      "2": 300,
+      "3": 2016,
+      "4": 8694,
+      "5": 24948,
+      "6": 47628,
+      "7": 58320,
+      "8": 41553,
+      "9": 13122
+    },
+    "max_rich_class_size": 5,
+    "max_self_edge_conflict_count": 225,
+    "min_self_edge_conflict_count": 69,
+    "product_variant_count": 196608,
+    "quotient_status_counts": {
+      "self_edge": 196608
+    },
+    "replayed_variant_count": 196608,
+    "row_alternative_counts": [
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "row_extension_catalog": [
+      {
+        "alternative_added_labels": [
+          6,
+          7
+        ],
+        "baseline_added_label": 4,
+        "baseline_blocker_intersection_size": 2,
+        "baseline_rich_class": [
+          1,
+          2,
+          3,
+          4,
+          8
+        ],
+        "candidate_added_labels": [
+          4,
+          6,
+          7
+        ],
+        "center": 0,
+        "inside_blocker_center": true,
+        "source_exact_row": [
+          1,
+          2,
+          3,
+          8
+        ]
+      },
+      {
+        "alternative_added_labels": [
+          5,
+          6,
+          8
+        ],
+        "baseline_added_label": 3,
+        "baseline_blocker_intersection_size": 2,
+        "baseline_rich_class": [
+          0,
+          2,
+          3,
+          4,
+          7
+        ],
+        "candidate_added_labels": [
+          3,
+          5,
+          6,
+          8
+        ],
+        "center": 1,
+        "inside_blocker_center": true,
+        "source_exact_row": [
+          0,
+          2,
+          4,
+          7
+        ]
+      },
+      {
+        "alternative_added_labels": [
+          4,
+          6,
+          8
+        ],
+        "baseline_added_label": 0,
+        "baseline_blocker_intersection_size": 4,
+        "baseline_rich_class": [
+          0,
+          1,
+          3,
+          5,
+          7
+        ],
+        "candidate_added_labels": [
+          0,
+          4,
+          6,
+          8
+        ],
+        "center": 2,
+        "inside_blocker_center": false,
+        "source_exact_row": [
+          1,
+          3,
+          5,
+          7
+        ]
+      },
+      {
+        "alternative_added_labels": [
+          2,
+          5,
+          7
+        ],
+        "baseline_added_label": 0,
+        "baseline_blocker_intersection_size": 2,
+        "baseline_rich_class": [
+          0,
+          1,
+          4,
+          6,
+          8
+        ],
+        "candidate_added_labels": [
+          0,
+          2,
+          5,
+          7
+        ],
+        "center": 3,
+        "inside_blocker_center": true,
+        "source_exact_row": [
+          1,
+          4,
+          6,
+          8
+        ]
+      },
+      {
+        "alternative_added_labels": [
+          1,
+          3,
+          8
+        ],
+        "baseline_added_label": 7,
+        "baseline_blocker_intersection_size": 2,
+        "baseline_rich_class": [
+          0,
+          2,
+          5,
+          6,
+          7
+        ],
+        "candidate_added_labels": [
+          1,
+          3,
+          7,
+          8
+        ],
+        "center": 4,
+        "inside_blocker_center": false,
+        "source_exact_row": [
+          0,
+          2,
+          5,
+          6
+        ]
+      },
+      {
+        "alternative_added_labels": [
+          1,
+          2,
+          8
+        ],
+        "baseline_added_label": 0,
+        "baseline_blocker_intersection_size": 2,
+        "baseline_rich_class": [
+          0,
+          3,
+          4,
+          6,
+          7
+        ],
+        "candidate_added_labels": [
+          0,
+          1,
+          2,
+          8
+        ],
+        "center": 5,
+        "inside_blocker_center": true,
+        "source_exact_row": [
+          3,
+          4,
+          6,
+          7
+        ]
+      },
+      {
+        "alternative_added_labels": [
+          1,
+          3,
+          4
+        ],
+        "baseline_added_label": 0,
+        "baseline_blocker_intersection_size": 2,
+        "baseline_rich_class": [
+          0,
+          2,
+          5,
+          7,
+          8
+        ],
+        "candidate_added_labels": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "center": 6,
+        "inside_blocker_center": false,
+        "source_exact_row": [
+          2,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "alternative_added_labels": [
+          1,
+          4,
+          5
+        ],
+        "baseline_added_label": 2,
+        "baseline_blocker_intersection_size": 2,
+        "baseline_rich_class": [
+          0,
+          2,
+          3,
+          6,
+          8
+        ],
+        "candidate_added_labels": [
+          1,
+          2,
+          4,
+          5
+        ],
+        "center": 7,
+        "inside_blocker_center": false,
+        "source_exact_row": [
+          0,
+          3,
+          6,
+          8
+        ]
+      },
+      {
+        "alternative_added_labels": [
+          3,
+          6,
+          7
+        ],
+        "baseline_added_label": 2,
+        "baseline_blocker_intersection_size": 3,
+        "baseline_rich_class": [
+          0,
+          1,
+          2,
+          4,
+          5
+        ],
+        "candidate_added_labels": [
+          2,
+          3,
+          6,
+          7
+        ],
+        "center": 8,
+        "inside_blocker_center": false,
+        "source_exact_row": [
+          0,
+          1,
+          4,
+          5
+        ]
+      }
+    ],
+    "row_option_counts": [
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "selection_rule": "first_maximum_full_extension_product_in_source_order",
+    "source_example_index": 0,
+    "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0135_natural_order:self_edge:0",
+    "source_selected_rows": [
+      [
+        1,
+        2,
+        3,
+        8
+      ],
+      [
+        0,
+        2,
+        4,
+        7
+      ],
+      [
+        1,
+        3,
+        5,
+        7
+      ],
+      [
+        1,
+        4,
+        6,
+        8
+      ],
+      [
+        0,
+        2,
+        5,
+        6
+      ],
+      [
+        3,
+        4,
+        6,
+        7
+      ],
+      [
+        2,
+        5,
+        7,
+        8
+      ],
+      [
+        0,
+        3,
+        6,
+        8
+      ],
+      [
+        0,
+        1,
+        4,
+        5
+      ]
+    ],
+    "source_status": "self_edge",
+    "total_self_edge_conflict_count": 33895908,
+    "total_strict_edge_count": 44236800,
+    "truncated": false,
+    "variant_max_blocker_intersection_size_counts": {
+      "3": 110592,
+      "4": 86016
+    }
+  },
+  "selection_rule": {
+    "reason": "The full 20-packet extension product has 2,899,968 variants. This pilot exhausts one largest product packet first, using source-artifact order as the stable tie-break.",
+    "rule": "first_maximum_full_extension_product_in_source_order"
+  },
+  "source_product_catalog": {
+    "source_product_records": [
+      {
+        "blocker": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "case_index": 0,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0123_natural_order",
+        "product_variant_count": 110592,
+        "row_alternative_counts": [
+          2,
+          3,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          4,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 0,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0123_natural_order:self_edge:0",
+        "source_status": "self_edge"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "case_index": 0,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0123_natural_order",
+        "product_variant_count": 110592,
+        "row_alternative_counts": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 1,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0123_natural_order:strict_cycle:0",
+        "source_status": "strict_cycle"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "case_index": 1,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0124_natural_order",
+        "product_variant_count": 147456,
+        "row_alternative_counts": [
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 2,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0124_natural_order:self_edge:0",
+        "source_status": "self_edge"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "case_index": 1,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0124_natural_order",
+        "product_variant_count": 110592,
+        "row_alternative_counts": [
+          2,
+          2,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          3,
+          4,
+          4,
+          3,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 3,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0124_natural_order:strict_cycle:0",
+        "source_status": "strict_cycle"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          2,
+          5
+        ],
+        "case_index": 2,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0125_natural_order",
+        "product_variant_count": 110592,
+        "row_alternative_counts": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 4,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0125_natural_order:self_edge:0",
+        "source_status": "self_edge"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          2,
+          5
+        ],
+        "case_index": 2,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0125_natural_order",
+        "product_variant_count": 147456,
+        "row_alternative_counts": [
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 5,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0125_natural_order:strict_cycle:0",
+        "source_status": "strict_cycle"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "case_index": 3,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0134_natural_order",
+        "product_variant_count": 110592,
+        "row_alternative_counts": [
+          2,
+          2,
+          3,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          3,
+          4,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 6,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0134_natural_order:self_edge:0",
+        "source_status": "self_edge"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "case_index": 3,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0134_natural_order",
+        "product_variant_count": 147456,
+        "row_alternative_counts": [
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 7,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0134_natural_order:strict_cycle:0",
+        "source_status": "strict_cycle"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          3,
+          5
+        ],
+        "case_index": 4,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0135_natural_order",
+        "product_variant_count": 196608,
+        "row_alternative_counts": [
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 8,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0135_natural_order:self_edge:0",
+        "source_status": "self_edge"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          3,
+          5
+        ],
+        "case_index": 4,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0135_natural_order",
+        "product_variant_count": 147456,
+        "row_alternative_counts": [
+          2,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          4,
+          4,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 9,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0135_natural_order:strict_cycle:0",
+        "source_status": "strict_cycle"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          3,
+          6
+        ],
+        "case_index": 5,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0136_natural_order",
+        "product_variant_count": 147456,
+        "row_alternative_counts": [
+          2,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          4,
+          4,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 10,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0136_natural_order:self_edge:0",
+        "source_status": "self_edge"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          3,
+          6
+        ],
+        "case_index": 5,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0136_natural_order",
+        "product_variant_count": 196608,
+        "row_alternative_counts": [
+          3,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          4,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 11,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0136_natural_order:strict_cycle:0",
+        "source_status": "strict_cycle"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          3,
+          7
+        ],
+        "case_index": 6,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0137_natural_order",
+        "product_variant_count": 110592,
+        "row_alternative_counts": [
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 12,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0137_natural_order:self_edge:0",
+        "source_status": "self_edge"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          3,
+          7
+        ],
+        "case_index": 6,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0137_natural_order",
+        "product_variant_count": 196608,
+        "row_alternative_counts": [
+          3,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          4,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 13,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0137_natural_order:strict_cycle:0",
+        "source_status": "strict_cycle"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          4,
+          5
+        ],
+        "case_index": 7,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0145_natural_order",
+        "product_variant_count": 147456,
+        "row_alternative_counts": [
+          3,
+          2,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          4,
+          3,
+          4,
+          4,
+          3,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 14,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0145_natural_order:self_edge:0",
+        "source_status": "self_edge"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          4,
+          5
+        ],
+        "case_index": 7,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0145_natural_order",
+        "product_variant_count": 110592,
+        "row_alternative_counts": [
+          2,
+          2,
+          3,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          3,
+          4,
+          4,
+          4,
+          3,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 15,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0145_natural_order:strict_cycle:0",
+        "source_status": "strict_cycle"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "case_index": 8,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0146_natural_order",
+        "product_variant_count": 147456,
+        "row_alternative_counts": [
+          3,
+          2,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          4,
+          3,
+          4,
+          4,
+          3,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 16,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0146_natural_order:self_edge:0",
+        "source_status": "self_edge"
+      },
+      {
+        "blocker": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "case_index": 8,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0146_natural_order",
+        "product_variant_count": 196608,
+        "row_alternative_counts": [
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 17,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0146_natural_order:strict_cycle:0",
+        "source_status": "strict_cycle"
+      },
+      {
+        "blocker": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "case_index": 9,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0246_natural_order",
+        "product_variant_count": 196608,
+        "row_alternative_counts": [
+          3,
+          3,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          4,
+          4,
+          4,
+          4,
+          3,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 18,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0246_natural_order:self_edge:0",
+        "source_status": "self_edge"
+      },
+      {
+        "blocker": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "case_index": 9,
+        "case_name": "n9_full_exact_four_radius_blocker_shape_U0246_natural_order",
+        "product_variant_count": 110592,
+        "row_alternative_counts": [
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          3,
+          3,
+          3
+        ],
+        "row_option_counts": [
+          3,
+          4,
+          3,
+          4,
+          3,
+          4,
+          4,
+          4,
+          4
+        ],
+        "source_example_index": 0,
+        "source_order_index": 19,
+        "source_packet_id": "n9_full_exact_four_radius_blocker_shape_U0246_natural_order:strict_cycle:0",
+        "source_status": "strict_cycle"
+      }
+    ],
+    "source_product_variant_count_counts": {
+      "110592": 8,
+      "147456": 7,
+      "196608": 5
+    },
+    "source_product_variant_count_total": 2899968
+  },
+  "source_shape_sweep": {
+    "path": "data/certificates/n9_radius_blocker_shape_sweep.json",
+    "schema": "erdos97.radius_blocker_vertex_circle_packet.v1",
+    "sha256": "a5291621ebf8a3ef8cc7eb9502933ef768c4da81b314096ffaea68aa96b19100",
+    "status": "RADIUS_BLOCKER_VERTEX_CIRCLE_DIAGNOSTIC_ONLY",
+    "summary": {
+      "all_cases_finished": true,
+      "all_cases_have_radius_blocker": true,
+      "all_dihedral_labelled_blockers_covered": true,
+      "all_incidence_survivors_obstructed": true,
+      "dihedral_orbit_size_counts": {
+        "18": 4,
+        "9": 6
+      },
+      "labelled_blocker_count": 126,
+      "n": 9,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "shape_count": 10,
+      "total_incidence_survivors": 1358,
+      "total_nodes_visited": 754505,
+      "vertex_circle_status_totals": {
+        "self_edge": 1164,
+        "strict_cycle": 194
+      }
+    },
+    "trust": "REVIEW_PENDING_DIAGNOSTIC"
+  },
+  "status": "N9_RADIUS_BLOCKER_RICH_EXTENSION_PRODUCT_PILOT_ONLY",
+  "summary": {
+    "all_variants_obstructed": true,
+    "all_variants_radius_blockers": true,
+    "first_self_edge_row_counts": {
+      "0": 196608
+    },
+    "hamming_distance_counts": {
+      "0": 1,
+      "1": 26,
+      "2": 300,
+      "3": 2016,
+      "4": 8694,
+      "5": 24948,
+      "6": 47628,
+      "7": 58320,
+      "8": 41553,
+      "9": 13122
+    },
+    "max_rich_class_size": 5,
+    "max_self_edge_conflict_count": 225,
+    "min_self_edge_conflict_count": 69,
+    "n": 9,
+    "order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "quotient_status_counts": {
+      "self_edge": 196608
+    },
+    "selected_case_index": 4,
+    "selected_case_name": "n9_full_exact_four_radius_blocker_shape_U0135_natural_order",
+    "selected_packet_id": "n9_full_exact_four_radius_blocker_shape_U0135_natural_order:self_edge:0",
+    "selected_product_variant_count": 196608,
+    "selected_row_alternative_count_profile": {
+      "2": 1,
+      "3": 8
+    },
+    "selected_row_option_count_profile": {
+      "3": 1,
+      "4": 8
+    },
+    "selected_source_status": "self_edge",
+    "source_packet_count": 20,
+    "source_product_variant_count_counts": {
+      "110592": 8,
+      "147456": 7,
+      "196608": 5
+    },
+    "source_product_variant_count_total": 2899968,
+    "source_shape_count": 10,
+    "total_self_edge_conflict_count": 33895908,
+    "total_strict_edge_count": 44236800,
+    "variant_count": 196608,
+    "variant_max_blocker_intersection_size_counts": {
+      "3": 110592,
+      "4": 86016
+    },
+    "variant_rich_class_count_total": 1769472
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}
