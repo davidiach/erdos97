@@ -573,8 +573,12 @@ condition that the surviving multi-block family does not automatically satisfy:
 - the order-reduction crosswalk recorded in
   `docs/n9-radius-blocker-order-reduction.md`, which reduces arbitrary
   cyclic-order placements of the same exact-four four-blocker packet to the
-  natural-order shape sweep. The next review target is richer-than-exact-four
-  class semantics.
+  natural-order shape sweep.
+- the bounded richer-class projection pilot recorded in
+  `docs/n9-radius-blocker-rich-projection-pilot.md`, which expands one
+  synthetic size-five class at each center to exact four-subset row options.
+  This is finite packet evidence only; the next review target is full
+  richer-than-exact-four quotient semantics or a sound projection bridge.
 - bootstrap-core/private-halo analysis, as recorded in
   `docs/bootstrap-core-bridge.md`, which adds a `rho > 3` closure-rank witness,
   deletion closures, and weighted cyclic outside-pair capacity.

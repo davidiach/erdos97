@@ -287,6 +287,18 @@ See `docs/n9-radius-blocker-order-reduction.md`,
 `scripts/check_n9_radius_blocker_order_reduction_crosswalk.py`, and
 `data/certificates/n9_radius_blocker_order_reduction_crosswalk.json`.
 
+A bounded richer-class projection pilot starts from one checked `n=9`
+`{0,1,2,3}` obstruction example and enlarges every center row to one synthetic
+size-five rich class while preserving blocker compatibility. Expanding each
+larger class to all exact four-subsets gives projected row-option counts
+`[5,5,5,5,5,5,5,5,5]`, with raw upper bound `1,953,125`; after the same
+filters, the one incidence survivor is killed by a vertex-circle self-edge.
+This is a forgetful selected-row projection only, not full rich-class quotient
+replay, not an `n=9` theorem, not a bridge proof, and not a counterexample.
+See `docs/n9-radius-blocker-rich-projection-pilot.md`,
+`scripts/check_n9_radius_blocker_rich_projection_pilot.py`, and
+`data/certificates/n9_radius_blocker_rich_projection_pilot.json`.
+
 The companion bootstrap / vertex-circle overlay joins the two tight
 non-ear-orderable `n=9` crosswalk rows to the review-pending strict-cycle
 certificate chain by selected-row signature. Both land on the same `T12/F16`

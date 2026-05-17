@@ -1406,6 +1406,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_radius_blocker_rich_projection_pilot",
+        command=(
+            "python",
+            "scripts/check_n9_radius_blocker_rich_projection_pilot.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Bounded n=9 radius-blocker richer-class projection pilot; one "
+            "synthetic size-five rich class at every center is expanded to "
+            "exact four-subset selected-row options and checked by finite "
+            "packet replay, but this is not full rich-class quotient replay, "
+            "not a proof of Erdos Problem #97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_core_crosswalk",
         command=(
             "python",
