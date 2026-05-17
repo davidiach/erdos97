@@ -7,14 +7,19 @@ from pathlib import Path
 from erdos97.search import built_in_patterns
 from erdos97.vertex_circle_order_filter import vertex_circle_order_obstruction
 from erdos97.vertex_circle_quotient_replay import (
+    RichClassRow,
     parse_selected_rows,
     replay_local_core_bundle,
+    replay_vertex_circle_rich_quotient,
     replay_vertex_circle_quotient,
 )
 
 
 ROOT = Path(__file__).resolve().parents[1]
 LOCAL_CORES = ROOT / "data" / "certificates" / "n9_vertex_circle_local_cores.json"
+RICH_PROJECTION_PILOT = (
+    ROOT / "data" / "certificates" / "n9_radius_blocker_rich_projection_pilot.json"
+)
 
 P18_CROSSING_COMPATIBLE_ORDER = [
     0,
@@ -119,6 +124,45 @@ def test_full_pattern_replay_matches_existing_vertex_circle_filter() -> None:
     assert replay.status == "strict_cycle"
     assert replay.strict_edge_count == existing.strict_edge_count == 162
     assert len(replay.cycle_edges) == len(existing.cycle_edges)
+
+
+def test_rich_quotient_matches_exact_four_selected_rows() -> None:
+    pattern = built_in_patterns()["P18_parity_balanced"]
+    rows = parse_selected_rows(pattern.S)
+    rich_rows = [
+        RichClassRow(center=row.center, witnesses=row.witnesses)
+        for row in rows
+    ]
+
+    selected_replay = replay_vertex_circle_quotient(
+        len(pattern.S),
+        P18_CROSSING_COMPATIBLE_ORDER,
+        rows,
+    )
+    rich_replay = replay_vertex_circle_rich_quotient(
+        len(pattern.S),
+        P18_CROSSING_COMPATIBLE_ORDER,
+        rich_rows,
+    )
+
+    assert rich_replay.status == selected_replay.status == "strict_cycle"
+    assert rich_replay.strict_edge_count == selected_replay.strict_edge_count
+    assert len(rich_replay.cycle_edges) == len(selected_replay.cycle_edges)
+
+
+def test_rich_quotient_obstructs_size_five_projection_pilot_classes() -> None:
+    payload = json.loads(RICH_PROJECTION_PILOT.read_text(encoding="utf-8"))
+    rich_rows = [
+        RichClassRow(center=center, witnesses=tuple(center_classes[0]))
+        for center, center_classes in enumerate(payload["projected_rich_classes"])
+    ]
+
+    replay = replay_vertex_circle_rich_quotient(9, payload["summary"]["order"], rich_rows)
+
+    assert replay.status == "self_edge"
+    assert replay.strict_edge_count == 225
+    assert replay.self_edge_conflicts
+    assert replay.self_edge_conflicts[0].row == 0
 
 
 def test_replay_allows_known_c19_vertex_circle_survivor_order() -> None:

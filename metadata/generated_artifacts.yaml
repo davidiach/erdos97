@@ -2939,6 +2939,40 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_radius_blocker_rich_quotient_pilot
+    path: data/certificates/n9_radius_blocker_rich_quotient_pilot.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_n9_radius_blocker_rich_quotient_pilot.py
+    command: python scripts/check_n9_radius_blocker_rich_quotient_pilot.py --write --assert-expected
+    checker: scripts/check_n9_radius_blocker_rich_quotient_pilot.py
+    check_command: python scripts/check_n9_radius_blocker_rich_quotient_pilot.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Full rich-class vertex-circle quotient replay for one bounded n=9 synthetic size-five radius-blocker family; checks the full class equalities and nested-chord inequalities without choosing exact four-subsets, but this is not a proof of Erdos Problem #97 and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_radius_blocker_rich_quotient_pilot.v1
+      status: N9_RADIUS_BLOCKER_RICH_QUOTIENT_PILOT_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.n: 9
+      summary.rich_class_count: 9
+      summary.max_rich_class_size: 5
+      summary.vertex_circle_status: self_edge
+      summary.strict_edge_count: 225
+      summary.self_edge_conflict_count: 193
+      source_projection_pilot.path: data/certificates/n9_radius_blocker_rich_projection_pilot.json
+      provenance.command: python scripts/check_n9_radius_blocker_rich_quotient_pilot.py --write --assert-expected
+    forbidden_claims:
+      - adaptive blocker bridge is proved
+      - n=9 is proved
+      - arbitrary rich-class systems are classified
+      - all radius-blockers are impossible
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: block6_fragile_vertex_circle_extension_audit
     path: data/certificates/block6_fragile_vertex_circle_extension_audit.json
     kind: proof_mining_diagnostic_artifact

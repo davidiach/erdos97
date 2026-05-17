@@ -160,6 +160,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-radius-blocker-rich-projection-pilot.md`](n9-radius-blocker-rich-projection-pilot.md):
   bounded size-five richer-class projection pilot; finite packet evidence
   only, not full rich-class quotient replay.
+- [`n9-radius-blocker-rich-quotient-pilot.md`](n9-radius-blocker-rich-quotient-pilot.md):
+  full vertex-circle quotient replay for one synthetic size-five rich-class
+  family; still finite packet evidence only.
 - [`bootstrap-core-bridge.md`](bootstrap-core-bridge.md): rich-triple closure
   rank, bootstrap cores, private halos, and weighted cyclic capacity.
 - [`bootstrap-core-crosswalk.md`](bootstrap-core-crosswalk.md): checked

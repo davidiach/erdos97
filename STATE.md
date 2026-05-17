@@ -190,6 +190,14 @@ forgetful projection diagnostic, not full rich-class quotient replay, not an
 `n=9` proof, and not a counterexample. See
 `docs/n9-radius-blocker-rich-projection-pilot.md`.
 
+A full rich-class quotient replay now checks the same synthetic size-five
+family without choosing exact four-subsets. It unions every center-to-witness
+distance in each rich class and generates nested-chord inequalities from the
+full class. The resulting quotient has `225` strict edges and is obstructed by
+`193` self-edge conflicts. This is one finite rich-class family only, not an
+`n=9` proof or bridge proof. See
+`docs/n9-radius-blocker-rich-quotient-pilot.md`.
+
 A second bootstrap-core diagnostic overlays the two tight non-ear-orderable
 `n=9` crosswalk rows with the review-pending vertex-circle strict-cycle chain.
 Both rows join by selected-row signature to the same `T12/F16` strict-cycle

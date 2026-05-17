@@ -23,6 +23,12 @@ class SelectedRow:
 
 
 @dataclass(frozen=True)
+class RichClassRow:
+    center: int
+    witnesses: tuple[int, ...]
+
+
+@dataclass(frozen=True)
 class StrictInequality:
     row: int
     witness_order: tuple[int, ...]
@@ -211,6 +217,42 @@ def replay_vertex_circle_quotient(
     )
 
 
+def replay_vertex_circle_rich_quotient(
+    n: int,
+    order: Sequence[int],
+    rows: Sequence[RichClassRow],
+) -> QuotientReplayResult:
+    """Check the vertex-circle quotient graph for supplied rich classes.
+
+    Each row represents one exact distance class at ``center`` with at least
+    four witnesses.  The quotient unions all center-witness distances inside
+    the class and adds nested-chord inequalities from the full witness set.
+    """
+
+    order_tuple = tuple(int(label) for label in order)
+    _validate_order(n, order_tuple)
+    _validate_rich_rows(n, rows)
+    uf = _distance_class_union_find(n, rows)
+    strict_edges = _strict_inequalities(n, order_tuple, rows, uf)
+    self_edges = tuple(edge for edge in strict_edges if edge.outer_class == edge.inner_class)
+    cycle_edges = () if self_edges else tuple(_find_strict_cycle(strict_edges))
+    if self_edges:
+        status = "self_edge"
+    elif cycle_edges:
+        status = "strict_cycle"
+    else:
+        status = "ok"
+    return QuotientReplayResult(
+        n=n,
+        order=order_tuple,
+        selected_row_count=len(rows),
+        strict_edge_count=len(strict_edges),
+        status=status,
+        self_edge_conflicts=self_edges,
+        cycle_edges=cycle_edges,
+    )
+
+
 def result_to_json(result: QuotientReplayResult) -> dict[str, Any]:
     """Return a JSON-safe replay result."""
     return {
@@ -289,7 +331,26 @@ def _validate_rows(n: int, rows: Sequence[SelectedRow]) -> None:
             raise ValueError(f"row {row.center} has witness out of range: {bad[0]}")
 
 
-def _distance_class_union_find(n: int, rows: Sequence[SelectedRow]) -> UnionFind:
+def _validate_rich_rows(n: int, rows: Sequence[RichClassRow]) -> None:
+    for index, row in enumerate(rows):
+        if row.center < 0 or row.center >= n:
+            raise ValueError(f"rich row center out of range: {row.center}")
+        witnesses = set(row.witnesses)
+        if len(witnesses) != len(row.witnesses):
+            raise ValueError(f"rich row {index} has repeated witnesses")
+        if len(witnesses) < 4:
+            raise ValueError(f"rich row {index} has fewer than four witnesses")
+        if row.center in witnesses:
+            raise ValueError(f"rich row {index} includes its own center")
+        bad = [label for label in witnesses if label < 0 or label >= n]
+        if bad:
+            raise ValueError(f"rich row {index} has witness out of range: {bad[0]}")
+
+
+def _distance_class_union_find(
+    n: int,
+    rows: Sequence[SelectedRow | RichClassRow],
+) -> UnionFind:
     uf = UnionFind(_all_pairs(n))
     for row in rows:
         base = pair(row.center, row.witnesses[0])
@@ -301,7 +362,7 @@ def _distance_class_union_find(n: int, rows: Sequence[SelectedRow]) -> UnionFind
 def _strict_inequalities(
     n: int,
     order: Sequence[int],
-    rows: Sequence[SelectedRow],
+    rows: Sequence[SelectedRow | RichClassRow],
     uf: UnionFind,
 ) -> list[StrictInequality]:
     positions = {label: idx for idx, label in enumerate(order)}
@@ -310,10 +371,11 @@ def _strict_inequalities(
         witnesses = tuple(
             sorted(row.witnesses, key=lambda witness: (positions[witness] - positions[row.center]) % n)
         )
-        for outer_start in range(4):
-            for outer_end in range(outer_start + 1, 4):
-                for inner_start in range(4):
-                    for inner_end in range(inner_start + 1, 4):
+        witness_count = len(witnesses)
+        for outer_start in range(witness_count):
+            for outer_end in range(outer_start + 1, witness_count):
+                for inner_start in range(witness_count):
+                    for inner_end in range(inner_start + 1, witness_count):
                         if (outer_start, outer_end) == (inner_start, inner_end):
                             continue
                         contains = (

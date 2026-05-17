@@ -149,9 +149,13 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_radius_blocker_rich_projection_pilot.py --check --assert-expected --json`
    expands one synthetic size-five class at each center to all exact
    four-subsets and leaves one vertex-circle-obstructed incidence survivor.
-   This is still finite packet evidence only; the next widening is full
-   richer-than-exact-four quotient semantics, or a bridge lemma making such a
-   projection sound.
+   The full rich-class quotient pilot
+   `python scripts/check_n9_radius_blocker_rich_quotient_pilot.py --check --assert-expected --json`
+   checks the same synthetic size-five family without choosing four-subsets:
+   it generates `225` strict edges and is blocked by `193` self-edge
+   conflicts. This is still finite packet evidence only; the next widening is
+   quantifying full richer-than-exact-four quotient replay over generated
+   radius-blocker rich-class packets.
    The stored crossing-order sample
    `data/certificates/block6_terminal_crossing_vertex_circle_sample.json`
    now checks two deterministic terminal-extension windows across all of
