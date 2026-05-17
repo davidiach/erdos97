@@ -44,3 +44,7 @@ This closes the cyclic-order placement gap for the full `n=9` exact-four
 four-blocker packet, not for arbitrary `n=9` rich-class systems. It still does
 not handle rich classes larger than four, and it does not prove that every
 hypothetical counterexample reduces to this packet.
+
+The follow-up `docs/n9-radius-blocker-rich-projection-pilot.md` records one
+bounded size-five projection diagnostic. It is still not full rich-class
+quotient replay.

@@ -205,6 +205,32 @@ def row_options_from_rich_classes(rich_classes: RichClasses) -> tuple[tuple[Row,
     return tuple(options)
 
 
+def four_subset_options_from_rich_classes(
+    rich_classes: RichClasses,
+) -> tuple[tuple[Row, ...], ...]:
+    """Project arbitrary rich classes to deterministic four-subset row options.
+
+    This is a forgetful projection: a rich class of size larger than four
+    contributes every exact four-subset as a possible selected row, but the
+    replay does not retain the equality information involving omitted vertices.
+    """
+
+    validate_rich_classes(rich_classes)
+    options: list[tuple[Row, ...]] = []
+    for classes in rich_classes:
+        center_options: list[Row] = []
+        seen: set[Row] = set()
+        for rich_class in classes:
+            labels = tuple(sorted(int(label) for label in rich_class))
+            for row in combinations(labels, 4):
+                typed_row = (row[0], row[1], row[2], row[3])
+                if typed_row not in seen:
+                    seen.add(typed_row)
+                    center_options.append(typed_row)
+        options.append(tuple(center_options))
+    return tuple(options)
+
+
 def analyze_radius_blocker_packet(
     name: str,
     rich_classes: RichClasses,
@@ -216,13 +242,61 @@ def analyze_radius_blocker_packet(
 
     config = config or PacketConfig()
     options = row_options_from_rich_classes(rich_classes)
+    radius_blocker_ok = is_radius_blocker(rich_classes, blocker)
+    return _analyze_radius_blocker_options(
+        name,
+        options,
+        blocker,
+        order,
+        radius_blocker_ok,
+        config,
+    )
+
+
+def analyze_radius_blocker_projection_packet(
+    name: str,
+    rich_classes: RichClasses,
+    blocker: Sequence[int],
+    order: Sequence[int] | None = None,
+    config: PacketConfig | None = None,
+) -> RadiusBlockerPacketResult:
+    """Replay the four-subset projection of arbitrary rich classes.
+
+    The projection is a bounded diagnostic for selected-row obstruction only.
+    It does not replay the full quotient constraints of a larger rich distance
+    class, and a positive obstruction is not a bridge theorem.
+    """
+
+    config = config or PacketConfig()
+    options = four_subset_options_from_rich_classes(rich_classes)
+    radius_blocker_ok = is_radius_blocker(rich_classes, blocker)
+    return _analyze_radius_blocker_options(
+        name,
+        options,
+        blocker,
+        order,
+        radius_blocker_ok,
+        config,
+    )
+
+
+def _analyze_radius_blocker_options(
+    name: str,
+    options: Sequence[Sequence[Row]],
+    blocker: Sequence[int],
+    order: Sequence[int] | None,
+    radius_blocker_ok: bool,
+    config: PacketConfig,
+) -> RadiusBlockerPacketResult:
+    """Replay an already-expanded finite row-option packet."""
+
     n = len(options)
     if order is None:
         order = tuple(range(n))
     order_tuple = tuple(int(label) for label in order)
     _validate_order(order_tuple, n)
     blocker_tuple = tuple(sorted(int(label) for label in blocker))
-    radius_blocker_ok = is_radius_blocker(rich_classes, blocker_tuple)
+    option_tuple = tuple(tuple(row for row in center_options) for center_options in options)
 
     max_indegree = 2 * (n - 1) // 3
     assigned: dict[int, Row] = {}
@@ -298,7 +372,7 @@ def analyze_radius_blocker_packet(
             )
 
     def viable_options(center: int) -> list[Row]:
-        return [row for row in options[center] if row_is_valid(center, row)]
+        return [row for row in option_tuple[center] if row_is_valid(center, row)]
 
     def choose_center() -> tuple[int | None, list[Row]]:
         best_center: int | None = None
@@ -352,8 +426,8 @@ def analyze_radius_blocker_packet(
         order=order_tuple,
         blocker=blocker_tuple,
         radius_blocker_ok=radius_blocker_ok,
-        row_option_counts=tuple(len(rows) for rows in options),
-        raw_selection_upper_bound=prod(len(rows) for rows in options),
+        row_option_counts=tuple(len(rows) for rows in option_tuple),
+        raw_selection_upper_bound=prod(len(rows) for rows in option_tuple),
         nodes_visited=nodes_visited,
         incidence_survivors=incidence_survivors,
         aborted=aborted,

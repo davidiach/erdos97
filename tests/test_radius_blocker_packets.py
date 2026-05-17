@@ -6,10 +6,12 @@ from erdos97.adaptive_blockers import first_blocker
 from erdos97.bridge_negative_controls import c13_sidon_rows
 from erdos97.radius_blocker_packets import (
     analyze_radius_blocker_packet,
+    analyze_radius_blocker_projection_packet,
     canonical_dihedral_subset,
     dihedral_subset_images,
     dihedral_subset_representatives,
     exact_four_rich_classes_from_rows,
+    four_subset_options_from_rich_classes,
     full_exact_four_radius_blocker_rich_classes,
     row_options_from_rich_classes,
     subset_positions_in_order,
@@ -51,6 +53,46 @@ def test_packet_accepts_multiple_exact_four_options() -> None:
     assert result.radius_blocker_ok
     assert result.row_option_counts[0] == 2
     assert result.raw_selection_upper_bound == 2
+    assert not result.aborted
+
+
+def test_projection_expands_larger_rich_classes_to_four_subsets() -> None:
+    rich_classes = (
+        ((1, 2, 3, 4, 5), (1, 2, 3, 4)),
+        ((0, 2, 3, 4),),
+        ((0, 1, 3, 4),),
+        ((0, 1, 2, 4),),
+        ((0, 1, 2, 3),),
+        ((0, 1, 2, 3),),
+    )
+
+    options = four_subset_options_from_rich_classes(rich_classes)
+
+    assert options[0] == (
+        (1, 2, 3, 4),
+        (1, 2, 3, 5),
+        (1, 2, 4, 5),
+        (1, 3, 4, 5),
+        (2, 3, 4, 5),
+    )
+    assert [len(rows) for rows in options] == [5, 1, 1, 1, 1, 1]
+
+
+def test_projection_packet_replays_larger_rich_class_options() -> None:
+    rows = c13_sidon_rows()
+    rich_classes = list(exact_four_rich_classes_from_rows(rows))
+    rich_classes[0] = ((1, 2, 4, 5, 10),)
+
+    result = analyze_radius_blocker_projection_packet(
+        "c13-row0-five-class-projection",
+        tuple(rich_classes),
+        [0, 1, 2, 3],
+        list(range(13)),
+    )
+
+    assert result.radius_blocker_ok
+    assert result.row_option_counts[0] == 5
+    assert result.raw_selection_upper_bound == 5
     assert not result.aborted
 
 

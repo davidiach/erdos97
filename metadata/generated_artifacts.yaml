@@ -2901,6 +2901,44 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_radius_blocker_rich_projection_pilot
+    path: data/certificates/n9_radius_blocker_rich_projection_pilot.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_n9_radius_blocker_rich_projection_pilot.py
+    command: python scripts/check_n9_radius_blocker_rich_projection_pilot.py --write --assert-expected
+    checker: scripts/check_n9_radius_blocker_rich_projection_pilot.py
+    check_command: python scripts/check_n9_radius_blocker_rich_projection_pilot.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Bounded n=9 radius-blocker richer-class projection pilot; one synthetic size-five rich class at every center is expanded to exact four-subset selected-row options and checked by the finite packet replay, but this is not full rich-class quotient replay, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_radius_blocker_rich_projection_pilot.v1
+      status: N9_RADIUS_BLOCKER_RICH_PROJECTION_PILOT_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.n: 9
+      summary.expanded_center_count: 9
+      summary.max_rich_class_size: 5
+      summary.projected_raw_selection_upper_bound: 1953125
+      summary.radius_blocker_ok: true
+      summary.all_projected_incidence_survivors_obstructed: true
+      summary.nodes_visited: 20
+      summary.incidence_survivors: 1
+      summary.vertex_circle_status_counts.self_edge: 1
+      source_shape_sweep.path: data/certificates/n9_radius_blocker_shape_sweep.json
+      provenance.command: python scripts/check_n9_radius_blocker_rich_projection_pilot.py --write --assert-expected
+    forbidden_claims:
+      - adaptive blocker bridge is proved
+      - n=9 is proved
+      - arbitrary rich-class systems reduce to exact-four packets
+      - full rich-class quotient replay is implemented
+      - all radius-blockers are impossible
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: block6_fragile_vertex_circle_extension_audit
     path: data/certificates/block6_fragile_vertex_circle_extension_audit.json
     kind: proof_mining_diagnostic_artifact

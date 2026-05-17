@@ -181,6 +181,15 @@ four-blocker reduce to the stored `126` labelled natural-order blocker
 coverage, still only within the exact-four packet semantics. See
 `docs/n9-radius-blocker-order-reduction.md`.
 
+A bounded richer-class projection pilot enlarges one checked `n=9`
+`{0,1,2,3}` obstruction example so each center has one synthetic size-five
+rich class. Expanding each larger class to all exact four-subsets gives
+`5^9 = 1,953,125` projected selected-row choices; after incidence/order
+filters, the single survivor is vertex-circle obstructed. This is only a
+forgetful projection diagnostic, not full rich-class quotient replay, not an
+`n=9` proof, and not a counterexample. See
+`docs/n9-radius-blocker-rich-projection-pilot.md`.
+
 A second bootstrap-core diagnostic overlays the two tight non-ear-orderable
 `n=9` crosswalk rows with the review-pending vertex-circle strict-cycle chain.
 Both rows join by selected-row signature to the same `T12/F16` strict-cycle

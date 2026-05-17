@@ -157,6 +157,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-radius-blocker-order-reduction.md`](n9-radius-blocker-order-reduction.md):
   relabelling crosswalk reducing arbitrary cyclic-order placements of the
   exact-four four-blocker packet to the natural-order shape sweep.
+- [`n9-radius-blocker-rich-projection-pilot.md`](n9-radius-blocker-rich-projection-pilot.md):
+  bounded size-five richer-class projection pilot; finite packet evidence
+  only, not full rich-class quotient replay.
 - [`bootstrap-core-bridge.md`](bootstrap-core-bridge.md): rich-triple closure
   rank, bootstrap cores, private halos, and weighted cyclic capacity.
 - [`bootstrap-core-crosswalk.md`](bootstrap-core-crosswalk.md): checked

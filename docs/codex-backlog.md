@@ -144,9 +144,14 @@ Use this queue when no more specific issue is selected.
    obstructed. The order-reduction crosswalk
    `python scripts/check_n9_radius_blocker_order_reduction_crosswalk.py --check --assert-expected --json`
    records that arbitrary cyclic-order placements of the same exact-four
-   four-blocker packet relabel to that natural-order shape sweep. This is
-   still finite packet evidence only; the next widening is
-   richer-than-exact-four class semantics.
+   four-blocker packet relabel to that natural-order shape sweep. The bounded
+   richer-class projection pilot
+   `python scripts/check_n9_radius_blocker_rich_projection_pilot.py --check --assert-expected --json`
+   expands one synthetic size-five class at each center to all exact
+   four-subsets and leaves one vertex-circle-obstructed incidence survivor.
+   This is still finite packet evidence only; the next widening is full
+   richer-than-exact-four quotient semantics, or a bridge lemma making such a
+   projection sound.
    The stored crossing-order sample
    `data/certificates/block6_terminal_crossing_vertex_circle_sample.json`
    now checks two deterministic terminal-extension windows across all of
