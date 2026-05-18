@@ -18,6 +18,8 @@ Useful material to keep:
 - the ellipse Vieta obstruction as a standalone restricted lemma;
 - the parabolic Vieta descent as corroborating provenance for the already
   imported parabola model case;
+- the two-ring dihedral obstruction as duplicate provenance for the already
+  recorded alternating two-radius regular-family obstruction;
 - the convex-body boundary warning from Barany--Roldan-Pensado as literature
   risk, not as a finite-vertex counterexample route.
 
@@ -52,6 +54,31 @@ because the endpoint-quartic proof is shorter and covers the affine parabola
 parameterization directly. The Vieta/moment proof is useful as an independent
 way to recognize the same obstruction, but it is not imported as a duplicate
 proof note.
+
+## Two-Ring Dihedral Note
+
+One output gives an exact obstruction for alternating two-radius regular
+polygons
+
+```text
+A_m = exp(2*pi*i*m/k),
+B_m = r*exp((2m+1)*pi*i/k).
+```
+
+This is already covered in `docs/two-orbit-radius-propagation.md` under the
+broader alternating two-radius family. That note records the same strict
+convexity interval `cos(h) < b < sec(h)` and the endpoint-certificate
+interlacing
+
+```text
+D_1 < D_2 < ... < D_{m-1}
+```
+
+throughout that interval, so each vertex has no four equal-distance neighbors
+inside this ansatz.
+
+Triage: useful corroboration, but not imported as a duplicate theorem. The
+existing two-orbit note is the proof-facing source for this killed family.
 
 ## Continuous-Body Warning
 
