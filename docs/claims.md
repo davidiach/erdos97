@@ -1011,6 +1011,31 @@ If all vertices lie on one circle, then no vertex has more than two other
 vertices at any one distance. A second circle centered at the vertex intersects
 the common circumcircle in at most two points.[^syn]
 
+### Ellipse model case
+
+Status: `LEMMA` / `FAILED_SEARCH_FAMILY`.
+
+No finite point set on a Euclidean ellipse can be a counterexample to Erdos
+Problem #97. The circle case is the cyclic polygon subcase above. For a
+noncircular ellipse, after Euclidean normalization write
+
+```text
+p(t) = (a*cos(t), b*sin(t)),  lambda = a^2/b^2 > 1.
+```
+
+For any center parameter `tau`, four equal-distance witness parameters satisfy
+
+```text
+(1/4) * sum_k cos(t_k) = (lambda/(lambda - 1))*cos(tau).
+```
+
+Choosing a parameter with maximal positive cosine, or otherwise with minimal
+negative cosine, contradicts the same identity. See
+`docs/ellipse-model-case.md`.
+
+This is a restricted exact obstruction only. It does not imply that arbitrary
+strictly convex polygons reduce to elliptical configurations.
+
 ### Parabola model case
 
 Status: `LEMMA` / `FAILED_SEARCH_FAMILY`.
