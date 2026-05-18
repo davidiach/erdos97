@@ -172,6 +172,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-radius-blocker-rich-extension-product-pilot.md`](n9-radius-blocker-rich-extension-product-pilot.md):
   full extension-product replay for one maximum-size generated packet; finite
   packet evidence only.
+- [`n9-radius-blocker-rich-extension-product-sweep.md`](n9-radius-blocker-rich-extension-product-sweep.md):
+  full extension-product replay over all 20 generated source packets; finite
+  generated-packet evidence only.
 - [`bootstrap-core-bridge.md`](bootstrap-core-bridge.md): rich-triple closure
   rank, bootstrap cores, private halos, and weighted cyclic capacity.
 - [`bootstrap-core-crosswalk.md`](bootstrap-core-crosswalk.md): checked

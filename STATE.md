@@ -226,6 +226,14 @@ is still finite packet evidence only, not the full `20`-packet product, not an
 arbitrary rich-class classification, not an `n=9` proof, and not a bridge
 proof. See `docs/n9-radius-blocker-rich-extension-product-pilot.md`.
 
+The follow-up all-packet generated-product sweep exhausts the full extension
+product over all `20` generated source packets, checking `2,899,968`
+radius-blocker-preserving size-five variants. All variants are obstructed by
+quotient self-edges, with `467,149,054` total self-edge conflicts across
+`652,492,800` strict edges. This is still finite generated-packet evidence
+only, not an arbitrary rich-class classification, not an `n=9` proof, and not
+a bridge proof. See `docs/n9-radius-blocker-rich-extension-product-sweep.md`.
+
 A second bootstrap-core diagnostic overlays the two tight non-ear-orderable
 `n=9` crosswalk rows with the review-pending vertex-circle strict-cycle chain.
 Both rows join by selected-row signature to the same `T12/F16` strict-cycle

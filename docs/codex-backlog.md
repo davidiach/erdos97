@@ -168,10 +168,14 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_radius_blocker_rich_extension_product_pilot.py --check --assert-expected --json`
    exhausts the first maximum-size generated packet, checking `196,608`
    variants; all are quotient-obstructed by self-edges. This is still finite
-   packet evidence only. The next widening is another selected-packet product
-   replay, a batched full-product sweep with stronger pruning, or a principled
-   rich-class bridge hypothesis rather than more baseline-neighborhood
-   sampling.
+   packet evidence only. The all-packet generated product sweep
+   `python scripts/check_n9_radius_blocker_rich_extension_product_sweep.py --check --assert-expected --json`
+   exhausts the full Cartesian product over all `20` generated source packets,
+   checking `2,899,968` variants; all are quotient-obstructed by self-edges.
+   This is still finite generated-packet evidence only. The next widening
+   should be a principled rich-class bridge hypothesis or a
+   generator-independent catalogue rather than more product replay over the
+   same generated packet family.
    The stored crossing-order sample
    `data/certificates/block6_terminal_crossing_vertex_circle_sample.json`
    now checks two deterministic terminal-extension windows across all of
