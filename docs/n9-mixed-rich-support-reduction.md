@@ -51,6 +51,23 @@ Thus the generator-independent mixed support catalogue collapses to the same
 all-exact-four frontier size already used by the review-pending `n=9`
 vertex-circle pipeline.
 
+The companion crosswalk
+`data/certificates/n9_mixed_rich_frontier_crosswalk.json` checks the stronger
+bookkeeping statement: the `184` terminal mixed-support assignments are
+exactly the stored `184` pre-vertex-circle frontier assignments as a labelled
+row set. The two generators order six assignments differently, but their
+sorted row-set digest is identical:
+
+```text
+dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55
+```
+
+Verify it with:
+
+```bash
+python scripts/check_n9_mixed_rich_frontier_crosswalk.py --check --assert-expected --json
+```
+
 ## Consequence
 
 Repo-locally, this rules out any size-at-least-five rich distance class in an

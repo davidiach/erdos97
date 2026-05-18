@@ -388,6 +388,18 @@ does not prove `n=9`, and is not a counterexample. See
 `scripts/check_n9_mixed_rich_support_reduction.py`, and
 `data/certificates/n9_mixed_rich_support_reduction.json`.
 
+A companion crosswalk now checks that those `184` terminal mixed-support
+assignments are exactly the stored `184` pre-vertex-circle exact-four frontier
+assignments as a labelled row set. The two generators order six assignments
+differently, but their sorted row-set SHA-256 digest agrees:
+`dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55`. The
+matched stored frontier statuses are `158` self-edges and `26` strict cycles.
+This is support-to-frontier bookkeeping only: it does not prove the
+review-pending exact-four exhaustive checker, prove `n=9`, or give a
+counterexample. See `docs/n9-mixed-rich-frontier-crosswalk.md`,
+`scripts/check_n9_mixed_rich_frontier_crosswalk.py`, and
+`data/certificates/n9_mixed_rich_frontier_crosswalk.json`.
+
 The companion bootstrap / vertex-circle overlay joins the two tight
 non-ear-orderable `n=9` crosswalk rows to the review-pending strict-cycle
 certificate chain by selected-row signature. Both land on the same `T12/F16`

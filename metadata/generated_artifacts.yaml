@@ -3253,6 +3253,57 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_mixed_rich_frontier_crosswalk
+    path: data/certificates/n9_mixed_rich_frontier_crosswalk.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_n9_mixed_rich_frontier_crosswalk.py
+    command: python scripts/check_n9_mixed_rich_frontier_crosswalk.py --write --assert-expected
+    checker: scripts/check_n9_mixed_rich_frontier_crosswalk.py
+    check_command: python scripts/check_n9_mixed_rich_frontier_crosswalk.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Crosswalk from the n=9 mixed four/five support reduction to the stored exact-four vertex-circle frontier; support-to-frontier bookkeeping only, not an independent proof of the exact-four vertex-circle exhaustive checker, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_mixed_rich_frontier_crosswalk.v1
+      status: REVIEW_PENDING_MIXED_RICH_FRONTIER_CROSSWALK
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      n: 9
+      support_sizes:
+        - 4
+        - 5
+      mixed_rich_frontier_crosswalk.search_nodes_visited: 108018
+      mixed_rich_frontier_crosswalk.search_dead_end_count: 58791
+      mixed_rich_frontier_crosswalk.mixed_source_assignment_count: 184
+      mixed_rich_frontier_crosswalk.collected_mixed_assignment_count: 184
+      mixed_rich_frontier_crosswalk.frontier_assignment_count: 184
+      mixed_rich_frontier_crosswalk.mixed_unique_assignment_count: 184
+      mixed_rich_frontier_crosswalk.frontier_unique_assignment_count: 184
+      mixed_rich_frontier_crosswalk.all_collected_supports_exact_four: true
+      mixed_rich_frontier_crosswalk.mixed_source_counts_match_collected: true
+      mixed_rich_frontier_crosswalk.sequence_matches: false
+      mixed_rich_frontier_crosswalk.sequence_mismatch_count: 6
+      mixed_rich_frontier_crosswalk.set_matches: true
+      mixed_rich_frontier_crosswalk.missing_from_frontier_count: 0
+      mixed_rich_frontier_crosswalk.extra_in_frontier_count: 0
+      mixed_rich_frontier_crosswalk.matched_frontier_status_counts.self_edge: 158
+      mixed_rich_frontier_crosswalk.matched_frontier_status_counts.strict_cycle: 26
+      mixed_rich_frontier_crosswalk.mixed_sequence_rows_sha256: 42df5855afd69904a94408342d6f4194cc36732ee79df67349da4c7e1b67faa2
+      mixed_rich_frontier_crosswalk.frontier_sequence_rows_sha256: d7807b69b9de27da17fa851b3325b1e26cfa0b6d86277abeda4bc4e3454b8e01
+      mixed_rich_frontier_crosswalk.mixed_sorted_rows_sha256: dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55
+      mixed_rich_frontier_crosswalk.frontier_sorted_rows_sha256: dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55
+      validation_status: passed
+      provenance.command: python scripts/check_n9_mixed_rich_frontier_crosswalk.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - exact-four vertex-circle exhaustive checker is independently proved
+      - adaptive blocker bridge is proved
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: block6_fragile_vertex_circle_extension_audit
     path: data/certificates/block6_fragile_vertex_circle_extension_audit.json
     kind: proof_mining_diagnostic_artifact

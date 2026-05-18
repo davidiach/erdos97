@@ -186,10 +186,14 @@ Use this queue when no more specific issue is selected.
    The mixed rich-support reduction
    `python scripts/check_n9_mixed_rich_support_reduction.py --check --assert-expected --json`
    now runs that four/five support catalogue with witness-pair capacity and
-   leaves exactly the `184` all-exact-four assignments. The next useful PR is
-   therefore no longer another size-five catalogue; it should either audit the
-   exact-four vertex-circle frontier or replace pieces of that review-pending
-   pipeline with reusable local lemmas.
+   leaves exactly the `184` all-exact-four assignments. The mixed/frontier
+   crosswalk
+   `python scripts/check_n9_mixed_rich_frontier_crosswalk.py --check --assert-expected --json`
+   checks that those `184` terminal assignments are exactly the stored
+   pre-vertex-circle frontier as a labelled row set. The next useful PR is
+   therefore no longer another size-five catalogue or landing crosswalk; it
+   should audit the exact-four vertex-circle frontier itself or replace pieces
+   of that review-pending pipeline with reusable local lemmas.
    The stored crossing-order sample
    `data/certificates/block6_terminal_crossing_vertex_circle_sample.json`
    now checks two deterministic terminal-extension windows across all of

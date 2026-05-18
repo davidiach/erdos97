@@ -333,6 +333,11 @@ local_repo:
       artifact: "data/certificates/n9_mixed_rich_support_reduction.json"
       verifier: "scripts/check_n9_mixed_rich_support_reduction.py"
       claim_scope: "repo-local finite support reduction only; enumerates the full 126^9 four/five support assignment space under row-pair cap, two-overlap crossing, and witness-pair capacity filters and leaves 184 complete all-exact-four assignments with zero size-five support assignments, but does not independently prove the exact-four vertex-circle exhaustive checker, prove n=9, prove Erdos #97, or give a counterexample"
+    - pattern: "n9_mixed_rich_frontier_crosswalk"
+      status: "mixed rich-support to exact-four frontier crosswalk"
+      artifact: "data/certificates/n9_mixed_rich_frontier_crosswalk.json"
+      verifier: "scripts/check_n9_mixed_rich_frontier_crosswalk.py"
+      claim_scope: "repo-local support-to-frontier bookkeeping only; checks that the 184 terminal mixed rich-support assignments equal the stored 184 pre-vertex-circle exact-four frontier assignments as a labelled row set, but does not prove the exact-four vertex-circle exhaustive checker, prove n=9, prove Erdos #97, or give a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

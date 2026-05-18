@@ -1,0 +1,100 @@
+{
+  "claim_scope": "Crosswalk from the generator-independent n=9 mixed four/five rich-support reduction to the stored exact-four vertex-circle frontier. It reruns the mixed support search, collects the 184 all-exact-four terminal support assignments, and checks that their labelled row set is exactly the stored 184 pre-vertex-circle frontier assignments. It does not prove the exact-four vertex-circle exhaustive checker, does not prove filter soundness, strict-edge geometry, selected-distance quotient soundness, n=9, Erdos Problem #97, a counterexample, or any official/global status update.",
+  "interpretation": "A passed crosswalk says the 184 terminal assignments from the mixed four/five rich-support reduction are exactly the stored 184 exact-four pre-vertex-circle frontier assignments as a labelled set. This is a support-to-frontier landing check only.",
+  "mixed_rich_frontier_crosswalk": {
+    "all_collected_supports_exact_four": true,
+    "collected_mixed_assignment_count": 184,
+    "example_mismatches": [],
+    "extra_in_frontier_count": 0,
+    "frontier_assignment_count": 184,
+    "frontier_sequence_rows_sha256": "d7807b69b9de27da17fa851b3325b1e26cfa0b6d86277abeda4bc4e3454b8e01",
+    "frontier_sorted_rows_sha256": "dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55",
+    "frontier_unique_assignment_count": 184,
+    "matched_frontier_status_counts": {
+      "self_edge": 158,
+      "strict_cycle": 26
+    },
+    "missing_from_frontier_count": 0,
+    "mixed_sequence_rows_sha256": "42df5855afd69904a94408342d6f4194cc36732ee79df67349da4c7e1b67faa2",
+    "mixed_sorted_rows_sha256": "dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55",
+    "mixed_source_assignment_count": 184,
+    "mixed_source_counts_match_collected": true,
+    "mixed_unique_assignment_count": 184,
+    "n": 9,
+    "search_center_choice_counts": {
+      "0": 1,
+      "1": 892,
+      "2": 3979,
+      "3": 8892,
+      "4": 11200,
+      "5": 8868,
+      "6": 6538,
+      "7": 4590,
+      "8": 4084
+    },
+    "search_dead_end_count": 58791,
+    "search_node_depth_counts": {
+      "0": 126,
+      "1": 2520,
+      "2": 11327,
+      "3": 28368,
+      "4": 33043,
+      "5": 21158,
+      "6": 9088,
+      "7": 2204,
+      "8": 184
+    },
+    "search_nodes_visited": 108018,
+    "search_rule": "mixed_support_minimum_remaining_options",
+    "sequence_matches": false,
+    "sequence_mismatch_count": 6,
+    "sequence_mismatch_positions_sample": [
+      106,
+      107,
+      108,
+      109,
+      134,
+      135
+    ],
+    "set_matches": true,
+    "support_sizes": [
+      4,
+      5
+    ]
+  },
+  "n": 9,
+  "provenance": {
+    "command": "python scripts/check_n9_mixed_rich_frontier_crosswalk.py --write --assert-expected",
+    "generator": "scripts/check_n9_mixed_rich_frontier_crosswalk.py",
+    "sources": [
+      "data/certificates/n9_mixed_rich_support_reduction.json",
+      "data/certificates/n9_vertex_circle_frontier_motif_classification.json",
+      "scripts/check_n9_mixed_rich_support_reduction.py"
+    ]
+  },
+  "schema": "erdos97.n9_mixed_rich_frontier_crosswalk.v1",
+  "source_artifacts": {
+    "frontier_motif_classification": {
+      "path": "data/certificates/n9_vertex_circle_frontier_motif_classification.json",
+      "schema": "erdos97.n9_vertex_circle_frontier_motif_classification.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC",
+      "type": null
+    },
+    "mixed_support_reduction": {
+      "path": "data/certificates/n9_mixed_rich_support_reduction.json",
+      "schema": "erdos97.n9_mixed_rich_support_reduction.v1",
+      "status": "N9_MIXED_RICH_SUPPORT_REDUCTION_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC",
+      "type": null
+    }
+  },
+  "status": "REVIEW_PENDING_MIXED_RICH_FRONTIER_CROSSWALK",
+  "support_sizes": [
+    4,
+    5
+  ],
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "validation_errors": [],
+  "validation_status": "passed"
+}
