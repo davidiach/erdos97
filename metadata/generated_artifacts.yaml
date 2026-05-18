@@ -3196,6 +3196,63 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_mixed_rich_support_reduction
+    path: data/certificates/n9_mixed_rich_support_reduction.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_n9_mixed_rich_support_reduction.py
+    command: python scripts/check_n9_mixed_rich_support_reduction.py --write --assert-expected
+    checker: scripts/check_n9_mixed_rich_support_reduction.py
+    check_command: python scripts/check_n9_mixed_rich_support_reduction.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Generator-independent n=9 mixed rich-support reduction under row-pair cap, two-overlap crossing, and witness-pair capacity filters; finite support reduction only, not an independent proof of the exact-four vertex-circle exhaustive checker, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_mixed_rich_support_reduction.v1
+      status: N9_MIXED_RICH_SUPPORT_REDUCTION_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.n: 9
+      summary.support_sizes:
+        - 4
+        - 5
+      summary.center_count: 9
+      summary.option_counts:
+        - 126
+        - 126
+        - 126
+        - 126
+        - 126
+        - 126
+        - 126
+        - 126
+        - 126
+      summary.option_size_counts.4: 70
+      summary.option_size_counts.5: 56
+      summary.raw_assignment_upper_bound: 8004512848309157376
+      summary.center_pair_count: 36
+      summary.center_pair_candidate_count_total: 571536
+      summary.compatible_center_pair_count_total: 206640
+      summary.center_pair_rejection_counts.row_pair_cap: 193536
+      summary.center_pair_rejection_counts.two_overlap_crossing: 171360
+      summary.search_nodes_visited: 108018
+      summary.search_complete_assignments: 184
+      summary.search_dead_end_count: 58791
+      summary.search_max_depth: 9
+      summary.search_aborted: false
+      summary.terminal_size_five_support_count_distribution.0: 184
+      summary.complete_assignments_with_size_five_supports: 0
+      summary.all_complete_assignments_exact_four_only: true
+      provenance.command: python scripts/check_n9_mixed_rich_support_reduction.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - exact-four vertex-circle exhaustive checker is independently proved
+      - adaptive blocker bridge is proved
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: block6_fragile_vertex_circle_extension_audit
     path: data/certificates/block6_fragile_vertex_circle_extension_audit.json
     kind: proof_mining_diagnostic_artifact

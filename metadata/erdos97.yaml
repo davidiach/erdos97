@@ -328,6 +328,11 @@ local_repo:
       artifact: "data/certificates/n9_all_five_rich_support_obstruction.json"
       verifier: "scripts/check_n9_all_five_rich_support_obstruction.py"
       claim_scope: "repo-local finite support subcase only; enumerates the full 56^9 size-five support assignment space under the two-circle row-pair cap and radical-axis crossing filters and finds no complete assignment, but does not enumerate mixed exact-four/size-five rich catalogues, prove n=9, prove the adaptive blocker bridge, prove Erdos #97, or give a counterexample"
+    - pattern: "n9_mixed_rich_support_reduction"
+      status: "generator-independent mixed rich-support reduction"
+      artifact: "data/certificates/n9_mixed_rich_support_reduction.json"
+      verifier: "scripts/check_n9_mixed_rich_support_reduction.py"
+      claim_scope: "repo-local finite support reduction only; enumerates the full 126^9 four/five support assignment space under row-pair cap, two-overlap crossing, and witness-pair capacity filters and leaves 184 complete all-exact-four assignments with zero size-five support assignments, but does not independently prove the exact-four vertex-circle exhaustive checker, prove n=9, prove Erdos #97, or give a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

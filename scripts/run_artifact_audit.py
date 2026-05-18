@@ -1521,6 +1521,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_mixed_rich_support_reduction",
+        command=(
+            "python",
+            "scripts/check_n9_mixed_rich_support_reduction.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Generator-independent n=9 mixed four/five support reduction; "
+            "finite support reduction only, not an independent proof of the "
+            "exact-four vertex-circle exhaustive checker, not a proof of "
+            "Erdos Problem #97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_core_crosswalk",
         command=(
             "python",

@@ -245,6 +245,17 @@ least one center whose available rich classes are exact-four-only; it is still
 not an `n=9` proof, not the adaptive blocker bridge, and not a counterexample.
 See `docs/n9-all-five-rich-support-obstruction.md`.
 
+The follow-up mixed rich-support reduction enumerates every four- or
+five-witness support at every center, for `126^9 =
+8,004,512,848,309,157,376` raw assignments. With the same pair/crossing
+filters plus witness-pair capacity, the exact search leaves `184` complete
+assignments, and every one is all-exact-four. There are `0` complete
+assignments containing a size-five support. Repo-locally, any `n=9`
+selected-witness counterexample is therefore reduced to the exact-four
+frontier before vertex-circle replay. This still does not independently prove
+the review-pending exact-four exhaustive checker, prove `n=9`, or give a
+counterexample. See `docs/n9-mixed-rich-support-reduction.md`.
+
 A second bootstrap-core diagnostic overlays the two tight non-ear-orderable
 `n=9` crosswalk rows with the review-pending vertex-circle strict-cycle chain.
 Both rows join by selected-row signature to the same `T12/F16` strict-cycle
