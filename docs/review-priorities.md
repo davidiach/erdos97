@@ -595,9 +595,13 @@ condition that the surviving multi-block family does not automatically satisfy:
   `docs/n9-radius-blocker-rich-extension-product-pilot.md`, which exhausts
   `196,608` radius-blocker-preserving size-five variants for the first
   maximum-size generated packet. This is still finite packet evidence only;
-  the next review target is another selected-packet product replay, a batched
-  product sweep with stronger pruning, or a principled rich-class bridge
-  hypothesis.
+- the all-packet generated rich-extension product sweep recorded in
+  `docs/n9-radius-blocker-rich-extension-product-sweep.md`, which exhausts
+  `2,899,968` radius-blocker-preserving size-five variants over the `20`
+  generated source packets. This is still finite generated-packet evidence
+  only; the next review target is a principled rich-class bridge hypothesis
+  or a generator-independent catalogue, not another copy of the same product
+  replay.
 - bootstrap-core/private-halo analysis, as recorded in
   `docs/bootstrap-core-bridge.md`, which adds a `rho > 3` closure-rank witness,
   deletion closures, and weighted cyclic outside-pair capacity.

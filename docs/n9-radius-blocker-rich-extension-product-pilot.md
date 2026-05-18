@@ -58,12 +58,10 @@ distance 9: 13,122
 
 ## Boundary
 
-This is a full Cartesian product only for one selected source packet. It does
-not enumerate the full product for all `20` generated packets, does not
-enumerate arbitrary rich-class catalogues, does not prove that all
-radius-blockers are impossible, does not prove `n=9`, does not prove the
-adaptive radius-blocker bridge, and does not prove Erdos Problem #97.
+This is a full Cartesian product only for one selected source packet. The
+follow-up all-packet generated-product sweep is recorded in
+`docs/n9-radius-blocker-rich-extension-product-sweep.md`.
 
-The next useful widening is another selected-packet product replay, a batched
-full-product sweep with stronger pruning, or a genuine minimal/rich-class
-bridge hypothesis that narrows which richer catalogues must be checked.
+Neither packet enumerates arbitrary rich-class catalogues, proves that all
+radius-blockers are impossible, proves `n=9`, proves the adaptive
+radius-blocker bridge, or proves Erdos Problem #97.

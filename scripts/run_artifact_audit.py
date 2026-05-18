@@ -1489,6 +1489,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_radius_blocker_rich_extension_product_sweep",
+        command=(
+            "python",
+            "scripts/check_n9_radius_blocker_rich_extension_product_sweep.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "All-packet full rich-extension product replay over the 20 "
+            "generated n=9 radius-blocker source packets; finite generated-"
+            "packet evidence only, not arbitrary rich-class classification, "
+            "not a proof of Erdos Problem #97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_core_crosswalk",
         command=(
             "python",

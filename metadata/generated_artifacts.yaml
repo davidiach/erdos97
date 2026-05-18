@@ -3101,6 +3101,50 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_radius_blocker_rich_extension_product_sweep
+    path: data/certificates/n9_radius_blocker_rich_extension_product_sweep.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_n9_radius_blocker_rich_extension_product_sweep.py
+    command: python scripts/check_n9_radius_blocker_rich_extension_product_sweep.py --write --assert-expected
+    checker: scripts/check_n9_radius_blocker_rich_extension_product_sweep.py
+    check_command: python scripts/check_n9_radius_blocker_rich_extension_product_sweep.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: All-packet n=9 full rich-extension product replay over 20 generated radius-blocker source packets, checking 2,899,968 size-five variants; finite generated-packet evidence only, not a proof of Erdos Problem #97 and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_radius_blocker_rich_extension_product_sweep.v1
+      status: N9_RADIUS_BLOCKER_RICH_EXTENSION_PRODUCT_SWEEP_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.n: 9
+      summary.source_shape_count: 10
+      summary.source_packet_count: 20
+      summary.source_product_variant_count_total: 2899968
+      summary.source_product_variant_count_counts.196608: 5
+      summary.variant_count: 2899968
+      summary.hamming_distance_counts.9: 173502
+      summary.variant_rich_class_count_total: 26099712
+      summary.max_rich_class_size: 5
+      summary.all_variants_radius_blockers: true
+      summary.quotient_status_counts.self_edge: 2899968
+      summary.all_variants_obstructed: true
+      summary.total_strict_edge_count: 652492800
+      summary.total_self_edge_conflict_count: 467149054
+      summary.first_self_edge_row_counts.0: 2899968
+      summary.variant_max_blocker_intersection_size_counts.4: 1199616
+      source_shape_sweep.path: data/certificates/n9_radius_blocker_shape_sweep.json
+      provenance.command: python scripts/check_n9_radius_blocker_rich_extension_product_sweep.py --write --assert-expected
+    forbidden_claims:
+      - adaptive blocker bridge is proved
+      - n=9 is proved
+      - arbitrary rich-class systems are classified
+      - all radius-blockers are impossible
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: block6_fragile_vertex_circle_extension_audit
     path: data/certificates/block6_fragile_vertex_circle_extension_audit.json
     kind: proof_mining_diagnostic_artifact
