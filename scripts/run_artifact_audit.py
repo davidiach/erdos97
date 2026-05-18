@@ -1031,6 +1031,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_local_lemma_audit_path",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_local_lemma_audit_path.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Combined audit path for focused n=9 local-lemma packets, "
+            "mini-replays, aggregate/simple replay, exhaustive/local-lemma "
+            "counts, and relation skeletons; not packet soundness, proof of "
+            "n=9, counterexample, or independent review completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_t11_strict_cycle_lemma_packet",
         command=(
             "python",

@@ -587,6 +587,25 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/check_n9_vertex_circle_local_lemma_audit_path.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_relation_skeleton_local_lemma_crosswalk.py "
+        "--check --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_local_lemma_audit_path.py "
+        "--check --assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_local_lemma_audit_path.py "
+        "--check --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py "
+        "--check --assert-expected --json"
+    )
+    assert (
         "python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py "
         "--check --assert-expected --json"
         in command_texts

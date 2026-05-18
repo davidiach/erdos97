@@ -49,6 +49,11 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json`
    connects the compact 16-skeleton proof-mining catalog to the same
    aggregate/simple-replay family accounting.
+   The local-lemma audit-path checker
+   `python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json`
+   runs the focused packet/catalog, focused mini-replay,
+   aggregate/simple-replay, exhaustive/local-lemma, and
+   relation-skeleton/local-lemma handoffs as one review-pending audit path.
    The focused mini-replay commands
    `python scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json`,
    `python scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json`,
