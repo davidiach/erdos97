@@ -110,6 +110,7 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json
 	$(PYTHON) scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
 	$(PYTHON) scripts/check_n9_base_apex_d3_artifact_join.py --check --json
+	$(PYTHON) scripts/check_n9_base_apex_audit_path.py --check --json
 
 verify-bridge-frontier:
 	$(PYTHON) scripts/check_bridge_lemma_frontier.py --check --assert-expected --json

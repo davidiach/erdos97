@@ -103,6 +103,7 @@ python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --j
 python scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py --assert-expected --out data/certificates/n9_base_apex_d3_incidence_capacity_packet.json
 python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
 python scripts/check_n9_base_apex_d3_artifact_join.py --check --json
+python scripts/check_n9_base_apex_audit_path.py --check --json
 ```
 
 The focused generated report
@@ -221,6 +222,16 @@ incidence-capacity packet. It verifies bookkeeping joins and pinned totals
 across these artifacts only; it is not a proof of `n=9`, not a counterexample,
 not an incidence-completeness result, not a geometric realizability test, and
 not a global status update.
+
+The reviewer-facing audit-path checker
+`scripts/check_n9_base_apex_audit_path.py` adds the adjacent guardrails: it
+joins the low-excess ledger, escape budget, low-excess ladder, D=3 artifact
+stack, selected-baseline D=3 crosswalk, and review-pending vertex-circle
+frontier counts. It verifies that all layers still agree on the same
+bookkeeping path while keeping D=3 realizability and incidence states
+`UNKNOWN`. It is not a proof of `n=9`, not a counterexample, not an
+incidence-completeness result, not a geometric realizability test, and not a
+global status update.
 
 ## Turn-cover diagnostic
 

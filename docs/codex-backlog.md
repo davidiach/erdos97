@@ -658,6 +658,7 @@ python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json
 python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json
 python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
 python scripts/check_n9_base_apex_d3_artifact_join.py --check --json
+python scripts/check_n9_base_apex_audit_path.py --check --json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 ```
 
@@ -699,6 +700,12 @@ Expected artifacts:
   representative packet, low-excess crosswalk, P19 pilot, and all-row
   incidence-capacity packet without claiming proof, counterexample,
   incidence-completeness, geometric realizability, or global status movement;
+- optional reviewer-facing audit-path checkers such as
+  `scripts/check_n9_base_apex_audit_path.py` that join the low-excess ledger,
+  escape budget, low-excess ladder, D=3 artifact stack, selected-baseline D=3
+  crosswalk, and review-pending vertex-circle frontier without claiming proof,
+  counterexample, incidence-completeness, geometric realizability, or global
+  status movement;
 - optional low-excess profile/escape crosswalks such as
   `data/certificates/n9_base_apex_low_excess_escape_crosswalk.json` that keep
   ledger-to-escape bookkeeping separate from proof, counterexample, and
