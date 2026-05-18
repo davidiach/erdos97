@@ -1011,6 +1011,28 @@ If all vertices lie on one circle, then no vertex has more than two other
 vertices at any one distance. A second circle centered at the vertex intersects
 the common circumcircle in at most two points.[^syn]
 
+### Parabola model case
+
+Status: `LEMMA` / `FAILED_SEARCH_FAMILY`.
+
+No finite point set on a nondegenerate affine parabola can be a counterexample
+to Erdos Problem #97. More precisely, for
+
+```text
+gamma(t) = p0 + u*t + v*t^2
+```
+
+with `u,v` linearly independent, and for any finite set of distinct parameters
+`T`, each endpoint parameter gives a good vertex. If `M = max T`, then a
+positive-radius equation centered at `gamma(M)` is a quartic polynomial in the
+parameter. Since it is negative at `M` and tends to `+infinity` as
+`t -> +infinity`, it has a root outside the parameter interval. Four available
+witness parameters below `M` would then give five distinct real roots of a
+quartic, impossible. See `docs/parabola-model-case.md`.
+
+This is a restricted exact obstruction only. It does not imply that arbitrary
+strictly convex polygons reduce to parabolic configurations.
+
 ### Paraboloid lift
 
 Lifting `p=(x,y)` to `(x,y,x^2+y^2)`, four vertices are equidistant from

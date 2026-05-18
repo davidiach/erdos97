@@ -51,6 +51,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`turn-inequality-lemma.md`](turn-inequality-lemma.md): proof-facing note for
   the candidate exterior-turn inequalities used in the review-pending `n=9`
   turn-frontier replay.
+- [`parabola-model-case.md`](parabola-model-case.md): restricted exact lemma
+  showing that finite point sets on a nondegenerate affine parabola cannot be
+  counterexamples; a failed search family, not a global bridge.
 - [`relation-skeleton-catalog.md`](relation-skeleton-catalog.md):
   review-pending relation-skeleton extraction for the focused T01-T09
   self-edge and T10-T12 strict-cycle vertex-circle quotient motifs;
@@ -442,6 +445,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`gpt-pro-followup-triage-2026-05-11.md`](gpt-pro-followup-triage-2026-05-11.md):
   triage of later GPT Pro follow-up notes; provenance and task-selection
   guidance only.
+- [`gpt-pro-followup-triage-2026-05-18.md`](gpt-pro-followup-triage-2026-05-18.md):
+  triage of the May 18 GPT Pro output batch; records the compact `n=9`
+  recheck as corroborating audit evidence and promotes only the scoped
+  parabola model-case note.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`repo-roadmap.md`](repo-roadmap.md): staged repository plan.
