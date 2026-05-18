@@ -589,6 +589,7 @@ python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json
 python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json
 python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
 python scripts/check_n9_base_apex_d3_artifact_join.py --check --json
+python scripts/check_n9_base_apex_audit_path.py --check --json
 python scripts/check_bridge_lemma_frontier.py --check --assert-expected --json
 python scripts/check_bootstrap_core_crosswalk.py --check --assert-expected --json
 python scripts/check_bootstrap_vertex_circle_overlay.py --check --assert-expected --json

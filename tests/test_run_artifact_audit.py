@@ -122,6 +122,10 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/check_n9_base_apex_audit_path.py --check --json"
+        in command_texts
+    )
+    assert (
         "python scripts/check_n9_base_apex_low_excess_escape_ladder.py --check --json"
         in command_texts
     )
@@ -161,6 +165,11 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json"
     ) < ordered_command_texts.index(
         "python scripts/check_n9_base_apex_d3_artifact_join.py --check --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_base_apex_d3_artifact_join.py --check --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_base_apex_audit_path.py --check --json"
     )
     assert (
         "python scripts/check_n9_row_ptolemy_product_cancellations.py --check --json"

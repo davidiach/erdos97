@@ -1249,6 +1249,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_base_apex_audit_path",
+        command=(
+            "python",
+            "scripts/check_n9_base_apex_audit_path.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Reviewer-facing audit path for n=9 base-apex low-excess and D=3 "
+            "bookkeeping artifacts joined to the selected-baseline and "
+            "review-pending vertex-circle frontier; not a proof of n=9, not "
+            "a counterexample, not an incidence-completeness result, not a "
+            "geometric realizability test, and not a global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_row_ptolemy_product_cancellations",
         command=(
             "python",
