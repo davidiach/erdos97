@@ -323,6 +323,11 @@ local_repo:
       artifact: "data/certificates/n9_radius_blocker_rich_extension_product_sweep.json"
       verifier: "scripts/check_n9_radius_blocker_rich_extension_product_sweep.py"
       claim_scope: "finite generated-packet proof-mining diagnostic only; exhausts 2899968 radius-blocker-preserving size-five variants over 20 generated source packets and finds all quotient-obstructed by self-edges, but does not classify arbitrary rich-class catalogues, prove n=9, prove the adaptive blocker bridge, prove Erdos #97, or give a counterexample"
+    - pattern: "n9_all_five_rich_support_obstruction"
+      status: "generator-independent all-five-rich support obstruction"
+      artifact: "data/certificates/n9_all_five_rich_support_obstruction.json"
+      verifier: "scripts/check_n9_all_five_rich_support_obstruction.py"
+      claim_scope: "repo-local finite support subcase only; enumerates the full 56^9 size-five support assignment space under the two-circle row-pair cap and radical-axis crossing filters and finds no complete assignment, but does not enumerate mixed exact-four/size-five rich catalogues, prove n=9, prove the adaptive blocker bridge, prove Erdos #97, or give a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

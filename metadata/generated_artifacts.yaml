@@ -3145,6 +3145,57 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_all_five_rich_support_obstruction
+    path: data/certificates/n9_all_five_rich_support_obstruction.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_n9_all_five_rich_support_obstruction.py
+    command: python scripts/check_n9_all_five_rich_support_obstruction.py --write --assert-expected
+    checker: scripts/check_n9_all_five_rich_support_obstruction.py
+    check_command: python scripts/check_n9_all_five_rich_support_obstruction.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Generator-independent n=9 all-five-rich support obstruction under the two-circle row-pair cap and radical-axis crossing filters; finite support subcase only, not mixed exact-four/size-five catalogue coverage, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_all_five_rich_support_obstruction.v1
+      status: N9_ALL_FIVE_RICH_SUPPORT_OBSTRUCTION_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.n: 9
+      summary.support_size: 5
+      summary.center_count: 9
+      summary.option_counts:
+        - 56
+        - 56
+        - 56
+        - 56
+        - 56
+        - 56
+        - 56
+        - 56
+        - 56
+      summary.raw_assignment_upper_bound: 5416169448144896
+      summary.center_pair_count: 36
+      summary.center_pair_candidate_count_total: 112896
+      summary.compatible_center_pair_count_total: 17640
+      summary.center_pair_rejection_counts.row_pair_cap: 70056
+      summary.center_pair_rejection_counts.two_overlap_crossing: 25200
+      summary.search_nodes_visited: 136
+      summary.search_complete_assignments: 0
+      summary.search_dead_end_count: 116
+      summary.search_max_depth: 2
+      summary.search_aborted: false
+      summary.no_pair_filter_survivors: true
+      provenance.command: python scripts/check_n9_all_five_rich_support_obstruction.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - adaptive blocker bridge is proved
+      - mixed exact-four and size-five catalogues are classified
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: block6_fragile_vertex_circle_extension_audit
     path: data/certificates/block6_fragile_vertex_circle_extension_audit.json
     kind: proof_mining_diagnostic_artifact

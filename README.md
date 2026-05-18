@@ -71,7 +71,8 @@ This repository is a public research log and reproducibility workspace for Erdő
   richer-class projection pilot, a full rich-class quotient replay pilot, a
   generated rich-class quotient sweep, a bounded rich-extension neighborhood
   sweep, a one-packet full rich-extension product pilot, and an all-packet
-  generated rich-extension product sweep,
+  generated rich-extension product sweep, plus the generator-independent
+  all-five-rich support obstruction,
   read
   [`docs/radius-blocker-vertex-circle-pilot.md`](docs/radius-blocker-vertex-circle-pilot.md)
   and
@@ -91,7 +92,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   and
   [`docs/n9-radius-blocker-rich-extension-product-pilot.md`](docs/n9-radius-blocker-rich-extension-product-pilot.md)
   and
-  [`docs/n9-radius-blocker-rich-extension-product-sweep.md`](docs/n9-radius-blocker-rich-extension-product-sweep.md).
+  [`docs/n9-radius-blocker-rich-extension-product-sweep.md`](docs/n9-radius-blocker-rich-extension-product-sweep.md)
+  and
+  [`docs/n9-all-five-rich-support-obstruction.md`](docs/n9-all-five-rich-support-obstruction.md).
 - For the stored geometric gates and fixed-order widenings on the block-6
   fragile-cover negative control, read
   [`docs/block6-fragile-vertex-circle-extension-audit.md`](docs/block6-fragile-vertex-circle-extension-audit.md).

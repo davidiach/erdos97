@@ -176,6 +176,13 @@ Use this queue when no more specific issue is selected.
    should be a principled rich-class bridge hypothesis or a
    generator-independent catalogue rather than more product replay over the
    same generated packet family.
+   The generator-independent all-five-rich support obstruction
+   `python scripts/check_n9_all_five_rich_support_obstruction.py --check --assert-expected --json`
+   now closes the full `56^9` size-five support assignment space under only
+   the two-circle row-pair cap and radical-axis crossing filters. This rules
+   out the all-centers-size-at-least-five support subcase repo-locally, but
+   the next rich-class widening is still the mixed exact-four/size-five
+   catalogue or a bridge hypothesis forcing the exact-four-only center.
    The stored crossing-order sample
    `data/certificates/block6_terminal_crossing_vertex_circle_sample.json`
    now checks two deterministic terminal-extension windows across all of
