@@ -518,6 +518,16 @@ prove the review-pending exact-four vertex-circle exhaustive checker, does not
 prove `n=9`, does not prove Erdos Problem #97, and does not provide a
 counterexample. See `docs/n9-mixed-rich-support-reduction.md`.
 
+The companion crosswalk
+`python scripts/check_n9_mixed_rich_frontier_crosswalk.py --check --assert-expected --json`
+checks that the `184` terminal mixed-support assignments are exactly the
+stored `184` exact-four pre-vertex-circle frontier assignments as a labelled
+set. The mixed and frontier sequences differ at six positions, but the sorted
+row-set digest matches and the stored frontier statuses are `158` self-edges
+and `26` strict cycles. This remains support-to-frontier bookkeeping only; it
+does not prove the exact-four checker, `n=9`, Erdos Problem #97, or a
+counterexample. See `docs/n9-mixed-rich-frontier-crosswalk.md`.
+
 ### Bootstrap-core closure rank and weighted capacity
 
 Status: `LEMMA` / bridge fork.

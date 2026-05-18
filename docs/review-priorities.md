@@ -613,7 +613,10 @@ condition that the surviving multi-block family does not automatically satisfy:
   `docs/n9-mixed-rich-support-reduction.md`, which closes the four/five
   support catalogue under the same pair/crossing filters plus witness-pair
   capacity. It leaves exactly `184` complete assignments and all are
-  all-exact-four, so the next review target is the exact-four frontier or a
+  all-exact-four. The mixed/frontier crosswalk recorded in
+  `docs/n9-mixed-rich-frontier-crosswalk.md` checks that those `184` terminal
+  assignments are exactly the stored pre-vertex-circle frontier as a labelled
+  row set, so the next review target is the exact-four frontier itself or a
   smaller reusable replacement for the review-pending vertex-circle pipeline.
 - bootstrap-core/private-halo analysis, as recorded in
   `docs/bootstrap-core-bridge.md`, which adds a `rho > 3` closure-rank witness,

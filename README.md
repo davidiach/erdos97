@@ -72,7 +72,8 @@ This repository is a public research log and reproducibility workspace for Erdő
   generated rich-class quotient sweep, a bounded rich-extension neighborhood
   sweep, a one-packet full rich-extension product pilot, and an all-packet
   generated rich-extension product sweep, plus the generator-independent
-  all-five-rich support obstruction and mixed rich-support reduction,
+  all-five-rich support obstruction, mixed rich-support reduction, and the
+  mixed-support-to-frontier crosswalk,
   read
   [`docs/radius-blocker-vertex-circle-pilot.md`](docs/radius-blocker-vertex-circle-pilot.md)
   and
@@ -96,7 +97,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   and
   [`docs/n9-all-five-rich-support-obstruction.md`](docs/n9-all-five-rich-support-obstruction.md).
   For the follow-up mixed four/five support reduction, read
-  [`docs/n9-mixed-rich-support-reduction.md`](docs/n9-mixed-rich-support-reduction.md).
+  [`docs/n9-mixed-rich-support-reduction.md`](docs/n9-mixed-rich-support-reduction.md)
+  and
+  [`docs/n9-mixed-rich-frontier-crosswalk.md`](docs/n9-mixed-rich-frontier-crosswalk.md).
 - For the stored geometric gates and fixed-order widenings on the block-6
   fragile-cover negative control, read
   [`docs/block6-fragile-vertex-circle-extension-audit.md`](docs/block6-fragile-vertex-circle-extension-audit.md).

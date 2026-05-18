@@ -178,6 +178,20 @@ is stored-frontier coverage bookkeeping against the current brancher, not
 filter soundness, strict-edge geometry, quotient soundness, or a completed
 `n=9` review.
 
+The mixed-rich/frontier crosswalk checks that the newer four/five support
+catalogue lands on this same exact-four frontier:
+
+```bash
+python scripts/check_n9_mixed_rich_frontier_crosswalk.py --check --assert-expected --json
+```
+
+It reruns the mixed support search and compares its `184` all-exact-four
+terminal assignments with the stored motif-classification rows as a labelled
+set. The brancher sequences differ in six positions, but the sorted row-set
+digest matches. This is support-to-frontier bookkeeping only, not a proof of
+the mixed support reduction, filter soundness, strict-edge geometry, quotient
+soundness, or a completed `n=9` review.
+
 The dihedral-orbit audit command checks stored motif-family orbit bookkeeping:
 
 ```bash

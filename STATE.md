@@ -256,6 +256,15 @@ frontier before vertex-circle replay. This still does not independently prove
 the review-pending exact-four exhaustive checker, prove `n=9`, or give a
 counterexample. See `docs/n9-mixed-rich-support-reduction.md`.
 
+A mixed-rich/frontier crosswalk now checks that those `184` terminal
+mixed-support assignments are exactly the stored `184` exact-four
+pre-vertex-circle frontier assignments as a labelled row set. The brancher
+sequences differ at six positions, but the sorted row-set digest agrees, and
+the matched stored statuses are `158` self-edges and `26` strict cycles. This
+is support-to-frontier bookkeeping only; it still does not prove the
+review-pending exact-four exhaustive checker, prove `n=9`, or give a
+counterexample. See `docs/n9-mixed-rich-frontier-crosswalk.md`.
+
 A second bootstrap-core diagnostic overlays the two tight non-ear-orderable
 `n=9` crosswalk rows with the review-pending vertex-circle strict-cycle chain.
 Both rows join by selected-row signature to the same `T12/F16` strict-cycle

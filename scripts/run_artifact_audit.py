@@ -1537,6 +1537,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_mixed_rich_frontier_crosswalk",
+        command=(
+            "python",
+            "scripts/check_n9_mixed_rich_frontier_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Crosswalk from the n=9 mixed four/five support reduction to the "
+            "stored exact-four vertex-circle frontier; support-to-frontier "
+            "bookkeeping only, not an independent proof of the exact-four "
+            "vertex-circle exhaustive checker, not a proof of Erdos Problem "
+            "#97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_core_crosswalk",
         command=(
             "python",
