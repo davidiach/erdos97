@@ -360,6 +360,20 @@ counterexample. See
 `scripts/check_n9_radius_blocker_rich_extension_product_sweep.py`, and
 `data/certificates/n9_radius_blocker_rich_extension_product_sweep.json`.
 
+A generator-independent all-five-rich support obstruction now checks the
+subcase where every center of a nonagon has some rich distance class of size at
+least five. The checker enumerates the full `56^9 =
+5,416,169,448,144,896` size-five support assignment space by exact
+backtracking under only the two-circle row-pair cap and radical-axis crossing
+for two-overlaps. It visits `136` assignment nodes, reaches maximum depth `2`,
+and leaves `0` complete assignments. This is a repo-local support subcase
+only: it does not enumerate mixed exact-four/size-five catalogues, does not
+prove `n=9`, does not prove the adaptive radius-blocker bridge, and is not a
+counterexample. See
+`docs/n9-all-five-rich-support-obstruction.md`,
+`scripts/check_n9_all_five_rich_support_obstruction.py`, and
+`data/certificates/n9_all_five_rich_support_obstruction.json`.
+
 The companion bootstrap / vertex-circle overlay joins the two tight
 non-ear-orderable `n=9` crosswalk rows to the review-pending strict-cycle
 certificate chain by selected-row signature. Both land on the same `T12/F16`

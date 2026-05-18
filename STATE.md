@@ -234,6 +234,17 @@ quotient self-edges, with `467,149,054` total self-edge conflicts across
 only, not an arbitrary rich-class classification, not an `n=9` proof, and not
 a bridge proof. See `docs/n9-radius-blocker-rich-extension-product-sweep.md`.
 
+The generator-independent all-five-rich support catalogue leaves the generated
+radius-blocker packets entirely. It enumerates every choice of one size-five
+support at each center of a natural-order nonagon: `56^9 =
+5,416,169,448,144,896` raw assignments. Using only the two-circle row-pair cap
+and the radical-axis crossing rule for two-overlaps, the exact backtracking
+search visits `136` assignment nodes and finds `0` complete assignments. This
+repo-local subcase says any `n=9` selected-witness counterexample must have at
+least one center whose available rich classes are exact-four-only; it is still
+not an `n=9` proof, not the adaptive blocker bridge, and not a counterexample.
+See `docs/n9-all-five-rich-support-obstruction.md`.
+
 A second bootstrap-core diagnostic overlays the two tight non-ear-orderable
 `n=9` crosswalk rows with the review-pending vertex-circle strict-cycle chain.
 Both rows join by selected-row signature to the same `T12/F16` strict-cycle

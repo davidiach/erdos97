@@ -1505,6 +1505,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_all_five_rich_support_obstruction",
+        command=(
+            "python",
+            "scripts/check_n9_all_five_rich_support_obstruction.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Generator-independent n=9 all-five-rich support obstruction; "
+            "finite support subcase only, not mixed exact-four/size-five "
+            "catalogue coverage, not a proof of Erdos Problem #97, and not "
+            "a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_core_crosswalk",
         command=(
             "python",

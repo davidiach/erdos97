@@ -471,6 +471,29 @@ rule out radius-blockers using strict convexity, fragile-cover geometry, and
 the current exact obstruction stack, or construct an exact blocker escape
 mechanism. See `docs/adaptive-radius-blocker-bridge.md`.
 
+### n=9 all-five-rich support obstruction
+
+Status: `REVIEW_PENDING_DIAGNOSTIC` / generator-independent finite support
+catalogue.
+
+In a strict convex nonagon with cyclic order `0,1,2,3,4,5,6,7,8`, suppose
+each center has some rich distance class containing at least five witnesses.
+Choosing any five witnesses from each such class gives one size-five support
+at each center. The checked support catalogue enumerates all `56^9` such
+choices and applies only the two-circle row-pair cap and radical-axis crossing
+rule for two-overlaps.
+
+The checker finds no complete assignment satisfying those necessary filters:
+the deterministic backtracking search visits `136` assignment nodes, reaches
+maximum depth `2`, and has `0` complete assignments. Check it with
+`python scripts/check_n9_all_five_rich_support_obstruction.py --check --assert-expected --json`.
+
+Repo-locally, this rules out the all-centers-size-at-least-five subcase for
+`n=9`. It does not enumerate mixed exact-four/size-five rich catalogues, does
+not prove `n=9`, does not prove the adaptive radius-blocker bridge, does not
+prove Erdos Problem #97, and does not provide a counterexample. See
+`docs/n9-all-five-rich-support-obstruction.md`.
+
 ### Bootstrap-core closure rank and weighted capacity
 
 Status: `LEMMA` / bridge fork.

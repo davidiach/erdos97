@@ -602,6 +602,13 @@ condition that the surviving multi-block family does not automatically satisfy:
   only; the next review target is a principled rich-class bridge hypothesis
   or a generator-independent catalogue, not another copy of the same product
   replay.
+- the generator-independent all-five-rich support obstruction recorded in
+  `docs/n9-all-five-rich-support-obstruction.md`, which leaves the generated
+  packet family and closes the full `56^9` size-five support assignment space
+  using only the two-circle row-pair cap and radical-axis crossing filters.
+  This rules out the all-centers-size-at-least-five `n=9` support subcase
+  repo-locally, but it still does not cover mixed exact-four/size-five
+  catalogues, prove `n=9`, or prove the adaptive blocker bridge.
 - bootstrap-core/private-halo analysis, as recorded in
   `docs/bootstrap-core-bridge.md`, which adds a `rho > 3` closure-rank witness,
   deletion closures, and weighted cyclic outside-pair capacity.
