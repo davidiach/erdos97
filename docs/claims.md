@@ -494,6 +494,30 @@ not prove `n=9`, does not prove the adaptive radius-blocker bridge, does not
 prove Erdos Problem #97, and does not provide a counterexample. See
 `docs/n9-all-five-rich-support-obstruction.md`.
 
+### n=9 mixed rich-support reduction
+
+Status: `REVIEW_PENDING_DIAGNOSTIC` / generator-independent finite support
+catalogue.
+
+In a strict convex nonagon with cyclic order `0,1,2,3,4,5,6,7,8`, enumerate
+all four- and five-witness supports at every center. The checked support
+catalogue applies the two-circle row-pair cap, the radical-axis crossing rule
+for two-overlaps, and the witness-pair capacity bound that any unordered pair
+of witnesses can occur together in rich classes at at most two centers.
+
+The checker searches the full `126^9` mixed support assignment space by exact
+backtracking. It visits `108,018` assignment nodes and leaves `184` complete
+assignments, all of which use exactly four witnesses at every center. There
+are `0` complete assignments containing a size-five support. Check it with
+`python scripts/check_n9_mixed_rich_support_reduction.py --check --assert-expected --json`.
+
+Repo-locally, this reduces any `n=9` selected-witness counterexample to the
+all-exact-four support frontier before vertex-circle replay: no center may
+have a rich distance class of size at least five. It does not independently
+prove the review-pending exact-four vertex-circle exhaustive checker, does not
+prove `n=9`, does not prove Erdos Problem #97, and does not provide a
+counterexample. See `docs/n9-mixed-rich-support-reduction.md`.
+
 ### Bootstrap-core closure rank and weighted capacity
 
 Status: `LEMMA` / bridge fork.

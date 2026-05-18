@@ -609,6 +609,12 @@ condition that the surviving multi-block family does not automatically satisfy:
   This rules out the all-centers-size-at-least-five `n=9` support subcase
   repo-locally, but it still does not cover mixed exact-four/size-five
   catalogues, prove `n=9`, or prove the adaptive blocker bridge.
+- the generator-independent mixed rich-support reduction recorded in
+  `docs/n9-mixed-rich-support-reduction.md`, which closes the four/five
+  support catalogue under the same pair/crossing filters plus witness-pair
+  capacity. It leaves exactly `184` complete assignments and all are
+  all-exact-four, so the next review target is the exact-four frontier or a
+  smaller reusable replacement for the review-pending vertex-circle pipeline.
 - bootstrap-core/private-halo analysis, as recorded in
   `docs/bootstrap-core-bridge.md`, which adds a `rho > 3` closure-rank witness,
   deletion closures, and weighted cyclic outside-pair capacity.

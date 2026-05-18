@@ -374,6 +374,20 @@ counterexample. See
 `scripts/check_n9_all_five_rich_support_obstruction.py`, and
 `data/certificates/n9_all_five_rich_support_obstruction.json`.
 
+A follow-up mixed rich-support reduction checks the four/five support
+catalogue at every center. It enumerates `126` support options per center,
+applies the two-circle row-pair cap, radical-axis crossing for two-overlaps,
+and witness-pair capacity, then searches the full `126^9 =
+8,004,512,848,309,157,376` raw assignment space by exact backtracking. The
+search visits `108,018` nodes and leaves `184` complete assignments, all with
+`0` size-five supports. Repo-locally, this reduces any `n=9` selected-witness
+counterexample to the all-exact-four frontier before vertex-circle replay. It
+does not independently prove the review-pending exact-four exhaustive checker,
+does not prove `n=9`, and is not a counterexample. See
+`docs/n9-mixed-rich-support-reduction.md`,
+`scripts/check_n9_mixed_rich_support_reduction.py`, and
+`data/certificates/n9_mixed_rich_support_reduction.json`.
+
 The companion bootstrap / vertex-circle overlay joins the two tight
 non-ear-orderable `n=9` crosswalk rows to the review-pending strict-cycle
 certificate chain by selected-row signature. Both land on the same `T12/F16`
