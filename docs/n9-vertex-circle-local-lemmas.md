@@ -638,6 +638,20 @@ stored local-lemma layer on template ids, family ids, obstruction kind, and
 assignment counts. It remains a packet audit, not a completeness proof for
 `n=9`.
 
+The local-lemma audit-path checker then runs the reviewer-facing handoff as
+one chain. It checks that the focused packet/catalog audit, focused
+mini-replay crosswalk, aggregate/simple replay crosswalk,
+exhaustive/local-lemma crosswalk, and relation-skeleton/local-lemma crosswalk
+all agree on the same 12 templates, 16 families, and 184 assignments:
+
+```bash
+python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json
+```
+
+This is still only a review-pending audit-path diagnostic. It does not prove
+packet soundness, mini-replay soundness, local-lemma completeness, frontier
+coverage, `n=9`, or Erdos Problem #97.
+
 ## Scan summary
 
 The current local-lemma scan covers these review-pending template-packet

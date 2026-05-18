@@ -111,6 +111,13 @@ It verifies only that the checked-in artifacts agree on the same
 review-pending `184 = 158 + 26` frontier accounting and the same 16 motif
 families.
 
+The combined local-lemma audit-path command
+`scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json`
+checks the focused packet/catalog, focused mini-replay, aggregate/simple
+replay, exhaustive/local-lemma, and relation-skeleton/local-lemma handoffs as
+one review-pending diagnostic chain. It is still bookkeeping only, not packet
+soundness or an `n=9` proof.
+
 The input-data audit command
 `scripts/check_n9_vertex_circle_input_audit.py` treats the checked-in
 exhaustive JSON as stored data:

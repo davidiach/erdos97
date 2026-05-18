@@ -112,6 +112,7 @@ python scripts/check_n9_t10_strict_cycle_minireplay.py --check --assert-expected
 python scripts/check_n9_t10_paired_square_entry.py --check --assert-expected --json
 python scripts/check_relation_skeleton_catalog.py --check --assert-expected --json
 python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py --check --assert-expected --json
 python scripts/check_n9_t11_strict_cycle_minireplay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py --check --assert-expected --json

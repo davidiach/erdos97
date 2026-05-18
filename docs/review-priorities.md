@@ -385,6 +385,11 @@ Next steps:
   `scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json`
   to compare the 16-entry relation-skeleton catalog with the same
   aggregate/simple-replay local-lemma family accounting;
+- use
+  `scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json`
+  to run the focused packet/catalog, focused mini-replay,
+  aggregate/simple-replay, exhaustive/local-lemma, and
+  relation-skeleton/local-lemma handoffs as one review-pending audit path;
 - use the focused mini-replay commands
   `scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json`,
   `scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json`,
