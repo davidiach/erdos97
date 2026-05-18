@@ -13,6 +13,11 @@ are claimed here.
 - Common-radius or unit-distance reductions belong to a stricter subcase.
   Convex unit-distance bounds may settle that subcase without touching the
   full variable-radius problem.[^syn]
+- Barany--Roldan-Pensado construct convex bodies with `N(K)=6` for the
+  boundary-intersection problem from Erdos's 1946 paper; their simplest
+  example is a 15-gon. This is not a finite-vertex counterexample to Erdos #97,
+  because the equal-radius boundary intersections may occur in edge interiors
+  rather than at vertices.[^barany-roldan]
 - The canonical synthesis corrects a prior uniform-radius shortcut:
   Edelsbrunner--Hajnal's `2n-7` unit-distance result is a lower-bound
   construction, not an upper bound resolving the subcase. Furedi's separate
@@ -48,6 +53,9 @@ are claimed here.
   using them in a paper-style introduction.[^digest]
 - Keep the uniform-radius literature separate from the selected-witness problem
   where each center may have its own radius.[^syn]
+- Keep convex-body boundary-intersection examples separate from finite
+  selected-vertex examples unless a construction explicitly forces the
+  relevant boundary intersection points to be polygon vertices.[^barany-roldan]
 - Check `docs/canonical-synthesis.md` before using unit-distance literature in
   any proof program or solution announcement.[^canon]
 - Before claiming a new obstruction, search related work on repeated distances
@@ -67,6 +75,7 @@ are claimed here.
 [^erdos1987]: P. Erdos, "Some combinatorial and metric problems in geometry," Intuitive Geometry, Colloquia Mathematica Societatis Janos Bolyai 48, 167--177, 1987. <https://www.renyi.hu/~p_erdos/1987-27.pdf>
 [^erdos1975]: P. Erdos, "On some problems of elementary and combinatorial geometry," Annali di Matematica Pura ed Applicata 103, 99--108, 1975. <https://www.renyi.hu/~p_erdos/1975-25.pdf>
 [^fishburn-reeds]: P. C. Fishburn and J. A. Reeds, "Unit distances between vertices of a convex polygon," Computational Geometry 2(2), 81--91, 1992. DOI: `10.1016/0925-7721(92)90026-O`.
+[^barany-roldan]: I. Barany and E. Roldan-Pensado, "A Question from a Famous Paper of Erdos," Discrete & Computational Geometry 50, 253--261, 2013. DOI: `10.1007/s00454-013-9507-z`. Accessible author PDF: <https://www.renyi.hu/~barany/cikkek/134.pdf>.
 [^formal97]: `google-deepmind/formal-conjectures`, `FormalConjectures/ErdosProblems/97.lean`, accessed 2026-04-30. <https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/97.lean>
 [^edels-hajnal]: H. Edelsbrunner and P. Hajnal, "A lower bound on the number of unit distances between the points of a convex polygon," Journal of Combinatorial Theory, Series A 56(2), 312--316, 1991. DOI: `10.1016/0097-3165(91)90042-F`.
 [^aggarwal]: A. Aggarwal, "On Unit Distances in a Convex Polygon," Discrete Mathematics 338(3), 88--92, 2015; arXiv:1009.2216. DOI: `10.1016/j.disc.2014.10.009`.

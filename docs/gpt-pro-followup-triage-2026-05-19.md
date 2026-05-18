@@ -3,7 +3,7 @@
 Status: provenance and task-selection guidance only; not mathematical
 evidence.
 
-This note triages the two GPT Pro outputs supplied on 2026-05-19. It does not
+This note triages the GPT Pro outputs supplied on 2026-05-19. It does not
 promote any finite-case result, alter the source-of-truth status, or replace
 the checked repository artifacts. The repository still claims no general proof
 and no counterexample for Erdos Problem #97.
@@ -17,7 +17,9 @@ Useful material to keep:
 
 - the ellipse Vieta obstruction as a standalone restricted lemma;
 - the parabolic Vieta descent as corroborating provenance for the already
-  imported parabola model case.
+  imported parabola model case;
+- the convex-body boundary warning from Barany--Roldan-Pensado as literature
+  risk, not as a finite-vertex counterexample route.
 
 ## Ellipse Note
 
@@ -50,6 +52,23 @@ because the endpoint-quartic proof is shorter and covers the affine parabola
 parameterization directly. The Vieta/moment proof is useful as an independent
 way to recognize the same obstruction, but it is not imported as a duplicate
 proof note.
+
+## Continuous-Body Warning
+
+One follow-up output points to Barany--Roldan-Pensado,
+`A Question from a Famous Paper of Erdos`, Discrete & Computational Geometry
+50, 253--261 (2013), DOI `10.1007/s00454-013-9507-z`. Their abstract states
+that some convex bodies have `N(K)=6`, where `N(K)` is the least number such
+that some boundary point has every centered circle meet the boundary in at
+most that many points; the introduction records that their example is a
+15-gon.
+
+This is useful as a warning but not as an Erdos #97 counterexample. The
+intersections are with the boundary of a convex body and may lie in edge
+interiors, while Erdos #97 is about distances from a polygon vertex to other
+vertices. A future construction attempt could try to discretize such a
+boundary-intersection example, but this output does not provide a finite
+selected-vertex closure or an exact certificate.
 
 ## Material Not Imported
 
