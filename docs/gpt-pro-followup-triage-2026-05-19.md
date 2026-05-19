@@ -149,6 +149,13 @@ exact quadratic distance equations. It is still not imported as a
 counterexample direction with evidence, because no finite invariant vertex set
 or perturbation certificate is supplied.
 
+The same source identifies the relevant chains more concretely: a neighbourhood
+of `A4B1B2B3` supplies centers whose circles hit `C1C2C3C4` at least six times,
+while the `A5` insertion handles centers on `[A3,A4]` outside that
+neighbourhood via hits on `A3A4A5B1` plus two further boundary hits. These
+chain names may be useful for a future edge-parameter closure model, but they
+do not change the finite-vertex evidence level.
+
 ## Material Not Imported
 
 Do not import broad "conic-based" wording as a theorem. This batch covers

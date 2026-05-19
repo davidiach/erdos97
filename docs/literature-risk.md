@@ -24,6 +24,12 @@ are claimed here.
   Lemma 3.1 plus rotations. This may be a useful scaffold for a future
   boundary-closure search, but it still supplies boundary intersections, not a
   closed finite vertex set.[^barany-roldan]
+- In the proof, a direct computation checks that centers in a neighbourhood of
+  the broken line `A4B1B2B3` have circles meeting the broken line `C1C2C3C4` in
+  at least six boundary points; after the `A5` insertion, centers on
+  `[A3,A4]` outside that neighbourhood get at least four hits on
+  `A3A4A5B1` plus two additional boundary hits. These are edge/boundary hits,
+  so a finite-vertex extraction would need new exact closure conditions.[^barany-roldan]
 - The same boundary-intersection problem is already looser than the finite
   vertex problem at the `N=2` level: Barany--Roldan-Pensado note that for any
   boundary point of an acute triangle, some centered circle meets the boundary
