@@ -184,6 +184,21 @@ and for the lower half-lens. This is only a finite-pruning ingredient: it does
 not cover the common equilateral apex, it requires the reciprocal selected
 edge, and it does not by itself rule out a full 4-bad completion.
 
+Common-circle row-intersection certificate:
+
+For any two distinct centers `u != v` in a realizable selected-witness system,
+the selected rows satisfy
+
+```text
+|S_u cap S_v| <= 2.
+```
+
+Every common witness lies on both selected circles `C(u,r_u)` and `C(v,r_v)`.
+Those circles have distinct centers, so they cannot coincide, and two distinct
+Euclidean circles meet in at most two points. This is often stronger than a
+linear Kalmanson check and should be treated as a first-class vertex-circle
+certificate rather than as endpoint geometry.
+
 Selected tournament audit pattern:
 
 The cyclic tournament pattern
@@ -214,6 +229,40 @@ are equal. Because every unordered pair appears in exactly one selected row,
 this would make all pair distances equal, impossible for more than three
 planar points. This makes the pattern a good regression example for global
 certificates, not a counterexample candidate.
+
+Kalmanson-feasible but circle-impossible block pattern:
+
+Another useful `n=9` audit pattern shows why endpoint-poor branches need
+vertex-circle certificates in addition to Kalmanson/Farkas checks. Let
+
+```text
+S_0 = S_1 = S_2 = S_3 = {4,5,6,7},
+S_4 = S_5 = S_6 = S_7 = S_8 = {0,1,2,3}.
+```
+
+Define a rational symmetric distance matrix by:
+
+```text
+d(0,j) = 1                  for j in {1,2,3},
+d(i,j) = 1/2                for i != j in {1,2,3},
+d(h,m) = 19/20              for h in {0,1,2,3}, m in {4,5,6,7},
+d(h,8) = 11/20              for h in {0,1,2,3},
+d(i,j) = 1/2                for i != j in {4,5,6,7,8}.
+```
+
+An exact rational check verifies the selected row equalities, all triangle
+inequalities, diameter inequalities with diameter value `1`, and the two
+Kalmanson inequalities for every cyclic quadruple in order `0,1,...,8`. The
+only diameter pairs are `{0,1}`, `{0,2}`, and `{0,3}`; in this relaxation no
+diameter endpoint has four diameter-distance neighbors, and all selected
+radii at diameter endpoints are strictly below the diameter.
+
+This matrix is not Euclidean evidence. The selected pattern is rejected
+exactly by the common-circle certificate above: for instance
+`S_0 cap S_1 = {4,5,6,7}`, so two distinct selected circles would have four
+common witness points. The role of this example is only to separate two
+failure modes: Kalmanson-only endpoint certificates can be feasible while a
+vertex-circle/common-neighbor certificate still kills the selected pattern.
 
 This packet cannot be applied directly to the stored 184 `n=9` frontier
 assignments unless a separate metric diameter certificate identifies a
