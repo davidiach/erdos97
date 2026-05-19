@@ -754,6 +754,17 @@ theorem, and the row-Ptolemy certificates are fixed supplied-order obstructions
 only. See `docs/n9-incidence-frontier.md` and
 `scripts/check_n9_incidence_frontier.py`.
 
+The exact no-reciprocal `n=9` regular-tournament audit in
+`scripts/check_n9_regular_tournament_kalmanson.py` enumerates all `3,230,080`
+labelled regular tournaments on cyclic labels `0,1,...,8`. In this subcase,
+every unordered pair is selected in exactly one direction. Substituting the row
+radius variables into strict Kalmanson inequalities gives a strongly connected
+strict-implication graph for every tournament, hence a strict cycle
+obstruction. This proves only that any `n=9` selected-witness candidate must
+have at least one reciprocal selected pair. It is not an `n=9` proof and does
+not promote the review-pending exhaustive vertex-circle checker. See
+`docs/n9-regular-tournament-kalmanson-audit.md`.
+
 ### Review-pending exhaustive n=9 vertex-circle check
 
 Status: `MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING`.

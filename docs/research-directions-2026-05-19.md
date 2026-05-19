@@ -280,6 +280,16 @@ row. Both certificates are valid, but the earlier three-common-witness
 rejection means this pattern should be used as a template for certificate
 coverage, not as a survivor of all cheap filters.
 
+Follow-up exact audit: `scripts/check_n9_regular_tournament_kalmanson.py`
+widens the strict-Kalmanson check from this cyclic tournament to all
+`3,230,080` labelled regular tournaments on nine cyclic labels. Since a
+no-reciprocal `n=9` selected-witness system selects every unordered pair in
+exactly one direction, this closes the whole no-reciprocal subcase under the
+fixed cyclic order: every tournament has a strict Kalmanson implication cycle.
+This is still only a branch cut. The reciprocal-pair cases remain outside the
+audit and require the ordinary selected-distance quotient, vertex-circle,
+same-distance clique, `K4-e`, or related exact filters.
+
 Kalmanson-feasible but circle-impossible block pattern:
 
 Another useful `n=9` audit pattern shows why endpoint-poor branches need
