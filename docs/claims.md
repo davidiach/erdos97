@@ -1025,6 +1025,29 @@ Thus in any counterexample, every endpoint of a globally closest pair must use
 a four-rich distance class at radius strictly larger than the closest-pair
 distance. This is a structural constraint only, not a proof of Erdos #97.
 
+### Threefold pair-lift obstruction
+
+Status: `LEMMA` / `FAILED_SEARCH_MECHANISM`.
+
+No finite nondegenerate union of full 3-fold rotational orbits can be 4-bad by
+the mechanism where each point uses its two same-orbit mates and an
+equidistant pair from one other full 3-fold orbit. If
+
+```text
+O_p = {p, omega*p, omega^2*p},  omega = exp(2*pi*i/3),
+```
+
+then the same-orbit witness radius from `p = r*exp(i*theta)` is
+`sqrt(3)*r`. For a distinct orbit `O_q` to provide two more witnesses at that
+same radius, its phase must be opposite to `theta` modulo `2*pi/3` and its
+radius must be `2*r`; the same-phase positive solution only gives the original
+orbit back. Thus every orbit would need an outgoing partner with doubled
+radius, impossible in a finite directed cycle. See
+`docs/threefold-pair-lift-obstruction.md`.
+
+This is a narrow mechanism obstruction, not a general exclusion of 3-fold
+symmetric configurations and not a proof of Erdos #97.
+
 ### Cyclic polygon subcase
 
 If all vertices lie on one circle, then no vertex has more than two other

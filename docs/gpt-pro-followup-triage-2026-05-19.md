@@ -18,6 +18,7 @@ Useful material to keep:
 - the ellipse Vieta obstruction as a standalone restricted lemma;
 - the parabolic Vieta descent as corroborating provenance for the already
   imported parabola model case;
+- the 3-fold pair-lift obstruction as a standalone failed search mechanism;
 - the two-ring dihedral obstruction as duplicate provenance for the already
   recorded alternating two-radius regular-family obstruction;
 - the closest-pair radius barrier as a standalone structural lemma;
@@ -55,6 +56,23 @@ because the endpoint-quartic proof is shorter and covers the affine parabola
 parameterization directly. The Vieta/moment proof is useful as an independent
 way to recognize the same obstruction, but it is not imported as a duplicate
 proof note.
+
+## Threefold Pair-Lift Note
+
+One output gives a useful obstruction for a natural Danzer-style lift
+mechanism. The imported note is `docs/threefold-pair-lift-obstruction.md`.
+
+The mechanism assumes each point in a full 3-fold orbit uses its two same-orbit
+mates as witnesses, so the selected radius is forced. If one other full 3-fold
+orbit supplies the remaining two witnesses as an equidistant pair, then that
+partner orbit must have the opposite phase and exactly twice the radius.
+Following these forced radius doublings around a finite orbit-dependency cycle
+is impossible.
+
+Triage: valid narrow obstruction / failed search mechanism. It does not rule
+out all 3-fold symmetric configurations, because the extra witnesses could
+come from two different orbits, from a different selected radius, or from a
+non-full-orbit construction.
 
 ## Closest-Pair Barrier
 

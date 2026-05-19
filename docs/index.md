@@ -111,6 +111,9 @@ put detailed reconciliation in the canonical synthesis.
   non-promoting n=9 frontier sweep.
 - [`two-orbit-radius-propagation.md`](two-orbit-radius-propagation.md): exact
   obstruction for a half-step two-orbit near-regular ansatz.
+- [`threefold-pair-lift-obstruction.md`](threefold-pair-lift-obstruction.md):
+  narrow Danzer-style 3-fold lift obstruction for rows using same-orbit mates
+  plus one other orbit-pair.
 - [`minimum-radius-filter.md`](minimum-radius-filter.md): weak exact
   minimum-radius short-chord filter; records why it does not kill `C19_skew`
   by itself.
