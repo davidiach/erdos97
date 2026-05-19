@@ -363,6 +363,52 @@ No prototype is added here because the repository already has extensive
 fixed-pattern and numerical machinery. The value of this direction is a
 carefully scoped pattern generator, not another floating near-miss.
 
+## Counterexample-Oriented Addendum: Convex-Body Boundary Discretization
+
+Trust label: `COUNTEREXAMPLE_SEARCH_SCAFFOLD` plus `NO_FINITE_EVIDENCE`.
+
+The Barany--Roldan-Pensado convex-body examples remain a boundary-intersection
+warning, not a finite-vertex counterexample. Their 15-gon shows that the
+continuous boundary problem can have many centered boundary intersections, but
+those hits may lie in edge interiors rather than at vertices. See
+`docs/literature-risk.md` for the checked anchor and caveats.
+
+The useful new search framing is a finite invariant-set problem. Suppose a
+strictly convex closed curve `Gamma` is split into arcs
+`Gamma_0, ..., Gamma_{m-1}`. For `p in Gamma_i`, suppose an exact or certified
+radius rule gives four continuously selectable boundary-hit branches
+
+```text
+F_{i,1}(p), F_{i,2}(p), F_{i,3}(p), F_{i,4}(p) in Gamma_{i+1}.
+```
+
+A finite selected-vertex counterexample would require a finite set
+`X subset Gamma` closed under all chosen witness branches:
+
+```text
+F_{i,j}(X cap Gamma_i) subset X cap Gamma_{i+1}
+```
+
+for every relevant `i,j`. Thus the continuous body example becomes a finite
+closure problem for branch maps on a convex curve, not an incidence-counting
+claim by itself.
+
+Exactification requirements before this route can produce evidence:
+
+- explicit branch domains and formulas, or interval-certified branch graphs;
+- a finite candidate set `X` with exact or interval-certified closure under the
+  selected branches;
+- strict convexity and distinct-vertex certificates for the finite set;
+- equal-distance verification at each selected center;
+- a proof that every newly added boundary point also has four selected
+  witnesses inside the same finite set.
+
+Negative control: the one-parabola construction family is already ruled out in
+`docs/parabola-model-case.md`. That proof is a restricted exact lemma and
+should not be duplicated here. The convex-body discretization route is only
+interesting if it uses multi-arc closure in a way the one-parabola endpoint
+argument cannot see.
+
 ## 4. Reciprocal-Radial Global Budget
 
 Trust label: `RESEARCH_PACKET`.
@@ -508,5 +554,8 @@ diagnostic, not a proof.
    finite packet needs it.
 3. Open any Fishburn--Reeds `k=4` search as pattern mining with explicit
    exactification gates.
-4. Try a reciprocal-radial summation only after identifying the global index
+4. Treat convex-body discretization as a finite branch-map closure problem;
+   do not promote it without exact finite closure and strict-convexity
+   certificates.
+5. Try a reciprocal-radial summation only after identifying the global index
    set and a negative control that the proposed theorem must avoid.
