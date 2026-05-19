@@ -109,6 +109,26 @@ Exact packet spec:
 - optional derived angular-span certificate for the four witnesses around
   `v`.
 
+Full-class diameter branching caution:
+
+A selected row is only a chosen rich 4-subset. Therefore `u notin S_v` is not
+the same statement as "`v` is diameter-poor" for the diameter pair `{v,u}`. A
+certificate-grade diameter branch should be phrased using the full diameter
+class
+
+```text
+M_v(u) = {x != v : |vx| = |vu|}.
+```
+
+If `|M_v(u)| >= 4`, a proof search may choose or add a selected row at `v`
+that contains `u`, but this is a full-class branch, not a fact about an
+arbitrary preselected row. If `|M_v(u)| <= 3`, then every valid selected row at
+`v` has radius strictly smaller than `|vu|`, so a linear or Kalmanson/Farkas
+certificate must represent strictness explicitly. The poor-endpoint branch
+does not automatically give angular pinching: for a selected radius
+`r <= |vu|/2`, the global diameter bound gives no pairwise chord restriction
+among witnesses on the selected circle.
+
 Double-boundary endpoint negative control:
 
 The endpoint-only double-boundary package should not be treated as a
@@ -163,6 +183,37 @@ diameter line. The symmetric statement holds for noncommon left-arc witnesses
 and for the lower half-lens. This is only a finite-pruning ingredient: it does
 not cover the common equilateral apex, it requires the reciprocal selected
 edge, and it does not by itself rule out a full 4-bad completion.
+
+Selected tournament audit pattern:
+
+The cyclic tournament pattern
+
+```text
+S_i = {i+1, i+2, i+3, i+4} mod 9
+```
+
+is useful as an endpoint-logic stress test because every unordered pair is
+selected in exactly one direction. It has no reciprocal selected edges, and a
+candidate diameter edge is selected by exactly one endpoint. It should not be
+treated as a true frontier survivor, however. Adjacent rows share three
+witnesses, for example `S_0 cap S_1 = {2,3,4}`, so the elementary two-circle
+cap already rejects the pattern: two distinct selected circles cannot share
+three distinct witness vertices.
+
+There is also an independent Kalmanson audit. Let `x_i` be the common distance
+in row `i`. For the cyclic quadruple `(i, i+2, i+4, i+6)`, the Kalmanson
+inequality
+
+```text
+d_{i,i+2} + d_{i+4,i+6} <= d_{i,i+4} + d_{i+2,i+6}
+```
+
+becomes `x_i + x_{i+4} <= x_i + x_{i+2}`, hence `x_{j+2} <= x_j` for every
+`j mod 9`. Since adding `2` cycles through all residues modulo `9`, all `x_i`
+are equal. Because every unordered pair appears in exactly one selected row,
+this would make all pair distances equal, impossible for more than three
+planar points. This makes the pattern a good regression example for global
+certificates, not a counterexample candidate.
 
 This packet cannot be applied directly to the stored 184 `n=9` frontier
 assignments unless a separate metric diameter certificate identifies a
