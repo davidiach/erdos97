@@ -199,6 +199,19 @@ Euclidean circles meet in at most two points. This is often stronger than a
 linear Kalmanson check and should be treated as a first-class vertex-circle
 certificate rather than as endpoint geometry.
 
+Same-distance clique certificate:
+
+After exact same-distance quotienting, if one forced ordinary distance class
+contains a `K_4` on four distinct vertices, the pattern is impossible in the
+plane. Four planar points cannot be pairwise equidistant at a positive
+distance: three would form an equilateral triangle, and a fourth point
+equidistant from all three would have to be the triangle's circumcenter, whose
+distance to the vertices is smaller than the side length. In selected-row
+language, a common source for this certificate is a reciprocal selected-edge
+component:
+if `a in S_b` and `b in S_a`, then `r_a = r_b = |ab|`, so all selected edges
+from centers in that component inherit one ordinary distance class.
+
 Selected tournament audit pattern:
 
 The cyclic tournament pattern
@@ -263,6 +276,53 @@ exactly by the common-circle certificate above: for instance
 common witness points. The role of this example is only to separate two
 failure modes: Kalmanson-only endpoint certificates can be feasible while a
 vertex-circle/common-neighbor certificate still kills the selected pattern.
+
+Kalmanson-feasible but same-distance-impossible endpoint pattern:
+
+A stronger `n=9` audit pattern survives the common-circle row-intersection
+certificate and is killed instead by the same-distance clique certificate.
+Use cyclic order `0,1,...,8`, mark `{0,4}` as the diameter candidate, and set
+
+```text
+S_0 = {1,2,3,8}
+S_1 = {0,2,7,8}
+S_2 = {0,5,6,7}
+S_3 = {1,4,5,7}
+S_4 = {2,5,6,8}
+S_5 = {2,3,6,7}
+S_6 = {3,5,7,8}
+S_7 = {0,1,3,4}
+S_8 = {0,1,2,6}
+```
+
+No pair of rows shares more than two witnesses. An exact rational
+pseudo-metric gives a Kalmanson-feasible diameter relaxation:
+
+```text
+d(0,4) = d(0,5) = d(0,6) = d(1,4) = d(1,5) = d(1,6) = 1,
+d(2,3) = d(7,8) = 1/10,
+all other off-diagonal distances = 11/20.
+```
+
+The selected row equalities hold, every distance is at most `d(0,4) = 1`,
+all triangle inequalities hold, and the cyclic Kalmanson inequalities in
+order `0,1,...,8` have exact slacks only in `{0, 9/20, 9/10}`. For the marked
+diameter pair, neither endpoint has a diameter-rich selected row:
+`4 notin S_0` and `0 notin S_4`; in the pseudo-metric the full diameter
+classes are also small, with `N_D(0) = {4,5,6}` and `N_D(4) = {0,1}`.
+
+The pattern is still exactly impossible. Reciprocal selected edges connect
+`0,1,2,3,5,6,7,8` into one forced selected-radius component, and the ordinary
+pairs
+
+```text
+01, 02, 07, 12, 17, 27
+```
+
+are all forced into the same distance class. Thus vertices `{0,1,2,7}` form a
+same-distance `K_4`, which cannot occur in the plane. The diagnostic lesson is
+that Kalmanson-feasible endpoint-poor branches may require same-distance clique
+or other vertex-circle certificates, not only Farkas/Kalmanson certificates.
 
 This packet cannot be applied directly to the stored 184 `n=9` frontier
 assignments unless a separate metric diameter certificate identifies a
