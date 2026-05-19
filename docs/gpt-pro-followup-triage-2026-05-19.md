@@ -139,6 +139,16 @@ boundary-intersection conjecture. This belongs in the same warning bucket:
 it shows that boundary-intersection richness is much easier than a finite
 selected-vertex counterexample, not that Erdos #97 has a counterexample.
 
+Another later output extracts a more concrete search scaffold from the
+Barany--Roldan-Pensado construction: their proof of Theorem 1.1 starts with
+`A1=(1000,0)`, `A2=(906,114)`, `A3=(645,359)`, `A4=(-498,871)`, applies
+rotations by `2*pi/3` and `4*pi/3`, and adds a fifth point by Lemma 3.1 before
+rotating again to form the 15-gon. This is worth keeping as a future
+continuous-to-discrete search template, where edge parameters would satisfy
+exact quadratic distance equations. It is still not imported as a
+counterexample direction with evidence, because no finite invariant vertex set
+or perturbation certificate is supplied.
+
 ## Material Not Imported
 
 Do not import broad "conic-based" wording as a theorem. This batch covers

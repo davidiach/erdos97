@@ -18,6 +18,12 @@ are claimed here.
   example is a 15-gon. This is not a finite-vertex counterexample to Erdos #97,
   because the equal-radius boundary intersections may occur in edge interiors
   rather than at vertices.[^barany-roldan]
+- Their 15-gon construction starts from the explicit points
+  `A1=(1000,0)`, `A2=(906,114)`, `A3=(645,359)`, `A4=(-498,871)`,
+  rotates them by `2*pi/3` and `4*pi/3`, and then adds a point `A5` by
+  Lemma 3.1 plus rotations. This may be a useful scaffold for a future
+  boundary-closure search, but it still supplies boundary intersections, not a
+  closed finite vertex set.[^barany-roldan]
 - The same boundary-intersection problem is already looser than the finite
   vertex problem at the `N=2` level: Barany--Roldan-Pensado note that for any
   boundary point of an acute triangle, some centered circle meets the boundary
@@ -60,6 +66,9 @@ are claimed here.
 - Keep convex-body boundary-intersection examples separate from finite
   selected-vertex examples unless a construction explicitly forces the
   relevant boundary intersection points to be polygon vertices.[^barany-roldan]
+- If using the 15-gon body as a counterexample-search template, formulate the
+  edge-parameter closure conditions as exact polynomial constraints and record
+  whether each equal-distance hit is a vertex or an edge-interior point.
 - Check `docs/canonical-synthesis.md` before using unit-distance literature in
   any proof program or solution announcement.[^canon]
 - Before claiming a new obstruction, search related work on repeated distances
