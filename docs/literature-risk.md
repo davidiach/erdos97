@@ -39,6 +39,12 @@ are claimed here.
   construction, not an upper bound resolving the subcase. Furedi's separate
   convex-`n`-gon unit-distance work belongs to the upper-bound side of the
   common-radius problem.[^edels-hajnal][^aggarwal][^canon]
+- Aggarwal's 2014/2015 unit-distance paper also gives a cut-matrix obstruction
+  for cycles with an intersection-free edge in distance-like matrices. This is
+  a common-distance / antipodal-cut result. It may be useful for exact
+  same-distance quotient classes, but it does not apply to the combined
+  variable-radius selected-witness matrix unless a separate proof supplies the
+  distance-like cut-matrix hypotheses.[^aggarwal]
 
 ## Checked external anchors, 2026-04-30
 
@@ -56,6 +62,10 @@ are claimed here.
 - Fishburn--Reeds 1992 is a `k=3` common-radius/unit-distance construction on
   20 points, with a cut-minimality statement in the accessible abstract. It is
   not a variable-radius `k=4` result.[^fishburn-reeds]
+- Aggarwal 2015 improves the convex `n`-gon unit-distance upper bound to
+  `n log_2 n + O(n)` and records forbidden cut-matrix cycle patterns for
+  unit-distance matrices associated to antipodal cuts. Use those patterns only
+  in common-distance or exact same-distance quotient scopes.[^aggarwal]
 - The Google DeepMind Formal Conjectures entry is a formal statement/alignment
   source, not a proof certificate: `erdos_97` is marked `research open` and the
   theorem body uses `sorry`; nearby Danzer and Fishburn--Reeds variants also
