@@ -1,0 +1,508 @@
+{
+  "case_count": 46,
+  "cases": [
+    {
+      "best_c_values": [],
+      "c_value_count": 1,
+      "closure_found": false,
+      "denominator": 1,
+      "edge_count": 1,
+      "max_abs": 2,
+      "max_fixed_point_size": 0,
+      "value_count": 5
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 4,
+      "closure_found": false,
+      "denominator": 1,
+      "edge_count": 5,
+      "max_abs": 3,
+      "max_fixed_point_size": 0,
+      "value_count": 7
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 6,
+      "closure_found": false,
+      "denominator": 1,
+      "edge_count": 8,
+      "max_abs": 4,
+      "max_fixed_point_size": 0,
+      "value_count": 9
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 11,
+      "closure_found": false,
+      "denominator": 1,
+      "edge_count": 14,
+      "max_abs": 5,
+      "max_fixed_point_size": 0,
+      "value_count": 11
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 17,
+      "closure_found": false,
+      "denominator": 1,
+      "edge_count": 21,
+      "max_abs": 6,
+      "max_fixed_point_size": 0,
+      "value_count": 13
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 22,
+      "closure_found": false,
+      "denominator": 1,
+      "edge_count": 29,
+      "max_abs": 7,
+      "max_fixed_point_size": 0,
+      "value_count": 15
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 28,
+      "closure_found": false,
+      "denominator": 1,
+      "edge_count": 36,
+      "max_abs": 8,
+      "max_fixed_point_size": 0,
+      "value_count": 17
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 37,
+      "closure_found": false,
+      "denominator": 1,
+      "edge_count": 48,
+      "max_abs": 9,
+      "max_fixed_point_size": 0,
+      "value_count": 19
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 46,
+      "closure_found": false,
+      "denominator": 1,
+      "edge_count": 59,
+      "max_abs": 10,
+      "max_fixed_point_size": 0,
+      "value_count": 21
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 53,
+      "closure_found": false,
+      "denominator": 1,
+      "edge_count": 71,
+      "max_abs": 11,
+      "max_fixed_point_size": 0,
+      "value_count": 23
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 64,
+      "closure_found": false,
+      "denominator": 1,
+      "edge_count": 84,
+      "max_abs": 12,
+      "max_fixed_point_size": 0,
+      "value_count": 25
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 6,
+      "closure_found": false,
+      "denominator": 2,
+      "edge_count": 6,
+      "max_abs": 2,
+      "max_fixed_point_size": 0,
+      "value_count": 9
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 17,
+      "closure_found": false,
+      "denominator": 2,
+      "edge_count": 19,
+      "max_abs": 3,
+      "max_fixed_point_size": 0,
+      "value_count": 13
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 31,
+      "closure_found": false,
+      "denominator": 2,
+      "edge_count": 38,
+      "max_abs": 4,
+      "max_fixed_point_size": 0,
+      "value_count": 17
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 50,
+      "closure_found": false,
+      "denominator": 2,
+      "edge_count": 61,
+      "max_abs": 5,
+      "max_fixed_point_size": 0,
+      "value_count": 21
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 71,
+      "closure_found": false,
+      "denominator": 2,
+      "edge_count": 90,
+      "max_abs": 6,
+      "max_fixed_point_size": 0,
+      "value_count": 25
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 123,
+      "closure_found": false,
+      "denominator": 2,
+      "edge_count": 162,
+      "max_abs": 8,
+      "max_fixed_point_size": 0,
+      "value_count": 33
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 185,
+      "closure_found": false,
+      "denominator": 2,
+      "edge_count": 250,
+      "max_abs": 10,
+      "max_fixed_point_size": 0,
+      "value_count": 41
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 15,
+      "closure_found": false,
+      "denominator": 3,
+      "edge_count": 19,
+      "max_abs": 2,
+      "max_fixed_point_size": 0,
+      "value_count": 13
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 40,
+      "closure_found": false,
+      "denominator": 3,
+      "edge_count": 62,
+      "max_abs": 3,
+      "max_fixed_point_size": 0,
+      "value_count": 19
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 74,
+      "closure_found": false,
+      "denominator": 3,
+      "edge_count": 122,
+      "max_abs": 4,
+      "max_fixed_point_size": 0,
+      "value_count": 25
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 119,
+      "closure_found": false,
+      "denominator": 3,
+      "edge_count": 203,
+      "max_abs": 5,
+      "max_fixed_point_size": 0,
+      "value_count": 31
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 171,
+      "closure_found": false,
+      "denominator": 3,
+      "edge_count": 291,
+      "max_abs": 6,
+      "max_fixed_point_size": 0,
+      "value_count": 37
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 292,
+      "closure_found": false,
+      "denominator": 3,
+      "edge_count": 510,
+      "max_abs": 8,
+      "max_fixed_point_size": 0,
+      "value_count": 49
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 448,
+      "closure_found": false,
+      "denominator": 3,
+      "edge_count": 777,
+      "max_abs": 10,
+      "max_fixed_point_size": 0,
+      "value_count": 61
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 28,
+      "closure_found": false,
+      "denominator": 4,
+      "edge_count": 32,
+      "max_abs": 2,
+      "max_fixed_point_size": 0,
+      "value_count": 17
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 69,
+      "closure_found": false,
+      "denominator": 4,
+      "edge_count": 90,
+      "max_abs": 3,
+      "max_fixed_point_size": 0,
+      "value_count": 25
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 126,
+      "closure_found": false,
+      "denominator": 4,
+      "edge_count": 176,
+      "max_abs": 4,
+      "max_fixed_point_size": 0,
+      "value_count": 33
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 198,
+      "closure_found": false,
+      "denominator": 4,
+      "edge_count": 288,
+      "max_abs": 5,
+      "max_fixed_point_size": 0,
+      "value_count": 41
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 283,
+      "closure_found": false,
+      "denominator": 4,
+      "edge_count": 426,
+      "max_abs": 6,
+      "max_fixed_point_size": 0,
+      "value_count": 49
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 484,
+      "closure_found": false,
+      "denominator": 4,
+      "edge_count": 744,
+      "max_abs": 8,
+      "max_fixed_point_size": 0,
+      "value_count": 65
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 747,
+      "closure_found": false,
+      "denominator": 4,
+      "edge_count": 1158,
+      "max_abs": 10,
+      "max_fixed_point_size": 0,
+      "value_count": 81
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 43,
+      "closure_found": false,
+      "denominator": 5,
+      "edge_count": 49,
+      "max_abs": 2,
+      "max_fixed_point_size": 0,
+      "value_count": 21
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 101,
+      "closure_found": false,
+      "denominator": 5,
+      "edge_count": 141,
+      "max_abs": 3,
+      "max_fixed_point_size": 0,
+      "value_count": 31
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 189,
+      "closure_found": false,
+      "denominator": 5,
+      "edge_count": 288,
+      "max_abs": 4,
+      "max_fixed_point_size": 0,
+      "value_count": 41
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 294,
+      "closure_found": false,
+      "denominator": 5,
+      "edge_count": 464,
+      "max_abs": 5,
+      "max_fixed_point_size": 0,
+      "value_count": 51
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 424,
+      "closure_found": false,
+      "denominator": 5,
+      "edge_count": 687,
+      "max_abs": 6,
+      "max_fixed_point_size": 0,
+      "value_count": 61
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 733,
+      "closure_found": false,
+      "denominator": 5,
+      "edge_count": 1220,
+      "max_abs": 8,
+      "max_fixed_point_size": 0,
+      "value_count": 81
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 1127,
+      "closure_found": false,
+      "denominator": 5,
+      "edge_count": 1887,
+      "max_abs": 10,
+      "max_fixed_point_size": 0,
+      "value_count": 101
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 65,
+      "closure_found": false,
+      "denominator": 6,
+      "edge_count": 80,
+      "max_abs": 2,
+      "max_fixed_point_size": 0,
+      "value_count": 25
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 164,
+      "closure_found": false,
+      "denominator": 6,
+      "edge_count": 241,
+      "max_abs": 3,
+      "max_fixed_point_size": 0,
+      "value_count": 37
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 297,
+      "closure_found": false,
+      "denominator": 6,
+      "edge_count": 474,
+      "max_abs": 4,
+      "max_fixed_point_size": 0,
+      "value_count": 49
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 470,
+      "closure_found": false,
+      "denominator": 6,
+      "edge_count": 769,
+      "max_abs": 5,
+      "max_fixed_point_size": 0,
+      "value_count": 61
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 676,
+      "closure_found": false,
+      "denominator": 6,
+      "edge_count": 1122,
+      "max_abs": 6,
+      "max_fixed_point_size": 0,
+      "value_count": 73
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 1159,
+      "closure_found": false,
+      "denominator": 6,
+      "edge_count": 1970,
+      "max_abs": 8,
+      "max_fixed_point_size": 0,
+      "value_count": 97
+    },
+    {
+      "best_c_values": [],
+      "c_value_count": 1783,
+      "closure_found": false,
+      "denominator": 6,
+      "edge_count": 3032,
+      "max_abs": 10,
+      "max_fixed_point_size": 0,
+      "value_count": 121
+    }
+  ],
+  "claim_scope": "Bounded rational-grid search for the opposite-chain two-parabola lens closure ansatz only; not a proof of Erdos Problem #97 and not a counterexample search over arbitrary real parameters.",
+  "closure_case_count": 0,
+  "closure_found": false,
+  "does_not_check": [
+    "arbitrary real or algebraic parameter sets",
+    "mixed same-chain/opposite-chain witness classes",
+    "strict-convex lens inequalities",
+    "general Erdos Problem #97"
+  ],
+  "opposite_chain_size_floor": {
+    "min_points_per_chain": 8,
+    "min_total_points": 16,
+    "reason": "each point on one chain needs a distinct zero-sum 4-subset on the opposite chain; exact pattern enumeration gives at most five zero-sum 4-subsets on seven distinct real parameters",
+    "zero_sum_pattern_summaries": [
+      {
+        "checked_pattern_count_at_next": 0,
+        "feasible_pattern_count_at_max": 1,
+        "max_zero_sum_four_subsets": 1,
+        "point_count": 4
+      },
+      {
+        "checked_pattern_count_at_next": 0,
+        "feasible_pattern_count_at_max": 5,
+        "max_zero_sum_four_subsets": 1,
+        "point_count": 5
+      },
+      {
+        "checked_pattern_count_at_next": 0,
+        "feasible_pattern_count_at_max": 15,
+        "max_zero_sum_four_subsets": 3,
+        "point_count": 6
+      },
+      {
+        "checked_pattern_count_at_next": 210,
+        "feasible_pattern_count_at_max": 420,
+        "max_zero_sum_four_subsets": 5,
+        "point_count": 7
+      }
+    ]
+  },
+  "schema": "erdos97.two_parabola_lens_grid_search.v1",
+  "status": "NO_GRID_CLOSURE_IN_BOUNDED_RATIONAL_GRIDS",
+  "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF"
+}

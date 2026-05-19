@@ -2763,6 +2763,34 @@ artifacts:
       - source-of-truth strongest result
       - general proof of Erdos Problem #97
 
+  - id: two_parabola_lens_grid_search
+    path: data/certificates/two_parabola_lens_grid_search.json
+    kind: finite_grid_search_artifact
+    generator: scripts/check_two_parabola_lens_closure_grid.py
+    command: python scripts/check_two_parabola_lens_closure_grid.py --write-artifact --artifact data/certificates/two_parabola_lens_grid_search.json --check --assert-expected --json
+    checker: scripts/check_two_parabola_lens_closure_grid.py
+    check_command: python scripts/check_two_parabola_lens_closure_grid.py --artifact data/certificates/two_parabola_lens_grid_search.json --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    claim_scope: Bounded rational-grid search for the opposite-chain two-parabola lens closure ansatz only; not a proof and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.two_parabola_lens_grid_search.v1
+      status: NO_GRID_CLOSURE_IN_BOUNDED_RATIONAL_GRIDS
+      trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+      case_count: 46
+      closure_found: false
+      closure_case_count: 0
+      opposite_chain_size_floor.min_total_points: 16
+    forbidden_claims:
+      - the two-parabola lens ansatz is impossible over arbitrary real parameters
+      - the two-parabola lens ansatz gives a counterexample
+      - mixed witness classes have been checked
+      - strict-convex lens inequalities have been checked
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: radius_blocker_vertex_circle_pilot
     path: data/certificates/radius_blocker_vertex_circle_pilot.json
     kind: proof_mining_diagnostic_artifact
