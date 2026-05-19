@@ -490,7 +490,7 @@ def enumeration_data() -> dict[str, object]:
             "all_pattern_cycle_type_counts": dict(sorted(all_cycle_type_counts.items())),
             "dihedral_class_cycle_type_counts": dict(sorted(class_cycle_type_counts.items())),
             "classes_with_odd_perpendicularity_cycle": odd_cycle_classes,
-            "all_classes_obstructed": odd_cycle_classes == len(classes),
+            "all_classes_obstructed": bool(classes) and odd_cycle_classes == len(classes),
         },
         "conclusion": "No n=7 witness pattern satisfying the two-circle cap can be geometrically realized.",
         "representatives": dihedral_class_records(),

@@ -37,6 +37,7 @@ EXPECTED_N9_TOTAL = 184
 EXPECTED_N9_EAR = 182
 EXPECTED_N9_NON_EAR_INDICES = [81, 151]
 EXPECTED_N9_STATUS_COUNTS = {"self_edge": 158, "strict_cycle": 26}
+VERTEX_CIRCLE_OBSTRUCTION_STATUSES = frozenset({"self_edge", "strict_cycle"})
 EXPECTED_CROSS_TAB = {
     "ear|ok": 0,
     "ear|self_edge": 158,
@@ -335,6 +336,11 @@ def build_payload(
             record["circulant_offsets"] = offsets
         n9_records.append(record)
         if not ear.exists:
+            if status not in VERTEX_CIRCLE_OBSTRUCTION_STATUSES:
+                raise ValueError(
+                    "non-ear n=9 proof target lacks an exact vertex-circle "
+                    f"obstruction status: assignment {index}, status {status!r}"
+                )
             proof_targets.append(
                 {
                     "target_id": f"n9-assignment-{index}",
@@ -463,3 +469,31 @@ def assert_expected_payload(payload: Mapping[str, object]) -> None:
             raise AssertionError("proof-mining target is malformed")
         if target.get("exact_obstructions") in (None, []):
             raise AssertionError(f"target lacks obstruction status: {target.get('target_id')!r}")
+        if target.get("n") == 9:
+            vertex_status = target.get("vertex_circle_status")
+            if vertex_status not in VERTEX_CIRCLE_OBSTRUCTION_STATUSES:
+                raise AssertionError(
+                    "n=9 proof-mining target lacks exact vertex-circle "
+                    f"obstruction status: {target.get('target_id')!r}"
+                )
+            exact_obstructions = target.get("exact_obstructions")
+            if not isinstance(exact_obstructions, list):
+                raise AssertionError(
+                    f"target obstruction list is malformed: {target.get('target_id')!r}"
+                )
+            expected_method = f"vertex_circle_{vertex_status}"
+            for obstruction in exact_obstructions:
+                if not isinstance(obstruction, Mapping):
+                    raise AssertionError(
+                        f"target obstruction is malformed: {target.get('target_id')!r}"
+                    )
+                if obstruction.get("method") != expected_method:
+                    raise AssertionError(
+                        "n=9 proof-mining target has mismatched vertex-circle "
+                        f"method: {target.get('target_id')!r}"
+                    )
+                if obstruction.get("status") != "EXACT_OBSTRUCTION_REVIEW_PENDING":
+                    raise AssertionError(
+                        "n=9 proof-mining target has unexpected obstruction "
+                        f"status: {target.get('target_id')!r}"
+                    )

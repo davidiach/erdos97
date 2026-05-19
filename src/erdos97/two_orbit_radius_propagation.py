@@ -687,4 +687,4 @@ def _is_positive(value: object) -> bool:
         return True
     if simplified.is_positive is False:
         return False
-    return bool(sp.N(simplified, 80) > 0)
+    return False
