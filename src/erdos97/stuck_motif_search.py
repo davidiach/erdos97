@@ -144,6 +144,14 @@ def _candidate_rejection(
     return None
 
 
+def _non_sat_status(z3_status: object, *, checked: int, z3_module: object) -> str | None:
+    if z3_status == z3_module.sat:
+        return None
+    if z3_status == z3_module.unsat:
+        return "UNSAT" if checked == 0 else "EXHAUSTED"
+    return "UNKNOWN"
+
+
 def _analysis_payload(
     name: str,
     rows: Pattern,
@@ -230,8 +238,8 @@ def mine_stuck_motif(config: MotifSearchConfig) -> MotifSearchResult:
     rejected_examples: list[dict[str, object]] = []
     while checked < config.max_models:
         check = solver.check()
-        if check != z3.sat:
-            status = "UNSAT" if checked == 0 else "EXHAUSTED"
+        status = _non_sat_status(check, checked=checked, z3_module=z3)
+        if status is not None:
             return MotifSearchResult(
                 config=config,
                 status=status,

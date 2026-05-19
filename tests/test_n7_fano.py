@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import erdos97.n7_fano as n7
 from erdos97.n7_fano import (
     all_pointed_fano_complements,
     analyze_n7_witness_pattern,
@@ -40,6 +41,16 @@ def test_finite_n7_fano_enumeration_counts() -> None:
     assert summary["all_pattern_cycle_type_counts"] == {"7+7+7": 720}
     assert summary["classes_with_odd_perpendicularity_cycle"] == 54
     assert summary["all_classes_obstructed"] is True
+
+
+def test_empty_n7_dihedral_class_list_is_not_obstructed(monkeypatch) -> None:
+    monkeypatch.setattr(n7, "pointed_fano_dihedral_classes", lambda: [])
+
+    data = n7.enumeration_data()
+
+    assert data["counts"]["dihedral_classes"] == 0
+    assert data["counts"]["classes_with_odd_perpendicularity_cycle"] == 0
+    assert data["counts"]["all_classes_obstructed"] is False
 
 
 def test_every_labelled_pattern_has_odd_perpendicularity_cycles() -> None:

@@ -3,11 +3,12 @@ from __future__ import annotations
 import json
 import subprocess
 import sys
+from fractions import Fraction
 from pathlib import Path
 
 import numpy as np
 
-from erdos97.interval_verify import verify_interval_json
+from erdos97.interval_verify import exact_verification, verify_interval_json
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -81,6 +82,23 @@ def test_exact_coordinates_do_not_require_float_coordinates(tmp_path: Path) -> N
     assert result["ok"] is False
     assert result["failure_mode"] == "exact_algebraic_rejected"
     assert result["claim_strength"] == "EXACT_OR_ALGEBRAIC_INPUT_REJECTED"
+
+
+def test_exact_verification_does_not_certify_empty_residual_list() -> None:
+    points = [
+        [Fraction(0), Fraction(0)],
+        [Fraction(2), Fraction(0)],
+        [Fraction(3), Fraction(1)],
+        [Fraction(1), Fraction(3)],
+        [Fraction(-1), Fraction(1)],
+    ]
+    rows = [[(i + 1) % len(points)] for i in range(len(points))]
+
+    result = exact_verification(points, rows)
+
+    assert result["convexity_certified"] is True
+    assert result["distance_equalities_certified"] is False
+    assert result["failure_mode"] == "exact_algebraic_rejected"
 
 
 def test_convex_float_without_equalities_is_not_certified(tmp_path: Path) -> None:

@@ -174,6 +174,7 @@ def sweep_stuck_motifs(config: SweepConfig) -> dict[str, object]:
             "exhausted": sum(1 for item in items if item["status"] == "EXHAUSTED"),
             "model_limit": sum(1 for item in items if item["status"] == "MODEL_LIMIT"),
             "unsat": sum(1 for item in items if item["status"] == "UNSAT"),
+            "unknown": sum(1 for item in items if item["status"] == "UNKNOWN"),
         },
         "semantics": (
             "Bounded search diagnostics only. FOUND motifs are fixed-selection "

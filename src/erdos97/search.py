@@ -910,8 +910,12 @@ def z3_incidence_search(n: int, max_pair_common: int = 2, balance_indegree: bool
         anchor = {n // 5, 2 * n // 5, 3 * n // 5, 4 * n // 5}
         for j in range(n):
             s.add(X[0][j] == (j in anchor and j != 0))
-    if s.check() != z3.sat:
+    check = s.check()
+    if check == z3.unsat:
         return None
+    if check != z3.sat:
+        reason = s.reason_unknown() if check == z3.unknown else "unexpected solver status"
+        raise RuntimeError(f"z3 incidence search returned {check}: {reason}")
     m = s.model()
     return [[j for j in range(n) if bool(m.evaluate(X[i][j]))] for i in range(n)]
 
