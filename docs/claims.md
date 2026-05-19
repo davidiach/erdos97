@@ -58,6 +58,27 @@ base-apex lemma to count isosceles triangles and then analyzes the equality
 case for octagons. Independent review is still requested before promoting this
 note beyond the repository's local proof-facing ledger.
 
+### Literature-backed shortcut: Dumitrescu isosceles count for n <= 8
+
+Status: `LITERATURE_BACKED_PROOF_NOTE` / `REVIEW_PENDING`.
+
+The proof note `docs/dumitrescu-isosceles-n8-shortcut.md` records a shorter
+external-bound route to the same small-case wall. In the apex-counted
+isosceles convention, Dumitrescu's convex-position bound gives
+
+```text
+Z(P) <= (11 n^2 - 18 n) / 12.
+```
+
+If a strictly convex `n`-gon were 4-bad, every vertex would contribute at
+least `binom(4,2) = 6` equal-leg pairs, so `Z(P) >= 6n`. Combining the two
+inequalities forces `n >= 90/11 > 8`.
+
+This is a compact human-readable shortcut, not an update to the repository
+source-of-truth status. The checked selected-witness artifacts remain the
+repo-local `n <= 8` source until this literature-backed note receives
+independent review.
+
 ### Altman diagonal-order sums
 
 For a strict convex `n`-gon in cyclic order, the sums `U_k` of chord lengths of
@@ -279,6 +300,37 @@ In any selected-witness counterexample, for distinct centers `a,b`,
 ```
 
 Otherwise two distinct Euclidean circles would share at least three points.[^small]
+
+### Same-distance K4 obstruction
+
+After exact same-distance quotienting, one ordinary distance class cannot
+contain all six edges of a `K_4` on four distinct vertices. Four planar points
+cannot be pairwise equidistant at one positive distance: three would form an
+equilateral triangle, and the only planar point equidistant from all three is
+the circumcenter, whose distance to the vertices is smaller than the side
+length.
+
+This is a fixed-pattern or quotient-class obstruction only. It becomes
+available after selected-distance equalities, reciprocal selected-edge
+components, or another exact mechanism has proved that all six ordinary pairs
+belong to one distance class.
+
+### Diameter-lens local lemmas
+
+The proof note `docs/diameter-lens-local-lemmas.md` records four local facts
+for a global diameter pair `{A,B}`:
+
+```text
+diameter-circle pinching,
+mutual selected-diameter overlap <= 1,
+double-boundary seven-vertex lower bound,
+|R(theta)-L(phi)| <= D iff theta*phi >= 0.
+```
+
+It also records the seven-point lens-cap negative control showing that the
+double-boundary same-side and seven-vertex lemmas are sharp but do not by
+themselves contradict strict convexity. Any endpoint-reduction proof must use
+the other 4-bad witness rows or another exact certificate.
 
 ### Radical-axis crossing / bisection
 
