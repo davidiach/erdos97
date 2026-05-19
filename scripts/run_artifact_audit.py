@@ -247,6 +247,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_inversive_incidence_pilot",
+        command=(
+            "python",
+            "scripts/check_n9_inversive_incidence_pilot.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Inversive point-line incidence diagnostic on the 184 regenerated "
+            "n=9 pre-vertex-circle frontier assignments; not a proof of n=9, "
+            "counterexample, independent review completion, or global status "
+            "update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_turn_inequality_frontier",
         command=(
             "python",
