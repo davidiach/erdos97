@@ -291,6 +291,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-turn-inequality-frontier.md`](n9-turn-inequality-frontier.md):
   review-pending replay of 184 `n=9` selected-witness assignments killed by
   candidate exterior-turn Farkas certificates; not a proof of `n=9`.
+- [`inversive-incidence-pilot.md`](inversive-incidence-pilot.md):
+  Mobius/inversion-inspired point-line incidence diagnostic on the regenerated
+  `n=9` pre-vertex-circle frontier; negative proof-mining information only.
 - [`n9-vertex-circle-row0-root-audit.md`](n9-vertex-circle-row0-root-audit.md):
   row0-root enumeration audit for the exhaustive `n=9` vertex-circle checker.
 - [`n9-vertex-circle-mro-branching-audit.md`](n9-vertex-circle-mro-branching-audit.md):

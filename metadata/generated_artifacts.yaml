@@ -324,6 +324,50 @@ artifacts:
       - motif-family diagnostic is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_inversive_incidence_pilot
+    path: data/certificates/n9_inversive_incidence_pilot.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_n9_inversive_incidence_pilot.py
+    command: python scripts/check_n9_inversive_incidence_pilot.py --assert-expected --write
+    checker: scripts/check_n9_inversive_incidence_pilot.py
+    check_command: python scripts/check_n9_inversive_incidence_pilot.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Inversive point-line incidence diagnostic on the 184 regenerated n=9 pre-vertex-circle frontier assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_inversive_incidence_pilot.v1
+      status: INVERSION_INCIDENCE_HEURISTIC_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: Inversive point-line incidence diagnostic on the 184 regenerated n=9 pre-vertex-circle frontier assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+      n: 9
+      row_size: 4
+      source_frontier.assignment_count: 184
+      source_frontier.nodes_visited: 100817
+      summary.total_pivots: 1656
+      summary.total_line_seeds: 6624
+      summary.total_closed_lines: 6624
+      summary.compressed_pivots: 0
+      summary.assignments_with_compression: 0
+      summary.all_collinear_pivots: 0
+      summary.max_closed_line_size: 3
+      histograms.pivot_seed_count.4: 1656
+      histograms.pivot_merged_line_count.4: 1656
+      histograms.pivot_max_closed_line_size.3: 1656
+      histograms.closed_line_size.3: 6624
+      histograms.assignment_compressed_pivot_count.0: 184
+      provenance.command: python scripts/check_n9_inversive_incidence_pilot.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - inversion proves Erdos Problem #97
+      - point-line incidence gives a global contradiction
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
   - id: n9_turn_inequality_frontier
     path: data/certificates/n9_turn_inequality_frontier.json
     kind: finite_case_artifact
