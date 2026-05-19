@@ -195,6 +195,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="two_parabola_lens_grid_search",
+        command=(
+            "python",
+            "scripts/check_two_parabola_lens_closure_grid.py",
+            "--artifact",
+            "data/certificates/two_parabola_lens_grid_search.json",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Bounded rational-grid negative control for the opposite-chain "
+            "two-parabola lens closure ansatz only; not a proof, not a "
+            "counterexample, and not a search over arbitrary real parameters."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_review_pending",
         command=("python", "scripts/check_n9_vertex_circle_exhaustive.py", "--assert-expected", "--json"),
         claim_scope="Review-pending n=9 selected-witness finite-case checker; not an official/global status update.",
