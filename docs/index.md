@@ -51,6 +51,18 @@ put detailed reconciliation in the canonical synthesis.
 - [`turn-inequality-lemma.md`](turn-inequality-lemma.md): proof-facing note for
   the candidate exterior-turn inequalities used in the review-pending `n=9`
   turn-frontier replay.
+- [`dumitrescu-isosceles-n8-shortcut.md`](dumitrescu-isosceles-n8-shortcut.md):
+  literature-backed review note giving the short apex-isosceles count that
+  rules out 4-bad convex polygons with `n <= 8`; not a source-of-truth status
+  update.
+- [`diameter-lens-local-lemmas.md`](diameter-lens-local-lemmas.md): local
+  diameter-pair lemmas, the seven-point lens-cap negative control, and the
+  selected/full-rich-class branching caution; review-pending local geometry
+  only.
+- [`k4e-kalmanson-stretch-audit.md`](k4e-kalmanson-stretch-audit.md): exact
+  fixed-pattern audit extracting `K4-e` stretch relations and combining them
+  with Kalmanson inequalities; kills only the displayed `n=10` quotient-level
+  survivor and one diagnostic pattern, not an `n=10` exclusion.
 - [`ellipse-model-case.md`](ellipse-model-case.md): restricted exact lemma
   showing that finite point sets on a Euclidean ellipse cannot be
   counterexamples; a failed search family, not a global bridge.

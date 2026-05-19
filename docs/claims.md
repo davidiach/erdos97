@@ -58,6 +58,27 @@ base-apex lemma to count isosceles triangles and then analyzes the equality
 case for octagons. Independent review is still requested before promoting this
 note beyond the repository's local proof-facing ledger.
 
+### Literature-backed shortcut: Dumitrescu isosceles count for n <= 8
+
+Status: `LITERATURE_BACKED_PROOF_NOTE` / `REVIEW_PENDING`.
+
+The proof note `docs/dumitrescu-isosceles-n8-shortcut.md` records a shorter
+external-bound route to the same small-case wall. In the apex-counted
+isosceles convention, Dumitrescu's convex-position bound gives
+
+```text
+Z(P) <= (11 n^2 - 18 n) / 12.
+```
+
+If a strictly convex `n`-gon were 4-bad, every vertex would contribute at
+least `binom(4,2) = 6` equal-leg pairs, so `Z(P) >= 6n`. Combining the two
+inequalities forces `n >= 90/11 > 8`.
+
+This is a compact human-readable shortcut, not an update to the repository
+source-of-truth status. The checked selected-witness artifacts remain the
+repo-local `n <= 8` source until this literature-backed note receives
+independent review.
+
 ### Altman diagonal-order sums
 
 For a strict convex `n`-gon in cyclic order, the sums `U_k` of chord lengths of
@@ -279,6 +300,57 @@ In any selected-witness counterexample, for distinct centers `a,b`,
 ```
 
 Otherwise two distinct Euclidean circles would share at least three points.[^small]
+
+### Same-distance K4 obstruction
+
+After exact same-distance quotienting, one ordinary distance class cannot
+contain all six edges of a `K_4` on four distinct vertices. Four planar points
+cannot be pairwise equidistant at one positive distance: three would form an
+equilateral triangle, and the only planar point equidistant from all three is
+the circumcenter, whose distance to the vertices is smaller than the side
+length.
+
+This is a fixed-pattern or quotient-class obstruction only. It becomes
+available after selected-distance equalities, reciprocal selected-edge
+components, or another exact mechanism has proved that all six ordinary pairs
+belong to one distance class.
+
+### Same-distance K4-e stretch obstruction
+
+If an exact ordinary distance class contains exactly five of the six edges on
+four distinct vertices, then the missing edge has length `sqrt(3)` times the
+common class length. The proof is the two-equilateral-triangles picture: the
+five equal edges force two equilateral triangles sharing the edge opposite the
+missing pair, and distinct planar vertices put the two missing-edge endpoints
+on opposite sides of that shared edge.
+
+The checker `scripts/check_k4e_kalmanson_stretch_audit.py` uses this relation
+only after exact selected-distance quotienting, and only inside fixed patterns
+and fixed cyclic orders. It represents coefficients in `Q(sqrt(3))` exactly
+and then tests whether a substituted Kalmanson inequality has positive
+left-minus-right coefficient for all positive quotient class lengths.
+
+The current replay kills the displayed `n=10` quotient-level survivor and one
+`n=9` diagnostic pattern. This is a filter improvement and a fixed-pattern
+audit only; it is not an `n=10` exclusion and does not change the global
+problem status.
+
+### Diameter-lens local lemmas
+
+The proof note `docs/diameter-lens-local-lemmas.md` records four local facts
+for a global diameter pair `{A,B}`:
+
+```text
+diameter-circle pinching,
+mutual selected-diameter overlap <= 1,
+double-boundary seven-vertex lower bound,
+|R(theta)-L(phi)| <= D iff theta*phi >= 0.
+```
+
+It also records the seven-point lens-cap negative control showing that the
+double-boundary same-side and seven-vertex lemmas are sharp but do not by
+themselves contradict strict convexity. Any endpoint-reduction proof must use
+the other 4-bad witness rows or another exact certificate.
 
 ### Radical-axis crossing / bisection
 

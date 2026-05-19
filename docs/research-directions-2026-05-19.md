@@ -109,11 +109,264 @@ Exact packet spec:
 - optional derived angular-span certificate for the four witnesses around
   `v`.
 
+Full-class diameter branching caution:
+
+A selected row is only a chosen rich 4-subset. Therefore `u notin S_v` is not
+the same statement as "`v` is diameter-poor" for the diameter pair `{v,u}`. A
+certificate-grade diameter branch should be phrased using the full diameter
+class
+
+```text
+M_v(u) = {x != v : |vx| = |vu|}.
+```
+
+If `|M_v(u)| >= 4`, a proof search may choose or add a selected row at `v`
+that contains `u`, but this is a full-class branch, not a fact about an
+arbitrary preselected row. If `|M_v(u)| <= 3`, then every valid selected row at
+`v` has radius strictly smaller than `|vu|`, so a linear or Kalmanson/Farkas
+certificate must represent strictness explicitly. The poor-endpoint branch
+does not automatically give angular pinching: for a selected radius
+`r <= |vu|/2`, the global diameter bound gives no pairwise chord restriction
+among witnesses on the selected circle.
+
+Double-boundary endpoint negative control:
+
+The endpoint-only double-boundary package should not be treated as a
+contradiction. Normalize a diameter pair to `A = (0,0)`, `B = (1,0)`, and set
+
+```text
+R(theta) = (cos theta, sin theta),
+L(phi) = (1 - cos phi, sin phi).
+```
+
+For `0 < alpha < beta < pi/3`, the seven points
+
+```text
+A, L(alpha), L(beta), R(pi/3), R(beta), R(alpha), B
+```
+
+in cyclic order form a strictly convex diameter-lens anchor. The endpoint rows
+
+```text
+S_A = {B, R(alpha), R(beta), R(pi/3)}
+S_B = {A, L(alpha), L(beta), R(pi/3)}
+```
+
+both select the diameter radius, overlap in the one non-endpoint equilateral
+apex, and attain the seven-vertex lower bound. This anchor is not a 4-bad
+polygon, but it shows that any case-1 proof must use witness rows at the
+boundary witnesses or another exact certificate. Strict convexity plus the
+same-side/seven-vertex package is not enough.
+
+Boundary-witness isolation lemma:
+
+Let
+
+```text
+K^+ = B(A,1) cap B(B,1) cap {y >= 0}.
+```
+
+If `R(theta) = (cos theta, sin theta)` with `0 < theta < pi/3` and
+`X in K^+` satisfies `|X - R(theta)| = 1`, then `X = A`. The boundary check is
+elementary: on the segment `AB`, equality forces the segment parameter to be
+`0`; on the same right arc, all chord gaps are strictly less than `pi/3`; and
+on the left arc, the same-side formula gives equality only when the left angle
+is `0`. Since squared distance to `R(theta)` is convex, no other point of the
+upper half-lens can be a unit-distance neighbor.
+
+Consequent pruning rule:
+
+For a noncommon upper right-arc endpoint witness `R`, a reciprocal selected
+edge `A <-> R` forces `R`'s selected radius to be the diameter. The isolation
+lemma then forces the other three selected witnesses in `S_R` below the
+diameter line. The symmetric statement holds for noncommon left-arc witnesses
+and for the lower half-lens. This is only a finite-pruning ingredient: it does
+not cover the common equilateral apex, it requires the reciprocal selected
+edge, and it does not by itself rule out a full 4-bad completion.
+
+Common-circle row-intersection certificate:
+
+For any two distinct centers `u != v` in a realizable selected-witness system,
+the selected rows satisfy
+
+```text
+|S_u cap S_v| <= 2.
+```
+
+Every common witness lies on both selected circles `C(u,r_u)` and `C(v,r_v)`.
+Those circles have distinct centers, so they cannot coincide, and two distinct
+Euclidean circles meet in at most two points. This is often stronger than a
+linear Kalmanson check and should be treated as a first-class vertex-circle
+certificate rather than as endpoint geometry.
+
+Same-distance clique certificate:
+
+After exact same-distance quotienting, if one forced ordinary distance class
+contains a `K_4` on four distinct vertices, the pattern is impossible in the
+plane. Four planar points cannot be pairwise equidistant at a positive
+distance: three would form an equilateral triangle, and a fourth point
+equidistant from all three would have to be the triangle's circumcenter, whose
+distance to the vertices is smaller than the side length. In selected-row
+language, a common source for this certificate is a reciprocal selected-edge
+component:
+if `a in S_b` and `b in S_a`, then `r_a = r_b = |ab|`, so all selected edges
+from centers in that component inherit one ordinary distance class.
+
+Same-distance `K4-e` stretch certificate:
+
+After exact same-distance quotienting, if one ordinary distance class contains
+exactly five of the six edges on four distinct vertices, then the missing edge
+has length `sqrt(3)` times the common class length. This gives an exact
+relation between quotient classes that can be substituted into fixed-order
+Kalmanson inequalities over `Q(sqrt(3))`. The replay script
+`scripts/check_k4e_kalmanson_stretch_audit.py` implements this filter without
+floating point arithmetic.
+
+The displayed `n=10` quotient-level survivor from the GPT review batch is
+retired by this layer. Its selected-distance quotient has nontrivial classes
+
+```text
+Q01: 01 04 05 08 34 45 47 56 58
+Q02: 02 12 13 16 19 23 24 35 36
+Q09: 09 18 29 37 57 68 78 79 89
+Q26: 26 46 67 69
+```
+
+The class `Q02` contains the five edges
+`12, 13, 16, 23, 36` on vertices `{1,2,3,6}`, so the missing edge `26` gives
+`Q26 = sqrt(3) Q02`. Since `46` is also in `Q26`, Kalmanson on cyclic quadruple
+`0 < 1 < 4 < 6` gives
+
+```text
+d01 + d46 <= d04 + d16,
+```
+
+which reduces to `(sqrt(3) - 1) Q02 <= 0`, impossible for positive distances.
+This kills only the displayed fixed pattern/order. It is not an `n=10`
+exclusion; the next search loop should rerun with this filter enabled and
+collect the next survivor, if any.
+
+Selected tournament audit pattern:
+
+The cyclic tournament pattern
+
+```text
+S_i = {i+1, i+2, i+3, i+4} mod 9
+```
+
+is useful as an endpoint-logic stress test because every unordered pair is
+selected in exactly one direction. It has no reciprocal selected edges, and a
+candidate diameter edge is selected by exactly one endpoint. It should not be
+treated as a true frontier survivor, however. Adjacent rows share three
+witnesses, for example `S_0 cap S_1 = {2,3,4}`, so the elementary two-circle
+cap already rejects the pattern: two distinct selected circles cannot share
+three distinct witness vertices.
+
+There is also an independent strict Kalmanson audit. Let `x_i` be the common
+distance in row `i`. For four consecutive convex vertices
+`(i, i+1, i+2, i+3)`, the diagonals cross. If `O` is their intersection, then
+strict triangle inequality in the two boundary triangles gives
+
+```text
+d_{i,i+1} + d_{i+2,i+3} < d_{i,i+2} + d_{i+1,i+3}.
+```
+
+The row equalities turn this into `x_i + x_{i+2} < x_i + x_{i+1}`, hence
+`x_{i+2} < x_{i+1}` for every `i mod 9`, an impossible strict cyclic chain.
+The non-strict LP/Kalmanson version is also useful as a regression: applying
+Kalmanson to `(i, i+2, i+4, i+6)` forces all `x_i` equal, and then every pair
+distance is equal because every unordered pair appears in exactly one selected
+row. Both certificates are valid, but the earlier three-common-witness
+rejection means this pattern should be used as a template for certificate
+coverage, not as a survivor of all cheap filters.
+
+Kalmanson-feasible but circle-impossible block pattern:
+
+Another useful `n=9` audit pattern shows why endpoint-poor branches need
+vertex-circle certificates in addition to Kalmanson/Farkas checks. Let
+
+```text
+S_0 = S_1 = S_2 = S_3 = {4,5,6,7},
+S_4 = S_5 = S_6 = S_7 = S_8 = {0,1,2,3}.
+```
+
+Define a rational symmetric distance matrix by:
+
+```text
+d(0,j) = 1                  for j in {1,2,3},
+d(i,j) = 1/2                for i != j in {1,2,3},
+d(h,m) = 19/20              for h in {0,1,2,3}, m in {4,5,6,7},
+d(h,8) = 11/20              for h in {0,1,2,3},
+d(i,j) = 1/2                for i != j in {4,5,6,7,8}.
+```
+
+An exact rational check verifies the selected row equalities, all triangle
+inequalities, diameter inequalities with diameter value `1`, and the two
+Kalmanson inequalities for every cyclic quadruple in order `0,1,...,8`. The
+only diameter pairs are `{0,1}`, `{0,2}`, and `{0,3}`; in this relaxation no
+diameter endpoint has four diameter-distance neighbors, and all selected
+radii at diameter endpoints are strictly below the diameter.
+
+This matrix is not Euclidean evidence. The selected pattern is rejected
+exactly by the common-circle certificate above: for instance
+`S_0 cap S_1 = {4,5,6,7}`, so two distinct selected circles would have four
+common witness points. The role of this example is only to separate two
+failure modes: Kalmanson-only endpoint certificates can be feasible while a
+vertex-circle/common-neighbor certificate still kills the selected pattern.
+
+Kalmanson-feasible but same-distance-impossible endpoint pattern:
+
+A stronger `n=9` audit pattern survives the common-circle row-intersection
+certificate and is killed instead by the same-distance clique certificate.
+Use cyclic order `0,1,...,8`, mark `{0,4}` as the diameter candidate, and set
+
+```text
+S_0 = {1,2,3,8}
+S_1 = {0,2,7,8}
+S_2 = {0,5,6,7}
+S_3 = {1,4,5,7}
+S_4 = {2,5,6,8}
+S_5 = {2,3,6,7}
+S_6 = {3,5,7,8}
+S_7 = {0,1,3,4}
+S_8 = {0,1,2,6}
+```
+
+No pair of rows shares more than two witnesses. An exact rational
+pseudo-metric gives a Kalmanson-feasible diameter relaxation:
+
+```text
+d(0,4) = d(0,5) = d(0,6) = d(1,4) = d(1,5) = d(1,6) = 1,
+d(2,3) = d(7,8) = 1/10,
+all other off-diagonal distances = 11/20.
+```
+
+The selected row equalities hold, every distance is at most `d(0,4) = 1`,
+all triangle inequalities hold, and the cyclic Kalmanson inequalities in
+order `0,1,...,8` have exact slacks only in `{0, 9/20, 9/10}`. For the marked
+diameter pair, neither endpoint has a diameter-rich selected row:
+`4 notin S_0` and `0 notin S_4`; in the pseudo-metric the full diameter
+classes are also small, with `N_D(0) = {4,5,6}` and `N_D(4) = {0,1}`.
+
+The pattern is still exactly impossible. Reciprocal selected edges connect
+`0,1,2,3,5,6,7,8` into one forced selected-radius component, and the ordinary
+pairs
+
+```text
+01, 02, 07, 12, 17, 27
+```
+
+are all forced into the same distance class. Thus vertices `{0,1,2,7}` form a
+same-distance `K_4`, which cannot occur in the plane. The diagnostic lesson is
+that Kalmanson-feasible endpoint-poor branches may require same-distance
+clique, `K4-e` stretch, or other vertex-circle certificates, not only
+Farkas/Kalmanson certificates.
+
 This packet cannot be applied directly to the stored 184 `n=9` frontier
 assignments unless a separate metric diameter certificate identifies a
 diameter pair in each assignment. The next useful artifact would be a
-hand-checkable local lemma note plus one toy exact packet, not a claim about
-the full frontier.
+hand-checkable local lemma note plus one toy exact packet, including the
+boundary-witness isolation check above, not a claim about the full frontier.
 
 ## 3. Fishburn--Reeds k=4 Extension Search
 
@@ -144,6 +397,52 @@ Exactification requirements for any hit:
 No prototype is added here because the repository already has extensive
 fixed-pattern and numerical machinery. The value of this direction is a
 carefully scoped pattern generator, not another floating near-miss.
+
+## Counterexample-Oriented Addendum: Convex-Body Boundary Discretization
+
+Trust label: `COUNTEREXAMPLE_SEARCH_SCAFFOLD` plus `NO_FINITE_EVIDENCE`.
+
+The Barany--Roldan-Pensado convex-body examples remain a boundary-intersection
+warning, not a finite-vertex counterexample. Their 15-gon shows that the
+continuous boundary problem can have many centered boundary intersections, but
+those hits may lie in edge interiors rather than at vertices. See
+`docs/literature-risk.md` for the checked anchor and caveats.
+
+The useful new search framing is a finite invariant-set problem. Suppose a
+strictly convex closed curve `Gamma` is split into arcs
+`Gamma_0, ..., Gamma_{m-1}`. For `p in Gamma_i`, suppose an exact or certified
+radius rule gives four continuously selectable boundary-hit branches
+
+```text
+F_{i,1}(p), F_{i,2}(p), F_{i,3}(p), F_{i,4}(p) in Gamma_{i+1}.
+```
+
+A finite selected-vertex counterexample would require a finite set
+`X subset Gamma` closed under all chosen witness branches:
+
+```text
+F_{i,j}(X cap Gamma_i) subset X cap Gamma_{i+1}
+```
+
+for every relevant `i,j`. Thus the continuous body example becomes a finite
+closure problem for branch maps on a convex curve, not an incidence-counting
+claim by itself.
+
+Exactification requirements before this route can produce evidence:
+
+- explicit branch domains and formulas, or interval-certified branch graphs;
+- a finite candidate set `X` with exact or interval-certified closure under the
+  selected branches;
+- strict convexity and distinct-vertex certificates for the finite set;
+- equal-distance verification at each selected center;
+- a proof that every newly added boundary point also has four selected
+  witnesses inside the same finite set.
+
+Negative control: the one-parabola construction family is already ruled out in
+`docs/parabola-model-case.md`. That proof is a restricted exact lemma and
+should not be duplicated here. The convex-body discretization route is only
+interesting if it uses multi-arc closure in a way the one-parabola endpoint
+argument cannot see.
 
 ## 4. Reciprocal-Radial Global Budget
 
@@ -290,5 +589,8 @@ diagnostic, not a proof.
    finite packet needs it.
 3. Open any Fishburn--Reeds `k=4` search as pattern mining with explicit
    exactification gates.
-4. Try a reciprocal-radial summation only after identifying the global index
+4. Treat convex-body discretization as a finite branch-map closure problem;
+   do not promote it without exact finite closure and strict-convexity
+   certificates.
+5. Try a reciprocal-radial summation only after identifying the global index
    set and a negative control that the proposed theorem must avoid.
