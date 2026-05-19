@@ -51,9 +51,16 @@ put detailed reconciliation in the canonical synthesis.
 - [`turn-inequality-lemma.md`](turn-inequality-lemma.md): proof-facing note for
   the candidate exterior-turn inequalities used in the review-pending `n=9`
   turn-frontier replay.
+- [`ellipse-model-case.md`](ellipse-model-case.md): restricted exact lemma
+  showing that finite point sets on a Euclidean ellipse cannot be
+  counterexamples; a failed search family, not a global bridge.
 - [`parabola-model-case.md`](parabola-model-case.md): restricted exact lemma
   showing that finite point sets on a nondegenerate affine parabola cannot be
   counterexamples; a failed search family, not a global bridge.
+- [`hyperbola-branch-model-case.md`](hyperbola-branch-model-case.md):
+  restricted exact lemma showing that finite point sets on one branch of a
+  Euclidean hyperbola cannot be counterexamples; a failed search family, not a
+  global bridge.
 - [`relation-skeleton-catalog.md`](relation-skeleton-catalog.md):
   review-pending relation-skeleton extraction for the focused T01-T09
   self-edge and T10-T12 strict-cycle vertex-circle quotient motifs;
@@ -108,9 +115,15 @@ put detailed reconciliation in the canonical synthesis.
   non-promoting n=9 frontier sweep.
 - [`two-orbit-radius-propagation.md`](two-orbit-radius-propagation.md): exact
   obstruction for a half-step two-orbit near-regular ansatz.
+- [`threefold-pair-lift-obstruction.md`](threefold-pair-lift-obstruction.md):
+  narrow Danzer-style 3-fold lift obstruction for rows using same-orbit mates
+  plus one other orbit-pair.
 - [`minimum-radius-filter.md`](minimum-radius-filter.md): weak exact
   minimum-radius short-chord filter; records why it does not kill `C19_skew`
   by itself.
+- [`closest-pair-radius-barrier.md`](closest-pair-radius-barrier.md): exact
+  closest-pair obstruction showing that endpoints of a global closest pair
+  cannot be four-rich at the closest-pair radius.
 - [`minimal-fragile-cover-bridge.md`](minimal-fragile-cover-bridge.md):
   partial bridge theorem showing that every minimal counterexample admits a
   fragile-cover witness system; also records why this is not sufficient,
@@ -449,6 +462,12 @@ put detailed reconciliation in the canonical synthesis.
   triage of the May 18 GPT Pro output batch; records the compact `n=9`
   recheck as corroborating audit evidence and promotes only the scoped
   parabola model-case note.
+- [`gpt-pro-followup-triage-2026-05-19.md`](gpt-pro-followup-triage-2026-05-19.md):
+  triage of the May 19 GPT Pro output batch; imports only the scoped ellipse
+  model-case note and keeps the parabolic descent as duplicate provenance.
+- [`two-parabola-lens-closure.md`](two-parabola-lens-closure.md): structured
+  opposite-chain parabolic-lens closure equations for a possible future exact
+  search; search scaffold only, not counterexample evidence.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`repo-roadmap.md`](repo-roadmap.md): staged repository plan.

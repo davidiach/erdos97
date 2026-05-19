@@ -1005,11 +1005,79 @@ selected 4-row have strictly larger interior angle than `p`. This is a local
 angle-ascent lemma only; by itself it gives no global angle-sum contradiction
 for large polygons.
 
+### Closest-pair radius barrier
+
+Status: `LEMMA` / structural necessary condition.
+
+Let `delta` be the global minimum distance between two distinct vertices of a
+strictly convex polygon. If `p` is an endpoint of a pair at distance `delta`,
+then at most three other vertices lie at distance `delta` from `p`.
+
+Indeed, four such vertices would lie on the circle of radius `delta` centered
+at `p`. Their angular span around the hull vertex `p` is strictly less than
+`pi`. Since `delta` is the global closest-pair distance, every consecutive
+angular gap among those four circle points must be at least `pi/3`; otherwise
+the corresponding chord would have length less than `delta`. Three such gaps
+force span at least `pi`, a contradiction. See
+`docs/closest-pair-radius-barrier.md`.
+
+Thus in any counterexample, every endpoint of a globally closest pair must use
+a four-rich distance class at radius strictly larger than the closest-pair
+distance. This is a structural constraint only, not a proof of Erdos #97.
+
+### Threefold pair-lift obstruction
+
+Status: `LEMMA` / `FAILED_SEARCH_MECHANISM`.
+
+No finite nondegenerate union of full 3-fold rotational orbits can be 4-bad by
+the mechanism where each point uses its two same-orbit mates and an
+equidistant pair from one other full 3-fold orbit. If
+
+```text
+O_p = {p, omega*p, omega^2*p},  omega = exp(2*pi*i/3),
+```
+
+then the same-orbit witness radius from `p = r*exp(i*theta)` is
+`sqrt(3)*r`. For a distinct orbit `O_q` to provide two more witnesses at that
+same radius, its phase must be opposite to `theta` modulo `2*pi/3` and its
+radius must be `2*r`; the same-phase positive solution only gives the original
+orbit back. Thus every orbit would need an outgoing partner with doubled
+radius, impossible in a finite directed cycle. See
+`docs/threefold-pair-lift-obstruction.md`.
+
+This is a narrow mechanism obstruction, not a general exclusion of 3-fold
+symmetric configurations and not a proof of Erdos #97.
+
 ### Cyclic polygon subcase
 
 If all vertices lie on one circle, then no vertex has more than two other
 vertices at any one distance. A second circle centered at the vertex intersects
 the common circumcircle in at most two points.[^syn]
+
+### Ellipse model case
+
+Status: `LEMMA` / `FAILED_SEARCH_FAMILY`.
+
+No finite point set on a Euclidean ellipse can be a counterexample to Erdos
+Problem #97. The circle case is the cyclic polygon subcase above. For a
+noncircular ellipse, after Euclidean normalization write
+
+```text
+p(t) = (a*cos(t), b*sin(t)),  lambda = a^2/b^2 > 1.
+```
+
+For any center parameter `tau`, four equal-distance witness parameters satisfy
+
+```text
+(1/4) * sum_k cos(t_k) = (lambda/(lambda - 1))*cos(tau).
+```
+
+Choosing a parameter with maximal positive cosine, or otherwise with minimal
+negative cosine, contradicts the same identity. See
+`docs/ellipse-model-case.md`.
+
+This is a restricted exact obstruction only. It does not imply that arbitrary
+strictly convex polygons reduce to elliptical configurations.
 
 ### Parabola model case
 
@@ -1032,6 +1100,34 @@ quartic, impossible. See `docs/parabola-model-case.md`.
 
 This is a restricted exact obstruction only. It does not imply that arbitrary
 strictly convex polygons reduce to parabolic configurations.
+
+### Hyperbola branch model case
+
+Status: `LEMMA` / `FAILED_SEARCH_FAMILY`.
+
+No finite point set on one branch of a nondegenerate Euclidean hyperbola can be
+a counterexample to Erdos Problem #97. After Euclidean normalization write
+
+```text
+p(s) = (a*cosh(s), b*sinh(s)),  a,b > 0.
+```
+
+For any center parameter `sigma`, four equal-distance witness parameters
+satisfy
+
+```text
+(1/4) * sum_k cosh(s_k) =
+  (a^2/(a^2 + b^2))*cosh(sigma).
+```
+
+Choosing a sampled parameter minimizing `cosh(sigma)` contradicts the identity,
+since all witnesses on the same branch have `cosh(s_k) >= cosh(sigma)` while
+the multiplier is strictly less than `1`. See
+`docs/hyperbola-branch-model-case.md`.
+
+This is a restricted exact obstruction only. It does not cover point sets using
+both branches of a hyperbola, and it does not imply that arbitrary strictly
+convex polygons reduce to hyperbolic configurations.
 
 ### Paraboloid lift
 
