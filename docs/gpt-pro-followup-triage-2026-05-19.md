@@ -20,6 +20,7 @@ Useful material to keep:
   imported parabola model case;
 - the two-ring dihedral obstruction as duplicate provenance for the already
   recorded alternating two-radius regular-family obstruction;
+- the closest-pair radius barrier as a standalone structural lemma;
 - the convex-body boundary warning from Barany--Roldan-Pensado as literature
   risk, not as a finite-vertex counterexample route.
 
@@ -54,6 +55,24 @@ because the endpoint-quartic proof is shorter and covers the affine parabola
 parameterization directly. The Vieta/moment proof is useful as an independent
 way to recognize the same obstruction, but it is not imported as a duplicate
 proof note.
+
+## Closest-Pair Barrier
+
+One output includes a useful exact lemma now recorded in
+`docs/closest-pair-radius-barrier.md`:
+
+```text
+An endpoint of a globally closest pair cannot have four other vertices at the
+globally closest distance.
+```
+
+The proof uses only the strict hull-vertex cone and the fact that four points
+on a circle of radius `delta` with all mutual distances at least `delta` need
+three angular gaps of size at least `pi/3`.
+
+Triage: valid structural necessary condition. It does not prove Erdos #97, but
+it separates closest-pair endpoints from minimum-distance four-ties in any
+counterexample.
 
 ## Two-Ring Dihedral Note
 

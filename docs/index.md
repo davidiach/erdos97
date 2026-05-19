@@ -114,6 +114,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`minimum-radius-filter.md`](minimum-radius-filter.md): weak exact
   minimum-radius short-chord filter; records why it does not kill `C19_skew`
   by itself.
+- [`closest-pair-radius-barrier.md`](closest-pair-radius-barrier.md): exact
+  closest-pair obstruction showing that endpoints of a global closest pair
+  cannot be four-rich at the closest-pair radius.
 - [`minimal-fragile-cover-bridge.md`](minimal-fragile-cover-bridge.md):
   partial bridge theorem showing that every minimal counterexample admits a
   fragile-cover witness system; also records why this is not sufficient,

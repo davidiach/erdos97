@@ -1005,6 +1005,26 @@ selected 4-row have strictly larger interior angle than `p`. This is a local
 angle-ascent lemma only; by itself it gives no global angle-sum contradiction
 for large polygons.
 
+### Closest-pair radius barrier
+
+Status: `LEMMA` / structural necessary condition.
+
+Let `delta` be the global minimum distance between two distinct vertices of a
+strictly convex polygon. If `p` is an endpoint of a pair at distance `delta`,
+then at most three other vertices lie at distance `delta` from `p`.
+
+Indeed, four such vertices would lie on the circle of radius `delta` centered
+at `p`. Their angular span around the hull vertex `p` is strictly less than
+`pi`. Since `delta` is the global closest-pair distance, every consecutive
+angular gap among those four circle points must be at least `pi/3`; otherwise
+the corresponding chord would have length less than `delta`. Three such gaps
+force span at least `pi`, a contradiction. See
+`docs/closest-pair-radius-barrier.md`.
+
+Thus in any counterexample, every endpoint of a globally closest pair must use
+a four-rich distance class at radius strictly larger than the closest-pair
+distance. This is a structural constraint only, not a proof of Erdos #97.
+
 ### Cyclic polygon subcase
 
 If all vertices lie on one circle, then no vertex has more than two other
