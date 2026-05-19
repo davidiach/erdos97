@@ -1101,6 +1101,34 @@ quartic, impossible. See `docs/parabola-model-case.md`.
 This is a restricted exact obstruction only. It does not imply that arbitrary
 strictly convex polygons reduce to parabolic configurations.
 
+### Hyperbola branch model case
+
+Status: `LEMMA` / `FAILED_SEARCH_FAMILY`.
+
+No finite point set on one branch of a nondegenerate Euclidean hyperbola can be
+a counterexample to Erdos Problem #97. After Euclidean normalization write
+
+```text
+p(s) = (a*cosh(s), b*sinh(s)),  a,b > 0.
+```
+
+For any center parameter `sigma`, four equal-distance witness parameters
+satisfy
+
+```text
+(1/4) * sum_k cosh(s_k) =
+  (a^2/(a^2 + b^2))*cosh(sigma).
+```
+
+Choosing a sampled parameter minimizing `cosh(sigma)` contradicts the identity,
+since all witnesses on the same branch have `cosh(s_k) >= cosh(sigma)` while
+the multiplier is strictly less than `1`. See
+`docs/hyperbola-branch-model-case.md`.
+
+This is a restricted exact obstruction only. It does not cover point sets using
+both branches of a hyperbola, and it does not imply that arbitrary strictly
+convex polygons reduce to hyperbolic configurations.
+
 ### Paraboloid lift
 
 Lifting `p=(x,y)` to `(x,y,x^2+y^2)`, four vertices are equidistant from

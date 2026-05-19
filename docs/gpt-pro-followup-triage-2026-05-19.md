@@ -18,12 +18,14 @@ Useful material to keep:
 - the ellipse Vieta obstruction as a standalone restricted lemma;
 - the parabolic Vieta descent as corroborating provenance for the already
   imported parabola model case;
+- the one-branch hyperbola Vieta obstruction as a standalone restricted
+  lemma;
 - the 3-fold pair-lift obstruction as a standalone failed search mechanism;
 - the two-ring dihedral obstruction as duplicate provenance for the already
   recorded alternating two-radius regular-family obstruction;
 - the closest-pair radius barrier as a standalone structural lemma;
 - the convex-body boundary warning from Barany--Roldan-Pensado as literature
-  risk, not as a finite-vertex counterexample route.
+  risk, not as a finite-vertex counterexample route;
 - the two-parabola lens closure system as a structured future-search scaffold,
   not as evidence for a counterexample.
 
@@ -58,6 +60,37 @@ because the endpoint-quartic proof is shorter and covers the affine parabola
 parameterization directly. The Vieta/moment proof is useful as an independent
 way to recognize the same obstruction, but it is not imported as a duplicate
 proof note.
+
+## Hyperbola Branch Note
+
+A later output adds a useful new obstruction:
+
+```text
+No finite point set on one branch of a Euclidean hyperbola can be a
+counterexample.
+```
+
+The imported note is `docs/hyperbola-branch-model-case.md`. For the normalized
+branch
+
+```text
+p(s) = (a*cosh(s), b*sinh(s)),
+```
+
+coefficient comparison for the circle-intersection quartic gives
+
+```text
+(1/4) * sum_k cosh(s_k) =
+  (a^2/(a^2 + b^2))*cosh(sigma)
+```
+
+for four same-distance witnesses from the center parameter `sigma`. The
+multiplier is strictly less than `1`, contradicting a sampled center with
+minimal `cosh(sigma)`.
+
+Triage: valid restricted lemma / failed search family. It covers one branch of
+a Euclidean hyperbola only. It does not cover point sets using both branches,
+and it does not justify broad affine or projective conic reductions.
 
 ## Two-Parabola Lens Scaffold
 
@@ -195,9 +228,11 @@ do not change the finite-vertex evidence level.
 
 ## Material Not Imported
 
-Do not import broad "conic-based" wording as a theorem. This batch covers
-circles, Euclidean ellipses, and affine parabolas only; it does not prove a
-statement about arbitrary conics or arbitrary strictly convex polygons.
+Do not import broad "conic-based" wording as a theorem beyond the separately
+checked model cases. This batch covers circles, Euclidean ellipses, affine
+parabolas, and one Euclidean hyperbola branch. It does not prove a statement
+about arbitrary multi-branch conic samples or arbitrary strictly convex
+polygons.
 
 Do not import or promote formulations that suggest a general polygon can be
 reduced to the elliptical or parabolic cases by affine or projective

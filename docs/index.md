@@ -57,6 +57,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`parabola-model-case.md`](parabola-model-case.md): restricted exact lemma
   showing that finite point sets on a nondegenerate affine parabola cannot be
   counterexamples; a failed search family, not a global bridge.
+- [`hyperbola-branch-model-case.md`](hyperbola-branch-model-case.md):
+  restricted exact lemma showing that finite point sets on one branch of a
+  Euclidean hyperbola cannot be counterexamples; a failed search family, not a
+  global bridge.
 - [`relation-skeleton-catalog.md`](relation-skeleton-catalog.md):
   review-pending relation-skeleton extraction for the focused T01-T09
   self-edge and T10-T12 strict-cycle vertex-circle quotient motifs;
