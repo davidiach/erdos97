@@ -72,9 +72,17 @@ def main() -> int:
     data = analyze_survivors(args.survivors)
 
     if args.check:
-        assert data["survivor_classes"] == 15
-        assert data["all_survivors_admit_incidence_fragile_cover"] is True
-        assert data["min_cover_size_distribution"] == EXPECTED_MIN_COVER_DISTRIBUTION
+        if data["survivor_classes"] != 15:
+            raise AssertionError(
+                f"expected 15 survivor classes, got {data['survivor_classes']!r}"
+            )
+        if data["all_survivors_admit_incidence_fragile_cover"] is not True:
+            raise AssertionError("expected all survivors to admit incidence fragile covers")
+        if data["min_cover_size_distribution"] != EXPECTED_MIN_COVER_DISTRIBUTION:
+            raise AssertionError(
+                "unexpected min cover size distribution: "
+                f"{data['min_cover_size_distribution']!r}"
+            )
 
     if args.write_artifact:
         args.write_artifact.parent.mkdir(parents=True, exist_ok=True)

@@ -30,7 +30,8 @@ from erdos97.two_orbit_radius_propagation import (  # noqa: E402
 def _is_zero(value: object) -> bool:
     import sympy as sp
 
-    return sp.simplify(value) == 0
+    simplified = sp.simplify(value)
+    return simplified == 0 or simplified.equals(0) is True
 
 
 def _is_positive(value: object) -> bool:
@@ -41,7 +42,7 @@ def _is_positive(value: object) -> bool:
         return True
     if simplified.is_positive is False:
         return False
-    return bool(sp.N(simplified, 80) > 0)
+    return False
 
 
 def assert_expected(t: int, *, verify_all_rows: bool) -> None:

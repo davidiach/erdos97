@@ -4,6 +4,7 @@ import pytest
 
 from erdos97.stuck_motif_search import (
     MotifSearchConfig,
+    _non_sat_status,
     mine_stuck_motif,
     search_result_to_json,
 )
@@ -65,3 +66,14 @@ def test_mine_stuck_motif_can_require_no_forward_ear_order() -> None:
 def test_motif_search_rejects_invalid_stuck_size() -> None:
     with pytest.raises(ValueError, match="stuck_size"):
         mine_stuck_motif(MotifSearchConfig(n=9, stuck_size=3))
+
+
+def test_motif_search_status_keeps_unknown_separate_from_unsat() -> None:
+    class FakeZ3:
+        sat = "sat"
+        unsat = "unsat"
+
+    assert _non_sat_status("sat", checked=0, z3_module=FakeZ3) is None
+    assert _non_sat_status("unsat", checked=0, z3_module=FakeZ3) == "UNSAT"
+    assert _non_sat_status("unsat", checked=3, z3_module=FakeZ3) == "EXHAUSTED"
+    assert _non_sat_status("unknown", checked=0, z3_module=FakeZ3) == "UNKNOWN"

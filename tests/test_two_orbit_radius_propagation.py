@@ -3,6 +3,7 @@ from __future__ import annotations
 import sympy as sp
 
 from erdos97.two_orbit_radius_propagation import (
+    _is_positive,
     alternating_decagon_crossing_search,
     alternating_two_radius_family_summary,
     alternating_two_radius_family_to_json,
@@ -34,6 +35,12 @@ def test_forced_ratio_violates_convexity_threshold() -> None:
         assert sp.N(summary.turn_at_b, 50) < 0
         assert sp.N(summary.turn_at_a, 50) > 0
         assert summary.forced_concave
+
+
+def test_exact_positivity_helper_does_not_use_numeric_fallback() -> None:
+    x = sp.Symbol("x", real=True)
+
+    assert _is_positive(x) is False
 
 
 def test_explicit_selected_distances_for_t2_are_exactly_equal() -> None:

@@ -221,7 +221,7 @@ def exact_verification(points: list[list[Fraction]], S: Pattern) -> dict[str, An
         for j in range(i + 1, n)
     )
     convexity_certified = bool(margins) and min(margins) > 0
-    distance_equalities_certified = all(residual == 0 for residual in residuals)
+    distance_equalities_certified = bool(residuals) and all(residual == 0 for residual in residuals)
     accepted = convexity_certified and distance_equalities_certified and min_pair > 0
     return {
         "exact_mode": True,
