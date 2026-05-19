@@ -109,11 +109,66 @@ Exact packet spec:
 - optional derived angular-span certificate for the four witnesses around
   `v`.
 
+Double-boundary endpoint negative control:
+
+The endpoint-only double-boundary package should not be treated as a
+contradiction. Normalize a diameter pair to `A = (0,0)`, `B = (1,0)`, and set
+
+```text
+R(theta) = (cos theta, sin theta),
+L(phi) = (1 - cos phi, sin phi).
+```
+
+For `0 < alpha < beta < pi/3`, the seven points
+
+```text
+A, L(alpha), L(beta), R(pi/3), R(beta), R(alpha), B
+```
+
+in cyclic order form a strictly convex diameter-lens anchor. The endpoint rows
+
+```text
+S_A = {B, R(alpha), R(beta), R(pi/3)}
+S_B = {A, L(alpha), L(beta), R(pi/3)}
+```
+
+both select the diameter radius, overlap in the one non-endpoint equilateral
+apex, and attain the seven-vertex lower bound. This anchor is not a 4-bad
+polygon, but it shows that any case-1 proof must use witness rows at the
+boundary witnesses or another exact certificate. Strict convexity plus the
+same-side/seven-vertex package is not enough.
+
+Boundary-witness isolation lemma:
+
+Let
+
+```text
+K^+ = B(A,1) cap B(B,1) cap {y >= 0}.
+```
+
+If `R(theta) = (cos theta, sin theta)` with `0 < theta < pi/3` and
+`X in K^+` satisfies `|X - R(theta)| = 1`, then `X = A`. The boundary check is
+elementary: on the segment `AB`, equality forces the segment parameter to be
+`0`; on the same right arc, all chord gaps are strictly less than `pi/3`; and
+on the left arc, the same-side formula gives equality only when the left angle
+is `0`. Since squared distance to `R(theta)` is convex, no other point of the
+upper half-lens can be a unit-distance neighbor.
+
+Consequent pruning rule:
+
+For a noncommon upper right-arc endpoint witness `R`, a reciprocal selected
+edge `A <-> R` forces `R`'s selected radius to be the diameter. The isolation
+lemma then forces the other three selected witnesses in `S_R` below the
+diameter line. The symmetric statement holds for noncommon left-arc witnesses
+and for the lower half-lens. This is only a finite-pruning ingredient: it does
+not cover the common equilateral apex, it requires the reciprocal selected
+edge, and it does not by itself rule out a full 4-bad completion.
+
 This packet cannot be applied directly to the stored 184 `n=9` frontier
 assignments unless a separate metric diameter certificate identifies a
 diameter pair in each assignment. The next useful artifact would be a
-hand-checkable local lemma note plus one toy exact packet, not a claim about
-the full frontier.
+hand-checkable local lemma note plus one toy exact packet, including the
+boundary-witness isolation check above, not a claim about the full frontier.
 
 ## 3. Fishburn--Reeds k=4 Extension Search
 
