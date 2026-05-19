@@ -315,6 +315,26 @@ available after selected-distance equalities, reciprocal selected-edge
 components, or another exact mechanism has proved that all six ordinary pairs
 belong to one distance class.
 
+### Same-distance K4-e stretch obstruction
+
+If an exact ordinary distance class contains exactly five of the six edges on
+four distinct vertices, then the missing edge has length `sqrt(3)` times the
+common class length. The proof is the two-equilateral-triangles picture: the
+five equal edges force two equilateral triangles sharing the edge opposite the
+missing pair, and distinct planar vertices put the two missing-edge endpoints
+on opposite sides of that shared edge.
+
+The checker `scripts/check_k4e_kalmanson_stretch_audit.py` uses this relation
+only after exact selected-distance quotienting, and only inside fixed patterns
+and fixed cyclic orders. It represents coefficients in `Q(sqrt(3))` exactly
+and then tests whether a substituted Kalmanson inequality has positive
+left-minus-right coefficient for all positive quotient class lengths.
+
+The current replay kills the displayed `n=10` quotient-level survivor and one
+`n=9` diagnostic pattern. This is a filter improvement and a fixed-pattern
+audit only; it is not an `n=10` exclusion and does not change the global
+problem status.
+
 ### Diameter-lens local lemmas
 
 The proof note `docs/diameter-lens-local-lemmas.md` records four local facts

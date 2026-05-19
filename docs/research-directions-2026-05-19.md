@@ -212,6 +212,40 @@ component:
 if `a in S_b` and `b in S_a`, then `r_a = r_b = |ab|`, so all selected edges
 from centers in that component inherit one ordinary distance class.
 
+Same-distance `K4-e` stretch certificate:
+
+After exact same-distance quotienting, if one ordinary distance class contains
+exactly five of the six edges on four distinct vertices, then the missing edge
+has length `sqrt(3)` times the common class length. This gives an exact
+relation between quotient classes that can be substituted into fixed-order
+Kalmanson inequalities over `Q(sqrt(3))`. The replay script
+`scripts/check_k4e_kalmanson_stretch_audit.py` implements this filter without
+floating point arithmetic.
+
+The displayed `n=10` quotient-level survivor from the GPT review batch is
+retired by this layer. Its selected-distance quotient has nontrivial classes
+
+```text
+Q01: 01 04 05 08 34 45 47 56 58
+Q02: 02 12 13 16 19 23 24 35 36
+Q09: 09 18 29 37 57 68 78 79 89
+Q26: 26 46 67 69
+```
+
+The class `Q02` contains the five edges
+`12, 13, 16, 23, 36` on vertices `{1,2,3,6}`, so the missing edge `26` gives
+`Q26 = sqrt(3) Q02`. Since `46` is also in `Q26`, Kalmanson on cyclic quadruple
+`0 < 1 < 4 < 6` gives
+
+```text
+d01 + d46 <= d04 + d16,
+```
+
+which reduces to `(sqrt(3) - 1) Q02 <= 0`, impossible for positive distances.
+This kills only the displayed fixed pattern/order. It is not an `n=10`
+exclusion; the next search loop should rerun with this filter enabled and
+collect the next survivor, if any.
+
 Selected tournament audit pattern:
 
 The cyclic tournament pattern
@@ -324,8 +358,9 @@ pairs
 
 are all forced into the same distance class. Thus vertices `{0,1,2,7}` form a
 same-distance `K_4`, which cannot occur in the plane. The diagnostic lesson is
-that Kalmanson-feasible endpoint-poor branches may require same-distance clique
-or other vertex-circle certificates, not only Farkas/Kalmanson certificates.
+that Kalmanson-feasible endpoint-poor branches may require same-distance
+clique, `K4-e` stretch, or other vertex-circle certificates, not only
+Farkas/Kalmanson certificates.
 
 This packet cannot be applied directly to the stored 184 `n=9` frontier
 assignments unless a separate metric diameter certificate identifies a
