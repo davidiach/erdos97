@@ -24,6 +24,8 @@ Useful material to keep:
 - the closest-pair radius barrier as a standalone structural lemma;
 - the convex-body boundary warning from Barany--Roldan-Pensado as literature
   risk, not as a finite-vertex counterexample route.
+- the two-parabola lens closure system as a structured future-search scaffold,
+  not as evidence for a counterexample.
 
 ## Ellipse Note
 
@@ -56,6 +58,41 @@ because the endpoint-quartic proof is shorter and covers the affine parabola
 parameterization directly. The Vieta/moment proof is useful as an independent
 way to recognize the same obstruction, but it is not imported as a duplicate
 proof note.
+
+## Two-Parabola Lens Scaffold
+
+A later output proposes a new structured search family using two opposite
+parabolic chains
+
+```text
+L_a = (a, a^2),
+U_b = (b, H - b^2).
+```
+
+The imported note is `docs/two-parabola-lens-closure.md`. It keeps only the
+exact closure equations for the narrow ansatz where every lower center uses
+four upper witnesses and every upper center uses four lower witnesses. For
+`c = 1 - 2H`, a lower row selected by `a` must choose a 4-subset `Q_a` of upper
+parameters satisfying
+
+```text
+sum(Q_a) = 0,
+sum pairwise products in Q_a = c + 2a^2,
+sum triple products in Q_a = 2a.
+```
+
+The upper rows obey the symmetric equations. This is useful because the
+one-parabola square-sum descent becomes
+
+```text
+sum(q^2 for q in Q_a) = -2c - 4a^2,
+```
+
+which is not immediately contradictory when `c < 0`.
+
+Triage: keep as a search scaffold only. It does not produce finite sets
+`A,B`, does not verify strict convexity of a lens, and does not cover mixed
+witness classes inside a two-parabola point set.
 
 ## Threefold Pair-Lift Note
 
@@ -166,6 +203,10 @@ Do not import or promote formulations that suggest a general polygon can be
 reduced to the elliptical or parabolic cases by affine or projective
 transformations. Such maps do not preserve Euclidean centered equal-distance
 relations.
+
+Do not promote the two-parabola lens closure system to a counterexample route
+with evidence unless it comes with exact finite sets, selected 4-subsets,
+equal-distance verification, and a strict-convexity certificate.
 
 This pass also does not update the official-status timestamp. Recheck the
 official Erdos Problems page separately before any source-of-truth status

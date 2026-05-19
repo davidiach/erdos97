@@ -461,6 +461,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`gpt-pro-followup-triage-2026-05-19.md`](gpt-pro-followup-triage-2026-05-19.md):
   triage of the May 19 GPT Pro output batch; imports only the scoped ellipse
   model-case note and keeps the parabolic descent as duplicate provenance.
+- [`two-parabola-lens-closure.md`](two-parabola-lens-closure.md): structured
+  opposite-chain parabolic-lens closure equations for a possible future exact
+  search; search scaffold only, not counterexample evidence.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`repo-roadmap.md`](repo-roadmap.md): staged repository plan.
