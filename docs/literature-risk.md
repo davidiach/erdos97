@@ -18,6 +18,10 @@ are claimed here.
   example is a 15-gon. This is not a finite-vertex counterexample to Erdos #97,
   because the equal-radius boundary intersections may occur in edge interiors
   rather than at vertices.[^barany-roldan]
+- The same boundary-intersection problem is already looser than the finite
+  vertex problem at the `N=2` level: Barany--Roldan-Pensado note that for any
+  boundary point of an acute triangle, some centered circle meets the boundary
+  four times. This also does not imply a finite selected-vertex example.[^barany-roldan]
 - The canonical synthesis corrects a prior uniform-radius shortcut:
   Edelsbrunner--Hajnal's `2n-7` unit-distance result is a lower-bound
   construction, not an upper bound resolving the subcase. Furedi's separate

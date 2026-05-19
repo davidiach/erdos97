@@ -134,6 +134,11 @@ vertices. A future construction attempt could try to discretize such a
 boundary-intersection example, but this output does not provide a finite
 selected-vertex closure or an exact certificate.
 
+A later output also points to the acute-triangle failure of the older `N=2`
+boundary-intersection conjecture. This belongs in the same warning bucket:
+it shows that boundary-intersection richness is much easier than a finite
+selected-vertex counterexample, not that Erdos #97 has a counterexample.
+
 ## Material Not Imported
 
 Do not import broad "conic-based" wording as a theorem. This batch covers
