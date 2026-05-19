@@ -228,20 +228,23 @@ witnesses, for example `S_0 cap S_1 = {2,3,4}`, so the elementary two-circle
 cap already rejects the pattern: two distinct selected circles cannot share
 three distinct witness vertices.
 
-There is also an independent Kalmanson audit. Let `x_i` be the common distance
-in row `i`. For the cyclic quadruple `(i, i+2, i+4, i+6)`, the Kalmanson
-inequality
+There is also an independent strict Kalmanson audit. Let `x_i` be the common
+distance in row `i`. For four consecutive convex vertices
+`(i, i+1, i+2, i+3)`, the diagonals cross. If `O` is their intersection, then
+strict triangle inequality in the two boundary triangles gives
 
 ```text
-d_{i,i+2} + d_{i+4,i+6} <= d_{i,i+4} + d_{i+2,i+6}
+d_{i,i+1} + d_{i+2,i+3} < d_{i,i+2} + d_{i+1,i+3}.
 ```
 
-becomes `x_i + x_{i+4} <= x_i + x_{i+2}`, hence `x_{j+2} <= x_j` for every
-`j mod 9`. Since adding `2` cycles through all residues modulo `9`, all `x_i`
-are equal. Because every unordered pair appears in exactly one selected row,
-this would make all pair distances equal, impossible for more than three
-planar points. This makes the pattern a good regression example for global
-certificates, not a counterexample candidate.
+The row equalities turn this into `x_i + x_{i+2} < x_i + x_{i+1}`, hence
+`x_{i+2} < x_{i+1}` for every `i mod 9`, an impossible strict cyclic chain.
+The non-strict LP/Kalmanson version is also useful as a regression: applying
+Kalmanson to `(i, i+2, i+4, i+6)` forces all `x_i` equal, and then every pair
+distance is equal because every unordered pair appears in exactly one selected
+row. Both certificates are valid, but the earlier three-common-witness
+rejection means this pattern should be used as a template for certificate
+coverage, not as a survivor of all cheap filters.
 
 Kalmanson-feasible but circle-impossible block pattern:
 
