@@ -98,6 +98,35 @@ def test_t10_strict_cycle_lemma_packet_records_expected_directed_cycle() -> None
     ]
     assert packet["local_lemma"]["review_status"] == "review_pending"  # type: ignore[index]
     assert "four listed selected rows" in packet["local_lemma"]["hypothesis_scope"]  # type: ignore[index]
+    assert packet["local_lemma"]["selected_row_hypotheses"] == [  # type: ignore[index]
+        {"center": 0, "witnesses": [1, 2, 5, 6]},
+        {"center": 3, "witnesses": [0, 1, 4, 6]},
+        {"center": 6, "witnesses": [1, 3, 4, 7]},
+        {"center": 8, "witnesses": [0, 3, 6, 7]},
+    ]
+    assert packet["local_lemma"]["quotient_strict_edges"] == [  # type: ignore[index]
+        {
+            "cycle_step": 0,
+            "row": 8,
+            "raw_outer_pair": [0, 6],
+            "raw_inner_pair": [0, 3],
+            "from_class": [0, 1],
+            "to_class": [0, 3],
+        },
+        {
+            "cycle_step": 1,
+            "row": 3,
+            "raw_outer_pair": [1, 6],
+            "raw_inner_pair": [0, 1],
+            "from_class": [0, 3],
+            "to_class": [0, 1],
+        },
+    ]
+    assert packet["local_lemma"]["quotient_cycle_classes"] == [  # type: ignore[index]
+        [0, 1],
+        [0, 3],
+        [0, 1],
+    ]
     assert "directed strict cycle" in packet["local_lemma"]["contradiction"]  # type: ignore[index]
     assert "self-edge" not in packet["local_lemma"]["contradiction"]  # type: ignore[index]
     assert packet["replay"]["status"] == "strict_cycle"  # type: ignore[index]
@@ -212,6 +241,16 @@ def test_t10_strict_cycle_lemma_packet_rejects_self_edge_copy_error() -> None:
 
     assert any("must mention a directed strict cycle" in error for error in errors)
     assert any("must not include primary_self_edge_conflict" in error for error in errors)
+
+
+def test_t10_strict_cycle_lemma_packet_rejects_tampered_quotient_cycle() -> None:
+    payload = load_artifact(DEFAULT_ARTIFACT)
+    packet = _f12(payload)
+    packet["local_lemma"]["quotient_cycle_classes"][1] = [1, 6]  # type: ignore[index]
+
+    errors = validate_payload(payload, recompute=False)
+
+    assert any("quotient_cycle_classes mismatch" in error for error in errors)
 
 
 def test_t10_strict_cycle_lemma_packet_rejects_missing_family() -> None:

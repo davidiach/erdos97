@@ -116,6 +116,13 @@ The two quotient inequalities (2) and (4) form the directed strict cycle
 [0,6] > [1,6] > [0,6].
 ```
 
+Using the packet's canonical selected-distance quotient representatives, this
+is the two-class cycle:
+
+```text
+[0,1] > [0,3] > [0,1].
+```
+
 Equivalently, after quotienting ordinary pair distances by the selected-row
 equalities, the strict quotient graph has a directed two-edge cycle. No
 Euclidean strictly convex realization satisfying the stated local hypotheses
