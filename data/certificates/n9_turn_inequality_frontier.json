@@ -1,0 +1,5155 @@
+{
+  "benchmarks": [
+    {
+      "frontier_assignment_index_1based": 4,
+      "indegrees": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "name": "gpt_pro_output_10_side_cap_pattern",
+      "natural_order_classify_status": "accepted_frontier",
+      "natural_order_phi_edges": 18,
+      "natural_order_rectangle_trap_4_cycles": 0,
+      "natural_order_row_ptolemy_product_cancellation_count": 0,
+      "rows": [
+        [
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "side_sensitive_pair_cap_violation_count": 0,
+      "turn_inequality_count": 108,
+      "turn_z3_status": "unsat",
+      "vertex_circle_status": "self_edge"
+    }
+  ],
+  "claim_scope": "Candidate n=9 selected-witness turn-inequality frontier replay; not a proof of Erdos Problem #97, not a counterexample, not an independent review, and not a source-of-truth status update.",
+  "conclusion": "All 184 regenerated n=9 pair/crossing/count frontier assignments have stored integer dual certificates proving infeasibility of the candidate weak turn inequalities.",
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "farkas_certificates": [
+    {
+      "assignment_index_1based": 1,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        48,
+        60,
+        71,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 2,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        36,
+        60,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 3,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        24,
+        36,
+        60,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 4,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        24,
+        48,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 5,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        24,
+        48,
+        84,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 6,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        24,
+        36,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 7,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        23,
+        36,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 8,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        36,
+        48,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 9,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        24,
+        36,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 10,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        36,
+        48,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 11,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        36,
+        48,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 12,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        36,
+        72,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 13,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        24,
+        83,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 14,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        36,
+        59,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 15,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        24,
+        36,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 16,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        71,
+        72,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 17,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        24,
+        36,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 18,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        36,
+        84,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 19,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        60,
+        72,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 20,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        36,
+        84,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 21,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        36,
+        59,
+        60,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 22,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        23,
+        24,
+        36
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 23,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        24,
+        36,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 24,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        24,
+        36,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 25,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        23,
+        24,
+        36
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 26,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        24,
+        36,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 27,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        48,
+        71,
+        72,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 28,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        23,
+        36,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 29,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        24,
+        36,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 30,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        59,
+        71,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 31,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        36,
+        48,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 32,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        36,
+        59,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 33,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        36,
+        48,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 34,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        24,
+        36,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 35,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        24,
+        36,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 36,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        36,
+        72,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 37,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        36,
+        72,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 38,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        59,
+        71,
+        72,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 39,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        59,
+        71,
+        72,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 40,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        23,
+        36,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 41,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        36,
+        59,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 42,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        59,
+        83,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 43,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        24,
+        36,
+        48,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 44,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        24,
+        36,
+        60,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 45,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        24,
+        72,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 46,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        24,
+        72,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 47,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        11,
+        23,
+        24,
+        36
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 48,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        24,
+        48,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 49,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        36,
+        48,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 50,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        24,
+        48,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 51,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        24,
+        36,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 52,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        36,
+        48,
+        59,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 53,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        36,
+        59,
+        60,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 54,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        24,
+        60,
+        83,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 55,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        24,
+        60,
+        72,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 56,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        24,
+        36,
+        48,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 57,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        24,
+        60,
+        83,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 58,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        12,
+        24,
+        36,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 59,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        11,
+        12,
+        36,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 60,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        11,
+        12,
+        24,
+        36
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 61,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        11,
+        12,
+        24,
+        36
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 62,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        11,
+        12,
+        24,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 63,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        11,
+        23,
+        59,
+        71
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 64,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        11,
+        23,
+        24,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 65,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        11,
+        23,
+        71,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 66,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        11,
+        23,
+        24,
+        36
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 67,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        12,
+        36,
+        48,
+        60,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 68,
+      "deficit": 1,
+      "lambda": 2,
+      "max_variable_coefficient": 2,
+      "rhs_sum": 9,
+      "term_count": 9,
+      "term_indices": [
+        0,
+        12,
+        24,
+        36,
+        48,
+        60,
+        72,
+        84,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "assignment_index_1based": 69,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        36,
+        59,
+        60,
+        72,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 70,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        12,
+        24,
+        35,
+        36,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 71,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        36,
+        59,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 72,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        35,
+        36,
+        47,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 73,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        35,
+        36,
+        59,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 74,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        47,
+        48,
+        71,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 75,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        35,
+        36,
+        48,
+        59
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 76,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        35,
+        47,
+        59,
+        71
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 77,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        35,
+        59,
+        83,
+        84,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 78,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        24,
+        36,
+        47,
+        48,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 79,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        24,
+        47,
+        48,
+        72,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 80,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        24,
+        72,
+        95,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 81,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        24,
+        35,
+        47,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 82,
+      "deficit": 1,
+      "lambda": 2,
+      "max_variable_coefficient": 2,
+      "rhs_sum": 9,
+      "term_count": 9,
+      "term_indices": [
+        0,
+        11,
+        12,
+        23,
+        24,
+        35,
+        36,
+        48,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "assignment_index_1based": 83,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        48,
+        71,
+        72,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 84,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        35,
+        59,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 85,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        59,
+        71,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 86,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        12,
+        24,
+        48,
+        72,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 87,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        36,
+        48,
+        59,
+        60,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 88,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        47,
+        59,
+        60,
+        71
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 89,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        47,
+        59,
+        60,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 90,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        24,
+        47,
+        48,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 91,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        24,
+        36,
+        47,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 92,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        35,
+        47,
+        59,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 93,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        35,
+        36,
+        48,
+        59
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 94,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        35,
+        36,
+        59,
+        72,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 95,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        24,
+        60,
+        83,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 96,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        35,
+        47,
+        71,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 97,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        24,
+        47,
+        48,
+        60,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 98,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        35,
+        47,
+        48,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 99,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        35,
+        47,
+        59
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 100,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        24,
+        35,
+        36
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 101,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        24,
+        35,
+        47
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 102,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        24,
+        36,
+        47
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 103,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        35,
+        47,
+        59
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 104,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        35,
+        36,
+        59,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 105,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        35,
+        47,
+        48,
+        59
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 106,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        35,
+        48,
+        71,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 107,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        35,
+        47,
+        71,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 108,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        35,
+        59,
+        71,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 109,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        36,
+        59,
+        95,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 110,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        12,
+        36,
+        72,
+        95,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 111,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        35,
+        36,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 112,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        12,
+        35,
+        36,
+        48,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 113,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        12,
+        48,
+        60,
+        71,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 114,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        35,
+        47,
+        59,
+        71,
+        72
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 115,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        12,
+        24,
+        36,
+        48,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 116,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        12,
+        48,
+        71,
+        72,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 117,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        12,
+        35,
+        36,
+        60,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 118,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        23,
+        35,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 119,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        23,
+        35,
+        71
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 120,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        23,
+        24,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 121,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        24,
+        35,
+        47
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 122,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        24,
+        47,
+        83,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 123,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        47,
+        59,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 124,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        36,
+        60,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 125,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        24,
+        35,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 126,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        24,
+        48,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 127,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        60,
+        83,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 128,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        24,
+        35,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 129,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        35,
+        36,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 130,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        35,
+        71,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 131,
+      "deficit": 1,
+      "lambda": 2,
+      "max_variable_coefficient": 2,
+      "rhs_sum": 9,
+      "term_count": 9,
+      "term_indices": [
+        11,
+        23,
+        35,
+        47,
+        59,
+        71,
+        83,
+        95,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "assignment_index_1based": 132,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        12,
+        35,
+        71,
+        83,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 133,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        23,
+        24,
+        36
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 134,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        47,
+        60,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 135,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        47,
+        59,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 136,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        35,
+        47,
+        59
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 137,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        24,
+        47,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 138,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        35,
+        47,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 139,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        24,
+        48,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 140,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        24,
+        48,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 141,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        35,
+        48,
+        71
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 142,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        35,
+        47,
+        48,
+        71
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 143,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        35,
+        47,
+        59,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 144,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        24,
+        47,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 145,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        35,
+        47,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 146,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        47,
+        48,
+        71,
+        84,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 147,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        71,
+        83,
+        84,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 148,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        24,
+        47,
+        83,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 149,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        24,
+        48,
+        60,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 150,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        24,
+        60,
+        84,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 151,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        35,
+        47,
+        48,
+        71
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 152,
+      "deficit": 1,
+      "lambda": 2,
+      "max_variable_coefficient": 2,
+      "rhs_sum": 9,
+      "term_count": 9,
+      "term_indices": [
+        0,
+        11,
+        12,
+        23,
+        24,
+        35,
+        36,
+        48,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "assignment_index_1based": 153,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        23,
+        71,
+        72,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 154,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        24,
+        36,
+        47
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 155,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        47,
+        71,
+        72,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 156,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        47,
+        71,
+        95,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 157,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        0,
+        11,
+        24,
+        95,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 158,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        24,
+        47,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 159,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        12,
+        24,
+        36,
+        60,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 160,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        12,
+        24,
+        48,
+        60,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 161,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        12,
+        24,
+        48,
+        60,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 162,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        12,
+        48,
+        71,
+        72,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 163,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        47,
+        59,
+        71,
+        83,
+        84
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 164,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        35,
+        59,
+        60,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 165,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        23,
+        24,
+        47,
+        60,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "assignment_index_1based": 166,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        35,
+        48,
+        71
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 167,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        24,
+        48,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 168,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        35,
+        48,
+        71
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 169,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        24,
+        48,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 170,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        71,
+        83,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 171,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        71,
+        83,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 172,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        59,
+        60,
+        83,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 173,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        59,
+        71,
+        83,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 174,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        35,
+        47,
+        59
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 175,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        24,
+        47,
+        60
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 176,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        47,
+        59,
+        71
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 177,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        24,
+        48,
+        96
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 178,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        35,
+        47,
+        59,
+        71
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 179,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        35,
+        83,
+        107
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 180,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        24,
+        35,
+        48
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 181,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        35,
+        59,
+        60,
+        83
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 182,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        35,
+        36,
+        47
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 183,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        12,
+        35,
+        71,
+        95
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "assignment_index_1based": 184,
+      "deficit": 1,
+      "lambda": 1,
+      "max_variable_coefficient": 1,
+      "rhs_sum": 5,
+      "term_count": 5,
+      "term_indices": [
+        11,
+        23,
+        35,
+        36,
+        47
+      ],
+      "term_weight": 1,
+      "variable_coefficients": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "farkas_replay": {
+    "arithmetic": "integer coefficient check; no solver needed for replay",
+    "certificate_count": 184,
+    "certificate_explanation": "For each assignment, summing the listed interval inequalities gives RHS > 4*lambda while every turn variable has coefficient at most lambda. Since t_i >= 0 and sum_i t_i = 4, the same left-hand side is at most 4*lambda, a contradiction.",
+    "certificate_sha256": "1aed1b1f78178b967f93a3894e67cf9a0c314441a94423c8f24f2e0b8cb9bf89",
+    "certificate_type": "unit_weight_interval_dual",
+    "deficit_histogram": {
+      "1": 184
+    },
+    "lambda_histogram": {
+      "1": 180,
+      "2": 4
+    },
+    "max_variable_coefficient_histogram": {
+      "1": 180,
+      "2": 4
+    },
+    "term_count_histogram": {
+      "5": 180,
+      "9": 4
+    }
+  },
+  "n": 9,
+  "provenance": {
+    "command": "python scripts/check_n9_turn_inequality_frontier.py --assert-expected --write",
+    "generator": "scripts/check_n9_turn_inequality_frontier.py"
+  },
+  "review_requirements": [
+    "Review the geometric turn lemma and indexing conventions.",
+    "Review the regenerated n=9 source frontier and lack of hidden symmetry quotienting.",
+    "Review the stored integer dual certificates and their arithmetic verifier.",
+    "Keep this scoped as review-pending n=9 finite-case evidence only."
+  ],
+  "row_size": 4,
+  "schema": "erdos97.n9_turn_inequality_frontier.v1",
+  "source_frontier": {
+    "assignment_count": 184,
+    "assignment_sha256": "d7807b69b9de27da17fa851b3325b1e26cfa0b6d86277abeda4bc4e3454b8e01",
+    "description": "Complete selected-witness assignments surviving pair/crossing/count filters before vertex-circle pruning.",
+    "generator": "GenericVertexSearch(n=9).valid_options_for_center",
+    "indegree_distribution": {
+      "(4, 4, 4, 4, 4, 4, 4, 4, 4)": 184
+    },
+    "side_sensitive_pair_cap_violation_count_histogram": {
+      "0": 184
+    }
+  },
+  "status": "REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY",
+  "trust": "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING",
+  "turn_system": {
+    "inequality_count_histogram": {
+      "108": 184
+    },
+    "nonnegativity": "t_i >= 0",
+    "normalized_variables": "t_i = 2*tau_i/pi",
+    "strict_geometry_note": "The geometric lemma gives strict inequalities; this replay uses weak rational inequalities, so UNSAT is stronger than needed.",
+    "sum_constraint": "sum_i t_i = 4",
+    "weak_inequality_template": [
+      "sum_{h=1}^{b-1} t_{i+h} >= 1",
+      "sum_{h=a+1}^{8} t_{i+h} >= 1"
+    ]
+  },
+  "z3_replay": {
+    "arithmetic": "exact rational linear real arithmetic",
+    "role": "cross-check; stored Farkas certificates are verified by integer arithmetic",
+    "sat_count": 0,
+    "solver": "z3",
+    "status_counts": {
+      "unsat": 184
+    },
+    "unknown_count": 0,
+    "unsat_count": 184
+  }
+}
