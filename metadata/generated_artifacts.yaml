@@ -261,6 +261,36 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_kalmanson_selfedge
+    path: data/certificates/n9_kalmanson_selfedge.json
+    kind: finite_case_artifact
+    generator: scripts/check_n9_kalmanson_selfedge.py
+    command: python scripts/check_n9_kalmanson_selfedge.py --write --assert-expected --summary-only
+    checker: scripts/check_n9_kalmanson_selfedge.py
+    check_command: python scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    claim_scope: Review-pending n=9 selected-witness Kalmanson self-edge certificate replay only.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_kalmanson_selfedge.v1
+      trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+      status: review_pending_n9_kalmanson_selfedge
+      n: 9
+      row_options_per_center: 70
+      nodes_visited: 100818
+      terminal_assignments: 184
+      killed_by_kalmanson_self_edge: 184
+      unkilled: 0
+      certificate_sha256: 8e5344265e774ce352d64e16e0480eaff4ad6051a69051a304a3f9145db0e3c5
+    forbidden_claims:
+      - n=9 is proved
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_obstruction_shapes
     path: data/certificates/n9_vertex_circle_obstruction_shapes.json
     kind: certificate_diagnostic_artifact

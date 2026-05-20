@@ -217,6 +217,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         claim_scope="Review-pending n=9 selected-witness finite-case checker; not an official/global status update.",
     ),
     AuditCommand(
+        ident="n9_kalmanson_selfedge",
+        command=(
+            "python",
+            "scripts/check_n9_kalmanson_selfedge.py",
+            "--verify-certificate",
+            "data/certificates/n9_kalmanson_selfedge.json",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Review-pending n=9 selected-witness Kalmanson self-edge "
+            "certificate replay only; not a proof of n=9, counterexample, "
+            "independent review completion, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_obstruction_shapes",
         command=(
             "python",
