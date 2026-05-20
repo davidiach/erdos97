@@ -94,16 +94,27 @@ nonnegative, forcing `u.v >= 0`, contradiction.
 Therefore the turn along that arc is strictly greater than `pi/2`, proving the
 first inequality.
 
-For the second inequality, apply the same argument to the opposite arc from
+For the second inequality, apply the same dot-product argument to the arc from
 `p_{i+a}` back to `p_i`, using
 
 ```text
-u' = p_i - p_{i+a},
-v' = p_{i+b} - p_i.
+u' = p_{i+b} - p_{i+a},
+v' = p_i - p_{i+b}.
 ```
 
-Again `|u'+v'| = |u'|`, so the total turn along the complementary arc must
-exceed `pi/2`.
+Now `|v'| = |p_i - p_{i+b}| = |p_i - p_{i+a}| = |u' + v'|`. Squaring and
+cancelling gives
+
+```text
+2 u'.v' + |u'|^2 = 0,
+```
+
+so `u'.v' < 0`. Here `u'` is the positive sum of edge vectors on the arc from
+`p_{i+a}` to `p_{i+b}`, and `v'` is the positive sum of edge vectors on the arc
+from `p_{i+b}` to `p_i`. If the complementary arc from `p_{i+a}` back to `p_i`
+had total exterior turn at most `pi/2`, those edge directions would lie in a
+closed cone of angle at most `pi/2`, again forcing all cross dot products
+nonnegative. This contradiction proves the second inequality.
 
 ## Review Points
 
