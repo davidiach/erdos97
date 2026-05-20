@@ -58,6 +58,8 @@ The companion diagnostic `docs/n9-vertex-circle-obstruction-shapes.md` mines
 those 184 obstructions. It finds 158 self-edge contradictions and 26 strict
 directed cycles; every strict cycle has length 2 or 3. That diagnostic is meant
 to guide a possible general lemma, not to strengthen the repo claim by itself.
+For a broader dependency map from a hypothetical bad nonagon to the 184
+frontier and the current obstruction routes, see `docs/n9-reduction-chain.md`.
 
 Later review aids make the local quotient certificates easier to inspect:
 `data/certificates/n9_vertex_circle_frontier_motif_classification.json`
