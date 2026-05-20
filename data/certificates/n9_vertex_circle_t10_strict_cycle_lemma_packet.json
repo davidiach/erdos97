@@ -276,6 +276,62 @@
         "cycle_closure_statement": "Each strict edge's inner pair is identified with the next strict edge's outer pair, closing a directed two-edge strict cycle in the selected-distance quotient.",
         "hypothesis_scope": "Natural cyclic order on labels 0..8 plus the four listed selected rows; no claim is made about other n=9 templates.",
         "packet_name": "T10/F12 strict-cycle local lemma packet",
+        "quotient_cycle_classes": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "quotient_strict_edges": [
+          {
+            "cycle_step": 0,
+            "from_class": [
+              0,
+              1
+            ],
+            "raw_inner_pair": [
+              0,
+              3
+            ],
+            "raw_outer_pair": [
+              0,
+              6
+            ],
+            "row": 8,
+            "to_class": [
+              0,
+              3
+            ]
+          },
+          {
+            "cycle_step": 1,
+            "from_class": [
+              0,
+              3
+            ],
+            "raw_inner_pair": [
+              0,
+              1
+            ],
+            "raw_outer_pair": [
+              1,
+              6
+            ],
+            "row": 3,
+            "to_class": [
+              0,
+              1
+            ]
+          }
+        ],
         "review_status": "review_pending",
         "selected_distance_equalities": [
           {
@@ -319,6 +375,44 @@
                 ],
                 "row": 0
               }
+            ]
+          }
+        ],
+        "selected_row_hypotheses": [
+          {
+            "center": 0,
+            "witnesses": [
+              1,
+              2,
+              5,
+              6
+            ]
+          },
+          {
+            "center": 3,
+            "witnesses": [
+              0,
+              1,
+              4,
+              6
+            ]
+          },
+          {
+            "center": 6,
+            "witnesses": [
+              1,
+              3,
+              4,
+              7
+            ]
+          },
+          {
+            "center": 8,
+            "witnesses": [
+              0,
+              3,
+              6,
+              7
             ]
           }
         ],

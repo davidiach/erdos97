@@ -481,7 +481,40 @@ def _cycle_pair_chain(steps: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
     ]
 
 
-def _family_local_lemma(steps: Sequence[dict[str, Any]]) -> dict[str, Any]:
+def _selected_row_hypotheses(rows: Sequence[Sequence[int]]) -> list[dict[str, Any]]:
+    return [
+        {
+            "center": int(row[0]),
+            "witnesses": [int(value) for value in row[1:]],
+        }
+        for row in rows
+    ]
+
+
+def _quotient_strict_edges(steps: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [
+        {
+            "cycle_step": index,
+            "row": int(step["strict_inequality"]["row"]),
+            "raw_outer_pair": step["strict_inequality"]["outer_pair"],
+            "raw_inner_pair": step["strict_inequality"]["inner_pair"],
+            "from_class": step["strict_inequality"]["outer_class"],
+            "to_class": step["strict_inequality"]["inner_class"],
+        }
+        for index, step in enumerate(steps)
+    ]
+
+
+def _quotient_cycle_classes(steps: Sequence[dict[str, Any]]) -> list[list[int]]:
+    cycle = [list(steps[0]["strict_inequality"]["outer_class"])]
+    cycle.extend(list(step["strict_inequality"]["inner_class"]) for step in steps)
+    return cycle
+
+
+def _family_local_lemma(
+    rows: Sequence[Sequence[int]],
+    steps: Sequence[dict[str, Any]],
+) -> dict[str, Any]:
     return {
         "packet_name": "T10/F12 strict-cycle local lemma packet",
         "review_status": "review_pending",
@@ -489,6 +522,7 @@ def _family_local_lemma(steps: Sequence[dict[str, Any]]) -> dict[str, Any]:
             "Natural cyclic order on labels 0..8 plus the four listed selected "
             "rows; no claim is made about other n=9 templates."
         ),
+        "selected_row_hypotheses": _selected_row_hypotheses(rows),
         "strict_inequality_statements": [
             (
                 f"Step {index}: row {step['strict_inequality']['row']} has "
@@ -505,6 +539,8 @@ def _family_local_lemma(steps: Sequence[dict[str, Any]]) -> dict[str, Any]:
             }
             for index, step in enumerate(steps)
         ],
+        "quotient_strict_edges": _quotient_strict_edges(steps),
+        "quotient_cycle_classes": _quotient_cycle_classes(steps),
         "cycle_closure_statement": (
             "Each strict edge's inner pair is identified with the next strict "
             "edge's outer pair, closing a directed two-edge strict cycle in the "
@@ -555,7 +591,7 @@ def _family_packet(family: dict[str, Any]) -> dict[str, Any]:
         "core_selected_rows": rows,
         "cycle_steps": steps,
         "cycle_pair_chain": _cycle_pair_chain(steps),
-        "local_lemma": _family_local_lemma(steps),
+        "local_lemma": _family_local_lemma(rows, steps),
         "replay": {
             "status": replay["status"],
             "selected_row_count": replay["selected_row_count"],
@@ -702,6 +738,9 @@ def assert_expected_t10_strict_cycle_lemma_packet(payload: Mapping[str, Any]) ->
     expected_pair_chain = _cycle_pair_chain(EXPECTED_CYCLE_STEPS)
     if packet["cycle_pair_chain"] != expected_pair_chain:
         raise AssertionError("F12 cycle pair chain mismatch")
+    expected_selected_rows = _selected_row_hypotheses(EXPECTED_CORE_SELECTED_ROWS)
+    expected_quotient_edges = _quotient_strict_edges(EXPECTED_CYCLE_STEPS)
+    expected_quotient_cycle = _quotient_cycle_classes(EXPECTED_CYCLE_STEPS)
 
     replay = packet["replay"]
     if replay["status"] != "strict_cycle":
@@ -746,6 +785,12 @@ def assert_expected_t10_strict_cycle_lemma_packet(payload: Mapping[str, Any]) ->
         raise AssertionError("F12 local lemma must describe a directed strict cycle")
     if "reflexive strict edge" in contradiction or "self-edge" in contradiction:
         raise AssertionError("F12 local lemma must not describe a self-edge conflict")
+    if lemma["selected_row_hypotheses"] != expected_selected_rows:
+        raise AssertionError("F12 local lemma selected rows mismatch")
+    if lemma["quotient_strict_edges"] != expected_quotient_edges:
+        raise AssertionError("F12 local lemma quotient strict edges mismatch")
+    if lemma["quotient_cycle_classes"] != expected_quotient_cycle:
+        raise AssertionError("F12 local lemma quotient cycle mismatch")
 
     if "No proof of the n=9 case is claimed." not in payload.get("interpretation", []):
         raise AssertionError("interpretation must preserve the no-proof statement")

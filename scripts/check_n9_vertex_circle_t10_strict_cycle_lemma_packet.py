@@ -206,6 +206,38 @@ def _family_packets_by_id(payload: dict[str, Any], errors: list[str]) -> dict[st
     return {family_id: by_id[family_id] for family_id in EXPECTED_FAMILY_IDS if family_id in by_id}
 
 
+def _expected_selected_row_hypotheses() -> list[dict[str, Any]]:
+    return [
+        {
+            "center": int(row[0]),
+            "witnesses": [int(value) for value in row[1:]],
+        }
+        for row in EXPECTED_CORE_SELECTED_ROWS
+    ]
+
+
+def _expected_quotient_strict_edges() -> list[dict[str, Any]]:
+    return [
+        {
+            "cycle_step": index,
+            "row": int(step["strict_inequality"]["row"]),
+            "raw_outer_pair": step["strict_inequality"]["outer_pair"],
+            "raw_inner_pair": step["strict_inequality"]["inner_pair"],
+            "from_class": step["strict_inequality"]["outer_class"],
+            "to_class": step["strict_inequality"]["inner_class"],
+        }
+        for index, step in enumerate(EXPECTED_CYCLE_STEPS)
+    ]
+
+
+def _expected_quotient_cycle_classes() -> list[list[int]]:
+    cycle = [list(EXPECTED_CYCLE_STEPS[0]["strict_inequality"]["outer_class"])]
+    cycle.extend(
+        list(step["strict_inequality"]["inner_class"]) for step in EXPECTED_CYCLE_STEPS
+    )
+    return cycle
+
+
 def _validate_local_lemma(packet: dict[str, Any], errors: list[str]) -> None:
     lemma = packet.get("local_lemma")
     if not isinstance(lemma, dict):
@@ -249,6 +281,24 @@ def _validate_local_lemma(packet: dict[str, Any], errors: list[str]) -> None:
         errors.append("F12 local_lemma contradiction must mention a directed strict cycle")
     if "reflexive strict edge" in contradiction or "self-edge" in contradiction:
         errors.append("F12 local_lemma contradiction must not describe a self-edge")
+    expect_equal(
+        errors,
+        "F12 local_lemma selected_row_hypotheses",
+        lemma.get("selected_row_hypotheses"),
+        _expected_selected_row_hypotheses(),
+    )
+    expect_equal(
+        errors,
+        "F12 local_lemma quotient_strict_edges",
+        lemma.get("quotient_strict_edges"),
+        _expected_quotient_strict_edges(),
+    )
+    expect_equal(
+        errors,
+        "F12 local_lemma quotient_cycle_classes",
+        lemma.get("quotient_cycle_classes"),
+        _expected_quotient_cycle_classes(),
+    )
 
 
 def _expected_cycle_pair_chain(steps: list[dict[str, Any]]) -> list[dict[str, Any]]:
