@@ -300,6 +300,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-exhaustive.md`](n9-vertex-circle-exhaustive.md):
   review-pending exhaustive `n=9` selected-witness checker using the
   vertex-circle strict-chord filter.
+- [`n9-reduction-chain.md`](n9-reduction-chain.md): review-pending dependency
+  map from a hypothetical bad nonagon to selected rows, the 184 frontier, and
+  the vertex-circle, turn-packing, and algebraic obstruction routes.
 - [`n9-turn-inequality-frontier.md`](n9-turn-inequality-frontier.md):
   review-pending replay of 184 `n=9` selected-witness assignments killed by
   candidate exterior-turn Farkas certificates; not a proof of `n=9`.
