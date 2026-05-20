@@ -5,7 +5,9 @@ Status: `MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING`.
 This note records a replayable check of the latest GPT Pro n=9 route. It is
 not a proof of Erdos Problem #97, not a counterexample, not an official/global
 status update, and not an independently reviewed theorem. The geometric turn
-lemma below is the review bottleneck.
+lemma below is the review bottleneck. See `docs/turn-inequality-lemma.md` for
+the proof-facing lemma note and `docs/turn-packing-bridge.md` for the
+review-pending certificate principle extracted from the replay.
 
 ## Scope
 
