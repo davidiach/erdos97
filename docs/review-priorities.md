@@ -188,6 +188,19 @@ generated complete selected-row assignments with the stored frontier
 classification artifact. It does not prove filter soundness, strict-edge
 geometry, selected-distance quotient soundness, `n=9`, or complete review.
 
+Current Kalmanson self-edge replay:
+
+```bash
+python scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --json
+```
+
+This command treats the stored 184 terminal assignments as certificate inputs
+and checks that each has one strict Kalmanson inequality whose two sides reduce
+to the same selected-distance quotient multiset. It is a compact certificate
+replay only; it does not independently audit brancher coverage, the
+pair/crossing filters, the Kalmanson geometric convention, `n=9`, or complete
+review.
+
 Current dihedral-orbit audit:
 
 ```bash

@@ -37,6 +37,8 @@ This repository is a public research log and reproducibility workspace for Erdő
   [`docs/n8-residual-certificates.md`](docs/n8-residual-certificates.md).
 - For the review-pending exhaustive `n=9` vertex-circle finite-case checker,
   read [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
+- For the compact `n=9` Kalmanson self-edge replay certificate, read
+  [`docs/n9-kalmanson-selfedge.md`](docs/n9-kalmanson-selfedge.md).
 - For the derived `n=9` vertex-circle template lemma-candidate catalog, read
   [`docs/n9-vertex-circle-template-lemma-catalog.md`](docs/n9-vertex-circle-template-lemma-catalog.md).
 - For the relation-skeleton extraction from focused `n=9`
@@ -266,6 +268,10 @@ selected-witness assignments after the pair/crossing/count filters, and the
 vertex-circle filter kills all 184 by exact self-edge or strict-cycle
 obstructions. This is not yet promoted to the source-of-truth strongest local
 result; independent review is required before any public theorem-style claim.
+The companion Kalmanson self-edge replay stores one strict Kalmanson
+self-edge certificate for each of the same 184 terminal assignments, giving a
+compact certificate-only audit path. It is also review-pending and does not
+promote `n=9`.
 The companion input-data audit checks the stored row0 witness coverage and
 summary arithmetic without rerunning the brancher. An incidence-filter audit
 checks the row-level two-overlap crossing, witness-pair cap, and

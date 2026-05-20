@@ -600,6 +600,26 @@ and `26` strict cycles. This remains support-to-frontier bookkeeping only; it
 does not prove the exact-four checker, `n=9`, Erdos Problem #97, or a
 counterexample. See `docs/n9-mixed-rich-frontier-crosswalk.md`.
 
+### n=9 Kalmanson self-edge replay
+
+Status: `MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING`.
+
+The checked artifact `data/certificates/n9_kalmanson_selfedge.json` stores one
+strict Kalmanson self-edge certificate for each of the 184 labelled
+selected-witness systems that survive the exact `n=9` pair/crossing/count
+filters. For each stored assignment, the verifier quotients ordinary
+distance-pair variables by selected-distance equalities and checks that one
+strict Kalmanson inequality has the same quotient multiset on both sides. The
+stable certificate-list digest is
+`8e5344265e774ce352d64e16e0480eaff4ad6051a69051a304a3f9145db0e3c5`.
+
+Check the certificate replay with
+`python scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --json`.
+This is a compact audit aid for the review-pending `n=9` frontier only. It does
+not independently complete review of the brancher filters, does not promote
+`n=9` to source-of-truth theorem status, does not prove Erdos Problem #97, and
+does not provide a counterexample. See `docs/n9-kalmanson-selfedge.md`.
+
 ### Bootstrap-core closure rank and weighted capacity
 
 Status: `LEMMA` / bridge fork.

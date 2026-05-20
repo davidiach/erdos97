@@ -778,6 +778,13 @@ checks stored integer dual certificates for the candidate weak turn system on
 all 184 regenerated pair/crossing/count frontier assignments. It records all
 184 weak systems as arithmetically infeasible, but the geometric turn lemma and
 indexing conventions remain review-pending, so this does not promote `n=9`.
+The compact Kalmanson self-edge replay
+`scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --json`
+checks a separate certificate in which each of those 184 terminal assignments
+has a single strict Kalmanson inequality whose two sides become the same
+quotient multiset after selected-distance quotienting. This is a
+review-pending audit aid only; it does not independently complete review of the
+brancher or promote `n=9`.
 A fixed-center-order replay command,
 `scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`,
 also closes the vertex-circle-pruned search and reaches the same
