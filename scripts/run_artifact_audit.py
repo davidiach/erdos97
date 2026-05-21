@@ -2060,6 +2060,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_singleton_two_row_drop",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_singleton_two_row_drop.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Two-row-drop singleton-support stress test for source 151 rows "
+            "5 and 8; not singleton-support existence, row forcing, an n=9 "
+            "proof, a bridge proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="closure_activation_wrong_fourth_negative_control",
         command=(
             "python",

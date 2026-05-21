@@ -442,6 +442,13 @@ incidence/crossing bookkeeping only, not singleton-support existence, row
 forcing, `n=9`, or the bridge. See
 `docs/bootstrap-t12-151-singleton-support-audit.md`.
 
+The source-`151` singleton-support two-row-drop extension checks the next
+relaxation level: any unordered pair of non-target rows may move to arbitrary
+selected 4-sets. Across targets `151:5` and `151:8`, it checks `2,469,600`
+candidates and leaves only `56` original-neighborhood survivors. This is still
+diagnostic bookkeeping only, not row forcing or a bridge proof. See
+`docs/bootstrap-t12-151-singleton-two-row-drop.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic
