@@ -387,6 +387,31 @@ one reciprocal selected pair. It is not an `n=9` proof, not a promotion of the
 review-pending exhaustive `n=9` vertex-circle checker, and not a global status
 update. See `docs/n9-regular-tournament-kalmanson-audit.md`.
 
+### n=9 one-reciprocal Kalmanson obstruction
+
+Status: `EXACT_N9_ONE_RECIPROCAL_SUBCASE_AUDIT`.
+
+For `n=9`, if a selected-witness system has exactly one reciprocal selected
+unordered pair, then the selected-edge count also forces exactly one unordered
+pair to be absent. Every other unordered pair is selected in exactly one
+direction.
+
+The checker `scripts/check_n9_one_reciprocal_kalmanson.py` enumerates the `76`
+cyclic-dihedral status representatives covering all `1,260` labelled choices
+of the reciprocal pair and absent pair. For each status it searches every
+degree-4 orientation of the remaining pairs. Selected-distance quotienting
+substitutes row-radius variables, the reciprocal pair identifies two row
+radii, and the absent pair remains an ordinary distance class. One-term
+cancellations in strict Kalmanson inequalities produce strict implications
+between quotient classes; every branch develops a strict implication cycle.
+
+Combined with the no-reciprocal regular-tournament audit, this proves only that
+an `n=9` selected-witness candidate must contain at least two reciprocal
+selected unordered pairs, and hence at least two absent unordered pairs. It is
+not an `n=9` proof, not a promotion of the review-pending exhaustive `n=9`
+vertex-circle checker, and not a global status update. See
+`docs/n9-one-reciprocal-kalmanson-audit.md`.
+
 ### Diameter-lens local lemmas
 
 The proof note `docs/diameter-lens-local-lemmas.md` records four local facts

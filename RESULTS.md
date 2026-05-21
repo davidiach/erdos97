@@ -786,6 +786,20 @@ have at least one reciprocal selected pair. It is not an `n=9` proof and does
 not promote the review-pending exhaustive vertex-circle checker. See
 `docs/n9-regular-tournament-kalmanson-audit.md`.
 
+The exact one-reciprocal `n=9` Kalmanson audit in
+`scripts/check_n9_one_reciprocal_kalmanson.py` checks the next branch after the
+regular-tournament case: exactly one reciprocal selected unordered pair, hence
+exactly one absent unordered pair by the selected-edge count. The checker uses
+cyclic-dihedral reduction to check `76` status representatives covering all
+`1,260` labelled reciprocal/absent status choices, then searches all degree-4
+orientations of the remaining pairs. Every branch is killed by a strict
+Kalmanson implication cycle after selected-distance quotienting. Combined with
+the no-reciprocal audit, this proves only that any `n=9` selected-witness
+candidate must have at least two reciprocal selected pairs, and hence at least
+two absent unordered pairs. It is not an `n=9` proof and does not promote the
+review-pending exhaustive vertex-circle checker. See
+`docs/n9-one-reciprocal-kalmanson-audit.md`.
+
 ### Review-pending exhaustive n=9 vertex-circle check
 
 Status: `MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING`.

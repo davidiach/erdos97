@@ -70,6 +70,11 @@ put detailed reconciliation in the canonical synthesis.
   exact fixed-order audit showing that every `n=9` selected-witness system with
   no reciprocal selected pair is obstructed by strict Kalmanson implication
   cycles; a subcase branch cut only, not an `n=9` proof.
+- [`n9-one-reciprocal-kalmanson-audit.md`](n9-one-reciprocal-kalmanson-audit.md):
+  exact fixed-order audit showing that every `n=9` selected-witness system with
+  exactly one reciprocal selected pair is obstructed by strict Kalmanson
+  implication cycles; a branch cut to at least two reciprocal pairs, not an
+  `n=9` proof.
 - [`ellipse-model-case.md`](ellipse-model-case.md): restricted exact lemma
   showing that finite point sets on a Euclidean ellipse cannot be
   counterexamples; a failed search family, not a global bridge.
