@@ -245,6 +245,15 @@ least one center whose available rich classes are exact-four-only; it is still
 not an `n=9` proof, not the adaptive blocker bridge, and not a counterexample.
 See `docs/n9-all-five-rich-support-obstruction.md`.
 
+A rich-support counting lemma now gives a proof-level shortcut for that
+all-five-rich subcase: for any same-radius supports `R_i`,
+`sum_i binom(|R_i|, 2) <= n(n - 1)` by witness-pair sharing on perpendicular
+bisectors. Hence every center having five equidistant witnesses requires
+`n >= 11`. The same counting relaxation says any hypothetical 4-bad nonagon
+has at least five exact-four centers, and any hypothetical 4-bad decagon has
+at least three. This does not replace the mixed support catalogues or prove
+`n=9` or `n=10`. See `docs/rich-support-counting-lemma.md`.
+
 The follow-up mixed rich-support reduction enumerates every four- or
 five-witness support at every center, for `126^9 =
 8,004,512,848,309,157,376` raw assignments. With the same pair/crossing

@@ -18,6 +18,29 @@ The checker applies only two exact necessary filters:
 These are the same circle-intersection and radical-axis crossing conditions
 recorded in `docs/claims.md`.
 
+## Counting shortcut
+
+The all-five-rich conclusion also follows from the rich-support counting lemma
+in `docs/rich-support-counting-lemma.md`, without backtracking. If every
+center of a strict convex `n`-gon has a same-radius support of size at least
+five, then each support contributes at least `binom(5,2)=10` unordered witness
+pairs. A fixed witness pair can be used by at most two centers, since all such
+centers lie on the perpendicular bisector of that pair and strict convexity
+allows at most two vertices on a line. Therefore
+
+```text
+10n <= 2*binom(n,2) = n(n - 1),
+```
+
+so `n >= 11`. In particular, the `n=9` all-five-rich support subcase is closed
+by this one-line pair-sharing count.
+
+The checked artifact below is still useful as a generator-independent
+support-catalogue regression: it exercises the explicit five-support option
+catalogue, row-pair cap, and two-overlap crossing rule that are reused in the
+mixed rich-support machinery. It is no longer the shortest proof of the
+all-five-rich subcase itself.
+
 ## Checked Result
 
 The checked artifact is:

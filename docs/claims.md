@@ -79,6 +79,34 @@ source-of-truth status. The checked selected-witness artifacts remain the
 repo-local `n <= 8` source until this literature-backed note receives
 independent review.
 
+### Rich-support counting bound
+
+Status: `LEMMA`.
+
+Let `R_i` be any same-radius support chosen at center `i`; unlike selected
+witness rows, `R_i` may have size larger than four. Then
+
+```text
+sum_i binom(|R_i|, 2) <= n(n - 1).
+```
+
+The proof is the pair-sharing cap in counting form. For a fixed unordered
+witness pair `{a,b}`, every center whose support contains both `a` and `b`
+lies on the perpendicular bisector of segment `ab`; strict convexity permits at
+most two polygon vertices on that line. Double-counting witness pairs inside
+supports gives the displayed inequality.
+
+Thus, if every center has a rich distance class of size at least `k`, then
+`n >= binom(k, 2) + 1`. In particular, every-vertex size-five richness is
+impossible for `n <= 10`. Choosing a maximum rich class at each center of a
+hypothetical 4-bad nonagon also shows that at most four centers can have
+`E(i) >= 5`, so at least five centers must be exact-four.
+
+This is a support-level counting lemma only. It does not rule out mixed
+exact-four/rich catalogues and does not prove `n=9`, `n=10`, or Erdos Problem
+#97. See `docs/rich-support-counting-lemma.md` and the checker
+`scripts/check_rich_support_counting_bound.py`.
+
 ### Altman diagonal-order sums
 
 For a strict convex `n`-gon in cyclic order, the sums `U_k` of chord lengths of
