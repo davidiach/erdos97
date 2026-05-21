@@ -93,6 +93,12 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json`
    checks selected-distance quotient status agreement on the stored local-core
    and frontier rows.
+   The Kalmanson self-edge independent replay
+   `python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --json`
+   treats the stored `n9_kalmanson_selfedge` certificate as input data and
+   replays row shape, pair/crossing filters, witness-pair capacity,
+   selected-distance quotienting, stored Kalmanson self-edges, and digest
+   agreement without importing the Kalmanson generator module.
    The incidence-filter replay
    `python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json`
    checks the row-level two-overlap crossing, witness-pair cap, and
