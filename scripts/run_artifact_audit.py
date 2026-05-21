@@ -233,6 +233,24 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_kalmanson_selfedge_independent_replay",
+        command=(
+            "python",
+            "scripts/check_n9_kalmanson_selfedge_independent_replay.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Independent stored-input replay for the review-pending n=9 "
+            "Kalmanson self-edge certificate; checks row shape, incidence "
+            "filters, selected-distance quotienting, stored self-edges, and "
+            "digest agreement only. It is not brancher coverage, a proof of "
+            "n=9, independent review completion, or an official/global status "
+            "update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_obstruction_shapes",
         command=(
             "python",

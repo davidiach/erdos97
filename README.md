@@ -272,6 +272,9 @@ The companion Kalmanson self-edge replay stores one strict Kalmanson
 self-edge certificate for each of the same 184 terminal assignments, giving a
 compact certificate-only audit path. It is also review-pending and does not
 promote `n=9`.
+Its independent stored-input replay checks the same JSON rows, incidence
+filters, quotients, self-edge records, assignment uniqueness, and digest
+without importing the Kalmanson generator module.
 The companion input-data audit checks the stored row0 witness coverage and
 summary arithmetic without rerunning the brancher. An incidence-filter audit
 checks the row-level two-overlap crossing, witness-pair cap, and
@@ -528,6 +531,8 @@ python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expecte
 python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json
+python scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --json
+python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json

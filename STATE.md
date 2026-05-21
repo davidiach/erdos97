@@ -513,6 +513,12 @@ The compact Kalmanson self-edge replay
 checks a stored certificate with one strict Kalmanson self-edge for each of the
 same 184 terminal assignments. It is a certificate replay and audit aid only,
 not an independent completion of brancher review or a promotion of `n=9`.
+The independent stored-input replay
+`scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --json`
+checks the same JSON without importing the Kalmanson generator module: row
+shape, incidence filters, selected-distance quotients, stored self-edges, and
+the digest. It is still stored-certificate auditing only, not brancher
+coverage or a promotion of `n=9`.
 A fixed-center-order replay,
 `scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`,
 checks agreement with the dynamic minimum-remaining-options brancher on the

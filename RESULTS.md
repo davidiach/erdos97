@@ -785,6 +785,13 @@ has a single strict Kalmanson inequality whose two sides become the same
 quotient multiset after selected-distance quotienting. This is a
 review-pending audit aid only; it does not independently complete review of the
 brancher or promote `n=9`.
+The independent replay
+`scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --json`
+treats that stored certificate as input data and rechecks row shape, row-pair
+crossing, witness-pair capacity, selected-distance quotienting, the stored
+self-edge records, assignment uniqueness, and digest agreement without
+importing the Kalmanson generator module. It is still stored-certificate
+bookkeeping only, not brancher coverage or a proof of `n=9`.
 A fixed-center-order replay command,
 `scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`,
 also closes the vertex-circle-pruned search and reaches the same

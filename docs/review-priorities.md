@@ -201,6 +201,20 @@ replay only; it does not independently audit brancher coverage, the
 pair/crossing filters, the Kalmanson geometric convention, `n=9`, or complete
 review.
 
+Independent Kalmanson self-edge input replay:
+
+```bash
+python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --json
+```
+
+This command intentionally avoids importing the Kalmanson self-edge generator
+module. It treats `data/certificates/n9_kalmanson_selfedge.json` as input and
+rechecks row shape, row-pair crossing, witness-pair capacity,
+selected-distance quotienting, stored strict Kalmanson self-edges, assignment
+uniqueness, and the certificate digest. It is still a stored-certificate audit:
+it does not regenerate the 184 frontier, audit brancher coverage, prove `n=9`,
+or complete independent review.
+
 Current dihedral-orbit audit:
 
 ```bash

@@ -45,6 +45,7 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --json
+	$(PYTHON) scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json
