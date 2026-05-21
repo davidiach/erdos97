@@ -959,6 +959,18 @@ complete n=10 search, not a proof of `n=10`, and not a counterexample. See
 `docs/n10-turn-row0-pilot.md` and
 `docs/n10-turn-row0-escape-self-edges.md`.
 
+The generator-independent `n=10` mixed rich-support capacity diagnostic in
+`data/certificates/n10_mixed_rich_support_capacity.json` applies only
+support-level necessary filters: row-pair cap, two-overlap crossing, and
+witness-pair capacity. It checks all dihedral center-set representatives with
+`q=3,...,7` size-five supports and finds no complete assignments; a direct
+`q=2` witness shows this is sharp for those filters alone. Thus this
+abstraction leaves at most two size-five supports, or at least eight
+exact-four-only centers, in any surviving `n=10` support assignment. This is
+finite support bookkeeping only, not a proof of `n=10`, not a proof of Erdos
+Problem #97, and not a counterexample. See
+`docs/n10-mixed-rich-support-capacity.md`.
+
 The row-circle Ptolemy diagnostic in
 `docs/row-circle-ptolemy-nlp.md` adds the Ptolemy equality forced by each
 selected witness quadruple being concyclic around its center. It numerically

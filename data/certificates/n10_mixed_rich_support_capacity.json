@@ -1,0 +1,257 @@
+{
+  "claim_scope": "Generator-independent n=10 four/five support-capacity diagnostic. It checks all dihedral center-set representatives with q=3..7 size-five supports and finds no full assignments under the row-pair cap, two-overlap crossing rule, and witness-pair capacity. A direct q=2 witness shows the bound is sharp for these filters. This does not prove n=10, does not prove Erdos Problem #97, and is not a counterexample.",
+  "filters": [
+    {
+      "meaning": "Two distinct distance circles can share at most two witness vertices.",
+      "name": "row_pair_cap"
+    },
+    {
+      "meaning": "When two centers share exactly two witnesses in their rich classes, the center chord and shared-witness chord must cross in the cyclic order.",
+      "name": "two_overlap_crossing"
+    },
+    {
+      "meaning": "Any unordered witness pair can occur together in rich classes at at most two centers, since all such centers lie on one perpendicular-bisector line.",
+      "name": "witness_pair_capacity"
+    }
+  ],
+  "interpretation_warnings": [
+    "This is a necessary support-catalogue diagnostic only.",
+    "It does not replay vertex-circle, Kalmanson, or Euclidean realizability filters.",
+    "It leaves the q=0, q=1, and q=2 four/five support cases open to stronger filters.",
+    "No n=10 theorem, general proof, or counterexample is claimed."
+  ],
+  "provenance": {
+    "command": "python scripts/check_n10_mixed_rich_support_capacity.py --write --assert-expected",
+    "generator": "scripts/check_n10_mixed_rich_support_capacity.py",
+    "sources": [
+      "docs/claims.md#n9-mixed-rich-support-reduction",
+      "docs/review-priorities.md#priority-6b---audit-the-n10-singleton-slice-draft",
+      "docs/codex-backlog.md#recommended-next-technical-prs"
+    ]
+  },
+  "q2_witness": {
+    "0": [
+      1,
+      2,
+      3,
+      7,
+      9
+    ],
+    "1": [
+      0,
+      2,
+      4,
+      6,
+      8
+    ],
+    "2": [
+      1,
+      3,
+      5,
+      8
+    ],
+    "3": [
+      2,
+      4,
+      5,
+      9
+    ],
+    "4": [
+      0,
+      3,
+      5,
+      7
+    ],
+    "5": [
+      1,
+      4,
+      6,
+      7
+    ],
+    "6": [
+      2,
+      5,
+      7,
+      8
+    ],
+    "7": [
+      3,
+      6,
+      8,
+      9
+    ],
+    "8": [
+      0,
+      4,
+      7,
+      9
+    ],
+    "9": [
+      0,
+      1,
+      5,
+      6
+    ]
+  },
+  "schema": "erdos97.n10_mixed_rich_support_capacity.v1",
+  "status": "N10_MIXED_RICH_SUPPORT_CAPACITY_ONLY",
+  "summary": {
+    "debug_max_nodes": null,
+    "max_size_five_centers_surviving_filters": 2,
+    "min_exact_four_only_centers_in_any_counterexample_candidate": 8,
+    "n": 10,
+    "order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "pair_budget_max_size_five_centers": 7,
+    "q2_witness_support_size_counts": {
+      "4": 8,
+      "5": 2
+    },
+    "q2_witness_valid": true,
+    "q_summaries": {
+      "3": {
+        "aborted_count": 0,
+        "complete_assignments_found": 0,
+        "max_depth_reached": 8,
+        "raw_center_subset_count": 120,
+        "representatives_checked": 8,
+        "total_dead_end_count": 96385,
+        "total_nodes_visited": 133778,
+        "worst_representative": {
+          "aborted": false,
+          "dead_end_count": 25570,
+          "found": false,
+          "max_depth": 8,
+          "nodes_visited": 34613,
+          "size_five_centers": [
+            0,
+            3,
+            6
+          ]
+        }
+      },
+      "4": {
+        "aborted_count": 0,
+        "complete_assignments_found": 0,
+        "max_depth_reached": 5,
+        "raw_center_subset_count": 210,
+        "representatives_checked": 16,
+        "total_dead_end_count": 57651,
+        "total_nodes_visited": 68540,
+        "worst_representative": {
+          "aborted": false,
+          "dead_end_count": 8189,
+          "found": false,
+          "max_depth": 5,
+          "nodes_visited": 10447,
+          "size_five_centers": [
+            0,
+            2,
+            5,
+            7
+          ]
+        }
+      },
+      "5": {
+        "aborted_count": 0,
+        "complete_assignments_found": 0,
+        "max_depth_reached": 4,
+        "raw_center_subset_count": 252,
+        "representatives_checked": 16,
+        "total_dead_end_count": 33423,
+        "total_nodes_visited": 36894,
+        "worst_representative": {
+          "aborted": false,
+          "dead_end_count": 4387,
+          "found": false,
+          "max_depth": 4,
+          "nodes_visited": 5214,
+          "size_five_centers": [
+            0,
+            2,
+            4,
+            6,
+            8
+          ]
+        }
+      },
+      "6": {
+        "aborted_count": 0,
+        "complete_assignments_found": 0,
+        "max_depth_reached": 2,
+        "raw_center_subset_count": 210,
+        "representatives_checked": 16,
+        "total_dead_end_count": 27182,
+        "total_nodes_visited": 29396,
+        "worst_representative": {
+          "aborted": false,
+          "dead_end_count": 2060,
+          "found": false,
+          "max_depth": 2,
+          "nodes_visited": 2264,
+          "size_five_centers": [
+            0,
+            1,
+            3,
+            4,
+            6,
+            7
+          ]
+        }
+      },
+      "7": {
+        "aborted_count": 0,
+        "complete_assignments_found": 0,
+        "max_depth_reached": 1,
+        "raw_center_subset_count": 120,
+        "representatives_checked": 8,
+        "total_dead_end_count": 12784,
+        "total_nodes_visited": 13792,
+        "worst_representative": {
+          "aborted": false,
+          "dead_end_count": 1734,
+          "found": false,
+          "max_depth": 1,
+          "nodes_visited": 1860,
+          "size_five_centers": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      }
+    },
+    "searched_max_size_five_centers": 7,
+    "searched_min_size_five_centers": 3,
+    "searched_size_five_center_counts": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "support_sizes": [
+      4,
+      5
+    ]
+  },
+  "support_rule": {
+    "dihedral_reduction": "The natural cyclic order fixes labels 0..9. The set of centers represented by size-five supports is reduced by cyclic rotations and reflection; the support choices themselves are still labelled and searched for each representative.",
+    "rule": "A center with a rich class of size at least five is represented by an arbitrary five-witness sub-support; every other bad center is represented by an exact four-witness support."
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

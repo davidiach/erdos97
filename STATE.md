@@ -630,6 +630,15 @@ not a proof of `n=10`, not a complete `n=10` search, and not a counterexample.
 See `docs/n10-turn-row0-pilot.md` and
 `docs/n10-turn-row0-escape-self-edges.md`.
 
+The `n=10` mixed rich-support capacity diagnostic is now recorded as
+review-pending finite support bookkeeping. Under only row-pair cap,
+two-overlap crossing, and witness-pair capacity filters, all support
+assignments with `q=3,...,7` size-five supports are obstructed; a direct `q=2`
+witness remains, so the bound is sharp for these filters. This says only that
+surviving four/five support assignments have at most two size-five supports.
+It does not prove `n=10`, does not close `q=0,1,2`, and does not change the
+global status. See `docs/n10-mixed-rich-support-capacity.md`.
+
 ## Best saved near-miss
 
 The best saved near-miss is still the historical `B12_3x4_danzer_lift`

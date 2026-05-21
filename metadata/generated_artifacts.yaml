@@ -3859,6 +3859,60 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: n10_mixed_rich_support_capacity
+    path: data/certificates/n10_mixed_rich_support_capacity.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_n10_mixed_rich_support_capacity.py
+    command: python scripts/check_n10_mixed_rich_support_capacity.py --write --assert-expected
+    checker: scripts/check_n10_mixed_rich_support_capacity.py
+    check_command: python scripts/check_n10_mixed_rich_support_capacity.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Generator-independent n=10 four/five support-capacity diagnostic under row-pair cap, two-overlap crossing, and witness-pair capacity filters; finite support reduction only, not a proof of n=10, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n10_mixed_rich_support_capacity.v1
+      status: N10_MIXED_RICH_SUPPORT_CAPACITY_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.n: 10
+      summary.support_sizes:
+        - 4
+        - 5
+      summary.searched_min_size_five_centers: 3
+      summary.searched_max_size_five_centers: 7
+      summary.pair_budget_max_size_five_centers: 7
+      summary.q2_witness_valid: true
+      summary.q2_witness_support_size_counts.4: 8
+      summary.q2_witness_support_size_counts.5: 2
+      summary.max_size_five_centers_surviving_filters: 2
+      summary.min_exact_four_only_centers_in_any_counterexample_candidate: 8
+      summary.debug_max_nodes:
+      summary.q_summaries.3.representatives_checked: 8
+      summary.q_summaries.3.complete_assignments_found: 0
+      summary.q_summaries.3.total_nodes_visited: 133778
+      summary.q_summaries.4.representatives_checked: 16
+      summary.q_summaries.4.complete_assignments_found: 0
+      summary.q_summaries.4.total_nodes_visited: 68540
+      summary.q_summaries.5.representatives_checked: 16
+      summary.q_summaries.5.complete_assignments_found: 0
+      summary.q_summaries.5.total_nodes_visited: 36894
+      summary.q_summaries.6.representatives_checked: 16
+      summary.q_summaries.6.complete_assignments_found: 0
+      summary.q_summaries.6.total_nodes_visited: 29396
+      summary.q_summaries.7.representatives_checked: 8
+      summary.q_summaries.7.complete_assignments_found: 0
+      summary.q_summaries.7.total_nodes_visited: 13792
+      provenance.command: python scripts/check_n10_mixed_rich_support_capacity.py --write --assert-expected
+    forbidden_claims:
+      - n=10 is proved
+      - the q=0, q=1, or q=2 cases are closed
+      - support-capacity filters prove Euclidean realizability or nonrealizability
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
   - id: n10_vertex_circle_singleton_slices
     path: data/certificates/n10_vertex_circle_singleton_slices.json
     kind: finite_case_draft_artifact

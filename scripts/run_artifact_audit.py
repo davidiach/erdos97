@@ -2279,6 +2279,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n10_mixed_rich_support_capacity",
+        command=(
+            "python",
+            "scripts/check_n10_mixed_rich_support_capacity.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Generator-independent n=10 four/five support-capacity "
+            "diagnostic under row-pair cap, two-overlap crossing, and "
+            "witness-pair capacity filters; finite support reduction only, "
+            "not a proof of n=10, not a proof of Erdos Problem #97, and "
+            "not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="n10_turn_row0_pilot",
         command=(
             "python",
