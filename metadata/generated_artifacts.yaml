@@ -5545,6 +5545,68 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_singleton_two_row_drop
+    path: data/certificates/bootstrap_t12_151_singleton_two_row_drop.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_singleton_two_row_drop.py
+    command: python scripts/check_bootstrap_t12_151_singleton_two_row_drop.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_singleton_two_row_drop.py
+    check_command: python scripts/check_bootstrap_t12_151_singleton_two_row_drop.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 singleton-support two-row-drop stress test for rows 5 and 8; only original source-151 rows survive when exactly two non-target selected rows move under basic incidence/crossing filters, but this is not singleton-support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_singleton_two_row_drop.v1
+      status: BOOTSTRAP_T12_151_SINGLETON_TWO_ROW_DROP_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.source_record_ids:
+        - 151
+      summary.cyclic_order:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+      summary.target_row_keys:
+        - "151:5"
+        - "151:8"
+      summary.target_centers:
+        - 5
+        - 8
+      summary.target_count: 2
+      summary.target_center_candidate_count_by_key.151:5: 9
+      summary.target_center_candidate_count_by_key.151:8: 9
+      summary.two_row_drop_candidate_count: 2469600
+      summary.two_row_drop_surviving_candidate_count: 56
+      summary.two_row_drop_non_original_survivor_count: 0
+      summary.two_row_drop_survivors_all_original_rows: true
+      summary.scan_status: ONLY_ORIGINAL_SOURCE151_ROWS_SURVIVE_TWO_ROW_DROP_SUPPORT_AUDIT
+      source_singleton_support_packet.schema: erdos97.bootstrap_t12_151_singleton_support_audit.v1
+      source_singleton_support_packet.status: BOOTSTRAP_T12_151_SINGLETON_SUPPORT_AUDIT_DIAGNOSTIC_ONLY
+      provenance.generator: scripts/check_bootstrap_t12_151_singleton_two_row_drop.py
+      provenance.command: python scripts/check_bootstrap_t12_151_singleton_two_row_drop.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - singleton support proves row-center forcing
+      - source 151 singleton rows are forced
+      - source 151 singleton support exists
+      - the source 151 singleton two-row-drop audit proves the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_row_pressure
     path: data/certificates/bootstrap_t12_row_pressure.json
     kind: proof_mining_diagnostic_artifact

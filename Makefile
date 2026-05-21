@@ -144,6 +144,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_bootstrap_t12_81_8_singleton_support_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_outside_pair_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_support_audit.py --check --assert-expected --json
+	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_two_row_drop.py --check --assert-expected --json
 	$(PYTHON) scripts/check_closure_activation_wrong_fourth_negative_control.py --check --assert-expected --json
 	$(PYTHON) scripts/check_closure_activation_negative_controls.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_anti_activation_negative_control.py --check --assert-expected --json

@@ -683,6 +683,16 @@ row forcing, `n=9`, or the bootstrap bridge. See
 `scripts/check_bootstrap_t12_151_singleton_support_audit.py`, and
 `data/certificates/bootstrap_t12_151_singleton_support_audit.json`.
 
+The source-`151` singleton-support two-row-drop follow-up extends the same
+audit by allowing any unordered pair of non-target rows to move arbitrarily.
+It checks `2,469,600` candidate states across targets `151:5` and `151:8`,
+leaves `56` survivors, and all survivors are the trivial original-neighborhood
+rows. This closes only the next relaxation level for that diagnostic; it is
+not singleton-support existence, row forcing, `n=9`, or the bootstrap bridge.
+See `docs/bootstrap-t12-151-singleton-two-row-drop.md`,
+`scripts/check_bootstrap_t12_151_singleton_two_row_drop.py`, and
+`data/certificates/bootstrap_t12_151_singleton_two_row_drop.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

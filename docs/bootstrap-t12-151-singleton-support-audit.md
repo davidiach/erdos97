@@ -87,6 +87,12 @@ one-row-drop stress test. It does not prove that singleton support labels are
 forced by a genuine rich-class catalogue, does not allow two or more other rows
 to move, and does not model additional auxiliary rich supports.
 
+A follow-up two-row-drop relaxation is recorded in
+`docs/bootstrap-t12-151-singleton-two-row-drop.md`. It allows any unordered
+pair of non-target rows to move arbitrarily and finds only the same trivial
+original-neighborhood survivors. That extension is still finite
+incidence/crossing bookkeeping only, not row forcing or a bridge proof.
+
 ## What This Does Not Prove
 
 This artifact does not prove singleton support existence, row forcing, `n=9`,

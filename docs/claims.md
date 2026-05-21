@@ -947,6 +947,15 @@ original source-`151` row. This remains a finite proof-mining diagnostic only,
 not a proof of singleton support existence, row forcing, `n=9`, the bootstrap
 bridge, or Erdos Problem #97.
 
+The source-`151` two-row-drop extension in
+`docs/bootstrap-t12-151-singleton-two-row-drop.md` lets any unordered pair of
+non-target rows move arbitrarily while the target row stays in its
+bootstrap-core-plus-singleton activation family. It checks `2,469,600`
+candidates across rows `151:5` and `151:8`, leaves `56` survivors, and every
+survivor keeps the target row and both dropped rows equal to their source-`151`
+rows. This is still finite incidence/crossing bookkeeping only, not singleton
+support existence, row forcing, `n=9`, or a bridge proof.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a
