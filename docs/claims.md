@@ -335,6 +335,30 @@ The current replay kills the displayed `n=10` quotient-level survivor and one
 audit only; it is not an `n=10` exclusion and does not change the global
 problem status.
 
+### n=9 no-reciprocal regular-tournament obstruction
+
+Status: `EXACT_N9_NO_RECIPROCAL_SUBCASE_AUDIT`.
+
+For `n=9`, a selected-witness system with no reciprocal selected pair must
+select every unordered pair in exactly one direction: there are `9 * 4 = 36`
+directed selections and `binom(9,2) = 36` unordered pairs. Hence this subcase is
+exactly the labelled regular tournament subcase, with each row selecting four
+out-neighbors.
+
+The checker `scripts/check_n9_regular_tournament_kalmanson.py` enumerates all
+`3,230,080` labelled regular tournaments on cyclic labels `0,1,...,8`. For each
+tournament, it substitutes the selected row-radius variables into the strict
+Kalmanson inequalities for the fixed cyclic order and records every one-term
+cancellation as a strict implication `rho_a < rho_b`. Every enumerated
+tournament has a strongly connected implication graph, so in particular every
+one has a strict implication cycle and is impossible in a strict convex
+realization.
+
+This proves only that an `n=9` selected-witness candidate must contain at least
+one reciprocal selected pair. It is not an `n=9` proof, not a promotion of the
+review-pending exhaustive `n=9` vertex-circle checker, and not a global status
+update. See `docs/n9-regular-tournament-kalmanson-audit.md`.
+
 ### Diameter-lens local lemmas
 
 The proof note `docs/diameter-lens-local-lemmas.md` records four local facts

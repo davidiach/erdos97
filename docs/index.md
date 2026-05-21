@@ -63,6 +63,10 @@ put detailed reconciliation in the canonical synthesis.
   fixed-pattern audit extracting `K4-e` stretch relations and combining them
   with Kalmanson inequalities; kills only the displayed `n=10` quotient-level
   survivor and one diagnostic pattern, not an `n=10` exclusion.
+- [`n9-regular-tournament-kalmanson-audit.md`](n9-regular-tournament-kalmanson-audit.md):
+  exact fixed-order audit showing that every `n=9` selected-witness system with
+  no reciprocal selected pair is obstructed by strict Kalmanson implication
+  cycles; a subcase branch cut only, not an `n=9` proof.
 - [`ellipse-model-case.md`](ellipse-model-case.md): restricted exact lemma
   showing that finite point sets on a Euclidean ellipse cannot be
   counterexamples; a failed search family, not a global bridge.
