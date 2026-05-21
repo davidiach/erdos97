@@ -428,6 +428,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n10-vertex-circle-singleton-slices.md`](n10-vertex-circle-singleton-slices.md):
   review-pending `n=10` singleton-slice finite-case draft, including the
   secondary first-five replay cross-check.
+- [`n10-mixed-rich-support-capacity.md`](n10-mixed-rich-support-capacity.md):
+  generator-independent `n=10` four/five support-capacity diagnostic; finite
+  support bookkeeping only, not an `n=10` proof.
 - [`n10-turn-row0-pilot.md`](n10-turn-row0-pilot.md): bounded `n=10`
   row0-index-0 turn-frontier pilot; finite bookkeeping only, not a proof of
   `n=10`.

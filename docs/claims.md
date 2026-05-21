@@ -624,6 +624,25 @@ and `26` strict cycles. This remains support-to-frontier bookkeeping only; it
 does not prove the exact-four checker, `n=9`, Erdos Problem #97, or a
 counterexample. See `docs/n9-mixed-rich-frontier-crosswalk.md`.
 
+### n=10 mixed rich-support capacity diagnostic
+
+Status: `REVIEW_PENDING_DIAGNOSTIC` / generator-independent finite support
+catalogue.
+
+For a cyclically labelled decagon, the checker in
+`scripts/check_n10_mixed_rich_support_capacity.py` applies only three
+necessary support filters: the row-pair cap, the two-overlap crossing rule,
+and witness-pair capacity. It searches all dihedral center-set representatives
+with `q=3,...,7` size-five supports and finds `0` complete assignments. A
+direct stored `q=2` witness survives the same filters, so this is sharp for
+that abstraction.
+
+Repo-locally, any `n=10` four/five support assignment surviving those filters
+has at most `2` size-five supports, hence at least `8` exact-four-only
+centers. This does not close the `q=0`, `q=1`, or `q=2` cases, does not prove
+`n=10`, does not prove Erdos Problem #97, and does not provide a
+counterexample. See `docs/n10-mixed-rich-support-capacity.md`.
+
 ### n=9 Kalmanson self-edge replay
 
 Status: `MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING`.
