@@ -528,6 +528,16 @@ checks the same JSON without importing the Kalmanson generator module: row
 shape, incidence filters, selected-distance quotients, stored self-edges, and
 the digest. It is still stored-certificate auditing only, not brancher
 coverage or a promotion of `n=9`.
+The fixed-order Kalmanson branch cuts now cover both no-reciprocal and
+exactly-one-reciprocal selected-pair regimes. The no-reciprocal regular
+tournament audit forces at least one reciprocal selected pair; the
+one-reciprocal audit checks `76` dihedral reciprocal/absent status
+representatives covering `1,260` labelled statuses and finds no
+Kalmanson-acyclic orientation. Together they imply only that an `n=9`
+candidate must have at least two reciprocal selected pairs, not an `n=9`
+proof or source-of-truth promotion. See
+`docs/n9-regular-tournament-kalmanson-audit.md` and
+`docs/n9-one-reciprocal-kalmanson-audit.md`.
 A fixed-center-order replay,
 `scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`,
 checks agreement with the dynamic minimum-remaining-options brancher on the
