@@ -1301,6 +1301,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_base_apex_d3_p19_degree_obstruction",
+        command=(
+            "python",
+            "scripts/check_n9_base_apex_d3_p19_degree_obstruction.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Exact finite profile-capacity obstruction for the P19 rows "
+            "R000..R007 of the n=9 base-apex D=3 incidence-capacity packet; "
+            "not a proof of n=9, not a counterexample, not an "
+            "incidence-completeness result, not a geometric realizability "
+            "test, and not a global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_base_apex_d3_artifact_join",
         command=(
             "python",

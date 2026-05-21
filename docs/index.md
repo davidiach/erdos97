@@ -507,6 +507,9 @@ put detailed reconciliation in the canonical synthesis.
   scaffold only, not counterexample evidence.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
+- [`n9-base-apex-d3-p19-degree-obstruction.md`](n9-base-apex-d3-p19-degree-obstruction.md):
+  incident-degree obstruction closing only the P19 rows of the D=3
+  profile-capacity packet.
 - [`repo-roadmap.md`](repo-roadmap.md): staged repository plan.
 - [`initial-issues.md`](initial-issues.md): seed issue list.
 - [`../AGENTS.md`](../AGENTS.md): repository-level Codex guidance.
