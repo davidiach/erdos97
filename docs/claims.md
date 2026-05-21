@@ -951,6 +951,15 @@ to their original source-`81` choices. This remains a finite proof-mining
 diagnostic only, not a proof of singleton support existence, row forcing,
 `n=9`, the bootstrap bridge, or Erdos Problem #97.
 
+The source-`81` row-`8` full-neighborhood vertex-circle packet in
+`docs/bootstrap-t12-81-8-full-neighborhood-vertex-circle.md` fixes row `8` to
+the same nine activation rows but lets every other center choose any selected
+4-set. Basic filters leave `34` complete assignments, including `27` with a
+non-original row `8`; vertex-circle quotient replay kills all `34` by
+self-edge or strict-cycle obstructions. This remains a finite proof-mining
+diagnostic only, not a proof of singleton support existence, row forcing,
+`n=9`, the bootstrap bridge, or Erdos Problem #97.
+
 The source-`151` row-`6` outside-pair audit in
 `docs/bootstrap-t12-151-6-outside-pair-audit.md` checks the remaining
 relation-sufficient row target. It enumerates the thirteen center-`6` rows

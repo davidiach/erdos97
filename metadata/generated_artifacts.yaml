@@ -5512,6 +5512,88 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_81_8_full_neighborhood_vertex_circle
+    path: data/certificates/bootstrap_t12_81_8_full_neighborhood_vertex_circle.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_81_8_full_neighborhood_vertex_circle.py
+    command: python scripts/check_bootstrap_t12_81_8_full_neighborhood_vertex_circle.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_81_8_full_neighborhood_vertex_circle.py
+    check_command: python scripts/check_bootstrap_t12_81_8_full_neighborhood_vertex_circle.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-81 row-8 full-neighborhood vertex-circle diagnostic; basic filters leave 34 complete assignments, including 27 with non-original row 8, but vertex-circle quotient replay kills all 34. This is not singleton-support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_81_8_full_neighborhood_vertex_circle.v1
+      status: BOOTSTRAP_T12_81_8_FULL_NEIGHBORHOOD_VERTEX_CIRCLE_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "81:8"
+      summary.source_record_ids:
+        - 81
+      summary.cyclic_order:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+      summary.target_center: 8
+      summary.bootstrap_core_witnesses:
+        - 0
+        - 2
+      summary.singleton_support_labels:
+        - 5
+        - 6
+      summary.original_target_center_class:
+        - 0
+        - 2
+        - 5
+        - 6
+      summary.target_center_candidate_count: 9
+      summary.free_row_centers:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+      summary.free_row_replacement_count_per_center: 70
+      summary.implicit_assignment_space_size: 5188320900000000
+      summary.search_node_count: 16010
+      summary.empty_domain_count: 8436
+      summary.basic_filter_complete_assignment_count: 34
+      summary.basic_filter_non_original_row8_assignment_count: 27
+      summary.vertex_circle_status_counts.self_edge: 27
+      summary.vertex_circle_status_counts.strict_cycle: 7
+      summary.vertex_circle_surviving_assignment_count: 0
+      summary.non_original_vertex_circle_surviving_assignment_count: 0
+      summary.scan_status: FULL_NEIGHBORHOOD_BASIC_SURVIVORS_ALL_VERTEX_CIRCLE_OBSTRUCTED
+      source_singleton_support_audit.schema: erdos97.bootstrap_t12_81_8_singleton_support_audit.v1
+      source_singleton_support_audit.scan_status: ONLY_ORIGINAL_ROW8_SURVIVES_FIXED_AND_ONE_ROW_DROP_SUPPORT_AUDITS
+      provenance.generator: scripts/check_bootstrap_t12_81_8_full_neighborhood_vertex_circle.py
+      provenance.command: python scripts/check_bootstrap_t12_81_8_full_neighborhood_vertex_circle.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - singleton support proves row-center forcing
+      - the 81:8 row is forced
+      - the 81:8 singleton support exists
+      - the 81:8 full-neighborhood audit proves the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_6_outside_pair_audit
     path: data/certificates/bootstrap_t12_151_6_outside_pair_audit.json
     kind: proof_mining_diagnostic_artifact

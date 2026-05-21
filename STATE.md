@@ -430,6 +430,14 @@ incidence/crossing bookkeeping only, not singleton-support existence, row
 forcing, `n=9`, or the bridge. See
 `docs/bootstrap-t12-81-8-singleton-support-two-row-drop.md`.
 
+The source-`81` row-`8` full-neighborhood vertex-circle packet gives the
+matching negative control: when all other centers may use arbitrary selected
+4-sets, basic filters leave `34` complete assignments, including `27` with
+non-original row `8`; vertex-circle quotient replay kills all `34`. This
+remains finite bookkeeping only, not singleton-support existence, row forcing,
+`n=9`, or the bridge. See
+`docs/bootstrap-t12-81-8-full-neighborhood-vertex-circle.md`.
+
 A source-`151` row-`6` outside-pair audit now probes the remaining
 relation-sufficient row target. It enumerates the thirteen center-`6` rows
 containing bootstrap-core witness `[0]` and one outside support pair from
