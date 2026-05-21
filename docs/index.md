@@ -59,6 +59,9 @@ put detailed reconciliation in the canonical synthesis.
   diameter-pair lemmas, the seven-point lens-cap negative control, and the
   selected/full-rich-class branching caution; review-pending local geometry
   only.
+- [`rich-support-counting-lemma.md`](rich-support-counting-lemma.md):
+  proof-facing support pair-counting lemma for all-centers large rich classes;
+  not an `n=9`, `n=10`, or global proof.
 - [`k4e-kalmanson-stretch-audit.md`](k4e-kalmanson-stretch-audit.md): exact
   fixed-pattern audit extracting `K4-e` stretch relations and combining them
   with Kalmanson inequalities; kills only the displayed `n=10` quotient-level

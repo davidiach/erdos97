@@ -17,7 +17,7 @@ theorem-style claims.
 
 ### Lemma: pairwise circle-intersection cap
 
-Status: proved.
+Status: `LEMMA`.
 
 In any true counterexample, for distinct centers `a,b`,
 `|S_a cap S_b| <= 2`. Otherwise two distinct circles would share at least
@@ -30,6 +30,27 @@ Status: proved.
 The directed 4-out incidence pattern and the pairwise cap imply no
 counterexample can have `n <= 6`; the convexity-of-indegree count gives
 `n >= 7`.
+
+### Lemma: rich-support counting wall
+
+Status: proved.
+
+For any choice of one same-radius support `R_i` at each center, not necessarily
+of size four,
+
+```text
+sum_i binom(|R_i|, 2) <= n(n - 1).
+```
+
+Indeed, a fixed unordered witness pair `{a,b}` can occur in at most two
+supports, because all centers using both witnesses lie on the perpendicular
+bisector of `ab`, and a line contains at most two vertices of a strictly convex
+polygon.
+
+Consequently, if every center has a rich class of size at least `k`, then
+`n >= binom(k, 2) + 1`. In particular, the all-centers size-five subcase is
+impossible for `n <= 10`; any hypothetical 4-bad nonagon has at least five
+exact-four centers. See `docs/rich-support-counting-lemma.md`.
 
 ### Lemma: crossing-bisector and sharpened count
 
