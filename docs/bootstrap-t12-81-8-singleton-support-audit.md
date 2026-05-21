@@ -103,13 +103,23 @@ The checked scan status is:
 ONLY_ORIGINAL_ROW8_SURVIVES_FIXED_AND_ONE_ROW_DROP_SUPPORT_AUDITS
 ```
 
+## Two-Row-Drop Follow-Up
+
+A follow-up relaxation is recorded in
+`docs/bootstrap-t12-81-8-singleton-support-two-row-drop.md`. It lets any two
+non-target source-`81` rows move arbitrarily while row `8` ranges over the same
+nine singleton-support activation rows. The checked scan covers `1,234,800`
+two-row-drop candidates and leaves only the `28` trivial original-neighborhood
+survivors, one for each dropped pair.
+
 ## Remaining Gap
 
 This closes a narrow local escape route for the `81:8` bridge target under a
-fixed source-`81` neighborhood and a one-row-drop stress test. It does not
-prove that singleton support labels are forced by a genuine rich-class
-catalogue, does not allow two or more other rows to move, and does not model
-additional auxiliary rich supports.
+fixed source-`81` neighborhood and a one-row-drop stress test. The two-row-drop
+follow-up closes the next stress-test layer. These diagnostics do not prove
+that singleton support labels are forced by a genuine rich-class catalogue, do
+not allow three or more other rows to move, and do not model additional
+auxiliary rich supports.
 
 ## What This Does Not Prove
 

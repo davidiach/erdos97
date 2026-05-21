@@ -422,6 +422,14 @@ incidence/crossing bookkeeping only, not singleton-support existence, row
 forcing, `n=9`, or the bridge. See
 `docs/bootstrap-t12-81-8-singleton-support-audit.md`.
 
+The source-`81` row-`8` two-row-drop follow-up lets any two non-target
+source-`81` rows move. It checks `1,234,800` candidates and leaves `28`
+survivors, all trivial original-neighborhood survivors with row `8` still
+`[0,2,5,6]` and both dropped rows still original. This remains basic
+incidence/crossing bookkeeping only, not singleton-support existence, row
+forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-81-8-singleton-support-two-row-drop.md`.
+
 A source-`151` row-`6` outside-pair audit now probes the remaining
 relation-sufficient row target. It enumerates the thirteen center-`6` rows
 containing bootstrap-core witness `[0]` and one outside support pair from

@@ -655,6 +655,17 @@ existence, row forcing, `n=9`, or the bootstrap bridge. See
 `scripts/check_bootstrap_t12_81_8_singleton_support_audit.py`, and
 `data/certificates/bootstrap_t12_81_8_singleton_support_audit.json`.
 
+The source-`81` row-`8` singleton-support two-row-drop follow-up lets any two
+non-target source-`81` rows move while row `8` ranges over the same nine
+activation rows. It checks `1,234,800` candidates and leaves `28` survivors,
+all of them trivial original-neighborhood survivors: row `8` is still
+`[0,2,5,6]`, and both dropped rows are still their original source-`81` rows.
+This is still a finite diagnostic only, not a proof of singleton support
+existence, row forcing, `n=9`, or the bootstrap bridge. See
+`docs/bootstrap-t12-81-8-singleton-support-two-row-drop.md`,
+`scripts/check_bootstrap_t12_81_8_singleton_support_two_row_drop.py`, and
+`data/certificates/bootstrap_t12_81_8_singleton_support_two_row_drop.json`.
+
 The source-`151` row-`6` outside-pair audit probes the remaining
 relation-sufficient row target. Center `6` has bootstrap-core witness `[0]`
 and outside support pairs `[3,5]`, `[3,8]`, and `[5,8]`; the audit enumerates

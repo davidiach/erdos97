@@ -1,0 +1,2025 @@
+{
+  "candidate_generation": {
+    "candidate_rule": "4-sets at center 8 containing bootstrap-core witnesses [0,2] and at least one singleton support label from [5,6].",
+    "dropped_row_choice_count_per_center": {
+      "0": 70,
+      "1": 70,
+      "2": 70,
+      "3": 70,
+      "4": 70,
+      "5": 70,
+      "6": 70,
+      "7": 70
+    },
+    "target_center_candidate_classes": [
+      [
+        0,
+        1,
+        2,
+        5
+      ],
+      [
+        0,
+        1,
+        2,
+        6
+      ],
+      [
+        0,
+        2,
+        3,
+        5
+      ],
+      [
+        0,
+        2,
+        3,
+        6
+      ],
+      [
+        0,
+        2,
+        4,
+        5
+      ],
+      [
+        0,
+        2,
+        4,
+        6
+      ],
+      [
+        0,
+        2,
+        5,
+        6
+      ],
+      [
+        0,
+        2,
+        5,
+        7
+      ],
+      [
+        0,
+        2,
+        6,
+        7
+      ]
+    ]
+  },
+  "claim_scope": "Two-row-drop relaxation of the source-81 row-8 singleton-support audit. For each pair of the eight source-81 rows outside center 8, it allows both rows to be replaced by arbitrary 4-sets while row 8 uses one of the nine singleton-support activation rows. The only 28 survivors are the trivial original-neighborhood survivors: row 8 is the original [0,2,5,6] row and both dropped rows are also original. This does not prove singleton support existence, row forcing, n=9, the bootstrap bridge, or Erdos Problem #97, and is not a counterexample.",
+  "interpretation_warnings": [
+    "This scan drops exactly two of the eight source-81 rows outside center 8.",
+    "Center 8 is still restricted to the nine singleton-support activation rows.",
+    "The scan uses incidence and crossing filters only, not Euclidean realizability.",
+    "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
+  ],
+  "per_dropped_pair": [
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        0,
+        1
+      ],
+      "rejection_category_counts": {
+        "crossing": 23,
+        "row_pair+crossing": 48,
+        "row_pair+witness_pair": 132,
+        "row_pair+witness_pair+crossing": 43641,
+        "survive": 1,
+        "witness_pair+crossing": 255
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        0,
+        2
+      ],
+      "rejection_category_counts": {
+        "crossing": 46,
+        "row_pair+crossing": 47,
+        "row_pair+witness_pair": 45,
+        "row_pair+witness_pair+crossing": 43523,
+        "survive": 1,
+        "witness_pair+crossing": 438
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        0,
+        3
+      ],
+      "rejection_category_counts": {
+        "crossing": 91,
+        "row_pair+crossing": 14,
+        "row_pair+witness_pair": 22,
+        "row_pair+witness_pair+crossing": 43407,
+        "survive": 1,
+        "witness_pair+crossing": 565
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        0,
+        4
+      ],
+      "rejection_category_counts": {
+        "crossing": 124,
+        "row_pair+crossing": 43,
+        "row_pair+witness_pair": 59,
+        "row_pair+witness_pair+crossing": 42945,
+        "survive": 1,
+        "witness_pair+crossing": 928
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        0,
+        5
+      ],
+      "rejection_category_counts": {
+        "crossing": 49,
+        "row_pair+crossing": 16,
+        "row_pair+witness_pair": 32,
+        "row_pair+witness_pair+crossing": 43208,
+        "survive": 1,
+        "witness_pair+crossing": 794
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        0,
+        6
+      ],
+      "rejection_category_counts": {
+        "crossing": 37,
+        "row_pair+crossing": 38,
+        "row_pair+witness_pair": 46,
+        "row_pair+witness_pair+crossing": 43649,
+        "survive": 1,
+        "witness_pair+crossing": 329
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        0,
+        7
+      ],
+      "rejection_category_counts": {
+        "crossing": 21,
+        "row_pair+crossing": 35,
+        "row_pair+witness_pair": 45,
+        "row_pair+witness_pair+crossing": 43663,
+        "survive": 1,
+        "witness_pair+crossing": 335
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        1,
+        2
+      ],
+      "rejection_category_counts": {
+        "crossing": 36,
+        "row_pair+crossing": 60,
+        "row_pair+witness_pair": 50,
+        "row_pair+witness_pair+crossing": 43507,
+        "survive": 1,
+        "witness_pair+crossing": 446
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        1,
+        3
+      ],
+      "rejection_category_counts": {
+        "crossing": 96,
+        "row_pair+crossing": 73,
+        "row_pair+witness_pair": 85,
+        "row_pair+witness_pair+crossing": 43377,
+        "survive": 1,
+        "witness_pair+crossing": 468
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        1,
+        4
+      ],
+      "rejection_category_counts": {
+        "crossing": 76,
+        "row_pair+crossing": 17,
+        "row_pair+witness_pair": 43,
+        "row_pair+witness_pair+crossing": 43447,
+        "survive": 1,
+        "witness_pair+crossing": 516
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        1,
+        5
+      ],
+      "rejection_category_counts": {
+        "crossing": 68,
+        "row_pair+crossing": 29,
+        "row_pair+witness_pair": 60,
+        "row_pair+witness_pair+crossing": 43106,
+        "survive": 1,
+        "witness_pair+crossing": 836
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        1,
+        6
+      ],
+      "rejection_category_counts": {
+        "crossing": 81,
+        "row_pair+crossing": 67,
+        "row_pair+witness_pair": 91,
+        "row_pair+witness_pair+crossing": 43433,
+        "survive": 1,
+        "witness_pair+crossing": 427
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        1,
+        7
+      ],
+      "rejection_category_counts": {
+        "crossing": 45,
+        "row_pair+crossing": 30,
+        "row_pair+witness_pair": 35,
+        "row_pair+witness_pair+crossing": 43673,
+        "survive": 1,
+        "witness_pair+crossing": 316
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        2,
+        3
+      ],
+      "rejection_category_counts": {
+        "crossing": 110,
+        "row_pair+crossing": 24,
+        "row_pair+witness_pair": 30,
+        "row_pair+witness_pair+crossing": 43190,
+        "survive": 1,
+        "witness_pair+crossing": 745
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        2,
+        4
+      ],
+      "rejection_category_counts": {
+        "crossing": 55,
+        "row_pair+crossing": 52,
+        "row_pair+witness_pair": 45,
+        "row_pair+witness_pair+crossing": 43219,
+        "survive": 1,
+        "witness_pair+crossing": 728
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        2,
+        5
+      ],
+      "rejection_category_counts": {
+        "crossing": 63,
+        "row_pair+witness_pair": 22,
+        "row_pair+witness_pair+crossing": 43378,
+        "survive": 1,
+        "witness_pair+crossing": 636
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        2,
+        6
+      ],
+      "rejection_category_counts": {
+        "crossing": 95,
+        "row_pair+crossing": 40,
+        "row_pair+witness_pair": 32,
+        "row_pair+witness_pair+crossing": 43264,
+        "survive": 1,
+        "witness_pair+crossing": 668
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        2,
+        7
+      ],
+      "rejection_category_counts": {
+        "crossing": 93,
+        "row_pair+crossing": 18,
+        "row_pair+witness_pair": 32,
+        "row_pair+witness_pair+crossing": 43098,
+        "survive": 1,
+        "witness_pair+crossing": 858
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        3,
+        4
+      ],
+      "rejection_category_counts": {
+        "crossing": 129,
+        "row_pair+crossing": 64,
+        "row_pair+witness_pair": 30,
+        "row_pair+witness_pair+crossing": 43125,
+        "survive": 1,
+        "witness_pair+crossing": 751
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        3,
+        5
+      ],
+      "rejection_category_counts": {
+        "crossing": 47,
+        "row_pair+crossing": 30,
+        "row_pair+witness_pair": 45,
+        "row_pair+witness_pair+crossing": 43263,
+        "survive": 1,
+        "witness_pair+crossing": 714
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        3,
+        6
+      ],
+      "rejection_category_counts": {
+        "crossing": 79,
+        "row_pair+crossing": 26,
+        "row_pair+witness_pair": 22,
+        "row_pair+witness_pair+crossing": 43462,
+        "survive": 1,
+        "witness_pair+crossing": 510
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        3,
+        7
+      ],
+      "rejection_category_counts": {
+        "crossing": 119,
+        "row_pair+crossing": 46,
+        "row_pair+witness_pair": 58,
+        "row_pair+witness_pair+crossing": 42920,
+        "survive": 1,
+        "witness_pair+crossing": 956
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        4,
+        5
+      ],
+      "rejection_category_counts": {
+        "crossing": 58,
+        "row_pair+crossing": 20,
+        "row_pair+witness_pair": 30,
+        "row_pair+witness_pair+crossing": 43315,
+        "survive": 1,
+        "witness_pair+crossing": 676
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        4,
+        6
+      ],
+      "rejection_category_counts": {
+        "crossing": 82,
+        "row_pair+crossing": 84,
+        "row_pair+witness_pair": 45,
+        "row_pair+witness_pair+crossing": 43519,
+        "survive": 1,
+        "witness_pair+crossing": 369
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        4,
+        7
+      ],
+      "rejection_category_counts": {
+        "crossing": 77,
+        "row_pair+crossing": 18,
+        "row_pair+witness_pair": 22,
+        "row_pair+witness_pair+crossing": 43421,
+        "survive": 1,
+        "witness_pair+crossing": 561
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        5,
+        6
+      ],
+      "rejection_category_counts": {
+        "crossing": 28,
+        "row_pair+crossing": 46,
+        "row_pair+witness_pair": 44,
+        "row_pair+witness_pair+crossing": 43683,
+        "survive": 1,
+        "witness_pair+crossing": 298
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        5,
+        7
+      ],
+      "rejection_category_counts": {
+        "crossing": 21,
+        "row_pair+crossing": 33,
+        "row_pair+witness_pair": 45,
+        "row_pair+witness_pair+crossing": 43505,
+        "survive": 1,
+        "witness_pair+crossing": 495
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    },
+    {
+      "candidate_count": 44100,
+      "dropped_centers": [
+        6,
+        7
+      ],
+      "rejection_category_counts": {
+        "crossing": 22,
+        "row_pair+crossing": 45,
+        "row_pair+witness_pair": 30,
+        "row_pair+witness_pair+crossing": 43742,
+        "survive": 1,
+        "witness_pair+crossing": 260
+      },
+      "replacement_row_count_per_center": 70,
+      "source_rows": {
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      "surviving_candidate_count": 1
+    }
+  ],
+  "per_target_center_class": [
+    {
+      "candidate_count": 137200,
+      "rejection_category_counts": {
+        "crossing": 138,
+        "row_pair+crossing": 123,
+        "row_pair+witness_pair": 26,
+        "row_pair+witness_pair+crossing": 136360,
+        "witness_pair+crossing": 553
+      },
+      "surviving_candidate_count": 0,
+      "target_center_class": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "target_center_class_is_original": false
+    },
+    {
+      "candidate_count": 137200,
+      "rejection_category_counts": {
+        "crossing": 161,
+        "row_pair+crossing": 164,
+        "row_pair+witness_pair": 27,
+        "row_pair+witness_pair+crossing": 136232,
+        "witness_pair+crossing": 616
+      },
+      "surviving_candidate_count": 0,
+      "target_center_class": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "target_center_class_is_original": false
+    },
+    {
+      "candidate_count": 137200,
+      "rejection_category_counts": {
+        "crossing": 198,
+        "row_pair+crossing": 123,
+        "row_pair+witness_pair": 14,
+        "row_pair+witness_pair+crossing": 136119,
+        "witness_pair+crossing": 746
+      },
+      "surviving_candidate_count": 0,
+      "target_center_class": [
+        0,
+        2,
+        3,
+        5
+      ],
+      "target_center_class_is_original": false
+    },
+    {
+      "candidate_count": 137200,
+      "rejection_category_counts": {
+        "crossing": 10,
+        "row_pair+crossing": 5,
+        "row_pair+witness_pair": 24,
+        "row_pair+witness_pair+crossing": 136325,
+        "witness_pair+crossing": 836
+      },
+      "surviving_candidate_count": 0,
+      "target_center_class": [
+        0,
+        2,
+        3,
+        6
+      ],
+      "target_center_class_is_original": false
+    },
+    {
+      "candidate_count": 137200,
+      "rejection_category_counts": {
+        "crossing": 183,
+        "row_pair+crossing": 43,
+        "row_pair+witness_pair+crossing": 132500,
+        "witness_pair+crossing": 4474
+      },
+      "surviving_candidate_count": 0,
+      "target_center_class": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "target_center_class_is_original": false
+    },
+    {
+      "candidate_count": 137200,
+      "rejection_category_counts": {
+        "crossing": 122,
+        "row_pair+crossing": 219,
+        "row_pair+witness_pair": 27,
+        "row_pair+witness_pair+crossing": 136209,
+        "witness_pair+crossing": 623
+      },
+      "surviving_candidate_count": 0,
+      "target_center_class": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "target_center_class_is_original": false
+    },
+    {
+      "candidate_count": 137200,
+      "rejection_category_counts": {
+        "crossing": 819,
+        "row_pair+crossing": 175,
+        "row_pair+witness_pair": 903,
+        "row_pair+witness_pair+crossing": 132216,
+        "survive": 28,
+        "witness_pair+crossing": 3059
+      },
+      "surviving_candidate_count": 28,
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "candidate_count": 137200,
+      "rejection_category_counts": {
+        "crossing": 92,
+        "row_pair+crossing": 156,
+        "row_pair+witness_pair": 181,
+        "row_pair+witness_pair+crossing": 136136,
+        "witness_pair+crossing": 635
+      },
+      "surviving_candidate_count": 0,
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "target_center_class_is_original": false
+    },
+    {
+      "candidate_count": 137200,
+      "rejection_category_counts": {
+        "crossing": 148,
+        "row_pair+crossing": 55,
+        "row_pair+witness_pair": 75,
+        "row_pair+witness_pair+crossing": 132586,
+        "witness_pair+crossing": 4336
+      },
+      "surviving_candidate_count": 0,
+      "target_center_class": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "target_center_class_is_original": false
+    }
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_81_8_singleton_support_two_row_drop.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_81_8_singleton_support_two_row_drop.py"
+  },
+  "schema": "erdos97.bootstrap_t12_81_8_singleton_support_two_row_drop.v1",
+  "source_one_row_drop_scan": {
+    "path": "data/certificates/bootstrap_t12_81_8_singleton_support_audit.json",
+    "scan_status": "ONLY_ORIGINAL_ROW8_SURVIVES_FIXED_AND_ONE_ROW_DROP_SUPPORT_AUDITS",
+    "schema": "erdos97.bootstrap_t12_81_8_singleton_support_audit.v1",
+    "status": "BOOTSTRAP_T12_81_8_SINGLETON_SUPPORT_AUDIT_DIAGNOSTIC_ONLY"
+  },
+  "source_rows": {
+    "0": [
+      1,
+      3,
+      6,
+      7
+    ],
+    "1": [
+      2,
+      4,
+      7,
+      8
+    ],
+    "2": [
+      0,
+      3,
+      5,
+      8
+    ],
+    "3": [
+      0,
+      1,
+      4,
+      6
+    ],
+    "4": [
+      1,
+      2,
+      5,
+      7
+    ],
+    "5": [
+      2,
+      3,
+      6,
+      8
+    ],
+    "6": [
+      0,
+      3,
+      4,
+      7
+    ],
+    "7": [
+      1,
+      4,
+      5,
+      8
+    ],
+    "8": [
+      0,
+      2,
+      5,
+      6
+    ]
+  },
+  "status": "BOOTSTRAP_T12_81_8_SINGLETON_SUPPORT_TWO_ROW_DROP_DIAGNOSTIC_ONLY",
+  "summary": {
+    "bootstrap_core_witnesses": [
+      0,
+      2
+    ],
+    "candidate_count": 1234800,
+    "cyclic_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "dropped_pair_count": 28,
+    "dropped_row_replacement_count_per_center": 70,
+    "original_target_center_class": [
+      0,
+      2,
+      5,
+      6
+    ],
+    "rejection_category_counts": {
+      "crossing": 1871,
+      "row_pair+crossing": 1063,
+      "row_pair+witness_pair": 1277,
+      "row_pair+witness_pair+crossing": 1214683,
+      "survive": 28,
+      "witness_pair+crossing": 15878
+    },
+    "remaining_gap": "This does not prove singleton support existence, does not prove the row is forced by minimal or rich-class geometry, does not allow three or more other rows to move, and does not model additional auxiliary rich supports.",
+    "scan_status": "ONLY_ORIGINAL_ROW8_SURVIVES_WHEN_ANY_TWO_OTHER_SOURCE81_ROWS_DROP",
+    "singleton_support_labels": [
+      5,
+      6
+    ],
+    "source_record_ids": [
+      81
+    ],
+    "surviving_candidate_count": 28,
+    "target_center": 8,
+    "target_center_candidate_count": 9,
+    "target_row_key": "81:8",
+    "two_row_drop_centers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "two_row_drop_non_original_survivor_count": 0,
+    "two_row_drop_survivors_all_original_rows": true
+  },
+  "survivors": [
+    {
+      "dropped_center_classes": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        0,
+        1
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        0,
+        2
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        0,
+        3
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        0,
+        4
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        0,
+        5
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        0,
+        6
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        0,
+        7
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        1,
+        2
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        1,
+        3
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        1,
+        4
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        1,
+        5
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        1,
+        6
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        1,
+        7
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        2,
+        3
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        2,
+        4
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        2,
+        5
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        2,
+        6
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        2,
+        7
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        3,
+        4
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        3,
+        5
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        3,
+        6
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        3,
+        7
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        4,
+        5
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        4,
+        6
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        4,
+        7
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        5,
+        6
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        5,
+        7
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    },
+    {
+      "dropped_center_classes": {
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      "dropped_center_classes_are_original": true,
+      "dropped_centers": [
+        6,
+        7
+      ],
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true
+    }
+  ],
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}
