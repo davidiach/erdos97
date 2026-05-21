@@ -1,0 +1,90 @@
+{
+  "claim_scope": "Crosswalk for the bounded n=10 row0-index-0 pilot: 156 assignments are closed by stored weak-turn Farkas certificates and the four weak-turn SAT escapes are closed by stored row0-local vertex-circle self-edge templates. This is finite bookkeeping only: not a proof of n=10, not a complete n=10 search, not a counterexample, and not a global status update.",
+  "coverage_summary": {
+    "combined_closed_assignment_count": 160,
+    "common_escape_equal_distance_class": [
+      0,
+      1
+    ],
+    "common_escape_witness_order": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "escape_path_length_histogram": {
+      "3": 1,
+      "4": 1,
+      "5": 1,
+      "7": 1
+    },
+    "escape_template_counts": {
+      "[1, 3] > [1, 2]": 1,
+      "[1, 3] > [2, 3]": 1,
+      "[1, 4] > [1, 2]": 1,
+      "[2, 4] > [2, 3]": 1
+    },
+    "full_assignment_count": 160,
+    "row0_index": 0,
+    "turn_and_escape_overlap_count": 0,
+    "turn_farkas_unsat_count": 156,
+    "turn_sat_escape_assignment_indices": [
+      74,
+      103,
+      156,
+      157
+    ],
+    "turn_sat_escape_count": 4,
+    "turn_status_counts": {
+      "farkas_unsat": 156,
+      "sat": 4
+    },
+    "unclosed_assignment_count": 0,
+    "vertex_circle_escape_assignment_indices": [
+      74,
+      103,
+      156,
+      157
+    ],
+    "vertex_circle_status_counts": {
+      "self_edge": 160
+    }
+  },
+  "forbidden_claims": [
+    "n=10 is proved",
+    "turn inequalities close n=10",
+    "row0 pilot is a completeness result",
+    "source-of-truth strongest result",
+    "official/global status update",
+    "counterexample to Erdos Problem #97",
+    "general proof of Erdos Problem #97"
+  ],
+  "interpretation": "Within the bounded row0-index-0 n=10 pilot, the stored weak-turn Farkas certificates and the four stored row0-local vertex-circle self-edge escape templates form a disjoint closure partition of the 160 assignments. This is a crosswalk only, not an n=10 proof.",
+  "provenance": {
+    "command": "python scripts/check_n10_turn_row0_combined_closure.py --write --assert-expected",
+    "generator": "scripts/check_n10_turn_row0_combined_closure.py",
+    "sources": [
+      "data/certificates/n10_turn_row0_pilot.json",
+      "data/certificates/n10_turn_row0_escape_self_edges.json"
+    ]
+  },
+  "schema": "erdos97.n10_turn_row0_combined_closure.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/n10_turn_row0_pilot.json",
+      "schema": "erdos97.n10_turn_row0_pilot.v1",
+      "status": "EXPLORATORY_ROW0_TURN_FRONTIER_PILOT",
+      "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF"
+    },
+    {
+      "path": "data/certificates/n10_turn_row0_escape_self_edges.json",
+      "schema": "erdos97.n10_turn_row0_escape_self_edges.v1",
+      "status": "N10_ROW0_ESCAPE_SELF_EDGE_TEMPLATE_DIAGNOSTIC",
+      "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF"
+    }
+  ],
+  "status": "N10_ROW0_TURN_PLUS_VERTEX_CIRCLE_CLOSURE_DIAGNOSTIC",
+  "trust": "FINITE_BOOKKEEPING_NOT_A_PROOF",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

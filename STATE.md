@@ -664,6 +664,13 @@ not a proof of `n=10`, not a complete `n=10` search, and not a counterexample.
 See `docs/n10-turn-row0-pilot.md` and
 `docs/n10-turn-row0-escape-self-edges.md`.
 
+The derived row0 combined-closure crosswalk records the same bounded slice as
+a checked partition: `156` assignments are closed by stored weak-turn Farkas
+certificates, and the four weak-turn SAT escapes are exactly the four stored
+row0-local vertex-circle self-edge templates. This remains finite bookkeeping
+only, not a proof of `n=10`, not a complete `n=10` search, and not a
+counterexample. See `docs/n10-turn-row0-combined-closure.md`.
+
 The `n=10` mixed rich-support capacity diagnostic is now recorded as
 review-pending finite support bookkeeping. Under only row-pair cap,
 two-overlap crossing, and witness-pair capacity filters, all support
