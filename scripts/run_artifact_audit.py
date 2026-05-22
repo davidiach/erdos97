@@ -2045,6 +2045,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_81_8_full_neighborhood_vertex_circle",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_8_full_neighborhood_vertex_circle.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Source-81 row-8 full-neighborhood vertex-circle diagnostic; "
+            "not singleton-support existence, row forcing, an n=9 proof, "
+            "a bridge proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_6_outside_pair_audit",
         command=(
             "python",

@@ -1,0 +1,4878 @@
+{
+  "basic_filter_survivors": [
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          3,
+          6,
+          8
+        ],
+        "1": [
+          2,
+          5,
+          7,
+          8
+        ],
+        "2": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "3": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "4": [
+          0,
+          1,
+          5,
+          6
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          7
+        ],
+        "6": [
+          1,
+          4,
+          5,
+          7
+        ],
+        "7": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          4,
+          6
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          2,
+          5,
+          7
+        ],
+        "1": [
+          0,
+          2,
+          3,
+          8
+        ],
+        "2": [
+          1,
+          3,
+          4,
+          7
+        ],
+        "3": [
+          2,
+          4,
+          5,
+          8
+        ],
+        "4": [
+          0,
+          1,
+          5,
+          6
+        ],
+        "5": [
+          4,
+          6,
+          7,
+          8
+        ],
+        "6": [
+          0,
+          3,
+          5,
+          7
+        ],
+        "7": [
+          1,
+          3,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          4,
+          6
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "1": [
+          2,
+          5,
+          7,
+          8
+        ],
+        "2": [
+          0,
+          3,
+          4,
+          8
+        ],
+        "3": [
+          1,
+          2,
+          4,
+          7
+        ],
+        "4": [
+          0,
+          1,
+          5,
+          6
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "6": [
+          0,
+          3,
+          5,
+          7
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          4,
+          6
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "strict_cycle"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          3,
+          7,
+          8
+        ],
+        "1": [
+          0,
+          2,
+          5,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "3": [
+          2,
+          4,
+          5,
+          7
+        ],
+        "4": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "5": [
+          1,
+          4,
+          6,
+          7
+        ],
+        "6": [
+          0,
+          3,
+          5,
+          7
+        ],
+        "7": [
+          1,
+          5,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          4,
+          6
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          6,
+          7,
+          8
+        ],
+        "1": [
+          0,
+          2,
+          5,
+          8
+        ],
+        "2": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "3": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "4": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "5": [
+          0,
+          1,
+          3,
+          6
+        ],
+        "6": [
+          1,
+          4,
+          5,
+          7
+        ],
+        "7": [
+          3,
+          5,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          4,
+          6
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          4,
+          6,
+          8
+        ],
+        "1": [
+          2,
+          3,
+          7,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          6
+        ],
+        "3": [
+          0,
+          4,
+          5,
+          7
+        ],
+        "4": [
+          1,
+          2,
+          5,
+          8
+        ],
+        "5": [
+          2,
+          4,
+          6,
+          7
+        ],
+        "6": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "7": [
+          0,
+          3,
+          4,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          6
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          3,
+          6,
+          8
+        ],
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "2": [
+          0,
+          3,
+          5,
+          7
+        ],
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "4": [
+          1,
+          2,
+          5,
+          8
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          7
+        ],
+        "6": [
+          1,
+          4,
+          5,
+          7
+        ],
+        "7": [
+          0,
+          3,
+          4,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          6
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true,
+      "vertex_circle_status": "strict_cycle"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          4,
+          6,
+          7
+        ],
+        "1": [
+          2,
+          3,
+          7,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          6
+        ],
+        "3": [
+          0,
+          4,
+          5,
+          8
+        ],
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ],
+        "5": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "7": [
+          1,
+          3,
+          5,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          6
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true,
+      "vertex_circle_status": "strict_cycle"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "4": [
+          1,
+          2,
+          5,
+          7
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          6
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true,
+      "vertex_circle_status": "strict_cycle"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "1": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "2": [
+          0,
+          3,
+          6,
+          8
+        ],
+        "3": [
+          0,
+          1,
+          4,
+          5
+        ],
+        "4": [
+          2,
+          3,
+          5,
+          8
+        ],
+        "5": [
+          1,
+          2,
+          6,
+          7
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "7": [
+          1,
+          4,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          6
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true,
+      "vertex_circle_status": "strict_cycle"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          5,
+          7,
+          8
+        ],
+        "1": [
+          0,
+          2,
+          4,
+          8
+        ],
+        "2": [
+          0,
+          3,
+          6,
+          7
+        ],
+        "3": [
+          1,
+          2,
+          4,
+          7
+        ],
+        "4": [
+          0,
+          1,
+          3,
+          5
+        ],
+        "5": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "6": [
+          3,
+          4,
+          5,
+          7
+        ],
+        "7": [
+          1,
+          4,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          6
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          6,
+          7,
+          8
+        ],
+        "1": [
+          0,
+          2,
+          4,
+          7
+        ],
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "3": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "4": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "5": [
+          0,
+          1,
+          3,
+          6
+        ],
+        "6": [
+          1,
+          4,
+          5,
+          7
+        ],
+        "7": [
+          3,
+          4,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          6
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          2,
+          3,
+          8
+        ],
+        "1": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "2": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "3": [
+          2,
+          4,
+          5,
+          8
+        ],
+        "4": [
+          0,
+          3,
+          6,
+          8
+        ],
+        "5": [
+          2,
+          4,
+          6,
+          7
+        ],
+        "6": [
+          1,
+          5,
+          7,
+          8
+        ],
+        "7": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          3,
+          5,
+          8
+        ],
+        "1": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "2": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "3": [
+          1,
+          2,
+          4,
+          5
+        ],
+        "4": [
+          0,
+          3,
+          5,
+          6
+        ],
+        "5": [
+          1,
+          4,
+          6,
+          7
+        ],
+        "6": [
+          2,
+          3,
+          7,
+          8
+        ],
+        "7": [
+          0,
+          1,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "1": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "2": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "3": [
+          0,
+          1,
+          4,
+          7
+        ],
+        "4": [
+          1,
+          2,
+          5,
+          6
+        ],
+        "5": [
+          0,
+          3,
+          4,
+          6
+        ],
+        "6": [
+          2,
+          3,
+          7,
+          8
+        ],
+        "7": [
+          1,
+          4,
+          5,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "strict_cycle"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          3,
+          6,
+          7
+        ],
+        "1": [
+          0,
+          2,
+          6,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          5
+        ],
+        "3": [
+          1,
+          4,
+          7,
+          8
+        ],
+        "4": [
+          2,
+          3,
+          5,
+          8
+        ],
+        "5": [
+          1,
+          2,
+          4,
+          6
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "7": [
+          4,
+          5,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          3,
+          7,
+          8
+        ],
+        "1": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          5
+        ],
+        "3": [
+          1,
+          2,
+          4,
+          7
+        ],
+        "4": [
+          2,
+          5,
+          6,
+          8
+        ],
+        "5": [
+          3,
+          4,
+          6,
+          7
+        ],
+        "6": [
+          1,
+          4,
+          5,
+          8
+        ],
+        "7": [
+          0,
+          3,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          3,
+          7,
+          8
+        ],
+        "1": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          5
+        ],
+        "3": [
+          1,
+          2,
+          4,
+          7
+        ],
+        "4": [
+          2,
+          3,
+          5,
+          6
+        ],
+        "5": [
+          0,
+          4,
+          6,
+          7
+        ],
+        "6": [
+          1,
+          4,
+          5,
+          8
+        ],
+        "7": [
+          0,
+          3,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          4,
+          6,
+          7
+        ],
+        "1": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          7
+        ],
+        "3": [
+          0,
+          4,
+          5,
+          8
+        ],
+        "4": [
+          1,
+          2,
+          5,
+          6
+        ],
+        "5": [
+          0,
+          3,
+          4,
+          6
+        ],
+        "6": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "7": [
+          1,
+          3,
+          5,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          4,
+          7,
+          8
+        ],
+        "1": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "3": [
+          1,
+          2,
+          5,
+          8
+        ],
+        "4": [
+          0,
+          3,
+          5,
+          6
+        ],
+        "5": [
+          2,
+          4,
+          6,
+          7
+        ],
+        "6": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "7": [
+          0,
+          4,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          4,
+          7,
+          8
+        ],
+        "1": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          7
+        ],
+        "3": [
+          1,
+          2,
+          4,
+          5
+        ],
+        "4": [
+          0,
+          3,
+          5,
+          6
+        ],
+        "5": [
+          2,
+          4,
+          6,
+          7
+        ],
+        "6": [
+          1,
+          3,
+          5,
+          8
+        ],
+        "7": [
+          0,
+          4,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          6,
+          7,
+          8
+        ],
+        "1": [
+          0,
+          4,
+          5,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          6
+        ],
+        "3": [
+          1,
+          2,
+          4,
+          7
+        ],
+        "4": [
+          2,
+          3,
+          5,
+          6
+        ],
+        "5": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "6": [
+          1,
+          3,
+          5,
+          8
+        ],
+        "7": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          2,
+          3,
+          6,
+          8
+        ],
+        "1": [
+          0,
+          4,
+          5,
+          8
+        ],
+        "2": [
+          1,
+          3,
+          4,
+          7
+        ],
+        "3": [
+          1,
+          2,
+          5,
+          6
+        ],
+        "4": [
+          0,
+          3,
+          6,
+          7
+        ],
+        "5": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "6": [
+          1,
+          3,
+          5,
+          8
+        ],
+        "7": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "strict_cycle"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "1": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "2": [
+          1,
+          3,
+          4,
+          7
+        ],
+        "3": [
+          1,
+          2,
+          5,
+          6
+        ],
+        "4": [
+          2,
+          3,
+          7,
+          8
+        ],
+        "5": [
+          0,
+          4,
+          6,
+          7
+        ],
+        "6": [
+          1,
+          4,
+          5,
+          8
+        ],
+        "7": [
+          0,
+          1,
+          3,
+          6
+        ],
+        "8": [
+          0,
+          2,
+          5,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "1": [
+          0,
+          2,
+          4,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          6
+        ],
+        "3": [
+          1,
+          2,
+          4,
+          5
+        ],
+        "4": [
+          3,
+          5,
+          6,
+          8
+        ],
+        "5": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "6": [
+          2,
+          5,
+          7,
+          8
+        ],
+        "7": [
+          1,
+          4,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          6,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          3,
+          5,
+          8
+        ],
+        "1": [
+          0,
+          2,
+          4,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          6
+        ],
+        "3": [
+          1,
+          4,
+          5,
+          7
+        ],
+        "4": [
+          2,
+          3,
+          5,
+          6
+        ],
+        "5": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "6": [
+          2,
+          5,
+          7,
+          8
+        ],
+        "7": [
+          1,
+          4,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          6,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          3,
+          7,
+          8
+        ],
+        "1": [
+          0,
+          2,
+          4,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          5
+        ],
+        "3": [
+          1,
+          2,
+          4,
+          6
+        ],
+        "4": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "5": [
+          3,
+          4,
+          6,
+          8
+        ],
+        "6": [
+          0,
+          4,
+          5,
+          7
+        ],
+        "7": [
+          1,
+          5,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          6,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          4,
+          5,
+          7
+        ],
+        "1": [
+          0,
+          2,
+          5,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          7
+        ],
+        "3": [
+          1,
+          4,
+          6,
+          8
+        ],
+        "4": [
+          1,
+          2,
+          3,
+          5
+        ],
+        "5": [
+          0,
+          3,
+          4,
+          6
+        ],
+        "6": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "7": [
+          3,
+          5,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          6,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          4,
+          5,
+          7
+        ],
+        "1": [
+          0,
+          2,
+          5,
+          8
+        ],
+        "2": [
+          1,
+          3,
+          7,
+          8
+        ],
+        "3": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "4": [
+          1,
+          2,
+          3,
+          5
+        ],
+        "5": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "6": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "7": [
+          3,
+          5,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          6,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          4,
+          7,
+          8
+        ],
+        "1": [
+          0,
+          2,
+          3,
+          8
+        ],
+        "2": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "3": [
+          1,
+          2,
+          5,
+          7
+        ],
+        "4": [
+          0,
+          3,
+          5,
+          6
+        ],
+        "5": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "6": [
+          0,
+          4,
+          5,
+          7
+        ],
+        "7": [
+          1,
+          3,
+          5,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          6,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          4,
+          7,
+          8
+        ],
+        "1": [
+          0,
+          2,
+          3,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "3": [
+          1,
+          2,
+          5,
+          8
+        ],
+        "4": [
+          0,
+          3,
+          5,
+          7
+        ],
+        "5": [
+          3,
+          4,
+          6,
+          8
+        ],
+        "6": [
+          2,
+          4,
+          5,
+          7
+        ],
+        "7": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "8": [
+          0,
+          2,
+          6,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          4,
+          7,
+          8
+        ],
+        "1": [
+          2,
+          3,
+          5,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "3": [
+          1,
+          2,
+          5,
+          7
+        ],
+        "4": [
+          0,
+          3,
+          5,
+          6
+        ],
+        "5": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "6": [
+          0,
+          4,
+          5,
+          7
+        ],
+        "7": [
+          1,
+          3,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          6,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          1,
+          5,
+          7,
+          8
+        ],
+        "1": [
+          0,
+          4,
+          6,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          5
+        ],
+        "3": [
+          1,
+          2,
+          4,
+          7
+        ],
+        "4": [
+          2,
+          3,
+          5,
+          6
+        ],
+        "5": [
+          0,
+          3,
+          4,
+          7
+        ],
+        "6": [
+          2,
+          4,
+          5,
+          8
+        ],
+        "7": [
+          1,
+          3,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          6,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "selected_rows": {
+        "0": [
+          2,
+          3,
+          5,
+          8
+        ],
+        "1": [
+          0,
+          4,
+          6,
+          8
+        ],
+        "2": [
+          1,
+          3,
+          4,
+          7
+        ],
+        "3": [
+          1,
+          2,
+          5,
+          6
+        ],
+        "4": [
+          0,
+          3,
+          5,
+          7
+        ],
+        "5": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "6": [
+          0,
+          1,
+          4,
+          5
+        ],
+        "7": [
+          1,
+          3,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          2,
+          6,
+          7
+        ]
+      },
+      "target_center_class": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status": "self_edge"
+    }
+  ],
+  "candidate_generation": {
+    "candidate_rule": "4-sets at center 8 containing bootstrap-core witnesses [0,2] and at least one singleton support label from [5,6].",
+    "target_center_candidate_classes": [
+      [
+        0,
+        1,
+        2,
+        5
+      ],
+      [
+        0,
+        1,
+        2,
+        6
+      ],
+      [
+        0,
+        2,
+        3,
+        5
+      ],
+      [
+        0,
+        2,
+        3,
+        6
+      ],
+      [
+        0,
+        2,
+        4,
+        5
+      ],
+      [
+        0,
+        2,
+        4,
+        6
+      ],
+      [
+        0,
+        2,
+        5,
+        6
+      ],
+      [
+        0,
+        2,
+        5,
+        7
+      ],
+      [
+        0,
+        2,
+        6,
+        7
+      ]
+    ]
+  },
+  "claim_scope": "Full-neighborhood diagnostic for the source-81 row-8 singleton-support target. It fixes center 8 to each 4-set containing bootstrap-core witnesses [0,2] and at least one singleton support label from [5,6], lets all other centers use arbitrary selected 4-sets, and applies row-pair, witness-pair, crossing, and selected-indegree filters before exact vertex-circle quotient replay. Basic filters leave 34 complete assignments, including 27 with non-original row 8, but all 34 are killed by vertex-circle self-edge or strict-cycle obstructions. This is not a proof of singleton support existence, not a proof of row forcing, not a proof of n=9, not a proof of the bridge, and not a counterexample.",
+  "empty_domain_depth_histogram": {
+    "1": 23,
+    "2": 273,
+    "3": 1306,
+    "4": 2879,
+    "5": 2272,
+    "6": 1340,
+    "7": 343
+  },
+  "interpretation_warnings": [
+    "Full-neighborhood basic incidence/crossing filters alone leave non-original row-8 survivors.",
+    "All recorded full-neighborhood survivors close only after exact vertex-circle quotient replay.",
+    "The packet does not prove singleton support existence or row/rich-class forcing.",
+    "No n=9 finite-case status, bridge status, official status, or counterexample status changes."
+  ],
+  "per_target_center_class": [
+    {
+      "basic_filter_complete_assignment_count": 0,
+      "basic_filter_survivors": [],
+      "empty_domain_count": 228,
+      "empty_domain_depth_histogram": {
+        "1": 5,
+        "2": 12,
+        "3": 53,
+        "4": 64,
+        "5": 55,
+        "6": 25,
+        "7": 14
+      },
+      "non_original_row8_basic_assignment_count": 0,
+      "search_node_count": 488,
+      "target_center_class": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status_counts": {},
+      "vertex_circle_surviving_assignment_count": 0
+    },
+    {
+      "basic_filter_complete_assignment_count": 0,
+      "basic_filter_survivors": [],
+      "empty_domain_count": 420,
+      "empty_domain_depth_histogram": {
+        "1": 1,
+        "2": 25,
+        "3": 96,
+        "4": 194,
+        "5": 74,
+        "6": 27,
+        "7": 3
+      },
+      "non_original_row8_basic_assignment_count": 0,
+      "search_node_count": 768,
+      "target_center_class": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status_counts": {},
+      "vertex_circle_surviving_assignment_count": 0
+    },
+    {
+      "basic_filter_complete_assignment_count": 0,
+      "basic_filter_survivors": [],
+      "empty_domain_count": 200,
+      "empty_domain_depth_histogram": {
+        "1": 5,
+        "2": 18,
+        "3": 36,
+        "4": 72,
+        "5": 51,
+        "6": 18
+      },
+      "non_original_row8_basic_assignment_count": 0,
+      "search_node_count": 427,
+      "target_center_class": [
+        0,
+        2,
+        3,
+        5
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status_counts": {},
+      "vertex_circle_surviving_assignment_count": 0
+    },
+    {
+      "basic_filter_complete_assignment_count": 0,
+      "basic_filter_survivors": [],
+      "empty_domain_count": 545,
+      "empty_domain_depth_histogram": {
+        "1": 1,
+        "2": 29,
+        "3": 83,
+        "4": 180,
+        "5": 132,
+        "6": 95,
+        "7": 25
+      },
+      "non_original_row8_basic_assignment_count": 0,
+      "search_node_count": 1046,
+      "target_center_class": [
+        0,
+        2,
+        3,
+        6
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status_counts": {},
+      "vertex_circle_surviving_assignment_count": 0
+    },
+    {
+      "basic_filter_complete_assignment_count": 0,
+      "basic_filter_survivors": [],
+      "empty_domain_count": 196,
+      "empty_domain_depth_histogram": {
+        "1": 5,
+        "2": 28,
+        "3": 43,
+        "4": 63,
+        "5": 48,
+        "6": 7,
+        "7": 2
+      },
+      "non_original_row8_basic_assignment_count": 0,
+      "search_node_count": 382,
+      "target_center_class": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status_counts": {},
+      "vertex_circle_surviving_assignment_count": 0
+    },
+    {
+      "basic_filter_complete_assignment_count": 5,
+      "basic_filter_survivors": [
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              3,
+              6,
+              8
+            ],
+            "1": [
+              2,
+              5,
+              7,
+              8
+            ],
+            "2": [
+              0,
+              3,
+              4,
+              7
+            ],
+            "3": [
+              1,
+              2,
+              4,
+              8
+            ],
+            "4": [
+              0,
+              1,
+              5,
+              6
+            ],
+            "5": [
+              2,
+              3,
+              6,
+              7
+            ],
+            "6": [
+              1,
+              4,
+              5,
+              7
+            ],
+            "7": [
+              0,
+              3,
+              5,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            4,
+            6
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              2,
+              5,
+              7
+            ],
+            "1": [
+              0,
+              2,
+              3,
+              8
+            ],
+            "2": [
+              1,
+              3,
+              4,
+              7
+            ],
+            "3": [
+              2,
+              4,
+              5,
+              8
+            ],
+            "4": [
+              0,
+              1,
+              5,
+              6
+            ],
+            "5": [
+              4,
+              6,
+              7,
+              8
+            ],
+            "6": [
+              0,
+              3,
+              5,
+              7
+            ],
+            "7": [
+              1,
+              3,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            4,
+            6
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              3,
+              6,
+              7
+            ],
+            "1": [
+              2,
+              5,
+              7,
+              8
+            ],
+            "2": [
+              0,
+              3,
+              4,
+              8
+            ],
+            "3": [
+              1,
+              2,
+              4,
+              7
+            ],
+            "4": [
+              0,
+              1,
+              5,
+              6
+            ],
+            "5": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "6": [
+              0,
+              3,
+              5,
+              7
+            ],
+            "7": [
+              1,
+              4,
+              5,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            4,
+            6
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "strict_cycle"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              3,
+              7,
+              8
+            ],
+            "1": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              4
+            ],
+            "3": [
+              2,
+              4,
+              5,
+              7
+            ],
+            "4": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "5": [
+              1,
+              4,
+              6,
+              7
+            ],
+            "6": [
+              0,
+              3,
+              5,
+              7
+            ],
+            "7": [
+              1,
+              5,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            4,
+            6
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              6,
+              7,
+              8
+            ],
+            "1": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "2": [
+              0,
+              3,
+              4,
+              7
+            ],
+            "3": [
+              1,
+              2,
+              4,
+              8
+            ],
+            "4": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "5": [
+              0,
+              1,
+              3,
+              6
+            ],
+            "6": [
+              1,
+              4,
+              5,
+              7
+            ],
+            "7": [
+              3,
+              5,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            4,
+            6
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "empty_domain_count": 526,
+      "empty_domain_depth_histogram": {
+        "1": 1,
+        "2": 33,
+        "3": 67,
+        "4": 176,
+        "5": 151,
+        "6": 76,
+        "7": 22
+      },
+      "non_original_row8_basic_assignment_count": 5,
+      "search_node_count": 1065,
+      "target_center_class": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status_counts": {
+        "self_edge": 4,
+        "strict_cycle": 1
+      },
+      "vertex_circle_surviving_assignment_count": 0
+    },
+    {
+      "basic_filter_complete_assignment_count": 7,
+      "basic_filter_survivors": [
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              4,
+              6,
+              8
+            ],
+            "1": [
+              2,
+              3,
+              7,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              6
+            ],
+            "3": [
+              0,
+              4,
+              5,
+              7
+            ],
+            "4": [
+              1,
+              2,
+              5,
+              8
+            ],
+            "5": [
+              2,
+              4,
+              6,
+              7
+            ],
+            "6": [
+              1,
+              3,
+              5,
+              7
+            ],
+            "7": [
+              0,
+              3,
+              4,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              6
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            6
+          ],
+          "target_center_class_is_original": true,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              3,
+              6,
+              8
+            ],
+            "1": [
+              2,
+              4,
+              7,
+              8
+            ],
+            "2": [
+              0,
+              3,
+              5,
+              7
+            ],
+            "3": [
+              0,
+              1,
+              4,
+              6
+            ],
+            "4": [
+              1,
+              2,
+              5,
+              8
+            ],
+            "5": [
+              2,
+              3,
+              6,
+              7
+            ],
+            "6": [
+              1,
+              4,
+              5,
+              7
+            ],
+            "7": [
+              0,
+              3,
+              4,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              6
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            6
+          ],
+          "target_center_class_is_original": true,
+          "vertex_circle_status": "strict_cycle"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              4,
+              6,
+              7
+            ],
+            "1": [
+              2,
+              3,
+              7,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              6
+            ],
+            "3": [
+              0,
+              4,
+              5,
+              8
+            ],
+            "4": [
+              1,
+              2,
+              5,
+              7
+            ],
+            "5": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "6": [
+              0,
+              3,
+              4,
+              7
+            ],
+            "7": [
+              1,
+              3,
+              5,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              6
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            6
+          ],
+          "target_center_class_is_original": true,
+          "vertex_circle_status": "strict_cycle"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              3,
+              6,
+              7
+            ],
+            "1": [
+              2,
+              4,
+              7,
+              8
+            ],
+            "2": [
+              0,
+              3,
+              5,
+              8
+            ],
+            "3": [
+              0,
+              1,
+              4,
+              6
+            ],
+            "4": [
+              1,
+              2,
+              5,
+              7
+            ],
+            "5": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "6": [
+              0,
+              3,
+              4,
+              7
+            ],
+            "7": [
+              1,
+              4,
+              5,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              6
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            6
+          ],
+          "target_center_class_is_original": true,
+          "vertex_circle_status": "strict_cycle"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              3,
+              5,
+              7
+            ],
+            "1": [
+              2,
+              4,
+              7,
+              8
+            ],
+            "2": [
+              0,
+              3,
+              6,
+              8
+            ],
+            "3": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "4": [
+              2,
+              3,
+              5,
+              8
+            ],
+            "5": [
+              1,
+              2,
+              6,
+              7
+            ],
+            "6": [
+              0,
+              3,
+              4,
+              7
+            ],
+            "7": [
+              1,
+              4,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              6
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            6
+          ],
+          "target_center_class_is_original": true,
+          "vertex_circle_status": "strict_cycle"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              5,
+              7,
+              8
+            ],
+            "1": [
+              0,
+              2,
+              4,
+              8
+            ],
+            "2": [
+              0,
+              3,
+              6,
+              7
+            ],
+            "3": [
+              1,
+              2,
+              4,
+              7
+            ],
+            "4": [
+              0,
+              1,
+              3,
+              5
+            ],
+            "5": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "6": [
+              3,
+              4,
+              5,
+              7
+            ],
+            "7": [
+              1,
+              4,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              6
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            6
+          ],
+          "target_center_class_is_original": true,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              6,
+              7,
+              8
+            ],
+            "1": [
+              0,
+              2,
+              4,
+              7
+            ],
+            "2": [
+              0,
+              3,
+              5,
+              8
+            ],
+            "3": [
+              1,
+              2,
+              4,
+              8
+            ],
+            "4": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "5": [
+              0,
+              1,
+              3,
+              6
+            ],
+            "6": [
+              1,
+              4,
+              5,
+              7
+            ],
+            "7": [
+              3,
+              4,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              6
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            6
+          ],
+          "target_center_class_is_original": true,
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "empty_domain_count": 442,
+      "empty_domain_depth_histogram": {
+        "1": 1,
+        "2": 44,
+        "3": 94,
+        "4": 145,
+        "5": 101,
+        "6": 44,
+        "7": 13
+      },
+      "non_original_row8_basic_assignment_count": 0,
+      "search_node_count": 885,
+      "target_center_class": [
+        0,
+        2,
+        5,
+        6
+      ],
+      "target_center_class_is_original": true,
+      "vertex_circle_status_counts": {
+        "self_edge": 3,
+        "strict_cycle": 4
+      },
+      "vertex_circle_surviving_assignment_count": 0
+    },
+    {
+      "basic_filter_complete_assignment_count": 12,
+      "basic_filter_survivors": [
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              2,
+              3,
+              8
+            ],
+            "1": [
+              0,
+              3,
+              4,
+              7
+            ],
+            "2": [
+              1,
+              3,
+              5,
+              6
+            ],
+            "3": [
+              2,
+              4,
+              5,
+              8
+            ],
+            "4": [
+              0,
+              3,
+              6,
+              8
+            ],
+            "5": [
+              2,
+              4,
+              6,
+              7
+            ],
+            "6": [
+              1,
+              5,
+              7,
+              8
+            ],
+            "7": [
+              0,
+              1,
+              4,
+              6
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              3,
+              5,
+              8
+            ],
+            "1": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "2": [
+              0,
+              3,
+              4,
+              7
+            ],
+            "3": [
+              1,
+              2,
+              4,
+              5
+            ],
+            "4": [
+              0,
+              3,
+              5,
+              6
+            ],
+            "5": [
+              1,
+              4,
+              6,
+              7
+            ],
+            "6": [
+              2,
+              3,
+              7,
+              8
+            ],
+            "7": [
+              0,
+              1,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              3,
+              6,
+              7
+            ],
+            "1": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "2": [
+              0,
+              3,
+              5,
+              8
+            ],
+            "3": [
+              0,
+              1,
+              4,
+              7
+            ],
+            "4": [
+              1,
+              2,
+              5,
+              6
+            ],
+            "5": [
+              0,
+              3,
+              4,
+              6
+            ],
+            "6": [
+              2,
+              3,
+              7,
+              8
+            ],
+            "7": [
+              1,
+              4,
+              5,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "strict_cycle"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              3,
+              6,
+              7
+            ],
+            "1": [
+              0,
+              2,
+              6,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              5
+            ],
+            "3": [
+              1,
+              4,
+              7,
+              8
+            ],
+            "4": [
+              2,
+              3,
+              5,
+              8
+            ],
+            "5": [
+              1,
+              2,
+              4,
+              6
+            ],
+            "6": [
+              0,
+              3,
+              4,
+              7
+            ],
+            "7": [
+              4,
+              5,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              3,
+              7,
+              8
+            ],
+            "1": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              5
+            ],
+            "3": [
+              1,
+              2,
+              4,
+              7
+            ],
+            "4": [
+              2,
+              5,
+              6,
+              8
+            ],
+            "5": [
+              3,
+              4,
+              6,
+              7
+            ],
+            "6": [
+              1,
+              4,
+              5,
+              8
+            ],
+            "7": [
+              0,
+              3,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              3,
+              7,
+              8
+            ],
+            "1": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              5
+            ],
+            "3": [
+              1,
+              2,
+              4,
+              7
+            ],
+            "4": [
+              2,
+              3,
+              5,
+              6
+            ],
+            "5": [
+              0,
+              4,
+              6,
+              7
+            ],
+            "6": [
+              1,
+              4,
+              5,
+              8
+            ],
+            "7": [
+              0,
+              3,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              4,
+              6,
+              7
+            ],
+            "1": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              7
+            ],
+            "3": [
+              0,
+              4,
+              5,
+              8
+            ],
+            "4": [
+              1,
+              2,
+              5,
+              6
+            ],
+            "5": [
+              0,
+              3,
+              4,
+              6
+            ],
+            "6": [
+              2,
+              4,
+              7,
+              8
+            ],
+            "7": [
+              1,
+              3,
+              5,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              4,
+              7,
+              8
+            ],
+            "1": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              4
+            ],
+            "3": [
+              1,
+              2,
+              5,
+              8
+            ],
+            "4": [
+              0,
+              3,
+              5,
+              6
+            ],
+            "5": [
+              2,
+              4,
+              6,
+              7
+            ],
+            "6": [
+              1,
+              3,
+              5,
+              7
+            ],
+            "7": [
+              0,
+              4,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              4,
+              7,
+              8
+            ],
+            "1": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              7
+            ],
+            "3": [
+              1,
+              2,
+              4,
+              5
+            ],
+            "4": [
+              0,
+              3,
+              5,
+              6
+            ],
+            "5": [
+              2,
+              4,
+              6,
+              7
+            ],
+            "6": [
+              1,
+              3,
+              5,
+              8
+            ],
+            "7": [
+              0,
+              4,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              6,
+              7,
+              8
+            ],
+            "1": [
+              0,
+              4,
+              5,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              6
+            ],
+            "3": [
+              1,
+              2,
+              4,
+              7
+            ],
+            "4": [
+              2,
+              3,
+              5,
+              6
+            ],
+            "5": [
+              0,
+              3,
+              4,
+              7
+            ],
+            "6": [
+              1,
+              3,
+              5,
+              8
+            ],
+            "7": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "1": [
+              0,
+              4,
+              5,
+              8
+            ],
+            "2": [
+              1,
+              3,
+              4,
+              7
+            ],
+            "3": [
+              1,
+              2,
+              5,
+              6
+            ],
+            "4": [
+              0,
+              3,
+              6,
+              7
+            ],
+            "5": [
+              2,
+              4,
+              7,
+              8
+            ],
+            "6": [
+              1,
+              3,
+              5,
+              8
+            ],
+            "7": [
+              0,
+              1,
+              4,
+              6
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "strict_cycle"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "1": [
+              0,
+              3,
+              5,
+              8
+            ],
+            "2": [
+              1,
+              3,
+              4,
+              7
+            ],
+            "3": [
+              1,
+              2,
+              5,
+              6
+            ],
+            "4": [
+              2,
+              3,
+              7,
+              8
+            ],
+            "5": [
+              0,
+              4,
+              6,
+              7
+            ],
+            "6": [
+              1,
+              4,
+              5,
+              8
+            ],
+            "7": [
+              0,
+              1,
+              3,
+              6
+            ],
+            "8": [
+              0,
+              2,
+              5,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            5,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "empty_domain_count": 2937,
+      "empty_domain_depth_histogram": {
+        "1": 2,
+        "2": 39,
+        "3": 395,
+        "4": 970,
+        "5": 855,
+        "6": 566,
+        "7": 110
+      },
+      "non_original_row8_basic_assignment_count": 12,
+      "search_node_count": 5455,
+      "target_center_class": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status_counts": {
+        "self_edge": 10,
+        "strict_cycle": 2
+      },
+      "vertex_circle_surviving_assignment_count": 0
+    },
+    {
+      "basic_filter_complete_assignment_count": 10,
+      "basic_filter_survivors": [
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              3,
+              5,
+              7
+            ],
+            "1": [
+              0,
+              2,
+              4,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              6
+            ],
+            "3": [
+              1,
+              2,
+              4,
+              5
+            ],
+            "4": [
+              3,
+              5,
+              6,
+              8
+            ],
+            "5": [
+              0,
+              3,
+              4,
+              7
+            ],
+            "6": [
+              2,
+              5,
+              7,
+              8
+            ],
+            "7": [
+              1,
+              4,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              6,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            6,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              3,
+              5,
+              8
+            ],
+            "1": [
+              0,
+              2,
+              4,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              6
+            ],
+            "3": [
+              1,
+              4,
+              5,
+              7
+            ],
+            "4": [
+              2,
+              3,
+              5,
+              6
+            ],
+            "5": [
+              0,
+              3,
+              4,
+              7
+            ],
+            "6": [
+              2,
+              5,
+              7,
+              8
+            ],
+            "7": [
+              1,
+              4,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              6,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            6,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              3,
+              7,
+              8
+            ],
+            "1": [
+              0,
+              2,
+              4,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              5
+            ],
+            "3": [
+              1,
+              2,
+              4,
+              6
+            ],
+            "4": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "5": [
+              3,
+              4,
+              6,
+              8
+            ],
+            "6": [
+              0,
+              4,
+              5,
+              7
+            ],
+            "7": [
+              1,
+              5,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              6,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            6,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              4,
+              5,
+              7
+            ],
+            "1": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              7
+            ],
+            "3": [
+              1,
+              4,
+              6,
+              8
+            ],
+            "4": [
+              1,
+              2,
+              3,
+              5
+            ],
+            "5": [
+              0,
+              3,
+              4,
+              6
+            ],
+            "6": [
+              2,
+              4,
+              7,
+              8
+            ],
+            "7": [
+              3,
+              5,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              6,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            6,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              4,
+              5,
+              7
+            ],
+            "1": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "2": [
+              1,
+              3,
+              7,
+              8
+            ],
+            "3": [
+              0,
+              1,
+              4,
+              6
+            ],
+            "4": [
+              1,
+              2,
+              3,
+              5
+            ],
+            "5": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "6": [
+              0,
+              3,
+              4,
+              7
+            ],
+            "7": [
+              3,
+              5,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              6,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            6,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              4,
+              7,
+              8
+            ],
+            "1": [
+              0,
+              2,
+              3,
+              8
+            ],
+            "2": [
+              1,
+              3,
+              4,
+              6
+            ],
+            "3": [
+              1,
+              2,
+              5,
+              7
+            ],
+            "4": [
+              0,
+              3,
+              5,
+              6
+            ],
+            "5": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "6": [
+              0,
+              4,
+              5,
+              7
+            ],
+            "7": [
+              1,
+              3,
+              5,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              6,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            6,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              4,
+              7,
+              8
+            ],
+            "1": [
+              0,
+              2,
+              3,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              4,
+              6
+            ],
+            "3": [
+              1,
+              2,
+              5,
+              8
+            ],
+            "4": [
+              0,
+              3,
+              5,
+              7
+            ],
+            "5": [
+              3,
+              4,
+              6,
+              8
+            ],
+            "6": [
+              2,
+              4,
+              5,
+              7
+            ],
+            "7": [
+              1,
+              3,
+              5,
+              6
+            ],
+            "8": [
+              0,
+              2,
+              6,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            6,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              4,
+              7,
+              8
+            ],
+            "1": [
+              2,
+              3,
+              5,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              4
+            ],
+            "3": [
+              1,
+              2,
+              5,
+              7
+            ],
+            "4": [
+              0,
+              3,
+              5,
+              6
+            ],
+            "5": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "6": [
+              0,
+              4,
+              5,
+              7
+            ],
+            "7": [
+              1,
+              3,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              6,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            6,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              1,
+              5,
+              7,
+              8
+            ],
+            "1": [
+              0,
+              4,
+              6,
+              8
+            ],
+            "2": [
+              0,
+              1,
+              3,
+              5
+            ],
+            "3": [
+              1,
+              2,
+              4,
+              7
+            ],
+            "4": [
+              2,
+              3,
+              5,
+              6
+            ],
+            "5": [
+              0,
+              3,
+              4,
+              7
+            ],
+            "6": [
+              2,
+              4,
+              5,
+              8
+            ],
+            "7": [
+              1,
+              3,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              6,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            6,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        },
+        {
+          "selected_rows": {
+            "0": [
+              2,
+              3,
+              5,
+              8
+            ],
+            "1": [
+              0,
+              4,
+              6,
+              8
+            ],
+            "2": [
+              1,
+              3,
+              4,
+              7
+            ],
+            "3": [
+              1,
+              2,
+              5,
+              6
+            ],
+            "4": [
+              0,
+              3,
+              5,
+              7
+            ],
+            "5": [
+              2,
+              4,
+              7,
+              8
+            ],
+            "6": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "7": [
+              1,
+              3,
+              6,
+              8
+            ],
+            "8": [
+              0,
+              2,
+              6,
+              7
+            ]
+          },
+          "target_center_class": [
+            0,
+            2,
+            6,
+            7
+          ],
+          "target_center_class_is_original": false,
+          "vertex_circle_status": "self_edge"
+        }
+      ],
+      "empty_domain_count": 2942,
+      "empty_domain_depth_histogram": {
+        "1": 2,
+        "2": 45,
+        "3": 439,
+        "4": 1015,
+        "5": 805,
+        "6": 482,
+        "7": 154
+      },
+      "non_original_row8_basic_assignment_count": 10,
+      "search_node_count": 5494,
+      "target_center_class": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "target_center_class_is_original": false,
+      "vertex_circle_status_counts": {
+        "self_edge": 10
+      },
+      "vertex_circle_surviving_assignment_count": 0
+    }
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_81_8_full_neighborhood_vertex_circle.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_81_8_full_neighborhood_vertex_circle.py"
+  },
+  "schema": "erdos97.bootstrap_t12_81_8_full_neighborhood_vertex_circle.v1",
+  "source_singleton_support_audit": {
+    "path": "data/certificates/bootstrap_t12_81_8_singleton_support_audit.json",
+    "scan_status": "ONLY_ORIGINAL_ROW8_SURVIVES_FIXED_AND_ONE_ROW_DROP_SUPPORT_AUDITS",
+    "schema": "erdos97.bootstrap_t12_81_8_singleton_support_audit.v1",
+    "status": "BOOTSTRAP_T12_81_8_SINGLETON_SUPPORT_AUDIT_DIAGNOSTIC_ONLY"
+  },
+  "status": "BOOTSTRAP_T12_81_8_FULL_NEIGHBORHOOD_VERTEX_CIRCLE_DIAGNOSTIC_ONLY",
+  "summary": {
+    "basic_filter_complete_assignment_count": 34,
+    "basic_filter_non_original_row8_assignment_count": 27,
+    "bootstrap_core_witnesses": [
+      0,
+      2
+    ],
+    "cyclic_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "empty_domain_count": 8436,
+    "free_row_centers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "free_row_replacement_count_per_center": 70,
+    "implicit_assignment_space_size": 5188320900000000,
+    "non_original_vertex_circle_surviving_assignment_count": 0,
+    "original_target_center_class": [
+      0,
+      2,
+      5,
+      6
+    ],
+    "remaining_gap": "This does not prove singleton support existence, does not prove the row is forced by minimal or rich-class geometry, does not model additional auxiliary rich supports, and does not promote the review-pending n=9 checker.",
+    "scan_status": "FULL_NEIGHBORHOOD_BASIC_SURVIVORS_ALL_VERTEX_CIRCLE_OBSTRUCTED",
+    "search_node_count": 16010,
+    "singleton_support_labels": [
+      5,
+      6
+    ],
+    "source_record_ids": [
+      81
+    ],
+    "target_center": 8,
+    "target_center_candidate_count": 9,
+    "target_row_key": "81:8",
+    "vertex_circle_status_counts": {
+      "self_edge": 27,
+      "strict_cycle": 7
+    },
+    "vertex_circle_surviving_assignment_count": 0
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

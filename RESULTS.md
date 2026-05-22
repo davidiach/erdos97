@@ -666,6 +666,18 @@ existence, row forcing, `n=9`, or the bootstrap bridge. See
 `scripts/check_bootstrap_t12_81_8_singleton_support_two_row_drop.py`, and
 `data/certificates/bootstrap_t12_81_8_singleton_support_two_row_drop.json`.
 
+The source-`81` row-`8` full-neighborhood vertex-circle packet is a
+negative-control boundary for that audit. It fixes row `8` to the same nine
+activation rows but lets every other center choose an arbitrary selected
+4-set. Basic incidence/crossing filters leave `34` complete assignments,
+including `27` with non-original row `8`; vertex-circle quotient replay kills
+all `34` by `27` self-edges and `7` strict cycles. This is still a finite
+diagnostic only, not a proof of singleton support existence, row forcing,
+`n=9`, or the bootstrap bridge. See
+`docs/bootstrap-t12-81-8-full-neighborhood-vertex-circle.md`,
+`scripts/check_bootstrap_t12_81_8_full_neighborhood_vertex_circle.py`, and
+`data/certificates/bootstrap_t12_81_8_full_neighborhood_vertex_circle.json`.
+
 The source-`151` row-`6` outside-pair audit probes the remaining
 relation-sufficient row target. Center `6` has bootstrap-core witness `[0]`
 and outside support pairs `[3,5]`, `[3,8]`, and `[5,8]`; the audit enumerates
