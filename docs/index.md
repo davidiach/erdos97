@@ -495,6 +495,11 @@ put detailed reconciliation in the canonical synthesis.
 
 - [`literature-risk.md`](literature-risk.md): external-reference risks and
   unit-distance caveats.
+- [`../references/README.md`](../references/README.md): bibliography and
+  annotation workflow scaffold; not mathematical evidence.
+- [`../references/source_manifest.yml`](../references/source_manifest.yml):
+  manifest for external sources, planned literature searches, and caveats; not
+  a source of claim status.
 - [`prompt-roadmap.md`](prompt-roadmap.md): prompt-derived planning roadmap and
   next recommended workstreams; heuristic guidance only, not mathematical
   evidence.
