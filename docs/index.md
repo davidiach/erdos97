@@ -487,6 +487,9 @@ put detailed reconciliation in the canonical synthesis.
   ideas and submission policy.
 - [`../data/runs/README.md`](../data/runs/README.md): numerical artifact
   conventions.
+- [`transverse-edge-event-and-cap-cut-constraints.md`](transverse-edge-event-and-cap-cut-constraints.md):
+  exact local research packets for edge-event and cap-cut necessary
+  conditions; not a global obstruction.
 
 ## Planning and provenance
 
