@@ -593,6 +593,7 @@ python scripts/check_n9_base_apex_low_excess_ledgers.py --check --json
 python scripts/check_n9_base_apex_escape_budget.py --check --json
 python scripts/check_n9_selected_baseline_escape_budget_overlay.py --check --json
 python scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py --check --json
+python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py --check --json
 python scripts/check_n9_d3_escape_slice.py --check --json
 python scripts/check_n9_base_apex_d3_escape_frontier_packet.py --check --json
 python scripts/check_n9_base_apex_low_excess_escape_ladder.py --check --json

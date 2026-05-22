@@ -96,6 +96,8 @@ python scripts/analyze_n9_base_apex_low_excess_escape_crosswalk.py --assert-expe
 python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json
 python scripts/analyze_n9_selected_baseline_d3_escape_class_crosswalk.py --assert-expected --out data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json
 python scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py --check --json
+python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py --assert-expected --write
+python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py --check --json
 python scripts/analyze_n9_base_apex_d3_escape_frontier_packet.py --assert-expected --out data/certificates/n9_base_apex_d3_escape_frontier_packet.json
 python scripts/check_n9_base_apex_d3_escape_frontier_packet.py --check --json
 python scripts/analyze_n9_base_apex_d3_p19_incidence_capacity_pilot.py --assert-expected --out data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json
@@ -161,6 +163,18 @@ assignment/slot-choice landings, 13 selected-baseline classes, 8 escape
 classes, and 36 nonzero `Bxx`/`Xyy` cells. The 1,746 landings are not
 geometric realizability counts and are not comparable to the 18,088
 common-dihedral profile/escape classes in the D=3 profile slice.
+
+A companion selected-baseline D=3 vertex-circle template join is registered at
+`data/certificates/n9_selected_baseline_d3_vertex_circle_template_join.json`
+and generated/checked by
+`scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py`. It
+joins the same 1,746 escaping assignment/slot-choice landings to the existing
+n=9 vertex-circle family/template diagnostics by assignment id. The artifact
+pins 1,026 `self_edge` landings, 720 `strict_cycle` landings, the T01--T12
+template landing counts, and the X00--X07 escape-class landing counts. It is
+assignment/slot-choice bookkeeping only, not a realizability count, not an
+incidence-completeness claim, not a proof of `n=9`, not a counterexample, and
+not a global status update.
 
 The sharp strict-threshold slice is recorded separately at
 `data/certificates/n9_base_apex_d3_escape_slice.json`. This is the case

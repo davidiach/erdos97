@@ -1271,6 +1271,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_selected_baseline_d3_vertex_circle_template_join",
+        command=(
+            "python",
+            "scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Selected-baseline D=3 escaping assignment/slot-choice landings "
+            "joined to n=9 vertex-circle family/template diagnostics; not a "
+            "proof of n=9, not a counterexample, not an "
+            "incidence-completeness result, not a geometric realizability "
+            "test, and not a global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_base_apex_d3_p19_incidence_capacity_pilot",
         command=(
             "python",

@@ -104,6 +104,11 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--check --json"
         in command_texts
     )
+    assert (
+        "python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py "
+        "--check --json"
+        in command_texts
+    )
     assert "python scripts/check_n9_d3_escape_slice.py --check --json" in command_texts
     assert (
         "python scripts/check_n9_base_apex_d3_escape_frontier_packet.py --check --json"
@@ -152,6 +157,13 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
     )
     assert ordered_command_texts.index(
         "python scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py "
+        "--check --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py "
+        "--check --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py "
         "--check --json"
     ) < ordered_command_texts.index(
         "python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json"
