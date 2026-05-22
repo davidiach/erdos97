@@ -3,10 +3,11 @@
 
 This standalone checker verifies a simple proof-facing counting lemma:
 for any choice of one same-radius support R_i at each center of a strict convex
-n-gon, sum_i binom(|R_i|, 2) <= n(n - 1).  The reason is that a fixed witness
-pair {a,b} can occur in at most two supports, since all centers using both
-witnesses lie on the perpendicular bisector of ab, and a line contains at most
-two vertices of a strictly convex polygon.
+n-gon, sum_i binom(|R_i|, 2) <= n(n - 2).  A non-boundary witness pair {a,b}
+can occur in at most two supports, since all centers using both witnesses lie
+on the perpendicular bisector of ab.  A boundary-edge witness pair has capacity
+one, because the perpendicular bisector enters the polygon through the edge
+midpoint, so its polygon section has that midpoint as an endpoint.
 """
 
 from __future__ import annotations
@@ -25,7 +26,7 @@ def pair_budget(n: int) -> int:
 
     if n < 0:
         raise ValueError("n must be nonnegative")
-    return n * (n - 1)
+    return max(0, n * (n - 2))
 
 
 def all_centers_min_n(k: int) -> int:
@@ -33,11 +34,11 @@ def all_centers_min_n(k: int) -> int:
 
     if k < 0:
         raise ValueError("k must be nonnegative")
-    return comb(k, 2) + 1
+    return comb(k, 2) + 2
 
 
 def max_total_support_size(n: int, min_size: int = 4) -> tuple[int, list[int]]:
-    """Maximize sum |R_i| under sum binom(|R_i|,2) <= n(n-1).
+    """Maximize sum |R_i| under sum binom(|R_i|,2) <= n(n-2).
 
     This is only a necessary counting relaxation.  It ignores all cyclic-order,
     row-intersection, and vertex-circle constraints.
@@ -132,11 +133,11 @@ def build_summary(min_n: int = 5, max_n: int = 11) -> dict[str, Any]:
         "claim_scope": (
             "Proof-facing rich-support pair-counting lemma only. It records "
             "necessary support-size consequences and does not prove n=9, "
-            "n=10, or Erdos Problem #97."
+            "n=10, n=11, or Erdos Problem #97."
         ),
         "lemma": (
             "For same-radius supports R_i in a strict convex n-gon, "
-            "sum_i binom(|R_i|, 2) <= n(n - 1)."
+            "sum_i binom(|R_i|, 2) <= n(n - 2)."
         ),
         "all_centers_min_support_thresholds": {
             str(k): all_centers_min_n(k) for k in range(4, 8)
@@ -149,16 +150,15 @@ def check_expected(summary: dict[str, Any]) -> None:
     """Check the small consequences used by the proposed repo note."""
 
     thresholds = summary["all_centers_min_support_thresholds"]
-    if thresholds["5"] != 11:
-        raise AssertionError("all-centers size-five threshold should be n >= 11")
+    if thresholds["5"] != 12:
+        raise AssertionError("all-centers size-five threshold should be n >= 12")
 
     rows = {row["n"]: row for row in summary["rows"]}
     expected = {
-        7: (28, 0, 0, 7),
-        8: (34, 2, 2, 6),
-        9: (40, 4, 4, 5),
-        10: (47, 7, 7, 3),
-        11: (55, 11, 11, 0),
+        8: (32, 0, 0, 8),
+        9: (38, 2, 2, 7),
+        10: (45, 5, 5, 5),
+        11: (52, 8, 8, 3),
     }
     for n, (total, surplus, max_non_exact, min_exact) in expected.items():
         row = rows[n]
@@ -172,7 +172,7 @@ def check_expected(summary: dict[str, Any]) -> None:
         if got != want:
             raise AssertionError(f"n={n}: got {got}, expected {want}")
 
-    for n in (5, 6):
+    for n in (5, 6, 7):
         if not rows[n]["four_bad_ruled_out_by_pair_counting"]:
             raise AssertionError(f"n={n}: expected pair-counting to rule out four-bad supports")
 

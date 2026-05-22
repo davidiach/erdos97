@@ -39,18 +39,21 @@ For any choice of one same-radius support `R_i` at each center, not necessarily
 of size four,
 
 ```text
-sum_i binom(|R_i|, 2) <= n(n - 1).
+sum_i binom(|R_i|, 2) <= n(n - 2).
 ```
 
-Indeed, a fixed unordered witness pair `{a,b}` can occur in at most two
-supports, because all centers using both witnesses lie on the perpendicular
-bisector of `ab`, and a line contains at most two vertices of a strictly convex
-polygon.
+Indeed, a fixed unordered witness pair `{a,b}` can occur only on centers lying
+on the perpendicular bisector of `ab`. Non-boundary witness pairs have capacity
+at most `2`. Boundary-edge witness pairs have capacity at most `1`, because the
+perpendicular bisector enters the polygon through the edge midpoint and its
+polygon line-section has that midpoint as an endpoint. Summing these capacities
+gives `n + 2*(binom(n,2)-n) = n(n-2)`.
 
 Consequently, if every center has a rich class of size at least `k`, then
-`n >= binom(k, 2) + 1`. In particular, the all-centers size-five subcase is
-impossible for `n <= 10`; any hypothetical 4-bad nonagon has at least five
-exact-four centers. See `docs/rich-support-counting-lemma.md`.
+`n >= binom(k, 2) + 2`. In particular, the all-centers size-five subcase is
+impossible for `n <= 11`; any hypothetical 4-bad nonagon has at least seven
+exact-four centers, any hypothetical 4-bad decagon has at least five, and
+`n=11` has at least three. See `docs/rich-support-counting-lemma.md`.
 
 ### Lemma: crossing-bisector and sharpened count
 
