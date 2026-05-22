@@ -187,6 +187,19 @@ is stored-frontier coverage bookkeeping against the current brancher, not
 filter soundness, strict-edge geometry, quotient soundness, or a completed
 `n=9` review.
 
+The compact independent brancher command gives a smaller second audit path:
+
+```bash
+python scripts/check_n9_vertex_circle_compact_brancher.py --check --assert-expected --json
+```
+
+It does not import the project n=9 brancher modules and does not read the
+stored 184-assignment frontier artifact. It regenerates the same sorted
+frontier row-set digest, `dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55`,
+and replays `158` self-edge plus `26` strict-cycle vertex-circle quotient
+obstructions. This is independent audit evidence only, not completed review of
+the n=9 finite case.
+
 The mixed-rich/frontier crosswalk checks that the newer four/five support
 catalogue lands on this same exact-four frontier:
 

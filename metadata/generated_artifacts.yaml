@@ -261,6 +261,41 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_vertex_circle_compact_brancher
+    path: data/certificates/n9_vertex_circle_compact_brancher.json
+    kind: finite_case_audit_artifact
+    generator: scripts/check_n9_vertex_circle_compact_brancher.py
+    command: python scripts/check_n9_vertex_circle_compact_brancher.py --write --assert-expected
+    checker: scripts/check_n9_vertex_circle_compact_brancher.py
+    check_command: python scripts/check_n9_vertex_circle_compact_brancher.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    claim_scope: Compact independent regeneration of the review-pending n=9 selected-witness frontier and vertex-circle quotient obstruction; audit/replay aid only, not completed independent review, not a proof of n=9, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_vertex_circle_compact_brancher.v1
+      status: REVIEW_PENDING_COMPACT_INDEPENDENT_BRANCHER
+      trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+      n: 9
+      row_size: 4
+      pair_cap: 2
+      validation_status: passed
+      brancher.nodes_visited: 100817
+      brancher.frontier_assignment_count: 184
+      brancher.assignment_digest_sha256: dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55
+      brancher.vertex_circle_obstruction_counts.self_edge: 158
+      brancher.vertex_circle_obstruction_counts.strict_cycle: 26
+      brancher.vertex_circle_clean_assignments: 0
+      provenance.command: python scripts/check_n9_vertex_circle_compact_brancher.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
   - id: n9_kalmanson_selfedge
     path: data/certificates/n9_kalmanson_selfedge.json
     kind: finite_case_artifact
