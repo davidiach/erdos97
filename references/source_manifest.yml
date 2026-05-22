@@ -1,0 +1,125 @@
+# External source and literature-risk manifest for erdos97.
+# Status: bibliography scaffold only; not mathematical evidence.
+
+manifest_status: "workflow_scaffold_only"
+last_updated: "2026-05-10"
+source_of_truth_note: "Use docs/literature-risk.md and metadata/erdos97.yaml for current risk/status summaries."
+
+sources:
+  - key: "erdos_problem_97_official"
+    type: "official_status_page"
+    title: "Erdos Problem #97"
+    url: "https://www.erdosproblems.com/97"
+    local_note: "docs/literature-risk.md"
+    status: "official/global status anchor"
+    claim_scope: "external problem statement and official status only"
+    last_checked: "2026-04-30"
+    caveats:
+      - "Recheck before any public theorem-style status update."
+
+  - key: "formal_conjectures_erdos_97"
+    type: "formal_statement"
+    title: "Formal Conjectures Erdos Problem 97"
+    url: "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/97.lean"
+    local_note: "docs/formalization.md"
+    status: "formal statement alignment source"
+    claim_scope: "formalized statement only; theorem body is not a proof"
+    last_checked: "2026-04-30"
+    caveats:
+      - "Use for language alignment, not as a proof certificate."
+
+  - key: "erdos_1987_danzer_k3"
+    type: "nearby_primary_or_expository_source"
+    title: "Some combinatorial and metric problems in geometry"
+    authors:
+      - "P. Erdos"
+    year: 1987
+    url: "https://www.renyi.hu/~p_erdos/1987-27.pdf"
+    local_note: "docs/literature-risk.md"
+    status: "nearby k=3 variable-radius construction"
+    claim_scope: "not a k=4 counterexample"
+    last_checked: "2026-04-30"
+    caveats:
+      - "Pin exact Danzer construction details before paper-style prose."
+
+  - key: "erdos_1975_unpublished_all_k_danzer_report"
+    type: "literature_risk"
+    title: "On some problems of elementary and combinatorial geometry"
+    authors:
+      - "P. Erdos"
+    year: 1975
+    url: "https://www.renyi.hu/~p_erdos/1975-25.pdf"
+    local_note: "docs/literature-risk.md"
+    status: "unverified all-k Danzer report"
+    claim_scope: "do not cite as a k=4 counterexample"
+    last_checked: "2026-04-30"
+    caveats:
+      - "Official problem page says this was presumably mistaken."
+      - "Requires primary construction or exact certificate before any status impact."
+
+  - key: "fishburn_reeds_1992_k3_unit"
+    type: "nearby_primary_source"
+    title: "Unit distances between vertices of a convex polygon"
+    authors:
+      - "P. C. Fishburn"
+      - "J. A. Reeds"
+    year: 1992
+    doi: "10.1016/0925-7721(92)90026-O"
+    url: "https://doi.org/10.1016/0925-7721(92)90026-O"
+    local_note: "docs/literature-risk.md"
+    status: "nearby k=3 common-radius/unit-distance construction"
+    claim_scope: "not a variable-radius k=4 result"
+    last_checked: "2026-04-30"
+    caveats:
+      - "Keep common-radius examples separate from selected-witness variable-radius claims."
+
+  - key: "edelsbrunner_hajnal_1991_unit_distance_lower_bound"
+    type: "nearby_primary_source"
+    title: "A lower bound on the number of unit distances between the points of a convex polygon"
+    authors:
+      - "H. Edelsbrunner"
+      - "P. Hajnal"
+    year: 1991
+    doi: "10.1016/0097-3165(91)90042-F"
+    local_note: "docs/literature-risk.md"
+    status: "convex unit-distance lower-bound construction"
+    claim_scope: "not an upper bound and not a variable-radius selected-witness result"
+    last_checked: "2026-04-30"
+    caveats:
+      - "Do not use the 2n-7 construction as an upper bound."
+
+  - key: "aggarwal_2015_unit_distances_convex_polygon"
+    type: "nearby_primary_source"
+    title: "On Unit Distances in a Convex Polygon"
+    authors:
+      - "A. Aggarwal"
+    year: 2015
+    doi: "10.1016/j.disc.2014.10.009"
+    local_note: "docs/literature-risk.md"
+    status: "convex unit-distance upper-bound literature"
+    claim_scope: "common-radius/unit-distance context only"
+    last_checked: "2026-04-30"
+    caveats:
+      - "Do not collapse common-radius unit-distance results into the variable-radius problem."
+
+planned_searches:
+  - key: "repeated_distances_convex_polygons"
+    status: "pending"
+    local_note: "docs/review-priorities.md"
+    goal: "Pin related work before paper-style or public theorem-style claims."
+    caveats:
+      - "Record both found references and negative search results."
+
+  - key: "order_k_voronoi_degeneracies"
+    status: "pending"
+    local_note: "docs/review-priorities.md"
+    goal: "Check whether order-k Voronoi or circle-center degeneracy literature overlaps selected-witness exactification."
+    caveats:
+      - "Do not use unchecked summaries to alter claim status."
+
+  - key: "metric_oriented_matroid_realizability"
+    status: "pending"
+    local_note: "docs/review-priorities.md"
+    goal: "Track realizability literature relevant to cyclic orders plus metric constraints."
+    caveats:
+      - "Separate oriented-matroid constraints from Euclidean distance equalities."
