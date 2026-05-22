@@ -26,14 +26,17 @@ center of a strict convex `n`-gon has a same-radius support of size at least
 five, then each support contributes at least `binom(5,2)=10` unordered witness
 pairs. A fixed witness pair can be used by at most two centers, since all such
 centers lie on the perpendicular bisector of that pair and strict convexity
-allows at most two vertices on a line. Therefore
+allows at most two vertices on a line. The sharpened counting lemma gives
+capacity `1` to boundary-edge witness pairs: their perpendicular bisectors
+enter the polygon through the boundary-edge midpoint, so the polygon
+line-section has that midpoint as an endpoint. Therefore
 
 ```text
-10n <= 2*binom(n,2) = n(n - 1),
+10n <= n + 2*(binom(n,2) - n) = n(n - 2),
 ```
 
-so `n >= 11`. In particular, the `n=9` all-five-rich support subcase is closed
-by this one-line pair-sharing count.
+so `n >= 12`. In particular, the `n=9` all-five-rich support subcase is closed
+by this one-line sharpened pair-sharing count.
 
 The checked artifact below is still useful as a generator-independent
 support-catalogue regression: it exercises the explicit five-support option
@@ -86,5 +89,7 @@ This does not enumerate mixed exact-four and size-five rich catalogues. It
 does not prove `n=9`, does not prove the adaptive radius-blocker bridge, does
 not prove Erdos Problem #97, and does not provide a counterexample.
 
-The next useful bridge target is the mixed catalogue: at least one center must
-remain exact-four-only in any `n=9` selected-witness counterexample.
+The next useful bridge target is the mixed catalogue. The sharpened
+rich-support counting lemma now forces at least seven exact-four centers in
+any `n=9` selected-witness counterexample before any mixed-catalogue or
+vertex-circle machinery is used.

@@ -247,12 +247,14 @@ See `docs/n9-all-five-rich-support-obstruction.md`.
 
 A rich-support counting lemma now gives a proof-level shortcut for that
 all-five-rich subcase: for any same-radius supports `R_i`,
-`sum_i binom(|R_i|, 2) <= n(n - 1)` by witness-pair sharing on perpendicular
-bisectors. Hence every center having five equidistant witnesses requires
-`n >= 11`. The same counting relaxation says any hypothetical 4-bad nonagon
-has at least five exact-four centers, and any hypothetical 4-bad decagon has
-at least three. This does not replace the mixed support catalogues or prove
-`n=9` or `n=10`. See `docs/rich-support-counting-lemma.md`.
+`sum_i binom(|R_i|, 2) <= n(n - 2)` by witness-pair sharing on perpendicular
+bisectors, sharpened by giving boundary-edge witness pairs capacity `1`.
+Hence every center having five equidistant witnesses requires `n >= 12`. The
+same counting relaxation says any hypothetical 4-bad nonagon has at least
+seven exact-four centers, any hypothetical 4-bad decagon has at least five,
+and `n=11` has at least three. This does not replace the mixed support
+catalogues or prove `n=9`, `n=10`, or `n=11`. See
+`docs/rich-support-counting-lemma.md`.
 
 The follow-up mixed rich-support reduction enumerates every four- or
 five-witness support at every center, for `126^9 =

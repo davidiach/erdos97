@@ -87,24 +87,31 @@ Let `R_i` be any same-radius support chosen at center `i`; unlike selected
 witness rows, `R_i` may have size larger than four. Then
 
 ```text
-sum_i binom(|R_i|, 2) <= n(n - 1).
+sum_i binom(|R_i|, 2) <= n(n - 2).
 ```
 
 The proof is the pair-sharing cap in counting form. For a fixed unordered
 witness pair `{a,b}`, every center whose support contains both `a` and `b`
 lies on the perpendicular bisector of segment `ab`; strict convexity permits at
-most two polygon vertices on that line. Double-counting witness pairs inside
-supports gives the displayed inequality.
+most two polygon vertices on that line. Boundary-edge witness pairs sharpen the
+budget because their perpendicular bisectors enter the polygon through the
+edge midpoint, so their polygon line-section has that midpoint as an endpoint
+and can contain at most one polygon vertex as a center. Thus the `n` boundary
+edges have capacity `1`, and the other `binom(n,2)-n` witness pairs have
+capacity `2`. Double-counting witness pairs inside supports gives the
+displayed inequality.
 
 Thus, if every center has a rich distance class of size at least `k`, then
-`n >= binom(k, 2) + 1`. In particular, every-vertex size-five richness is
-impossible for `n <= 10`. Choosing a maximum rich class at each center of a
-hypothetical 4-bad nonagon also shows that at most four centers can have
-`E(i) >= 5`, so at least five centers must be exact-four.
+`n >= binom(k, 2) + 2`. In particular, every-vertex size-five richness is
+impossible for `n <= 11`. Choosing a maximum rich class at each center of a
+hypothetical 4-bad nonagon also shows that at most two centers can have
+`E(i) >= 5`, so at least seven centers must be exact-four. The same relaxation
+forces at least five exact-four centers for `n=10`, and at least three for
+`n=11`.
 
 This is a support-level counting lemma only. It does not rule out mixed
-exact-four/rich catalogues and does not prove `n=9`, `n=10`, or Erdos Problem
-#97. See `docs/rich-support-counting-lemma.md` and the checker
+exact-four/rich catalogues and does not prove `n=9`, `n=10`, `n=11`, or Erdos
+Problem #97. See `docs/rich-support-counting-lemma.md` and the checker
 `scripts/check_rich_support_counting_bound.py`.
 
 ### Altman diagonal-order sums
