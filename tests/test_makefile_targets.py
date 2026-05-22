@@ -261,6 +261,14 @@ def test_verify_n10_review_includes_turn_audits() -> None:
     commands = _make_target_commands("verify-n10-review")
     expected_chain = [
         (
+            "python scripts/check_n10_mixed_rich_support_capacity.py "
+            "--check --assert-expected --json"
+        ),
+        (
+            "python scripts/check_n10_q2_rich_vertex_circle.py "
+            "--check --assert-expected --json"
+        ),
+        (
             "python scripts/check_n10_turn_row0_pilot.py "
             "--check --assert-expected --json"
         ),

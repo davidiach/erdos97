@@ -696,6 +696,25 @@ centers. This does not close the `q=0`, `q=1`, or `q=2` cases, does not prove
 `n=10`, does not prove Erdos Problem #97, and does not provide a
 counterexample. See `docs/n10-mixed-rich-support-capacity.md`.
 
+### n=10 q=2 rich vertex-circle closure diagnostic
+
+Status: `REVIEW_PENDING_DIAGNOSTIC` / finite support-plus-quotient
+catalogue.
+
+The checker in `scripts/check_n10_q2_rich_vertex_circle.py` exhausts the
+dihedral representatives with exactly two size-five supports under the same
+row-pair cap, two-overlap crossing, and witness-pair capacity filters, then
+adds the rich vertex-circle quotient gate on partial assignments. It finds no
+clean complete `q=2` assignment.
+
+Combined with the earlier `q=3,...,7` support-capacity closure, this says any
+`n=10` four/five support assignment surviving these support-plus-quotient
+filters has at most `1` size-five support, hence at least `9` exact-four-only
+centers. This combined consequence depends on both artifacts; this checker
+itself closes exactly the `q=2` layer. It does not close `q=0` or `q=1`, does
+not prove `n=10`, does not prove Erdos Problem #97, and does not provide a
+counterexample. See `docs/n10-q2-rich-vertex-circle.md`.
+
 ### n=10 row0 turn plus vertex-circle crosswalk
 
 Status: `FINITE_BOOKKEEPING_NOT_A_PROOF`.

@@ -4,7 +4,7 @@ Status: `REVIEW_PENDING_DIAGNOSTIC` / generator-independent finite support
 catalogue.
 
 This note records a small support-level widening of the `n=9` mixed
-rich-support reduction. It is not a proof of `n=10`, not a proof of Erdős
+rich-support reduction. It is not a proof of `n=10`, not a proof of Erdos
 Problem #97, and not a counterexample.
 
 ## Setup
@@ -78,6 +78,11 @@ q  dihedral reps checked  complete assignments  max depth reached
 The checker also validates a direct `q=2` support assignment, so the bound is
 sharp for these three necessary filters alone.
 
+A follow-up rich vertex-circle quotient diagnostic,
+`docs/n10-q2-rich-vertex-circle.md`, closes that sharp `q=2` layer after adding
+one stronger quotient filter. The support-capacity artifact here remains only
+the three-filter `q=3,...,7` catalogue.
+
 ## Consequence
 
 Repo-locally, this finite catalogue reduces the `n=10` four/five support
@@ -99,6 +104,6 @@ applied.
 - It does not replay vertex-circle, Kalmanson, turn-inequality, or Euclidean
   realizability filters.
 - It leaves the `q=0`, `q=1`, and `q=2` four/five support cases to stronger
-  filters.
-- It does not prove `n=10`, does not prove Erdős Problem #97, and does not
+  filters at this support-capacity level.
+- It does not prove `n=10`, does not prove Erdos Problem #97, and does not
   provide a counterexample.
