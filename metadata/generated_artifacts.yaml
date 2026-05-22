@@ -2255,6 +2255,86 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_selected_baseline_d3_vertex_circle_template_join
+    path: data/certificates/n9_selected_baseline_d3_vertex_circle_template_join.json
+    kind: exploratory_ledger_artifact
+    generator: scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py
+    command: python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py --assert-expected --write
+    checker: scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py
+    check_command: python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py --check --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    claim_scope: Selected-baseline D=3 escaping assignment/slot-choice landings joined to n=9 vertex-circle family/template diagnostics; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_selected_baseline_d3_vertex_circle_template_join.v1
+      status: EXPLORATORY_LEDGER_ONLY
+      trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+      claim_scope: Selected-baseline D=3 escaping assignment/slot-choice landings joined to n=9 vertex-circle family/template diagnostics; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.
+      n: 9
+      witness_size: 4
+      base_apex_slack: 9
+      capacity_deficit_budget: 3
+      contradiction_threshold: 3
+      source_assignment_count: 184
+      total_budget3_slot_choice_count: 15456
+      forced_budget3_slot_choice_count: 13710
+      escaping_assignment_slot_choice_landing_count: 1746
+      selected_baseline_class_count: 13
+      escape_class_count: 8
+      vertex_circle_template_count: 12
+      vertex_circle_family_count: 16
+      vertex_circle_status_landing_counts.self_edge: 1026
+      vertex_circle_status_landing_counts.strict_cycle: 720
+      vertex_circle_template_landing_counts.T01: 72
+      vertex_circle_template_landing_counts.T02: 72
+      vertex_circle_template_landing_counts.T03: 342
+      vertex_circle_template_landing_counts.T04: 108
+      vertex_circle_template_landing_counts.T05: 0
+      vertex_circle_template_landing_counts.T06: 324
+      vertex_circle_template_landing_counts.T07: 72
+      vertex_circle_template_landing_counts.T08: 36
+      vertex_circle_template_landing_counts.T09: 0
+      vertex_circle_template_landing_counts.T10: 612
+      vertex_circle_template_landing_counts.T11: 0
+      vertex_circle_template_landing_counts.T12: 108
+      vertex_circle_family_landing_counts.F01: 36
+      vertex_circle_family_landing_counts.F02: 36
+      vertex_circle_family_landing_counts.F03: 0
+      vertex_circle_family_landing_counts.F04: 36
+      vertex_circle_family_landing_counts.F05: 342
+      vertex_circle_family_landing_counts.F06: 72
+      vertex_circle_family_landing_counts.F07: 0
+      vertex_circle_family_landing_counts.F08: 0
+      vertex_circle_family_landing_counts.F09: 72
+      vertex_circle_family_landing_counts.F10: 0
+      vertex_circle_family_landing_counts.F11: 324
+      vertex_circle_family_landing_counts.F12: 612
+      vertex_circle_family_landing_counts.F13: 108
+      vertex_circle_family_landing_counts.F14: 0
+      vertex_circle_family_landing_counts.F15: 0
+      vertex_circle_family_landing_counts.F16: 108
+      escape_class_landing_counts.X00: 198
+      escape_class_landing_counts.X01: 90
+      escape_class_landing_counts.X02: 144
+      escape_class_landing_counts.X03: 234
+      escape_class_landing_counts.X04: 396
+      escape_class_landing_counts.X05: 162
+      escape_class_landing_counts.X06: 126
+      escape_class_landing_counts.X07: 396
+      provenance.generator: scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py
+      provenance.command: python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - selected-baseline landings are realizability counts
+      - incidence-completeness result
+      - geometric realizability count
+      - counterexample
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n9_base_apex_d3_escape_slice
     path: data/certificates/n9_base_apex_d3_escape_slice.json
     kind: exploratory_ledger_artifact

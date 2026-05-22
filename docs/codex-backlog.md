@@ -659,6 +659,7 @@ python scripts/explore_n9_base_apex.py
 python scripts/check_n9_base_apex_low_excess_ledgers.py --check --json
 python scripts/check_n9_base_apex_escape_budget.py --check --json
 python scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py --check --json
+python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py --check --json
 python scripts/check_n9_base_apex_d3_escape_frontier_packet.py --check --json
 python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json
 python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json
@@ -685,6 +686,11 @@ Expected artifacts:
   that count assignment/slot-choice landings by selected-baseline class and
   escape class without treating those landings as realizability counts or as
   comparable to common-dihedral profile/escape classes;
+- optional selected-baseline D=3 vertex-circle template joins such as
+  `data/certificates/n9_selected_baseline_d3_vertex_circle_template_join.json`
+  that join assignment/slot-choice landings to vertex-circle template/family
+  diagnostics by assignment id without treating templates as theorem names or
+  landings as realizability counts;
 - optional sharp low-excess slices such as
   `data/certificates/n9_base_apex_d3_escape_slice.json` that couple the
   `E=6, D=3, r=3` profile/escape bookkeeping under common dihedral symmetry
