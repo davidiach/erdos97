@@ -123,6 +123,16 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/check_n9_base_apex_d3_p19_degree_obstruction.py --check "
+        "--assert-expected --json"
+        in command_texts
+    )
+    assert (
+        "python scripts/check_n9_base_apex_d3_p20_residue_obstruction.py --check "
+        "--assert-expected --json"
+        in command_texts
+    )
+    assert (
         "python scripts/check_n9_base_apex_d3_artifact_join.py --check --json"
         in command_texts
     )
@@ -175,6 +185,20 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
     )
     assert ordered_command_texts.index(
         "python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_base_apex_d3_p19_degree_obstruction.py --check "
+        "--assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_base_apex_d3_p19_degree_obstruction.py --check "
+        "--assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_base_apex_d3_p20_residue_obstruction.py --check "
+        "--assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_base_apex_d3_p20_residue_obstruction.py --check "
+        "--assert-expected --json"
     ) < ordered_command_texts.index(
         "python scripts/check_n9_base_apex_d3_artifact_join.py --check --json"
     )

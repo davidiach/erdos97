@@ -537,6 +537,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-base-apex-d3-p19-degree-obstruction.md`](n9-base-apex-d3-p19-degree-obstruction.md):
   incident-degree obstruction closing only the P19 rows of the D=3
   profile-capacity packet.
+- [`n9-base-apex-d3-p20-residue-obstruction.md`](n9-base-apex-d3-p20-residue-obstruction.md):
+  incident-residue support obstruction closing only the P20 rows of the D=3
+  profile-capacity packet.
 - [`repo-roadmap.md`](repo-roadmap.md): staged repository plan.
 - [`initial-issues.md`](initial-issues.md): seed issue list.
 - [`../AGENTS.md`](../AGENTS.md): repository-level Codex guidance.

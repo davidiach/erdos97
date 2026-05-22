@@ -115,6 +115,7 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json
 	$(PYTHON) scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
 	$(PYTHON) scripts/check_n9_base_apex_d3_p19_degree_obstruction.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_base_apex_d3_p20_residue_obstruction.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_base_apex_d3_artifact_join.py --check --json
 	$(PYTHON) scripts/check_n9_base_apex_audit_path.py --check --json
 
