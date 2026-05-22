@@ -79,7 +79,10 @@ remaining_packet_rows: 80
 
 ## What remains
 
-This closes only the P19 profile-capacity slice. The other D=3 profile ledgers
-`P20..P29` remain finite targets for the profile-capacity feasibility program.
-A useful next checker would try analogous degree, parity, or cut constraints on
-those ten remaining profile multisets before resorting to a full exact CSP.
+This closes only the P19 profile-capacity slice. The companion P20 residue
+obstruction closes the next slice in
+`docs/n9-base-apex-d3-p20-residue-obstruction.md`. The remaining D=3 profile
+ledgers `P21..P29` remain finite targets for the profile-capacity feasibility
+program. A useful next checker would try analogous degree, parity, or cut
+constraints on those nine remaining profile multisets before resorting to a
+full exact CSP.

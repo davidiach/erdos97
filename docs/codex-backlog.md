@@ -707,6 +707,12 @@ Expected artifacts:
   `data/certificates/n9_base_apex_d3_incidence_capacity_packet.json` that
   extend the same bookkeeping to all 88 D=3 packet rows while keeping
   realizability and incidence states `UNKNOWN`;
+- optional finite profile-capacity obstructions such as
+  `scripts/check_n9_base_apex_d3_p19_degree_obstruction.py` and
+  `scripts/check_n9_base_apex_d3_p20_residue_obstruction.py` that close only
+  the P19 and P20 slices, respectively, without claiming proof,
+  counterexample, incidence-completeness, geometric realizability, or global
+  status movement;
 - optional cross-artifact D=3 consistency checkers such as
   `scripts/check_n9_base_apex_d3_artifact_join.py` that join the D=3 slice,
   representative packet, low-excess crosswalk, P19 pilot, and all-row
