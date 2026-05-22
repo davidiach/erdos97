@@ -450,6 +450,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`n10-turn-row0-escape-self-edges.md`](n10-turn-row0-escape-self-edges.md):
   compact row0-local self-edge templates for the four weak-turn SAT escapes
   in the bounded `n=10` row0 pilot.
+- [`n10-turn-row0-combined-closure.md`](n10-turn-row0-combined-closure.md):
+  crosswalk showing that the bounded `n=10` row0-index-0 turn Farkas
+  closures plus the four row0-local vertex-circle escape templates partition
+  the 160 recorded assignments; finite bookkeeping only.
 - [`octagon-trap.html`](octagon-trap.html): interactive visualization of the
   isosceles-triangle count and octagon equality trap.
 - [`reproduction-log.md`](reproduction-log.md): fast, artifact, and exhaustive

@@ -1015,6 +1015,15 @@ complete n=10 search, not a proof of `n=10`, and not a counterexample. See
 `docs/n10-turn-row0-pilot.md` and
 `docs/n10-turn-row0-escape-self-edges.md`.
 
+The derived crosswalk in
+`data/certificates/n10_turn_row0_combined_closure.json` packages that bounded
+row0 slice as a disjoint closure partition: the stored weak-turn Farkas
+certificates close `156` assignments, and the four weak-turn SAT escapes
+`[74,103,156,157]` are exactly the four stored row0-local vertex-circle
+self-edge templates. This is still finite bookkeeping only, not a complete
+n=10 search, not a proof of `n=10`, and not a counterexample. See
+`docs/n10-turn-row0-combined-closure.md`.
+
 The generator-independent `n=10` mixed rich-support capacity diagnostic in
 `data/certificates/n10_mixed_rich_support_capacity.json` applies only
 support-level necessary filters: row-pair cap, two-overlap crossing, and

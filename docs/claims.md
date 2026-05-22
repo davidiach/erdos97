@@ -696,6 +696,22 @@ centers. This does not close the `q=0`, `q=1`, or `q=2` cases, does not prove
 `n=10`, does not prove Erdos Problem #97, and does not provide a
 counterexample. See `docs/n10-mixed-rich-support-capacity.md`.
 
+### n=10 row0 turn plus vertex-circle crosswalk
+
+Status: `FINITE_BOOKKEEPING_NOT_A_PROOF`.
+
+The checker in `scripts/check_n10_turn_row0_combined_closure.py` joins the
+bounded `n=10` row0-index-0 turn pilot with the four stored row0-local
+vertex-circle self-edge escape templates. It verifies that stored weak-turn
+Farkas certificates close `156` of the `160` assignments, that the remaining
+weak-turn SAT assignments are exactly `[74,103,156,157]`, and that those four
+assignments are exactly the stored vertex-circle escape records.
+
+This is a closure crosswalk for one bounded row0 slice only. It does not prove
+`n=10`, does not complete the `n=10` singleton-slice search, does not promote
+the row0 pilot to a completeness result, and does not provide a counterexample.
+See `docs/n10-turn-row0-combined-closure.md`.
+
 ### n=9 Kalmanson self-edge replay
 
 Status: `MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING`.

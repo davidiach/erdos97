@@ -2389,6 +2389,24 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n10_turn_row0_combined_closure",
+        command=(
+            "python",
+            "scripts/check_n10_turn_row0_combined_closure.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Crosswalk for the bounded n=10 row0-index-0 pilot: stored "
+            "weak-turn Farkas certificates close 156 assignments and the "
+            "four weak-turn SAT escapes are exactly the stored row0-local "
+            "vertex-circle self-edge templates; finite bookkeeping only, "
+            "not a proof of n=10, not a complete n=10 search, not a "
+            "counterexample, and not a global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n10_vertex_circle_singleton_draft",
         command=(
             "python",

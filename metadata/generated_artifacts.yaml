@@ -4022,6 +4022,53 @@ artifacts:
       - counterexample to Erdos Problem #97
       - general proof of Erdos Problem #97
 
+  - id: n10_turn_row0_combined_closure
+    path: data/certificates/n10_turn_row0_combined_closure.json
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_n10_turn_row0_combined_closure.py
+    command: python scripts/check_n10_turn_row0_combined_closure.py --write --assert-expected
+    checker: scripts/check_n10_turn_row0_combined_closure.py
+    check_command: python scripts/check_n10_turn_row0_combined_closure.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    claim_scope: Crosswalk for the bounded n=10 row0-index-0 pilot; stored weak-turn Farkas certificates close 156 assignments and the four weak-turn SAT escapes are exactly the stored row0-local vertex-circle self-edge templates, but this is not a proof of n=10, not a complete n=10 search, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n10_turn_row0_combined_closure.v1
+      status: N10_ROW0_TURN_PLUS_VERTEX_CIRCLE_CLOSURE_DIAGNOSTIC
+      trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+      validation_status: passed
+      coverage_summary.row0_index: 0
+      coverage_summary.full_assignment_count: 160
+      coverage_summary.turn_farkas_unsat_count: 156
+      coverage_summary.turn_sat_escape_count: 4
+      coverage_summary.turn_sat_escape_assignment_indices:
+        - 74
+        - 103
+        - 156
+        - 157
+      coverage_summary.vertex_circle_escape_assignment_indices:
+        - 74
+        - 103
+        - 156
+        - 157
+      coverage_summary.turn_and_escape_overlap_count: 0
+      coverage_summary.combined_closed_assignment_count: 160
+      coverage_summary.unclosed_assignment_count: 0
+      coverage_summary.turn_status_counts.farkas_unsat: 156
+      coverage_summary.turn_status_counts.sat: 4
+      coverage_summary.vertex_circle_status_counts.self_edge: 160
+      provenance.command: python scripts/check_n10_turn_row0_combined_closure.py --write --assert-expected
+    forbidden_claims:
+      - n=10 is proved
+      - turn inequalities close n=10
+      - row0 pilot is a completeness result
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
   - id: bootstrap_core_crosswalk
     path: data/certificates/bootstrap_core_crosswalk.json
     kind: proof_mining_diagnostic_artifact
