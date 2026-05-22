@@ -24,6 +24,10 @@ def test_verify_n9_review_includes_documented_frontier_audits() -> None:
     expected_chain = [
         "python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json",
         (
+            "python scripts/check_n9_vertex_circle_compact_brancher.py "
+            "--check --assert-expected --json"
+        ),
+        (
             "python scripts/analyze_n9_vertex_circle_obstruction_shapes.py "
             "--check --assert-expected --json"
         ),

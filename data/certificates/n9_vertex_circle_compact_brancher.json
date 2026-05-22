@@ -1,0 +1,50 @@
+{
+  "brancher": {
+    "assignment_digest_sha256": "dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55",
+    "candidate_rows_per_center": [
+      70,
+      70,
+      70,
+      70,
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "center_pair_intersection_histogram": {
+      "0": 72,
+      "1": 3168,
+      "2": 3384
+    },
+    "frontier_assignment_count": 184,
+    "nodes_visited": 100817,
+    "selected_indegree_value_histogram": {
+      "4": 1656
+    },
+    "two_overlap_crossing_count": 3384,
+    "vertex_circle_clean_assignments": 0,
+    "vertex_circle_obstruction_counts": {
+      "self_edge": 158,
+      "strict_cycle": 26
+    },
+    "witness_pair_profile_counts": {
+      "0:2|1:14|2:20": 36,
+      "1:18|2:18": 148
+    }
+  },
+  "claim_scope": "Compact independent regeneration of the review-pending n=9 selected-witness frontier and vertex-circle quotient obstruction. It does not import the project n=9 brancher modules and does not read the stored 184-assignment frontier artifact. It is an audit/replay aid only: it does not complete independent review of the exhaustive checker, does not promote n=9 to a theorem, does not prove Erdos Problem #97, does not produce a counterexample, and does not update the official/global status.",
+  "interpretation": "A passed run independently regenerates 184 n=9 incidence/count frontier assignments and classifies all 184 as vertex-circle quotient obstructed. This is review-pending finite-case audit evidence only, not a global theorem or counterexample.",
+  "n": 9,
+  "pair_cap": 2,
+  "provenance": {
+    "command": "python scripts/check_n9_vertex_circle_compact_brancher.py --write --assert-expected",
+    "generator": "scripts/check_n9_vertex_circle_compact_brancher.py"
+  },
+  "row_size": 4,
+  "schema": "erdos97.n9_vertex_circle_compact_brancher.v1",
+  "status": "REVIEW_PENDING_COMPACT_INDEPENDENT_BRANCHER",
+  "trust": "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

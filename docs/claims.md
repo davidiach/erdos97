@@ -751,6 +751,27 @@ not independently complete review of the brancher filters, does not promote
 `n=9` to source-of-truth theorem status, does not prove Erdos Problem #97, and
 does not provide a counterexample. See `docs/n9-kalmanson-selfedge.md`.
 
+### n=9 compact independent brancher audit
+
+Status: `MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING`.
+
+The checker in `scripts/check_n9_vertex_circle_compact_brancher.py`
+regenerates the `n=9` selected-witness frontier without importing the project
+n=9 brancher modules and without reading the stored 184-assignment frontier
+artifact. It uses the row shape, row-pair cap, two-overlap crossing rule, and
+witness-pair capacity rule, then directly replays the selected-distance
+quotient and nested vertex-circle strict inequalities.
+
+It visits `100817` search nodes, regenerates `184` terminal frontier
+assignments with sorted row-set digest
+`dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55`, and
+classifies all of them as vertex-circle quotient obstructed: `158`
+self-edges and `26` strict cycles, with `0` clean assignments. This is
+independent audit evidence only. It does not complete independent review of
+the exhaustive checker, does not promote `n=9` to a theorem, does not prove
+Erdos Problem #97, and does not provide a counterexample. See
+`docs/n9-vertex-circle-compact-brancher.md`.
+
 ### Bootstrap-core closure rank and weighted capacity
 
 Status: `LEMMA` / bridge fork.

@@ -217,6 +217,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         claim_scope="Review-pending n=9 selected-witness finite-case checker; not an official/global status update.",
     ),
     AuditCommand(
+        ident="n9_vertex_circle_compact_brancher",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_compact_brancher.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Compact independent regeneration of the review-pending n=9 "
+            "selected-witness frontier and vertex-circle quotient "
+            "obstruction; audit/replay aid only, not completed independent "
+            "review, not a proof of n=9, not a proof of Erdos Problem #97, "
+            "and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="n9_kalmanson_selfedge",
         command=(
             "python",
