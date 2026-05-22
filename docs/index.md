@@ -447,6 +447,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`n10-mixed-rich-support-capacity.md`](n10-mixed-rich-support-capacity.md):
   generator-independent `n=10` four/five support-capacity diagnostic; finite
   support bookkeeping only, not an `n=10` proof.
+- [`n10-q2-rich-vertex-circle.md`](n10-q2-rich-vertex-circle.md):
+  review-pending `n=10` exactly-two-size-five rich-support closure after adding
+  the rich vertex-circle quotient; finite support-plus-quotient bookkeeping
+  only.
 - [`n10-turn-row0-pilot.md`](n10-turn-row0-pilot.md): bounded `n=10`
   row0-index-0 turn-frontier pilot; finite bookkeeping only, not a proof of
   `n=10`.
