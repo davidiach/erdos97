@@ -142,6 +142,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_81_8_singleton_support_audit.py --check --assert-expected --json
+	$(PYTHON) scripts/check_bootstrap_t12_81_8_singleton_support_two_row_drop.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_outside_pair_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_support_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_two_row_drop.py --check --assert-expected --json

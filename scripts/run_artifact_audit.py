@@ -2030,6 +2030,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_81_8_singleton_support_two_row_drop",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_8_singleton_support_two_row_drop.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Source-81 row-8 singleton-support two-row-drop relaxation; not "
+            "singleton-support existence, row forcing, an n=9 proof, a bridge "
+            "proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_6_outside_pair_audit",
         command=(
             "python",

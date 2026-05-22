@@ -927,6 +927,14 @@ dropped row equal to its original source-`81` row. This remains a finite
 proof-mining diagnostic only, not a proof of singleton support existence, row
 forcing, `n=9`, the bootstrap bridge, or Erdos Problem #97.
 
+The source-`81` row-`8` two-row-drop follow-up in
+`docs/bootstrap-t12-81-8-singleton-support-two-row-drop.md` allows any two
+non-target source-`81` rows to move. It checks `1,234,800` candidates and
+leaves `28` survivors, all of which keep row `8` and both dropped rows equal
+to their original source-`81` choices. This remains a finite proof-mining
+diagnostic only, not a proof of singleton support existence, row forcing,
+`n=9`, the bootstrap bridge, or Erdos Problem #97.
+
 The source-`151` row-`6` outside-pair audit in
 `docs/bootstrap-t12-151-6-outside-pair-audit.md` checks the remaining
 relation-sufficient row target. It enumerates the thirteen center-`6` rows

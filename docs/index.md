@@ -275,6 +275,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-81-8-singleton-support-audit.md`](bootstrap-t12-81-8-singleton-support-audit.md):
   source-`81` row-`8` singleton-support audit showing only the original row
   survives the fixed-neighborhood and one-row-drop activation-row scans.
+- [`bootstrap-t12-81-8-singleton-support-two-row-drop.md`](bootstrap-t12-81-8-singleton-support-two-row-drop.md):
+  two-row-drop relaxation audit for the source-`81` row-`8` singleton-support
+  target.
 - [`bootstrap-t12-151-6-outside-pair-audit.md`](bootstrap-t12-151-6-outside-pair-audit.md):
   source-`151` row-`6` outside-pair audit showing only the original row
   survives the fixed-neighborhood and one-row-drop activation-row scans.
