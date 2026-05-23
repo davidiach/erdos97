@@ -275,6 +275,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-81-3-escape-rich-support-csp.md`](bootstrap-t12-81-3-escape-rich-support-csp.md):
   rich-support auxiliary CSP allowing the center-`3` connector and center-`6`
   supply objects to be supports larger than four labels.
+- [`bootstrap-t12-81-3-first-supply-chains.md`](bootstrap-t12-81-3-first-supply-chains.md):
+  first-step prefix CSP allowing any non-seed, non-`3` center to activate
+  first before testing immediate label-`6` supply extensions.
 - [`bootstrap-t12-81-8-singleton-support-audit.md`](bootstrap-t12-81-8-singleton-support-audit.md):
   source-`81` row-`8` singleton-support audit showing only the original row
   survives the fixed-neighborhood and one-row-drop activation-row scans.

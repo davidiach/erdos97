@@ -2082,6 +2082,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_81_3_first_supply_chains",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_first_supply_chains.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "First-step prefix CSP for the 81:3 pre-3 label-6 escape; "
+            "finds three center-8 prefix survivors but no immediate label-6 "
+            "supply extension, and is not row forcing, an n=9 proof, a "
+            "bridge proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_81_8_singleton_support_audit",
         command=(
             "python",

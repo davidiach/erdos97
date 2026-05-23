@@ -733,6 +733,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   escape CSP from 4-set trigger classes to larger rich supports at centers `3`
   and `6`. The remaining target is now support existence, additional
   auxiliary supports at other centers, or a different bridge target.
+- bootstrap/T12 focused `81:3` first-supply-chain evidence, as recorded in
+  `docs/bootstrap-t12-81-3-first-supply-chains.md`, allowing the first
+  pre-`3` activation from seed `[0,1,4]` to occur at any non-seed, non-`3`
+  center. This leaves exactly three basic-filter prefix survivors, all with
+  first activation at center `8`, and no immediate center-`6` label-`6` supply
+  extension for those prefixes. The remaining target is a longer center-`8`
+  chain audit or a minimal/rich-class hypothesis that rules out those boundary
+  prefixes.
 - bootstrap/T12 focused `81:8` singleton-support evidence, as recorded in
   `docs/bootstrap-t12-81-8-singleton-support-audit.md`, showing that the fixed
   source-`81` neighborhood and one-row-drop relaxation have no non-original
