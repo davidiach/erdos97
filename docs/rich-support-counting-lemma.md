@@ -1,12 +1,13 @@
 # Rich-support counting lemma
 
-Status: `LEMMA` / proof-facing counting bound. This note does not claim a
-general proof of Erdos Problem #97 and does not claim a counterexample.
+Status: `LEMMA` / proof-facing edge-sensitive counting bound. This note does
+not claim a general proof of Erdos Problem #97 and does not claim a
+counterexample.
 
 ## Setup
 
-Let `V` be the vertex set of a strictly convex `n`-gon. For each center
-`i in V`, choose one same-radius support
+Let `V` be the vertex set of a strictly convex `n`-gon in its cyclic hull
+order. For each center `i in V`, choose one same-radius support
 
 ```text
 R_i subset V \ {i}
@@ -24,21 +25,28 @@ For any such choice of supports,
 sum_i binom(|R_i|, 2) <= n(n - 2).
 ```
 
-Proof: fix an unordered witness pair `{a,b}`. If `{a,b} subset R_i`, then the
-center `i` is equidistant from `a` and `b`, so `i` lies on the perpendicular
-bisector of segment `ab`.
+Proof: fix an unordered witness pair `{a,b}`.
 
-For a non-boundary pair `{a,b}`, this gives the usual capacity `2`: a line
-contains at most two vertices of a strictly convex polygon. For a boundary edge
-`{a,b}`, the perpendicular bisector enters the polygon through the midpoint of
-that edge. The line-section of the polygon therefore has that midpoint as an
-endpoint, so it can contain at most one polygon vertex as a center. Thus the
-`n` boundary-edge witness pairs have capacity `1`, while the remaining
-`binom(n,2)-n` witness pairs have capacity `2`. Double-counting triples
-`(i,{a,b})` with `{a,b} subset R_i` gives
+If `{a,b}` is not a hull edge, then every center `i` with
+`{a,b} subset R_i` is equidistant from `a` and `b`, hence lies on the
+perpendicular bisector of segment `ab`. A line contains at most two vertices of
+a strictly convex polygon, so this non-edge witness pair can occur together in
+at most two supports.
+
+If `{a,b}` is a hull edge, its perpendicular bisector already meets the polygon
+boundary at the midpoint of that edge. The same perpendicular bisector cannot
+coincide with the edge line. Its intersection with the boundary of a convex
+polygon therefore has at most one further boundary point, so it contains at
+most one polygon vertex that can serve as a center. Thus a hull-edge witness
+pair can occur together in at most one support.
+
+There are `n` hull-edge witness pairs and `binom(n,2)-n` non-edge witness
+pairs. Double-counting triples `(i,{a,b})` with `{a,b} subset R_i` gives
 
 ```text
-n*1 + (binom(n,2) - n)*2 = n(n - 2).
+sum_i binom(|R_i|, 2)
+  <= n + 2 * (binom(n,2) - n)
+   = n(n - 2).
 ```
 
 ## Consequences
@@ -75,8 +83,13 @@ at most two centers can have `E(i) >= 5`. Equivalently, any hypothetical 4-bad
 nonagon has at least seven exact-four centers.
 
 The corresponding necessary counting relaxation gives at least five exact-four
-centers in any hypothetical 4-bad decagon, and at least three exact-four
-centers for `n=11`.
+centers in any hypothetical 4-bad decagon and at least three exact-four centers
+in any hypothetical 4-bad hendecagon.
+
+The same count also gives a short support-level exclusion of `n <= 7`: a 4-bad
+`n`-gon would require `6n <= n(n-2)`, hence `n >= 8`. This agrees with the
+repository's separate sharpened incidence and geometric proof-note routes; the
+older `n=7` Fano enumeration remains useful structural provenance.
 
 ## Verification command
 
@@ -87,7 +100,7 @@ python scripts/check_rich_support_counting_bound.py --check --json
 ```
 
 checks the threshold `n >= 12` for all-centers size-five support and the small
-`n=5..11` surplus table used above. It is only a counting-bound checker; it is
+`n=8..12` surplus table used above. It is only a counting-bound checker; it is
 not a realization search.
 
 ## Boundary
@@ -97,4 +110,5 @@ This lemma does not rule out mixed exact-four and size-five catalogues. For
 but it does not replace the review-pending exact-four frontier or the mixed
 support crosswalk. The existing `n=9` all-five-rich checker remains useful as a
 crossing-aware support-catalogue regression and as provenance for the richer
-support-search machinery.
+support-search machinery, but the all-five-rich subcase itself is already
+closed by the edge-sensitive count.

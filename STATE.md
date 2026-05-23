@@ -245,15 +245,16 @@ least one center whose available rich classes are exact-four-only; it is still
 not an `n=9` proof, not the adaptive blocker bridge, and not a counterexample.
 See `docs/n9-all-five-rich-support-obstruction.md`.
 
-A rich-support counting lemma now gives a proof-level shortcut for that
-all-five-rich subcase: for any same-radius supports `R_i`,
-`sum_i binom(|R_i|, 2) <= n(n - 2)` by witness-pair sharing on perpendicular
-bisectors, sharpened by giving boundary-edge witness pairs capacity `1`.
-Hence every center having five equidistant witnesses requires `n >= 12`. The
-same counting relaxation says any hypothetical 4-bad nonagon has at least
-seven exact-four centers, any hypothetical 4-bad decagon has at least five,
-and `n=11` has at least three. This does not replace the mixed support
-catalogues or prove `n=9`, `n=10`, or `n=11`. See
+A sharpened rich-support counting lemma now gives a proof-level shortcut for
+all-five-rich subcases: for any same-radius supports `R_i`,
+`sum_i binom(|R_i|, 2) <= n(n - 2)`. The improvement over the coarse `n(n-1)`
+pair-sharing count is that a hull-edge witness pair can occur in at most one
+support, while a non-edge witness pair can occur in at most two. Hence every
+center having five equidistant witnesses requires `n >= 12`. The same counting
+relaxation says any hypothetical 4-bad nonagon has at least seven exact-four
+centers, any hypothetical 4-bad decagon has at least five, and any hypothetical
+4-bad hendecagon has at least three. This does not replace the mixed support
+catalogues or prove `n=9`, `n=10`, `n=11`, or Erdos Problem #97. See
 `docs/rich-support-counting-lemma.md`.
 
 The follow-up mixed rich-support reduction enumerates every four- or
