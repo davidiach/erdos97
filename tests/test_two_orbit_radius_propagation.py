@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import pytest
 import sympy as sp
 
 from erdos97.two_orbit_radius_propagation import (
@@ -43,6 +44,7 @@ def test_exact_positivity_helper_does_not_use_numeric_fallback() -> None:
     assert _is_positive(x) is False
 
 
+@pytest.mark.slow
 def test_explicit_selected_distances_for_t2_are_exactly_equal() -> None:
     residuals = selected_distance_residuals(2)
 

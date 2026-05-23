@@ -5,12 +5,15 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.analyze_kalmanson_inverse_pair_templates import (
     assert_expected,
     diagnostic_payload,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.slow
 
 
 def test_kalmanson_inverse_pair_template_diagnostic_expected_counts() -> None:

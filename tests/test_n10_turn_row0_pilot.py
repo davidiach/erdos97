@@ -1,11 +1,15 @@
 from __future__ import annotations
 
+import pytest
+
 from erdos97.n10_turn_row0_pilot import (
     ROW0_INDEX,
     classify_assignment,
     first_self_edge_conflict,
     validate_payload,
 )
+
+pytestmark = pytest.mark.slow
 
 
 def test_known_turn_sat_escape_is_vertex_circle_self_edge() -> None:

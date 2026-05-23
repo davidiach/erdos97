@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import pytest
+
 from scripts.check_n9_vertex_circle_branch_options import (
     EXPECTED_EMPTY_OPTION_CONTEXTS,
     EXPECTED_HELPER_OPTION_TOTAL,
@@ -8,6 +10,8 @@ from scripts.check_n9_vertex_circle_branch_options import (
     assert_expected_branch_option_payload,
     branch_option_payload,
 )
+
+pytestmark = pytest.mark.slow
 
 
 def test_branch_option_payload_scope_and_counts() -> None:

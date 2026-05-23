@@ -211,6 +211,7 @@ def test_row_ptolemy_product_checker_passes() -> None:
     assert summary["hit_certificate_count"] == 216
 
 
+@pytest.mark.slow
 def test_row_ptolemy_product_checker_rejects_tampered_provenance() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     payload["provenance"]["command"] = (
@@ -222,6 +223,7 @@ def test_row_ptolemy_product_checker_rejects_tampered_provenance() -> None:
     assert any("provenance" in error for error in errors)
 
 
+@pytest.mark.slow
 def test_row_ptolemy_product_checker_rejects_tampered_source_artifacts() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     payload["source_artifacts"] = []
@@ -231,6 +233,7 @@ def test_row_ptolemy_product_checker_rejects_tampered_source_artifacts() -> None
     assert any("source_artifacts" in error for error in errors)
 
 
+@pytest.mark.slow
 def test_row_ptolemy_product_checker_rejects_unknown_top_level_key() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     payload["unchecked_schema_drift"] = {"ok": False}
@@ -240,6 +243,7 @@ def test_row_ptolemy_product_checker_rejects_unknown_top_level_key() -> None:
     assert any("top-level keys" in error for error in errors)
 
 
+@pytest.mark.slow
 def test_row_ptolemy_product_checker_rejects_tampered_count() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     payload["hit_summary"]["hit_assignment_count"] = 27
@@ -249,6 +253,7 @@ def test_row_ptolemy_product_checker_rejects_tampered_count() -> None:
     assert any("hit assignment count" in error for error in errors)
 
 
+@pytest.mark.slow
 def test_row_ptolemy_product_checker_rejects_tampered_template_crosswalk() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     payload["template_crosswalk"]["hit_family_template_ids"]["F02"] = "T01"
@@ -258,6 +263,7 @@ def test_row_ptolemy_product_checker_rejects_tampered_template_crosswalk() -> No
     assert any("template_crosswalk hit_family_template_ids" in error for error in errors)
 
 
+@pytest.mark.slow
 def test_row_ptolemy_product_checker_rejects_stale_template_source_status() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     template_payload = load_artifact(DEFAULT_TEMPLATE_ARTIFACT)
@@ -293,6 +299,7 @@ def test_row_ptolemy_product_checker_reports_malformed_template_source() -> None
     assert any("missing core_size" in error for error in errors)
 
 
+@pytest.mark.slow
 def test_row_ptolemy_product_checker_rejects_out_of_range_assignment_index() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     payload["hit_records"][0]["assignment_index"] = -1
@@ -314,6 +321,7 @@ def test_row_ptolemy_product_checker_binds_rows_to_assignment_index() -> None:
     assert any("selected_rows for assignment_index 1" in error for error in errors)
 
 
+@pytest.mark.slow
 def test_row_ptolemy_product_checker_rejects_tampered_witness_order() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     payload["hit_records"][0]["certificates"][0]["witness_order"] = [1, 3, 2, 8]
@@ -323,6 +331,7 @@ def test_row_ptolemy_product_checker_rejects_tampered_witness_order() -> None:
     assert any("witness_order" in error for error in errors)
 
 
+@pytest.mark.slow
 def test_row_ptolemy_product_checker_rejects_tampered_forced_pair() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     payload["hit_records"][0]["certificates"][0]["forced_equalities"][0][
@@ -334,6 +343,7 @@ def test_row_ptolemy_product_checker_rejects_tampered_forced_pair() -> None:
     assert any("forced_equalities[0] left_pair" in error for error in errors)
 
 
+@pytest.mark.slow
 def test_row_ptolemy_product_checker_rejects_tampered_zero_product_pair() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     payload["hit_records"][0]["certificates"][0]["zero_product"]["factors"][0][

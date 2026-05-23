@@ -305,6 +305,8 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--assert-expected --json",
         "python scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py "
         "--check --assert-expected --json",
+        "python scripts/check_bootstrap_t12_81_3_first_supply_chains.py "
+        "--check --assert-expected --json",
         "python scripts/check_bootstrap_t12_81_8_singleton_support_audit.py "
         "--check --assert-expected --json",
         "python scripts/check_bootstrap_t12_151_6_outside_pair_audit.py --check "

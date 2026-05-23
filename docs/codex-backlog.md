@@ -341,10 +341,15 @@ Use this queue when no more specific issue is selected.
    rich-support CSP in
    `docs/bootstrap-t12-81-3-escape-rich-support-csp.md` then lets those
    auxiliary objects be supports larger than four labels and still finds no
-   complete basic-filter assignment. The next useful PR must therefore either
-   introduce a genuine rich-class/minimality hypothesis that forces such a
-   support to exist, add other-center auxiliary supports, or move to a
-   different bridge target. The source-`81` row-`8` singleton-support audit in
+   complete basic-filter assignment. The first-supply-chain prefix CSP in
+   `docs/bootstrap-t12-81-3-first-supply-chains.md` adds those other-center
+   auxiliary first steps: among `4650` first-step/support-prefix pairs it finds
+   exactly three basic-filter survivor prefixes, all starting at center `8`,
+   and none of those admits an immediate center-`6` label-`6` supply support.
+   The next useful PR must therefore either attack longer chains after the
+   center-`8` prefix survivors, introduce a genuine rich-class/minimality
+   hypothesis that forces or excludes such a support, or move to a different
+   bridge target. The source-`81` row-`8` singleton-support audit in
    `docs/bootstrap-t12-81-8-singleton-support-audit.md` is one such adjacent
    target: it finds no non-original row-`8` activation survivor in the fixed
    source-`81` neighborhood or a one-row-drop relaxation, but still leaves

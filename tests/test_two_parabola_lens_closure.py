@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from fractions import Fraction
 
+import pytest
+
 from erdos97.two_parabola_lens_closure import (
     fraction_to_json,
     grid_edges,
@@ -45,6 +47,7 @@ def test_greatest_fixed_point_detects_synthetic_closure() -> None:
     assert fixed_point == frozenset()
 
 
+@pytest.mark.slow
 def test_default_summary_keeps_claim_boundary_explicit_for_small_case() -> None:
     payload = grid_search_summary(cases=((1, 4),))
 
@@ -56,6 +59,7 @@ def test_default_summary_keeps_claim_boundary_explicit_for_small_case() -> None:
     assert "strict-convex lens inequalities" in str(payload["does_not_check"])
 
 
+@pytest.mark.slow
 def test_zero_sum_pattern_summary_for_seven_points() -> None:
     summary = zero_sum_pattern_summary(7)
 

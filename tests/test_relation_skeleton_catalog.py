@@ -172,6 +172,7 @@ def test_relation_skeleton_catalog_records_new_strict_cycle_families() -> None:
         assert len(skeleton["relation_quotient"]["strict_edges"]) == cycle_length  # type: ignore[index]
 
 
+@pytest.mark.slow
 def test_relation_skeleton_catalog_checker_passes_lightweight() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     errors = validate_payload(payload, recompute=False)
@@ -183,6 +184,7 @@ def test_relation_skeleton_catalog_checker_passes_lightweight() -> None:
     assert summary["skeleton_ids"] == list(EXPECTED_SKELETON_IDS)
 
 
+@pytest.mark.slow
 def test_relation_skeleton_catalog_rejects_missing_global_guardrail() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     payload["interpretation"] = [
@@ -194,6 +196,7 @@ def test_relation_skeleton_catalog_rejects_missing_global_guardrail() -> None:
     assert any("global no-proof" in error for error in errors)
 
 
+@pytest.mark.slow
 def test_relation_skeleton_catalog_rejects_tampered_t01_conclusion() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     skeleton = _skeletons_by_id(payload)["VC-T01-F09-strict-self-edge"]
@@ -205,6 +208,7 @@ def test_relation_skeleton_catalog_rejects_tampered_t01_conclusion() -> None:
     assert any("expected relation skeleton catalog constants failed" in error for error in errors)
 
 
+@pytest.mark.slow
 def test_relation_skeleton_catalog_rejects_tampered_t10_cycle() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     skeleton = _skeletons_by_id(payload)["VC-T10-F12-strict-directed-cycle"]
@@ -216,6 +220,7 @@ def test_relation_skeleton_catalog_rejects_tampered_t10_cycle() -> None:
     assert any("expected relation skeleton catalog constants failed" in error for error in errors)
 
 
+@pytest.mark.slow
 def test_relation_skeleton_catalog_detects_source_packet_mismatch() -> None:
     payload = load_artifact(DEFAULT_ARTIFACT)
     sources = copy.deepcopy(load_source_payloads())

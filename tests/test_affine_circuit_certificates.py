@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import pytest
 import sympy as sp
 
 from erdos97.affine_circuit_certificates import (
@@ -49,6 +50,7 @@ def test_quotient_and_two_core_detect_isolated_column() -> None:
     assert certs[0].cofactors == [1]
 
 
+@pytest.mark.slow
 def test_golden_decagon_exact_example_has_lifted_kernel() -> None:
     points, cohorts = golden_decagon_example()
     L = affine_circuit_matrix(points, cohorts)

@@ -16,6 +16,7 @@ from erdos97.bootstrap_t12_81_8_full_neighborhood_vertex_circle import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.slow
 
 
 @pytest.fixture(scope="module")

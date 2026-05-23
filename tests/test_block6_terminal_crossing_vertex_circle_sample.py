@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_block6_terminal_crossing_vertex_circle_sample import (
     FULL_SWEEP_OUT,
     assert_expected,
@@ -15,6 +17,7 @@ from scripts.check_block6_terminal_crossing_vertex_circle_sample import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.slow
 
 
 def test_block6_terminal_crossing_vertex_circle_sample() -> None:

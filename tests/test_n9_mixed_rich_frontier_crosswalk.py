@@ -1,10 +1,14 @@
 from __future__ import annotations
 
+import pytest
+
 from scripts.check_n9_mixed_rich_frontier_crosswalk import (
     EXPECTED_SUMMARY,
     assert_expected_payload,
     mixed_frontier_crosswalk_payload,
 )
+
+pytestmark = pytest.mark.slow
 
 
 def test_n9_mixed_rich_frontier_crosswalk_payload() -> None:

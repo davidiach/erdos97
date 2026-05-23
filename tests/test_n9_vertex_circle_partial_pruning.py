@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_n9_vertex_circle_partial_pruning import (
     EXPECTED_MIN_OBSTRUCTION_SIZE_COUNTS,
     EXPECTED_PREFIX_STATUS_COUNTS,
@@ -14,6 +16,7 @@ from scripts.check_n9_vertex_circle_partial_pruning import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.slow
 
 
 def test_partial_pruning_payload_scope_and_counts() -> None:
