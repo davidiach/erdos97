@@ -240,6 +240,14 @@ obstruction for the abstract C29 Sidon selected-witness pattern, and it is not
 a proof of Erdos #97. Check it with
 `python scripts/check_kalmanson_certificate.py data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json --summary-json`.
 
+The sparse-frontier Kalmanson escape audit in
+`docs/sparse-frontier-kalmanson-escape-audit.md` separately confirms that the
+stored C25 and C29 fixed orders still escape the direct two-inequality
+Kalmanson inverse-pair filter when all `2*binom(n,4)` strict Kalmanson rows are
+replayed. This is a fixed-order filter diagnostic only; it does not weaken the
+C29 fixed-order Farkas certificate above, and it does not supply an all-order
+C25 or C29 obstruction.
+
 ### Fixed-order Kalmanson/Farkas obstruction for the endpoint-control survivor
 
 Status: `EXACT_OBSTRUCTION` for one fixed selected-witness extension and one

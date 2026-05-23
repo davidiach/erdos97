@@ -221,6 +221,35 @@ artifacts:
       - C29_sidon_1_3_7_15 proves Erdos Problem #97
       - general proof of Erdos Problem #97
 
+  - id: sparse_frontier_kalmanson_escape_audit
+    path: data/certificates/sparse_frontier_kalmanson_escape_audit.json
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_sparse_frontier_kalmanson_escapes.py
+    command: python scripts/check_sparse_frontier_kalmanson_escapes.py --write --assert-expected
+    checker: scripts/check_sparse_frontier_kalmanson_escapes.py
+    check_command: python scripts/check_sparse_frontier_kalmanson_escapes.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Fixed-order C25/C29 sparse-frontier negative-control audit; confirms that the stored fixed orders have zero direct two-inequality Kalmanson inverse-pair conflicts under full-row replay, but this is not an all-order obstruction, not geometric realizability, not a counterexample, and not a proof of Erdos Problem #97.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.sparse_frontier_kalmanson_escape_audit.v1
+      status: SPARSE_FRONTIER_TWO_INEQUALITY_FILTER_ESCAPE_AUDIT
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      source_artifact: data/certificates/c25_c29_sparse_frontier_probe.json
+      provenance.generator: scripts/check_sparse_frontier_kalmanson_escapes.py
+      provenance.command: python scripts/check_sparse_frontier_kalmanson_escapes.py --write --assert-expected
+      provenance.source_artifact: data/certificates/c25_c29_sparse_frontier_probe.json
+    forbidden_claims:
+      - C25_sidon_2_5_9_14 is geometrically realizable
+      - C29_sidon_1_3_7_15 is geometrically realizable
+      - the C25/C29 sparse frontier is closed
+      - this proves an all-order C25 obstruction
+      - this proves an all-order C29 obstruction
+      - this proves Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: c13_all_orders_kalmanson_two_search
     path: data/certificates/c13_sidon_all_orders_kalmanson_two_search.json
     kind: exhaustive_search_artifact

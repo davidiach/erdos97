@@ -69,6 +69,11 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json"
         in command_texts
     )
+    assert (
+        "python scripts/check_sparse_frontier_kalmanson_escapes.py --check "
+        "--assert-expected --json"
+        in command_texts
+    )
     assert ordered_command_texts.index(
         "python scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --json"
     ) < ordered_command_texts.index(
@@ -81,6 +86,13 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
     )
     assert ordered_command_texts.index(
         "python scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_sparse_frontier_kalmanson_escapes.py --check "
+        "--assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_sparse_frontier_kalmanson_escapes.py --check "
+        "--assert-expected --json"
     ) < ordered_command_texts.index(
         "python scripts/check_speculative_circulant_frontier_obstructions.py "
         "--check --json"

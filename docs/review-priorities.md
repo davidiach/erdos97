@@ -561,6 +561,11 @@ benchmarks for the larger frontier:
   as the current C25/C29 sparse-frontier template-availability diagnostic:
   both larger Sidon patterns expose the same two quotient-vector inverse
   templates, but this is not cyclic-order coverage or an obstruction;
+- use
+  `scripts/check_sparse_frontier_kalmanson_escapes.py --check --assert-expected --json`
+  as the fixed-order C25/C29 negative-control audit showing that the stored
+  sparse-frontier orders still escape the direct two-inequality inverse-pair
+  filter when all strict Kalmanson rows are replayed;
 - use the recorded C29 fixed-order certificate
   `data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json` as the
   benchmark for full-cone Kalmanson/Farkas certificates that are not visible to

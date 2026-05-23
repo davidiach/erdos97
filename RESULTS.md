@@ -1116,6 +1116,16 @@ by the separate 165-inequality Kalmanson/Farkas certificate
 `data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`. The
 original probe remains useful as a record of which weaker filters failed.
 
+The follow-up sparse-frontier Kalmanson escape audit in
+`data/certificates/sparse_frontier_kalmanson_escape_audit.json` independently
+replays the direct two-inequality Kalmanson inverse-pair filter for the stored
+C25/C29 fixed orders over all `2*binom(n,4)` strict Kalmanson rows. It checks
+`25,300` rows for the C25 fixed order and `47,502` rows for the C29 fixed
+order, finding zero inverse-pair conflicts in both cases. This confirms the
+stored zero-conflict conclusion while recording that the older probe's
+`rows_seen` counters were not full-row counts. It is a fixed-order filter
+diagnostic only, not an all-order obstruction or proof of Erdos Problem #97.
+
 ## Numerical Attempts
 
 ### C13_sidon_1_2_4_10

@@ -363,6 +363,10 @@ still only a fixed selected-witness pattern plus fixed cyclic-order
 obstruction, not an all-order C29 result and not a counterexample claim. See
 [`data/certificates/c25_c29_sparse_frontier_probe.json`](data/certificates/c25_c29_sparse_frontier_probe.json)
 and [`docs/sparse-frontier-diagnostic.md`](docs/sparse-frontier-diagnostic.md).
+A follow-up audit confirms that both stored C25/C29 fixed orders still escape
+the direct two-inequality Kalmanson inverse-pair filter when all
+`2*binom(n,4)` strict Kalmanson rows are replayed; see
+[`docs/sparse-frontier-kalmanson-escape-audit.md`](docs/sparse-frontier-kalmanson-escape-audit.md).
 
 The previous best numerical near-miss was `B12_3x4_danzer_lift`. It remains a
 useful degeneration diagnostic, but the fixed selected pattern is now exactly
