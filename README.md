@@ -184,6 +184,11 @@ This repository is a public research log and reproducibility workspace for Erdő
   where all fixed and one-row-drop activation-row survivors keep the original
   target rows, read
   [`docs/bootstrap-t12-151-singleton-support-audit.md`](docs/bootstrap-t12-151-singleton-support-audit.md).
+- For the source-`151` singleton-support two-row-drop and full-neighborhood
+  vertex-circle follow-ups, read
+  [`docs/bootstrap-t12-151-singleton-two-row-drop.md`](docs/bootstrap-t12-151-singleton-two-row-drop.md)
+  and
+  [`docs/bootstrap-t12-151-singleton-full-neighborhood-vertex-circle.md`](docs/bootstrap-t12-151-singleton-full-neighborhood-vertex-circle.md).
 - For fixed-selection stuck-set mining around the bridge/peeling program, read
   [`docs/stuck-set-miner.md`](docs/stuck-set-miner.md).
 - For search patterns, read [`docs/candidate-patterns.md`](docs/candidate-patterns.md).

@@ -107,6 +107,11 @@ does not prove that singleton support labels are forced by a genuine rich-class
 catalogue, does not allow three or more other rows to move, and does not model
 additional auxiliary rich supports.
 
+The separate full-neighborhood vertex-circle replay in
+`docs/bootstrap-t12-151-singleton-full-neighborhood-vertex-circle.md` allows
+all other selected rows to move after adding the exact vertex-circle quotient
+filter. This two-row-drop artifact remains the basic-filter-only boundary.
+
 ## What This Does Not Prove
 
 This artifact does not prove singleton support existence, row forcing, `n=9`,

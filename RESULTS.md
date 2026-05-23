@@ -721,6 +721,19 @@ See `docs/bootstrap-t12-151-singleton-two-row-drop.md`,
 `scripts/check_bootstrap_t12_151_singleton_two_row_drop.py`, and
 `data/certificates/bootstrap_t12_151_singleton_two_row_drop.json`.
 
+The source-`151` singleton-support full-neighborhood vertex-circle follow-up
+then lets all other centers choose arbitrary selected `4`-sets while the target
+row stays in the same nine-row activation family. Basic filters leave `50`
+complete assignments across targets `151:5` and `151:8`, including `36` with
+non-original target rows; vertex-circle quotient replay kills all `50` by
+`37` self-edges and `13` strict cycles. This is still a finite diagnostic
+only, not a proof of singleton support existence, row forcing, `n=9`, or the
+bootstrap bridge. See
+`docs/bootstrap-t12-151-singleton-full-neighborhood-vertex-circle.md`,
+`scripts/check_bootstrap_t12_151_singleton_full_neighborhood_vertex_circle.py`,
+and
+`data/certificates/bootstrap_t12_151_singleton_full_neighborhood_vertex_circle.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

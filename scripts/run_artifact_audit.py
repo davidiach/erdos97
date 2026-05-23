@@ -2156,6 +2156,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_singleton_full_neighborhood_vertex_circle",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_singleton_full_neighborhood_vertex_circle.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Full-neighborhood vertex-circle diagnostic for source 151 rows "
+            "5 and 8; not singleton-support existence, row forcing, an n=9 "
+            "proof, a bridge proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="closure_activation_wrong_fourth_negative_control",
         command=(
             "python",

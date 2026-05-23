@@ -1034,6 +1034,15 @@ survivor keeps the target row and both dropped rows equal to their source-`151`
 rows. This is still finite incidence/crossing bookkeeping only, not singleton
 support existence, row forcing, `n=9`, or a bridge proof.
 
+The source-`151` full-neighborhood vertex-circle replay in
+`docs/bootstrap-t12-151-singleton-full-neighborhood-vertex-circle.md` lets all
+other centers move to arbitrary selected `4`-sets, then applies the exact
+vertex-circle quotient replay to the basic-filter survivors. Basic filters
+leave `50` complete assignments, including `36` with non-original target rows;
+all `50` are killed by vertex-circle self-edge or strict-cycle obstructions.
+This remains a review-pending diagnostic only, not singleton support
+existence, row forcing, `n=9`, the bootstrap bridge, or Erdos Problem #97.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a
