@@ -1,11 +1,15 @@
 from __future__ import annotations
 
+import pytest
+
 from scripts.check_n9_vertex_circle_dynamic_mro_choices import (
     EXPECTED_WITH_VERTEX,
     EXPECTED_WITHOUT_VERTEX,
     assert_expected_dynamic_mro_choice_payload,
     dynamic_mro_choice_payload,
 )
+
+pytestmark = pytest.mark.slow
 
 
 def test_dynamic_mro_choice_payload_scope_and_counts() -> None:

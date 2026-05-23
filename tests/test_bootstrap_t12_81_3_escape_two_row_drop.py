@@ -27,6 +27,7 @@ from erdos97.bootstrap_t12_81_3_escape_two_row_drop import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.slow
 
 
 @pytest.fixture(scope="module")

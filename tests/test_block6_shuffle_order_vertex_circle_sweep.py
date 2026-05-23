@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_block6_shuffle_order_vertex_circle_sweep import (
     OUT,
     assert_expected,
@@ -13,6 +15,7 @@ from scripts.check_block6_shuffle_order_vertex_circle_sweep import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.slow
 
 
 def test_block6_shuffle_orders_are_the_expected_family() -> None:

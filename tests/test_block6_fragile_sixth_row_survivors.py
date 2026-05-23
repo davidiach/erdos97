@@ -4,6 +4,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_block6_fragile_sixth_row_survivors import (
     assert_expected,
     survivor_payload,
@@ -11,6 +13,7 @@ from scripts.check_block6_fragile_sixth_row_survivors import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.slow
 
 
 def test_block6_sixth_row_survivor_catalog_matches_expected() -> None:

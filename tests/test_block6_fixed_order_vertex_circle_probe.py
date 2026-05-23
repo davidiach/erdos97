@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_block6_fixed_order_vertex_circle_probe import (
     OUT,
     assert_expected,
@@ -12,6 +14,7 @@ from scripts.check_block6_fixed_order_vertex_circle_probe import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.slow
 
 
 def test_block6_fixed_order_vertex_circle_probe_payload() -> None:

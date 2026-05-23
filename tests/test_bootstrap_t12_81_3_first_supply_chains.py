@@ -17,6 +17,7 @@ from erdos97.bootstrap_t12_81_3_first_supply_chains import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.slow
 
 
 @pytest.fixture(scope="module")

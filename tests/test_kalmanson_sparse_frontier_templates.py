@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.analyze_kalmanson_sparse_frontier_templates import (
     CHECKED_PILOT_TEMPLATE_SET,
     assert_expected,
@@ -12,6 +14,7 @@ from scripts.analyze_kalmanson_sparse_frontier_templates import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.slow
 
 
 def test_kalmanson_sparse_frontier_template_availability_expected_counts() -> None:

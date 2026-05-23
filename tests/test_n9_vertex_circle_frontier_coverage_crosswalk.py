@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import pytest
+
 from scripts.check_n9_vertex_circle_frontier_coverage_crosswalk import (
     EXPECTED_ASSIGNMENT_COUNT,
     EXPECTED_SEQUENCE_ROWS_SHA256,
@@ -7,6 +9,8 @@ from scripts.check_n9_vertex_circle_frontier_coverage_crosswalk import (
     assert_expected_frontier_coverage_crosswalk,
     frontier_coverage_crosswalk_payload,
 )
+
+pytestmark = pytest.mark.slow
 
 
 def test_frontier_coverage_crosswalk_payload_scope_and_counts() -> None:
