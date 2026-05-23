@@ -179,6 +179,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="sparse_frontier_kalmanson_escape_audit",
+        command=(
+            "python",
+            "scripts/check_sparse_frontier_kalmanson_escapes.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Fixed-order C25/C29 negative-control audit for the direct "
+            "two-inequality Kalmanson inverse-pair filter; not an all-order "
+            "obstruction, geometric realization, proof of Erdos Problem #97, "
+            "or counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="speculative_circulant_frontier_obstructions",
         command=(
             "python",

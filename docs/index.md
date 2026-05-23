@@ -175,6 +175,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`sparse-frontier-diagnostic.md`](sparse-frontier-diagnostic.md): exact
   fixed-order witness-pair source diagnostic explaining the sparse/Sidon
   radius-propagation blind spot.
+- [`sparse-frontier-kalmanson-escape-audit.md`](sparse-frontier-kalmanson-escape-audit.md):
+  fixed-order audit confirming that the stored C25/C29 sparse-frontier orders
+  escape the direct two-inequality Kalmanson inverse-pair filter.
 - [`stuck-set-miner.md`](stuck-set-miner.md): fixed-selection stuck-set mining
   for the bridge/peeling program.
 - [`stuck-frontier-snapshot.md`](stuck-frontier-snapshot.md): first stuck-set,

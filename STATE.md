@@ -790,6 +790,15 @@ fixed-order obstruction only; it is not an all-order obstruction for the
 abstract C29 pattern and not a counterexample claim. The original probe remains
 provenance at `data/certificates/c25_c29_sparse_frontier_probe.json`.
 
+A sparse-frontier Kalmanson escape audit now replays the direct two-inequality
+Kalmanson inverse-pair filter for the stored C25/C29 fixed orders over all
+`2*binom(n,4)` strict Kalmanson rows. It confirms zero inverse-pair conflicts
+for both fixed orders and records that the older probe's `rows_seen` counters
+were lower than the full-row replay (`25,025` versus `25,300`, and `47,259`
+versus `47,502`). This is a fixed-order filter negative control only, not an
+all-order obstruction, geometric realizability result, counterexample, or
+proof. See `docs/sparse-frontier-kalmanson-escape-audit.md`.
+
 ## Top killed approaches
 
 1. Middle-neighbor forest proof: killed by an affine regular 24-gon cycle in
