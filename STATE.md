@@ -468,6 +468,16 @@ candidates and leaves only `56` original-neighborhood survivors. This is still
 diagnostic bookkeeping only, not row forcing or a bridge proof. See
 `docs/bootstrap-t12-151-singleton-two-row-drop.md`.
 
+The source-`151` full-neighborhood vertex-circle replay then lets every other
+center move to an arbitrary selected 4-set while the target row stays in the
+same singleton-support activation family. Basic filters leave `50` complete
+assignments across targets `151:5` and `151:8`, including `36` with
+non-original target rows, and vertex-circle quotient replay kills all `50` by
+`37` self-edges and `13` strict cycles. This remains proof-mining
+bookkeeping only, not singleton-support existence, row forcing, `n=9`, or the
+bridge. See
+`docs/bootstrap-t12-151-singleton-full-neighborhood-vertex-circle.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic
