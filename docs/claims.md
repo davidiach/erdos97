@@ -79,7 +79,7 @@ source-of-truth status. The checked selected-witness artifacts remain the
 repo-local `n <= 8` source until this literature-backed note receives
 independent review.
 
-### Rich-support counting bound
+### Edge-sensitive rich-support counting bound
 
 Status: `LEMMA`.
 
@@ -90,23 +90,21 @@ witness rows, `R_i` may have size larger than four. Then
 sum_i binom(|R_i|, 2) <= n(n - 2).
 ```
 
-The proof is the pair-sharing cap in counting form. For a fixed unordered
-witness pair `{a,b}`, every center whose support contains both `a` and `b`
-lies on the perpendicular bisector of segment `ab`; strict convexity permits at
-most two polygon vertices on that line. Boundary-edge witness pairs sharpen the
-budget because their perpendicular bisectors enter the polygon through the
-edge midpoint, so their polygon line-section has that midpoint as an endpoint
-and can contain at most one polygon vertex as a center. Thus the `n` boundary
-edges have capacity `1`, and the other `binom(n,2)-n` witness pairs have
-capacity `2`. Double-counting witness pairs inside supports gives the
-displayed inequality.
+The proof is the pair-sharing cap with hull-edge pairs counted separately. For
+a fixed unordered witness pair `{a,b}`, every center whose support contains
+both `a` and `b` lies on the perpendicular bisector of segment `ab`. If `{a,b}`
+is a non-edge, strict convexity permits at most two polygon vertices on that
+line. If `{a,b}` is a hull edge, the perpendicular bisector already meets the
+polygon boundary at the edge midpoint and can contain at most one further
+boundary vertex, hence at most one center. Double-counting witness pairs inside
+supports gives the displayed inequality.
 
 Thus, if every center has a rich distance class of size at least `k`, then
 `n >= binom(k, 2) + 2`. In particular, every-vertex size-five richness is
 impossible for `n <= 11`. Choosing a maximum rich class at each center of a
 hypothetical 4-bad nonagon also shows that at most two centers can have
 `E(i) >= 5`, so at least seven centers must be exact-four. The same relaxation
-forces at least five exact-four centers for `n=10`, and at least three for
+forces at least five exact-four centers for `n=10` and at least three for
 `n=11`.
 
 This is a support-level counting lemma only. It does not rule out mixed

@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
-"""Check the rich-support counting bound for Erdos Problem #97.
+"""Check the edge-sensitive rich-support counting bound for Erdos Problem #97.
 
-This standalone checker verifies a simple proof-facing counting lemma:
-for any choice of one same-radius support R_i at each center of a strict convex
-n-gon, sum_i binom(|R_i|, 2) <= n(n - 2).  A non-boundary witness pair {a,b}
-can occur in at most two supports, since all centers using both witnesses lie
-on the perpendicular bisector of ab.  A boundary-edge witness pair has capacity
-one, because the perpendicular bisector enters the polygon through the edge
-midpoint, so its polygon section has that midpoint as an endpoint.
+This standalone checker verifies a proof-facing counting lemma: for any choice
+of one same-radius support R_i at each center of a strict convex n-gon,
+
+    sum_i binom(|R_i|, 2) <= n(n - 2).
+
+The coarse reason is that a fixed witness pair {a,b} can occur in at most two
+supports, since all centers using both witnesses lie on the perpendicular
+bisector of ab.  The edge-sensitive improvement is that if {a,b} is a hull
+edge, its perpendicular bisector already meets the polygon boundary at the
+midpoint of that edge, so it can contain at most one further boundary vertex
+and hence at most one center.  There are n hull-edge witness pairs and
+binom(n,2)-n non-edge witness pairs.
 """
 
 from __future__ import annotations
@@ -17,16 +22,34 @@ import json
 from math import comb
 from typing import Any
 
-SCHEMA = "erdos97.rich_support_counting_bound.v1"
+SCHEMA = "erdos97.rich_support_counting_bound.v2"
 TRUST = "LEMMA"
+
+
+def coarse_pair_budget(n: int) -> int:
+    """Pair-sharing budget when every witness pair has capacity two."""
+
+    if n < 0:
+        raise ValueError("n must be nonnegative")
+    return n * (n - 1)
+
+
+def edge_sensitive_pair_budget(n: int) -> int:
+    """Pair-sharing budget with hull-edge witness pairs counted at capacity one."""
+
+    if n < 0:
+        raise ValueError("n must be nonnegative")
+    if n == 0:
+        return 0
+    # n hull edges have capacity 1; the remaining binom(n,2)-n pairs have
+    # capacity 2.
+    return max(0, n + 2 * (comb(n, 2) - n))
 
 
 def pair_budget(n: int) -> int:
     """Maximum total center-witness-pair incidences allowed by pair-sharing."""
 
-    if n < 0:
-        raise ValueError("n must be nonnegative")
-    return max(0, n * (n - 2))
+    return edge_sensitive_pair_budget(n)
 
 
 def all_centers_min_n(k: int) -> int:
@@ -41,7 +64,8 @@ def max_total_support_size(n: int, min_size: int = 4) -> tuple[int, list[int]]:
     """Maximize sum |R_i| under sum binom(|R_i|,2) <= n(n-2).
 
     This is only a necessary counting relaxation.  It ignores all cyclic-order,
-    row-intersection, and vertex-circle constraints.
+    row-intersection, and vertex-circle constraints beyond the hull-edge
+    witness-pair capacity used in the counting lemma.
     """
 
     if n <= 0:
@@ -95,35 +119,42 @@ def row_summary(n: int) -> dict[str, Any]:
     baseline_cost = n * comb(4, 2)
     budget = pair_budget(n)
     four_bad_ruled_out = baseline_cost > budget
+    row: dict[str, Any] = {
+        "n": n,
+        "coarse_pair_budget": coarse_pair_budget(n),
+        "edge_sensitive_pair_budget": budget,
+    }
     if four_bad_ruled_out:
-        return {
-            "n": n,
-            "pair_budget": budget,
-            "four_bad_ruled_out_by_pair_counting": True,
-            "max_total_support_size_given_E_ge_4": None,
-            "max_surplus_over_exact_four": None,
-            "one_extremal_support_size_multiset": None,
-            "all_centers_size_at_least_5_ruled_out_by_counting": True,
-            "max_centers_with_E_at_least_5_by_counting": 0,
-            "min_centers_with_E_equal_4_by_counting": None,
-        }
+        row.update(
+            {
+                "four_bad_ruled_out_by_edge_sensitive_pair_counting": True,
+                "max_total_support_size_given_E_ge_4": None,
+                "max_surplus_over_exact_four": None,
+                "one_extremal_support_size_multiset": None,
+                "all_centers_size_at_least_5_ruled_out_by_counting": True,
+                "max_centers_with_E_at_least_5_by_counting": 0,
+                "min_centers_with_E_equal_4_by_counting": None,
+            }
+        )
+        return row
 
     total, sizes = max_total_support_size(n, min_size=4)
     max_non_exact = max_non_exact_four_centers(n)
-    return {
-        "n": n,
-        "pair_budget": budget,
-        "four_bad_ruled_out_by_pair_counting": False,
-        "max_total_support_size_given_E_ge_4": total,
-        "max_surplus_over_exact_four": total - 4 * n,
-        "one_extremal_support_size_multiset": sizes,
-        "all_centers_size_at_least_5_ruled_out_by_counting": n < all_centers_min_n(5),
-        "max_centers_with_E_at_least_5_by_counting": max_non_exact,
-        "min_centers_with_E_equal_4_by_counting": max(0, n - max_non_exact),
-    }
+    row.update(
+        {
+            "four_bad_ruled_out_by_edge_sensitive_pair_counting": False,
+            "max_total_support_size_given_E_ge_4": total,
+            "max_surplus_over_exact_four": total - 4 * n,
+            "one_extremal_support_size_multiset": sizes,
+            "all_centers_size_at_least_5_ruled_out_by_counting": n < all_centers_min_n(5),
+            "max_centers_with_E_at_least_5_by_counting": max_non_exact,
+            "min_centers_with_E_equal_4_by_counting": max(0, n - max_non_exact),
+        }
+    )
+    return row
 
 
-def build_summary(min_n: int = 5, max_n: int = 11) -> dict[str, Any]:
+def build_summary(min_n: int = 5, max_n: int = 12) -> dict[str, Any]:
     """Build a stable JSON summary for the lemma and small-n consequences."""
 
     return {
@@ -131,14 +162,20 @@ def build_summary(min_n: int = 5, max_n: int = 11) -> dict[str, Any]:
         "status": "PROVED_COUNTING_LEMMA",
         "trust": TRUST,
         "claim_scope": (
-            "Proof-facing rich-support pair-counting lemma only. It records "
-            "necessary support-size consequences and does not prove n=9, "
-            "n=10, n=11, or Erdos Problem #97."
+            "Proof-facing edge-sensitive rich-support pair-counting lemma only. "
+            "It records necessary support-size consequences and does not prove "
+            "n=9, n=10, n=11, or Erdos Problem #97."
         ),
         "lemma": (
             "For same-radius supports R_i in a strict convex n-gon, "
             "sum_i binom(|R_i|, 2) <= n(n - 2)."
         ),
+        "capacity_accounting": {
+            "hull_edge_pairs": "n pairs, capacity 1 each",
+            "nonedge_pairs": "binom(n, 2) - n pairs, capacity 2 each",
+            "total_capacity": "n + 2*(binom(n,2)-n) = n(n-2)",
+            "coarse_capacity_for_comparison": "n(n-1)",
+        },
         "all_centers_min_support_thresholds": {
             str(k): all_centers_min_n(k) for k in range(4, 8)
         },
@@ -150,8 +187,9 @@ def check_expected(summary: dict[str, Any]) -> None:
     """Check the small consequences used by the proposed repo note."""
 
     thresholds = summary["all_centers_min_support_thresholds"]
-    if thresholds["5"] != 12:
-        raise AssertionError("all-centers size-five threshold should be n >= 12")
+    expected_thresholds = {"4": 8, "5": 12, "6": 17, "7": 23}
+    if thresholds != expected_thresholds:
+        raise AssertionError(f"got thresholds {thresholds}, expected {expected_thresholds}")
 
     rows = {row["n"]: row for row in summary["rows"]}
     expected = {
@@ -159,6 +197,7 @@ def check_expected(summary: dict[str, Any]) -> None:
         9: (38, 2, 2, 7),
         10: (45, 5, 5, 5),
         11: (52, 8, 8, 3),
+        12: (60, 12, 12, 0),
     }
     for n, (total, surplus, max_non_exact, min_exact) in expected.items():
         row = rows[n]
@@ -173,21 +212,23 @@ def check_expected(summary: dict[str, Any]) -> None:
             raise AssertionError(f"n={n}: got {got}, expected {want}")
 
     for n in (5, 6, 7):
-        if not rows[n]["four_bad_ruled_out_by_pair_counting"]:
-            raise AssertionError(f"n={n}: expected pair-counting to rule out four-bad supports")
+        if not rows[n]["four_bad_ruled_out_by_edge_sensitive_pair_counting"]:
+            raise AssertionError(
+                f"n={n}: expected edge-sensitive pair-counting to rule out four-bad supports"
+            )
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--min-n", type=int, default=5)
-    parser.add_argument("--max-n", type=int, default=11)
+    parser.add_argument("--max-n", type=int, default=12)
     parser.add_argument("--check", action="store_true", help="assert expected small-n consequences")
     parser.add_argument("--json", action="store_true", help="emit JSON")
     args = parser.parse_args()
 
     summary = build_summary(args.min_n, args.max_n)
     if args.check:
-        if (args.min_n, args.max_n) != (5, 11):
+        if (args.min_n, args.max_n) != (5, 12):
             raise SystemExit("--check is only defined for the default n range")
         check_expected(summary)
     if args.json:
@@ -196,8 +237,8 @@ def main() -> int:
         print(f"schema: {summary['schema']}")
         print("all centers with size >=5 requires n >=", all_centers_min_n(5))
         for row in summary["rows"]:
-            if row["four_bad_ruled_out_by_pair_counting"]:
-                print(f"n={row['n']}: four-bad supports ruled out by pair-counting")
+            if row["four_bad_ruled_out_by_edge_sensitive_pair_counting"]:
+                print(f"n={row['n']}: four-bad supports ruled out by edge-sensitive pair-counting")
             else:
                 print(
                     f"n={row['n']}: max total={row['max_total_support_size_given_E_ge_4']}, "

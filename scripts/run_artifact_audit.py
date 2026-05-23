@@ -1516,10 +1516,10 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "--json",
         ),
         claim_scope=(
-            "Proof-facing rich-support pair-counting lemma and small-n "
-            "consequences; not a proof of n=9, not a proof of n=10, not a "
-            "proof of n=11, not a proof of Erdos Problem #97, and not a "
-            "counterexample."
+            "Proof-facing edge-sensitive rich-support pair-counting lemma "
+            "and small-n consequences; not a proof of n=9, not a proof of "
+            "n=10, not a proof of n=11, not a proof of Erdos Problem #97, "
+            "and not a counterexample."
         ),
     ),
     AuditCommand(

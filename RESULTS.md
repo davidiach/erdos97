@@ -31,7 +31,7 @@ The directed 4-out incidence pattern and the pairwise cap imply no
 counterexample can have `n <= 6`; the convexity-of-indegree count gives
 `n >= 7`.
 
-### Lemma: rich-support counting wall
+### Lemma: edge-sensitive rich-support counting wall
 
 Status: proved.
 
@@ -42,18 +42,20 @@ of size four,
 sum_i binom(|R_i|, 2) <= n(n - 2).
 ```
 
-Indeed, a fixed unordered witness pair `{a,b}` can occur only on centers lying
-on the perpendicular bisector of `ab`. Non-boundary witness pairs have capacity
-at most `2`. Boundary-edge witness pairs have capacity at most `1`, because the
-perpendicular bisector enters the polygon through the edge midpoint and its
-polygon line-section has that midpoint as an endpoint. Summing these capacities
-gives `n + 2*(binom(n,2)-n) = n(n-2)`.
+Indeed, a fixed unordered witness pair `{a,b}` can occur in at most two
+supports, because all centers using both witnesses lie on the perpendicular
+bisector of `ab`. If `{a,b}` is a hull edge, its perpendicular bisector already
+meets the polygon boundary at the edge midpoint and cannot contain two further
+boundary vertices, so that edge pair has capacity one. There are `n` hull-edge
+witness pairs and `binom(n,2)-n` non-edge witness pairs, giving
+`n + 2*(binom(n,2)-n) = n(n-2)` by double-counting.
 
 Consequently, if every center has a rich class of size at least `k`, then
 `n >= binom(k, 2) + 2`. In particular, the all-centers size-five subcase is
 impossible for `n <= 11`; any hypothetical 4-bad nonagon has at least seven
-exact-four centers, any hypothetical 4-bad decagon has at least five, and
-`n=11` has at least three. See `docs/rich-support-counting-lemma.md`.
+exact-four centers, any hypothetical 4-bad decagon has at least five, and any
+hypothetical 4-bad hendecagon has at least three. See
+`docs/rich-support-counting-lemma.md`.
 
 ### Lemma: crossing-bisector and sharpened count
 

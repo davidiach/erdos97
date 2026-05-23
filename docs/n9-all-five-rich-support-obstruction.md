@@ -27,9 +27,9 @@ five, then each support contributes at least `binom(5,2)=10` unordered witness
 pairs. A fixed witness pair can be used by at most two centers, since all such
 centers lie on the perpendicular bisector of that pair and strict convexity
 allows at most two vertices on a line. The sharpened counting lemma gives
-capacity `1` to boundary-edge witness pairs: their perpendicular bisectors
-enter the polygon through the boundary-edge midpoint, so the polygon
-line-section has that midpoint as an endpoint. Therefore
+capacity `1` to hull-edge witness pairs: their perpendicular bisectors enter
+the polygon through the hull-edge midpoint, so the polygon line-section has
+that midpoint as an endpoint. Therefore
 
 ```text
 10n <= n + 2*(binom(n,2) - n) = n(n - 2),
