@@ -371,7 +371,8 @@ Use this queue when no more specific issue is selected.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external
-   DRAT/LRAT or equivalent UNSAT replay is still open.
+   DRAT/LRAT or equivalent UNSAT replay is still open. The same script can
+   round-trip an external CNF file with `--write-cnf` and `--check-cnf`.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
    with an independent input-data replay. The current SymPy-free
    `n=8` replay command,

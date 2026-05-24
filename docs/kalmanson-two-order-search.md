@@ -126,6 +126,16 @@ of the DIMACS text. This is a Z3-independent representation only; it is not yet
 a solver-independent UNSAT proof because no DRAT/LRAT or equivalent proof
 object is checked.
 
+The same script can write and recheck the generated DIMACS file byte-for-byte:
+
+```bash
+python scripts/export_c19_kalmanson_order_cnf.py \
+  --write-cnf reports/c19_kalmanson_order.cnf
+
+python scripts/export_c19_kalmanson_order_cnf.py \
+  --check-cnf reports/c19_kalmanson_order.cnf
+```
+
 ## Reproduction
 
 Regenerate the artifact:
