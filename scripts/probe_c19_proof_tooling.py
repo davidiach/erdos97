@@ -16,6 +16,18 @@ from pathlib import Path
 from typing import Any
 
 
+ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS = ROOT / "scripts"
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
+
+from export_c19_kalmanson_order_cnf import (  # noqa: E402
+    assert_expected as assert_c19_cnf_expected,
+)
+from export_c19_kalmanson_order_cnf import check_artifact as check_c19_cnf  # noqa: E402
+from export_c19_kalmanson_order_cnf import diagnostic_payload  # noqa: E402
+
+DEFAULT_C19_CNF_SUMMARY = ROOT / "reports" / "c19_kalmanson_order_cnf_summary.json"
 DEFAULT_COMMANDS = ("kissat", "cadical", "drat-trim", "lrat-check")
 DEFAULT_MODULES = ("pysat", "z3")
 SAT_SOLVER_COMMANDS = ("kissat", "cadical")
@@ -57,12 +69,44 @@ def _module_payload(
     return modules
 
 
+def _display_path(path: Path) -> str:
+    try:
+        return path.resolve().relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
+def c19_cnf_summary_payload(artifact: Path) -> dict[str, Any]:
+    payload = diagnostic_payload()
+    try:
+        assert_c19_cnf_expected(payload)
+        check_c19_cnf(artifact, payload)
+    except (AssertionError, OSError, json.JSONDecodeError) as exc:
+        return {
+            "checked": True,
+            "ok": False,
+            "artifact": _display_path(artifact),
+            "error": str(exc),
+        }
+
+    return {
+        "checked": True,
+        "ok": True,
+        "artifact": _display_path(artifact),
+        "variables": payload["encoding"]["variable_count"],
+        "clauses": payload["encoding"]["clause_count"],
+        "dimacs_sha256": payload["validation"]["dimacs_sha256"],
+    }
+
+
 def tooling_probe(
     *,
     command_names: Sequence[str] = DEFAULT_COMMANDS,
     module_names: Sequence[str] = DEFAULT_MODULES,
     required_commands: Sequence[str] = (),
     required_modules: Sequence[str] = (),
+    check_c19_cnf_summary: bool = False,
+    c19_cnf_summary_artifact: Path = DEFAULT_C19_CNF_SUMMARY,
     which: Callable[[str], str | None] = shutil.which,
     find_spec: Callable[[str], Any] = importlib.util.find_spec,
 ) -> dict[str, Any]:
@@ -102,6 +146,11 @@ def tooling_probe(
         ],
         "commands": commands,
         "python_modules": modules,
+        "c19_cnf_summary": (
+            c19_cnf_summary_payload(c19_cnf_summary_artifact)
+            if check_c19_cnf_summary
+            else {"checked": False}
+        ),
         "requirements": {
             "missing_commands": missing_commands,
             "missing_modules": missing_modules,
@@ -124,8 +173,13 @@ def tooling_probe(
 
 def print_human(payload: dict[str, Any]) -> None:
     replay = payload["requirements"]["c19_solver_independent_replay"]
+    c19_cnf = payload["c19_cnf_summary"]
     print("C19 proof tooling probe")
     print(f"status: {payload['status']}")
+    if c19_cnf["checked"]:
+        print(f"C19 CNF summary checked: {c19_cnf['ok']}")
+        if not c19_cnf["ok"]:
+            print(f"C19 CNF summary error: {c19_cnf['error']}")
     print(f"solver-independent replay ready: {replay['ready']}")
     if replay["missing_groups"]:
         print("missing toolchain groups: " + ", ".join(replay["missing_groups"]))
@@ -175,6 +229,17 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
             "supported proof checker are found"
         ),
     )
+    parser.add_argument(
+        "--check-c19-cnf-summary",
+        action="store_true",
+        help="check the stored C19 order-CNF summary before reporting tooling",
+    )
+    parser.add_argument(
+        "--c19-cnf-summary-artifact",
+        type=Path,
+        default=DEFAULT_C19_CNF_SUMMARY,
+        help="C19 order-CNF summary artifact to check",
+    )
     return parser.parse_args(argv)
 
 
@@ -185,6 +250,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         module_names=(*DEFAULT_MODULES, *args.module),
         required_commands=args.require_command,
         required_modules=args.require_module,
+        check_c19_cnf_summary=args.check_c19_cnf_summary,
+        c19_cnf_summary_artifact=args.c19_cnf_summary_artifact,
     )
 
     if args.out:
@@ -208,8 +275,14 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "missing_groups"
             ]
         )
+    c19_cnf_failed = (
+        payload["c19_cnf_summary"]["checked"] and not payload["c19_cnf_summary"]["ok"]
+    )
+    if c19_cnf_failed:
+        print("C19 CNF summary check failed", file=sys.stderr)
     if missing:
         print("required proof tooling is not available", file=sys.stderr)
+    if missing or c19_cnf_failed:
         return 1
     return 0
 

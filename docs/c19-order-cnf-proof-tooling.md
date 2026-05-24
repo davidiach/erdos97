@@ -36,12 +36,17 @@ The reusable local probe is:
 
 ```bash
 python scripts/probe_c19_proof_tooling.py --json
+
+python scripts/probe_c19_proof_tooling.py \
+  --check-c19-cnf-summary \
+  --json
 ```
 
-It reports executable availability, Python module availability, and whether
-the local environment has at least one supported SAT solver plus one supported
-proof checker for a solver-independent C19 CNF replay. This is still an
-environment diagnostic only.
+It reports executable availability, Python module availability, whether the
+stored C19 order-CNF summary still matches the deterministic exporter when
+requested, and whether the local environment has at least one supported SAT
+solver plus one supported proof checker for a solver-independent C19 CNF
+replay. This is still an environment diagnostic only.
 
 The local Windows checkout currently has no command-line SAT proof toolchain
 available on `PATH` for this step:
