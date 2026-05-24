@@ -1,0 +1,50 @@
+{
+  "claim_scope": "Z3-independent DIMACS encoding summary for the checked fixed abstract C19_skew Kalmanson order clauses. It validates the stored forbidden ordered-quadrilateral pairs and exports the order-CNF target for an external SAT proof replay. It does not include a DRAT/LRAT proof, does not prove Erdos Problem #97, does not claim a counterexample, and does not transfer the obstruction to other patterns.",
+  "encoding": {
+    "clause_count": 13813,
+    "forbidden_clause_semantics": "Each stored pair of ordered quadrilaterals contributes one six-literal clause forbidding both quadrilateral orders from appearing simultaneously.",
+    "forbidden_order_clause_count": 7981,
+    "format": "DIMACS CNF",
+    "reversal_quotient": "none",
+    "rotation_quotient": "label 0 is fixed first by unit clauses",
+    "transitivity_clause_count": 5814,
+    "unit_clause_count": 18,
+    "variable_count": 171,
+    "variable_semantics": "For 0 <= i < j < n, variable o_i_j is true exactly when label i precedes label j in the linear representative order."
+  },
+  "interpretation": "This artifact provides a deterministic SAT encoding target for the stored C19 order clauses. A solver-independent UNSAT result still needs a separately checked DRAT/LRAT proof or equivalent finite proof replay.",
+  "provenance": {
+    "command": "python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --out reports/c19_kalmanson_order_cnf_summary.json",
+    "generator": "scripts/export_c19_kalmanson_order_cnf.py"
+  },
+  "schema": "erdos97.c19_kalmanson_order_cnf_summary.v1",
+  "source_certificate": {
+    "forbidden_clause_count": 7981,
+    "path": "data/certificates/c19_skew_all_orders_kalmanson_z3.json",
+    "pattern": {
+      "circulant_offsets": [
+        -8,
+        -3,
+        5,
+        9
+      ],
+      "n": 19,
+      "name": "C19_skew"
+    },
+    "smt_solver": "z3",
+    "solver_result": "unsat",
+    "status": "EXACT_ALL_ORDER_TWO_INEQUALITY_KALMANSON_OBSTRUCTION",
+    "trust": "SMT_EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN",
+    "type": "kalmanson_two_order_z3_refinement_v1"
+  },
+  "status": "C19_ORDER_CNF_EXPORT_DIAGNOSTIC_ONLY",
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+  "validation": {
+    "all_forbidden_clauses_validate_as_inverse_pairs": true,
+    "dimacs_header": "p cnf 171 13813",
+    "dimacs_line_count": 13817,
+    "dimacs_sha256": "dd4b8f429fea232bf09ff878342d7a28f4e9b6e743c99cd1b48f681d0f9ec450",
+    "parsed_forbidden_clause_count": 7981,
+    "unique_forbidden_clause_count": 7981
+  }
+}

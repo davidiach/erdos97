@@ -368,6 +368,10 @@ Use this queue when no more specific issue is selected.
 5. Extend the Kalmanson template diagnostics toward order-search coverage:
    C13/C19 template records and C25/C29 availability records now exist, but
    they are not cyclic-order coverage or obstructions for the larger frontier.
+   The C19 order-CNF export
+   `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
+   gives a standard SAT target for the stored Z3 clauses, but the external
+   DRAT/LRAT or equivalent UNSAT replay is still open.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
    with an independent input-data replay. The current SymPy-free
    `n=8` replay command,
@@ -610,6 +614,7 @@ python scripts/check_kalmanson_two_order_z3.py --certificate data/certificates/c
 python scripts/analyze_kalmanson_certificates.py
 python scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --json
 python scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json
+python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json
 ```
 
 Expected artifacts:
@@ -626,6 +631,10 @@ Expected artifacts:
 - optional C25/C29 sparse-frontier template-availability diagnostics such as
   `scripts/analyze_kalmanson_sparse_frontier_templates.py`, kept separate from
   cyclic-order coverage or all-order obstruction claims.
+- optional order-CNF export diagnostics such as
+  `reports/c19_kalmanson_order_cnf_summary.json`, kept separate from any
+  solver-independent UNSAT proof claim until a DRAT/LRAT or equivalent proof
+  artifact is checked.
 
 Acceptance criteria:
 

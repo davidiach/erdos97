@@ -508,6 +508,9 @@ Review checklist:
 - the all-order UNSAT step is replayed by at least one Z3-independent route,
   such as a DIMACS/DRAT/LRAT proof, another SMT solver with a checkable proof,
   or a pure finite-order proof checker for the stored clauses;
+- `scripts/export_c19_kalmanson_order_cnf.py` now provides the DIMACS CNF
+  target and checked summary hash for that replay, but no DRAT/LRAT or
+  equivalent proof object is checked yet;
 - an UNSAT core alone is not treated as a proof object unless a separate
   checker verifies it;
 - the claim remains scoped to the fixed abstract `C19_skew` selected-witness

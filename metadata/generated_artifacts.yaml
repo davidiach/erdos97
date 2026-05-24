@@ -269,6 +269,42 @@ artifacts:
       - this diagnostic is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: c19_order_cnf_summary
+    path: reports/c19_kalmanson_order_cnf_summary.json
+    sha256: e05b758355299a4dce3038a759cb9bc19da715ed940f0da269d4990c466cb2ea
+    size_bytes: 2523
+    kind: certificate_diagnostic_artifact
+    generator: scripts/export_c19_kalmanson_order_cnf.py
+    command: python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --out reports/c19_kalmanson_order_cnf_summary.json
+    checker: scripts/export_c19_kalmanson_order_cnf.py
+    check_command: python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: Z3-independent DIMACS encoding summary for the checked fixed abstract C19_skew Kalmanson order clauses.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.c19_kalmanson_order_cnf_summary.v1
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      status: C19_ORDER_CNF_EXPORT_DIAGNOSTIC_ONLY
+      source_certificate.pattern.name: C19_skew
+      source_certificate.status: EXACT_ALL_ORDER_TWO_INEQUALITY_KALMANSON_OBSTRUCTION
+      encoding.format: DIMACS CNF
+      encoding.variable_count: 171
+      encoding.clause_count: 13813
+      encoding.transitivity_clause_count: 5814
+      encoding.forbidden_order_clause_count: 7981
+      validation.dimacs_header: p cnf 171 13813
+      validation.dimacs_sha256: dd4b8f429fea232bf09ff878342d7a28f4e9b6e743c99cd1b48f681d0f9ec450
+      provenance.command: python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --out reports/c19_kalmanson_order_cnf_summary.json
+    forbidden_claims:
+      - C19_skew proves Erdos Problem #97
+      - all C19-like patterns are impossible
+      - this closes the frontier
+      - this CNF export is an independent proof
+      - solver-independent UNSAT proof
+      - general proof of Erdos Problem #97
+
   - id: c19_compact_vs_legacy_diagnostic
     path: reports/c19_kalmanson_compact_vs_legacy.json
     sha256: 5bd877f2556d1d789d9a1810edd184d9d3ee2ddc1cf53d5a60c996b2a31bf17e

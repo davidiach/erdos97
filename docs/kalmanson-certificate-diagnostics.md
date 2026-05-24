@@ -116,6 +116,27 @@ This is an inspection aid for the already checked fixed abstract `C19_skew`
 all-order certificate. It is not an independent proof, not a statement about
 all C19-like patterns, and not a proof of Erdos Problem #97.
 
+## C19 Order-CNF Export
+
+The same stored C19 order clauses now have a DIMACS CNF export summary:
+
+```bash
+python scripts/export_c19_kalmanson_order_cnf.py \
+  --assert-expected \
+  --check-artifact reports/c19_kalmanson_order_cnf_summary.json
+```
+
+The exporter does not call Z3 for the order-UNSAT step. It validates each
+stored forbidden ordered-quadrilateral pair as an exact inverse-pair clause,
+then encodes the rotation-fixed cyclic-order problem with pair-precedence
+variables, label-0 unit clauses, transitivity clauses, and the 7,981 stored
+forbidden-order clauses. The checked summary records the DIMACS header
+`p cnf 171 13813` and a deterministic SHA256 hash for the generated text.
+
+This is a replay target for a future DRAT/LRAT or equivalent proof artifact.
+It is not a solver-independent UNSAT proof by itself, and it does not alter the
+fixed-pattern scope of the C19 obstruction.
+
 ## C13/C19 Inverse-Pair Template Diagnostic
 
 The coefficient-template diagnostic
