@@ -7,14 +7,116 @@ path_convention: >
   New generated checked artifacts live under data/certificates/. The top-level
   certificates/ directory is legacy/path-stable space for early n=8 artifacts
   and manual templates retained at their historical paths.
-optional_integrity_fields: >
-  Artifact entries may include sha256 and size_bytes fields. When present,
-  scripts/check_artifact_provenance.py verifies them against the current file
-  bytes without rerunning the generator.
+required_integrity_fields: >
+  Every managed artifact entry carries sha256 and size_bytes fields.
+  scripts/check_artifact_provenance.py verifies them against the current
+  file bytes without rerunning the generator. Tracked certificate JSON files
+  outside this managed list must be declared under unmanaged_tracked_artifacts
+  with an explicit reason.
+
+unmanaged_tracked_artifacts:
+  - path: data/certificates/2026-05-05/bridge_lemma_check.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/2026-05-05/n11_partial.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/2026-05-05/n8_groebner_results.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/2026-05-05/n9_groebner_results.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/2026-05-05/stuck_set_census.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/2026-05-06/affine_stretch_search.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/2026-05-06/q_l9_filter_results.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/2026-05-06/two_orbit_large_m.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/altman_linear_certificate_sweep.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c13_kalmanson_bounded_order_pilot.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c13_kalmanson_partial_branch_closures.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c13_kalmanson_prefix_branch_pilot.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c13_kalmanson_third_pair_refinement.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_branch_pilot.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_128_159.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_160_191.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_288_319_prefilter.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_320_351_prefilter.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_352_383_prefilter.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_384_415_prefilter.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_416_447_prefilter.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_448_479_prefilter.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_prefilter_sweep_288_447.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_prefilter_sweep_288_479.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_sweep_128_223.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_sweep_128_255.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_sweep_128_287.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_sampled_fifth_pair_refinement.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_sampled_fourth_pair_refinement.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_row_circle_multiplier_reduction.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_row_circle_ptolemy_active_set.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c25_c29_sparse_frontier_probe.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/metric_order_lp_survivors.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/n9_incidence_frontier_bounded.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/n9_late_archive_provenance.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/n9_phi4_rectangle_trap.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/n9_vertex_circle_local_cores.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/p18_vertex_circle_order_unsat.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/p24_cyclic_crossing_unsat.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/phi4_frontier_scan.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/ptolemy_order_nlp_survivors.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/round2/c17_skew_kalmanson_from_ptolemy_method_note.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/round2/c17_skew_ptolemy_log_certificate.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/round2/c19_kalmanson_known_order_unsat.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/row_circle_ptolemy_nlp_sparse_orders.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/sparse_order_survivors.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
 
 artifacts:
   - id: n8_reconstructed_survivors
     path: data/incidence/n8_reconstructed_15_survivors.json
+    sha256: 4568a49be1a3681e897ae2b5d57336349f939614c1b79bdb09035a35873e1586
+    size_bytes: 13102
     kind: finite_case_artifact
     generator: scripts/enumerate_n8_incidence.py
     command: python scripts/enumerate_n8_incidence.py --summary
@@ -29,6 +131,8 @@ artifacts:
 
   - id: n8_incidence_completeness
     path: data/incidence/n8_incidence_completeness.json
+    sha256: 95f860d78c3784b38e2448296abba93518758de987fa84159809bb78e00d64ad
+    size_bytes: 20192
     kind: finite_case_artifact
     generator: scripts/enumerate_n8_incidence.py
     command: python scripts/enumerate_n8_incidence.py --summary
@@ -48,6 +152,8 @@ artifacts:
 
   - id: n8_compatible_orders
     path: data/incidence/n8_compatible_orders.json
+    sha256: 96856b05fb133df01e95d8f1d2899fc84044ad75b77da116affb91d249a3bad3
+    size_bytes: 735149
     kind: finite_case_artifact
     generator: scripts/analyze_n8_exact_survivors.py
     command: python scripts/analyze_n8_exact_survivors.py --check --json --check-compatible-orders-data data/incidence/n8_compatible_orders.json
@@ -62,6 +168,8 @@ artifacts:
 
   - id: n8_exact_analysis
     path: certificates/n8_exact_analysis.json
+    sha256: 2fcbc2c393c9440036237c9a06aef0bb512ddf5f1c3eb5df1f568999b6f4140e
+    size_bytes: 1072175
     kind: certificate_artifact
     generator: scripts/analyze_n8_exact_survivors.py
     command: python scripts/analyze_n8_exact_survivors.py --check --json --check-exact-analysis-data certificates/n8_exact_analysis.json
@@ -76,6 +184,8 @@ artifacts:
 
   - id: c19_fixed_order_two_kalmanson
     path: data/certificates/round2/c19_kalmanson_known_order_two_unsat.json
+    sha256: c0da777cb6e518c6f1eebfcdd98793c1928ab3ca2ffc10972482d2847679702a
+    size_bytes: 1704
     kind: certificate_artifact
     generator: scripts/find_kalmanson_two_certificate.py
     command: python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json
@@ -97,6 +207,8 @@ artifacts:
 
   - id: c19_all_orders_kalmanson_z3
     path: data/certificates/c19_skew_all_orders_kalmanson_z3.json
+    sha256: c5d3731cf0487965c0e6bdef6c8d2c8c11dac552cadf33acd5958e944cec2714
+    size_bytes: 215419
     kind: smt_certificate_artifact
     generator: scripts/check_kalmanson_two_order_z3.py
     command: python scripts/check_kalmanson_two_order_z3.py --certificate data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat
@@ -118,6 +230,8 @@ artifacts:
 
   - id: c19_z3_clause_diagnostic
     path: reports/c19_kalmanson_z3_clause_diagnostics.json
+    sha256: bac308205442952a3e946327c5a521859b08b8304085fc8caaa33e41a5a8611a
+    size_bytes: 22206
     kind: certificate_diagnostic_artifact
     generator: scripts/analyze_kalmanson_z3_clauses.py
     command: python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --out reports/c19_kalmanson_z3_clause_diagnostics.json
@@ -157,6 +271,8 @@ artifacts:
 
   - id: c19_compact_vs_legacy_diagnostic
     path: reports/c19_kalmanson_compact_vs_legacy.json
+    sha256: 5bd877f2556d1d789d9a1810edd184d9d3ee2ddc1cf53d5a60c996b2a31bf17e
+    size_bytes: 19686
     kind: certificate_diagnostic_artifact
     generator: scripts/analyze_kalmanson_certificates.py
     command: python scripts/analyze_kalmanson_certificates.py --c19-compact-vs-legacy --assert-expected --out reports/c19_kalmanson_compact_vs_legacy.json
@@ -181,6 +297,8 @@ artifacts:
 
   - id: c13_fixed_order_two_kalmanson
     path: data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json
+    sha256: 100adaa9ef8d6f934a936bc6d8cf78b87d9da036f16a1fe71d8d9f8ec208bf13
+    size_bytes: 1663
     kind: certificate_artifact
     generator: scripts/find_kalmanson_two_certificate.py
     command: python scripts/check_kalmanson_certificate.py data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json --summary-json
@@ -201,6 +319,8 @@ artifacts:
 
   - id: c29_fixed_order_full_kalmanson
     path: data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json
+    sha256: b371e8fa545b3902b9003b1295a551a12db4c57415d97ab4a5a210c6f8d81244
+    size_bytes: 24539
     kind: certificate_artifact
     generator: scripts/find_kalmanson_certificate.py
     command: python scripts/check_kalmanson_certificate.py data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json --summary-json
@@ -223,6 +343,8 @@ artifacts:
 
   - id: sparse_frontier_kalmanson_escape_audit
     path: data/certificates/sparse_frontier_kalmanson_escape_audit.json
+    sha256: 381b0bd7e839a8ba14262468205a3cf170095111396729be34597882eedf6c7e
+    size_bytes: 4616
     kind: certificate_diagnostic_artifact
     generator: scripts/check_sparse_frontier_kalmanson_escapes.py
     command: python scripts/check_sparse_frontier_kalmanson_escapes.py --write --assert-expected
@@ -252,6 +374,8 @@ artifacts:
 
   - id: c13_all_orders_kalmanson_two_search
     path: data/certificates/c13_sidon_all_orders_kalmanson_two_search.json
+    sha256: a227454c327e3366672c3610d814c7754c7f71c4c83d647ba65d7a449e5c8755
+    size_bytes: 1019
     kind: exhaustive_search_artifact
     generator: scripts/check_kalmanson_two_order_search.py
     command: python scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n 13 --offsets 1,2,4,10 --assert-obstructed --assert-c13-expected --json
@@ -272,6 +396,8 @@ artifacts:
 
   - id: n9_vertex_circle_exhaustive
     path: data/certificates/n9_vertex_circle_exhaustive.json
+    sha256: ef3b269e76f0f856122aa01578cf92f74b364587d7de1b298d825ca7a0de1e73
+    size_bytes: 5693
     kind: finite_case_artifact
     generator: scripts/check_n9_vertex_circle_exhaustive.py
     command: python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
@@ -292,6 +418,8 @@ artifacts:
 
   - id: n9_vertex_circle_compact_brancher
     path: data/certificates/n9_vertex_circle_compact_brancher.json
+    sha256: 5701dbb251ce81bdd2afc5cb162915fa787623d25cc9e31ed31f7b0f35315b29
+    size_bytes: 2019
     kind: finite_case_audit_artifact
     generator: scripts/check_n9_vertex_circle_compact_brancher.py
     command: python scripts/check_n9_vertex_circle_compact_brancher.py --write --assert-expected
@@ -327,6 +455,8 @@ artifacts:
 
   - id: n9_kalmanson_selfedge
     path: data/certificates/n9_kalmanson_selfedge.json
+    sha256: 526d225653a69abb8329e952e34db6bebb7672934873e3181594052ccb5f525c
+    size_bytes: 232277
     kind: finite_case_artifact
     generator: scripts/check_n9_kalmanson_selfedge.py
     command: python scripts/check_n9_kalmanson_selfedge.py --write --assert-expected --summary-only
@@ -359,6 +489,8 @@ artifacts:
 
   - id: n9_vertex_circle_obstruction_shapes
     path: data/certificates/n9_vertex_circle_obstruction_shapes.json
+    sha256: c10ead3203b87e72c96af7eef98b656d6b33788994b8fad6577cb59b99df78c6
+    size_bytes: 6630
     kind: certificate_diagnostic_artifact
     generator: scripts/analyze_n9_vertex_circle_obstruction_shapes.py
     command: python scripts/analyze_n9_vertex_circle_obstruction_shapes.py --assert-expected --write
@@ -388,6 +520,8 @@ artifacts:
 
   - id: n9_vertex_circle_motif_families
     path: data/certificates/n9_vertex_circle_motif_families.json
+    sha256: da67b40770ae4b7acf19df4decbeffa595a7a73647c2b9693e97c201650074cf
+    size_bytes: 45158
     kind: certificate_diagnostic_artifact
     generator: scripts/analyze_n9_vertex_circle_motif_families.py
     command: python scripts/analyze_n9_vertex_circle_motif_families.py --assert-expected --write
@@ -422,6 +556,8 @@ artifacts:
 
   - id: n9_inversive_incidence_pilot
     path: data/certificates/n9_inversive_incidence_pilot.json
+    sha256: 2857ac0879cb56bb1c4e66b94f6a0a0df6f1b9d1a571503fd3cecdef401e7e7b
+    size_bytes: 4640
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_inversive_incidence_pilot.py
     command: python scripts/check_n9_inversive_incidence_pilot.py --assert-expected --write
@@ -466,6 +602,8 @@ artifacts:
 
   - id: n9_turn_inequality_frontier
     path: data/certificates/n9_turn_inequality_frontier.json
+    sha256: 9de2666f7bce8e92bb2134caae449588a67ef902ae45b6bbc30c1687588603b8
+    size_bytes: 82873
     kind: finite_case_artifact
     generator: scripts/check_n9_turn_inequality_frontier.py
     command: python scripts/check_n9_turn_inequality_frontier.py --assert-expected --write
@@ -507,6 +645,8 @@ artifacts:
 
   - id: n9_vertex_circle_local_core_packet
     path: data/certificates/n9_vertex_circle_local_core_packet.json
+    sha256: d6eff2556d93338d15da665a7670ebb6bac2145238fe55789eb5dbbf84404d30
+    size_bytes: 9922
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_local_core_packet.py
     command: python scripts/check_n9_vertex_circle_local_core_packet.py --assert-expected --write
@@ -537,6 +677,8 @@ artifacts:
 
   - id: n9_vertex_circle_core_templates
     path: data/certificates/n9_vertex_circle_core_templates.json
+    sha256: 2674257279bd8fe70433cf7456d21e763413faa64ae5695ebecf1dd793d7e715
+    size_bytes: 18858
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_core_templates.py
     command: python scripts/check_n9_vertex_circle_core_templates.py --assert-expected --write
@@ -572,6 +714,8 @@ artifacts:
 
   - id: n9_vertex_circle_frontier_motif_classification
     path: data/certificates/n9_vertex_circle_frontier_motif_classification.json
+    sha256: 382c4b5bbd70229c5484ff18b049d430d1ce4e6d11a1ca20dc21a99ebbfb21d3
+    size_bytes: 281009
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_frontier_motif_classification.py
     command: python scripts/check_n9_vertex_circle_frontier_motif_classification.py --assert-expected --write
@@ -611,6 +755,8 @@ artifacts:
 
   - id: n9_vertex_circle_frontier_comparison
     path: data/certificates/n9_vertex_circle_frontier_comparison.json
+    sha256: 76074a8001a36600d528db767a0bd643a47becead762e985debfca6e0688ed4c
+    size_bytes: 4780
     kind: certificate_diagnostic_artifact
     generator: scripts/compare_n9_vertex_circle_frontier.py
     command: python scripts/compare_n9_vertex_circle_frontier.py --assert-expected --write
@@ -636,6 +782,8 @@ artifacts:
 
   - id: n9_vertex_circle_self_edge_path_join
     path: data/certificates/n9_vertex_circle_self_edge_path_join.json
+    sha256: 5a6d100b899030a95bd5603024cea27bd529329fe76360ee100845977bc850b7
+    size_bytes: 359318
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_self_edge_path_join.py
     command: python scripts/check_n9_vertex_circle_self_edge_path_join.py --assert-expected --write
@@ -679,6 +827,8 @@ artifacts:
 
   - id: n9_vertex_circle_self_edge_template_packet
     path: data/certificates/n9_vertex_circle_self_edge_template_packet.json
+    sha256: c9e803f8d4bafb62896a311685e509aebc329042bfe05b99f5701be1e29c94cc
+    size_bytes: 48069
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_self_edge_template_packet.py
     command: python scripts/check_n9_vertex_circle_self_edge_template_packet.py --assert-expected --write
@@ -744,6 +894,8 @@ artifacts:
 
   - id: n9_vertex_circle_strict_cycle_path_join
     path: data/certificates/n9_vertex_circle_strict_cycle_path_join.json
+    sha256: cb69a05889694adb6b5fc3f6de20420a58ee055436ed170a05af9299244d884a
+    size_bytes: 101769
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_strict_cycle_path_join.py
     command: python scripts/check_n9_vertex_circle_strict_cycle_path_join.py --assert-expected --write
@@ -796,6 +948,8 @@ artifacts:
 
   - id: n9_vertex_circle_strict_cycle_template_packet
     path: data/certificates/n9_vertex_circle_strict_cycle_template_packet.json
+    sha256: ef3699c050a65dbb083fc8406ca8a154e9575238229efc352171ca1979d20c76
+    size_bytes: 21276
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_strict_cycle_template_packet.py
     command: python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --assert-expected --write
@@ -853,6 +1007,8 @@ artifacts:
 
   - id: n9_vertex_circle_template_lemma_catalog
     path: data/certificates/n9_vertex_circle_template_lemma_catalog.json
+    sha256: 54acdfc1f60e91350bc4b7dd8fc05a6ef6c6900f1f15d798e3771205b82f937f
+    size_bytes: 30618
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_template_lemma_catalog.py
     command: python scripts/check_n9_vertex_circle_template_lemma_catalog.py --assert-expected --write
@@ -918,6 +1074,8 @@ artifacts:
 
   - id: n9_vertex_circle_local_lemmas
     path: data/certificates/n9_vertex_circle_local_lemmas.json
+    sha256: 2a41867a4c8620fe78a083f3dcdf0e29af4290652ab0aabbbd261bc5f3507fa6
+    size_bytes: 81977
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_local_lemmas.py
     command: python scripts/check_n9_vertex_circle_local_lemmas.py --assert-expected --write
@@ -952,6 +1110,8 @@ artifacts:
 
   - id: n9_vertex_circle_local_lemma_simple_replay
     path: data/certificates/n9_vertex_circle_local_lemma_simple_replay.json
+    sha256: 17fc8a80696132d7d18fdfae1ae731a07a8e65805fe9a5cb85c6bfe10347d86f
+    size_bytes: 7678
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_local_lemma_simple_replay.py
     command: python scripts/check_n9_vertex_circle_local_lemma_simple_replay.py --assert-expected --write
@@ -988,6 +1148,8 @@ artifacts:
 
   - id: n9_vertex_circle_t01_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json
+    sha256: 5588fd883af3a5b9ef8b9e792b2c8503c91797a04423461d7fac7c00569cfb2a
+    size_bytes: 8733
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --assert-expected --write
@@ -1055,6 +1217,8 @@ artifacts:
 
   - id: n9_t01_self_edge_minireplay
     path: data/certificates/n9_t01_self_edge_minireplay.json
+    sha256: a138e0849987ef403b314dc7204fc670c145eb1d00c327c4d446e38f95cf9f01
+    size_bytes: 2381
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_t01_self_edge_minireplay.py
     command: python scripts/check_n9_t01_self_edge_minireplay.py --write --assert-expected
@@ -1098,6 +1262,8 @@ artifacts:
 
   - id: n9_vertex_circle_t02_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t02_self_edge_lemma_packet.json
+    sha256: 399e16e775bd508fcf9d1c1f7d2ee9c1e36f8585e8fe2a9950ae82f3fc48d82e
+    size_bytes: 33147
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --assert-expected --write
@@ -1151,6 +1317,8 @@ artifacts:
 
   - id: n9_t02_self_edge_minireplay
     path: data/certificates/n9_t02_self_edge_minireplay.json
+    sha256: 8d412b2ceb4da5d23f43c6166bc8de18fada496f41a9e6dc3690ab62a4a22d8c
+    size_bytes: 8030
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_t02_self_edge_minireplay.py
     command: python scripts/check_n9_t02_self_edge_minireplay.py --write --assert-expected
@@ -1199,6 +1367,8 @@ artifacts:
 
   - id: n9_vertex_circle_t03_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t03_self_edge_lemma_packet.json
+    sha256: 56da346d071f83ec3a73c439febf0ece52da68ba146991c47438798faad07a08
+    size_bytes: 18813
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py --assert-expected --write
@@ -1246,6 +1416,8 @@ artifacts:
 
   - id: n9_t03_self_edge_minireplay
     path: data/certificates/n9_t03_self_edge_minireplay.json
+    sha256: 4d15eb086cee7b47590271502a0c2e3fc3a3e0d16747431f4883db9b7fed296d
+    size_bytes: 4698
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_t03_self_edge_minireplay.py
     command: python scripts/check_n9_t03_self_edge_minireplay.py --write --assert-expected
@@ -1288,6 +1460,8 @@ artifacts:
 
   - id: n9_vertex_circle_t04_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t04_self_edge_lemma_packet.json
+    sha256: 0d8f6ffb4db2e4d2d5b29fa2b2f152d2f5e1cd6ef14b48e1814503c74ff896a3
+    size_bytes: 11714
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t04_self_edge_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t04_self_edge_lemma_packet.py --assert-expected --write
@@ -1332,6 +1506,8 @@ artifacts:
 
   - id: n9_t04_self_edge_minireplay
     path: data/certificates/n9_t04_self_edge_minireplay.json
+    sha256: 60b54933fdfd05680a44b64b82c38ee6178f1bb395866723e6846079059b3807
+    size_bytes: 2998
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_t04_self_edge_minireplay.py
     command: python scripts/check_n9_t04_self_edge_minireplay.py --write --assert-expected
@@ -1371,6 +1547,8 @@ artifacts:
 
   - id: n9_vertex_circle_t05_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t05_self_edge_lemma_packet.json
+    sha256: 8b8cbfb2151b8616c8958921ce9765f39a54180a3bf4f545ffb954a7d1ab6adf
+    size_bytes: 12694
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t05_self_edge_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t05_self_edge_lemma_packet.py --assert-expected --write
@@ -1415,6 +1593,8 @@ artifacts:
 
   - id: n9_t05_self_edge_minireplay
     path: data/certificates/n9_t05_self_edge_minireplay.json
+    sha256: 6ba1a0fd0ffdc55a1277d6d917f237f18c10bf83d6a1e936fa5aa8f1cab3de8b
+    size_bytes: 3001
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_t05_self_edge_minireplay.py
     command: python scripts/check_n9_t05_self_edge_minireplay.py --write --assert-expected
@@ -1454,6 +1634,8 @@ artifacts:
 
   - id: n9_vertex_circle_t06_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t06_self_edge_lemma_packet.json
+    sha256: 3a23ff22c20ae9100315de36eb87d83494302dbf4ed382c68c72e86b164b0cad
+    size_bytes: 14240
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t06_self_edge_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t06_self_edge_lemma_packet.py --assert-expected --write
@@ -1498,6 +1680,8 @@ artifacts:
 
   - id: n9_t06_self_edge_minireplay
     path: data/certificates/n9_t06_self_edge_minireplay.json
+    sha256: ef119f304aabf26fc832823c7b497a68a6a73c3c7a3159198b5c62373515c880
+    size_bytes: 3265
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_t06_self_edge_minireplay.py
     command: python scripts/check_n9_t06_self_edge_minireplay.py --write --assert-expected
@@ -1537,6 +1721,8 @@ artifacts:
 
   - id: n9_vertex_circle_t07_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t07_self_edge_lemma_packet.json
+    sha256: 6bcff7194baeb8b305cfac485f2760821ceca60dd72e07ba033ec2311f8935c4
+    size_bytes: 16395
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t07_self_edge_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t07_self_edge_lemma_packet.py --assert-expected --write
@@ -1581,6 +1767,8 @@ artifacts:
 
   - id: n9_t07_self_edge_minireplay
     path: data/certificates/n9_t07_self_edge_minireplay.json
+    sha256: aa92568283decd469fce04964e5656e04b5c6793b460a21e599127cdfb22fffd
+    size_bytes: 3265
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_t07_self_edge_minireplay.py
     command: python scripts/check_n9_t07_self_edge_minireplay.py --write --assert-expected
@@ -1620,6 +1808,8 @@ artifacts:
 
   - id: n9_vertex_circle_t08_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t08_self_edge_lemma_packet.json
+    sha256: 453f61f16667c327ecccb29e637f1fa46324839d0741e771d549da4fe7e4d5c6
+    size_bytes: 18911
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t08_self_edge_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t08_self_edge_lemma_packet.py --assert-expected --write
@@ -1664,6 +1854,8 @@ artifacts:
 
   - id: n9_t08_self_edge_minireplay
     path: data/certificates/n9_t08_self_edge_minireplay.json
+    sha256: 3bb6e6e3bd2b6662d1f9992f4191e1cfc4864227e7b24a6676b7952e26b1f02a
+    size_bytes: 3529
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_t08_self_edge_minireplay.py
     command: python scripts/check_n9_t08_self_edge_minireplay.py --write --assert-expected
@@ -1703,6 +1895,8 @@ artifacts:
 
   - id: n9_vertex_circle_t09_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t09_self_edge_lemma_packet.json
+    sha256: 088ecf85a6c6a21820f9ab05925216664e8369e66b7d98d05b7bfe8870362903
+    size_bytes: 21966
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t09_self_edge_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t09_self_edge_lemma_packet.py --assert-expected --write
@@ -1747,6 +1941,8 @@ artifacts:
 
   - id: n9_t09_self_edge_minireplay
     path: data/certificates/n9_t09_self_edge_minireplay.json
+    sha256: 8cefdf038af0c59f97bd8c33fb8dbdb7eb11e25792c64fc15727ab62aba3c959
+    size_bytes: 3780
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_t09_self_edge_minireplay.py
     command: python scripts/check_n9_t09_self_edge_minireplay.py --write --assert-expected
@@ -1786,6 +1982,8 @@ artifacts:
 
   - id: n9_vertex_circle_t10_strict_cycle_lemma_packet
     path: data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json
+    sha256: fadc496a4efa57126c8c04b419426057a612b008f7c9dbdf45e03306bd081ebb
+    size_bytes: 17979
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --assert-expected --write
@@ -1836,6 +2034,8 @@ artifacts:
 
   - id: n9_t10_strict_cycle_minireplay
     path: data/certificates/n9_t10_strict_cycle_minireplay.json
+    sha256: fac0bd08b9c6e4e77ecf7c9fd20e5da770d186d6e32ca5818981ba129e21701a
+    size_bytes: 3489
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_t10_strict_cycle_minireplay.py
     command: python scripts/check_n9_t10_strict_cycle_minireplay.py --write --assert-expected
@@ -1876,6 +2076,8 @@ artifacts:
 
   - id: relation_skeleton_catalog
     path: data/certificates/relation_skeleton_catalog.json
+    sha256: 3a19d7d4643acfeb1ea0a343d504cb6f9d0d87fe5875767d0d9d0554ffc5e1f7
+    size_bytes: 77933
     kind: certificate_diagnostic_artifact
     generator: scripts/check_relation_skeleton_catalog.py
     command: python scripts/check_relation_skeleton_catalog.py --assert-expected --write
@@ -1927,6 +2129,8 @@ artifacts:
 
   - id: n9_t10_paired_square_entry_audit
     path: data/certificates/n9_t10_paired_square_entry_audit.json
+    sha256: f735839bdabef19486d866734dee15414fbd59bd02aecd425ca553175ffbd6b7
+    size_bytes: 41247
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_t10_paired_square_entry.py
     command: python scripts/check_n9_t10_paired_square_entry.py --assert-expected --write
@@ -1963,6 +2167,8 @@ artifacts:
 
   - id: n9_vertex_circle_t11_strict_cycle_lemma_packet
     path: data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json
+    sha256: 2be1cfb2313be4a35a2aaabb6bd719397c6702021a18bbf0e95538e6e795abce
+    size_bytes: 19682
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py --assert-expected --write
@@ -2020,6 +2226,8 @@ artifacts:
 
   - id: n9_t11_strict_cycle_minireplay
     path: data/certificates/n9_t11_strict_cycle_minireplay.json
+    sha256: 7ee88b67d5ff62f5b260047dfa067636086716de0c45e0dc65da66aa9864bc71
+    size_bytes: 4167
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_t11_strict_cycle_minireplay.py
     command: python scripts/check_n9_t11_strict_cycle_minireplay.py --write --assert-expected
@@ -2060,6 +2268,8 @@ artifacts:
 
   - id: n9_vertex_circle_t12_strict_cycle_lemma_packet
     path: data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json
+    sha256: 84b5cf3bb4606981b2450586d6390817fd169191c3d189747231bd074277d90d
+    size_bytes: 19803
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py --assert-expected --write
@@ -2110,6 +2320,8 @@ artifacts:
 
   - id: n9_t12_strict_cycle_minireplay
     path: data/certificates/n9_t12_strict_cycle_minireplay.json
+    sha256: 495a8631ad62dc49f65447d70635c08c0102c977051dc0fd711b567fcacaf416
+    size_bytes: 4444
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_t12_strict_cycle_minireplay.py
     command: python scripts/check_n9_t12_strict_cycle_minireplay.py --write --assert-expected
@@ -2150,6 +2362,8 @@ artifacts:
 
   - id: n9_groebner_real_root_decoders
     path: data/certificates/n9_groebner_real_root_decoders.json
+    sha256: 8664033ec5153f9895d2595242c9e3e1dce38e32e40ba9a2cfaa6d7c5ad1b267
+    size_bytes: 100728
     kind: algebraic_decoder_artifact
     generator: scripts/decode_n9_groebner_f07_f13.py
     command: python scripts/decode_n9_groebner_f07_f13.py
@@ -2171,6 +2385,8 @@ artifacts:
 
   - id: n9_base_apex_low_excess_ledgers
     path: data/certificates/n9_base_apex_low_excess_ledgers.json
+    sha256: 5e1b5287c7b39ccfdc8076aa8f79b19bf4bfe7edbf9d1fcf6259693b508be123
+    size_bytes: 36225
     kind: exploratory_ledger_artifact
     generator: scripts/explore_n9_base_apex.py
     command: python scripts/explore_n9_base_apex.py --low-excess-report --out data/certificates/n9_base_apex_low_excess_ledgers.json
@@ -2202,6 +2418,8 @@ artifacts:
 
   - id: n9_base_apex_escape_budget_report
     path: data/certificates/n9_base_apex_escape_budget_report.json
+    sha256: aada41e8d852a95bd8a5fb9e0f28b0956f1fded550d3efd910dcad6e49788363
+    size_bytes: 31618
     kind: exploratory_ledger_artifact
     generator: scripts/explore_n9_base_apex.py
     command: python scripts/explore_n9_base_apex.py --escape-budget-report --out data/certificates/n9_base_apex_escape_budget_report.json
@@ -2230,6 +2448,8 @@ artifacts:
 
   - id: n9_selected_baseline_escape_budget_overlay
     path: data/certificates/n9_selected_baseline_escape_budget_overlay.json
+    sha256: a9de569cb865be05d2485fcf206ea088be56c0019883a3d411b54643ad61b702
+    size_bytes: 24705
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_selected_baseline_escape_budget_overlay.py
     command: python scripts/analyze_n9_selected_baseline_escape_budget_overlay.py --assert-expected --out data/certificates/n9_selected_baseline_escape_budget_overlay.json
@@ -2268,6 +2488,8 @@ artifacts:
 
   - id: n9_selected_baseline_d3_escape_class_crosswalk
     path: data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json
+    sha256: 12571bfc8e00c78bc9fe709fad8d0486140fd230ec3c40d559661ea90e605998
+    size_bytes: 41922
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_selected_baseline_d3_escape_class_crosswalk.py
     command: python scripts/analyze_n9_selected_baseline_d3_escape_class_crosswalk.py --assert-expected --out data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json
@@ -2321,6 +2543,8 @@ artifacts:
 
   - id: n9_selected_baseline_d3_vertex_circle_template_join
     path: data/certificates/n9_selected_baseline_d3_vertex_circle_template_join.json
+    sha256: d664398fd861c8f2c7265ecc6b1ef483c8336fa964f8246244bf2eba39de5512
+    size_bytes: 1953662
     kind: exploratory_ledger_artifact
     generator: scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py
     command: python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py --assert-expected --write
@@ -2401,6 +2625,8 @@ artifacts:
 
   - id: n9_base_apex_d3_escape_slice
     path: data/certificates/n9_base_apex_d3_escape_slice.json
+    sha256: 091005b65d478e0d8f8e179ffaedc039d52601827b590100a9bc4b7eaea29783
+    size_bytes: 45927
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_d3_escape_slice.py
     command: python scripts/analyze_n9_d3_escape_slice.py --assert-expected --out data/certificates/n9_base_apex_d3_escape_slice.json
@@ -2439,6 +2665,8 @@ artifacts:
 
   - id: n9_base_apex_d3_escape_frontier_packet
     path: data/certificates/n9_base_apex_d3_escape_frontier_packet.json
+    sha256: cb9237d06553ae8c44f007367fe778947c52d87a42a97d809516c5addce206fa
+    size_bytes: 59926
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_base_apex_d3_escape_frontier_packet.py
     command: python scripts/analyze_n9_base_apex_d3_escape_frontier_packet.py --assert-expected --out data/certificates/n9_base_apex_d3_escape_frontier_packet.json
@@ -2478,6 +2706,8 @@ artifacts:
 
   - id: n9_base_apex_d3_p19_incidence_capacity_pilot
     path: data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json
+    sha256: 05c930a9d243adf0c0ad630be87dedfb3ab00b4474c26a547855678245091c94
+    size_bytes: 17817
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_base_apex_d3_p19_incidence_capacity_pilot.py
     command: python scripts/analyze_n9_base_apex_d3_p19_incidence_capacity_pilot.py --assert-expected --out data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json
@@ -2540,6 +2770,8 @@ artifacts:
 
   - id: n9_base_apex_d3_incidence_capacity_packet
     path: data/certificates/n9_base_apex_d3_incidence_capacity_packet.json
+    sha256: 077959f71762da5870a4a815d9d239eb548bba9862258c20925fc3d50af258f5
+    size_bytes: 186849
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py
     command: python scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py --assert-expected --out data/certificates/n9_base_apex_d3_incidence_capacity_packet.json
@@ -2588,6 +2820,8 @@ artifacts:
 
   - id: n9_base_apex_low_excess_escape_ladder
     path: data/certificates/n9_base_apex_low_excess_escape_ladder.json
+    sha256: 79eb34b4bdbd566c3e526ae645111bccb6d70e17ccaee2f386911263325ef00a
+    size_bytes: 6132
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_base_apex_low_excess_escape_ladder.py
     command: python scripts/analyze_n9_base_apex_low_excess_escape_ladder.py --assert-expected --out data/certificates/n9_base_apex_low_excess_escape_ladder.json
@@ -2626,6 +2860,8 @@ artifacts:
 
   - id: n9_base_apex_low_excess_escape_crosswalk
     path: data/certificates/n9_base_apex_low_excess_escape_crosswalk.json
+    sha256: e7e1f90d80b0cadf767ae7ec318482ff590bee35e57ff9b9b54b761d513befaf
+    size_bytes: 201074
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_base_apex_low_excess_escape_crosswalk.py
     command: python scripts/analyze_n9_base_apex_low_excess_escape_crosswalk.py --assert-expected --out data/certificates/n9_base_apex_low_excess_escape_crosswalk.json
@@ -2657,6 +2893,8 @@ artifacts:
 
   - id: n9_row_ptolemy_product_cancellations
     path: data/certificates/n9_row_ptolemy_product_cancellations.json
+    sha256: e0623ae695b275eecc087155cd18bcf14018092793a0cf11ddf0c1fb71687a6f
+    size_bytes: 448442
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_row_ptolemy_product_cancellations.py
     command: python scripts/analyze_n9_row_ptolemy_product_cancellations.py --assert-expected --out data/certificates/n9_row_ptolemy_product_cancellations.json
@@ -2692,6 +2930,8 @@ artifacts:
 
   - id: n9_row_ptolemy_family_signatures
     path: data/certificates/n9_row_ptolemy_family_signatures.json
+    sha256: 7934de7b38f0aa451ed0273d3f20d66cf1feb5c238b76a5f544618fc83a3e324
+    size_bytes: 6743
     kind: exploratory_ledger_artifact
     generator: scripts/check_n9_row_ptolemy_family_signatures.py
     command: python scripts/check_n9_row_ptolemy_family_signatures.py --assert-expected --write
@@ -2736,6 +2976,8 @@ artifacts:
 
   - id: n9_row_ptolemy_order_sensitivity
     path: data/certificates/n9_row_ptolemy_order_sensitivity.json
+    sha256: 52f76448fd5eb2b68ce5cce6adcc10c9de22f759b27b5a7ed4f4a2caeda39d62
+    size_bytes: 7426
     kind: exploratory_ledger_artifact
     generator: scripts/check_n9_row_ptolemy_order_sensitivity.py
     command: python scripts/check_n9_row_ptolemy_order_sensitivity.py --assert-expected --write
@@ -2772,6 +3014,8 @@ artifacts:
 
   - id: n9_row_ptolemy_order_admissible_census
     path: data/certificates/n9_row_ptolemy_order_admissible_census.json
+    sha256: 89ab371bac9cff578a057ff03a5877f884b14515698a9b6013254d6da1d7d8f6
+    size_bytes: 49625
     kind: exploratory_ledger_artifact
     generator: scripts/check_n9_row_ptolemy_order_admissible_census.py
     command: python scripts/check_n9_row_ptolemy_order_admissible_census.py --assert-expected --write
@@ -2817,6 +3061,8 @@ artifacts:
 
   - id: n9_row_ptolemy_admissible_gap_replay
     path: data/certificates/n9_row_ptolemy_admissible_gap_replay.json
+    sha256: 378984cefdf281b7cd424d0f224c2df4e52700635262d26f12c107faf3046b2c
+    size_bytes: 40149
     kind: exploratory_ledger_artifact
     generator: scripts/check_n9_row_ptolemy_admissible_gap_replay.py
     command: python scripts/check_n9_row_ptolemy_admissible_gap_replay.py --assert-expected --write
@@ -2875,6 +3121,8 @@ artifacts:
 
   - id: n9_row_ptolemy_gap_self_edge_cores
     path: data/certificates/n9_row_ptolemy_gap_self_edge_cores.json
+    sha256: eea1cc8bfdace722421df2f55248f8cea2b5b0fc6f03f5c23f57bf0fddd23b5a
+    size_bytes: 9894
     kind: exploratory_ledger_artifact
     generator: scripts/check_n9_row_ptolemy_gap_self_edge_cores.py
     command: python scripts/check_n9_row_ptolemy_gap_self_edge_cores.py --assert-expected --write
@@ -2938,6 +3186,8 @@ artifacts:
 
   - id: bridge_lemma_frontier
     path: data/certificates/bridge_lemma_frontier.json
+    sha256: 72362c18009c10bc45d18b4962c881544a4dcf585494a83999084e5c578b4852
+    size_bytes: 47308
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bridge_lemma_frontier.py
     command: python scripts/check_bridge_lemma_frontier.py --write --assert-expected
@@ -2985,6 +3235,8 @@ artifacts:
 
   - id: two_parabola_lens_grid_search
     path: data/certificates/two_parabola_lens_grid_search.json
+    sha256: b514282e4d5a6ebc096551e6e61ab354d6fc90fda592f1f8e494993fb03e5c18
+    size_bytes: 11948
     kind: finite_grid_search_artifact
     generator: scripts/check_two_parabola_lens_closure_grid.py
     command: python scripts/check_two_parabola_lens_closure_grid.py --write-artifact --artifact data/certificates/two_parabola_lens_grid_search.json --check --assert-expected --json
@@ -3013,6 +3265,8 @@ artifacts:
 
   - id: radius_blocker_vertex_circle_pilot
     path: data/certificates/radius_blocker_vertex_circle_pilot.json
+    sha256: 7d4e350bf8b208dbd6c28ecb7605c6c6247f0da8bd805d4ce3ad6bcb5b5c449e
+    size_bytes: 31246
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_radius_blocker_vertex_circle_pilot.py
     command: python scripts/check_radius_blocker_vertex_circle_pilot.py --write --assert-expected
@@ -3045,6 +3299,8 @@ artifacts:
 
   - id: n9_full_radius_blocker_vertex_circle_packet
     path: data/certificates/n9_full_radius_blocker_vertex_circle_packet.json
+    sha256: 396a598a3559a933e01a68f4873ffab442d09b46c234bfe41cf5ec0a5f74550c
+    size_bytes: 38346
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_full_radius_blocker_vertex_circle_packet.py
     command: python scripts/check_n9_full_radius_blocker_vertex_circle_packet.py --write --assert-expected
@@ -3082,6 +3338,8 @@ artifacts:
 
   - id: n9_radius_blocker_shape_sweep
     path: data/certificates/n9_radius_blocker_shape_sweep.json
+    sha256: a5291621ebf8a3ef8cc7eb9502933ef768c4da81b314096ffaea68aa96b19100
+    size_bytes: 205439
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_radius_blocker_shape_sweep.py
     command: python scripts/check_n9_radius_blocker_shape_sweep.py --write --assert-expected
@@ -3118,6 +3376,8 @@ artifacts:
 
   - id: n9_radius_blocker_order_reduction_crosswalk
     path: data/certificates/n9_radius_blocker_order_reduction_crosswalk.json
+    sha256: ad57c5f1bf38aa3d9ba1980b65333c39849400f0df8f04271fbbd7d900a4d26c
+    size_bytes: 6756
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_radius_blocker_order_reduction_crosswalk.py
     command: python scripts/check_n9_radius_blocker_order_reduction_crosswalk.py --write --assert-expected
@@ -3151,6 +3411,8 @@ artifacts:
 
   - id: n9_radius_blocker_rich_projection_pilot
     path: data/certificates/n9_radius_blocker_rich_projection_pilot.json
+    sha256: 43948ead0c2e68a7206183115a25bf415f6ea8c739c404c24c68bcce25f93f37
+    size_bytes: 13740
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_radius_blocker_rich_projection_pilot.py
     command: python scripts/check_n9_radius_blocker_rich_projection_pilot.py --write --assert-expected
@@ -3189,6 +3451,8 @@ artifacts:
 
   - id: n9_radius_blocker_rich_quotient_pilot
     path: data/certificates/n9_radius_blocker_rich_quotient_pilot.json
+    sha256: 1759a7ee32c4db53362c1575b9b63baa35d0010c8bb20c95fbc22051ad6d7bb9
+    size_bytes: 102025
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_radius_blocker_rich_quotient_pilot.py
     command: python scripts/check_n9_radius_blocker_rich_quotient_pilot.py --write --assert-expected
@@ -3223,6 +3487,8 @@ artifacts:
 
   - id: n9_radius_blocker_rich_quotient_sweep
     path: data/certificates/n9_radius_blocker_rich_quotient_sweep.json
+    sha256: d6ba539f619ed9ab1dd7759f391b3ef30ac0b1cd2e3fc5e2722318eed3699a50
+    size_bytes: 108384
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_radius_blocker_rich_quotient_sweep.py
     command: python scripts/check_n9_radius_blocker_rich_quotient_sweep.py --write --assert-expected
@@ -3262,6 +3528,8 @@ artifacts:
 
   - id: n9_radius_blocker_rich_extension_neighborhood
     path: data/certificates/n9_radius_blocker_rich_extension_neighborhood.json
+    sha256: 98d34904051916dbf0ac748d74d5742b49d7b1229922c0b7fcdace76de8ed6e3
+    size_bytes: 148063
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_radius_blocker_rich_extension_neighborhood.py
     command: python scripts/check_n9_radius_blocker_rich_extension_neighborhood.py --write --assert-expected
@@ -3305,6 +3573,8 @@ artifacts:
 
   - id: n9_radius_blocker_rich_extension_product_pilot
     path: data/certificates/n9_radius_blocker_rich_extension_product_pilot.json
+    sha256: a208b638e68ab2bef4c5473c944ac70ffc4cf334456c820662445914ef25f530
+    size_bytes: 27636
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_radius_blocker_rich_extension_product_pilot.py
     command: python scripts/check_n9_radius_blocker_rich_extension_product_pilot.py --write --assert-expected
@@ -3351,6 +3621,8 @@ artifacts:
 
   - id: n9_radius_blocker_rich_extension_product_sweep
     path: data/certificates/n9_radius_blocker_rich_extension_product_sweep.json
+    sha256: 78a99d7f84ad664ebf0a096ae2cb553f88ad803e717d586a54a2e10a25a7b820
+    size_bytes: 173370
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_radius_blocker_rich_extension_product_sweep.py
     command: python scripts/check_n9_radius_blocker_rich_extension_product_sweep.py --write --assert-expected
@@ -3395,6 +3667,8 @@ artifacts:
 
   - id: n9_all_five_rich_support_obstruction
     path: data/certificates/n9_all_five_rich_support_obstruction.json
+    sha256: c03f35a3b996575f26a3dbdf32725b5305d09d4c3f60c44470d26d4a5ec2c566
+    size_bytes: 15196
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_all_five_rich_support_obstruction.py
     command: python scripts/check_n9_all_five_rich_support_obstruction.py --write --assert-expected
@@ -3446,6 +3720,8 @@ artifacts:
 
   - id: n9_mixed_rich_support_reduction
     path: data/certificates/n9_mixed_rich_support_reduction.json
+    sha256: a7291e85099473c5a4668bb49f45e567cf6f3dd2fef7cae231256520605f4acf
+    size_bytes: 17660
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_mixed_rich_support_reduction.py
     command: python scripts/check_n9_mixed_rich_support_reduction.py --write --assert-expected
@@ -3503,6 +3779,8 @@ artifacts:
 
   - id: n9_mixed_rich_frontier_crosswalk
     path: data/certificates/n9_mixed_rich_frontier_crosswalk.json
+    sha256: f5000650d131b7f346d2b388f93d75e2b62547e0737501246faa00974ef91f29
+    size_bytes: 3942
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_mixed_rich_frontier_crosswalk.py
     command: python scripts/check_n9_mixed_rich_frontier_crosswalk.py --write --assert-expected
@@ -3554,6 +3832,8 @@ artifacts:
 
   - id: block6_fragile_vertex_circle_extension_audit
     path: data/certificates/block6_fragile_vertex_circle_extension_audit.json
+    sha256: a8b12a27a13e1f02ae50774cbd589ecf55727abd2b6fbf133cca00effa7ccfcb
+    size_bytes: 1187
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_block6_fragile_vertex_circle_extension.py
     command: python scripts/check_block6_fragile_vertex_circle_extension.py --assert-expected --write
@@ -3594,6 +3874,8 @@ artifacts:
 
   - id: block6_terminal_crossing_vertex_circle_sample
     path: data/certificates/block6_terminal_crossing_vertex_circle_sample.json
+    sha256: 0b231b105d341bd9a17f818a7a2b94fd3209fc6dc07edf5bd25918f3c4f71ff5
+    size_bytes: 9513
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_block6_terminal_crossing_vertex_circle_sample.py
     command: python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --write --assert-expected
@@ -3632,6 +3914,8 @@ artifacts:
 
   - id: block6_terminal_crossing_vertex_circle_full_sweep
     path: data/certificates/block6_terminal_crossing_vertex_circle_full_sweep.json
+    sha256: 2ea6de153c99d2b6e2fc32995b0363471a7436152dcd4a81668095ce4010f668
+    size_bytes: 13446
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_block6_terminal_crossing_vertex_circle_sample.py
     command: python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --full-sweep --write --assert-expected
@@ -3673,6 +3957,8 @@ artifacts:
 
   - id: block6_fixed_order_vertex_circle_probe
     path: data/certificates/block6_fixed_order_vertex_circle_probe.json
+    sha256: ebdc95309a7bb3f5796d5d2a2763c9272ef8e9cc036ad3f3a95155193701b85e
+    size_bytes: 11730
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_block6_fixed_order_vertex_circle_probe.py
     command: python scripts/check_block6_fixed_order_vertex_circle_probe.py --write --assert-expected
@@ -3712,6 +3998,8 @@ artifacts:
 
   - id: block6_shuffle_order_vertex_circle_sweep
     path: data/certificates/block6_shuffle_order_vertex_circle_sweep.json
+    sha256: e47739ba6d81d434c967fa30f591019290fadf2e1b9bf8dd38263c0816c79565
+    size_bytes: 33526
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_block6_shuffle_order_vertex_circle_sweep.py
     command: python scripts/check_block6_shuffle_order_vertex_circle_sweep.py --write --assert-expected
@@ -3755,6 +4043,8 @@ artifacts:
 
   - id: block6_reversed_block_shuffle_vertex_circle_escape
     path: data/certificates/block6_reversed_block_shuffle_vertex_circle_escape.json
+    sha256: 8810fbade247bd986e9bda80f6af0a494ab7cc4c5c32ccf62f30ec8cf30c6714
+    size_bytes: 104645
     kind: negative_control_diagnostic_artifact
     generator: scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py
     command: python scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py --write --assert-expected
@@ -3799,6 +4089,8 @@ artifacts:
 
   - id: block6_reversed_block_clean_kalmanson
     path: data/certificates/block6_reversed_block_clean_kalmanson.json
+    sha256: f248e53f6a481fb33cd0baa87b9eb5260fd80ca79275aad3ab835166deb930c6
+    size_bytes: 148237
     kind: fixed_order_exact_certificate_artifact
     generator: scripts/check_block6_reversed_block_clean_kalmanson.py
     command: python scripts/check_block6_reversed_block_clean_kalmanson.py --write --assert-expected
@@ -3842,6 +4134,8 @@ artifacts:
 
   - id: block6_reversed_block_two_stage_closure
     path: data/certificates/block6_reversed_block_two_stage_closure.json
+    sha256: 0984d0cccf88e14bdb15f983a6847b6d26ca2ca16d1ecc7e8b1676c456ff8fc3
+    size_bytes: 7750
     kind: cross_artifact_closure_diagnostic
     generator: scripts/check_block6_reversed_block_two_stage_closure.py
     command: python scripts/check_block6_reversed_block_two_stage_closure.py --write --assert-expected
@@ -3882,6 +4176,8 @@ artifacts:
 
   - id: block6_forward_block_two_orientation_closure
     path: data/certificates/block6_forward_block_two_orientation_closure.json
+    sha256: 8eebdb7c1ea48ab563261861cf617bcd770d0f85256215d83fe37e9c946d0d67
+    size_bytes: 3726
     kind: cross_artifact_closure_diagnostic
     generator: scripts/check_block6_forward_block_two_orientation_closure.py
     command: python scripts/check_block6_forward_block_two_orientation_closure.py --write --assert-expected
@@ -3927,6 +4223,8 @@ artifacts:
 
   - id: block6_oriented_block_reversal_closure
     path: data/certificates/block6_oriented_block_reversal_closure.json
+    sha256: 909dfa604a1deff2d330bb4a88cf38408d94c1e3755b7a8d59df63648d98b2b6
+    size_bytes: 10854
     kind: cross_artifact_closure_diagnostic
     generator: scripts/check_block6_oriented_block_reversal_closure.py
     command: python scripts/check_block6_oriented_block_reversal_closure.py --write --assert-expected
@@ -3972,6 +4270,8 @@ artifacts:
 
   - id: speculative_circulant_frontier_obstructions
     path: data/certificates/speculative_circulant_frontier_obstructions.json
+    sha256: adbab1c3a8dbfb63aa777ea4e65934890833433faad594a6da0d3f1fcb73366c
+    size_bytes: 12589
     kind: certificate_artifact
     generator: scripts/check_speculative_circulant_frontier_obstructions.py
     command: python scripts/check_speculative_circulant_frontier_obstructions.py --write
@@ -4005,6 +4305,8 @@ artifacts:
 
   - id: n10_mixed_rich_support_capacity
     path: data/certificates/n10_mixed_rich_support_capacity.json
+    sha256: cab48c87b2506233731ccc1b7f3c88f639dae88cccb1eb0968e80cd35bc79f9c
+    size_bytes: 6609
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n10_mixed_rich_support_capacity.py
     command: python scripts/check_n10_mixed_rich_support_capacity.py --write --assert-expected
@@ -4059,6 +4361,8 @@ artifacts:
 
   - id: n10_q2_rich_vertex_circle
     path: data/certificates/n10_q2_rich_vertex_circle.json
+    sha256: 45b9ac536c89530717b953c733672c726884dcb96b4477684c5c821fd46a6dac
+    size_bytes: 11026
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n10_q2_rich_vertex_circle.py
     command: python scripts/check_n10_q2_rich_vertex_circle.py --write --assert-expected
@@ -4101,6 +4405,8 @@ artifacts:
 
   - id: n10_vertex_circle_singleton_slices
     path: data/certificates/n10_vertex_circle_singleton_slices.json
+    sha256: 66b1212e6a61a04530d7e2b33afbeafb3039b125a026c94c814c47bbc7cba856
+    size_bytes: 60260
     kind: finite_case_draft_artifact
     generator: scripts/check_n10_vertex_circle_singletons.py
     command: python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
@@ -4129,6 +4435,8 @@ artifacts:
 
   - id: n10_turn_row0_pilot
     path: data/certificates/n10_turn_row0_pilot.json
+    sha256: e9f167611b34be7b93c962108a5b7047ff2c729036aaf5f73ebb42f2dc703995
+    size_bytes: 226338
     kind: exploratory_ledger_artifact
     generator: scripts/check_n10_turn_row0_pilot.py
     command: python scripts/check_n10_turn_row0_pilot.py --assert-expected --write
@@ -4166,6 +4474,8 @@ artifacts:
 
   - id: n10_turn_row0_escape_self_edges
     path: data/certificates/n10_turn_row0_escape_self_edges.json
+    sha256: b849e46dfda4df93560e1e796602a412a56b52ea5aeb99905e0b9421c5458b72
+    size_bytes: 4367
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n10_turn_row0_escape_self_edges.py
     command: python scripts/check_n10_turn_row0_escape_self_edges.py --write --assert-expected
@@ -4210,6 +4520,8 @@ artifacts:
 
   - id: n10_turn_row0_combined_closure
     path: data/certificates/n10_turn_row0_combined_closure.json
+    sha256: c8006e32e4e7e5baaa423ed7bfe3c5afcd4a37a1c135d5a73d61abdc1ce20bc9
+    size_bytes: 3029
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n10_turn_row0_combined_closure.py
     command: python scripts/check_n10_turn_row0_combined_closure.py --write --assert-expected
@@ -4257,6 +4569,8 @@ artifacts:
 
   - id: bootstrap_core_crosswalk
     path: data/certificates/bootstrap_core_crosswalk.json
+    sha256: 54b1c73e26974fc4ebc497284ec457f49074a3f816e8eb55a70de3ed89e32ab2
+    size_bytes: 80995
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_core_crosswalk.py
     command: python scripts/check_bootstrap_core_crosswalk.py --write --assert-expected
@@ -4295,6 +4609,8 @@ artifacts:
 
   - id: bootstrap_vertex_circle_overlay
     path: data/certificates/bootstrap_vertex_circle_overlay.json
+    sha256: 5d3033bc392b42895715a53071ff4fc2d32d45c0cde8dd96d41759025c10d557
+    size_bytes: 34114
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_vertex_circle_overlay.py
     command: python scripts/check_bootstrap_vertex_circle_overlay.py --write --assert-expected
@@ -4337,6 +4653,8 @@ artifacts:
 
   - id: bootstrap_t12_forcing_targets
     path: data/certificates/bootstrap_t12_forcing_targets.json
+    sha256: 74bc34126a5fd20788464e2bcd949808970ddb6c82c606a156445c7917387d85
+    size_bytes: 13744
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_forcing_targets.py
     command: python scripts/check_bootstrap_t12_forcing_targets.py --write --assert-expected
@@ -4388,6 +4706,8 @@ artifacts:
 
   - id: bootstrap_t12_activation_requirements
     path: data/certificates/bootstrap_t12_activation_requirements.json
+    sha256: 1db5055d7b043a7236f9b74e6783a17fc114ca3b9850b09f9ec1aa0d5973483f
+    size_bytes: 37283
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_activation_requirements.py
     command: python scripts/check_bootstrap_t12_activation_requirements.py --write --assert-expected
@@ -4440,6 +4760,8 @@ artifacts:
 
   - id: bootstrap_t12_bridge_target_map
     path: data/certificates/bootstrap_t12_bridge_target_map.json
+    sha256: 6debdd65b8ee912294d41fd507506af821e3b1ca101a9830f8e6b74dac800071
+    size_bytes: 15808
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_bridge_target_map.py
     command: python scripts/check_bootstrap_t12_bridge_target_map.py --write --assert-expected
@@ -4498,6 +4820,8 @@ artifacts:
 
   - id: bootstrap_t12_hard_strict_endpoints
     path: data/certificates/bootstrap_t12_hard_strict_endpoints.json
+    sha256: 16535d5bc70b5633fed9c49e525453b8f7cd34227a501e66d11b26d687c81681
+    size_bytes: 11034
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_hard_strict_endpoints.py
     command: python scripts/check_bootstrap_t12_hard_strict_endpoints.py --write --assert-expected
@@ -4553,6 +4877,8 @@ artifacts:
 
   - id: bootstrap_t12_open_connector_pair
     path: data/certificates/bootstrap_t12_open_connector_pair.json
+    sha256: 8e38b1325f7dd9495c9e4f6796aa52c77955c65506ae4750e75c29df0adc92f2
+    size_bytes: 8331
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_open_connector_pair.py
     command: python scripts/check_bootstrap_t12_open_connector_pair.py --write --assert-expected
@@ -4606,6 +4932,8 @@ artifacts:
 
   - id: bootstrap_t12_relation_sufficient_rows
     path: data/certificates/bootstrap_t12_relation_sufficient_rows.json
+    sha256: 64608a08eb778aae8c859ffdaf1b850c9622db0784848bceae1f4b1213de8f68
+    size_bytes: 9229
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_relation_sufficient_rows.py
     command: python scripts/check_bootstrap_t12_relation_sufficient_rows.py --write --assert-expected
@@ -4666,6 +4994,8 @@ artifacts:
 
   - id: bootstrap_t12_81_3_closure_target
     path: data/certificates/bootstrap_t12_81_3_closure_target.json
+    sha256: fcf1490c73e6edce3048797f4bd5bc2b244423b83a16736bc416570fb2ab45a5
+    size_bytes: 7395
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_81_3_closure_target.py
     command: python scripts/check_bootstrap_t12_81_3_closure_target.py --write --assert-expected
@@ -4735,6 +5065,8 @@ artifacts:
 
   - id: bootstrap_t12_81_3_rich_triple_contract
     path: data/certificates/bootstrap_t12_81_3_rich_triple_contract.json
+    sha256: ab9bd70794d6affefe59369122848a0aa94079959168ec0f4aef7688b055df68
+    size_bytes: 7952
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_81_3_rich_triple_contract.py
     command: python scripts/check_bootstrap_t12_81_3_rich_triple_contract.py --write --assert-expected
@@ -4818,6 +5150,8 @@ artifacts:
 
   - id: bootstrap_t12_81_3_order_escape
     path: data/certificates/bootstrap_t12_81_3_order_escape.json
+    sha256: fd2d09d8c0f61c4e7e00056940abd923db3487cda4e54e5d54aa01d77a66faaa
+    size_bytes: 14402
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_81_3_order_escape.py
     command: python scripts/check_bootstrap_t12_81_3_order_escape.py --write --assert-expected
@@ -4954,6 +5288,8 @@ artifacts:
 
   - id: bootstrap_t12_81_3_escape_candidates
     path: data/certificates/bootstrap_t12_81_3_escape_candidates.json
+    sha256: 23db243a24dc288bffcfa59f9ceb53a5a38e5e2b4c9eec7a626305e59356e9ba
+    size_bytes: 91463
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_81_3_escape_candidates.py
     command: python scripts/check_bootstrap_t12_81_3_escape_candidates.py --write --assert-expected
@@ -5032,6 +5368,8 @@ artifacts:
 
   - id: bootstrap_t12_81_3_escape_one_row_drop
     path: data/certificates/bootstrap_t12_81_3_escape_one_row_drop.json
+    sha256: 75fc89e1bc60c0bf95e793e3a6e174879ed2c1857facf938a2c42517b8874da9
+    size_bytes: 8863
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_81_3_escape_one_row_drop.py
     command: python scripts/check_bootstrap_t12_81_3_escape_one_row_drop.py --write --assert-expected
@@ -5113,6 +5451,8 @@ artifacts:
 
   - id: bootstrap_t12_81_3_escape_two_row_drop
     path: data/certificates/bootstrap_t12_81_3_escape_two_row_drop.json
+    sha256: 2e14db8d9947e96fca403511b284c0f440c806a161e63f988ad05253202be271
+    size_bytes: 17666
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_81_3_escape_two_row_drop.py
     command: python scripts/check_bootstrap_t12_81_3_escape_two_row_drop.py --write --assert-expected
@@ -5195,6 +5535,8 @@ artifacts:
 
   - id: bootstrap_t12_81_3_escape_full_neighborhood
     path: data/certificates/bootstrap_t12_81_3_escape_full_neighborhood.json
+    sha256: 92e2f85efa84054e8ccc4b9ce0877d25b8495f6aa426db7f0dbab2c34aa27f2e
+    size_bytes: 25859
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_81_3_escape_full_neighborhood.py
     command: python scripts/check_bootstrap_t12_81_3_escape_full_neighborhood.py --write --assert-expected
@@ -5277,6 +5619,8 @@ artifacts:
 
   - id: bootstrap_t12_81_3_escape_auxiliary_csp
     path: data/certificates/bootstrap_t12_81_3_escape_auxiliary_csp.json
+    sha256: 74d4589890fdb76133d9b797e4bed8b4d0676e2016199e31598178f380eab627
+    size_bytes: 32196
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_81_3_escape_auxiliary_csp.py
     command: python scripts/check_bootstrap_t12_81_3_escape_auxiliary_csp.py --write --assert-expected
@@ -5362,6 +5706,8 @@ artifacts:
 
   - id: bootstrap_t12_81_3_trigger_uniqueness
     path: data/certificates/bootstrap_t12_81_3_trigger_uniqueness.json
+    sha256: 3f8f8834bef8df9e3b4270653a44993586415829fc2c7ce03836eb58fb1daac0
+    size_bytes: 27428
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py
     command: python scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py --write --assert-expected
@@ -5435,6 +5781,8 @@ artifacts:
 
   - id: bootstrap_t12_81_3_escape_rich_support_csp
     path: data/certificates/bootstrap_t12_81_3_escape_rich_support_csp.json
+    sha256: da3d79f2f82ed31b186b41edede494b90d6a9bb6c05250c9b7b9dbec5bb9b10e
+    size_bytes: 744878
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py
     command: python scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py --write --assert-expected
@@ -5530,6 +5878,8 @@ artifacts:
 
   - id: bootstrap_t12_81_3_first_supply_chains
     path: data/certificates/bootstrap_t12_81_3_first_supply_chains.json
+    sha256: c075cd19987325e2c926d2803094a0842491b0f349ca939c757426ca8b90c56f
+    size_bytes: 71752
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_81_3_first_supply_chains.py
     command: python scripts/check_bootstrap_t12_81_3_first_supply_chains.py --write --assert-expected
@@ -5625,6 +5975,8 @@ artifacts:
 
   - id: bootstrap_t12_81_8_singleton_support_audit
     path: data/certificates/bootstrap_t12_81_8_singleton_support_audit.json
+    sha256: daa724c9c566b321310cce08ade6747122a6a0fab1208504995d0ebdcfe96eec
+    size_bytes: 25803
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_81_8_singleton_support_audit.py
     command: python scripts/check_bootstrap_t12_81_8_singleton_support_audit.py --write --assert-expected
@@ -5716,6 +6068,8 @@ artifacts:
 
   - id: bootstrap_t12_81_8_singleton_support_two_row_drop
     path: data/certificates/bootstrap_t12_81_8_singleton_support_two_row_drop.json
+    sha256: 03cd10f789fd93b8f91ea8903ec681243d150fea64f14fb623f7d777b628771d
+    size_bytes: 38378
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_81_8_singleton_support_two_row_drop.py
     command: python scripts/check_bootstrap_t12_81_8_singleton_support_two_row_drop.py --write --assert-expected
@@ -5795,6 +6149,8 @@ artifacts:
 
   - id: bootstrap_t12_81_8_full_neighborhood_vertex_circle
     path: data/certificates/bootstrap_t12_81_8_full_neighborhood_vertex_circle.json
+    sha256: 675e68be334a37833e09ecf9fca3e4130f9c343b9cadba8090bbe2885364aaf8
+    size_bytes: 81002
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_81_8_full_neighborhood_vertex_circle.py
     command: python scripts/check_bootstrap_t12_81_8_full_neighborhood_vertex_circle.py --write --assert-expected
@@ -5877,6 +6233,8 @@ artifacts:
 
   - id: bootstrap_t12_151_6_outside_pair_audit
     path: data/certificates/bootstrap_t12_151_6_outside_pair_audit.json
+    sha256: 9a696070b9b69e572b6f552a118e4401829f9c1be115d7881423928fa5590979
+    size_bytes: 32846
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_151_6_outside_pair_audit.py
     command: python scripts/check_bootstrap_t12_151_6_outside_pair_audit.py --write --assert-expected
@@ -5971,6 +6329,8 @@ artifacts:
 
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
+    sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e
+    size_bytes: 50608
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_151_singleton_support_audit.py
     command: python scripts/check_bootstrap_t12_151_singleton_support_audit.py --write --assert-expected
@@ -6036,6 +6396,8 @@ artifacts:
 
   - id: bootstrap_t12_151_singleton_two_row_drop
     path: data/certificates/bootstrap_t12_151_singleton_two_row_drop.json
+    sha256: b535a45a47eb5d7613175082a928d423786a48f0b0175b58aa76e2216e4b0357
+    size_bytes: 78251
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_151_singleton_two_row_drop.py
     command: python scripts/check_bootstrap_t12_151_singleton_two_row_drop.py --write --assert-expected
@@ -6098,6 +6460,8 @@ artifacts:
 
   - id: bootstrap_t12_151_singleton_full_neighborhood_vertex_circle
     path: data/certificates/bootstrap_t12_151_singleton_full_neighborhood_vertex_circle.json
+    sha256: 3a5d50b18c29134529e98abb6745d3da5b7a1a7fd9286c551383b9bd38836d07
+    size_bytes: 151281
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_151_singleton_full_neighborhood_vertex_circle.py
     command: python scripts/check_bootstrap_t12_151_singleton_full_neighborhood_vertex_circle.py --write --assert-expected
@@ -6167,6 +6531,8 @@ artifacts:
 
   - id: bootstrap_t12_row_pressure
     path: data/certificates/bootstrap_t12_row_pressure.json
+    sha256: d5db4da8e4918aa77844a828681a3d4ba119f4e941e1264d987a5fd76a7b058e
+    size_bytes: 27201
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_row_pressure.py
     command: python scripts/check_bootstrap_t12_row_pressure.py --write --assert-expected
@@ -6219,6 +6585,8 @@ artifacts:
 
   - id: bootstrap_t12_closure_exposed
     path: data/certificates/bootstrap_t12_closure_exposed.json
+    sha256: 7654419ce4f01f904e93a4f3c6a1cc2268ab911e6556ca29d9b2834b8e9f16e4
+    size_bytes: 4946
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_closure_exposed.py
     command: python scripts/check_bootstrap_t12_closure_exposed.py --write --assert-expected
@@ -6267,6 +6635,8 @@ artifacts:
 
   - id: bootstrap_t12_one_outside
     path: data/certificates/bootstrap_t12_one_outside.json
+    sha256: 88f1eef050d83a6ca88a7f94936589617a77f7b5c9049c884174dbd01f54f538
+    size_bytes: 9671
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_one_outside.py
     command: python scripts/check_bootstrap_t12_one_outside.py --write --assert-expected
@@ -6325,6 +6695,8 @@ artifacts:
 
   - id: bootstrap_t12_outside_pair
     path: data/certificates/bootstrap_t12_outside_pair.json
+    sha256: de0362f574f59f9ab76ada5b8494dee5d236528a1c4a05fe488bf2b06f2b77a9
+    size_bytes: 6135
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bootstrap_t12_outside_pair.py
     command: python scripts/check_bootstrap_t12_outside_pair.py --write --assert-expected
@@ -6387,6 +6759,8 @@ artifacts:
 
   - id: closure_activation_wrong_fourth_negative_control
     path: data/certificates/closure_activation_wrong_fourth_negative_control.json
+    sha256: b94dbd5a015e440ecbddd8394773914ff5314a797ac204083d42a9d1f0fb029b
+    size_bytes: 1973
     kind: negative_control_artifact
     generator: scripts/check_closure_activation_wrong_fourth_negative_control.py
     command: python scripts/check_closure_activation_wrong_fourth_negative_control.py --write --assert-expected
@@ -6416,6 +6790,8 @@ artifacts:
 
   - id: closure_activation_negative_controls
     path: data/certificates/closure_activation_negative_controls.json
+    sha256: a439b5b8025098e1c8c96b56b3526efdf8d128ecc330b90c25f7614365a85569
+    size_bytes: 7053
     kind: negative_control_artifact
     generator: scripts/check_closure_activation_negative_controls.py
     command: python scripts/check_closure_activation_negative_controls.py --write --assert-expected
@@ -6445,6 +6821,8 @@ artifacts:
 
   - id: bootstrap_t12_anti_activation_negative_control
     path: data/certificates/bootstrap_t12_anti_activation_negative_control.json
+    sha256: 1ec5868da3424a6f781a39923e08afb8e3cc88c6e7d7c728befcf18781c87c8b
+    size_bytes: 2480
     kind: negative_control_artifact
     generator: scripts/check_bootstrap_t12_anti_activation_negative_control.py
     command: python scripts/check_bootstrap_t12_anti_activation_negative_control.py --write --assert-expected
@@ -6474,6 +6852,8 @@ artifacts:
 
   - id: closure_visibility_anti_activation_control
     path: data/certificates/closure_visibility_anti_activation_control.json
+    sha256: 54280a2ff4e4b27c84a08eeb24d67b2c4b9f073abd9c8070d16f527eaf649f1d
+    size_bytes: 3357
     kind: negative_control_artifact
     generator: scripts/check_closure_visibility_anti_activation_control.py
     command: python scripts/check_closure_visibility_anti_activation_control.py --write --assert-expected
@@ -6503,6 +6883,8 @@ artifacts:
 
   - id: n10_secondary_singleton_replay
     path: data/certificates/2026-05-05/n10_secondary.json
+    sha256: 5183c6a9eceac21724d42b2498275b281671bf715ef9d311c0c75e6d826364a6
+    size_bytes: 2685
     kind: finite_case_draft_artifact
     generator: data/runs/2026-05-05/n10_secondary.py
     command: python data/runs/2026-05-05/n10_secondary.py

@@ -41,6 +41,47 @@ ALL_ORDER_OBSTRUCTION_RE = re.compile(
     r"|\ball-cyclic-order\b",
     re.I,
 )
+ERDOS97_TARGET_RE = (
+    r"(?:erd\S*s(?:\s+problem)?\s*#?\s*97|problem\s*#?\s*97|"
+    r"the\s+(?:general\s+)?(?:problem|conjecture))"
+)
+BANNED_OVERCLAIM_RE_LIST = (
+    re.compile(
+        rf"\b(?:prove[sd]?|proven|settled|solved|disproved)\b"
+        rf"[^.\n]{{0,120}}\b{ERDOS97_TARGET_RE}\b",
+        re.I,
+    ),
+    re.compile(
+        rf"\b{ERDOS97_TARGET_RE}\b"
+        rf"[^.\n]{{0,120}}\b(?:prove[sd]?|proven|settled|solved|disproved)\b",
+        re.I,
+    ),
+    re.compile(
+        r"\b(?:found|constructed|verified|certified|confirmed|have|has|is|are)\b"
+        r"[^.\n]{0,100}\b(?:counterexample|solution)\b",
+        re.I,
+    ),
+    re.compile(
+        r"\b(?:counterexample|solution)\b[^.\n]{0,100}"
+        r"\b(?:found|constructed|verified|certified|confirmed)\b",
+        re.I,
+    ),
+    re.compile(
+        rf"\b(?:found|constructed|verified|certified|confirmed|have|has)\b"
+        rf"[^.\n]{{0,100}}\bproof\b[^.\n]{{0,80}}\b(?:of|for)\b"
+        rf"[^.\n]{{0,80}}\b{ERDOS97_TARGET_RE}\b",
+        re.I,
+    ),
+)
+OVERCLAIM_LINE_ALLOW_RE = re.compile(r"\bforbidden\s+overclaiming\s+text\b", re.I)
+OVERCLAIM_ALLOW_RE = re.compile(
+    r"\b(?:no|not|never|without|forbid(?:den)?|does\s+not|do\s+not|cannot|"
+    r"should\s+not|must\s+not|required\s+before|rejected\s+as|not\s+a|not\s+an)\b",
+    re.I,
+)
+CLAIM_CONTEXT_BOUNDARY_RE = re.compile(
+    r"(?i)(?:[.;|]|\b(?:but|however|although|though)\b)"
+)
 STALE_PATTERN_CATALOG_RE = re.compile(
     r"\b(?:remains\s+live|live/unresolved|survives\s+current\s+fixed-order\s+exact\s+filters)\b",
     re.I,
@@ -139,6 +180,65 @@ def require_pattern(label: str, text: str, pattern: re.Pattern[str], detail: str
         fail(f"{label} should state {detail}")
 
 
+def find_forbidden_overclaim_lines(text: str) -> list[tuple[int, str]]:
+    """Return positive proof/counterexample claims not framed as nonclaims."""
+
+    hits: list[tuple[int, str]] = []
+    previous = ""
+    for index, line in enumerate(text.splitlines(), start=1):
+        normalized = " ".join(line.split())
+        if not normalized:
+            previous = ""
+            continue
+        scan_text = normalized
+        previous_prefix_len = 0
+        if previous and line_continues_wrapped_sentence(normalized):
+            scan_text = f"{previous} {normalized}"
+            previous_prefix_len = len(previous) + 1
+        previous = normalized
+        if OVERCLAIM_LINE_ALLOW_RE.search(scan_text):
+            continue
+        for pattern in BANNED_OVERCLAIM_RE_LIST:
+            match = pattern.search(scan_text)
+            if match is None:
+                continue
+            if match.end() <= previous_prefix_len:
+                continue
+            context = local_claim_context(scan_text, match.start(), match.end())
+            if OVERCLAIM_ALLOW_RE.search(context):
+                continue
+            hits.append((index, normalized))
+            break
+    return hits
+
+
+def line_continues_wrapped_sentence(line: str) -> bool:
+    """Heuristic for Markdown prose wrapped in the middle of a sentence."""
+
+    return bool(line) and (line[0].islower() or line[0].isdigit() or line[0] in "`([{")
+
+
+def local_claim_context(line: str, start: int, end: int) -> str:
+    """Return the sentence/clause fragment around a possible overclaim match."""
+
+    context_start = 0
+    context_end = len(line)
+    for boundary in CLAIM_CONTEXT_BOUNDARY_RE.finditer(line):
+        if boundary.end() <= start:
+            context_start = boundary.end()
+        elif boundary.start() >= end:
+            context_end = boundary.start()
+            break
+    return line[context_start:context_end]
+
+
+def require_no_forbidden_overclaims(label: str, text: str) -> None:
+    hits = find_forbidden_overclaim_lines(text)
+    if hits:
+        line, snippet = hits[0]
+        fail(f"{label}:{line} contains forbidden positive overclaim wording: {snippet!r}")
+
+
 def has_local_n8_status(text: str) -> bool:
     for paragraph in re.split(r"\n\s*\n", text):
         normalized = " ".join(paragraph.split())
@@ -179,6 +279,10 @@ def validate_metadata(max_official_status_age_days: int | None = None) -> None:
         str(metadata_value(metadata, ("local_repo", "overall_claim"))),
         NO_OVERCLAIM_RE,
         "no general proof and no counterexample",
+    )
+    require_no_forbidden_overclaims(
+        "metadata local_repo.overall_claim",
+        str(metadata_value(metadata, ("local_repo", "overall_claim"))),
     )
     require_local_n8_status(
         "metadata local_repo.strongest_result",
@@ -301,6 +405,7 @@ def validate_pattern_catalog(metadata: dict[str, object]) -> None:
 def validate_top_level_status() -> None:
     for rel in REQUIRED_STATUS_FILES:
         text = read_text(rel)
+        require_no_forbidden_overclaims(rel, text)
         require_pattern(rel, text, NO_OVERCLAIM_RE, "no general proof and no counterexample")
         require_pattern(rel, text, OFFICIAL_OPEN_RE, "official/global falsifiable/open status")
         require_local_n8_status(rel, text)

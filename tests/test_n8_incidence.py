@@ -87,6 +87,11 @@ def brute_force_canonical_key(rows: tuple[int, ...]) -> tuple[int, ...]:
     return best
 
 
+def test_canonical_key_rejects_malformed_rows_without_asserts() -> None:
+    with pytest.raises(ValueError, match="exactly four witnesses"):
+        canonical_key((0,) * 8)
+
+
 @pytest.mark.artifact
 def test_fast_canonical_key_matches_full_permutation_search_for_all_survivor_classes() -> None:
     root = Path(__file__).resolve().parents[1]
