@@ -1,6 +1,6 @@
 PYTHON ?= python
 
-.PHONY: verify-lint verify-fast verify-pytest-artifacts verify-pytest-all verify-n8 verify-kalmanson verify-n9-review verify-bridge-frontier verify-n10-review verify-artifacts audit-artifacts verify-all
+.PHONY: verify-lint verify-fast verify-lean verify-pytest-artifacts verify-pytest-all verify-n8 verify-kalmanson verify-n9-review verify-bridge-frontier verify-n10-review verify-artifacts audit-artifacts verify-all
 
 verify-lint:
 	$(PYTHON) scripts/check_text_clean.py
@@ -11,6 +11,10 @@ verify-lint:
 
 verify-fast: verify-lint
 	$(PYTHON) -m pytest -q
+
+verify-lean:
+	$(PYTHON) scripts/check_lean_sketch_integrity.py
+	$(PYTHON) scripts/check_lean_files.py
 
 verify-pytest-artifacts:
 	$(PYTHON) -m pytest -q -m "artifact"
