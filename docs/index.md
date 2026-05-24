@@ -107,6 +107,9 @@ put detailed reconciliation in the canonical synthesis.
   deterministic support diagnostics for the checked C13 and C19 fixed-order
   Kalmanson/Farkas certificates, plus the C19 all-order Z3 clause-template
   diagnostic.
+- [`c19-order-cnf-proof-tooling.md`](c19-order-cnf-proof-tooling.md):
+  local tooling blocker note for turning the C19 order-CNF export into a
+  DRAT/LRAT or equivalent solver-independent proof replay.
 - [`kalmanson-two-order-search.md`](kalmanson-two-order-search.md): exact
   all-cyclic-order two-inequality Kalmanson obstruction for the fixed C13 Sidon
   and C19 skew patterns.
