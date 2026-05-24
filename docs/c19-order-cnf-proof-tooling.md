@@ -32,6 +32,17 @@ replay certificate.
 
 ## Local Tooling Probe
 
+The reusable local probe is:
+
+```bash
+python scripts/probe_c19_proof_tooling.py --json
+```
+
+It reports executable availability, Python module availability, and whether
+the local environment has at least one supported SAT solver plus one supported
+proof checker for a solver-independent C19 CNF replay. This is still an
+environment diagnostic only.
+
 The local Windows checkout currently has no command-line SAT proof toolchain
 available on `PATH` for this step:
 

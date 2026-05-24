@@ -373,6 +373,10 @@ Use this queue when no more specific issue is selected.
    gives a standard SAT target for the stored Z3 clauses, but the external
    DRAT/LRAT or equivalent UNSAT replay is still open. The same script can
    round-trip an external CNF file with `--write-cnf` and `--check-cnf`.
+   The local proof-tooling environment probe
+   `python scripts/probe_c19_proof_tooling.py --json` records whether a
+   supported SAT solver/checker pair is available, but this is environment
+   bookkeeping only and not proof evidence.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
    with an independent input-data replay. The current SymPy-free
    `n=8` replay command,
@@ -616,6 +620,7 @@ python scripts/analyze_kalmanson_certificates.py
 python scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --json
 python scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json
 python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json
+python scripts/probe_c19_proof_tooling.py --json
 ```
 
 Expected artifacts:
@@ -636,6 +641,9 @@ Expected artifacts:
   `reports/c19_kalmanson_order_cnf_summary.json`, kept separate from any
   solver-independent UNSAT proof claim until a DRAT/LRAT or equivalent proof
   artifact is checked.
+- optional local proof-tooling environment probes such as
+  `scripts/probe_c19_proof_tooling.py`, kept separate from mathematical
+  evidence and from any solver-independent proof claim.
 
 Acceptance criteria:
 

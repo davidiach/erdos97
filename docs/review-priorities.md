@@ -511,6 +511,9 @@ Review checklist:
 - `scripts/export_c19_kalmanson_order_cnf.py` now provides the DIMACS CNF
   target and checked summary hash for that replay, but no DRAT/LRAT or
   equivalent proof object is checked yet;
+- `scripts/probe_c19_proof_tooling.py --json` records whether the local
+  environment has a supported SAT proof solver/checker pair, but it is an
+  environment diagnostic only and not proof evidence;
 - an UNSAT core alone is not treated as a proof object unless a separate
   checker verifies it;
 - the claim remains scoped to the fixed abstract `C19_skew` selected-witness

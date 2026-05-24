@@ -147,6 +147,16 @@ This is a replay target for a future DRAT/LRAT or equivalent proof artifact.
 It is not a solver-independent UNSAT proof by itself, and it does not alter the
 fixed-pattern scope of the C19 obstruction.
 
+The local proof-tooling environment can be probed with:
+
+```bash
+python scripts/probe_c19_proof_tooling.py --json
+```
+
+That probe reports local solver/checker availability only. It is not a proof
+replay and does not promote the all-order Z3 certificate to a
+solver-independent proof object.
+
 ## C13/C19 Inverse-Pair Template Diagnostic
 
 The coefficient-template diagnostic
