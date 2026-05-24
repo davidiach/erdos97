@@ -10,9 +10,13 @@ def test_generated_artifact_manifest_is_valid() -> None:
     repo = Path(__file__).resolve().parents[1]
     manifest = repo / "metadata" / "generated_artifacts.yaml"
 
-    errors = validate_manifest(load_manifest(manifest))
+    errors = validate_manifest(load_manifest(manifest), check_tracked_coverage=True)
 
     assert errors == []
+
+
+def artifact_metadata(path: Path) -> dict[str, object]:
+    return {"sha256": sha256_file(path), "size_bytes": path.stat().st_size}
 
 
 def test_manifest_rejects_mismatched_expected_json(tmp_path: Path) -> None:
@@ -27,6 +31,7 @@ def test_manifest_rejects_mismatched_expected_json(tmp_path: Path) -> None:
             {
                 "id": "sample",
                 "path": str(artifact),
+                **artifact_metadata(artifact),
                 "kind": "test",
                 "generator": str(generator),
                 "command": f"python {generator}",
@@ -58,6 +63,7 @@ def test_manifest_rejects_ambiguous_review_forbidden_claim(tmp_path: Path) -> No
             {
                 "id": "sample",
                 "path": str(artifact),
+                **artifact_metadata(artifact),
                 "kind": "test",
                 "generator": str(generator),
                 "command": f"python {generator}",
@@ -88,6 +94,7 @@ def test_manifest_rejects_missing_optional_checker(tmp_path: Path) -> None:
             {
                 "id": "sample",
                 "path": str(artifact),
+                **artifact_metadata(artifact),
                 "kind": "test",
                 "generator": str(generator),
                 "command": f"python {generator}",
@@ -120,6 +127,7 @@ def test_manifest_accepts_exact_certificate_diagnostic_trust(tmp_path: Path) -> 
             {
                 "id": "sample",
                 "path": str(artifact),
+                **artifact_metadata(artifact),
                 "kind": "certificate_diagnostic_artifact",
                 "generator": str(generator),
                 "command": f"python {generator}",

@@ -171,11 +171,21 @@ def _canonical_candidate_maps() -> dict[tuple[int, int], tuple[tuple[tuple[int, 
 def canonical_key(rows: tuple[int, ...]) -> tuple[int, ...]:
     """Canonical simultaneous-relabeling key for an n=8 incidence matrix."""
 
+    if len(rows) != N:
+        raise ValueError(f"canonical_key expects {N} row masks, got {len(rows)}")
+    for center, mask in enumerate(rows):
+        if mask < 0 or mask >= (1 << N):
+            raise ValueError(f"row {center} mask is outside the n=8 bit range")
+        if mask.bit_count() != 4:
+            raise ValueError(f"row {center} should contain exactly four witnesses")
+        if (mask >> center) & 1:
+            raise ValueError(f"row {center} contains its own center")
+
     best: tuple[int, ...] | None = None
     candidates = _canonical_candidate_maps()
     r0, r1, r2, r3, r4, r5, r6, r7 = rows
     for center in range(N):
-        for old_to_new, transformed_mask in candidates[(center, rows[center])]:
+        for old_to_new, transformed_mask in candidates.get((center, rows[center]), ()):
             relabelled = [0] * N
             relabelled[old_to_new[0]] = transformed_mask[r0]
             relabelled[old_to_new[1]] = transformed_mask[r1]
@@ -188,7 +198,8 @@ def canonical_key(rows: tuple[int, ...]) -> tuple[int, ...]:
             key = tuple(relabelled)
             if best is None or key < best:
                 best = key
-    assert best is not None
+    if best is None:
+        raise ValueError("canonical_key could not find any valid relabeling candidates")
     return best
 
 
