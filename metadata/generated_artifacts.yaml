@@ -8,9 +8,223 @@ path_convention: >
   certificates/ directory is legacy/path-stable space for early n=8 artifacts
   and manual templates retained at their historical paths.
 
+unmanaged_tracked_artifacts:
+  - path: data/certificates/2026-05-05/bridge_lemma_check.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/2026-05-05/n11_partial.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/2026-05-05/n8_groebner_results.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/2026-05-05/n9_groebner_results.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/2026-05-05/stuck_set_census.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/2026-05-06/affine_stretch_search.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/2026-05-06/q_l9_filter_results.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/2026-05-06/two_orbit_large_m.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/altman_linear_certificate_sweep.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c13_kalmanson_bounded_order_pilot.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c13_kalmanson_partial_branch_closures.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c13_kalmanson_prefix_branch_pilot.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c13_kalmanson_third_pair_refinement.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_branch_pilot.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_128_159.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_160_191.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_288_319_prefilter.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_320_351_prefilter.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_352_383_prefilter.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_384_415_prefilter.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_416_447_prefilter.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_448_479_prefilter.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_prefilter_sweep_288_447.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_prefilter_sweep_288_479.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_sweep_128_223.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_sweep_128_255.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_prefix_window_sweep_128_287.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_sampled_fifth_pair_refinement.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_kalmanson_sampled_fourth_pair_refinement.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_row_circle_multiplier_reduction.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c19_row_circle_ptolemy_active_set.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/c25_c29_sparse_frontier_probe.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/metric_order_lp_survivors.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/n9_incidence_frontier_bounded.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/n9_late_archive_provenance.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/n9_phi4_rectangle_trap.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/n9_vertex_circle_frontier_comparison.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/n9_vertex_circle_local_cores.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/n9_vertex_circle_motif_families.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/n9_vertex_circle_obstruction_shapes.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/p18_vertex_circle_order_unsat.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/p24_cyclic_crossing_unsat.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/phi4_frontier_scan.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/ptolemy_order_nlp_survivors.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/round2/c17_skew_kalmanson_from_ptolemy_method_note.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/round2/c17_skew_ptolemy_log_certificate.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/round2/c19_kalmanson_known_order_unsat.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/row_circle_ptolemy_nlp_sparse_orders.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+  - path: data/certificates/sparse_order_survivors.json
+    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+
 artifacts:
+  - id: closure_activation_wrong_fourth_negative_control
+    path: data/certificates/closure_activation_wrong_fourth_negative_control.json
+    sha256: b94dbd5a015e440ecbddd8394773914ff5314a797ac204083d42a9d1f0fb029b
+    size_bytes: 1973
+    kind: negative_control_artifact
+    generator: scripts/check_closure_activation_wrong_fourth_negative_control.py
+    command: python scripts/check_closure_activation_wrong_fourth_negative_control.py --write
+    checker: scripts/check_closure_activation_wrong_fourth_negative_control.py
+    check_command: python scripts/check_closure_activation_wrong_fourth_negative_control.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: REVIEW_PENDING_PROVENANCE
+    claim_scope: Abstract closure-activation wrong-fourth negative control; not a polygon, not a counterexample, not a Euclidean realizability certificate, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      claim_status: abstract_incidence_closure_stress_test_only
+      run_id: RS-2026-05-10-A
+      n: 10
+      activation_target.target_fourth_not_forced: 6
+      activation_target.wrong_fourth: 9
+    forbidden_claims:
+      - proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - Euclidean realizability certificate
+      - target fourth witness is forced
+
+  - id: closure_activation_negative_controls
+    path: data/certificates/closure_activation_negative_controls.json
+    sha256: a439b5b8025098e1c8c96b56b3526efdf8d128ecc330b90c25f7614365a85569
+    size_bytes: 7053
+    kind: negative_control_artifact
+    generator: scripts/check_closure_activation_negative_controls.py
+    command: python scripts/check_closure_activation_negative_controls.py --write
+    checker: scripts/check_closure_activation_negative_controls.py
+    check_command: python scripts/check_closure_activation_negative_controls.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: REVIEW_PENDING_PROVENANCE
+    claim_scope: Aggregate abstract closure-activation rich-class negative controls; not a polygon, not a counterexample, not a Euclidean realizability certificate, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.closure_activation_negative_controls.v1
+      status: NEGATIVE_CONTROL_ABSTRACT_RICH_CLASS_ONLY
+      trust_label: NEGATIVE_CONTROL
+      run_id: RS-2026-05-10-CE-A
+    forbidden_claims:
+      - proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - Euclidean realizability certificate
+      - closure visibility forces a target row
+
+  - id: bootstrap_t12_anti_activation_negative_control
+    path: data/certificates/bootstrap_t12_anti_activation_negative_control.json
+    sha256: 1ec5868da3424a6f781a39923e08afb8e3cc88c6e7d7c728befcf18781c87c8b
+    size_bytes: 2480
+    kind: negative_control_artifact
+    generator: scripts/check_bootstrap_t12_anti_activation_negative_control.py
+    command: python scripts/check_bootstrap_t12_anti_activation_negative_control.py --write
+    checker: scripts/check_bootstrap_t12_anti_activation_negative_control.py
+    check_command: python scripts/check_bootstrap_t12_anti_activation_negative_control.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: REVIEW_PENDING_PROVENANCE
+    claim_scope: Full selected-row anti-activation negative control; not a polygon, not a counterexample, not a Euclidean realizability certificate, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      claim_status: abstract_full_selected_row_closure_stress_test_only
+      closure_seed:
+        - 0
+        - 1
+        - 4
+      expected_closure:
+        - 0
+        - 1
+        - 4
+        - 7
+      anti_activation_row.excluded_target_witness: 6
+    forbidden_claims:
+      - proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - Euclidean realizability certificate
+      - pinned fourth witness is forced
+
+  - id: closure_visibility_anti_activation_control
+    path: data/certificates/closure_visibility_anti_activation_control.json
+    sha256: 54280a2ff4e4b27c84a08eeb24d67b2c4b9f073abd9c8070d16f527eaf649f1d
+    size_bytes: 3357
+    kind: negative_control_artifact
+    generator: scripts/check_closure_visibility_anti_activation_control.py
+    command: python scripts/check_closure_visibility_anti_activation_control.py --write
+    checker: scripts/check_closure_visibility_anti_activation_control.py
+    check_command: python scripts/check_closure_visibility_anti_activation_control.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: REVIEW_PENDING_PROVENANCE
+    claim_scope: Closure-visibility anti-activation negative control; not a polygon, not a counterexample, not a Euclidean realizability certificate, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      claim_status: abstract_incidence_closure_stress_test_only
+      expected_failure_of_target_activation.target_center_in_final_closure: true
+      expected_failure_of_target_activation.target_row_present_at_center: false
+      expected_failure_of_target_activation.target_triple_contained_in_target_center_row: false
+    forbidden_claims:
+      - proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - Euclidean realizability certificate
+      - closure visibility forces a target row
+
   - id: n8_reconstructed_survivors
     path: data/incidence/n8_reconstructed_15_survivors.json
+    sha256: 4568a49be1a3681e897ae2b5d57336349f939614c1b79bdb09035a35873e1586
+    size_bytes: 13102
     kind: finite_case_artifact
     generator: scripts/enumerate_n8_incidence.py
     command: python scripts/enumerate_n8_incidence.py --summary
@@ -25,6 +239,8 @@ artifacts:
 
   - id: n8_incidence_completeness
     path: data/incidence/n8_incidence_completeness.json
+    sha256: 95f860d78c3784b38e2448296abba93518758de987fa84159809bb78e00d64ad
+    size_bytes: 20192
     kind: finite_case_artifact
     generator: scripts/enumerate_n8_incidence.py
     command: python scripts/enumerate_n8_incidence.py --summary
@@ -44,6 +260,8 @@ artifacts:
 
   - id: n8_compatible_orders
     path: data/incidence/n8_compatible_orders.json
+    sha256: 96856b05fb133df01e95d8f1d2899fc84044ad75b77da116affb91d249a3bad3
+    size_bytes: 735149
     kind: finite_case_artifact
     generator: scripts/analyze_n8_exact_survivors.py
     command: python scripts/analyze_n8_exact_survivors.py --check --json --check-compatible-orders-data data/incidence/n8_compatible_orders.json
@@ -58,6 +276,8 @@ artifacts:
 
   - id: n8_exact_analysis
     path: certificates/n8_exact_analysis.json
+    sha256: 2fcbc2c393c9440036237c9a06aef0bb512ddf5f1c3eb5df1f568999b6f4140e
+    size_bytes: 1072175
     kind: certificate_artifact
     generator: scripts/analyze_n8_exact_survivors.py
     command: python scripts/analyze_n8_exact_survivors.py --check --json --check-exact-analysis-data certificates/n8_exact_analysis.json
@@ -72,6 +292,8 @@ artifacts:
 
   - id: c19_fixed_order_two_kalmanson
     path: data/certificates/round2/c19_kalmanson_known_order_two_unsat.json
+    sha256: c0da777cb6e518c6f1eebfcdd98793c1928ab3ca2ffc10972482d2847679702a
+    size_bytes: 1704
     kind: certificate_artifact
     generator: scripts/find_kalmanson_two_certificate.py
     command: python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json
@@ -93,6 +315,8 @@ artifacts:
 
   - id: c19_all_orders_kalmanson_z3
     path: data/certificates/c19_skew_all_orders_kalmanson_z3.json
+    sha256: c5d3731cf0487965c0e6bdef6c8d2c8c11dac552cadf33acd5958e944cec2714
+    size_bytes: 215419
     kind: smt_certificate_artifact
     generator: scripts/check_kalmanson_two_order_z3.py
     command: python scripts/check_kalmanson_two_order_z3.py --certificate data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat
@@ -114,6 +338,8 @@ artifacts:
 
   - id: c19_z3_clause_diagnostic
     path: reports/c19_kalmanson_z3_clause_diagnostics.json
+    sha256: bac308205442952a3e946327c5a521859b08b8304085fc8caaa33e41a5a8611a
+    size_bytes: 22206
     kind: certificate_diagnostic_artifact
     generator: scripts/analyze_kalmanson_z3_clauses.py
     command: python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --out reports/c19_kalmanson_z3_clause_diagnostics.json
@@ -153,6 +379,8 @@ artifacts:
 
   - id: c19_compact_vs_legacy_diagnostic
     path: reports/c19_kalmanson_compact_vs_legacy.json
+    sha256: 5bd877f2556d1d789d9a1810edd184d9d3ee2ddc1cf53d5a60c996b2a31bf17e
+    size_bytes: 19686
     kind: certificate_diagnostic_artifact
     generator: scripts/analyze_kalmanson_certificates.py
     command: python scripts/analyze_kalmanson_certificates.py --c19-compact-vs-legacy --assert-expected --out reports/c19_kalmanson_compact_vs_legacy.json
@@ -177,6 +405,8 @@ artifacts:
 
   - id: c13_fixed_order_two_kalmanson
     path: data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json
+    sha256: 100adaa9ef8d6f934a936bc6d8cf78b87d9da036f16a1fe71d8d9f8ec208bf13
+    size_bytes: 1663
     kind: certificate_artifact
     generator: scripts/find_kalmanson_two_certificate.py
     command: python scripts/check_kalmanson_certificate.py data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json --summary-json
@@ -197,6 +427,8 @@ artifacts:
 
   - id: c29_fixed_order_full_kalmanson
     path: data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json
+    sha256: b371e8fa545b3902b9003b1295a551a12db4c57415d97ab4a5a210c6f8d81244
+    size_bytes: 24539
     kind: certificate_artifact
     generator: scripts/find_kalmanson_certificate.py
     command: python scripts/check_kalmanson_certificate.py data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json --summary-json
@@ -219,6 +451,8 @@ artifacts:
 
   - id: c13_all_orders_kalmanson_two_search
     path: data/certificates/c13_sidon_all_orders_kalmanson_two_search.json
+    sha256: a227454c327e3366672c3610d814c7754c7f71c4c83d647ba65d7a449e5c8755
+    size_bytes: 1019
     kind: exhaustive_search_artifact
     generator: scripts/check_kalmanson_two_order_search.py
     command: python scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n 13 --offsets 1,2,4,10 --assert-obstructed --assert-c13-expected --json
@@ -239,6 +473,8 @@ artifacts:
 
   - id: n9_vertex_circle_exhaustive
     path: data/certificates/n9_vertex_circle_exhaustive.json
+    sha256: 7e35380cddeae34e49761ea2232f6c5816cf33af366f0f9b6a8e7801b0410b2b
+    size_bytes: 1628
     kind: finite_case_artifact
     generator: scripts/check_n9_vertex_circle_exhaustive.py
     command: python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
@@ -257,8 +493,138 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_inversive_incidence_pilot
+    path: data/certificates/n9_inversive_incidence_pilot.json
+    sha256: 587d9a9fd97b4006eaf4d26f8006327e31e603637310d43390e1699b6d362a45
+    size_bytes: 4849
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_n9_inversive_incidence_pilot.py
+    command: python scripts/check_n9_inversive_incidence_pilot.py --assert-expected --write
+    checker: scripts/check_n9_inversive_incidence_pilot.py
+    check_command: python scripts/check_n9_inversive_incidence_pilot.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Inversive point-line incidence diagnostic on the 184 regenerated n=9 pre-vertex-circle frontier assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_inversive_incidence_pilot.v1
+      status: INVERSION_INCIDENCE_HEURISTIC_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: Inversive point-line incidence diagnostic on the 184 regenerated n=9 pre-vertex-circle frontier assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+      n: 9
+      row_size: 4
+      source_frontier.assignment_count: 184
+      source_frontier.nodes_visited: 100817
+      summary.total_pivots: 1656
+      summary.total_line_seeds: 6624
+      summary.total_closed_lines: 6624
+      summary.compressed_pivots: 0
+      summary.assignments_with_compression: 0
+      summary.all_collinear_pivots: 0
+      summary.max_closed_line_size: 3
+      histograms.pivot_seed_count.4: 1656
+      histograms.pivot_merged_line_count.4: 1656
+      histograms.pivot_max_closed_line_size.3: 1656
+      histograms.closed_line_size.3: 6624
+      histograms.assignment_compressed_pivot_count.0: 184
+      provenance.command: python scripts/check_n9_inversive_incidence_pilot.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - inversion proves Erdos Problem #97
+      - point-line incidence gives a global contradiction
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
+  - id: n9_turn_inequality_frontier
+    path: data/certificates/n9_turn_inequality_frontier.json
+    sha256: 9de2666f7bce8e92bb2134caae449588a67ef902ae45b6bbc30c1687588603b8
+    size_bytes: 82873
+    kind: finite_case_artifact
+    generator: scripts/check_n9_turn_inequality_frontier.py
+    command: python scripts/check_n9_turn_inequality_frontier.py --assert-expected --write
+    checker: scripts/check_n9_turn_inequality_frontier.py
+    check_command: python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    claim_scope: Candidate n=9 selected-witness turn-inequality frontier replay; not a proof of Erdos Problem #97, not a counterexample, not an independent review, and not a source-of-truth status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_turn_inequality_frontier.v1
+      status: REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY
+      trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+      n: 9
+      row_size: 4
+      source_frontier.assignment_count: 184
+      source_frontier.assignment_sha256: d7807b69b9de27da17fa851b3325b1e26cfa0b6d86277abeda4bc4e3454b8e01
+      source_frontier.side_sensitive_pair_cap_violation_count_histogram.0: 184
+      turn_system.inequality_count_histogram.108: 184
+      farkas_replay.certificate_count: 184
+      farkas_replay.certificate_sha256: 1aed1b1f78178b967f93a3894e67cf9a0c314441a94423c8f24f2e0b8cb9bf89
+      farkas_replay.lambda_histogram.1: 180
+      farkas_replay.lambda_histogram.2: 4
+      farkas_replay.term_count_histogram.5: 180
+      farkas_replay.term_count_histogram.9: 4
+      farkas_replay.deficit_histogram.1: 184
+      z3_replay.unsat_count: 184
+      z3_replay.sat_count: 0
+      z3_replay.unknown_count: 0
+      provenance.command: python scripts/check_n9_turn_inequality_frontier.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - independent review complete
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
+  - id: n10_turn_row0_pilot
+    path: data/certificates/n10_turn_row0_pilot.json
+    sha256: e9f167611b34be7b93c962108a5b7047ff2c729036aaf5f73ebb42f2dc703995
+    size_bytes: 226338
+    kind: exploratory_ledger_artifact
+    generator: scripts/check_n10_turn_row0_pilot.py
+    command: python scripts/check_n10_turn_row0_pilot.py --assert-expected --write
+    checker: scripts/check_n10_turn_row0_pilot.py
+    check_command: python scripts/check_n10_turn_row0_pilot.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    claim_scope: Bounded n=10 row0-index-0 turn-frontier pilot; not a proof of n=10, not a counterexample, not a completeness result, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n10_turn_row0_pilot.v1
+      status: EXPLORATORY_ROW0_TURN_FRONTIER_PILOT
+      trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+      n: 10
+      row_size: 4
+      row0_index: 0
+      full_assignment_count: 160
+      assignment_sha256: ec0fa48ec4db8a4a133bffbd86647ade7f33444a1ccb7eea098aae04df4d42b7
+      turn_status_counts.farkas_unsat: 156
+      turn_status_counts.sat: 4
+      vertex_circle_status_counts.self_edge: 160
+      turn_farkas_certificate_count: 156
+      turn_farkas_certificate_sha256: c55eb78466233cc7c9c379ffd1d8d555304349e4bc4eaf588c79be5638ee4a55
+      turn_sat_escape_count: 4
+      provenance.command: python scripts/check_n10_turn_row0_pilot.py --assert-expected --write
+    forbidden_claims:
+      - n=10 is proved
+      - turn inequalities close n=10
+      - row0 pilot is a completeness result
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_local_core_packet
     path: data/certificates/n9_vertex_circle_local_core_packet.json
+    sha256: d6eff2556d93338d15da665a7670ebb6bac2145238fe55789eb5dbbf84404d30
+    size_bytes: 9922
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_local_core_packet.py
     command: python scripts/check_n9_vertex_circle_local_core_packet.py --assert-expected --write
@@ -289,6 +655,8 @@ artifacts:
 
   - id: n9_vertex_circle_core_templates
     path: data/certificates/n9_vertex_circle_core_templates.json
+    sha256: 2674257279bd8fe70433cf7456d21e763413faa64ae5695ebecf1dd793d7e715
+    size_bytes: 18858
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_core_templates.py
     command: python scripts/check_n9_vertex_circle_core_templates.py --assert-expected --write
@@ -324,6 +692,8 @@ artifacts:
 
   - id: n9_vertex_circle_frontier_motif_classification
     path: data/certificates/n9_vertex_circle_frontier_motif_classification.json
+    sha256: 382c4b5bbd70229c5484ff18b049d430d1ce4e6d11a1ca20dc21a99ebbfb21d3
+    size_bytes: 281009
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_frontier_motif_classification.py
     command: python scripts/check_n9_vertex_circle_frontier_motif_classification.py --assert-expected --write
@@ -363,6 +733,8 @@ artifacts:
 
   - id: n9_vertex_circle_self_edge_path_join
     path: data/certificates/n9_vertex_circle_self_edge_path_join.json
+    sha256: 5a6d100b899030a95bd5603024cea27bd529329fe76360ee100845977bc850b7
+    size_bytes: 359318
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_self_edge_path_join.py
     command: python scripts/check_n9_vertex_circle_self_edge_path_join.py --assert-expected --write
@@ -406,6 +778,8 @@ artifacts:
 
   - id: n9_vertex_circle_self_edge_template_packet
     path: data/certificates/n9_vertex_circle_self_edge_template_packet.json
+    sha256: c9e803f8d4bafb62896a311685e509aebc329042bfe05b99f5701be1e29c94cc
+    size_bytes: 48069
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_self_edge_template_packet.py
     command: python scripts/check_n9_vertex_circle_self_edge_template_packet.py --assert-expected --write
@@ -471,6 +845,8 @@ artifacts:
 
   - id: n9_vertex_circle_strict_cycle_path_join
     path: data/certificates/n9_vertex_circle_strict_cycle_path_join.json
+    sha256: cb69a05889694adb6b5fc3f6de20420a58ee055436ed170a05af9299244d884a
+    size_bytes: 101769
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_strict_cycle_path_join.py
     command: python scripts/check_n9_vertex_circle_strict_cycle_path_join.py --assert-expected --write
@@ -523,6 +899,8 @@ artifacts:
 
   - id: n9_vertex_circle_strict_cycle_template_packet
     path: data/certificates/n9_vertex_circle_strict_cycle_template_packet.json
+    sha256: ef3699c050a65dbb083fc8406ca8a154e9575238229efc352171ca1979d20c76
+    size_bytes: 21276
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_strict_cycle_template_packet.py
     command: python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --assert-expected --write
@@ -580,6 +958,8 @@ artifacts:
 
   - id: n9_vertex_circle_template_lemma_catalog
     path: data/certificates/n9_vertex_circle_template_lemma_catalog.json
+    sha256: 54acdfc1f60e91350bc4b7dd8fc05a6ef6c6900f1f15d798e3771205b82f937f
+    size_bytes: 30618
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_template_lemma_catalog.py
     command: python scripts/check_n9_vertex_circle_template_lemma_catalog.py --assert-expected --write
@@ -645,6 +1025,8 @@ artifacts:
 
   - id: n9_vertex_circle_t01_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json
+    sha256: 5588fd883af3a5b9ef8b9e792b2c8503c91797a04423461d7fac7c00569cfb2a
+    size_bytes: 8733
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --assert-expected --write
@@ -712,6 +1094,8 @@ artifacts:
 
   - id: n9_vertex_circle_t02_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t02_self_edge_lemma_packet.json
+    sha256: 399e16e775bd508fcf9d1c1f7d2ee9c1e36f8585e8fe2a9950ae82f3fc48d82e
+    size_bytes: 33147
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --assert-expected --write
@@ -765,6 +1149,8 @@ artifacts:
 
   - id: n9_vertex_circle_t03_self_edge_lemma_packet
     path: data/certificates/n9_vertex_circle_t03_self_edge_lemma_packet.json
+    sha256: 56da346d071f83ec3a73c439febf0ece52da68ba146991c47438798faad07a08
+    size_bytes: 18813
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py --assert-expected --write
@@ -812,6 +1198,8 @@ artifacts:
 
   - id: n9_vertex_circle_t10_strict_cycle_lemma_packet
     path: data/certificates/n9_vertex_circle_t10_strict_cycle_lemma_packet.json
+    sha256: fadc496a4efa57126c8c04b419426057a612b008f7c9dbdf45e03306bd081ebb
+    size_bytes: 17979
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --assert-expected --write
@@ -860,8 +1248,49 @@ artifacts:
       - the local lemma packet is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: relation_skeleton_catalog
+    path: data/certificates/relation_skeleton_catalog.json
+    sha256: 9316b2695d494d7951521bc60d84c5e1bded68bb1a3dbe637d118bc9f021f369
+    size_bytes: 12140
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_relation_skeleton_catalog.py
+    command: python scripts/check_relation_skeleton_catalog.py --assert-expected --write
+    checker: scripts/check_relation_skeleton_catalog.py
+    check_command: python scripts/check_relation_skeleton_catalog.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Two-entry relation-skeleton catalog for focused n=9 vertex-circle selected-distance quotient obstructions; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.relation_skeleton_catalog.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: Two-entry relation-skeleton catalog for focused n=9 vertex-circle selected-distance quotient obstructions; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+      catalog_scope: vertex-circle selected-distance quotient skeletons
+      n: 9
+      row_size: 4
+      skeleton_count: 2
+      contradiction_type_counts.strict_directed_cycle: 1
+      contradiction_type_counts.strict_self_edge: 1
+      skeleton_ids:
+        - VC-T01-F09-strict-self-edge
+        - VC-T10-F12-strict-directed-cycle
+      provenance.command: python scripts/check_relation_skeleton_catalog.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - T01 or T10 proves n=9
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - template labels are theorem names
+      - the relation-skeleton catalog is an independent proof
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_t11_strict_cycle_lemma_packet
     path: data/certificates/n9_vertex_circle_t11_strict_cycle_lemma_packet.json
+    sha256: 2be1cfb2313be4a35a2aaabb6bd719397c6702021a18bbf0e95538e6e795abce
+    size_bytes: 19682
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py --assert-expected --write
@@ -919,6 +1348,8 @@ artifacts:
 
   - id: n9_vertex_circle_t12_strict_cycle_lemma_packet
     path: data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json
+    sha256: 84b5cf3bb4606981b2450586d6390817fd169191c3d189747231bd074277d90d
+    size_bytes: 19803
     kind: certificate_diagnostic_artifact
     generator: scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py
     command: python scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py --assert-expected --write
@@ -969,6 +1400,8 @@ artifacts:
 
   - id: n9_groebner_real_root_decoders
     path: data/certificates/n9_groebner_real_root_decoders.json
+    sha256: 8664033ec5153f9895d2595242c9e3e1dce38e32e40ba9a2cfaa6d7c5ad1b267
+    size_bytes: 100728
     kind: algebraic_decoder_artifact
     generator: scripts/decode_n9_groebner_f07_f13.py
     command: python scripts/decode_n9_groebner_f07_f13.py
@@ -990,6 +1423,8 @@ artifacts:
 
   - id: n9_base_apex_low_excess_ledgers
     path: data/certificates/n9_base_apex_low_excess_ledgers.json
+    sha256: 5e1b5287c7b39ccfdc8076aa8f79b19bf4bfe7edbf9d1fcf6259693b508be123
+    size_bytes: 36225
     kind: exploratory_ledger_artifact
     generator: scripts/explore_n9_base_apex.py
     command: python scripts/explore_n9_base_apex.py --low-excess-report --out data/certificates/n9_base_apex_low_excess_ledgers.json
@@ -1021,6 +1456,8 @@ artifacts:
 
   - id: n9_base_apex_escape_budget_report
     path: data/certificates/n9_base_apex_escape_budget_report.json
+    sha256: aada41e8d852a95bd8a5fb9e0f28b0956f1fded550d3efd910dcad6e49788363
+    size_bytes: 31618
     kind: exploratory_ledger_artifact
     generator: scripts/explore_n9_base_apex.py
     command: python scripts/explore_n9_base_apex.py --escape-budget-report --out data/certificates/n9_base_apex_escape_budget_report.json
@@ -1049,6 +1486,8 @@ artifacts:
 
   - id: n9_selected_baseline_escape_budget_overlay
     path: data/certificates/n9_selected_baseline_escape_budget_overlay.json
+    sha256: a9de569cb865be05d2485fcf206ea088be56c0019883a3d411b54643ad61b702
+    size_bytes: 24705
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_selected_baseline_escape_budget_overlay.py
     command: python scripts/analyze_n9_selected_baseline_escape_budget_overlay.py --assert-expected --out data/certificates/n9_selected_baseline_escape_budget_overlay.json
@@ -1087,6 +1526,8 @@ artifacts:
 
   - id: n9_selected_baseline_d3_escape_class_crosswalk
     path: data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json
+    sha256: 12571bfc8e00c78bc9fe709fad8d0486140fd230ec3c40d559661ea90e605998
+    size_bytes: 41922
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_selected_baseline_d3_escape_class_crosswalk.py
     command: python scripts/analyze_n9_selected_baseline_d3_escape_class_crosswalk.py --assert-expected --out data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json
@@ -1138,8 +1579,93 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_selected_baseline_d3_vertex_circle_template_join
+    path: data/certificates/n9_selected_baseline_d3_vertex_circle_template_join.json
+    sha256: d664398fd861c8f2c7265ecc6b1ef483c8336fa964f8246244bf2eba39de5512
+    size_bytes: 1953662
+    kind: exploratory_ledger_artifact
+    generator: scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py
+    command: python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py --assert-expected --write
+    checker: scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py
+    check_command: python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py --check --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    claim_scope: Selected-baseline D=3 escaping assignment/slot-choice landings joined to n=9 vertex-circle family/template diagnostics; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_selected_baseline_d3_vertex_circle_template_join.v1
+      status: EXPLORATORY_LEDGER_ONLY
+      trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+      claim_scope: Selected-baseline D=3 escaping assignment/slot-choice landings joined to n=9 vertex-circle family/template diagnostics; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.
+      n: 9
+      witness_size: 4
+      base_apex_slack: 9
+      capacity_deficit_budget: 3
+      contradiction_threshold: 3
+      source_assignment_count: 184
+      total_budget3_slot_choice_count: 15456
+      forced_budget3_slot_choice_count: 13710
+      escaping_assignment_slot_choice_landing_count: 1746
+      selected_baseline_class_count: 13
+      escape_class_count: 8
+      vertex_circle_template_count: 12
+      vertex_circle_family_count: 16
+      vertex_circle_status_landing_counts:
+        self_edge: 1026
+        strict_cycle: 720
+      vertex_circle_template_landing_counts:
+        T01: 72
+        T02: 72
+        T03: 342
+        T04: 108
+        T05: 0
+        T06: 324
+        T07: 72
+        T08: 36
+        T09: 0
+        T10: 612
+        T11: 0
+        T12: 108
+      escape_class_landing_counts:
+        X00: 198
+        X01: 90
+        X02: 144
+        X03: 234
+        X04: 396
+        X05: 162
+        X06: 126
+        X07: 396
+      source_artifacts:
+        - path: data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json
+          role: aggregate selected-baseline D=3 escape-class crosswalk
+          schema: erdos97.n9_selected_baseline_d3_escape_class_crosswalk.v1
+          trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+        - path: data/certificates/n9_vertex_circle_frontier_motif_classification.json
+          role: assignment_id to vertex-circle family/template diagnostics
+          schema: erdos97.n9_vertex_circle_frontier_motif_classification.v1
+          trust: REVIEW_PENDING_DIAGNOSTIC
+        - path: data/certificates/n9_vertex_circle_template_lemma_catalog.json
+          role: vertex-circle template status and coverage diagnostics
+          schema: erdos97.n9_vertex_circle_template_lemma_catalog.v1
+          trust: REVIEW_PENDING_DIAGNOSTIC
+      provenance.generator: scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py
+      provenance.command: python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - selected-baseline landings are realizability counts
+      - vertex-circle template landings are theorem counts
+      - incidence-completeness result
+      - geometric realizability count
+      - counterexample
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n9_base_apex_d3_escape_slice
     path: data/certificates/n9_base_apex_d3_escape_slice.json
+    sha256: 091005b65d478e0d8f8e179ffaedc039d52601827b590100a9bc4b7eaea29783
+    size_bytes: 45927
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_d3_escape_slice.py
     command: python scripts/analyze_n9_d3_escape_slice.py --assert-expected --out data/certificates/n9_base_apex_d3_escape_slice.json
@@ -1178,6 +1704,8 @@ artifacts:
 
   - id: n9_base_apex_d3_escape_frontier_packet
     path: data/certificates/n9_base_apex_d3_escape_frontier_packet.json
+    sha256: cb9237d06553ae8c44f007367fe778947c52d87a42a97d809516c5addce206fa
+    size_bytes: 59926
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_base_apex_d3_escape_frontier_packet.py
     command: python scripts/analyze_n9_base_apex_d3_escape_frontier_packet.py --assert-expected --out data/certificates/n9_base_apex_d3_escape_frontier_packet.json
@@ -1217,6 +1745,8 @@ artifacts:
 
   - id: n9_base_apex_d3_p19_incidence_capacity_pilot
     path: data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json
+    sha256: 05c930a9d243adf0c0ad630be87dedfb3ab00b4474c26a547855678245091c94
+    size_bytes: 17817
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_base_apex_d3_p19_incidence_capacity_pilot.py
     command: python scripts/analyze_n9_base_apex_d3_p19_incidence_capacity_pilot.py --assert-expected --out data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json
@@ -1279,6 +1809,8 @@ artifacts:
 
   - id: n9_base_apex_d3_incidence_capacity_packet
     path: data/certificates/n9_base_apex_d3_incidence_capacity_packet.json
+    sha256: 077959f71762da5870a4a815d9d239eb548bba9862258c20925fc3d50af258f5
+    size_bytes: 186849
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py
     command: python scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py --assert-expected --out data/certificates/n9_base_apex_d3_incidence_capacity_packet.json
@@ -1327,6 +1859,8 @@ artifacts:
 
   - id: n9_base_apex_low_excess_escape_ladder
     path: data/certificates/n9_base_apex_low_excess_escape_ladder.json
+    sha256: 79eb34b4bdbd566c3e526ae645111bccb6d70e17ccaee2f386911263325ef00a
+    size_bytes: 6132
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_base_apex_low_excess_escape_ladder.py
     command: python scripts/analyze_n9_base_apex_low_excess_escape_ladder.py --assert-expected --out data/certificates/n9_base_apex_low_excess_escape_ladder.json
@@ -1365,6 +1899,8 @@ artifacts:
 
   - id: n9_base_apex_low_excess_escape_crosswalk
     path: data/certificates/n9_base_apex_low_excess_escape_crosswalk.json
+    sha256: e7e1f90d80b0cadf767ae7ec318482ff590bee35e57ff9b9b54b761d513befaf
+    size_bytes: 201074
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_base_apex_low_excess_escape_crosswalk.py
     command: python scripts/analyze_n9_base_apex_low_excess_escape_crosswalk.py --assert-expected --out data/certificates/n9_base_apex_low_excess_escape_crosswalk.json
@@ -1396,6 +1932,8 @@ artifacts:
 
   - id: n9_row_ptolemy_product_cancellations
     path: data/certificates/n9_row_ptolemy_product_cancellations.json
+    sha256: e0623ae695b275eecc087155cd18bcf14018092793a0cf11ddf0c1fb71687a6f
+    size_bytes: 448442
     kind: exploratory_ledger_artifact
     generator: scripts/analyze_n9_row_ptolemy_product_cancellations.py
     command: python scripts/analyze_n9_row_ptolemy_product_cancellations.py --assert-expected --out data/certificates/n9_row_ptolemy_product_cancellations.json
@@ -1431,6 +1969,8 @@ artifacts:
 
   - id: n9_row_ptolemy_family_signatures
     path: data/certificates/n9_row_ptolemy_family_signatures.json
+    sha256: 7934de7b38f0aa451ed0273d3f20d66cf1feb5c238b76a5f544618fc83a3e324
+    size_bytes: 6743
     kind: exploratory_ledger_artifact
     generator: scripts/check_n9_row_ptolemy_family_signatures.py
     command: python scripts/check_n9_row_ptolemy_family_signatures.py --assert-expected --write
@@ -1475,6 +2015,8 @@ artifacts:
 
   - id: n9_row_ptolemy_order_sensitivity
     path: data/certificates/n9_row_ptolemy_order_sensitivity.json
+    sha256: 52f76448fd5eb2b68ce5cce6adcc10c9de22f759b27b5a7ed4f4a2caeda39d62
+    size_bytes: 7426
     kind: exploratory_ledger_artifact
     generator: scripts/check_n9_row_ptolemy_order_sensitivity.py
     command: python scripts/check_n9_row_ptolemy_order_sensitivity.py --assert-expected --write
@@ -1511,6 +2053,8 @@ artifacts:
 
   - id: n9_row_ptolemy_order_admissible_census
     path: data/certificates/n9_row_ptolemy_order_admissible_census.json
+    sha256: 89ab371bac9cff578a057ff03a5877f884b14515698a9b6013254d6da1d7d8f6
+    size_bytes: 49625
     kind: exploratory_ledger_artifact
     generator: scripts/check_n9_row_ptolemy_order_admissible_census.py
     command: python scripts/check_n9_row_ptolemy_order_admissible_census.py --assert-expected --write
@@ -1556,6 +2100,8 @@ artifacts:
 
   - id: n9_row_ptolemy_admissible_gap_replay
     path: data/certificates/n9_row_ptolemy_admissible_gap_replay.json
+    sha256: 378984cefdf281b7cd424d0f224c2df4e52700635262d26f12c107faf3046b2c
+    size_bytes: 40149
     kind: exploratory_ledger_artifact
     generator: scripts/check_n9_row_ptolemy_admissible_gap_replay.py
     command: python scripts/check_n9_row_ptolemy_admissible_gap_replay.py --assert-expected --write
@@ -1614,6 +2160,8 @@ artifacts:
 
   - id: n9_row_ptolemy_gap_self_edge_cores
     path: data/certificates/n9_row_ptolemy_gap_self_edge_cores.json
+    sha256: eea1cc8bfdace722421df2f55248f8cea2b5b0fc6f03f5c23f57bf0fddd23b5a
+    size_bytes: 9894
     kind: exploratory_ledger_artifact
     generator: scripts/check_n9_row_ptolemy_gap_self_edge_cores.py
     command: python scripts/check_n9_row_ptolemy_gap_self_edge_cores.py --assert-expected --write
@@ -1677,6 +2225,8 @@ artifacts:
 
   - id: bridge_lemma_frontier
     path: data/certificates/bridge_lemma_frontier.json
+    sha256: 72362c18009c10bc45d18b4962c881544a4dcf585494a83999084e5c578b4852
+    size_bytes: 47308
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_bridge_lemma_frontier.py
     command: python scripts/check_bridge_lemma_frontier.py --write --assert-expected
@@ -1722,8 +2272,44 @@ artifacts:
       - source-of-truth strongest result
       - general proof of Erdos Problem #97
 
+  - id: radius_blocker_vertex_circle_pilot
+    path: data/certificates/radius_blocker_vertex_circle_pilot.json
+    sha256: 7d4e350bf8b208dbd6c28ecb7605c6c6247f0da8bd805d4ce3ad6bcb5b5c449e
+    size_bytes: 31246
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_radius_blocker_vertex_circle_pilot.py
+    command: python scripts/check_radius_blocker_vertex_circle_pilot.py --write --assert-expected
+    checker: scripts/check_radius_blocker_vertex_circle_pilot.py
+    check_command: python scripts/check_radius_blocker_vertex_circle_pilot.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Finite exact-four-row radius-blocker packet diagnostic; not a proof of the adaptive blocker bridge, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.radius_blocker_vertex_circle_packet.v1
+      status: RADIUS_BLOCKER_VERTEX_CIRCLE_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.case_count: 3
+      summary.all_cases_have_radius_blocker: true
+      summary.all_incidence_survivors_obstructed: true
+      summary.total_incidence_survivors: 3
+      summary.vertex_circle_status_totals.self_edge: 2
+      summary.vertex_circle_status_totals.strict_cycle: 1
+      provenance.command: python scripts/check_radius_blocker_vertex_circle_pilot.py --write --assert-expected
+    forbidden_claims:
+      - adaptive blocker bridge is proved
+      - radius-blockers are impossible
+      - n=9 is proved
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n10_vertex_circle_singleton_slices
     path: data/certificates/n10_vertex_circle_singleton_slices.json
+    sha256: 66b1212e6a61a04530d7e2b33afbeafb3039b125a026c94c814c47bbc7cba856
+    size_bytes: 60260
     kind: finite_case_draft_artifact
     generator: scripts/check_n10_vertex_circle_singletons.py
     command: python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
@@ -1752,6 +2338,8 @@ artifacts:
 
   - id: n10_secondary_singleton_replay
     path: data/certificates/2026-05-05/n10_secondary.json
+    sha256: 5183c6a9eceac21724d42b2498275b281671bf715ef9d311c0c75e6d826364a6
+    size_bytes: 2685
     kind: finite_case_draft_artifact
     generator: data/runs/2026-05-05/n10_secondary.py
     command: python data/runs/2026-05-05/n10_secondary.py

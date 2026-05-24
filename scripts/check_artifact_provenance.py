@@ -3,17 +3,28 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import re
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any, Sequence
 
-import yaml
+try:
+    import yaml
+except ImportError:  # pragma: no cover - exercised only without dev dependencies.
+    yaml = None
+    YAMLError = ValueError
+else:
+    YAMLError = yaml.YAMLError
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANIFEST = REPO_ROOT / "metadata" / "generated_artifacts.yaml"
 SCHEMA = "erdos97.generated_artifacts.v1"
+SHA256_RE = re.compile(r"[0-9a-f]{64}\Z")
+TRACKED_ARTIFACT_COVERAGE_GLOBS = ("data/certificates/*.json", "data/certificates/**/*.json")
 
 KNOWN_TRUST = {
     "EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN",
@@ -47,6 +58,11 @@ def repo_path(raw_path: str) -> Path:
 
 
 def load_manifest(path: Path) -> dict[str, Any]:
+    if yaml is None:
+        raise ValueError(
+            "PyYAML is required to parse metadata/generated_artifacts.yaml; "
+            "install with `pip install -e .[dev]`"
+        )
     payload = yaml.safe_load(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
         raise ValueError("manifest top level must be a mapping")
@@ -55,6 +71,14 @@ def load_manifest(path: Path) -> dict[str, Any]:
 
 def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def dotted_get(payload: Any, dotted_key: str) -> Any:
@@ -66,7 +90,7 @@ def dotted_get(payload: Any, dotted_key: str) -> Any:
     return current
 
 
-def validate_manifest(payload: dict[str, Any]) -> list[str]:
+def validate_manifest(payload: dict[str, Any], *, check_tracked_coverage: bool = False) -> list[str]:
     errors: list[str] = []
     if payload.get("schema") != SCHEMA:
         errors.append(f"schema is {payload.get('schema')!r}, expected {SCHEMA!r}")
@@ -87,6 +111,9 @@ def validate_manifest(payload: dict[str, Any]) -> list[str]:
             errors.append(f"{label} must be a mapping")
             continue
         errors.extend(validate_artifact(artifact, label, seen_ids, seen_paths))
+    errors.extend(validate_unmanaged_artifacts(payload))
+    if check_tracked_coverage:
+        errors.extend(validate_tracked_artifact_coverage(payload, seen_paths))
     return errors
 
 
@@ -110,6 +137,7 @@ def validate_artifact(
         seen_ids.add(ident)
 
     raw_path = artifact.get("path")
+    path: Path | None = None
     if isinstance(raw_path, str):
         if raw_path in seen_paths:
             errors.append(f"{label}.path {raw_path!r} is duplicated")
@@ -126,6 +154,29 @@ def validate_artifact(
                 payload = None
     else:
         payload = None
+
+    if path is not None and path.exists():
+        expected_sha256 = artifact.get("sha256")
+        if not isinstance(expected_sha256, str) or not SHA256_RE.fullmatch(expected_sha256):
+            errors.append(f"{label}.sha256 must be a lowercase 64-hex digest")
+        else:
+            actual_sha256 = sha256_file(path)
+            if actual_sha256 != expected_sha256:
+                errors.append(
+                    f"{label}.sha256 mismatch for {raw_path}: "
+                    f"{actual_sha256}, expected {expected_sha256}"
+                )
+
+        expected_size = artifact.get("size_bytes")
+        if not isinstance(expected_size, int) or expected_size < 0:
+            errors.append(f"{label}.size_bytes must be a nonnegative integer")
+        else:
+            actual_size = path.stat().st_size
+            if actual_size != expected_size:
+                errors.append(
+                    f"{label}.size_bytes mismatch for {raw_path}: "
+                    f"{actual_size}, expected {expected_size}"
+                )
 
     generator = artifact.get("generator")
     if isinstance(generator, str) and not repo_path(generator).exists():
@@ -205,6 +256,80 @@ def validate_json_payload(artifact: dict[str, Any], payload: Any, label: str) ->
     return errors
 
 
+def validate_unmanaged_artifacts(payload: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    unmanaged = payload.get("unmanaged_tracked_artifacts", [])
+    if unmanaged is None:
+        unmanaged = []
+    if not isinstance(unmanaged, list):
+        return ["unmanaged_tracked_artifacts must be a list when present"]
+
+    seen: set[str] = set()
+    for index, item in enumerate(unmanaged):
+        label = f"unmanaged_tracked_artifacts[{index}]"
+        if not isinstance(item, dict):
+            errors.append(f"{label} must be a mapping")
+            continue
+        raw_path = item.get("path")
+        reason = item.get("reason")
+        if not isinstance(raw_path, str) or not raw_path.strip():
+            errors.append(f"{label}.path must be a nonempty string")
+            continue
+        if raw_path in seen:
+            errors.append(f"{label}.path {raw_path!r} is duplicated")
+        seen.add(raw_path)
+        if repo_path(raw_path).is_absolute() and not repo_path(raw_path).exists():
+            errors.append(f"{label}.path does not exist: {raw_path}")
+        if not isinstance(reason, str) or not reason.strip():
+            errors.append(f"{label}.reason must be a nonempty string")
+    return errors
+
+
+def tracked_files_for_globs(globs: Sequence[str]) -> set[str]:
+    tracked: set[str] = set()
+    for pattern in globs:
+        try:
+            result = subprocess.run(
+                ["git", "ls-files", pattern],
+                cwd=REPO_ROOT,
+                check=False,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.DEVNULL,
+                text=True,
+            )
+        except OSError:
+            result = None
+        if result is not None and result.returncode == 0:
+            tracked.update(line.strip().replace("\\", "/") for line in result.stdout.splitlines())
+            continue
+        tracked.update(
+            path.relative_to(REPO_ROOT).as_posix()
+            for path in REPO_ROOT.glob(pattern)
+            if path.is_file()
+        )
+    return {path for path in tracked if path}
+
+
+def validate_tracked_artifact_coverage(
+    payload: dict[str, Any],
+    managed_paths: set[str],
+) -> list[str]:
+    unmanaged = payload.get("unmanaged_tracked_artifacts", [])
+    unmanaged_paths = {
+        str(item.get("path"))
+        for item in unmanaged
+        if isinstance(item, dict) and isinstance(item.get("path"), str)
+    }
+    covered = set(managed_paths) | unmanaged_paths
+    errors: list[str] = []
+    for path in sorted(tracked_files_for_globs(TRACKED_ARTIFACT_COVERAGE_GLOBS)):
+        if path not in covered:
+            errors.append(
+                f"tracked artifact is neither managed nor explicitly unmanaged: {path}"
+            )
+    return errors
+
+
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
@@ -218,8 +343,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         manifest = REPO_ROOT / manifest
     try:
         payload = load_manifest(manifest)
-        errors = validate_manifest(payload)
-    except (OSError, ValueError, yaml.YAMLError) as exc:
+        errors = validate_manifest(payload, check_tracked_coverage=True)
+    except (OSError, ValueError, YAMLError) as exc:
         errors = [str(exc)]
 
     if errors:
