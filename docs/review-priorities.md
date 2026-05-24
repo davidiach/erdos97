@@ -416,7 +416,8 @@ Next steps:
   `scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json`
   to run the focused packet/catalog, focused mini-replay,
   aggregate/simple-replay, exhaustive/local-lemma, and
-  relation-skeleton/local-lemma handoffs as one review-pending audit path;
+  relation-skeleton/local-lemma handoffs as one review-pending audit path,
+  with adjacent handoff checks that localize future drift between layers;
 - use the focused mini-replay commands
   `scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json`,
   `scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json`,

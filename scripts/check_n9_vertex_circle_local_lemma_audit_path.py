@@ -72,6 +72,17 @@ EXPECTED_LAYER_IDS = [
     "relation_skeleton_local_lemma",
 ]
 EXPECTED_TEMPLATE_IDS = [f"T{index:02d}" for index in range(1, 13)]
+EXPECTED_HANDOFF_EDGES = list(zip(EXPECTED_LAYER_IDS, EXPECTED_LAYER_IDS[1:]))
+HANDOFF_COMPARE_KEYS = (
+    "template_count",
+    "template_ids",
+    "family_count",
+    "assignment_count",
+    "self_edge_family_count",
+    "self_edge_assignment_count",
+    "strict_cycle_family_count",
+    "strict_cycle_assignment_count",
+)
 
 AssertFn = Callable[[Mapping[str, Any]], None]
 
@@ -140,6 +151,7 @@ def local_lemma_audit_path_payload(
     errors: list[str] = []
     _append_layer_expected_errors(errors, layers)
     layer_summaries = [_layer_summary(layer_id, layers[layer_id], errors) for layer_id in EXPECTED_LAYER_IDS]
+    handoff_checks = _handoff_checks(layer_summaries, errors)
     coverage = _coverage_summary(layer_summaries, errors)
 
     return {
@@ -152,6 +164,8 @@ def local_lemma_audit_path_payload(
         "audit_path": {
             "layer_count": len(layer_summaries),
             "layer_ids": [summary["layer_id"] for summary in layer_summaries],
+            "handoff_count": len(handoff_checks),
+            "handoff_checks": handoff_checks,
             "layers": layer_summaries,
         },
         "coverage_summary": coverage,
@@ -198,6 +212,27 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
         raise AssertionError("audit_path must be an object")
     if audit_path.get("layer_ids") != EXPECTED_LAYER_IDS:
         raise AssertionError(f"layer ids mismatch: {audit_path.get('layer_ids')!r}")
+    if audit_path.get("handoff_count") != len(EXPECTED_HANDOFF_EDGES):
+        raise AssertionError(f"handoff count mismatch: {audit_path.get('handoff_count')!r}")
+    handoffs = audit_path.get("handoff_checks")
+    if not isinstance(handoffs, list):
+        raise AssertionError("handoff_checks must be a list")
+    expected_edges = [
+        {"from_layer": left, "to_layer": right}
+        for left, right in EXPECTED_HANDOFF_EDGES
+    ]
+    observed_edges = [
+        {
+            "from_layer": handoff.get("from_layer"),
+            "to_layer": handoff.get("to_layer"),
+        }
+        for handoff in handoffs
+    ]
+    if observed_edges != expected_edges:
+        raise AssertionError(f"handoff edge mismatch: {observed_edges!r}")
+    for handoff in handoffs:
+        if handoff.get("status") != "passed" or handoff.get("mismatches") != []:
+            raise AssertionError(f"handoff failed: {handoff!r}")
 
     coverage = payload.get("coverage_summary")
     if not isinstance(coverage, Mapping):
@@ -377,6 +412,43 @@ def _coverage_summary(
     }
 
 
+def _handoff_checks(
+    layer_summaries: list[Mapping[str, Any]],
+    errors: list[str],
+) -> list[dict[str, Any]]:
+    summaries = {str(summary.get("layer_id")): summary for summary in layer_summaries}
+    checks: list[dict[str, Any]] = []
+    for from_layer, to_layer in EXPECTED_HANDOFF_EDGES:
+        left = summaries[from_layer]
+        right = summaries[to_layer]
+        mismatches = []
+        for key in HANDOFF_COMPARE_KEYS:
+            left_value = left.get(key)
+            right_value = right.get(key)
+            if left_value != right_value:
+                mismatches.append(
+                    {
+                        "key": key,
+                        "from_value": left_value,
+                        "to_value": right_value,
+                    }
+                )
+                errors.append(
+                    f"{from_layer}->{to_layer} handoff mismatch on {key}: "
+                    f"{left_value!r} != {right_value!r}"
+                )
+        checks.append(
+            {
+                "from_layer": from_layer,
+                "to_layer": to_layer,
+                "compared_keys": list(HANDOFF_COMPARE_KEYS),
+                "status": "passed" if not mismatches else "failed",
+                "mismatches": mismatches,
+            }
+        )
+    return checks
+
+
 def _required_mapping(
     payload: Mapping[str, Any],
     key: str,
@@ -421,6 +493,7 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"status: {payload['status']}",
         f"validation: {payload['validation_status']}",
         f"layers: {coverage['layer_count']}",
+        f"handoffs: {payload['audit_path']['handoff_count']}",
         f"templates: {coverage['template_count']}",
         f"families: {coverage['family_count']}",
         f"assignments: {coverage['assignment_count']}",
