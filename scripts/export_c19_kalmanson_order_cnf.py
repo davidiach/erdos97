@@ -356,11 +356,32 @@ def check_artifact(path: Path, payload: Mapping[str, Any]) -> None:
         raise AssertionError(f"{display_path(path, ROOT)} does not match regenerated payload")
 
 
+def dimacs_from_certificate(certificate: Path) -> str:
+    raw_payload = load_json(certificate)
+    if not isinstance(raw_payload, dict):
+        raise TypeError("source certificate must be a JSON object")
+    pattern, clauses = source_clauses(raw_payload)
+    return dimacs_text(int(pattern["n"]), clauses)
+
+
+def check_cnf(path: Path, expected_dimacs: str) -> None:
+    actual = path.read_bytes()
+    expected = expected_dimacs.encode("utf-8")
+    if actual != expected:
+        actual_hash = hashlib.sha256(actual).hexdigest()
+        expected_hash = hashlib.sha256(expected).hexdigest()
+        raise AssertionError(
+            f"{display_path(path, ROOT)} does not match generated DIMACS "
+            f"(actual {actual_hash}, expected {expected_hash})"
+        )
+
+
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--certificate", type=Path, default=DEFAULT_CERTIFICATE)
     parser.add_argument("--out", type=Path, help="write JSON summary to this path")
     parser.add_argument("--write-cnf", type=Path, help="write DIMACS CNF to this path")
+    parser.add_argument("--check-cnf", type=Path, help="compare this DIMACS file to generated text")
     parser.add_argument("--check-artifact", type=Path)
     parser.add_argument("--assert-expected", action="store_true")
     parser.add_argument("--json", action="store_true")
@@ -384,13 +405,15 @@ def main(argv: Sequence[str] | None = None) -> int:
             encoding="utf-8",
             newline="\n",
         )
+    if args.write_cnf or args.check_cnf:
+        cnf = dimacs_from_certificate(certificate)
     if args.write_cnf:
-        raw_payload = load_json(certificate)
-        _, clauses = source_clauses(raw_payload)
-        cnf = dimacs_text(int(raw_payload["pattern"]["n"]), clauses)
         cnf_path = args.write_cnf if args.write_cnf.is_absolute() else ROOT / args.write_cnf
         cnf_path.parent.mkdir(parents=True, exist_ok=True)
         cnf_path.write_text(cnf, encoding="utf-8", newline="\n")
+    if args.check_cnf:
+        cnf_path = args.check_cnf if args.check_cnf.is_absolute() else ROOT / args.check_cnf
+        check_cnf(cnf_path, cnf)
     if args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     else:
@@ -404,6 +427,8 @@ def main(argv: Sequence[str] | None = None) -> int:
             print("OK: C19 order-CNF summary matches expected values")
         if args.check_artifact:
             print(f"OK: {display_path(args.check_artifact, ROOT)} matches regenerated payload")
+        if args.check_cnf:
+            print(f"OK: {display_path(args.check_cnf, ROOT)} matches generated DIMACS")
     return 0
 
 

@@ -132,6 +132,16 @@ then encodes the rotation-fixed cyclic-order problem with pair-precedence
 variables, label-0 unit clauses, transitivity clauses, and the 7,981 stored
 forbidden-order clauses. The checked summary records the DIMACS header
 `p cnf 171 13813` and a deterministic SHA256 hash for the generated text.
+For external SAT-proof experiments, write and round-trip check the concrete CNF
+file with:
+
+```bash
+python scripts/export_c19_kalmanson_order_cnf.py \
+  --write-cnf reports/c19_kalmanson_order.cnf
+
+python scripts/export_c19_kalmanson_order_cnf.py \
+  --check-cnf reports/c19_kalmanson_order.cnf
+```
 
 This is a replay target for a future DRAT/LRAT or equivalent proof artifact.
 It is not a solver-independent UNSAT proof by itself, and it does not alter the

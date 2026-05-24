@@ -11,8 +11,10 @@ from scripts.export_c19_kalmanson_order_cnf import (
     DEFAULT_ARTIFACT,
     assert_expected,
     before_literal,
+    check_cnf,
     check_artifact,
     diagnostic_payload,
+    dimacs_from_certificate,
     dimacs_text,
     pair_variable,
     source_clauses,
@@ -51,19 +53,37 @@ def test_c19_kalmanson_order_cnf_literal_mapping() -> None:
 
 
 def test_c19_kalmanson_order_cnf_dimacs_shape() -> None:
-    certificate = json.loads(
-        (ROOT / "data/certificates/c19_skew_all_orders_kalmanson_z3.json").read_text(
-            encoding="utf-8"
-        )
-    )
+    certificate_path = ROOT / "data/certificates/c19_skew_all_orders_kalmanson_z3.json"
+    certificate = json.loads(certificate_path.read_text(encoding="utf-8"))
     _, clauses = source_clauses(certificate)
-    dimacs = dimacs_text(19, clauses)
+    dimacs = dimacs_from_certificate(certificate_path)
     lines = dimacs.splitlines()
 
+    assert dimacs == dimacs_text(19, clauses)
     assert lines[3] == "p cnf 171 13813"
     assert lines[4] == "1 0"
     assert lines[21] == "18 0"
     assert len(lines) == 13817
+
+
+def test_c19_kalmanson_order_cnf_roundtrip_file(tmp_path: Path) -> None:
+    certificate = ROOT / "data/certificates/c19_skew_all_orders_kalmanson_z3.json"
+    cnf_path = tmp_path / "c19.cnf"
+    cnf_path.write_text(dimacs_from_certificate(certificate), encoding="utf-8", newline="\n")
+
+    check_cnf(cnf_path, dimacs_from_certificate(certificate))
+
+
+def test_c19_kalmanson_order_cnf_rejects_tampered_cnf(tmp_path: Path) -> None:
+    cnf_path = tmp_path / "bad.cnf"
+    cnf_path.write_text("p cnf 1 0\n", encoding="utf-8", newline="\n")
+
+    try:
+        check_cnf(cnf_path, "p cnf 1 1\n1 0\n")
+    except AssertionError as exc:
+        assert "does not match generated DIMACS" in str(exc)
+    else:  # pragma: no cover - defensive assertion shape
+        raise AssertionError("tampered CNF unexpectedly passed")
 
 
 def test_c19_kalmanson_order_cnf_rejects_tampering() -> None:
@@ -99,3 +119,39 @@ def test_c19_kalmanson_order_cnf_cli_json() -> None:
     payload = json.loads(result.stdout)
     assert payload["status"] == "C19_ORDER_CNF_EXPORT_DIAGNOSTIC_ONLY"
     assert payload["trust"] == "EXACT_CERTIFICATE_DIAGNOSTIC"
+
+
+def test_c19_kalmanson_order_cnf_cli_write_and_check_cnf(tmp_path: Path) -> None:
+    cnf_path = tmp_path / "c19.cnf"
+
+    write_result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/export_c19_kalmanson_order_cnf.py",
+            "--write-cnf",
+            str(cnf_path),
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    assert write_result.returncode == 0
+    assert write_result.stderr == ""
+    assert cnf_path.exists()
+
+    check_result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/export_c19_kalmanson_order_cnf.py",
+            "--check-cnf",
+            str(cnf_path),
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    assert check_result.returncode == 0
+    assert check_result.stderr == ""
+    assert "matches generated DIMACS" in check_result.stdout
