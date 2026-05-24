@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
+    EXPECTED_HANDOFF_EDGES,
     EXPECTED_LAYER_IDS,
     assert_expected_local_lemma_audit_path,
     local_lemma_audit_path_payload,
@@ -26,6 +27,11 @@ def test_local_lemma_audit_path_counts_and_scope() -> None:
     assert_expected_local_lemma_audit_path(payload)
     assert payload["validation_status"] == "passed"
     assert payload["audit_path"]["layer_ids"] == EXPECTED_LAYER_IDS
+    assert payload["audit_path"]["handoff_count"] == len(EXPECTED_HANDOFF_EDGES)
+    assert [item["status"] for item in payload["audit_path"]["handoff_checks"]] == [
+        "passed"
+        for _ in EXPECTED_HANDOFF_EDGES
+    ]
     assert payload["coverage_summary"] == {
         "layer_count": 5,
         "template_count": 12,
@@ -55,6 +61,18 @@ def test_local_lemma_audit_path_layer_summaries() -> None:
     assert by_layer["relation_skeleton_local_lemma"]["relation_skeleton_count"] == 16
 
 
+def test_local_lemma_audit_path_handoff_summaries() -> None:
+    payload = local_lemma_audit_path_payload()
+    handoffs = payload["audit_path"]["handoff_checks"]
+
+    assert [
+        (handoff["from_layer"], handoff["to_layer"])
+        for handoff in handoffs
+    ] == EXPECTED_HANDOFF_EDGES
+    assert all("assignment_count" in handoff["compared_keys"] for handoff in handoffs)
+    assert all(handoff["mismatches"] == [] for handoff in handoffs)
+
+
 def test_local_lemma_audit_path_rejects_local_replay_drift() -> None:
     aggregate = load_artifact(DEFAULT_AGGREGATE)
     simple_replay = load_artifact(DEFAULT_SIMPLE_REPLAY)
@@ -74,6 +92,18 @@ def test_local_lemma_audit_path_rejects_local_replay_drift() -> None:
     assert (
         "assignment_count mismatch across audit path: (184, 184, 183, 184, 184)"
         in payload["validation_errors"]
+    )
+    assert any(
+        "focused_minireplay->aggregate_simple_replay handoff mismatch "
+        "on assignment_count: 184 != 183"
+        in error
+        for error in payload["validation_errors"]
+    )
+    assert any(
+        "aggregate_simple_replay->exhaustive_local_lemma handoff mismatch "
+        "on assignment_count: 183 != 184"
+        in error
+        for error in payload["validation_errors"]
     )
 
 

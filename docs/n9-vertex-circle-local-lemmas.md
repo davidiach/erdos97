@@ -642,7 +642,11 @@ The local-lemma audit-path checker then runs the reviewer-facing handoff as
 one chain. It checks that the focused packet/catalog audit, focused
 mini-replay crosswalk, aggregate/simple replay crosswalk,
 exhaustive/local-lemma crosswalk, and relation-skeleton/local-lemma crosswalk
-all agree on the same 12 templates, 16 families, and 184 assignments:
+all agree on the same 12 templates, 16 families, and 184 assignments. Its JSON
+payload now includes explicit adjacent handoff checks for each pair of
+successive layers, so a reviewer can see whether any drift starts at the
+focused-packet, mini-replay, aggregate, exhaustive, or relation-skeleton
+handoff:
 
 ```bash
 python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json
