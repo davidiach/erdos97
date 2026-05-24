@@ -270,6 +270,14 @@ bookkeeping path while keeping D=3 realizability and incidence states
 incidence-completeness result, not a geometric realizability test, and not a
 global status update.
 
+The checker JSON exposes six named `handoff_checks` so reviewers can localize
+drift between adjacent layers without reading the whole artifact stack. These
+checks cover the low-excess to escape-budget handoff, the escape-budget to
+ladder handoff, the ladder to D=3 slice handoff, the D=3 packet stack handoff,
+the D=3 to selected-baseline reference handoff, and the selected-baseline to
+vertex-circle frontier handoff. Each handoff is bookkeeping-only and inherits
+the same review-pending, non-promotional scope.
+
 ## Turn-cover diagnostic
 
 Index the length-2 diagonal `{v_i,v_{i+2}}` by `i`. If it is fully saturated,
