@@ -60,6 +60,14 @@ REVIEW_SCOPE_NOTES = [
     "The vertex-circle frontier remains review-pending and does not promote n=9.",
     "No general proof and no counterexample are claimed.",
 ]
+EXPECTED_HANDOFF_NAMES = [
+    "low_excess_to_escape_budget",
+    "escape_budget_to_ladder",
+    "ladder_to_d3_slice",
+    "d3_slice_to_packet_stack",
+    "d3_slice_to_selected_baseline",
+    "selected_baseline_to_vertex_frontier",
+]
 
 DEFAULT_ARTIFACT_PATHS = {
     "low_excess_ledgers": Path(
@@ -174,6 +182,506 @@ def _expect_equal(
 ) -> None:
     if actual != expected:
         errors.append(f"{label} mismatch: expected {expected!r}, got {actual!r}")
+
+
+def _list_len(value: Any) -> int | None:
+    return len(value) if isinstance(value, list) else None
+
+
+def _sum_int_rows(rows: Any, key: str) -> int | None:
+    if not isinstance(rows, list):
+        return None
+    values = [row.get(key) for row in rows if isinstance(row, dict)]
+    if len(values) != len(rows) or not all(strict_int(value) for value in values):
+        return None
+    return sum(int(value) for value in values)
+
+
+def _row_matching(rows: Any, key: str, value: Any) -> dict[str, Any] | None:
+    if not isinstance(rows, list):
+        return None
+    for row in rows:
+        if isinstance(row, dict) and row.get(key) == value:
+            return row
+    return None
+
+
+def _escape_budget_unresolved_count(payload: Any, *, minimum_deficit: int) -> int | None:
+    rows = _nested_get(payload, "capacity_deficit_distribution")
+    if not isinstance(rows, list):
+        return None
+    total = 0
+    for row in rows:
+        if not isinstance(row, dict):
+            return None
+        capacity_deficit = row.get("capacity_deficit")
+        profile_count = row.get("profile_ledger_count")
+        if not strict_int(capacity_deficit) or not strict_int(profile_count):
+            return None
+        if capacity_deficit >= minimum_deficit:
+            total += int(profile_count)
+    return total
+
+
+def _placement_count(rows: Any) -> int | None:
+    return _sum_int_rows(rows, "placement_count")
+
+
+def _d3_crosswalk_rows(payload: Any) -> list[dict[str, Any]] | None:
+    rows = _nested_get(payload, "crosswalk_rows")
+    if not isinstance(rows, list):
+        return None
+    d3_rows = [
+        row
+        for row in rows
+        if (
+            isinstance(row, dict)
+            and row.get("total_profile_excess") == 6
+            and row.get("capacity_deficit") == 3
+        )
+    ]
+    return d3_rows
+
+
+def _append_handoff_check(
+    handoffs: list[dict[str, Any]],
+    errors: list[str],
+    *,
+    name: str,
+    description: str,
+    evidence: Mapping[str, Any],
+    local_errors: Sequence[str],
+) -> None:
+    handoffs.append(
+        {
+            "name": name,
+            "ok": not local_errors,
+            "description": description,
+            "evidence": dict(evidence),
+            "errors": list(local_errors),
+        }
+    )
+    errors.extend(f"{name}: {error}" for error in local_errors)
+
+
+def _check_match(
+    local_errors: list[str],
+    label: str,
+    actual: Any,
+    expected: Any,
+) -> None:
+    if actual != expected:
+        local_errors.append(f"{label} mismatch: expected {expected!r}, got {actual!r}")
+
+
+def evaluate_handoff_checks(
+    artifacts: Mapping[str, Any],
+) -> tuple[list[dict[str, Any]], list[str]]:
+    """Return named review handoff checks and validation errors."""
+
+    handoffs: list[dict[str, Any]] = []
+    errors: list[str] = []
+
+    low = artifacts.get("low_excess_ledgers")
+    escape = artifacts.get("escape_budget")
+    ladder = artifacts.get("low_excess_ladder")
+    selected = artifacts.get("selected_baseline_d3_crosswalk")
+    vertex = artifacts.get("n9_vertex_circle_exhaustive")
+    d3_slice = artifacts.get("d3_escape_slice")
+    d3_crosswalk = artifacts.get("low_excess_escape_crosswalk")
+    d3_packet = artifacts.get("d3_escape_frontier_packet")
+    full_packet = artifacts.get("d3_incidence_capacity_packet")
+    p19_pilot = artifacts.get("d3_p19_incidence_capacity_pilot")
+
+    strict_low_motifs = _nested_get(low, "strict_minimum_escape_motif_classes")
+    conservative_low_motifs = _nested_get(
+        low,
+        "conservative_minimum_escape_motif_classes",
+    )
+    strict_budget_motifs = _nested_get(
+        escape,
+        "strict_positive_threshold",
+        "minimum_escape_motif_classes",
+    )
+    conservative_budget_motifs = _nested_get(
+        escape,
+        "sum_exceeds_threshold",
+        "minimum_escape_motif_classes",
+    )
+    local_errors: list[str] = []
+    _check_match(local_errors, "n", _nested_get(low, "n"), _nested_get(escape, "n"))
+    _check_match(
+        local_errors,
+        "witness_size",
+        _nested_get(low, "witness_size"),
+        _nested_get(escape, "witness_size"),
+    )
+    _check_match(
+        local_errors,
+        "low unresolved D>=3 ledger count",
+        _nested_get(low, "strict_unresolved_profile_ledger_count"),
+        _escape_budget_unresolved_count(escape, minimum_deficit=3),
+    )
+    _check_match(
+        local_errors,
+        "strict escape motif class count",
+        _list_len(strict_low_motifs),
+        _list_len(strict_budget_motifs),
+    )
+    _check_match(
+        local_errors,
+        "strict escape motif labelled placement count",
+        _placement_count(strict_low_motifs),
+        _placement_count(strict_budget_motifs),
+    )
+    _check_match(
+        local_errors,
+        "conservative escape motif class count",
+        _list_len(conservative_low_motifs),
+        _list_len(conservative_budget_motifs),
+    )
+    _append_handoff_check(
+        handoffs,
+        errors,
+        name="low_excess_to_escape_budget",
+        description=(
+            "Low-excess ledger counts agree with the escape-budget view of "
+            "strict D>=3 unresolved profiles and minimum escape motifs."
+        ),
+        evidence={
+            "low_unresolved_profile_ledger_count": _nested_get(
+                low,
+                "strict_unresolved_profile_ledger_count",
+            ),
+            "escape_budget_d_ge_3_profile_ledger_count": (
+                _escape_budget_unresolved_count(escape, minimum_deficit=3)
+            ),
+            "strict_escape_motif_class_count": _list_len(strict_low_motifs),
+            "strict_escape_motif_labelled_placement_count": _placement_count(
+                strict_low_motifs
+            ),
+            "conservative_escape_motif_class_count": _list_len(
+                conservative_low_motifs
+            ),
+        },
+        local_errors=local_errors,
+    )
+
+    ladder_rows = _nested_get(ladder, "ladder_rows")
+    strict_escape_slice = _nested_get(ladder, "strict_escape_slice")
+    local_errors = []
+    _check_match(
+        local_errors,
+        "low unresolved ledger count vs ladder row sum",
+        _nested_get(low, "strict_unresolved_profile_ledger_count"),
+        _sum_int_rows(ladder_rows, "unlabeled_profile_ledger_count"),
+    )
+    _check_match(
+        local_errors,
+        "minimum relevant deficit",
+        _nested_get(
+            escape,
+            "strict_positive_threshold",
+            "minimum_relevant_deficit_count_to_spoil",
+        ),
+        _nested_get(ladder, "strict_minimal_relevant_escape"),
+    )
+    _check_match(
+        local_errors,
+        "strict escape class count",
+        _list_len(strict_budget_motifs),
+        _nested_get(strict_escape_slice, "dihedral_escape_class_count"),
+    )
+    _check_match(
+        local_errors,
+        "strict escape labelled placement count",
+        _placement_count(strict_budget_motifs),
+        _nested_get(strict_escape_slice, "labelled_escape_placement_count"),
+    )
+    _append_handoff_check(
+        handoffs,
+        errors,
+        name="escape_budget_to_ladder",
+        description=(
+            "The low-excess ladder packages the strict escape-budget threshold "
+            "and sums exactly the unresolved low-excess profile ledgers."
+        ),
+        evidence={
+            "ladder_rung_count": _list_len(ladder_rows),
+            "ladder_unlabeled_profile_ledger_count": _sum_int_rows(
+                ladder_rows,
+                "unlabeled_profile_ledger_count",
+            ),
+            "strict_minimal_relevant_escape": _nested_get(
+                ladder,
+                "strict_minimal_relevant_escape",
+            ),
+            "strict_escape_class_count": _nested_get(
+                strict_escape_slice,
+                "dihedral_escape_class_count",
+            ),
+            "strict_escape_labelled_placement_count": _nested_get(
+                strict_escape_slice,
+                "labelled_escape_placement_count",
+            ),
+        },
+        local_errors=local_errors,
+    )
+
+    d3_ladder_row = _row_matching(ladder_rows, "total_profile_excess", 6)
+    local_errors = []
+    _check_match(
+        local_errors,
+        "D=3 ladder capacity deficit",
+        _nested_get(d3_ladder_row, "capacity_deficit"),
+        3,
+    )
+    _check_match(
+        local_errors,
+        "D=3 labelled profile sequence count",
+        _nested_get(d3_ladder_row, "labelled_profile_sequence_count"),
+        _nested_get(d3_slice, "profile_slice", "labelled_profile_sequence_count"),
+    )
+    _check_match(
+        local_errors,
+        "D=3 common-dihedral class count",
+        _nested_get(d3_ladder_row, "common_dihedral_pair_class_count"),
+        _nested_get(d3_slice, "coupled_slice", "common_dihedral_pair_class_count"),
+    )
+    _check_match(
+        local_errors,
+        "D=3 labelled escape placement count",
+        _nested_get(strict_escape_slice, "labelled_escape_placement_count"),
+        _nested_get(d3_slice, "escape_slice", "labelled_escape_placement_count"),
+    )
+    _append_handoff_check(
+        handoffs,
+        errors,
+        name="ladder_to_d3_slice",
+        description=(
+            "The E=6, D=3 ladder rung agrees with the dedicated D=3 escape "
+            "slice on profile, escape, and coupled class counts."
+        ),
+        evidence={
+            "total_profile_excess": _nested_get(
+                d3_ladder_row,
+                "total_profile_excess",
+            ),
+            "capacity_deficit": _nested_get(d3_ladder_row, "capacity_deficit"),
+            "labelled_profile_sequence_count": _nested_get(
+                d3_ladder_row,
+                "labelled_profile_sequence_count",
+            ),
+            "labelled_escape_placement_count": _nested_get(
+                strict_escape_slice,
+                "labelled_escape_placement_count",
+            ),
+            "common_dihedral_pair_class_count": _nested_get(
+                d3_ladder_row,
+                "common_dihedral_pair_class_count",
+            ),
+        },
+        local_errors=local_errors,
+    )
+
+    d3_rows = _d3_crosswalk_rows(d3_crosswalk)
+    full_rows = _nested_get(full_packet, "rows")
+    pilot_rows = _nested_get(p19_pilot, "rows")
+    local_errors = []
+    _check_match(
+        local_errors,
+        "D=3 crosswalk row count",
+        _list_len(d3_rows),
+        _nested_get(d3_packet, "representative_count"),
+    )
+    _check_match(
+        local_errors,
+        "D=3 packet vs full packet representative count",
+        _nested_get(d3_packet, "representative_count"),
+        _nested_get(full_packet, "representative_count"),
+    )
+    _check_match(
+        local_errors,
+        "full packet row count",
+        _list_len(full_rows),
+        _nested_get(full_packet, "representative_count"),
+    )
+    _check_match(
+        local_errors,
+        "D=3 class count",
+        _nested_get(d3_slice, "coupled_slice", "common_dihedral_pair_class_count"),
+        _nested_get(d3_packet, "common_dihedral_pair_class_count"),
+    )
+    _check_match(
+        local_errors,
+        "P19 pilot row count",
+        _list_len(pilot_rows),
+        _nested_get(p19_pilot, "representative_count"),
+    )
+    _check_match(
+        local_errors,
+        "full packet realizability state",
+        _nested_get(full_packet, "realizability_state"),
+        EXPECTED_REALIZABILITY_STATE,
+    )
+    _check_match(
+        local_errors,
+        "full packet incidence state",
+        _nested_get(full_packet, "incidence_state"),
+        EXPECTED_INCIDENCE_STATE,
+    )
+    _append_handoff_check(
+        handoffs,
+        errors,
+        name="d3_slice_to_packet_stack",
+        description=(
+            "The D=3 slice, representative packet, P19 pilot, and all-row "
+            "incidence-capacity packet keep the same 88-row bookkeeping stack."
+        ),
+        evidence={
+            "d3_crosswalk_row_count": _list_len(d3_rows),
+            "d3_packet_representative_count": _nested_get(
+                d3_packet,
+                "representative_count",
+            ),
+            "full_packet_row_count": _list_len(full_rows),
+            "p19_pilot_row_count": _list_len(pilot_rows),
+            "d3_common_dihedral_pair_class_count": _nested_get(
+                d3_slice,
+                "coupled_slice",
+                "common_dihedral_pair_class_count",
+            ),
+            "realizability_state": _nested_get(full_packet, "realizability_state"),
+            "incidence_state": _nested_get(full_packet, "incidence_state"),
+        },
+        local_errors=local_errors,
+    )
+
+    local_errors = []
+    _check_match(
+        local_errors,
+        "selected-baseline D=3 capacity budget",
+        _nested_get(selected, "capacity_deficit_budget"),
+        _nested_get(d3_slice, "profile_slice", "capacity_deficit"),
+    )
+    _check_match(
+        local_errors,
+        "selected-baseline escape class count",
+        _nested_get(selected, "escape_class_count"),
+        _nested_get(d3_slice, "escape_slice", "dihedral_escape_class_count"),
+    )
+    _check_match(
+        local_errors,
+        "non-comparable D=3 reference count",
+        _nested_get(
+            selected,
+            "crosswalk_summary",
+            "not_comparable_reference_common_dihedral_profile_escape_class_count",
+        ),
+        _nested_get(d3_slice, "coupled_slice", "common_dihedral_pair_class_count"),
+    )
+    _append_handoff_check(
+        handoffs,
+        errors,
+        name="d3_slice_to_selected_baseline",
+        description=(
+            "The selected-baseline D=3 crosswalk points back to the same "
+            "D=3 profile/escape reference while keeping the counts "
+            "non-comparable."
+        ),
+        evidence={
+            "capacity_deficit_budget": _nested_get(
+                selected,
+                "capacity_deficit_budget",
+            ),
+            "escape_class_count": _nested_get(selected, "escape_class_count"),
+            "not_comparable_reference_count": _nested_get(
+                selected,
+                "crosswalk_summary",
+                "not_comparable_reference_common_dihedral_profile_escape_class_count",
+            ),
+            "d3_common_dihedral_pair_class_count": _nested_get(
+                d3_slice,
+                "coupled_slice",
+                "common_dihedral_pair_class_count",
+            ),
+        },
+        local_errors=local_errors,
+    )
+
+    vertex_cross_check = _nested_get(
+        vertex,
+        "cross_check_without_vertex_circle_pruning",
+    )
+    assignment_count = _nested_get(selected, "assignment_count")
+    forced = _nested_get(selected, "forced_budget3_slot_choice_count")
+    escaping = _nested_get(selected, "escaping_budget3_slot_choice_count")
+    total_slot_choices = _nested_get(selected, "total_budget3_slot_choice_count")
+    self_edge_count = _nested_get(vertex_cross_check, "counts", "self_edge")
+    strict_cycle_count = _nested_get(vertex_cross_check, "counts", "strict_cycle")
+    local_errors = []
+    _check_match(
+        local_errors,
+        "selected-baseline assignment count",
+        assignment_count,
+        _nested_get(vertex_cross_check, "full_assignments"),
+    )
+    _check_match(
+        local_errors,
+        "selected-baseline slot-choice arithmetic",
+        total_slot_choices,
+        assignment_count * 84 if strict_int(assignment_count) else None,
+    )
+    _check_match(
+        local_errors,
+        "selected-baseline forced plus escaping slot choices",
+        forced + escaping if strict_int(forced) and strict_int(escaping) else None,
+        total_slot_choices,
+    )
+    _check_match(
+        local_errors,
+        "vertex frontier obstruction partition",
+        self_edge_count + strict_cycle_count
+        if strict_int(self_edge_count) and strict_int(strict_cycle_count)
+        else None,
+        _nested_get(vertex_cross_check, "full_assignments"),
+    )
+    _check_match(
+        local_errors,
+        "vertex-circle pruned main search full assignments",
+        _nested_get(vertex, "main_search", "full_assignments"),
+        0,
+    )
+    _append_handoff_check(
+        handoffs,
+        errors,
+        name="selected_baseline_to_vertex_frontier",
+        description=(
+            "The selected-baseline D=3 rows land on the same 184 "
+            "pre-vertex-circle frontier assignments and preserve the "
+            "review-pending self-edge/strict-cycle partition."
+        ),
+        evidence={
+            "assignment_count": assignment_count,
+            "total_budget3_slot_choice_count": total_slot_choices,
+            "forced_budget3_slot_choice_count": forced,
+            "escaping_budget3_slot_choice_count": escaping,
+            "vertex_frontier_assignment_count": _nested_get(
+                vertex_cross_check,
+                "full_assignments",
+            ),
+            "self_edge_count": self_edge_count,
+            "strict_cycle_count": strict_cycle_count,
+            "main_full_assignments": _nested_get(
+                vertex,
+                "main_search",
+                "full_assignments",
+            ),
+        },
+        local_errors=local_errors,
+    )
+
+    return handoffs, errors
 
 
 def validate_vertex_circle_artifact(payload: Any) -> list[str]:
@@ -358,6 +866,8 @@ def validate_cross_links(artifacts: Mapping[str, Any]) -> list[str]:
         _nested_get(p19_pilot, "incidence_state"),
         EXPECTED_INCIDENCE_STATE,
     )
+    _handoff_checks, handoff_errors = evaluate_handoff_checks(artifacts)
+    errors.extend(handoff_errors)
     return errors
 
 
@@ -437,6 +947,7 @@ def summary_payload(
         "trust": EXPECTED_TRUST,
         "claim_scope": EXPECTED_CLAIM_SCOPE,
         "review_scope_notes": REVIEW_SCOPE_NOTES,
+        "handoff_checks": evaluate_handoff_checks(artifacts)[0],
         "artifacts": {
             key: display_path(path, root)
             for key, path in sorted(paths.items())
