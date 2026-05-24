@@ -123,6 +123,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         claim_scope="Structural diagnostic for the C19_skew all-order Z3 clauses only.",
     ),
     AuditCommand(
+        ident="c19_order_cnf_summary",
+        command=(
+            "python",
+            "scripts/export_c19_kalmanson_order_cnf.py",
+            "--assert-expected",
+            "--check-artifact",
+            "reports/c19_kalmanson_order_cnf_summary.json",
+        ),
+        claim_scope=(
+            "Z3-independent DIMACS encoding summary for the stored C19_skew "
+            "order clauses; replay target only, not a solver-independent "
+            "UNSAT proof or proof of Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
         ident="c13_fixed_order_compact_kalmanson",
         command=(
             "python",

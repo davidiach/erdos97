@@ -110,6 +110,22 @@ two selected-distance classes against two selected-distance classes. This is
 template-mining guidance only; it does not transfer the fixed-pattern
 obstructions to arbitrary selected-witness systems.
 
+The C19 order-clause CNF export is:
+
+```bash
+python scripts/export_c19_kalmanson_order_cnf.py \
+  --assert-expected \
+  --check-artifact reports/c19_kalmanson_order_cnf_summary.json
+```
+
+This checker validates the stored C19 forbidden ordered-quadrilateral pairs as
+exact inverse-pair clauses, then exports the same order problem as a DIMACS CNF
+target using pair-precedence variables and transitivity clauses. The checked
+summary records 171 variables, 13,813 clauses, and a deterministic SHA256 hash
+of the DIMACS text. This is a Z3-independent representation only; it is not yet
+a solver-independent UNSAT proof because no DRAT/LRAT or equivalent proof
+object is checked.
+
 ## Reproduction
 
 Regenerate the artifact:
