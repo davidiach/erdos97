@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 from types import SimpleNamespace
 
-from scripts.probe_c19_proof_tooling import tooling_probe
+from scripts.probe_c19_proof_tooling import c19_cnf_summary_payload, tooling_probe
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -80,6 +80,34 @@ def test_probe_cli_json_is_claim_neutral() -> None:
         "proves_c19_order_cnf_unsat": False,
         "proves_erdos97": False,
     }
+    assert payload["c19_cnf_summary"] == {"checked": False}
+
+
+def test_probe_can_check_c19_cnf_summary() -> None:
+    payload = tooling_probe(check_c19_cnf_summary=True)
+
+    assert payload["c19_cnf_summary"] == {
+        "checked": True,
+        "ok": True,
+        "artifact": "reports/c19_kalmanson_order_cnf_summary.json",
+        "variables": 171,
+        "clauses": 13813,
+        "dimacs_sha256": (
+            "dd4b8f429fea232bf09ff878342d7a28f4e9b6e743c99cd1b48f681d0f9ec450"
+        ),
+    }
+
+
+def test_probe_reports_bad_c19_cnf_summary_without_traceback(tmp_path: Path) -> None:
+    bad_artifact = tmp_path / "bad_c19_summary.json"
+    bad_artifact.write_text("{}\n", encoding="utf-8")
+
+    payload = c19_cnf_summary_payload(bad_artifact)
+
+    assert payload["checked"] is True
+    assert payload["ok"] is False
+    assert payload["artifact"] == str(bad_artifact)
+    assert "does not match regenerated payload" in payload["error"]
 
 
 def test_probe_cli_requirement_failure_is_explicit() -> None:
@@ -126,3 +154,51 @@ def test_probe_cli_dotted_missing_module_still_emits_json() -> None:
     assert payload["python_modules"]["erdos97_definitely_missing_parent.child"] == {
         "found": False
     }
+
+
+def test_probe_cli_c19_cnf_summary_preflight() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/probe_c19_proof_tooling.py",
+            "--check-c19-cnf-summary",
+            "--json",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 0
+    assert result.stderr == ""
+    payload = json.loads(result.stdout)
+    assert payload["c19_cnf_summary"]["ok"] is True
+    assert payload["c19_cnf_summary"]["artifact"] == (
+        "reports/c19_kalmanson_order_cnf_summary.json"
+    )
+
+
+def test_probe_cli_bad_c19_cnf_summary_fails_with_json(tmp_path: Path) -> None:
+    bad_artifact = tmp_path / "bad_c19_summary.json"
+    bad_artifact.write_text("{}\n", encoding="utf-8")
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/probe_c19_proof_tooling.py",
+            "--check-c19-cnf-summary",
+            "--c19-cnf-summary-artifact",
+            str(bad_artifact),
+            "--json",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 1
+    assert "C19 CNF summary check failed" in result.stderr
+    payload = json.loads(result.stdout)
+    assert payload["c19_cnf_summary"]["ok"] is False

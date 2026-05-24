@@ -151,10 +151,15 @@ The local proof-tooling environment can be probed with:
 
 ```bash
 python scripts/probe_c19_proof_tooling.py --json
+
+python scripts/probe_c19_proof_tooling.py \
+  --check-c19-cnf-summary \
+  --json
 ```
 
-That probe reports local solver/checker availability only. It is not a proof
-replay and does not promote the all-order Z3 certificate to a
+That probe reports local solver/checker availability and can preflight the
+stored C19 order-CNF summary against the deterministic exporter. It is not a
+proof replay and does not promote the all-order Z3 certificate to a
 solver-independent proof object.
 
 ## C13/C19 Inverse-Pair Template Diagnostic

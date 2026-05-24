@@ -375,7 +375,9 @@ Use this queue when no more specific issue is selected.
    round-trip an external CNF file with `--write-cnf` and `--check-cnf`.
    The local proof-tooling environment probe
    `python scripts/probe_c19_proof_tooling.py --json` records whether a
-   supported SAT solver/checker pair is available, but this is environment
+   supported SAT solver/checker pair is available. With
+   `--check-c19-cnf-summary`, it also checks the stored C19 order-CNF summary
+   against the deterministic exporter, but this is environment/preflight
    bookkeeping only and not proof evidence.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
    with an independent input-data replay. The current SymPy-free
@@ -621,6 +623,7 @@ python scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --j
 python scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json
 python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json
 python scripts/probe_c19_proof_tooling.py --json
+python scripts/probe_c19_proof_tooling.py --check-c19-cnf-summary --json
 ```
 
 Expected artifacts:
