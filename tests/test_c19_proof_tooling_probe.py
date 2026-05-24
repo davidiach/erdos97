@@ -49,6 +49,18 @@ def test_probe_reports_ready_with_mocked_solver_and_checker() -> None:
     assert replay["missing_groups"] == []
 
 
+def test_probe_treats_missing_dotted_module_parent_as_not_found() -> None:
+    def raising_find_spec(_name: str) -> object | None:
+        raise ModuleNotFoundError("missing parent")
+
+    payload = tooling_probe(
+        module_names=("missing_parent.child",),
+        find_spec=raising_find_spec,
+    )
+
+    assert payload["python_modules"]["missing_parent.child"] == {"found": False}
+
+
 def test_probe_cli_json_is_claim_neutral() -> None:
     result = subprocess.run(
         [sys.executable, "scripts/probe_c19_proof_tooling.py", "--json"],
@@ -91,3 +103,26 @@ def test_probe_cli_requirement_failure_is_explicit() -> None:
     assert payload["requirements"]["missing_commands"] == [
         "erdos97-definitely-missing-proof-tool"
     ]
+
+
+def test_probe_cli_dotted_missing_module_still_emits_json() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/probe_c19_proof_tooling.py",
+            "--module",
+            "erdos97_definitely_missing_parent.child",
+            "--json",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 0
+    assert result.stderr == ""
+    payload = json.loads(result.stdout)
+    assert payload["python_modules"]["erdos97_definitely_missing_parent.child"] == {
+        "found": False
+    }

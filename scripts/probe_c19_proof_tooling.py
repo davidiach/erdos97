@@ -49,7 +49,11 @@ def _module_payload(
 ) -> dict[str, dict[str, bool]]:
     modules: dict[str, dict[str, bool]] = {}
     for name in module_names:
-        modules[name] = {"found": find_spec(name) is not None}
+        try:
+            found = find_spec(name) is not None
+        except (ImportError, AttributeError, ValueError):
+            found = False
+        modules[name] = {"found": found}
     return modules
 
 
