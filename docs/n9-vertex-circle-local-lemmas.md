@@ -649,14 +649,16 @@ metadata contracts for declared path/role/schema/status/trust fields,
 claim-scope guards for the non-proof/non-counterexample/global-status
 disclaimers, output contracts for each layer's reviewer-facing summary
 sections, per-layer input contracts for the expected upstream artifact paths,
-and adjacent handoff checks for each pair of successive layers, so a reviewer
-can see whether any drift starts in a layer identity contract, a provenance
-contract, a source-artifact contract, a claim-scope guard, an output contract,
-an input contract, or at the focused-packet, mini-replay, aggregate,
-exhaustive, or relation-skeleton handoff. It also includes an `input_manifest`
-listing the checked upstream artifact paths, roles, sizes, and SHA256 digests
-used by the combined audit path, plus a manifest-consistency check comparing
-those paths with the artifacts actually referenced by each layer payload:
+a focused minireplay record-path contract for the per-template packet and
+mini-replay paths, and adjacent handoff checks for each pair of successive
+layers, so a reviewer can see whether any drift starts in a layer identity
+contract, a provenance contract, a source-artifact contract, a claim-scope
+guard, an output contract, an input contract, a focused record-path contract,
+or at the focused-packet, mini-replay, aggregate, exhaustive, or
+relation-skeleton handoff. It also includes an `input_manifest` listing the
+checked upstream artifact paths, roles, sizes, and SHA256 digests used by the
+combined audit path, plus a manifest-consistency check comparing those paths
+with the artifacts actually referenced by each layer payload:
 
 ```bash
 python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json

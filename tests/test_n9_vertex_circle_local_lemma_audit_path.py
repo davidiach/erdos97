@@ -201,6 +201,32 @@ def test_local_lemma_audit_path_layer_input_contracts() -> None:
         assert contract["unexpected_input_paths"] == []
 
 
+def test_local_lemma_audit_path_focused_minireplay_record_path_contract() -> None:
+    payload = local_lemma_audit_path_payload()
+    contract = payload["audit_path"]["focused_minireplay_record_path_contract"]
+    by_template = {
+        record["template_id"]: record for record in contract["observed_records"]
+    }
+
+    assert contract["status"] == "passed"
+    assert contract["records_type"] == "list"
+    assert contract["expected_record_count"] == 12
+    assert contract["observed_record_count"] == 12
+    assert contract["expected_records"] == contract["observed_records"]
+    assert contract["missing_template_ids"] == []
+    assert contract["unexpected_template_ids"] == []
+    assert contract["duplicate_template_ids"] == []
+    assert contract["mismatched_record_paths"] == []
+    assert contract["malformed_record_count"] == 0
+    assert by_template["T01"] == {
+        "template_id": "T01",
+        "source_packet_path": (
+            "data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json"
+        ),
+        "minireplay_path": "data/certificates/n9_t01_self_edge_minireplay.json",
+    }
+
+
 def test_local_lemma_audit_path_rejects_unmanifested_layer_path() -> None:
     focused_minireplay = focused_minireplay_crosswalk_payload()
     tampered = json.loads(json.dumps(focused_minireplay))
@@ -217,12 +243,22 @@ def test_local_lemma_audit_path_rejects_unmanifested_layer_path() -> None:
         for contract in payload["audit_path"]["layer_input_contracts"]
     }
     focused_contract = input_contracts["focused_minireplay"]
+    record_contract = payload["audit_path"]["focused_minireplay_record_path_contract"]
 
     assert payload["validation_status"] == "failed"
     assert focused_contract["status"] == "failed"
     assert focused_contract["missing_input_paths"] == [original_path]
     assert focused_contract["unexpected_input_paths"] == [
         "data/certificates/unmanifested_minireplay.json"
+    ]
+    assert record_contract["status"] == "failed"
+    assert record_contract["mismatched_record_paths"] == [
+        {
+            "template_id": "T01",
+            "key": "minireplay_path",
+            "expected": original_path,
+            "observed": "data/certificates/unmanifested_minireplay.json",
+        }
     ]
     assert payload["manifest_consistency"]["status"] == "failed"
     assert payload["manifest_consistency"]["missing_from_manifest"] == [
@@ -234,6 +270,26 @@ def test_local_lemma_audit_path_rejects_unmanifested_layer_path() -> None:
     )
     assert any(
         "input_manifest missing layer-referenced paths" in error
+        for error in payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_malformed_record_path() -> None:
+    focused_minireplay = focused_minireplay_crosswalk_payload()
+    tampered = json.loads(json.dumps(focused_minireplay))
+    tampered["focused_minireplay_crosswalk"]["records"][0][
+        "source_packet_path"
+    ] = ["not", "string"]
+
+    payload = local_lemma_audit_path_payload(focused_minireplay_payload=tampered)
+    record_contract = payload["audit_path"]["focused_minireplay_record_path_contract"]
+
+    assert payload["validation_status"] == "failed"
+    assert record_contract["status"] == "failed"
+    assert record_contract["malformed_record_count"] == 1
+    assert record_contract["missing_template_ids"] == ["T01"]
+    assert any(
+        "focused_minireplay has 1 malformed records" in error
         for error in payload["validation_errors"]
     )
 

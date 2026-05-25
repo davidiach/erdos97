@@ -449,6 +449,9 @@ def local_lemma_audit_path_payload(
     claim_scope_guards = _claim_scope_guards(layers, errors)
     layer_output_contracts = _layer_output_contracts(layers, errors)
     layer_input_contracts = _layer_input_contracts(layers, errors)
+    focused_record_path_contract = _focused_minireplay_record_path_contract(
+        layers["focused_minireplay"], errors
+    )
     layer_summaries = [_layer_summary(layer_id, layers[layer_id], errors) for layer_id in EXPECTED_LAYER_IDS]
     handoff_checks = _handoff_checks(layer_summaries, errors)
     coverage = _coverage_summary(layer_summaries, errors)
@@ -471,6 +474,7 @@ def local_lemma_audit_path_payload(
             "claim_scope_guards": claim_scope_guards,
             "layer_output_contracts": layer_output_contracts,
             "layer_input_contracts": layer_input_contracts,
+            "focused_minireplay_record_path_contract": focused_record_path_contract,
             "handoff_count": len(handoff_checks),
             "handoff_checks": handoff_checks,
             "layers": layer_summaries,
@@ -521,6 +525,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_claim_scope_guards(payload)
     _assert_expected_layer_output_contracts(payload)
     _assert_expected_layer_input_contracts(payload)
+    _assert_expected_focused_minireplay_record_path_contract(payload)
     _assert_expected_input_manifest(payload)
     _assert_expected_manifest_consistency(payload)
 
@@ -771,6 +776,44 @@ def _assert_expected_layer_input_contracts(payload: Mapping[str, Any]) -> None:
             raise AssertionError(f"{layer_id} missing input paths")
         if contract.get("unexpected_input_paths") != []:
             raise AssertionError(f"{layer_id} unexpected input paths")
+
+
+def _assert_expected_focused_minireplay_record_path_contract(
+    payload: Mapping[str, Any],
+) -> None:
+    audit_path = payload.get("audit_path")
+    if not isinstance(audit_path, Mapping):
+        raise AssertionError("audit_path must be an object")
+    contract = audit_path.get("focused_minireplay_record_path_contract")
+    if not isinstance(contract, Mapping):
+        raise AssertionError(
+            "audit_path.focused_minireplay_record_path_contract must be an object"
+        )
+    expected = _expected_focused_minireplay_records()
+    if contract.get("records_type") != "list":
+        raise AssertionError("focused minireplay records must be a list")
+    if contract.get("expected_record_count") != len(expected):
+        raise AssertionError("focused minireplay expected record count mismatch")
+    if contract.get("observed_record_count") != len(expected):
+        raise AssertionError("focused minireplay observed record count mismatch")
+    if contract.get("expected_records") != expected:
+        raise AssertionError("focused minireplay expected records mismatch")
+    if contract.get("observed_records") != expected:
+        raise AssertionError("focused minireplay observed records mismatch")
+    if contract.get("status") != "passed":
+        raise AssertionError(
+            f"focused minireplay record-path contract failed: {contract!r}"
+        )
+    for key in (
+        "missing_template_ids",
+        "unexpected_template_ids",
+        "duplicate_template_ids",
+        "mismatched_record_paths",
+    ):
+        if contract.get(key) != []:
+            raise AssertionError(f"focused minireplay {key} is not empty")
+    if contract.get("malformed_record_count") != 0:
+        raise AssertionError("focused minireplay malformed records")
 
 
 def _assert_expected_input_manifest(payload: Mapping[str, Any]) -> None:
@@ -1260,6 +1303,148 @@ def _artifact_path_key(path: Path) -> str:
     return display_path(path.resolve(), ROOT).replace("\\", "/")
 
 
+def _focused_minireplay_record_path_contract(
+    focused_minireplay: Mapping[str, Any],
+    errors: list[str],
+) -> dict[str, Any]:
+    expected = _expected_focused_minireplay_records()
+    summary = focused_minireplay.get("focused_minireplay_crosswalk")
+    records = summary.get("records", []) if isinstance(summary, Mapping) else []
+    records_type = "list" if isinstance(records, list) else type(records).__name__
+    observed, malformed_count = _observed_focused_minireplay_records(records)
+    expected_by_template = {record["template_id"]: record for record in expected}
+    observed_by_template = {record["template_id"]: record for record in observed}
+    observed_template_ids = [record["template_id"] for record in observed]
+    duplicate_template_ids = sorted(
+        {
+            template_id
+            for template_id in observed_template_ids
+            if observed_template_ids.count(template_id) > 1
+        }
+    )
+    missing = sorted(set(expected_by_template) - set(observed_by_template))
+    unexpected = sorted(set(observed_by_template) - set(expected_by_template))
+    mismatches = _focused_minireplay_record_path_mismatches(
+        expected_by_template,
+        observed_by_template,
+    )
+    bad_records_type = records_type != "list"
+
+    if bad_records_type:
+        errors.append(f"focused_minireplay records has type {records_type}")
+    if malformed_count:
+        errors.append(f"focused_minireplay has {malformed_count} malformed records")
+    if duplicate_template_ids:
+        errors.append(
+            f"focused_minireplay duplicate template ids: {duplicate_template_ids!r}"
+        )
+    if missing:
+        errors.append(f"focused_minireplay missing record templates: {missing!r}")
+    if unexpected:
+        errors.append(
+            f"focused_minireplay unexpected record templates: {unexpected!r}"
+        )
+    for mismatch in mismatches:
+        errors.append(
+            f"focused_minireplay record path mismatch on "
+            f"{mismatch['template_id']} {mismatch['key']}: "
+            f"{mismatch['observed']!r} != {mismatch['expected']!r}"
+        )
+
+    return {
+        "records_type": records_type,
+        "expected_record_count": len(expected),
+        "observed_record_count": len(observed),
+        "expected_records": expected,
+        "observed_records": _sort_focused_minireplay_records(observed),
+        "missing_template_ids": missing,
+        "unexpected_template_ids": unexpected,
+        "duplicate_template_ids": duplicate_template_ids,
+        "mismatched_record_paths": mismatches,
+        "malformed_record_count": malformed_count,
+        "status": (
+            "passed"
+            if not (
+                bad_records_type
+                or malformed_count
+                or duplicate_template_ids
+                or missing
+                or unexpected
+                or mismatches
+            )
+            else "failed"
+        ),
+    }
+
+
+def _expected_focused_minireplay_records() -> list[dict[str, str]]:
+    return [
+        {
+            "template_id": template_id,
+            "source_packet_path": _artifact_path_key(DEFAULT_PACKET_PATHS[template_id]),
+            "minireplay_path": _artifact_path_key(DEFAULT_MINIREPLAY_PATHS[template_id]),
+        }
+        for template_id in EXPECTED_TEMPLATE_IDS
+    ]
+
+
+def _observed_focused_minireplay_records(
+    records: Any,
+) -> tuple[list[dict[str, str]], int]:
+    if not isinstance(records, list):
+        return [], 0
+    observed: list[dict[str, str]] = []
+    malformed_count = 0
+    for record in records:
+        if not isinstance(record, Mapping):
+            malformed_count += 1
+            continue
+        template_id = record.get("template_id")
+        source_packet_path = record.get("source_packet_path")
+        minireplay_path = record.get("minireplay_path")
+        if not all(
+            isinstance(value, str)
+            for value in (template_id, source_packet_path, minireplay_path)
+        ):
+            malformed_count += 1
+            continue
+        observed.append(
+            {
+                "template_id": template_id,
+                "source_packet_path": source_packet_path,
+                "minireplay_path": minireplay_path,
+            }
+        )
+    return _sort_focused_minireplay_records(observed), malformed_count
+
+
+def _focused_minireplay_record_path_mismatches(
+    expected_by_template: Mapping[str, Mapping[str, str]],
+    observed_by_template: Mapping[str, Mapping[str, str]],
+) -> list[dict[str, str]]:
+    mismatches: list[dict[str, str]] = []
+    for template_id in sorted(set(expected_by_template) & set(observed_by_template)):
+        expected = expected_by_template[template_id]
+        observed = observed_by_template[template_id]
+        for key in ("source_packet_path", "minireplay_path"):
+            if observed.get(key) != expected.get(key):
+                mismatches.append(
+                    {
+                        "template_id": template_id,
+                        "key": key,
+                        "expected": expected[key],
+                        "observed": observed[key],
+                    }
+                )
+    return mismatches
+
+
+def _sort_focused_minireplay_records(
+    records: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    return sorted(records, key=lambda record: record["template_id"])
+
+
 def _input_manifest() -> dict[str, Any]:
     entries: dict[str, dict[str, Any]] = {}
 
@@ -1594,6 +1779,8 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"{_summary_status(payload['audit_path']['layer_output_contracts'])}",
         "layer input contracts: "
         f"{_summary_status(payload['audit_path']['layer_input_contracts'])}",
+        "focused minireplay record paths: "
+        f"{payload['audit_path']['focused_minireplay_record_path_contract']['status']}",
         f"handoffs: {payload['audit_path']['handoff_count']}",
         f"input artifacts: {payload['input_manifest']['artifact_count']}",
         f"manifest consistency: {payload['manifest_consistency']['status']}",
