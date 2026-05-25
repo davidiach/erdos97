@@ -3426,6 +3426,7 @@ def _payload_with_assert_expected_failure(
         errors = [f"validation_errors is not a list: {type(errors).__name__}"]
     else:
         errors = [str(error) for error in errors]
+    validation_error_count = len(errors)
     message = f"assert_expected failed: {exc}"
     if message not in errors:
         errors.append(message)
@@ -3435,6 +3436,7 @@ def _payload_with_assert_expected_failure(
         "stage": "assert_expected",
         "exception_type": type(exc).__name__,
         "message": str(exc),
+        "validation_error_count": validation_error_count,
     }
     return updated
 

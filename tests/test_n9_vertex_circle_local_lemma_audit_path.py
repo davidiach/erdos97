@@ -1415,6 +1415,7 @@ def test_local_lemma_audit_path_cli_json_scalar_validation_errors_shape(
         "stage": "assert_expected",
         "exception_type": "AssertionError",
         "message": "validation errors: 'malformed contract payload'",
+        "validation_error_count": 1,
     }
 
 
@@ -1456,6 +1457,9 @@ def test_local_lemma_audit_path_cli_json_assert_expected_failure_returns_payload
     assert parsed["assert_expected_failure"]["message"].startswith(
         "validation errors:"
     )
+    assert parsed["assert_expected_failure"]["validation_error_count"] == len(
+        parsed["validation_errors"]
+    ) - 1
 
 
 def test_local_lemma_audit_path_cli_generation_failure_stays_textual(
@@ -1519,6 +1523,7 @@ def test_local_lemma_audit_path_cli_json_generation_failure_returns_payload(
             "validation errors: "
             "['payload construction failed: malformed audit fixture']"
         ),
+        "validation_error_count": 1,
     }
 
 
