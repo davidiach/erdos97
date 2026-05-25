@@ -1402,6 +1402,12 @@ def test_local_lemma_audit_path_cli_assert_expected_failure_stays_textual(
     assert captured.out == ""
     assert "FAILED: local-lemma audit path" in lines
     assert "manifest contract summary: failed" in lines
+    assert (
+        f"assert_expected failure schema: {ASSERT_EXPECTED_FAILURE_SCHEMA}"
+        in lines
+    )
+    assert "assert_expected failure type: AssertionError" in lines
+    assert "assert_expected failure validation errors: 1" in lines
     assert any(
         line.startswith("- assert_expected failed: validation errors:")
         for line in lines

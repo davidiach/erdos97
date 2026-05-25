@@ -698,7 +698,9 @@ JSON diagnostics for `--assert-expected` failures also include an
 Python exception type, message, and underlying validation-error count so
 consumers do not have to parse the error string. The checker validates that
 nested object contract for schema, exact keys, stage, nonempty text fields, and
-the pre-assertion validation-error count.
+the pre-assertion validation-error count. Text-mode failure summaries mirror
+the nested schema, exception type, and count so reviewers can identify the
+failure contract without switching to JSON.
 
 This is still only a review-pending audit-path diagnostic. It does not prove
 packet soundness, mini-replay soundness, local-lemma completeness, frontier
