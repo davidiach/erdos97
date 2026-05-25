@@ -105,6 +105,25 @@ def test_local_lemma_audit_path_manifest_role_contract() -> None:
     ]
 
 
+def test_local_lemma_audit_path_manifest_digest_contract() -> None:
+    payload = local_lemma_audit_path_payload()
+    contract = payload["manifest_digest_contract"]
+    by_path = {record["path"]: record for record in contract["observed_digests"]}
+
+    assert contract["status"] == "passed"
+    assert contract["expected_path_count"] == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert contract["observed_path_count"] == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert contract["expected_digests"] == contract["observed_digests"]
+    assert contract["missing_manifest_digest_paths"] == []
+    assert contract["unexpected_manifest_digest_paths"] == []
+    assert contract["duplicate_manifest_digest_paths"] == []
+    assert contract["mismatched_manifest_digests"] == []
+    assert contract["malformed_manifest_digest_count"] == 0
+    local_digest = by_path["data/certificates/n9_vertex_circle_local_lemmas.json"]
+    assert local_digest["size_bytes"] > 0
+    assert len(local_digest["sha256"]) == 64
+
+
 def test_local_lemma_audit_path_manifest_consistency() -> None:
     payload = local_lemma_audit_path_payload()
     consistency = payload["manifest_consistency"]
@@ -167,6 +186,70 @@ def test_local_lemma_audit_path_rejects_malformed_manifest_roles() -> None:
     assert len(contract["missing_manifest_role_paths"]) == EXPECTED_INPUT_ARTIFACT_COUNT
     assert any(
         "input_manifest has 1 malformed role entries" in error
+        for error in tampered_payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_manifest_digest_drift() -> None:
+    payload = local_lemma_audit_path_payload()
+    input_by_path = {
+        artifact["path"]: artifact for artifact in payload["input_manifest"]["artifacts"]
+    }
+    original = input_by_path["data/certificates/n9_vertex_circle_local_lemmas.json"]
+    tampered_manifest = json.loads(json.dumps(payload["input_manifest"]))
+    for artifact in tampered_manifest["artifacts"]:
+        if artifact["path"] == "data/certificates/n9_vertex_circle_local_lemmas.json":
+            artifact["sha256"] = "0" * 64
+            break
+
+    tampered_payload = local_lemma_audit_path_payload(
+        input_manifest_payload=tampered_manifest,
+    )
+    contract = tampered_payload["manifest_digest_contract"]
+
+    assert tampered_payload["validation_status"] == "failed"
+    assert contract["status"] == "failed"
+    assert contract["mismatched_manifest_digests"] == [
+        {
+            "path": "data/certificates/n9_vertex_circle_local_lemmas.json",
+            "expected": {
+                "size_bytes": original["size_bytes"],
+                "sha256": original["sha256"],
+            },
+            "observed": {
+                "size_bytes": original["size_bytes"],
+                "sha256": "0" * 64,
+            },
+        }
+    ]
+    assert any(
+        "input_manifest digest mismatch on "
+        "data/certificates/n9_vertex_circle_local_lemmas.json" in error
+        for error in tampered_payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_malformed_manifest_digests() -> None:
+    payload = local_lemma_audit_path_payload()
+    tampered_manifest = json.loads(json.dumps(payload["input_manifest"]))
+    for artifact in tampered_manifest["artifacts"]:
+        if artifact["path"] == "data/certificates/n9_vertex_circle_local_lemmas.json":
+            artifact["sha256"] = "not-a-sha256"
+            break
+
+    tampered_payload = local_lemma_audit_path_payload(
+        input_manifest_payload=tampered_manifest,
+    )
+    contract = tampered_payload["manifest_digest_contract"]
+
+    assert tampered_payload["validation_status"] == "failed"
+    assert contract["status"] == "failed"
+    assert contract["malformed_manifest_digest_count"] == 1
+    assert "data/certificates/n9_vertex_circle_local_lemmas.json" in contract[
+        "missing_manifest_digest_paths"
+    ]
+    assert any(
+        "input_manifest has 1 malformed digest entries" in error
         for error in tampered_payload["validation_errors"]
     )
 
