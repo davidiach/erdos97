@@ -5,6 +5,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+from scripts.check_artifact_provenance import (
+    DEFAULT_MANIFEST as DEFAULT_GENERATED_ARTIFACTS_MANIFEST,
+    load_manifest as load_generated_artifact_manifest,
+)
 from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     CLAIM_SCOPE_GUARDS,
     EXPECTED_HANDOFF_EDGES,
@@ -188,6 +192,44 @@ def test_local_lemma_audit_path_manifest_provenance_contract() -> None:
         "python scripts/check_n9_t12_strict_cycle_minireplay.py "
         "--write --assert-expected"
     )
+
+
+def test_local_lemma_audit_path_manifest_metadata_contract() -> None:
+    payload = local_lemma_audit_path_payload()
+    contract = payload["manifest_metadata_contract"]
+    by_path = {record["path"]: record for record in contract["observed_metadata"]}
+
+    assert contract["status"] == "passed"
+    assert contract["metadata_manifest_path"] == "metadata/generated_artifacts.yaml"
+    assert contract["expected_path_count"] == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert contract["observed_path_count"] == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert contract["expected_metadata"] == contract["observed_metadata"]
+    assert contract["missing_manifest_metadata_paths"] == []
+    assert contract["unexpected_manifest_metadata_paths"] == []
+    assert contract["duplicate_manifest_metadata_paths"] == []
+    assert contract["duplicate_generated_metadata_paths"] == []
+    assert contract["mismatched_manifest_metadata"] == []
+    assert contract["malformed_manifest_metadata_count"] == 0
+    local_metadata = by_path["data/certificates/n9_vertex_circle_local_lemmas.json"]
+    assert local_metadata["id"] == "n9_vertex_circle_local_lemmas"
+    assert local_metadata["provenance_mode"] == "embedded"
+    assert local_metadata["direct_edit_allowed"] is False
+    assert local_metadata["checker"] == "scripts/check_n9_vertex_circle_local_lemmas.py"
+    assert local_metadata["check_command"] == (
+        "python scripts/check_n9_vertex_circle_local_lemmas.py "
+        "--check --assert-expected --json"
+    )
+    assert local_metadata["size_bytes"] > 0
+    assert len(local_metadata["sha256"]) == 64
+    assert by_path["data/certificates/n9_vertex_circle_exhaustive.json"][
+        "provenance_mode"
+    ] == "manifest_only_legacy"
+    assert by_path["data/certificates/n9_vertex_circle_exhaustive.json"][
+        "check_command"
+    ] is None
+    assert by_path["data/certificates/n9_t12_strict_cycle_minireplay.json"][
+        "kind"
+    ] == "proof_mining_diagnostic_artifact"
 
 
 def test_local_lemma_audit_path_manifest_claim_contract() -> None:
@@ -469,6 +511,63 @@ def test_local_lemma_audit_path_rejects_malformed_manifest_provenance() -> None:
     assert path in contract["missing_manifest_provenance_paths"]
     assert any(
         "input_manifest has 1 malformed provenance entries" in error
+        for error in tampered_payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_manifest_metadata_drift() -> None:
+    path = "data/certificates/n9_vertex_circle_local_lemmas.json"
+    tampered_metadata = load_generated_artifact_manifest(
+        DEFAULT_GENERATED_ARTIFACTS_MANIFEST
+    )
+    tampered_metadata = json.loads(json.dumps(tampered_metadata))
+    for artifact in tampered_metadata["artifacts"]:
+        if artifact["path"] == path:
+            artifact["check_command"] = (
+                "python scripts/not_the_local_lemma_checker.py --json"
+            )
+            break
+
+    tampered_payload = local_lemma_audit_path_payload(
+        generated_artifact_metadata_payload=tampered_metadata,
+    )
+    contract = tampered_payload["manifest_metadata_contract"]
+
+    assert tampered_payload["validation_status"] == "failed"
+    assert contract["status"] == "failed"
+    assert contract["mismatched_manifest_metadata"] == [
+        {
+            "path": path,
+            "key": "check_command",
+            "expected": (
+                "python scripts/check_n9_vertex_circle_local_lemmas.py "
+                "--check --assert-expected --json"
+            ),
+            "observed": "python scripts/not_the_local_lemma_checker.py --json",
+        }
+    ]
+    assert any(
+        "input_manifest metadata mismatch on "
+        "data/certificates/n9_vertex_circle_local_lemmas.json check_command"
+        in error
+        for error in tampered_payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_malformed_manifest_metadata() -> None:
+    tampered_payload = local_lemma_audit_path_payload(
+        generated_artifact_metadata_payload={"artifacts": "not a metadata list"},
+    )
+    contract = tampered_payload["manifest_metadata_contract"]
+
+    assert tampered_payload["validation_status"] == "failed"
+    assert contract["status"] == "failed"
+    assert contract["malformed_manifest_metadata_count"] == 1
+    assert len(contract["missing_manifest_metadata_paths"]) == (
+        EXPECTED_INPUT_ARTIFACT_COUNT
+    )
+    assert any(
+        "input_manifest has 1 malformed metadata entries" in error
         for error in tampered_payload["validation_errors"]
     )
 
