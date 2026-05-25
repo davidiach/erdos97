@@ -1305,6 +1305,85 @@ def test_local_lemma_audit_path_cli_json_failure_includes_contract_rollups(
     )
 
 
+def test_local_lemma_audit_path_cli_layer_failure_summary_marks_layer_side(
+    monkeypatch,
+    capsys,
+) -> None:
+    aggregate = load_artifact(DEFAULT_AGGREGATE)
+    simple_replay = load_artifact(DEFAULT_SIMPLE_REPLAY)
+    local_replay = local_replay_crosswalk_payload(aggregate, simple_replay)
+    tampered = json.loads(json.dumps(local_replay))
+    tampered["trust"] = "EXACT_OBSTRUCTION"
+    tampered_payload = local_lemma_audit_path_payload(
+        aggregate_simple_replay_payload=tampered,
+    )
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: tampered_payload,
+    )
+
+    assert audit_path_main(["--check"]) == 1
+
+    captured = capsys.readouterr()
+    lines = captured.err.splitlines()
+    assert captured.out == ""
+    assert "layer contracts: failed" in lines
+    assert "audit contract summary: failed" in lines
+    assert "manifest contract summary: passed" in lines
+    assert any(
+        line.startswith("- aggregate_simple_replay contract mismatch on trust")
+        for line in lines
+    )
+
+
+def test_local_lemma_audit_path_cli_json_layer_failure_marks_layer_side(
+    monkeypatch,
+    capsys,
+) -> None:
+    aggregate = load_artifact(DEFAULT_AGGREGATE)
+    simple_replay = load_artifact(DEFAULT_SIMPLE_REPLAY)
+    local_replay = local_replay_crosswalk_payload(aggregate, simple_replay)
+    tampered = json.loads(json.dumps(local_replay))
+    tampered["trust"] = "EXACT_OBSTRUCTION"
+    tampered_payload = local_lemma_audit_path_payload(
+        aggregate_simple_replay_payload=tampered,
+    )
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: tampered_payload,
+    )
+
+    assert audit_path_main(["--check", "--json"]) == 1
+
+    captured = capsys.readouterr()
+    parsed = json.loads(captured.out)
+    layer_contracts = {
+        contract["layer_id"]: contract
+        for contract in parsed["audit_path"]["layer_contracts"]
+    }
+    assert captured.err == ""
+    assert parsed["validation_status"] == "failed"
+    assert parsed["audit_contract_summary"]["status"] == "failed"
+    assert parsed["audit_contract_summary"]["failed_components"] == [
+        "layer_contracts",
+    ]
+    assert parsed["manifest_contract_summary"]["status"] == "passed"
+    assert layer_contracts["aggregate_simple_replay"]["status"] == "failed"
+    assert layer_contracts["aggregate_simple_replay"]["mismatches"] == [
+        {
+            "key": "trust",
+            "expected": "REVIEW_PENDING_DIAGNOSTIC",
+            "observed": "EXACT_OBSTRUCTION",
+        }
+    ]
+    assert any(
+        "aggregate_simple_replay contract mismatch on trust" in error
+        for error in parsed["validation_errors"]
+    )
+
+
 def test_local_lemma_audit_path_cli_json() -> None:
     result = subprocess.run(
         [
