@@ -657,8 +657,9 @@ guard, an output contract, an input contract, a focused record-path contract,
 or at the focused-packet, mini-replay, aggregate, exhaustive, or
 relation-skeleton handoff. It also includes an `input_manifest` listing the
 checked upstream artifact paths, roles, sizes, and SHA256 digests used by the
-combined audit path, plus a manifest-consistency check comparing those paths
-with the artifacts actually referenced by each layer payload:
+combined audit path, a manifest-role contract for the expected path-to-role
+table, plus a manifest-consistency check comparing those paths with the
+artifacts actually referenced by each layer payload:
 
 ```bash
 python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json

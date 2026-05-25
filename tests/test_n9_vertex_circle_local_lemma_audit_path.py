@@ -83,6 +83,28 @@ def test_local_lemma_audit_path_input_manifest() -> None:
     assert "aggregate/simple replay aggregate source" in local_roles
 
 
+def test_local_lemma_audit_path_manifest_role_contract() -> None:
+    payload = local_lemma_audit_path_payload()
+    contract = payload["manifest_role_contract"]
+    by_path = {record["path"]: record for record in contract["observed_roles"]}
+
+    assert contract["status"] == "passed"
+    assert contract["expected_path_count"] == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert contract["observed_path_count"] == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert contract["expected_roles"] == contract["observed_roles"]
+    assert contract["missing_manifest_role_paths"] == []
+    assert contract["unexpected_manifest_role_paths"] == []
+    assert contract["duplicate_manifest_role_paths"] == []
+    assert contract["mismatched_manifest_roles"] == []
+    assert contract["malformed_manifest_role_count"] == 0
+    assert by_path["data/certificates/n9_vertex_circle_local_lemmas.json"][
+        "roles"
+    ] == [
+        "aggregate local-lemma scan",
+        "aggregate/simple replay aggregate source",
+    ]
+
+
 def test_local_lemma_audit_path_manifest_consistency() -> None:
     payload = local_lemma_audit_path_payload()
     consistency = payload["manifest_consistency"]
@@ -94,6 +116,59 @@ def test_local_lemma_audit_path_manifest_consistency() -> None:
         "missing_from_manifest": [],
         "unreferenced_manifest_paths": [],
     }
+
+
+def test_local_lemma_audit_path_rejects_manifest_role_drift() -> None:
+    payload = local_lemma_audit_path_payload()
+    tampered_manifest = json.loads(json.dumps(payload["input_manifest"]))
+    for artifact in tampered_manifest["artifacts"]:
+        if artifact["path"] == "data/certificates/n9_vertex_circle_local_lemmas.json":
+            artifact["roles"] = ["aggregate/simple replay aggregate source"]
+            break
+
+    tampered_payload = local_lemma_audit_path_payload(
+        input_manifest_payload=tampered_manifest,
+    )
+    contract = tampered_payload["manifest_role_contract"]
+
+    assert tampered_payload["validation_status"] == "failed"
+    assert contract["status"] == "failed"
+    assert contract["mismatched_manifest_roles"] == [
+        {
+            "path": "data/certificates/n9_vertex_circle_local_lemmas.json",
+            "expected": [
+                "aggregate local-lemma scan",
+                "aggregate/simple replay aggregate source",
+            ],
+            "observed": ["aggregate/simple replay aggregate source"],
+        }
+    ]
+    assert any(
+        "input_manifest role mismatch on "
+        "data/certificates/n9_vertex_circle_local_lemmas.json" in error
+        for error in tampered_payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_malformed_manifest_roles() -> None:
+    payload = local_lemma_audit_path_payload()
+    tampered_manifest = json.loads(json.dumps(payload["input_manifest"]))
+    tampered_manifest["artifacts"] = "not a manifest artifact list"
+
+    tampered_payload = local_lemma_audit_path_payload(
+        input_manifest_payload=tampered_manifest,
+    )
+    contract = tampered_payload["manifest_role_contract"]
+
+    assert tampered_payload["validation_status"] == "failed"
+    assert contract["status"] == "failed"
+    assert contract["malformed_manifest_role_count"] == 1
+    assert contract["observed_path_count"] == 0
+    assert len(contract["missing_manifest_role_paths"]) == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert any(
+        "input_manifest has 1 malformed role entries" in error
+        for error in tampered_payload["validation_errors"]
+    )
 
 
 def test_local_lemma_audit_path_layer_contracts() -> None:
