@@ -152,6 +152,123 @@ EXPECTED_LAYER_PROVENANCE = {
         ),
     },
 }
+SOURCE_ARTIFACT_KEYS = ("path", "role", "schema", "status", "trust")
+EXPECTED_LAYER_SOURCE_ARTIFACTS = {
+    "focused_packet_catalog": (
+        {
+            "path": "data/certificates/n9_vertex_circle_template_lemma_catalog.json",
+            "role": "template lemma-candidate catalog",
+            "schema": "erdos97.n9_vertex_circle_template_lemma_catalog.v1",
+            "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+            "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        },
+        {
+            "path": "data/certificates/n9_vertex_circle_local_lemmas.json",
+            "role": "aggregate local-lemma scan",
+            "schema": "erdos97.n9_vertex_circle_local_lemmas.v1",
+            "status": "REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE",
+            "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        },
+        {
+            "path": "data/certificates/n9_vertex_circle_self_edge_template_packet.json",
+            "role": "self-edge template packet",
+            "schema": "erdos97.n9_vertex_circle_self_edge_template_packet.v1",
+            "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+            "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        },
+        {
+            "path": "data/certificates/n9_vertex_circle_strict_cycle_template_packet.json",
+            "role": "strict-cycle template packet",
+            "schema": "erdos97.n9_vertex_circle_strict_cycle_template_packet.v1",
+            "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+            "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        },
+    ),
+    "focused_minireplay": (),
+    "aggregate_simple_replay": (
+        {
+            "path": "data/certificates/n9_vertex_circle_local_lemmas.json",
+            "role": "aggregate local-lemma scan",
+            "schema": "erdos97.n9_vertex_circle_local_lemmas.v1",
+            "status": "REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE",
+            "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        },
+        {
+            "path": (
+                "data/certificates/"
+                "n9_vertex_circle_local_lemma_simple_replay.json"
+            ),
+            "role": "simple packet replay audit",
+            "schema": "erdos97.n9_vertex_circle_local_lemma_simple_replay.v1",
+            "status": "REVIEW_PENDING_PACKET_AUDIT",
+            "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        },
+    ),
+    "exhaustive_local_lemma": (
+        {
+            "path": "data/certificates/n9_vertex_circle_exhaustive.json",
+            "role": "review-pending exhaustive n=9 count artifact",
+            "schema": "n9_vertex_circle_exhaustive_v1",
+            "status": None,
+            "trust": "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING",
+        },
+        {
+            "path": (
+                "data/certificates/"
+                "n9_vertex_circle_frontier_motif_classification.json"
+            ),
+            "role": "frontier assignment motif classification",
+            "schema": (
+                "erdos97.n9_vertex_circle_frontier_motif_classification.v1"
+            ),
+            "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+            "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        },
+        {
+            "path": "data/certificates/n9_vertex_circle_local_lemmas.json",
+            "role": "aggregate local-lemma scan",
+            "schema": "erdos97.n9_vertex_circle_local_lemmas.v1",
+            "status": "REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE",
+            "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        },
+        {
+            "path": (
+                "data/certificates/"
+                "n9_vertex_circle_local_lemma_simple_replay.json"
+            ),
+            "role": "simple local-lemma replay audit",
+            "schema": "erdos97.n9_vertex_circle_local_lemma_simple_replay.v1",
+            "status": "REVIEW_PENDING_PACKET_AUDIT",
+            "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        },
+    ),
+    "relation_skeleton_local_lemma": (
+        {
+            "path": "data/certificates/relation_skeleton_catalog.json",
+            "role": "relation-skeleton catalog",
+            "schema": "erdos97.relation_skeleton_catalog.v1",
+            "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+            "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        },
+        {
+            "path": "data/certificates/n9_vertex_circle_local_lemmas.json",
+            "role": "aggregate local-lemma scan",
+            "schema": "erdos97.n9_vertex_circle_local_lemmas.v1",
+            "status": "REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE",
+            "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        },
+        {
+            "path": (
+                "data/certificates/"
+                "n9_vertex_circle_local_lemma_simple_replay.json"
+            ),
+            "role": "simple local-lemma replay audit",
+            "schema": "erdos97.n9_vertex_circle_local_lemma_simple_replay.v1",
+            "status": "REVIEW_PENDING_PACKET_AUDIT",
+            "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        },
+    ),
+}
 CLAIM_SCOPE_GUARDS = {
     "mentions_n9_scope": (("n=9",),),
     "denies_proof": (("does not prove",), ("not a proof",)),
@@ -326,6 +443,9 @@ def local_lemma_audit_path_payload(
     _append_layer_expected_errors(errors, layers)
     layer_contracts = _layer_contracts(layers, errors)
     layer_provenance = _layer_provenance(layers, errors)
+    layer_source_artifact_contracts = _layer_source_artifact_contracts(
+        layers, errors
+    )
     claim_scope_guards = _claim_scope_guards(layers, errors)
     layer_output_contracts = _layer_output_contracts(layers, errors)
     layer_input_contracts = _layer_input_contracts(layers, errors)
@@ -347,6 +467,7 @@ def local_lemma_audit_path_payload(
             "layer_ids": [summary["layer_id"] for summary in layer_summaries],
             "layer_contracts": layer_contracts,
             "layer_provenance": layer_provenance,
+            "layer_source_artifact_contracts": layer_source_artifact_contracts,
             "claim_scope_guards": claim_scope_guards,
             "layer_output_contracts": layer_output_contracts,
             "layer_input_contracts": layer_input_contracts,
@@ -396,6 +517,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
         raise AssertionError(f"validation errors: {payload.get('validation_errors')!r}")
     _assert_expected_layer_contracts(payload)
     _assert_expected_layer_provenance(payload)
+    _assert_expected_layer_source_artifact_contracts(payload)
     _assert_expected_claim_scope_guards(payload)
     _assert_expected_layer_output_contracts(payload)
     _assert_expected_layer_input_contracts(payload)
@@ -505,6 +627,58 @@ def _assert_expected_layer_provenance(payload: Mapping[str, Any]) -> None:
             raise AssertionError(f"{layer_id} observed provenance mismatch")
         if check.get("status") != "passed" or check.get("mismatches") != []:
             raise AssertionError(f"{layer_id} provenance failed: {check!r}")
+
+
+def _assert_expected_layer_source_artifact_contracts(
+    payload: Mapping[str, Any],
+) -> None:
+    audit_path = payload.get("audit_path")
+    if not isinstance(audit_path, Mapping):
+        raise AssertionError("audit_path must be an object")
+    contracts = audit_path.get("layer_source_artifact_contracts")
+    if not isinstance(contracts, list):
+        raise AssertionError(
+            "audit_path.layer_source_artifact_contracts must be a list"
+        )
+    observed_ids = [
+        contract.get("layer_id")
+        for contract in contracts
+        if isinstance(contract, Mapping)
+    ]
+    if observed_ids != EXPECTED_LAYER_IDS:
+        raise AssertionError(
+            f"layer source artifact contract ids mismatch: {observed_ids!r}"
+        )
+    for contract in contracts:
+        if not isinstance(contract, Mapping):
+            raise AssertionError("layer source artifact contract must be an object")
+        layer_id = str(contract.get("layer_id"))
+        expected = _expected_source_artifacts(layer_id)
+        expected_type = "missing" if layer_id == "focused_minireplay" else "list"
+        if contract.get("source_artifacts_type") != expected_type:
+            raise AssertionError(f"{layer_id} source_artifacts type mismatch")
+        if contract.get("expected_artifacts") != expected:
+            raise AssertionError(f"{layer_id} expected source artifacts mismatch")
+        if contract.get("observed_artifacts") != expected:
+            raise AssertionError(f"{layer_id} observed source artifacts mismatch")
+        if contract.get("expected_artifact_count") != len(expected):
+            raise AssertionError(f"{layer_id} source artifact count mismatch")
+        if contract.get("observed_artifact_count") != len(expected):
+            raise AssertionError(f"{layer_id} observed source artifact count mismatch")
+        if contract.get("status") != "passed":
+            raise AssertionError(
+                f"{layer_id} source artifact contract failed: {contract!r}"
+            )
+        for key in (
+            "missing_source_artifact_paths",
+            "unexpected_source_artifact_paths",
+            "duplicate_source_artifact_paths",
+            "mismatched_source_artifacts",
+        ):
+            if contract.get(key) != []:
+                raise AssertionError(f"{layer_id} {key} is not empty")
+        if contract.get("malformed_source_artifact_count") != 0:
+            raise AssertionError(f"{layer_id} malformed source artifacts")
 
 
 def _assert_expected_claim_scope_guards(payload: Mapping[str, Any]) -> None:
@@ -766,6 +940,148 @@ def _provenance_contract(provenance: Any) -> dict[str, Any]:
         "generator": provenance.get("generator"),
         "command": provenance.get("command"),
     }
+
+
+def _layer_source_artifact_contracts(
+    layers: Mapping[str, Mapping[str, Any]],
+    errors: list[str],
+) -> list[dict[str, Any]]:
+    contracts: list[dict[str, Any]] = []
+    for layer_id in EXPECTED_LAYER_IDS:
+        payload = layers[layer_id]
+        expected = _expected_source_artifacts(layer_id)
+        source_artifacts = payload.get("source_artifacts", [])
+        source_artifacts_type = (
+            "missing"
+            if "source_artifacts" not in payload
+            else _source_artifacts_type(source_artifacts)
+        )
+        observed, malformed_count = _observed_source_artifacts(source_artifacts)
+        expected_by_path = {item["path"]: item for item in expected}
+        observed_by_path = {item["path"]: item for item in observed}
+        observed_paths = [item["path"] for item in observed]
+        duplicate_paths = sorted(
+            {path for path in observed_paths if observed_paths.count(path) > 1},
+            key=str,
+        )
+        missing = sorted(set(expected_by_path) - set(observed_by_path), key=str)
+        unexpected = sorted(set(observed_by_path) - set(expected_by_path), key=str)
+        mismatches = _source_artifact_mismatches(expected_by_path, observed_by_path)
+        bad_section_type = source_artifacts_type not in {"list", "missing"}
+
+        if bad_section_type:
+            errors.append(
+                f"{layer_id} source_artifacts has type {source_artifacts_type}"
+            )
+        if malformed_count:
+            errors.append(
+                f"{layer_id} source_artifacts has {malformed_count} malformed entries"
+            )
+        if duplicate_paths:
+            errors.append(
+                f"{layer_id} source_artifacts duplicate paths: {duplicate_paths!r}"
+            )
+        if missing:
+            errors.append(f"{layer_id} source_artifacts missing paths: {missing!r}")
+        if unexpected:
+            errors.append(
+                f"{layer_id} source_artifacts unexpected paths: {unexpected!r}"
+            )
+        for mismatch in mismatches:
+            errors.append(
+                f"{layer_id} source_artifacts mismatch on "
+                f"{mismatch['path']} {mismatch['key']}: "
+                f"{mismatch['observed']!r} != {mismatch['expected']!r}"
+            )
+
+        contracts.append(
+            {
+                "layer_id": layer_id,
+                "source_artifacts_type": source_artifacts_type,
+                "expected_artifact_count": len(expected),
+                "observed_artifact_count": len(observed),
+                "expected_artifacts": expected,
+                "observed_artifacts": _sort_source_artifacts(observed),
+                "missing_source_artifact_paths": missing,
+                "unexpected_source_artifact_paths": unexpected,
+                "duplicate_source_artifact_paths": duplicate_paths,
+                "mismatched_source_artifacts": mismatches,
+                "malformed_source_artifact_count": malformed_count,
+                "status": (
+                    "passed"
+                    if not (
+                        bad_section_type
+                        or malformed_count
+                        or duplicate_paths
+                        or missing
+                        or unexpected
+                        or mismatches
+                    )
+                    else "failed"
+                ),
+            }
+        )
+    return contracts
+
+
+def _expected_source_artifacts(layer_id: str) -> list[dict[str, Any]]:
+    return _sort_source_artifacts(
+        [dict(item) for item in EXPECTED_LAYER_SOURCE_ARTIFACTS[layer_id]]
+    )
+
+
+def _observed_source_artifacts(source_artifacts: Any) -> tuple[list[dict[str, Any]], int]:
+    if not isinstance(source_artifacts, list):
+        return [], 0
+    observed: list[dict[str, Any]] = []
+    malformed_count = 0
+    for item in source_artifacts:
+        if isinstance(item, Mapping):
+            contract = _source_artifact_contract(item)
+            if isinstance(contract["path"], str):
+                observed.append(contract)
+            else:
+                malformed_count += 1
+        else:
+            malformed_count += 1
+    return _sort_source_artifacts(observed), malformed_count
+
+
+def _source_artifact_contract(item: Mapping[str, Any]) -> dict[str, Any]:
+    return {key: item.get(key) for key in SOURCE_ARTIFACT_KEYS}
+
+
+def _source_artifact_mismatches(
+    expected_by_path: Mapping[str, Mapping[str, Any]],
+    observed_by_path: Mapping[str, Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    mismatches: list[dict[str, Any]] = []
+    for path in sorted(set(expected_by_path) & set(observed_by_path)):
+        expected = expected_by_path[path]
+        observed = observed_by_path[path]
+        for key in SOURCE_ARTIFACT_KEYS:
+            if observed.get(key) != expected.get(key):
+                mismatches.append(
+                    {
+                        "path": path,
+                        "key": key,
+                        "expected": expected.get(key),
+                        "observed": observed.get(key),
+                    }
+                )
+    return mismatches
+
+
+def _sort_source_artifacts(artifacts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return sorted(artifacts, key=lambda item: str(item["path"]))
+
+
+def _source_artifacts_type(source_artifacts: Any) -> str:
+    if isinstance(source_artifacts, list):
+        return "list"
+    if isinstance(source_artifacts, Mapping):
+        return "object"
+    return type(source_artifacts).__name__
 
 
 def _claim_scope_guards(
@@ -1270,6 +1586,8 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"{_summary_status(payload['audit_path']['layer_contracts'])}",
         "layer provenance: "
         f"{_summary_status(payload['audit_path']['layer_provenance'])}",
+        "layer source artifacts: "
+        f"{_summary_status(payload['audit_path']['layer_source_artifact_contracts'])}",
         "claim-scope guards: "
         f"{_summary_status(payload['audit_path']['claim_scope_guards'])}",
         "layer output contracts: "
