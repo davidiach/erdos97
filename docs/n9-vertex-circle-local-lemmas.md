@@ -646,7 +646,9 @@ all agree on the same 12 templates, 16 families, and 184 assignments. Its JSON
 payload now includes explicit adjacent handoff checks for each pair of
 successive layers, so a reviewer can see whether any drift starts at the
 focused-packet, mini-replay, aggregate, exhaustive, or relation-skeleton
-handoff:
+handoff. It also includes an `input_manifest` listing the checked upstream
+artifact paths, roles, sizes, and SHA256 digests used by the combined audit
+path:
 
 ```bash
 python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json

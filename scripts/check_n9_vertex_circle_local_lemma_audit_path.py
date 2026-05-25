@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -23,10 +24,15 @@ from check_n9_vertex_circle_exhaustive_local_lemma_crosswalk import (  # noqa: E
     exhaustive_local_lemma_crosswalk_payload,
 )
 from check_n9_vertex_circle_focused_minireplay_crosswalk import (  # noqa: E402
+    DEFAULT_MINIREPLAY_PATHS,
     assert_expected_focused_minireplay_crosswalk,
     focused_minireplay_crosswalk_payload,
 )
 from check_n9_vertex_circle_focused_packet_catalog_audit import (  # noqa: E402
+    DEFAULT_LOCAL_LEMMAS as DEFAULT_FOCUSED_LOCAL_LEMMAS,
+    DEFAULT_PACKET_PATHS,
+    DEFAULT_TEMPLATE_CATALOG,
+    DEFAULT_TEMPLATE_PACKET_PATHS,
     assert_expected_focused_packet_catalog_audit,
     focused_packet_catalog_audit_payload,
 )
@@ -42,6 +48,7 @@ from check_relation_skeleton_local_lemma_crosswalk import (  # noqa: E402
     assert_expected_relation_local_crosswalk,
     crosswalk_payload as relation_local_crosswalk_payload,
 )
+from erdos97.path_display import display_path  # noqa: E402
 
 SCHEMA = "erdos97.n9_vertex_circle_local_lemma_audit_path.v1"
 STATUS = "REVIEW_PENDING_LOCAL_LEMMA_AUDIT_PATH"
@@ -73,6 +80,7 @@ EXPECTED_LAYER_IDS = [
 ]
 EXPECTED_TEMPLATE_IDS = [f"T{index:02d}" for index in range(1, 13)]
 EXPECTED_HANDOFF_EDGES = list(zip(EXPECTED_LAYER_IDS, EXPECTED_LAYER_IDS[1:]))
+EXPECTED_INPUT_ARTIFACT_COUNT = 32
 HANDOFF_COMPARE_KEYS = (
     "template_count",
     "template_ids",
@@ -153,6 +161,7 @@ def local_lemma_audit_path_payload(
     layer_summaries = [_layer_summary(layer_id, layers[layer_id], errors) for layer_id in EXPECTED_LAYER_IDS]
     handoff_checks = _handoff_checks(layer_summaries, errors)
     coverage = _coverage_summary(layer_summaries, errors)
+    input_manifest = _input_manifest()
 
     return {
         "schema": SCHEMA,
@@ -168,6 +177,7 @@ def local_lemma_audit_path_payload(
             "handoff_checks": handoff_checks,
             "layers": layer_summaries,
         },
+        "input_manifest": input_manifest,
         "coverage_summary": coverage,
         "validation_status": "passed" if not errors else "failed",
         "validation_errors": errors,
@@ -206,6 +216,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
             raise AssertionError(f"claim_scope missing {required!r}")
     if payload.get("validation_status") != "passed":
         raise AssertionError(f"validation errors: {payload.get('validation_errors')!r}")
+    _assert_expected_input_manifest(payload)
 
     audit_path = payload.get("audit_path")
     if not isinstance(audit_path, Mapping):
@@ -258,6 +269,51 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
         raise AssertionError(f"template ids mismatch: {coverage.get('template_ids')!r}")
 
 
+def _assert_expected_input_manifest(payload: Mapping[str, Any]) -> None:
+    manifest = payload.get("input_manifest")
+    if not isinstance(manifest, Mapping):
+        raise AssertionError("input_manifest must be an object")
+    if manifest.get("digest_algorithm") != "sha256":
+        raise AssertionError(
+            f"digest_algorithm mismatch: {manifest.get('digest_algorithm')!r}"
+        )
+    if manifest.get("artifact_count") != EXPECTED_INPUT_ARTIFACT_COUNT:
+        raise AssertionError(
+            f"input artifact count mismatch: {manifest.get('artifact_count')!r}"
+        )
+    artifacts = manifest.get("artifacts")
+    if not isinstance(artifacts, list):
+        raise AssertionError("input_manifest.artifacts must be a list")
+    if len(artifacts) != EXPECTED_INPUT_ARTIFACT_COUNT:
+        raise AssertionError(f"input artifact list length mismatch: {len(artifacts)}")
+    paths = [artifact.get("path") for artifact in artifacts if isinstance(artifact, Mapping)]
+    if len(paths) != len(set(paths)):
+        raise AssertionError("input_manifest contains duplicate paths")
+    required_paths = {
+        "data/certificates/n9_vertex_circle_template_lemma_catalog.json",
+        "data/certificates/n9_vertex_circle_local_lemmas.json",
+        "data/certificates/n9_vertex_circle_exhaustive.json",
+        "data/certificates/n9_vertex_circle_frontier_motif_classification.json",
+        "data/certificates/relation_skeleton_catalog.json",
+        "data/certificates/n9_t12_strict_cycle_minireplay.json",
+    }
+    missing_paths = sorted(required_paths - set(paths))
+    if missing_paths:
+        raise AssertionError(f"input_manifest missing paths: {missing_paths!r}")
+    for artifact in artifacts:
+        if not isinstance(artifact, Mapping):
+            raise AssertionError("input_manifest artifact must be an object")
+        digest = artifact.get("sha256")
+        if not isinstance(digest, str) or len(digest) != 64:
+            raise AssertionError(f"bad sha256 digest for {artifact.get('path')!r}")
+        roles = artifact.get("roles")
+        if not isinstance(roles, list) or not roles:
+            raise AssertionError(f"missing roles for {artifact.get('path')!r}")
+        size = artifact.get("size_bytes")
+        if not isinstance(size, int) or size <= 0:
+            raise AssertionError(f"bad size for {artifact.get('path')!r}")
+
+
 def _append_layer_expected_errors(
     errors: list[str],
     layers: Mapping[str, Mapping[str, Any]],
@@ -274,6 +330,57 @@ def _append_layer_expected_errors(
             assert_functions[layer_id](layers[layer_id])
         except (AssertionError, KeyError, TypeError, ValueError) as exc:
             errors.append(f"{layer_id} expected-check failed: {exc}")
+
+
+def _input_manifest() -> dict[str, Any]:
+    entries: dict[str, dict[str, Any]] = {}
+
+    def add(path: Path, role: str) -> None:
+        resolved = path.resolve()
+        key = display_path(resolved, ROOT).replace("\\", "/")
+        entry = entries.setdefault(
+            key,
+            {
+                "path": key,
+                "roles": [],
+                "size_bytes": resolved.stat().st_size,
+                "sha256": _sha256(resolved),
+            },
+        )
+        roles = entry["roles"]
+        if role not in roles:
+            roles.append(role)
+
+    add(DEFAULT_TEMPLATE_CATALOG, "focused packet/catalog template catalog")
+    add(DEFAULT_FOCUSED_LOCAL_LEMMAS, "aggregate local-lemma scan")
+    add(DEFAULT_AGGREGATE, "aggregate/simple replay aggregate source")
+    add(DEFAULT_SIMPLE_REPLAY, "aggregate/simple replay simple source")
+    add(DEFAULT_EXHAUSTIVE, "exhaustive/local-lemma exhaustive count source")
+    add(DEFAULT_CLASSIFICATION, "exhaustive/local-lemma motif classification source")
+    add(DEFAULT_RELATION_SKELETONS, "relation-skeleton/local-lemma source")
+    for kind, path in sorted(DEFAULT_TEMPLATE_PACKET_PATHS.items()):
+        add(path, f"focused packet/catalog {kind.replace('_', '-')} template packet")
+    for template_id, path in sorted(DEFAULT_PACKET_PATHS.items()):
+        add(path, f"focused local-lemma packet {template_id}")
+    for template_id, path in sorted(DEFAULT_MINIREPLAY_PATHS.items()):
+        add(path, f"focused mini-replay artifact {template_id}")
+
+    artifacts = sorted(entries.values(), key=lambda item: item["path"])
+    for artifact in artifacts:
+        artifact["roles"] = sorted(artifact["roles"])
+    return {
+        "artifact_count": len(artifacts),
+        "digest_algorithm": "sha256",
+        "artifacts": artifacts,
+    }
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def _layer_summary(
@@ -494,6 +601,7 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"validation: {payload['validation_status']}",
         f"layers: {coverage['layer_count']}",
         f"handoffs: {payload['audit_path']['handoff_count']}",
+        f"input artifacts: {payload['input_manifest']['artifact_count']}",
         f"templates: {coverage['template_count']}",
         f"families: {coverage['family_count']}",
         f"assignments: {coverage['assignment_count']}",
