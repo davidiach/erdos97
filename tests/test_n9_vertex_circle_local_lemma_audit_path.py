@@ -153,20 +153,59 @@ def test_local_lemma_audit_path_layer_output_contracts() -> None:
         assert contract["missing_summary_keys"] == []
 
 
+def test_local_lemma_audit_path_layer_input_contracts() -> None:
+    payload = local_lemma_audit_path_payload()
+    input_contracts = payload["audit_path"]["layer_input_contracts"]
+    expected_counts = {
+        "focused_packet_catalog": 16,
+        "focused_minireplay": 24,
+        "aggregate_simple_replay": 2,
+        "exhaustive_local_lemma": 4,
+        "relation_skeleton_local_lemma": 3,
+    }
+
+    assert [contract["layer_id"] for contract in input_contracts] == EXPECTED_LAYER_IDS
+    assert all(contract["status"] == "passed" for contract in input_contracts)
+    for contract in input_contracts:
+        expected_count = expected_counts[contract["layer_id"]]
+        assert contract["expected_path_count"] == expected_count
+        assert contract["observed_path_count"] == expected_count
+        assert contract["expected_paths"] == contract["observed_paths"]
+        assert contract["missing_input_paths"] == []
+        assert contract["unexpected_input_paths"] == []
+
+
 def test_local_lemma_audit_path_rejects_unmanifested_layer_path() -> None:
     focused_minireplay = focused_minireplay_crosswalk_payload()
     tampered = json.loads(json.dumps(focused_minireplay))
+    original_path = tampered["focused_minireplay_crosswalk"]["records"][0][
+        "minireplay_path"
+    ]
     tampered["focused_minireplay_crosswalk"]["records"][0]["minireplay_path"] = (
         "data/certificates/unmanifested_minireplay.json"
     )
 
     payload = local_lemma_audit_path_payload(focused_minireplay_payload=tampered)
+    input_contracts = {
+        contract["layer_id"]: contract
+        for contract in payload["audit_path"]["layer_input_contracts"]
+    }
+    focused_contract = input_contracts["focused_minireplay"]
 
     assert payload["validation_status"] == "failed"
+    assert focused_contract["status"] == "failed"
+    assert focused_contract["missing_input_paths"] == [original_path]
+    assert focused_contract["unexpected_input_paths"] == [
+        "data/certificates/unmanifested_minireplay.json"
+    ]
     assert payload["manifest_consistency"]["status"] == "failed"
     assert payload["manifest_consistency"]["missing_from_manifest"] == [
         "data/certificates/unmanifested_minireplay.json"
     ]
+    assert any(
+        "focused_minireplay input unexpected paths" in error
+        for error in payload["validation_errors"]
+    )
     assert any(
         "input_manifest missing layer-referenced paths" in error
         for error in payload["validation_errors"]

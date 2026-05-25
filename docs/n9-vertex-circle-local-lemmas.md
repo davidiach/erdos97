@@ -646,10 +646,11 @@ all agree on the same 12 templates, 16 families, and 184 assignments. Its JSON
 payload now includes explicit layer contracts for schema/status/trust fields,
 layer provenance contracts for generator/command fields, claim-scope guards
 for the non-proof/non-counterexample/global-status disclaimers, output
-contracts for each layer's reviewer-facing summary sections, and adjacent
-handoff checks for each pair of successive layers, so a reviewer can see
-whether any drift starts in a layer identity contract, a provenance contract,
-a claim-scope guard, an output contract, or at the focused-packet,
+contracts for each layer's reviewer-facing summary sections, per-layer input
+contracts for the expected upstream artifact paths, and adjacent handoff checks
+for each pair of successive layers, so a reviewer can see whether any drift
+starts in a layer identity contract, a provenance contract, a claim-scope
+guard, an output contract, an input contract, or at the focused-packet,
 mini-replay, aggregate, exhaustive, or relation-skeleton handoff. It also
 includes an `input_manifest` listing the checked upstream artifact paths,
 roles, sizes, and SHA256 digests used by the combined audit path, plus a
