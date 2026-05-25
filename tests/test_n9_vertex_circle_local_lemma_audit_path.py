@@ -4,6 +4,7 @@ import json
 import subprocess
 import sys
 from pathlib import Path
+from typing import Any
 
 from scripts.check_artifact_provenance import (
     DEFAULT_MANIFEST as DEFAULT_GENERATED_ARTIFACTS_MANIFEST,
@@ -37,6 +38,19 @@ from scripts.check_n9_vertex_circle_local_lemma_replay_crosswalk import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def _layer_contract_trust_tamper_payload() -> dict[str, Any]:
+    aggregate = load_artifact(DEFAULT_AGGREGATE)
+    simple_replay = load_artifact(DEFAULT_SIMPLE_REPLAY)
+    local_replay = local_replay_crosswalk_payload(aggregate, simple_replay)
+    tampered = json.loads(json.dumps(local_replay))
+    # Only the in-memory layer payload is tampered; the input manifest and
+    # stored artifacts stay canonical, so this isolates layer-contract failure.
+    tampered["trust"] = "EXACT_OBSTRUCTION"
+    return local_lemma_audit_path_payload(
+        aggregate_simple_replay_payload=tampered,
+    )
 
 
 def test_local_lemma_audit_path_counts_and_scope() -> None:
@@ -1309,14 +1323,7 @@ def test_local_lemma_audit_path_cli_layer_failure_summary_marks_layer_side(
     monkeypatch,
     capsys,
 ) -> None:
-    aggregate = load_artifact(DEFAULT_AGGREGATE)
-    simple_replay = load_artifact(DEFAULT_SIMPLE_REPLAY)
-    local_replay = local_replay_crosswalk_payload(aggregate, simple_replay)
-    tampered = json.loads(json.dumps(local_replay))
-    tampered["trust"] = "EXACT_OBSTRUCTION"
-    tampered_payload = local_lemma_audit_path_payload(
-        aggregate_simple_replay_payload=tampered,
-    )
+    tampered_payload = _layer_contract_trust_tamper_payload()
     monkeypatch.setattr(
         "scripts.check_n9_vertex_circle_local_lemma_audit_path."
         "local_lemma_audit_path_payload",
@@ -1341,14 +1348,7 @@ def test_local_lemma_audit_path_cli_json_layer_failure_marks_layer_side(
     monkeypatch,
     capsys,
 ) -> None:
-    aggregate = load_artifact(DEFAULT_AGGREGATE)
-    simple_replay = load_artifact(DEFAULT_SIMPLE_REPLAY)
-    local_replay = local_replay_crosswalk_payload(aggregate, simple_replay)
-    tampered = json.loads(json.dumps(local_replay))
-    tampered["trust"] = "EXACT_OBSTRUCTION"
-    tampered_payload = local_lemma_audit_path_payload(
-        aggregate_simple_replay_payload=tampered,
-    )
+    tampered_payload = _layer_contract_trust_tamper_payload()
     monkeypatch.setattr(
         "scripts.check_n9_vertex_circle_local_lemma_audit_path."
         "local_lemma_audit_path_payload",
