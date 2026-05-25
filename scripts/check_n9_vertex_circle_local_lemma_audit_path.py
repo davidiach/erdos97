@@ -3451,6 +3451,23 @@ def failure_lines(payload: Mapping[str, Any]) -> list[str]:
         lines.append(f"failure stage: {payload['failure_stage']}")
     if payload.get("exception_type"):
         lines.append(f"exception type: {payload['exception_type']}")
+    assert_expected_failure = payload.get("assert_expected_failure")
+    if isinstance(assert_expected_failure, Mapping):
+        lines.extend(
+            [
+                "assert_expected failure schema: "
+                f"{assert_expected_failure.get('schema')}",
+                "assert_expected failure type: "
+                f"{assert_expected_failure.get('exception_type')}",
+                "assert_expected failure validation errors: "
+                f"{assert_expected_failure.get('validation_error_count')}",
+            ]
+        )
+    elif assert_expected_failure is not None:
+        lines.append(
+            "assert_expected_failure is not an object: "
+            f"{type(assert_expected_failure).__name__}"
+        )
     errors = payload.get("validation_errors", [])
     if not isinstance(errors, list):
         lines.append(f"- validation_errors is not a list: {type(errors).__name__}")
