@@ -643,9 +643,10 @@ one chain. It checks that the focused packet/catalog audit, focused
 mini-replay crosswalk, aggregate/simple replay crosswalk,
 exhaustive/local-lemma crosswalk, and relation-skeleton/local-lemma crosswalk
 all agree on the same 12 templates, 16 families, and 184 assignments. Its JSON
-payload now includes explicit layer contracts for schema/status/trust fields
-and adjacent handoff checks for each pair of successive layers, so a reviewer
-can see whether any drift starts in a layer identity contract or at the
+payload now includes explicit layer contracts for schema/status/trust fields,
+layer provenance contracts for generator/command fields, and adjacent handoff
+checks for each pair of successive layers, so a reviewer can see whether any
+drift starts in a layer identity contract, a provenance contract, or at the
 focused-packet, mini-replay, aggregate, exhaustive, or relation-skeleton
 handoff. It also includes an `input_manifest` listing the checked upstream
 artifact paths, roles, sizes, and SHA256 digests used by the combined audit
