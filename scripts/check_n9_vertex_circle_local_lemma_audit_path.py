@@ -113,6 +113,45 @@ EXPECTED_LAYER_CONTRACTS = {
         "validation_status": "passed",
     },
 }
+EXPECTED_LAYER_PROVENANCE = {
+    "focused_packet_catalog": {
+        "generator": "scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py",
+        "command": (
+            "python scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py "
+            "--check --assert-expected --json"
+        ),
+    },
+    "focused_minireplay": {
+        "generator": "scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py",
+        "command": (
+            "python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py "
+            "--check --assert-expected --json"
+        ),
+    },
+    "aggregate_simple_replay": {
+        "generator": "scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py",
+        "command": (
+            "python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py "
+            "--check --assert-expected --json"
+        ),
+    },
+    "exhaustive_local_lemma": {
+        "generator": (
+            "scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py"
+        ),
+        "command": (
+            "python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py "
+            "--check --assert-expected --json"
+        ),
+    },
+    "relation_skeleton_local_lemma": {
+        "generator": "scripts/check_relation_skeleton_local_lemma_crosswalk.py",
+        "command": (
+            "python scripts/check_relation_skeleton_local_lemma_crosswalk.py "
+            "--check --assert-expected --json"
+        ),
+    },
+}
 HANDOFF_COMPARE_KEYS = (
     "template_count",
     "template_ids",
@@ -191,6 +230,7 @@ def local_lemma_audit_path_payload(
     errors: list[str] = []
     _append_layer_expected_errors(errors, layers)
     layer_contracts = _layer_contracts(layers, errors)
+    layer_provenance = _layer_provenance(layers, errors)
     layer_summaries = [_layer_summary(layer_id, layers[layer_id], errors) for layer_id in EXPECTED_LAYER_IDS]
     handoff_checks = _handoff_checks(layer_summaries, errors)
     coverage = _coverage_summary(layer_summaries, errors)
@@ -208,6 +248,7 @@ def local_lemma_audit_path_payload(
             "layer_count": len(layer_summaries),
             "layer_ids": [summary["layer_id"] for summary in layer_summaries],
             "layer_contracts": layer_contracts,
+            "layer_provenance": layer_provenance,
             "handoff_count": len(handoff_checks),
             "handoff_checks": handoff_checks,
             "layers": layer_summaries,
@@ -253,6 +294,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     if payload.get("validation_status") != "passed":
         raise AssertionError(f"validation errors: {payload.get('validation_errors')!r}")
     _assert_expected_layer_contracts(payload)
+    _assert_expected_layer_provenance(payload)
     _assert_expected_input_manifest(payload)
     _assert_expected_manifest_consistency(payload)
 
@@ -332,6 +374,33 @@ def _assert_expected_layer_contracts(payload: Mapping[str, Any]) -> None:
             raise AssertionError(f"{layer_id} observed contract mismatch")
         if contract.get("status") != "passed" or contract.get("mismatches") != []:
             raise AssertionError(f"{layer_id} contract failed: {contract!r}")
+
+
+def _assert_expected_layer_provenance(payload: Mapping[str, Any]) -> None:
+    audit_path = payload.get("audit_path")
+    if not isinstance(audit_path, Mapping):
+        raise AssertionError("audit_path must be an object")
+    provenance_checks = audit_path.get("layer_provenance")
+    if not isinstance(provenance_checks, list):
+        raise AssertionError("audit_path.layer_provenance must be a list")
+    observed_ids = [
+        check.get("layer_id")
+        for check in provenance_checks
+        if isinstance(check, Mapping)
+    ]
+    if observed_ids != EXPECTED_LAYER_IDS:
+        raise AssertionError(f"layer provenance ids mismatch: {observed_ids!r}")
+    for check in provenance_checks:
+        if not isinstance(check, Mapping):
+            raise AssertionError("layer provenance check must be an object")
+        layer_id = str(check.get("layer_id"))
+        expected = EXPECTED_LAYER_PROVENANCE[layer_id]
+        if check.get("expected") != expected:
+            raise AssertionError(f"{layer_id} expected provenance mismatch")
+        if check.get("observed") != expected:
+            raise AssertionError(f"{layer_id} observed provenance mismatch")
+        if check.get("status") != "passed" or check.get("mismatches") != []:
+            raise AssertionError(f"{layer_id} provenance failed: {check!r}")
 
 
 def _assert_expected_input_manifest(payload: Mapping[str, Any]) -> None:
@@ -455,6 +524,52 @@ def _layer_contracts(
             }
         )
     return contracts
+
+
+def _layer_provenance(
+    layers: Mapping[str, Mapping[str, Any]],
+    errors: list[str],
+) -> list[dict[str, Any]]:
+    checks: list[dict[str, Any]] = []
+    for layer_id in EXPECTED_LAYER_IDS:
+        payload = layers[layer_id]
+        expected = EXPECTED_LAYER_PROVENANCE[layer_id]
+        provenance = payload.get("provenance")
+        observed = _provenance_contract(provenance)
+        mismatches = []
+        for key, expected_value in expected.items():
+            observed_value = observed.get(key)
+            if observed_value != expected_value:
+                mismatches.append(
+                    {
+                        "key": key,
+                        "expected": expected_value,
+                        "observed": observed_value,
+                    }
+                )
+                errors.append(
+                    f"{layer_id} provenance mismatch on {key}: "
+                    f"{observed_value!r} != {expected_value!r}"
+                )
+        checks.append(
+            {
+                "layer_id": layer_id,
+                "expected": dict(expected),
+                "observed": observed,
+                "status": "passed" if not mismatches else "failed",
+                "mismatches": mismatches,
+            }
+        )
+    return checks
+
+
+def _provenance_contract(provenance: Any) -> dict[str, Any]:
+    if not isinstance(provenance, Mapping):
+        return {"generator": None, "command": None}
+    return {
+        "generator": provenance.get("generator"),
+        "command": provenance.get("command"),
+    }
 
 
 def _input_manifest() -> dict[str, Any]:
@@ -781,6 +896,8 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"layers: {coverage['layer_count']}",
         "layer contracts: "
         f"{_summary_status(payload['audit_path']['layer_contracts'])}",
+        "layer provenance: "
+        f"{_summary_status(payload['audit_path']['layer_provenance'])}",
         f"handoffs: {payload['audit_path']['handoff_count']}",
         f"input artifacts: {payload['input_manifest']['artifact_count']}",
         f"manifest consistency: {payload['manifest_consistency']['status']}",

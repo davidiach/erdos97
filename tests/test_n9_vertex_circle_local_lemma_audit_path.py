@@ -10,6 +10,7 @@ from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     EXPECTED_INPUT_ARTIFACT_COUNT,
     EXPECTED_LAYER_CONTRACTS,
     EXPECTED_LAYER_IDS,
+    EXPECTED_LAYER_PROVENANCE,
     assert_expected_local_lemma_audit_path,
     local_lemma_audit_path_payload,
 )
@@ -105,6 +106,19 @@ def test_local_lemma_audit_path_layer_contracts() -> None:
         assert contract["observed"] == expected
 
 
+def test_local_lemma_audit_path_layer_provenance() -> None:
+    payload = local_lemma_audit_path_payload()
+    provenance_checks = payload["audit_path"]["layer_provenance"]
+
+    assert [check["layer_id"] for check in provenance_checks] == EXPECTED_LAYER_IDS
+    assert all(check["status"] == "passed" for check in provenance_checks)
+    assert all(check["mismatches"] == [] for check in provenance_checks)
+    for check in provenance_checks:
+        expected = EXPECTED_LAYER_PROVENANCE[check["layer_id"]]
+        assert check["expected"] == expected
+        assert check["observed"] == expected
+
+
 def test_local_lemma_audit_path_rejects_unmanifested_layer_path() -> None:
     focused_minireplay = focused_minireplay_crosswalk_payload()
     tampered = json.loads(json.dumps(focused_minireplay))
@@ -151,6 +165,39 @@ def test_local_lemma_audit_path_rejects_layer_contract_drift() -> None:
     ]
     assert any(
         "aggregate_simple_replay contract mismatch on trust" in error
+        for error in payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_layer_provenance_drift() -> None:
+    aggregate = load_artifact(DEFAULT_AGGREGATE)
+    simple_replay = load_artifact(DEFAULT_SIMPLE_REPLAY)
+    local_replay = local_replay_crosswalk_payload(aggregate, simple_replay)
+    tampered = json.loads(json.dumps(local_replay))
+    tampered["provenance"]["command"] = "python scripts/not_the_crosswalk.py"
+
+    payload = local_lemma_audit_path_payload(
+        aggregate_simple_replay_payload=tampered,
+    )
+    provenance_checks = {
+        check["layer_id"]: check
+        for check in payload["audit_path"]["layer_provenance"]
+    }
+
+    assert payload["validation_status"] == "failed"
+    assert provenance_checks["aggregate_simple_replay"]["status"] == "failed"
+    assert provenance_checks["aggregate_simple_replay"]["mismatches"] == [
+        {
+            "key": "command",
+            "expected": (
+                "python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py "
+                "--check --assert-expected --json"
+            ),
+            "observed": "python scripts/not_the_crosswalk.py",
+        }
+    ]
+    assert any(
+        "aggregate_simple_replay provenance mismatch on command" in error
         for error in payload["validation_errors"]
     )
 
