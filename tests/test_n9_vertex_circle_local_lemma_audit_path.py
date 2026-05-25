@@ -150,6 +150,38 @@ def test_local_lemma_audit_path_manifest_header_contract() -> None:
     ] == "REVIEW_PENDING_T12_STRICT_CYCLE_MINIREPLAY"
 
 
+def test_local_lemma_audit_path_manifest_claim_contract() -> None:
+    payload = local_lemma_audit_path_payload()
+    contract = payload["manifest_claim_contract"]
+    by_path = {record["path"]: record for record in contract["observed_claims"]}
+
+    assert contract["status"] == "passed"
+    assert contract["expected_path_count"] == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert contract["observed_path_count"] == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert contract["missing_manifest_claim_paths"] == []
+    assert contract["unexpected_manifest_claim_paths"] == []
+    assert contract["duplicate_manifest_claim_paths"] == []
+    assert contract["failed_manifest_claim_guards"] == []
+    assert contract["malformed_manifest_claim_count"] == 0
+    local_claim = by_path["data/certificates/n9_vertex_circle_local_lemmas.json"]
+    assert local_claim["field"] == "claim_scope"
+    assert local_claim["status"] == "passed"
+    assert [result["guard"] for result in local_claim["guard_results"]] == [
+        "mentions_n9_scope",
+        "denies_proof",
+        "denies_counterexample",
+        "denies_global_status_update",
+    ]
+    exhaustive_claim = by_path["data/certificates/n9_vertex_circle_exhaustive.json"]
+    assert exhaustive_claim["field"] == "scope"
+    assert exhaustive_claim["status"] == "passed"
+    assert [result["guard"] for result in exhaustive_claim["guard_results"]] == [
+        "marks_repo_local_finite_case",
+        "marks_candidate_scope",
+        "denies_global_status_update",
+    ]
+
+
 def test_local_lemma_audit_path_manifest_consistency() -> None:
     payload = local_lemma_audit_path_payload()
     consistency = payload["manifest_consistency"]
@@ -347,6 +379,53 @@ def test_local_lemma_audit_path_rejects_malformed_manifest_headers() -> None:
     assert path in contract["missing_manifest_header_paths"]
     assert any(
         "input_manifest has 1 malformed header entries" in error
+        for error in tampered_payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_manifest_claim_drift() -> None:
+    path = "data/certificates/n9_vertex_circle_local_lemmas.json"
+    tampered_claim = dict(load_artifact(ROOT / path))
+    tampered_claim["claim_scope"] = "This packet audit discusses n=9."
+
+    tampered_payload = local_lemma_audit_path_payload(
+        manifest_claim_payloads={path: tampered_claim},
+    )
+    contract = tampered_payload["manifest_claim_contract"]
+
+    assert tampered_payload["validation_status"] == "failed"
+    assert contract["status"] == "failed"
+    assert contract["failed_manifest_claim_guards"] == [
+        {
+            "path": path,
+            "field": "claim_scope",
+            "missing_guards": [
+                "denies_proof",
+                "denies_counterexample",
+                "denies_global_status_update",
+            ],
+        }
+    ]
+    assert any(
+        "input_manifest claim guards failed on "
+        "data/certificates/n9_vertex_circle_local_lemmas.json" in error
+        for error in tampered_payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_malformed_manifest_claims() -> None:
+    path = "data/certificates/n9_vertex_circle_local_lemmas.json"
+    tampered_payload = local_lemma_audit_path_payload(
+        manifest_claim_payloads={path: ["not", "a", "claim"]},
+    )
+    contract = tampered_payload["manifest_claim_contract"]
+
+    assert tampered_payload["validation_status"] == "failed"
+    assert contract["status"] == "failed"
+    assert contract["malformed_manifest_claim_count"] == 1
+    assert path in contract["missing_manifest_claim_paths"]
+    assert any(
+        "input_manifest has 1 malformed claim entries" in error
         for error in tampered_payload["validation_errors"]
     )
 
