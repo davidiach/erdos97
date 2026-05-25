@@ -150,6 +150,46 @@ def test_local_lemma_audit_path_manifest_header_contract() -> None:
     ] == "REVIEW_PENDING_T12_STRICT_CYCLE_MINIREPLAY"
 
 
+def test_local_lemma_audit_path_manifest_provenance_contract() -> None:
+    payload = local_lemma_audit_path_payload()
+    contract = payload["manifest_provenance_contract"]
+    by_path = {
+        record["path"]: record for record in contract["observed_provenance"]
+    }
+
+    assert contract["status"] == "passed"
+    assert contract["expected_path_count"] == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert contract["observed_path_count"] == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert contract["expected_provenance"] == contract["observed_provenance"]
+    assert contract["missing_manifest_provenance_paths"] == []
+    assert contract["unexpected_manifest_provenance_paths"] == []
+    assert contract["duplicate_manifest_provenance_paths"] == []
+    assert contract["mismatched_manifest_provenance"] == []
+    assert contract["malformed_manifest_provenance_count"] == 0
+    local_provenance = by_path[
+        "data/certificates/n9_vertex_circle_local_lemmas.json"
+    ]
+    assert local_provenance == {
+        "path": "data/certificates/n9_vertex_circle_local_lemmas.json",
+        "generator": "scripts/check_n9_vertex_circle_local_lemmas.py",
+        "command": (
+            "python scripts/check_n9_vertex_circle_local_lemmas.py "
+            "--assert-expected --write"
+        ),
+    }
+    assert by_path["data/certificates/n9_vertex_circle_exhaustive.json"] == {
+        "path": "data/certificates/n9_vertex_circle_exhaustive.json",
+        "generator": None,
+        "command": None,
+    }
+    assert by_path["data/certificates/n9_t12_strict_cycle_minireplay.json"][
+        "command"
+    ] == (
+        "python scripts/check_n9_t12_strict_cycle_minireplay.py "
+        "--write --assert-expected"
+    )
+
+
 def test_local_lemma_audit_path_manifest_claim_contract() -> None:
     payload = local_lemma_audit_path_payload()
     contract = payload["manifest_claim_contract"]
@@ -379,6 +419,56 @@ def test_local_lemma_audit_path_rejects_malformed_manifest_headers() -> None:
     assert path in contract["missing_manifest_header_paths"]
     assert any(
         "input_manifest has 1 malformed header entries" in error
+        for error in tampered_payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_manifest_provenance_drift() -> None:
+    path = "data/certificates/n9_vertex_circle_local_lemmas.json"
+    tampered_provenance = dict(load_artifact(ROOT / path))
+    tampered_provenance["provenance"] = dict(tampered_provenance["provenance"])
+    tampered_provenance["provenance"]["command"] = (
+        "python scripts/not_the_local_lemma_generator.py --write"
+    )
+
+    tampered_payload = local_lemma_audit_path_payload(
+        manifest_provenance_payloads={path: tampered_provenance},
+    )
+    contract = tampered_payload["manifest_provenance_contract"]
+
+    assert tampered_payload["validation_status"] == "failed"
+    assert contract["status"] == "failed"
+    assert contract["mismatched_manifest_provenance"] == [
+        {
+            "path": path,
+            "key": "command",
+            "expected": (
+                "python scripts/check_n9_vertex_circle_local_lemmas.py "
+                "--assert-expected --write"
+            ),
+            "observed": "python scripts/not_the_local_lemma_generator.py --write",
+        }
+    ]
+    assert any(
+        "input_manifest provenance mismatch on "
+        "data/certificates/n9_vertex_circle_local_lemmas.json command" in error
+        for error in tampered_payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_malformed_manifest_provenance() -> None:
+    path = "data/certificates/n9_vertex_circle_local_lemmas.json"
+    tampered_payload = local_lemma_audit_path_payload(
+        manifest_provenance_payloads={path: ["not", "a", "provenance"]},
+    )
+    contract = tampered_payload["manifest_provenance_contract"]
+
+    assert tampered_payload["validation_status"] == "failed"
+    assert contract["status"] == "failed"
+    assert contract["malformed_manifest_provenance_count"] == 1
+    assert path in contract["missing_manifest_provenance_paths"]
+    assert any(
+        "input_manifest has 1 malformed provenance entries" in error
         for error in tampered_payload["validation_errors"]
     )
 

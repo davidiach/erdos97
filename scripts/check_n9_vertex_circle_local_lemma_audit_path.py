@@ -432,6 +432,7 @@ def local_lemma_audit_path_payload(
     input_manifest_payload: Mapping[str, Any] | None = None,
     manifest_header_payloads: Mapping[str, Any] | None = None,
     manifest_claim_payloads: Mapping[str, Any] | None = None,
+    manifest_provenance_payloads: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Return an audit-path payload tying all local-lemma layers together."""
 
@@ -475,6 +476,11 @@ def local_lemma_audit_path_payload(
         errors,
         header_payloads=manifest_header_payloads,
     )
+    manifest_provenance_contract = _manifest_provenance_contract(
+        input_manifest,
+        errors,
+        provenance_payloads=manifest_provenance_payloads,
+    )
     manifest_claim_contract = _manifest_claim_contract(
         input_manifest,
         errors,
@@ -507,6 +513,7 @@ def local_lemma_audit_path_payload(
         "manifest_role_contract": manifest_role_contract,
         "manifest_digest_contract": manifest_digest_contract,
         "manifest_header_contract": manifest_header_contract,
+        "manifest_provenance_contract": manifest_provenance_contract,
         "manifest_claim_contract": manifest_claim_contract,
         "manifest_consistency": manifest_consistency,
         "coverage_summary": coverage,
@@ -558,6 +565,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_manifest_role_contract(payload)
     _assert_expected_manifest_digest_contract(payload)
     _assert_expected_manifest_header_contract(payload)
+    _assert_expected_manifest_provenance_contract(payload)
     _assert_expected_manifest_claim_contract(payload)
     _assert_expected_manifest_consistency(payload)
 
@@ -972,6 +980,33 @@ def _assert_expected_manifest_header_contract(payload: Mapping[str, Any]) -> Non
             raise AssertionError(f"manifest header {key} is not empty")
     if contract.get("malformed_manifest_header_count") != 0:
         raise AssertionError("manifest header contract has malformed entries")
+
+
+def _assert_expected_manifest_provenance_contract(payload: Mapping[str, Any]) -> None:
+    contract = payload.get("manifest_provenance_contract")
+    if not isinstance(contract, Mapping):
+        raise AssertionError("manifest_provenance_contract must be an object")
+    expected = _manifest_provenance_records(_expected_manifest_provenance())
+    if contract.get("status") != "passed":
+        raise AssertionError(f"manifest provenance contract failed: {contract!r}")
+    if contract.get("expected_path_count") != len(expected):
+        raise AssertionError("manifest provenance expected path count mismatch")
+    if contract.get("observed_path_count") != len(expected):
+        raise AssertionError("manifest provenance observed path count mismatch")
+    if contract.get("expected_provenance") != expected:
+        raise AssertionError("manifest provenance expected records mismatch")
+    if contract.get("observed_provenance") != expected:
+        raise AssertionError("manifest provenance observed records mismatch")
+    for key in (
+        "missing_manifest_provenance_paths",
+        "unexpected_manifest_provenance_paths",
+        "duplicate_manifest_provenance_paths",
+        "mismatched_manifest_provenance",
+    ):
+        if contract.get(key) != []:
+            raise AssertionError(f"manifest provenance {key} is not empty")
+    if contract.get("malformed_manifest_provenance_count") != 0:
+        raise AssertionError("manifest provenance contract has malformed entries")
 
 
 def _assert_expected_manifest_claim_contract(payload: Mapping[str, Any]) -> None:
@@ -2142,6 +2177,186 @@ def _manifest_header_records(
     ]
 
 
+def _manifest_provenance_contract(
+    input_manifest: Mapping[str, Any],
+    errors: list[str],
+    *,
+    provenance_payloads: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    expected_provenance = _expected_manifest_provenance()
+    artifacts = input_manifest.get("artifacts", [])
+    artifact_records = artifacts if isinstance(artifacts, list) else []
+    observed_provenance, malformed_count = _observed_manifest_provenance(
+        artifact_records,
+        set(expected_provenance),
+        provenance_payloads=provenance_payloads,
+    )
+    expected_paths = set(expected_provenance)
+    observed_path_list = [
+        str(artifact.get("path"))
+        for artifact in artifact_records
+        if isinstance(artifact, Mapping) and isinstance(artifact.get("path"), str)
+    ]
+    observed_paths = set(observed_path_list)
+    duplicate_paths = sorted(
+        {path for path in observed_path_list if observed_path_list.count(path) > 1}
+    )
+    missing = sorted(expected_paths - set(observed_provenance))
+    unexpected = sorted(observed_paths - expected_paths)
+    mismatches = _manifest_provenance_mismatches(
+        expected_provenance,
+        observed_provenance,
+    )
+
+    if not isinstance(artifacts, list):
+        malformed_count += 1
+    if malformed_count:
+        errors.append(
+            f"input_manifest has {malformed_count} malformed provenance entries"
+        )
+    if duplicate_paths:
+        errors.append(f"input_manifest duplicate provenance paths: {duplicate_paths!r}")
+    if missing:
+        errors.append(
+            f"input_manifest provenance contract missing paths: {missing!r}"
+        )
+    if unexpected:
+        errors.append(
+            f"input_manifest provenance contract unexpected paths: {unexpected!r}"
+        )
+    for mismatch in mismatches:
+        errors.append(
+            f"input_manifest provenance mismatch on {mismatch['path']} "
+            f"{mismatch['key']}: {mismatch['observed']!r} != "
+            f"{mismatch['expected']!r}"
+        )
+
+    return {
+        "status": (
+            "passed"
+            if not (malformed_count or duplicate_paths or missing or unexpected or mismatches)
+            else "failed"
+        ),
+        "expected_path_count": len(expected_provenance),
+        "observed_path_count": len(observed_provenance),
+        "expected_provenance": _manifest_provenance_records(expected_provenance),
+        "observed_provenance": _manifest_provenance_records(observed_provenance),
+        "missing_manifest_provenance_paths": missing,
+        "unexpected_manifest_provenance_paths": unexpected,
+        "duplicate_manifest_provenance_paths": duplicate_paths,
+        "mismatched_manifest_provenance": mismatches,
+        "malformed_manifest_provenance_count": malformed_count,
+    }
+
+
+def _expected_manifest_provenance() -> dict[str, dict[str, Any]]:
+    provenance: dict[str, dict[str, Any]] = {}
+
+    def add(path: Path, generator: str | None, command: str | None) -> None:
+        provenance[_artifact_path_key(path)] = {
+            "generator": generator,
+            "command": command,
+        }
+
+    def add_writer(path: Path, script_name: str) -> None:
+        generator = f"scripts/{script_name}"
+        add(path, generator, f"python {generator} --assert-expected --write")
+
+    add_writer(
+        DEFAULT_TEMPLATE_CATALOG,
+        "check_n9_vertex_circle_template_lemma_catalog.py",
+    )
+    add_writer(DEFAULT_FOCUSED_LOCAL_LEMMAS, "check_n9_vertex_circle_local_lemmas.py")
+    add_writer(
+        DEFAULT_SIMPLE_REPLAY,
+        "check_n9_vertex_circle_local_lemma_simple_replay.py",
+    )
+    add(DEFAULT_EXHAUSTIVE, None, None)
+    add_writer(
+        DEFAULT_CLASSIFICATION,
+        "check_n9_vertex_circle_frontier_motif_classification.py",
+    )
+    add_writer(DEFAULT_RELATION_SKELETONS, "check_relation_skeleton_catalog.py")
+    for kind, path in sorted(DEFAULT_TEMPLATE_PACKET_PATHS.items()):
+        add_writer(path, f"check_n9_vertex_circle_{kind}_template_packet.py")
+    for template_id, path in sorted(DEFAULT_PACKET_PATHS.items()):
+        kind = _template_kind(template_id)
+        add_writer(
+            path,
+            f"check_n9_vertex_circle_{template_id.lower()}_{kind}_lemma_packet.py",
+        )
+    for template_id, path in sorted(DEFAULT_MINIREPLAY_PATHS.items()):
+        kind = _template_kind(template_id)
+        generator = f"scripts/check_n9_{template_id.lower()}_{kind}_minireplay.py"
+        add(path, generator, f"python {generator} --write --assert-expected")
+    return provenance
+
+
+def _observed_manifest_provenance(
+    artifacts: list[Any],
+    expected_paths: set[str],
+    *,
+    provenance_payloads: Mapping[str, Any] | None = None,
+) -> tuple[dict[str, dict[str, Any]], int]:
+    provenance_by_path: dict[str, dict[str, Any]] = {}
+    malformed_count = 0
+    for artifact in artifacts:
+        if not isinstance(artifact, Mapping):
+            malformed_count += 1
+            continue
+        path = artifact.get("path")
+        if not isinstance(path, str) or path not in expected_paths:
+            continue
+        try:
+            payload = (
+                provenance_payloads[path]
+                if provenance_payloads is not None and path in provenance_payloads
+                else load_artifact(ROOT / path)
+            )
+        except (OSError, json.JSONDecodeError):
+            malformed_count += 1
+            continue
+        if not isinstance(payload, Mapping):
+            malformed_count += 1
+            continue
+        provenance_by_path[path] = _provenance_contract(payload.get("provenance"))
+    return provenance_by_path, malformed_count
+
+
+def _manifest_provenance_mismatches(
+    expected_provenance: Mapping[str, Mapping[str, Any]],
+    observed_provenance: Mapping[str, Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    mismatches: list[dict[str, Any]] = []
+    for path in sorted(set(expected_provenance) & set(observed_provenance)):
+        expected = expected_provenance[path]
+        observed = observed_provenance[path]
+        for key in ("generator", "command"):
+            if observed.get(key) != expected.get(key):
+                mismatches.append(
+                    {
+                        "path": path,
+                        "key": key,
+                        "expected": expected.get(key),
+                        "observed": observed.get(key),
+                    }
+                )
+    return mismatches
+
+
+def _manifest_provenance_records(
+    provenance_by_path: Mapping[str, Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    return [
+        {
+            "path": path,
+            "generator": provenance_by_path[path]["generator"],
+            "command": provenance_by_path[path]["command"],
+        }
+        for path in sorted(provenance_by_path)
+    ]
+
+
 def _manifest_claim_contract(
     input_manifest: Mapping[str, Any],
     errors: list[str],
@@ -2633,6 +2848,7 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"manifest roles: {payload['manifest_role_contract']['status']}",
         f"manifest digests: {payload['manifest_digest_contract']['status']}",
         f"manifest headers: {payload['manifest_header_contract']['status']}",
+        f"manifest provenance: {payload['manifest_provenance_contract']['status']}",
         f"manifest claims: {payload['manifest_claim_contract']['status']}",
         f"manifest consistency: {payload['manifest_consistency']['status']}",
         f"templates: {coverage['template_count']}",
