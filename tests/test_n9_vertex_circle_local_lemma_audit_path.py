@@ -1319,6 +1319,73 @@ def test_local_lemma_audit_path_cli_json_failure_includes_contract_rollups(
     )
 
 
+def test_local_lemma_audit_path_cli_assert_expected_failure_stays_textual(
+    monkeypatch,
+    capsys,
+) -> None:
+    payload = local_lemma_audit_path_payload()
+    tampered_manifest = json.loads(json.dumps(payload["input_manifest"]))
+    for artifact in tampered_manifest["artifacts"]:
+        if artifact["path"] == "data/certificates/n9_vertex_circle_local_lemmas.json":
+            artifact["roles"] = ["aggregate/simple replay aggregate source"]
+            break
+    tampered_payload = local_lemma_audit_path_payload(
+        input_manifest_payload=tampered_manifest,
+    )
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: tampered_payload,
+    )
+
+    assert audit_path_main(["--check", "--assert-expected"]) == 1
+
+    captured = capsys.readouterr()
+    lines = captured.err.splitlines()
+    assert captured.out == ""
+    assert "FAILED: local-lemma audit path" in lines
+    assert "manifest contract summary: failed" in lines
+    assert any(
+        line.startswith("- assert_expected failed: validation errors:")
+        for line in lines
+    )
+
+
+def test_local_lemma_audit_path_cli_json_assert_expected_failure_returns_payload(
+    monkeypatch,
+    capsys,
+) -> None:
+    payload = local_lemma_audit_path_payload()
+    tampered_manifest = json.loads(json.dumps(payload["input_manifest"]))
+    for artifact in tampered_manifest["artifacts"]:
+        if artifact["path"] == "data/certificates/n9_vertex_circle_local_lemmas.json":
+            artifact["roles"] = ["aggregate/simple replay aggregate source"]
+            break
+    tampered_payload = local_lemma_audit_path_payload(
+        input_manifest_payload=tampered_manifest,
+    )
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: tampered_payload,
+    )
+
+    assert audit_path_main(["--check", "--assert-expected", "--json"]) == 1
+
+    captured = capsys.readouterr()
+    parsed = json.loads(captured.out)
+    assert captured.err == ""
+    assert parsed["validation_status"] == "failed"
+    assert parsed["manifest_contract_summary"]["status"] == "failed"
+    assert parsed["audit_contract_summary"]["failed_components"] == [
+        "manifest_contracts",
+    ]
+    assert any(
+        error.startswith("assert_expected failed: validation errors:")
+        for error in parsed["validation_errors"]
+    )
+
+
 def test_local_lemma_audit_path_cli_layer_failure_summary_marks_layer_side(
     monkeypatch,
     capsys,
