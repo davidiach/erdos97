@@ -1247,6 +1247,20 @@ def test_local_lemma_audit_path_failure_lines_include_contract_rollups() -> None
     )
 
 
+def test_local_lemma_audit_path_failure_lines_reject_scalar_errors() -> None:
+    lines = failure_lines(
+        {
+            "validation_status": "failed",
+            "validation_errors": "malformed contract payload",
+        }
+    )
+
+    assert lines == [
+        "FAILED: local-lemma audit path",
+        "- validation_errors is not a list: str",
+    ]
+
+
 def test_local_lemma_audit_path_cli_failure_summary_includes_contract_rollups(
     monkeypatch,
     capsys,
@@ -1349,6 +1363,29 @@ def test_local_lemma_audit_path_cli_assert_expected_failure_stays_textual(
         line.startswith("- assert_expected failed: validation errors:")
         for line in lines
     )
+
+
+def test_local_lemma_audit_path_cli_scalar_validation_errors_stays_textual(
+    monkeypatch,
+    capsys,
+) -> None:
+    malformed_payload = local_lemma_audit_path_payload()
+    malformed_payload["validation_status"] = "failed"
+    malformed_payload["validation_errors"] = "malformed contract payload"
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: malformed_payload,
+    )
+
+    assert audit_path_main(["--check"]) == 1
+
+    captured = capsys.readouterr()
+    lines = captured.err.splitlines()
+    assert captured.out == ""
+    assert "validation: failed" in lines
+    assert "- validation_errors is not a list: str" in lines
+    assert "- m" not in lines
 
 
 def test_local_lemma_audit_path_cli_json_assert_expected_failure_returns_payload(

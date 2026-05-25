@@ -3393,7 +3393,11 @@ def failure_lines(payload: Mapping[str, Any]) -> list[str]:
         lines.append(f"failure stage: {payload['failure_stage']}")
     if payload.get("exception_type"):
         lines.append(f"exception type: {payload['exception_type']}")
-    for error in payload.get("validation_errors", []):
+    errors = payload.get("validation_errors", [])
+    if not isinstance(errors, list):
+        lines.append(f"- validation_errors is not a list: {type(errors).__name__}")
+        return lines
+    for error in errors:
         lines.append(f"- {error}")
     return lines
 
