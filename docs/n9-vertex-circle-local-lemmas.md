@@ -660,8 +660,9 @@ checked upstream artifact paths, roles, sizes, and SHA256 digests used by the
 combined audit path, a manifest-role contract for the expected path-to-role
 table, a manifest-digest contract that recomputes the expected size/digest
 table from disk, a manifest-header contract for the expected schema/status/trust
-envelope, a manifest-claim contract for the expected review-pending
-claim-scope guard language on each upstream artifact, plus a
+envelope, a manifest-provenance contract for the expected generator/command
+fields on each upstream artifact, a manifest-claim contract for the expected
+review-pending claim-scope guard language on each upstream artifact, plus a
 manifest-consistency check comparing those paths with the artifacts actually
 referenced by each layer payload:
 
