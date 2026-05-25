@@ -1386,6 +1386,62 @@ def test_local_lemma_audit_path_cli_json_assert_expected_failure_returns_payload
     )
 
 
+def test_local_lemma_audit_path_cli_generation_failure_stays_textual(
+    monkeypatch,
+    capsys,
+) -> None:
+    def raise_payload_error() -> None:
+        raise ValueError("malformed audit fixture")
+
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        raise_payload_error,
+    )
+
+    assert audit_path_main(["--check"]) == 1
+
+    captured = capsys.readouterr()
+    lines = captured.err.splitlines()
+    assert captured.out == ""
+    assert lines == [
+        "FAILED: local-lemma audit path",
+        "failure stage: payload_construction",
+        "exception type: ValueError",
+        "- payload construction failed: malformed audit fixture",
+    ]
+
+
+def test_local_lemma_audit_path_cli_json_generation_failure_returns_payload(
+    monkeypatch,
+    capsys,
+) -> None:
+    def raise_payload_error() -> None:
+        raise ValueError("malformed audit fixture")
+
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        raise_payload_error,
+    )
+
+    assert audit_path_main(["--check", "--assert-expected", "--json"]) == 1
+
+    captured = capsys.readouterr()
+    parsed = json.loads(captured.out)
+    assert captured.err == ""
+    assert parsed["validation_status"] == "failed"
+    assert parsed["failure_stage"] == "payload_construction"
+    assert parsed["exception_type"] == "ValueError"
+    assert parsed["validation_errors"][0] == (
+        "payload construction failed: malformed audit fixture"
+    )
+    assert any(
+        error.startswith("assert_expected failed: validation errors:")
+        for error in parsed["validation_errors"]
+    )
+
+
 def test_local_lemma_audit_path_cli_layer_failure_summary_marks_layer_side(
     monkeypatch,
     capsys,

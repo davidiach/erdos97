@@ -3389,9 +3389,27 @@ def failure_lines(payload: Mapping[str, Any]) -> list[str]:
         lines.extend(summary_lines(payload))
     except (KeyError, TypeError):
         pass
+    if payload.get("failure_stage"):
+        lines.append(f"failure stage: {payload['failure_stage']}")
+    if payload.get("exception_type"):
+        lines.append(f"exception type: {payload['exception_type']}")
     for error in payload.get("validation_errors", []):
         lines.append(f"- {error}")
     return lines
+
+
+def _payload_with_generation_failure(exc: Exception) -> dict[str, Any]:
+    return {
+        "schema": SCHEMA,
+        "status": STATUS,
+        "trust": TRUST,
+        "claim_scope": CLAIM_SCOPE,
+        "validation_status": "failed",
+        "validation_errors": [f"payload construction failed: {exc}"],
+        "failure_stage": "payload_construction",
+        "exception_type": type(exc).__name__,
+        "provenance": dict(PROVENANCE),
+    }
 
 
 def _payload_with_assert_expected_failure(
@@ -3422,15 +3440,7 @@ def main(argv: list[str] | None = None) -> int:
     try:
         payload = local_lemma_audit_path_payload()
     except (OSError, json.JSONDecodeError, TypeError, ValueError) as exc:
-        payload = {
-            "schema": SCHEMA,
-            "status": STATUS,
-            "trust": TRUST,
-            "claim_scope": CLAIM_SCOPE,
-            "validation_status": "failed",
-            "validation_errors": [str(exc)],
-            "provenance": dict(PROVENANCE),
-        }
+        payload = _payload_with_generation_failure(exc)
 
     assert_expected_failed = False
     if args.assert_expected:
