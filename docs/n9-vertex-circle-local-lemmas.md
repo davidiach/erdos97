@@ -667,7 +667,11 @@ entries, a manifest-claim contract for the expected review-pending claim-scope
 guard language on each upstream artifact, plus a manifest-consistency check
 comparing those paths with the artifacts actually referenced by each layer
 payload, and a compact manifest-contract summary that reports the pass/fail
-state for all manifest-side contracts in one place:
+state for all manifest-side contracts in one place. It also emits an
+audit-contract summary that rolls up the layer contracts, layer provenance,
+source-artifact contracts, claim-scope guards, output and input contracts,
+focused minireplay record-path contract, adjacent handoff checks, and manifest
+contracts into a single reviewer-facing pass/fail table:
 
 ```bash
 python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json
