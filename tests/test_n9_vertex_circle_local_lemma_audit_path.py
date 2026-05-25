@@ -124,6 +124,32 @@ def test_local_lemma_audit_path_manifest_digest_contract() -> None:
     assert len(local_digest["sha256"]) == 64
 
 
+def test_local_lemma_audit_path_manifest_header_contract() -> None:
+    payload = local_lemma_audit_path_payload()
+    contract = payload["manifest_header_contract"]
+    by_path = {record["path"]: record for record in contract["observed_headers"]}
+
+    assert contract["status"] == "passed"
+    assert contract["expected_path_count"] == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert contract["observed_path_count"] == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert contract["expected_headers"] == contract["observed_headers"]
+    assert contract["missing_manifest_header_paths"] == []
+    assert contract["unexpected_manifest_header_paths"] == []
+    assert contract["duplicate_manifest_header_paths"] == []
+    assert contract["mismatched_manifest_headers"] == []
+    assert contract["malformed_manifest_header_count"] == 0
+    assert by_path["data/certificates/n9_vertex_circle_exhaustive.json"] == {
+        "path": "data/certificates/n9_vertex_circle_exhaustive.json",
+        "schema": None,
+        "status": None,
+        "trust": "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING",
+        "validation_status": None,
+    }
+    assert by_path["data/certificates/n9_t12_strict_cycle_minireplay.json"][
+        "status"
+    ] == "REVIEW_PENDING_T12_STRICT_CYCLE_MINIREPLAY"
+
+
 def test_local_lemma_audit_path_manifest_consistency() -> None:
     payload = local_lemma_audit_path_payload()
     consistency = payload["manifest_consistency"]
@@ -268,6 +294,59 @@ def test_local_lemma_audit_path_rejects_malformed_manifest_digests() -> None:
     ]
     assert any(
         "input_manifest has 1 malformed digest entries" in error
+        for error in tampered_payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_manifest_header_drift() -> None:
+    path = "data/certificates/n9_vertex_circle_local_lemmas.json"
+    tampered_header = dict(load_artifact(ROOT / path))
+    tampered_header["status"] = "REVIEW_PENDING_WRONG_STATUS"
+
+    tampered_payload = local_lemma_audit_path_payload(
+        manifest_header_payloads={path: tampered_header},
+    )
+    contract = tampered_payload["manifest_header_contract"]
+
+    assert tampered_payload["validation_status"] == "failed"
+    assert contract["status"] == "failed"
+    assert contract["mismatched_manifest_headers"] == [
+        {
+            "path": path,
+            "expected": {
+                "schema": "erdos97.n9_vertex_circle_local_lemmas.v1",
+                "status": "REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE",
+                "trust": "REVIEW_PENDING_DIAGNOSTIC",
+                "validation_status": None,
+            },
+            "observed": {
+                "schema": "erdos97.n9_vertex_circle_local_lemmas.v1",
+                "status": "REVIEW_PENDING_WRONG_STATUS",
+                "trust": "REVIEW_PENDING_DIAGNOSTIC",
+                "validation_status": None,
+            },
+        }
+    ]
+    assert any(
+        "input_manifest header mismatch on "
+        "data/certificates/n9_vertex_circle_local_lemmas.json" in error
+        for error in tampered_payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_malformed_manifest_headers() -> None:
+    path = "data/certificates/n9_vertex_circle_local_lemmas.json"
+    tampered_payload = local_lemma_audit_path_payload(
+        manifest_header_payloads={path: ["not", "a", "header"]},
+    )
+    contract = tampered_payload["manifest_header_contract"]
+
+    assert tampered_payload["validation_status"] == "failed"
+    assert contract["status"] == "failed"
+    assert contract["malformed_manifest_header_count"] == 1
+    assert path in contract["missing_manifest_header_paths"]
+    assert any(
+        "input_manifest has 1 malformed header entries" in error
         for error in tampered_payload["validation_errors"]
     )
 

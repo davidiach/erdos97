@@ -425,6 +425,7 @@ def local_lemma_audit_path_payload(
     exhaustive_local_lemma_payload: Mapping[str, Any] | None = None,
     relation_skeleton_local_lemma_payload: Mapping[str, Any] | None = None,
     input_manifest_payload: Mapping[str, Any] | None = None,
+    manifest_header_payloads: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Return an audit-path payload tying all local-lemma layers together."""
 
@@ -463,6 +464,11 @@ def local_lemma_audit_path_payload(
     )
     manifest_role_contract = _manifest_role_contract(input_manifest, errors)
     manifest_digest_contract = _manifest_digest_contract(input_manifest, errors)
+    manifest_header_contract = _manifest_header_contract(
+        input_manifest,
+        errors,
+        header_payloads=manifest_header_payloads,
+    )
     manifest_consistency = _manifest_consistency(layers, input_manifest, errors)
 
     return {
@@ -489,6 +495,7 @@ def local_lemma_audit_path_payload(
         "input_manifest": input_manifest,
         "manifest_role_contract": manifest_role_contract,
         "manifest_digest_contract": manifest_digest_contract,
+        "manifest_header_contract": manifest_header_contract,
         "manifest_consistency": manifest_consistency,
         "coverage_summary": coverage,
         "validation_status": "passed" if not errors else "failed",
@@ -538,6 +545,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_input_manifest(payload)
     _assert_expected_manifest_role_contract(payload)
     _assert_expected_manifest_digest_contract(payload)
+    _assert_expected_manifest_header_contract(payload)
     _assert_expected_manifest_consistency(payload)
 
     audit_path = payload.get("audit_path")
@@ -924,6 +932,33 @@ def _assert_expected_manifest_digest_contract(payload: Mapping[str, Any]) -> Non
             raise AssertionError(f"manifest digest {key} is not empty")
     if contract.get("malformed_manifest_digest_count") != 0:
         raise AssertionError("manifest digest contract has malformed entries")
+
+
+def _assert_expected_manifest_header_contract(payload: Mapping[str, Any]) -> None:
+    contract = payload.get("manifest_header_contract")
+    if not isinstance(contract, Mapping):
+        raise AssertionError("manifest_header_contract must be an object")
+    expected = _manifest_header_records(_expected_manifest_headers())
+    if contract.get("status") != "passed":
+        raise AssertionError(f"manifest header contract failed: {contract!r}")
+    if contract.get("expected_path_count") != len(expected):
+        raise AssertionError("manifest header expected path count mismatch")
+    if contract.get("observed_path_count") != len(expected):
+        raise AssertionError("manifest header observed path count mismatch")
+    if contract.get("expected_headers") != expected:
+        raise AssertionError("manifest header expected records mismatch")
+    if contract.get("observed_headers") != expected:
+        raise AssertionError("manifest header observed records mismatch")
+    for key in (
+        "missing_manifest_header_paths",
+        "unexpected_manifest_header_paths",
+        "duplicate_manifest_header_paths",
+        "mismatched_manifest_headers",
+    ):
+        if contract.get(key) != []:
+            raise AssertionError(f"manifest header {key} is not empty")
+    if contract.get("malformed_manifest_header_count") != 0:
+        raise AssertionError("manifest header contract has malformed entries")
 
 
 def _assert_expected_manifest_consistency(payload: Mapping[str, Any]) -> None:
@@ -1813,6 +1848,222 @@ def _is_sha256_digest(value: Any) -> bool:
     )
 
 
+def _manifest_header_contract(
+    input_manifest: Mapping[str, Any],
+    errors: list[str],
+    *,
+    header_payloads: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    expected_headers = _expected_manifest_headers()
+    artifacts = input_manifest.get("artifacts", [])
+    artifact_records = artifacts if isinstance(artifacts, list) else []
+    observed_headers, malformed_count = _observed_manifest_headers(
+        artifact_records,
+        set(expected_headers),
+        header_payloads=header_payloads,
+    )
+    expected_paths = set(expected_headers)
+    observed_path_list = [
+        str(artifact.get("path"))
+        for artifact in artifact_records
+        if isinstance(artifact, Mapping) and isinstance(artifact.get("path"), str)
+    ]
+    observed_paths = set(observed_path_list)
+    duplicate_paths = sorted(
+        {path for path in observed_path_list if observed_path_list.count(path) > 1}
+    )
+    missing = sorted(expected_paths - set(observed_headers))
+    unexpected = sorted(observed_paths - expected_paths)
+    mismatches = _manifest_header_mismatches(expected_headers, observed_headers)
+
+    if not isinstance(artifacts, list):
+        malformed_count += 1
+    if malformed_count:
+        errors.append(f"input_manifest has {malformed_count} malformed header entries")
+    if duplicate_paths:
+        errors.append(f"input_manifest duplicate header paths: {duplicate_paths!r}")
+    if missing:
+        errors.append(f"input_manifest header contract missing paths: {missing!r}")
+    if unexpected:
+        errors.append(f"input_manifest header contract unexpected paths: {unexpected!r}")
+    for mismatch in mismatches:
+        errors.append(
+            f"input_manifest header mismatch on {mismatch['path']}: "
+            f"{mismatch['observed']!r} != {mismatch['expected']!r}"
+        )
+
+    return {
+        "status": (
+            "passed"
+            if not (malformed_count or duplicate_paths or missing or unexpected or mismatches)
+            else "failed"
+        ),
+        "expected_path_count": len(expected_headers),
+        "observed_path_count": len(observed_headers),
+        "expected_headers": _manifest_header_records(expected_headers),
+        "observed_headers": _manifest_header_records(observed_headers),
+        "missing_manifest_header_paths": missing,
+        "unexpected_manifest_header_paths": unexpected,
+        "duplicate_manifest_header_paths": duplicate_paths,
+        "mismatched_manifest_headers": mismatches,
+        "malformed_manifest_header_count": malformed_count,
+    }
+
+
+def _expected_manifest_headers() -> dict[str, dict[str, Any]]:
+    headers: dict[str, dict[str, Any]] = {}
+
+    def add(
+        path: Path,
+        *,
+        schema: str | None = None,
+        status: str | None = None,
+        trust: str | None = "REVIEW_PENDING_DIAGNOSTIC",
+        validation_status: str | None = None,
+    ) -> None:
+        headers[_artifact_path_key(path)] = {
+            "schema": schema,
+            "status": status,
+            "trust": trust,
+            "validation_status": validation_status,
+        }
+
+    add(
+        DEFAULT_TEMPLATE_CATALOG,
+        schema="erdos97.n9_vertex_circle_template_lemma_catalog.v1",
+        status="REVIEW_PENDING_DIAGNOSTIC_ONLY",
+    )
+    add(
+        DEFAULT_FOCUSED_LOCAL_LEMMAS,
+        schema="erdos97.n9_vertex_circle_local_lemmas.v1",
+        status="REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE",
+    )
+    add(
+        DEFAULT_SIMPLE_REPLAY,
+        schema="erdos97.n9_vertex_circle_local_lemma_simple_replay.v1",
+        status="REVIEW_PENDING_PACKET_AUDIT",
+        validation_status="passed",
+    )
+    add(
+        DEFAULT_EXHAUSTIVE,
+        trust="MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING",
+    )
+    add(
+        DEFAULT_CLASSIFICATION,
+        schema="erdos97.n9_vertex_circle_frontier_motif_classification.v1",
+        status="REVIEW_PENDING_DIAGNOSTIC_ONLY",
+    )
+    add(
+        DEFAULT_RELATION_SKELETONS,
+        schema="erdos97.relation_skeleton_catalog.v1",
+        status="REVIEW_PENDING_DIAGNOSTIC_ONLY",
+    )
+    for kind, path in sorted(DEFAULT_TEMPLATE_PACKET_PATHS.items()):
+        add(
+            path,
+            schema=f"erdos97.n9_vertex_circle_{kind}_template_packet.v1",
+            status="REVIEW_PENDING_DIAGNOSTIC_ONLY",
+        )
+    for template_id, path in sorted(DEFAULT_PACKET_PATHS.items()):
+        kind = _template_kind(template_id)
+        add(
+            path,
+            schema=f"erdos97.n9_vertex_circle_{template_id.lower()}_{kind}_lemma_packet.v1",
+            status="REVIEW_PENDING_DIAGNOSTIC_ONLY",
+        )
+    for template_id, path in sorted(DEFAULT_MINIREPLAY_PATHS.items()):
+        kind = _template_kind(template_id)
+        add(
+            path,
+            schema=f"erdos97.n9_{template_id.lower()}_{kind}_minireplay.v1",
+            status=f"REVIEW_PENDING_{template_id}_{kind.upper()}_MINIREPLAY",
+        )
+    return headers
+
+
+def _observed_manifest_headers(
+    artifacts: list[Any],
+    expected_paths: set[str],
+    *,
+    header_payloads: Mapping[str, Any] | None = None,
+) -> tuple[dict[str, dict[str, Any]], int]:
+    headers_by_path: dict[str, dict[str, Any]] = {}
+    malformed_count = 0
+    for artifact in artifacts:
+        if not isinstance(artifact, Mapping):
+            malformed_count += 1
+            continue
+        path = artifact.get("path")
+        if not isinstance(path, str) or path not in expected_paths:
+            continue
+        try:
+            payload = (
+                header_payloads[path]
+                if header_payloads is not None and path in header_payloads
+                else load_artifact(ROOT / path)
+            )
+        except (OSError, json.JSONDecodeError):
+            malformed_count += 1
+            continue
+        if not isinstance(payload, Mapping):
+            malformed_count += 1
+            continue
+        headers_by_path[path] = _manifest_header_from_payload(payload)
+    return headers_by_path, malformed_count
+
+
+def _manifest_header_from_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    return {
+        "schema": _optional_string(payload.get("schema")),
+        "status": _optional_string(payload.get("status")),
+        "trust": _optional_string(payload.get("trust")),
+        "validation_status": _optional_string(payload.get("validation_status")),
+    }
+
+
+def _optional_string(value: Any) -> str | None:
+    return value if isinstance(value, str) else None
+
+
+def _template_kind(template_id: str) -> str:
+    index = int(template_id[1:])
+    return "self_edge" if index <= 9 else "strict_cycle"
+
+
+def _manifest_header_mismatches(
+    expected_headers: Mapping[str, Mapping[str, Any]],
+    observed_headers: Mapping[str, Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    mismatches: list[dict[str, Any]] = []
+    for path in sorted(set(expected_headers) & set(observed_headers)):
+        expected = dict(expected_headers[path])
+        observed = dict(observed_headers[path])
+        if observed != expected:
+            mismatches.append(
+                {
+                    "path": path,
+                    "expected": expected,
+                    "observed": observed,
+                }
+            )
+    return mismatches
+
+
+def _manifest_header_records(
+    headers_by_path: Mapping[str, Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    return [
+        {
+            "path": path,
+            "schema": headers_by_path[path]["schema"],
+            "status": headers_by_path[path]["status"],
+            "trust": headers_by_path[path]["trust"],
+            "validation_status": headers_by_path[path]["validation_status"],
+        }
+        for path in sorted(headers_by_path)
+    ]
+
+
 def _manifest_consistency(
     layers: Mapping[str, Mapping[str, Any]],
     input_manifest: Mapping[str, Any],
@@ -2112,6 +2363,7 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"input artifacts: {payload['input_manifest']['artifact_count']}",
         f"manifest roles: {payload['manifest_role_contract']['status']}",
         f"manifest digests: {payload['manifest_digest_contract']['status']}",
+        f"manifest headers: {payload['manifest_header_contract']['status']}",
         f"manifest consistency: {payload['manifest_consistency']['status']}",
         f"templates: {coverage['template_count']}",
         f"families: {coverage['family_count']}",
