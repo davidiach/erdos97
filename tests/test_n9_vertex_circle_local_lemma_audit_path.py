@@ -242,6 +242,30 @@ def test_local_lemma_audit_path_rejects_claim_scope_guard_drift() -> None:
     )
 
 
+def test_local_lemma_audit_path_global_status_guard_requires_negation() -> None:
+    focused_minireplay = focused_minireplay_crosswalk_payload()
+    tampered = json.loads(json.dumps(focused_minireplay))
+    tampered["claim_scope"] = (
+        "This is not a proof of n=9, not a counterexample, and this is an "
+        "official/global status update."
+    )
+
+    payload = local_lemma_audit_path_payload(focused_minireplay_payload=tampered)
+    guard_checks = {
+        check["layer_id"]: check
+        for check in payload["audit_path"]["claim_scope_guards"]
+    }
+
+    assert payload["validation_status"] == "failed"
+    focused_guard = guard_checks["focused_minireplay"]
+    assert focused_guard["status"] == "failed"
+    assert focused_guard["missing_guards"] == ["denies_global_status_update"]
+    assert any(
+        "focused_minireplay claim_scope missing guards" in error
+        for error in payload["validation_errors"]
+    )
+
+
 def test_local_lemma_audit_path_layer_summaries() -> None:
     payload = local_lemma_audit_path_payload()
     by_layer = {item["layer_id"]: item for item in payload["audit_path"]["layers"]}

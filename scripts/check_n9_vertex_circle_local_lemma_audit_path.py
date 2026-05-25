@@ -161,7 +161,7 @@ CLAIM_SCOPE_GUARDS = {
     ),
     "denies_global_status_update": (
         ("not a global status update",),
-        ("official/global status update",),
+        ("does not prove", "official/global status update"),
     ),
 }
 HANDOFF_COMPARE_KEYS = (
