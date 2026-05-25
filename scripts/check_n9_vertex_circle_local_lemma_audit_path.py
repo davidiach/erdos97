@@ -462,6 +462,7 @@ def local_lemma_audit_path_payload(
         else _input_manifest()
     )
     manifest_role_contract = _manifest_role_contract(input_manifest, errors)
+    manifest_digest_contract = _manifest_digest_contract(input_manifest, errors)
     manifest_consistency = _manifest_consistency(layers, input_manifest, errors)
 
     return {
@@ -487,6 +488,7 @@ def local_lemma_audit_path_payload(
         },
         "input_manifest": input_manifest,
         "manifest_role_contract": manifest_role_contract,
+        "manifest_digest_contract": manifest_digest_contract,
         "manifest_consistency": manifest_consistency,
         "coverage_summary": coverage,
         "validation_status": "passed" if not errors else "failed",
@@ -535,6 +537,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_focused_minireplay_record_path_contract(payload)
     _assert_expected_input_manifest(payload)
     _assert_expected_manifest_role_contract(payload)
+    _assert_expected_manifest_digest_contract(payload)
     _assert_expected_manifest_consistency(payload)
 
     audit_path = payload.get("audit_path")
@@ -894,6 +897,33 @@ def _assert_expected_manifest_role_contract(payload: Mapping[str, Any]) -> None:
             raise AssertionError(f"manifest role {key} is not empty")
     if contract.get("malformed_manifest_role_count") != 0:
         raise AssertionError("manifest role contract has malformed entries")
+
+
+def _assert_expected_manifest_digest_contract(payload: Mapping[str, Any]) -> None:
+    contract = payload.get("manifest_digest_contract")
+    if not isinstance(contract, Mapping):
+        raise AssertionError("manifest_digest_contract must be an object")
+    expected = _manifest_digest_records(_expected_manifest_digests())
+    if contract.get("status") != "passed":
+        raise AssertionError(f"manifest digest contract failed: {contract!r}")
+    if contract.get("expected_path_count") != len(expected):
+        raise AssertionError("manifest digest expected path count mismatch")
+    if contract.get("observed_path_count") != len(expected):
+        raise AssertionError("manifest digest observed path count mismatch")
+    if contract.get("expected_digests") != expected:
+        raise AssertionError("manifest digest expected records mismatch")
+    if contract.get("observed_digests") != expected:
+        raise AssertionError("manifest digest observed records mismatch")
+    for key in (
+        "missing_manifest_digest_paths",
+        "unexpected_manifest_digest_paths",
+        "duplicate_manifest_digest_paths",
+        "mismatched_manifest_digests",
+    ):
+        if contract.get(key) != []:
+            raise AssertionError(f"manifest digest {key} is not empty")
+    if contract.get("malformed_manifest_digest_count") != 0:
+        raise AssertionError("manifest digest contract has malformed entries")
 
 
 def _assert_expected_manifest_consistency(payload: Mapping[str, Any]) -> None:
@@ -1649,14 +1679,150 @@ def _manifest_role_records(roles_by_path: Mapping[str, list[str]]) -> list[dict[
     ]
 
 
+def _manifest_digest_contract(
+    input_manifest: Mapping[str, Any],
+    errors: list[str],
+) -> dict[str, Any]:
+    expected_digests = _expected_manifest_digests()
+    artifacts = input_manifest.get("artifacts", [])
+    artifact_records = artifacts if isinstance(artifacts, list) else []
+    observed_digests, malformed_count = _observed_manifest_digests(artifacts)
+    expected_paths = set(expected_digests)
+    observed_paths = set(observed_digests)
+    observed_path_list = [
+        str(artifact.get("path"))
+        for artifact in artifact_records
+        if isinstance(artifact, Mapping) and isinstance(artifact.get("path"), str)
+    ]
+    duplicate_paths = sorted(
+        {path for path in observed_path_list if observed_path_list.count(path) > 1}
+    )
+    missing = sorted(expected_paths - observed_paths)
+    unexpected = sorted(observed_paths - expected_paths)
+    mismatches = _manifest_digest_mismatches(expected_digests, observed_digests)
+
+    if malformed_count:
+        errors.append(f"input_manifest has {malformed_count} malformed digest entries")
+    if duplicate_paths:
+        errors.append(f"input_manifest duplicate digest paths: {duplicate_paths!r}")
+    if missing:
+        errors.append(f"input_manifest digest contract missing paths: {missing!r}")
+    if unexpected:
+        errors.append(f"input_manifest digest contract unexpected paths: {unexpected!r}")
+    for mismatch in mismatches:
+        errors.append(
+            f"input_manifest digest mismatch on {mismatch['path']}: "
+            f"{mismatch['observed']!r} != {mismatch['expected']!r}"
+        )
+
+    return {
+        "status": (
+            "passed"
+            if not (malformed_count or duplicate_paths or missing or unexpected or mismatches)
+            else "failed"
+        ),
+        "expected_path_count": len(expected_digests),
+        "observed_path_count": len(observed_digests),
+        "expected_digests": _manifest_digest_records(expected_digests),
+        "observed_digests": _manifest_digest_records(observed_digests),
+        "missing_manifest_digest_paths": missing,
+        "unexpected_manifest_digest_paths": unexpected,
+        "duplicate_manifest_digest_paths": duplicate_paths,
+        "mismatched_manifest_digests": mismatches,
+        "malformed_manifest_digest_count": malformed_count,
+    }
+
+
+def _expected_manifest_digests() -> dict[str, dict[str, Any]]:
+    digests: dict[str, dict[str, Any]] = {}
+    for path in sorted(_expected_manifest_roles()):
+        resolved = (ROOT / path).resolve()
+        digests[path] = {
+            "size_bytes": resolved.stat().st_size,
+            "sha256": _sha256(resolved),
+        }
+    return digests
+
+
+def _observed_manifest_digests(
+    artifacts: Any,
+) -> tuple[dict[str, dict[str, Any]], int]:
+    if not isinstance(artifacts, list):
+        return {}, 1
+    digests_by_path: dict[str, dict[str, Any]] = {}
+    malformed_count = 0
+    for artifact in artifacts:
+        if not isinstance(artifact, Mapping):
+            malformed_count += 1
+            continue
+        path = artifact.get("path")
+        size_bytes = artifact.get("size_bytes")
+        digest = artifact.get("sha256")
+        if (
+            not isinstance(path, str)
+            or not isinstance(size_bytes, int)
+            or size_bytes <= 0
+            or not _is_sha256_digest(digest)
+        ):
+            malformed_count += 1
+            continue
+        digests_by_path[path] = {
+            "size_bytes": size_bytes,
+            "sha256": digest.lower(),
+        }
+    return digests_by_path, malformed_count
+
+
+def _manifest_digest_mismatches(
+    expected_digests: Mapping[str, Mapping[str, Any]],
+    observed_digests: Mapping[str, Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    mismatches: list[dict[str, Any]] = []
+    for path in sorted(set(expected_digests) & set(observed_digests)):
+        expected = dict(expected_digests[path])
+        observed = dict(observed_digests[path])
+        if observed != expected:
+            mismatches.append(
+                {
+                    "path": path,
+                    "expected": expected,
+                    "observed": observed,
+                }
+            )
+    return mismatches
+
+
+def _manifest_digest_records(
+    digests_by_path: Mapping[str, Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    return [
+        {
+            "path": path,
+            "size_bytes": digests_by_path[path]["size_bytes"],
+            "sha256": digests_by_path[path]["sha256"],
+        }
+        for path in sorted(digests_by_path)
+    ]
+
+
+def _is_sha256_digest(value: Any) -> bool:
+    return (
+        isinstance(value, str)
+        and len(value) == 64
+        and all(char in "0123456789abcdef" for char in value.lower())
+    )
+
+
 def _manifest_consistency(
     layers: Mapping[str, Mapping[str, Any]],
     input_manifest: Mapping[str, Any],
     errors: list[str],
 ) -> dict[str, Any]:
+    artifacts = input_manifest.get("artifacts", [])
+    artifact_records = artifacts if isinstance(artifacts, list) else []
     manifest_paths = {
         str(artifact.get("path"))
-        for artifact in input_manifest.get("artifacts", [])
+        for artifact in artifact_records
         if isinstance(artifact, Mapping)
     }
     layer_paths = _layer_referenced_paths(layers)
@@ -1945,6 +2111,7 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"handoffs: {payload['audit_path']['handoff_count']}",
         f"input artifacts: {payload['input_manifest']['artifact_count']}",
         f"manifest roles: {payload['manifest_role_contract']['status']}",
+        f"manifest digests: {payload['manifest_digest_contract']['status']}",
         f"manifest consistency: {payload['manifest_consistency']['status']}",
         f"templates: {coverage['template_count']}",
         f"families: {coverage['family_count']}",
