@@ -11,6 +11,7 @@ from scripts.check_artifact_provenance import (
     load_manifest as load_generated_artifact_manifest,
 )
 from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
+    ASSERT_EXPECTED_FAILURE_KEYS,
     ASSERT_EXPECTED_FAILURE_SCHEMA,
     CLAIM_SCOPE_GUARDS,
     EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS,
@@ -22,6 +23,7 @@ from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     EXPECTED_LAYER_PROVENANCE,
     EXPECTED_LAYER_SOURCE_ARTIFACTS,
     EXPECTED_MANIFEST_CONTRACT_IDS,
+    assert_expected_failure_contract_errors,
     assert_expected_local_lemma_audit_path,
     failure_lines,
     local_lemma_audit_path_payload,
@@ -1260,6 +1262,46 @@ def test_local_lemma_audit_path_failure_lines_reject_scalar_errors() -> None:
         "FAILED: local-lemma audit path",
         "- validation_errors is not a list: str",
     ]
+
+
+def test_local_lemma_audit_path_assert_expected_failure_contract_errors() -> None:
+    valid_record = {
+        "schema": ASSERT_EXPECTED_FAILURE_SCHEMA,
+        "stage": "assert_expected",
+        "exception_type": "AssertionError",
+        "message": "validation errors: []",
+        "validation_error_count": 0,
+    }
+    assert set(valid_record) == ASSERT_EXPECTED_FAILURE_KEYS
+    assert (
+        assert_expected_failure_contract_errors(
+            valid_record,
+            expected_validation_error_count=0,
+        )
+        == []
+    )
+
+    tampered_record = dict(valid_record)
+    tampered_record.pop("schema")
+    tampered_record["stage"] = "payload_construction"
+    tampered_record["validation_error_count"] = True
+    tampered_record["extra"] = "surprise"
+
+    errors = assert_expected_failure_contract_errors(
+        tampered_record,
+        expected_validation_error_count=2,
+    )
+    assert "assert_expected_failure missing keys: ['schema']" in errors
+    assert "assert_expected_failure unexpected keys: ['extra']" in errors
+    assert "assert_expected_failure schema mismatch: None" in errors
+    assert (
+        "assert_expected_failure stage mismatch: 'payload_construction'"
+        in errors
+    )
+    assert (
+        "assert_expected_failure validation_error_count must be an int"
+        in errors
+    )
 
 
 def test_local_lemma_audit_path_cli_failure_summary_includes_contract_rollups(

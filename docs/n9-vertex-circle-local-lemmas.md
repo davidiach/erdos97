@@ -696,7 +696,9 @@ as a single schema problem instead of treating the scalar as multiple errors.
 JSON diagnostics for `--assert-expected` failures also include an
 `assert_expected_failure` object with its own schema tag, assertion stage,
 Python exception type, message, and underlying validation-error count so
-consumers do not have to parse the error string.
+consumers do not have to parse the error string. The checker validates that
+nested object contract for schema, exact keys, stage, nonempty text fields, and
+the pre-assertion validation-error count.
 
 This is still only a review-pending audit-path diagnostic. It does not prove
 packet soundness, mini-replay soundness, local-lemma completeness, frontier

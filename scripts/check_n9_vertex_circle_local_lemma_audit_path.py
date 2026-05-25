@@ -58,6 +58,15 @@ SCHEMA = "erdos97.n9_vertex_circle_local_lemma_audit_path.v1"
 ASSERT_EXPECTED_FAILURE_SCHEMA = (
     "erdos97.n9_vertex_circle_local_lemma_audit_path.assert_expected_failure.v1"
 )
+ASSERT_EXPECTED_FAILURE_KEYS = frozenset(
+    {
+        "schema",
+        "stage",
+        "exception_type",
+        "message",
+        "validation_error_count",
+    }
+)
 STATUS = "REVIEW_PENDING_LOCAL_LEMMA_AUDIT_PATH"
 TRUST = "REVIEW_PENDING_DIAGNOSTIC"
 CLAIM_SCOPE = (
@@ -3331,6 +3340,52 @@ def _string_list(value: Any) -> list[str]:
     return [str(item) for item in value]
 
 
+def assert_expected_failure_contract_errors(
+    record: Any,
+    *,
+    expected_validation_error_count: int | None = None,
+) -> list[str]:
+    errors: list[str] = []
+    if not isinstance(record, Mapping):
+        return [f"assert_expected_failure must be an object: {type(record).__name__}"]
+
+    observed_keys = set(record)
+    missing = sorted(ASSERT_EXPECTED_FAILURE_KEYS - observed_keys)
+    unexpected = sorted(observed_keys - ASSERT_EXPECTED_FAILURE_KEYS)
+    if missing:
+        errors.append(f"assert_expected_failure missing keys: {missing!r}")
+    if unexpected:
+        errors.append(f"assert_expected_failure unexpected keys: {unexpected!r}")
+    if record.get("schema") != ASSERT_EXPECTED_FAILURE_SCHEMA:
+        errors.append(
+            "assert_expected_failure schema mismatch: "
+            f"{record.get('schema')!r}"
+        )
+    if record.get("stage") != "assert_expected":
+        errors.append(f"assert_expected_failure stage mismatch: {record.get('stage')!r}")
+    for key in ("exception_type", "message"):
+        value = record.get(key)
+        if not isinstance(value, str) or not value:
+            errors.append(f"assert_expected_failure {key} must be a nonempty string")
+    validation_error_count = record.get("validation_error_count")
+    if not isinstance(validation_error_count, int) or isinstance(
+        validation_error_count,
+        bool,
+    ):
+        errors.append("assert_expected_failure validation_error_count must be an int")
+    elif validation_error_count < 0:
+        errors.append("assert_expected_failure validation_error_count must be nonnegative")
+    elif (
+        expected_validation_error_count is not None
+        and validation_error_count != expected_validation_error_count
+    ):
+        errors.append(
+            "assert_expected_failure validation_error_count mismatch: "
+            f"expected {expected_validation_error_count}, got {validation_error_count}"
+        )
+    return errors
+
+
 def _summary_status(items: Any) -> str:
     if not isinstance(items, list):
         return "failed"
@@ -3435,13 +3490,20 @@ def _payload_with_assert_expected_failure(
         errors.append(message)
     updated["validation_status"] = "failed"
     updated["validation_errors"] = errors
-    updated["assert_expected_failure"] = {
+    failure_record = {
         "schema": ASSERT_EXPECTED_FAILURE_SCHEMA,
         "stage": "assert_expected",
         "exception_type": type(exc).__name__,
         "message": str(exc),
         "validation_error_count": validation_error_count,
     }
+    updated["assert_expected_failure"] = failure_record
+    errors.extend(
+        assert_expected_failure_contract_errors(
+            failure_record,
+            expected_validation_error_count=validation_error_count,
+        )
+    )
     return updated
 
 
