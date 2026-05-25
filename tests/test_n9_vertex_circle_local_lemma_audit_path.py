@@ -1264,6 +1264,47 @@ def test_local_lemma_audit_path_cli_failure_summary_includes_contract_rollups(
     assert "manifest contract summary: failed" in lines
 
 
+def test_local_lemma_audit_path_cli_json_failure_includes_contract_rollups(
+    monkeypatch,
+    capsys,
+) -> None:
+    payload = local_lemma_audit_path_payload()
+    tampered_manifest = json.loads(json.dumps(payload["input_manifest"]))
+    for artifact in tampered_manifest["artifacts"]:
+        if artifact["path"] == "data/certificates/n9_vertex_circle_local_lemmas.json":
+            artifact["roles"] = ["aggregate/simple replay aggregate source"]
+            break
+    tampered_payload = local_lemma_audit_path_payload(
+        input_manifest_payload=tampered_manifest,
+    )
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: tampered_payload,
+    )
+
+    assert audit_path_main(["--check", "--json"]) == 1
+
+    captured = capsys.readouterr()
+    parsed = json.loads(captured.out)
+    assert captured.err == ""
+    assert parsed["validation_status"] == "failed"
+    assert parsed["audit_contract_summary"]["status"] == "failed"
+    assert parsed["audit_contract_summary"]["failed_components"] == [
+        "manifest_contracts",
+    ]
+    assert parsed["manifest_role_contract"]["status"] == "failed"
+    assert parsed["manifest_contract_summary"]["status"] == "failed"
+    assert parsed["manifest_contract_summary"]["failed_contracts"] == [
+        "manifest_role_contract",
+    ]
+    assert any(
+        "input_manifest role mismatch on "
+        "data/certificates/n9_vertex_circle_local_lemmas.json" in error
+        for error in parsed["validation_errors"]
+    )
+
+
 def test_local_lemma_audit_path_cli_json() -> None:
     result = subprocess.run(
         [
