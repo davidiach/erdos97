@@ -12,6 +12,9 @@ from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     assert_expected_local_lemma_audit_path,
     local_lemma_audit_path_payload,
 )
+from scripts.check_n9_vertex_circle_focused_minireplay_crosswalk import (
+    focused_minireplay_crosswalk_payload,
+)
 from scripts.check_n9_vertex_circle_local_lemma_replay_crosswalk import (
     DEFAULT_AGGREGATE,
     DEFAULT_SIMPLE_REPLAY,
@@ -73,6 +76,39 @@ def test_local_lemma_audit_path_input_manifest() -> None:
     ]["roles"]
     assert "aggregate local-lemma scan" in local_roles
     assert "aggregate/simple replay aggregate source" in local_roles
+
+
+def test_local_lemma_audit_path_manifest_consistency() -> None:
+    payload = local_lemma_audit_path_payload()
+    consistency = payload["manifest_consistency"]
+
+    assert consistency == {
+        "status": "passed",
+        "manifest_artifact_count": EXPECTED_INPUT_ARTIFACT_COUNT,
+        "layer_referenced_artifact_count": EXPECTED_INPUT_ARTIFACT_COUNT,
+        "missing_from_manifest": [],
+        "unreferenced_manifest_paths": [],
+    }
+
+
+def test_local_lemma_audit_path_rejects_unmanifested_layer_path() -> None:
+    focused_minireplay = focused_minireplay_crosswalk_payload()
+    tampered = json.loads(json.dumps(focused_minireplay))
+    tampered["focused_minireplay_crosswalk"]["records"][0]["minireplay_path"] = (
+        "data/certificates/unmanifested_minireplay.json"
+    )
+
+    payload = local_lemma_audit_path_payload(focused_minireplay_payload=tampered)
+
+    assert payload["validation_status"] == "failed"
+    assert payload["manifest_consistency"]["status"] == "failed"
+    assert payload["manifest_consistency"]["missing_from_manifest"] == [
+        "data/certificates/unmanifested_minireplay.json"
+    ]
+    assert any(
+        "input_manifest missing layer-referenced paths" in error
+        for error in payload["validation_errors"]
+    )
 
 
 def test_local_lemma_audit_path_layer_summaries() -> None:
