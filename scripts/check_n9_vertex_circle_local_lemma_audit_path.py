@@ -3383,6 +3383,17 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     ]
 
 
+def failure_lines(payload: Mapping[str, Any]) -> list[str]:
+    lines = ["FAILED: local-lemma audit path"]
+    try:
+        lines.extend(summary_lines(payload))
+    except (KeyError, TypeError):
+        pass
+    for error in payload.get("validation_errors", []):
+        lines.append(f"- {error}")
+    return lines
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="validate the audit path")
@@ -3414,9 +3425,8 @@ def main(argv: list[str] | None = None) -> int:
             print(line)
         print("OK: local-lemma audit path checks passed")
     else:
-        print("FAILED: local-lemma audit path", file=sys.stderr)
-        for error in payload.get("validation_errors", []):
-            print(f"- {error}", file=sys.stderr)
+        for line in failure_lines(payload):
+            print(line, file=sys.stderr)
 
     if args.check and payload.get("validation_status") != "passed":
         return 1

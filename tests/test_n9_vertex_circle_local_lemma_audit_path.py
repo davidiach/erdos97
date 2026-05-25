@@ -21,7 +21,9 @@ from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     EXPECTED_LAYER_SOURCE_ARTIFACTS,
     EXPECTED_MANIFEST_CONTRACT_IDS,
     assert_expected_local_lemma_audit_path,
+    failure_lines,
     local_lemma_audit_path_payload,
+    main as audit_path_main,
     summary_lines,
 )
 from scripts.check_n9_vertex_circle_focused_minireplay_crosswalk import (
@@ -1202,6 +1204,64 @@ def test_local_lemma_audit_path_cli_text_summary_includes_contract_rollups() -> 
     assert "validation: passed" in lines
     assert "audit contract summary: passed" in lines
     assert "manifest contract summary: passed" in lines
+
+
+def test_local_lemma_audit_path_failure_lines_include_contract_rollups() -> None:
+    payload = local_lemma_audit_path_payload()
+    tampered_manifest = json.loads(json.dumps(payload["input_manifest"]))
+    for artifact in tampered_manifest["artifacts"]:
+        if artifact["path"] == "data/certificates/n9_vertex_circle_local_lemmas.json":
+            artifact["roles"] = ["aggregate/simple replay aggregate source"]
+            break
+
+    tampered_payload = local_lemma_audit_path_payload(
+        input_manifest_payload=tampered_manifest,
+    )
+    lines = failure_lines(tampered_payload)
+
+    assert lines[0] == "FAILED: local-lemma audit path"
+    assert "validation: failed" in lines
+    assert "audit contract summary: failed" in lines
+    assert "manifest roles: failed" in lines
+    assert "manifest contract summary: failed" in lines
+    assert any(
+        line.startswith(
+            "- input_manifest role mismatch on "
+            "data/certificates/n9_vertex_circle_local_lemmas.json"
+        )
+        for line in lines
+    )
+
+
+def test_local_lemma_audit_path_cli_failure_summary_includes_contract_rollups(
+    monkeypatch,
+    capsys,
+) -> None:
+    payload = local_lemma_audit_path_payload()
+    tampered_manifest = json.loads(json.dumps(payload["input_manifest"]))
+    for artifact in tampered_manifest["artifacts"]:
+        if artifact["path"] == "data/certificates/n9_vertex_circle_local_lemmas.json":
+            artifact["roles"] = ["aggregate/simple replay aggregate source"]
+            break
+    tampered_payload = local_lemma_audit_path_payload(
+        input_manifest_payload=tampered_manifest,
+    )
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: tampered_payload,
+    )
+
+    assert audit_path_main(["--check"]) == 1
+
+    captured = capsys.readouterr()
+    lines = captured.err.splitlines()
+    assert captured.out == ""
+    assert "FAILED: local-lemma audit path" in lines
+    assert "validation: failed" in lines
+    assert "audit contract summary: failed" in lines
+    assert "manifest roles: failed" in lines
+    assert "manifest contract summary: failed" in lines
 
 
 def test_local_lemma_audit_path_cli_json() -> None:
