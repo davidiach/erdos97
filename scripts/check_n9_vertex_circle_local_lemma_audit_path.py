@@ -94,6 +94,17 @@ EXPECTED_MANIFEST_CONTRACT_IDS = [
     "manifest_claim_contract",
     "manifest_consistency",
 ]
+EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS = [
+    "layer_contracts",
+    "layer_provenance",
+    "layer_source_artifact_contracts",
+    "claim_scope_guards",
+    "layer_output_contracts",
+    "layer_input_contracts",
+    "focused_minireplay_record_path_contract",
+    "handoff_checks",
+    "manifest_contracts",
+]
 EXPECTED_LAYER_CONTRACTS = {
     "focused_packet_catalog": {
         "schema": "erdos97.n9_vertex_circle_focused_packet_catalog_audit.v1",
@@ -517,6 +528,19 @@ def local_lemma_audit_path_payload(
             "manifest_consistency": manifest_consistency,
         }
     )
+    audit_contract_summary = _audit_contract_summary(
+        {
+            "layer_contracts": layer_contracts,
+            "layer_provenance": layer_provenance,
+            "layer_source_artifact_contracts": layer_source_artifact_contracts,
+            "claim_scope_guards": claim_scope_guards,
+            "layer_output_contracts": layer_output_contracts,
+            "layer_input_contracts": layer_input_contracts,
+            "focused_minireplay_record_path_contract": focused_record_path_contract,
+            "handoff_checks": handoff_checks,
+            "manifest_contracts": manifest_contract_summary,
+        }
+    )
 
     return {
         "schema": SCHEMA,
@@ -539,6 +563,7 @@ def local_lemma_audit_path_payload(
             "handoff_checks": handoff_checks,
             "layers": layer_summaries,
         },
+        "audit_contract_summary": audit_contract_summary,
         "input_manifest": input_manifest,
         "manifest_role_contract": manifest_role_contract,
         "manifest_digest_contract": manifest_digest_contract,
@@ -602,6 +627,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_manifest_claim_contract(payload)
     _assert_expected_manifest_consistency(payload)
     _assert_expected_manifest_contract_summary(payload)
+    _assert_expected_audit_contract_summary(payload)
 
     audit_path = payload.get("audit_path")
     if not isinstance(audit_path, Mapping):
@@ -1168,6 +1194,30 @@ def _assert_expected_manifest_contract_summary(payload: Mapping[str, Any]) -> No
         if summary.get(key) != value:
             raise AssertionError(
                 f"manifest_contract_summary[{key!r}] mismatch: "
+                f"{summary.get(key)!r} != {value!r}"
+            )
+
+
+def _assert_expected_audit_contract_summary(payload: Mapping[str, Any]) -> None:
+    summary = payload.get("audit_contract_summary")
+    if not isinstance(summary, Mapping):
+        raise AssertionError("audit_contract_summary must be an object")
+    expected_statuses = [
+        {"component_id": component_id, "status": "passed"}
+        for component_id in EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS
+    ]
+    expected = {
+        "status": "passed",
+        "component_count": len(EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS),
+        "passed_component_count": len(EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS),
+        "failed_component_count": 0,
+        "failed_components": [],
+        "component_statuses": expected_statuses,
+    }
+    for key, value in expected.items():
+        if summary.get(key) != value:
+            raise AssertionError(
+                f"audit_contract_summary[{key!r}] mismatch: "
                 f"{summary.get(key)!r} != {value!r}"
             )
 
@@ -1941,6 +1991,47 @@ def _manifest_contract_summary(
         "failed_contracts": failed_contracts,
         "contract_statuses": contract_statuses,
     }
+
+
+def _audit_contract_summary(components: Mapping[str, Any]) -> dict[str, Any]:
+    component_statuses: list[dict[str, str]] = []
+    for component_id in EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS:
+        component_statuses.append(
+            {
+                "component_id": component_id,
+                "status": _contract_component_status(components.get(component_id)),
+            }
+        )
+
+    failed_components = [
+        item["component_id"]
+        for item in component_statuses
+        if item["status"] != "passed"
+    ]
+    return {
+        "status": "passed" if not failed_components else "failed",
+        "component_count": len(component_statuses),
+        "passed_component_count": len(component_statuses) - len(failed_components),
+        "failed_component_count": len(failed_components),
+        "failed_components": failed_components,
+        "component_statuses": component_statuses,
+    }
+
+
+def _contract_component_status(component: Any) -> str:
+    if isinstance(component, Mapping):
+        status = component.get("status")
+        return status if isinstance(status, str) else "failed"
+    if isinstance(component, list):
+        return (
+            "passed"
+            if all(
+                isinstance(item, Mapping) and item.get("status") == "passed"
+                for item in component
+            )
+            else "failed"
+        )
+    return "failed"
 
 
 def _manifest_digest_contract(
@@ -3265,6 +3356,7 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         "focused minireplay record paths: "
         f"{payload['audit_path']['focused_minireplay_record_path_contract']['status']}",
         f"handoffs: {payload['audit_path']['handoff_count']}",
+        f"audit contract summary: {payload['audit_contract_summary']['status']}",
         f"input artifacts: {payload['input_manifest']['artifact_count']}",
         f"manifest roles: {payload['manifest_role_contract']['status']}",
         f"manifest digests: {payload['manifest_digest_contract']['status']}",

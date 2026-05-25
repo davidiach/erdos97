@@ -11,6 +11,7 @@ from scripts.check_artifact_provenance import (
 )
 from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     CLAIM_SCOPE_GUARDS,
+    EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS,
     EXPECTED_HANDOFF_EDGES,
     EXPECTED_INPUT_ARTIFACT_COUNT,
     EXPECTED_LAYER_CONTRACTS,
@@ -295,6 +296,23 @@ def test_local_lemma_audit_path_manifest_contract_summary() -> None:
     }
 
 
+def test_local_lemma_audit_path_audit_contract_summary() -> None:
+    payload = local_lemma_audit_path_payload()
+    summary = payload["audit_contract_summary"]
+
+    assert summary == {
+        "status": "passed",
+        "component_count": len(EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS),
+        "passed_component_count": len(EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS),
+        "failed_component_count": 0,
+        "failed_components": [],
+        "component_statuses": [
+            {"component_id": component_id, "status": "passed"}
+            for component_id in EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS
+        ],
+    }
+
+
 def test_local_lemma_audit_path_rejects_manifest_role_drift() -> None:
     payload = local_lemma_audit_path_payload()
     tampered_manifest = json.loads(json.dumps(payload["input_manifest"]))
@@ -308,6 +326,7 @@ def test_local_lemma_audit_path_rejects_manifest_role_drift() -> None:
     )
     contract = tampered_payload["manifest_role_contract"]
     summary = tampered_payload["manifest_contract_summary"]
+    audit_summary = tampered_payload["audit_contract_summary"]
 
     assert tampered_payload["validation_status"] == "failed"
     assert contract["status"] == "failed"
@@ -318,6 +337,9 @@ def test_local_lemma_audit_path_rejects_manifest_role_drift() -> None:
     )
     assert summary["failed_contract_count"] == 1
     assert summary["failed_contracts"] == ["manifest_role_contract"]
+    assert audit_summary["status"] == "failed"
+    assert audit_summary["failed_component_count"] == 1
+    assert audit_summary["failed_components"] == ["manifest_contracts"]
     assert contract["mismatched_manifest_roles"] == [
         {
             "path": "data/certificates/n9_vertex_circle_local_lemmas.json",
@@ -857,9 +879,13 @@ def test_local_lemma_audit_path_rejects_layer_contract_drift() -> None:
         contract["layer_id"]: contract
         for contract in payload["audit_path"]["layer_contracts"]
     }
+    summary = payload["audit_contract_summary"]
 
     assert payload["validation_status"] == "failed"
     assert contracts["aggregate_simple_replay"]["status"] == "failed"
+    assert summary["status"] == "failed"
+    assert summary["failed_component_count"] == 1
+    assert summary["failed_components"] == ["layer_contracts"]
     assert contracts["aggregate_simple_replay"]["mismatches"] == [
         {
             "key": "trust",
