@@ -81,6 +81,38 @@ EXPECTED_LAYER_IDS = [
 EXPECTED_TEMPLATE_IDS = [f"T{index:02d}" for index in range(1, 13)]
 EXPECTED_HANDOFF_EDGES = list(zip(EXPECTED_LAYER_IDS, EXPECTED_LAYER_IDS[1:]))
 EXPECTED_INPUT_ARTIFACT_COUNT = 32
+EXPECTED_LAYER_CONTRACTS = {
+    "focused_packet_catalog": {
+        "schema": "erdos97.n9_vertex_circle_focused_packet_catalog_audit.v1",
+        "status": "REVIEW_PENDING_FOCUSED_PACKET_CATALOG_AUDIT",
+        "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        "validation_status": "passed",
+    },
+    "focused_minireplay": {
+        "schema": "erdos97.n9_vertex_circle_focused_minireplay_crosswalk.v1",
+        "status": "REVIEW_PENDING_FOCUSED_MINIREPLAY_CROSSWALK",
+        "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        "validation_status": "passed",
+    },
+    "aggregate_simple_replay": {
+        "schema": "erdos97.n9_vertex_circle_local_lemma_replay_crosswalk.v1",
+        "status": "REVIEW_PENDING_PACKET_AUDIT",
+        "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        "validation_status": "passed",
+    },
+    "exhaustive_local_lemma": {
+        "schema": "erdos97.n9_vertex_circle_exhaustive_local_lemma_crosswalk.v1",
+        "status": "REVIEW_PENDING_PACKET_AUDIT",
+        "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        "validation_status": "passed",
+    },
+    "relation_skeleton_local_lemma": {
+        "schema": "erdos97.relation_skeleton_local_lemma_crosswalk.v1",
+        "status": "REVIEW_PENDING_PACKET_AUDIT",
+        "trust": "REVIEW_PENDING_DIAGNOSTIC",
+        "validation_status": "passed",
+    },
+}
 HANDOFF_COMPARE_KEYS = (
     "template_count",
     "template_ids",
@@ -158,6 +190,7 @@ def local_lemma_audit_path_payload(
 
     errors: list[str] = []
     _append_layer_expected_errors(errors, layers)
+    layer_contracts = _layer_contracts(layers, errors)
     layer_summaries = [_layer_summary(layer_id, layers[layer_id], errors) for layer_id in EXPECTED_LAYER_IDS]
     handoff_checks = _handoff_checks(layer_summaries, errors)
     coverage = _coverage_summary(layer_summaries, errors)
@@ -174,6 +207,7 @@ def local_lemma_audit_path_payload(
         "audit_path": {
             "layer_count": len(layer_summaries),
             "layer_ids": [summary["layer_id"] for summary in layer_summaries],
+            "layer_contracts": layer_contracts,
             "handoff_count": len(handoff_checks),
             "handoff_checks": handoff_checks,
             "layers": layer_summaries,
@@ -218,6 +252,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
             raise AssertionError(f"claim_scope missing {required!r}")
     if payload.get("validation_status") != "passed":
         raise AssertionError(f"validation errors: {payload.get('validation_errors')!r}")
+    _assert_expected_layer_contracts(payload)
     _assert_expected_input_manifest(payload)
     _assert_expected_manifest_consistency(payload)
 
@@ -270,6 +305,33 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
             )
     if coverage.get("template_ids") != EXPECTED_TEMPLATE_IDS:
         raise AssertionError(f"template ids mismatch: {coverage.get('template_ids')!r}")
+
+
+def _assert_expected_layer_contracts(payload: Mapping[str, Any]) -> None:
+    audit_path = payload.get("audit_path")
+    if not isinstance(audit_path, Mapping):
+        raise AssertionError("audit_path must be an object")
+    contracts = audit_path.get("layer_contracts")
+    if not isinstance(contracts, list):
+        raise AssertionError("audit_path.layer_contracts must be a list")
+    observed_ids = [
+        contract.get("layer_id")
+        for contract in contracts
+        if isinstance(contract, Mapping)
+    ]
+    if observed_ids != EXPECTED_LAYER_IDS:
+        raise AssertionError(f"layer contract ids mismatch: {observed_ids!r}")
+    for contract in contracts:
+        if not isinstance(contract, Mapping):
+            raise AssertionError("layer contract must be an object")
+        layer_id = str(contract.get("layer_id"))
+        expected = EXPECTED_LAYER_CONTRACTS[layer_id]
+        if contract.get("expected") != expected:
+            raise AssertionError(f"{layer_id} expected contract mismatch")
+        if contract.get("observed") != expected:
+            raise AssertionError(f"{layer_id} observed contract mismatch")
+        if contract.get("status") != "passed" or contract.get("mismatches") != []:
+            raise AssertionError(f"{layer_id} contract failed: {contract!r}")
 
 
 def _assert_expected_input_manifest(payload: Mapping[str, Any]) -> None:
@@ -352,6 +414,47 @@ def _append_layer_expected_errors(
             assert_functions[layer_id](layers[layer_id])
         except (AssertionError, KeyError, TypeError, ValueError) as exc:
             errors.append(f"{layer_id} expected-check failed: {exc}")
+
+
+def _layer_contracts(
+    layers: Mapping[str, Mapping[str, Any]],
+    errors: list[str],
+) -> list[dict[str, Any]]:
+    contracts: list[dict[str, Any]] = []
+    for layer_id in EXPECTED_LAYER_IDS:
+        payload = layers[layer_id]
+        expected = EXPECTED_LAYER_CONTRACTS[layer_id]
+        observed = {
+            "schema": payload.get("schema"),
+            "status": payload.get("status"),
+            "trust": payload.get("trust"),
+            "validation_status": payload.get("validation_status"),
+        }
+        mismatches = []
+        for key, expected_value in expected.items():
+            observed_value = observed.get(key)
+            if observed_value != expected_value:
+                mismatches.append(
+                    {
+                        "key": key,
+                        "expected": expected_value,
+                        "observed": observed_value,
+                    }
+                )
+                errors.append(
+                    f"{layer_id} contract mismatch on {key}: "
+                    f"{observed_value!r} != {expected_value!r}"
+                )
+        contracts.append(
+            {
+                "layer_id": layer_id,
+                "expected": dict(expected),
+                "observed": observed,
+                "status": "passed" if not mismatches else "failed",
+                "mismatches": mismatches,
+            }
+        )
+    return contracts
 
 
 def _input_manifest() -> dict[str, Any]:
@@ -663,6 +766,12 @@ def _string_list(value: Any) -> list[str]:
     return [str(item) for item in value]
 
 
+def _summary_status(items: Any) -> str:
+    if not isinstance(items, list):
+        return "failed"
+    return "passed" if all(item.get("status") == "passed" for item in items) else "failed"
+
+
 def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     coverage = payload["coverage_summary"]
     return [
@@ -670,6 +779,8 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"status: {payload['status']}",
         f"validation: {payload['validation_status']}",
         f"layers: {coverage['layer_count']}",
+        "layer contracts: "
+        f"{_summary_status(payload['audit_path']['layer_contracts'])}",
         f"handoffs: {payload['audit_path']['handoff_count']}",
         f"input artifacts: {payload['input_manifest']['artifact_count']}",
         f"manifest consistency: {payload['manifest_consistency']['status']}",

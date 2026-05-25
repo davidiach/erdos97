@@ -8,6 +8,7 @@ from pathlib import Path
 from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     EXPECTED_HANDOFF_EDGES,
     EXPECTED_INPUT_ARTIFACT_COUNT,
+    EXPECTED_LAYER_CONTRACTS,
     EXPECTED_LAYER_IDS,
     assert_expected_local_lemma_audit_path,
     local_lemma_audit_path_payload,
@@ -91,6 +92,19 @@ def test_local_lemma_audit_path_manifest_consistency() -> None:
     }
 
 
+def test_local_lemma_audit_path_layer_contracts() -> None:
+    payload = local_lemma_audit_path_payload()
+    contracts = payload["audit_path"]["layer_contracts"]
+
+    assert [contract["layer_id"] for contract in contracts] == EXPECTED_LAYER_IDS
+    assert all(contract["status"] == "passed" for contract in contracts)
+    assert all(contract["mismatches"] == [] for contract in contracts)
+    for contract in contracts:
+        expected = EXPECTED_LAYER_CONTRACTS[contract["layer_id"]]
+        assert contract["expected"] == expected
+        assert contract["observed"] == expected
+
+
 def test_local_lemma_audit_path_rejects_unmanifested_layer_path() -> None:
     focused_minireplay = focused_minireplay_crosswalk_payload()
     tampered = json.loads(json.dumps(focused_minireplay))
@@ -107,6 +121,36 @@ def test_local_lemma_audit_path_rejects_unmanifested_layer_path() -> None:
     ]
     assert any(
         "input_manifest missing layer-referenced paths" in error
+        for error in payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_layer_contract_drift() -> None:
+    aggregate = load_artifact(DEFAULT_AGGREGATE)
+    simple_replay = load_artifact(DEFAULT_SIMPLE_REPLAY)
+    local_replay = local_replay_crosswalk_payload(aggregate, simple_replay)
+    tampered = json.loads(json.dumps(local_replay))
+    tampered["trust"] = "EXACT_OBSTRUCTION"
+
+    payload = local_lemma_audit_path_payload(
+        aggregate_simple_replay_payload=tampered,
+    )
+    contracts = {
+        contract["layer_id"]: contract
+        for contract in payload["audit_path"]["layer_contracts"]
+    }
+
+    assert payload["validation_status"] == "failed"
+    assert contracts["aggregate_simple_replay"]["status"] == "failed"
+    assert contracts["aggregate_simple_replay"]["mismatches"] == [
+        {
+            "key": "trust",
+            "expected": "REVIEW_PENDING_DIAGNOSTIC",
+            "observed": "EXACT_OBSTRUCTION",
+        }
+    ]
+    assert any(
+        "aggregate_simple_replay contract mismatch on trust" in error
         for error in payload["validation_errors"]
     )
 
