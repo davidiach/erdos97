@@ -694,9 +694,9 @@ the Python exception type before returning nonzero under `--check`. Text-mode
 failure rendering also rejects malformed scalar `validation_errors` payloads
 as a single schema problem instead of treating the scalar as multiple errors.
 JSON diagnostics for `--assert-expected` failures also include an
-`assert_expected_failure` object with the assertion stage, Python exception
-type, message, and underlying validation-error count so consumers do not have
-to parse the error string.
+`assert_expected_failure` object with its own schema tag, assertion stage,
+Python exception type, message, and underlying validation-error count so
+consumers do not have to parse the error string.
 
 This is still only a review-pending audit-path diagnostic. It does not prove
 packet soundness, mini-replay soundness, local-lemma completeness, frontier

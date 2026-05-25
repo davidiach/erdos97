@@ -11,6 +11,7 @@ from scripts.check_artifact_provenance import (
     load_manifest as load_generated_artifact_manifest,
 )
 from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
+    ASSERT_EXPECTED_FAILURE_SCHEMA,
     CLAIM_SCOPE_GUARDS,
     EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS,
     EXPECTED_HANDOFF_EDGES,
@@ -1412,6 +1413,7 @@ def test_local_lemma_audit_path_cli_json_scalar_validation_errors_shape(
         "assert_expected failed: validation errors: 'malformed contract payload'"
     )
     assert parsed["assert_expected_failure"] == {
+        "schema": ASSERT_EXPECTED_FAILURE_SCHEMA,
         "stage": "assert_expected",
         "exception_type": "AssertionError",
         "message": "validation errors: 'malformed contract payload'",
@@ -1453,6 +1455,10 @@ def test_local_lemma_audit_path_cli_json_assert_expected_failure_returns_payload
         for error in parsed["validation_errors"]
     )
     assert parsed["assert_expected_failure"]["stage"] == "assert_expected"
+    assert (
+        parsed["assert_expected_failure"]["schema"]
+        == ASSERT_EXPECTED_FAILURE_SCHEMA
+    )
     assert parsed["assert_expected_failure"]["exception_type"] == "AssertionError"
     assert parsed["assert_expected_failure"]["message"].startswith(
         "validation errors:"
@@ -1517,6 +1523,7 @@ def test_local_lemma_audit_path_cli_json_generation_failure_returns_payload(
         for error in parsed["validation_errors"]
     )
     assert parsed["assert_expected_failure"] == {
+        "schema": ASSERT_EXPECTED_FAILURE_SCHEMA,
         "stage": "assert_expected",
         "exception_type": "AssertionError",
         "message": (
