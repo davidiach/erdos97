@@ -162,6 +162,7 @@ def local_lemma_audit_path_payload(
     handoff_checks = _handoff_checks(layer_summaries, errors)
     coverage = _coverage_summary(layer_summaries, errors)
     input_manifest = _input_manifest()
+    manifest_consistency = _manifest_consistency(layers, input_manifest, errors)
 
     return {
         "schema": SCHEMA,
@@ -178,6 +179,7 @@ def local_lemma_audit_path_payload(
             "layers": layer_summaries,
         },
         "input_manifest": input_manifest,
+        "manifest_consistency": manifest_consistency,
         "coverage_summary": coverage,
         "validation_status": "passed" if not errors else "failed",
         "validation_errors": errors,
@@ -217,6 +219,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     if payload.get("validation_status") != "passed":
         raise AssertionError(f"validation errors: {payload.get('validation_errors')!r}")
     _assert_expected_input_manifest(payload)
+    _assert_expected_manifest_consistency(payload)
 
     audit_path = payload.get("audit_path")
     if not isinstance(audit_path, Mapping):
@@ -314,6 +317,25 @@ def _assert_expected_input_manifest(payload: Mapping[str, Any]) -> None:
             raise AssertionError(f"bad size for {artifact.get('path')!r}")
 
 
+def _assert_expected_manifest_consistency(payload: Mapping[str, Any]) -> None:
+    consistency = payload.get("manifest_consistency")
+    if not isinstance(consistency, Mapping):
+        raise AssertionError("manifest_consistency must be an object")
+    expected = {
+        "status": "passed",
+        "manifest_artifact_count": EXPECTED_INPUT_ARTIFACT_COUNT,
+        "layer_referenced_artifact_count": EXPECTED_INPUT_ARTIFACT_COUNT,
+        "missing_from_manifest": [],
+        "unreferenced_manifest_paths": [],
+    }
+    for key, value in expected.items():
+        if consistency.get(key) != value:
+            raise AssertionError(
+                f"manifest_consistency[{key!r}] mismatch: "
+                f"{consistency.get(key)!r} != {value!r}"
+            )
+
+
 def _append_layer_expected_errors(
     errors: list[str],
     layers: Mapping[str, Mapping[str, Any]],
@@ -373,6 +395,54 @@ def _input_manifest() -> dict[str, Any]:
         "digest_algorithm": "sha256",
         "artifacts": artifacts,
     }
+
+
+def _manifest_consistency(
+    layers: Mapping[str, Mapping[str, Any]],
+    input_manifest: Mapping[str, Any],
+    errors: list[str],
+) -> dict[str, Any]:
+    manifest_paths = {
+        str(artifact.get("path"))
+        for artifact in input_manifest.get("artifacts", [])
+        if isinstance(artifact, Mapping)
+    }
+    layer_paths = _layer_referenced_paths(layers)
+    missing = sorted(layer_paths - manifest_paths)
+    extra = sorted(manifest_paths - layer_paths)
+    if missing:
+        errors.append(f"input_manifest missing layer-referenced paths: {missing!r}")
+    if extra:
+        errors.append(f"input_manifest contains unreferenced paths: {extra!r}")
+    return {
+        "status": "passed" if not missing and not extra else "failed",
+        "manifest_artifact_count": len(manifest_paths),
+        "layer_referenced_artifact_count": len(layer_paths),
+        "missing_from_manifest": missing,
+        "unreferenced_manifest_paths": extra,
+    }
+
+
+def _layer_referenced_paths(layers: Mapping[str, Mapping[str, Any]]) -> set[str]:
+    paths: set[str] = set()
+    for payload in layers.values():
+        for item in payload.get("source_artifacts", []):
+            _add_path(paths, item.get("path") if isinstance(item, Mapping) else None)
+        for item in payload.get("packet_artifacts", []):
+            _add_path(paths, item.get("path") if isinstance(item, Mapping) else None)
+    focused_minireplay = layers.get("focused_minireplay", {})
+    summary = focused_minireplay.get("focused_minireplay_crosswalk")
+    if isinstance(summary, Mapping):
+        for record in summary.get("records", []):
+            if isinstance(record, Mapping):
+                _add_path(paths, record.get("source_packet_path"))
+                _add_path(paths, record.get("minireplay_path"))
+    return paths
+
+
+def _add_path(paths: set[str], value: Any) -> None:
+    if isinstance(value, str) and value:
+        paths.add(value.replace("\\", "/"))
 
 
 def _sha256(path: Path) -> str:
@@ -602,6 +672,7 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"layers: {coverage['layer_count']}",
         f"handoffs: {payload['audit_path']['handoff_count']}",
         f"input artifacts: {payload['input_manifest']['artifact_count']}",
+        f"manifest consistency: {payload['manifest_consistency']['status']}",
         f"templates: {coverage['template_count']}",
         f"families: {coverage['family_count']}",
         f"assignments: {coverage['assignment_count']}",
