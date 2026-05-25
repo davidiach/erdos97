@@ -424,6 +424,7 @@ def local_lemma_audit_path_payload(
     aggregate_simple_replay_payload: Mapping[str, Any] | None = None,
     exhaustive_local_lemma_payload: Mapping[str, Any] | None = None,
     relation_skeleton_local_lemma_payload: Mapping[str, Any] | None = None,
+    input_manifest_payload: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Return an audit-path payload tying all local-lemma layers together."""
 
@@ -455,7 +456,12 @@ def local_lemma_audit_path_payload(
     layer_summaries = [_layer_summary(layer_id, layers[layer_id], errors) for layer_id in EXPECTED_LAYER_IDS]
     handoff_checks = _handoff_checks(layer_summaries, errors)
     coverage = _coverage_summary(layer_summaries, errors)
-    input_manifest = _input_manifest()
+    input_manifest = (
+        dict(input_manifest_payload)
+        if input_manifest_payload is not None
+        else _input_manifest()
+    )
+    manifest_role_contract = _manifest_role_contract(input_manifest, errors)
     manifest_consistency = _manifest_consistency(layers, input_manifest, errors)
 
     return {
@@ -480,6 +486,7 @@ def local_lemma_audit_path_payload(
             "layers": layer_summaries,
         },
         "input_manifest": input_manifest,
+        "manifest_role_contract": manifest_role_contract,
         "manifest_consistency": manifest_consistency,
         "coverage_summary": coverage,
         "validation_status": "passed" if not errors else "failed",
@@ -527,6 +534,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_layer_input_contracts(payload)
     _assert_expected_focused_minireplay_record_path_contract(payload)
     _assert_expected_input_manifest(payload)
+    _assert_expected_manifest_role_contract(payload)
     _assert_expected_manifest_consistency(payload)
 
     audit_path = payload.get("audit_path")
@@ -859,6 +867,33 @@ def _assert_expected_input_manifest(payload: Mapping[str, Any]) -> None:
         size = artifact.get("size_bytes")
         if not isinstance(size, int) or size <= 0:
             raise AssertionError(f"bad size for {artifact.get('path')!r}")
+
+
+def _assert_expected_manifest_role_contract(payload: Mapping[str, Any]) -> None:
+    contract = payload.get("manifest_role_contract")
+    if not isinstance(contract, Mapping):
+        raise AssertionError("manifest_role_contract must be an object")
+    expected = _manifest_role_records(_expected_manifest_roles())
+    if contract.get("status") != "passed":
+        raise AssertionError(f"manifest role contract failed: {contract!r}")
+    if contract.get("expected_path_count") != len(expected):
+        raise AssertionError("manifest role expected path count mismatch")
+    if contract.get("observed_path_count") != len(expected):
+        raise AssertionError("manifest role observed path count mismatch")
+    if contract.get("expected_roles") != expected:
+        raise AssertionError("manifest role expected records mismatch")
+    if contract.get("observed_roles") != expected:
+        raise AssertionError("manifest role observed records mismatch")
+    for key in (
+        "missing_manifest_role_paths",
+        "unexpected_manifest_role_paths",
+        "duplicate_manifest_role_paths",
+        "mismatched_manifest_roles",
+    ):
+        if contract.get(key) != []:
+            raise AssertionError(f"manifest role {key} is not empty")
+    if contract.get("malformed_manifest_role_count") != 0:
+        raise AssertionError("manifest role contract has malformed entries")
 
 
 def _assert_expected_manifest_consistency(payload: Mapping[str, Any]) -> None:
@@ -1488,6 +1523,132 @@ def _input_manifest() -> dict[str, Any]:
     }
 
 
+def _manifest_role_contract(
+    input_manifest: Mapping[str, Any],
+    errors: list[str],
+) -> dict[str, Any]:
+    expected_roles = _expected_manifest_roles()
+    artifacts = input_manifest.get("artifacts", [])
+    artifact_records = artifacts if isinstance(artifacts, list) else []
+    observed_roles, malformed_count = _observed_manifest_roles(artifacts)
+    expected_paths = set(expected_roles)
+    observed_paths = set(observed_roles)
+    observed_path_list = [
+        str(artifact.get("path"))
+        for artifact in artifact_records
+        if isinstance(artifact, Mapping) and isinstance(artifact.get("path"), str)
+    ]
+    duplicate_paths = sorted(
+        {path for path in observed_path_list if observed_path_list.count(path) > 1}
+    )
+    missing = sorted(expected_paths - observed_paths)
+    unexpected = sorted(observed_paths - expected_paths)
+    mismatches = _manifest_role_mismatches(expected_roles, observed_roles)
+
+    if malformed_count:
+        errors.append(f"input_manifest has {malformed_count} malformed role entries")
+    if duplicate_paths:
+        errors.append(f"input_manifest duplicate role paths: {duplicate_paths!r}")
+    if missing:
+        errors.append(f"input_manifest role contract missing paths: {missing!r}")
+    if unexpected:
+        errors.append(f"input_manifest role contract unexpected paths: {unexpected!r}")
+    for mismatch in mismatches:
+        errors.append(
+            f"input_manifest role mismatch on {mismatch['path']}: "
+            f"{mismatch['observed']!r} != {mismatch['expected']!r}"
+        )
+
+    return {
+        "status": (
+            "passed"
+            if not (malformed_count or duplicate_paths or missing or unexpected or mismatches)
+            else "failed"
+        ),
+        "expected_path_count": len(expected_roles),
+        "observed_path_count": len(observed_roles),
+        "expected_roles": _manifest_role_records(expected_roles),
+        "observed_roles": _manifest_role_records(observed_roles),
+        "missing_manifest_role_paths": missing,
+        "unexpected_manifest_role_paths": unexpected,
+        "duplicate_manifest_role_paths": duplicate_paths,
+        "mismatched_manifest_roles": mismatches,
+        "malformed_manifest_role_count": malformed_count,
+    }
+
+
+def _expected_manifest_roles() -> dict[str, list[str]]:
+    roles: dict[str, list[str]] = {}
+
+    def add(path: Path, role: str) -> None:
+        key = _artifact_path_key(path)
+        path_roles = roles.setdefault(key, [])
+        if role not in path_roles:
+            path_roles.append(role)
+
+    add(DEFAULT_TEMPLATE_CATALOG, "focused packet/catalog template catalog")
+    add(DEFAULT_FOCUSED_LOCAL_LEMMAS, "aggregate local-lemma scan")
+    add(DEFAULT_AGGREGATE, "aggregate/simple replay aggregate source")
+    add(DEFAULT_SIMPLE_REPLAY, "aggregate/simple replay simple source")
+    add(DEFAULT_EXHAUSTIVE, "exhaustive/local-lemma exhaustive count source")
+    add(DEFAULT_CLASSIFICATION, "exhaustive/local-lemma motif classification source")
+    add(DEFAULT_RELATION_SKELETONS, "relation-skeleton/local-lemma source")
+    for kind, path in sorted(DEFAULT_TEMPLATE_PACKET_PATHS.items()):
+        add(path, f"focused packet/catalog {kind.replace('_', '-')} template packet")
+    for template_id, path in sorted(DEFAULT_PACKET_PATHS.items()):
+        add(path, f"focused local-lemma packet {template_id}")
+    for template_id, path in sorted(DEFAULT_MINIREPLAY_PATHS.items()):
+        add(path, f"focused mini-replay artifact {template_id}")
+    return {path: sorted(path_roles) for path, path_roles in roles.items()}
+
+
+def _observed_manifest_roles(artifacts: Any) -> tuple[dict[str, list[str]], int]:
+    if not isinstance(artifacts, list):
+        return {}, 1
+    roles_by_path: dict[str, list[str]] = {}
+    malformed_count = 0
+    for artifact in artifacts:
+        if not isinstance(artifact, Mapping):
+            malformed_count += 1
+            continue
+        path = artifact.get("path")
+        roles = artifact.get("roles")
+        if not isinstance(path, str) or not isinstance(roles, list):
+            malformed_count += 1
+            continue
+        if not all(isinstance(role, str) for role in roles):
+            malformed_count += 1
+            continue
+        roles_by_path[path] = sorted(set(roles))
+    return roles_by_path, malformed_count
+
+
+def _manifest_role_mismatches(
+    expected_roles: Mapping[str, list[str]],
+    observed_roles: Mapping[str, list[str]],
+) -> list[dict[str, Any]]:
+    mismatches: list[dict[str, Any]] = []
+    for path in sorted(set(expected_roles) & set(observed_roles)):
+        expected = expected_roles[path]
+        observed = observed_roles[path]
+        if observed != expected:
+            mismatches.append(
+                {
+                    "path": path,
+                    "expected": expected,
+                    "observed": observed,
+                }
+            )
+    return mismatches
+
+
+def _manifest_role_records(roles_by_path: Mapping[str, list[str]]) -> list[dict[str, Any]]:
+    return [
+        {"path": path, "roles": roles_by_path[path]}
+        for path in sorted(roles_by_path)
+    ]
+
+
 def _manifest_consistency(
     layers: Mapping[str, Mapping[str, Any]],
     input_manifest: Mapping[str, Any],
@@ -1783,6 +1944,7 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"{payload['audit_path']['focused_minireplay_record_path_contract']['status']}",
         f"handoffs: {payload['audit_path']['handoff_count']}",
         f"input artifacts: {payload['input_manifest']['artifact_count']}",
+        f"manifest roles: {payload['manifest_role_contract']['status']}",
         f"manifest consistency: {payload['manifest_consistency']['status']}",
         f"templates: {coverage['template_count']}",
         f"families: {coverage['family_count']}",
