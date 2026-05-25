@@ -690,7 +690,9 @@ separate in text and JSON summaries. When `--assert-expected` is also supplied,
 an expected-shape failure is recorded in `validation_errors` instead of
 replacing the JSON diagnostic with a traceback. If payload construction itself
 fails, the fallback payload records `failure_stage: payload_construction` and
-the Python exception type before returning nonzero under `--check`.
+the Python exception type before returning nonzero under `--check`. Text-mode
+failure rendering also rejects malformed scalar `validation_errors` payloads
+as a single schema problem instead of treating the scalar as multiple errors.
 
 This is still only a review-pending audit-path diagnostic. It does not prove
 packet soundness, mini-replay soundness, local-lemma completeness, frontier
