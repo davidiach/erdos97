@@ -164,6 +164,89 @@ CLAIM_SCOPE_GUARDS = {
         ("does not prove", "official/global status update"),
     ),
 }
+EXPECTED_LAYER_OUTPUT_CONTRACTS = {
+    "focused_packet_catalog": {
+        "summary_key": "focused_packet_catalog_audit",
+        "required_top_level_keys": ("source_artifacts", "packet_artifacts"),
+        "required_summary_keys": (
+            "packet_count",
+            "template_ids",
+            "covered_family_count",
+            "covered_assignment_count",
+            "packet_records",
+            "status_counts",
+            "status_assignment_counts",
+        ),
+    },
+    "focused_minireplay": {
+        "summary_key": "focused_minireplay_crosswalk",
+        "required_top_level_keys": (),
+        "required_summary_keys": (
+            "minireplay_count",
+            "packet_count",
+            "template_ids",
+            "source_family_count",
+            "source_assignment_count",
+            "records",
+            "status_counts",
+            "status_assignment_counts",
+        ),
+    },
+    "aggregate_simple_replay": {
+        "summary_key": "coverage_summary",
+        "required_top_level_keys": (
+            "source_artifacts",
+            "family_crosswalk",
+            "focused_crosscheck_summary",
+        ),
+        "required_summary_keys": (
+            "expected_family_count",
+            "expected_assignment_count",
+            "matched_family_count",
+            "matched_assignment_count",
+            "self_edge_family_count",
+            "self_edge_assignment_count",
+            "strict_cycle_family_count",
+            "strict_cycle_assignment_count",
+        ),
+    },
+    "exhaustive_local_lemma": {
+        "summary_key": "coverage_summary",
+        "required_top_level_keys": (
+            "source_artifacts",
+            "family_crosswalk",
+            "local_replay_crosswalk_summary",
+        ),
+        "required_summary_keys": (
+            "classification_assignment_count",
+            "exhaustive_frontier_assignment_count",
+            "family_count",
+            "local_matched_assignment_count",
+            "self_edge_assignment_count",
+            "strict_cycle_assignment_count",
+        ),
+    },
+    "relation_skeleton_local_lemma": {
+        "summary_key": "coverage_summary",
+        "required_top_level_keys": (
+            "source_artifacts",
+            "family_crosswalk",
+            "local_replay_crosswalk_summary",
+        ),
+        "required_summary_keys": (
+            "expected_family_count",
+            "expected_assignment_count",
+            "local_family_count",
+            "matched_family_count",
+            "matched_assignment_count",
+            "relation_skeleton_count",
+            "self_edge_family_count",
+            "self_edge_assignment_count",
+            "strict_cycle_family_count",
+            "strict_cycle_assignment_count",
+        ),
+    },
+}
 HANDOFF_COMPARE_KEYS = (
     "template_count",
     "template_ids",
@@ -244,6 +327,7 @@ def local_lemma_audit_path_payload(
     layer_contracts = _layer_contracts(layers, errors)
     layer_provenance = _layer_provenance(layers, errors)
     claim_scope_guards = _claim_scope_guards(layers, errors)
+    layer_output_contracts = _layer_output_contracts(layers, errors)
     layer_summaries = [_layer_summary(layer_id, layers[layer_id], errors) for layer_id in EXPECTED_LAYER_IDS]
     handoff_checks = _handoff_checks(layer_summaries, errors)
     coverage = _coverage_summary(layer_summaries, errors)
@@ -263,6 +347,7 @@ def local_lemma_audit_path_payload(
             "layer_contracts": layer_contracts,
             "layer_provenance": layer_provenance,
             "claim_scope_guards": claim_scope_guards,
+            "layer_output_contracts": layer_output_contracts,
             "handoff_count": len(handoff_checks),
             "handoff_checks": handoff_checks,
             "layers": layer_summaries,
@@ -310,6 +395,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_layer_contracts(payload)
     _assert_expected_layer_provenance(payload)
     _assert_expected_claim_scope_guards(payload)
+    _assert_expected_layer_output_contracts(payload)
     _assert_expected_input_manifest(payload)
     _assert_expected_manifest_consistency(payload)
 
@@ -445,6 +531,37 @@ def _assert_expected_claim_scope_guards(payload: Mapping[str, Any]) -> None:
         for result in results:
             if result.get("status") != "passed":
                 raise AssertionError(f"claim-scope guard result failed: {result!r}")
+
+
+def _assert_expected_layer_output_contracts(payload: Mapping[str, Any]) -> None:
+    audit_path = payload.get("audit_path")
+    if not isinstance(audit_path, Mapping):
+        raise AssertionError("audit_path must be an object")
+    output_contracts = audit_path.get("layer_output_contracts")
+    if not isinstance(output_contracts, list):
+        raise AssertionError("audit_path.layer_output_contracts must be a list")
+    observed_ids = [
+        contract.get("layer_id")
+        for contract in output_contracts
+        if isinstance(contract, Mapping)
+    ]
+    if observed_ids != EXPECTED_LAYER_IDS:
+        raise AssertionError(f"layer output contract ids mismatch: {observed_ids!r}")
+    for contract in output_contracts:
+        if not isinstance(contract, Mapping):
+            raise AssertionError("layer output contract must be an object")
+        layer_id = str(contract.get("layer_id"))
+        expected = _expected_output_contract(layer_id)
+        if contract.get("expected") != expected:
+            raise AssertionError(f"{layer_id} expected output contract mismatch")
+        if contract.get("status") != "passed":
+            raise AssertionError(f"{layer_id} output contract failed: {contract!r}")
+        if contract.get("missing_top_level_keys") != []:
+            raise AssertionError(f"{layer_id} missing top-level output keys")
+        if contract.get("missing_summary_keys") != []:
+            raise AssertionError(f"{layer_id} missing summary output keys")
+        if contract.get("summary_type") != "object":
+            raise AssertionError(f"{layer_id} summary output is not an object")
 
 
 def _assert_expected_input_manifest(payload: Mapping[str, Any]) -> None:
@@ -660,6 +777,65 @@ def _matched_claim_scope_tokens(
         if all(token in lowered for token in tokens):
             return list(tokens)
     return []
+
+
+def _layer_output_contracts(
+    layers: Mapping[str, Mapping[str, Any]],
+    errors: list[str],
+) -> list[dict[str, Any]]:
+    contracts: list[dict[str, Any]] = []
+    for layer_id in EXPECTED_LAYER_IDS:
+        payload = layers[layer_id]
+        expected = _expected_output_contract(layer_id)
+        summary_key = str(expected["summary_key"])
+        summary = payload.get(summary_key)
+        summary_type = "object" if isinstance(summary, Mapping) else type(summary).__name__
+        top_level_keys = set(payload)
+        summary_keys = set(summary) if isinstance(summary, Mapping) else set()
+        missing_top_level_keys = sorted(
+            set(expected["required_top_level_keys"]) - top_level_keys
+        )
+        missing_summary_keys = sorted(
+            set(expected["required_summary_keys"]) - summary_keys
+        )
+        if summary_type != "object":
+            errors.append(f"{layer_id} output summary {summary_key!r} is not an object")
+        if missing_top_level_keys:
+            errors.append(
+                f"{layer_id} output missing top-level keys: {missing_top_level_keys!r}"
+            )
+        if missing_summary_keys:
+            errors.append(
+                f"{layer_id} output missing summary keys: {missing_summary_keys!r}"
+            )
+        contracts.append(
+            {
+                "layer_id": layer_id,
+                "expected": expected,
+                "summary_type": summary_type,
+                "observed_top_level_keys": sorted(top_level_keys),
+                "observed_summary_keys": sorted(summary_keys),
+                "missing_top_level_keys": missing_top_level_keys,
+                "missing_summary_keys": missing_summary_keys,
+                "status": (
+                    "passed"
+                    if summary_type == "object"
+                    and not missing_top_level_keys
+                    and not missing_summary_keys
+                    else "failed"
+                ),
+            }
+        )
+    return contracts
+
+
+def _expected_output_contract(layer_id: str) -> dict[str, Any]:
+    contract = EXPECTED_LAYER_OUTPUT_CONTRACTS[layer_id]
+    return {
+        "summary_key": contract["summary_key"],
+        "required_top_level_keys": list(contract["required_top_level_keys"]),
+        "required_summary_keys": list(contract["required_summary_keys"]),
+    }
 
 
 def _input_manifest() -> dict[str, Any]:
@@ -990,6 +1166,8 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"{_summary_status(payload['audit_path']['layer_provenance'])}",
         "claim-scope guards: "
         f"{_summary_status(payload['audit_path']['claim_scope_guards'])}",
+        "layer output contracts: "
+        f"{_summary_status(payload['audit_path']['layer_output_contracts'])}",
         f"handoffs: {payload['audit_path']['handoff_count']}",
         f"input artifacts: {payload['input_manifest']['artifact_count']}",
         f"manifest consistency: {payload['manifest_consistency']['status']}",
