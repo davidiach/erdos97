@@ -1037,7 +1037,11 @@ def _observed_source_artifacts(source_artifacts: Any) -> tuple[list[dict[str, An
     malformed_count = 0
     for item in source_artifacts:
         if isinstance(item, Mapping):
-            observed.append(_source_artifact_contract(item))
+            contract = _source_artifact_contract(item)
+            if isinstance(contract["path"], str):
+                observed.append(contract)
+            else:
+                malformed_count += 1
         else:
             malformed_count += 1
     return _sort_source_artifacts(observed), malformed_count

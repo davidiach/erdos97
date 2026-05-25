@@ -333,6 +333,33 @@ def test_local_lemma_audit_path_rejects_source_artifact_drift() -> None:
     )
 
 
+def test_local_lemma_audit_path_rejects_malformed_source_artifact_path() -> None:
+    aggregate = load_artifact(DEFAULT_AGGREGATE)
+    simple_replay = load_artifact(DEFAULT_SIMPLE_REPLAY)
+    local_replay = local_replay_crosswalk_payload(aggregate, simple_replay)
+    tampered = json.loads(json.dumps(local_replay))
+    original_path = tampered["source_artifacts"][0]["path"]
+    tampered["source_artifacts"][0]["path"] = ["not", "hashable"]
+
+    payload = local_lemma_audit_path_payload(
+        aggregate_simple_replay_payload=tampered,
+    )
+    contracts = {
+        contract["layer_id"]: contract
+        for contract in payload["audit_path"]["layer_source_artifact_contracts"]
+    }
+    aggregate_contract = contracts["aggregate_simple_replay"]
+
+    assert payload["validation_status"] == "failed"
+    assert aggregate_contract["status"] == "failed"
+    assert aggregate_contract["malformed_source_artifact_count"] == 1
+    assert aggregate_contract["missing_source_artifact_paths"] == [original_path]
+    assert any(
+        "aggregate_simple_replay source_artifacts has 1 malformed entries" in error
+        for error in payload["validation_errors"]
+    )
+
+
 def test_local_lemma_audit_path_rejects_claim_scope_guard_drift() -> None:
     focused_minireplay = focused_minireplay_crosswalk_payload()
     tampered = json.loads(json.dumps(focused_minireplay))
