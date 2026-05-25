@@ -55,6 +55,9 @@ from check_relation_skeleton_local_lemma_crosswalk import (  # noqa: E402
 from erdos97.path_display import display_path  # noqa: E402
 
 SCHEMA = "erdos97.n9_vertex_circle_local_lemma_audit_path.v1"
+ASSERT_EXPECTED_FAILURE_SCHEMA = (
+    "erdos97.n9_vertex_circle_local_lemma_audit_path.assert_expected_failure.v1"
+)
 STATUS = "REVIEW_PENDING_LOCAL_LEMMA_AUDIT_PATH"
 TRUST = "REVIEW_PENDING_DIAGNOSTIC"
 CLAIM_SCOPE = (
@@ -3433,6 +3436,7 @@ def _payload_with_assert_expected_failure(
     updated["validation_status"] = "failed"
     updated["validation_errors"] = errors
     updated["assert_expected_failure"] = {
+        "schema": ASSERT_EXPECTED_FAILURE_SCHEMA,
         "stage": "assert_expected",
         "exception_type": type(exc).__name__,
         "message": str(exc),
