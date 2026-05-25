@@ -7,6 +7,7 @@ from pathlib import Path
 
 from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     EXPECTED_HANDOFF_EDGES,
+    EXPECTED_INPUT_ARTIFACT_COUNT,
     EXPECTED_LAYER_IDS,
     assert_expected_local_lemma_audit_path,
     local_lemma_audit_path_payload,
@@ -48,6 +49,30 @@ def test_local_lemma_audit_path_counts_and_scope() -> None:
     assert "does not prove n=9" in payload["claim_scope"]
     assert "not a counterexample" in payload["claim_scope"]
     assert "not a global status update" in payload["claim_scope"]
+
+
+def test_local_lemma_audit_path_input_manifest() -> None:
+    payload = local_lemma_audit_path_payload()
+    manifest = payload["input_manifest"]
+
+    assert manifest["artifact_count"] == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert manifest["digest_algorithm"] == "sha256"
+    artifacts = manifest["artifacts"]
+    assert len(artifacts) == EXPECTED_INPUT_ARTIFACT_COUNT
+    by_path = {artifact["path"]: artifact for artifact in artifacts}
+    assert len(by_path) == EXPECTED_INPUT_ARTIFACT_COUNT
+    assert all(len(artifact["sha256"]) == 64 for artifact in artifacts)
+    assert all(artifact["size_bytes"] > 0 for artifact in artifacts)
+    assert "data/certificates/n9_vertex_circle_local_lemmas.json" in by_path
+    assert "data/certificates/n9_vertex_circle_exhaustive.json" in by_path
+    assert (
+        "data/certificates/n9_t12_strict_cycle_minireplay.json" in by_path
+    )
+    local_roles = by_path[
+        "data/certificates/n9_vertex_circle_local_lemmas.json"
+    ]["roles"]
+    assert "aggregate local-lemma scan" in local_roles
+    assert "aggregate/simple replay aggregate source" in local_roles
 
 
 def test_local_lemma_audit_path_layer_summaries() -> None:
