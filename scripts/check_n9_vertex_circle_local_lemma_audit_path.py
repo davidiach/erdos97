@@ -328,6 +328,7 @@ def local_lemma_audit_path_payload(
     layer_provenance = _layer_provenance(layers, errors)
     claim_scope_guards = _claim_scope_guards(layers, errors)
     layer_output_contracts = _layer_output_contracts(layers, errors)
+    layer_input_contracts = _layer_input_contracts(layers, errors)
     layer_summaries = [_layer_summary(layer_id, layers[layer_id], errors) for layer_id in EXPECTED_LAYER_IDS]
     handoff_checks = _handoff_checks(layer_summaries, errors)
     coverage = _coverage_summary(layer_summaries, errors)
@@ -348,6 +349,7 @@ def local_lemma_audit_path_payload(
             "layer_provenance": layer_provenance,
             "claim_scope_guards": claim_scope_guards,
             "layer_output_contracts": layer_output_contracts,
+            "layer_input_contracts": layer_input_contracts,
             "handoff_count": len(handoff_checks),
             "handoff_checks": handoff_checks,
             "layers": layer_summaries,
@@ -396,6 +398,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_layer_provenance(payload)
     _assert_expected_claim_scope_guards(payload)
     _assert_expected_layer_output_contracts(payload)
+    _assert_expected_layer_input_contracts(payload)
     _assert_expected_input_manifest(payload)
     _assert_expected_manifest_consistency(payload)
 
@@ -562,6 +565,38 @@ def _assert_expected_layer_output_contracts(payload: Mapping[str, Any]) -> None:
             raise AssertionError(f"{layer_id} missing summary output keys")
         if contract.get("summary_type") != "object":
             raise AssertionError(f"{layer_id} summary output is not an object")
+
+
+def _assert_expected_layer_input_contracts(payload: Mapping[str, Any]) -> None:
+    audit_path = payload.get("audit_path")
+    if not isinstance(audit_path, Mapping):
+        raise AssertionError("audit_path must be an object")
+    input_contracts = audit_path.get("layer_input_contracts")
+    if not isinstance(input_contracts, list):
+        raise AssertionError("audit_path.layer_input_contracts must be a list")
+    observed_ids = [
+        contract.get("layer_id")
+        for contract in input_contracts
+        if isinstance(contract, Mapping)
+    ]
+    if observed_ids != EXPECTED_LAYER_IDS:
+        raise AssertionError(f"layer input contract ids mismatch: {observed_ids!r}")
+    expected_paths = _expected_layer_input_paths()
+    for contract in input_contracts:
+        if not isinstance(contract, Mapping):
+            raise AssertionError("layer input contract must be an object")
+        layer_id = str(contract.get("layer_id"))
+        expected = sorted(expected_paths[layer_id])
+        if contract.get("expected_paths") != expected:
+            raise AssertionError(f"{layer_id} expected input paths mismatch")
+        if contract.get("observed_paths") != expected:
+            raise AssertionError(f"{layer_id} observed input paths mismatch")
+        if contract.get("status") != "passed":
+            raise AssertionError(f"{layer_id} input contract failed: {contract!r}")
+        if contract.get("missing_input_paths") != []:
+            raise AssertionError(f"{layer_id} missing input paths")
+        if contract.get("unexpected_input_paths") != []:
+            raise AssertionError(f"{layer_id} unexpected input paths")
 
 
 def _assert_expected_input_manifest(payload: Mapping[str, Any]) -> None:
@@ -838,12 +873,83 @@ def _expected_output_contract(layer_id: str) -> dict[str, Any]:
     }
 
 
+def _layer_input_contracts(
+    layers: Mapping[str, Mapping[str, Any]],
+    errors: list[str],
+) -> list[dict[str, Any]]:
+    expected_paths = _expected_layer_input_paths()
+    contracts: list[dict[str, Any]] = []
+    for layer_id in EXPECTED_LAYER_IDS:
+        observed = _layer_referenced_paths({layer_id: layers[layer_id]})
+        expected = expected_paths[layer_id]
+        missing = sorted(expected - observed)
+        unexpected = sorted(observed - expected)
+        if missing:
+            errors.append(f"{layer_id} input missing paths: {missing!r}")
+        if unexpected:
+            errors.append(f"{layer_id} input unexpected paths: {unexpected!r}")
+        contracts.append(
+            {
+                "layer_id": layer_id,
+                "expected_path_count": len(expected),
+                "observed_path_count": len(observed),
+                "expected_paths": sorted(expected),
+                "observed_paths": sorted(observed),
+                "missing_input_paths": missing,
+                "unexpected_input_paths": unexpected,
+                "status": "passed" if not missing and not unexpected else "failed",
+            }
+        )
+    return contracts
+
+
+def _expected_layer_input_paths() -> dict[str, set[str]]:
+    return {
+        "focused_packet_catalog": _path_set(
+            [
+                DEFAULT_TEMPLATE_CATALOG,
+                DEFAULT_FOCUSED_LOCAL_LEMMAS,
+                *DEFAULT_TEMPLATE_PACKET_PATHS.values(),
+                *DEFAULT_PACKET_PATHS.values(),
+            ]
+        ),
+        "focused_minireplay": _path_set(
+            [
+                *DEFAULT_PACKET_PATHS.values(),
+                *DEFAULT_MINIREPLAY_PATHS.values(),
+            ]
+        ),
+        "aggregate_simple_replay": _path_set(
+            [DEFAULT_AGGREGATE, DEFAULT_SIMPLE_REPLAY]
+        ),
+        "exhaustive_local_lemma": _path_set(
+            [
+                DEFAULT_EXHAUSTIVE,
+                DEFAULT_CLASSIFICATION,
+                DEFAULT_AGGREGATE,
+                DEFAULT_SIMPLE_REPLAY,
+            ]
+        ),
+        "relation_skeleton_local_lemma": _path_set(
+            [DEFAULT_RELATION_SKELETONS, DEFAULT_AGGREGATE, DEFAULT_SIMPLE_REPLAY]
+        ),
+    }
+
+
+def _path_set(paths: list[Path]) -> set[str]:
+    return {_artifact_path_key(path) for path in paths}
+
+
+def _artifact_path_key(path: Path) -> str:
+    return display_path(path.resolve(), ROOT).replace("\\", "/")
+
+
 def _input_manifest() -> dict[str, Any]:
     entries: dict[str, dict[str, Any]] = {}
 
     def add(path: Path, role: str) -> None:
         resolved = path.resolve()
-        key = display_path(resolved, ROOT).replace("\\", "/")
+        key = _artifact_path_key(resolved)
         entry = entries.setdefault(
             key,
             {
@@ -1168,6 +1274,8 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"{_summary_status(payload['audit_path']['claim_scope_guards'])}",
         "layer output contracts: "
         f"{_summary_status(payload['audit_path']['layer_output_contracts'])}",
+        "layer input contracts: "
+        f"{_summary_status(payload['audit_path']['layer_input_contracts'])}",
         f"handoffs: {payload['audit_path']['handoff_count']}",
         f"input artifacts: {payload['input_manifest']['artifact_count']}",
         f"manifest consistency: {payload['manifest_consistency']['status']}",
