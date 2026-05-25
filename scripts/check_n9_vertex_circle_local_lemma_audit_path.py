@@ -1768,7 +1768,7 @@ def _observed_manifest_digests(
             continue
         digests_by_path[path] = {
             "size_bytes": size_bytes,
-            "sha256": digest,
+            "sha256": digest.lower(),
         }
     return digests_by_path, malformed_count
 

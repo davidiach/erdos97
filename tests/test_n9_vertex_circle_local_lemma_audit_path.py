@@ -229,6 +229,24 @@ def test_local_lemma_audit_path_rejects_manifest_digest_drift() -> None:
     )
 
 
+def test_local_lemma_audit_path_accepts_uppercase_manifest_digest() -> None:
+    payload = local_lemma_audit_path_payload()
+    tampered_manifest = json.loads(json.dumps(payload["input_manifest"]))
+    for artifact in tampered_manifest["artifacts"]:
+        if artifact["path"] == "data/certificates/n9_vertex_circle_local_lemmas.json":
+            artifact["sha256"] = artifact["sha256"].upper()
+            break
+
+    tampered_payload = local_lemma_audit_path_payload(
+        input_manifest_payload=tampered_manifest,
+    )
+    contract = tampered_payload["manifest_digest_contract"]
+
+    assert tampered_payload["validation_status"] == "passed"
+    assert contract["status"] == "passed"
+    assert contract["mismatched_manifest_digests"] == []
+
+
 def test_local_lemma_audit_path_rejects_malformed_manifest_digests() -> None:
     payload = local_lemma_audit_path_payload()
     tampered_manifest = json.loads(json.dumps(payload["input_manifest"]))
