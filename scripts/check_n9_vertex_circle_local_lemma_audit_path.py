@@ -152,6 +152,18 @@ EXPECTED_LAYER_PROVENANCE = {
         ),
     },
 }
+CLAIM_SCOPE_GUARDS = {
+    "mentions_n9_scope": (("n=9",),),
+    "denies_proof": (("does not prove",), ("not a proof",)),
+    "denies_counterexample": (
+        ("not a counterexample",),
+        ("does not prove", "counterexample"),
+    ),
+    "denies_global_status_update": (
+        ("not a global status update",),
+        ("official/global status update",),
+    ),
+}
 HANDOFF_COMPARE_KEYS = (
     "template_count",
     "template_ids",
@@ -231,6 +243,7 @@ def local_lemma_audit_path_payload(
     _append_layer_expected_errors(errors, layers)
     layer_contracts = _layer_contracts(layers, errors)
     layer_provenance = _layer_provenance(layers, errors)
+    claim_scope_guards = _claim_scope_guards(layers, errors)
     layer_summaries = [_layer_summary(layer_id, layers[layer_id], errors) for layer_id in EXPECTED_LAYER_IDS]
     handoff_checks = _handoff_checks(layer_summaries, errors)
     coverage = _coverage_summary(layer_summaries, errors)
@@ -249,6 +262,7 @@ def local_lemma_audit_path_payload(
             "layer_ids": [summary["layer_id"] for summary in layer_summaries],
             "layer_contracts": layer_contracts,
             "layer_provenance": layer_provenance,
+            "claim_scope_guards": claim_scope_guards,
             "handoff_count": len(handoff_checks),
             "handoff_checks": handoff_checks,
             "layers": layer_summaries,
@@ -295,6 +309,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
         raise AssertionError(f"validation errors: {payload.get('validation_errors')!r}")
     _assert_expected_layer_contracts(payload)
     _assert_expected_layer_provenance(payload)
+    _assert_expected_claim_scope_guards(payload)
     _assert_expected_input_manifest(payload)
     _assert_expected_manifest_consistency(payload)
 
@@ -401,6 +416,35 @@ def _assert_expected_layer_provenance(payload: Mapping[str, Any]) -> None:
             raise AssertionError(f"{layer_id} observed provenance mismatch")
         if check.get("status") != "passed" or check.get("mismatches") != []:
             raise AssertionError(f"{layer_id} provenance failed: {check!r}")
+
+
+def _assert_expected_claim_scope_guards(payload: Mapping[str, Any]) -> None:
+    audit_path = payload.get("audit_path")
+    if not isinstance(audit_path, Mapping):
+        raise AssertionError("audit_path must be an object")
+    guard_checks = audit_path.get("claim_scope_guards")
+    if not isinstance(guard_checks, list):
+        raise AssertionError("audit_path.claim_scope_guards must be a list")
+    observed_ids = [
+        check.get("layer_id")
+        for check in guard_checks
+        if isinstance(check, Mapping)
+    ]
+    if observed_ids != EXPECTED_LAYER_IDS:
+        raise AssertionError(f"claim-scope guard ids mismatch: {observed_ids!r}")
+    for check in guard_checks:
+        if not isinstance(check, Mapping):
+            raise AssertionError("claim-scope guard check must be an object")
+        if check.get("status") != "passed" or check.get("missing_guards") != []:
+            raise AssertionError(f"claim-scope guard failed: {check!r}")
+        results = check.get("guard_results")
+        if not isinstance(results, list):
+            raise AssertionError("claim-scope guard_results must be a list")
+        if [result.get("guard") for result in results] != list(CLAIM_SCOPE_GUARDS):
+            raise AssertionError(f"claim-scope guard order mismatch: {results!r}")
+        for result in results:
+            if result.get("status") != "passed":
+                raise AssertionError(f"claim-scope guard result failed: {result!r}")
 
 
 def _assert_expected_input_manifest(payload: Mapping[str, Any]) -> None:
@@ -570,6 +614,52 @@ def _provenance_contract(provenance: Any) -> dict[str, Any]:
         "generator": provenance.get("generator"),
         "command": provenance.get("command"),
     }
+
+
+def _claim_scope_guards(
+    layers: Mapping[str, Mapping[str, Any]],
+    errors: list[str],
+) -> list[dict[str, Any]]:
+    checks: list[dict[str, Any]] = []
+    for layer_id in EXPECTED_LAYER_IDS:
+        claim_scope = str(layers[layer_id].get("claim_scope", ""))
+        guard_results = []
+        missing_guards = []
+        for guard, alternatives in CLAIM_SCOPE_GUARDS.items():
+            matched_tokens = _matched_claim_scope_tokens(claim_scope, alternatives)
+            status = "passed" if matched_tokens else "failed"
+            if not matched_tokens:
+                missing_guards.append(guard)
+            guard_results.append(
+                {
+                    "guard": guard,
+                    "status": status,
+                    "matched_tokens": matched_tokens,
+                    "accepted_token_sets": [list(tokens) for tokens in alternatives],
+                }
+            )
+        if missing_guards:
+            errors.append(f"{layer_id} claim_scope missing guards: {missing_guards!r}")
+        checks.append(
+            {
+                "layer_id": layer_id,
+                "status": "passed" if not missing_guards else "failed",
+                "missing_guards": missing_guards,
+                "guard_results": guard_results,
+            }
+        )
+    return checks
+
+
+def _matched_claim_scope_tokens(
+    claim_scope: str,
+    alternatives: tuple[tuple[str, ...], ...],
+) -> list[str]:
+    lowered = claim_scope.lower()
+    for tokens in alternatives:
+        if all(token in lowered for token in tokens):
+            return list(tokens)
+    return []
 
 
 def _input_manifest() -> dict[str, Any]:
@@ -898,6 +988,8 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"{_summary_status(payload['audit_path']['layer_contracts'])}",
         "layer provenance: "
         f"{_summary_status(payload['audit_path']['layer_provenance'])}",
+        "claim-scope guards: "
+        f"{_summary_status(payload['audit_path']['claim_scope_guards'])}",
         f"handoffs: {payload['audit_path']['handoff_count']}",
         f"input artifacts: {payload['input_manifest']['artifact_count']}",
         f"manifest consistency: {payload['manifest_consistency']['status']}",

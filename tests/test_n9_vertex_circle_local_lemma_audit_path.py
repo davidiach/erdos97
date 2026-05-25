@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
+    CLAIM_SCOPE_GUARDS,
     EXPECTED_HANDOFF_EDGES,
     EXPECTED_INPUT_ARTIFACT_COUNT,
     EXPECTED_LAYER_CONTRACTS,
@@ -119,6 +120,20 @@ def test_local_lemma_audit_path_layer_provenance() -> None:
         assert check["observed"] == expected
 
 
+def test_local_lemma_audit_path_claim_scope_guards() -> None:
+    payload = local_lemma_audit_path_payload()
+    guard_checks = payload["audit_path"]["claim_scope_guards"]
+
+    assert [check["layer_id"] for check in guard_checks] == EXPECTED_LAYER_IDS
+    assert all(check["status"] == "passed" for check in guard_checks)
+    assert all(check["missing_guards"] == [] for check in guard_checks)
+    for check in guard_checks:
+        results = check["guard_results"]
+        assert [result["guard"] for result in results] == list(CLAIM_SCOPE_GUARDS)
+        assert all(result["status"] == "passed" for result in results)
+        assert all(result["matched_tokens"] for result in results)
+
+
 def test_local_lemma_audit_path_rejects_unmanifested_layer_path() -> None:
     focused_minireplay = focused_minireplay_crosswalk_payload()
     tampered = json.loads(json.dumps(focused_minireplay))
@@ -198,6 +213,31 @@ def test_local_lemma_audit_path_rejects_layer_provenance_drift() -> None:
     ]
     assert any(
         "aggregate_simple_replay provenance mismatch on command" in error
+        for error in payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_claim_scope_guard_drift() -> None:
+    focused_minireplay = focused_minireplay_crosswalk_payload()
+    tampered = json.loads(json.dumps(focused_minireplay))
+    tampered["claim_scope"] = "This packet audit discusses n=9."
+
+    payload = local_lemma_audit_path_payload(focused_minireplay_payload=tampered)
+    guard_checks = {
+        check["layer_id"]: check
+        for check in payload["audit_path"]["claim_scope_guards"]
+    }
+
+    assert payload["validation_status"] == "failed"
+    focused_guard = guard_checks["focused_minireplay"]
+    assert focused_guard["status"] == "failed"
+    assert focused_guard["missing_guards"] == [
+        "denies_proof",
+        "denies_counterexample",
+        "denies_global_status_update",
+    ]
+    assert any(
+        "focused_minireplay claim_scope missing guards" in error
         for error in payload["validation_errors"]
     )
 
