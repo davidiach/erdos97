@@ -682,7 +682,9 @@ summary includes both `audit contract summary` and `manifest contract summary`
 lines so reviewers can quickly see whether a failure is layer-side or
 manifest-side before inspecting the full JSON payload. If validation fails
 after a complete payload is available, the text mode prints those same compact
-summary lines before the detailed validation errors.
+summary lines before the detailed validation errors. With `--json`, failed
+runs return the same machine-readable payload, including the rollup fields,
+and exit nonzero when `--check` is supplied.
 
 This is still only a review-pending audit-path diagnostic. It does not prove
 packet soundness, mini-replay soundness, local-lemma completeness, frontier
