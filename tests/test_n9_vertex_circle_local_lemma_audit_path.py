@@ -22,6 +22,7 @@ from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     EXPECTED_MANIFEST_CONTRACT_IDS,
     assert_expected_local_lemma_audit_path,
     local_lemma_audit_path_payload,
+    summary_lines,
 )
 from scripts.check_n9_vertex_circle_focused_minireplay_crosswalk import (
     focused_minireplay_crosswalk_payload,
@@ -1147,6 +1148,60 @@ def test_local_lemma_audit_path_rejects_local_replay_drift() -> None:
         in error
         for error in payload["validation_errors"]
     )
+
+
+def test_local_lemma_audit_path_summary_lines_include_contract_rollups() -> None:
+    payload = local_lemma_audit_path_payload()
+    lines = summary_lines(payload)
+
+    expected_lines = [
+        "validation: passed",
+        "layer contracts: passed",
+        "layer provenance: passed",
+        "layer source artifacts: passed",
+        "claim-scope guards: passed",
+        "layer output contracts: passed",
+        "layer input contracts: passed",
+        "focused minireplay record paths: passed",
+        "audit contract summary: passed",
+        "manifest roles: passed",
+        "manifest digests: passed",
+        "manifest headers: passed",
+        "manifest provenance: passed",
+        "manifest metadata: passed",
+        "manifest claims: passed",
+        "manifest consistency: passed",
+        "manifest contract summary: passed",
+    ]
+
+    for line in expected_lines:
+        assert line in lines
+    assert lines.index("audit contract summary: passed") < lines.index(
+        "input artifacts: 32"
+    )
+    assert lines.index("manifest contract summary: passed") > lines.index(
+        "manifest consistency: passed"
+    )
+
+
+def test_local_lemma_audit_path_cli_text_summary_includes_contract_rollups() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_local_lemma_audit_path.py",
+            "--check",
+            "--assert-expected",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    lines = result.stdout.splitlines()
+    assert "validation: passed" in lines
+    assert "audit contract summary: passed" in lines
+    assert "manifest contract summary: passed" in lines
 
 
 def test_local_lemma_audit_path_cli_json() -> None:

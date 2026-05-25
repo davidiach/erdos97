@@ -677,6 +677,11 @@ contracts into a single reviewer-facing pass/fail table:
 python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json
 ```
 
+Without `--json`, the same checker prints the compact text summary. That
+summary includes both `audit contract summary` and `manifest contract summary`
+lines so reviewers can quickly see whether a failure is layer-side or
+manifest-side before inspecting the full JSON payload.
+
 This is still only a review-pending audit-path diagnostic. It does not prove
 packet soundness, mini-replay soundness, local-lemma completeness, frontier
 coverage, `n=9`, or Erdos Problem #97.
