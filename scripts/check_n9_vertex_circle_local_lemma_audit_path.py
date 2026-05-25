@@ -281,6 +281,11 @@ CLAIM_SCOPE_GUARDS = {
         ("does not prove", "official/global status update"),
     ),
 }
+MANIFEST_SCOPE_GUARDS = {
+    "marks_repo_local_finite_case": (("repo-local", "finite-case"),),
+    "marks_candidate_scope": (("candidate",),),
+    "denies_global_status_update": (("does not update", "official/global"),),
+}
 EXPECTED_LAYER_OUTPUT_CONTRACTS = {
     "focused_packet_catalog": {
         "summary_key": "focused_packet_catalog_audit",
@@ -426,6 +431,7 @@ def local_lemma_audit_path_payload(
     relation_skeleton_local_lemma_payload: Mapping[str, Any] | None = None,
     input_manifest_payload: Mapping[str, Any] | None = None,
     manifest_header_payloads: Mapping[str, Any] | None = None,
+    manifest_claim_payloads: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Return an audit-path payload tying all local-lemma layers together."""
 
@@ -469,6 +475,11 @@ def local_lemma_audit_path_payload(
         errors,
         header_payloads=manifest_header_payloads,
     )
+    manifest_claim_contract = _manifest_claim_contract(
+        input_manifest,
+        errors,
+        claim_payloads=manifest_claim_payloads,
+    )
     manifest_consistency = _manifest_consistency(layers, input_manifest, errors)
 
     return {
@@ -496,6 +507,7 @@ def local_lemma_audit_path_payload(
         "manifest_role_contract": manifest_role_contract,
         "manifest_digest_contract": manifest_digest_contract,
         "manifest_header_contract": manifest_header_contract,
+        "manifest_claim_contract": manifest_claim_contract,
         "manifest_consistency": manifest_consistency,
         "coverage_summary": coverage,
         "validation_status": "passed" if not errors else "failed",
@@ -546,6 +558,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_manifest_role_contract(payload)
     _assert_expected_manifest_digest_contract(payload)
     _assert_expected_manifest_header_contract(payload)
+    _assert_expected_manifest_claim_contract(payload)
     _assert_expected_manifest_consistency(payload)
 
     audit_path = payload.get("audit_path")
@@ -961,6 +974,60 @@ def _assert_expected_manifest_header_contract(payload: Mapping[str, Any]) -> Non
         raise AssertionError("manifest header contract has malformed entries")
 
 
+def _assert_expected_manifest_claim_contract(payload: Mapping[str, Any]) -> None:
+    contract = payload.get("manifest_claim_contract")
+    if not isinstance(contract, Mapping):
+        raise AssertionError("manifest_claim_contract must be an object")
+    expected = _manifest_claim_spec_records(_expected_manifest_claim_specs())
+    if contract.get("status") != "passed":
+        raise AssertionError(f"manifest claim contract failed: {contract!r}")
+    if contract.get("expected_path_count") != len(expected):
+        raise AssertionError("manifest claim expected path count mismatch")
+    if contract.get("observed_path_count") != len(expected):
+        raise AssertionError("manifest claim observed path count mismatch")
+    if contract.get("expected_claims") != expected:
+        raise AssertionError("manifest claim expected records mismatch")
+    observed_claims = contract.get("observed_claims")
+    if not isinstance(observed_claims, list):
+        raise AssertionError("manifest claim observed_claims must be a list")
+    observed_paths = [claim.get("path") for claim in observed_claims]
+    if observed_paths != [claim["path"] for claim in expected]:
+        raise AssertionError("manifest claim observed path order mismatch")
+    expected_by_path = {claim["path"]: claim for claim in expected}
+    for claim in observed_claims:
+        if not isinstance(claim, Mapping):
+            raise AssertionError("manifest claim record must be an object")
+        path = claim.get("path")
+        expected_claim = expected_by_path.get(path)
+        if expected_claim is None:
+            raise AssertionError(f"unexpected manifest claim path: {path!r}")
+        if claim.get("field") != expected_claim["field"]:
+            raise AssertionError(f"manifest claim field mismatch for {path!r}")
+        if claim.get("status") != "passed" or claim.get("missing_guards") != []:
+            raise AssertionError(f"manifest claim guard failed: {claim!r}")
+        results = claim.get("guard_results")
+        if not isinstance(results, list):
+            raise AssertionError("manifest claim guard_results must be a list")
+        expected_guards = [
+            guard["guard"] for guard in expected_claim["guard_expectations"]
+        ]
+        if [result.get("guard") for result in results] != expected_guards:
+            raise AssertionError(f"manifest claim guard order mismatch: {results!r}")
+        for result in results:
+            if result.get("status") != "passed":
+                raise AssertionError(f"manifest claim guard result failed: {result!r}")
+    for key in (
+        "missing_manifest_claim_paths",
+        "unexpected_manifest_claim_paths",
+        "duplicate_manifest_claim_paths",
+        "failed_manifest_claim_guards",
+    ):
+        if contract.get(key) != []:
+            raise AssertionError(f"manifest claim {key} is not empty")
+    if contract.get("malformed_manifest_claim_count") != 0:
+        raise AssertionError("manifest claim contract has malformed entries")
+
+
 def _assert_expected_manifest_consistency(payload: Mapping[str, Any]) -> None:
     consistency = payload.get("manifest_consistency")
     if not isinstance(consistency, Mapping):
@@ -1234,21 +1301,10 @@ def _claim_scope_guards(
     checks: list[dict[str, Any]] = []
     for layer_id in EXPECTED_LAYER_IDS:
         claim_scope = str(layers[layer_id].get("claim_scope", ""))
-        guard_results = []
-        missing_guards = []
-        for guard, alternatives in CLAIM_SCOPE_GUARDS.items():
-            matched_tokens = _matched_claim_scope_tokens(claim_scope, alternatives)
-            status = "passed" if matched_tokens else "failed"
-            if not matched_tokens:
-                missing_guards.append(guard)
-            guard_results.append(
-                {
-                    "guard": guard,
-                    "status": status,
-                    "matched_tokens": matched_tokens,
-                    "accepted_token_sets": [list(tokens) for tokens in alternatives],
-                }
-            )
+        guard_results, missing_guards = _claim_guard_results(
+            claim_scope,
+            CLAIM_SCOPE_GUARDS,
+        )
         if missing_guards:
             errors.append(f"{layer_id} claim_scope missing guards: {missing_guards!r}")
         checks.append(
@@ -1260,6 +1316,28 @@ def _claim_scope_guards(
             }
         )
     return checks
+
+
+def _claim_guard_results(
+    claim_scope: str,
+    guards: Mapping[str, tuple[tuple[str, ...], ...]],
+) -> tuple[list[dict[str, Any]], list[str]]:
+    guard_results = []
+    missing_guards = []
+    for guard, alternatives in guards.items():
+        matched_tokens = _matched_claim_scope_tokens(claim_scope, alternatives)
+        status = "passed" if matched_tokens else "failed"
+        if not matched_tokens:
+            missing_guards.append(guard)
+        guard_results.append(
+            {
+                "guard": guard,
+                "status": status,
+                "matched_tokens": matched_tokens,
+                "accepted_token_sets": [list(tokens) for tokens in alternatives],
+            }
+        )
+    return guard_results, missing_guards
 
 
 def _matched_claim_scope_tokens(
@@ -2064,6 +2142,197 @@ def _manifest_header_records(
     ]
 
 
+def _manifest_claim_contract(
+    input_manifest: Mapping[str, Any],
+    errors: list[str],
+    *,
+    claim_payloads: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    expected_claims = _expected_manifest_claim_specs()
+    artifacts = input_manifest.get("artifacts", [])
+    artifact_records = artifacts if isinstance(artifacts, list) else []
+    observed_claims, malformed_count = _observed_manifest_claims(
+        artifact_records,
+        expected_claims,
+        claim_payloads=claim_payloads,
+    )
+    expected_paths = set(expected_claims)
+    observed_path_list = [
+        str(artifact.get("path"))
+        for artifact in artifact_records
+        if isinstance(artifact, Mapping) and isinstance(artifact.get("path"), str)
+    ]
+    observed_paths = set(observed_path_list)
+    duplicate_paths = sorted(
+        {path for path in observed_path_list if observed_path_list.count(path) > 1}
+    )
+    missing = sorted(expected_paths - set(observed_claims))
+    unexpected = sorted(observed_paths - expected_paths)
+    failed_guards = _manifest_claim_failures(observed_claims)
+
+    if not isinstance(artifacts, list):
+        malformed_count += 1
+    if malformed_count:
+        errors.append(f"input_manifest has {malformed_count} malformed claim entries")
+    if duplicate_paths:
+        errors.append(f"input_manifest duplicate claim paths: {duplicate_paths!r}")
+    if missing:
+        errors.append(f"input_manifest claim contract missing paths: {missing!r}")
+    if unexpected:
+        errors.append(f"input_manifest claim contract unexpected paths: {unexpected!r}")
+    for failure in failed_guards:
+        errors.append(
+            f"input_manifest claim guards failed on {failure['path']}: "
+            f"{failure['missing_guards']!r}"
+        )
+
+    return {
+        "status": (
+            "passed"
+            if not (
+                malformed_count
+                or duplicate_paths
+                or missing
+                or unexpected
+                or failed_guards
+            )
+            else "failed"
+        ),
+        "expected_path_count": len(expected_claims),
+        "observed_path_count": len(observed_claims),
+        "expected_claims": _manifest_claim_spec_records(expected_claims),
+        "observed_claims": _manifest_claim_records(observed_claims),
+        "missing_manifest_claim_paths": missing,
+        "unexpected_manifest_claim_paths": unexpected,
+        "duplicate_manifest_claim_paths": duplicate_paths,
+        "failed_manifest_claim_guards": failed_guards,
+        "malformed_manifest_claim_count": malformed_count,
+    }
+
+
+def _expected_manifest_claim_specs() -> dict[str, dict[str, Any]]:
+    exhaustive_path = _artifact_path_key(DEFAULT_EXHAUSTIVE)
+    specs: dict[str, dict[str, Any]] = {}
+    for path in sorted(_expected_manifest_roles()):
+        if path == exhaustive_path:
+            specs[path] = {
+                "field": "scope",
+                "guards": MANIFEST_SCOPE_GUARDS,
+            }
+        else:
+            specs[path] = {
+                "field": "claim_scope",
+                "guards": CLAIM_SCOPE_GUARDS,
+            }
+    return specs
+
+
+def _observed_manifest_claims(
+    artifacts: list[Any],
+    expected_claims: Mapping[str, Mapping[str, Any]],
+    *,
+    claim_payloads: Mapping[str, Any] | None = None,
+) -> tuple[dict[str, dict[str, Any]], int]:
+    claims_by_path: dict[str, dict[str, Any]] = {}
+    malformed_count = 0
+    for artifact in artifacts:
+        if not isinstance(artifact, Mapping):
+            malformed_count += 1
+            continue
+        path = artifact.get("path")
+        if not isinstance(path, str) or path not in expected_claims:
+            continue
+        try:
+            payload = (
+                claim_payloads[path]
+                if claim_payloads is not None and path in claim_payloads
+                else load_artifact(ROOT / path)
+            )
+        except (OSError, json.JSONDecodeError):
+            malformed_count += 1
+            continue
+        if not isinstance(payload, Mapping):
+            malformed_count += 1
+            continue
+        spec = expected_claims[path]
+        field = str(spec["field"])
+        claim_scope = payload.get(field)
+        if not isinstance(claim_scope, str):
+            malformed_count += 1
+            continue
+        guard_results, missing_guards = _claim_guard_results(
+            claim_scope,
+            spec["guards"],
+        )
+        claims_by_path[path] = {
+            "field": field,
+            "status": "passed" if not missing_guards else "failed",
+            "missing_guards": missing_guards,
+            "guard_results": guard_results,
+        }
+    return claims_by_path, malformed_count
+
+
+def _manifest_claim_failures(
+    claims_by_path: Mapping[str, Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    failures: list[dict[str, Any]] = []
+    for path in sorted(claims_by_path):
+        claim = claims_by_path[path]
+        missing_guards = claim.get("missing_guards")
+        if missing_guards:
+            failures.append(
+                {
+                    "path": path,
+                    "field": claim.get("field"),
+                    "missing_guards": missing_guards,
+                }
+            )
+    return failures
+
+
+def _manifest_claim_spec_records(
+    claims_by_path: Mapping[str, Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    return [
+        {
+            "path": path,
+            "field": claims_by_path[path]["field"],
+            "guard_expectations": _guard_expectation_records(
+                claims_by_path[path]["guards"]
+            ),
+        }
+        for path in sorted(claims_by_path)
+    ]
+
+
+def _manifest_claim_records(
+    claims_by_path: Mapping[str, Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    return [
+        {
+            "path": path,
+            "field": claims_by_path[path]["field"],
+            "status": claims_by_path[path]["status"],
+            "missing_guards": claims_by_path[path]["missing_guards"],
+            "guard_results": claims_by_path[path]["guard_results"],
+        }
+        for path in sorted(claims_by_path)
+    ]
+
+
+def _guard_expectation_records(
+    guards: Mapping[str, tuple[tuple[str, ...], ...]],
+) -> list[dict[str, Any]]:
+    return [
+        {
+            "guard": guard,
+            "accepted_token_sets": [list(tokens) for tokens in alternatives],
+        }
+        for guard, alternatives in guards.items()
+    ]
+
+
 def _manifest_consistency(
     layers: Mapping[str, Mapping[str, Any]],
     input_manifest: Mapping[str, Any],
@@ -2364,6 +2633,7 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"manifest roles: {payload['manifest_role_contract']['status']}",
         f"manifest digests: {payload['manifest_digest_contract']['status']}",
         f"manifest headers: {payload['manifest_header_contract']['status']}",
+        f"manifest claims: {payload['manifest_claim_contract']['status']}",
         f"manifest consistency: {payload['manifest_consistency']['status']}",
         f"templates: {coverage['template_count']}",
         f"families: {coverage['family_count']}",
