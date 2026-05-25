@@ -85,6 +85,15 @@ EXPECTED_LAYER_IDS = [
 EXPECTED_TEMPLATE_IDS = [f"T{index:02d}" for index in range(1, 13)]
 EXPECTED_HANDOFF_EDGES = list(zip(EXPECTED_LAYER_IDS, EXPECTED_LAYER_IDS[1:]))
 EXPECTED_INPUT_ARTIFACT_COUNT = 32
+EXPECTED_MANIFEST_CONTRACT_IDS = [
+    "manifest_role_contract",
+    "manifest_digest_contract",
+    "manifest_header_contract",
+    "manifest_provenance_contract",
+    "manifest_metadata_contract",
+    "manifest_claim_contract",
+    "manifest_consistency",
+]
 EXPECTED_LAYER_CONTRACTS = {
     "focused_packet_catalog": {
         "schema": "erdos97.n9_vertex_circle_focused_packet_catalog_audit.v1",
@@ -497,6 +506,17 @@ def local_lemma_audit_path_payload(
         claim_payloads=manifest_claim_payloads,
     )
     manifest_consistency = _manifest_consistency(layers, input_manifest, errors)
+    manifest_contract_summary = _manifest_contract_summary(
+        {
+            "manifest_role_contract": manifest_role_contract,
+            "manifest_digest_contract": manifest_digest_contract,
+            "manifest_header_contract": manifest_header_contract,
+            "manifest_provenance_contract": manifest_provenance_contract,
+            "manifest_metadata_contract": manifest_metadata_contract,
+            "manifest_claim_contract": manifest_claim_contract,
+            "manifest_consistency": manifest_consistency,
+        }
+    )
 
     return {
         "schema": SCHEMA,
@@ -527,6 +547,7 @@ def local_lemma_audit_path_payload(
         "manifest_metadata_contract": manifest_metadata_contract,
         "manifest_claim_contract": manifest_claim_contract,
         "manifest_consistency": manifest_consistency,
+        "manifest_contract_summary": manifest_contract_summary,
         "coverage_summary": coverage,
         "validation_status": "passed" if not errors else "failed",
         "validation_errors": errors,
@@ -580,6 +601,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_manifest_metadata_contract(payload)
     _assert_expected_manifest_claim_contract(payload)
     _assert_expected_manifest_consistency(payload)
+    _assert_expected_manifest_contract_summary(payload)
 
     audit_path = payload.get("audit_path")
     if not isinstance(audit_path, Mapping):
@@ -1123,6 +1145,30 @@ def _assert_expected_manifest_consistency(payload: Mapping[str, Any]) -> None:
             raise AssertionError(
                 f"manifest_consistency[{key!r}] mismatch: "
                 f"{consistency.get(key)!r} != {value!r}"
+            )
+
+
+def _assert_expected_manifest_contract_summary(payload: Mapping[str, Any]) -> None:
+    summary = payload.get("manifest_contract_summary")
+    if not isinstance(summary, Mapping):
+        raise AssertionError("manifest_contract_summary must be an object")
+    expected_statuses = [
+        {"contract_id": contract_id, "status": "passed"}
+        for contract_id in EXPECTED_MANIFEST_CONTRACT_IDS
+    ]
+    expected = {
+        "status": "passed",
+        "contract_count": len(EXPECTED_MANIFEST_CONTRACT_IDS),
+        "passed_contract_count": len(EXPECTED_MANIFEST_CONTRACT_IDS),
+        "failed_contract_count": 0,
+        "failed_contracts": [],
+        "contract_statuses": expected_statuses,
+    }
+    for key, value in expected.items():
+        if summary.get(key) != value:
+            raise AssertionError(
+                f"manifest_contract_summary[{key!r}] mismatch: "
+                f"{summary.get(key)!r} != {value!r}"
             )
 
 
@@ -1869,6 +1915,32 @@ def _manifest_role_records(roles_by_path: Mapping[str, list[str]]) -> list[dict[
         {"path": path, "roles": roles_by_path[path]}
         for path in sorted(roles_by_path)
     ]
+
+
+def _manifest_contract_summary(
+    contracts: Mapping[str, Mapping[str, Any]],
+) -> dict[str, Any]:
+    contract_statuses: list[dict[str, str]] = []
+    for contract_id in EXPECTED_MANIFEST_CONTRACT_IDS:
+        contract = contracts.get(contract_id)
+        status = contract.get("status") if isinstance(contract, Mapping) else "missing"
+        if not isinstance(status, str):
+            status = "failed"
+        contract_statuses.append({"contract_id": contract_id, "status": status})
+
+    failed_contracts = [
+        item["contract_id"]
+        for item in contract_statuses
+        if item["status"] != "passed"
+    ]
+    return {
+        "status": "passed" if not failed_contracts else "failed",
+        "contract_count": len(contract_statuses),
+        "passed_contract_count": len(contract_statuses) - len(failed_contracts),
+        "failed_contract_count": len(failed_contracts),
+        "failed_contracts": failed_contracts,
+        "contract_statuses": contract_statuses,
+    }
 
 
 def _manifest_digest_contract(
@@ -3201,6 +3273,8 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"manifest metadata: {payload['manifest_metadata_contract']['status']}",
         f"manifest claims: {payload['manifest_claim_contract']['status']}",
         f"manifest consistency: {payload['manifest_consistency']['status']}",
+        "manifest contract summary: "
+        f"{payload['manifest_contract_summary']['status']}",
         f"templates: {coverage['template_count']}",
         f"families: {coverage['family_count']}",
         f"assignments: {coverage['assignment_count']}",

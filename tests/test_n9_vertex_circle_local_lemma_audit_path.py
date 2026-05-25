@@ -18,6 +18,7 @@ from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     EXPECTED_LAYER_OUTPUT_CONTRACTS,
     EXPECTED_LAYER_PROVENANCE,
     EXPECTED_LAYER_SOURCE_ARTIFACTS,
+    EXPECTED_MANIFEST_CONTRACT_IDS,
     assert_expected_local_lemma_audit_path,
     local_lemma_audit_path_payload,
 )
@@ -277,6 +278,23 @@ def test_local_lemma_audit_path_manifest_consistency() -> None:
     }
 
 
+def test_local_lemma_audit_path_manifest_contract_summary() -> None:
+    payload = local_lemma_audit_path_payload()
+    summary = payload["manifest_contract_summary"]
+
+    assert summary == {
+        "status": "passed",
+        "contract_count": len(EXPECTED_MANIFEST_CONTRACT_IDS),
+        "passed_contract_count": len(EXPECTED_MANIFEST_CONTRACT_IDS),
+        "failed_contract_count": 0,
+        "failed_contracts": [],
+        "contract_statuses": [
+            {"contract_id": contract_id, "status": "passed"}
+            for contract_id in EXPECTED_MANIFEST_CONTRACT_IDS
+        ],
+    }
+
+
 def test_local_lemma_audit_path_rejects_manifest_role_drift() -> None:
     payload = local_lemma_audit_path_payload()
     tampered_manifest = json.loads(json.dumps(payload["input_manifest"]))
@@ -289,9 +307,17 @@ def test_local_lemma_audit_path_rejects_manifest_role_drift() -> None:
         input_manifest_payload=tampered_manifest,
     )
     contract = tampered_payload["manifest_role_contract"]
+    summary = tampered_payload["manifest_contract_summary"]
 
     assert tampered_payload["validation_status"] == "failed"
     assert contract["status"] == "failed"
+    assert summary["status"] == "failed"
+    assert summary["contract_count"] == len(EXPECTED_MANIFEST_CONTRACT_IDS)
+    assert summary["passed_contract_count"] == (
+        len(EXPECTED_MANIFEST_CONTRACT_IDS) - 1
+    )
+    assert summary["failed_contract_count"] == 1
+    assert summary["failed_contracts"] == ["manifest_role_contract"]
     assert contract["mismatched_manifest_roles"] == [
         {
             "path": "data/certificates/n9_vertex_circle_local_lemmas.json",
