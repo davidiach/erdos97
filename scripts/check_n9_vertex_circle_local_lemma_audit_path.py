@@ -3394,6 +3394,24 @@ def failure_lines(payload: Mapping[str, Any]) -> list[str]:
     return lines
 
 
+def _payload_with_assert_expected_failure(
+    payload: Mapping[str, Any],
+    exc: Exception,
+) -> dict[str, Any]:
+    updated = dict(payload)
+    errors = payload.get("validation_errors", [])
+    if not isinstance(errors, list):
+        errors = [f"validation_errors is not a list: {type(errors).__name__}"]
+    else:
+        errors = [str(error) for error in errors]
+    message = f"assert_expected failed: {exc}"
+    if message not in errors:
+        errors.append(message)
+    updated["validation_status"] = "failed"
+    updated["validation_errors"] = errors
+    return updated
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="validate the audit path")
@@ -3414,8 +3432,13 @@ def main(argv: list[str] | None = None) -> int:
             "provenance": dict(PROVENANCE),
         }
 
+    assert_expected_failed = False
     if args.assert_expected:
-        assert_expected_local_lemma_audit_path(payload)
+        try:
+            assert_expected_local_lemma_audit_path(payload)
+        except (AssertionError, KeyError, TypeError, ValueError) as exc:
+            assert_expected_failed = True
+            payload = _payload_with_assert_expected_failure(payload, exc)
 
     if args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
@@ -3428,6 +3451,8 @@ def main(argv: list[str] | None = None) -> int:
         for line in failure_lines(payload):
             print(line, file=sys.stderr)
 
+    if assert_expected_failed:
+        return 1
     if args.check and payload.get("validation_status") != "passed":
         return 1
     return 0

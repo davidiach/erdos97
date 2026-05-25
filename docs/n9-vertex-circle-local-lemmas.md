@@ -686,7 +686,9 @@ summary lines before the detailed validation errors. With `--json`, failed
 runs return the same machine-readable payload, including the rollup fields,
 and exit nonzero when `--check` is supplied. Regression coverage exercises both
 layer-side and manifest-side contract failures so those two failure classes stay
-separate in text and JSON summaries.
+separate in text and JSON summaries. When `--assert-expected` is also supplied,
+an expected-shape failure is recorded in `validation_errors` instead of
+replacing the JSON diagnostic with a traceback.
 
 This is still only a review-pending audit-path diagnostic. It does not prove
 packet soundness, mini-replay soundness, local-lemma completeness, frontier
