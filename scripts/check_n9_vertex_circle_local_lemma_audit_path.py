@@ -3431,6 +3431,11 @@ def _payload_with_assert_expected_failure(
         errors.append(message)
     updated["validation_status"] = "failed"
     updated["validation_errors"] = errors
+    updated["assert_expected_failure"] = {
+        "stage": "assert_expected",
+        "exception_type": type(exc).__name__,
+        "message": str(exc),
+    }
     return updated
 
 

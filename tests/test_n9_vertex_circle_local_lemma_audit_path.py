@@ -1388,6 +1388,36 @@ def test_local_lemma_audit_path_cli_scalar_validation_errors_stays_textual(
     assert "- m" not in lines
 
 
+def test_local_lemma_audit_path_cli_json_scalar_validation_errors_shape(
+    monkeypatch,
+    capsys,
+) -> None:
+    malformed_payload = local_lemma_audit_path_payload()
+    malformed_payload["validation_status"] = "failed"
+    malformed_payload["validation_errors"] = "malformed contract payload"
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: malformed_payload,
+    )
+
+    assert audit_path_main(["--check", "--assert-expected", "--json"]) == 1
+
+    captured = capsys.readouterr()
+    parsed = json.loads(captured.out)
+    assert captured.err == ""
+    assert parsed["validation_status"] == "failed"
+    assert parsed["validation_errors"][0] == "validation_errors is not a list: str"
+    assert parsed["validation_errors"][1] == (
+        "assert_expected failed: validation errors: 'malformed contract payload'"
+    )
+    assert parsed["assert_expected_failure"] == {
+        "stage": "assert_expected",
+        "exception_type": "AssertionError",
+        "message": "validation errors: 'malformed contract payload'",
+    }
+
+
 def test_local_lemma_audit_path_cli_json_assert_expected_failure_returns_payload(
     monkeypatch,
     capsys,
@@ -1420,6 +1450,11 @@ def test_local_lemma_audit_path_cli_json_assert_expected_failure_returns_payload
     assert any(
         error.startswith("assert_expected failed: validation errors:")
         for error in parsed["validation_errors"]
+    )
+    assert parsed["assert_expected_failure"]["stage"] == "assert_expected"
+    assert parsed["assert_expected_failure"]["exception_type"] == "AssertionError"
+    assert parsed["assert_expected_failure"]["message"].startswith(
+        "validation errors:"
     )
 
 
@@ -1477,6 +1512,14 @@ def test_local_lemma_audit_path_cli_json_generation_failure_returns_payload(
         error.startswith("assert_expected failed: validation errors:")
         for error in parsed["validation_errors"]
     )
+    assert parsed["assert_expected_failure"] == {
+        "stage": "assert_expected",
+        "exception_type": "AssertionError",
+        "message": (
+            "validation errors: "
+            "['payload construction failed: malformed audit fixture']"
+        ),
+    }
 
 
 def test_local_lemma_audit_path_cli_layer_failure_summary_marks_layer_side(
