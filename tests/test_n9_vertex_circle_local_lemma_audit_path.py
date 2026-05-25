@@ -4,6 +4,7 @@ import json
 import subprocess
 import sys
 from pathlib import Path
+from typing import Any
 
 from scripts.check_artifact_provenance import (
     DEFAULT_MANIFEST as DEFAULT_GENERATED_ARTIFACTS_MANIFEST,
@@ -37,6 +38,19 @@ from scripts.check_n9_vertex_circle_local_lemma_replay_crosswalk import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def _layer_contract_trust_tamper_payload() -> dict[str, Any]:
+    aggregate = load_artifact(DEFAULT_AGGREGATE)
+    simple_replay = load_artifact(DEFAULT_SIMPLE_REPLAY)
+    local_replay = local_replay_crosswalk_payload(aggregate, simple_replay)
+    tampered = json.loads(json.dumps(local_replay))
+    # Only the in-memory layer payload is tampered; the input manifest and
+    # stored artifacts stay canonical, so this isolates layer-contract failure.
+    tampered["trust"] = "EXACT_OBSTRUCTION"
+    return local_lemma_audit_path_payload(
+        aggregate_simple_replay_payload=tampered,
+    )
 
 
 def test_local_lemma_audit_path_counts_and_scope() -> None:
@@ -1301,6 +1315,71 @@ def test_local_lemma_audit_path_cli_json_failure_includes_contract_rollups(
     assert any(
         "input_manifest role mismatch on "
         "data/certificates/n9_vertex_circle_local_lemmas.json" in error
+        for error in parsed["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_cli_layer_failure_summary_marks_layer_side(
+    monkeypatch,
+    capsys,
+) -> None:
+    tampered_payload = _layer_contract_trust_tamper_payload()
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: tampered_payload,
+    )
+
+    assert audit_path_main(["--check"]) == 1
+
+    captured = capsys.readouterr()
+    lines = captured.err.splitlines()
+    assert captured.out == ""
+    assert "layer contracts: failed" in lines
+    assert "audit contract summary: failed" in lines
+    assert "manifest contract summary: passed" in lines
+    assert any(
+        line.startswith("- aggregate_simple_replay contract mismatch on trust")
+        for line in lines
+    )
+
+
+def test_local_lemma_audit_path_cli_json_layer_failure_marks_layer_side(
+    monkeypatch,
+    capsys,
+) -> None:
+    tampered_payload = _layer_contract_trust_tamper_payload()
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: tampered_payload,
+    )
+
+    assert audit_path_main(["--check", "--json"]) == 1
+
+    captured = capsys.readouterr()
+    parsed = json.loads(captured.out)
+    layer_contracts = {
+        contract["layer_id"]: contract
+        for contract in parsed["audit_path"]["layer_contracts"]
+    }
+    assert captured.err == ""
+    assert parsed["validation_status"] == "failed"
+    assert parsed["audit_contract_summary"]["status"] == "failed"
+    assert parsed["audit_contract_summary"]["failed_components"] == [
+        "layer_contracts",
+    ]
+    assert parsed["manifest_contract_summary"]["status"] == "passed"
+    assert layer_contracts["aggregate_simple_replay"]["status"] == "failed"
+    assert layer_contracts["aggregate_simple_replay"]["mismatches"] == [
+        {
+            "key": "trust",
+            "expected": "REVIEW_PENDING_DIAGNOSTIC",
+            "observed": "EXACT_OBSTRUCTION",
+        }
+    ]
+    assert any(
+        "aggregate_simple_replay contract mismatch on trust" in error
         for error in parsed["validation_errors"]
     )
 
