@@ -11,6 +11,7 @@ from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     EXPECTED_INPUT_ARTIFACT_COUNT,
     EXPECTED_LAYER_CONTRACTS,
     EXPECTED_LAYER_IDS,
+    EXPECTED_LAYER_OUTPUT_CONTRACTS,
     EXPECTED_LAYER_PROVENANCE,
     assert_expected_local_lemma_audit_path,
     local_lemma_audit_path_payload,
@@ -132,6 +133,24 @@ def test_local_lemma_audit_path_claim_scope_guards() -> None:
         assert [result["guard"] for result in results] == list(CLAIM_SCOPE_GUARDS)
         assert all(result["status"] == "passed" for result in results)
         assert all(result["matched_tokens"] for result in results)
+
+
+def test_local_lemma_audit_path_layer_output_contracts() -> None:
+    payload = local_lemma_audit_path_payload()
+    output_contracts = payload["audit_path"]["layer_output_contracts"]
+
+    assert [contract["layer_id"] for contract in output_contracts] == EXPECTED_LAYER_IDS
+    assert all(contract["status"] == "passed" for contract in output_contracts)
+    for contract in output_contracts:
+        expected = EXPECTED_LAYER_OUTPUT_CONTRACTS[contract["layer_id"]]
+        assert contract["expected"] == {
+            "summary_key": expected["summary_key"],
+            "required_top_level_keys": list(expected["required_top_level_keys"]),
+            "required_summary_keys": list(expected["required_summary_keys"]),
+        }
+        assert contract["summary_type"] == "object"
+        assert contract["missing_top_level_keys"] == []
+        assert contract["missing_summary_keys"] == []
 
 
 def test_local_lemma_audit_path_rejects_unmanifested_layer_path() -> None:
@@ -262,6 +281,58 @@ def test_local_lemma_audit_path_global_status_guard_requires_negation() -> None:
     assert focused_guard["missing_guards"] == ["denies_global_status_update"]
     assert any(
         "focused_minireplay claim_scope missing guards" in error
+        for error in payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_missing_output_section() -> None:
+    aggregate = load_artifact(DEFAULT_AGGREGATE)
+    simple_replay = load_artifact(DEFAULT_SIMPLE_REPLAY)
+    local_replay = local_replay_crosswalk_payload(aggregate, simple_replay)
+    tampered = json.loads(json.dumps(local_replay))
+    del tampered["family_crosswalk"]
+
+    payload = local_lemma_audit_path_payload(
+        aggregate_simple_replay_payload=tampered,
+    )
+    output_contracts = {
+        contract["layer_id"]: contract
+        for contract in payload["audit_path"]["layer_output_contracts"]
+    }
+
+    assert payload["validation_status"] == "failed"
+    aggregate_contract = output_contracts["aggregate_simple_replay"]
+    assert aggregate_contract["status"] == "failed"
+    assert aggregate_contract["missing_top_level_keys"] == ["family_crosswalk"]
+    assert aggregate_contract["missing_summary_keys"] == []
+    assert any(
+        "aggregate_simple_replay output missing top-level keys" in error
+        for error in payload["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_missing_output_summary_key() -> None:
+    aggregate = load_artifact(DEFAULT_AGGREGATE)
+    simple_replay = load_artifact(DEFAULT_SIMPLE_REPLAY)
+    local_replay = local_replay_crosswalk_payload(aggregate, simple_replay)
+    tampered = json.loads(json.dumps(local_replay))
+    del tampered["coverage_summary"]["matched_assignment_count"]
+
+    payload = local_lemma_audit_path_payload(
+        aggregate_simple_replay_payload=tampered,
+    )
+    output_contracts = {
+        contract["layer_id"]: contract
+        for contract in payload["audit_path"]["layer_output_contracts"]
+    }
+
+    assert payload["validation_status"] == "failed"
+    aggregate_contract = output_contracts["aggregate_simple_replay"]
+    assert aggregate_contract["status"] == "failed"
+    assert aggregate_contract["missing_top_level_keys"] == []
+    assert aggregate_contract["missing_summary_keys"] == ["matched_assignment_count"]
+    assert any(
+        "aggregate_simple_replay output missing summary keys" in error
         for error in payload["validation_errors"]
     )
 
