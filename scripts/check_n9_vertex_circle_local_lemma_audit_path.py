@@ -43,6 +43,10 @@ from check_n9_vertex_circle_local_lemma_replay_crosswalk import (  # noqa: E402
     crosswalk_payload as local_replay_crosswalk_payload,
     load_artifact,
 )
+from check_artifact_provenance import (  # noqa: E402
+    DEFAULT_MANIFEST as DEFAULT_GENERATED_ARTIFACTS_MANIFEST,
+    load_manifest as load_generated_artifact_manifest,
+)
 from check_relation_skeleton_local_lemma_crosswalk import (  # noqa: E402
     DEFAULT_RELATION_SKELETONS,
     assert_expected_relation_local_crosswalk,
@@ -433,6 +437,7 @@ def local_lemma_audit_path_payload(
     manifest_header_payloads: Mapping[str, Any] | None = None,
     manifest_claim_payloads: Mapping[str, Any] | None = None,
     manifest_provenance_payloads: Mapping[str, Any] | None = None,
+    generated_artifact_metadata_payload: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Return an audit-path payload tying all local-lemma layers together."""
 
@@ -481,6 +486,11 @@ def local_lemma_audit_path_payload(
         errors,
         provenance_payloads=manifest_provenance_payloads,
     )
+    manifest_metadata_contract = _manifest_metadata_contract(
+        input_manifest,
+        errors,
+        generated_artifact_metadata_payload=generated_artifact_metadata_payload,
+    )
     manifest_claim_contract = _manifest_claim_contract(
         input_manifest,
         errors,
@@ -514,6 +524,7 @@ def local_lemma_audit_path_payload(
         "manifest_digest_contract": manifest_digest_contract,
         "manifest_header_contract": manifest_header_contract,
         "manifest_provenance_contract": manifest_provenance_contract,
+        "manifest_metadata_contract": manifest_metadata_contract,
         "manifest_claim_contract": manifest_claim_contract,
         "manifest_consistency": manifest_consistency,
         "coverage_summary": coverage,
@@ -566,6 +577,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_manifest_digest_contract(payload)
     _assert_expected_manifest_header_contract(payload)
     _assert_expected_manifest_provenance_contract(payload)
+    _assert_expected_manifest_metadata_contract(payload)
     _assert_expected_manifest_claim_contract(payload)
     _assert_expected_manifest_consistency(payload)
 
@@ -1007,6 +1019,38 @@ def _assert_expected_manifest_provenance_contract(payload: Mapping[str, Any]) ->
             raise AssertionError(f"manifest provenance {key} is not empty")
     if contract.get("malformed_manifest_provenance_count") != 0:
         raise AssertionError("manifest provenance contract has malformed entries")
+
+
+def _assert_expected_manifest_metadata_contract(payload: Mapping[str, Any]) -> None:
+    contract = payload.get("manifest_metadata_contract")
+    if not isinstance(contract, Mapping):
+        raise AssertionError("manifest_metadata_contract must be an object")
+    expected = _manifest_metadata_records(_expected_manifest_metadata())
+    if contract.get("status") != "passed":
+        raise AssertionError(f"manifest metadata contract failed: {contract!r}")
+    if contract.get("metadata_manifest_path") != _artifact_path_key(
+        DEFAULT_GENERATED_ARTIFACTS_MANIFEST
+    ):
+        raise AssertionError("manifest metadata path mismatch")
+    if contract.get("expected_path_count") != len(expected):
+        raise AssertionError("manifest metadata expected path count mismatch")
+    if contract.get("observed_path_count") != len(expected):
+        raise AssertionError("manifest metadata observed path count mismatch")
+    if contract.get("expected_metadata") != expected:
+        raise AssertionError("manifest metadata expected records mismatch")
+    if contract.get("observed_metadata") != expected:
+        raise AssertionError("manifest metadata observed records mismatch")
+    for key in (
+        "missing_manifest_metadata_paths",
+        "unexpected_manifest_metadata_paths",
+        "duplicate_manifest_metadata_paths",
+        "duplicate_generated_metadata_paths",
+        "mismatched_manifest_metadata",
+    ):
+        if contract.get(key) != []:
+            raise AssertionError(f"manifest metadata {key} is not empty")
+    if contract.get("malformed_manifest_metadata_count") != 0:
+        raise AssertionError("manifest metadata contract has malformed entries")
 
 
 def _assert_expected_manifest_claim_contract(payload: Mapping[str, Any]) -> None:
@@ -2357,6 +2401,311 @@ def _manifest_provenance_records(
     ]
 
 
+def _manifest_metadata_contract(
+    input_manifest: Mapping[str, Any],
+    errors: list[str],
+    *,
+    generated_artifact_metadata_payload: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    expected_metadata = _expected_manifest_metadata()
+    artifacts = input_manifest.get("artifacts", [])
+    artifact_records = artifacts if isinstance(artifacts, list) else []
+    observed_metadata, malformed_count, duplicate_generated_paths = (
+        _observed_manifest_metadata(
+            artifact_records,
+            set(expected_metadata),
+            generated_artifact_metadata_payload=generated_artifact_metadata_payload,
+        )
+    )
+    expected_paths = set(expected_metadata)
+    observed_path_list = [
+        str(artifact.get("path"))
+        for artifact in artifact_records
+        if isinstance(artifact, Mapping) and isinstance(artifact.get("path"), str)
+    ]
+    observed_paths = set(observed_path_list)
+    duplicate_paths = sorted(
+        {path for path in observed_path_list if observed_path_list.count(path) > 1}
+    )
+    missing = sorted(expected_paths - set(observed_metadata))
+    unexpected = sorted(observed_paths - expected_paths)
+    mismatches = _manifest_metadata_mismatches(
+        expected_metadata,
+        observed_metadata,
+    )
+
+    if not isinstance(artifacts, list):
+        malformed_count += 1
+    if malformed_count:
+        errors.append(f"input_manifest has {malformed_count} malformed metadata entries")
+    if duplicate_paths:
+        errors.append(f"input_manifest duplicate metadata paths: {duplicate_paths!r}")
+    if duplicate_generated_paths:
+        errors.append(
+            f"generated-artifacts manifest duplicate paths: {duplicate_generated_paths!r}"
+        )
+    if missing:
+        errors.append(f"input_manifest metadata contract missing paths: {missing!r}")
+    if unexpected:
+        errors.append(
+            f"input_manifest metadata contract unexpected paths: {unexpected!r}"
+        )
+    for mismatch in mismatches:
+        errors.append(
+            f"input_manifest metadata mismatch on {mismatch['path']} "
+            f"{mismatch['key']}: {mismatch['observed']!r} != "
+            f"{mismatch['expected']!r}"
+        )
+
+    return {
+        "status": (
+            "passed"
+            if not (
+                malformed_count
+                or duplicate_paths
+                or duplicate_generated_paths
+                or missing
+                or unexpected
+                or mismatches
+            )
+            else "failed"
+        ),
+        "metadata_manifest_path": _artifact_path_key(
+            DEFAULT_GENERATED_ARTIFACTS_MANIFEST
+        ),
+        "expected_path_count": len(expected_metadata),
+        "observed_path_count": len(observed_metadata),
+        "expected_metadata": _manifest_metadata_records(expected_metadata),
+        "observed_metadata": _manifest_metadata_records(observed_metadata),
+        "missing_manifest_metadata_paths": missing,
+        "unexpected_manifest_metadata_paths": unexpected,
+        "duplicate_manifest_metadata_paths": duplicate_paths,
+        "duplicate_generated_metadata_paths": duplicate_generated_paths,
+        "mismatched_manifest_metadata": mismatches,
+        "malformed_manifest_metadata_count": malformed_count,
+    }
+
+
+def _expected_manifest_metadata() -> dict[str, dict[str, Any]]:
+    metadata: dict[str, dict[str, Any]] = {}
+    digests = _expected_manifest_digests()
+
+    def add(
+        path: Path,
+        *,
+        kind: str = "certificate_diagnostic_artifact",
+        generator: str,
+        command: str,
+        checker: str | None = None,
+        check_command: str | None = None,
+        has_checker: bool = True,
+        provenance_mode: str = "embedded",
+        trust: str | None = "REVIEW_PENDING_DIAGNOSTIC",
+    ) -> None:
+        key = _artifact_path_key(path)
+        metadata[key] = {
+            "id": Path(key).stem,
+            "kind": kind,
+            "generator": generator,
+            "command": command,
+            "checker": checker if checker is not None else (generator if has_checker else None),
+            "check_command": (
+                check_command
+                if check_command is not None
+                else (
+                    f"python {generator} --check --assert-expected --json"
+                    if has_checker
+                    else None
+                )
+            ),
+            "provenance_mode": provenance_mode,
+            "direct_edit_allowed": False,
+            "trust": trust,
+            "size_bytes": digests[key]["size_bytes"],
+            "sha256": digests[key]["sha256"],
+        }
+
+    def add_writer(path: Path, script_name: str) -> None:
+        generator = f"scripts/{script_name}"
+        add(path, generator=generator, command=f"python {generator} --assert-expected --write")
+
+    add_writer(
+        DEFAULT_TEMPLATE_CATALOG,
+        "check_n9_vertex_circle_template_lemma_catalog.py",
+    )
+    add_writer(DEFAULT_FOCUSED_LOCAL_LEMMAS, "check_n9_vertex_circle_local_lemmas.py")
+    add_writer(
+        DEFAULT_SIMPLE_REPLAY,
+        "check_n9_vertex_circle_local_lemma_simple_replay.py",
+    )
+    add(
+        DEFAULT_EXHAUSTIVE,
+        kind="finite_case_artifact",
+        generator="scripts/check_n9_vertex_circle_exhaustive.py",
+        command=(
+            "python scripts/check_n9_vertex_circle_exhaustive.py "
+            "--assert-expected --json"
+        ),
+        checker=None,
+        check_command=None,
+        has_checker=False,
+        provenance_mode="manifest_only_legacy",
+        trust="MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING",
+    )
+    add_writer(
+        DEFAULT_CLASSIFICATION,
+        "check_n9_vertex_circle_frontier_motif_classification.py",
+    )
+    add_writer(DEFAULT_RELATION_SKELETONS, "check_relation_skeleton_catalog.py")
+    for kind, path in sorted(DEFAULT_TEMPLATE_PACKET_PATHS.items()):
+        add_writer(path, f"check_n9_vertex_circle_{kind}_template_packet.py")
+    for template_id, path in sorted(DEFAULT_PACKET_PATHS.items()):
+        kind = _template_kind(template_id)
+        add_writer(
+            path,
+            f"check_n9_vertex_circle_{template_id.lower()}_{kind}_lemma_packet.py",
+        )
+    for template_id, path in sorted(DEFAULT_MINIREPLAY_PATHS.items()):
+        kind = _template_kind(template_id)
+        generator = f"scripts/check_n9_{template_id.lower()}_{kind}_minireplay.py"
+        add(
+            path,
+            kind="proof_mining_diagnostic_artifact",
+            generator=generator,
+            command=f"python {generator} --write --assert-expected",
+        )
+    return metadata
+
+
+def _observed_manifest_metadata(
+    artifacts: list[Any],
+    expected_paths: set[str],
+    *,
+    generated_artifact_metadata_payload: Mapping[str, Any] | None = None,
+) -> tuple[dict[str, dict[str, Any]], int, list[str]]:
+    metadata_by_path: dict[str, dict[str, Any]] = {}
+    malformed_count = 0
+    try:
+        metadata_payload = (
+            generated_artifact_metadata_payload
+            if generated_artifact_metadata_payload is not None
+            else load_generated_artifact_manifest(DEFAULT_GENERATED_ARTIFACTS_MANIFEST)
+        )
+    except (OSError, ValueError):
+        return {}, 1, []
+    if not isinstance(metadata_payload, Mapping):
+        return {}, 1, []
+    generated_artifacts = metadata_payload.get("artifacts")
+    if not isinstance(generated_artifacts, list):
+        return {}, 1, []
+
+    generated_entries: dict[str, Mapping[str, Any]] = {}
+    generated_path_list: list[str] = []
+    for entry in generated_artifacts:
+        if not isinstance(entry, Mapping):
+            continue
+        path = entry.get("path")
+        if not isinstance(path, str) or path not in expected_paths:
+            continue
+        generated_entries[path] = entry
+        generated_path_list.append(path)
+    duplicate_generated_paths = sorted(
+        {path for path in generated_path_list if generated_path_list.count(path) > 1}
+    )
+
+    for artifact in artifacts:
+        if not isinstance(artifact, Mapping):
+            malformed_count += 1
+            continue
+        path = artifact.get("path")
+        if not isinstance(path, str) or path not in expected_paths:
+            continue
+        entry = generated_entries.get(path)
+        if entry is None:
+            continue
+        metadata_by_path[path] = _manifest_metadata_from_entry(entry)
+    return metadata_by_path, malformed_count, duplicate_generated_paths
+
+
+def _manifest_metadata_from_entry(entry: Mapping[str, Any]) -> dict[str, Any]:
+    return {
+        "id": _optional_string(entry.get("id")),
+        "kind": _optional_string(entry.get("kind")),
+        "generator": _optional_string(entry.get("generator")),
+        "command": _optional_string(entry.get("command")),
+        "checker": _optional_string(entry.get("checker")),
+        "check_command": _optional_string(entry.get("check_command")),
+        "provenance_mode": _optional_string(entry.get("provenance_mode")),
+        "direct_edit_allowed": entry.get("direct_edit_allowed"),
+        "trust": _optional_string(entry.get("trust")),
+        "size_bytes": _optional_int(entry.get("size_bytes")),
+        "sha256": _optional_sha256(entry.get("sha256")),
+    }
+
+
+def _optional_int(value: Any) -> int | None:
+    return value if isinstance(value, int) and not isinstance(value, bool) else None
+
+
+def _optional_sha256(value: Any) -> str | None:
+    return value.lower() if _is_sha256_digest(value) else None
+
+
+def _manifest_metadata_mismatches(
+    expected_metadata: Mapping[str, Mapping[str, Any]],
+    observed_metadata: Mapping[str, Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    mismatches: list[dict[str, Any]] = []
+    for path in sorted(set(expected_metadata) & set(observed_metadata)):
+        expected = expected_metadata[path]
+        observed = observed_metadata[path]
+        for key in (
+            "id",
+            "kind",
+            "generator",
+            "command",
+            "checker",
+            "check_command",
+            "provenance_mode",
+            "direct_edit_allowed",
+            "trust",
+            "size_bytes",
+            "sha256",
+        ):
+            if observed.get(key) != expected.get(key):
+                mismatches.append(
+                    {
+                        "path": path,
+                        "key": key,
+                        "expected": expected.get(key),
+                        "observed": observed.get(key),
+                    }
+                )
+    return mismatches
+
+
+def _manifest_metadata_records(
+    metadata_by_path: Mapping[str, Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    return [
+        {
+            "path": path,
+            "id": metadata_by_path[path]["id"],
+            "kind": metadata_by_path[path]["kind"],
+            "generator": metadata_by_path[path]["generator"],
+            "command": metadata_by_path[path]["command"],
+            "checker": metadata_by_path[path]["checker"],
+            "check_command": metadata_by_path[path]["check_command"],
+            "provenance_mode": metadata_by_path[path]["provenance_mode"],
+            "direct_edit_allowed": metadata_by_path[path]["direct_edit_allowed"],
+            "trust": metadata_by_path[path]["trust"],
+            "size_bytes": metadata_by_path[path]["size_bytes"],
+            "sha256": metadata_by_path[path]["sha256"],
+        }
+        for path in sorted(metadata_by_path)
+    ]
+
+
 def _manifest_claim_contract(
     input_manifest: Mapping[str, Any],
     errors: list[str],
@@ -2849,6 +3198,7 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"manifest digests: {payload['manifest_digest_contract']['status']}",
         f"manifest headers: {payload['manifest_header_contract']['status']}",
         f"manifest provenance: {payload['manifest_provenance_contract']['status']}",
+        f"manifest metadata: {payload['manifest_metadata_contract']['status']}",
         f"manifest claims: {payload['manifest_claim_contract']['status']}",
         f"manifest consistency: {payload['manifest_consistency']['status']}",
         f"templates: {coverage['template_count']}",
