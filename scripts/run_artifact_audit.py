@@ -1555,6 +1555,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="support_saturation_obstruction",
+        command=(
+            "python",
+            "scripts/check_support_saturation_obstruction.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Proof-facing equality-wall obstruction for the edge-sensitive "
+            "rich-support count; upgrades all-centers support-size thresholds "
+            "by one for k >= 4, but is not a proof of n=9, not a proof of "
+            "n=10, not a proof of n=11, not a proof of Erdos Problem #97, "
+            "and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="localized_rich_support_counting",
         command=(
             "python",

@@ -87,11 +87,16 @@ n = 8: at least 8 exact-four centers; exact-four indegree is forced to be 4
 n = 9: at least 9 exact-four centers; exact-four indegree is forced to be 4
 n = 10: at least 5 exact-four centers by the global pair budget
 n = 11: at least 3 exact-four centers by the global pair budget
-n = 12: no exact-four center is forced by these counting bounds alone
+n = 12: no exact-four center is forced by these two budgets alone
 ```
 
 For `n = 5, 6, 7`, the edge-sensitive global pair budget already rules out
 4-bad supports.
+
+The support-saturation obstruction in `docs/support-saturation-obstruction.md`
+adds a separate equality-wall count: all centers having support size at least
+five is impossible for `n <= 12`. Thus a hypothetical 4-bad dodecagon has at
+least one exact-four center once that equality-wall obstruction is also used.
 
 ## Verification command
 

@@ -54,7 +54,7 @@ def pair_budget(n: int) -> int:
 
 
 def all_centers_min_n(k: int) -> int:
-    """Smallest n not ruled out when every center has support size at least k."""
+    """Smallest n not ruled out by pair counting alone for support size k."""
 
     if k < 0:
         raise ValueError("k must be nonnegative")
@@ -390,7 +390,10 @@ def main() -> int:
         print(json.dumps(summary, indent=2, sort_keys=True))
     else:
         print(f"schema: {summary['schema']}")
-        print("all centers with size >=5 requires n >=", all_centers_min_n(5))
+        print(
+            "pair-counting alone: all centers with size >=5 requires n >=",
+            all_centers_min_n(5),
+        )
         n9_refinement = summary["n9_profile_deficiency_refinement"]
         print(
             "n=9 refined support-size profiles:",
