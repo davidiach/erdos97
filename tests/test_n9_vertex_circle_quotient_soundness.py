@@ -5,9 +5,12 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from erdos97 import n9_vertex_circle_exhaustive as n9
 from erdos97.vertex_circle_quotient_replay import parse_selected_rows
 from scripts.check_n9_vertex_circle_quotient_soundness import (
+    CLAIM_SCOPE,
     EXPECTED_FRONTIER_CORE,
     EXPECTED_FRONTIER_FULL,
     EXPECTED_LOCAL_CORE,
@@ -53,6 +56,14 @@ def test_quotient_soundness_expected_counts_and_scope() -> None:
     assert "strict-edge geometry" in payload["claim_scope"]
     assert "counterexample" in payload["claim_scope"]
     assert "official/global status update" in payload["claim_scope"]
+
+
+def test_quotient_soundness_rejects_top_level_claim_scope_append() -> None:
+    payload = quotient_soundness_payload()
+    payload["claim_scope"] = CLAIM_SCOPE + " This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_quotient_soundness(payload)
 
 
 def test_quotient_soundness_cli_json() -> None:
