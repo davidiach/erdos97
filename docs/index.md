@@ -67,6 +67,9 @@ put detailed reconciliation in the canonical synthesis.
   equality-wall obstruction strengthening all-centers rich-support thresholds
   to `n >= binom(k,2)+3` for `k >= 4`; not an `n=9`, `n=10`, `n=11`, or
   global proof.
+- [`n12-rich-support-determinant-obstruction.md`](n12-rich-support-determinant-obstruction.md):
+  independent determinant obstruction for the all-five-rich `n=12`
+  support-count equality wall; not a proof of the full `n=12` case.
 - [`localized-rich-support-counting.md`](localized-rich-support-counting.md):
   proof-facing per-label rich-support occurrence cap reducing hypothetical
   4-bad nonagons to all-exact-four support systems by counting alone.

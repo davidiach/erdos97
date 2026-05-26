@@ -71,6 +71,11 @@ polygon in which every vertex has five equidistant witnesses. The companion
 support-saturation obstruction rules out the equality wall and improves the
 proof-facing threshold to `n >= 13` for the all-five-rich case. See
 `docs/support-saturation-obstruction.md`.
+The `n=12` equality wall also has an independent support-incidence determinant
+obstruction: if the edge-sensitive pair capacities were saturated, the forced
+column Gram matrix of the `12 x 12` incidence matrix would have determinant
+`2,592,000 = 720^2 * 5`, not a square. See
+`docs/n12-rich-support-determinant-obstruction.md`.
 
 For a hypothetical 4-bad nonagon, choose a maximum rich support at every
 center, so `|R_i| = E(i) >= 4`. The same inequality gives

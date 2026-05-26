@@ -126,6 +126,7 @@ def test_verify_bridge_frontier_includes_bootstrap_audits() -> None:
         "python scripts/check_bridge_lemma_frontier.py --check --assert-expected --json",
         "python scripts/check_rich_support_counting_bound.py --check --json",
         "python scripts/check_support_saturation_obstruction.py --check --json",
+        "python scripts/check_n12_rich_support_determinant.py --check --json",
         "python scripts/check_localized_rich_support_counting.py --check --json",
         (
             "python scripts/check_bootstrap_core_crosswalk.py "

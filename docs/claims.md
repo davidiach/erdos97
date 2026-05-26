@@ -136,6 +136,15 @@ do not prove the review-pending exact-four vertex-circle checker, `n=9`,
 `scripts/check_support_saturation_obstruction.py`, and
 `scripts/check_localized_rich_support_counting.py`.
 
+The all-five-rich `n=12` equality wall also has an independent determinant
+obstruction in `docs/n12-rich-support-determinant-obstruction.md`: saturated
+pair capacities force a `12 x 12` incidence Gram matrix with nonsquare
+determinant `2,592,000 = 720^2 * 5`, contradicting
+`det(A^T A) = det(A)^2`. This is a support-level cross-check of the equality
+wall already closed by support saturation. It does not prove the full `n=12`
+case, any mixed exact-four/size-five catalogue, or Erdos Problem #97. Check it
+with `scripts/check_n12_rich_support_determinant.py`.
+
 ### Altman diagonal-order sums
 
 For a strict convex `n`-gon in cyclic order, the sums `U_k` of chord lengths of
