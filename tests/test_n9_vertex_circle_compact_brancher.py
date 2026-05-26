@@ -26,3 +26,13 @@ def test_compact_n9_brancher_expected_payload():
     checker = load_checker()
     payload = checker.compact_brancher_payload()
     checker.assert_expected_payload(payload)
+
+
+@pytest.mark.artifact
+def test_compact_n9_brancher_rejects_top_level_claim_scope_append():
+    checker = load_checker()
+    payload = checker.compact_brancher_payload()
+    payload["claim_scope"] = checker.CLAIM_SCOPE + " This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        checker.assert_expected_payload(payload)
