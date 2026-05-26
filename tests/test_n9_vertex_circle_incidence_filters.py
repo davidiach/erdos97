@@ -5,7 +5,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_n9_vertex_circle_incidence_filters import (
+    CLAIM_SCOPE,
     EXPECTED_SELECTED_INDEGREE,
     EXPECTED_TWO_OVERLAP,
     EXPECTED_WITNESS_PAIR_CAP,
@@ -34,6 +37,14 @@ def test_incidence_filter_payload_scope_and_validation() -> None:
     assert "strict-edge geometry" in payload["claim_scope"]
     assert "selected-distance quotient" in payload["claim_scope"]
     assert "counterexample" in payload["claim_scope"]
+
+
+def test_incidence_filter_rejects_top_level_claim_scope_append() -> None:
+    payload = incidence_filter_payload()
+    payload["claim_scope"] = CLAIM_SCOPE + " This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_incidence_filters(payload)
 
 
 def test_incidence_filter_cli_json() -> None:
