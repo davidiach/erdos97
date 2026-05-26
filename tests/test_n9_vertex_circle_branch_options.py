@@ -3,6 +3,7 @@ from __future__ import annotations
 import pytest
 
 from scripts.check_n9_vertex_circle_branch_options import (
+    CLAIM_SCOPE,
     EXPECTED_EMPTY_OPTION_CONTEXTS,
     EXPECTED_HELPER_OPTION_TOTAL,
     EXPECTED_NODES_VISITED,
@@ -14,9 +15,12 @@ from scripts.check_n9_vertex_circle_branch_options import (
 pytestmark = pytest.mark.slow
 
 
-def test_branch_option_payload_scope_and_counts() -> None:
-    payload = branch_option_payload()
+@pytest.fixture(scope="module")
+def payload() -> dict[str, object]:
+    return branch_option_payload()
 
+
+def test_branch_option_payload_scope_and_counts(payload: dict[str, object]) -> None:
     assert_expected_branch_option_payload(payload)
     assert payload["validation_status"] == "passed"
     summary = payload["branch_option_audit"]
@@ -29,3 +33,13 @@ def test_branch_option_payload_scope_and_counts() -> None:
     assert summary["example_mismatches"] == []
     assert "does not prove dynamic-MRO branch coverage" in payload["claim_scope"]
     assert "counterexample" in payload["claim_scope"]
+
+
+def test_branch_option_rejects_top_level_claim_scope_append(
+    payload: dict[str, object],
+) -> None:
+    tampered = dict(payload)
+    tampered["claim_scope"] = CLAIM_SCOPE + " This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_branch_option_payload(tampered)
