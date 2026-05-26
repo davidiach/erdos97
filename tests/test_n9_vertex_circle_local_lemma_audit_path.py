@@ -13,6 +13,7 @@ from scripts.check_artifact_provenance import (
 from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     ASSERT_EXPECTED_FAILURE_KEYS,
     ASSERT_EXPECTED_FAILURE_SCHEMA,
+    CLAIM_SCOPE,
     CLAIM_SCOPE_GUARDS,
     EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS,
     EXPECTED_HANDOFF_EDGES,
@@ -95,6 +96,18 @@ def test_local_lemma_audit_path_counts_and_scope() -> None:
     assert "does not prove n=9" in payload["claim_scope"]
     assert "not a counterexample" in payload["claim_scope"]
     assert "not a global status update" in payload["claim_scope"]
+
+
+def test_local_lemma_audit_path_rejects_top_level_claim_scope_append() -> None:
+    payload = local_lemma_audit_path_payload()
+    payload["claim_scope"] = CLAIM_SCOPE + " This proves n=9."
+
+    try:
+        assert_expected_local_lemma_audit_path(payload)
+    except AssertionError as exc:
+        assert "claim_scope mismatch" in str(exc)
+    else:
+        raise AssertionError("expected top-level claim_scope mismatch")
 
 
 def test_local_lemma_audit_path_input_manifest() -> None:

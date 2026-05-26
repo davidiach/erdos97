@@ -609,7 +609,9 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
         raise AssertionError(f"trust mismatch: {payload.get('trust')!r}")
     if payload.get("provenance") != PROVENANCE:
         raise AssertionError(f"provenance mismatch: {payload.get('provenance')!r}")
-    claim_scope = str(payload.get("claim_scope", ""))
+    if payload.get("claim_scope") != CLAIM_SCOPE:
+        raise AssertionError(f"claim_scope mismatch: {payload.get('claim_scope')!r}")
+    claim_scope = CLAIM_SCOPE
     for required in (
         "does not prove packet soundness",
         "does not prove mini-replay soundness",
