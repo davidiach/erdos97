@@ -750,6 +750,13 @@ condition that the surviving multi-block family does not automatically satisfy:
   extension for those prefixes. The remaining target is a longer center-`8`
   chain audit or a minimal/rich-class hypothesis that rules out those boundary
   prefixes.
+- bootstrap/T12 focused `81:3` second-step-chain evidence, as recorded in
+  `docs/bootstrap-t12-81-3-second-step-chains.md`, testing distinct
+  intermediate centers from `{2,5,7}` after the three stored center-`8`
+  prefixes and before center `6` supplies label `6`. This closes that bounded
+  one-support-per-activated-center continuation model under the same basic
+  filters, while leaving repeated/multiple supports, richer catalogues, and
+  genuine rich-class forcing open.
 - bootstrap/T12 focused `81:8` singleton-support evidence, as recorded in
   `docs/bootstrap-t12-81-8-singleton-support-audit.md`, showing that the fixed
   source-`81` neighborhood and one-row-drop relaxation have no non-original
