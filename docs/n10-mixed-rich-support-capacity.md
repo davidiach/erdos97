@@ -80,8 +80,10 @@ sharp for these three necessary filters alone.
 
 A follow-up rich vertex-circle quotient diagnostic,
 `docs/n10-q2-rich-vertex-circle.md`, closes that sharp `q=2` layer after adding
-one stronger quotient filter. The support-capacity artifact here remains only
-the three-filter `q=3,...,7` catalogue.
+one stronger quotient filter. A second quotient replay,
+`docs/n10-q1-rich-vertex-circle.md`, closes the exactly-one-size-five layer.
+The support-capacity artifact here remains only the three-filter `q=3,...,7`
+catalogue.
 
 ## Consequence
 
@@ -98,12 +100,17 @@ that any size-at-least-five rich-class escape must be extremely sparse before
 vertex-circle, Kalmanson, turn, or Euclidean realizability filters are even
 applied.
 
+After the companion `q=2` and `q=1` rich vertex-circle quotient replays, the
+combined support-plus-quotient abstraction leaves only the all-exact-four
+`q=0` layer. That combined statement depends on the separate quotient
+artifacts and is stronger than this support-capacity checker alone.
+
 ## Scope warnings
 
 - This is a necessary support-catalogue diagnostic only.
 - It does not replay vertex-circle, Kalmanson, turn-inequality, or Euclidean
   realizability filters.
-- It leaves the `q=0`, `q=1`, and `q=2` four/five support cases to stronger
-  filters at this support-capacity level.
+- This checker alone leaves the `q=0`, `q=1`, and `q=2` four/five support
+  cases to stronger filters at this support-capacity level.
 - It does not prove `n=10`, does not prove Erdos Problem #97, and does not
   provide a counterexample.

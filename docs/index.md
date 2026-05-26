@@ -478,6 +478,11 @@ put detailed reconciliation in the canonical synthesis.
   review-pending `n=10` exactly-two-size-five rich-support closure after adding
   the rich vertex-circle quotient; finite support-plus-quotient bookkeeping
   only.
+- [`n10-q1-rich-vertex-circle.md`](n10-q1-rich-vertex-circle.md):
+  review-pending `n=10` exactly-one-size-five rich-support closure after adding
+  the rich vertex-circle quotient; combined with the `q=2` and support-capacity
+  artifacts, this leaves only the all-exact-four `q=0` layer at this
+  abstraction.
 - [`n10-turn-row0-pilot.md`](n10-turn-row0-pilot.md): bounded `n=10`
   row0-index-0 turn-frontier pilot; finite bookkeeping only, not a proof of
   `n=10`.

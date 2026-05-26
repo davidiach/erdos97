@@ -2565,6 +2565,24 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n10_q1_rich_vertex_circle",
+        command=(
+            "python",
+            "scripts/check_n10_q1_rich_vertex_circle.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Generator-independent n=10 exactly-one-size-five rich-support "
+            "diagnostic under row-pair cap, two-overlap crossing, "
+            "witness-pair capacity, and rich vertex-circle quotient filters; "
+            "finite support-plus-quotient reduction only, not a proof of "
+            "n=10, not a proof of Erdos Problem #97, and not a "
+            "counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="n10_turn_row0_pilot",
         command=(
             "python",

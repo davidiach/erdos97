@@ -68,10 +68,15 @@ checker itself exhausts exactly the `q=2` layer; the `q=3,...,7` part of the
 combined consequence remains the earlier
 `n10_mixed_rich_support_capacity` artifact.
 
+The companion `q=1` replay in `docs/n10-q1-rich-vertex-circle.md` closes the
+next layer. Combining all three artifacts leaves only the all-exact-four `q=0`
+layer in this support-plus-quotient abstraction.
+
 ## Scope warnings
 
 - This is a necessary support/quotient diagnostic only.
 - It does not replay turn inequalities, Kalmanson certificates, or Euclidean realizability.
-- It leaves the `q=0` and `q=1` four/five support cases to stronger filters.
+- This checker alone leaves the `q=0` and `q=1` four/five support cases to
+  stronger filters.
 - It does not prove `n=10`, does not prove Erdos Problem #97, and does not
   provide a counterexample.

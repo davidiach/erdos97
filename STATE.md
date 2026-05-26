@@ -724,8 +724,13 @@ two-overlap crossing, and witness-pair capacity filters, all support
 assignments with `q=3,...,7` size-five supports are obstructed; a direct `q=2`
 witness remains, so the bound is sharp for these filters. This says only that
 surviving four/five support assignments have at most two size-five supports.
-It does not prove `n=10`, does not close `q=0,1,2`, and does not change the
-global status. See `docs/n10-mixed-rich-support-capacity.md`.
+Follow-up rich vertex-circle quotient replays close the `q=2` and `q=1`
+layers, so the combined support-plus-quotient abstraction now leaves only the
+all-exact-four `q=0` layer. This is still not a proof of `n=10`, does not close
+that all-exact-four layer, and does not change the global status. See
+`docs/n10-mixed-rich-support-capacity.md`,
+`docs/n10-q2-rich-vertex-circle.md`, and
+`docs/n10-q1-rich-vertex-circle.md`.
 
 ## Best saved near-miss
 
