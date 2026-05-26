@@ -89,7 +89,10 @@ This does not enumerate mixed exact-four and size-five rich catalogues. It
 does not prove `n=9`, does not prove the adaptive radius-blocker bridge, does
 not prove Erdos Problem #97, and does not provide a counterexample.
 
-The next useful bridge target is the mixed catalogue. The sharpened
-rich-support counting lemma now forces at least seven exact-four centers in
-any `n=9` selected-witness counterexample before any mixed-catalogue or
-vertex-circle machinery is used.
+The sharpened global rich-support counting lemma already rules out the
+all-five-rich nonagon subcase. The localized rich-support counting lemma goes
+further: any hypothetical `n=9` selected-witness counterexample is forced into
+the all-exact-four, selected-indegree-four support frontier before any
+mixed-catalogue or vertex-circle machinery is used. The next useful bridge
+target is therefore the exact-four frontier itself or reusable local lemmas
+that replace parts of its review-pending vertex-circle replay.

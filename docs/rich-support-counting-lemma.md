@@ -86,6 +86,12 @@ The corresponding necessary counting relaxation gives at least five exact-four
 centers in any hypothetical 4-bad decagon and at least three exact-four centers
 in any hypothetical 4-bad hendecagon.
 
+The companion localized counting lemma strengthens the `n=9` consequence: by
+counting support pairs incident to each fixed witness label, a hypothetical
+4-bad nonagon is forced into the all-exact-four, selected-indegree-four support
+case before any mixed-support catalogue or vertex-circle replay. See
+`docs/localized-rich-support-counting.md`.
+
 The same count also gives a short support-level exclusion of `n <= 7`: a 4-bad
 `n`-gon would require `6n <= n(n-2)`, hence `n >= 8`. This agrees with the
 repository's separate sharpened incidence and geometric proof-note routes; the
@@ -105,10 +111,11 @@ not a realization search.
 
 ## Boundary
 
-This lemma does not rule out mixed exact-four and size-five catalogues. For
-`n=9`, it narrows such a catalogue by forcing at least seven exact-four centers,
-but it does not replace the review-pending exact-four frontier or the mixed
-support crosswalk. The existing `n=9` all-five-rich checker remains useful as a
-crossing-aware support-catalogue regression and as provenance for the richer
-support-search machinery, but the all-five-rich subcase itself is already
-closed by the edge-sensitive count.
+This global pair-counting lemma alone does not rule out mixed exact-four and
+size-five catalogues. For `n=9`, the localized companion lemma rules out that
+mixed support layer by counting alone, reducing hypothetical nonagons to the
+all-exact-four support frontier. It still does not replace the review-pending
+exact-four vertex-circle checker. The existing `n=9` all-five-rich and mixed
+support checkers remain useful as crossing-aware catalogue regressions and as
+provenance for the richer support-search machinery, but their nonagon support
+reduction is now preceded by this proof-facing count.

@@ -1554,6 +1554,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="localized_rich_support_counting",
+        command=(
+            "python",
+            "scripts/check_localized_rich_support_counting.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Proof-facing localized rich-support occurrence-counting lemma "
+            "and small-n consequences; reduces hypothetical 4-bad nonagons "
+            "to all-exact-four support systems but is not a proof of n=9, "
+            "not a proof of Erdos Problem #97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="radius_blocker_vertex_circle_pilot",
         command=(
             "python",

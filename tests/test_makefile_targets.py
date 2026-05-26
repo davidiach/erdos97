@@ -124,6 +124,8 @@ def test_verify_bridge_frontier_includes_bootstrap_audits() -> None:
     commands = _make_target_commands("verify-bridge-frontier")
     expected_chain = [
         "python scripts/check_bridge_lemma_frontier.py --check --assert-expected --json",
+        "python scripts/check_rich_support_counting_bound.py --check --json",
+        "python scripts/check_localized_rich_support_counting.py --check --json",
         (
             "python scripts/check_bootstrap_core_crosswalk.py "
             "--check --assert-expected --json"
