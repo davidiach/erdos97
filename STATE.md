@@ -444,6 +444,14 @@ supply-chain packet records the raw support-catalogue denominator for the same
 bounded model: `3,918,164,268` support catalogues collapse to `58` initially
 compatible catalogues and zero selected-row completions. See
 `docs/bootstrap-t12-81-3-post8-supply-chains.md`.
+An ordered chain-closure CSP then lets any eligible not-yet-closed center in
+`[2,5,6,7,8]` activate as long as its support contains at least three
+currently closed labels, while holding center `3` back. It checks `5916`
+candidate extensions, leaves four non-supply prefixes, and finds no surviving
+prefix whose next activated center is `6`. This closes only the audited
+sequential support-chain model; repeated or multiple rich supports and any
+future minimality/rich-class bridge hypothesis remain outside the model. See
+`docs/bootstrap-t12-81-3-chain-closure-csp.md`.
 
 A source-`81` row-`8` singleton-support audit now probes the other
 relation-sufficient target in source `81`. It enumerates the nine center-`8`

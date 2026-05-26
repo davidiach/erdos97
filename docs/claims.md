@@ -1050,6 +1050,15 @@ Problem #97. The companion post-`8` supply-chain accounting packet in
 for the same bounded model: `3,918,164,268` support catalogues reduce to `58`
 initially compatible catalogues and zero selected-row completions. It has the
 same diagnostic-only claim boundary.
+The ordered chain-closure CSP in
+`docs/bootstrap-t12-81-3-chain-closure-csp.md` then follows every eligible
+sequential activation from closure `[0,1,4]`, with center `3` held back and
+each new support containing at least three currently closed labels. It checks
+`5916` candidate extensions, leaves four non-supply prefixes, and finds no
+surviving prefix whose next activated center is `6`. This closes only the
+audited sequential support-chain model; it does not prove support existence,
+row forcing, genuine rich-class order, `n=9`, the bootstrap bridge, or Erdos
+Problem #97.
 
 The source-`81` row-`8` singleton-support audit in
 `docs/bootstrap-t12-81-8-singleton-support-audit.md` checks a neighboring

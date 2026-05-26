@@ -2192,6 +2192,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_81_3_chain_closure_csp",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_chain_closure_csp.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Ordered chain-closure CSP for the 81:3 pre-3 label-6 escape; "
+            "leaves four non-supply prefixes and no surviving prefix whose "
+            "next activated center is 6, but is not support existence, row "
+            "forcing, genuine rich-class order, an n=9 proof, a bridge proof, "
+            "or a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_81_8_singleton_support_audit",
         command=(
             "python",

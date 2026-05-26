@@ -154,6 +154,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_bootstrap_t12_81_3_second_supply_chains.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_81_3_second_step_chains.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_81_3_post8_supply_chains.py --check --assert-expected --json
+	$(PYTHON) scripts/check_bootstrap_t12_81_3_chain_closure_csp.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_81_8_singleton_support_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_81_8_singleton_support_two_row_drop.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_81_8_full_neighborhood_vertex_circle.py --check --assert-expected --json

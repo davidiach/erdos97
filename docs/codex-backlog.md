@@ -365,7 +365,11 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-81-3-post8-supply-chains.md` records the raw
    denominator behind the same closure: `3,918,164,268` support catalogues
    reduce to `58` initially compatible catalogues and no selected-row
-   survivor. The next useful PR must therefore either handle repeated/multiple
+   survivor. The ordered chain-closure CSP in
+   `docs/bootstrap-t12-81-3-chain-closure-csp.md` then checks `5916`
+   sequential support-chain extensions from closure `[0,1,4]`; it leaves four
+   non-supply prefixes and no surviving prefix whose next activated center is
+   `6`. The next useful PR must therefore either handle repeated/multiple
    supports, introduce a genuine rich-class/minimality hypothesis that forces
    or excludes such a support, or move to a different bridge target. The
    source-`81` row-`8` singleton-support audit in
