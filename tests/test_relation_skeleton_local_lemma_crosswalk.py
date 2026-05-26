@@ -12,6 +12,7 @@ from scripts.check_n9_vertex_circle_local_lemma_replay_crosswalk import (
     DEFAULT_SIMPLE_REPLAY,
 )
 from scripts.check_relation_skeleton_local_lemma_crosswalk import (
+    CLAIM_SCOPE,
     DEFAULT_RELATION_SKELETONS,
     assert_expected_relation_local_crosswalk,
     crosswalk_payload,
@@ -60,6 +61,18 @@ def test_relation_local_crosswalk_expected_counts_and_scope(
     assert "not a proof of n=9" in payload["claim_scope"]
     assert "not a counterexample" in payload["claim_scope"]
     assert "not a global status update" in payload["claim_scope"]
+
+
+def test_relation_local_crosswalk_rejects_top_level_claim_scope_append(
+    relation_skeletons: dict[str, object],
+    aggregate: dict[str, object],
+    simple_replay: dict[str, object],
+) -> None:
+    payload = crosswalk_payload(relation_skeletons, aggregate, simple_replay)
+    payload["claim_scope"] = CLAIM_SCOPE + " This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_relation_local_crosswalk(payload)
 
 
 def test_relation_local_crosswalk_family_records(
