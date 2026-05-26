@@ -55,11 +55,13 @@ Consequently, if every center has a rich class of size at least `k`, then
 impossible for `n <= 11`; the global pair budget alone gives at least seven
 exact-four centers in a hypothetical 4-bad nonagon, at least five in a
 hypothetical 4-bad decagon, and at least three in a hypothetical 4-bad
-hendecagon. The localized per-label support-pair cap sharpens the nonagon
-case: each witness label can occur in at most four chosen supports, so any
-hypothetical 4-bad nonagon is already forced into the all-exact-four,
-selected-indegree-four support case by counting alone. See
-`docs/rich-support-counting-lemma.md` and
+hendecagon. The rich-support checker now also records a nonagon
+profile-deficiency refinement excluding the remaining raw non-exact-four
+profiles by label-deficiency residues. The localized per-label support-pair cap
+gives a second route to the same nonagon conclusion: each witness label can
+occur in at most four chosen supports, so any hypothetical 4-bad nonagon is
+already forced into the all-exact-four, selected-indegree-four support case by
+counting alone. See `docs/rich-support-counting-lemma.md` and
 `docs/localized-rich-support-counting.md`.
 
 ### Lemma: crossing-bisector and sharpened count

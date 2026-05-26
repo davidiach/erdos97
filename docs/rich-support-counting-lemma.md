@@ -82,6 +82,64 @@ Since any center with `E(i) >= 5` costs at least `binom(5,2)-binom(4,2)=4`,
 at most two centers can have `E(i) >= 5`. Equivalently, any hypothetical 4-bad
 nonagon has at least seven exact-four centers.
 
+### Nonagon profile-deficiency refinement
+
+The raw nonagon pair budget permits only four sorted support-size profiles for
+a 4-bad nonagon:
+
+```text
+4^9,
+5 4^8,
+5^2 4^7,
+6 4^8.
+```
+
+The last three are impossible by a vertex-deficiency refinement of the same
+counting argument. For a label `a`, let `m_ab` be the number of supports
+containing the witness pair `{a,b}`, and let `c_ab` be the pair capacity: `1`
+for hull edges and `2` for non-edges. In a nonagon,
+
+```text
+sum_b c_ab = 2*1 + 6*2 = 14.
+```
+
+Define the label deficiency
+
+```text
+D_a = 14 - sum_{i : a in R_i} (|R_i| - 1).
+```
+
+Because `m_ab <= c_ab` for every pair, `D_a >= 0`, and
+
+```text
+sum_a D_a = 2 * (unused pair-capacity slack).
+```
+
+Now compare this required total deficiency with the congruence forced by row
+sizes. Exact-four rows contribute `3` to the weighted degree of any label they
+contain; size-five rows contribute `4`; size-six rows contribute `5`.
+
+- For profile `5 4^8`, the pair slack is `5`, so `sum_a D_a = 10`. The five
+  labels in the size-five row have weighted degree congruent to `1 mod 3`, so
+  each has deficiency at least `1`; the other four labels have weighted degree
+  congruent to `0 mod 3`, so each has deficiency at least `2`. Hence
+  `sum_a D_a >= 5*1 + 4*2 = 13`, contradiction.
+- For profile `5^2 4^7`, the pair slack is `1`, so `sum_a D_a = 2`. Starting
+  from the exact-four residue lower bound `2` at each of nine labels, the ten
+  size-five witness incidences can lower the total deficiency by at most `10`,
+  leaving `sum_a D_a >= 18 - 10 = 8`, contradiction.
+- For profile `6 4^8`, the pair slack is `0`, so `sum_a D_a = 0`. The six
+  labels in the size-six row can have deficiency `0`, but the three labels
+  outside that support still have exact-four residue deficiency at least `2`,
+  giving `sum_a D_a >= 6`, contradiction.
+
+Therefore any hypothetical 4-bad nonagon has `E(i)=4` at every center.
+Choosing one maximum support per center gives nine exact-four selected rows.
+For each label, the same deficiency count then forces selected indegree exactly
+`4`. This profile-deficiency refinement is an independent count-level
+cross-check of the localized per-label cap below; neither route proves the
+review-pending exact-four vertex-circle frontier.
+
 The corresponding necessary counting relaxation gives at least five exact-four
 centers in any hypothetical 4-bad decagon and at least three exact-four centers
 in any hypothetical 4-bad hendecagon.
@@ -105,17 +163,19 @@ The helper script
 python scripts/check_rich_support_counting_bound.py --check --json
 ```
 
-checks the threshold `n >= 12` for all-centers size-five support and the small
-`n=8..12` surplus table used above. It is only a counting-bound checker; it is
-not a realization search.
+checks the threshold `n >= 12` for all-centers size-five support, the small
+`n=8..12` surplus table used above, and the nonagon profile-deficiency
+refinement. It is only a counting-bound checker; it is not a realization
+search.
 
 ## Boundary
 
 This global pair-counting lemma alone does not rule out mixed exact-four and
-size-five catalogues. For `n=9`, the localized companion lemma rules out that
-mixed support layer by counting alone, reducing hypothetical nonagons to the
-all-exact-four support frontier. It still does not replace the review-pending
-exact-four vertex-circle checker. The existing `n=9` all-five-rich and mixed
-support checkers remain useful as crossing-aware catalogue regressions and as
+size-five catalogues. For `n=9`, the profile-deficiency refinement above and
+the localized companion lemma both rule out that mixed support layer by
+counting alone, reducing hypothetical nonagons to the all-exact-four support
+frontier. This still does not replace the review-pending exact-four
+vertex-circle checker. The existing `n=9` all-five-rich and mixed support
+checkers remain useful as crossing-aware catalogue regressions and as
 provenance for the richer support-search machinery, but their nonagon support
-reduction is now preceded by this proof-facing count.
+reduction is now preceded by these proof-facing counts.
