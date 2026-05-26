@@ -260,8 +260,13 @@ support-pair cap gives a second route to the same sharpened nonagon conclusion:
 any hypothetical 4-bad nonagon is forced into the all-exact-four,
 selected-indegree-four support case by counting alone. This does not prove the
 review-pending exact-four frontier, `n=9`, `n=10`, `n=11`, or Erdos Problem #97.
-See `docs/rich-support-counting-lemma.md`,
-`docs/support-saturation-obstruction.md`, and
+An independent determinant obstruction now rechecks the all-five-rich `n=12`
+equality wall: the saturated `12 x 12` support-incidence Gram matrix would have
+determinant `2,592,000 = 720^2 * 5`, not a square, contradicting
+`det(A^T A) = det(A)^2`. This is redundant with support saturation and does
+not prove the full dodecagon case. See `docs/rich-support-counting-lemma.md`,
+`docs/support-saturation-obstruction.md`,
+`docs/n12-rich-support-determinant-obstruction.md`, and
 `docs/localized-rich-support-counting.md`.
 
 The follow-up mixed rich-support reduction enumerates every four- or

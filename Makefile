@@ -127,6 +127,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_bridge_lemma_frontier.py --check --assert-expected --json
 	$(PYTHON) scripts/check_rich_support_counting_bound.py --check --json
 	$(PYTHON) scripts/check_support_saturation_obstruction.py --check --json
+	$(PYTHON) scripts/check_n12_rich_support_determinant.py --check --json
 	$(PYTHON) scripts/check_localized_rich_support_counting.py --check --json
 	$(PYTHON) scripts/check_bootstrap_core_crosswalk.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_vertex_circle_overlay.py --check --assert-expected --json

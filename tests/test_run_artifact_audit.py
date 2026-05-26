@@ -261,6 +261,10 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_support_saturation_obstruction.py --check --json"
         in command_texts
     )
+    assert (
+        "python scripts/check_n12_rich_support_determinant.py --check --json"
+        in command_texts
+    )
     assert ordered_command_texts.index(
         "python scripts/check_n9_row_ptolemy_gap_self_edge_cores.py --check "
         "--assert-expected --json"
@@ -275,6 +279,11 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
     )
     assert ordered_command_texts.index(
         "python scripts/check_support_saturation_obstruction.py --check --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n12_rich_support_determinant.py --check --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n12_rich_support_determinant.py --check --json"
     ) < ordered_command_texts.index(
         "python scripts/check_localized_rich_support_counting.py --check --json"
     )

@@ -1571,6 +1571,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n12_rich_support_determinant",
+        command=(
+            "python",
+            "scripts/check_n12_rich_support_determinant.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Proof-facing determinant obstruction for the n=12 all-five-rich "
+            "support-count equality wall; independently checks the same "
+            "boundary closed by support saturation, but is not a proof of "
+            "n=12, not a proof of Erdos Problem #97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="localized_rich_support_counting",
         command=(
             "python",

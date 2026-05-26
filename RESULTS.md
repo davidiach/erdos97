@@ -66,6 +66,13 @@ selected-indegree-four support case by counting alone. See
 `docs/rich-support-counting-lemma.md`,
 `docs/support-saturation-obstruction.md`, and
 `docs/localized-rich-support-counting.md`.
+The all-five-rich `n=12` equality wall also has an independent determinant
+obstruction: saturation would force a `12 x 12` column Gram matrix with first
+row `[5,1,2,2,2,2,2,2,2,2,2,1]` and determinant
+`2,592,000 = 720^2 * 5`, which is not a square. This rechecks the same boundary
+already closed by support saturation; it is not a proof of the full `n=12`
+case. See `docs/n12-rich-support-determinant-obstruction.md` and
+`scripts/check_n12_rich_support_determinant.py`.
 
 ### Lemma: crossing-bisector and sharpened count
 
