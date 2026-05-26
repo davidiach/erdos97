@@ -685,6 +685,16 @@ compatible catalogues, `223` selected-search nodes, and no selected-row
 survivor. See `docs/bootstrap-t12-81-3-post8-supply-chains.md`,
 `scripts/check_bootstrap_t12_81_3_post8_supply_chains.py`, and
 `data/certificates/bootstrap_t12_81_3_post8_supply_chains.json`.
+The ordered chain-closure CSP then tests every eligible sequential activation
+from closure `[0,1,4]`, holding center `3` back and requiring each new support
+to contain at least three currently closed labels. It checks `5916` candidate
+extensions, leaves four non-supply prefix survivors, and finds zero
+center-`6` supply-chain survivors. This closes only the sequential
+support-chain model, not repeated or multiple rich supports and not any
+genuine rich-class/minimality bridge. See
+`docs/bootstrap-t12-81-3-chain-closure-csp.md`,
+`scripts/check_bootstrap_t12_81_3_chain_closure_csp.py`, and
+`data/certificates/bootstrap_t12_81_3_chain_closure_csp.json`.
 
 The source-`81` row-`8` singleton-support audit probes the other
 relation-sufficient source-`81` row. Center `8` has bootstrap-core witnesses
