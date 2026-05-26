@@ -5,7 +5,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_n9_vertex_circle_focused_packet_catalog_audit import (
+    CLAIM_SCOPE,
     DEFAULT_LOCAL_LEMMAS,
     DEFAULT_PACKET_PATHS,
     DEFAULT_TEMPLATE_CATALOG,
@@ -42,6 +45,14 @@ def test_focused_packet_catalog_audit_counts_and_scope() -> None:
     assert summary["source_template_packet_count"] == 12
     assert summary["source_template_mismatch_count"] == 0
     assert summary["source_template_allowed_omitted_field_count"] == 14
+
+
+def test_focused_packet_catalog_audit_rejects_top_level_claim_scope_append() -> None:
+    payload = focused_packet_catalog_audit_payload()
+    payload["claim_scope"] = CLAIM_SCOPE + " This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_focused_packet_catalog_audit(payload)
 
 
 def test_focused_packet_catalog_audit_rejects_packet_coverage_drift(
