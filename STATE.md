@@ -252,12 +252,14 @@ pair-sharing count is that a hull-edge witness pair can occur in at most one
 support, while a non-edge witness pair can occur in at most two. Hence every
 center having five equidistant witnesses requires `n >= 12`. The same counting
 relaxation says any hypothetical 4-bad decagon has at least five exact-four
-centers and any hypothetical 4-bad hendecagon has at least three. A localized
-per-label support-pair cap sharpens the nonagon case further: any hypothetical
-4-bad nonagon is forced into the all-exact-four, selected-indegree-four support
-case by counting alone. This does not prove the review-pending exact-four
-frontier, `n=9`, `n=10`, `n=11`, or Erdos Problem #97. See
-`docs/rich-support-counting-lemma.md` and
+centers and any hypothetical 4-bad hendecagon has at least three. A nonagon
+profile-deficiency refinement in the same checker rules out the remaining raw
+size-five and size-six nonagon support-size profiles. The localized per-label
+support-pair cap gives a second route to the same sharpened nonagon conclusion:
+any hypothetical 4-bad nonagon is forced into the all-exact-four,
+selected-indegree-four support case by counting alone. This does not prove the
+review-pending exact-four frontier, `n=9`, `n=10`, `n=11`, or Erdos Problem #97.
+See `docs/rich-support-counting-lemma.md` and
 `docs/localized-rich-support-counting.md`.
 
 The follow-up mixed rich-support reduction enumerates every four- or

@@ -19,10 +19,11 @@ from __future__ import annotations
 
 import argparse
 import json
+from itertools import combinations
 from math import comb
 from typing import Any
 
-SCHEMA = "erdos97.rich_support_counting_bound.v2"
+SCHEMA = "erdos97.rich_support_counting_bound.v3"
 TRUST = "LEMMA"
 
 
@@ -58,6 +59,50 @@ def all_centers_min_n(k: int) -> int:
     if k < 0:
         raise ValueError("k must be nonnegative")
     return comb(k, 2) + 2
+
+
+def support_profile_pair_cost(profile: list[int] | tuple[int, ...]) -> int:
+    """Return sum binom(size, 2) for a support-size profile."""
+
+    if any(size < 0 for size in profile):
+        raise ValueError("support sizes must be nonnegative")
+    return sum(comb(size, 2) for size in profile)
+
+
+def counting_feasible_support_profiles(
+    n: int,
+    min_size: int = 4,
+) -> list[tuple[int, ...]]:
+    """Enumerate sorted support-size profiles allowed by the pair budget.
+
+    The output is a pure counting relaxation: it records only profiles
+    ``s_0 <= ... <= s_{n-1}`` with ``min_size <= s_i < n`` and
+    ``sum_i binom(s_i, 2) <= n(n-2)``. It does not check row-intersection,
+    cyclic-order, or vertex-circle constraints.
+    """
+
+    if n <= 0:
+        raise ValueError("n must be positive")
+    if min_size < 0 or min_size >= n:
+        raise ValueError("min_size must satisfy 0 <= min_size < n")
+
+    budget = pair_budget(n)
+    profiles: list[tuple[int, ...]] = []
+
+    def visit(start_size: int, remaining: int, used: int, profile: list[int]) -> None:
+        if remaining == 0:
+            profiles.append(tuple(profile))
+            return
+        for size in range(start_size, n):
+            new_used = used + comb(size, 2)
+            # Profiles are nondecreasing, so every remaining size is at least this size.
+            min_completion = new_used + (remaining - 1) * comb(size, 2)
+            if min_completion > budget:
+                break
+            visit(size, remaining - 1, new_used, [*profile, size])
+
+    visit(min_size, n, 0, [])
+    return profiles
 
 
 def max_total_support_size(n: int, min_size: int = 4) -> tuple[int, list[int]]:
@@ -109,6 +154,92 @@ def max_non_exact_four_centers(n: int) -> int:
     return min(n, extra_budget // (comb(5, 2) - comb(4, 2)))
 
 
+def _n9_vertex_deficiency_floor(rich_increment: int) -> int:
+    """Minimum possible pair-capacity deficiency for one nonagon label."""
+
+    if rich_increment < 0:
+        raise ValueError("rich_increment must be nonnegative")
+    if rich_increment > 14:
+        raise ValueError("rich_increment exceeds the nonagon label-pair capacity")
+    return (14 - rich_increment) % 3
+
+
+def _min_n9_vertex_deficiency_from_profile(profile: tuple[int, ...]) -> int:
+    """Relaxedly minimize total nonagon vertex deficiency for one size profile."""
+
+    if len(profile) != 9:
+        raise ValueError("n=9 profile must have exactly nine support sizes")
+    if any(size < 4 or size >= 9 for size in profile):
+        raise ValueError("n=9 support sizes must satisfy 4 <= size < 9")
+
+    states: set[tuple[int, ...]] = {tuple([0] * 9)}
+    for size in profile:
+        increment = size - 4
+        if increment == 0:
+            continue
+        next_states: set[tuple[int, ...]] = set()
+        for state in states:
+            for witnesses in combinations(range(9), size):
+                updated = list(state)
+                for vertex in witnesses:
+                    updated[vertex] += increment
+                next_states.add(tuple(sorted(updated)))
+        states = next_states
+
+    return min(
+        sum(_n9_vertex_deficiency_floor(increment) for increment in state)
+        for state in states
+    )
+
+
+def n9_profile_deficiency_refinement() -> dict[str, Any]:
+    """Return the nonagon profile refinement beyond the raw pair budget."""
+
+    profiles = counting_feasible_support_profiles(9, min_size=4)
+    rows: list[dict[str, Any]] = []
+    for profile in profiles:
+        pair_cost_value = support_profile_pair_cost(profile)
+        pair_slack = pair_budget(9) - pair_cost_value
+        required_vertex_deficiency = 2 * pair_slack
+        min_vertex_deficiency = _min_n9_vertex_deficiency_from_profile(profile)
+        excluded = min_vertex_deficiency > required_vertex_deficiency
+        rows.append(
+            {
+                "profile": list(profile),
+                "pair_cost": pair_cost_value,
+                "pair_slack": pair_slack,
+                "required_total_vertex_deficiency": required_vertex_deficiency,
+                "minimum_total_vertex_deficiency_from_weighting": min_vertex_deficiency,
+                "status": (
+                    "EXCLUDED_BY_VERTEX_DEFICIENCY"
+                    if excluded
+                    else "NOT_EXCLUDED_BY_THIS_REFINEMENT"
+                ),
+            }
+        )
+
+    remaining = [
+        row["profile"] for row in rows if row["status"] == "NOT_EXCLUDED_BY_THIS_REFINEMENT"
+    ]
+    return {
+        "claim": (
+            "In a hypothetical 4-bad nonagon, every maximum same-radius support "
+            "has size exactly 4; the raw size-five and size-six profiles are "
+            "excluded by pair-slack/vertex-deficiency counting."
+        ),
+        "pair_capacity_degree_per_label": 14,
+        "raw_counting_feasible_profile_count": len(rows),
+        "profiles": rows,
+        "remaining_profiles_after_refinement": remaining,
+        "consequence": (
+            "The only remaining support-size profile is [4]*9. Therefore a "
+            "4-bad nonagon, if it exists, is an exact-four selected-witness "
+            "object at every center; applying the same weighted-degree cap then "
+            "forces every witness label to have selected indegree 4."
+        ),
+    }
+
+
 def row_summary(n: int) -> dict[str, Any]:
     """Return the counting-bound row for one n."""
 
@@ -151,6 +282,14 @@ def row_summary(n: int) -> dict[str, Any]:
             "min_centers_with_E_equal_4_by_counting": max(0, n - max_non_exact),
         }
     )
+    if n == 9:
+        row.update(
+            {
+                "n9_max_support_size_after_vertex_deficiency_refinement": 4,
+                "n9_all_centers_exact_four_after_vertex_deficiency_refinement": True,
+                "n9_selected_indegree_for_exact_four_profile": 4,
+            }
+        )
     return row
 
 
@@ -163,8 +302,9 @@ def build_summary(min_n: int = 5, max_n: int = 12) -> dict[str, Any]:
         "trust": TRUST,
         "claim_scope": (
             "Proof-facing edge-sensitive rich-support pair-counting lemma only. "
-            "It records necessary support-size consequences and does not prove "
-            "n=9, n=10, n=11, or Erdos Problem #97."
+            "It records necessary support-size consequences and the n=9 "
+            "vertex-deficiency profile refinement; it does not prove n=9, n=10, "
+            "n=11, or Erdos Problem #97."
         ),
         "lemma": (
             "For same-radius supports R_i in a strict convex n-gon, "
@@ -179,6 +319,7 @@ def build_summary(min_n: int = 5, max_n: int = 12) -> dict[str, Any]:
         "all_centers_min_support_thresholds": {
             str(k): all_centers_min_n(k) for k in range(4, 8)
         },
+        "n9_profile_deficiency_refinement": n9_profile_deficiency_refinement(),
         "rows": [row_summary(n) for n in range(min_n, max_n + 1)],
     }
 
@@ -217,6 +358,20 @@ def check_expected(summary: dict[str, Any]) -> None:
                 f"n={n}: expected edge-sensitive pair-counting to rule out four-bad supports"
             )
 
+    refinement = summary["n9_profile_deficiency_refinement"]
+    remaining = refinement["remaining_profiles_after_refinement"]
+    if remaining != [[4, 4, 4, 4, 4, 4, 4, 4, 4]]:
+        raise AssertionError(f"unexpected n=9 refined profiles: {remaining}")
+    statuses = {tuple(row["profile"]): row["status"] for row in refinement["profiles"]}
+    expected_statuses = {
+        (4, 4, 4, 4, 4, 4, 4, 4, 4): "NOT_EXCLUDED_BY_THIS_REFINEMENT",
+        (4, 4, 4, 4, 4, 4, 4, 4, 5): "EXCLUDED_BY_VERTEX_DEFICIENCY",
+        (4, 4, 4, 4, 4, 4, 4, 5, 5): "EXCLUDED_BY_VERTEX_DEFICIENCY",
+        (4, 4, 4, 4, 4, 4, 4, 4, 6): "EXCLUDED_BY_VERTEX_DEFICIENCY",
+    }
+    if statuses != expected_statuses:
+        raise AssertionError(f"unexpected n=9 profile statuses: {statuses}")
+
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -236,6 +391,11 @@ def main() -> int:
     else:
         print(f"schema: {summary['schema']}")
         print("all centers with size >=5 requires n >=", all_centers_min_n(5))
+        n9_refinement = summary["n9_profile_deficiency_refinement"]
+        print(
+            "n=9 refined support-size profiles:",
+            n9_refinement["remaining_profiles_after_refinement"],
+        )
         for row in summary["rows"]:
             if row["four_bad_ruled_out_by_edge_sensitive_pair_counting"]:
                 print(f"n={row['n']}: four-bad supports ruled out by edge-sensitive pair-counting")

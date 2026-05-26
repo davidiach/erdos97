@@ -107,7 +107,11 @@ hypothetical 4-bad nonagon also shows that at most two centers can have
 forces at least five exact-four centers for `n=10` and at least three for
 `n=11`.
 
-The companion localized counting cap improves the nonagon conclusion. For each
+The profile-deficiency refinement in the same checker rules out the three raw
+nonagon profiles still allowed by the global pair budget, namely `5 4^8`,
+`5^2 4^7`, and `6 4^8`, by comparing pair-capacity slack with the label
+deficiency residues forced by row sizes. The companion localized counting cap
+gives an even shorter per-label route to the same nonagon conclusion. For each
 fixed witness label `x`,
 
 ```text
@@ -119,12 +123,12 @@ localized budget, so each label occurs in at most four chosen supports. The
 4-bad baseline already needs `36` support occurrences, hence every chosen
 support is exact-four and every label has selected indegree four.
 
-These are support-level counting lemmas only. They reduce hypothetical
-nonagons to the all-exact-four support frontier, but they do not prove the
-review-pending exact-four vertex-circle checker, `n=9`, `n=10`, `n=11`, or
-Erdos Problem #97. See `docs/rich-support-counting-lemma.md`,
-`docs/localized-rich-support-counting.md`, and the checkers
-`scripts/check_rich_support_counting_bound.py` and
+These are support-level counting lemmas only. The profile-deficiency and
+localized routes both reduce hypothetical nonagons to the all-exact-four
+support frontier, but they do not prove the review-pending exact-four
+vertex-circle checker, `n=9`, `n=10`, `n=11`, or Erdos Problem #97. See
+`docs/rich-support-counting-lemma.md`, `docs/localized-rich-support-counting.md`,
+and the checkers `scripts/check_rich_support_counting_bound.py` and
 `scripts/check_localized_rich_support_counting.py`.
 
 ### Altman diagonal-order sums

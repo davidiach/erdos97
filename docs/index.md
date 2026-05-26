@@ -61,7 +61,8 @@ put detailed reconciliation in the canonical synthesis.
   only.
 - [`rich-support-counting-lemma.md`](rich-support-counting-lemma.md):
   proof-facing edge-sensitive support pair-counting lemma for all-centers large
-  rich classes; not an `n=9`, `n=10`, `n=11`, or global proof.
+  rich classes, plus an independent nonagon profile-deficiency refinement; not
+  an `n=9`, `n=10`, `n=11`, or global proof.
 - [`localized-rich-support-counting.md`](localized-rich-support-counting.md):
   proof-facing per-label rich-support occurrence cap reducing hypothetical
   4-bad nonagons to all-exact-four support systems by counting alone.

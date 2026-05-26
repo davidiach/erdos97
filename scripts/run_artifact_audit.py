@@ -1548,9 +1548,10 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
         claim_scope=(
             "Proof-facing edge-sensitive rich-support pair-counting lemma "
-            "and small-n consequences; not a proof of n=9, not a proof of "
-            "n=10, not a proof of n=11, not a proof of Erdos Problem #97, "
-            "and not a counterexample."
+            "and small-n consequences, including the n=9 profile-deficiency "
+            "refinement; not a proof of n=9, not a proof of n=10, not a "
+            "proof of n=11, not a proof of Erdos Problem #97, and not a "
+            "counterexample."
         ),
     ),
     AuditCommand(
