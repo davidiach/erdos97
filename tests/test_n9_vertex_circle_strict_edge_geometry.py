@@ -5,8 +5,11 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from erdos97 import n9_vertex_circle_exhaustive as n9
 from scripts.check_n9_vertex_circle_strict_edge_geometry import (
+    CLAIM_SCOPE,
     EXPECTED_SELECTED_ROWS,
     EXPECTED_SPAN_HISTOGRAM,
     EXPECTED_STRICT_EDGES_PER_ROW,
@@ -44,6 +47,14 @@ def test_strict_edge_geometry_expected_counts_and_scope() -> None:
     assert "does not prove row coverage" in payload["claim_scope"]
     assert "selected-distance quotient soundness" in payload["claim_scope"]
     assert "counterexample" in payload["claim_scope"]
+
+
+def test_strict_edge_geometry_rejects_appended_claim_scope_overclaim() -> None:
+    payload = strict_edge_geometry_payload()
+    payload["claim_scope"] = f"{CLAIM_SCOPE} This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_strict_edge_geometry(payload)
 
 
 def test_strict_edge_geometry_cli_json() -> None:
