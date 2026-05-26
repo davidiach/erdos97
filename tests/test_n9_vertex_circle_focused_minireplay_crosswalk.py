@@ -5,7 +5,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_n9_vertex_circle_focused_minireplay_crosswalk import (
+    CLAIM_SCOPE,
     DEFAULT_MINIREPLAY_PATHS,
     assert_expected_focused_minireplay_crosswalk,
     focused_minireplay_crosswalk_payload,
@@ -39,6 +42,14 @@ def test_focused_minireplay_crosswalk_counts_and_scope() -> None:
     assert summary["obstruction_flagged_count"] == 12
     assert summary["assignment_count_repeated_total"] == 184
     assert summary["assignment_count_source_only_total"] == 0
+
+
+def test_focused_minireplay_crosswalk_rejects_top_level_claim_scope_append() -> None:
+    payload = focused_minireplay_crosswalk_payload()
+    payload["claim_scope"] = CLAIM_SCOPE + " This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_focused_minireplay_crosswalk(payload)
 
 
 def test_focused_minireplay_crosswalk_rejects_source_packet_drift(
