@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from erdos97.n9_turn_inequality_frontier import (
     CLAIM_SCOPE,
+    CONCLUSION,
+    CYCLIC_ORDER,
     EXPECTED_TURN_INEQUALITY_COUNT,
     PROVENANCE,
     REVIEW_REQUIREMENTS,
@@ -101,6 +103,8 @@ def test_payload_validation_accepts_canonical_claim_scope_fields() -> None:
             "status": STATUS,
             "trust": TRUST,
             "claim_scope": CLAIM_SCOPE,
+            "cyclic_order": list(CYCLIC_ORDER),
+            "conclusion": CONCLUSION,
             "review_requirements": list(REVIEW_REQUIREMENTS),
             "provenance": dict(PROVENANCE),
             "n": 9,
@@ -111,6 +115,8 @@ def test_payload_validation_accepts_canonical_claim_scope_fields() -> None:
     assert not any(error.startswith("unexpected status:") for error in errors)
     assert not any(error.startswith("unexpected trust:") for error in errors)
     assert "claim_scope mismatch" not in errors
+    assert "cyclic_order mismatch" not in errors
+    assert "conclusion mismatch" not in errors
     assert "review_requirements mismatch" not in errors
     assert "provenance mismatch" not in errors
     assert "missing source_frontier object" in errors
@@ -123,6 +129,8 @@ def test_payload_validation_rejects_claim_scope_with_extra_overclaim() -> None:
             "status": STATUS,
             "trust": TRUST,
             "claim_scope": CLAIM_SCOPE + " This establishes a counterexample.",
+            "cyclic_order": list(CYCLIC_ORDER),
+            "conclusion": CONCLUSION,
             "review_requirements": list(REVIEW_REQUIREMENTS),
             "provenance": dict(PROVENANCE),
             "n": 9,
@@ -131,3 +139,23 @@ def test_payload_validation_rejects_claim_scope_with_extra_overclaim() -> None:
     )
 
     assert "claim_scope mismatch" in errors
+
+
+def test_payload_validation_rejects_conclusion_and_order_drift() -> None:
+    errors = validate_payload(
+        {
+            "schema": "erdos97.n9_turn_inequality_frontier.v1",
+            "status": STATUS,
+            "trust": TRUST,
+            "claim_scope": CLAIM_SCOPE,
+            "cyclic_order": list(reversed(CYCLIC_ORDER)),
+            "conclusion": CONCLUSION + " This proves n=9.",
+            "review_requirements": list(REVIEW_REQUIREMENTS),
+            "provenance": dict(PROVENANCE),
+            "n": 9,
+            "row_size": 4,
+        }
+    )
+
+    assert "cyclic_order mismatch" in errors
+    assert "conclusion mismatch" in errors
