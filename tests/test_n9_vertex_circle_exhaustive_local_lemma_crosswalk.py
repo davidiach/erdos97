@@ -8,6 +8,7 @@ from pathlib import Path
 import pytest
 
 from scripts.check_n9_vertex_circle_exhaustive_local_lemma_crosswalk import (
+    CLAIM_SCOPE,
     DEFAULT_CLASSIFICATION,
     DEFAULT_EXHAUSTIVE,
     DEFAULT_LOCAL_LEMMAS,
@@ -66,6 +67,24 @@ def test_exhaustive_local_lemma_crosswalk_counts_and_scope(
     assert "not a proof of n=9" in payload["claim_scope"]
     assert "not a counterexample" in payload["claim_scope"]
     assert "not a global status update" in payload["claim_scope"]
+
+
+def test_exhaustive_local_lemma_crosswalk_rejects_top_level_claim_scope_append(
+    exhaustive: dict[str, object],
+    classification: dict[str, object],
+    local_lemmas: dict[str, object],
+    simple_replay: dict[str, object],
+) -> None:
+    payload = exhaustive_local_lemma_crosswalk_payload(
+        exhaustive,
+        classification,
+        local_lemmas,
+        simple_replay,
+    )
+    payload["claim_scope"] = CLAIM_SCOPE + " This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_exhaustive_local_lemma_crosswalk(payload)
 
 
 def test_exhaustive_local_lemma_family_crosswalk(

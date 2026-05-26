@@ -157,7 +157,9 @@ def assert_expected_exhaustive_local_lemma_crosswalk(payload: Mapping[str, Any])
         raise AssertionError(f"trust mismatch: {payload.get('trust')!r}")
     if payload.get("provenance") != PROVENANCE:
         raise AssertionError(f"provenance mismatch: {payload.get('provenance')!r}")
-    claim_scope = str(payload.get("claim_scope", ""))
+    if payload.get("claim_scope") != CLAIM_SCOPE:
+        raise AssertionError(f"claim_scope mismatch: {payload.get('claim_scope')!r}")
+    claim_scope = CLAIM_SCOPE
     for forbidden in ("proof of n=9", "counterexample", "global status update"):
         if f"not a {forbidden}" not in claim_scope and f"not an {forbidden}" not in claim_scope:
             raise AssertionError(f"claim_scope must explicitly reject {forbidden!r}")
