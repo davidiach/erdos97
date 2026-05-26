@@ -63,6 +63,10 @@ put detailed reconciliation in the canonical synthesis.
   proof-facing edge-sensitive support pair-counting lemma for all-centers large
   rich classes, plus an independent nonagon profile-deficiency refinement; not
   an `n=9`, `n=10`, `n=11`, or global proof.
+- [`support-saturation-obstruction.md`](support-saturation-obstruction.md):
+  equality-wall obstruction strengthening all-centers rich-support thresholds
+  to `n >= binom(k,2)+3` for `k >= 4`; not an `n=9`, `n=10`, `n=11`, or
+  global proof.
 - [`localized-rich-support-counting.md`](localized-rich-support-counting.md):
   proof-facing per-label rich-support occurrence cap reducing hypothetical
   4-bad nonagons to all-exact-four support systems by counting alone.

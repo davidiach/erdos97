@@ -38,6 +38,13 @@ that midpoint as an endpoint. Therefore
 so `n >= 12`. In particular, the `n=9` all-five-rich support subcase is closed
 by this one-line sharpened pair-sharing count.
 
+The support-saturation obstruction in `docs/support-saturation-obstruction.md`
+goes one step further: the equality wall for all-centers support size `5` is
+also impossible, so every vertex having five equidistant witnesses actually
+requires `n >= 13`. This stronger threshold is not needed for the nonagon
+subcase, but it records why the `n=12` all-five-rich equality case is no
+longer a live support-level boundary.
+
 The checked artifact below is still useful as a generator-independent
 support-catalogue regression: it exercises the explicit five-support option
 catalogue, row-pair cap, and two-overlap crossing rule that are reused in the

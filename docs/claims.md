@@ -99,9 +99,11 @@ polygon boundary at the edge midpoint and can contain at most one further
 boundary vertex, hence at most one center. Double-counting witness pairs inside
 supports gives the displayed inequality.
 
-Thus, if every center has a rich distance class of size at least `k`, then
-`n >= binom(k, 2) + 2`. In particular, every-vertex size-five richness is
-impossible for `n <= 11`. Choosing a maximum rich class at each center of a
+Thus, if every center has a rich distance class of size at least `k`, then the
+edge-sensitive pair count gives `n >= binom(k, 2) + 2`. The support-saturation
+obstruction rules out the equality wall for `k >= 4`, improving this to
+`n >= binom(k, 2) + 3`. In particular, every-vertex size-five richness is
+impossible for `n <= 12`. Choosing a maximum rich class at each center of a
 hypothetical 4-bad nonagon also shows that at most two centers can have
 `E(i) >= 5`, so at least seven centers must be exact-four. The same relaxation
 forces at least five exact-four centers for `n=10` and at least three for
@@ -123,12 +125,15 @@ localized budget, so each label occurs in at most four chosen supports. The
 4-bad baseline already needs `36` support occurrences, hence every chosen
 support is exact-four and every label has selected indegree four.
 
-These are support-level counting lemmas only. The profile-deficiency and
-localized routes both reduce hypothetical nonagons to the all-exact-four
-support frontier, but they do not prove the review-pending exact-four
-vertex-circle checker, `n=9`, `n=10`, `n=11`, or Erdos Problem #97. See
-`docs/rich-support-counting-lemma.md`, `docs/localized-rich-support-counting.md`,
-and the checkers `scripts/check_rich_support_counting_bound.py` and
+These are support-level counting lemmas only. The saturation obstruction only
+rules out the equality wall, and the profile-deficiency and localized routes
+both reduce hypothetical nonagons to the all-exact-four support frontier. They
+do not prove the review-pending exact-four vertex-circle checker, `n=9`,
+`n=10`, `n=11`, or Erdos Problem #97. See
+`docs/rich-support-counting-lemma.md`, `docs/support-saturation-obstruction.md`,
+`docs/localized-rich-support-counting.md`, and the checkers
+`scripts/check_rich_support_counting_bound.py`,
+`scripts/check_support_saturation_obstruction.py`, and
 `scripts/check_localized_rich_support_counting.py`.
 
 ### Altman diagonal-order sums

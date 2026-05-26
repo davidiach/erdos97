@@ -51,7 +51,8 @@ sum_i binom(|R_i|, 2)
 
 ## Consequences
 
-If every center has a same-radius support of size at least `k`, then
+If every center has a same-radius support of size at least `k`, then the
+edge-sensitive pair count gives
 
 ```text
 n * binom(k, 2) <= n(n - 2),
@@ -63,13 +64,13 @@ so
 n >= binom(k, 2) + 2.
 ```
 
-For `k=4`, this gives the support-level wall `n >= 8`.
+For `k=4`, this gives the pair-counting support-level wall `n >= 8`.
 
-In particular, a strict convex polygon in which every vertex has five
-equidistant witnesses must have `n >= 12`. Thus the `n=9`, `n=10`, and `n=11`
-all-five-rich support subcases are already impossible by this pair-sharing
-count, before using cyclic order, crossing, selected-distance quotienting, or
-vertex-circle pruning.
+In particular, this pair-sharing count gives `n >= 12` for a strict convex
+polygon in which every vertex has five equidistant witnesses. The companion
+support-saturation obstruction rules out the equality wall and improves the
+proof-facing threshold to `n >= 13` for the all-five-rich case. See
+`docs/support-saturation-obstruction.md`.
 
 For a hypothetical 4-bad nonagon, choose a maximum rich support at every
 center, so `|R_i| = E(i) >= 4`. The same inequality gives
@@ -163,10 +164,11 @@ The helper script
 python scripts/check_rich_support_counting_bound.py --check --json
 ```
 
-checks the threshold `n >= 12` for all-centers size-five support, the small
-`n=8..12` surplus table used above, and the nonagon profile-deficiency
-refinement. It is only a counting-bound checker; it is not a realization
-search.
+checks the pair-counting threshold `n >= 12` for all-centers size-five support,
+the small `n=8..12` surplus table used above, and the nonagon
+profile-deficiency refinement. The companion saturation checker verifies the
+equality-wall upgrade to `n >= 13`. These are counting-bound checkers; they are
+not realization searches.
 
 ## Boundary
 

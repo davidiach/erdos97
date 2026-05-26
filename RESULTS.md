@@ -50,18 +50,21 @@ boundary vertices, so that edge pair has capacity one. There are `n` hull-edge
 witness pairs and `binom(n,2)-n` non-edge witness pairs, giving
 `n + 2*(binom(n,2)-n) = n(n-2)` by double-counting.
 
-Consequently, if every center has a rich class of size at least `k`, then
-`n >= binom(k, 2) + 2`. In particular, the all-centers size-five subcase is
-impossible for `n <= 11`; the global pair budget alone gives at least seven
-exact-four centers in a hypothetical 4-bad nonagon, at least five in a
-hypothetical 4-bad decagon, and at least three in a hypothetical 4-bad
-hendecagon. The rich-support checker now also records a nonagon
-profile-deficiency refinement excluding the remaining raw non-exact-four
-profiles by label-deficiency residues. The localized per-label support-pair cap
-gives a second route to the same nonagon conclusion: each witness label can
-occur in at most four chosen supports, so any hypothetical 4-bad nonagon is
-already forced into the all-exact-four, selected-indegree-four support case by
-counting alone. See `docs/rich-support-counting-lemma.md` and
+Consequently, if every center has a rich class of size at least `k`, then the
+edge-sensitive pair count gives `n >= binom(k, 2) + 2`. The
+support-saturation obstruction rules out the equality wall for `k >= 4`, so
+the all-centers size-five subcase is impossible for `n <= 12`; the global pair
+budget alone gives at least seven exact-four centers in a hypothetical 4-bad
+nonagon, at least five in a hypothetical 4-bad decagon, and at least three in a
+hypothetical 4-bad hendecagon. The rich-support checker now also records a
+nonagon profile-deficiency refinement excluding the remaining raw
+non-exact-four profiles by label-deficiency residues. The localized per-label
+support-pair cap gives a second route to the same nonagon conclusion: each
+witness label can occur in at most four chosen supports, so any hypothetical
+4-bad nonagon is already forced into the all-exact-four,
+selected-indegree-four support case by counting alone. See
+`docs/rich-support-counting-lemma.md`,
+`docs/support-saturation-obstruction.md`, and
 `docs/localized-rich-support-counting.md`.
 
 ### Lemma: crossing-bisector and sharpened count

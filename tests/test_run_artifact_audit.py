@@ -257,12 +257,26 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_localized_rich_support_counting.py --check --json"
         in command_texts
     )
+    assert (
+        "python scripts/check_support_saturation_obstruction.py --check --json"
+        in command_texts
+    )
     assert ordered_command_texts.index(
         "python scripts/check_n9_row_ptolemy_gap_self_edge_cores.py --check "
         "--assert-expected --json"
     ) < ordered_command_texts.index(
         "python scripts/check_bridge_lemma_frontier.py --check "
         "--assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_rich_support_counting_bound.py --check --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_support_saturation_obstruction.py --check --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_support_saturation_obstruction.py --check --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_localized_rich_support_counting.py --check --json"
     )
     bootstrap_bridge_commands = (
         "python scripts/check_bootstrap_core_crosswalk.py --check "
