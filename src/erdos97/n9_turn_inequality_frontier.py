@@ -35,6 +35,26 @@ EXPECTED_FARKAS_CERTIFICATE_SHA256 = (
 EXPECTED_FARKAS_LAMBDA_HISTOGRAM = {"1": 180, "2": 4}
 EXPECTED_FARKAS_TERM_COUNT_HISTOGRAM = {"5": 180, "9": 4}
 EXPECTED_FARKAS_DEFICIT_HISTOGRAM = {"1": 184}
+STATUS = "REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY"
+TRUST = "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING"
+CLAIM_SCOPE = (
+    "Candidate n=9 selected-witness turn-inequality frontier replay; "
+    "not a proof of Erdos Problem #97, not a counterexample, not an "
+    "independent review, and not a source-of-truth status update."
+)
+REVIEW_REQUIREMENTS = [
+    "Review the geometric turn lemma and indexing conventions.",
+    "Review the regenerated n=9 source frontier and lack of hidden symmetry quotienting.",
+    "Review the stored integer dual certificates and their arithmetic verifier.",
+    "Keep this scoped as review-pending n=9 finite-case evidence only.",
+]
+PROVENANCE = {
+    "generator": "scripts/check_n9_turn_inequality_frontier.py",
+    "command": (
+        "python scripts/check_n9_turn_inequality_frontier.py "
+        "--assert-expected --write"
+    ),
+}
 
 SIDE_CAP_BENCHMARK_PATTERN: list[list[int]] = [
     [1, 2, 4, 6],
@@ -493,13 +513,9 @@ def summary_payload() -> dict[str, object]:
 
     return {
         "schema": "erdos97.n9_turn_inequality_frontier.v1",
-        "status": "REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY",
-        "trust": "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING",
-        "claim_scope": (
-            "Candidate n=9 selected-witness turn-inequality frontier replay; "
-            "not a proof of Erdos Problem #97, not a counterexample, not an "
-            "independent review, and not a source-of-truth status update."
-        ),
+        "status": STATUS,
+        "trust": TRUST,
+        "claim_scope": CLAIM_SCOPE,
         "n": N,
         "row_size": ROW_SIZE,
         "cyclic_order": list(range(N)),
@@ -573,19 +589,8 @@ def summary_payload() -> dict[str, object]:
             "have stored integer dual certificates proving infeasibility of "
             "the candidate weak turn inequalities."
         ),
-        "review_requirements": [
-            "Review the geometric turn lemma and indexing conventions.",
-            "Review the regenerated n=9 source frontier and lack of hidden symmetry quotienting.",
-            "Review the stored integer dual certificates and their arithmetic verifier.",
-            "Keep this scoped as review-pending n=9 finite-case evidence only.",
-        ],
-        "provenance": {
-            "generator": "scripts/check_n9_turn_inequality_frontier.py",
-            "command": (
-                "python scripts/check_n9_turn_inequality_frontier.py "
-                "--assert-expected --write"
-            ),
-        },
+        "review_requirements": list(REVIEW_REQUIREMENTS),
+        "provenance": dict(PROVENANCE),
     }
 
 
@@ -608,6 +613,16 @@ def validate_payload(payload: dict[str, object]) -> list[str]:
     errors: list[str] = []
     if payload.get("schema") != "erdos97.n9_turn_inequality_frontier.v1":
         errors.append("unexpected schema")
+    if payload.get("status") != STATUS:
+        errors.append(f"unexpected status: {payload.get('status')!r}")
+    if payload.get("trust") != TRUST:
+        errors.append(f"unexpected trust: {payload.get('trust')!r}")
+    if payload.get("claim_scope") != CLAIM_SCOPE:
+        errors.append("claim_scope mismatch")
+    if payload.get("review_requirements") != REVIEW_REQUIREMENTS:
+        errors.append("review_requirements mismatch")
+    if payload.get("provenance") != PROVENANCE:
+        errors.append("provenance mismatch")
     if payload.get("n") != N:
         errors.append(f"unexpected n: {payload.get('n')!r}")
     if payload.get("row_size") != ROW_SIZE:
