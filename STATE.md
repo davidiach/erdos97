@@ -415,6 +415,18 @@ does not prove the supports exist, row forcing, `n=9`, or the bridge. See
 `docs/bootstrap-t12-81-3-trigger-uniqueness.md`, plus
 `docs/bootstrap-t12-81-3-escape-rich-support-csp.md`.
 
+The first-supply-chain and second-step-chain packets now push that same
+`81:3` escape model through the next bounded continuation layers. The
+first-supply-chain scan leaves exactly three basic-filter prefix survivors,
+all first activating center `8`, and no immediate center-`6` label-`6` supply
+extension. The second-step-chain scan then lets distinct intermediate centers
+from `{2,5,7}` activate after those center-`8` prefixes before testing one
+center-`6` label-`6` supply support; it finds no surviving chain. This remains
+one-support-per-activated-center proof-mining bookkeeping, not support
+existence, row forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-81-3-first-supply-chains.md` and
+`docs/bootstrap-t12-81-3-second-step-chains.md`.
+
 A source-`81` row-`8` singleton-support audit now probes the other
 relation-sufficient target in source `81`. It enumerates the nine center-`8`
 rows containing bootstrap-core witnesses `[0,2]` and one singleton support

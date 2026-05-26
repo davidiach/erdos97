@@ -175,7 +175,9 @@ This repository is a public research log and reproducibility workspace for Erdő
   then
   [`docs/bootstrap-t12-81-3-escape-rich-support-csp.md`](docs/bootstrap-t12-81-3-escape-rich-support-csp.md),
   and
-  [`docs/bootstrap-t12-81-3-first-supply-chains.md`](docs/bootstrap-t12-81-3-first-supply-chains.md).
+  [`docs/bootstrap-t12-81-3-first-supply-chains.md`](docs/bootstrap-t12-81-3-first-supply-chains.md),
+  then
+  [`docs/bootstrap-t12-81-3-second-step-chains.md`](docs/bootstrap-t12-81-3-second-step-chains.md).
 - For the source-`81` row-`8` singleton-support audit, where all fixed and
   one-row-drop activation-row survivors keep the original row `8`, read
   [`docs/bootstrap-t12-81-8-singleton-support-audit.md`](docs/bootstrap-t12-81-8-singleton-support-audit.md).

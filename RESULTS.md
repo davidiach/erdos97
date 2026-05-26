@@ -646,6 +646,23 @@ forcing, `n=9`, or the bootstrap bridge. See
 `scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py`, and
 `data/certificates/bootstrap_t12_81_3_escape_rich_support_csp.json`.
 
+The first-supply-chain prefix CSP then lets the first pre-`3` activation after
+seed `[0,1,4]` occur at any non-seed, non-`3` center. Among `4650`
+first-step/support-prefix pairs, exact backtracking leaves exactly three
+basic-filter prefix survivors, all starting at center `8`, and no immediate
+center-`6` label-`6` supply extension. The second-step-chain continuation CSP
+then tests distinct intermediate centers from `{2,5,7}` after those center-`8`
+prefixes before one center-`6` label-`6` supply support. It prunes `4112`
+support prefixes, tests `9528` label-`6` supply catalogues, searches `58` of
+them, and finds no surviving chain. These remain bounded proof-mining
+diagnostics, not support existence, row forcing, `n=9`, or the bootstrap
+bridge. See `docs/bootstrap-t12-81-3-first-supply-chains.md`,
+`scripts/check_bootstrap_t12_81_3_first_supply_chains.py`,
+`data/certificates/bootstrap_t12_81_3_first_supply_chains.json`, and
+`docs/bootstrap-t12-81-3-second-step-chains.md`,
+`scripts/check_bootstrap_t12_81_3_second_step_chains.py`,
+`data/certificates/bootstrap_t12_81_3_second_step_chains.json`.
+
 The source-`81` row-`8` singleton-support audit probes the other
 relation-sufficient source-`81` row. Center `8` has bootstrap-core witnesses
 `[0,2]` and singleton support labels `5` and `6`; the audit enumerates the
