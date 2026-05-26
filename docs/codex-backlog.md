@@ -193,14 +193,17 @@ Use this queue when no more specific issue is selected.
    `python scripts/check_n9_all_five_rich_support_obstruction.py --check --assert-expected --json`
    now closes the full `56^9` size-five support assignment space under only
    the two-circle row-pair cap and radical-axis crossing filters. This rules
-   out the all-centers-size-at-least-five support subcase repo-locally, but
-   the next rich-class widening is still the mixed exact-four/size-five
-   catalogue or a bridge hypothesis forcing the exact-four-only center.
+   out the all-centers-size-at-least-five support subcase repo-locally. The
+   localized rich-support counting lemma
+   `python scripts/check_localized_rich_support_counting.py --check --json`
+   now gives a proof-facing shortcut for the nonagon support layer itself:
+   any hypothetical 4-bad nonagon is forced into the all-exact-four,
+   selected-indegree-four support frontier by counting alone.
    The mixed rich-support reduction
    `python scripts/check_n9_mixed_rich_support_reduction.py --check --assert-expected --json`
-   now runs that four/five support catalogue with witness-pair capacity and
-   leaves exactly the `184` all-exact-four assignments. The mixed/frontier
-   crosswalk
+   remains as catalogue provenance for that reduction: it runs the four/five
+   support catalogue with witness-pair capacity and leaves exactly the `184`
+   all-exact-four assignments. The mixed/frontier crosswalk
    `python scripts/check_n9_mixed_rich_frontier_crosswalk.py --check --assert-expected --json`
    checks that those `184` terminal assignments are exactly the stored
    pre-vertex-circle frontier as a labelled row set. The next useful PR is

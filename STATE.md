@@ -251,22 +251,27 @@ all-five-rich subcases: for any same-radius supports `R_i`,
 pair-sharing count is that a hull-edge witness pair can occur in at most one
 support, while a non-edge witness pair can occur in at most two. Hence every
 center having five equidistant witnesses requires `n >= 12`. The same counting
-relaxation says any hypothetical 4-bad nonagon has at least seven exact-four
-centers, any hypothetical 4-bad decagon has at least five, and any hypothetical
-4-bad hendecagon has at least three. This does not replace the mixed support
-catalogues or prove `n=9`, `n=10`, `n=11`, or Erdos Problem #97. See
-`docs/rich-support-counting-lemma.md`.
+relaxation says any hypothetical 4-bad decagon has at least five exact-four
+centers and any hypothetical 4-bad hendecagon has at least three. A localized
+per-label support-pair cap sharpens the nonagon case further: any hypothetical
+4-bad nonagon is forced into the all-exact-four, selected-indegree-four support
+case by counting alone. This does not prove the review-pending exact-four
+frontier, `n=9`, `n=10`, `n=11`, or Erdos Problem #97. See
+`docs/rich-support-counting-lemma.md` and
+`docs/localized-rich-support-counting.md`.
 
 The follow-up mixed rich-support reduction enumerates every four- or
 five-witness support at every center, for `126^9 =
 8,004,512,848,309,157,376` raw assignments. With the same pair/crossing
 filters plus witness-pair capacity, the exact search leaves `184` complete
 assignments, and every one is all-exact-four. There are `0` complete
-assignments containing a size-five support. Repo-locally, any `n=9`
-selected-witness counterexample is therefore reduced to the exact-four
-frontier before vertex-circle replay. This still does not independently prove
-the review-pending exact-four exhaustive checker, prove `n=9`, or give a
-counterexample. See `docs/n9-mixed-rich-support-reduction.md`.
+assignments containing a size-five support. This is now a catalogue regression
+and provenance check for the proof-facing localized count, which already
+reduces any hypothetical `n=9` selected-witness counterexample to the
+exact-four frontier before vertex-circle replay. It still does not
+independently prove the review-pending exact-four exhaustive checker, prove
+`n=9`, or give a counterexample. See
+`docs/n9-mixed-rich-support-reduction.md`.
 
 A mixed-rich/frontier crosswalk now checks that those `184` terminal
 mixed-support assignments are exactly the stored `184` exact-four

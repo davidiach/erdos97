@@ -62,6 +62,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`rich-support-counting-lemma.md`](rich-support-counting-lemma.md):
   proof-facing edge-sensitive support pair-counting lemma for all-centers large
   rich classes; not an `n=9`, `n=10`, `n=11`, or global proof.
+- [`localized-rich-support-counting.md`](localized-rich-support-counting.md):
+  proof-facing per-label rich-support occurrence cap reducing hypothetical
+  4-bad nonagons to all-exact-four support systems by counting alone.
 - [`k4e-kalmanson-stretch-audit.md`](k4e-kalmanson-stretch-audit.md): exact
   fixed-pattern audit extracting `K4-e` stretch relations and combining them
   with Kalmanson inequalities; kills only the displayed `n=10` quotient-level

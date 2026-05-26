@@ -52,10 +52,15 @@ witness pairs and `binom(n,2)-n` non-edge witness pairs, giving
 
 Consequently, if every center has a rich class of size at least `k`, then
 `n >= binom(k, 2) + 2`. In particular, the all-centers size-five subcase is
-impossible for `n <= 11`; any hypothetical 4-bad nonagon has at least seven
-exact-four centers, any hypothetical 4-bad decagon has at least five, and any
-hypothetical 4-bad hendecagon has at least three. See
-`docs/rich-support-counting-lemma.md`.
+impossible for `n <= 11`; the global pair budget alone gives at least seven
+exact-four centers in a hypothetical 4-bad nonagon, at least five in a
+hypothetical 4-bad decagon, and at least three in a hypothetical 4-bad
+hendecagon. The localized per-label support-pair cap sharpens the nonagon
+case: each witness label can occur in at most four chosen supports, so any
+hypothetical 4-bad nonagon is already forced into the all-exact-four,
+selected-indegree-four support case by counting alone. See
+`docs/rich-support-counting-lemma.md` and
+`docs/localized-rich-support-counting.md`.
 
 ### Lemma: crossing-bisector and sharpened count
 

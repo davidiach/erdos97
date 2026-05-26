@@ -653,12 +653,16 @@ condition that the surviving multi-block family does not automatically satisfy:
   packet family and closes the full `56^9` size-five support assignment space
   using only the two-circle row-pair cap and radical-axis crossing filters.
   This rules out the all-centers-size-at-least-five `n=9` support subcase
-  repo-locally, but it still does not cover mixed exact-four/size-five
-  catalogues, prove `n=9`, or prove the adaptive blocker bridge.
+  repo-locally. The localized rich-support counting lemma recorded in
+  `docs/localized-rich-support-counting.md` now sharpens the support bridge:
+  any hypothetical 4-bad nonagon is forced into the all-exact-four,
+  selected-indegree-four support frontier by counting alone. This still does
+  not prove `n=9` or prove the adaptive blocker bridge.
 - the generator-independent mixed rich-support reduction recorded in
   `docs/n9-mixed-rich-support-reduction.md`, which closes the four/five
   support catalogue under the same pair/crossing filters plus witness-pair
-  capacity. It leaves exactly `184` complete assignments and all are
+  capacity. It is now catalogue provenance for the localized counting
+  shortcut: it leaves exactly `184` complete assignments and all are
   all-exact-four. The mixed/frontier crosswalk recorded in
   `docs/n9-mixed-rich-frontier-crosswalk.md` checks that those `184` terminal
   assignments are exactly the stored pre-vertex-circle frontier as a labelled

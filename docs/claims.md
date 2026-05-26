@@ -107,10 +107,25 @@ hypothetical 4-bad nonagon also shows that at most two centers can have
 forces at least five exact-four centers for `n=10` and at least three for
 `n=11`.
 
-This is a support-level counting lemma only. It does not rule out mixed
-exact-four/rich catalogues and does not prove `n=9`, `n=10`, `n=11`, or Erdos
-Problem #97. See `docs/rich-support-counting-lemma.md` and the checker
-`scripts/check_rich_support_counting_bound.py`.
+The companion localized counting cap improves the nonagon conclusion. For each
+fixed witness label `x`,
+
+```text
+sum_{i: x in R_i} (|R_i| - 1) <= 2n - 4.
+```
+
+For `n=9`, every support occurrence contributes at least `3` to its label's
+localized budget, so each label occurs in at most four chosen supports. The
+4-bad baseline already needs `36` support occurrences, hence every chosen
+support is exact-four and every label has selected indegree four.
+
+These are support-level counting lemmas only. They reduce hypothetical
+nonagons to the all-exact-four support frontier, but they do not prove the
+review-pending exact-four vertex-circle checker, `n=9`, `n=10`, `n=11`, or
+Erdos Problem #97. See `docs/rich-support-counting-lemma.md`,
+`docs/localized-rich-support-counting.md`, and the checkers
+`scripts/check_rich_support_counting_bound.py` and
+`scripts/check_localized_rich_support_counting.py`.
 
 ### Altman diagonal-order sums
 
@@ -673,9 +688,10 @@ assignments, all of which use exactly four witnesses at every center. There
 are `0` complete assignments containing a size-five support. Check it with
 `python scripts/check_n9_mixed_rich_support_reduction.py --check --assert-expected --json`.
 
-Repo-locally, this reduces any `n=9` selected-witness counterexample to the
-all-exact-four support frontier before vertex-circle replay: no center may
-have a rich distance class of size at least five. It does not independently
+The localized rich-support count now gives the proof-facing version of this
+nonagon support reduction. The finite mixed catalogue remains useful
+provenance and confirms that the row-pair/crossing/witness-pair abstraction
+lands on the same `184` all-exact-four assignments. It does not independently
 prove the review-pending exact-four vertex-circle exhaustive checker, does not
 prove `n=9`, does not prove Erdos Problem #97, and does not provide a
 counterexample. See `docs/n9-mixed-rich-support-reduction.md`.

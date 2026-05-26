@@ -253,6 +253,10 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--assert-expected --json"
         in command_texts
     )
+    assert (
+        "python scripts/check_localized_rich_support_counting.py --check --json"
+        in command_texts
+    )
     assert ordered_command_texts.index(
         "python scripts/check_n9_row_ptolemy_gap_self_edge_cores.py --check "
         "--assert-expected --json"
