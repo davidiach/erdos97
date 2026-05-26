@@ -6,7 +6,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_n9_vertex_circle_input_audit import (
+    CLAIM_SCOPE,
     DEFAULT_ARTIFACT,
     EXPECTED_CROSS_FULL,
     EXPECTED_MAIN_FULL,
@@ -73,6 +76,14 @@ def test_n9_vertex_circle_input_audit_expected_counts_and_scope() -> None:
     assert "does not rerun the brancher" in payload["claim_scope"]
     assert "does not prove n=9" in payload["claim_scope"]
     assert "does not claim a counterexample" in payload["claim_scope"]
+
+
+def test_n9_vertex_circle_input_audit_rejects_top_level_claim_scope_append() -> None:
+    payload = n9_vertex_circle_input_audit_payload(_payload())
+    payload["claim_scope"] = CLAIM_SCOPE + " This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_input_audit(payload)
 
 
 def test_n9_vertex_circle_input_audit_rejects_row0_witness_drift() -> None:
