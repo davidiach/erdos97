@@ -42,7 +42,7 @@ CLAIM_SCOPE = (
     "not a proof of Erdos Problem #97, not a counterexample, not an "
     "independent review, and not a source-of-truth status update."
 )
-CYCLIC_ORDER = list(range(N))
+CYCLIC_ORDER = tuple(range(N))
 CONCLUSION = (
     "All 184 regenerated n=9 pair/crossing/count frontier assignments "
     "have stored integer dual certificates proving infeasibility of "
@@ -621,7 +621,7 @@ def validate_payload(payload: dict[str, object]) -> list[str]:
         errors.append(f"unexpected trust: {payload.get('trust')!r}")
     if payload.get("claim_scope") != CLAIM_SCOPE:
         errors.append("claim_scope mismatch")
-    if payload.get("cyclic_order") != CYCLIC_ORDER:
+    if payload.get("cyclic_order") != list(CYCLIC_ORDER):
         errors.append("cyclic_order mismatch")
     if payload.get("conclusion") != CONCLUSION:
         errors.append("conclusion mismatch")

@@ -97,6 +97,8 @@ def test_payload_validation_guards_review_pending_claim_scope() -> None:
 
 
 def test_payload_validation_accepts_canonical_claim_scope_fields() -> None:
+    assert CYCLIC_ORDER == tuple(range(9))
+
     errors = validate_payload(
         {
             "schema": "erdos97.n9_turn_inequality_frontier.v1",
