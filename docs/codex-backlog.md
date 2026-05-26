@@ -348,6 +348,11 @@ Use this queue when no more specific issue is selected.
    auxiliary first steps: among `4650` first-step/support-prefix pairs it finds
    exactly three basic-filter survivor prefixes, all starting at center `8`,
    and none of those admits an immediate center-`6` label-`6` supply support.
+   The second-supply-chain prefix crosswalk in
+   `docs/bootstrap-t12-81-3-second-supply-chains.md` then allows one further
+   non-target, non-supply activation from closure `[0,1,4,8]`; it leaves one
+   center-`8` then center-`2` prefix, with support `[1,3,4,8]`, and no
+   immediate center-`6` label-`6` supply extension for that prefix.
    The second-step-chain CSP in
    `docs/bootstrap-t12-81-3-second-step-chains.md` attacks the bounded
    distinct-intermediate continuation: after those center-`8` prefixes, no

@@ -747,9 +747,16 @@ condition that the surviving multi-block family does not automatically satisfy:
   pre-`3` activation from seed `[0,1,4]` to occur at any non-seed, non-`3`
   center. This leaves exactly three basic-filter prefix survivors, all with
   first activation at center `8`, and no immediate center-`6` label-`6` supply
-  extension for those prefixes. The remaining target is a longer center-`8`
-  chain audit or a minimal/rich-class hypothesis that rules out those boundary
-  prefixes.
+  extension for those prefixes. The next bounded continuation layers are
+  recorded in the second-supply-chain, second-step-chain, and post-`8`
+  entries below.
+- bootstrap/T12 focused `81:3` second-supply-chain prefix evidence, as
+  recorded in `docs/bootstrap-t12-81-3-second-supply-chains.md`, allowing one
+  further non-target, non-supply activation from closure `[0,1,4,8]`. This
+  leaves one center-`8` then center-`2` prefix, with support `[1,3,4,8]`, and
+  no immediate center-`6` label-`6` supply extension for that prefix. This is
+  an intermediate crosswalk toward the broader distinct-intermediate and
+  post-`8` chain audits.
 - bootstrap/T12 focused `81:3` second-step-chain evidence, as recorded in
   `docs/bootstrap-t12-81-3-second-step-chains.md`, testing distinct
   intermediate centers from `{2,5,7}` after the three stored center-`8`

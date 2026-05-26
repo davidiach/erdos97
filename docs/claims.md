@@ -991,7 +991,11 @@ The first-supply-chain prefix CSP in
 center activate first after seed `[0,1,4]` before checking center-`6` label-`6`
 supply. Exact backtracking leaves exactly three basic-filter prefix survivors,
 all with first activation at center `8`, and no immediate center-`6` label-`6`
-supply extension. The second-step-chain continuation in
+supply extension. The second-supply-chain prefix crosswalk in
+`docs/bootstrap-t12-81-3-second-supply-chains.md` then allows one additional
+activation from closure `[0,1,4,8]`; it leaves one center-`8` then center-`2`
+prefix, with support `[1,3,4,8]`, and no immediate center-`6` label-`6`
+supply extension for that prefix. The second-step-chain continuation in
 `docs/bootstrap-t12-81-3-second-step-chains.md` then allows distinct
 intermediate centers from `{2,5,7}` after those center-`8` prefixes before one
 center-`6` supply support. It finds no surviving chain under the same basic

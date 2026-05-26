@@ -2113,6 +2113,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_81_3_second_supply_chains",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_second_supply_chains.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Second-supply-chain prefix CSP for the 81:3 pre-3 label-6 "
+            "escape; leaves one second-step prefix survivor and no immediate "
+            "center-6 label-6 extension, and is not support existence, row "
+            "forcing, an n=9 proof, a bridge proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_81_3_second_step_chains",
         command=(
             "python",

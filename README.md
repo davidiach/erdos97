@@ -177,6 +177,8 @@ This repository is a public research log and reproducibility workspace for Erdő
   and
   [`docs/bootstrap-t12-81-3-first-supply-chains.md`](docs/bootstrap-t12-81-3-first-supply-chains.md),
   then
+  [`docs/bootstrap-t12-81-3-second-supply-chains.md`](docs/bootstrap-t12-81-3-second-supply-chains.md),
+  then
   [`docs/bootstrap-t12-81-3-second-step-chains.md`](docs/bootstrap-t12-81-3-second-step-chains.md)
   and its raw-catalogue companion
   [`docs/bootstrap-t12-81-3-post8-supply-chains.md`](docs/bootstrap-t12-81-3-post8-supply-chains.md).

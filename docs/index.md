@@ -281,6 +281,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-81-3-first-supply-chains.md`](bootstrap-t12-81-3-first-supply-chains.md):
   first-step prefix CSP allowing any non-seed, non-`3` center to activate
   first before testing immediate label-`6` supply extensions.
+- [`bootstrap-t12-81-3-second-supply-chains.md`](bootstrap-t12-81-3-second-supply-chains.md):
+  second-step prefix crosswalk leaving one center-`8` then center-`2` prefix
+  and no immediate center-`6` label-`6` supply extension for it.
 - [`bootstrap-t12-81-3-second-step-chains.md`](bootstrap-t12-81-3-second-step-chains.md):
   distinct-intermediate continuation CSP after the stored center-`8` prefix
   survivors, before testing center-`6` label-`6` supply.

@@ -307,6 +307,8 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--check --assert-expected --json",
         "python scripts/check_bootstrap_t12_81_3_first_supply_chains.py "
         "--check --assert-expected --json",
+        "python scripts/check_bootstrap_t12_81_3_second_supply_chains.py "
+        "--check --assert-expected --json",
         "python scripts/check_bootstrap_t12_81_3_second_step_chains.py "
         "--check --assert-expected --json",
         "python scripts/check_bootstrap_t12_81_3_post8_supply_chains.py "

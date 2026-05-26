@@ -650,8 +650,12 @@ The first-supply-chain prefix CSP then lets the first pre-`3` activation after
 seed `[0,1,4]` occur at any non-seed, non-`3` center. Among `4650`
 first-step/support-prefix pairs, exact backtracking leaves exactly three
 basic-filter prefix survivors, all starting at center `8`, and no immediate
-center-`6` label-`6` supply extension. The second-step-chain continuation CSP
-then tests distinct intermediate centers from `{2,5,7}` after those center-`8`
+center-`6` label-`6` supply extension. The second-supply-chain prefix
+crosswalk then lets one additional non-target, non-supply center activate
+from closure `[0,1,4,8]`; it leaves one center-`8` then center-`2` prefix,
+with support `[1,3,4,8]`, and no immediate center-`6` label-`6` supply
+extension for that prefix. The second-step-chain continuation CSP then tests
+distinct intermediate centers from `{2,5,7}` after those center-`8`
 prefixes before one center-`6` label-`6` supply support. It prunes `4112`
 support prefixes, tests `9528` label-`6` supply catalogues, searches `58` of
 them, and finds no surviving chain. These remain bounded proof-mining
@@ -659,6 +663,9 @@ diagnostics, not support existence, row forcing, `n=9`, or the bootstrap
 bridge. See `docs/bootstrap-t12-81-3-first-supply-chains.md`,
 `scripts/check_bootstrap_t12_81_3_first_supply_chains.py`,
 `data/certificates/bootstrap_t12_81_3_first_supply_chains.json`, and
+`docs/bootstrap-t12-81-3-second-supply-chains.md`,
+`scripts/check_bootstrap_t12_81_3_second_supply_chains.py`,
+`data/certificates/bootstrap_t12_81_3_second_supply_chains.json`, plus
 `docs/bootstrap-t12-81-3-second-step-chains.md`,
 `scripts/check_bootstrap_t12_81_3_second_step_chains.py`,
 `data/certificates/bootstrap_t12_81_3_second_step_chains.json`. The companion

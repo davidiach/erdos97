@@ -217,6 +217,10 @@ def test_verify_bridge_frontier_includes_bootstrap_audits() -> None:
             "--check --assert-expected --json"
         ),
         (
+            "python scripts/check_bootstrap_t12_81_3_second_supply_chains.py "
+            "--check --assert-expected --json"
+        ),
+        (
             "python scripts/check_bootstrap_t12_81_3_second_step_chains.py "
             "--check --assert-expected --json"
         ),
