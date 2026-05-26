@@ -3,6 +3,7 @@ from __future__ import annotations
 import pytest
 
 from scripts.check_n9_vertex_circle_frontier_coverage_crosswalk import (
+    CLAIM_SCOPE,
     EXPECTED_ASSIGNMENT_COUNT,
     EXPECTED_SEQUENCE_ROWS_SHA256,
     EXPECTED_SORTED_ROWS_SHA256,
@@ -13,9 +14,14 @@ from scripts.check_n9_vertex_circle_frontier_coverage_crosswalk import (
 pytestmark = pytest.mark.slow
 
 
-def test_frontier_coverage_crosswalk_payload_scope_and_counts() -> None:
-    payload = frontier_coverage_crosswalk_payload()
+@pytest.fixture(scope="module")
+def payload() -> dict[str, object]:
+    return frontier_coverage_crosswalk_payload()
 
+
+def test_frontier_coverage_crosswalk_payload_scope_and_counts(
+    payload: dict[str, object],
+) -> None:
     assert_expected_frontier_coverage_crosswalk(payload)
     assert payload["validation_status"] == "passed"
     summary = payload["frontier_coverage_crosswalk"]
@@ -29,3 +35,13 @@ def test_frontier_coverage_crosswalk_payload_scope_and_counts() -> None:
     assert summary["example_mismatches"] == []
     assert "does not prove filter soundness" in payload["claim_scope"]
     assert "counterexample" in payload["claim_scope"]
+
+
+def test_frontier_coverage_crosswalk_rejects_top_level_claim_scope_append(
+    payload: dict[str, object],
+) -> None:
+    tampered = dict(payload)
+    tampered["claim_scope"] = CLAIM_SCOPE + " This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_frontier_coverage_crosswalk(tampered)
