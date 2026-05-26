@@ -291,6 +291,10 @@ def test_verify_n10_review_includes_turn_audits() -> None:
             "--check --assert-expected --json"
         ),
         (
+            "python scripts/check_n10_q1_rich_vertex_circle.py "
+            "--check --assert-expected --json"
+        ),
+        (
             "python scripts/check_n10_turn_row0_pilot.py "
             "--check --assert-expected --json"
         ),

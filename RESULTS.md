@@ -1101,6 +1101,14 @@ finite support bookkeeping only, not a proof of `n=10`, not a proof of Erdos
 Problem #97, and not a counterexample. See
 `docs/n10-mixed-rich-support-capacity.md`.
 
+The follow-up rich vertex-circle quotient diagnostics in
+`data/certificates/n10_q2_rich_vertex_circle.json` and
+`data/certificates/n10_q1_rich_vertex_circle.json` close the exactly-two and
+exactly-one size-five layers, respectively. Combined with the support-capacity
+catalogue, this leaves only the all-exact-four `q=0` layer inside the
+four/five support-plus-quotient abstraction. This remains review-pending
+finite bookkeeping only, not an `n=10` proof and not a global status update.
+
 The row-circle Ptolemy diagnostic in
 `docs/row-circle-ptolemy-nlp.md` adds the Ptolemy equality forced by each
 selected witness quadruple being concyclic around its center. It numerically

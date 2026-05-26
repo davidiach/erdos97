@@ -4439,6 +4439,50 @@ artifacts:
       - counterexample to Erdos Problem #97
       - general proof of Erdos Problem #97
 
+  - id: n10_q1_rich_vertex_circle
+    path: data/certificates/n10_q1_rich_vertex_circle.json
+    sha256: 4534657681ceddbe8ecafc35cb9f2a9b30cf5d7a78abd14e577bcf0b3334b910
+    size_bytes: 5275
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_n10_q1_rich_vertex_circle.py
+    command: python scripts/check_n10_q1_rich_vertex_circle.py --write --assert-expected
+    checker: scripts/check_n10_q1_rich_vertex_circle.py
+    check_command: python scripts/check_n10_q1_rich_vertex_circle.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Generator-independent n=10 exactly-one-size-five rich-support diagnostic under row-pair cap, two-overlap crossing, witness-pair capacity, and rich vertex-circle quotient filters; finite support-plus-quotient reduction only, not a proof of n=10, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n10_q1_rich_vertex_circle.v1
+      status: N10_Q1_RICH_VERTEX_CIRCLE_CLOSURE
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.n: 10
+      summary.support_sizes:
+        - 4
+        - 5
+      summary.size_five_center_count: 1
+      summary.representatives_checked: 1
+      summary.complete_assignments_found: 0
+      summary.total_nodes_visited: 362556
+      summary.total_dead_end_count: 97419
+      summary.total_vertex_circle_prune_count: 181302
+      summary.max_depth_reached: 7
+      summary.vertex_circle_status_counts.self_edge: 82444
+      summary.vertex_circle_status_counts.strict_cycle: 98858
+      summary.max_size_five_centers_surviving_support_plus_vertex_circle_filters: 0
+      summary.min_exact_four_only_centers_surviving_support_plus_vertex_circle_filters: 10
+      provenance.command: python scripts/check_n10_q1_rich_vertex_circle.py --write --assert-expected
+    forbidden_claims:
+      - n=10 is proved
+      - the q=0 case is closed
+      - this checker alone revalidates the q=2 or q=3 through q=7 closures
+      - support-plus-quotient filters prove Euclidean realizability or nonrealizability
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
   - id: n10_vertex_circle_singleton_slices
     path: data/certificates/n10_vertex_circle_singleton_slices.json
     sha256: 66b1212e6a61a04530d7e2b33afbeafb3039b125a026c94c814c47bbc7cba856

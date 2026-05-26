@@ -721,9 +721,9 @@ that abstraction.
 
 Repo-locally, any `n=10` four/five support assignment surviving those filters
 has at most `2` size-five supports, hence at least `8` exact-four-only
-centers. This does not close the `q=0`, `q=1`, or `q=2` cases, does not prove
-`n=10`, does not prove Erdos Problem #97, and does not provide a
-counterexample. See `docs/n10-mixed-rich-support-capacity.md`.
+centers. This checker alone does not close the `q=0`, `q=1`, or `q=2` cases,
+does not prove `n=10`, does not prove Erdos Problem #97, and does not provide
+a counterexample. See `docs/n10-mixed-rich-support-capacity.md`.
 
 ### n=10 q=2 rich vertex-circle closure diagnostic
 
@@ -743,6 +743,25 @@ centers. This combined consequence depends on both artifacts; this checker
 itself closes exactly the `q=2` layer. It does not close `q=0` or `q=1`, does
 not prove `n=10`, does not prove Erdos Problem #97, and does not provide a
 counterexample. See `docs/n10-q2-rich-vertex-circle.md`.
+
+### n=10 q=1 rich vertex-circle closure diagnostic
+
+Status: `REVIEW_PENDING_DIAGNOSTIC` / finite support-plus-quotient
+catalogue.
+
+The checker in `scripts/check_n10_q1_rich_vertex_circle.py` exhausts the
+unique dihedral representative with exactly one size-five support under the
+same row-pair cap, two-overlap crossing, and witness-pair capacity filters,
+then adds the rich vertex-circle quotient gate on partial assignments. It
+finds no clean complete `q=1` assignment.
+
+Combined with the earlier `q=2` rich vertex-circle closure and the `q=3,...,7`
+support-capacity closure, this says any `n=10` four/five support assignment
+surviving these support-plus-quotient filters must be all-exact-four at this
+abstraction level. This combined consequence depends on all three artifacts;
+this checker itself closes exactly the `q=1` layer. It does not close `q=0`,
+does not prove `n=10`, does not prove Erdos Problem #97, and does not provide
+a counterexample. See `docs/n10-q1-rich-vertex-circle.md`.
 
 ### n=10 row0 turn plus vertex-circle crosswalk
 
