@@ -42,6 +42,12 @@ CLAIM_SCOPE = (
     "not a proof of Erdos Problem #97, not a counterexample, not an "
     "independent review, and not a source-of-truth status update."
 )
+CYCLIC_ORDER = tuple(range(N))
+CONCLUSION = (
+    "All 184 regenerated n=9 pair/crossing/count frontier assignments "
+    "have stored integer dual certificates proving infeasibility of "
+    "the candidate weak turn inequalities."
+)
 REVIEW_REQUIREMENTS = [
     "Review the geometric turn lemma and indexing conventions.",
     "Review the regenerated n=9 source frontier and lack of hidden symmetry quotienting.",
@@ -518,7 +524,7 @@ def summary_payload() -> dict[str, object]:
         "claim_scope": CLAIM_SCOPE,
         "n": N,
         "row_size": ROW_SIZE,
-        "cyclic_order": list(range(N)),
+        "cyclic_order": list(CYCLIC_ORDER),
         "source_frontier": {
             "description": (
                 "Complete selected-witness assignments surviving pair/crossing/count "
@@ -584,11 +590,7 @@ def summary_payload() -> dict[str, object]:
         },
         "farkas_certificates": farkas_certificates,
         "benchmarks": [side_cap_benchmark_summary(normalized_frontier)],
-        "conclusion": (
-            "All 184 regenerated n=9 pair/crossing/count frontier assignments "
-            "have stored integer dual certificates proving infeasibility of "
-            "the candidate weak turn inequalities."
-        ),
+        "conclusion": CONCLUSION,
         "review_requirements": list(REVIEW_REQUIREMENTS),
         "provenance": dict(PROVENANCE),
     }
@@ -619,6 +621,10 @@ def validate_payload(payload: dict[str, object]) -> list[str]:
         errors.append(f"unexpected trust: {payload.get('trust')!r}")
     if payload.get("claim_scope") != CLAIM_SCOPE:
         errors.append("claim_scope mismatch")
+    if payload.get("cyclic_order") != list(CYCLIC_ORDER):
+        errors.append("cyclic_order mismatch")
+    if payload.get("conclusion") != CONCLUSION:
+        errors.append("conclusion mismatch")
     if payload.get("review_requirements") != REVIEW_REQUIREMENTS:
         errors.append("review_requirements mismatch")
     if payload.get("provenance") != PROVENANCE:
