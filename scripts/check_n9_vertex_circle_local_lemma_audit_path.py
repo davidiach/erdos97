@@ -3386,6 +3386,32 @@ def assert_expected_failure_contract_errors(
     return errors
 
 
+def _assert_expected_failure_validation_error_count(errors: Any) -> int | None:
+    if not isinstance(errors, list):
+        return None
+    return sum(
+        1
+        for error in errors
+        if not str(error).startswith("assert_expected failed:")
+        and not str(error).startswith("assert_expected_failure ")
+    )
+
+
+def _assert_expected_failure_payload_contract_errors(
+    payload: Mapping[str, Any],
+) -> list[str]:
+    if "assert_expected_failure" not in payload:
+        return []
+    return assert_expected_failure_contract_errors(
+        payload.get("assert_expected_failure"),
+        expected_validation_error_count=(
+            _assert_expected_failure_validation_error_count(
+                payload.get("validation_errors", [])
+            )
+        ),
+    )
+
+
 def _summary_status(items: Any) -> str:
     if not isinstance(items, list):
         return "failed"
@@ -3463,6 +3489,13 @@ def failure_lines(payload: Mapping[str, Any]) -> list[str]:
                 f"{assert_expected_failure.get('validation_error_count')}",
             ]
         )
+        errors = payload.get("validation_errors", [])
+        existing_errors = (
+            {str(error) for error in errors} if isinstance(errors, list) else set()
+        )
+        for error in _assert_expected_failure_payload_contract_errors(payload):
+            if error not in existing_errors:
+                lines.append(f"- {error}")
     elif assert_expected_failure is not None:
         lines.append(
             "assert_expected_failure is not an object: "
@@ -3489,6 +3522,27 @@ def _payload_with_generation_failure(exc: Exception) -> dict[str, Any]:
         "exception_type": type(exc).__name__,
         "provenance": dict(PROVENANCE),
     }
+
+
+def _payload_with_existing_assert_expected_failure_contract_check(
+    payload: Mapping[str, Any],
+) -> Mapping[str, Any]:
+    contract_errors = _assert_expected_failure_payload_contract_errors(payload)
+    if not contract_errors:
+        return payload
+
+    updated = dict(payload)
+    raw_errors = updated.get("validation_errors", [])
+    if isinstance(raw_errors, list):
+        errors = [str(error) for error in raw_errors]
+    else:
+        errors = [f"validation_errors is not a list: {type(raw_errors).__name__}"]
+    for error in contract_errors:
+        if error not in errors:
+            errors.append(error)
+    updated["validation_status"] = "failed"
+    updated["validation_errors"] = errors
+    return updated
 
 
 def _payload_with_assert_expected_failure(
@@ -3543,6 +3597,7 @@ def main(argv: list[str] | None = None) -> int:
         except (AssertionError, KeyError, TypeError, ValueError) as exc:
             assert_expected_failed = True
             payload = _payload_with_assert_expected_failure(payload, exc)
+    payload = _payload_with_existing_assert_expected_failure_contract_check(payload)
 
     if args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))

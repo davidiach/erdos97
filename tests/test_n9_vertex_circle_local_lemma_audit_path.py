@@ -56,6 +56,18 @@ def _layer_contract_trust_tamper_payload() -> dict[str, Any]:
     )
 
 
+def _assert_expected_failure_contract_tamper_payload() -> dict[str, Any]:
+    payload = _layer_contract_trust_tamper_payload()
+    payload["assert_expected_failure"] = {
+        "schema": "erdos97.invalid_assert_expected_failure.v1",
+        "stage": "payload_construction",
+        "exception_type": "AssertionError",
+        "message": "validation errors: []",
+        "validation_error_count": 0,
+    }
+    return payload
+
+
 def test_local_lemma_audit_path_counts_and_scope() -> None:
     payload = local_lemma_audit_path_payload()
 
@@ -1304,6 +1316,25 @@ def test_local_lemma_audit_path_assert_expected_failure_contract_errors() -> Non
     )
 
 
+def test_local_lemma_audit_path_failure_lines_crosscheck_assert_expected_failure() -> None:
+    lines = failure_lines(_assert_expected_failure_contract_tamper_payload())
+
+    assert (
+        "- assert_expected_failure schema mismatch: "
+        "'erdos97.invalid_assert_expected_failure.v1'"
+    ) in lines
+    assert (
+        "- assert_expected_failure stage mismatch: 'payload_construction'"
+        in lines
+    )
+    assert any(
+        line.startswith(
+            "- assert_expected_failure validation_error_count mismatch: "
+        )
+        for line in lines
+    )
+
+
 def test_local_lemma_audit_path_cli_failure_summary_includes_contract_rollups(
     monkeypatch,
     capsys,
@@ -1643,6 +1674,41 @@ def test_local_lemma_audit_path_cli_json_layer_failure_marks_layer_side(
     ]
     assert any(
         "aggregate_simple_replay contract mismatch on trust" in error
+        for error in parsed["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_cli_json_crosschecks_assert_expected_failure(
+    monkeypatch,
+    capsys,
+) -> None:
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        _assert_expected_failure_contract_tamper_payload,
+    )
+
+    assert audit_path_main(["--check", "--json"]) == 1
+
+    captured = capsys.readouterr()
+    parsed = json.loads(captured.out)
+    assert captured.err == ""
+    assert parsed["validation_status"] == "failed"
+    assert any(
+        error == (
+            "assert_expected_failure schema mismatch: "
+            "'erdos97.invalid_assert_expected_failure.v1'"
+        )
+        for error in parsed["validation_errors"]
+    )
+    assert any(
+        error == "assert_expected_failure stage mismatch: 'payload_construction'"
+        for error in parsed["validation_errors"]
+    )
+    assert any(
+        error.startswith(
+            "assert_expected_failure validation_error_count mismatch: "
+        )
         for error in parsed["validation_errors"]
     )
 
