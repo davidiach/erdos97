@@ -89,10 +89,7 @@ def test_payload_validation_guards_review_pending_claim_scope() -> None:
 
     assert "unexpected status: 'MACHINE_CHECKED_TURN_FRONTIER'" in errors
     assert "unexpected trust: 'MACHINE_CHECKED_FINITE_CASE_ARTIFACT'" in errors
-    assert any(
-        error.startswith("claim_scope missing guard phrases:")
-        for error in errors
-    )
+    assert "claim_scope mismatch" in errors
     assert "review_requirements mismatch" in errors
     assert "provenance mismatch" in errors
 
@@ -113,7 +110,24 @@ def test_payload_validation_accepts_canonical_claim_scope_fields() -> None:
 
     assert not any(error.startswith("unexpected status:") for error in errors)
     assert not any(error.startswith("unexpected trust:") for error in errors)
-    assert not any(error.startswith("claim_scope missing") for error in errors)
+    assert "claim_scope mismatch" not in errors
     assert "review_requirements mismatch" not in errors
     assert "provenance mismatch" not in errors
     assert "missing source_frontier object" in errors
+
+
+def test_payload_validation_rejects_claim_scope_with_extra_overclaim() -> None:
+    errors = validate_payload(
+        {
+            "schema": "erdos97.n9_turn_inequality_frontier.v1",
+            "status": STATUS,
+            "trust": TRUST,
+            "claim_scope": CLAIM_SCOPE + " This establishes a counterexample.",
+            "review_requirements": list(REVIEW_REQUIREMENTS),
+            "provenance": dict(PROVENANCE),
+            "n": 9,
+            "row_size": 4,
+        }
+    )
+
+    assert "claim_scope mismatch" in errors

@@ -42,13 +42,6 @@ CLAIM_SCOPE = (
     "not a proof of Erdos Problem #97, not a counterexample, not an "
     "independent review, and not a source-of-truth status update."
 )
-CLAIM_SCOPE_REQUIRED_PHRASES = (
-    "Candidate n=9 selected-witness turn-inequality frontier replay",
-    "not a proof of Erdos Problem #97",
-    "not a counterexample",
-    "not an independent review",
-    "not a source-of-truth status update",
-)
 REVIEW_REQUIREMENTS = [
     "Review the geometric turn lemma and indexing conventions.",
     "Review the regenerated n=9 source frontier and lack of hidden symmetry quotienting.",
@@ -624,17 +617,8 @@ def validate_payload(payload: dict[str, object]) -> list[str]:
         errors.append(f"unexpected status: {payload.get('status')!r}")
     if payload.get("trust") != TRUST:
         errors.append(f"unexpected trust: {payload.get('trust')!r}")
-    claim_scope = payload.get("claim_scope")
-    if not isinstance(claim_scope, str):
-        errors.append("missing claim_scope string")
-    else:
-        missing_phrases = [
-            phrase
-            for phrase in CLAIM_SCOPE_REQUIRED_PHRASES
-            if phrase not in claim_scope
-        ]
-        if missing_phrases:
-            errors.append(f"claim_scope missing guard phrases: {missing_phrases!r}")
+    if payload.get("claim_scope") != CLAIM_SCOPE:
+        errors.append("claim_scope mismatch")
     if payload.get("review_requirements") != REVIEW_REQUIREMENTS:
         errors.append("review_requirements mismatch")
     if payload.get("provenance") != PROVENANCE:
