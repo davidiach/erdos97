@@ -5,7 +5,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_n9_vertex_circle_frontier_assignment_audit import (
+    CLAIM_SCOPE,
     EXPECTED_ASSIGNMENT_WITNESS_PAIR_PROFILES,
     EXPECTED_CENTER_PAIR_INTERSECTION_HISTOGRAM,
     EXPECTED_SELECTED_INDEGREE_VALUE_HISTOGRAM,
@@ -42,6 +45,14 @@ def test_frontier_assignment_audit_payload_scope_and_counts() -> None:
     assert "stored 184 frontier assignments" in payload["claim_scope"]
     assert "does not prove frontier coverage" in payload["claim_scope"]
     assert "counterexample" in payload["claim_scope"]
+
+
+def test_frontier_assignment_audit_rejects_appended_claim_scope_overclaim() -> None:
+    payload = frontier_assignment_audit_payload()
+    payload["claim_scope"] = f"{CLAIM_SCOPE} This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_frontier_assignment_audit(payload)
 
 
 def test_frontier_assignment_audit_cli_json() -> None:
