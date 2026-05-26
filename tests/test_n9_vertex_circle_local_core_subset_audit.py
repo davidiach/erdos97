@@ -5,7 +5,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_n9_vertex_circle_local_core_subset_audit import (
+    CLAIM_SCOPE,
     DEFAULT_LOCAL_CORE_PACKET,
     DEFAULT_MOTIF_FAMILIES,
     assert_expected_local_core_subset_audit,
@@ -28,6 +31,14 @@ def test_local_core_subset_audit_counts_and_scope() -> None:
     assert summary["unobstructed_core_count"] == 0
     assert "does not prove frontier coverage" in payload["claim_scope"]
     assert "counterexample" in payload["claim_scope"]
+
+
+def test_local_core_subset_audit_rejects_appended_claim_scope_overclaim() -> None:
+    payload = local_core_subset_audit_payload()
+    payload["claim_scope"] = f"{CLAIM_SCOPE} This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_local_core_subset_audit(payload)
 
 
 def test_local_core_subset_audit_rejects_row_outside_full_family(
