@@ -8,6 +8,7 @@ from pathlib import Path
 import pytest
 
 from scripts.check_n9_vertex_circle_local_lemma_replay_crosswalk import (
+    CLAIM_SCOPE,
     DEFAULT_AGGREGATE,
     DEFAULT_SIMPLE_REPLAY,
     assert_expected_replay_crosswalk,
@@ -57,6 +58,17 @@ def test_replay_crosswalk_expected_counts_and_scope(
     assert "not a proof of n=9" in payload["claim_scope"]
     assert "not a counterexample" in payload["claim_scope"]
     assert "not a global status update" in payload["claim_scope"]
+
+
+def test_replay_crosswalk_rejects_top_level_claim_scope_append(
+    aggregate: dict[str, object],
+    simple_replay: dict[str, object],
+) -> None:
+    payload = crosswalk_payload(aggregate, simple_replay)
+    payload["claim_scope"] = CLAIM_SCOPE + " This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_replay_crosswalk(payload)
 
 
 def test_replay_crosswalk_family_records(
