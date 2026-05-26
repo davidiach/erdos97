@@ -284,6 +284,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-81-3-second-step-chains.md`](bootstrap-t12-81-3-second-step-chains.md):
   distinct-intermediate continuation CSP after the stored center-`8` prefix
   survivors, before testing center-`6` label-`6` supply.
+- [`bootstrap-t12-81-3-post8-supply-chains.md`](bootstrap-t12-81-3-post8-supply-chains.md):
+  raw support-catalogue accounting companion for the same post-center-`8`
+  chain model.
 - [`bootstrap-t12-81-8-singleton-support-audit.md`](bootstrap-t12-81-8-singleton-support-audit.md):
   source-`81` row-`8` singleton-support audit showing only the original row
   survives the fixed-neighborhood and one-row-drop activation-row scans.

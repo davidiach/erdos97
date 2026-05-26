@@ -757,6 +757,11 @@ condition that the surviving multi-block family does not automatically satisfy:
   one-support-per-activated-center continuation model under the same basic
   filters, while leaving repeated/multiple supports, richer catalogues, and
   genuine rich-class forcing open.
+- bootstrap/T12 focused `81:3` post-`8` supply-chain accounting, as recorded
+  in `docs/bootstrap-t12-81-3-post8-supply-chains.md`, giving the raw
+  denominator for the same bounded continuation model: `3,918,164,268`
+  support catalogues, `58` initially compatible catalogues, and zero
+  selected-row survivors.
 - bootstrap/T12 focused `81:8` singleton-support evidence, as recorded in
   `docs/bootstrap-t12-81-8-singleton-support-audit.md`, showing that the fixed
   source-`81` neighborhood and one-row-drop relaxation have no non-original

@@ -2129,6 +2129,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_81_3_post8_supply_chains",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_post8_supply_chains.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Post-center-8 raw catalogue accounting for the 81:3 pre-3 "
+            "label-6 escape chain model; not support existence, row forcing, "
+            "an n=9 proof, a bridge proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_81_8_singleton_support_audit",
         command=(
             "python",

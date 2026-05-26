@@ -352,11 +352,15 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-81-3-second-step-chains.md` attacks the bounded
    distinct-intermediate continuation: after those center-`8` prefixes, no
    chain through distinct centers from `{2,5,7}` followed by one center-`6`
-   label-`6` supply support survives the same basic filters. The next useful
-   PR must therefore either handle repeated/multiple supports, introduce a
-   genuine rich-class/minimality hypothesis that forces or excludes such a
-   support, or move to a different bridge target. The source-`81` row-`8`
-   singleton-support audit in
+   label-`6` supply support survives the same basic filters. The post-`8`
+   supply-chain accounting companion in
+   `docs/bootstrap-t12-81-3-post8-supply-chains.md` records the raw
+   denominator behind the same closure: `3,918,164,268` support catalogues
+   reduce to `58` initially compatible catalogues and no selected-row
+   survivor. The next useful PR must therefore either handle repeated/multiple
+   supports, introduce a genuine rich-class/minimality hypothesis that forces
+   or excludes such a support, or move to a different bridge target. The
+   source-`81` row-`8` singleton-support audit in
    `docs/bootstrap-t12-81-8-singleton-support-audit.md` is one such adjacent
    target: it finds no non-original row-`8` activation survivor in the fixed
    source-`81` neighborhood or a one-row-drop relaxation, but still leaves

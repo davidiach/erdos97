@@ -997,7 +997,11 @@ intermediate centers from `{2,5,7}` after those center-`8` prefixes before one
 center-`6` supply support. It finds no surviving chain under the same basic
 filters. These are bounded proof-mining diagnostics only; they do not prove
 support existence, row forcing, `n=9`, the bootstrap bridge, or Erdos
-Problem #97.
+Problem #97. The companion post-`8` supply-chain accounting packet in
+`docs/bootstrap-t12-81-3-post8-supply-chains.md` records the raw denominator
+for the same bounded model: `3,918,164,268` support catalogues reduce to `58`
+initially compatible catalogues and zero selected-row completions. It has the
+same diagnostic-only claim boundary.
 
 The source-`81` row-`8` singleton-support audit in
 `docs/bootstrap-t12-81-8-singleton-support-audit.md` checks a neighboring
