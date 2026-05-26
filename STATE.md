@@ -425,7 +425,11 @@ center-`6` label-`6` supply support; it finds no surviving chain. This remains
 one-support-per-activated-center proof-mining bookkeeping, not support
 existence, row forcing, `n=9`, or the bridge. See
 `docs/bootstrap-t12-81-3-first-supply-chains.md` and
-`docs/bootstrap-t12-81-3-second-step-chains.md`.
+`docs/bootstrap-t12-81-3-second-step-chains.md`. A companion post-`8`
+supply-chain packet records the raw support-catalogue denominator for the same
+bounded model: `3,918,164,268` support catalogues collapse to `58` initially
+compatible catalogues and zero selected-row completions. See
+`docs/bootstrap-t12-81-3-post8-supply-chains.md`.
 
 A source-`81` row-`8` singleton-support audit now probes the other
 relation-sufficient target in source `81`. It enumerates the nine center-`8`

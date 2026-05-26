@@ -661,7 +661,13 @@ bridge. See `docs/bootstrap-t12-81-3-first-supply-chains.md`,
 `data/certificates/bootstrap_t12_81_3_first_supply_chains.json`, and
 `docs/bootstrap-t12-81-3-second-step-chains.md`,
 `scripts/check_bootstrap_t12_81_3_second_step_chains.py`,
-`data/certificates/bootstrap_t12_81_3_second_step_chains.json`.
+`data/certificates/bootstrap_t12_81_3_second_step_chains.json`. The companion
+post-`8` supply-chain accounting packet records the raw denominator for the
+same bounded chain model: `3,918,164,268` support catalogues, `58` initially
+compatible catalogues, `223` selected-search nodes, and no selected-row
+survivor. See `docs/bootstrap-t12-81-3-post8-supply-chains.md`,
+`scripts/check_bootstrap_t12_81_3_post8_supply_chains.py`, and
+`data/certificates/bootstrap_t12_81_3_post8_supply_chains.json`.
 
 The source-`81` row-`8` singleton-support audit probes the other
 relation-sufficient source-`81` row. Center `8` has bootstrap-core witnesses
