@@ -5,7 +5,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_n9_vertex_circle_motif_obstruction_audit import (
+    CLAIM_SCOPE,
     DEFAULT_MOTIF_FAMILIES,
     assert_expected_motif_obstruction_audit,
     motif_obstruction_audit_payload,
@@ -28,6 +31,14 @@ def test_motif_obstruction_audit_payload_counts_and_scope() -> None:
     assert summary["strict_cycle_edge_mismatches"] == 0
     assert "does not prove frontier coverage" in payload["claim_scope"]
     assert "counterexample" in payload["claim_scope"]
+
+
+def test_motif_obstruction_audit_rejects_appended_claim_scope_overclaim() -> None:
+    payload = motif_obstruction_audit_payload()
+    payload["claim_scope"] = f"{CLAIM_SCOPE} This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_motif_obstruction_audit(payload)
 
 
 def test_motif_obstruction_audit_rejects_bad_self_edge_conflict(
