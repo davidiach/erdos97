@@ -3450,6 +3450,21 @@ def _normalized_validation_errors(errors: Any) -> list[str] | None:
     return normalized
 
 
+def _sorted_contract_keys(keys: set[Any]) -> list[Any]:
+    return sorted(keys, key=lambda key: (type(key).__name__, repr(key)))
+
+
+def _json_safe_contract_mapping(record: Mapping[Any, Any]) -> dict[str, Any]:
+    safe: dict[str, Any] = {}
+    for key, value in record.items():
+        if isinstance(key, str):
+            safe_key = key
+        else:
+            safe_key = f"<{type(key).__name__}:{key!r}>"
+        safe[safe_key] = value
+    return safe
+
+
 def assert_expected_failure_contract_errors(
     record: Any,
     *,
@@ -3460,8 +3475,8 @@ def assert_expected_failure_contract_errors(
         return [f"assert_expected_failure must be an object: {type(record).__name__}"]
 
     observed_keys = set(record)
-    missing = sorted(ASSERT_EXPECTED_FAILURE_KEYS - observed_keys)
-    unexpected = sorted(observed_keys - ASSERT_EXPECTED_FAILURE_KEYS)
+    missing = _sorted_contract_keys(ASSERT_EXPECTED_FAILURE_KEYS - observed_keys)
+    unexpected = _sorted_contract_keys(observed_keys - ASSERT_EXPECTED_FAILURE_KEYS)
     if missing:
         errors.append(f"assert_expected_failure missing keys: {missing!r}")
     if unexpected:
@@ -3661,6 +3676,9 @@ def _payload_with_existing_assert_expected_failure_contract_check(
             errors.append(error)
     updated["validation_status"] = "failed"
     updated["validation_errors"] = errors
+    failure_record = updated.get("assert_expected_failure")
+    if isinstance(failure_record, Mapping):
+        updated["assert_expected_failure"] = _json_safe_contract_mapping(failure_record)
     return updated
 
 

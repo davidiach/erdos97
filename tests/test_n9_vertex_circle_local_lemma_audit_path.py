@@ -1386,6 +1386,14 @@ def test_local_lemma_audit_path_assert_expected_failure_contract_errors() -> Non
         in errors
     )
 
+    mixed_key_record = dict(valid_record)
+    mixed_key_record[3] = "bad"
+    mixed_key_record["extra"] = "surprise"
+    assert (
+        "assert_expected_failure unexpected keys: [3, 'extra']"
+        in assert_expected_failure_contract_errors(mixed_key_record)
+    )
+
 
 def test_local_lemma_audit_path_failure_lines_crosscheck_assert_expected_failure() -> None:
     lines = failure_lines(_assert_expected_failure_contract_tamper_payload())
@@ -1839,6 +1847,31 @@ def test_local_lemma_audit_path_cli_json_crosschecks_nonstring_failure_count(
             "assert_expected_failure validation_error_count mismatch: "
             "expected 1, got 0"
         )
+        for error in parsed["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_cli_json_crosschecks_mixed_failure_keys(
+    monkeypatch,
+    capsys,
+) -> None:
+    payload = _assert_expected_failure_contract_tamper_payload()
+    payload["assert_expected_failure"][3] = "bad"
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: payload,
+    )
+
+    assert audit_path_main(["--check", "--json"]) == 1
+
+    captured = capsys.readouterr()
+    parsed = json.loads(captured.out)
+    assert captured.err == ""
+    assert parsed["validation_status"] == "failed"
+    assert parsed["assert_expected_failure"]["<int:3>"] == "bad"
+    assert any(
+        error == "assert_expected_failure unexpected keys: [3]"
         for error in parsed["validation_errors"]
     )
 
