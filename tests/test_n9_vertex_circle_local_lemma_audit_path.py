@@ -24,6 +24,7 @@ from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     EXPECTED_LAYER_PROVENANCE,
     EXPECTED_LAYER_SOURCE_ARTIFACTS,
     EXPECTED_MANIFEST_CONTRACT_IDS,
+    EXPECTED_SUMMARY_LINES,
     assert_expected_failure_contract_errors,
     assert_expected_local_lemma_audit_path,
     failure_lines,
@@ -1239,6 +1240,7 @@ def test_local_lemma_audit_path_summary_lines_include_contract_rollups() -> None
     payload = local_lemma_audit_path_payload()
     lines = summary_lines(payload)
 
+    assert lines == EXPECTED_SUMMARY_LINES
     expected_lines = [
         "validation: passed",
         "layer contracts: passed",
@@ -1257,6 +1259,7 @@ def test_local_lemma_audit_path_summary_lines_include_contract_rollups() -> None
         "manifest claims: passed",
         "manifest consistency: passed",
         "manifest contract summary: passed",
+        "relation skeletons: 16",
     ]
 
     for line in expected_lines:

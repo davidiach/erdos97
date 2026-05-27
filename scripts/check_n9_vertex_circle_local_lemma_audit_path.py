@@ -444,6 +444,36 @@ EXPECTED_COVERAGE_SUMMARY = {
     "strict_cycle_assignment_count": 26,
     "relation_skeleton_count": 16,
 }
+EXPECTED_SUMMARY_LINES = [
+    f"schema: {SCHEMA}",
+    f"status: {STATUS}",
+    "validation: passed",
+    "layers: 5",
+    "layer contracts: passed",
+    "layer provenance: passed",
+    "layer source artifacts: passed",
+    "claim-scope guards: passed",
+    "layer output contracts: passed",
+    "layer input contracts: passed",
+    "focused minireplay record paths: passed",
+    f"handoffs: {len(EXPECTED_HANDOFF_EDGES)}",
+    "audit contract summary: passed",
+    f"input artifacts: {EXPECTED_INPUT_ARTIFACT_COUNT}",
+    "manifest roles: passed",
+    "manifest digests: passed",
+    "manifest headers: passed",
+    "manifest provenance: passed",
+    "manifest metadata: passed",
+    "manifest claims: passed",
+    "manifest consistency: passed",
+    "manifest contract summary: passed",
+    "templates: 12",
+    "families: 16",
+    "assignments: 184",
+    "relation skeletons: 16",
+    "self-edge: 13 families, 158 assignments",
+    "strict-cycle: 3 families, 26 assignments",
+]
 
 AssertFn = Callable[[Mapping[str, Any]], None]
 
@@ -716,6 +746,11 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
         raise AssertionError(
             f"coverage_summary mismatch: {dict(coverage)!r} "
             f"!= {EXPECTED_COVERAGE_SUMMARY!r}"
+        )
+    if summary_lines(payload) != EXPECTED_SUMMARY_LINES:
+        raise AssertionError(
+            f"summary_lines mismatch: {summary_lines(payload)!r} "
+            f"!= {EXPECTED_SUMMARY_LINES!r}"
         )
 
 
@@ -3514,6 +3549,7 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"templates: {coverage['template_count']}",
         f"families: {coverage['family_count']}",
         f"assignments: {coverage['assignment_count']}",
+        f"relation skeletons: {coverage['relation_skeleton_count']}",
         (
             "self-edge: "
             f"{coverage['self_edge_family_count']} families, "
