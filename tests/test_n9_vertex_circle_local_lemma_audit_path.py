@@ -1572,6 +1572,34 @@ def test_local_lemma_audit_path_cli_json_scalar_validation_errors_shape(
     }
 
 
+def test_local_lemma_audit_path_cli_json_nonstring_validation_errors_shape(
+    monkeypatch,
+    capsys,
+) -> None:
+    malformed_payload = local_lemma_audit_path_payload()
+    malformed_payload["validation_status"] = "failed"
+    malformed_payload["validation_errors"] = [{"error": "not text"}]
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: malformed_payload,
+    )
+
+    assert audit_path_main(["--check", "--assert-expected", "--json"]) == 1
+
+    captured = capsys.readouterr()
+    parsed = json.loads(captured.out)
+    assert captured.err == ""
+    assert parsed["validation_status"] == "failed"
+    assert parsed["validation_errors"][0] == (
+        "validation_errors[0] is not a string: dict"
+    )
+    assert parsed["validation_errors"][1].startswith(
+        "assert_expected failed: validation errors:"
+    )
+    assert parsed["assert_expected_failure"]["validation_error_count"] == 1
+
+
 def test_local_lemma_audit_path_cli_json_assert_expected_failure_returns_payload(
     monkeypatch,
     capsys,
@@ -1780,6 +1808,36 @@ def test_local_lemma_audit_path_cli_json_crosschecks_assert_expected_failure(
     assert any(
         error.startswith(
             "assert_expected_failure validation_error_count mismatch: "
+        )
+        for error in parsed["validation_errors"]
+    )
+
+
+def test_local_lemma_audit_path_cli_json_crosschecks_nonstring_failure_count(
+    monkeypatch,
+    capsys,
+) -> None:
+    payload = _assert_expected_failure_contract_tamper_payload()
+    payload["validation_errors"] = [{"error": "not text"}]
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: payload,
+    )
+
+    assert audit_path_main(["--check", "--json"]) == 1
+
+    captured = capsys.readouterr()
+    parsed = json.loads(captured.out)
+    assert captured.err == ""
+    assert parsed["validation_status"] == "failed"
+    assert parsed["validation_errors"][0] == (
+        "validation_errors[0] is not a string: dict"
+    )
+    assert any(
+        error == (
+            "assert_expected_failure validation_error_count mismatch: "
+            "expected 1, got 0"
         )
         for error in parsed["validation_errors"]
     )

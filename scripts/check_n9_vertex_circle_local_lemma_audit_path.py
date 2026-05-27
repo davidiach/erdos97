@@ -3435,6 +3435,21 @@ def _string_list(value: Any) -> list[str]:
     return [str(item) for item in value]
 
 
+def _normalized_validation_errors(errors: Any) -> list[str] | None:
+    if not isinstance(errors, list):
+        return None
+    normalized: list[str] = []
+    for index, error in enumerate(errors):
+        if isinstance(error, str):
+            normalized.append(error)
+        else:
+            normalized.append(
+                f"validation_errors[{index}] is not a string: "
+                f"{type(error).__name__}"
+            )
+    return normalized
+
+
 def assert_expected_failure_contract_errors(
     record: Any,
     *,
@@ -3482,13 +3497,14 @@ def assert_expected_failure_contract_errors(
 
 
 def _assert_expected_failure_validation_error_count(errors: Any) -> int | None:
-    if not isinstance(errors, list):
+    normalized = _normalized_validation_errors(errors)
+    if normalized is None:
         return None
     return sum(
         1
-        for error in errors
-        if not str(error).startswith("assert_expected failed:")
-        and not str(error).startswith("assert_expected_failure ")
+        for error in normalized
+        if not error.startswith("assert_expected failed:")
+        and not error.startswith("assert_expected_failure ")
     )
 
 
@@ -3637,9 +3653,8 @@ def _payload_with_existing_assert_expected_failure_contract_check(
 
     updated = dict(payload)
     raw_errors = updated.get("validation_errors", [])
-    if isinstance(raw_errors, list):
-        errors = [str(error) for error in raw_errors]
-    else:
+    errors = _normalized_validation_errors(raw_errors)
+    if errors is None:
         errors = [f"validation_errors is not a list: {type(raw_errors).__name__}"]
     for error in contract_errors:
         if error not in errors:
@@ -3654,11 +3669,10 @@ def _payload_with_assert_expected_failure(
     exc: Exception,
 ) -> dict[str, Any]:
     updated = dict(payload)
-    errors = payload.get("validation_errors", [])
-    if not isinstance(errors, list):
-        errors = [f"validation_errors is not a list: {type(errors).__name__}"]
-    else:
-        errors = [str(error) for error in errors]
+    raw_errors = payload.get("validation_errors", [])
+    errors = _normalized_validation_errors(raw_errors)
+    if errors is None:
+        errors = [f"validation_errors is not a list: {type(raw_errors).__name__}"]
     validation_error_count = len(errors)
     message = f"assert_expected failed: {exc}"
     if message not in errors:

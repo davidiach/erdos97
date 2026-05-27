@@ -693,6 +693,10 @@ fails, the fallback payload records `failure_stage: payload_construction` and
 the Python exception type before returning nonzero under `--check`. Text-mode
 failure rendering also rejects malformed scalar `validation_errors` payloads
 as a single schema problem instead of treating the scalar as multiple errors.
+Malformed non-string entries in a `validation_errors` list are normalized to
+explicit typed diagnostics before assert-expected failure counting, so the
+nested failure record and the reviewer-facing error list agree on what was
+actually malformed.
 JSON diagnostics for `--assert-expected` failures also include an
 `assert_expected_failure` object with its own schema tag, assertion stage,
 Python exception type, message, and underlying validation-error count so
