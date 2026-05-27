@@ -1172,6 +1172,23 @@ def test_local_lemma_audit_path_handoff_summaries() -> None:
     assert all(handoff["mismatches"] == [] for handoff in handoffs)
 
 
+def test_local_lemma_audit_path_rejects_handoff_compared_key_drift() -> None:
+    payload = local_lemma_audit_path_payload()
+    payload["audit_path"]["handoff_checks"][0]["compared_keys"].remove(
+        "assignment_count"
+    )
+
+    try:
+        assert_expected_local_lemma_audit_path(payload)
+    except AssertionError as exc:
+        assert (
+            "focused_packet_catalog->focused_minireplay "
+            "handoff compared_keys mismatch"
+        ) in str(exc)
+    else:
+        raise AssertionError("expected handoff compared_keys mismatch")
+
+
 def test_local_lemma_audit_path_rejects_local_replay_drift() -> None:
     aggregate = load_artifact(DEFAULT_AGGREGATE)
     simple_replay = load_artifact(DEFAULT_SIMPLE_REPLAY)

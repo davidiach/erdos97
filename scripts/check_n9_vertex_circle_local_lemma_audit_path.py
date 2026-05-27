@@ -671,6 +671,9 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     handoffs = audit_path.get("handoff_checks")
     if not isinstance(handoffs, list):
         raise AssertionError("handoff_checks must be a list")
+    for handoff in handoffs:
+        if not isinstance(handoff, Mapping):
+            raise AssertionError("handoff check must be an object")
     expected_edges = [
         {"from_layer": left, "to_layer": right}
         for left, right in EXPECTED_HANDOFF_EDGES
@@ -685,6 +688,12 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     if observed_edges != expected_edges:
         raise AssertionError(f"handoff edge mismatch: {observed_edges!r}")
     for handoff in handoffs:
+        edge_label = f"{handoff.get('from_layer')}->{handoff.get('to_layer')}"
+        if handoff.get("compared_keys") != list(HANDOFF_COMPARE_KEYS):
+            raise AssertionError(
+                f"{edge_label} handoff compared_keys mismatch: "
+                f"{handoff.get('compared_keys')!r}"
+            )
         if handoff.get("status") != "passed" or handoff.get("mismatches") != []:
             raise AssertionError(f"handoff failed: {handoff!r}")
 
