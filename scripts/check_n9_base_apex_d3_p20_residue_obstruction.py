@@ -272,7 +272,9 @@ def assert_expected_p20_residue_obstruction(payload: Mapping[str, Any]) -> None:
                 f"payload[{key!r}] mismatch: expected {expected!r}, got {payload.get(key)!r}"
             )
 
-    claim_scope = str(payload.get("claim_scope", ""))
+    if payload.get("claim_scope") != CLAIM_SCOPE:
+        raise AssertionError(f"claim_scope mismatch: {payload.get('claim_scope')!r}")
+    claim_scope = CLAIM_SCOPE
     for required in (
         "not a proof of n=9",
         "not a counterexample",
