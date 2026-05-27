@@ -9,6 +9,7 @@ from pathlib import Path
 import pytest
 
 from scripts.check_sparse_frontier_kalmanson_escapes import (
+    CLAIM_SCOPE,
     SCHEMA,
     STATUS,
     assert_expected,
@@ -65,6 +66,16 @@ def test_sparse_frontier_kalmanson_escape_rejects_drift(
     bad["cases"][0]["inverse_pair_conflicts"] = 1
 
     with pytest.raises(AssertionError, match="inverse_pair_conflicts changed"):
+        assert_expected(bad)
+
+
+def test_sparse_frontier_kalmanson_escape_rejects_appended_claim_scope_overclaim(
+    payload: dict[str, object],
+) -> None:
+    bad = copy.deepcopy(payload)
+    bad["claim_scope"] = f"{CLAIM_SCOPE} This proves Erdos Problem #97."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
         assert_expected(bad)
 
 

@@ -309,7 +309,9 @@ def assert_expected(payload: Mapping[str, object]) -> None:
         raise AssertionError(f"status mismatch: {payload.get('status')!r}")
     if payload.get("trust") != TRUST:
         raise AssertionError(f"trust mismatch: {payload.get('trust')!r}")
-    claim_scope = str(payload.get("claim_scope", ""))
+    if payload.get("claim_scope") != CLAIM_SCOPE:
+        raise AssertionError(f"claim_scope mismatch: {payload.get('claim_scope')!r}")
+    claim_scope = CLAIM_SCOPE
     for required in (
         "not an all-order obstruction",
         "not a geometric realizability result",
