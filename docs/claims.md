@@ -1307,6 +1307,57 @@ the focused packet and its small input-data replay with
 and
 `python scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json`.
 
+### Vertex-circle T03 multi-family self-edge local lemma candidates
+
+Status: `REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE`.
+
+In a strictly convex nonagon with cyclic order `0,1,2,3,4,5,6,7,8`, each of
+the following two selected-row cores is locally impossible:
+
+```text
+T03/F05:
+center 1: {2,5,7,8}
+center 2: {1,3,4,8}
+center 3: {0,2,4,7}
+center 6: {1,3,5,7}
+
+T03/F15:
+center 0: {1,3,4,8}
+center 1: {0,2,4,5}
+center 2: {1,3,5,6}
+center 3: {2,4,6,7}
+```
+
+For `F05`, the selected-distance equalities force
+
+```text
+[3,7] = [2,3] = [1,2] = [1,7].
+```
+
+The row-`6` witness order `[7,1,3,5]` puts the outer chord `[3,7]` around the
+inner chord `[1,7]`, so vertex-circle monotonicity gives `[3,7] > [1,7]`.
+For `F15`, the selected-distance equalities force
+
+```text
+[1,4] = [1,2] = [2,3] = [3,4],
+```
+
+while the row-`0` witness order `[1,3,4,8]` gives `[1,4] > [3,4]`. Thus each
+T03 core creates a reflexive strict edge in the selected-distance quotient,
+and no strictly convex realization can satisfy that exact local core in the
+displayed cyclic order.
+
+The checked packet covers 20 frontier assignments across `F05` and `F15`, but
+that assignment count is packet-catalog evidence only. The packet label `T03`
+and family labels `F05` and `F15` are navigation only; the hypotheses are the
+displayed cyclic order and selected rows. This is not an `n=9` completeness
+proof, not a promotion of the review-pending exhaustive checker, and not a
+proof of Erdos Problem #97. Check the focused packet and its small input-data
+replay with
+`python scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py --check --assert-expected --json`
+and
+`python scripts/check_n9_t03_self_edge_minireplay.py --check --assert-expected --json`.
+
 ### Vertex-circle T10/F12 strict-cycle local lemma candidate
 
 Status: `REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE`.
