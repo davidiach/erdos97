@@ -3454,15 +3454,28 @@ def _sorted_contract_keys(keys: set[Any]) -> list[Any]:
     return sorted(keys, key=lambda key: (type(key).__name__, repr(key)))
 
 
+def _json_safe_mapping_key(key: Any) -> str:
+    if isinstance(key, str):
+        return key
+    return f"<{type(key).__name__}:{key!r}>"
+
+
+def _json_safe_for_output(value: Any) -> Any:
+    if isinstance(value, Mapping):
+        return {
+            _json_safe_mapping_key(key): _json_safe_for_output(nested)
+            for key, nested in value.items()
+        }
+    if isinstance(value, list):
+        return [_json_safe_for_output(item) for item in value]
+    return value
+
+
 def _json_safe_contract_mapping(record: Mapping[Any, Any]) -> dict[str, Any]:
-    safe: dict[str, Any] = {}
-    for key, value in record.items():
-        if isinstance(key, str):
-            safe_key = key
-        else:
-            safe_key = f"<{type(key).__name__}:{key!r}>"
-        safe[safe_key] = value
-    return safe
+    return {
+        _json_safe_mapping_key(key): _json_safe_for_output(value)
+        for key, value in record.items()
+    }
 
 
 def assert_expected_failure_contract_errors(
@@ -3736,7 +3749,7 @@ def main(argv: list[str] | None = None) -> int:
     payload = _payload_with_existing_assert_expected_failure_contract_check(payload)
 
     if args.json:
-        print(json.dumps(payload, indent=2, sort_keys=True))
+        print(json.dumps(_json_safe_for_output(payload), indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle local-lemma audit path")
         for line in summary_lines(payload):

@@ -705,9 +705,12 @@ nested object contract for schema, exact keys, stage, nonempty text fields, and
 the pre-assertion validation-error count, with malformed in-memory key types
 reported as contract errors instead of crashing the key-set check. Those
 malformed keys are also string-normalized before JSON output so sorted
-machine-readable diagnostics remain available. Text-mode failure summaries
-mirror the nested schema, exception type, and count so reviewers can identify
-the failure contract without switching to JSON.
+machine-readable diagnostics remain available. The final JSON rendering path
+also applies the same serialization-only key normalization recursively to
+failure payload mappings, so malformed diagnostic fixtures cannot hide the
+original layer failure by crashing sorted JSON output. Text-mode failure
+summaries mirror the nested schema, exception type, and count so reviewers can
+identify the failure contract without switching to JSON.
 
 This is still only a review-pending audit-path diagnostic. It does not prove
 packet soundness, mini-replay soundness, local-lemma completeness, frontier
