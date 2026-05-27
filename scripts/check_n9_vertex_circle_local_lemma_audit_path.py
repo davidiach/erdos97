@@ -3581,6 +3581,8 @@ def failure_lines(payload: Mapping[str, Any]) -> list[str]:
                 f"{assert_expected_failure.get('schema')}",
                 "assert_expected failure type: "
                 f"{assert_expected_failure.get('exception_type')}",
+                "assert_expected failure message: "
+                f"{assert_expected_failure.get('message')}",
                 "assert_expected failure validation errors: "
                 f"{assert_expected_failure.get('validation_error_count')}",
             ]
