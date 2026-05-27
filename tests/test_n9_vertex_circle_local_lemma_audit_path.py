@@ -110,6 +110,18 @@ def test_local_lemma_audit_path_rejects_top_level_claim_scope_append() -> None:
         raise AssertionError("expected top-level claim_scope mismatch")
 
 
+def test_local_lemma_audit_path_rejects_coverage_summary_extra_key() -> None:
+    payload = local_lemma_audit_path_payload()
+    payload["coverage_summary"]["unreviewed_layer_count"] = 5
+
+    try:
+        assert_expected_local_lemma_audit_path(payload)
+    except AssertionError as exc:
+        assert "coverage_summary mismatch" in str(exc)
+    else:
+        raise AssertionError("expected coverage_summary mismatch")
+
+
 def test_local_lemma_audit_path_input_manifest() -> None:
     payload = local_lemma_audit_path_payload()
     manifest = payload["input_manifest"]
