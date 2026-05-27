@@ -6,7 +6,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_n10_singleton_input_audit import (
+    CLAIM_SCOPE,
     DEFAULT_ARTIFACT,
     EXPECTED_COUNTS,
     EXPECTED_ROW0_CHOICES,
@@ -77,6 +80,14 @@ def test_n10_singleton_input_audit_expected_counts_and_scope() -> None:
     assert "does not rerun the search" in payload["claim_scope"]
     assert "does not prove n=10" in payload["claim_scope"]
     assert "does not claim a counterexample" in payload["claim_scope"]
+
+
+def test_n10_singleton_input_audit_rejects_appended_claim_scope_overclaim() -> None:
+    payload = n10_singleton_input_audit_payload(_payload())
+    payload["claim_scope"] = f"{CLAIM_SCOPE} This proves n=10."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_input_audit(payload)
 
 
 def test_n10_singleton_input_audit_rejects_missing_row() -> None:
