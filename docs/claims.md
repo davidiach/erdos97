@@ -1358,6 +1358,46 @@ replay with
 and
 `python scripts/check_n9_t03_self_edge_minireplay.py --check --assert-expected --json`.
 
+### Vertex-circle T04/F13 selected-path self-edge local lemma candidate
+
+Status: `REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE`.
+
+In a strictly convex nonagon with cyclic order `0,1,2,3,4,5,6,7,8`, suppose the
+following four selected rows are present:
+
+```text
+center 0: {1,2,5,7}
+center 1: {2,3,6,8}
+center 3: {1,4,5,8}
+center 5: {1,3,6,7}
+```
+
+The selected-distance equalities force
+
+```text
+[1,5] = [3,5] = [1,3] = [1,2].
+```
+
+Meanwhile row `0` has witness order `[1,2,5,7]` around vertex `0`, so the
+outer chord `[1,5]` strictly contains the inner chord `[1,2]`. The
+vertex-circle chord monotonicity lemma gives
+
+```text
+[1,5] > [1,2].
+```
+
+Thus the selected-distance quotient has a reflexive strict edge, and no
+strictly convex realization can satisfy these exact local hypotheses. The
+checked packet covers two frontier assignments in family `F13`, but that count
+is packet-catalog evidence only. The packet label `T04/F13` is navigation
+only; the hypotheses are the displayed cyclic order and selected rows. This is
+not an `n=9` completeness proof, not a promotion of the review-pending
+exhaustive checker, and not a proof of Erdos Problem #97. Check the focused
+packet and its small input-data replay with
+`python scripts/check_n9_vertex_circle_t04_self_edge_lemma_packet.py --check --assert-expected --json`
+and
+`python scripts/check_n9_t04_self_edge_minireplay.py --check --assert-expected --json`.
+
 ### Vertex-circle T10/F12 strict-cycle local lemma candidate
 
 Status: `REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE`.
