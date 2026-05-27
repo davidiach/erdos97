@@ -1632,8 +1632,10 @@ convex realization can satisfy these exact local hypotheses. The packet label
 `T10/F12` is navigation only; the hypotheses are the displayed cyclic order
 and selected rows. This is not an `n=9` completeness proof, not a promotion of
 the review-pending exhaustive checker, and not a proof of Erdos Problem #97.
-Check the focused packet with
-`python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check --assert-expected --json`.
+Check the focused packet and its small input-data replay with
+`python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check --assert-expected --json`
+and
+`python scripts/check_n9_t10_strict_cycle_minireplay.py --check --assert-expected --json`.
 
 ### Vertex-circle T11/F07 strict-cycle local lemma candidate
 
