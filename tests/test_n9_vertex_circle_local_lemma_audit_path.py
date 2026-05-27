@@ -1376,6 +1376,7 @@ def test_local_lemma_audit_path_assert_expected_failure_contract_errors() -> Non
 def test_local_lemma_audit_path_failure_lines_crosscheck_assert_expected_failure() -> None:
     lines = failure_lines(_assert_expected_failure_contract_tamper_payload())
 
+    assert "assert_expected failure message: validation errors: []" in lines
     assert (
         "- assert_expected_failure schema mismatch: "
         "'erdos97.invalid_assert_expected_failure.v1'"
