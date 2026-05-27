@@ -8,6 +8,7 @@ from pathlib import Path
 import pytest
 
 from scripts.check_n9_vertex_circle_partial_pruning import (
+    CLAIM_SCOPE,
     EXPECTED_MIN_OBSTRUCTION_SIZE_COUNTS,
     EXPECTED_PREFIX_STATUS_COUNTS,
     EXPECTED_SUBSET_STATUS_COUNTS,
@@ -35,6 +36,14 @@ def test_partial_pruning_payload_scope_and_counts() -> None:
     assert "stored frontier assignment subsets" in payload["claim_scope"]
     assert "does not prove frontier coverage" in payload["claim_scope"]
     assert "counterexample" in payload["claim_scope"]
+
+
+def test_partial_pruning_rejects_appended_claim_scope_overclaim() -> None:
+    payload = partial_pruning_payload()
+    payload["claim_scope"] = f"{CLAIM_SCOPE} This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_partial_pruning(payload)
 
 
 def test_partial_pruning_cli_json() -> None:
