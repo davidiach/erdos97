@@ -9,6 +9,7 @@ from pathlib import Path
 import pytest
 
 from scripts.check_n9_vertex_circle_mro_branching_replay import (
+    CLAIM_SCOPE,
     DEFAULT_ARTIFACT,
     EXPECTED_FIXED_CROSS_COUNTS,
     EXPECTED_FIXED_CROSS_FULL,
@@ -70,6 +71,16 @@ def test_mro_branching_replay_expected_counts_and_scope(
     assert comparison["cross_check_status_counts_match"] is True
     assert "does not prove n=9" in replay_payload["claim_scope"]
     assert "does not claim a counterexample" in replay_payload["claim_scope"]
+
+
+def test_mro_branching_replay_rejects_appended_claim_scope_overclaim(
+    replay_payload: dict[str, object],
+) -> None:
+    replay_payload = dict(replay_payload)
+    replay_payload["claim_scope"] = f"{CLAIM_SCOPE} This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_mro_branching_replay(replay_payload)
 
 
 def test_mro_branching_replay_rejects_dynamic_count_drift() -> None:
