@@ -432,6 +432,18 @@ EXPECTED_LAYER_SUMMARY_COUNTS["relation_skeleton_local_lemma"] = {
     **EXPECTED_LAYER_SUMMARY_COUNTS["relation_skeleton_local_lemma"],
     "relation_skeleton_count": 16,
 }
+EXPECTED_COVERAGE_SUMMARY = {
+    "layer_count": 5,
+    "template_count": 12,
+    "template_ids": EXPECTED_TEMPLATE_IDS,
+    "family_count": 16,
+    "assignment_count": 184,
+    "self_edge_family_count": 13,
+    "self_edge_assignment_count": 158,
+    "strict_cycle_family_count": 3,
+    "strict_cycle_assignment_count": 26,
+    "relation_skeleton_count": 16,
+}
 
 AssertFn = Callable[[Mapping[str, Any]], None]
 
@@ -700,25 +712,11 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     coverage = payload.get("coverage_summary")
     if not isinstance(coverage, Mapping):
         raise AssertionError("coverage_summary must be an object")
-    expected = {
-        "layer_count": 5,
-        "template_count": 12,
-        "family_count": 16,
-        "assignment_count": 184,
-        "self_edge_family_count": 13,
-        "self_edge_assignment_count": 158,
-        "strict_cycle_family_count": 3,
-        "strict_cycle_assignment_count": 26,
-        "relation_skeleton_count": 16,
-    }
-    for key, value in expected.items():
-        if coverage.get(key) != value:
-            raise AssertionError(
-                f"coverage_summary[{key!r}] mismatch: expected {value}, "
-                f"got {coverage.get(key)!r}"
-            )
-    if coverage.get("template_ids") != EXPECTED_TEMPLATE_IDS:
-        raise AssertionError(f"template ids mismatch: {coverage.get('template_ids')!r}")
+    if dict(coverage) != EXPECTED_COVERAGE_SUMMARY:
+        raise AssertionError(
+            f"coverage_summary mismatch: {dict(coverage)!r} "
+            f"!= {EXPECTED_COVERAGE_SUMMARY!r}"
+        )
 
 
 def _assert_expected_layer_contracts(payload: Mapping[str, Any]) -> None:
