@@ -6,7 +6,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts.check_n9_vertex_circle_dihedral_orbit_audit import (
+    CLAIM_SCOPE,
     DEFAULT_FRONTIER_CLASSIFICATION,
     DEFAULT_MOTIF_FAMILIES,
     EXPECTED_ASSIGNMENT_COUNT,
@@ -33,6 +36,14 @@ def test_dihedral_orbit_audit_payload_counts_and_scope() -> None:
     assert summary["orbit_union_rows_sha256"] == EXPECTED_ROWS_SHA256
     assert "does not prove frontier coverage" in payload["claim_scope"]
     assert "counterexample" in payload["claim_scope"]
+
+
+def test_dihedral_orbit_audit_rejects_appended_claim_scope_overclaim() -> None:
+    payload = dihedral_orbit_audit_payload()
+    payload["claim_scope"] = f"{CLAIM_SCOPE} This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_dihedral_orbit_audit(payload)
 
 
 def test_dihedral_orbit_audit_rejects_bad_orbit_size(tmp_path: Path) -> None:
