@@ -9,6 +9,7 @@ import pytest
 
 from scripts.analyze_kalmanson_sparse_frontier_templates import (
     CHECKED_PILOT_TEMPLATE_SET,
+    CLAIM_SCOPE,
     assert_expected,
     diagnostic_payload,
 )
@@ -60,6 +61,14 @@ def test_kalmanson_sparse_frontier_template_claim_scope_is_guarded() -> None:
     assert "does not claim a counterexample" in claim_scope
     assert "availability" in payload["interpretation"]
     assert "does not obstruct C25 or C29" in payload["interpretation"]
+
+
+def test_kalmanson_sparse_frontier_template_rejects_appended_claim_scope_overclaim() -> None:
+    payload = diagnostic_payload(top=1)
+    payload["claim_scope"] = f"{CLAIM_SCOPE} This proves Erdos Problem #97."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected(payload)
 
 
 def test_kalmanson_sparse_frontier_template_rejects_tampering() -> None:
