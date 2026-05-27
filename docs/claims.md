@@ -1250,6 +1250,63 @@ promotion of the review-pending exhaustive checker, and not a proof of Erdos
 Problem #97. Check the focused packet with
 `python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check --assert-expected --json`.
 
+### Vertex-circle T02 shared-endpoint self-edge local lemma candidates
+
+Status: `REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE`.
+
+In a strictly convex nonagon with cyclic order `0,1,2,3,4,5,6,7,8`, each of
+the following four selected-row cores is locally impossible:
+
+```text
+T02/F01:
+center 0: {1,2,3,8}
+center 1: {0,2,4,7}
+center 8: {0,1,4,5}
+
+T02/F04:
+center 0: {1,2,4,6}
+center 1: {0,2,3,5}
+center 2: {1,3,4,8}
+
+T02/F08:
+center 0: {1,2,4,8}
+center 1: {0,2,3,5}
+center 8: {0,1,3,7}
+
+T02/F14:
+center 0: {1,2,6,8}
+center 1: {0,2,3,7}
+center 8: {0,1,5,7}
+```
+
+For `F01`, `F08`, and `F14`, the selected-distance equalities force
+
+```text
+[1,8] = [0,8] = [0,1] = [1,2].
+```
+
+The relevant row-`0` witness order puts the outer chord `[1,8]` around the
+inner chord `[1,2]`, so vertex-circle monotonicity gives `[1,8] > [1,2]`.
+For `F04`, the selected-distance equalities force
+
+```text
+[0,2] = [0,1] = [1,2] = [2,3],
+```
+
+while the row-`1` witness order gives `[0,2] > [2,3]`. Thus each T02 core
+creates a reflexive strict edge in the selected-distance quotient, and no
+strictly convex realization can satisfy that exact local core in the displayed
+cyclic order.
+
+The packet label `T02` and family labels `F01`, `F04`, `F08`, and `F14` are
+navigation only; the hypotheses are the displayed cyclic order and selected
+rows. This is not an `n=9` completeness proof, not a promotion of the
+review-pending exhaustive checker, and not a proof of Erdos Problem #97. Check
+the focused packet and its small input-data replay with
+`python scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --check --assert-expected --json`
+and
+`python scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json`.
+
 ### Vertex-circle T10/F12 strict-cycle local lemma candidate
 
 Status: `REVIEW_PENDING_LOCAL_LEMMA_CANDIDATE`.
