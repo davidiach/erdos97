@@ -1148,6 +1148,18 @@ def test_local_lemma_audit_path_layer_summaries() -> None:
     assert by_layer["relation_skeleton_local_lemma"]["relation_skeleton_count"] == 16
 
 
+def test_local_lemma_audit_path_rejects_layer_summary_drift() -> None:
+    payload = local_lemma_audit_path_payload()
+    payload["audit_path"]["layers"][0]["assignment_count"] = 183
+
+    try:
+        assert_expected_local_lemma_audit_path(payload)
+    except AssertionError as exc:
+        assert "focused_packet_catalog layer summary mismatch" in str(exc)
+    else:
+        raise AssertionError("expected layer summary mismatch")
+
+
 def test_local_lemma_audit_path_handoff_summaries() -> None:
     payload = local_lemma_audit_path_payload()
     handoffs = payload["audit_path"]["handoff_checks"]

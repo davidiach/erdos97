@@ -415,6 +415,23 @@ HANDOFF_COMPARE_KEYS = (
     "strict_cycle_family_count",
     "strict_cycle_assignment_count",
 )
+EXPECTED_LAYER_SUMMARY_COUNTS = {
+    layer_id: {
+        "template_count": 12,
+        "template_ids": EXPECTED_TEMPLATE_IDS,
+        "family_count": 16,
+        "assignment_count": 184,
+        "self_edge_family_count": 13,
+        "self_edge_assignment_count": 158,
+        "strict_cycle_family_count": 3,
+        "strict_cycle_assignment_count": 26,
+    }
+    for layer_id in EXPECTED_LAYER_IDS
+}
+EXPECTED_LAYER_SUMMARY_COUNTS["relation_skeleton_local_lemma"] = {
+    **EXPECTED_LAYER_SUMMARY_COUNTS["relation_skeleton_local_lemma"],
+    "relation_skeleton_count": 16,
+}
 
 AssertFn = Callable[[Mapping[str, Any]], None]
 
@@ -642,6 +659,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_manifest_consistency(payload)
     _assert_expected_manifest_contract_summary(payload)
     _assert_expected_audit_contract_summary(payload)
+    _assert_expected_layer_summaries(payload)
 
     audit_path = payload.get("audit_path")
     if not isinstance(audit_path, Mapping):
@@ -1234,6 +1252,39 @@ def _assert_expected_audit_contract_summary(payload: Mapping[str, Any]) -> None:
                 f"audit_contract_summary[{key!r}] mismatch: "
                 f"{summary.get(key)!r} != {value!r}"
             )
+
+
+def _assert_expected_layer_summaries(payload: Mapping[str, Any]) -> None:
+    audit_path = payload.get("audit_path")
+    if not isinstance(audit_path, Mapping):
+        raise AssertionError("audit_path must be an object")
+    layer_summaries = audit_path.get("layers")
+    if not isinstance(layer_summaries, list):
+        raise AssertionError("audit_path.layers must be a list")
+    observed_ids = [
+        summary.get("layer_id")
+        for summary in layer_summaries
+        if isinstance(summary, Mapping)
+    ]
+    if observed_ids != EXPECTED_LAYER_IDS:
+        raise AssertionError(f"layer summary ids mismatch: {observed_ids!r}")
+    for summary in layer_summaries:
+        if not isinstance(summary, Mapping):
+            raise AssertionError("layer summary must be an object")
+        layer_id = str(summary.get("layer_id"))
+        expected = _expected_layer_summary(layer_id)
+        if summary != expected:
+            raise AssertionError(
+                f"{layer_id} layer summary mismatch: {summary!r} != {expected!r}"
+            )
+
+
+def _expected_layer_summary(layer_id: str) -> dict[str, Any]:
+    return {
+        "layer_id": layer_id,
+        **EXPECTED_LAYER_CONTRACTS[layer_id],
+        **EXPECTED_LAYER_SUMMARY_COUNTS[layer_id],
+    }
 
 
 def _append_layer_expected_errors(
