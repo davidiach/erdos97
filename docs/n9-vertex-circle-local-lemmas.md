@@ -708,9 +708,12 @@ malformed keys are also string-normalized before JSON output so sorted
 machine-readable diagnostics remain available. The final JSON rendering path
 also applies the same serialization-only key normalization recursively to
 failure payload mappings, so malformed diagnostic fixtures cannot hide the
-original layer failure by crashing sorted JSON output. Text-mode failure
-summaries mirror the nested schema, exception type, and count so reviewers can
-identify the failure contract without switching to JSON.
+original layer failure by crashing sorted JSON output. If a normalized key
+would collide with an existing string key, JSON rendering appends a
+deterministic `<collision:N>` suffix instead of dropping either diagnostic
+entry. Text-mode failure summaries mirror the nested schema, exception type,
+and count so reviewers can identify the failure contract without switching to
+JSON.
 
 This is still only a review-pending audit-path diagnostic. It does not prove
 packet soundness, mini-replay soundness, local-lemma completeness, frontier

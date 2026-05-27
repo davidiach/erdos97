@@ -3460,10 +3460,25 @@ def _json_safe_mapping_key(key: Any) -> str:
     return f"<{type(key).__name__}:{key!r}>"
 
 
+def _unique_json_safe_mapping_key(key: Any, seen: set[str]) -> str:
+    safe_key = _json_safe_mapping_key(key)
+    if safe_key not in seen:
+        seen.add(safe_key)
+        return safe_key
+    suffix = 2
+    while True:
+        collision_key = f"{safe_key}<collision:{suffix}>"
+        if collision_key not in seen:
+            seen.add(collision_key)
+            return collision_key
+        suffix += 1
+
+
 def _json_safe_for_output(value: Any) -> Any:
     if isinstance(value, Mapping):
+        seen: set[str] = set()
         return {
-            _json_safe_mapping_key(key): _json_safe_for_output(nested)
+            _unique_json_safe_mapping_key(key, seen): _json_safe_for_output(nested)
             for key, nested in value.items()
         }
     if isinstance(value, list):
@@ -3472,8 +3487,9 @@ def _json_safe_for_output(value: Any) -> Any:
 
 
 def _json_safe_contract_mapping(record: Mapping[Any, Any]) -> dict[str, Any]:
+    seen: set[str] = set()
     return {
-        _json_safe_mapping_key(key): _json_safe_for_output(value)
+        _unique_json_safe_mapping_key(key, seen): _json_safe_for_output(value)
         for key, value in record.items()
     }
 

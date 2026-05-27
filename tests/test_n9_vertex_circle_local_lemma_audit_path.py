@@ -1876,6 +1876,34 @@ def test_local_lemma_audit_path_cli_json_crosschecks_mixed_failure_keys(
     )
 
 
+def test_local_lemma_audit_path_cli_json_crosschecks_failure_key_collisions(
+    monkeypatch,
+    capsys,
+) -> None:
+    payload = _assert_expected_failure_contract_tamper_payload()
+    payload["assert_expected_failure"]["<int:3>"] = "string key"
+    payload["assert_expected_failure"][3] = "integer key"
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: payload,
+    )
+
+    assert audit_path_main(["--check", "--json"]) == 1
+
+    captured = capsys.readouterr()
+    parsed = json.loads(captured.out)
+    assert captured.err == ""
+    assert parsed["validation_status"] == "failed"
+    failure_record = parsed["assert_expected_failure"]
+    assert failure_record["<int:3>"] == "string key"
+    assert failure_record["<int:3><collision:2>"] == "integer key"
+    assert any(
+        error == "assert_expected_failure unexpected keys: [3, '<int:3>']"
+        for error in parsed["validation_errors"]
+    )
+
+
 def test_local_lemma_audit_path_cli_json_normalizes_top_level_failure_keys(
     monkeypatch,
     capsys,
@@ -1921,6 +1949,57 @@ def test_local_lemma_audit_path_cli_json_normalizes_nested_failure_keys(
     assert parsed["validation_status"] == "failed"
     assert parsed["validation_errors"][0]["error"] == "mixed"
     assert parsed["validation_errors"][0]["<int:3>"] == "bad"
+
+
+def test_local_lemma_audit_path_cli_json_preserves_top_level_key_collisions(
+    monkeypatch,
+    capsys,
+) -> None:
+    payload = local_lemma_audit_path_payload()
+    payload["validation_status"] = "failed"
+    payload["validation_errors"] = ["manual failure"]
+    payload["<int:3>"] = "string key"
+    payload[3] = "integer key"
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: payload,
+    )
+
+    assert audit_path_main(["--check", "--json"]) == 1
+
+    captured = capsys.readouterr()
+    parsed = json.loads(captured.out)
+    assert captured.err == ""
+    assert parsed["validation_status"] == "failed"
+    assert parsed["<int:3>"] == "string key"
+    assert parsed["<int:3><collision:2>"] == "integer key"
+
+
+def test_local_lemma_audit_path_cli_json_preserves_nested_key_collisions(
+    monkeypatch,
+    capsys,
+) -> None:
+    payload = local_lemma_audit_path_payload()
+    payload["validation_status"] = "failed"
+    payload["validation_errors"] = [
+        {"<int:3>": "string key", 3: "integer key"},
+    ]
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_local_lemma_audit_path."
+        "local_lemma_audit_path_payload",
+        lambda: payload,
+    )
+
+    assert audit_path_main(["--check", "--json"]) == 1
+
+    captured = capsys.readouterr()
+    parsed = json.loads(captured.out)
+    assert captured.err == ""
+    assert parsed["validation_status"] == "failed"
+    failure_record = parsed["validation_errors"][0]
+    assert failure_record["<int:3>"] == "string key"
+    assert failure_record["<int:3><collision:2>"] == "integer key"
 
 
 def test_local_lemma_audit_path_cli_json() -> None:
