@@ -1386,6 +1386,14 @@ def test_local_lemma_audit_path_assert_expected_failure_contract_errors() -> Non
         in errors
     )
 
+    mixed_key_record = dict(valid_record)
+    mixed_key_record[3] = "bad"
+    mixed_key_record["extra"] = "surprise"
+    assert (
+        "assert_expected_failure unexpected keys: [3, 'extra']"
+        in assert_expected_failure_contract_errors(mixed_key_record)
+    )
+
 
 def test_local_lemma_audit_path_failure_lines_crosscheck_assert_expected_failure() -> None:
     lines = failure_lines(_assert_expected_failure_contract_tamper_payload())
