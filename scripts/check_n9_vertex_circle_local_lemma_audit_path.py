@@ -3454,6 +3454,17 @@ def _sorted_contract_keys(keys: set[Any]) -> list[Any]:
     return sorted(keys, key=lambda key: (type(key).__name__, repr(key)))
 
 
+def _json_safe_contract_mapping(record: Mapping[Any, Any]) -> dict[str, Any]:
+    safe: dict[str, Any] = {}
+    for key, value in record.items():
+        if isinstance(key, str):
+            safe_key = key
+        else:
+            safe_key = f"<{type(key).__name__}:{key!r}>"
+        safe[safe_key] = value
+    return safe
+
+
 def assert_expected_failure_contract_errors(
     record: Any,
     *,
@@ -3665,6 +3676,9 @@ def _payload_with_existing_assert_expected_failure_contract_check(
             errors.append(error)
     updated["validation_status"] = "failed"
     updated["validation_errors"] = errors
+    failure_record = updated.get("assert_expected_failure")
+    if isinstance(failure_record, Mapping):
+        updated["assert_expected_failure"] = _json_safe_contract_mapping(failure_record)
     return updated
 
 
