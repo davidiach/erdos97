@@ -8,6 +8,7 @@ from pathlib import Path
 import pytest
 
 from scripts.analyze_kalmanson_inverse_pair_templates import (
+    CLAIM_SCOPE,
     assert_expected,
     diagnostic_payload,
 )
@@ -81,6 +82,14 @@ def test_kalmanson_inverse_pair_template_rejects_tampering() -> None:
         assert "C19_skew inverse_vector_pair_count mismatch" in str(exc)
     else:  # pragma: no cover - defensive assertion shape
         raise AssertionError("tampered inverse-pair diagnostic unexpectedly passed")
+
+
+def test_kalmanson_inverse_pair_template_rejects_appended_claim_scope_overclaim() -> None:
+    payload = diagnostic_payload()
+    payload["claim_scope"] = f"{CLAIM_SCOPE} This proves Erdos Problem #97."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected(payload)
 
 
 def test_kalmanson_inverse_pair_template_cli_json() -> None:
