@@ -3,6 +3,7 @@ from __future__ import annotations
 import pytest
 
 from scripts.check_n9_mixed_rich_frontier_crosswalk import (
+    CLAIM_SCOPE,
     EXPECTED_SUMMARY,
     assert_expected_payload,
     mixed_frontier_crosswalk_payload,
@@ -34,3 +35,11 @@ def test_n9_mixed_rich_frontier_crosswalk_payload() -> None:
         "claim_scope"
     ]
     assert "counterexample" in payload["claim_scope"]
+
+
+def test_n9_mixed_rich_frontier_crosswalk_rejects_appended_claim_scope_overclaim() -> None:
+    payload = mixed_frontier_crosswalk_payload()
+    payload["claim_scope"] = f"{CLAIM_SCOPE} This proves n=9."
+
+    with pytest.raises(AssertionError, match="claim_scope mismatch"):
+        assert_expected_payload(payload)
