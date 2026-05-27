@@ -1333,6 +1333,20 @@ def test_local_lemma_audit_path_failure_lines_reject_scalar_errors() -> None:
     ]
 
 
+def test_local_lemma_audit_path_failure_lines_reject_nonstring_error_entries() -> None:
+    lines = failure_lines(
+        {
+            "validation_status": "failed",
+            "validation_errors": [{"error": "not text"}],
+        }
+    )
+
+    assert lines == [
+        "FAILED: local-lemma audit path",
+        "- validation_errors[0] is not a string: dict",
+    ]
+
+
 def test_local_lemma_audit_path_assert_expected_failure_contract_errors() -> None:
     valid_record = {
         "schema": ASSERT_EXPECTED_FAILURE_SCHEMA,

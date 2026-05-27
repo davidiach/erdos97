@@ -3603,7 +3603,13 @@ def failure_lines(payload: Mapping[str, Any]) -> list[str]:
     if not isinstance(errors, list):
         lines.append(f"- validation_errors is not a list: {type(errors).__name__}")
         return lines
-    for error in errors:
+    for index, error in enumerate(errors):
+        if not isinstance(error, str):
+            lines.append(
+                f"- validation_errors[{index}] is not a string: "
+                f"{type(error).__name__}"
+            )
+            continue
         lines.append(f"- {error}")
     return lines
 
