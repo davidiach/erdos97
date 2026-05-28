@@ -115,6 +115,6 @@ def _strict_inequality_to_json(edge: StrictInequality) -> dict[str, Any]:
         "inner_interval": list(edge.inner_interval),
         "outer_pair": list(edge.outer_pair),
         "inner_pair": list(edge.inner_pair),
-        "outer_class": list(edge.outer_class),
-        "inner_class": list(edge.inner_class),
+        "outer_class": list(pair(*edge.outer_class)),
+        "inner_class": list(pair(*edge.inner_class)),
     }

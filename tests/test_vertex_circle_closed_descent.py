@@ -71,6 +71,8 @@ def test_closed_descent_cycle_json_handles_reflexive_self_edge_region() -> None:
     assert certificate["classes"] == [[1, 4]]
     assert certificate["cycle_classes"] == [[1, 4]]
     assert certificate["cycle_edges"][0]["row"] == 0
+    assert certificate["cycle_edges"][0]["outer_class"] == [1, 4]
+    assert certificate["cycle_edges"][0]["inner_class"] == [1, 4]
 
 
 def test_extract_closed_descent_cycle_rejects_missing_witness() -> None:
