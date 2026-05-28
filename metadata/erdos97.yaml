@@ -467,9 +467,9 @@ local_repo:
       claim_scope: "cross-artifact packet bookkeeping only; checks that the 16 relation-skeleton entries and the closed-descent packet agree family-by-family on self-edge versus strict-cycle status, assignment/orbit counts, and one-class versus multi-class descent regions, but does not prove local-lemma completeness, brancher coverage, n=9, a bridge proof, official/global status movement, or a counterexample"
     - pattern: "n9_vertex_circle_local_lemma_audit_path"
       status: "combined local-lemma cross-artifact audit path"
-      artifact: "focused packet/catalog, focused mini-replay, aggregate/simple replay, exhaustive/local-lemma, and relation-skeleton/local-lemma audit layers"
+      artifact: "focused packet/catalog, focused mini-replay, aggregate/simple replay, exhaustive/local-lemma, relation-skeleton/local-lemma audit layers, and relation-skeleton/closed-descent companion crosswalk"
       verifier: "scripts/check_n9_vertex_circle_local_lemma_audit_path.py"
-      claim_scope: "cross-artifact audit-path bookkeeping only; checks that 5 review-pending local-lemma layers and 4 adjacent handoffs agree on 12 template ids, 16 families, 184 assignments, the 158 self-edge / 26 strict-cycle split, 16 relation skeletons, 32 input artifacts, layer contracts, provenance, manifest contracts, and claim-scope guards, but does not prove packet soundness, mini-replay soundness, local-lemma completeness, frontier coverage, n=9, official/global status movement, or a counterexample"
+      claim_scope: "cross-artifact audit-path bookkeeping only; checks that 5 review-pending local-lemma layers and 4 adjacent handoffs agree on 12 template ids, 16 families, 184 assignments, the 158 self-edge / 26 strict-cycle split, 16 relation skeletons, plus a relation-skeleton/closed-descent companion summary and 33 input artifacts, layer contracts, provenance, manifest contracts, and claim-scope guards, but does not prove packet soundness, mini-replay soundness, local-lemma completeness, frontier coverage, n=9, official/global status movement, or a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

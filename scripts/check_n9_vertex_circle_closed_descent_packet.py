@@ -36,7 +36,7 @@ CLAIM_SCOPE = (
     "Closed-descent reformulation of the 16 stored n=9 vertex-circle local-core "
     "motif representatives; not a proof of n=9, not a counterexample, not an "
     "independent review of the exhaustive checker, not local-lemma completeness, "
-    "and not a bridge proof or global status update."
+    "not a bridge proof, and not a global status update."
 )
 PROVENANCE = {
     "generator": "scripts/check_n9_vertex_circle_closed_descent_packet.py",
@@ -184,7 +184,8 @@ def closed_descent_packet_summary(
             "A multi-class region corresponds to a replayed strict-cycle obstruction.",
             "The packet is a reviewer aid for bridge-facing local lemma work.",
             "No proof of the n=9 case is claimed.",
-            "No bridge proof or global status update is claimed.",
+            "No bridge proof is claimed.",
+            "No global status update is claimed.",
         ],
         "source_artifacts": [
             {

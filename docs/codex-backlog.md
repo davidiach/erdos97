@@ -58,8 +58,9 @@ Use this queue when no more specific issue is selected.
    runs the focused packet/catalog, focused mini-replay,
    aggregate/simple-replay, exhaustive/local-lemma, and
    relation-skeleton/local-lemma handoffs as one review-pending audit path,
-   with explicit adjacent handoff checks that identify where any future
-   count/schema drift first appears.
+   with the relation-skeleton/closed-descent companion summary and explicit
+   adjacent handoff checks that identify where any future count/schema drift
+   first appears.
    The focused mini-replay commands
    `python scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json`,
    `python scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json`,
