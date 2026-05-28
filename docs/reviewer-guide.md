@@ -58,7 +58,15 @@ check, so this audit path is stricter than the default fast tier.
 
 If `make` is unavailable, treat `Makefile` and
 `scripts/run_artifact_audit.py` as the source of truth for the current raw
-command set. The current raw commands are:
+command set. To print the registered artifact-audit command list without
+running the audit, including the two `audit-artifacts` preflight checks, use:
+
+```bash
+python scripts/run_artifact_audit.py --list-commands
+```
+
+The following hand-maintained command excerpt is retained for reviewer
+orientation:
 
 ```bash
 python scripts/check_status_consistency.py --max-official-status-age-days 90

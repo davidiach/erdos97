@@ -27,6 +27,31 @@ class AuditCommand:
     claim_scope: str
 
 
+AUDIT_PREFLIGHT_COMMANDS: tuple[AuditCommand, ...] = (
+    AuditCommand(
+        ident="official_status_freshness",
+        command=(
+            "python",
+            "scripts/check_status_consistency.py",
+            "--max-official-status-age-days",
+            "90",
+        ),
+        claim_scope=(
+            "Dated official-status consistency preflight for scheduled/manual "
+            "artifact audits; does not update the official/global status."
+        ),
+    ),
+    AuditCommand(
+        ident="artifact_provenance_manifest",
+        command=("python", "scripts/check_artifact_provenance.py"),
+        claim_scope=(
+            "Generated-artifact provenance manifest preflight; validates "
+            "artifact metadata and does not prove Erdos Problem #97."
+        ),
+    ),
+)
+
+
 AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
     AuditCommand(
         ident="n8_artifact_alignment",
@@ -2988,8 +3013,44 @@ def build_summary(output_dir: Path, commands: Sequence[AuditCommand]) -> dict[st
     }
 
 
+def _command_list_rows(commands: Sequence[AuditCommand]) -> list[dict[str, str]]:
+    return [
+        {
+            "id": command.ident,
+            "command": command_text(command.command),
+            "claim_scope": command.claim_scope,
+        }
+        for command in commands
+    ]
+
+
+def list_commands_payload(
+    commands: Sequence[AuditCommand],
+    *,
+    preflight_commands: Sequence[AuditCommand] = AUDIT_PREFLIGHT_COMMANDS,
+) -> dict[str, Any]:
+    listed_commands = (*preflight_commands, *commands)
+    return {
+        "type": "erdos97_artifact_audit_command_list_v1",
+        "claim_scope": (
+            "Registered artifact audit command list only; printing this list "
+            "does not run checks, prove Erdos Problem #97, or change any "
+            "repository claim."
+        ),
+        "preflight_command_count": len(preflight_commands),
+        "audit_command_count": len(commands),
+        "command_count": len(listed_commands),
+        "commands": _command_list_rows(listed_commands),
+    }
+
+
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--list-commands",
+        action="store_true",
+        help="Print the registered audit command list as JSON without running it.",
+    )
     parser.add_argument(
         "--output-dir",
         type=Path,
@@ -3001,6 +3062,10 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv)
+    if args.list_commands:
+        print(json.dumps(list_commands_payload(AUDIT_COMMANDS), indent=2, sort_keys=True))
+        return 0
+
     output_dir = args.output_dir
     if not output_dir.is_absolute():
         output_dir = REPO_ROOT / output_dir
