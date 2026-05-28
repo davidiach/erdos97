@@ -1770,6 +1770,27 @@ brancher coverage, selected-distance quotient soundness, `n=9`, a
 counterexample, or any official/global status update. Check it with
 `python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json`.
 
+### n=9 vertex-circle quotient-soundness audit
+
+Status: `REVIEW_PENDING_QUOTIENT_SOUNDNESS_AUDIT`.
+
+The checker `scripts/check_n9_vertex_circle_quotient_soundness.py` compares
+three selected-distance quotient/status views for stored `n=9` vertex-circle
+rows: the repo-native exhaustive checker, the reusable quotient replay helper,
+and a small direct local quotient/status replay. It runs on the stored compact
+local-core packet, the stored `184` pre-vertex-circle frontier assignments, and
+the transformed frontier cores from the motif-classification artifact.
+
+When run with `--check --assert-expected --json`, the audit checks `16`
+local-core row sets with `67` selected rows and status counts `13` self-edge /
+`3` strict-cycle; `184` full frontier row sets with `1,656` selected rows and
+status counts `158` self-edge / `26` strict-cycle; and `184` transformed
+frontier cores with `802` selected rows and the same `158` / `26` status split.
+This is selected-distance quotient implementation agreement only. It does not
+prove row coverage, brancher coverage, strict-edge geometry, `n=9`, a
+counterexample, or any official/global status update. Check it with
+`python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
