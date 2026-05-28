@@ -415,6 +415,11 @@ local_repo:
       artifact: "data/certificates/n9_vertex_circle_frontier_motif_classification.json"
       verifier: "scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py"
       claim_scope: "frontier coverage crosswalk against the current brancher only; reruns the dynamic no-vertex-circle brancher and compares the generated 184 ordered complete assignments and status labels against the stored frontier motif-classification artifact, but does not prove filter soundness, dynamic brancher soundness, strict-edge geometry, quotient soundness, n=9, official/global status movement, or a counterexample"
+    - pattern: "n9_vertex_circle_dihedral_orbit_audit"
+      status: "stored motif-family dihedral-orbit bookkeeping audit"
+      artifact: "data/certificates/n9_vertex_circle_motif_families.json and data/certificates/n9_vertex_circle_frontier_motif_classification.json"
+      verifier: "scripts/check_n9_vertex_circle_dihedral_orbit_audit.py"
+      claim_scope: "dihedral orbit bookkeeping only; independently recomputes the 18 relabelings and checks stored motif representatives, orbit sizes, disjointness, and assignment-to-orbit maps, but does not prove frontier coverage, filter soundness, strict-edge geometry, quotient soundness, n=9, official/global status movement, or a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

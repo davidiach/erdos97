@@ -1986,6 +1986,33 @@ selected-distance quotient soundness, `n=9`, a counterexample, or any
 official/global status update. Check it with
 `python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json`.
 
+### n=9 vertex-circle dihedral-orbit audit
+
+Status: `REVIEW_PENDING_DIHEDRAL_ORBIT_AUDIT`.
+
+The checker `scripts/check_n9_vertex_circle_dihedral_orbit_audit.py` treats the
+stored motif-family artifact and frontier classification artifact as inputs. It
+independently recomputes the `18` cyclic/reflection relabelings, verifies
+canonical representatives, stored orbit sizes, orbit disjointness, and the
+assignment-to-orbit maps in
+`data/certificates/n9_vertex_circle_frontier_motif_classification.json`.
+
+When run with `--check --assert-expected --json`, the audit checks `16` stored
+motif families with family status counts `13` self-edge and `3` strict-cycle.
+The stored orbit sizes have histogram `2: 5`, `6: 2`, and `18: 9`; their
+disjoint orbit union contains `184` rows. The frontier classification contains
+`184` unique rows with status counts `158` self-edge and `26` strict-cycle.
+The audit reports zero canonical-representative mismatches, zero canonical
+label-map mismatches, zero orbit-size mismatches, zero orbit overlaps, zero
+assignment-id mismatches, zero family mismatches, zero status mismatches, zero
+rows missing from classification, and zero classification rows missing from the
+orbits. The orbit-union and classification-row SHA-256 digest is
+`dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55`. This is
+dihedral orbit bookkeeping only. It does not prove frontier coverage, filter
+soundness, strict-edge geometry, selected-distance quotient soundness, `n=9`, a
+counterexample, or any official/global status update. Check it with
+`python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
