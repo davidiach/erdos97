@@ -1702,8 +1702,10 @@ strictly convex realization can satisfy these exact local hypotheses. The
 packet label `T12/F16` is navigation only; the hypotheses are the displayed
 cyclic order and selected rows. This is not an `n=9` completeness proof, not a
 promotion of the review-pending exhaustive checker, and not a proof of Erdos
-Problem #97. Check the focused packet with
-`python scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py --check --assert-expected --json`.
+Problem #97. Check the focused packet and its small input-data replay with
+`python scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py --check --assert-expected --json`
+and
+`python scripts/check_n9_t12_strict_cycle_minireplay.py --check --assert-expected --json`.
 
 ### Low-angle ascent for middle witnesses
 
