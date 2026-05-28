@@ -493,6 +493,45 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_vertex_circle_minimal_cores
+    path: data/certificates/n9_vertex_circle_minimal_cores.json
+    sha256: bdc6e3341f318e76f79310f8dc1d3a341d4629bed1fca1db5dd7c0cfbc9a54bb
+    size_bytes: 93632
+    kind: independent_audit_diagnostic_artifact
+    generator: scripts/n9_vertex_circle_minimal_cores.py
+    command: python scripts/n9_vertex_circle_minimal_cores.py --json
+    checker: scripts/n9_vertex_circle_minimal_cores.py
+    check_command: python scripts/n9_vertex_circle_minimal_cores.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Independent implementation-level minimal obstruction-core catalog for the 184 review-pending n=9 vertex-circle frontier systems; finite-case audit evidence only, not a proof of n=9, not a counterexample, not an independent human review, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_vertex_circle_minimal_cores.v1
+      trust: INDEPENDENT_FINITE_CASE_DIAGNOSTIC_NO_GLOBAL_CLAIM
+      n: 9
+      row_size: 4
+      frontier_systems: 184
+      frontier_systems_covered_by_a_minimal_core: 184
+      coverage_complete: true
+      distinct_minimal_cores: 219
+      minimal_core_size_counts.3: 105
+      minimal_core_size_counts.4: 106
+      minimal_core_size_counts.5: 7
+      minimal_core_size_counts.6: 1
+      minimal_core_status_counts.self_edge: 36
+      minimal_core_status_counts.strict_cycle: 183
+      smallest_core_size: 3
+      largest_core_size: 6
+      isolated_recheck_mismatches: 0
+    forbidden_claims:
+      - n=9 is proved
+      - independent human review is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n9_inversive_incidence_pilot
     path: data/certificates/n9_inversive_incidence_pilot.json
     sha256: 587d9a9fd97b4006eaf4d26f8006327e31e603637310d43390e1699b6d362a45

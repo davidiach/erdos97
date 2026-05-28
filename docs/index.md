@@ -113,6 +113,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-exhaustive.md`](n9-vertex-circle-exhaustive.md):
   review-pending exhaustive `n=9` selected-witness checker using the
   vertex-circle strict-chord filter.
+- [`n9-vertex-circle-independent-recheck.md`](n9-vertex-circle-independent-recheck.md):
+  independent implementation-level recheck of the review-pending `n=9`
+  vertex-circle frontier, plus the minimal obstruction-core catalog; audit
+  evidence only, not a status promotion.
 - [`n9-vertex-circle-template-lemma-catalog.md`](n9-vertex-circle-template-lemma-catalog.md):
   derived 12-template lemma-candidate catalog for proof-mining review.
 - [`n9-vertex-circle-t01-self-edge-lemma.md`](n9-vertex-circle-t01-self-edge-lemma.md):

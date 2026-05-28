@@ -116,6 +116,14 @@ Acceptance standard: a written review should either promote the checker to the
 same repo-local finite-case status as `n <= 8`, or identify the exact
 mathematical or implementation gap.
 
+Audit aid: `docs/n9-vertex-circle-independent-recheck.md` records a separate
+implementation-level recheck. Its scripts reproduce the 184 pre-vertex-circle
+frontier, match the stored frontier set and labels, and catalog 219 minimal
+obstruction cores covering all 184 systems. This is useful evidence for the
+Priority 5 review, but it does not by itself close the review or promote the
+`n=9` artifact.
+
+
 ## Priority 6 - mine a reusable vertex-circle lemma
 
 Target: `docs/n9-vertex-circle-obstruction-shapes.md` and
