@@ -43,6 +43,11 @@ from check_n9_vertex_circle_local_lemma_replay_crosswalk import (  # noqa: E402
     crosswalk_payload as local_replay_crosswalk_payload,
     load_artifact,
 )
+from check_n9_relation_skeleton_closed_descent_crosswalk import (  # noqa: E402
+    DEFAULT_CLOSED_DESCENT,
+    assert_expected_relation_closed_descent_crosswalk,
+    relation_closed_descent_crosswalk_payload,
+)
 from check_artifact_provenance import (  # noqa: E402
     DEFAULT_MANIFEST as DEFAULT_GENERATED_ARTIFACTS_MANIFEST,
     load_manifest as load_generated_artifact_manifest,
@@ -74,10 +79,11 @@ CLAIM_SCOPE = (
     "local-lemma packets. It joins focused packet/catalog bookkeeping, "
     "focused mini-replays, aggregate/simple replay accounting, the "
     "exhaustive/local-lemma count crosswalk, and the relation-skeleton "
-    "crosswalk. It does not prove packet soundness, does not prove "
-    "mini-replay soundness, does not prove local-lemma completeness, does "
-    "not prove frontier coverage, does not prove n=9, is not a "
-    "counterexample, and is not a global status update."
+    "crosswalk, with a relation-skeleton/closed-descent companion check. "
+    "It does not prove packet soundness, does not prove mini-replay "
+    "soundness, does not prove local-lemma completeness, does not prove "
+    "frontier coverage, does not prove n=9, is not a counterexample, and "
+    "is not a global status update."
 )
 PROVENANCE = {
     "generator": "scripts/check_n9_vertex_circle_local_lemma_audit_path.py",
@@ -96,7 +102,7 @@ EXPECTED_LAYER_IDS = [
 ]
 EXPECTED_TEMPLATE_IDS = [f"T{index:02d}" for index in range(1, 13)]
 EXPECTED_HANDOFF_EDGES = list(zip(EXPECTED_LAYER_IDS, EXPECTED_LAYER_IDS[1:]))
-EXPECTED_INPUT_ARTIFACT_COUNT = 32
+EXPECTED_INPUT_ARTIFACT_COUNT = 33
 EXPECTED_MANIFEST_CONTRACT_IDS = [
     "manifest_role_contract",
     "manifest_digest_contract",
@@ -115,6 +121,7 @@ EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS = [
     "layer_input_contracts",
     "focused_minireplay_record_path_contract",
     "handoff_checks",
+    "closed_descent_companion",
     "manifest_contracts",
 ]
 EXPECTED_LAYER_CONTRACTS = {
@@ -444,6 +451,20 @@ EXPECTED_COVERAGE_SUMMARY = {
     "strict_cycle_assignment_count": 26,
     "relation_skeleton_count": 16,
 }
+EXPECTED_CLOSED_DESCENT_COMPANION_SUMMARY = {
+    "status": "passed",
+    "schema": "erdos97.n9_relation_skeleton_closed_descent_crosswalk.v1",
+    "layer_status": "REVIEW_PENDING_PACKET_AUDIT",
+    "trust": "REVIEW_PENDING_DIAGNOSTIC",
+    "validation_status": "passed",
+    "family_count": 16,
+    "orbit_size_sum": 184,
+    "contradiction_type_counts": {
+        "strict_directed_cycle": 3,
+        "strict_self_edge": 13,
+    },
+    "region_class_count_counts": {"1": 13, "2": 1, "3": 2},
+}
 EXPECTED_SUMMARY_LINES = [
     f"schema: {SCHEMA}",
     f"status: {STATUS}",
@@ -457,6 +478,7 @@ EXPECTED_SUMMARY_LINES = [
     "layer input contracts: passed",
     "focused minireplay record paths: passed",
     f"handoffs: {len(EXPECTED_HANDOFF_EDGES)}",
+    "closed-descent companion: passed",
     "audit contract summary: passed",
     f"input artifacts: {EXPECTED_INPUT_ARTIFACT_COUNT}",
     "manifest roles: passed",
@@ -486,12 +508,14 @@ def default_layer_payloads() -> dict[str, Mapping[str, Any]]:
     exhaustive = load_artifact(DEFAULT_EXHAUSTIVE)
     classification = load_artifact(DEFAULT_CLASSIFICATION)
     relation_skeletons = load_artifact(DEFAULT_RELATION_SKELETONS)
+    closed_descent = load_artifact(DEFAULT_CLOSED_DESCENT)
     for name, payload in (
         ("aggregate", aggregate),
         ("simple replay", simple_replay),
         ("exhaustive", exhaustive),
         ("classification", classification),
         ("relation skeletons", relation_skeletons),
+        ("closed descent", closed_descent),
     ):
         if not isinstance(payload, Mapping):
             raise TypeError(f"{name} artifact top level must be an object")
@@ -514,6 +538,10 @@ def default_layer_payloads() -> dict[str, Mapping[str, Any]]:
             aggregate,
             simple_replay,
         ),
+        "relation_skeleton_closed_descent": relation_closed_descent_crosswalk_payload(
+            relation_skeletons,
+            closed_descent,
+        ),
     }
 
 
@@ -524,6 +552,7 @@ def local_lemma_audit_path_payload(
     aggregate_simple_replay_payload: Mapping[str, Any] | None = None,
     exhaustive_local_lemma_payload: Mapping[str, Any] | None = None,
     relation_skeleton_local_lemma_payload: Mapping[str, Any] | None = None,
+    relation_skeleton_closed_descent_payload: Mapping[str, Any] | None = None,
     input_manifest_payload: Mapping[str, Any] | None = None,
     manifest_header_payloads: Mapping[str, Any] | None = None,
     manifest_claim_payloads: Mapping[str, Any] | None = None,
@@ -538,6 +567,7 @@ def local_lemma_audit_path_payload(
         "aggregate_simple_replay": aggregate_simple_replay_payload,
         "exhaustive_local_lemma": exhaustive_local_lemma_payload,
         "relation_skeleton_local_lemma": relation_skeleton_local_lemma_payload,
+        "relation_skeleton_closed_descent": relation_skeleton_closed_descent_payload,
     }
     layers = default_layer_payloads()
     for layer_id, payload in provided.items():
@@ -560,6 +590,10 @@ def local_lemma_audit_path_payload(
     layer_summaries = [_layer_summary(layer_id, layers[layer_id], errors) for layer_id in EXPECTED_LAYER_IDS]
     handoff_checks = _handoff_checks(layer_summaries, errors)
     coverage = _coverage_summary(layer_summaries, errors)
+    closed_descent_companion = _closed_descent_companion_summary(
+        layers["relation_skeleton_closed_descent"],
+        errors,
+    )
     input_manifest = (
         dict(input_manifest_payload)
         if input_manifest_payload is not None
@@ -609,6 +643,7 @@ def local_lemma_audit_path_payload(
             "layer_input_contracts": layer_input_contracts,
             "focused_minireplay_record_path_contract": focused_record_path_contract,
             "handoff_checks": handoff_checks,
+            "closed_descent_companion": closed_descent_companion,
             "manifest_contracts": manifest_contract_summary,
         }
     )
@@ -634,6 +669,7 @@ def local_lemma_audit_path_payload(
             "handoff_checks": handoff_checks,
             "layers": layer_summaries,
         },
+        "closed_descent_companion": closed_descent_companion,
         "audit_contract_summary": audit_contract_summary,
         "input_manifest": input_manifest,
         "manifest_role_contract": manifest_role_contract,
@@ -691,6 +727,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_layer_output_contracts(payload)
     _assert_expected_layer_input_contracts(payload)
     _assert_expected_focused_minireplay_record_path_contract(payload)
+    _assert_expected_closed_descent_companion(payload)
     _assert_expected_input_manifest(payload)
     _assert_expected_manifest_role_contract(payload)
     _assert_expected_manifest_digest_contract(payload)
@@ -990,6 +1027,17 @@ def _assert_expected_focused_minireplay_record_path_contract(
         raise AssertionError("focused minireplay malformed records")
 
 
+def _assert_expected_closed_descent_companion(payload: Mapping[str, Any]) -> None:
+    summary = payload.get("closed_descent_companion")
+    if not isinstance(summary, Mapping):
+        raise AssertionError("closed_descent_companion must be an object")
+    if dict(summary) != EXPECTED_CLOSED_DESCENT_COMPANION_SUMMARY:
+        raise AssertionError(
+            "closed_descent_companion mismatch: "
+            f"{dict(summary)!r} != {EXPECTED_CLOSED_DESCENT_COMPANION_SUMMARY!r}"
+        )
+
+
 def _assert_expected_input_manifest(payload: Mapping[str, Any]) -> None:
     manifest = payload.get("input_manifest")
     if not isinstance(manifest, Mapping):
@@ -1016,6 +1064,7 @@ def _assert_expected_input_manifest(payload: Mapping[str, Any]) -> None:
         "data/certificates/n9_vertex_circle_exhaustive.json",
         "data/certificates/n9_vertex_circle_frontier_motif_classification.json",
         "data/certificates/relation_skeleton_catalog.json",
+        "data/certificates/n9_vertex_circle_closed_descent_packet.json",
         "data/certificates/n9_t12_strict_cycle_minireplay.json",
     }
     missing_paths = sorted(required_paths - set(paths))
@@ -1931,6 +1980,8 @@ def _input_manifest() -> dict[str, Any]:
     add(DEFAULT_EXHAUSTIVE, "exhaustive/local-lemma exhaustive count source")
     add(DEFAULT_CLASSIFICATION, "exhaustive/local-lemma motif classification source")
     add(DEFAULT_RELATION_SKELETONS, "relation-skeleton/local-lemma source")
+    add(DEFAULT_RELATION_SKELETONS, "relation-skeleton/closed-descent source")
+    add(DEFAULT_CLOSED_DESCENT, "relation-skeleton/closed-descent source")
     for kind, path in sorted(DEFAULT_TEMPLATE_PACKET_PATHS.items()):
         add(path, f"focused packet/catalog {kind.replace('_', '-')} template packet")
     for template_id, path in sorted(DEFAULT_PACKET_PATHS.items()):
@@ -2018,6 +2069,8 @@ def _expected_manifest_roles() -> dict[str, list[str]]:
     add(DEFAULT_EXHAUSTIVE, "exhaustive/local-lemma exhaustive count source")
     add(DEFAULT_CLASSIFICATION, "exhaustive/local-lemma motif classification source")
     add(DEFAULT_RELATION_SKELETONS, "relation-skeleton/local-lemma source")
+    add(DEFAULT_RELATION_SKELETONS, "relation-skeleton/closed-descent source")
+    add(DEFAULT_CLOSED_DESCENT, "relation-skeleton/closed-descent source")
     for kind, path in sorted(DEFAULT_TEMPLATE_PACKET_PATHS.items()):
         add(path, f"focused packet/catalog {kind.replace('_', '-')} template packet")
     for template_id, path in sorted(DEFAULT_PACKET_PATHS.items()):
@@ -2385,6 +2438,11 @@ def _expected_manifest_headers() -> dict[str, dict[str, Any]]:
         schema="erdos97.relation_skeleton_catalog.v1",
         status="REVIEW_PENDING_DIAGNOSTIC_ONLY",
     )
+    add(
+        DEFAULT_CLOSED_DESCENT,
+        schema="erdos97.n9_vertex_circle_closed_descent_packet.v1",
+        status="REVIEW_PENDING_DIAGNOSTIC_ONLY",
+    )
     for kind, path in sorted(DEFAULT_TEMPLATE_PACKET_PATHS.items()):
         add(
             path,
@@ -2591,6 +2649,10 @@ def _expected_manifest_provenance() -> dict[str, dict[str, Any]]:
         "check_n9_vertex_circle_frontier_motif_classification.py",
     )
     add_writer(DEFAULT_RELATION_SKELETONS, "check_relation_skeleton_catalog.py")
+    add_writer(
+        DEFAULT_CLOSED_DESCENT,
+        "check_n9_vertex_circle_closed_descent_packet.py",
+    )
     for kind, path in sorted(DEFAULT_TEMPLATE_PACKET_PATHS.items()):
         add_writer(path, f"check_n9_vertex_circle_{kind}_template_packet.py")
     for template_id, path in sorted(DEFAULT_PACKET_PATHS.items()):
@@ -2827,6 +2889,10 @@ def _expected_manifest_metadata() -> dict[str, dict[str, Any]]:
         "check_n9_vertex_circle_frontier_motif_classification.py",
     )
     add_writer(DEFAULT_RELATION_SKELETONS, "check_relation_skeleton_catalog.py")
+    add_writer(
+        DEFAULT_CLOSED_DESCENT,
+        "check_n9_vertex_circle_closed_descent_packet.py",
+    )
     for kind, path in sorted(DEFAULT_TEMPLATE_PACKET_PATHS.items()):
         add_writer(path, f"check_n9_vertex_circle_{kind}_template_packet.py")
     for template_id, path in sorted(DEFAULT_PACKET_PATHS.items()):
@@ -3322,6 +3388,47 @@ def _layer_summary(
     return {"layer_id": layer_id, "validation_status": "failed"}
 
 
+def _closed_descent_companion_summary(
+    payload: Mapping[str, Any],
+    errors: list[str],
+) -> dict[str, Any]:
+    error_count = len(errors)
+    try:
+        assert_expected_relation_closed_descent_crosswalk(payload)
+    except (AssertionError, KeyError, TypeError, ValueError) as exc:
+        errors.append(f"relation_skeleton_closed_descent expected-check failed: {exc}")
+    status = (
+        "passed"
+        if len(errors) == error_count and payload.get("validation_status") == "passed"
+        else "failed"
+    )
+    return {
+        "status": status,
+        "schema": payload.get("schema"),
+        "layer_status": payload.get("status"),
+        "trust": payload.get("trust"),
+        "validation_status": payload.get("validation_status"),
+        "family_count": int(payload.get("family_count", -1)),
+        "orbit_size_sum": int(payload.get("orbit_size_sum", -1)),
+        "contradiction_type_counts": dict(
+            _required_mapping(
+                payload,
+                "contradiction_type_counts",
+                "relation_skeleton_closed_descent",
+                errors,
+            )
+        ),
+        "region_class_count_counts": dict(
+            _required_mapping(
+                payload,
+                "region_class_count_counts",
+                "relation_skeleton_closed_descent",
+                errors,
+            )
+        ),
+    }
+
+
 def _coverage_summary(
     layer_summaries: list[Mapping[str, Any]],
     errors: list[str],
@@ -3595,6 +3702,7 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         "focused minireplay record paths: "
         f"{payload['audit_path']['focused_minireplay_record_path_contract']['status']}",
         f"handoffs: {payload['audit_path']['handoff_count']}",
+        f"closed-descent companion: {payload['closed_descent_companion']['status']}",
         f"audit contract summary: {payload['audit_contract_summary']['status']}",
         f"input artifacts: {payload['input_manifest']['artifact_count']}",
         f"manifest roles: {payload['manifest_role_contract']['status']}",

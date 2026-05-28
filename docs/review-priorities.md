@@ -421,7 +421,8 @@ Next steps:
   to run the focused packet/catalog, focused mini-replay,
   aggregate/simple-replay, exhaustive/local-lemma, and
   relation-skeleton/local-lemma handoffs as one review-pending audit path,
-  with adjacent handoff checks that localize future drift between layers;
+  with the relation-skeleton/closed-descent companion summary and adjacent
+  handoff checks that localize future drift between layers;
 - use the focused mini-replay commands
   `scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json`,
   `scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json`,

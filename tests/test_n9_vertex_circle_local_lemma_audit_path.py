@@ -16,6 +16,7 @@ from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     CLAIM_SCOPE,
     CLAIM_SCOPE_GUARDS,
     EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS,
+    EXPECTED_CLOSED_DESCENT_COMPANION_SUMMARY,
     EXPECTED_HANDOFF_EDGES,
     EXPECTED_INPUT_ARTIFACT_COUNT,
     EXPECTED_LAYER_CONTRACTS,
@@ -77,6 +78,10 @@ def test_local_lemma_audit_path_counts_and_scope() -> None:
     assert payload["validation_status"] == "passed"
     assert payload["audit_path"]["layer_ids"] == EXPECTED_LAYER_IDS
     assert payload["audit_path"]["handoff_count"] == len(EXPECTED_HANDOFF_EDGES)
+    assert (
+        payload["closed_descent_companion"]
+        == EXPECTED_CLOSED_DESCENT_COMPANION_SUMMARY
+    )
     assert [item["status"] for item in payload["audit_path"]["handoff_checks"]] == [
         "passed"
         for _ in EXPECTED_HANDOFF_EDGES
@@ -137,6 +142,9 @@ def test_local_lemma_audit_path_input_manifest() -> None:
     assert all(artifact["size_bytes"] > 0 for artifact in artifacts)
     assert "data/certificates/n9_vertex_circle_local_lemmas.json" in by_path
     assert "data/certificates/n9_vertex_circle_exhaustive.json" in by_path
+    assert (
+        "data/certificates/n9_vertex_circle_closed_descent_packet.json" in by_path
+    )
     assert (
         "data/certificates/n9_t12_strict_cycle_minireplay.json" in by_path
     )
@@ -1250,6 +1258,7 @@ def test_local_lemma_audit_path_summary_lines_include_contract_rollups() -> None
         "layer output contracts: passed",
         "layer input contracts: passed",
         "focused minireplay record paths: passed",
+        "closed-descent companion: passed",
         "audit contract summary: passed",
         "manifest roles: passed",
         "manifest digests: passed",
@@ -1265,7 +1274,7 @@ def test_local_lemma_audit_path_summary_lines_include_contract_rollups() -> None
     for line in expected_lines:
         assert line in lines
     assert lines.index("audit contract summary: passed") < lines.index(
-        "input artifacts: 32"
+        f"input artifacts: {EXPECTED_INPUT_ARTIFACT_COUNT}"
     )
     assert lines.index("manifest contract summary: passed") > lines.index(
         "manifest consistency: passed"
