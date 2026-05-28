@@ -217,6 +217,27 @@ def test_visibility_anti_activation_control_replays_expected_status() -> None:
     assert summary["target_center_activated_by_target_triple"] is False
 
 
+def test_visibility_anti_activation_control_default_artifact_cli_check() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_closure_visibility_anti_activation_control.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    summary = json.loads(result.stdout)
+    assert summary["ok"] is True
+    assert summary["final_closure"] == [0, 1, 3, 4, 7]
+    assert summary["target_row_present_at_center"] is False
+
+
 def test_visibility_anti_activation_control_rejects_target_triple_row() -> None:
     payload = visibility_anti_activation_control_certificate()
     tampered = deepcopy(payload)

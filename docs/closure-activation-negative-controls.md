@@ -28,7 +28,7 @@ python scripts/check_bootstrap_t12_anti_activation_negative_control.py --check -
 Run the closure-visibility replay checker with:
 
 ```bash
-python scripts/check_closure_visibility_anti_activation_control.py --assert-expected --json
+python scripts/check_closure_visibility_anti_activation_control.py --check --assert-expected --json
 ```
 
 Regenerate the checked JSON artifacts with:
