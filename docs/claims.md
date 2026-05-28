@@ -2118,6 +2118,32 @@ frontier coverage, `n=9`, a counterexample, or any official/global status
 update. Check it with
 `python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --json`.
 
+### n=9 vertex-circle aggregate/simple replay crosswalk
+
+Status: `REVIEW_PENDING_PACKET_AUDIT`.
+
+The checker `scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py`
+treats `data/certificates/n9_vertex_circle_local_lemmas.json` as the aggregate
+local-lemma scan and
+`data/certificates/n9_vertex_circle_local_lemma_simple_replay.json` as a
+simple packet replay audit. The simple replay checks the stored packet JSON
+without sharing the main quotient-replay helper, and the crosswalk compares
+the aggregate scan and simple replay family-by-family.
+
+When run with `--check --assert-expected --json`, the crosswalk checks `16`
+aggregate families and `16` simple-replay families and matches all `184`
+covered assignments. The matched coverage has `13` self-edge families covering
+`158` assignments and `3` strict-cycle families covering `26` assignments.
+The focused-packet crosscheck summary records `12` focused templates, `16`
+focused families, and `184` focused assignments. The companion simple replay
+checker reports status `REVIEW_PENDING_PACKET_AUDIT`, trust
+`REVIEW_PENDING_DIAGNOSTIC`, `184` covered assignments, `16` covered families,
+`158` self-edge assignments, and `26` strict-cycle assignments. This is
+cross-artifact packet/replay bookkeeping only. It does not prove simple-replay
+soundness, packet soundness, local-lemma completeness, frontier coverage,
+`n=9`, a counterexample, or any official/global status update. Check it with
+`python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
