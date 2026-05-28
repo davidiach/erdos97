@@ -2144,6 +2144,30 @@ soundness, packet soundness, local-lemma completeness, frontier coverage,
 `n=9`, a counterexample, or any official/global status update. Check it with
 `python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --json`.
 
+### n=9 vertex-circle exhaustive/local-lemma crosswalk
+
+Status: `REVIEW_PENDING_PACKET_AUDIT`.
+
+The checker `scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py`
+treats the review-pending exhaustive count artifact, the frontier motif
+classification, the aggregate local-lemma scan, and the simple local-lemma
+replay audit as input data. It compares those layers without rerunning the
+brancher and without independently reviewing the exhaustive checker.
+
+When run with `--check --assert-expected --json`, the crosswalk checks that
+`data/certificates/n9_vertex_circle_exhaustive.json`,
+`data/certificates/n9_vertex_circle_frontier_motif_classification.json`,
+`data/certificates/n9_vertex_circle_local_lemmas.json`, and
+`data/certificates/n9_vertex_circle_local_lemma_simple_replay.json` agree on
+`184` frontier assignments across `16` motif/local-lemma families. The matched
+coverage has `158` self-edge assignments and `26` strict-cycle assignments.
+The nested aggregate/simple-replay summary also reports `16` aggregate
+families, `16` simple-replay families, and `184` matched assignments. This is
+cross-artifact accounting only. It does not review the exhaustive brancher,
+prove local-lemma completeness, prove frontier coverage, prove `n=9`, give a
+counterexample, or update the official/global status. Check it with
+`python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.

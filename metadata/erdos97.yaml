@@ -445,6 +445,11 @@ local_repo:
       artifact: "data/certificates/n9_vertex_circle_local_lemmas.json and data/certificates/n9_vertex_circle_local_lemma_simple_replay.json"
       verifier: "scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py"
       claim_scope: "cross-artifact packet/replay bookkeeping only; checks that the aggregate local-lemma scan and simple packet replay agree family-by-family on 184 assignments across 16 families, but does not prove simple-replay soundness, packet soundness, local-lemma completeness, frontier coverage, n=9, official/global status movement, or a counterexample"
+    - pattern: "n9_vertex_circle_exhaustive_local_lemma_crosswalk"
+      status: "exhaustive count, motif classification, and local-lemma cross-artifact audit"
+      artifact: "data/certificates/n9_vertex_circle_exhaustive.json, data/certificates/n9_vertex_circle_frontier_motif_classification.json, data/certificates/n9_vertex_circle_local_lemmas.json, and data/certificates/n9_vertex_circle_local_lemma_simple_replay.json"
+      verifier: "scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py"
+      claim_scope: "cross-artifact accounting only; checks that the review-pending exhaustive count artifact, frontier motif classification, aggregate local-lemma scan, and simple replay audit agree on 184 assignments across 16 families, but does not review the exhaustive brancher, prove local-lemma completeness, prove frontier coverage, prove n=9, update official/global status, or give a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"
