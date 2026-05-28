@@ -322,6 +322,13 @@ direct quotient replay.
 A focused packet catalog audit checks that the 12 proof-facing focused
 local-lemma packets agree with the source template packets, template catalog,
 and aggregate focused-note crosschecks; this is packet/catalog bookkeeping only.
+A focused mini-replay crosswalk joins those 12 packets to their packet-specific
+minimal input-data replay artifacts. A local-lemma audit-path checker chains
+the packet/catalog, focused mini-replay, aggregate/simple-replay,
+exhaustive/local-lemma, and relation-skeleton/local-lemma handoffs with
+adjacent drift localization. These remain review-pending audit bookkeeping
+only, not packet soundness, local-lemma completeness, frontier coverage, or an
+`n=9` proof.
 See [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
 An incoming `n=10` singleton-slice continuation is now recorded as a

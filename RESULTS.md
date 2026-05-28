@@ -1023,6 +1023,16 @@ template catalog records, and aggregate focused-note crosschecks agree on the
 same `184` assignments and 16 families. It is packet/catalog bookkeeping only,
 not packet soundness, local-lemma completeness, frontier coverage, or a proof
 of `n=9`.
+The focused mini-replay crosswalk
+`scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --json`
+joins those same 12 focused packets to their packet-specific minimal
+input-data replay artifacts. The local-lemma audit path
+`scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json`
+runs the packet/catalog, focused mini-replay, aggregate/simple-replay,
+exhaustive/local-lemma, and relation-skeleton/local-lemma handoffs with
+adjacent drift localization. These are review-pending handoff audits only, not
+packet soundness, local-lemma completeness, frontier coverage, or a proof of
+`n=9`.
 
 This is a candidate extension of the repo-local finite-case pipeline to `n=9`,
 but it is not yet the source-of-truth strongest result. The raw incoming bundle
