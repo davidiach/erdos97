@@ -156,6 +156,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_high_risk_frontier_packet",
+        command=(
+            "python",
+            "scripts/check_n9_high_risk_frontier_packet.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Mutual-edge-triangle slice of the n=9 pre-vertex-circle "
+            "frontier with fixed-row radius-blocker and vertex-circle replay; "
+            "not a proof of n=9, counterexample, or independent review "
+            "completion."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_self_edge_path_join",
         command=(
             "python",
