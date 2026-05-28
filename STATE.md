@@ -511,6 +511,15 @@ cycles. This remains proof-mining bookkeeping only, not outside-pair support
 existence, row forcing, `n=9`, or the bridge. See
 `docs/bootstrap-t12-151-6-outside-pair-full-neighborhood-vertex-circle.md`.
 
+The source-`151` row-`6` outside-pair connector contract now records the exact
+local conditional left by that lane: any genuine center-`6` rich class
+containing witnesses `0` and `8` supplies connector `[0,6]=[8,6]`. Thus the
+endpoint-`8` supports `[3,8]` and `[5,8]` are connector-forcing targets, while
+the private-halo-only pair `[3,5]` is the unique connector-avoiding outside-pair
+escape. This remains diagnostic bookkeeping only, not outside-pair support
+existence, row forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-151-6-outside-pair-connector-contract.md`.
+
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation
 rows built from its bootstrap-core witnesses plus one singleton support; in

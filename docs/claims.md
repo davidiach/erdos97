@@ -1194,6 +1194,16 @@ all `28` are killed by vertex-circle self-edge or strict-cycle obstructions.
 This remains a review-pending diagnostic only, not outside-pair support
 existence, row forcing, `n=9`, the bootstrap bridge, or Erdos Problem #97.
 
+The source-`151` row-`6` outside-pair connector contract in
+`docs/bootstrap-t12-151-6-outside-pair-connector-contract.md` records the exact
+local conditional behind the support-sufficient connector: a genuine center-`6`
+rich class containing witnesses `0` and `8` gives `[0,6]=[8,6]`. The checked
+packet partitions the outside-pair supports into connector-forcing endpoint-`8`
+pairs `[3,8]` and `[5,8]`, and the connector-avoiding private-halo-only pair
+`[3,5]`. This remains a review-pending diagnostic only, not outside-pair
+support existence, row forcing, `n=9`, the bootstrap bridge, or Erdos Problem
+#97.
+
 The source-`151` singleton-support audit in
 `docs/bootstrap-t12-151-singleton-support-audit.md` covers rows `151:5` and
 `151:8`. In both fixed source-`151` neighborhoods, only the original target row

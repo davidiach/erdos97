@@ -395,7 +395,11 @@ Use this queue when no more specific issue is selected.
    lets all other selected rows move arbitrarily; basic filters leave `28`
    complete assignments, including `21` with non-original row `6`, and exact
    vertex-circle replay kills all `28`. This still leaves genuine outside-pair
-   support existence and row-forcing geometry open. The
+   support existence and row-forcing geometry open. The connector contract in
+   `docs/bootstrap-t12-151-6-outside-pair-connector-contract.md` narrows that
+   support question: endpoint-`8` pairs `[3,8]` and `[5,8]` would supply the
+   needed connector, while private-halo-only `[3,5]` is the unique
+   connector-avoiding outside-pair escape. The
    source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine

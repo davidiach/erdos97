@@ -5191,6 +5191,99 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_outside_pair_connector_contract
+    path: data/certificates/bootstrap_t12_151_6_outside_pair_connector_contract.json
+    sha256: 08c1daa6d909ca40ce3942dfb27d82368dd73c4493919bad784bf488f2cbd533
+    size_bytes: 9608
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_outside_pair_connector_contract.py
+    command: python scripts/check_bootstrap_t12_151_6_outside_pair_connector_contract.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_outside_pair_connector_contract.py
+    check_command: python scripts/check_bootstrap_t12_151_6_outside_pair_connector_contract.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Focused 151:6 outside-pair connector contract diagnostic; proves only the local conditional from a genuine rich class at center 6 containing witnesses 0 and 8 to connector [0,6]=[8,6], partitions endpoint-8 supports from the private-halo-only escape, but does not prove support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_outside_pair_connector_contract.v1
+      status: BOOTSTRAP_T12_151_6_OUTSIDE_PAIR_CONNECTOR_CONTRACT_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.source_record_ids:
+        - 151
+      summary.target_row_center: 6
+      summary.target_witnesses:
+        - 0
+        - 3
+        - 5
+        - 8
+      summary.bootstrap_core_witnesses:
+        - 0
+      summary.connector_pair:
+        - 0
+        - 8
+      summary.connector_distance_pairs:
+        - [0, 6]
+        - [8, 6]
+      summary.outside_support_pairs:
+        - [3, 5]
+        - [3, 8]
+        - [5, 8]
+      summary.connector_forcing_support_pairs:
+        - [3, 8]
+        - [5, 8]
+      summary.connector_avoiding_support_pairs:
+        - [3, 5]
+      summary.ledger_hit_support_pairs:
+        - [3, 8]
+        - [5, 8]
+      summary.private_halo_only_support_pairs:
+        - [3, 5]
+      summary.support_pair_count: 3
+      summary.connector_forcing_support_pair_count: 2
+      summary.connector_avoiding_support_pair_count: 1
+      summary.full_row_forcing_required_for_connector: false
+      summary.local_conditional_lemma_status: EXACT_LOCAL_CONDITIONAL
+      summary.rich_support_existence_status: OPEN_TARGET_NOT_PROVED
+      summary.escape_status: CONNECTOR_ESCAPE_REQUIRES_PRIVATE_HALO_ONLY_PAIR_3_5
+      summary.connector_contract_gap_type: OUTSIDE_PAIR_CONNECTOR_CONTRACT_NOT_SUPPORT_EXISTENCE
+      summary.row_forcing_gap_type: OUTSIDE_PAIR_SUPPORT_NEEDS_CONNECTOR_ROW_FORCING
+      local_conditional_lemma.conclusion: The selected-distance equality [0,6]=[8,6] holds.
+      outside_pair_partition.connector_avoiding_support_pairs:
+        - [3, 5]
+      escape_mechanism.connector_avoiding_activation_witnesses:
+        - [0, 3, 5]
+      source_outside_pair_packet.source_schema: erdos97.bootstrap_t12_outside_pair.v1
+      source_outside_pair_packet.support_pairs:
+        - [3, 5]
+        - [3, 8]
+        - [5, 8]
+      source_relation_sufficient_packet.source_schema: erdos97.bootstrap_t12_relation_sufficient_rows.v1
+      source_relation_sufficient_packet.requirement_id: "151:6:connector:2:0"
+      source_relation_sufficient_packet.required_witnesses:
+        - 0
+        - 8
+      provenance.generator: scripts/check_bootstrap_t12_151_6_outside_pair_connector_contract.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_outside_pair_connector_contract.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - the 151:6 outside support exists
+      - the 151:6 connector contract proves support existence
+      - the 151:6 connector contract proves the bridge
+      - the private-halo-only pair 3,5 is impossible
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_81_3_closure_target
     path: data/certificates/bootstrap_t12_81_3_closure_target.json
     sha256: fcf1490c73e6edce3048797f4bd5bc2b244423b83a16736bc416570fb2ab45a5

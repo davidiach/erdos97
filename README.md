@@ -139,6 +139,11 @@ full-neighborhood vertex-circle packet: basic filters leave `28` complete
 assignments and vertex-circle replay kills all `28`, still without proving
 outside-pair support existence, row forcing, `n=9`, or the bridge. See
 [`docs/bootstrap-t12-151-6-outside-pair-full-neighborhood-vertex-circle.md`](docs/bootstrap-t12-151-6-outside-pair-full-neighborhood-vertex-circle.md).
+Its connector contract now isolates the smaller bridge target: an endpoint-`8`
+outside support at center `6` would give connector `[0,6]=[8,6]`, while the
+private-halo-only pair `[3,5]` is the connector-avoiding escape still open.
+See
+[`docs/bootstrap-t12-151-6-outside-pair-connector-contract.md`](docs/bootstrap-t12-151-6-outside-pair-connector-contract.md).
 
 An incoming `n=10` singleton-slice continuation is recorded as a finite-case
 draft review target only; see

@@ -838,6 +838,17 @@ existence, row forcing, `n=9`, or the bootstrap bridge. See
 and
 `data/certificates/bootstrap_t12_151_6_outside_pair_full_neighborhood_vertex_circle.json`.
 
+The source-`151` row-`6` outside-pair connector contract records the local
+conditional needed by the T12/F16 equality connector. If a genuine rich class
+at center `6` contains witnesses `0` and `8`, then `[0,6]=[8,6]`. It partitions
+the outside supports into connector-forcing endpoint-`8` pairs `[3,8]` and
+`[5,8]`, and the connector-avoiding private-halo-only pair `[3,5]`. This is
+still a finite diagnostic only, not a proof of outside-pair support existence,
+row forcing, `n=9`, or the bootstrap bridge. See
+`docs/bootstrap-t12-151-6-outside-pair-connector-contract.md`,
+`scripts/check_bootstrap_t12_151_6_outside_pair_connector_contract.py`, and
+`data/certificates/bootstrap_t12_151_6_outside_pair_connector_contract.json`.
+
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses
 bootstrap-core witnesses `[2,4]` and singleton supports `7` and `8`; row
