@@ -1028,6 +1028,13 @@ checks that the stored local-core rows and 184 stored frontier assignments get
 the same selected-distance quotient status from the exhaustive checker, the
 reusable replay helper, and a small direct replay. This is implementation
 agreement only.
+The closed-descent packet
+`scripts/check_n9_vertex_circle_closed_descent_packet.py --check --assert-expected --json`
+turns the 16 stored compact local-core quotient obstructions into checked
+finite descent regions and extracted strict-cycle certificates. It records
+`13` one-class regions and `3` multi-class regions, with cycle-length counts
+`1:13`, `2:1`, and `3:2`. This is diagnostic local-packet data only, not a
+proof of `n=9` or a bridge proof.
 The partial-pruning audit
 `scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`
 checks all 94,024 nonempty selected-row subsets of the stored 184 frontier

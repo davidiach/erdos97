@@ -61,6 +61,7 @@ verify-n9-review:
 	$(PYTHON) scripts/compare_n9_vertex_circle_frontier.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_closed_descent_packet.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_self_edge_path_join.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_self_edge_template_packet.py --check --assert-expected --json

@@ -612,6 +612,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_vertex_circle_closed_descent_packet",
+        command=(
+            "python",
+            "scripts/check_n9_vertex_circle_closed_descent_packet.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Closed-descent reformulation of stored n=9 local-core quotient "
+            "obstructions; not local-lemma completeness, brancher coverage, "
+            "strict-edge geometry, proof of n=9, counterexample, bridge proof, "
+            "or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_partial_pruning",
         command=(
             "python",

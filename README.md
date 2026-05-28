@@ -117,6 +117,12 @@ vertex-circle filter kills all 184 by exact self-edge or strict-cycle
 obstructions. This remains review-pending; see
 [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
 
+A companion closed-descent packet reformulates the 16 compact local-core
+quotient obstructions as finite descent regions and extracted strict cycles.
+It is diagnostic-only local packet data, not local-lemma completeness, a bridge
+proof, or an `n=9` proof; see
+[`docs/n9-vertex-circle-quotient-soundness-audit.md`](docs/n9-vertex-circle-quotient-soundness-audit.md).
+
 The `n=9` Groebner decoder follow-up is a second-source algebraic audit target,
 not a status promotion; see
 [`docs/n9-groebner-decoders.md`](docs/n9-groebner-decoders.md).

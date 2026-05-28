@@ -635,6 +635,12 @@ The quotient-soundness audit
 checks selected-distance quotient status agreement on the stored local-core
 rows, stored full frontier assignments, and stored transformed frontier cores.
 It leaves branch coverage and strict-edge geometry review separate.
+The closed-descent packet
+`scripts/check_n9_vertex_circle_closed_descent_packet.py --check --assert-expected --json`
+replays the 16 compact local-core representatives as finite closed-descent
+regions, with region/cycle length counts `1:13`, `2:1`, and `3:2`.
+It is a diagnostic reformulation only, not local-lemma completeness, a bridge
+proof, or an `n=9` proof.
 The partial-pruning audit
 `scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`
 checks all 94,024 nonempty selected-row subsets of the stored 184 frontier

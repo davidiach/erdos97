@@ -1860,6 +1860,22 @@ prove row coverage, brancher coverage, strict-edge geometry, `n=9`, a
 counterexample, or any official/global status update. Check it with
 `python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json`.
 
+### n=9 vertex-circle closed-descent packet
+
+Status: `REVIEW_PENDING_DIAGNOSTIC_ONLY`.
+
+The checker `scripts/check_n9_vertex_circle_closed_descent_packet.py` reads the
+stored compact local-core packet and replays one finite closed-descent region
+per motif-family representative. The checked packet has `16` representatives,
+orbit-size sum `184`, source status counts `13` self-edge / `3` strict-cycle,
+and region/cycle length counts `1:13`, `2:1`, and `3:2`.
+
+This is a closed-descent reformulation of stored local packets only. It does
+not prove local-lemma completeness, brancher coverage, strict-edge geometry,
+`n=9`, a bridge proof, a counterexample, or any official/global status update.
+Check it with
+`python scripts/check_n9_vertex_circle_closed_descent_packet.py --check --assert-expected --json`.
+
 ### n=9 vertex-circle partial-pruning audit
 
 Status: `REVIEW_PENDING_PARTIAL_PRUNING_AUDIT`.

@@ -392,7 +392,8 @@ put detailed reconciliation in the canonical synthesis.
   used by the exhaustive `n=9` vertex-circle checker.
 - [`n9-vertex-circle-quotient-soundness-audit.md`](n9-vertex-circle-quotient-soundness-audit.md):
   quotient-graph soundness audit for selected-distance unioning, self-edge
-  contradictions, and directed strict-cycle contradictions.
+  contradictions, directed strict-cycle contradictions, and the diagnostic
+  closed-descent packet derived from the local-core representatives.
 - [`n9-vertex-circle-template-lemma-catalog.md`](n9-vertex-circle-template-lemma-catalog.md):
   derived 12-template lemma-candidate catalog for proof-mining review.
 - [`n9-vertex-circle-local-lemmas.md`](n9-vertex-circle-local-lemmas.md):

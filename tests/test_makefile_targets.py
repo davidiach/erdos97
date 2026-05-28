@@ -104,6 +104,10 @@ def test_verify_n9_review_includes_documented_frontier_audits() -> None:
             "--check --assert-expected --json"
         ),
         (
+            "python scripts/check_n9_vertex_circle_closed_descent_packet.py "
+            "--check --assert-expected --json"
+        ),
+        (
             "python scripts/check_n9_vertex_circle_partial_pruning.py "
             "--check --assert-expected --json"
         ),
