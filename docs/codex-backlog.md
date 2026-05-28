@@ -494,9 +494,13 @@ Use this queue when no more specific issue is selected.
    brancher coverage, strict-edge geometry, quotient soundness, and pruning
    remain separate review scopes.
 
-## Task CB-N9-T01 - Extract Vertex-Circle Self-Edge Template
+## Task CB-N9-T01 - Review Vertex-Circle Self-Edge Template
 
 Issue: none yet.
+
+Status: extracted as a review-pending diagnostic/local lemma candidate. Do not
+start another extraction PR for this template; the next useful work is
+reviewing packet soundness and local-lemma assumptions.
 
 Read first:
 
@@ -514,16 +518,15 @@ python scripts/check_n9_vertex_circle_template_lemma_catalog.py --check --assert
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 ```
 
-Expected artifacts:
+Current artifacts:
 
-- a proof-facing lemma note or update that states the exact incidence and
-  cyclic-order hypotheses for the T01/F09 self-edge template;
-- a minimal checker or checker update that verifies the compact template
-  packet independently of the full exhaustive search;
+- a proof-facing lemma note that states the exact incidence and cyclic-order
+  hypotheses for the T01/F09 self-edge template;
+- a compact packet verifier for the stored template data;
 - documentation that distinguishes the local template from any `n=9`
   completeness or global Erdos #97 claim.
 
-Acceptance criteria:
+Next review acceptance criteria:
 
 - The lemma candidate does not enumerate all `n=9` selected-witness systems.
 - The proof-facing text identifies the selected-distance quotienting and
@@ -541,9 +544,13 @@ Forbidden overclaiming text:
 - "the vertex-circle checker is independently reviewed"
 - "this proves Erdos #97"
 
-## Task CB-N9-T10 - Extract Vertex-Circle Strict-Cycle Template
+## Task CB-N9-T10 - Review Vertex-Circle Strict-Cycle Template
 
 Issue: none yet.
+
+Status: extracted as a review-pending diagnostic/local lemma candidate. Do not
+start another extraction PR for this template; the next useful work is
+reviewing packet soundness and local-lemma assumptions.
 
 Read first:
 
@@ -561,16 +568,16 @@ python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --check --
 python scripts/check_n9_vertex_circle_template_lemma_catalog.py --check --assert-expected --json
 ```
 
-Expected artifacts:
+Current artifacts:
 
-- a proof-facing lemma note or update that states the exact incidence and
-  cyclic-order hypotheses for the T10/F12 strict-cycle template;
+- a proof-facing lemma note that states the exact incidence and cyclic-order
+  hypotheses for the T10/F12 strict-cycle template;
 - a compact verifier that replays the quotient strict-cycle certificate from
   stored data;
 - documentation that keeps local-core strict-cycle counts separate from
   full-assignment obstruction-shape counts.
 
-Acceptance criteria:
+Next review acceptance criteria:
 
 - The lemma candidate states the directed quotient cycle and the exact local
   hypotheses that force it.

@@ -336,6 +336,11 @@ be irreflexive and acyclic.
 
 Next steps:
 
+The focused T01--T12 packet notes and checkers are already extracted as
+review-pending diagnostic/local lemma candidates. New work in this priority
+should review packet soundness, local-lemma hypotheses, and aggregate
+handoffs rather than re-extracting T01 or T10.
+
 - classify the 13 self-edge dihedral incidence families into local lemmas;
 - review the 3 strict-cycle dihedral incidence families as directed
   quotient-cycle local templates, using the focused T10/T11/T12 notes;
