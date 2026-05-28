@@ -2091,6 +2091,33 @@ local-lemma completeness, frontier coverage, `n=9`, a counterexample, or any
 official/global status update. Check it with
 `python scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --json`.
 
+### n=9 vertex-circle focused mini-replay crosswalk
+
+Status: `REVIEW_PENDING_FOCUSED_MINIREPLAY_CROSSWALK`.
+
+The checker `scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py`
+treats the focused `T01` through `T12` local-lemma packet JSON files and their
+packet-specific mini-replay JSON artifacts as input data. It joins those two
+layers before any review of mini-replay soundness, packet soundness, or
+local-lemma completeness by checking source identity, source schema records,
+family coverage, obstruction flags, assignment counts, and compact local shape
+counts.
+
+When run with `--check --assert-expected --json`, the crosswalk checks `12`
+focused packets and `12` mini-replay artifacts. Those source packets cover
+`184` assignments across `16` families, with template status counts `9`
+self-edge and `3` strict-cycle and assignment status counts `158` self-edge
+and `26` strict-cycle. It reports all `12` mini-replays as obstruction-flagged,
+with zero source-packet mismatches, zero source-schema mismatches, zero family
+mismatches, zero assignment-count mismatches, and zero obstruction-flag
+mismatches. The self-edge compact path-length family histogram is `3: 9`,
+`4: 2`, `5: 1`, and `6: 1`; the strict-cycle length family histogram is
+`2: 1` and `3: 2`. This is JSON-only cross-artifact bookkeeping. It does not
+prove mini-replay soundness, packet soundness, local-lemma completeness,
+frontier coverage, `n=9`, a counterexample, or any official/global status
+update. Check it with
+`python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
