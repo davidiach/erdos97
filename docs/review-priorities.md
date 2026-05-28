@@ -795,6 +795,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   source-`151` neighborhood or one-row-drop relaxation. The remaining target
   is still genuine singleton-support or row-forcing geometry, not a proof that
   either row is forced.
+- bootstrap/T12 singleton full-neighborhood crosswalk evidence, as recorded
+  in `docs/bootstrap-t12-singleton-full-neighborhood-crosswalk.md`, joining
+  the source-`81` row-`8` and source-`151` rows `5`/`8` full-neighborhood
+  vertex-circle diagnostics. Basic filters leave `84` complete assignments
+  across those three one-outside-label singleton-support targets, and the
+  source packets kill all `84` by vertex-circle replay. The remaining target
+  is still genuine singleton/rich support existence or row-forcing geometry,
+  not another selected-row-neighborhood crosswalk.
 - block-6 vertex-circle full-extension evidence, as recorded in
   `data/certificates/block6_fragile_vertex_circle_extension_audit.json` and
   `docs/block6-fragile-vertex-circle-extension-audit.md`, showing that the

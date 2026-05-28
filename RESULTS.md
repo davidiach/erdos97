@@ -852,6 +852,18 @@ bootstrap bridge. See
 and
 `data/certificates/bootstrap_t12_151_singleton_full_neighborhood_vertex_circle.json`.
 
+The singleton full-neighborhood crosswalk joins the source-`81` row-`8` packet
+with the source-`151` rows `5` and `8` packet. Across the three current
+one-outside-label singleton-support targets, basic filters leave `84` complete
+assignments, including `63` with non-original target rows; exact
+vertex-circle quotient replay kills all `84` by `64` self-edges and `20`
+strict cycles. This is still diagnostic-only cross-artifact bookkeeping, not
+singleton-support existence, row forcing, `n=9`, the bootstrap bridge, Erdos
+Problem #97, or a counterexample. See
+`docs/bootstrap-t12-singleton-full-neighborhood-crosswalk.md`,
+`scripts/check_bootstrap_t12_singleton_full_neighborhood_crosswalk.py`, and
+`data/certificates/bootstrap_t12_singleton_full_neighborhood_crosswalk.json`.
+
 ### Fixed-pattern exact obstructions
 
 Status: `EXACT_OBSTRUCTION`.

@@ -2361,6 +2361,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_singleton_full_neighborhood_crosswalk",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_singleton_full_neighborhood_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Crosswalk for source-81 and source-151 singleton-support "
+            "full-neighborhood diagnostics; not singleton-support existence, "
+            "row forcing, an n=9 proof, a bridge proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="closure_activation_wrong_fourth_negative_control",
         command=(
             "python",

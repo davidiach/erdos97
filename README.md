@@ -127,6 +127,14 @@ The `n=9` Groebner decoder follow-up is a second-source algebraic audit target,
 not a status promotion; see
 [`docs/n9-groebner-decoders.md`](docs/n9-groebner-decoders.md).
 
+Bootstrap/T12 bridge-facing diagnostics are recorded as proof-mining packets
+only. The singleton full-neighborhood crosswalk joins the current
+one-outside-label singleton-support targets and shows that stored
+vertex-circle quotient replays kill all basic-filter survivors in those
+selected-row neighborhoods; it does not prove singleton-support existence, row
+forcing, `n=9`, or the bridge. See
+[`docs/bootstrap-t12-singleton-full-neighborhood-crosswalk.md`](docs/bootstrap-t12-singleton-full-neighborhood-crosswalk.md).
+
 An incoming `n=10` singleton-slice continuation is recorded as a finite-case
 draft review target only; see
 [`docs/n10-vertex-circle-singleton-slices.md`](docs/n10-vertex-circle-singleton-slices.md).
