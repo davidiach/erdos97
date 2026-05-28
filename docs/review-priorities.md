@@ -789,6 +789,12 @@ condition that the surviving multi-block family does not automatically satisfy:
   row-`6` activation survivor under basic incidence/crossing filters. The
   remaining target is still genuine outside-pair support or row-forcing
   geometry, not a proof that row `6` is forced.
+- bootstrap/T12 focused `151:6` outside-pair two-row-drop evidence, as
+  recorded in `docs/bootstrap-t12-151-6-outside-pair-two-row-drop.md`, showing
+  that allowing any two non-target source-`151` rows to move still leaves only
+  the `28` trivial original-neighborhood survivors. The remaining target is
+  still genuine outside-pair support or row-forcing geometry, not a proof that
+  row `6` is forced.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

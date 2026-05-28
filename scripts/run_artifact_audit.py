@@ -2316,6 +2316,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_outside_pair_two_row_drop",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_outside_pair_two_row_drop.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Two-row-drop outside-pair stress test for source 151 row 6; "
+            "not outside-pair support existence, row forcing, an n=9 proof, "
+            "a bridge proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",

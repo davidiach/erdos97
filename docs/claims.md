@@ -1176,6 +1176,15 @@ This remains a finite proof-mining diagnostic only, not a proof of outside-pair
 support existence, row forcing, `n=9`, the bootstrap bridge, or Erdos Problem
 #97.
 
+The source-`151` row-`6` outside-pair two-row-drop follow-up in
+`docs/bootstrap-t12-151-6-outside-pair-two-row-drop.md` lets any two
+non-target source rows move while row `6` ranges over the same thirteen
+outside-pair activation rows. It checks `1,783,600` candidate states and leaves
+only `28` trivial original-neighborhood survivors, one for each dropped-center
+pair. This is still finite incidence/crossing bookkeeping only; it does not
+prove outside-pair support existence, row forcing, `n=9`, the bootstrap bridge,
+or Erdos Problem #97.
+
 The source-`151` singleton-support audit in
 `docs/bootstrap-t12-151-singleton-support-audit.md` covers rows `151:5` and
 `151:8`. In both fixed source-`151` neighborhoods, only the original target row

@@ -815,6 +815,17 @@ See `docs/bootstrap-t12-151-6-outside-pair-audit.md`,
 `scripts/check_bootstrap_t12_151_6_outside_pair_audit.py`, and
 `data/certificates/bootstrap_t12_151_6_outside_pair_audit.json`.
 
+The source-`151` row-`6` outside-pair two-row-drop follow-up extends the same
+audit by allowing any unordered pair of non-target rows to move arbitrarily.
+It checks `1,783,600` candidate states, leaves `28` survivors, and all
+survivors are the trivial original-neighborhood rows: row `6` remains
+`[0,3,5,8]`, and both dropped rows remain their source-`151` rows. This closes
+only the next relaxation level for that diagnostic; it is not outside-pair
+support existence, row forcing, `n=9`, or the bootstrap bridge. See
+`docs/bootstrap-t12-151-6-outside-pair-two-row-drop.md`,
+`scripts/check_bootstrap_t12_151_6_outside_pair_two_row_drop.py`, and
+`data/certificates/bootstrap_t12_151_6_outside_pair_two_row_drop.json`.
+
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses
 bootstrap-core witnesses `[2,4]` and singleton supports `7` and `8`; row

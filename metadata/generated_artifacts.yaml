@@ -6844,6 +6844,93 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_outside_pair_two_row_drop
+    path: data/certificates/bootstrap_t12_151_6_outside_pair_two_row_drop.json
+    sha256: ff123ee0c490d6336a10cebdbebcd3c50662e734eb0f6bd1cd402cf0c45bdda1
+    size_bytes: 44431
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_outside_pair_two_row_drop.py
+    command: python scripts/check_bootstrap_t12_151_6_outside_pair_two_row_drop.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_outside_pair_two_row_drop.py
+    check_command: python scripts/check_bootstrap_t12_151_6_outside_pair_two_row_drop.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 outside-pair two-row-drop stress test; only original-neighborhood survivors remain when any two non-target rows move arbitrarily while row 6 ranges over the thirteen outside-pair activation rows. This is not outside-pair support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_outside_pair_two_row_drop.v1
+      status: BOOTSTRAP_T12_151_6_OUTSIDE_PAIR_TWO_ROW_DROP_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.source_record_ids:
+        - 151
+      summary.cyclic_order:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+      summary.target_center: 6
+      summary.bootstrap_core_witnesses:
+        - 0
+      summary.outside_support_pairs:
+        - [3, 5]
+        - [3, 8]
+        - [5, 8]
+      summary.original_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 8
+      summary.target_center_candidate_count: 13
+      summary.two_row_drop_centers:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 7
+        - 8
+      summary.two_row_drop_dropped_center_pair_count: 28
+      summary.two_row_drop_replacement_count_per_center: 70
+      summary.two_row_drop_candidate_count: 1783600
+      summary.two_row_drop_surviving_candidate_count: 28
+      summary.two_row_drop_non_original_survivor_count: 0
+      summary.two_row_drop_survivors_all_original_rows: true
+      summary.two_row_drop_rejection_category_counts.crossing: 3670
+      summary.two_row_drop_rejection_category_counts.row_pair+crossing: 1591
+      summary.two_row_drop_rejection_category_counts.row_pair+witness_pair: 1356
+      summary.two_row_drop_rejection_category_counts.row_pair+witness_pair+crossing: 1756671
+      summary.two_row_drop_rejection_category_counts.witness_pair+crossing: 20284
+      summary.two_row_drop_rejection_category_counts.survive: 28
+      summary.scan_status: ONLY_ORIGINAL_ROW6_SURVIVES_TWO_ROW_DROP_OUTSIDE_PAIR_AUDIT
+      source_outside_pair_audit_packet.schema: erdos97.bootstrap_t12_151_6_outside_pair_audit.v1
+      source_outside_pair_audit_packet.status: BOOTSTRAP_T12_151_6_OUTSIDE_PAIR_AUDIT_DIAGNOSTIC_ONLY
+      source_outside_pair_audit_packet.scan_status: ONLY_ORIGINAL_ROW6_SURVIVES_FIXED_AND_ONE_ROW_DROP_SUPPORT_AUDITS
+      provenance.generator: scripts/check_bootstrap_t12_151_6_outside_pair_two_row_drop.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_outside_pair_two_row_drop.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - the 151:6 outside support exists
+      - the 151:6 two-row-drop audit proves the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

@@ -385,8 +385,11 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-151-6-outside-pair-audit.md` does the analogous check
    for the remaining relation-sufficient row target: no non-original row-`6`
    activation survivor appears in the fixed source-`151` neighborhood or a
-   one-row-drop relaxation, but genuine outside-pair support existence and row
-   forcing remain open. The source-`151` singleton-support audit in
+   one-row-drop relaxation. Its two-row-drop extension in
+   `docs/bootstrap-t12-151-6-outside-pair-two-row-drop.md` checks `1,783,600`
+   states and leaves only the `28` trivial original-neighborhood survivors,
+   but genuine outside-pair support existence and row forcing remain open. The
+   source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine
    support-existence and row-forcing bridge questions open. The singleton
