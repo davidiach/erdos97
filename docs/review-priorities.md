@@ -816,6 +816,13 @@ condition that the surviving multi-block family does not automatically satisfy:
   vertex-circle quotient replay kills all `28`. The remaining target is still
   genuine outside-pair support or row-forcing geometry, not a proof that row
   `6` is forced.
+- bootstrap/T12 focused `151:6` outside-pair connector-contract evidence, as
+  recorded in
+  `docs/bootstrap-t12-151-6-outside-pair-connector-contract.md`, proving only
+  the local conditional that a genuine center-`6` rich class containing
+  witnesses `0` and `8` supplies `[0,6]=[8,6]`. The remaining target is to
+  force an endpoint-`8` support or analyze the private-halo-only pair `[3,5]`;
+  this is not support existence, row forcing, or a bridge proof.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

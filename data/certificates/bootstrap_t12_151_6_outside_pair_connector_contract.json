@@ -1,0 +1,305 @@
+{
+  "claim_scope": "Focused local connector contract for source 151 row 6: any genuine rich class at center 6 that contains witnesses 0 and 8 supplies the T12/F16 equality connector [0,6]=[8,6]. This proves only that exact local conditional and partitions the outside-pair support options into connector-forcing supports and a connector-avoiding private-halo-only escape; it does not prove support existence, does not prove row forcing, does not prove n=9, does not prove the bridge, and does not claim a counterexample.",
+  "escape_mechanism": {
+    "connector_avoiding_activation_witnesses": [
+      [
+        0,
+        3,
+        5
+      ]
+    ],
+    "connector_avoiding_support_pairs": [
+      [
+        3,
+        5
+      ]
+    ],
+    "escape_condition": "To avoid the connector equality at center 6, every genuine outside-pair support realizing row 151:6 must avoid endpoint 8.",
+    "next_target": "Prove an endpoint-8 outside support is forced, or isolate an exact geometric route by which the private-halo-only pair [3,5] can be the genuine support.",
+    "status": "CONNECTOR_ESCAPE_REQUIRES_PRIVATE_HALO_ONLY_PAIR_3_5",
+    "why_pair_3_5_matters": "The bootstrap core supplies only witness 0. The support pair [3,5] makes row 6 activation-ready without adding endpoint 8, so it is the unique outside-pair support that avoids the stored connector pair [0,8]."
+  },
+  "interpretation_warnings": [
+    "This packet proves only the local conditional from a genuine rich class containing witnesses 0 and 8 to the connector equality [0,6]=[8,6].",
+    "It does not prove that any outside-pair support exists at center 6.",
+    "It does not prove full row 151:6, row forcing, n=9, the bridge, or a counterexample.",
+    "The private-halo-only pair [3,5] remains an open connector-avoiding escape, not a ruled-out case."
+  ],
+  "local_conditional_lemma": {
+    "conclusion": "The selected-distance equality [0,6]=[8,6] holds.",
+    "hypothesis": "At center 6, a genuine rich distance class contains witnesses 0 and 8.",
+    "name": "151:6 outside-pair connector contract",
+    "non_claims": [
+      "does not prove any rich class contains witnesses 0 and 8",
+      "does not prove either endpoint-8 outside support exists",
+      "does not prove the full fixed row [0,3,5,8]",
+      "does not prove the T12/F16 local packet is geometrically available"
+    ],
+    "proof": "A rich distance class at center 6 consists of vertices at one common distance from p_6. If witnesses 0 and 8 both belong to such a class, then |p_6-p_0|=|p_6-p_8|, which is exactly the connector equality [0,6]=[8,6].",
+    "status": "EXACT_LOCAL_CONDITIONAL"
+  },
+  "outside_pair_partition": {
+    "connector_avoiding_support_pairs": [
+      [
+        3,
+        5
+      ]
+    ],
+    "connector_forcing_support_pairs": [
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "ledger_hit_support_pairs": [
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "private_halo_only_support_pairs": [
+      [
+        3,
+        5
+      ]
+    ],
+    "reading": "The endpoint-8 supports [3,8] and [5,8] would place the bootstrap witness 0 and connector endpoint 8 in one center-6 rich class. The private-halo-only pair [3,5] activates the row without endpoint 8 and is therefore the connector-avoiding escape left open by this contract.",
+    "records": [
+      {
+        "activation_witnesses": [
+          0,
+          3,
+          5
+        ],
+        "connector_role": "connector_avoiding_escape_support",
+        "contains_connector_pair": false,
+        "ledger_private_pair_core_vertices": [],
+        "ledger_private_pair_hit": false,
+        "pair_private_in_all_deletion_halos": true,
+        "support_pair": [
+          3,
+          5
+        ],
+        "support_pair_key": "3-5",
+        "support_pair_mode": "PRIVATE_HALO_ONLY"
+      },
+      {
+        "activation_witnesses": [
+          0,
+          3,
+          8
+        ],
+        "connector_role": "connector_forcing_support",
+        "contains_connector_pair": true,
+        "ledger_private_pair_core_vertices": [
+          0
+        ],
+        "ledger_private_pair_hit": true,
+        "pair_private_in_all_deletion_halos": true,
+        "support_pair": [
+          3,
+          8
+        ],
+        "support_pair_key": "3-8",
+        "support_pair_mode": "LEDGER_PRIVATE_PAIR_HIT"
+      },
+      {
+        "activation_witnesses": [
+          0,
+          5,
+          8
+        ],
+        "connector_role": "connector_forcing_support",
+        "contains_connector_pair": true,
+        "ledger_private_pair_core_vertices": [
+          2
+        ],
+        "ledger_private_pair_hit": true,
+        "pair_private_in_all_deletion_halos": true,
+        "support_pair": [
+          5,
+          8
+        ],
+        "support_pair_key": "5-8",
+        "support_pair_mode": "LEDGER_PRIVATE_PAIR_HIT"
+      }
+    ],
+    "status": "CONNECTOR_ESCAPE_REQUIRES_PRIVATE_HALO_ONLY_PAIR_3_5"
+  },
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_outside_pair_connector_contract.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_151_6_outside_pair_connector_contract.py"
+  },
+  "schema": "erdos97.bootstrap_t12_151_6_outside_pair_connector_contract.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_t12_outside_pair.json",
+      "role": "source outside-pair support ledger",
+      "schema": "erdos97.bootstrap_t12_outside_pair.v1",
+      "status": "BOOTSTRAP_T12_OUTSIDE_PAIR_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/bootstrap_t12_relation_sufficient_rows.json",
+      "role": "source relation-sufficient row record",
+      "schema": "erdos97.bootstrap_t12_relation_sufficient_rows.v1",
+      "status": "BOOTSTRAP_T12_RELATION_SUFFICIENT_ROWS_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "source_outside_pair_packet": {
+    "bootstrap_core_witnesses": [
+      0
+    ],
+    "ledger_private_pair_support_hit_count": 2,
+    "outside_witnesses": [
+      3,
+      5,
+      8
+    ],
+    "row_center": 6,
+    "row_center_private_in_all_deletion_closures": true,
+    "source_artifact": "data/certificates/bootstrap_t12_outside_pair.json",
+    "source_record_id": 151,
+    "source_schema": "erdos97.bootstrap_t12_outside_pair.v1",
+    "source_status": "BOOTSTRAP_T12_OUTSIDE_PAIR_DIAGNOSTIC_ONLY",
+    "source_trust": "REVIEW_PENDING_DIAGNOSTIC",
+    "support_pair_modes": {
+      "LEDGER_PRIVATE_PAIR_HIT": 2,
+      "PRIVATE_HALO_ONLY": 1
+    },
+    "support_pair_option_count": 3,
+    "support_pairs": [
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "target_row_key": "151:6"
+  },
+  "source_relation_sufficient_packet": {
+    "bridge_lemma_target": "Promote the outside-pair support, with partial private-pair ledger contact, to an equality-connector row-forcing lemma.",
+    "missing_from_bootstrap_core": [
+      8
+    ],
+    "relation_state": "SUPPORT_SUFFICIENT",
+    "required_witnesses": [
+      0,
+      8
+    ],
+    "requirement_id": "151:6:connector:2:0",
+    "requirement_kind": "equality_connector_pair",
+    "row_forcing_gap_type": "OUTSIDE_PAIR_SUPPORT_NEEDS_CONNECTOR_ROW_FORCING",
+    "row_target_status": "OUTSIDE_PAIR_CONNECTOR_PARTIAL_LEDGER",
+    "source_artifact": "data/certificates/bootstrap_t12_relation_sufficient_rows.json",
+    "source_schema": "erdos97.bootstrap_t12_relation_sufficient_rows.v1",
+    "source_status": "BOOTSTRAP_T12_RELATION_SUFFICIENT_ROWS_DIAGNOSTIC_ONLY",
+    "source_trust": "REVIEW_PENDING_DIAGNOSTIC",
+    "support_sufficient_count": 2,
+    "target_row_key": "151:6"
+  },
+  "status": "BOOTSTRAP_T12_151_6_OUTSIDE_PAIR_CONNECTOR_CONTRACT_DIAGNOSTIC_ONLY",
+  "summary": {
+    "bootstrap_core_witnesses": [
+      0
+    ],
+    "connector_avoiding_support_pair_count": 1,
+    "connector_avoiding_support_pairs": [
+      [
+        3,
+        5
+      ]
+    ],
+    "connector_contract_gap_type": "OUTSIDE_PAIR_CONNECTOR_CONTRACT_NOT_SUPPORT_EXISTENCE",
+    "connector_distance_pairs": [
+      [
+        0,
+        6
+      ],
+      [
+        8,
+        6
+      ]
+    ],
+    "connector_forcing_support_pair_count": 2,
+    "connector_forcing_support_pairs": [
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "connector_pair": [
+      0,
+      8
+    ],
+    "escape_status": "CONNECTOR_ESCAPE_REQUIRES_PRIVATE_HALO_ONLY_PAIR_3_5",
+    "full_row_forcing_required_for_connector": false,
+    "ledger_hit_support_pairs": [
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "local_conditional_lemma_status": "EXACT_LOCAL_CONDITIONAL",
+    "next_bridge_question": "Can genuine outside-pair/rich-class geometry force one of the endpoint-8 supports [3,8] or [5,8], or can the private-halo-only pair [3,5] realize the connector-avoiding escape?",
+    "outside_support_pairs": [
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "private_halo_only_support_pairs": [
+      [
+        3,
+        5
+      ]
+    ],
+    "rich_support_existence_status": "OPEN_TARGET_NOT_PROVED",
+    "row_forcing_gap_type": "OUTSIDE_PAIR_SUPPORT_NEEDS_CONNECTOR_ROW_FORCING",
+    "source_record_ids": [
+      151
+    ],
+    "support_pair_count": 3,
+    "target_row_center": 6,
+    "target_row_key": "151:6",
+    "target_witnesses": [
+      0,
+      3,
+      5,
+      8
+    ]
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

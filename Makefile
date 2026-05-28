@@ -143,6 +143,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_bootstrap_t12_hard_strict_endpoints.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_open_connector_pair.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_relation_sufficient_rows.py --check --assert-expected --json
+	$(PYTHON) scripts/check_bootstrap_t12_151_6_outside_pair_connector_contract.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_81_3_closure_target.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_81_3_rich_triple_contract.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_81_3_order_escape.py --check --assert-expected --json

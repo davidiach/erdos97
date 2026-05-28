@@ -2042,6 +2042,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_outside_pair_connector_contract",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_outside_pair_connector_contract.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Focused 151:6 outside-pair connector contract diagnostic; proves "
+            "only the local conditional from a genuine rich class containing "
+            "witnesses 0 and 8, not support existence or row forcing."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_81_3_closure_target",
         command=(
             "python",
