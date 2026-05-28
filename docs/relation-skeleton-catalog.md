@@ -222,11 +222,24 @@ packet replay:
 python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json
 ```
 
+Cross-check the same catalog against the closed-descent reformulation of the
+stored local-core quotient obstructions:
+
+```bash
+python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --json
+```
+
 This crosswalk is an accounting audit. It checks that the 16 relation
 skeletons and the local-lemma replay chain agree family by family on template
 ids, family ids, obstruction kind, and assignment counts. It does not certify
 that the local-lemma packets are complete for `n=9`, and it does not review the
 exhaustive brancher.
+
+The closed-descent crosswalk is another accounting audit. It checks that the 13
+strict self-edge skeletons map to one-class descent regions and that the 3
+strict directed-cycle skeletons map to multi-class descent regions, with the
+same `184` assignment/orbit total. It is packet bookkeeping only, not
+local-lemma completeness, a bridge proof, or an `n=9` proof.
 
 ## Review Standard
 

@@ -2205,6 +2205,44 @@ artifacts:
       - the relation-skeleton catalog is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_relation_skeleton_closed_descent_crosswalk
+    path: data/certificates/n9_relation_skeleton_closed_descent_crosswalk.json
+    sha256: 382ec32f08ac9fe644080c658bdd40783223f38e3b2fa622258412445264d4af
+    size_bytes: 11761
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py
+    command: python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --assert-expected --write
+    checker: scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py
+    check_command: python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Cross-artifact audit joining the 16 relation-skeleton entries to the closed-descent reformulation of the stored n=9 vertex-circle local-core quotient obstructions; not a proof of n=9, not a counterexample, not local-lemma completeness, not a bridge proof, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_relation_skeleton_closed_descent_crosswalk.v1
+      status: REVIEW_PENDING_PACKET_AUDIT
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: Cross-artifact audit joining the 16 relation-skeleton entries to the closed-descent reformulation of the stored n=9 vertex-circle local-core quotient obstructions. This is not a proof of n=9, not a counterexample, not local-lemma completeness, not a bridge proof, and not a global status update.
+      n: 9
+      family_count: 16
+      orbit_size_sum: 184
+      contradiction_type_counts.strict_directed_cycle: 3
+      contradiction_type_counts.strict_self_edge: 13
+      region_class_count_counts.1: 13
+      region_class_count_counts.2: 1
+      region_class_count_counts.3: 2
+      validation_status: passed
+      provenance.command: python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - local-lemma completeness is proved
+      - bridge proof of Erdos Problem #97
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n9_t10_paired_square_entry_audit
     path: data/certificates/n9_t10_paired_square_entry_audit.json
     sha256: f735839bdabef19486d866734dee15414fbd59bd02aecd425ca553175ffbd6b7

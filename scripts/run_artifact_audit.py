@@ -1147,6 +1147,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_relation_skeleton_closed_descent_crosswalk",
+        command=(
+            "python",
+            "scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Cross-artifact audit joining relation skeletons to the n=9 "
+            "closed-descent packet; not local-lemma completeness, proof of "
+            "n=9, counterexample, bridge proof, or official/global status "
+            "update."
+        ),
+    ),
+    AuditCommand(
         ident="relation_skeleton_local_lemma_crosswalk",
         command=(
             "python",

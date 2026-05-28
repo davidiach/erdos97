@@ -711,6 +711,11 @@ exhaustive/local-lemma, and relation-skeleton/local-lemma handoffs with
 adjacent drift localization. These are review-pending handoff audits only, not
 packet soundness, local-lemma completeness, frontier coverage, or a proof of
 `n=9`.
+The relation-skeleton/closed-descent crosswalk
+`scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --json`
+checks the same 16 families against the closed-descent packet, matching
+self-edge skeletons to one-class regions and strict-cycle skeletons to
+multi-class regions. It is packet bookkeeping only.
 
 A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
 at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)
