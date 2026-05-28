@@ -163,6 +163,21 @@ quotient/status replay inside the audit command. It also checks the transformed
 core rows stored in the frontier-classification artifact. This is an
 implementation-agreement audit only, not branch coverage or geometry review.
 
+The closed-descent packet is also replayable:
+
+```bash
+python scripts/check_n9_vertex_circle_closed_descent_packet.py --check --assert-expected --json
+```
+
+That packet reads the compact 16-family local-core packet, rebuilds the strict
+quotient graph for each family, validates one finite closed-descent region, and
+stores the extracted strict cycle certificate. Its checked summary has `13`
+one-class self-edge descent regions and `3` multi-class strict-cycle descent
+regions, with cycle-length counts `1:13`, `2:1`, and `3:2`. This is a
+closed-descent reformulation of stored review-pending local packets only: it is
+not local-lemma completeness, brancher coverage, a proof of `n=9`, a bridge
+proof, a counterexample, or an official/global status update.
+
 The following transcript snippets are the historical one-off checks that the
 replay command now stabilizes.
 

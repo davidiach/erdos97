@@ -711,6 +711,48 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: n9_vertex_circle_closed_descent_packet
+    path: data/certificates/n9_vertex_circle_closed_descent_packet.json
+    sha256: 4662746873f3f3a53fc1f12ed1b9e1a4f3c5d13fde0fde1257d01523ee9fa1b9
+    size_bytes: 24048
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_n9_vertex_circle_closed_descent_packet.py
+    command: python scripts/check_n9_vertex_circle_closed_descent_packet.py --assert-expected --write
+    checker: scripts/check_n9_vertex_circle_closed_descent_packet.py
+    check_command: python scripts/check_n9_vertex_circle_closed_descent_packet.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Closed-descent reformulation of the 16 stored n=9 vertex-circle local-core motif representatives; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, not local-lemma completeness, and not a bridge proof or global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_vertex_circle_closed_descent_packet.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: Closed-descent reformulation of the 16 stored n=9 vertex-circle local-core motif representatives; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, not local-lemma completeness, and not a bridge proof or global status update.
+      n: 9
+      row_size: 4
+      family_count: 16
+      orbit_size_sum: 184
+      source_status_counts.self_edge: 13
+      source_status_counts.strict_cycle: 3
+      region_class_count_counts.1: 13
+      region_class_count_counts.2: 1
+      region_class_count_counts.3: 2
+      closed_descent_cycle_length_counts.1: 13
+      closed_descent_cycle_length_counts.2: 1
+      closed_descent_cycle_length_counts.3: 2
+      max_region_class_count: 3
+      provenance.command: python scripts/check_n9_vertex_circle_closed_descent_packet.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - independent review of the exhaustive checker is complete
+      - local-lemma completeness is proved
+      - bridge proof of Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_core_templates
     path: data/certificates/n9_vertex_circle_core_templates.json
     sha256: 2674257279bd8fe70433cf7456d21e763413faa64ae5695ebecf1dd793d7e715
