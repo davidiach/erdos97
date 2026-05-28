@@ -455,6 +455,11 @@ local_repo:
       artifact: "data/certificates/n9_vertex_circle_exhaustive.json, data/certificates/n9_vertex_circle_frontier_motif_classification.json, data/certificates/n9_vertex_circle_local_lemmas.json, and data/certificates/n9_vertex_circle_local_lemma_simple_replay.json"
       verifier: "scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py"
       claim_scope: "cross-artifact accounting only; checks that the review-pending exhaustive count artifact agrees with the motif classification/local-lemma layers on the aggregate 184-assignment total and 158 self-edge / 26 strict-cycle status split, while the motif classification and local-lemma/simple-replay layers agree family-by-family across 16 families; it does not review the exhaustive brancher, prove local-lemma completeness, prove frontier coverage, prove n=9, update official/global status, or give a counterexample"
+    - pattern: "relation_skeleton_local_lemma_crosswalk"
+      status: "relation-skeleton catalog and local-lemma cross-artifact audit"
+      artifact: "data/certificates/relation_skeleton_catalog.json, data/certificates/n9_vertex_circle_local_lemmas.json, and data/certificates/n9_vertex_circle_local_lemma_simple_replay.json"
+      verifier: "scripts/check_relation_skeleton_local_lemma_crosswalk.py"
+      claim_scope: "cross-artifact bookkeeping only; checks that 16 relation skeletons agree family-by-family with the aggregate local-lemma scan and simple replay on 184 assignments, relation contradiction types, obstruction groups, source packet paths, and compact relation counts, but does not prove relation-skeleton soundness, local-lemma completeness, frontier coverage, n=9, official/global status movement, or a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"
