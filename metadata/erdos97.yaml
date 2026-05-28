@@ -390,6 +390,11 @@ local_repo:
       artifact: "data/certificates/n9_vertex_circle_local_core_packet.json; data/certificates/n9_vertex_circle_frontier_motif_classification.json"
       verifier: "scripts/check_n9_vertex_circle_quotient_soundness.py"
       claim_scope: "quotient implementation agreement audit only; compares exhaustive checker, reusable quotient replay helper, and direct quotient/status replay on stored local-core rows, full frontier assignments, and transformed frontier cores, but does not prove row coverage, brancher coverage, strict-edge geometry, n=9, official/global status movement, or a counterexample"
+    - pattern: "n9_vertex_circle_partial_pruning"
+      status: "stored-frontier partial-pruning monotonicity audit"
+      artifact: "data/certificates/n9_vertex_circle_frontier_motif_classification.json"
+      verifier: "scripts/check_n9_vertex_circle_partial_pruning.py"
+      claim_scope: "stored-frontier pruning diagnostic only; checks 94024 nonempty subsets of the 184 stored frontier assignments for monotone obstruction persistence and checker/replay status agreement, but does not prove frontier coverage, brancher soundness, strict-edge geometry, quotient soundness, n=9, official/global status movement, or a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

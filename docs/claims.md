@@ -1791,6 +1791,30 @@ prove row coverage, brancher coverage, strict-edge geometry, `n=9`, a
 counterexample, or any official/global status update. Check it with
 `python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json`.
 
+### n=9 vertex-circle partial-pruning audit
+
+Status: `REVIEW_PENDING_PARTIAL_PRUNING_AUDIT`.
+
+The checker `scripts/check_n9_vertex_circle_partial_pruning.py` scans all
+nonempty selected-row subsets of the stored `184` pre-vertex-circle frontier
+assignments. It checks monotone obstruction persistence: every obstructed
+stored subset extends to a stored full assignment that remains obstructed. It
+also compares the repo-native checker status with the reusable quotient replay
+status on every subset.
+
+When run with `--check --assert-expected --json`, the audit checks `94,024`
+nonempty row subsets. It records `35,418` `ok` subsets, `24,890` self-edge
+subsets, and `33,716` strict-cycle subsets, with `58,606` obstructed subsets
+in total. The minimal obstruction size distribution is `182` assignments first
+obstructed by a 3-row subset and `2` assignments first obstructed by a 4-row
+subset. The stored-row-order prefix scan checks `1,656` prefixes and records
+zero extension violations and zero checker/replay status mismatches. This is
+stored-frontier pruning diagnostics only. It does not prove frontier coverage,
+brancher soundness, strict-edge geometry, selected-distance quotient
+soundness, `n=9`, a counterexample, or any official/global status update.
+Check it with
+`python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
