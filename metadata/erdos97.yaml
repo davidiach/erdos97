@@ -104,7 +104,7 @@ local_repo:
       artifact: "data/certificates/n9_turn_inequality_frontier.json"
       verifier: "scripts/check_n9_turn_inequality_frontier.py"
       source_provenance: "candidate weak turn-inequality frontier replay"
-      claim_scope: "candidate weak turn-inequality replay for the 184 regenerated n=9 pair/crossing/count frontier assignments only; does not alter official/global status or the source-of-truth strongest local result"
+      claim_scope: "candidate n=9 selected-witness turn-inequality frontier replay for the 184 regenerated pair/crossing/count frontier assignments only; not a proof of Erdos Problem #97, not a counterexample, not an independent review, and not a source-of-truth status update"
       review_note: "Promote only after independent review validates the geometric turn lemma, indexing conventions, regenerated source frontier, and stored integer dual arithmetic verifier."
     - name: "n9_groebner_real_root_decoders"
       status: "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING"
