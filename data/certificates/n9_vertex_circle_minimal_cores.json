@@ -1,0 +1,7042 @@
+{
+  "schema": "erdos97.n9_vertex_circle_minimal_cores.v1",
+  "trust": "INDEPENDENT_FINITE_CASE_DIAGNOSTIC_NO_GLOBAL_CLAIM",
+  "n": 9,
+  "row_size": 4,
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "symmetry_group": "dihedral D_9 (9 rotations + 9 reflections on labels)",
+  "frontier_systems": 184,
+  "frontier_systems_covered_by_a_minimal_core": 184,
+  "coverage_complete": true,
+  "distinct_minimal_cores": 219,
+  "minimal_core_size_counts": {
+    "3": 105,
+    "4": 106,
+    "5": 7,
+    "6": 1
+  },
+  "minimal_core_status_counts": {
+    "self_edge": 36,
+    "strict_cycle": 183
+  },
+  "minimal_core_size_occurrences": {
+    "3": 2058,
+    "4": 2016,
+    "5": 126,
+    "6": 12
+  },
+  "smallest_core_size": 3,
+  "largest_core_size": 6,
+  "isolated_recheck_mismatches": 0,
+  "interpretation": [
+    "Every one of the 184 incidence-surviving n=9 selected-witness systems contains at least one catalogued minimal vertex-circle obstruction core.",
+    "Each catalogued core is an exact obstruction for any strictly convex realization with this cyclic order, using only the rows it names.",
+    "The smallest obstruction uses three selected rows; the largest uses six.",
+    "This is a structural refinement of the motif-family view, not a new claim about the official/global status, and not a counterexample."
+  ],
+  "minimal_cores": [
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          3,
+          1,
+          4,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          8,
+          0,
+          1,
+          4,
+          5
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          6,
+          1,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          7,
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          8,
+          0,
+          2,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          6,
+          1,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          7,
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          8,
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          4,
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          4,
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          2,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          6,
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          8,
+          0,
+          2,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          7,
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          4,
+          5
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          8,
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          4,
+          0,
+          1,
+          5,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          4,
+          0,
+          1,
+          5,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          8,
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          1,
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          4
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          8,
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          6,
+          0,
+          2,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          5,
+          3,
+          4,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          6,
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          4,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          2,
+          1,
+          4,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          2,
+          1,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          4,
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          8,
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          2,
+          1,
+          4,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          4,
+          2,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          7,
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          7,
+          0,
+          2,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          4,
+          1,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          7,
+          0,
+          1,
+          5,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          6,
+          1,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 24
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          8,
+          2,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          5,
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          2,
+          3,
+          7,
+          8
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          5
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          7,
+          0,
+          3,
+          5,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          2,
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          4,
+          2,
+          3,
+          5,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          5
+        ],
+        [
+          7,
+          0,
+          4,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          8,
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          8
+        ],
+        [
+          7,
+          1,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          1,
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          7
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          5,
+          0,
+          2,
+          4,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          6,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          7,
+          1,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          6,
+          3,
+          5,
+          7,
+          8
+        ],
+        [
+          7,
+          1,
+          4,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          6,
+          3,
+          5,
+          7,
+          8
+        ],
+        [
+          7,
+          2,
+          4,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          5,
+          1,
+          4,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          2,
+          1,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          3,
+          1,
+          4,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          8
+        ],
+        [
+          6,
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          8
+        ],
+        [
+          6,
+          0,
+          4,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          5,
+          1,
+          4,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          7,
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          7,
+          0,
+          2,
+          4,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          2,
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          5,
+          2,
+          4,
+          7,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          5,
+          1,
+          4,
+          6,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          7,
+          0,
+          1,
+          3,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          7,
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          5,
+          0,
+          2,
+          4,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          5,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          5,
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          6,
+          0,
+          4,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          6,
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          5,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          6,
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          5,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          8,
+          1,
+          2,
+          5,
+          7
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          2,
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          5,
+          1,
+          4,
+          7,
+          8
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          5,
+          0,
+          2,
+          3,
+          6
+        ]
+      ],
+      "size": 3,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          4,
+          0,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          4,
+          0,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          5,
+          2,
+          4,
+          6,
+          7
+        ],
+        [
+          6,
+          1,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          6,
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          6,
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          3,
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          4,
+          5
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          8,
+          0,
+          1,
+          4,
+          5
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          3,
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          5,
+          3,
+          4,
+          6,
+          7
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          6,
+          1,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          4,
+          5
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          4,
+          2,
+          5,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          4,
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          7,
+          0,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          7,
+          0,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          4,
+          0,
+          1,
+          5,
+          6
+        ],
+        [
+          5,
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          4,
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          7,
+          0,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          7,
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          8
+        ],
+        [
+          7,
+          1,
+          5,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          7,
+          0,
+          4,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          7,
+          1,
+          5,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          5,
+          3,
+          4,
+          6,
+          8
+        ],
+        [
+          7,
+          1,
+          5,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          7,
+          1,
+          5,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          6,
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          4,
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          5,
+          0,
+          4,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          4,
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          6,
+          1,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          4,
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          8,
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          6,
+          1,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          4,
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          8,
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          4,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          5,
+          0,
+          4,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          5,
+          0,
+          4,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          6,
+          0,
+          4,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          5,
+          0,
+          4,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          5,
+          0,
+          4,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          4,
+          2,
+          3,
+          5,
+          7
+        ],
+        [
+          6,
+          0,
+          4,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          4,
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          5,
+          0,
+          4,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          4,
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          8,
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          4,
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          7,
+          0,
+          2,
+          3,
+          6
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          5,
+          0,
+          4,
+          6,
+          7
+        ],
+        [
+          8,
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          6,
+          0,
+          4,
+          5,
+          7
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          7,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          8,
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          7,
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          4,
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          8,
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          4,
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          8,
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          4,
+          2,
+          3,
+          5,
+          7
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          7,
+          2,
+          5,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          8,
+          2,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          4,
+          2,
+          3,
+          5,
+          7
+        ],
+        [
+          6,
+          0,
+          4,
+          5,
+          7
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          2,
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          5
+        ],
+        [
+          8,
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          3,
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          6,
+          4,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          3,
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          7,
+          0,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          6,
+          4,
+          5,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          7,
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          6,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          7,
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          8
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          6
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          8
+        ],
+        [
+          7,
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          5,
+          0,
+          2,
+          4,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          7,
+          1,
+          4,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          5,
+          0,
+          2,
+          4,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          5,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          7,
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          6,
+          3,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          6,
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          5,
+          0,
+          2,
+          4,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          6,
+          3,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          5,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          6,
+          3,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          5,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          6,
+          3,
+          5,
+          7,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          5,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          7,
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          2,
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          5
+        ]
+      ],
+      "size": 4,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          6
+        ]
+      ],
+      "size": 4,
+      "status": "self_edge",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          3,
+          2,
+          4,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          6
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 36
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          3,
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          4,
+          2,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          3,
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          7,
+          0,
+          5,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          3,
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          4,
+          2,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          3,
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          6
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          8,
+          0,
+          2,
+          3,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          2,
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          2,
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          4,
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          6,
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          5,
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          6,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          5,
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          6,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          7,
+          0,
+          2,
+          4,
+          6
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          5,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          6,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          7,
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          6,
+          7
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          5,
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          5,
+          6
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          6,
+          7
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          6,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          8,
+          0,
+          3,
+          5,
+          6
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          6,
+          7
+        ],
+        [
+          5,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          7,
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          6
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          7,
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "self_edge",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          7,
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          8,
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          7,
+          0,
+          5,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          6,
+          3,
+          5,
+          7,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          7,
+          8
+        ],
+        [
+          2,
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          4,
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          4,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          5,
+          2,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          5,
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          7,
+          1,
+          4,
+          5,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          1,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          5,
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          7,
+          1,
+          4,
+          5,
+          8
+        ]
+      ],
+      "size": 4,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          3,
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          7,
+          0,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 5,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          8
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          5,
+          3,
+          4,
+          6,
+          8
+        ],
+        [
+          7,
+          1,
+          5,
+          6,
+          8
+        ]
+      ],
+      "size": 5,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          5,
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          2,
+          3,
+          6
+        ]
+      ],
+      "size": 5,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          6,
+          0,
+          4,
+          5,
+          7
+        ],
+        [
+          7,
+          2,
+          5,
+          6,
+          8
+        ]
+      ],
+      "size": 5,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          4,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          5,
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          7,
+          0,
+          2,
+          3,
+          6
+        ]
+      ],
+      "size": 5,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          3,
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          7,
+          0,
+          3,
+          6,
+          8
+        ]
+      ],
+      "size": 5,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          7
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "size": 5,
+      "status": "strict_cycle",
+      "frontier_occurrences": 18
+    },
+    {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          1,
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          6,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          3,
+          5,
+          8
+        ]
+      ],
+      "size": 6,
+      "status": "strict_cycle",
+      "frontier_occurrences": 12
+    }
+  ]
+}

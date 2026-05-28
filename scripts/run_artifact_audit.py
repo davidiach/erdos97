@@ -248,6 +248,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         claim_scope="Review-pending n=9 selected-witness finite-case checker; not an official/global status update.",
     ),
     AuditCommand(
+        ident="n9_vertex_circle_minimal_cores",
+        command=(
+            "python",
+            "scripts/n9_vertex_circle_minimal_cores.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Independent implementation-level minimal obstruction-core catalog "
+            "for the 184 review-pending n=9 vertex-circle frontier systems; "
+            "not a proof of n=9, completed independent review, or an "
+            "official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_compact_brancher",
         command=(
             "python",

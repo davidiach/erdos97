@@ -362,6 +362,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-exhaustive.md`](n9-vertex-circle-exhaustive.md):
   review-pending exhaustive `n=9` selected-witness checker using the
   vertex-circle strict-chord filter.
+- [`n9-vertex-circle-independent-recheck.md`](n9-vertex-circle-independent-recheck.md):
+  independent implementation-level recheck of the review-pending `n=9`
+  vertex-circle frontier, plus the minimal obstruction-core catalog; audit
+  evidence only, not a status promotion.
 - [`n9-vertex-circle-compact-brancher.md`](n9-vertex-circle-compact-brancher.md):
   compact independent audit path regenerating the 184 `n=9` selected-witness
   frontier and replaying vertex-circle quotient obstructions.
