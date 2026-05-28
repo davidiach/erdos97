@@ -72,6 +72,8 @@ python scripts/check_kalmanson_certificate.py data/certificates/c13_sidon_order_
 python scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n 13 --offsets 1,2,4,10 --assert-obstructed --assert-c13-expected --json
 python scripts/check_kalmanson_two_order_z3.py --certificate data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat
 python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --check-artifact reports/c19_kalmanson_z3_clause_diagnostics.json
+python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json
+python scripts/probe_c19_proof_tooling.py --check-c19-cnf-summary --json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 python scripts/independent_n9_vertex_circle_recheck.py --json
 python scripts/n9_vertex_circle_minimal_cores.py --check --assert-expected --json
