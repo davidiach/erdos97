@@ -460,6 +460,11 @@ local_repo:
       artifact: "data/certificates/relation_skeleton_catalog.json, data/certificates/n9_vertex_circle_local_lemmas.json, and data/certificates/n9_vertex_circle_local_lemma_simple_replay.json"
       verifier: "scripts/check_relation_skeleton_local_lemma_crosswalk.py"
       claim_scope: "cross-artifact bookkeeping only; checks that 16 relation skeletons agree family-by-family with the aggregate local-lemma scan and simple replay on 184 assignments, relation contradiction types, obstruction groups, source packet paths, and compact relation counts, but does not prove relation-skeleton soundness, local-lemma completeness, frontier coverage, n=9, official/global status movement, or a counterexample"
+    - pattern: "n9_vertex_circle_local_lemma_audit_path"
+      status: "combined local-lemma cross-artifact audit path"
+      artifact: "focused packet/catalog, focused mini-replay, aggregate/simple replay, exhaustive/local-lemma, and relation-skeleton/local-lemma audit layers"
+      verifier: "scripts/check_n9_vertex_circle_local_lemma_audit_path.py"
+      claim_scope: "cross-artifact audit-path bookkeeping only; checks that 5 review-pending local-lemma layers and 4 adjacent handoffs agree on 12 template ids, 16 families, 184 assignments, the 158 self-edge / 26 strict-cycle split, 16 relation skeletons, 32 input artifacts, layer contracts, provenance, manifest contracts, and claim-scope guards, but does not prove packet soundness, mini-replay soundness, local-lemma completeness, frontier coverage, n=9, official/global status movement, or a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"
