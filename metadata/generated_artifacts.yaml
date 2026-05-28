@@ -870,6 +870,61 @@ artifacts:
       - motif classification is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_high_risk_frontier_packet
+    path: data/certificates/n9_high_risk_frontier_packet.json
+    sha256: d614f45f2fe8944c92f9d8176762bdb4c6c6c80a02cff7a1443670b27981c843
+    size_bytes: 178526
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_n9_high_risk_frontier_packet.py
+    command: python scripts/check_n9_high_risk_frontier_packet.py --write --assert-expected
+    checker: scripts/check_n9_high_risk_frontier_packet.py
+    check_command: python scripts/check_n9_high_risk_frontier_packet.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: High-risk mutual-edge-triangle slice of the 184 n=9 pre-vertex-circle selected-witness assignments, replayed through fixed-row radius-blocker and vertex-circle diagnostics; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_high_risk_frontier_packet.v1
+      status: REVIEW_PENDING_HIGH_RISK_FRONTIER_DIAGNOSTIC
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: High-risk mutual-edge-triangle slice of the 184 n=9 pre-vertex-circle selected-witness assignments, replayed through fixed-row radius-blocker and vertex-circle diagnostics; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
+      n: 9
+      row_size: 4
+      source_frontier.assignment_count: 184
+      source_frontier.nodes_visited: 100817
+      summary.selected_assignment_count: 62
+      summary.selected_family_count: 5
+      summary.selected_status_counts.self_edge: 54
+      summary.selected_status_counts.strict_cycle: 8
+      summary.selected_family_counts.F03: 18
+      summary.selected_family_counts.F06: 18
+      summary.selected_family_counts.F07: 6
+      summary.selected_family_counts.F10: 18
+      summary.selected_family_counts.F16: 2
+      summary.selected_family_status_counts.self_edge: 3
+      summary.selected_family_status_counts.strict_cycle: 2
+      summary.mutual_edge_triangle_count_distribution.1: 18
+      summary.mutual_edge_triangle_count_distribution.2: 36
+      summary.mutual_edge_triangle_count_distribution.3: 8
+      summary.all_selected_have_no_simple_obstruction_a_trigger: true
+      summary.all_selected_have_size4_radius_blocker: true
+      summary.all_selected_radius_blocker_replays_obstructed: true
+      summary.representative_replay_status_counts.self_edge: 3
+      summary.representative_replay_status_counts.strict_cycle: 2
+      summary.non_ear_assignment_count: 2
+      summary.post_vertex_circle_survivor_count: 0
+      provenance.command: python scripts/check_n9_high_risk_frontier_packet.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - simple mutual-edge obstruction kills the n=9 frontier
+      - radius-blocker bridge is proved
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_frontier_comparison
     path: data/certificates/n9_vertex_circle_frontier_comparison.json
     sha256: 76074a8001a36600d528db767a0bd643a47becead762e985debfca6e0688ed4c
