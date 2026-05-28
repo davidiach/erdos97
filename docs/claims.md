@@ -2066,6 +2066,31 @@ selected-distance quotient soundness in general, `n=9`, a counterexample, or
 any official/global status update. Check it with
 `python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`.
 
+### n=9 vertex-circle focused packet catalog audit
+
+Status: `REVIEW_PENDING_FOCUSED_PACKET_CATALOG_AUDIT`.
+
+The checker `scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py`
+treats the focused `T01` through `T12` local-lemma packet JSON files, the
+template lemma catalog, the source template packets, and the aggregate
+local-lemma scan as input data. It checks that packet coverage, source template
+records, source catalog records, and aggregate focused-note crosschecks agree
+before any packet-soundness or local-lemma-completeness review.
+
+When run with `--check --assert-expected --json`, the audit checks `12`
+focused packets and `12` catalog templates. Those packets cover `184`
+assignments across `16` families, with template status counts `9` self-edge
+and `3` strict-cycle and assignment status counts `158` self-edge and `26`
+strict-cycle. It reports zero duplicate assignment ids, zero duplicate family
+ids, zero missing packet templates, zero extra packet templates, zero packet
+coverage mismatches, zero source-catalog mismatches, zero source-template
+mismatches, zero source-template extra fields, zero unexpected missing fields,
+and zero aggregate focused-crosscheck mismatches. This is JSON cross-artifact
+packet/catalog bookkeeping only. It does not prove packet soundness,
+local-lemma completeness, frontier coverage, `n=9`, a counterexample, or any
+official/global status update. Check it with
+`python scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.

@@ -430,6 +430,11 @@ local_repo:
       artifact: "data/certificates/n9_vertex_circle_local_core_packet.json and data/certificates/n9_vertex_circle_motif_families.json"
       verifier: "scripts/check_n9_vertex_circle_local_core_subset_audit.py"
       claim_scope: "cross-artifact compact-core bookkeeping only; checks that each compact local core is literally a subset of its stored full motif representative and already forces the same quotient self-edge or strict-cycle obstruction by direct replay, but does not prove local-lemma completeness, frontier coverage, brancher soundness, motif-orbit bookkeeping, strict-edge geometry in general, quotient soundness in general, n=9, official/global status movement, or a counterexample"
+    - pattern: "n9_vertex_circle_focused_packet_catalog_audit"
+      status: "focused local-lemma packet/catalog cross-artifact audit"
+      artifact: "data/certificates/n9_vertex_circle_t01_self_edge_lemma_packet.json through data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json, plus template catalog/source packet inputs"
+      verifier: "scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py"
+      claim_scope: "JSON packet/catalog bookkeeping only; checks that the 12 focused packets, template catalog records, source template packet records, and aggregate focused-note crosschecks agree on the same 184 assignments and 16 families, but does not prove packet soundness, local-lemma completeness, frontier coverage, n=9, official/global status movement, or a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"
