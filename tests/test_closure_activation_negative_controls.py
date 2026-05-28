@@ -43,6 +43,27 @@ def test_wrong_fourth_negative_control_replays_expected_status() -> None:
     assert summary["target_row_absent"] == [0, 1, 4, 6]
 
 
+def test_wrong_fourth_negative_control_default_artifact_cli_check() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_closure_activation_wrong_fourth_negative_control.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    summary = json.loads(result.stdout)
+    assert summary["ok"] is True
+    assert summary["closure"] == [0, 1, 4, 7]
+    assert summary["target_row_absent"] == [0, 1, 4, 6]
+
+
 def test_wrong_fourth_negative_control_rejects_target_row_substitution() -> None:
     payload = wrong_fourth_negative_control_certificate()
     tampered = deepcopy(payload)
@@ -94,6 +115,27 @@ def test_full_row_anti_activation_control_replays_expected_status() -> None:
     }
     assert summary["checks"]["cover_ok"] is True
     assert summary["checks"]["adjacent_intersections_size_at_most_1"] is True
+
+
+def test_full_row_anti_activation_control_default_artifact_cli_check() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_bootstrap_t12_anti_activation_negative_control.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    summary = json.loads(result.stdout)
+    assert summary["ok"] is True
+    assert summary["closure_result"] == [0, 1, 4, 7]
+    assert summary["anti_activation_row"]["target_row_active_at_center"] is False
 
 
 def test_full_row_anti_activation_control_rejects_target_fourth() -> None:
