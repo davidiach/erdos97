@@ -494,6 +494,14 @@ incidence/crossing bookkeeping only, not outside-pair support existence, row
 forcing, `n=9`, or the bridge. See
 `docs/bootstrap-t12-151-6-outside-pair-audit.md`.
 
+The source-`151` row-`6` outside-pair two-row-drop extension checks the next
+relaxation level: any unordered pair of non-target rows may move to arbitrary
+selected 4-sets. It checks `1,783,600` candidate states and leaves only `28`
+trivial original-neighborhood survivors, one for each dropped-center pair.
+This remains diagnostic bookkeeping only, not outside-pair support existence,
+row forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-151-6-outside-pair-two-row-drop.md`.
+
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation
 rows built from its bootstrap-core witnesses plus one singleton support; in
