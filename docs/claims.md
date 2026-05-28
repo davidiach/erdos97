@@ -2208,6 +2208,30 @@ relation-skeleton soundness, local-lemma completeness, frontier coverage,
 `n=9`, a counterexample, or any official/global status update. Check it with
 `python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json`.
 
+### n=9 vertex-circle local-lemma audit path
+
+Status: `REVIEW_PENDING_LOCAL_LEMMA_AUDIT_PATH`.
+
+The checker `scripts/check_n9_vertex_circle_local_lemma_audit_path.py` treats
+the focused packet/catalog audit, focused mini-replay crosswalk,
+aggregate/simple replay crosswalk, exhaustive/local-lemma crosswalk, and
+relation-skeleton/local-lemma crosswalk as one review-pending audit path. It
+checks adjacent handoffs so future count, schema, provenance, or manifest drift
+can be localized to the first disagreeing layer.
+
+When run with `--check --assert-expected --json`, the audit path checks `5`
+layers, `4` adjacent handoffs, `12` template ids, `16` local families, and all
+`184` covered assignments. The shared coverage summary has `13` self-edge
+families covering `158` assignments, `3` strict-cycle families covering `26`
+assignments, and `16` relation skeletons. It records `32` input artifacts and
+checks the layer contracts, layer provenance, layer source artifacts, claim
+scope guards, layer output/input contracts, focused mini-replay record paths,
+handoff checks, and manifest contracts. This is a cross-artifact audit path
+only. It does not prove packet soundness, mini-replay soundness, local-lemma
+completeness, frontier coverage, `n=9`, a counterexample, or any
+official/global status update. Check it with
+`python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
