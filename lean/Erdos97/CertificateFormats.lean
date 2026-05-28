@@ -60,6 +60,40 @@ lemma EqualityPath.same_endpoint_mk (q : QuotientClass) (reasons : List String) 
       (EqualityPath.mk q q reasons).finish := by
   rfl
 
+/-- Semantic interpretation of an equality path under a quotient-value map. -/
+def EqualityPath.RealizedBy (path : EqualityPath) {α : Type u}
+    (value : QuotientClass -> α) : Prop :=
+  value path.start = value path.finish
+
+/-- Same-endpoint equality paths are realized by every quotient-value map. -/
+lemma EqualityPath.realizedBy_same_endpoint_mk
+    (q : QuotientClass) (reasons : List String) {α : Type u}
+    (value : QuotientClass -> α) :
+    (EqualityPath.mk q q reasons).RealizedBy value := by
+  rfl
+
+/-- A strict forward inequality along a realized equality path is impossible. -/
+lemma EqualityPath.no_strict_forward_realization
+    (path : EqualityPath) {α : Type u} [LT α]
+    (value : QuotientClass -> α)
+    (hirrefl : forall x : α, Not (x > x))
+    (hpath : path.RealizedBy value)
+    (hstrict : value path.start > value path.finish) : False := by
+  unfold EqualityPath.RealizedBy at hpath
+  rw [hpath] at hstrict
+  exact hirrefl (value path.finish) hstrict
+
+/-- A strict backward inequality along a realized equality path is impossible. -/
+lemma EqualityPath.no_strict_backward_realization
+    (path : EqualityPath) {α : Type u} [LT α]
+    (value : QuotientClass -> α)
+    (hirrefl : forall x : α, Not (x > x))
+    (hpath : path.RealizedBy value)
+    (hstrict : value path.finish > value path.start) : False := by
+  unfold EqualityPath.RealizedBy at hpath
+  rw [hpath] at hstrict
+  exact hirrefl (value path.finish) hstrict
+
 /-- Reverse an equality-path endpoint equality. -/
 lemma EqualityPath.finish_eq_start_of_start_eq_finish (path : EqualityPath)
     (h : path.start = path.finish) : path.finish = path.start := by
@@ -87,6 +121,26 @@ lemma SelfEdgeCertificate.path_finish_eq_start_of_endpoints
     (hfinish : c.equalityPath.finish = c.className) :
     c.equalityPath.finish = c.equalityPath.start := by
   exact (SelfEdgeCertificate.path_start_eq_finish_of_endpoints c hstart hfinish).symm
+
+/--
+Semantic interpretation of a self-edge certificate under a quotient-value map.
+The equality path identifies its endpoints while the strict reason points from
+`start` to `finish`.
+-/
+def SelfEdgeCertificate.RealizedBy
+    (cert : SelfEdgeCertificate) {α : Type u} [LT α]
+    (value : QuotientClass -> α) : Prop :=
+  And (cert.equalityPath.RealizedBy value)
+    (value cert.equalityPath.start > value cert.equalityPath.finish)
+
+/-- A realized self-edge certificate contradicts irreflexivity of strict order. -/
+lemma SelfEdgeCertificate.no_realization
+    (cert : SelfEdgeCertificate) {α : Type u} [LT α]
+    (value : QuotientClass -> α)
+    (hirrefl : forall x : α, Not (x > x))
+    (hcert : cert.RealizedBy value) : False :=
+  EqualityPath.no_strict_forward_realization cert.equalityPath value hirrefl
+    hcert.left hcert.right
 
 /-- A directed strict edge between quotient classes. -/
 structure StrictEdge where
@@ -179,10 +233,21 @@ end StrictReach
 
 namespace StrictEdge
 
+/-- Semantic interpretation of a strict edge under a quotient-value map. -/
+def RealizedBy (edge : StrictEdge) {α : Type u} [LT α]
+    (value : QuotientClass -> α) : Prop :=
+  value edge.source > value edge.target
+
 /-- A strict edge is sound when it really decreases the assigned value. -/
 def Sound {α : Type u} (value : QuotientClass -> α)
     (gt : α -> α -> Prop) (e : StrictEdge) : Prop :=
   gt (value e.source) (value e.target)
+
+/-- `RealizedBy` is `Sound` specialized to the ambient strict order. -/
+lemma realizedBy_iff_sound_gt {α : Type u} [LT α]
+    (value : QuotientClass -> α) (edge : StrictEdge) :
+    edge.RealizedBy value ↔ Sound value (fun x y => x > y) edge := by
+  rfl
 
 /-- A sound strict edge cannot connect classes with equal assigned values. -/
 theorem no_between_equal_values {α : Type u} {value : QuotientClass -> α}
@@ -200,6 +265,27 @@ theorem no_self {α : Type u} {value : QuotientClass -> α}
     (hsound : Sound value gt e) (hloop : e.source = e.target) : False := by
   have heq : value e.source = value e.target := congrArg value hloop
   exact no_between_equal_values hirrefl hsound heq
+
+/-- A realized strict loop is impossible under any irreflexive strict order. -/
+lemma no_loop_realization (edge : StrictEdge) {α : Type u} [LT α]
+    (value : QuotientClass -> α)
+    (hirrefl : forall x : α, Not (x > x))
+    (hedge : edge.RealizedBy value) (hloop : edge.source = edge.target) :
+    False := by
+  unfold RealizedBy at hedge
+  rw [hloop] at hedge
+  exact hirrefl (value edge.target) hedge
+
+/-- A realized directed two-cycle is impossible under any asymmetric strict order. -/
+lemma no_two_cycle_realization (edge1 edge2 : StrictEdge) {α : Type u} [LT α]
+    (value : QuotientClass -> α)
+    (hasymm : forall {x y : α}, x > y -> Not (y > x))
+    (h1 : edge1.RealizedBy value) (h2 : edge2.RealizedBy value)
+    (hjoin1 : edge1.target = edge2.source)
+    (hjoin2 : edge2.target = edge1.source) : False := by
+  unfold RealizedBy at h1 h2
+  rw [Eq.symm hjoin1, hjoin2] at h2
+  exact hasymm h1 h2
 
 end StrictEdge
 
