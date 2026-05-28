@@ -2988,8 +2988,33 @@ def build_summary(output_dir: Path, commands: Sequence[AuditCommand]) -> dict[st
     }
 
 
+def list_commands_payload(commands: Sequence[AuditCommand]) -> dict[str, Any]:
+    return {
+        "type": "erdos97_artifact_audit_command_list_v1",
+        "claim_scope": (
+            "Registered artifact audit command list only; printing this list "
+            "does not run checks, prove Erdos Problem #97, or change any "
+            "repository claim."
+        ),
+        "command_count": len(commands),
+        "commands": [
+            {
+                "id": command.ident,
+                "command": command_text(command.command),
+                "claim_scope": command.claim_scope,
+            }
+            for command in commands
+        ],
+    }
+
+
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--list-commands",
+        action="store_true",
+        help="Print the registered audit command list as JSON without running it.",
+    )
     parser.add_argument(
         "--output-dir",
         type=Path,
@@ -3001,6 +3026,10 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv)
+    if args.list_commands:
+        print(json.dumps(list_commands_payload(AUDIT_COMMANDS), indent=2, sort_keys=True))
+        return 0
+
     output_dir = args.output_dir
     if not output_dir.is_absolute():
         output_dir = REPO_ROOT / output_dir

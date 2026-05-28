@@ -1,11 +1,20 @@
 from __future__ import annotations
 
+import json
+import subprocess
 import sys
 from pathlib import Path
 
 import yaml
 
-from scripts.run_artifact_audit import AUDIT_COMMANDS, AuditCommand, command_text, run_audit_command, sha256_bytes
+from scripts.run_artifact_audit import (
+    AUDIT_COMMANDS,
+    AuditCommand,
+    command_text,
+    list_commands_payload,
+    run_audit_command,
+    sha256_bytes,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -44,6 +53,37 @@ def test_audit_commands_cover_generated_artifact_check_commands() -> None:
             missing.append(f"{artifact['id']}: {check_command}")
 
     assert missing == []
+
+
+def test_list_commands_payload_is_claim_neutral() -> None:
+    payload = list_commands_payload(AUDIT_COMMANDS)
+
+    assert payload["type"] == "erdos97_artifact_audit_command_list_v1"
+    assert payload["command_count"] == len(AUDIT_COMMANDS)
+    assert "does not run checks" in payload["claim_scope"]
+    assert "prove Erdos Problem #97" in payload["claim_scope"]
+    assert payload["commands"][0] == {
+        "id": AUDIT_COMMANDS[0].ident,
+        "command": command_text(AUDIT_COMMANDS[0].command),
+        "claim_scope": AUDIT_COMMANDS[0].claim_scope,
+    }
+
+
+def test_run_artifact_audit_cli_lists_commands_without_running() -> None:
+    result = subprocess.run(
+        [sys.executable, "scripts/run_artifact_audit.py", "--list-commands"],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 0
+    assert result.stderr == ""
+    payload = json.loads(result.stdout)
+    assert payload["type"] == "erdos97_artifact_audit_command_list_v1"
+    assert payload["command_count"] == len(AUDIT_COMMANDS)
+    assert "stdout_path" not in payload["commands"][0]
 
 
 def test_audit_commands_include_registered_followup_checkers() -> None:
