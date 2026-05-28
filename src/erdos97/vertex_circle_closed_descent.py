@@ -47,7 +47,7 @@ def extract_closed_descent_cycle(
         seen_at[current] = len(trail)
         edge = successors[current]
         trail.append(edge)
-        current = edge.inner_class
+        current = pair(*edge.inner_class)
 
     cycle = tuple(trail[seen_at[current] :])
     _validate_cycle(cycle)
@@ -64,7 +64,7 @@ def closed_descent_cycle_to_json(region: ClosedDescentRegion) -> dict[str, Any]:
         "class_count": len(classes),
         "cycle_length": len(cycle),
         "classes": [list(cls) for cls in classes],
-        "cycle_classes": [list(edge.outer_class) for edge in cycle],
+        "cycle_classes": [list(pair(*edge.outer_class)) for edge in cycle],
         "cycle_edges": [_strict_inequality_to_json(edge) for edge in cycle],
     }
 
@@ -82,8 +82,8 @@ def _successor_edges(
 ) -> dict[Pair, StrictInequality]:
     successors: dict[Pair, StrictInequality] = {}
     for edge in region.witness_edges:
-        source = edge.outer_class
-        target = edge.inner_class
+        source = pair(*edge.outer_class)
+        target = pair(*edge.inner_class)
         if source not in class_set:
             raise ValueError(
                 f"closed descent witness starts outside region: {source}"
@@ -103,7 +103,7 @@ def _validate_cycle(cycle: tuple[StrictInequality, ...]) -> None:
         raise ValueError("closed descent extraction produced an empty cycle")
     for index, edge in enumerate(cycle):
         next_edge = cycle[(index + 1) % len(cycle)]
-        if edge.inner_class != next_edge.outer_class:
+        if pair(*edge.inner_class) != pair(*next_edge.outer_class):
             raise ValueError("closed descent extraction produced a broken cycle")
 
 
