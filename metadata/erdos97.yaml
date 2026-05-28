@@ -405,6 +405,11 @@ local_repo:
       artifact: "data/certificates/n9_vertex_circle_exhaustive.json"
       verifier: "scripts/check_n9_vertex_circle_branch_options.py"
       claim_scope: "branch-option implementation diagnostic only; walks fixed-order no-vertex-circle replay states and compares helper options plus maintained count arrays against direct recomputation, but does not prove dynamic-MRO branch coverage, strict-edge geometry, quotient soundness, n=9, official/global status movement, or a counterexample"
+    - pattern: "n9_vertex_circle_dynamic_mro_choices"
+      status: "dynamic minimum-remaining-options branch-choice implementation audit"
+      artifact: "data/certificates/n9_vertex_circle_exhaustive.json"
+      verifier: "scripts/check_n9_vertex_circle_dynamic_mro_choices.py"
+      claim_scope: "dynamic branch-choice diagnostic only; replays the minimum-remaining-options brancher with and without vertex-circle pruning and compares chosen centers, helper options, and maintained count arrays against direct recomputation, but does not prove geometric filters, strict-edge geometry, quotient soundness, n=9, official/global status movement, or a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

@@ -1933,6 +1933,33 @@ soundness, `n=9`, a counterexample, or any official/global status update. Check
 it with
 `python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`.
 
+### n=9 vertex-circle dynamic-MRO choice audit
+
+Status: `REVIEW_PENDING_DYNAMIC_MRO_CHOICE_AUDIT`.
+
+The checker `scripts/check_n9_vertex_circle_dynamic_mro_choices.py` replays the
+actual minimum-remaining-options brancher with and without vertex-circle
+pruning. At every reached state, it recomputes selected-indegree and
+witness-pair count arrays, recomputes every unassigned center's valid options
+with a direct row-shape, row-pair crossing, witness-pair capacity, and
+selected-indegree predicate, and checks that the brancher chooses the first
+center with the minimum remaining options.
+
+When run with `--check --assert-expected --json`, the vertex-circle-pruned
+audit visits `16,752` nodes and checks `16,752` choice contexts, `93,837`
+center-option contexts, and `751,918` helper options, with `22,282`
+child-prune attempts and status counts `11,271` partial self-edge and `11,011`
+partial strict-cycle. The no-vertex-circle audit visits `100,817` nodes,
+checks `100,633` choice contexts, `406,285` center-option contexts, and
+`1,596,469` helper options, and reaches `184` full assignments with status
+counts `158` self-edge and `26` strict-cycle. Both audits report zero
+chosen-center mismatches, zero chosen-option mismatches, zero helper/direct
+option mismatches, and zero count-array mismatches. This is dynamic
+branch-choice implementation diagnostics only. It does not prove the geometric
+filters, strict-edge geometry, selected-distance quotient soundness, `n=9`, a
+counterexample, or any official/global status update. Check it with
+`python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
