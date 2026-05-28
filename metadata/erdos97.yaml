@@ -395,6 +395,11 @@ local_repo:
       artifact: "data/certificates/n9_vertex_circle_frontier_motif_classification.json"
       verifier: "scripts/check_n9_vertex_circle_partial_pruning.py"
       claim_scope: "stored-frontier pruning diagnostic only; checks 94024 nonempty subsets of the 184 stored frontier assignments for monotone obstruction persistence and checker/replay status agreement, but does not prove frontier coverage, brancher soundness, strict-edge geometry, quotient soundness, n=9, official/global status movement, or a counterexample"
+    - pattern: "n9_vertex_circle_frontier_assignment_audit"
+      status: "stored n9 frontier assignment row/capacity audit"
+      artifact: "data/certificates/n9_vertex_circle_frontier_motif_classification.json"
+      verifier: "scripts/check_n9_vertex_circle_frontier_assignment_audit.py"
+      claim_scope: "stored-frontier assignment diagnostic only; checks the 184 stored frontier assignments for row shape, center coverage, row-pair crossing, witness-pair capacity, and selected-indegree capacity, but does not prove frontier coverage, brancher soundness, strict-edge geometry, quotient soundness, n=9, official/global status movement, or a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

@@ -1815,6 +1815,31 @@ soundness, `n=9`, a counterexample, or any official/global status update.
 Check it with
 `python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`.
 
+### n=9 vertex-circle frontier-assignment audit
+
+Status: `REVIEW_PENDING_FRONTIER_ASSIGNMENT_AUDIT`.
+
+The checker `scripts/check_n9_vertex_circle_frontier_assignment_audit.py`
+directly audits the stored `184` pre-vertex-circle frontier assignments from
+`data/certificates/n9_vertex_circle_frontier_motif_classification.json`. It
+checks row shape, row-center coverage, pairwise row-intersection caps,
+two-overlap crossing, witness-pair capacity, and selected-indegree capacity on
+the stored assignments.
+
+When run with `--check --assert-expected --json`, the audit checks `184`
+assignments and `1,656` selected rows, with status counts `158` self-edge and
+`26` strict-cycle. The center-pair intersection and witness-pair frequency
+histograms are both `0: 72`, `1: 3,168`, and `2: 3,384`; all `3,384`
+two-overlap row pairs cross; every selected indegree is `4`; and the assignment
+witness-pair profiles are `148` assignments with profile `1:18|2:18` and `36`
+assignments with profile `0:2|1:14|2:20`. It records zero row-shape,
+center-coverage, intersection-cap, two-overlap-crossing, witness-pair-cap, and
+selected-indegree-cap errors. This is stored-frontier diagnostics only. It does
+not prove frontier coverage, brancher soundness, strict-edge geometry,
+selected-distance quotient soundness, `n=9`, a counterexample, or any
+official/global status update. Check it with
+`python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
