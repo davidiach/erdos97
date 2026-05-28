@@ -27,6 +27,31 @@ class AuditCommand:
     claim_scope: str
 
 
+AUDIT_PREFLIGHT_COMMANDS: tuple[AuditCommand, ...] = (
+    AuditCommand(
+        ident="official_status_freshness",
+        command=(
+            "python",
+            "scripts/check_status_consistency.py",
+            "--max-official-status-age-days",
+            "90",
+        ),
+        claim_scope=(
+            "Dated official-status consistency preflight for scheduled/manual "
+            "artifact audits; does not update the official/global status."
+        ),
+    ),
+    AuditCommand(
+        ident="artifact_provenance_manifest",
+        command=("python", "scripts/check_artifact_provenance.py"),
+        claim_scope=(
+            "Generated-artifact provenance manifest preflight; validates "
+            "artifact metadata and does not prove Erdos Problem #97."
+        ),
+    ),
+)
+
+
 AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
     AuditCommand(
         ident="n8_artifact_alignment",
@@ -2988,7 +3013,23 @@ def build_summary(output_dir: Path, commands: Sequence[AuditCommand]) -> dict[st
     }
 
 
-def list_commands_payload(commands: Sequence[AuditCommand]) -> dict[str, Any]:
+def _command_list_rows(commands: Sequence[AuditCommand]) -> list[dict[str, str]]:
+    return [
+        {
+            "id": command.ident,
+            "command": command_text(command.command),
+            "claim_scope": command.claim_scope,
+        }
+        for command in commands
+    ]
+
+
+def list_commands_payload(
+    commands: Sequence[AuditCommand],
+    *,
+    preflight_commands: Sequence[AuditCommand] = AUDIT_PREFLIGHT_COMMANDS,
+) -> dict[str, Any]:
+    listed_commands = (*preflight_commands, *commands)
     return {
         "type": "erdos97_artifact_audit_command_list_v1",
         "claim_scope": (
@@ -2996,15 +3037,10 @@ def list_commands_payload(commands: Sequence[AuditCommand]) -> dict[str, Any]:
             "does not run checks, prove Erdos Problem #97, or change any "
             "repository claim."
         ),
-        "command_count": len(commands),
-        "commands": [
-            {
-                "id": command.ident,
-                "command": command_text(command.command),
-                "claim_scope": command.claim_scope,
-            }
-            for command in commands
-        ],
+        "preflight_command_count": len(preflight_commands),
+        "audit_command_count": len(commands),
+        "command_count": len(listed_commands),
+        "commands": _command_list_rows(listed_commands),
     }
 
 

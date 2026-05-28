@@ -9,6 +9,7 @@ import yaml
 
 from scripts.run_artifact_audit import (
     AUDIT_COMMANDS,
+    AUDIT_PREFLIGHT_COMMANDS,
     AuditCommand,
     command_text,
     list_commands_payload,
@@ -59,10 +60,17 @@ def test_list_commands_payload_is_claim_neutral() -> None:
     payload = list_commands_payload(AUDIT_COMMANDS)
 
     assert payload["type"] == "erdos97_artifact_audit_command_list_v1"
-    assert payload["command_count"] == len(AUDIT_COMMANDS)
+    assert payload["preflight_command_count"] == len(AUDIT_PREFLIGHT_COMMANDS)
+    assert payload["audit_command_count"] == len(AUDIT_COMMANDS)
+    assert payload["command_count"] == len(AUDIT_PREFLIGHT_COMMANDS) + len(AUDIT_COMMANDS)
     assert "does not run checks" in payload["claim_scope"]
     assert "prove Erdos Problem #97" in payload["claim_scope"]
     assert payload["commands"][0] == {
+        "id": AUDIT_PREFLIGHT_COMMANDS[0].ident,
+        "command": command_text(AUDIT_PREFLIGHT_COMMANDS[0].command),
+        "claim_scope": AUDIT_PREFLIGHT_COMMANDS[0].claim_scope,
+    }
+    assert payload["commands"][len(AUDIT_PREFLIGHT_COMMANDS)] == {
         "id": AUDIT_COMMANDS[0].ident,
         "command": command_text(AUDIT_COMMANDS[0].command),
         "claim_scope": AUDIT_COMMANDS[0].claim_scope,
@@ -82,7 +90,11 @@ def test_run_artifact_audit_cli_lists_commands_without_running() -> None:
     assert result.stderr == ""
     payload = json.loads(result.stdout)
     assert payload["type"] == "erdos97_artifact_audit_command_list_v1"
-    assert payload["command_count"] == len(AUDIT_COMMANDS)
+    assert payload["command_count"] == len(AUDIT_PREFLIGHT_COMMANDS) + len(AUDIT_COMMANDS)
+    assert payload["commands"][0]["command"] == (
+        "python scripts/check_status_consistency.py --max-official-status-age-days 90"
+    )
+    assert payload["commands"][1]["command"] == "python scripts/check_artifact_provenance.py"
     assert "stdout_path" not in payload["commands"][0]
 
 
