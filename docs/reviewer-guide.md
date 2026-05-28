@@ -258,6 +258,34 @@ Check:
   `C19_skew`;
 - that the result is not described as a general proof of Erdos Problem #97.
 
+## Review target G - `n=9` local-lemma audit path
+
+Primary references:
+
+- `docs/n9-vertex-circle-local-lemmas.md`
+- `docs/relation-skeleton-catalog.md`
+- `docs/n9-reduction-chain.md`
+- `scripts/check_n9_vertex_circle_local_lemma_audit_path.py`
+
+Run:
+
+```bash
+python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json
+```
+
+Check:
+
+- that the focused packet/catalog, focused mini-replay, aggregate/simple
+  replay, exhaustive/local-lemma, and relation-skeleton/local-lemma handoffs
+  agree on the same 12 templates, 16 families, and 184 frontier assignments;
+- that the relation-skeleton/closed-descent companion stays an accounting
+  crosswalk, not a replacement for packet soundness review;
+- that manifest role, digest, header, provenance, metadata, claim, and
+  consistency contracts localize drift to a specific input layer;
+- that the audit path is described only as review-pending cross-artifact
+  bookkeeping, not as local-lemma completeness, brancher soundness, a proof of
+  `n=9`, or an official/global status update.
+
 ## Known weak points / independent review requests
 
 - Independent audit of `scripts/enumerate_n8_incidence.py`.
@@ -269,6 +297,10 @@ Check:
 - A Z3-independent replay path for the C19 all-order Kalmanson order UNSAT
   certificate would reduce single-solver trust. A checkable SAT/SMT proof or a
   pure finite-order checker is preferred over an UNSAT core alone.
+- Independent review of the `n=9` local-lemma audit path should check packet
+  soundness, mini-replay soundness, local-lemma completeness, strict-edge
+  geometry, selected-distance quotient soundness, and brancher coverage before
+  any `n=9` promotion.
 - Independent reproduction of `certificates/n8_exact_analysis.json`.
 - A Lean, SMT, interval, or algebraic certificate checker would be high value.
 
