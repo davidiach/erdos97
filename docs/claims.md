@@ -1853,13 +1853,15 @@ capacity. It also compares the maintained selected-indegree and witness-pair
 count arrays with independently recomputed counts.
 
 When run with `--check --assert-expected --json`, the audit visits `520,782`
-fixed-order no-vertex-circle nodes and reaches the same `184` full assignments
-with status counts `158` self-edge and `26` strict-cycle. It checks `520,598`
-option contexts, `520,712` helper options in total, and `297,936` empty-option
+fixed-order no-vertex-circle nodes and reaches `184` full assignments with
+status counts `158` self-edge and `26` strict-cycle. It checks `520,598` option
+contexts, `520,712` helper options in total, and `297,936` empty-option
 contexts, with zero option mismatches and zero count-array mismatches. This is
-branch-option implementation diagnostics only. It does not prove dynamic-MRO
-branch coverage, strict-edge geometry, selected-distance quotient soundness,
-`n=9`, a counterexample, or any official/global status update. Check it with
+a count/status and branch-option implementation diagnostic; it does not compare
+assignment identities against the stored frontier artifact. It does not prove
+dynamic-MRO branch coverage, strict-edge geometry, selected-distance quotient
+soundness, `n=9`, a counterexample, or any official/global status update. Check
+it with
 `python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`.
 
 ### n=9 turn-inequality frontier replay
