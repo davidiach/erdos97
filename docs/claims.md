@@ -1749,6 +1749,27 @@ independently replay vertex-circle geometry, prove `n=9`, claim a
 counterexample, or update the official/global status. Check it with
 `python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`.
 
+### n=9 vertex-circle strict-edge geometry audit
+
+Status: `REVIEW_PENDING_GEOMETRY_RULE_AUDIT`.
+
+The checker `scripts/check_n9_vertex_circle_strict_edge_geometry.py`
+independently enumerates the proper-interval containments that create local
+vertex-circle strict edges for every candidate selected row in the
+review-pending `n=9` vertex-circle checker. It compares that direct
+enumeration with the checker strict-edge table and with the one-row quotient
+replay strict-edge counts.
+
+When run with `--check --assert-expected --json`, the audit checks `630`
+candidate selected rows, finds `9` strict edges per row, and records `5,670`
+total strict edges. The interval-span histogram is `2->1: 2,520`, `3->1:
+1,890`, and `3->2: 1,260`, with zero strict-edge table mismatches and zero
+one-row quotient replay strict-edge count mismatches. This audits only the
+local proper-interval strict-edge generator. It does not prove row coverage,
+brancher coverage, selected-distance quotient soundness, `n=9`, a
+counterexample, or any official/global status update. Check it with
+`python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
