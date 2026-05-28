@@ -115,6 +115,90 @@ lemma SelectedWitnessSystem.center_ne_d {Point : Type u} {A : Point -> Prop}
     Not (p = (S.witness p hp).d) := by
   exact witnessInSet_center_ne_d (S.witness_in_set p hp)
 
+/-- The selected witnesses `a` and `b` are distinct. -/
+lemma SelectedWitnessSystem.a_ne_b {Point : Type u} {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (S : SelectedWitnessSystem A SameDistanceFrom) (p : Point) (hp : A p) :
+    Not ((S.witness p hp).a = (S.witness p hp).b) := by
+  exact (S.witness p hp).a_ne_b
+
+/-- The selected witnesses `a` and `c` are distinct. -/
+lemma SelectedWitnessSystem.a_ne_c {Point : Type u} {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (S : SelectedWitnessSystem A SameDistanceFrom) (p : Point) (hp : A p) :
+    Not ((S.witness p hp).a = (S.witness p hp).c) := by
+  exact (S.witness p hp).a_ne_c
+
+/-- The selected witnesses `a` and `d` are distinct. -/
+lemma SelectedWitnessSystem.a_ne_d {Point : Type u} {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (S : SelectedWitnessSystem A SameDistanceFrom) (p : Point) (hp : A p) :
+    Not ((S.witness p hp).a = (S.witness p hp).d) := by
+  exact (S.witness p hp).a_ne_d
+
+/-- The selected witnesses `b` and `c` are distinct. -/
+lemma SelectedWitnessSystem.b_ne_c {Point : Type u} {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (S : SelectedWitnessSystem A SameDistanceFrom) (p : Point) (hp : A p) :
+    Not ((S.witness p hp).b = (S.witness p hp).c) := by
+  exact (S.witness p hp).b_ne_c
+
+/-- The selected witnesses `b` and `d` are distinct. -/
+lemma SelectedWitnessSystem.b_ne_d {Point : Type u} {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (S : SelectedWitnessSystem A SameDistanceFrom) (p : Point) (hp : A p) :
+    Not ((S.witness p hp).b = (S.witness p hp).d) := by
+  exact (S.witness p hp).b_ne_d
+
+/-- The selected witnesses `c` and `d` are distinct. -/
+lemma SelectedWitnessSystem.c_ne_d {Point : Type u} {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (S : SelectedWitnessSystem A SameDistanceFrom) (p : Point) (hp : A p) :
+    Not ((S.witness p hp).c = (S.witness p hp).d) := by
+  exact (S.witness p hp).c_ne_d
+
+/-- The selected witnesses `b` and `a` are distinct. -/
+lemma SelectedWitnessSystem.b_ne_a {Point : Type u} {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (S : SelectedWitnessSystem A SameDistanceFrom) (p : Point) (hp : A p) :
+    Not ((S.witness p hp).b = (S.witness p hp).a) := by
+  exact Witness4.b_ne_a (S.witness p hp)
+
+/-- The selected witnesses `c` and `a` are distinct. -/
+lemma SelectedWitnessSystem.c_ne_a {Point : Type u} {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (S : SelectedWitnessSystem A SameDistanceFrom) (p : Point) (hp : A p) :
+    Not ((S.witness p hp).c = (S.witness p hp).a) := by
+  exact Witness4.c_ne_a (S.witness p hp)
+
+/-- The selected witnesses `d` and `a` are distinct. -/
+lemma SelectedWitnessSystem.d_ne_a {Point : Type u} {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (S : SelectedWitnessSystem A SameDistanceFrom) (p : Point) (hp : A p) :
+    Not ((S.witness p hp).d = (S.witness p hp).a) := by
+  exact Witness4.d_ne_a (S.witness p hp)
+
+/-- The selected witnesses `c` and `b` are distinct. -/
+lemma SelectedWitnessSystem.c_ne_b {Point : Type u} {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (S : SelectedWitnessSystem A SameDistanceFrom) (p : Point) (hp : A p) :
+    Not ((S.witness p hp).c = (S.witness p hp).b) := by
+  exact Witness4.c_ne_b (S.witness p hp)
+
+/-- The selected witnesses `d` and `b` are distinct. -/
+lemma SelectedWitnessSystem.d_ne_b {Point : Type u} {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (S : SelectedWitnessSystem A SameDistanceFrom) (p : Point) (hp : A p) :
+    Not ((S.witness p hp).d = (S.witness p hp).b) := by
+  exact Witness4.d_ne_b (S.witness p hp)
+
+/-- The selected witnesses `d` and `c` are distinct. -/
+lemma SelectedWitnessSystem.d_ne_c {Point : Type u} {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (S : SelectedWitnessSystem A SameDistanceFrom) (p : Point) (hp : A p) :
+    Not ((S.witness p hp).d = (S.witness p hp).c) := by
+  exact Witness4.d_ne_c (S.witness p hp)
+
 /-- The selected `a` and `b` witnesses have the same radius from the center. -/
 lemma SelectedWitnessSystem.ab_equidistant {Point : Type u} {A : Point -> Prop}
     {SameDistanceFrom : Point -> Point -> Point -> Prop}
@@ -153,6 +237,35 @@ def selectedWitnessSystemOfProperty {Point : Type u} {A : Point -> Prop}
     exact (Classical.choose_spec (h p hp)).left
   · intro p hp
     exact (Classical.choose_spec (h p hp)).right
+
+/-- The chosen witness in the extracted system is definitionally the choice witness. -/
+lemma selectedWitnessSystemOfProperty_witness {Point : Type u}
+    {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (h : HasFourEquidistantProperty A SameDistanceFrom) (p : Point)
+    (hp : A p) :
+    (selectedWitnessSystemOfProperty h).witness p hp =
+      Classical.choose (h p hp) := by
+  rfl
+
+/-- The extracted row belongs to the ambient set and avoids the center. -/
+lemma selectedWitnessSystemOfProperty_witness_in_set {Point : Type u}
+    {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (h : HasFourEquidistantProperty A SameDistanceFrom) (p : Point)
+    (hp : A p) :
+    WitnessInSet A p ((selectedWitnessSystemOfProperty h).witness p hp) := by
+  exact (selectedWitnessSystemOfProperty h).witness_in_set p hp
+
+/-- The extracted row records its three abstract equidistance relations. -/
+lemma selectedWitnessSystemOfProperty_witness_equidistant {Point : Type u}
+    {A : Point -> Prop}
+    {SameDistanceFrom : Point -> Point -> Point -> Prop}
+    (h : HasFourEquidistantProperty A SameDistanceFrom) (p : Point)
+    (hp : A p) :
+    WitnessEquidistant SameDistanceFrom p
+      ((selectedWitnessSystemOfProperty h).witness p hp) := by
+  exact (selectedWitnessSystemOfProperty h).witness_equidistant p hp
 
 /-- The choice-extracted selected-witness system reconstitutes the input property. -/
 lemma selectedWitnessSystemOfProperty_property {Point : Type u}
