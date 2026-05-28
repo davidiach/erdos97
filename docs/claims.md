@@ -145,6 +145,75 @@ wall already closed by support saturation. It does not prove the full `n=12`
 case, any mixed exact-four/size-five catalogue, or Erdos Problem #97. Check it
 with `scripts/check_n12_rich_support_determinant.py`.
 
+### Selected-path self-edge obstruction
+
+Status: `LEMMA`.
+
+Let selected rows generate an equivalence relation on unordered vertex-pair
+distances. If a local row core contains a selected-distance equality path from
+an unordered pair `p` to an unordered pair `q`, and a valid vertex-circle
+strict inequality `p > q`, then that local core is unrealizable. The equality
+path gives `D(p) = D(q)`, while the strict inequality gives `D(p) > D(q)`.
+Equivalently, the strict quotient graph has a reflexive strict edge.
+
+This is an n-independent local contradiction criterion only. It does not show
+that any hypothetical counterexample must contain such a core, does not
+complete the review-pending `n=9` packet audit, and does not prove Erdos
+Problem #97. See `docs/n9-vertex-circle-self-edge-criterion.md`.
+
+### Directed strict-cycle obstruction
+
+Status: `LEMMA`.
+
+Let selected rows generate an equivalence relation on unordered vertex-pair
+distances. If a local row core contains a cyclic list of valid vertex-circle
+strict inequalities `p_i > q_i`, and selected-distance equality paths from
+each `q_i` to the next `p_{i+1}`, then that local core is unrealizable. The
+equalities turn the strict inequalities into
+
+```text
+D(p_0) > D(p_1) > ... > D(p_{k-1}) > D(p_0),
+```
+
+which is impossible for real distances. Equivalently, the strict quotient graph
+has a directed strict cycle.
+
+This is an n-independent local contradiction criterion only. It does not show
+that any hypothetical counterexample must contain such a core, does not
+complete the review-pending `n=9` packet audit, and does not prove Erdos
+Problem #97. See `docs/n9-vertex-circle-strict-cycle-criterion.md`.
+
+### Strict quotient-graph obstruction
+
+Status: `LEMMA`.
+
+For any local selected-row core with certified vertex-circle strict edges,
+quotient unordered vertex-pair distances by the selected-row equalities. If
+the resulting strict quotient graph has a loop or a directed cycle, then the
+core is unrealizable. In any realization, every strict edge strictly decreases
+the real distance value of its quotient class, so loops and directed cycles
+would force a strict inequality chain returning to its starting value. The
+same criterion applies to a supplied rich same-radius class by quotienting all
+center-witness spoke distances in that class and using the strict nested-chord
+inequalities from its full witness set.
+
+This is the common abstraction behind the selected-path self-edge and directed
+strict-cycle obstruction lemmas above. It is only a local obstruction
+criterion: acyclicity of the strict quotient graph does not imply geometric
+realizability, and the lemma does not prove that every hypothetical
+counterexample contains a quotient-graph obstruction. See
+`docs/n9-vertex-circle-quotient-soundness-audit.md`.
+
+Corollary: a nonempty finite closed descent region is also impossible. That is,
+if `H` is a finite nonempty set of selected-distance quotient classes and
+every class in `H` has at least one strict quotient-graph edge to a class in
+`H`, possibly itself, then following one such edge repeatedly forces a
+directed cycle.
+The helper `validate_closed_descent_region` checks this certificate shape for
+supplied strict quotient graphs, including graphs built from exact-four
+selected rows or rich same-radius rows. This corollary is a bridge target, not
+a proof that minimal counterexamples have such a region.
+
 ### Altman diagonal-order sums
 
 For a strict convex `n`-gon in cyclic order, the sums `U_k` of chord lengths of

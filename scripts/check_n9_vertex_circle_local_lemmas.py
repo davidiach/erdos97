@@ -84,11 +84,8 @@ def write_json(payload: object, path: Path) -> None:
     """Write stable LF-terminated JSON."""
 
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(payload, indent=2, sort_keys=True) + "\n")
 
 
 def scan_payload(

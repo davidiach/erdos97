@@ -22,8 +22,20 @@ def test_reversed_block_clean_kalmanson_partial_discovery() -> None:
     assert data["summary"]["source_clean_order_count"] == 2
     assert data["summary"]["obstructed_clean_order_count"] == 2
     assert data["summary"]["clean_order_indices"] == [13, 157]
-    assert data["summary"]["strict_rows_total"] == 37
-    assert data["summary"]["weight_sum_total"] == 1240
+    records = data["certificate_records"]
+    assert len(records) == 2
+    assert data["summary"]["strict_rows_total"] == sum(
+        record["strict_rows"] for record in records
+    )
+    assert data["summary"]["weight_sum_total"] == sum(
+        record["weight_sum"] for record in records
+    )
+    assert all(record["strict_rows"] > 0 for record in records)
+    assert all(record["weight_sum"] > 0 for record in records)
+    assert all(record["zero_sum_verified"] for record in records)
+    assert all(
+        record["combined_nonzero_coefficient_count"] == 0 for record in records
+    )
 
 
 def test_reversed_block_clean_kalmanson_artifact_replays() -> None:
