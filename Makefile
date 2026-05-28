@@ -74,6 +74,7 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_vertex_circle_local_lemma_simple_replay.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_high_risk_frontier_packet.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --check --assert-expected --json

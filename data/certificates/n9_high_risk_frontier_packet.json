@@ -1,0 +1,11429 @@
+{
+  "assignments": [
+    {
+      "assignment_id": "A003",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          1,
+          7
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          1,
+          7,
+          8,
+          6,
+          4,
+          5,
+          2,
+          3
+        ],
+        "seed": [
+          0,
+          1,
+          7
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          2,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 2
+    },
+    {
+      "assignment_id": "A007",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          6,
+          8,
+          1,
+          2,
+          5,
+          7,
+          4
+        ],
+        "seed": [
+          0,
+          3,
+          6
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          0,
+          2,
+          3,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          3,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          1,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 6
+    },
+    {
+      "assignment_id": "A008",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          7
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          7,
+          5,
+          1,
+          6,
+          8,
+          2,
+          4
+        ],
+        "seed": [
+          0,
+          3,
+          7
+        ]
+      },
+      "family_id": "F07",
+      "family_orbit_size": 6,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "kill_reason": "vertex_circle_strict_cycle",
+      "mutual_edge_count": 9,
+      "mutual_edge_triangle_count": 3,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "strict_cycle": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "strict_cycle",
+      "zero_based_index": 7
+    },
+    {
+      "assignment_id": "A010",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          4
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          4,
+          3,
+          5,
+          1,
+          8,
+          6,
+          7
+        ],
+        "seed": [
+          0,
+          2,
+          4
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          1,
+          6,
+          8
+        ],
+        [
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 9
+    },
+    {
+      "assignment_id": "A013",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          4,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          4,
+          5,
+          6,
+          3,
+          1,
+          2,
+          7,
+          8
+        ],
+        "seed": [
+          0,
+          4,
+          5
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          2,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          4,
+          5,
+          7
+        ],
+        [
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 12
+    },
+    {
+      "assignment_id": "A015",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          7,
+          3,
+          8,
+          1,
+          4,
+          6
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F07",
+      "family_orbit_size": 6,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_strict_cycle",
+      "mutual_edge_count": 9,
+      "mutual_edge_triangle_count": 3,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "strict_cycle": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          0,
+          1,
+          3,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "strict_cycle",
+      "zero_based_index": 14
+    },
+    {
+      "assignment_id": "A017",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          6,
+          7,
+          5,
+          8,
+          1,
+          3,
+          4
+        ],
+        "seed": [
+          0,
+          2,
+          6
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          2,
+          4,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ],
+        [
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 16
+    },
+    {
+      "assignment_id": "A028",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          6,
+          8,
+          1,
+          4,
+          5,
+          7,
+          2
+        ],
+        "seed": [
+          0,
+          3,
+          6
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          0,
+          2,
+          3,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          7
+        ],
+        [
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          3,
+          5,
+          7,
+          8
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 27
+    },
+    {
+      "assignment_id": "A029",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          6,
+          8,
+          1,
+          2,
+          4,
+          5,
+          7
+        ],
+        "seed": [
+          0,
+          3,
+          6
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          3,
+          5,
+          7,
+          8
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 28
+    },
+    {
+      "assignment_id": "A030",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          4
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          4,
+          6,
+          1,
+          5,
+          7,
+          8,
+          3
+        ],
+        "seed": [
+          0,
+          2,
+          4
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          2,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 29
+    },
+    {
+      "assignment_id": "A032",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          7
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          7,
+          2,
+          4,
+          6,
+          8,
+          1,
+          5
+        ],
+        "seed": [
+          0,
+          3,
+          7
+        ]
+      },
+      "family_id": "F07",
+      "family_orbit_size": 6,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_strict_cycle",
+      "mutual_edge_count": 9,
+      "mutual_edge_triangle_count": 3,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "strict_cycle": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "strict_cycle",
+      "zero_based_index": 31
+    },
+    {
+      "assignment_id": "A033",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          6,
+          4,
+          1,
+          2,
+          5,
+          7,
+          8
+        ],
+        "seed": [
+          0,
+          3,
+          6
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          4
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          0,
+          1,
+          4,
+          7
+        ],
+        [
+          3,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 32
+    },
+    {
+      "assignment_id": "A036",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          6,
+          5,
+          7,
+          8,
+          1,
+          2,
+          4
+        ],
+        "seed": [
+          0,
+          3,
+          6
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 35
+    },
+    {
+      "assignment_id": "A037",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          6,
+          5,
+          7,
+          1,
+          2,
+          4,
+          8
+        ],
+        "seed": [
+          0,
+          3,
+          6
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          5,
+          6,
+          8
+        ],
+        [
+          1,
+          4,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 36
+    },
+    {
+      "assignment_id": "A038",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          6,
+          7,
+          1,
+          8,
+          3,
+          4,
+          5
+        ],
+        "seed": [
+          0,
+          2,
+          6
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          2,
+          3,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          4,
+          6
+        ],
+        [
+          4,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 37
+    },
+    {
+      "assignment_id": "A039",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          6,
+          5,
+          7,
+          8,
+          2,
+          4,
+          1
+        ],
+        "seed": [
+          0,
+          3,
+          6
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          2,
+          3,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          4,
+          6
+        ],
+        [
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          5,
+          6,
+          8
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 38
+    },
+    {
+      "assignment_id": "A044",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          1,
+          3
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          1,
+          3,
+          8,
+          2,
+          4,
+          7,
+          5,
+          6
+        ],
+        "seed": [
+          0,
+          1,
+          3
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          0,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          0,
+          1,
+          3,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 43
+    },
+    {
+      "assignment_id": "A049",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          1,
+          4
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          1,
+          4,
+          2,
+          5,
+          3,
+          8,
+          6,
+          7
+        ],
+        "seed": [
+          0,
+          1,
+          4
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          3,
+          5,
+          6,
+          7
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          1,
+          3,
+          4,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 48
+    },
+    {
+      "assignment_id": "A052",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          6,
+          2,
+          4,
+          7,
+          8,
+          1,
+          5
+        ],
+        "seed": [
+          0,
+          3,
+          6
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          2,
+          3,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 51
+    },
+    {
+      "assignment_id": "A053",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          4,
+          1,
+          3,
+          8,
+          6,
+          7
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          3,
+          4,
+          6,
+          7
+        ],
+        [
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 52
+    },
+    {
+      "assignment_id": "A055",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          6,
+          3,
+          7,
+          1,
+          5,
+          8,
+          4
+        ],
+        "seed": [
+          0,
+          2,
+          6
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          2,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 54
+    },
+    {
+      "assignment_id": "A057",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          7
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          7,
+          1,
+          5,
+          8,
+          2,
+          4,
+          6
+        ],
+        "seed": [
+          0,
+          3,
+          7
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          2,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          0,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 56
+    },
+    {
+      "assignment_id": "A059",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          5,
+          1,
+          4,
+          2,
+          6,
+          7,
+          8
+        ],
+        "seed": [
+          0,
+          3,
+          5
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          3,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          1,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 58
+    },
+    {
+      "assignment_id": "A062",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          3,
+          7,
+          1,
+          4,
+          6,
+          8
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          7,
+          8
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 61
+    },
+    {
+      "assignment_id": "A064",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          6,
+          3,
+          8,
+          1,
+          5,
+          7,
+          4
+        ],
+        "seed": [
+          0,
+          2,
+          6
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          2,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          4,
+          5,
+          7
+        ],
+        [
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 63
+    },
+    {
+      "assignment_id": "A066",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          3,
+          6,
+          7,
+          1,
+          4,
+          8
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          2,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          2,
+          4,
+          6,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 65
+    },
+    {
+      "assignment_id": "A072",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          6,
+          2,
+          8,
+          1,
+          4,
+          5,
+          7
+        ],
+        "seed": [
+          0,
+          3,
+          6
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          0,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          1,
+          2,
+          4,
+          5
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 71
+    },
+    {
+      "assignment_id": "A073",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          1,
+          3
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          6,
+          8,
+          5,
+          7
+        ],
+        "seed": [
+          0,
+          1,
+          3
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          0,
+          2,
+          7,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          3,
+          4,
+          6,
+          8
+        ],
+        [
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 72
+    },
+    {
+      "assignment_id": "A075",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          6,
+          2,
+          4,
+          5,
+          8,
+          1,
+          7
+        ],
+        "seed": [
+          0,
+          3,
+          6
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          5,
+          6
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 74
+    },
+    {
+      "assignment_id": "A082",
+      "ear_order": {
+        "exists": false,
+        "largest_closure_seed": [
+          0,
+          1,
+          4
+        ],
+        "largest_closure_size": 5,
+        "order": null,
+        "seed": null
+      },
+      "family_id": "F16",
+      "family_orbit_size": 2,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_strict_cycle",
+      "mutual_edge_count": 9,
+      "mutual_edge_triangle_count": 3,
+      "mutual_edge_triangles": [
+        [
+          0,
+          3,
+          6
+        ],
+        [
+          1,
+          4,
+          7
+        ],
+        [
+          2,
+          5,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "strict_cycle": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "strict_cycle",
+      "zero_based_index": 81
+    },
+    {
+      "assignment_id": "A088",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          5,
+          2,
+          4,
+          7,
+          8,
+          1,
+          6
+        ],
+        "seed": [
+          0,
+          3,
+          5
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          2,
+          3,
+          5,
+          8
+        ],
+        [
+          3,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 87
+    },
+    {
+      "assignment_id": "A089",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          6,
+          5,
+          7,
+          2,
+          4,
+          8,
+          1
+        ],
+        "seed": [
+          0,
+          3,
+          6
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          2,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 88
+    },
+    {
+      "assignment_id": "A090",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          1,
+          8,
+          3,
+          4,
+          6,
+          7
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          3,
+          5,
+          6
+        ],
+        [
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          3,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 89
+    },
+    {
+      "assignment_id": "A091",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          1,
+          3,
+          4,
+          8,
+          6,
+          7
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          5
+        ],
+        [
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          3,
+          5,
+          7,
+          8
+        ],
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 90
+    },
+    {
+      "assignment_id": "A098",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          1,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          1,
+          5,
+          2,
+          8,
+          4,
+          6,
+          7,
+          3
+        ],
+        "seed": [
+          0,
+          1,
+          5
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          7,
+          8
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          3,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          3,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 97
+    },
+    {
+      "assignment_id": "A100",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          6,
+          8,
+          1,
+          4,
+          5,
+          7,
+          3
+        ],
+        "seed": [
+          0,
+          2,
+          6
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          3,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          6
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 99
+    },
+    {
+      "assignment_id": "A102",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          1,
+          3,
+          6,
+          7,
+          8,
+          4
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          3,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          4,
+          5
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 101
+    },
+    {
+      "assignment_id": "A105",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          1,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          1,
+          5,
+          2,
+          8,
+          6,
+          7,
+          3,
+          4
+        ],
+        "seed": [
+          0,
+          1,
+          5
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          7,
+          8
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          3,
+          7,
+          8
+        ],
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          3,
+          5,
+          6
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 104
+    },
+    {
+      "assignment_id": "A107",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          7
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          7,
+          4,
+          8,
+          3,
+          5,
+          6,
+          1
+        ],
+        "seed": [
+          0,
+          2,
+          7
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          0,
+          7,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          3,
+          7,
+          8
+        ],
+        [
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          4,
+          6
+        ],
+        [
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 106
+    },
+    {
+      "assignment_id": "A108",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          1,
+          7
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          1,
+          7,
+          2,
+          8,
+          6,
+          3,
+          4,
+          5
+        ],
+        "seed": [
+          0,
+          1,
+          7
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          0,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          7
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          1,
+          2,
+          3,
+          5
+        ],
+        [
+          0,
+          3,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 107
+    },
+    {
+      "assignment_id": "A113",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          1,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          1,
+          5,
+          8,
+          2,
+          4,
+          6,
+          7,
+          3
+        ],
+        "seed": [
+          0,
+          1,
+          5
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          3,
+          4,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 112
+    },
+    {
+      "assignment_id": "A120",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          6,
+          8,
+          1,
+          5,
+          7,
+          3,
+          4
+        ],
+        "seed": [
+          0,
+          2,
+          6
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          4,
+          5,
+          7
+        ],
+        [
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 119
+    },
+    {
+      "assignment_id": "A123",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          6,
+          1,
+          3,
+          5,
+          7,
+          8,
+          4
+        ],
+        "seed": [
+          0,
+          2,
+          6
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          0,
+          1,
+          2,
+          4
+        ],
+        [
+          2,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          1,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          6
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 122
+    },
+    {
+      "assignment_id": "A125",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          6,
+          8,
+          5,
+          1,
+          3,
+          4,
+          7
+        ],
+        "seed": [
+          0,
+          2,
+          6
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          2,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          4,
+          5,
+          7
+        ],
+        [
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 124
+    },
+    {
+      "assignment_id": "A128",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          8,
+          3,
+          4,
+          7,
+          1,
+          6
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          7,
+          8
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          2,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 127
+    },
+    {
+      "assignment_id": "A129",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          3,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          3,
+          6,
+          4,
+          7,
+          2,
+          5,
+          8,
+          1
+        ],
+        "seed": [
+          0,
+          3,
+          6
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          7,
+          8
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          5
+        ],
+        [
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          2,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 128
+    },
+    {
+      "assignment_id": "A130",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          4,
+          6,
+          8,
+          1,
+          3,
+          7
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          0,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          5,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 129
+    },
+    {
+      "assignment_id": "A133",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          3,
+          6,
+          7,
+          1,
+          4,
+          8
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          8
+        ],
+        [
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          2,
+          4,
+          6,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 132
+    },
+    {
+      "assignment_id": "A135",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          1,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          1,
+          6,
+          8,
+          5,
+          7,
+          2,
+          3,
+          4
+        ],
+        "seed": [
+          0,
+          1,
+          6
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          3,
+          4,
+          5,
+          7
+        ],
+        [
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 134
+    },
+    {
+      "assignment_id": "A137",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          4,
+          6,
+          8,
+          1,
+          3,
+          7
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F07",
+      "family_orbit_size": 6,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_strict_cycle",
+      "mutual_edge_count": 9,
+      "mutual_edge_triangle_count": 3,
+      "mutual_edge_triangles": [
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "strict_cycle": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "strict_cycle",
+      "zero_based_index": 136
+    },
+    {
+      "assignment_id": "A141",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          4,
+          6,
+          8,
+          1,
+          3,
+          7
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F07",
+      "family_orbit_size": 6,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_strict_cycle",
+      "mutual_edge_count": 9,
+      "mutual_edge_triangle_count": 3,
+      "mutual_edge_triangles": [
+        [
+          0,
+          7,
+          8
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "strict_cycle": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "strict_cycle",
+      "zero_based_index": 140
+    },
+    {
+      "assignment_id": "A142",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          4,
+          6,
+          1,
+          3,
+          7,
+          8
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          8
+        ],
+        [
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          0,
+          4,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 141
+    },
+    {
+      "assignment_id": "A144",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          4
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          4,
+          8,
+          1,
+          3,
+          5,
+          6,
+          7
+        ],
+        "seed": [
+          0,
+          2,
+          4
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          1,
+          6,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          3,
+          5,
+          7
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          6
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 143
+    },
+    {
+      "assignment_id": "A152",
+      "ear_order": {
+        "exists": false,
+        "largest_closure_seed": [
+          0,
+          1,
+          6
+        ],
+        "largest_closure_size": 5,
+        "order": null,
+        "seed": null
+      },
+      "family_id": "F16",
+      "family_orbit_size": 2,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_reason": "vertex_circle_strict_cycle",
+      "mutual_edge_count": 9,
+      "mutual_edge_triangle_count": 3,
+      "mutual_edge_triangles": [
+        [
+          0,
+          3,
+          6
+        ],
+        [
+          1,
+          4,
+          7
+        ],
+        [
+          2,
+          5,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "strict_cycle": 1
+        }
+      },
+      "selected_rows": [
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "strict_cycle",
+      "zero_based_index": 151
+    },
+    {
+      "assignment_id": "A160",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          6,
+          7,
+          1,
+          3,
+          4,
+          5,
+          8
+        ],
+        "seed": [
+          0,
+          2,
+          6
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          6
+        ],
+        [
+          4,
+          6,
+          7,
+          8
+        ],
+        [
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 159
+    },
+    {
+      "assignment_id": "A161",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          1,
+          8,
+          3,
+          4,
+          6,
+          7
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          2,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 160
+    },
+    {
+      "assignment_id": "A162",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          1,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          1,
+          5,
+          8,
+          2,
+          4,
+          6,
+          7,
+          3
+        ],
+        "seed": [
+          0,
+          1,
+          5
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          7
+        ],
+        [
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          4,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          5,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 161
+    },
+    {
+      "assignment_id": "A167",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          1,
+          3,
+          8,
+          4,
+          6,
+          7
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F07",
+      "family_orbit_size": 6,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_strict_cycle",
+      "mutual_edge_count": 9,
+      "mutual_edge_triangle_count": 3,
+      "mutual_edge_triangles": [
+        [
+          0,
+          7,
+          8
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "strict_cycle": 1
+        }
+      },
+      "selected_rows": [
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "strict_cycle",
+      "zero_based_index": 166
+    },
+    {
+      "assignment_id": "A169",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          3
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          3,
+          1,
+          8,
+          6,
+          7,
+          4,
+          5
+        ],
+        "seed": [
+          0,
+          2,
+          3
+        ]
+      },
+      "family_id": "F03",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 8,
+      "mutual_edge_triangle_count": 1,
+      "mutual_edge_triangles": [
+        [
+          0,
+          7,
+          8
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          1,
+          3,
+          4,
+          5
+        ],
+        [
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 168
+    },
+    {
+      "assignment_id": "A170",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          6,
+          1,
+          3,
+          8,
+          5,
+          7,
+          4
+        ],
+        "seed": [
+          0,
+          2,
+          6
+        ]
+      },
+      "family_id": "F10",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          7,
+          8
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          3,
+          4,
+          6,
+          8
+        ],
+        [
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          0,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 169
+    },
+    {
+      "assignment_id": "A171",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          5
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          5,
+          7,
+          4,
+          6,
+          8,
+          1,
+          3
+        ],
+        "seed": [
+          0,
+          2,
+          5
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          7,
+          8
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          1,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          3,
+          4,
+          6,
+          8
+        ],
+        [
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          0,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 170
+    },
+    {
+      "assignment_id": "A177",
+      "ear_order": {
+        "exists": true,
+        "largest_closure_seed": [
+          0,
+          2,
+          6
+        ],
+        "largest_closure_size": 9,
+        "order": [
+          0,
+          2,
+          6,
+          1,
+          8,
+          5,
+          7,
+          3,
+          4
+        ],
+        "seed": [
+          0,
+          2,
+          6
+        ]
+      },
+      "family_id": "F06",
+      "family_orbit_size": 18,
+      "first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kill_reason": "vertex_circle_self_edge",
+      "mutual_edge_count": 11,
+      "mutual_edge_triangle_count": 2,
+      "mutual_edge_triangles": [
+        [
+          0,
+          7,
+          8
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "mutual_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "selected_rows": [
+        [
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          1,
+          3,
+          4,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          1,
+          3,
+          5,
+          6
+        ],
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "simple_obstruction_a_trigger_count": 0,
+      "simple_obstruction_a_triggers": [],
+      "vertex_circle_status": "self_edge",
+      "zero_based_index": 176
+    }
+  ],
+  "claim_scope": "High-risk mutual-edge-triangle slice of the 184 n=9 pre-vertex-circle selected-witness assignments, replayed through fixed-row radius-blocker and vertex-circle diagnostics; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.",
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "families": [
+    {
+      "assignment_count": 18,
+      "ear_orderable_assignments": 18,
+      "family_id": "F03",
+      "non_ear_assignments": 0,
+      "representative_assignment_id": "A003",
+      "representative_first_radius_blocker": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "representative_mutual_edge_triangles": [
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "representative_radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "representative_selected_rows": [
+        [
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          2,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          0,
+          1,
+          4,
+          7
+        ]
+      ],
+      "representative_zero_based_index": 2,
+      "source_orbit_size": 18,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "assignment_count": 18,
+      "ear_orderable_assignments": 18,
+      "family_id": "F06",
+      "non_ear_assignments": 0,
+      "representative_assignment_id": "A007",
+      "representative_first_radius_blocker": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "representative_mutual_edge_triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "representative_radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "representative_selected_rows": [
+        [
+          1,
+          2,
+          4,
+          7
+        ],
+        [
+          0,
+          2,
+          3,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          3,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          1,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          7
+        ]
+      ],
+      "representative_zero_based_index": 6,
+      "source_orbit_size": 18,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "assignment_count": 6,
+      "ear_orderable_assignments": 6,
+      "family_id": "F07",
+      "non_ear_assignments": 0,
+      "representative_assignment_id": "A008",
+      "representative_first_radius_blocker": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "representative_mutual_edge_triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "representative_radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "strict_cycle": 1
+        }
+      },
+      "representative_selected_rows": [
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          3,
+          6,
+          7
+        ]
+      ],
+      "representative_zero_based_index": 7,
+      "source_orbit_size": 6,
+      "vertex_circle_status": "strict_cycle"
+    },
+    {
+      "assignment_count": 18,
+      "ear_orderable_assignments": 18,
+      "family_id": "F10",
+      "non_ear_assignments": 0,
+      "representative_assignment_id": "A013",
+      "representative_first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "representative_mutual_edge_triangles": [
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "representative_radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "self_edge": 1
+        }
+      },
+      "representative_selected_rows": [
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          2,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          4,
+          5,
+          7
+        ],
+        [
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "representative_zero_based_index": 12,
+      "source_orbit_size": 18,
+      "vertex_circle_status": "self_edge"
+    },
+    {
+      "assignment_count": 2,
+      "ear_orderable_assignments": 0,
+      "family_id": "F16",
+      "non_ear_assignments": 2,
+      "representative_assignment_id": "A082",
+      "representative_first_radius_blocker": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "representative_mutual_edge_triangles": [
+        [
+          0,
+          3,
+          6
+        ],
+        [
+          1,
+          4,
+          7
+        ],
+        [
+          2,
+          5,
+          8
+        ]
+      ],
+      "representative_radius_blocker_replay": {
+        "aborted": false,
+        "all_incidence_survivors_obstructed": true,
+        "incidence_survivors": 1,
+        "nodes_visited": 9,
+        "radius_blocker_ok": true,
+        "raw_selection_upper_bound": 1,
+        "rejection_counts": {},
+        "row_option_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "vertex_circle_status_counts": {
+          "strict_cycle": 1
+        }
+      },
+      "representative_selected_rows": [
+        [
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ]
+      ],
+      "representative_zero_based_index": 81,
+      "source_orbit_size": 2,
+      "vertex_circle_status": "strict_cycle"
+    }
+  ],
+  "interpretation": [
+    "This packet isolates the mutual-edge-triangle part of the n=9 frontier, where the simple mutual-edge obstruction has no trigger.",
+    "Every selected assignment is still killed by the fixed-order vertex-circle quotient replay after the fixed-row radius-blocker packet check.",
+    "The two non-ear assignments are the existing bridge-frontier n=9 proof-mining targets.",
+    "The packet is diagnostic and review-pending; it is not an independent proof of the n=9 case.",
+    "No proof of Erdos Problem #97 and no counterexample are claimed."
+  ],
+  "n": 9,
+  "provenance": {
+    "command": "python scripts/check_n9_high_risk_frontier_packet.py --write --assert-expected",
+    "generator": "scripts/check_n9_high_risk_frontier_packet.py",
+    "sources": [
+      "src/erdos97/n9_vertex_circle_exhaustive.py",
+      "src/erdos97/n9_vertex_circle_obstruction_shapes.py",
+      "src/erdos97/radius_blocker_packets.py",
+      "src/erdos97/vertex_circle_quotient_replay.py",
+      "src/erdos97/stuck_sets.py"
+    ]
+  },
+  "row_size": 4,
+  "schema": "erdos97.n9_high_risk_frontier_packet.v1",
+  "selection_rule": {
+    "description": "Select pre-vertex-circle assignments whose mutual-edge graph contains at least one triangle and whose rows contain no simple mutual-edge obstruction-A trigger.",
+    "name": "mutual_edge_triangle_without_simple_obstruction_a_trigger"
+  },
+  "source_frontier": {
+    "assignment_count": 184,
+    "nodes_visited": 100817,
+    "source": "src/erdos97/n9_vertex_circle_exhaustive.py"
+  },
+  "status": "REVIEW_PENDING_HIGH_RISK_FRONTIER_DIAGNOSTIC",
+  "summary": {
+    "all_selected_have_no_simple_obstruction_a_trigger": true,
+    "all_selected_have_size4_radius_blocker": true,
+    "all_selected_radius_blocker_replays_obstructed": true,
+    "mutual_edge_triangle_count_distribution": {
+      "1": 18,
+      "2": 36,
+      "3": 8
+    },
+    "non_ear_assignment_count": 2,
+    "non_ear_zero_based_indices": [
+      81,
+      151
+    ],
+    "post_vertex_circle_survivor_count": 0,
+    "representative_replay_status_counts": {
+      "self_edge": 3,
+      "strict_cycle": 2
+    },
+    "selected_assignment_count": 62,
+    "selected_family_count": 5,
+    "selected_family_counts": {
+      "F03": 18,
+      "F06": 18,
+      "F07": 6,
+      "F10": 18,
+      "F16": 2
+    },
+    "selected_family_status_counts": {
+      "self_edge": 3,
+      "strict_cycle": 2
+    },
+    "selected_status_counts": {
+      "self_edge": 54,
+      "strict_cycle": 8
+    }
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}
