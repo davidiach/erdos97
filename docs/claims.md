@@ -1707,6 +1707,26 @@ Problem #97. Check the focused packet and its small input-data replay with
 and
 `python scripts/check_n9_t12_strict_cycle_minireplay.py --check --assert-expected --json`.
 
+### n=9 vertex-circle input-data audit
+
+Status: `REVIEW_PENDING_INPUT_DATA_AUDIT`.
+
+The checker `scripts/check_n9_vertex_circle_input_audit.py` treats
+`data/certificates/n9_vertex_circle_exhaustive.json` as stored input data for
+the review-pending `n=9` vertex-circle package. It recomputes the row-`0`
+choices directly as the `70` lexicographic 4-subsets of labels `1..8`, checks
+the stored row-`0` witness lists and masks, and verifies the stored summary
+arithmetic for the main and no-vertex-circle cross-check runs.
+
+When run with `--check --assert-expected --json`, the audit reports matching
+row-`0` coverage for both runs, `0` main full assignments, `184`
+cross-check full assignments, and `184` cross-check status records. This is
+stored-input consistency evidence only. It does not rerun the brancher, replay
+vertex-circle certificates, prove `n=9`, claim a counterexample, update the
+official/global status, or promote the review-pending exhaustive checker.
+Check it with
+`python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
