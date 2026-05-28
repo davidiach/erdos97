@@ -2186,6 +2186,28 @@ prove local-lemma completeness, prove frontier coverage, prove `n=9`, give a
 counterexample, or update the official/global status. Check it with
 `python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json`.
 
+### n=9 vertex-circle relation-skeleton/local-lemma crosswalk
+
+Status: `REVIEW_PENDING_PACKET_AUDIT`.
+
+The checker `scripts/check_relation_skeleton_local_lemma_crosswalk.py` treats
+`data/certificates/relation_skeleton_catalog.json`, the aggregate local-lemma
+scan, and the simple local-lemma replay audit as input data. It compares the
+compact relation-skeleton proof-mining catalog with the same local-lemma
+family accounting used by the aggregate/simple-replay crosswalk.
+
+When run with `--check --assert-expected --json`, the crosswalk checks `16`
+relation skeletons against `16` local families, matching all `184`
+assignments. The matched coverage has `13` self-edge families covering `158`
+assignments and `3` strict-cycle families covering `26` assignments. The
+family records compare skeleton ids, lemma ids, template ids, relation
+contradiction types, local obstruction groups, assignment counts, orbit sizes,
+source packet paths, equality-chain counts, strict-edge counts, and simple
+replay step counts. This is cross-artifact bookkeeping only. It does not prove
+relation-skeleton soundness, local-lemma completeness, frontier coverage,
+`n=9`, a counterexample, or any official/global status update. Check it with
+`python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
