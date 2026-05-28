@@ -224,7 +224,7 @@ lemma hasFourEquidistantProperty_exists_witnessInSet {Point : Type u}
     {SameDistanceFrom : Point -> Point -> Point -> Prop}
     (h : HasFourEquidistantProperty A SameDistanceFrom) (p : Point)
     (hp : A p) : Exists fun W : Witness4 Point => WitnessInSet A p W := by
-  cases h p hp with
+  cases (h p hp) with
   | intro W hW =>
       exact Exists.intro W hW.left
 
@@ -235,7 +235,7 @@ lemma hasFourEquidistantProperty_exists_witnessEquidistant {Point : Type u}
     (h : HasFourEquidistantProperty A SameDistanceFrom) (p : Point)
     (hp : A p) :
     Exists fun W : Witness4 Point => WitnessEquidistant SameDistanceFrom p W := by
-  cases h p hp with
+  cases (h p hp) with
   | intro W hW =>
       exact Exists.intro W hW.right
 
