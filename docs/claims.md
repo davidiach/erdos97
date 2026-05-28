@@ -1707,6 +1707,28 @@ Problem #97. Check the focused packet and its small input-data replay with
 and
 `python scripts/check_n9_t12_strict_cycle_minireplay.py --check --assert-expected --json`.
 
+### n=9 turn-inequality frontier replay
+
+Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
+
+The artifact `data/certificates/n9_turn_inequality_frontier.json` records a
+candidate weak turn-inequality system on the `184` regenerated `n=9`
+pair/crossing/count frontier assignments. For each frontier assignment, it
+stores an integer dual certificate showing infeasibility of that candidate
+weak turn system by summing selected interval inequalities.
+
+The checker replays the stored integer arithmetic without needing a solver.
+It reports `184` certificates, all with deficit `1`; `180` have `lambda = 1`
+and `4` have `lambda = 2`. A Z3 rational-arithmetic replay is included as a
+cross-check and reports `184` unsat statuses.
+
+This is review-pending finite-case evidence only. The geometric turn lemma,
+the indexing conventions, the regenerated source frontier, and the certificate
+arithmetic verifier still require independent review before this layer could
+support a stronger claim. It is not an `n=9` proof, not a counterexample, not a
+global status update, and not a proof of Erdos Problem #97. Check it with
+`python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json`.
+
 ### Low-angle ascent for middle witnesses
 
 Let `alpha_p` be the interior angle at a bad vertex `p`, and let
