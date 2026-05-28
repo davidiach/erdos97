@@ -56,6 +56,12 @@ class QuotientReplayResult:
 
 
 @dataclass(frozen=True)
+class ClosedDescentRegion:
+    classes: tuple[Pair, ...]
+    witness_edges: tuple[StrictInequality, ...]
+
+
+@dataclass(frozen=True)
 class LocalCoreReplay:
     family_id: str
     expected_status: str | None
@@ -215,6 +221,74 @@ def replay_vertex_circle_quotient(
         self_edge_conflicts=self_edges,
         cycle_edges=cycle_edges,
     )
+
+
+def strict_quotient_edges(
+    n: int,
+    order: Sequence[int],
+    rows: Sequence[SelectedRow],
+) -> tuple[StrictInequality, ...]:
+    """Return all vertex-circle strict edges after selected-distance quotienting."""
+
+    order_tuple = tuple(int(label) for label in order)
+    _validate_order(n, order_tuple)
+    _validate_rows(n, rows)
+    uf = _distance_class_union_find(n, rows)
+    return tuple(_strict_inequalities(n, order_tuple, rows, uf))
+
+
+def strict_rich_quotient_edges(
+    n: int,
+    order: Sequence[int],
+    rows: Sequence[RichClassRow],
+) -> tuple[StrictInequality, ...]:
+    """Return all vertex-circle strict edges after rich-class quotienting."""
+
+    order_tuple = tuple(int(label) for label in order)
+    _validate_order(n, order_tuple)
+    _validate_rich_rows(n, rows)
+    uf = _distance_class_union_find(n, rows)
+    return tuple(_strict_inequalities(n, order_tuple, rows, uf))
+
+
+def validate_closed_descent_region(
+    edges: Sequence[StrictInequality],
+    classes: Sequence[Pair],
+) -> ClosedDescentRegion:
+    """Validate a finite strict-quotient region with no descent sink.
+
+    A nonempty region is closed for descent when every class in it has at
+    least one strict edge to a class in the same region. Finiteness then
+    forces a directed cycle, so this is a certificate shape for the abstract
+    strict quotient-graph obstruction.
+    """
+
+    region = tuple(sorted({pair(*item) for item in classes}))
+    if not region:
+        raise ValueError("closed descent region must be nonempty")
+    region_set = set(region)
+    witnesses: list[StrictInequality] = []
+    for source in region:
+        candidates: list[tuple[Pair, StrictInequality]] = []
+        for edge in edges:
+            outer_class = pair(*edge.outer_class)
+            inner_class = pair(*edge.inner_class)
+            if outer_class == source and inner_class in region_set:
+                candidates.append((inner_class, edge))
+        if not candidates:
+            raise ValueError(f"closed descent region has sink class {source}")
+        witnesses.append(
+            min(
+                candidates,
+                key=lambda item: (
+                    item[0],
+                    item[1].row,
+                    item[1].outer_pair,
+                    item[1].inner_pair,
+                ),
+            )[1]
+        )
+    return ClosedDescentRegion(classes=region, witness_edges=tuple(witnesses))
 
 
 def replay_vertex_circle_rich_quotient(

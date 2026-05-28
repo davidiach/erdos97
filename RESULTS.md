@@ -100,6 +100,67 @@ In a counterexample with the minimum possible number of vertices, every vertex
 `x` lies in the unique distance class of size exactly 4 at `y`. This is a
 structural condition on minimal counterexamples, not a contradiction by itself.
 
+### Lemma: selected-path self-edge obstruction
+
+Status: proved local criterion.
+
+Selected rows identify spoke distances and therefore generate equivalence
+classes of unordered vertex-pair distances. If a local row core contains both
+a selected-distance equality path from pair `p` to pair `q` and a valid
+vertex-circle strict inequality `p > q`, then no strictly convex realization
+can satisfy that core: the equality path gives `D(p) = D(q)`, while the strict
+edge gives `D(p) > D(q)`.
+
+This is only a reusable final-contradiction lemma. It does not prove that every
+`n=9` frontier assignment, every minimal counterexample, or every convex
+polygon must contain such a core. The current `n=9` T01-T09 packet audit
+remains review-pending. See `docs/n9-vertex-circle-self-edge-criterion.md`.
+
+### Lemma: directed strict-cycle obstruction
+
+Status: proved local criterion.
+
+Selected rows identify spoke distances and therefore generate equivalence
+classes of unordered vertex-pair distances. If a local row core contains a
+cyclic list of valid vertex-circle strict inequalities `p_i > q_i`, and
+selected-distance equality paths from each `q_i` to the next `p_{i+1}`, then
+no strictly convex realization can satisfy that core: the inequalities combine
+after quotienting into a directed cycle
+
+```text
+D(p_0) > D(p_1) > ... > D(p_{k-1}) > D(p_0).
+```
+
+This is only a reusable final-contradiction lemma. It does not prove that every
+`n=9` frontier assignment, every minimal counterexample, or every convex
+polygon must contain such a core. The current `n=9` T10-T12 packet audit
+remains review-pending. See `docs/n9-vertex-circle-strict-cycle-criterion.md`.
+
+### Lemma: strict quotient-graph obstruction
+
+Status: proved local criterion.
+
+For any local selected-row core with certified vertex-circle strict edges,
+quotient unordered pair distances by the selected-row equalities. A strictly
+convex realization can have neither a loop nor a directed cycle in this strict
+quotient graph, because each strict edge strictly decreases the corresponding
+real distance value. The same local criterion applies to a supplied rich
+same-radius class after quotienting all center-witness spokes in that class.
+
+This is the common abstraction behind the selected-path self-edge and directed
+strict-cycle obstruction lemmas. It is only a final local obstruction test:
+acyclicity is not evidence of realizability, and this does not prove that
+every counterexample must contain such an obstruction. See
+`docs/n9-vertex-circle-quotient-soundness-audit.md`.
+
+The bridge-facing corollary is the finite closed-descent version: a nonempty
+finite set of quotient classes cannot have every class strictly descending to
+a class in the same set, possibly itself. Following those descent edges would
+eventually produce a directed strict cycle. The helper
+`validate_closed_descent_region` checks this certificate shape for supplied
+strict quotient graphs, including exact-four selected-row and rich-class
+quotient graphs.
+
 ### Theorem: selected-witness incidence rules out n <= 7
 
 Status: proved and reproducible.

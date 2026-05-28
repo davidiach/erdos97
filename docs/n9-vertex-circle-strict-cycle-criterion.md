@@ -1,11 +1,16 @@
 # n=9 Vertex-circle Directed Strict-cycle Criterion
 
-Status: `REVIEW_PENDING_DIAGNOSTIC_ONLY`.
+Status: `LEMMA` for the abstract directed strict-cycle criterion;
+`REVIEW_PENDING_DIAGNOSTIC_ONLY` for the current `n=9` packet audit.
 
 This note records the common local contradiction behind the `T10` through
 `T12` vertex-circle strict-cycle packets. It does not claim a proof of `n=9`,
 does not claim a counterexample, does not complete independent review of the
 exhaustive checker, and does not update the official/global status.
+
+The abstract criterion is n-independent and does not depend on the `T10` ...
+`T12` template labels. The review-pending part is the finite packet audit
+showing where the criterion appears in the stored `n=9` frontier artifacts.
 
 ## Criterion
 
