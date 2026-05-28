@@ -2159,8 +2159,10 @@ When run with `--check --assert-expected --json`, the crosswalk checks that
 `data/certificates/n9_vertex_circle_frontier_motif_classification.json`,
 `data/certificates/n9_vertex_circle_local_lemmas.json`, and
 `data/certificates/n9_vertex_circle_local_lemma_simple_replay.json` agree on
-`184` frontier assignments across `16` motif/local-lemma families. The matched
-coverage has `158` self-edge assignments and `26` strict-cycle assignments.
+the aggregate `184`-assignment frontier total and the `158` self-edge / `26`
+strict-cycle status split. The family-by-family part is the join between the
+frontier motif classification and the local-lemma/simple-replay layers: it
+checks `16` motif/local-lemma families covering the same `184` assignments.
 The nested aggregate/simple-replay summary also reports `16` aggregate
 families, `16` simple-replay families, and `184` matched assignments. This is
 cross-artifact accounting only. It does not review the exhaustive brancher,
