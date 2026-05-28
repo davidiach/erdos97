@@ -380,6 +380,11 @@ local_repo:
       artifact: "data/certificates/n9_vertex_circle_exhaustive.json"
       verifier: "scripts/check_n9_vertex_circle_mro_branching_replay.py"
       claim_scope: "branch-order agreement audit only; reruns the search with fixed center order 0..8 and compares full-assignment and vertex-circle status counts with the stored dynamic-MRO artifact, but does not prove filter soundness, independently replay vertex-circle geometry, prove n=9, update official/global status, or give a counterexample"
+    - pattern: "n9_vertex_circle_strict_edge_geometry"
+      status: "proper-interval strict-edge generator audit for n9 vertex-circle rows"
+      artifact: "data/certificates/n9_vertex_circle_exhaustive.json"
+      verifier: "scripts/check_n9_vertex_circle_strict_edge_geometry.py"
+      claim_scope: "local strict-edge generator audit only; checks 630 candidate selected rows and 5670 direct proper-interval strict edges against the checker table and one-row quotient replay counts, but does not prove row coverage, brancher coverage, quotient soundness, n=9, official/global status movement, or a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"
