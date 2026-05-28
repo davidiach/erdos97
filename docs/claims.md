@@ -2208,6 +2208,26 @@ relation-skeleton soundness, local-lemma completeness, frontier coverage,
 `n=9`, a counterexample, or any official/global status update. Check it with
 `python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json`.
 
+### n=9 relation-skeleton/closed-descent crosswalk
+
+Status: `REVIEW_PENDING_PACKET_AUDIT`.
+
+The checker `scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py`
+joins `data/certificates/relation_skeleton_catalog.json` to
+`data/certificates/n9_vertex_circle_closed_descent_packet.json`. It checks the
+same `16` stored families through two reviewer-facing representations: the
+relation-skeleton selected-distance quotient records and the closed-descent
+finite-region packet.
+
+When run with `--check --assert-expected --json`, the crosswalk matches all
+`184` assignment/orbit records. The `13` strict self-edge skeletons map to
+one-class closed-descent regions, and the `3` strict directed-cycle skeletons
+map to multi-class regions with class/cycle-length counts `2:1` and `3:2`.
+This is cross-artifact packet bookkeeping only. It does not prove
+local-lemma completeness, brancher coverage, `n=9`, a bridge proof, a
+counterexample, or any official/global status update. Check it with
+`python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --json`.
+
 ### n=9 vertex-circle local-lemma audit path
 
 Status: `REVIEW_PENDING_LOCAL_LEMMA_AUDIT_PATH`.

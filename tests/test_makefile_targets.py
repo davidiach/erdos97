@@ -115,6 +115,18 @@ def test_verify_n9_review_includes_documented_frontier_audits() -> None:
             "python scripts/check_n9_vertex_circle_self_edge_path_join.py "
             "--check --assert-expected --json"
         ),
+        (
+            "python scripts/check_relation_skeleton_catalog.py "
+            "--check --assert-expected --json"
+        ),
+        (
+            "python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py "
+            "--check --assert-expected --json"
+        ),
+        (
+            "python scripts/check_relation_skeleton_local_lemma_crosswalk.py "
+            "--check --assert-expected --json"
+        ),
     ]
 
     for command in expected_chain:
