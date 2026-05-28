@@ -826,6 +826,18 @@ support existence, row forcing, `n=9`, or the bootstrap bridge. See
 `scripts/check_bootstrap_t12_151_6_outside_pair_two_row_drop.py`, and
 `data/certificates/bootstrap_t12_151_6_outside_pair_two_row_drop.json`.
 
+The source-`151` row-`6` outside-pair full-neighborhood vertex-circle packet
+then lets every other center choose arbitrary selected `4`-sets while row `6`
+stays in the same thirteen-row activation family. Basic filters leave `28`
+complete assignments, including `21` with non-original row `6`; vertex-circle
+quotient replay kills all `28` by `20` self-edges and `8` strict cycles. This
+is still a finite diagnostic only, not a proof of outside-pair support
+existence, row forcing, `n=9`, or the bootstrap bridge. See
+`docs/bootstrap-t12-151-6-outside-pair-full-neighborhood-vertex-circle.md`,
+`scripts/check_bootstrap_t12_151_6_outside_pair_full_neighborhood_vertex_circle.py`,
+and
+`data/certificates/bootstrap_t12_151_6_outside_pair_full_neighborhood_vertex_circle.json`.
+
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses
 bootstrap-core witnesses `[2,4]` and singleton supports `7` and `8`; row
