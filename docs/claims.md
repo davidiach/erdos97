@@ -2013,6 +2013,32 @@ soundness, strict-edge geometry, selected-distance quotient soundness, `n=9`, a
 counterexample, or any official/global status update. Check it with
 `python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`.
 
+### n=9 vertex-circle motif-obstruction audit
+
+Status: `REVIEW_PENDING_MOTIF_OBSTRUCTION_AUDIT`.
+
+The checker `scripts/check_n9_vertex_circle_motif_obstruction_audit.py` treats
+`data/certificates/n9_vertex_circle_motif_families.json` as input data. For
+the `16` stored motif-family representatives, it recomputes selected-distance
+quotient classes and vertex-circle strict interval inequalities with a small
+local implementation, then verifies each stored representative self-edge path
+or strict-cycle edge list.
+
+When run with `--check --assert-expected --json`, the audit reports computed
+and stored representative status counts `13` self-edge and `3` strict-cycle.
+The self-edge representatives contain `276` checked self-edge conflicts. The
+strict-edge tables contain `1,053` strict edges for self-edge representatives
+and `243` strict edges for strict-cycle representatives; the stored strict
+cycles have length histogram `2: 1` and `3: 2`. It reports zero stored-status
+mismatches, zero self-edge conflict mismatches, zero equality-path mismatches,
+zero strict-cycle edge mismatches, and zero strict-cycle chain mismatches. This
+is stored-certificate bookkeeping only. It does not prove frontier coverage,
+brancher soundness, incidence-filter soundness, dihedral orbit bookkeeping,
+strict-edge geometry in general, selected-distance quotient soundness in
+general, `n=9`, a counterexample, or any official/global status update. Check
+it with
+`python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
