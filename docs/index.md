@@ -340,6 +340,9 @@ put detailed reconciliation in the canonical synthesis.
   focused packet isolating the three singleton-support T12 row-pressure gaps.
 - [`bootstrap-t12-outside-pair.md`](bootstrap-t12-outside-pair.md):
   focused packet isolating the remaining pair-supported T12 row-pressure gap.
+- [`n9-high-risk-frontier-packet.md`](n9-high-risk-frontier-packet.md):
+  mutual-edge-triangle slice of the `n=9` frontier with fixed-row
+  radius-blocker and vertex-circle kill reasons; diagnostic only.
 - [`bridge-negative-controls.md`](bridge-negative-controls.md): exact
   guardrails for incidence-only and fragile-cover-only bridge claims.
 - [`n7-fano-enumeration.md`](n7-fano-enumeration.md): reproducible `n=7`
