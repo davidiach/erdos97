@@ -790,6 +790,16 @@ condition that the surviving multi-block family does not automatically satisfy:
   denominator for the same bounded continuation model: `3,918,164,268`
   support catalogues, `58` initially compatible catalogues, and zero
   selected-row survivors.
+- bootstrap/T12 focused `81:3` chain-closure and activation negative-control
+  evidence, as recorded in
+  `docs/bootstrap-t12-81-3-chain-closure-csp.md` and
+  `docs/closure-activation-negative-controls.md`. The ordered chain CSP leaves
+  four non-supply prefixes and no surviving prefix whose next activated center
+  is `6`; the negative controls show that closure exposure, full target-label
+  visibility, or full selected-row incidence checks do not by themselves pin
+  the named fourth witness. The remaining bridge target needs activation
+  provenance, repeated/multiple support analysis, or a genuine
+  rich-class/minimality hypothesis.
 - bootstrap/T12 focused `81:8` singleton-support evidence, as recorded in
   `docs/bootstrap-t12-81-8-singleton-support-audit.md`, showing that the fixed
   source-`81` neighborhood and one-row-drop relaxation have no non-original

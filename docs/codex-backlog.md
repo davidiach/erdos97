@@ -374,9 +374,15 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-81-3-chain-closure-csp.md` then checks `5916`
    sequential support-chain extensions from closure `[0,1,4]`; it leaves four
    non-supply prefixes and no surviving prefix whose next activated center is
-   `6`. The next useful PR must therefore either handle repeated/multiple
-   supports, introduce a genuine rich-class/minimality hypothesis that forces
-   or excludes such a support, or move to a different bridge target. The
+   `6`. The closure-activation negative controls in
+   `docs/closure-activation-negative-controls.md` add a guardrail for this
+   whole lane: deletion-closure exposure, full target-label visibility, and
+   full selected-row incidence checks still do not pin the fourth witness or
+   force the named selected/rich row without extra hypotheses. The next useful
+   PR must therefore either handle repeated/multiple supports, introduce a
+   genuine rich-class/minimality hypothesis that forces or excludes such a
+   support, preserve enough activation provenance to identify the row, or move
+   to a different bridge target. The
    source-`81` row-`8` singleton-support audit in
    `docs/bootstrap-t12-81-8-singleton-support-audit.md` is one such adjacent
    target: it finds no non-original row-`8` activation survivor in the fixed
