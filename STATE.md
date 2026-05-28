@@ -521,6 +521,16 @@ bookkeeping only, not singleton-support existence, row forcing, `n=9`, or the
 bridge. See
 `docs/bootstrap-t12-151-singleton-full-neighborhood-vertex-circle.md`.
 
+A singleton full-neighborhood crosswalk now joins that source-`151` replay
+with the source-`81` row-`8` full-neighborhood packet. Across the three
+one-outside-label singleton-support targets `81:8`, `151:5`, and `151:8`,
+basic filters leave `84` complete assignments, including `63` with
+non-original target rows; vertex-circle quotient replay kills all `84` by
+`64` self-edges and `20` strict cycles. This is only a diagnostic boundary
+marker for the selected-row neighborhoods; singleton-support existence, row
+forcing, `n=9`, and the bootstrap bridge remain open. See
+`docs/bootstrap-t12-singleton-full-neighborhood-crosswalk.md`.
+
 ## New exact fixed-pattern obstructions
 
 The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic

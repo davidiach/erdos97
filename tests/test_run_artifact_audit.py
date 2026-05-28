@@ -160,6 +160,11 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json"
         in command_texts
     )
+    assert (
+        "python scripts/check_bootstrap_t12_singleton_full_neighborhood_crosswalk.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
     assert ordered_command_texts.index(
         "python scripts/check_n9_selected_baseline_escape_budget_overlay.py --check --json"
     ) < ordered_command_texts.index(

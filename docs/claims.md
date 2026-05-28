@@ -1203,6 +1203,18 @@ all `50` are killed by vertex-circle self-edge or strict-cycle obstructions.
 This remains a review-pending diagnostic only, not singleton support
 existence, row forcing, `n=9`, the bootstrap bridge, or Erdos Problem #97.
 
+The singleton full-neighborhood crosswalk in
+`docs/bootstrap-t12-singleton-full-neighborhood-crosswalk.md` joins the current
+source-`81` row-`8` packet with the source-`151` row-`5` and row-`8` packet.
+Together these are the three one-outside-label singleton-support targets from
+the bootstrap/T12 bridge map. The crosswalk checks `3` target rows, `27`
+target-row candidates, `84` complete basic-filter assignments, and `63`
+non-original target-row assignments. Exact vertex-circle quotient replay in
+the source packets kills all `84` complete assignments (`64` self-edges and
+`20` strict cycles). This is cross-artifact proof-mining only; it does not
+prove singleton-support existence, row forcing, `n=9`, the bootstrap bridge,
+or Erdos Problem #97.
+
 ### n=8 witness indegree regularity
 
 For `n=8`, the pair-sharing cap forces every witness indegree to equal 4. If a

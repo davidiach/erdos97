@@ -389,7 +389,15 @@ Use this queue when no more specific issue is selected.
    forcing remain open. The source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine
-   support-existence and row-forcing bridge questions open.
+   support-existence and row-forcing bridge questions open. The singleton
+   full-neighborhood crosswalk in
+   `docs/bootstrap-t12-singleton-full-neighborhood-crosswalk.md` now joins the
+   source-`81` row-`8` and source-`151` rows `5`/`8` full-neighborhood
+   vertex-circle packets: basic filters leave `84` complete assignments, but
+   all are vertex-circle obstructed. The next useful PR in this lane should
+   target genuine singleton/rich support existence, row forcing, or a
+   different bridge target rather than another crosswalk over these same
+   selected-row neighborhood packets.
 5. Extend the Kalmanson template diagnostics toward order-search coverage:
    C13/C19 template records and C25/C29 availability records now exist, but
    they are not cyclic-order coverage or obstructions for the larger frontier.
