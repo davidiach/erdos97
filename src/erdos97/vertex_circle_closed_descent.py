@@ -47,7 +47,9 @@ def extract_closed_descent_cycle(
         seen_at[current] = len(trail)
         edge = successors[current]
         trail.append(edge)
-        current = pair(*edge.inner_class)
+        current = _normalized_class_label(
+            edge.inner_class, "closed descent witness inner class"
+        )
 
     cycle = tuple(trail[seen_at[current] :])
     _validate_cycle(cycle)
@@ -64,16 +66,34 @@ def closed_descent_cycle_to_json(region: ClosedDescentRegion) -> dict[str, Any]:
         "class_count": len(classes),
         "cycle_length": len(cycle),
         "classes": [list(cls) for cls in classes],
-        "cycle_classes": [list(pair(*edge.outer_class)) for edge in cycle],
+        "cycle_classes": [
+            list(_normalized_class_label(edge.outer_class, "closed descent cycle class"))
+            for edge in cycle
+        ],
         "cycle_edges": [_strict_inequality_to_json(edge) for edge in cycle],
     }
 
 
 def _normalized_region_classes(region: ClosedDescentRegion) -> tuple[Pair, ...]:
-    classes = tuple(sorted({pair(cls[0], cls[1]) for cls in region.classes}))
+    classes = tuple(
+        sorted(
+            {
+                _normalized_class_label(cls, "closed descent region class")
+                for cls in region.classes
+            }
+        )
+    )
     if not classes:
         raise ValueError("closed descent region must be nonempty")
     return classes
+
+
+def _normalized_class_label(label: Any, description: str) -> Pair:
+    if not isinstance(label, (tuple, list)):
+        raise ValueError(f"{description} must be a two-vertex class: {label!r}")
+    if len(label) != 2:
+        raise ValueError(f"{description} must be a two-vertex class: {label!r}")
+    return pair(label[0], label[1])
 
 
 def _successor_edges(
@@ -82,8 +102,12 @@ def _successor_edges(
 ) -> dict[Pair, StrictInequality]:
     successors: dict[Pair, StrictInequality] = {}
     for edge in region.witness_edges:
-        source = pair(*edge.outer_class)
-        target = pair(*edge.inner_class)
+        source = _normalized_class_label(
+            edge.outer_class, "closed descent witness outer class"
+        )
+        target = _normalized_class_label(
+            edge.inner_class, "closed descent witness inner class"
+        )
         if source not in class_set:
             raise ValueError(
                 f"closed descent witness starts outside region: {source}"
@@ -103,7 +127,13 @@ def _validate_cycle(cycle: tuple[StrictInequality, ...]) -> None:
         raise ValueError("closed descent extraction produced an empty cycle")
     for index, edge in enumerate(cycle):
         next_edge = cycle[(index + 1) % len(cycle)]
-        if pair(*edge.inner_class) != pair(*next_edge.outer_class):
+        target = _normalized_class_label(
+            edge.inner_class, "closed descent cycle inner class"
+        )
+        next_source = _normalized_class_label(
+            next_edge.outer_class, "closed descent cycle outer class"
+        )
+        if target != next_source:
             raise ValueError("closed descent extraction produced a broken cycle")
 
 
@@ -115,6 +145,10 @@ def _strict_inequality_to_json(edge: StrictInequality) -> dict[str, Any]:
         "inner_interval": list(edge.inner_interval),
         "outer_pair": list(edge.outer_pair),
         "inner_pair": list(edge.inner_pair),
-        "outer_class": list(pair(*edge.outer_class)),
-        "inner_class": list(pair(*edge.inner_class)),
+        "outer_class": list(
+            _normalized_class_label(edge.outer_class, "closed descent JSON outer class")
+        ),
+        "inner_class": list(
+            _normalized_class_label(edge.inner_class, "closed descent JSON inner class")
+        ),
     }

@@ -97,3 +97,27 @@ def test_extract_closed_descent_cycle_rejects_leaking_witness() -> None:
         assert "leaves region" in str(exc)
     else:  # pragma: no cover - defensive clarity
         raise AssertionError("leaking closed descent witness should be rejected")
+
+
+def test_extract_closed_descent_cycle_rejects_malformed_region_class() -> None:
+    edge = _strict_edge((1, 2), (1, 2))
+    region = ClosedDescentRegion(classes=((1, 2, 99),), witness_edges=(edge,))
+
+    try:
+        extract_closed_descent_cycle(region)
+    except ValueError as exc:
+        assert "two-vertex class" in str(exc)
+    else:  # pragma: no cover - defensive clarity
+        raise AssertionError("malformed closed descent class should be rejected")
+
+
+def test_extract_closed_descent_cycle_rejects_malformed_witness_class() -> None:
+    edge = _strict_edge((1,), (1, 2))
+    region = ClosedDescentRegion(classes=((1, 2),), witness_edges=(edge,))
+
+    try:
+        extract_closed_descent_cycle(region)
+    except ValueError as exc:
+        assert "two-vertex class" in str(exc)
+    else:  # pragma: no cover - defensive clarity
+        raise AssertionError("malformed witness class should be rejected")
