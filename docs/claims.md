@@ -1185,6 +1185,15 @@ pair. This is still finite incidence/crossing bookkeeping only; it does not
 prove outside-pair support existence, row forcing, `n=9`, the bootstrap bridge,
 or Erdos Problem #97.
 
+The source-`151` row-`6` outside-pair full-neighborhood vertex-circle packet in
+`docs/bootstrap-t12-151-6-outside-pair-full-neighborhood-vertex-circle.md` lets
+all other centers move to arbitrary selected `4`-sets, then applies exact
+vertex-circle quotient replay to the basic-filter survivors. Basic filters
+leave `28` complete assignments, including `21` with non-original row `6`;
+all `28` are killed by vertex-circle self-edge or strict-cycle obstructions.
+This remains a review-pending diagnostic only, not outside-pair support
+existence, row forcing, `n=9`, the bootstrap bridge, or Erdos Problem #97.
+
 The source-`151` singleton-support audit in
 `docs/bootstrap-t12-151-singleton-support-audit.md` covers rows `151:5` and
 `151:8`. In both fixed source-`151` neighborhoods, only the original target row

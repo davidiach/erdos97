@@ -502,6 +502,15 @@ This remains diagnostic bookkeeping only, not outside-pair support existence,
 row forcing, `n=9`, or the bridge. See
 `docs/bootstrap-t12-151-6-outside-pair-two-row-drop.md`.
 
+The source-`151` row-`6` outside-pair full-neighborhood vertex-circle packet
+then lets every other center move to an arbitrary selected `4`-set while row
+`6` stays in the same outside-pair activation family. Basic filters leave `28`
+complete assignments, including `21` with non-original row `6`, and
+vertex-circle quotient replay kills all `28` by `20` self-edges and `8` strict
+cycles. This remains proof-mining bookkeeping only, not outside-pair support
+existence, row forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-151-6-outside-pair-full-neighborhood-vertex-circle.md`.
+
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation
 rows built from its bootstrap-core witnesses plus one singleton support; in

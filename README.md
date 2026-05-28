@@ -134,6 +134,11 @@ vertex-circle quotient replays kill all basic-filter survivors in those
 selected-row neighborhoods; it does not prove singleton-support existence, row
 forcing, `n=9`, or the bridge. See
 [`docs/bootstrap-t12-singleton-full-neighborhood-crosswalk.md`](docs/bootstrap-t12-singleton-full-neighborhood-crosswalk.md).
+The remaining outside-pair target `151:6` now has the analogous
+full-neighborhood vertex-circle packet: basic filters leave `28` complete
+assignments and vertex-circle replay kills all `28`, still without proving
+outside-pair support existence, row forcing, `n=9`, or the bridge. See
+[`docs/bootstrap-t12-151-6-outside-pair-full-neighborhood-vertex-circle.md`](docs/bootstrap-t12-151-6-outside-pair-full-neighborhood-vertex-circle.md).
 
 An incoming `n=10` singleton-slice continuation is recorded as a finite-case
 draft review target only; see

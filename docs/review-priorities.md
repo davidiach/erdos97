@@ -808,6 +808,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   the `28` trivial original-neighborhood survivors. The remaining target is
   still genuine outside-pair support or row-forcing geometry, not a proof that
   row `6` is forced.
+- bootstrap/T12 focused `151:6` outside-pair full-neighborhood vertex-circle
+  evidence, as recorded in
+  `docs/bootstrap-t12-151-6-outside-pair-full-neighborhood-vertex-circle.md`,
+  letting all non-target selected rows move. Basic filters leave `28` complete
+  assignments, including `21` with non-original row `6`, and exact
+  vertex-circle quotient replay kills all `28`. The remaining target is still
+  genuine outside-pair support or row-forcing geometry, not a proof that row
+  `6` is forced.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

@@ -389,7 +389,13 @@ Use this queue when no more specific issue is selected.
    one-row-drop relaxation. Its two-row-drop extension in
    `docs/bootstrap-t12-151-6-outside-pair-two-row-drop.md` checks `1,783,600`
    states and leaves only the `28` trivial original-neighborhood survivors,
-   but genuine outside-pair support existence and row forcing remain open. The
+   but genuine outside-pair support existence and row forcing remain open. Its
+   full-neighborhood vertex-circle packet in
+   `docs/bootstrap-t12-151-6-outside-pair-full-neighborhood-vertex-circle.md`
+   lets all other selected rows move arbitrarily; basic filters leave `28`
+   complete assignments, including `21` with non-original row `6`, and exact
+   vertex-circle replay kills all `28`. This still leaves genuine outside-pair
+   support existence and row-forcing geometry open. The
    source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine
@@ -399,9 +405,9 @@ Use this queue when no more specific issue is selected.
    source-`81` row-`8` and source-`151` rows `5`/`8` full-neighborhood
    vertex-circle packets: basic filters leave `84` complete assignments, but
    all are vertex-circle obstructed. The next useful PR in this lane should
-   target genuine singleton/rich support existence, row forcing, or a
-   different bridge target rather than another crosswalk over these same
-   selected-row neighborhood packets.
+   target genuine singleton/outside-pair/rich support existence, row forcing,
+   or a different bridge target rather than another selected-row neighborhood
+   widening over these same packets.
 5. Extend the Kalmanson template diagnostics toward order-search coverage:
    C13/C19 template records and C25/C29 availability records now exist, but
    they are not cyclic-order coverage or obstructions for the larger frontier.
