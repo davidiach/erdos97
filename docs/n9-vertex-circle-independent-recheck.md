@@ -43,11 +43,10 @@ self-edge/strict-cycle labels agree on every system.
 This directly addresses two of the Priority 5 review items:
 
 - *"minimum-remaining-options branching changes only search order."* The
-  independent search uses a fixed center order and a separate reversed center
-  order `8,...,0`; both produce the identical 184-system set. Together with the
-  stored dynamic-MRO run, three different search strategies agree on the same
-  frontier, which is strong evidence the enumeration is complete and
-  order-independent.
+  independent search uses a fixed center order `0,1,...,8`, while the stored
+  artifact uses dynamic minimum-remaining-options branching. These two search
+  strategies agree on the same 184-system frontier. This is branch-order
+  agreement evidence, not a separate reversed-order audit.
 - *"the absence of a hidden symmetry quotient in the 70 row-0 choices."* The
   independent search enumerates all assignments with no quotienting of row 0;
   it still terminates at the same 184.
