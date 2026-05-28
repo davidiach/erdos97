@@ -8,6 +8,8 @@ syntactic: they do not yet check Euclidean geometry or quotient arithmetic.
 
 namespace Erdos97
 
+universe v
+
 /-- A named quotient class of pair-distance expressions. -/
 structure QuotientClass where
   name : String
@@ -58,6 +60,40 @@ lemma EqualityPath.same_endpoint_mk (q : QuotientClass) (reasons : List String) 
       (EqualityPath.mk q q reasons).finish := by
   rfl
 
+/-- Semantic interpretation of an equality path under a quotient-value map. -/
+def EqualityPath.RealizedBy (path : EqualityPath) {Value : Type v}
+    (value : QuotientClass -> Value) : Prop :=
+  value path.start = value path.finish
+
+/-- Same-endpoint equality paths are realized by every quotient-value map. -/
+lemma EqualityPath.realizedBy_same_endpoint_mk
+    (q : QuotientClass) (reasons : List String) {Value : Type v}
+    (value : QuotientClass -> Value) :
+    (EqualityPath.mk q q reasons).RealizedBy value := by
+  rfl
+
+/-- A strict forward inequality along a realized equality path is impossible. -/
+lemma EqualityPath.no_strict_forward_realization
+    (path : EqualityPath) {Value : Type v} [LT Value]
+    (value : QuotientClass -> Value)
+    (hIrrefl : forall x : Value, Not (x > x))
+    (hPath : path.RealizedBy value)
+    (hStrict : value path.start > value path.finish) : False := by
+  unfold EqualityPath.RealizedBy at hPath
+  rw [hPath] at hStrict
+  exact hIrrefl (value path.finish) hStrict
+
+/-- A strict backward inequality along a realized equality path is impossible. -/
+lemma EqualityPath.no_strict_backward_realization
+    (path : EqualityPath) {Value : Type v} [LT Value]
+    (value : QuotientClass -> Value)
+    (hIrrefl : forall x : Value, Not (x > x))
+    (hPath : path.RealizedBy value)
+    (hStrict : value path.finish > value path.start) : False := by
+  unfold EqualityPath.RealizedBy at hPath
+  rw [hPath] at hStrict
+  exact hIrrefl (value path.finish) hStrict
+
 /-- Reverse an equality-path endpoint equality. -/
 lemma EqualityPath.finish_eq_start_of_start_eq_finish (path : EqualityPath)
     (h : path.start = path.finish) : path.finish = path.start := by
@@ -85,6 +121,26 @@ lemma SelfEdgeCertificate.path_finish_eq_start_of_endpoints
     (hfinish : c.equalityPath.finish = c.className) :
     c.equalityPath.finish = c.equalityPath.start := by
   exact (SelfEdgeCertificate.path_start_eq_finish_of_endpoints c hstart hfinish).symm
+
+/--
+Semantic interpretation of a self-edge certificate under a quotient-value map.
+The equality path identifies its endpoints while the strict reason points from
+`start` to `finish`.
+-/
+def SelfEdgeCertificate.RealizedBy
+    (cert : SelfEdgeCertificate) {Value : Type v} [LT Value]
+    (value : QuotientClass -> Value) : Prop :=
+  And (cert.equalityPath.RealizedBy value)
+    (value cert.equalityPath.start > value cert.equalityPath.finish)
+
+/-- A realized self-edge certificate contradicts irreflexivity of strict order. -/
+lemma SelfEdgeCertificate.no_realization
+    (cert : SelfEdgeCertificate) {Value : Type v} [LT Value]
+    (value : QuotientClass -> Value)
+    (hIrrefl : forall x : Value, Not (x > x))
+    (hCert : cert.RealizedBy value) : False :=
+  EqualityPath.no_strict_forward_realization cert.equalityPath value hIrrefl
+    hCert.left hCert.right
 
 /-- A directed strict edge between quotient classes. -/
 structure StrictEdge where
@@ -116,6 +172,34 @@ lemma StrictEdge.source_eq_target_of_eq_class (e : StrictEdge)
     {q : QuotientClass} (hsource : e.source = q) (htarget : e.target = q) :
     e.source = e.target := by
   exact hsource.trans htarget.symm
+
+/-- Semantic interpretation of a strict edge under a quotient-value map. -/
+def StrictEdge.RealizedBy (edge : StrictEdge) {Value : Type v} [LT Value]
+    (value : QuotientClass -> Value) : Prop :=
+  value edge.source > value edge.target
+
+/-- A strict loop is impossible under any irreflexive strict order. -/
+lemma StrictEdge.no_loop_realization
+    (edge : StrictEdge) {Value : Type v} [LT Value]
+    (value : QuotientClass -> Value)
+    (hIrrefl : forall x : Value, Not (x > x))
+    (hEdge : edge.RealizedBy value) (hLoop : edge.source = edge.target) :
+    False := by
+  unfold StrictEdge.RealizedBy at hEdge
+  rw [hLoop] at hEdge
+  exact hIrrefl (value edge.target) hEdge
+
+/-- A directed two-cycle is impossible under any asymmetric strict order. -/
+lemma StrictEdge.no_two_cycle_realization
+    (edge1 edge2 : StrictEdge) {Value : Type v} [LT Value]
+    (value : QuotientClass -> Value)
+    (hAsymm : forall {x y : Value}, x > y -> Not (y > x))
+    (h1 : edge1.RealizedBy value) (h2 : edge2.RealizedBy value)
+    (hJoin1 : edge1.target = edge2.source)
+    (hJoin2 : edge2.target = edge1.source) : False := by
+  unfold StrictEdge.RealizedBy at h1 h2
+  rw [Eq.symm hJoin1, hJoin2] at h2
+  exact hAsymm h1 h2
 
 /-- A certificate shape for a strict directed cycle. -/
 structure StrictCycleCertificate where
