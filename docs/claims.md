@@ -2039,6 +2039,33 @@ general, `n=9`, a counterexample, or any official/global status update. Check
 it with
 `python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json`.
 
+### n=9 vertex-circle local-core subset audit
+
+Status: `REVIEW_PENDING_LOCAL_CORE_SUBSET_AUDIT`.
+
+The checker `scripts/check_n9_vertex_circle_local_core_subset_audit.py` treats
+`data/certificates/n9_vertex_circle_motif_families.json` and
+`data/certificates/n9_vertex_circle_local_core_packet.json` as input data. For
+each stored compact local core, it checks that the compact rows are literally a
+subset of the corresponding full motif representative and then replays the
+compact rows directly to confirm that they already force the recorded self-edge
+or strict-cycle obstruction status.
+
+When run with `--check --assert-expected --json`, the audit checks `16` local
+cores with computed and stored status counts `13` self-edge and `3`
+strict-cycle. The compact core sizes have histogram `3: 5`, `4: 6`, `5: 2`,
+and `6: 3`; the orbit-size sum is `184`. The self-edge cores have size
+histogram `3: 5`, `4: 4`, `5: 2`, and `6: 2`; the strict-cycle cores have size
+histogram `4: 2` and `6: 1`, with strict-cycle length histogram `2: 1` and
+`3: 2`. It reports zero family-id mismatches, zero subset mismatches, zero
+core-size mismatches, zero orbit-size mismatches, zero status mismatches, and
+zero unobstructed cores. This is cross-artifact compact-core bookkeeping only.
+It does not prove local-lemma completeness, frontier coverage, brancher
+soundness, motif-orbit bookkeeping, strict-edge geometry in general,
+selected-distance quotient soundness in general, `n=9`, a counterexample, or
+any official/global status update. Check it with
+`python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.

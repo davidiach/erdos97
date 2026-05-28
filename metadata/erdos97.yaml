@@ -425,6 +425,11 @@ local_repo:
       artifact: "data/certificates/n9_vertex_circle_motif_families.json"
       verifier: "scripts/check_n9_vertex_circle_motif_obstruction_audit.py"
       claim_scope: "stored-certificate bookkeeping only; recomputes selected-distance quotient classes and local vertex-circle strict interval inequalities for the 16 stored motif representatives and checks their stored self-edge paths or strict-cycle edges, but does not prove frontier coverage, brancher soundness, incidence-filter soundness, dihedral orbit bookkeeping, strict-edge geometry in general, quotient soundness in general, n=9, official/global status movement, or a counterexample"
+    - pattern: "n9_vertex_circle_local_core_subset_audit"
+      status: "compact local-core subset and obstruction replay audit"
+      artifact: "data/certificates/n9_vertex_circle_local_core_packet.json and data/certificates/n9_vertex_circle_motif_families.json"
+      verifier: "scripts/check_n9_vertex_circle_local_core_subset_audit.py"
+      claim_scope: "cross-artifact compact-core bookkeeping only; checks that each compact local core is literally a subset of its stored full motif representative and already forces the same quotient self-edge or strict-cycle obstruction by direct replay, but does not prove local-lemma completeness, frontier coverage, brancher soundness, motif-orbit bookkeeping, strict-edge geometry in general, quotient soundness in general, n=9, official/global status movement, or a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"
