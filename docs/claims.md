@@ -1960,6 +1960,32 @@ filters, strict-edge geometry, selected-distance quotient soundness, `n=9`, a
 counterexample, or any official/global status update. Check it with
 `python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json`.
 
+### n=9 vertex-circle frontier-coverage crosswalk
+
+Status: `REVIEW_PENDING_FRONTIER_COVERAGE_CROSSWALK`.
+
+The checker `scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py`
+reruns the dynamic minimum-remaining-options brancher without vertex-circle
+pruning and compares the generated complete selected-witness assignments,
+as ordered rows, against the stored frontier motif-classification artifact
+`data/certificates/n9_vertex_circle_frontier_motif_classification.json`.
+
+When run with `--check --assert-expected --json`, the crosswalk visits
+`100,817` dynamic no-vertex-circle nodes. It generates `184` complete
+assignments, all unique, and compares them with `184` stored assignments, also
+all unique. It reports `sequence_matches = true`, `set_matches = true`, zero
+missing generated assignments, zero extra stored assignments, and zero status
+mismatches, with matching status counts `158` self-edge and `26` strict-cycle.
+The generated and stored ordered-row SHA-256 digest is
+`d7807b69b9de27da17fa851b3325b1e26cfa0b6d86277abeda4bc4e3454b8e01`; the
+sorted-row digest is
+`dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55`. This is
+a frontier coverage crosswalk against the current brancher only. It does not
+prove filter soundness, dynamic brancher soundness, strict-edge geometry,
+selected-distance quotient soundness, `n=9`, a counterexample, or any
+official/global status update. Check it with
+`python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
