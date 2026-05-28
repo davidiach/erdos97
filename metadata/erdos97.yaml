@@ -440,6 +440,11 @@ local_repo:
       artifact: "data/certificates/n9_t01_self_edge_minireplay.json through data/certificates/n9_t12_strict_cycle_minireplay.json, plus source focused packet JSON files"
       verifier: "scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py"
       claim_scope: "JSON-only packet/minireplay bookkeeping; checks that the 12 focused packets and their 12 packet-specific mini-replay artifacts agree on source identity, source schemas, families, assignment counts, obstruction flags, and compact local shape counts, but does not prove mini-replay soundness, packet soundness, local-lemma completeness, frontier coverage, n=9, official/global status movement, or a counterexample"
+    - pattern: "n9_vertex_circle_local_lemma_replay_crosswalk"
+      status: "aggregate local-lemma simple-replay cross-artifact audit"
+      artifact: "data/certificates/n9_vertex_circle_local_lemmas.json and data/certificates/n9_vertex_circle_local_lemma_simple_replay.json"
+      verifier: "scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py"
+      claim_scope: "cross-artifact packet/replay bookkeeping only; checks that the aggregate local-lemma scan and simple packet replay agree family-by-family on 184 assignments across 16 families, but does not prove simple-replay soundness, packet soundness, local-lemma completeness, frontier coverage, n=9, official/global status movement, or a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"
