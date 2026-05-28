@@ -103,6 +103,28 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/export_c19_kalmanson_order_cnf.py --assert-expected "
+        "--check-artifact reports/c19_kalmanson_order_cnf_summary.json"
+        in command_texts
+    )
+    assert (
+        "python scripts/probe_c19_proof_tooling.py --check-c19-cnf-summary --json"
+        in command_texts
+    )
+    assert ordered_command_texts.index(
+        "python scripts/analyze_kalmanson_z3_clauses.py --assert-expected "
+        "--check-artifact reports/c19_kalmanson_z3_clause_diagnostics.json"
+    ) < ordered_command_texts.index(
+        "python scripts/export_c19_kalmanson_order_cnf.py --assert-expected "
+        "--check-artifact reports/c19_kalmanson_order_cnf_summary.json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/export_c19_kalmanson_order_cnf.py --assert-expected "
+        "--check-artifact reports/c19_kalmanson_order_cnf_summary.json"
+    ) < ordered_command_texts.index(
+        "python scripts/probe_c19_proof_tooling.py --check-c19-cnf-summary --json"
+    )
+    assert (
         "python scripts/check_n9_base_apex_low_excess_ledgers.py --check --json"
         in command_texts
     )

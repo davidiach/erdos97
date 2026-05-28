@@ -138,6 +138,20 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="c19_proof_tooling_preflight",
+        command=(
+            "python",
+            "scripts/probe_c19_proof_tooling.py",
+            "--check-c19-cnf-summary",
+            "--json",
+        ),
+        claim_scope=(
+            "Environment and CNF-summary preflight for future C19 "
+            "solver-independent proof replay; not proof evidence, not an "
+            "UNSAT proof, and not a proof of Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
         ident="c13_fixed_order_compact_kalmanson",
         command=(
             "python",
