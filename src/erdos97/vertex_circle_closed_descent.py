@@ -57,12 +57,14 @@ def extract_closed_descent_cycle(
 def closed_descent_cycle_to_json(region: ClosedDescentRegion) -> dict[str, Any]:
     """Return a JSON-safe certificate for the extracted descent cycle."""
 
+    classes = _normalized_region_classes(region)
     cycle = extract_closed_descent_cycle(region)
     return {
         "type": "strict_quotient_closed_descent_cycle",
-        "class_count": len(region.classes),
+        "class_count": len(classes),
         "cycle_length": len(cycle),
-        "classes": [list(cls) for cls in _normalized_region_classes(region)],
+        "classes": [list(cls) for cls in classes],
+        "cycle_classes": [list(edge.outer_class) for edge in cycle],
         "cycle_edges": [_strict_inequality_to_json(edge) for edge in cycle],
     }
 
