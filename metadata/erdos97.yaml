@@ -375,6 +375,11 @@ local_repo:
       artifact: "data/certificates/n9_vertex_circle_exhaustive.json"
       verifier: "scripts/check_n9_vertex_circle_input_audit.py"
       claim_scope: "stored-input consistency audit only; recomputes the 70 lexicographic row0 witness choices and checks stored witness lists, masks, and summary arithmetic, but does not rerun the brancher, replay vertex-circle certificates, prove n=9, update official/global status, or give a counterexample"
+    - pattern: "n9_vertex_circle_mro_branching_replay"
+      status: "fixed center-order replay against the dynamic MRO n9 vertex-circle artifact"
+      artifact: "data/certificates/n9_vertex_circle_exhaustive.json"
+      verifier: "scripts/check_n9_vertex_circle_mro_branching_replay.py"
+      claim_scope: "branch-order agreement audit only; reruns the search with fixed center order 0..8 and compares full-assignment and vertex-circle status counts with the stored dynamic-MRO artifact, but does not prove filter soundness, independently replay vertex-circle geometry, prove n=9, update official/global status, or give a counterexample"
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"

@@ -1727,6 +1727,28 @@ official/global status, or promote the review-pending exhaustive checker.
 Check it with
 `python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json`.
 
+### n=9 vertex-circle fixed-order branching replay
+
+Status: `REVIEW_PENDING_BRANCHING_REPLAY`.
+
+The checker `scripts/check_n9_vertex_circle_mro_branching_replay.py` compares
+the stored dynamic minimum-remaining-options `n=9` vertex-circle artifact with
+a separate replay that fixes the center order as `0,1,...,8` after row `0`.
+It reuses the same necessary-filter helpers and vertex-circle status helper,
+so the scope is branch-order agreement, not independent filter or geometry
+soundness.
+
+When run with `--check --assert-expected --json`, the fixed-order replay
+closes the main search with `37,544` visited nodes and `0` full assignments.
+Its no-vertex-circle cross-check visits `520,782` nodes and leaves the same
+`184` pre-vertex-circle full assignments with the same `158` self-edge and
+`26` strict-cycle status counts as the stored dynamic-MRO artifact. This says
+only that the fixed center order and dynamic MRO order agree on these stored
+frontier counts and classifications. It does not prove the pruning filters,
+independently replay vertex-circle geometry, prove `n=9`, claim a
+counterexample, or update the official/global status. Check it with
+`python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`.
+
 ### n=9 turn-inequality frontier replay
 
 Status: `REVIEW_PENDING_TURN_INEQUALITY_FRONTIER_REPLAY`.
