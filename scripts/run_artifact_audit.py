@@ -2372,6 +2372,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_81_3_repeated_support_saturation_audit",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_81_3_repeated_support_saturation_audit.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Repeated-support saturation audit for the 81:3 pre-3 label-6 "
+            "escape; no three-repeated-support catalogue exists in the "
+            "stored-prefix model, but this is not support existence, row "
+            "forcing, genuine rich-class order, an n=9 proof, a bridge proof, "
+            "or a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_81_8_singleton_support_audit",
         command=(
             "python",
