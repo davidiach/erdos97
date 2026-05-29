@@ -141,12 +141,13 @@ The incidence-filter audit command checks the row-level two-overlap crossing,
 witness-pair cap, and selected-indegree cap tables:
 
 ```bash
-python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json
 ```
 
 It recomputes the finite row-pair and row-mask predicates directly and compares
 them with the checker tables. It is a row-level filter audit only, not a
-brancher replay, strict-edge geometry audit, or quotient-soundness audit.
+brancher replay, strict-edge geometry audit, or quotient-soundness audit. Use
+`--json` instead when the full histogram blocks are needed.
 
 The branch-option audit command checks the branch helper against a direct
 implementation on fixed-order no-vertex-circle search states:

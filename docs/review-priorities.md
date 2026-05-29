@@ -153,13 +153,14 @@ needed.
 Current incidence-filter audit:
 
 ```bash
-python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json
 ```
 
 This command recomputes the row-level two-overlap crossing table,
 witness-pair cap predicate, and selected-indegree cap predicate. It does not
 rerun the brancher, audit strict-edge geometry, review selected-distance
-quotient soundness, prove `n=9`, or complete review.
+quotient soundness, prove `n=9`, or complete review. Use `--json` instead
+when the full histogram blocks are needed.
 
 Current branch-option audit:
 

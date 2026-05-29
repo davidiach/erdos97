@@ -15,6 +15,7 @@ from scripts.check_n9_vertex_circle_incidence_filters import (
     assert_expected_incidence_filters,
     incidence_filter_payload,
     selected_indegree_cap_audit,
+    summary_json_payload,
     two_overlap_crossing_audit,
     witness_pair_cap_audit,
 )
@@ -45,6 +46,56 @@ def test_incidence_filter_rejects_top_level_claim_scope_append() -> None:
 
     with pytest.raises(AssertionError, match="claim_scope mismatch"):
         assert_expected_incidence_filters(payload)
+
+
+def test_incidence_filter_summary_json_payload() -> None:
+    payload = incidence_filter_payload()
+
+    summary = summary_json_payload(payload)
+
+    assert "two_overlap_crossing" not in summary
+    assert "witness_pair_cap" not in summary
+    assert "selected_indegree_cap" not in summary
+    assert summary["schema"] == payload["schema"]
+    assert summary["claim_scope"] == payload["claim_scope"]
+    assert summary["two_overlap_crossing_summary"]["compatibility_errors"] == 0
+    assert (
+        "row_pair_candidate_overlap_histogram"
+        not in summary["two_overlap_crossing_summary"]
+    )
+    assert summary["witness_pair_cap_summary"]["unique_row_masks"] == 126
+    assert (
+        "witness_pair_frequency_histogram"
+        not in summary["witness_pair_cap_summary"]
+    )
+    assert (
+        summary["selected_indegree_cap_summary"]["local_column_predicate_mismatches"]
+        == 0
+    )
+    assert (
+        "label_frequency_histogram"
+        not in summary["selected_indegree_cap_summary"]
+    )
+    assert summary["validation_status"] == "passed"
+
+
+def test_incidence_filter_cli_summary_json() -> None:
+    payload = incidence_filter_payload()
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_incidence_filters.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert json.loads(result.stdout) == summary_json_payload(payload)
 
 
 def test_incidence_filter_cli_json() -> None:

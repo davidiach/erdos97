@@ -686,10 +686,11 @@ The strict-edge geometry audit
 checks the local proper-interval inequality generator for all 630 candidate
 selected rows, while leaving quotient and coverage review separate.
 The incidence-filter audit
-`scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json`
 checks the row-level two-overlap crossing table, witness-pair cap predicate,
 and selected-indegree cap predicate, while leaving branch replay and
-vertex-circle pruning review separate.
+vertex-circle pruning review separate. Use `--json` instead when the full
+histogram blocks are needed.
 The quotient-soundness audit
 `scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json`
 checks selected-distance quotient status agreement on the stored local-core

@@ -114,9 +114,10 @@ Use this queue when no more specific issue is selected.
    selected-distance quotienting, stored Kalmanson self-edges, and digest
    agreement without importing the Kalmanson generator module.
    The incidence-filter replay
-   `python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json`
    checks the row-level two-overlap crossing, witness-pair cap, and
-   selected-indegree cap tables.
+   selected-indegree cap tables; use `--json` when the full histogram blocks
+   are needed.
    The branch-option audit
    `python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`
    checks fixed-order no-vertex-circle helper options and maintained count
@@ -491,10 +492,11 @@ Use this queue when no more specific issue is selected.
    frontier rows only; branch coverage and strict-edge geometry remain separate
    review scopes.
    The incidence-filter command,
-   `python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json`,
+   `python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json`,
    covers only row-level two-overlap crossing, witness-pair capacity, and
    selected-indegree capacity; brancher replay and vertex-circle pruning remain
-   separate review scopes.
+   separate review scopes. Use `--json` when the full histogram blocks are
+   needed.
    The branch-option command,
    `python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`,
    covers only fixed-order no-vertex-circle helper-option agreement and
