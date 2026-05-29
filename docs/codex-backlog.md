@@ -44,9 +44,11 @@ Use this queue when no more specific issue is selected.
    compares that simple replay with the aggregate local-lemma scan
    family-by-family; use `--json` when the full family crosswalk records are
    needed. The follow-up crosswalk
-   `python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --summary-json`
    connects the same local-lemma accounting back to the review-pending
-   exhaustive count artifact and motif classification. The relation-skeleton
+   exhaustive count artifact and motif classification; use `--json` when the
+   full exhaustive/local family crosswalk records are needed. The
+   relation-skeleton
    crosswalk
    `python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --summary-json`
    connects the compact 16-skeleton proof-mining catalog to the same

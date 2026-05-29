@@ -419,9 +419,10 @@ handoffs rather than re-extracting T01 or T10.
   family-by-family; use `--json` when the full family crosswalk records are
   needed;
 - use
-  `scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json`
+  `scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --summary-json`
   to compare the review-pending exhaustive counts, motif classification, and
-  local-lemma replay chain without rerunning the brancher;
+  local-lemma replay chain without rerunning the brancher; use `--json` when
+  the full family crosswalk records are needed;
 - use
   `scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --summary-json`
   to compare the 16-entry relation-skeleton catalog with the same

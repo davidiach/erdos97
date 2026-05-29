@@ -625,11 +625,12 @@ from the review-pending exhaustive artifact through the motif classification
 before joining to the local-lemma replay artifacts:
 
 ```bash
-python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --summary-json
 ```
 
 That command is also an artifact-accounting audit only; it does not rerun the
-exhaustive brancher or complete independent review.
+exhaustive brancher or complete independent review. Use `--json` instead when
+the full family crosswalk records are needed.
 
 The relation-skeleton/local-lemma crosswalk checks the downstream
 proof-mining view: it joins the 16-entry relation-skeleton catalog to the same

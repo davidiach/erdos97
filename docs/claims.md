@@ -2235,8 +2235,10 @@ The nested aggregate/simple-replay summary also reports `16` aggregate
 families, `16` simple-replay families, and `184` matched assignments. This is
 cross-artifact accounting only. It does not review the exhaustive brancher,
 prove local-lemma completeness, prove frontier coverage, prove `n=9`, give a
-counterexample, or update the official/global status. Check it with
-`python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json`.
+counterexample, or update the official/global status. Check the compact
+reviewer-facing view with
+`python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --summary-json`.
+Use `--json` instead when the full family crosswalk records are needed.
 
 ### n=9 vertex-circle relation-skeleton/local-lemma crosswalk
 
