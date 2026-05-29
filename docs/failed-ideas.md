@@ -229,6 +229,39 @@ Thus endpoint badness plus the local critical circle class still does not
 supply endpoint control. Any proof must use additional global
 minimal-counterexample information, not only these local hypotheses.
 
+## 19. Unproved centered-circle incidence lemmas
+
+Claim attempted: prove the full problem by choosing one rich circle around
+each bad vertex and applying a global incidence bound, such as:
+
+- every one-circle-per-center system has at most `3n` incidences;
+- every one-circle-per-center system has at most `4n-4` incidences;
+- every favorite-distance digraph of a convex `n`-gon has at most `4n-4`
+  directed edges;
+- end/middle incidence charging gives one of those bounds by assigning middle
+  events injectively to polygon sides.
+
+Why it seemed plausible: a selected circle at each center converts a
+hypothetical all-bad polygon into at least `4n` directed incidences. Any
+unconditional bound below `4n` would immediately prove Erdos Problem #97.
+
+Failure mode: these incidence lemmas are not established in this repository
+and should not be quoted as standard without an independent source and exact
+hypotheses. The actual Altman theorem used here is the diagonal-order sum
+inequality in `docs/altman-diagonal-sums.md`, not a centered-circle incidence
+theorem. The attempted sketches typically conflate boundary order with angular
+order around arbitrary centers, assume equal-radius vertices form one
+controlled boundary interval, or use unsupported middle-incidence
+injectivity. Stronger tangent/support versions are explicitly false, as
+recorded in the algebraic and semicircle correction notes.[^alg]
+
+Weaker version: a new incidence theorem with a complete proof and precise
+strict-convexity hypotheses would be highly valuable. Until then, the
+favorite-distance and Perles/Altman-style incidence shortcuts are guardrails,
+not proof routes.
+
+Current status: failed proof shortcut / provenance guardrail.
+
 [^lit]: Public consolidation: `public-provenance.md#literature-digest`.
 [^forest]: Public consolidation: `public-provenance.md#forest-lemma-failure`.
 [^rank]: Public consolidation: `public-provenance.md#rank-and-bridge-status`.
