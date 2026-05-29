@@ -818,8 +818,11 @@ condition that the surviving multi-block family does not automatically satisfy:
   chain-closure survivors, each disjoint from the supports already present at
   its own center. The single deduplicated two-support catalogue is initially
   incompatible, and all `118` center-`6` supply-extension attempts remain
-  initially incompatible. Broader multiple-support catalogues and genuine
-  rich-class forcing remain open.
+  initially incompatible. Run
+  `scripts/check_bootstrap_t12_81_3_two_repeated_support_catalogue_audit.py --check --assert-expected --summary-json`
+  for the compact reviewer payload, or `--json` for the full catalogue record
+  and supply-extension scan details. Broader multiple-support catalogues and
+  genuine rich-class forcing remain open.
 - bootstrap/T12 focused `81:8` singleton-support evidence, as recorded in
   `docs/bootstrap-t12-81-8-singleton-support-audit.md`, showing that the fixed
   source-`81` neighborhood and one-row-drop relaxation have no non-original

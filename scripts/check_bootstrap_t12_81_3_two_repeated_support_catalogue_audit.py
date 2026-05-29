@@ -20,6 +20,16 @@ from erdos97.bootstrap_t12_81_3_two_repeated_support_catalogue_audit import (  #
     load_artifact,
 )
 
+SUMMARY_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "interpretation_warnings",
+    "source_one_repeated_support_audit",
+    "summary",
+)
+
 
 def write_artifact(path: Path, payload: dict[str, object]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -66,7 +76,13 @@ def main() -> int:
         help="compare artifact to regenerated payload",
     )
     parser.add_argument("--write", action="store_true", help="write regenerated payload")
-    parser.add_argument("--json", action="store_true", help="print JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="print JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="print compact reviewer-facing JSON summary",
+    )
     parser.add_argument("--assert-expected", action="store_true", help="assert pinned values")
     args = parser.parse_args()
 
@@ -88,7 +104,9 @@ def main() -> int:
     if args.write:
         write_artifact(artifact, generated)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     else:
         print_summary(payload)
@@ -97,6 +115,12 @@ def main() -> int:
         if args.assert_expected:
             print("OK: bootstrap/T12 81:3 two-repeated-support expectations verified")
     return 0
+
+
+def summary_json_payload(payload: dict[str, object]) -> dict[str, object]:
+    """Return the compact reviewer-facing JSON view."""
+
+    return {key: payload[key] for key in SUMMARY_KEYS}
 
 
 if __name__ == "__main__":
