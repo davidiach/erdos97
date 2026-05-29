@@ -433,12 +433,13 @@ handoffs rather than re-extracting T01 or T10.
   to compare those 16 relation skeletons with the closed-descent packet's
   one-class self-edge and multi-class strict-cycle regions;
 - use
-  `scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json`
+  `scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json`
   to run the focused packet/catalog, focused mini-replay,
   aggregate/simple-replay, exhaustive/local-lemma, and
   relation-skeleton/local-lemma handoffs as one review-pending audit path,
   with the relation-skeleton/closed-descent companion summary and adjacent
-  handoff checks that localize future drift between layers;
+  handoff checks that localize future drift between layers; use `--json`
+  when the full layer and manifest records are needed;
 - use the focused mini-replay commands
   `scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json`,
   `scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json`,

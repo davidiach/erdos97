@@ -685,24 +685,27 @@ focused minireplay record-path contract, adjacent handoff checks, and manifest
 contracts into a single reviewer-facing pass/fail table:
 
 ```bash
-python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json
 ```
 
-Without `--json`, the same checker prints the compact text summary. That
-summary includes both `audit contract summary` and `manifest contract summary`
-lines so reviewers can quickly see whether a failure is layer-side or
-manifest-side before inspecting the full JSON payload. If validation fails
-after a complete payload is available, the text mode prints those same compact
-summary lines before the detailed validation errors. With `--json`, failed
-runs return the same machine-readable payload, including the rollup fields,
-and exit nonzero when `--check` is supplied. Regression coverage exercises both
-layer-side and manifest-side contract failures so those two failure classes stay
-separate in text and JSON summaries. When `--assert-expected` is also supplied,
-an expected-shape failure is recorded in `validation_errors` instead of
-replacing the JSON diagnostic with a traceback. If payload construction itself
-fails, the fallback payload records `failure_stage: payload_construction` and
-the Python exception type before returning nonzero under `--check`. Text-mode
-failure rendering also rejects malformed scalar `validation_errors` payloads
+Without either JSON flag, the same checker prints the compact text summary.
+That summary includes both `audit contract summary` and `manifest contract
+summary` lines so reviewers can quickly see whether a failure is layer-side or
+manifest-side before inspecting the full JSON payload. Use `--json` instead of
+`--summary-json` when the full layer, handoff, input-manifest, and
+manifest-contract records are needed. If validation fails after a complete
+payload is available, the text mode prints those same compact summary lines
+before the detailed validation errors. With either JSON flag, failed runs
+return machine-readable diagnostics and exit nonzero when `--check` is
+supplied; `--summary-json` keeps only the compact rollup fields, while `--json`
+returns the full payload. Regression coverage exercises both layer-side and
+manifest-side contract failures so those two failure classes stay separate in
+text and JSON summaries. When `--assert-expected` is also supplied, an
+expected-shape failure is recorded in `validation_errors` instead of replacing
+the JSON diagnostic with a traceback. If payload construction itself fails, the
+fallback payload records `failure_stage: payload_construction` and the Python
+exception type before returning nonzero under `--check`. Text-mode failure
+rendering also rejects malformed scalar `validation_errors` payloads
 as a single schema problem instead of treating the scalar as multiple errors.
 Malformed non-string entries in a `validation_errors` list are normalized to
 explicit typed diagnostics before assert-expected failure counting, so the
