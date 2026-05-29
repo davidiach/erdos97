@@ -18,6 +18,7 @@ from scripts.check_n9_vertex_circle_input_audit import (
     expected_row0_records,
     load_artifact,
     n9_vertex_circle_input_audit_payload,
+    summary_json_payload,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -127,6 +128,39 @@ def test_n9_vertex_circle_input_audit_rejects_scope_drift() -> None:
 
     assert payload["validation_status"] == "failed"
     assert any("source artifact scope/notes missing" in error for error in payload["validation_errors"])
+
+
+def test_n9_vertex_circle_input_audit_summary_json_payload() -> None:
+    payload = n9_vertex_circle_input_audit_payload(_payload())
+
+    summary = summary_json_payload(payload)
+
+    assert "expected_counts" not in summary
+    assert summary["schema"] == payload["schema"]
+    assert summary["claim_scope"] == payload["claim_scope"]
+    assert summary["review_independence"] == payload["review_independence"]
+    assert summary["coverage_summary"]["expected_row0_choices"] == EXPECTED_ROW0_CHOICES
+    assert summary["coverage_summary"]["cross_check_full_assignments"] == EXPECTED_CROSS_FULL
+    assert summary["validation_status"] == "passed"
+
+
+def test_n9_vertex_circle_input_audit_cli_summary_json() -> None:
+    payload = n9_vertex_circle_input_audit_payload(_payload())
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_input_audit.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert json.loads(result.stdout) == summary_json_payload(payload)
 
 
 def test_n9_vertex_circle_input_audit_cli_json() -> None:

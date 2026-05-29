@@ -35,6 +35,19 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "source_artifact",
+    "review_independence",
+    "coverage_summary",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
 
 DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "n9_vertex_circle_exhaustive.json"
 N = 9
@@ -198,6 +211,12 @@ def assert_expected_input_audit(payload: Mapping[str, Any]) -> None:
             )
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view."""
+
+    return {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+
+
 def _audit_top_level(
     artifact: Mapping[str, Any],
     expected_rows: Sequence[Mapping[str, Any]],
@@ -346,7 +365,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--artifact", type=Path, default=DEFAULT_ARTIFACT)
     parser.add_argument("--check", action="store_true", help="validate the audit")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON summary",
+    )
     return parser.parse_args(argv)
 
 
@@ -375,7 +400,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_input_audit(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle input-data audit")

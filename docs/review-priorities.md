@@ -139,7 +139,7 @@ Priority 5 review, but it does not by itself close the review or promote the
 Current input-data audit:
 
 ```bash
-python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json
 ```
 
 This command recomputes the row-0 coverage directly as the 70 lexicographic
@@ -147,7 +147,8 @@ This command recomputes the row-0 coverage directly as the 70 lexicographic
 and verifies summary arithmetic from the checked-in JSON. It is a small audit
 of the "no hidden row0 quotient" checklist item only; it does not rerun the
 brancher, replay vertex-circle certificates, prove `n=9`, or complete
-independent review.
+independent review. Use `--json` instead when the full expected-count block is
+needed.
 
 Current incidence-filter audit:
 

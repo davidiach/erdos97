@@ -1857,7 +1857,8 @@ stored-input consistency evidence only. It does not rerun the brancher, replay
 vertex-circle certificates, prove `n=9`, claim a counterexample, update the
 official/global status, or promote the review-pending exhaustive checker.
 Check it with
-`python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json`.
+Use `--json` instead when the full expected-count block is needed.
 
 ### n=9 vertex-circle fixed-order branching replay
 

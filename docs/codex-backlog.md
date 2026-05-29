@@ -91,9 +91,10 @@ Use this queue when no more specific issue is selected.
    system; the geometric turn lemma and indexing remain review bottlenecks.
    Use `--json` instead when the full certificate rows are needed.
    The input-data audit
-   `python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json`
    now separately checks the stored row0 witness coverage and summary
-   arithmetic for the exhaustive artifact without rerunning the brancher.
+   arithmetic for the exhaustive artifact without rerunning the brancher; use
+   `--json` when the full expected-count block is needed.
    The branching replay
    `python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`
    now reruns the same filters with fixed center order and checks agreement
@@ -472,9 +473,10 @@ Use this queue when no more specific issue is selected.
    Groebner-y2 certificates. The remaining `n=8` audit gap is now external
    review of these focused checkers and the underlying artifact assumptions.
    The first `n=9` input-data replay command,
-   `python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json`,
+   `python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json`,
    covers row0 choices and summary arithmetic only; the brancher, pruning
-   lemmas, and vertex-circle certificates still need review.
+   lemmas, and vertex-circle certificates still need review. Use `--json`
+   when the full expected-count block is needed.
    The MRO branching replay command,
    `python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`,
    covers the branch-order checklist item only; the pruning lemmas and

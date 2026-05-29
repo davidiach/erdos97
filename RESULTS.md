@@ -1058,10 +1058,11 @@ then classifies all 184 as exact vertex-circle obstructions: 158 self-edges and
 26 strict cycles.
 
 The companion input-data audit
-`scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json`
 recomputes the row-0 choices as the 70 lexicographic 4-subsets of labels
 `1..8` and checks the stored witness lists, masks, summary counts, and
-no-overclaiming scope. It does not rerun the brancher or replay the
+no-overclaiming scope. Use `--json` instead when the full expected-count block
+is needed. It does not rerun the brancher or replay the
 vertex-circle certificates.
 The turn-inequality frontier replay
 `scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json`
