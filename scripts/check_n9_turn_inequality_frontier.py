@@ -72,9 +72,56 @@ def _print_summary(payload: dict[str, object], elapsed: float | None = None) -> 
         print(f"elapsed_seconds: {elapsed:.6f}")
 
 
+def summary_json_payload(payload: dict[str, object]) -> dict[str, object]:
+    """Return a compact reviewer-facing JSON view without certificate rows."""
+
+    turn_system = payload.get("turn_system")
+    compact_turn_system: dict[str, object] = {}
+    if isinstance(turn_system, dict):
+        for key in (
+            "normalized_variables",
+            "sum_constraint",
+            "nonnegativity",
+            "weak_inequality_template",
+            "strict_geometry_note",
+            "inequality_count_histogram",
+        ):
+            if key in turn_system:
+                compact_turn_system[key] = turn_system[key]
+
+    compact: dict[str, object] = {}
+    for key in (
+        "schema",
+        "status",
+        "trust",
+        "claim_scope",
+        "n",
+        "row_size",
+        "cyclic_order",
+        "source_frontier",
+        "z3_replay",
+        "farkas_replay",
+        "benchmarks",
+        "conclusion",
+        "review_requirements",
+        "provenance",
+    ):
+        if key in payload:
+            compact[key] = payload[key]
+    if compact_turn_system:
+        compact["turn_system"] = compact_turn_system
+    return compact
+
+
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--json", action="store_true", help="print stable JSON")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="print stable JSON")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="print compact reviewer-facing JSON without certificate rows",
+    )
     parser.add_argument("--write", action="store_true", help="write stable JSON artifact")
     parser.add_argument("--out", type=Path, default=DEFAULT_ARTIFACT)
     parser.add_argument("--artifact", type=Path, default=DEFAULT_ARTIFACT)
@@ -103,7 +150,9 @@ def main(argv: list[str] | None = None) -> int:
     if args.write:
         _write_json(out, payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     else:
         _print_summary(payload, elapsed)

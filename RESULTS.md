@@ -1054,11 +1054,12 @@ recomputes the row-0 choices as the 70 lexicographic 4-subsets of labels
 no-overclaiming scope. It does not rerun the brancher or replay the
 vertex-circle certificates.
 The turn-inequality frontier replay
-`scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json`
+`scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json`
 checks stored integer dual certificates for the candidate weak turn system on
 all 184 regenerated pair/crossing/count frontier assignments. It records all
 184 weak systems as arithmetically infeasible, but the geometric turn lemma and
 indexing conventions remain review-pending, so this does not promote `n=9`.
+Use `--json` instead when the full certificate rows are needed.
 The compact Kalmanson self-edge replay
 `scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --json`
 checks a separate certificate in which each of those 184 terminal assignments

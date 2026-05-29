@@ -641,12 +641,12 @@ The companion input-data audit
 checks the stored row0 witness coverage and summary arithmetic without
 rerunning the brancher. It is a review aid only, not an `n=9` proof.
 The turn-inequality frontier replay
-`scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json`
+`scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json`
 checks stored integer dual certificates for the candidate weak turn system on
 all 184 regenerated pair/crossing/count frontier assignments. It is
 review-pending finite-case evidence only: the geometric turn lemma and
 indexing conventions remain the review bottleneck, and this does not promote
-`n=9`.
+`n=9`. Use `--json` instead when the full certificate rows are needed.
 The compact Kalmanson self-edge replay
 `scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --json`
 checks a stored certificate with one strict Kalmanson self-edge for each of the
