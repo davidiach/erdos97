@@ -6830,6 +6830,86 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_81_3_repeated_support_saturation_audit
+    path: data/certificates/bootstrap_t12_81_3_repeated_support_saturation_audit.json
+    sha256: bd4a15b2a4033f555e037ead6c9722e603debf66774e1da6b7d49ac64b726451
+    size_bytes: 37777
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_81_3_repeated_support_saturation_audit.py
+    command: python scripts/check_bootstrap_t12_81_3_repeated_support_saturation_audit.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_81_3_repeated_support_saturation_audit.py
+    check_command: python scripts/check_bootstrap_t12_81_3_repeated_support_saturation_audit.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Repeated-support saturation audit for the 81:3 pre-3 label-6 escape; starting from the four stored chain-closure prefix survivors, the repeated-support model has four base catalogues, five one-repeated-support catalogues, one deduplicated two-repeated-support catalogue, and no three-repeated-support catalogue, but this is not support existence, not row forcing, not genuine rich-class order, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_81_3_repeated_support_saturation_audit.v1
+      status: BOOTSTRAP_T12_81_3_REPEATED_SUPPORT_SATURATION_AUDIT_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "81:3"
+      summary.source_record_ids:
+        - 81
+      summary.cyclic_order:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+      summary.deletion_seed:
+        - 0
+        - 1
+        - 4
+      summary.connector_pair:
+        - 0
+        - 1
+      summary.target_center: 3
+      summary.eventual_supply_label: 6
+      summary.source_prefix_survivor_count: 4
+      summary.unique_catalogue_count_by_repeated_support_count.0: 4
+      summary.unique_catalogue_count_by_repeated_support_count.1: 5
+      summary.unique_catalogue_count_by_repeated_support_count.2: 1
+      summary.unique_catalogue_count_by_repeated_support_count.3: 0
+      summary.ordered_generation_path_count_by_repeated_support_count.0: 4
+      summary.ordered_generation_path_count_by_repeated_support_count.1: 5
+      summary.ordered_generation_path_count_by_repeated_support_count.2: 2
+      summary.ordered_generation_path_count_by_repeated_support_count.3: 0
+      summary.max_repeated_support_count: 2
+      summary.terminal_catalogue_count: 4
+      summary.three_repeated_support_catalogue_count: 0
+      summary.scan_status: NO_THREE_REPEATED_SUPPORT_CATALOGUES_IN_STORED_PREFIX_MODEL
+      repeated_support_saturation_scan.level_records.3: []
+      source_chain_closure_csp.schema: erdos97.bootstrap_t12_81_3_chain_closure_csp.v1
+      source_chain_closure_csp.scan_status: NO_LABEL_6_SUPPLY_CHAIN_SURVIVORS_IN_SEQUENTIAL_SUPPORT_MODEL
+      source_one_repeated_support_audit.schema: erdos97.bootstrap_t12_81_3_repeated_support_catalogue_audit.v1
+      source_one_repeated_support_audit.scan_status: NO_LABEL_6_SUPPLY_EXTENSION_AFTER_ONE_REPEATED_SUPPORT
+      source_two_repeated_support_audit.schema: erdos97.bootstrap_t12_81_3_two_repeated_support_catalogue_audit.v1
+      source_two_repeated_support_audit.scan_status: NO_LABEL_6_SUPPLY_EXTENSION_AFTER_TWO_REPEATED_SUPPORTS
+      provenance.generator: scripts/check_bootstrap_t12_81_3_repeated_support_saturation_audit.py
+      provenance.command: python scripts/check_bootstrap_t12_81_3_repeated_support_saturation_audit.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - the 81:3 rich support exists
+      - the 81:3 row is forced
+      - the saturation audit proves support existence
+      - the saturation audit proves genuine rich-class order
+      - the saturation audit proves no pre-3 label-6 supply exists
+      - the saturation audit proves the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_81_8_singleton_support_audit
     path: data/certificates/bootstrap_t12_81_8_singleton_support_audit.json
     sha256: daa724c9c566b321310cce08ade6747122a6a0fab1208504995d0ebdcfe96eec

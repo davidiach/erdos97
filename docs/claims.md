@@ -1153,6 +1153,13 @@ supports at centers `2` and `8`; it is initially incompatible, and all `118`
 center-`6` supply-extension attempts are initially incompatible. This is still
 only bounded proof-mining bookkeeping, not support existence, row forcing,
 genuine rich-class order, `n=9`, the bootstrap bridge, or Erdos Problem #97.
+A repeated-support saturation audit in
+`docs/bootstrap-t12-81-3-repeated-support-saturation-audit.md` then enumerates
+all further same-center-disjoint repeated supports in that same stored-prefix
+model. It records no three-repeated-support catalogue, so the model saturates
+at two repeated supports. This remains stored-prefix proof-mining bookkeeping
+only; it is not support existence, row forcing, genuine rich-class order,
+`n=9`, the bootstrap bridge, or Erdos Problem #97.
 
 The source-`81` row-`8` singleton-support audit in
 `docs/bootstrap-t12-81-8-singleton-support-audit.md` checks a neighboring

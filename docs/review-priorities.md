@@ -823,6 +823,17 @@ condition that the surviving multi-block family does not automatically satisfy:
   for the compact reviewer payload, or `--json` for the full catalogue record
   and supply-extension scan details. Broader multiple-support catalogues and
   genuine rich-class forcing remain open.
+- bootstrap/T12 focused `81:3` repeated-support saturation evidence, as
+  recorded in
+  `docs/bootstrap-t12-81-3-repeated-support-saturation-audit.md`, enumerating
+  all further same-center-disjoint repeated supports in the same stored-prefix
+  model. It records four base catalogues, five one-repeated-support
+  catalogues, one deduplicated two-repeated-support catalogue, and no
+  three-repeated-support catalogue. Run
+  `scripts/check_bootstrap_t12_81_3_repeated_support_saturation_audit.py --check --assert-expected --summary-json`
+  for the compact reviewer payload, or `--json` for the full level records and
+  terminal extension profiles. Genuinely richer catalogues, activation
+  provenance, and rich-class forcing remain open.
 - bootstrap/T12 focused `81:8` singleton-support evidence, as recorded in
   `docs/bootstrap-t12-81-8-singleton-support-audit.md`, showing that the fixed
   source-`81` neighborhood and one-row-drop relaxation have no non-original

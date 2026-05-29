@@ -472,6 +472,14 @@ extensions remain incompatible. This is still bounded catalogue bookkeeping,
 not support existence, genuine rich-class order, row forcing, `n=9`, or the
 bridge. See
 `docs/bootstrap-t12-81-3-two-repeated-support-catalogue-audit.md`.
+A saturation audit now records the boundary of that exact repeated-support
+model. Across the four stored prefixes it finds four base catalogues, five
+one-repeated-support catalogues, one deduplicated two-repeated-support
+catalogue, and no three-repeated-support catalogue. This closes only the
+stored-prefix same-center-disjoint repeated-support model; richer catalogues,
+new activation provenance, support existence, row forcing, `n=9`, and the
+bridge remain outside the claim. See
+`docs/bootstrap-t12-81-3-repeated-support-saturation-audit.md`.
 
 A source-`81` row-`8` singleton-support audit now probes the other
 relation-sufficient target in source `81`. It enumerates the nine center-`8`

@@ -397,10 +397,17 @@ Use this queue when no more specific issue is selected.
    supply-extension attempts remain initially incompatible. The command
    `python scripts/check_bootstrap_t12_81_3_two_repeated_support_catalogue_audit.py --check --assert-expected --summary-json`
    gives the compact reviewer-facing payload; use `--json` when the full
-   catalogue record and supply-extension scan details are needed. The next
-   useful PR must therefore handle still broader multiple supports or richer
-   catalogues, introduce a genuine rich-class/minimality hypothesis that forces
-   or excludes such supports, preserve enough activation provenance to identify
+   catalogue record and supply-extension scan details are needed. The
+   repeated-support saturation audit in
+   `docs/bootstrap-t12-81-3-repeated-support-saturation-audit.md` then checks
+   the same stored-prefix repeated-support model for further layers: it finds
+   no three-repeated-support catalogue. The command
+   `python scripts/check_bootstrap_t12_81_3_repeated_support_saturation_audit.py --check --assert-expected --summary-json`
+   gives the compact reviewer-facing payload; use `--json` when the full level
+   records and terminal extension profiles are needed. The next useful PR must
+   therefore leave this same repeated-support model and handle genuinely richer
+   catalogues, introduce a rich-class/minimality hypothesis that forces or
+   excludes such supports, preserve enough activation provenance to identify
    the row, or move to a different bridge target. The
    source-`81` row-`8` singleton-support audit in
    `docs/bootstrap-t12-81-8-singleton-support-audit.md` is one such adjacent

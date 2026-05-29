@@ -783,6 +783,16 @@ a rich-class/minimality bridge. See
 `scripts/check_bootstrap_t12_81_3_two_repeated_support_catalogue_audit.py`,
 and
 `data/certificates/bootstrap_t12_81_3_two_repeated_support_catalogue_audit.json`.
+A repeated-support saturation audit then enumerates all further
+same-center-disjoint repeated supports in the same stored-prefix model. It
+records four base catalogues, five one-repeated-support catalogues, one
+deduplicated two-repeated-support catalogue, and no three-repeated-support
+catalogue. This saturates only that stored-prefix repeated-support model, not
+richer catalogues, new activation provenance, support existence, row forcing,
+`n=9`, or the bridge. See
+`docs/bootstrap-t12-81-3-repeated-support-saturation-audit.md`,
+`scripts/check_bootstrap_t12_81_3_repeated_support_saturation_audit.py`, and
+`data/certificates/bootstrap_t12_81_3_repeated_support_saturation_audit.json`.
 
 The source-`81` row-`8` singleton-support audit probes the other
 relation-sufficient source-`81` row. Center `8` has bootstrap-core witnesses

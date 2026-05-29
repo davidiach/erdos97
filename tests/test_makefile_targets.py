@@ -265,6 +265,10 @@ def test_verify_bridge_frontier_includes_bootstrap_audits() -> None:
             "--check --assert-expected --json"
         ),
         (
+            "python scripts/check_bootstrap_t12_81_3_repeated_support_saturation_audit.py "
+            "--check --assert-expected --json"
+        ),
+        (
             "python scripts/check_bootstrap_t12_81_8_singleton_support_audit.py "
             "--check --assert-expected --json"
         ),

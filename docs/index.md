@@ -314,6 +314,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-81-3-two-repeated-support-catalogue-audit.md`](bootstrap-t12-81-3-two-repeated-support-catalogue-audit.md):
   two-repeated-support catalogue audit for the stored `81:3` chain-closure
   prefix survivors.
+- [`bootstrap-t12-81-3-repeated-support-saturation-audit.md`](bootstrap-t12-81-3-repeated-support-saturation-audit.md):
+  saturation audit showing that the same stored-prefix repeated-support model
+  has no three-repeated-support catalogue.
 - [`bootstrap-t12-81-8-singleton-support-audit.md`](bootstrap-t12-81-8-singleton-support-audit.md):
   source-`81` row-`8` singleton-support audit showing only the original row
   survives the fixed-neighborhood and one-row-drop activation-row scans.
