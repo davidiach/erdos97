@@ -105,13 +105,14 @@ stored accounting chain from this exhaustive artifact to the motif
 classification and then to the aggregate/simple local-lemma replay artifacts:
 
 ```bash
-python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --summary-json
 ```
 
 This command does not rerun or independently review the exhaustive brancher.
 It verifies only that the checked-in artifacts agree on the same
 review-pending `184 = 158 + 26` frontier accounting and the same 16 motif
-families.
+families. Use `--json` instead when the full family crosswalk records are
+needed.
 
 The combined local-lemma audit-path command
 `scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json`

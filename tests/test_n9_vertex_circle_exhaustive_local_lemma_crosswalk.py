@@ -16,6 +16,7 @@ from scripts.check_n9_vertex_circle_exhaustive_local_lemma_crosswalk import (
     assert_expected_exhaustive_local_lemma_crosswalk,
     exhaustive_local_lemma_crosswalk_payload,
     load_artifact,
+    summary_json_payload,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -196,3 +197,54 @@ def test_exhaustive_local_lemma_crosswalk_cli_json() -> None:
     assert parsed["validation_status"] == "passed"
     assert parsed["coverage_summary"]["exhaustive_frontier_assignment_count"] == 184
     assert parsed["coverage_summary"]["strict_cycle_assignment_count"] == 26
+
+
+def test_exhaustive_local_lemma_crosswalk_summary_json_payload(
+    exhaustive: dict[str, object],
+    classification: dict[str, object],
+    local_lemmas: dict[str, object],
+    simple_replay: dict[str, object],
+) -> None:
+    payload = exhaustive_local_lemma_crosswalk_payload(
+        exhaustive,
+        classification,
+        local_lemmas,
+        simple_replay,
+    )
+    summary = summary_json_payload(payload)
+
+    assert "family_crosswalk" not in summary
+    assert summary["schema"] == payload["schema"]
+    assert summary["claim_scope"] == payload["claim_scope"]
+    assert summary["coverage_summary"]["exhaustive_frontier_assignment_count"] == 184
+    assert summary["local_replay_crosswalk_summary"]["matched_assignment_count"] == 184
+    assert summary["validation_status"] == "passed"
+
+
+def test_exhaustive_local_lemma_crosswalk_cli_summary_json(
+    exhaustive: dict[str, object],
+    classification: dict[str, object],
+    local_lemmas: dict[str, object],
+    simple_replay: dict[str, object],
+) -> None:
+    payload = exhaustive_local_lemma_crosswalk_payload(
+        exhaustive,
+        classification,
+        local_lemmas,
+        simple_replay,
+    )
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert json.loads(result.stdout) == summary_json_payload(payload)
