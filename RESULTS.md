@@ -773,6 +773,16 @@ bridge. See
 `docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md`,
 `scripts/check_bootstrap_t12_81_3_repeated_support_catalogue_audit.py`, and
 `data/certificates/bootstrap_t12_81_3_repeated_support_catalogue_audit.json`.
+A two-repeated-support audit deduplicates the next catalogue layer. The only
+unique two-support catalogue comes from prefix `1`, with repeated supports at
+centers `2` and `8`; it is initially incompatible, and all `118` center-`6`
+supply-extension attempts are initially incompatible as well. This closes only
+that two-repeated-support layer, not arbitrary multiple-support catalogues or
+a rich-class/minimality bridge. See
+`docs/bootstrap-t12-81-3-two-repeated-support-catalogue-audit.md`,
+`scripts/check_bootstrap_t12_81_3_two_repeated_support_catalogue_audit.py`,
+and
+`data/certificates/bootstrap_t12_81_3_two_repeated_support_catalogue_audit.json`.
 
 The source-`81` row-`8` singleton-support audit probes the other
 relation-sufficient source-`81` row. Center `8` has bootstrap-core witnesses

@@ -144,13 +144,16 @@ outside support at center `6` would give connector `[0,6]=[8,6]`, while the
 private-halo-only pair `[3,5]` is the connector-avoiding escape still open.
 See
 [`docs/bootstrap-t12-151-6-outside-pair-connector-contract.md`](docs/bootstrap-t12-151-6-outside-pair-connector-contract.md).
-On the source-`81` side, the `81:3` ordered chain-closure and one-layer
-repeated-support packets close the current bounded support-chain continuations
-under basic incidence/crossing filters, but still do not prove support
-existence, row forcing, genuine rich-class order, `n=9`, or the bridge. See
+On the source-`81` side, the `81:3` ordered chain-closure, one-layer
+repeated-support, and two-repeated-support packets close the current bounded
+support-chain continuations under basic incidence/crossing filters, but still
+do not prove support existence, row forcing, genuine rich-class order, `n=9`,
+or the bridge. See
 [`docs/bootstrap-t12-81-3-chain-closure-csp.md`](docs/bootstrap-t12-81-3-chain-closure-csp.md)
 and
-[`docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md`](docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md).
+[`docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md`](docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md),
+plus
+[`docs/bootstrap-t12-81-3-two-repeated-support-catalogue-audit.md`](docs/bootstrap-t12-81-3-two-repeated-support-catalogue-audit.md).
 
 An incoming `n=10` singleton-slice continuation is recorded as a finite-case
 draft review target only; see

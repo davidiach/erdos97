@@ -384,11 +384,15 @@ Use this queue when no more specific issue is selected.
    the smallest repeated-support continuation: five disjoint same-center
    repeated-support catalogues yield `464` center-`6` supply-extension
    attempts, one initially compatible catalogue, and no selected-row
-   completion. The next useful PR must therefore handle broader
-   repeated/multiple supports or richer catalogues, introduce a genuine
-   rich-class/minimality hypothesis that forces or excludes such supports,
-   preserve enough activation provenance to identify the row, or move to a
-   different bridge target. The
+   completion. The two-repeated-support audit in
+   `docs/bootstrap-t12-81-3-two-repeated-support-catalogue-audit.md` then
+   deduplicates the next catalogue layer: the only unique two-support
+   catalogue is initially incompatible, and all `118` center-`6`
+   supply-extension attempts remain initially incompatible. The next useful PR
+   must therefore handle still broader multiple supports or richer catalogues,
+   introduce a genuine rich-class/minimality hypothesis that forces or excludes
+   such supports, preserve enough activation provenance to identify the row, or
+   move to a different bridge target. The
    source-`81` row-`8` singleton-support audit in
    `docs/bootstrap-t12-81-8-singleton-support-audit.md` is one such adjacent
    target: it finds no non-original row-`8` activation survivor in the fixed
