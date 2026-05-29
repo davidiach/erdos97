@@ -1,5 +1,10 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
+import subprocess
+import sys
+
 from erdos97.n9_turn_inequality_frontier import (
     CLAIM_SCOPE,
     CONCLUSION,
@@ -18,6 +23,8 @@ from erdos97.n9_turn_inequality_frontier import (
     verify_turn_farkas_certificate,
     vertex_circle_status_for_pattern,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_side_cap_benchmark_has_expected_turn_system() -> None:
@@ -161,3 +168,30 @@ def test_payload_validation_rejects_conclusion_and_order_drift() -> None:
 
     assert "cyclic_order mismatch" in errors
     assert "conclusion mismatch" in errors
+
+
+def test_turn_inequality_frontier_cli_summary_json_is_compact() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_turn_inequality_frontier.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 0
+    assert result.stderr == ""
+    payload = json.loads(result.stdout)
+    assert payload["claim_scope"] == CLAIM_SCOPE
+    assert payload["source_frontier"]["assignment_count"] == 184
+    assert payload["turn_system"]["inequality_count_histogram"] == {"108": 184}
+    assert payload["z3_replay"]["status_counts"] == {"unsat": 184}
+    assert payload["farkas_replay"]["certificate_count"] == 184
+    assert payload["farkas_replay"]["lambda_histogram"] == {"1": 180, "2": 4}
+    assert "farkas_certificates" not in payload

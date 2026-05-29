@@ -2340,7 +2340,8 @@ the indexing conventions, the regenerated source frontier, and the certificate
 arithmetic verifier still require independent review before this layer could
 support a stronger claim. It is not an `n=9` proof, not a counterexample, not a
 global status update, and not a proof of Erdos Problem #97. Check it with
-`python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json`.
+`python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json`;
+use `--json` instead when the full certificate rows are needed.
 
 ### Low-angle ascent for middle witnesses
 

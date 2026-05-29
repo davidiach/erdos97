@@ -67,10 +67,11 @@ a contradiction.
 The replay command
 
 ```bash
-python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json
+python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
 ```
 
-checks the stored `n=9` frontier artifact. It regenerates the 184 complete
+checks the stored `n=9` frontier artifact. Use `--json` instead when the full
+certificate rows are needed. It regenerates the 184 complete
 selected-witness assignments surviving the pair/crossing/count filters before
 vertex-circle pruning and verifies one integer turn-packing certificate for
 each assignment. The replay is arithmetic after the stored interval choices:
