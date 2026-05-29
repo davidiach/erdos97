@@ -479,7 +479,17 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--out", type=Path, default=DEFAULT_ARTIFACT)
     parser.add_argument("--write", action="store_true", help="write generated crosswalk")
     parser.add_argument("--check", action="store_true", help="validate an existing crosswalk")
-    parser.add_argument("--json", action="store_true", help="print stable JSON summary")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument(
+        "--json",
+        action="store_true",
+        help="print stable JSON summary",
+    )
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="print stable JSON summary",
+    )
     parser.add_argument("--assert-expected", action="store_true")
     return parser.parse_args(argv)
 
@@ -506,7 +516,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             assert_expected_relation_closed_descent_crosswalk(payload)
         write_json(payload, out)
         if not args.check:
-            if args.json:
+            if args.json or args.summary_json:
                 print(json.dumps(summary_payload(out, payload, []), indent=2, sort_keys=True))
             else:
                 print(f"wrote {display_path(out, ROOT)}")
@@ -525,7 +535,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         errors = [str(exc)]
 
     summary = summary_payload(artifact, payload, errors)
-    if args.json:
+    if args.json or args.summary_json:
         print(json.dumps(summary, indent=2, sort_keys=True))
     elif errors:
         print(f"FAILED: {display_path(artifact, ROOT)}", file=sys.stderr)
