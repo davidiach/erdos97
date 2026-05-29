@@ -465,6 +465,13 @@ Only one combined catalogue is initially compatible, and it still has zero
 selected-row completions. This remains one bounded catalogue audit only, not
 support existence, genuine rich-class order, row forcing, `n=9`, or the
 bridge. See `docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md`.
+A two-repeated-support audit now checks the next deduplicated catalogue layer:
+the only unique two-support catalogue has repeated supports at centers `2` and
+`8`, is already initially incompatible, and all `118` center-`6` supply
+extensions remain incompatible. This is still bounded catalogue bookkeeping,
+not support existence, genuine rich-class order, row forcing, `n=9`, or the
+bridge. See
+`docs/bootstrap-t12-81-3-two-repeated-support-catalogue-audit.md`.
 
 A source-`81` row-`8` singleton-support audit now probes the other
 relation-sufficient target in source `81`. It enumerates the nine center-`8`

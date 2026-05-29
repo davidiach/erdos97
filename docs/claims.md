@@ -1146,6 +1146,13 @@ combined catalogue is initially compatible, and it still has no selected-row
 completion. This is still only bounded proof-mining bookkeeping, not support
 existence, row forcing, genuine rich-class order, `n=9`, the bootstrap bridge,
 or Erdos Problem #97.
+A two-repeated-support audit in
+`docs/bootstrap-t12-81-3-two-repeated-support-catalogue-audit.md` then
+deduplicates the next catalogue layer. The only unique catalogue has repeated
+supports at centers `2` and `8`; it is initially incompatible, and all `118`
+center-`6` supply-extension attempts are initially incompatible. This is still
+only bounded proof-mining bookkeeping, not support existence, row forcing,
+genuine rich-class order, `n=9`, the bootstrap bridge, or Erdos Problem #97.
 
 The source-`81` row-`8` singleton-support audit in
 `docs/bootstrap-t12-81-8-singleton-support-audit.md` checks a neighboring
