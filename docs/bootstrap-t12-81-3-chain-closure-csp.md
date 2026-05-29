@@ -59,7 +59,9 @@ This closes the current longer-chain diagnostic inside the sequential
 support-chain model: the only extra branch beyond the old first-step packet is
 `8 -> 2`, and that branch still cannot reach center `6` under the same filters.
 
-The remaining gap is unchanged in scope.  This does not prove that genuine
-rich-class catalogues must expose supports in this sequential model; it does
+The immediate repeated-support follow-up is recorded in
+`docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md`.  The remaining
+gap is still broader than this sequential model: this packet does not prove
+that genuine rich-class catalogues must expose supports in this order; it does
 not prove row forcing, `n=9`, the bridge, or Erdos Problem #97; and it is not a
 counterexample.

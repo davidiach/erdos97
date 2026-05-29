@@ -1137,6 +1137,15 @@ surviving prefix whose next activated center is `6`. This closes only the
 audited sequential support-chain model; it does not prove support existence,
 row forcing, genuine rich-class order, `n=9`, the bootstrap bridge, or Erdos
 Problem #97.
+A one-layer repeated-support audit in
+`docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md` then starts from
+those four stored prefixes and adds one disjoint same-center support at one
+already activated prefix center. The resulting five repeated-support
+catalogues generate `464` center-`6` supply-extension attempts; only one
+combined catalogue is initially compatible, and it still has no selected-row
+completion. This is still only bounded proof-mining bookkeeping, not support
+existence, row forcing, genuine rich-class order, `n=9`, the bootstrap bridge,
+or Erdos Problem #97.
 
 The source-`81` row-`8` singleton-support audit in
 `docs/bootstrap-t12-81-8-singleton-support-audit.md` checks a neighboring

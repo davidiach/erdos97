@@ -308,6 +308,9 @@ put detailed reconciliation in the canonical synthesis.
   replayable wrong-fourth, full-row, and closure-visibility negative controls
   for overstrong closure-activation bridge claims; provenance and guardrail
   data only.
+- [`bootstrap-t12-81-3-repeated-support-catalogue-audit.md`](bootstrap-t12-81-3-repeated-support-catalogue-audit.md):
+  one-layer repeated-support audit for the stored `81:3` chain-closure prefix
+  survivors.
 - [`bootstrap-t12-81-8-singleton-support-audit.md`](bootstrap-t12-81-8-singleton-support-audit.md):
   source-`81` row-`8` singleton-support audit showing only the original row
   survives the fixed-neighborhood and one-row-drop activation-row scans.

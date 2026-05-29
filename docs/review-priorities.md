@@ -800,6 +800,13 @@ condition that the surviving multi-block family does not automatically satisfy:
   the named fourth witness. The remaining bridge target needs activation
   provenance, repeated/multiple support analysis, or a genuine
   rich-class/minimality hypothesis.
+- bootstrap/T12 focused `81:3` repeated-support evidence, as recorded in
+  `docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md`, attaching one
+  disjoint same-center support to each already activated prefix center in the
+  four chain-closure survivors. Five repeated-support catalogues generate
+  `464` center-`6` supply-extension attempts; one is initially compatible and
+  still has no selected-row completion. Broader multiple-support catalogues
+  and genuine rich-class forcing remain open.
 - bootstrap/T12 focused `81:8` singleton-support evidence, as recorded in
   `docs/bootstrap-t12-81-8-singleton-support-audit.md`, showing that the fixed
   source-`81` neighborhood and one-row-drop relaxation have no non-original
