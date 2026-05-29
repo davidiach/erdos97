@@ -6677,6 +6677,81 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_81_3_repeated_support_catalogue_audit
+    path: data/certificates/bootstrap_t12_81_3_repeated_support_catalogue_audit.json
+    sha256: ad79d331ae6b2eb86c9131a473036c8c131f8671cbc041c42f65ae2c1133d8f5
+    size_bytes: 18406
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_81_3_repeated_support_catalogue_audit.py
+    command: python scripts/check_bootstrap_t12_81_3_repeated_support_catalogue_audit.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_81_3_repeated_support_catalogue_audit.py
+    check_command: python scripts/check_bootstrap_t12_81_3_repeated_support_catalogue_audit.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: One-layer repeated-support catalogue audit for the 81:3 pre-3 label-6 escape; starting from the four stored chain-closure prefix survivors, adding one disjoint same-center support at an already activated prefix center, and then adding one center-6 activation support leaves zero selected-row completions, but this is not support existence, not row forcing, not genuine rich-class order, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_81_3_repeated_support_catalogue_audit.v1
+      status: BOOTSTRAP_T12_81_3_REPEATED_SUPPORT_CATALOGUE_AUDIT_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "81:3"
+      summary.source_record_ids:
+        - 81
+      summary.cyclic_order:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+      summary.deletion_seed:
+        - 0
+        - 1
+        - 4
+      summary.connector_pair:
+        - 0
+        - 1
+      summary.target_center: 3
+      summary.eventual_supply_label: 6
+      summary.source_prefix_survivor_count: 4
+      summary.repeated_support_candidate_count: 5
+      summary.repeated_support_detected_solution_count: 0
+      summary.supply_extension_candidate_count: 464
+      summary.supply_extension_initially_compatible_count: 1
+      summary.supply_extension_initially_incompatible_count: 463
+      summary.supply_extension_detected_solution_count: 0
+      summary.supply_extension_survivor_count: 0
+      summary.scan_status: NO_LABEL_6_SUPPLY_EXTENSION_AFTER_ONE_REPEATED_SUPPORT
+      repeated_support_catalogue_scan.aggregate.detected_solution_count: 0
+      repeated_support_catalogue_scan.per_repeated_center.8.supply_initial_status:SEARCH_EXHAUSTED: 1
+      supply_extension_scan.aggregate.initial_status:SEARCH_EXHAUSTED: 1
+      supply_extension_scan.aggregate.detected_solution_count: 0
+      source_chain_closure_csp.schema: erdos97.bootstrap_t12_81_3_chain_closure_csp.v1
+      source_chain_closure_csp.scan_status: NO_LABEL_6_SUPPLY_CHAIN_SURVIVORS_IN_SEQUENTIAL_SUPPORT_MODEL
+      provenance.generator: scripts/check_bootstrap_t12_81_3_repeated_support_catalogue_audit.py
+      provenance.command: python scripts/check_bootstrap_t12_81_3_repeated_support_catalogue_audit.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - the 81:3 rich support exists
+      - the 81:3 row is forced
+      - the repeated-support audit proves support existence
+      - the repeated-support audit proves genuine rich-class order
+      - the repeated-support audit proves no pre-3 label-6 supply exists
+      - the repeated-support audit proves the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_81_8_singleton_support_audit
     path: data/certificates/bootstrap_t12_81_8_singleton_support_audit.json
     sha256: daa724c9c566b321310cce08ade6747122a6a0fab1208504995d0ebdcfe96eec

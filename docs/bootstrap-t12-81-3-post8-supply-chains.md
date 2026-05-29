@@ -90,9 +90,12 @@ NO_POST8_PRE6_SUPPLY_CHAIN_SURVIVORS_UNDER_BASIC_FILTERS
 Within this finite chain model, the three stored center-`8` prefixes no longer
 leave a longer route to center `6`. This is the same closure boundary as the
 second-step packet, with the added raw-catalogue accounting. The remaining
-`81:3` escape must therefore leave this audited model, for example by using
-additional simultaneous rich supports, a different minimality or rich-class
-forcing hypothesis, or geometry not captured by these basic filters.
+`81:3` escape must therefore leave this audited model.  The first
+same-center repeated-support follow-up is now recorded in
+`docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md`; broader
+multiple-support catalogues, a different minimality or rich-class forcing
+hypothesis, or geometry not captured by these basic filters remain outside
+this packet.
 
 ## What this does not prove
 

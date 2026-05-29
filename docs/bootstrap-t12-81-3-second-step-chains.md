@@ -120,10 +120,12 @@ new center from `{2,5,7}` and exactly one auxiliary support at that center, no
 such chain survives the same basic filters.
 
 The remaining escape is now outside this distinct-intermediate,
-one-support-per-center model. Examples still not ruled out here include
-repeated or multiple rich supports at one center, richer catalogues not
-represented by a single support per activated center, or a future
-minimal/rich-class theorem that changes which supports must be considered.
+one-support-per-center model. The first same-center repeated-support follow-up
+is recorded in
+`docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md`; broader
+multiple-support catalogues, richer catalogues not represented by a single
+support per activated center, or a future minimal/rich-class theorem that
+changes which supports must be considered remain open.
 
 ## What This Does Not Prove
 

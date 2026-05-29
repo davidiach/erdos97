@@ -378,11 +378,17 @@ Use this queue when no more specific issue is selected.
    `docs/closure-activation-negative-controls.md` add a guardrail for this
    whole lane: deletion-closure exposure, full target-label visibility, and
    full selected-row incidence checks still do not pin the fourth witness or
-   force the named selected/rich row without extra hypotheses. The next useful
-   PR must therefore either handle repeated/multiple supports, introduce a
-   genuine rich-class/minimality hypothesis that forces or excludes such a
-   support, preserve enough activation provenance to identify the row, or move
-   to a different bridge target. The
+   force the named selected/rich row without extra hypotheses. The one-layer
+   repeated-support audit in
+   `docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md` then handles
+   the smallest repeated-support continuation: five disjoint same-center
+   repeated-support catalogues yield `464` center-`6` supply-extension
+   attempts, one initially compatible catalogue, and no selected-row
+   completion. The next useful PR must therefore handle broader
+   repeated/multiple supports or richer catalogues, introduce a genuine
+   rich-class/minimality hypothesis that forces or excludes such supports,
+   preserve enough activation provenance to identify the row, or move to a
+   different bridge target. The
    source-`81` row-`8` singleton-support audit in
    `docs/bootstrap-t12-81-8-singleton-support-audit.md` is one such adjacent
    target: it finds no non-original row-`8` activation survivor in the fixed

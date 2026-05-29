@@ -457,6 +457,14 @@ prefix whose next activated center is `6`. This closes only the audited
 sequential support-chain model; repeated or multiple rich supports and any
 future minimality/rich-class bridge hypothesis remain outside the model. See
 `docs/bootstrap-t12-81-3-chain-closure-csp.md`.
+A one-layer repeated-support audit now probes the first such non-sequential
+continuation. Starting from those four stored prefixes, it adds one disjoint
+same-center support at an already activated prefix center, generating five
+repeated-support catalogues and `464` center-`6` supply-extension attempts.
+Only one combined catalogue is initially compatible, and it still has zero
+selected-row completions. This remains one bounded catalogue audit only, not
+support existence, genuine rich-class order, row forcing, `n=9`, or the
+bridge. See `docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md`.
 
 A source-`81` row-`8` singleton-support audit now probes the other
 relation-sufficient target in source `81`. It enumerates the nine center-`8`

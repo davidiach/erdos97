@@ -763,6 +763,16 @@ genuine rich-class/minimality bridge. See
 `docs/bootstrap-t12-81-3-chain-closure-csp.md`,
 `scripts/check_bootstrap_t12_81_3_chain_closure_csp.py`, and
 `data/certificates/bootstrap_t12_81_3_chain_closure_csp.json`.
+A one-layer repeated-support audit then attaches one disjoint same-center
+support to each already activated prefix center in those four stored
+prefixes. The five repeated-support catalogues produce `464` center-`6`
+supply-extension attempts; only one is initially compatible, and it still has
+zero selected-row completions. This closes only that one repeated-support
+layer, not arbitrary multiple-support catalogues or a rich-class/minimality
+bridge. See
+`docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md`,
+`scripts/check_bootstrap_t12_81_3_repeated_support_catalogue_audit.py`, and
+`data/certificates/bootstrap_t12_81_3_repeated_support_catalogue_audit.json`.
 
 The source-`81` row-`8` singleton-support audit probes the other
 relation-sufficient source-`81` row. Center `8` has bootstrap-core witnesses
