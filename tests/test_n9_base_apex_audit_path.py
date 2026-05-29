@@ -157,3 +157,25 @@ def test_base_apex_audit_path_checker_cli_json() -> None:
     assert all(check["ok"] is True for check in payload["handoff_checks"])
     assert payload["base_apex"]["d3_common_dihedral_pair_class_count"] == 18088
     assert payload["selected_baseline_d3"]["assignment_count"] == 184
+
+
+def test_base_apex_audit_path_checker_cli_summary_json() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_base_apex_audit_path.py",
+            "--check",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 0
+    assert result.stderr == ""
+    payload = json.loads(result.stdout)
+    assert payload["ok"] is True
+    assert [check["name"] for check in payload["handoff_checks"]] == EXPECTED_HANDOFF_NAMES
+    assert payload["claim_scope"] == EXPECTED_CLAIM_SCOPE

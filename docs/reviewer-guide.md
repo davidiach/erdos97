@@ -301,7 +301,7 @@ Primary references:
 Run:
 
 ```bash
-python scripts/check_n9_base_apex_audit_path.py --check --json
+python scripts/check_n9_base_apex_audit_path.py --check --summary-json
 ```
 
 Check:
