@@ -2209,7 +2209,8 @@ checker reports status `REVIEW_PENDING_PACKET_AUDIT`, trust
 cross-artifact packet/replay bookkeeping only. It does not prove simple-replay
 soundness, packet soundness, local-lemma completeness, frontier coverage,
 `n=9`, a counterexample, or any official/global status update. Check it with
-`python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --summary-json`.
+Use `--json` instead when the full family crosswalk records are needed.
 
 ### n=9 vertex-circle exhaustive/local-lemma crosswalk
 

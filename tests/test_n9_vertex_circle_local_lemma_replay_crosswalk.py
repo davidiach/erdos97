@@ -14,6 +14,7 @@ from scripts.check_n9_vertex_circle_local_lemma_replay_crosswalk import (
     assert_expected_replay_crosswalk,
     crosswalk_payload,
     load_artifact,
+    summary_json_payload,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -155,3 +156,40 @@ def test_replay_crosswalk_cli_json() -> None:
     assert parsed["validation_status"] == "passed"
     assert parsed["coverage_summary"]["matched_assignment_count"] == 184
     assert parsed["focused_crosscheck_summary"]["focused_family_count"] == 16
+
+
+def test_replay_crosswalk_summary_json_payload(
+    aggregate: dict[str, object],
+    simple_replay: dict[str, object],
+) -> None:
+    payload = crosswalk_payload(aggregate, simple_replay)
+    summary = summary_json_payload(payload)
+
+    assert "family_crosswalk" not in summary
+    assert summary["schema"] == payload["schema"]
+    assert summary["claim_scope"] == payload["claim_scope"]
+    assert summary["coverage_summary"]["matched_assignment_count"] == 184
+    assert summary["focused_crosscheck_summary"]["focused_family_count"] == 16
+    assert summary["validation_status"] == "passed"
+
+
+def test_replay_crosswalk_cli_summary_json(
+    aggregate: dict[str, object],
+    simple_replay: dict[str, object],
+) -> None:
+    payload = crosswalk_payload(aggregate, simple_replay)
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert json.loads(result.stdout) == summary_json_payload(payload)

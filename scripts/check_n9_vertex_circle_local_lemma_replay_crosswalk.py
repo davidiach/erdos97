@@ -45,6 +45,21 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "cyclic_order",
+    "source_artifacts",
+    "coverage_summary",
+    "focused_crosscheck_summary",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
 
 DEFAULT_AGGREGATE = (
     ROOT / "data" / "certificates" / "n9_vertex_circle_local_lemmas.json"
@@ -466,6 +481,12 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     ]
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view."""
+
+    return {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--aggregate", type=Path, default=DEFAULT_AGGREGATE)
@@ -476,7 +497,13 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="Assert the expected cross-artifact replay counts.",
     )
-    parser.add_argument("--json", action="store_true", help="Emit JSON payload.")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="Emit JSON payload.")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="Emit compact reviewer-facing JSON summary.",
+    )
     args = parser.parse_args(argv)
 
     aggregate_path = _resolve(args.aggregate)
@@ -508,7 +535,9 @@ def main(argv: list[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_replay_crosswalk(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle local-lemma replay crosswalk")

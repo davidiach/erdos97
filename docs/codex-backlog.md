@@ -40,9 +40,10 @@ Use this queue when no more specific issue is selected.
    reviewer-facing input for the aggregate local-template coverage. The replay
    checks the packet JSON without sharing the main quotient-replay helper, but
    it is still a packet audit rather than an `n=9` proof. The crosswalk command
-   `python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --summary-json`
    compares that simple replay with the aggregate local-lemma scan
-   family-by-family. The follow-up crosswalk
+   family-by-family; use `--json` when the full family crosswalk records are
+   needed. The follow-up crosswalk
    `python scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json`
    connects the same local-lemma accounting back to the review-pending
    exhaustive count artifact and motif classification. The relation-skeleton

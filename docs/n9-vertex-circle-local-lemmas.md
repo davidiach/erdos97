@@ -598,8 +598,11 @@ families and 184 assignments, including the split into 13 self-edge families
 and 3 strict-cycle families:
 
 ```bash
-python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --summary-json
 ```
+
+Use `--json` instead of `--summary-json` when the full family crosswalk
+records are needed.
 
 This is reviewer-facing packet bookkeeping only. It says the quotient-helper
 aggregate scan and the simpler replay audit describe the same stored local
