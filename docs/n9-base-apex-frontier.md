@@ -105,8 +105,12 @@ python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --j
 python scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py --assert-expected --out data/certificates/n9_base_apex_d3_incidence_capacity_packet.json
 python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
 python scripts/check_n9_base_apex_d3_artifact_join.py --check --json
-python scripts/check_n9_base_apex_audit_path.py --check --json
+python scripts/check_n9_base_apex_audit_path.py --check --summary-json
 ```
+
+Use `--json` instead on the audit-path checker for legacy artifact-audit
+machine-readable output; it currently emits the same compact payload as
+`--summary-json`.
 
 The focused generated report
 `data/certificates/n9_base_apex_low_excess_ledgers.json` records the
