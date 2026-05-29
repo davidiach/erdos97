@@ -286,6 +286,36 @@ Check:
   bookkeeping, not as local-lemma completeness, brancher soundness, a proof of
   `n=9`, or an official/global status update.
 
+## Review target H - `n=9` base-apex audit path
+
+Primary references:
+
+- `docs/n9-base-apex-frontier.md`
+- `docs/n9-base-apex-d3-p19-degree-obstruction.md`
+- `docs/n9-base-apex-d3-p20-residue-obstruction.md`
+- `scripts/check_n9_base_apex_audit_path.py`
+
+Run:
+
+```bash
+python scripts/check_n9_base_apex_audit_path.py --check --json
+```
+
+Check:
+
+- that the low-excess ledger, escape budget, low-excess ladder, D=3 artifact
+  stack, selected-baseline D=3 crosswalk, and review-pending vertex-circle
+  frontier agree across the named handoff checks;
+- that the D=3 packet rows keep realizability and incidence states `UNKNOWN`,
+  and that selected-baseline landings are not treated as geometric
+  realizability counts;
+- that the P19 and P20 finite profile-capacity obstructions remain scoped to
+  their exact packet rows, not to all low-excess profiles or all `n=9`
+  selected-witness systems;
+- that the audit path is described only as finite bookkeeping over existing
+  artifacts, not as incidence completeness, geometric realizability,
+  a proof of `n=9`, a counterexample, or an official/global status update.
+
 ## Known weak points / independent review requests
 
 - Independent audit of `scripts/enumerate_n8_incidence.py`.
@@ -301,6 +331,9 @@ Check:
   soundness, mini-replay soundness, local-lemma completeness, strict-edge
   geometry, selected-distance quotient soundness, and brancher coverage before
   any `n=9` promotion.
+- Independent review of the `n=9` base-apex audit path should check the
+  low-excess ledger arithmetic, D=3 handoffs, selected-baseline crosswalk, and
+  vertex-circle frontier connection before using it as bridge evidence.
 - Independent reproduction of `certificates/n8_exact_analysis.json`.
 - A Lean, SMT, interval, or algebraic certificate checker would be high value.
 
