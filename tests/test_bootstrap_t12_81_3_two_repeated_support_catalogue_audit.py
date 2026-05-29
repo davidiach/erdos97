@@ -2,15 +2,25 @@ from __future__ import annotations
 
 import copy
 import json
+import subprocess
+import sys
+from pathlib import Path
 
 import pytest
 
+from scripts.check_bootstrap_t12_81_3_two_repeated_support_catalogue_audit import (
+    SUMMARY_KEYS,
+    summary_json_payload,
+)
 from erdos97.bootstrap_t12_81_3_two_repeated_support_catalogue_audit import (
     DEFAULT_ARTIFACT,
     SCAN_STATUS,
     assert_expected_payload,
     build_t12_81_3_two_repeated_support_catalogue_audit_payload,
 )
+
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 @pytest.fixture(scope="module")
@@ -82,3 +92,35 @@ def test_bootstrap_t12_81_3_two_repeated_support_rejects_drift(
 
     with pytest.raises(AssertionError, match="supply_extension_survivor_count"):
         assert_expected_payload(bad)
+
+
+def test_bootstrap_t12_81_3_two_repeated_support_summary_json_payload(
+    payload: dict[str, object],
+) -> None:
+    summary_payload = summary_json_payload(payload)
+
+    assert tuple(summary_payload) == SUMMARY_KEYS
+    assert summary_payload["summary"]["supply_extension_candidate_count"] == 118
+    assert "two_repeated_support_catalogue_scan" not in summary_payload
+    assert "supply_extension_scan" not in summary_payload
+
+
+def test_bootstrap_t12_81_3_two_repeated_support_cli_summary_json(
+    payload: dict[str, object],
+) -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_bootstrap_t12_81_3_two_repeated_support_catalogue_audit.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert result.stderr == ""
+    assert json.loads(result.stdout) == summary_json_payload(payload)

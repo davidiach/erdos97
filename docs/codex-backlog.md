@@ -394,11 +394,14 @@ Use this queue when no more specific issue is selected.
    `docs/bootstrap-t12-81-3-two-repeated-support-catalogue-audit.md` then
    deduplicates the next catalogue layer: the only unique two-support
    catalogue is initially incompatible, and all `118` center-`6`
-   supply-extension attempts remain initially incompatible. The next useful PR
-   must therefore handle still broader multiple supports or richer catalogues,
-   introduce a genuine rich-class/minimality hypothesis that forces or excludes
-   such supports, preserve enough activation provenance to identify the row, or
-   move to a different bridge target. The
+   supply-extension attempts remain initially incompatible. The command
+   `python scripts/check_bootstrap_t12_81_3_two_repeated_support_catalogue_audit.py --check --assert-expected --summary-json`
+   gives the compact reviewer-facing payload; use `--json` when the full
+   catalogue record and supply-extension scan details are needed. The next
+   useful PR must therefore handle still broader multiple supports or richer
+   catalogues, introduce a genuine rich-class/minimality hypothesis that forces
+   or excludes such supports, preserve enough activation provenance to identify
+   the row, or move to a different bridge target. The
    source-`81` row-`8` singleton-support audit in
    `docs/bootstrap-t12-81-8-singleton-support-audit.md` is one such adjacent
    target: it finds no non-original row-`8` activation survivor in the fixed
