@@ -2317,7 +2317,8 @@ closed-descent companion summary, and manifest contracts. This is a
 cross-artifact audit path only. It does not prove packet soundness,
 mini-replay soundness, local-lemma completeness, frontier coverage, `n=9`, a
 counterexample, or any official/global status update. Check it with
-`python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json`;
+use `--json` instead when the full layer and manifest records are needed.
 
 ### n=9 turn-inequality frontier replay
 

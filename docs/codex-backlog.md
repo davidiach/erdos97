@@ -58,13 +58,14 @@ Use this queue when no more specific issue is selected.
    compares the same 16 relation skeletons with the closed-descent packet,
    checking the one-class self-edge and multi-class strict-cycle region split.
    The local-lemma audit-path checker
-   `python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json`
    runs the focused packet/catalog, focused mini-replay,
    aggregate/simple-replay, exhaustive/local-lemma, and
    relation-skeleton/local-lemma handoffs as one review-pending audit path,
    with the relation-skeleton/closed-descent companion summary and explicit
    adjacent handoff checks that identify where any future count/schema drift
-   first appears.
+   first appears. Use `--json` instead when the full layer and manifest
+   records are needed.
    The focused mini-replay commands
    `python scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json`,
    `python scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json`,

@@ -115,11 +115,12 @@ families. Use `--json` instead when the full family crosswalk records are
 needed.
 
 The combined local-lemma audit-path command
-`scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json`
 checks the focused packet/catalog, focused mini-replay, aggregate/simple
 replay, exhaustive/local-lemma, and relation-skeleton/local-lemma handoffs as
 one review-pending diagnostic chain. It is still bookkeeping only, not packet
-soundness or an `n=9` proof.
+soundness or an `n=9` proof. Use `--json` instead when the full layer and
+manifest records are needed.
 
 The input-data audit command
 `scripts/check_n9_vertex_circle_input_audit.py` treats the checked-in

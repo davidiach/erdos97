@@ -1161,11 +1161,12 @@ The focused mini-replay crosswalk
 `scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --json`
 joins those same 12 focused packets to their packet-specific minimal
 input-data replay artifacts. The local-lemma audit path
-`scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json`
 runs the packet/catalog, focused mini-replay, aggregate/simple-replay,
 exhaustive/local-lemma, and relation-skeleton/local-lemma handoffs with
 adjacent drift localization, plus the relation-skeleton/closed-descent
-companion summary. These are review-pending handoff audits only, not packet
+companion summary. Use `--json` instead when the full layer and manifest
+records are needed. These are review-pending handoff audits only, not packet
 soundness, local-lemma completeness, frontier coverage, or a proof of `n=9`.
 The relation-skeleton/closed-descent crosswalk
 `scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --summary-json`
