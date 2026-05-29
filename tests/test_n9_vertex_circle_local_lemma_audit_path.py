@@ -26,11 +26,13 @@ from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     EXPECTED_LAYER_SOURCE_ARTIFACTS,
     EXPECTED_MANIFEST_CONTRACT_IDS,
     EXPECTED_SUMMARY_LINES,
+    SUMMARY_JSON_KEYS,
     assert_expected_failure_contract_errors,
     assert_expected_local_lemma_audit_path,
     failure_lines,
     local_lemma_audit_path_payload,
     main as audit_path_main,
+    summary_json_payload,
     summary_lines,
 )
 from scripts.check_n9_vertex_circle_focused_minireplay_crosswalk import (
@@ -2030,3 +2032,39 @@ def test_local_lemma_audit_path_cli_json() -> None:
     assert parsed["validation_status"] == "passed"
     assert parsed["coverage_summary"]["assignment_count"] == 184
     assert parsed["coverage_summary"]["relation_skeleton_count"] == 16
+
+
+def test_local_lemma_audit_path_summary_json_payload() -> None:
+    payload = local_lemma_audit_path_payload()
+    parsed = summary_json_payload(payload)
+
+    assert tuple(parsed) == SUMMARY_JSON_KEYS
+    assert parsed["validation_status"] == "passed"
+    assert parsed["coverage_summary"]["assignment_count"] == 184
+    assert parsed["audit_contract_summary"]["status"] == "passed"
+    assert parsed["manifest_contract_summary"]["status"] == "passed"
+    assert "audit_path" not in parsed
+    assert "input_manifest" not in parsed
+
+
+def test_local_lemma_audit_path_cli_summary_json() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_local_lemma_audit_path.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    parsed = json.loads(result.stdout)
+    assert result.stderr == ""
+    assert parsed["validation_status"] == "passed"
+    assert parsed["coverage_summary"]["assignment_count"] == 184
+    assert parsed["audit_contract_summary"]["status"] == "passed"
+    assert "audit_path" not in parsed
