@@ -414,9 +414,10 @@ handoffs rather than re-extracting T01 or T10.
   replay the aggregate local-template coverage from stored packet JSON without
   sharing the main quotient-replay helper;
 - use
-  `scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --json`
+  `scripts/check_n9_vertex_circle_local_lemma_replay_crosswalk.py --check --assert-expected --summary-json`
   to compare the aggregate local-lemma scan and simple replay
-  family-by-family;
+  family-by-family; use `--json` when the full family crosswalk records are
+  needed;
 - use
   `scripts/check_n9_vertex_circle_exhaustive_local_lemma_crosswalk.py --check --assert-expected --json`
   to compare the review-pending exhaustive counts, motif classification, and
