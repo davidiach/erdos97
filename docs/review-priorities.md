@@ -400,10 +400,10 @@ handoffs rather than re-extracting T01 or T10.
   self-edge and T10/T11/T12 strict-cycle integrations, keeping it scoped as proof-mining
   coverage of stored packets rather than an independent `n=9` proof;
 - use
-  `scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --json`
+  `scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --summary-json`
   to cross-check the 12 focused packet JSON files against the source template
   packets, template catalog, and aggregate focused-note ledger before reviewing
-  packet soundness;
+  packet soundness; use `--json` when the full packet records are needed;
 - use
   `scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --json`
   to join the same 12 focused packets to their packet-specific mini-replay

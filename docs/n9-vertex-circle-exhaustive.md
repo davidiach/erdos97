@@ -88,7 +88,7 @@ the full representatives and already force the same obstruction.
 lemma-candidate crosswalk for proof mining. All of these are review-pending
 diagnostics only, not independent proofs and not status promotions.
 The focused packet catalog audit
-`scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --summary-json`
 checks that the 12 focused packet JSON files, the source template packets, the
 template catalog, and the aggregate local-lemma focused-note ledger agree on
 packet coverage. This is bookkeeping only, not packet soundness or an `n=9`

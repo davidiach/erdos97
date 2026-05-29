@@ -16,6 +16,7 @@ from scripts.check_n9_vertex_circle_focused_packet_catalog_audit import (
     assert_expected_focused_packet_catalog_audit,
     focused_packet_catalog_audit_payload,
     load_json,
+    summary_json_payload,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -178,3 +179,35 @@ def test_focused_packet_catalog_audit_cli_json() -> None:
     assert parsed["validation_status"] == "passed"
     assert parsed["focused_packet_catalog_audit"]["covered_assignment_count"] == 184
     assert parsed["focused_packet_catalog_audit"]["focused_crosscheck_count"] == 12
+
+
+def test_focused_packet_catalog_audit_summary_json_payload() -> None:
+    payload = focused_packet_catalog_audit_payload()
+    summary = summary_json_payload(payload)
+
+    assert summary["schema"] == payload["schema"]
+    assert summary["claim_scope"] == payload["claim_scope"]
+    assert summary["validation_status"] == "passed"
+    assert summary["packet_artifacts"] == payload["packet_artifacts"]
+    assert summary["focused_packet_catalog_audit"]["covered_assignment_count"] == 184
+    assert summary["focused_packet_catalog_audit"]["focused_crosscheck_count"] == 12
+    assert "packet_records" not in summary["focused_packet_catalog_audit"]
+
+
+def test_focused_packet_catalog_audit_cli_summary_json() -> None:
+    payload = focused_packet_catalog_audit_payload()
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert json.loads(result.stdout) == summary_json_payload(payload)
