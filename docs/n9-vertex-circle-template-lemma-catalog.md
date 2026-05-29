@@ -65,11 +65,13 @@ python scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py \
 python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py \
   --check \
   --assert-expected \
-  --json
+  --summary-json
 ```
 
 Use `--json` instead of `--summary-json` for the focused packet/catalog audit
 when the full packet records are needed.
+Use `--json` instead of `--summary-json` for the focused mini-replay
+crosswalk when the full mini-replay records are needed.
 
 That audit is JSON bookkeeping only. It verifies agreement among checked-in
 packet, source-template, catalog, aggregate scan, and mini-replay records; it

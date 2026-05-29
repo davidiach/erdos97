@@ -2182,7 +2182,8 @@ mismatches. The self-edge compact path-length family histogram is `3: 9`,
 prove mini-replay soundness, packet soundness, local-lemma completeness,
 frontier coverage, `n=9`, a counterexample, or any official/global status
 update. Check it with
-`python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --summary-json`.
+Use `--json` instead when the full mini-replay records are needed.
 
 ### n=9 vertex-circle aggregate/simple replay crosswalk
 
