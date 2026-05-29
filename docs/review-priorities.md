@@ -429,7 +429,7 @@ handoffs rather than re-extracting T01 or T10.
   aggregate/simple-replay local-lemma family accounting; use `--json` when
   the full family crosswalk records are needed;
 - use
-  `scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --json`
+  `scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --summary-json`
   to compare those 16 relation skeletons with the closed-descent packet's
   one-class self-edge and multi-class strict-cycle regions;
 - use

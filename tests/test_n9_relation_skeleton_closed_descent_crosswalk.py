@@ -182,3 +182,100 @@ def test_relation_closed_descent_crosswalk_cli_json() -> None:
     payload = json.loads(result.stdout)
     assert payload["ok"] is True
     assert payload["family_count"] == 16
+
+
+@pytest.mark.exhaustive
+def test_relation_closed_descent_crosswalk_cli_summary_json() -> None:
+    json_result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    summary_result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert summary_result.returncode == 0
+    assert summary_result.stderr == ""
+    assert json.loads(summary_result.stdout) == json.loads(json_result.stdout)
+    assert "family_crosswalk" not in json.loads(summary_result.stdout)
+
+
+@pytest.mark.exhaustive
+def test_relation_closed_descent_crosswalk_cli_write_summary_json(
+    tmp_path: Path,
+) -> None:
+    out = tmp_path / "closed_descent_crosswalk.json"
+    json_result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py",
+            "--write",
+            "--out",
+            str(out),
+            "--assert-expected",
+            "--json",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    summary_result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py",
+            "--write",
+            "--out",
+            str(out),
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert json_result.returncode == 0
+    assert summary_result.returncode == 0
+    assert json_result.stderr == ""
+    assert summary_result.stderr == ""
+    assert json.loads(summary_result.stdout) == json.loads(json_result.stdout)
+    assert load_artifact(out)["family_count"] == 16
+
+
+def test_relation_closed_descent_crosswalk_cli_rejects_json_alias_collision() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py",
+            "--json",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 2
+    assert "not allowed with argument" in result.stderr

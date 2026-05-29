@@ -1168,7 +1168,7 @@ adjacent drift localization, plus the relation-skeleton/closed-descent
 companion summary. These are review-pending handoff audits only, not packet
 soundness, local-lemma completeness, frontier coverage, or a proof of `n=9`.
 The relation-skeleton/closed-descent crosswalk
-`scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --json`
+`scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --summary-json`
 checks the same 16 families against the closed-descent packet, matching
 self-edge skeletons to one-class regions and strict-cycle skeletons to
 multi-class regions. It is packet bookkeeping only.

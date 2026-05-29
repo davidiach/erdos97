@@ -229,14 +229,17 @@ Cross-check the same catalog against the closed-descent reformulation of the
 stored local-core quotient obstructions:
 
 ```bash
-python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --json
+python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --summary-json
 ```
 
-This crosswalk is an accounting audit. It checks that the 16 relation
-skeletons and the local-lemma replay chain agree family by family on template
-ids, family ids, obstruction kind, and assignment counts. It does not certify
-that the local-lemma packets are complete for `n=9`, and it does not review the
-exhaustive brancher.
+The legacy `--json` flag emits the same compact checker summary; the checked
+artifact contains the full family crosswalk records.
+
+The relation-skeleton/local-lemma crosswalk above is an accounting audit. It
+checks that the 16 relation skeletons and the local-lemma replay chain agree
+family by family on template ids, family ids, obstruction kind, and assignment
+counts. It does not certify that the local-lemma packets are complete for
+`n=9`, and it does not review the exhaustive brancher.
 
 The closed-descent crosswalk is another accounting audit. It checks that the 13
 strict self-edge skeletons map to one-class descent regions and that the 3

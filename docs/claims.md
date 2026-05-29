@@ -2280,14 +2280,17 @@ same `16` stored families through two reviewer-facing representations: the
 relation-skeleton selected-distance quotient records and the closed-descent
 finite-region packet.
 
-When run with `--check --assert-expected --json`, the crosswalk matches all
-`184` assignment/orbit records. The `13` strict self-edge skeletons map to
-one-class closed-descent regions, and the `3` strict directed-cycle skeletons
-map to multi-class regions with class/cycle-length counts `2:1` and `3:2`.
-This is cross-artifact packet bookkeeping only. It does not prove
+When run with `--check --assert-expected --summary-json`, the crosswalk
+matches all `184` assignment/orbit records. The `13` strict self-edge
+skeletons map to one-class closed-descent regions, and the `3` strict
+directed-cycle skeletons map to multi-class regions with class/cycle-length
+counts `2:1` and `3:2`. This is cross-artifact packet bookkeeping only. It
+does not prove
 local-lemma completeness, brancher coverage, `n=9`, a bridge proof, a
 counterexample, or any official/global status update. Check it with
-`python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --json`.
+`python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --summary-json`.
+The legacy `--json` flag emits the same compact checker summary; the checked
+artifact contains the full family crosswalk records.
 
 ### n=9 vertex-circle local-lemma audit path
 

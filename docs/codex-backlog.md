@@ -54,7 +54,7 @@ Use this queue when no more specific issue is selected.
    aggregate/simple-replay family accounting. Use `--json` instead when the
    full family crosswalk records are needed.
    The relation-skeleton/closed-descent crosswalk
-   `python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --json`
+   `python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --summary-json`
    compares the same 16 relation skeletons with the closed-descent packet,
    checking the one-class self-edge and multi-class strict-cycle region split.
    The local-lemma audit-path checker
