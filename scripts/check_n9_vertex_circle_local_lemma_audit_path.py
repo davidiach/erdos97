@@ -496,6 +496,28 @@ EXPECTED_SUMMARY_LINES = [
     "self-edge: 13 families, 158 assignments",
     "strict-cycle: 3 families, 26 assignments",
 ]
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "row_size",
+    "provenance",
+    "validation_status",
+    "validation_errors",
+    "coverage_summary",
+    "layer_summaries",
+    "handoff_checks",
+    "closed_descent_companion",
+    "manifest_contract_summary",
+    "audit_contract_summary",
+)
+OPTIONAL_SUMMARY_JSON_KEYS = (
+    "failure_stage",
+    "exception_type",
+    "assert_expected_failure",
+)
 
 AssertFn = Callable[[Mapping[str, Any]], None]
 
@@ -3851,11 +3873,43 @@ def _payload_with_assert_expected_failure(
     return updated
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view."""
+
+    audit_path = payload.get("audit_path")
+    summary: dict[str, Any] = {}
+    for key in SUMMARY_JSON_KEYS:
+        if (
+            key == "layer_summaries"
+            and isinstance(audit_path, Mapping)
+            and "layers" in audit_path
+        ):
+            summary[key] = audit_path["layers"]
+        elif (
+            key == "handoff_checks"
+            and isinstance(audit_path, Mapping)
+            and "handoff_checks" in audit_path
+        ):
+            summary[key] = audit_path["handoff_checks"]
+        elif key in payload:
+            summary[key] = payload[key]
+    for key in OPTIONAL_SUMMARY_JSON_KEYS:
+        if key in payload:
+            summary[key] = payload[key]
+    return summary
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="validate the audit path")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="Emit JSON payload.")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="Emit JSON payload.")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="Emit compact reviewer-facing JSON summary.",
+    )
     args = parser.parse_args(argv)
 
     try:
@@ -3872,7 +3926,15 @@ def main(argv: list[str] | None = None) -> int:
             payload = _payload_with_assert_expected_failure(payload, exc)
     payload = _payload_with_existing_assert_expected_failure_contract_check(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(
+            json.dumps(
+                _json_safe_for_output(summary_json_payload(payload)),
+                indent=2,
+                sort_keys=True,
+            )
+        )
+    elif args.json:
         print(json.dumps(_json_safe_for_output(payload), indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle local-lemma audit path")

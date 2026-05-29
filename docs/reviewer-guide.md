@@ -270,8 +270,11 @@ Primary references:
 Run:
 
 ```bash
-python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json
 ```
+
+Use `--json` instead of `--summary-json` when the full layer and manifest
+records are needed for audit.
 
 Check:
 
