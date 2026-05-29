@@ -2255,7 +2255,8 @@ source packet paths, equality-chain counts, strict-edge counts, and simple
 replay step counts. This is cross-artifact bookkeeping only. It does not prove
 relation-skeleton soundness, local-lemma completeness, frontier coverage,
 `n=9`, a counterexample, or any official/global status update. Check it with
-`python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json`.
+`python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --summary-json`.
+Use `--json` instead when the full family crosswalk records are needed.
 
 ### n=9 relation-skeleton/closed-descent crosswalk
 

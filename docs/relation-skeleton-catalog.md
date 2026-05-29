@@ -219,8 +219,11 @@ Cross-check the catalog against the aggregate local-lemma scan and the simple
 packet replay:
 
 ```bash
-python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json
+python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --summary-json
 ```
+
+Use `--json` instead of `--summary-json` when the full family crosswalk
+records are needed.
 
 Cross-check the same catalog against the closed-descent reformulation of the
 stored local-core quotient obstructions:
