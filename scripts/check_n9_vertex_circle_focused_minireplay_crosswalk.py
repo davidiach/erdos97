@@ -77,6 +77,20 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "row_size",
+    "focused_minireplay_crosswalk",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
+SUMMARY_CROSSWALK_OMIT_KEYS = {"records"}
 
 EXPECTED_STATUS_COUNTS = {"self_edge": 9, "strict_cycle": 3}
 EXPECTED_STATUS_ASSIGNMENT_COUNTS = {"self_edge": 158, "strict_cycle": 26}
@@ -507,11 +521,31 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     ]
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view."""
+
+    summary = {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+    crosswalk = summary.get("focused_minireplay_crosswalk")
+    if isinstance(crosswalk, Mapping):
+        summary["focused_minireplay_crosswalk"] = {
+            key: value
+            for key, value in crosswalk.items()
+            if key not in SUMMARY_CROSSWALK_OMIT_KEYS
+        }
+    return summary
+
+
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="validate the crosswalk")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON summary",
+    )
     return parser.parse_args(argv)
 
 
@@ -533,7 +567,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_focused_minireplay_crosswalk(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 focused mini-replay crosswalk")

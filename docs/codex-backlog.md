@@ -31,10 +31,10 @@ Use this queue when no more specific issue is selected.
    source catalog records, and aggregate focused-note crosschecks agree before
    packet soundness review; use `--json` when the full packet records are
    needed. The focused mini-replay crosswalk
-   `python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --summary-json`
    joins those same 12 focused packets to their packet-specific mini-replay
    artifacts without promoting the layer to packet soundness or local-lemma
-   completeness.
+   completeness; use `--json` when the full mini-replay records are needed.
 2. Use the stored simple replay artifact
    `data/certificates/n9_vertex_circle_local_lemma_simple_replay.json` as a
    reviewer-facing input for the aggregate local-template coverage. The replay

@@ -611,8 +611,11 @@ mini-replays agree with their source focused packets on identity, source
 schema, family coverage, obstruction flags, and compact local shape counts:
 
 ```bash
-python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --summary-json
 ```
+
+Use `--json` instead of `--summary-json` when the full mini-replay records
+are needed.
 
 The related exhaustive/local-lemma crosswalk checks the upstream count chain
 from the review-pending exhaustive artifact through the motif classification

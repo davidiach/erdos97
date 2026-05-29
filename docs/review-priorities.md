@@ -405,10 +405,11 @@ handoffs rather than re-extracting T01 or T10.
   packets, template catalog, and aggregate focused-note ledger before reviewing
   packet soundness; use `--json` when the full packet records are needed;
 - use
-  `scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --json`
+  `scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --summary-json`
   to join the same 12 focused packets to their packet-specific mini-replay
   artifacts, checking identity, source schemas, families, obstruction flags,
-  and compact shape counts only;
+  and compact shape counts only; use `--json` when the full mini-replay
+  records are needed;
 - use `data/certificates/n9_vertex_circle_local_lemma_simple_replay.json` to
   replay the aggregate local-template coverage from stored packet JSON without
   sharing the main quotient-replay helper;
