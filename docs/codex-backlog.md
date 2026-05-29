@@ -46,9 +46,10 @@ Use this queue when no more specific issue is selected.
    connects the same local-lemma accounting back to the review-pending
    exhaustive count artifact and motif classification. The relation-skeleton
    crosswalk
-   `python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json`
+   `python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --summary-json`
    connects the compact 16-skeleton proof-mining catalog to the same
-   aggregate/simple-replay family accounting.
+   aggregate/simple-replay family accounting. Use `--json` instead when the
+   full family crosswalk records are needed.
    The relation-skeleton/closed-descent crosswalk
    `python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --json`
    compares the same 16 relation skeletons with the closed-descent packet,

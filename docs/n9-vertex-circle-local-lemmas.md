@@ -630,8 +630,11 @@ proof-mining view: it joins the 16-entry relation-skeleton catalog to the same
 aggregate/simple-replay family accounting:
 
 ```bash
-python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json
+python scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --summary-json
 ```
+
+Use `--json` instead of `--summary-json` when the full family crosswalk
+records are needed.
 
 This verifies that the compact quotient-relation skeletons agree with the
 stored local-lemma layer on template ids, family ids, obstruction kind, and

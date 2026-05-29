@@ -421,9 +421,10 @@ handoffs rather than re-extracting T01 or T10.
   to compare the review-pending exhaustive counts, motif classification, and
   local-lemma replay chain without rerunning the brancher;
 - use
-  `scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --json`
+  `scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --summary-json`
   to compare the 16-entry relation-skeleton catalog with the same
-  aggregate/simple-replay local-lemma family accounting;
+  aggregate/simple-replay local-lemma family accounting; use `--json` when
+  the full family crosswalk records are needed;
 - use
   `scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --json`
   to compare those 16 relation skeletons with the closed-descent packet's
