@@ -645,9 +645,10 @@ candidate repo-local finite-case extension only; it does not change the
 official/global falsifiable/open status, and it is not promoted beyond the
 current `n <= 8` source-of-truth result until independent review.
 The companion input-data audit
-`scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json`
 checks the stored row0 witness coverage and summary arithmetic without
-rerunning the brancher. It is a review aid only, not an `n=9` proof.
+rerunning the brancher. Use `--json` instead when the full expected-count
+block is needed. It is a review aid only, not an `n=9` proof.
 The turn-inequality frontier replay
 `scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json`
 checks stored integer dual certificates for the candidate weak turn system on

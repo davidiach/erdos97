@@ -127,14 +127,15 @@ The input-data audit command
 exhaustive JSON as stored data:
 
 ```bash
-python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json
 ```
 
 It recomputes the row-0 choices directly as the 70 lexicographic 4-subsets of
 labels `1..8`, checks the stored witness lists and masks, and verifies the
 summary count arithmetic and no-overclaiming scope. It does not rerun the
 brancher, replay vertex-circle certificates, prove `n=9`, or complete the
-independent review.
+independent review. Use `--json` instead when the full expected-count block is
+needed.
 
 The incidence-filter audit command checks the row-level two-overlap crossing,
 witness-pair cap, and selected-indegree cap tables:

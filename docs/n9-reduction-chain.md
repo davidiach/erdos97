@@ -111,7 +111,7 @@ For the vertex-circle route:
 
 ```bash
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
-python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json
 python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json
 python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
