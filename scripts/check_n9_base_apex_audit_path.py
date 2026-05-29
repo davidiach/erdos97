@@ -1073,7 +1073,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
             help=f"Path to {key}.",
         )
     parser.add_argument("--check", action="store_true", help="fail if validation fails")
-    parser.add_argument("--json", action="store_true", help="print stable JSON")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="print stable JSON")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="print stable compact reviewer-facing JSON",
+    )
     return parser.parse_args(argv)
 
 
@@ -1089,7 +1095,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         errors = validate_audit_path(artifacts)
     summary = summary_payload(ROOT, paths, artifacts, errors)
 
-    if args.json:
+    if args.json or args.summary_json:
         print(json.dumps(summary, indent=2, sort_keys=True))
     elif errors:
         print("FAILED: n=9 base-apex audit path", file=sys.stderr)

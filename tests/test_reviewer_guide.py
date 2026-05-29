@@ -19,7 +19,10 @@ def test_reviewer_guide_base_apex_target_points_to_audit_path() -> None:
 
     assert "docs/n9-base-apex-frontier.md" in section
     assert "scripts/check_n9_base_apex_audit_path.py" in section
-    assert "python scripts/check_n9_base_apex_audit_path.py --check --json" in section
+    assert (
+        "python scripts/check_n9_base_apex_audit_path.py --check --summary-json"
+        in section
+    )
     assert "low-excess ledger" in section
     assert "selected-baseline D=3 crosswalk" in section
 
