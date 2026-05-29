@@ -746,16 +746,17 @@ full motif representatives and already force the same obstruction status by
 direct quotient replay. It is compact-core bookkeeping only, not local-lemma
 completeness or a proof of `n=9`.
 The focused packet catalog audit
-`scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --summary-json`
 checks that the 12 focused local-lemma packets, source template packet records,
 template catalog records, and aggregate focused-note crosschecks agree on the
-same `184` assignments and 16 families. It is packet/catalog bookkeeping only,
-not packet soundness, local-lemma completeness, frontier coverage, or a proof
-of `n=9`.
+same `184` assignments and 16 families. Use `--json` instead when the full
+packet records are needed. It is packet/catalog bookkeeping only, not packet
+soundness, local-lemma completeness, frontier coverage, or a proof of `n=9`.
 The focused mini-replay crosswalk
-`scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --summary-json`
 joins those same 12 focused packets to their packet-specific minimal
-input-data replay artifacts. The local-lemma audit path
+input-data replay artifacts. Use `--json` instead when the full mini-replay
+records are needed. The local-lemma audit path
 `scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json`
 runs the packet/catalog, focused mini-replay, aggregate/simple-replay,
 exhaustive/local-lemma, and relation-skeleton/local-lemma handoffs with
