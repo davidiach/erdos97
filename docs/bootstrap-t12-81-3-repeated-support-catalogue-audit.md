@@ -34,8 +34,11 @@ witness-pair, crossing, and same-center disjointness filters as the earlier
 Run:
 
 ```bash
-python scripts/check_bootstrap_t12_81_3_repeated_support_catalogue_audit.py --assert-expected --json
+python scripts/check_bootstrap_t12_81_3_repeated_support_catalogue_audit.py --check --assert-expected --summary-json
 ```
+
+Use `--json` instead of `--summary-json` when the full per-catalogue records
+are needed for audit.
 
 ## Result
 
