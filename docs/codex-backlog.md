@@ -26,10 +26,11 @@ Use this queue when no more specific issue is selected.
    focused T01/T02/T03/T04/T05/T06/T07/T08/T09 self-edge packets and the focused T10/T11/T12
    strict-cycle packets, keeping it scoped as proof-mining scaffolding rather
    than an `n=9` proof. The focused packet catalog audit command
-   `python scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --summary-json`
    now checks that the focused packet coverage, source template records,
    source catalog records, and aggregate focused-note crosschecks agree before
-   packet soundness review. The focused mini-replay crosswalk
+   packet soundness review; use `--json` when the full packet records are
+   needed. The focused mini-replay crosswalk
    `python scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --json`
    joins those same 12 focused packets to their packet-specific mini-replay
    artifacts without promoting the layer to packet soundness or local-lemma

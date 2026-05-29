@@ -62,6 +62,22 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "row_size",
+    "focused_packet_catalog_audit",
+    "source_artifacts",
+    "packet_artifacts",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
+SUMMARY_AUDIT_OMIT_KEYS = {"packet_records"}
 
 EXPECTED_TEMPLATE_IDS = [f"T{index:02d}" for index in range(1, 13)]
 EXPECTED_STATUS_COUNTS = {"self_edge": 9, "strict_cycle": 3}
@@ -622,13 +638,33 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     ]
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view."""
+
+    summary = {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+    audit = summary.get("focused_packet_catalog_audit")
+    if isinstance(audit, Mapping):
+        summary["focused_packet_catalog_audit"] = {
+            key: value
+            for key, value in audit.items()
+            if key not in SUMMARY_AUDIT_OMIT_KEYS
+        }
+    return summary
+
+
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--template-catalog", type=Path, default=DEFAULT_TEMPLATE_CATALOG)
     parser.add_argument("--local-lemmas", type=Path, default=DEFAULT_LOCAL_LEMMAS)
     parser.add_argument("--check", action="store_true", help="validate the audit")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON summary",
+    )
     return parser.parse_args(argv)
 
 
@@ -653,7 +689,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_focused_packet_catalog_audit(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 focused packet/catalog audit")
