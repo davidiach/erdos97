@@ -153,7 +153,7 @@ The branch-option audit command checks the branch helper against a direct
 implementation on fixed-order no-vertex-circle search states:
 
 ```bash
-python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json
 ```
 
 It walks 520,598 nonterminal option contexts, compares
@@ -161,7 +161,8 @@ It walks 520,598 nonterminal option contexts, compares
 capacity, and selected-indegree predicates, and also compares maintained count
 arrays with direct recomputation. This is branch-option implementation
 diagnostics only, not dynamic-MRO branch coverage, strict-edge geometry,
-quotient soundness, or a completed `n=9` review.
+quotient soundness, or a completed `n=9` review. Use `--json` instead when
+mismatch examples are needed.
 
 The dynamic-MRO choice audit command checks the actual dynamic branch choice:
 

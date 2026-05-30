@@ -715,11 +715,12 @@ coverage, row-pair intersection/crossing, witness-pair capacity, and
 selected-indegree capacity. It is stored-frontier diagnostics only, not
 frontier coverage or brancher soundness.
 The branch-option audit
-`scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json`
 walks the fixed-order no-vertex-circle search states and compares
 `valid_options_for_center` plus maintained count arrays against a direct
 implementation. It is a branch-option implementation audit only, not
-dynamic-MRO coverage or vertex-circle geometry review. The dynamic-MRO choice
+dynamic-MRO coverage or vertex-circle geometry review. Use `--json` instead
+when mismatch examples are needed. The dynamic-MRO choice
 audit
 `scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json`
 replays the actual minimum-remaining-options center choice with and without

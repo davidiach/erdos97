@@ -165,14 +165,14 @@ when the full histogram blocks are needed.
 Current branch-option audit:
 
 ```bash
-python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json
 ```
 
 This command walks the no-vertex-circle fixed-order search states and compares
 the helper `valid_options_for_center` predicate and maintained count arrays
 against a direct implementation. It does not prove dynamic-MRO branch coverage,
 strict-edge geometry, selected-distance quotient soundness, `n=9`, or complete
-review.
+review. Use `--json` instead when mismatch examples are needed.
 
 Current dynamic-MRO choice audit:
 

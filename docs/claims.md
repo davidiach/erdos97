@@ -2011,7 +2011,8 @@ assignment identities against the stored frontier artifact. It does not prove
 dynamic-MRO branch coverage, strict-edge geometry, selected-distance quotient
 soundness, `n=9`, a counterexample, or any official/global status update. Check
 it with
-`python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json`.
+Use `--json` instead when mismatch examples are needed.
 
 ### n=9 vertex-circle dynamic-MRO choice audit
 

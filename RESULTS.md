@@ -1126,10 +1126,11 @@ checks the stored 184 frontier assignments directly. It records zero row-shape,
 center-coverage, crossing, witness-pair-cap, and selected-indegree-cap errors;
 this is stored-frontier diagnostics only.
 The branch-option audit
-`scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json`
 checks 520,598 no-vertex-circle fixed-order option contexts and finds zero
 helper/direct option mismatches and zero maintained-count mismatches. This is
-branch-option implementation diagnostics only. The dynamic-MRO choice audit
+branch-option implementation diagnostics only; use `--json` when mismatch
+examples are needed. The dynamic-MRO choice audit
 `scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json`
 checks the actual minimum-remaining-options center choice on both dynamic
 searches. It recomputes all unassigned-center option lists at every reached

@@ -1,5 +1,10 @@
 from __future__ import annotations
 
+import json
+import subprocess
+import sys
+from pathlib import Path
+
 import pytest
 
 from scripts.check_n9_vertex_circle_branch_options import (
@@ -10,9 +15,12 @@ from scripts.check_n9_vertex_circle_branch_options import (
     EXPECTED_OPTION_CONTEXTS,
     assert_expected_branch_option_payload,
     branch_option_payload,
+    summary_json_payload,
 )
 
 pytestmark = pytest.mark.slow
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 @pytest.fixture(scope="module")
@@ -43,3 +51,36 @@ def test_branch_option_rejects_top_level_claim_scope_append(
 
     with pytest.raises(AssertionError, match="claim_scope mismatch"):
         assert_expected_branch_option_payload(tampered)
+
+
+def test_branch_option_summary_json_payload(payload: dict[str, object]) -> None:
+    summary = summary_json_payload(payload)
+
+    assert "branch_option_audit" not in summary
+    assert summary["schema"] == payload["schema"]
+    assert summary["claim_scope"] == payload["claim_scope"]
+    audit = summary["branch_option_audit_summary"]
+    assert audit["nodes_visited"] == EXPECTED_NODES_VISITED
+    assert audit["option_contexts"] == EXPECTED_OPTION_CONTEXTS
+    assert audit["option_mismatches"] == 0
+    assert audit["count_array_mismatches"] == 0
+    assert "example_mismatches" not in audit
+    assert summary["validation_status"] == "passed"
+
+
+def test_branch_option_cli_summary_json(payload: dict[str, object]) -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_branch_options.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert json.loads(result.stdout) == summary_json_payload(payload)
