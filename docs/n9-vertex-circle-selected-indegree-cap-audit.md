@@ -110,11 +110,12 @@ The audit is now replayable together with the other row-level incidence
 filters:
 
 ```bash
-python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json
 ```
 
 The command recomputes the selected-indegree formula, local cap predicate,
 update roundtrip, and label frequency histogram from the stored checker tables.
+Use `--json` instead when the full histogram blocks are needed.
 The transcript below records the historical one-off counts now stabilized by
 that command.
 

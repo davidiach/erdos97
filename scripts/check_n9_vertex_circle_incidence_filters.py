@@ -36,6 +36,43 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "row_size",
+    "pair_cap",
+    "max_indegree",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
+TWO_OVERLAP_SUMMARY_KEYS = (
+    "chord_cross_equivalence_mismatches",
+    "compatibility_errors",
+    "two_overlap_crossing_accepted",
+    "two_overlap_noncrossing_rejected",
+)
+WITNESS_PAIR_CAP_SUMMARY_KEYS = (
+    "unique_row_masks",
+    "row_pair_index_mismatches",
+    "rows_with_non_six_pair_indices",
+    "local_cap_profiles_tested",
+    "local_cap_predicate_mismatches",
+    "increment_decrement_roundtrip_errors",
+)
+SELECTED_INDEGREE_CAP_SUMMARY_KEYS = (
+    "max_indegree_formula",
+    "checker_max_indegree",
+    "unique_row_masks",
+    "row_mask_shape_errors",
+    "local_column_profiles_tested",
+    "local_column_predicate_mismatches",
+    "increment_decrement_roundtrip_errors",
+)
 
 EXPECTED_TWO_OVERLAP = {
     "chord_cross_equivalence_mismatches": 0,
@@ -267,6 +304,34 @@ def assert_expected_incidence_filters(payload: Mapping[str, Any]) -> None:
     _assert_section("selected_indegree_cap", payload, EXPECTED_SELECTED_INDEGREE)
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view without histograms."""
+
+    summary = {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+    section_specs = (
+        (
+            "two_overlap_crossing",
+            "two_overlap_crossing_summary",
+            TWO_OVERLAP_SUMMARY_KEYS,
+        ),
+        (
+            "witness_pair_cap",
+            "witness_pair_cap_summary",
+            WITNESS_PAIR_CAP_SUMMARY_KEYS,
+        ),
+        (
+            "selected_indegree_cap",
+            "selected_indegree_cap_summary",
+            SELECTED_INDEGREE_CAP_SUMMARY_KEYS,
+        ),
+    )
+    for section_key, summary_key, keys in section_specs:
+        section = payload.get(section_key)
+        if isinstance(section, Mapping):
+            summary[summary_key] = {key: section[key] for key in keys if key in section}
+    return summary
+
+
 def _direct_row_pair_indices(row_mask: int) -> list[int]:
     return [
         n9.PAIR_INDEX[n9.pair(a, b)]
@@ -333,7 +398,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="validate the audit")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON without histogram blocks",
+    )
     return parser.parse_args(argv)
 
 
@@ -344,7 +415,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_incidence_filters(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle incidence filter audits")

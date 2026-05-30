@@ -79,13 +79,14 @@ The audit is now replayable together with the other row-level incidence
 filters:
 
 ```bash
-python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json
 ```
 
 The command recomputes the two-overlap crossing table for every pair of
 centers and every pair of selected-row masks, then compares it with the
-checker compatibility table. The transcript below records the historical
-one-off counts now stabilized by that command.
+checker compatibility table. Use `--json` instead when the full histogram
+blocks are needed. The transcript below records the historical one-off counts
+now stabilized by that command.
 
 A one-off predicate audit compared the checker with the shared
 `incidence_filters.chords_cross_in_order` implementation on all nonagon chord
