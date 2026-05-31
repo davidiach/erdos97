@@ -119,17 +119,20 @@ Use this queue when no more specific issue is selected.
    selected-indegree cap tables; use `--json` when the full histogram blocks
    are needed.
    The branch-option audit
-   `python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json`
    checks fixed-order no-vertex-circle helper options and maintained count
-   arrays against a direct predicate implementation.
+   arrays against a direct predicate implementation; use `--json` when the
+   full mismatch example block is needed.
    The dynamic-MRO choice audit
-   `python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --summary-json`
    checks the actual minimum-remaining-options center choice against direct
-   all-center option counts and first-minimum tie breaking.
+   all-center option counts and first-minimum tie breaking; use `--json` when
+   the full depth and tie histograms are needed.
    The frontier-coverage crosswalk
-   `python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --summary-json`
    compares regenerated dynamic no-vertex complete assignments with the
-   stored frontier classification artifact.
+   stored frontier classification artifact; use `--json` when the full
+   mismatch example block is needed.
    The dihedral-orbit audit
    `python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`
    independently checks the stored 16 motif representatives, their labelled
@@ -498,20 +501,23 @@ Use this queue when no more specific issue is selected.
    separate review scopes. Use `--json` when the full histogram blocks are
    needed.
    The branch-option command,
-   `python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`,
+   `python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json`,
    covers only fixed-order no-vertex-circle helper-option agreement and
    maintained count arrays; dynamic-MRO coverage and vertex-circle pruning
-   remain separate review scopes.
+   remain separate review scopes. Use `--json` when the full mismatch example
+   block is needed.
    The dynamic-MRO choice command,
-   `python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json`,
+   `python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --summary-json`,
    covers only the actual dynamic center-choice implementation and all-center
    option-count agreement; filter soundness, vertex-circle geometry, and
-   quotient soundness remain separate review scopes.
+   quotient soundness remain separate review scopes. Use `--json` when the full
+   depth and tie histograms are needed.
    The frontier-coverage crosswalk command,
-   `python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json`,
+   `python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --summary-json`,
    covers only generated-vs-stored frontier row agreement for the current
    dynamic brancher; filter soundness, vertex-circle geometry, and quotient
-   soundness remain separate review scopes.
+   soundness remain separate review scopes. Use `--json` when the full
+   mismatch example block is needed.
    The dihedral-orbit audit command,
    `python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`,
    covers only stored motif-family orbit bookkeeping and assignment-to-orbit

@@ -715,22 +715,23 @@ coverage, row-pair intersection/crossing, witness-pair capacity, and
 selected-indegree capacity. It is stored-frontier diagnostics only, not
 frontier coverage or brancher soundness.
 The branch-option audit
-`scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json`
 walks the fixed-order no-vertex-circle search states and compares
 `valid_options_for_center` plus maintained count arrays against a direct
 implementation. It is a branch-option implementation audit only, not
 dynamic-MRO coverage or vertex-circle geometry review. The dynamic-MRO choice
 audit
-`scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --summary-json`
 replays the actual minimum-remaining-options center choice with and without
 vertex-circle pruning. It checks direct all-center option counts, first-minimum
 tie breaking, and maintained count arrays at every reached state; it is still
 branch-choice implementation diagnostics only. The frontier-coverage crosswalk
-`scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --summary-json`
 reruns the dynamic no-vertex-circle brancher and compares the generated 184
 complete selected-row assignments, in order, with the stored frontier
 motif-classification artifact. It is coverage bookkeeping against the current
-brancher, not filter soundness or a proof of `n=9`. The dihedral-orbit audit
+brancher, not filter soundness or a proof of `n=9`. Use `--json` instead for
+the full audit records and histograms. The dihedral-orbit audit
 `scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`
 then treats the stored motif and frontier-classification artifacts as inputs,
 replays the dihedral relabeling action independently, and checks canonical
