@@ -17,6 +17,7 @@ from scripts.check_n9_vertex_circle_strict_edge_geometry import (
     assert_expected_strict_edge_geometry,
     direct_strict_edges,
     strict_edge_geometry_payload,
+    summary_json_payload,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -76,3 +77,38 @@ def test_strict_edge_geometry_cli_json() -> None:
     assert parsed["validation_status"] == "passed"
     assert parsed["selected_rows_checked"] == 630
     assert parsed["strict_edges_per_row"] == {"9": 630}
+
+
+def test_strict_edge_geometry_summary_json_payload() -> None:
+    payload = strict_edge_geometry_payload()
+
+    summary = summary_json_payload(payload)
+
+    assert "example_mismatches" not in summary
+    assert summary["schema"] == payload["schema"]
+    assert summary["claim_scope"] == payload["claim_scope"]
+    assert summary["selected_rows_checked"] == EXPECTED_SELECTED_ROWS
+    assert summary["strict_edges_per_row"] == EXPECTED_STRICT_EDGES_PER_ROW
+    assert summary["interval_span_histogram"] == EXPECTED_SPAN_HISTOGRAM
+    assert summary["strict_edge_mismatches"] == 0
+    assert summary["validation_status"] == "passed"
+
+
+def test_strict_edge_geometry_cli_summary_json() -> None:
+    payload = strict_edge_geometry_payload()
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_strict_edge_geometry.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    expected = json.loads(json.dumps(summary_json_payload(payload), sort_keys=True))
+    assert json.loads(result.stdout) == expected

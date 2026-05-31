@@ -123,13 +123,14 @@ total strict edges 5670
 The same audit is now replayable:
 
 ```bash
-python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json
 ```
 
 The script independently enumerates every proper interval containment for all
 `9 * binom(8,4) = 630` candidate selected rows, compares the resulting strict
 edge table with `src/erdos97/n9_vertex_circle_exhaustive.py`, and checks that
 the quotient replay implementation records the same one-row strict-edge count.
+Use `--json` instead when the full mismatch example block is needed.
 It preserves the same scope boundary as this note: local strict-edge geometry
 only, not quotient soundness or exhaustive coverage.
 

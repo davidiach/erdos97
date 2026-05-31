@@ -290,24 +290,27 @@ The strict-edge geometry audit command checks the local vertex-circle
 inequality generator:
 
 ```bash
-python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json
 ```
 
 It independently enumerates proper interval containments for all 630 candidate
 selected rows and compares them with the checker strict-edge table. This is a
 local geometry-rule audit only, not selected-distance quotient or exhaustive
-coverage review.
+coverage review. Use `--json` instead when the full mismatch example block is
+needed.
 
 The quotient-soundness audit command checks selected-distance quotient status
 agreement on the stored local-core and frontier rows:
 
 ```bash
-python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json
 ```
 
 It compares the exhaustive checker, the reusable quotient replay helper, and a
 small direct quotient/status replay. This is implementation agreement only, not
-branch coverage, strict-edge geometry, or a completed `n=9` review.
+branch coverage, strict-edge geometry, or a completed `n=9` review. Use
+`--json` instead when the full per-view status and mismatch example blocks are
+needed.
 
 The partial-pruning audit command checks stored-frontier row subsets:
 

@@ -40,6 +40,24 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "row_size",
+    "selected_rows_checked",
+    "strict_edge_mismatches",
+    "quotient_replay_strict_edge_mismatches",
+    "strict_edges_per_row",
+    "interval_span_histogram",
+    "total_strict_edges",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
 
 EXPECTED_SELECTED_ROWS = 630
 EXPECTED_STRICT_EDGES_PER_ROW = {9: 630}
@@ -245,6 +263,12 @@ def _check_equal(errors: list[str], name: str, actual: Any, expected: Any) -> bo
     return True
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view without mismatch examples."""
+
+    return {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+
+
 def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     return [
         f"schema: {payload['schema']}",
@@ -260,7 +284,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="validate the audit")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON without mismatch examples",
+    )
     return parser.parse_args(argv)
 
 
@@ -271,7 +301,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_strict_edge_geometry(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle strict-edge geometry audit")

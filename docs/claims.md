@@ -1893,7 +1893,7 @@ review-pending `n=9` vertex-circle checker. It compares that direct
 enumeration with the checker strict-edge table and with the one-row quotient
 replay strict-edge counts.
 
-When run with `--check --assert-expected --json`, the audit checks `630`
+When run with `--check --assert-expected --summary-json`, the audit checks `630`
 candidate selected rows, finds `9` strict edges per row, and records `5,670`
 total strict edges. The interval-span histogram is `2->1: 2,520`, `3->1:
 1,890`, and `3->2: 1,260`, with zero strict-edge table mismatches and zero
@@ -1901,7 +1901,8 @@ one-row quotient replay strict-edge count mismatches. This audits only the
 local proper-interval strict-edge generator. It does not prove row coverage,
 brancher coverage, selected-distance quotient soundness, `n=9`, a
 counterexample, or any official/global status update. Check it with
-`python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json`.
+Use `--json` instead when the full mismatch example block is needed.
 
 ### n=9 vertex-circle quotient-soundness audit
 
@@ -1914,7 +1915,7 @@ and a small direct local quotient/status replay. It runs on the stored compact
 local-core packet, the stored `184` pre-vertex-circle frontier assignments, and
 the transformed frontier cores from the motif-classification artifact.
 
-When run with `--check --assert-expected --json`, the audit checks `16`
+When run with `--check --assert-expected --summary-json`, the audit checks `16`
 local-core row sets with `67` selected rows and status counts `13` self-edge /
 `3` strict-cycle; `184` full frontier row sets with `1,656` selected rows and
 status counts `158` self-edge / `26` strict-cycle; and `184` transformed
@@ -1922,7 +1923,9 @@ frontier cores with `802` selected rows and the same `158` / `26` status split.
 This is selected-distance quotient implementation agreement only. It does not
 prove row coverage, brancher coverage, strict-edge geometry, `n=9`, a
 counterexample, or any official/global status update. Check it with
-`python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json`.
+Use `--json` instead when the full per-view status and mismatch example blocks
+are needed.
 
 ### n=9 vertex-circle closed-descent packet
 

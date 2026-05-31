@@ -52,6 +52,33 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "row_size",
+    "source_artifacts",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
+QUOTIENT_SECTION_SUMMARY_KEYS = (
+    "label",
+    "row_set_count",
+    "selected_row_total",
+    "spoke_pairs_checked",
+    "status_counts",
+    "strict_edge_count_histogram",
+    "replay_self_edge_conflict_records",
+    "replay_cycle_edge_records",
+    "direct_self_edge_records",
+    "direct_strict_cycle_row_sets",
+    "row_equality_component_violations",
+    "status_mismatches",
+)
 
 EXPECTED_LOCAL_CORE = {
     "row_set_count": 16,
@@ -486,6 +513,25 @@ def _has_directed_cycle(edges: Sequence[tuple[Pair, Pair]]) -> bool:
     return any(color.get(node, 0) == 0 and visit(node) for node in sorted(graph))
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view without mismatch examples."""
+
+    summary = {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+    for section_key in (
+        "local_core_packet",
+        "frontier_full_assignments",
+        "frontier_core_assignments",
+    ):
+        section = payload.get(section_key)
+        if isinstance(section, Mapping):
+            summary[f"{section_key}_summary"] = {
+                key: section[key]
+                for key in QUOTIENT_SECTION_SUMMARY_KEYS
+                if key in section
+            }
+    return summary
+
+
 def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     return [
         f"schema: {payload['schema']}",
@@ -510,7 +556,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument("--check", action="store_true", help="validate the audit")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON without mismatch examples",
+    )
     return parser.parse_args(argv)
 
 
@@ -534,7 +586,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_quotient_soundness(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle quotient soundness audit")

@@ -682,9 +682,10 @@ A fixed-center-order replay,
 checks agreement with the dynamic minimum-remaining-options brancher on the
 closed search and 184-frontier classification. It is also a review aid only.
 The strict-edge geometry audit
-`scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json`
 checks the local proper-interval inequality generator for all 630 candidate
-selected rows, while leaving quotient and coverage review separate.
+selected rows, while leaving quotient and coverage review separate. Use
+`--json` instead when the full mismatch example block is needed.
 The incidence-filter audit
 `scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json`
 checks the row-level two-overlap crossing table, witness-pair cap predicate,
@@ -692,10 +693,12 @@ and selected-indegree cap predicate, while leaving branch replay and
 vertex-circle pruning review separate. Use `--json` instead when the full
 histogram blocks are needed.
 The quotient-soundness audit
-`scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json`
 checks selected-distance quotient status agreement on the stored local-core
 rows, stored full frontier assignments, and stored transformed frontier cores.
-It leaves branch coverage and strict-edge geometry review separate.
+It leaves branch coverage and strict-edge geometry review separate. Use
+`--json` instead when the full per-view status and mismatch example blocks are
+needed.
 The closed-descent packet
 `scripts/check_n9_vertex_circle_closed_descent_packet.py --check --assert-expected --json`
 replays the 16 compact local-core representatives as finite closed-descent

@@ -100,13 +100,15 @@ Use this queue when no more specific issue is selected.
    now reruns the same filters with fixed center order and checks agreement
    with the dynamic minimum-remaining-options artifact.
    The strict-edge geometry replay
-   `python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json`
    independently checks the proper-interval strict-edge generator for all
-   candidate selected rows.
+   candidate selected rows; use `--json` when the full mismatch example block
+   is needed.
    The quotient-soundness replay
-   `python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json`
    checks selected-distance quotient status agreement on the stored local-core
-   and frontier rows.
+   and frontier rows; use `--json` when the full per-view status and mismatch
+   example blocks are needed.
    The Kalmanson self-edge independent replay
    `python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --json`
    treats the stored `n9_kalmanson_selfedge` certificate as input data and
@@ -486,14 +488,16 @@ Use this queue when no more specific issue is selected.
    covers the branch-order checklist item only; the pruning lemmas and
    vertex-circle certificates still need separate review.
    The strict-edge geometry command,
-   `python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json`,
+   `python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json`,
    covers the local vertex-circle strict-edge generator only; quotient
-   soundness and exhaustive coverage still need separate review.
+   soundness and exhaustive coverage still need separate review. Use `--json`
+   when the full mismatch example block is needed.
    The quotient-soundness command,
-   `python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json`,
+   `python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json`,
    covers selected-distance quotient status agreement on stored local-core and
    frontier rows only; branch coverage and strict-edge geometry remain separate
-   review scopes.
+   review scopes. Use `--json` when the full per-view status and mismatch
+   example blocks are needed.
    The incidence-filter command,
    `python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json`,
    covers only row-level two-overlap crossing, witness-pair capacity, and
