@@ -1091,10 +1091,11 @@ also closes the vertex-circle-pruned search and reaches the same
 `184 = 158 + 26` pre-vertex-circle frontier classification as the dynamic
 minimum-remaining-options artifact. This checks branch-order agreement only.
 The strict-edge geometry audit
-`scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json`
 checks that every candidate selected row produces exactly the proper-interval
 strict inequalities used by the checker, with `5,670` total local strict
-edges across 630 candidate rows. This is local rule verification only.
+edges across 630 candidate rows. This is local rule verification only; use
+`--json` when the full mismatch example block is needed.
 The incidence-filter audit
 `scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json`
 checks the row-level two-overlap crossing table, witness-pair cap predicate,
@@ -1102,11 +1103,12 @@ and selected-indegree cap predicate. This is row-filter implementation
 agreement only. Use `--json` instead when the full histogram blocks are
 needed.
 The quotient-soundness audit
-`scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json`
 checks that the stored local-core rows and 184 stored frontier assignments get
 the same selected-distance quotient status from the exhaustive checker, the
 reusable replay helper, and a small direct replay. This is implementation
-agreement only.
+agreement only; use `--json` when the full per-view status and mismatch
+example blocks are needed.
 The closed-descent packet
 `scripts/check_n9_vertex_circle_closed_descent_packet.py --check --assert-expected --json`
 turns the 16 stored compact local-core quotient obstructions into checked

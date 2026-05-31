@@ -153,7 +153,7 @@ either obstruction is already a contradiction.
 The audit is now replayable:
 
 ```bash
-python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json
 ```
 
 The script compares three status implementations on the stored local-core
@@ -162,6 +162,8 @@ checker, the reusable quotient replay helper, and a small direct
 quotient/status replay inside the audit command. It also checks the transformed
 core rows stored in the frontier-classification artifact. This is an
 implementation-agreement audit only, not branch coverage or geometry review.
+Use `--json` instead when the full per-view status and mismatch example blocks
+are needed.
 
 The closed-descent packet is also replayable:
 

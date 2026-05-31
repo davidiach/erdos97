@@ -292,26 +292,28 @@ not prove the filters, independently replay vertex-circle geometry, prove
 Current strict-edge geometry audit:
 
 ```bash
-python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json
 ```
 
 This command independently enumerates all proper interval containments for the
 630 candidate selected rows and compares them with the checker strict-edge
 table. It addresses the vertex-circle strict-edge generator only; it does not
 review selected-distance quotient soundness, branch coverage, the crossing
-filters, prove `n=9`, or complete review.
+filters, prove `n=9`, or complete review. Use `--json` instead when the full
+mismatch example block is needed.
 
 Current quotient-soundness audit:
 
 ```bash
-python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json
 ```
 
 This command checks stored local-core rows, stored full frontier assignments,
 and stored transformed frontier cores against three quotient/status views: the
 exhaustive checker, the reusable quotient replay helper, and a small direct
 quotient/status replay. It does not audit branch coverage, strict-edge
-geometry, prove `n=9`, or complete review.
+geometry, prove `n=9`, or complete review. Use `--json` instead when the full
+per-view status and mismatch example blocks are needed.
 
 Current partial-pruning audit:
 

@@ -17,6 +17,7 @@ from scripts.check_n9_vertex_circle_quotient_soundness import (
     assert_expected_quotient_soundness,
     direct_quotient_result,
     quotient_soundness_payload,
+    summary_json_payload,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -90,3 +91,45 @@ def test_quotient_soundness_cli_json() -> None:
     assert parsed["frontier_full_assignments"]["strict_edge_count_histogram"] == {
         "81": 184
     }
+
+
+def test_quotient_soundness_summary_json_payload() -> None:
+    payload = quotient_soundness_payload()
+
+    summary = summary_json_payload(payload)
+
+    assert "local_core_packet" not in summary
+    assert "frontier_full_assignments" not in summary
+    assert "frontier_core_assignments" not in summary
+    assert summary["schema"] == payload["schema"]
+    assert summary["claim_scope"] == payload["claim_scope"]
+    local_core = summary["local_core_packet_summary"]
+    frontier_full = summary["frontier_full_assignments_summary"]
+    frontier_core = summary["frontier_core_assignments_summary"]
+    assert local_core["row_set_count"] == EXPECTED_LOCAL_CORE["row_set_count"]
+    assert frontier_full["selected_row_total"] == EXPECTED_FRONTIER_FULL["selected_row_total"]
+    assert frontier_core["spoke_pairs_checked"] == EXPECTED_FRONTIER_CORE["spoke_pairs_checked"]
+    assert frontier_full["status_mismatches"] == 0
+    assert "recorded_status_counts" not in frontier_full
+    assert "example_mismatches" not in frontier_core
+    assert summary["validation_status"] == "passed"
+
+
+def test_quotient_soundness_cli_summary_json() -> None:
+    payload = quotient_soundness_payload()
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_quotient_soundness.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    expected = json.loads(json.dumps(summary_json_payload(payload), sort_keys=True))
+    assert json.loads(result.stdout) == expected
