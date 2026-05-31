@@ -2001,7 +2001,7 @@ row shape, row-pair crossing, witness-pair capacity, and selected-indegree
 capacity. It also compares the maintained selected-indegree and witness-pair
 count arrays with independently recomputed counts.
 
-When run with `--check --assert-expected --json`, the audit visits `520,782`
+When run with `--check --assert-expected --summary-json`, the audit visits `520,782`
 fixed-order no-vertex-circle nodes and reaches `184` full assignments with
 status counts `158` self-edge and `26` strict-cycle. It checks `520,598` option
 contexts, `520,712` helper options in total, and `297,936` empty-option
@@ -2011,7 +2011,8 @@ assignment identities against the stored frontier artifact. It does not prove
 dynamic-MRO branch coverage, strict-edge geometry, selected-distance quotient
 soundness, `n=9`, a counterexample, or any official/global status update. Check
 it with
-`python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json`.
+Use `--json` instead when the full mismatch example block is needed.
 
 ### n=9 vertex-circle dynamic-MRO choice audit
 
@@ -2025,7 +2026,7 @@ with a direct row-shape, row-pair crossing, witness-pair capacity, and
 selected-indegree predicate, and checks that the brancher chooses the first
 center with the minimum remaining options.
 
-When run with `--check --assert-expected --json`, the vertex-circle-pruned
+When run with `--check --assert-expected --summary-json`, the vertex-circle-pruned
 audit visits `16,752` nodes and checks `16,752` choice contexts, `93,837`
 center-option contexts, and `751,918` helper options, with `22,282`
 child-prune attempts and status counts `11,271` partial self-edge and `11,011`
@@ -2038,7 +2039,8 @@ option mismatches, and zero count-array mismatches. This is dynamic
 branch-choice implementation diagnostics only. It does not prove the geometric
 filters, strict-edge geometry, selected-distance quotient soundness, `n=9`, a
 counterexample, or any official/global status update. Check it with
-`python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --summary-json`.
+Use `--json` instead when the full depth and tie histograms are needed.
 
 ### n=9 vertex-circle frontier-coverage crosswalk
 
@@ -2050,7 +2052,7 @@ pruning and compares the generated complete selected-witness assignments,
 as ordered rows, against the stored frontier motif-classification artifact
 `data/certificates/n9_vertex_circle_frontier_motif_classification.json`.
 
-When run with `--check --assert-expected --json`, the crosswalk visits
+When run with `--check --assert-expected --summary-json`, the crosswalk visits
 `100,817` dynamic no-vertex-circle nodes. It generates `184` complete
 assignments, all unique, and compares them with `184` stored assignments, also
 all unique. It reports `sequence_matches = true`, `set_matches = true`, zero
@@ -2064,7 +2066,8 @@ a frontier coverage crosswalk against the current brancher only. It does not
 prove filter soundness, dynamic brancher soundness, strict-edge geometry,
 selected-distance quotient soundness, `n=9`, a counterexample, or any
 official/global status update. Check it with
-`python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --summary-json`.
+Use `--json` instead when the full mismatch example block is needed.
 
 ### n=9 vertex-circle dihedral-orbit audit
 

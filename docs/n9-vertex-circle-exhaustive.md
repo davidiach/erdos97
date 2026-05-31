@@ -153,7 +153,7 @@ The branch-option audit command checks the branch helper against a direct
 implementation on fixed-order no-vertex-circle search states:
 
 ```bash
-python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json
 ```
 
 It walks 520,598 nonterminal option contexts, compares
@@ -161,12 +161,13 @@ It walks 520,598 nonterminal option contexts, compares
 capacity, and selected-indegree predicates, and also compares maintained count
 arrays with direct recomputation. This is branch-option implementation
 diagnostics only, not dynamic-MRO branch coverage, strict-edge geometry,
-quotient soundness, or a completed `n=9` review.
+quotient soundness, or a completed `n=9` review. Use `--json` instead when the
+full mismatch example block is needed.
 
 The dynamic-MRO choice audit command checks the actual dynamic branch choice:
 
 ```bash
-python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --summary-json
 ```
 
 It replays the vertex-circle-pruned search and the no-vertex-circle
@@ -175,13 +176,14 @@ predicate at every reached state, and checks first-minimum tie breaking. It
 records zero center-choice mismatches, zero helper/direct option mismatches,
 and zero maintained-count mismatches. This is dynamic branch-choice
 implementation diagnostics only, not filter soundness, strict-edge geometry,
-quotient soundness, or a completed `n=9` review.
+quotient soundness, or a completed `n=9` review. Use `--json` instead when the
+full depth and tie histograms are needed.
 
 The frontier-coverage crosswalk command compares regenerated dynamic frontier
 rows against the stored motif-classification artifact:
 
 ```bash
-python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --summary-json
 ```
 
 It reruns the dynamic no-vertex-circle brancher, collects the 184 complete
@@ -189,7 +191,8 @@ selected-row assignments, and checks that the generated row sequence, row set,
 and vertex-circle status labels match the stored frontier classification. This
 is stored-frontier coverage bookkeeping against the current brancher, not
 filter soundness, strict-edge geometry, quotient soundness, or a completed
-`n=9` review.
+`n=9` review. Use `--json` instead when the full mismatch example block is
+needed.
 
 The compact independent brancher command gives a smaller second audit path:
 

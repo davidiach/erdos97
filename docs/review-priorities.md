@@ -165,37 +165,39 @@ when the full histogram blocks are needed.
 Current branch-option audit:
 
 ```bash
-python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json
 ```
 
 This command walks the no-vertex-circle fixed-order search states and compares
 the helper `valid_options_for_center` predicate and maintained count arrays
 against a direct implementation. It does not prove dynamic-MRO branch coverage,
 strict-edge geometry, selected-distance quotient soundness, `n=9`, or complete
-review.
+review. Use `--json` instead when the full mismatch example block is needed.
 
 Current dynamic-MRO choice audit:
 
 ```bash
-python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --summary-json
 ```
 
 This command replays the actual minimum-remaining-options branch choice with
 and without vertex-circle pruning. It recomputes all unassigned-center option
 lists directly at every reached state and checks first-minimum tie breaking.
 It does not prove filter soundness, strict-edge geometry, selected-distance
-quotient soundness, `n=9`, or complete review.
+quotient soundness, `n=9`, or complete review. Use `--json` instead when the
+full depth and tie histograms are needed.
 
 Current frontier-coverage crosswalk:
 
 ```bash
-python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --summary-json
 ```
 
 This command reruns the dynamic no-vertex-circle brancher and compares the 184
 generated complete selected-row assignments with the stored frontier
 classification artifact. It does not prove filter soundness, strict-edge
-geometry, selected-distance quotient soundness, `n=9`, or complete review.
+geometry, selected-distance quotient soundness, `n=9`, or complete review. Use
+`--json` instead when the full mismatch example block is needed.
 
 Current Kalmanson self-edge replay:
 

@@ -46,6 +46,39 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "row_size",
+    "source_artifact",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
+FRONTIER_COVERAGE_SUMMARY_KEYS = (
+    "row_order_rule",
+    "vertex_circle_pruning",
+    "nodes_visited",
+    "generated_assignment_count",
+    "stored_assignment_count",
+    "generated_unique_assignment_count",
+    "stored_unique_assignment_count",
+    "generated_status_counts",
+    "stored_status_counts",
+    "sequence_matches",
+    "set_matches",
+    "status_mismatches",
+    "missing_from_stored_count",
+    "extra_in_stored_count",
+    "generated_sorted_rows_sha256",
+    "stored_sorted_rows_sha256",
+    "generated_sequence_rows_sha256",
+    "stored_sequence_rows_sha256",
+)
 
 EXPECTED_NODES_VISITED = 100_817
 EXPECTED_ASSIGNMENT_COUNT = 184
@@ -365,6 +398,20 @@ def _check_equal(errors: list[str], name: str, actual: Any, expected: Any) -> No
         errors.append(f"{name} mismatch: {actual!r} != {expected!r}")
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view."""
+
+    summary = {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+    crosswalk = payload.get("frontier_coverage_crosswalk")
+    if isinstance(crosswalk, Mapping):
+        summary["frontier_coverage_crosswalk_summary"] = {
+            key: crosswalk[key]
+            for key in FRONTIER_COVERAGE_SUMMARY_KEYS
+            if key in crosswalk
+        }
+    return summary
+
+
 def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     summary = payload["frontier_coverage_crosswalk"]
     return [
@@ -388,7 +435,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--frontier-classification", type=Path, default=DEFAULT_FRONTIER_CLASSIFICATION)
     parser.add_argument("--check", action="store_true", help="validate the crosswalk")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON summary",
+    )
     return parser.parse_args(argv)
 
 
@@ -412,7 +465,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_frontier_coverage_crosswalk(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle frontier coverage crosswalk")

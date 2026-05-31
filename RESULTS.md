@@ -1126,21 +1126,22 @@ checks the stored 184 frontier assignments directly. It records zero row-shape,
 center-coverage, crossing, witness-pair-cap, and selected-indegree-cap errors;
 this is stored-frontier diagnostics only.
 The branch-option audit
-`scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json`
 checks 520,598 no-vertex-circle fixed-order option contexts and finds zero
 helper/direct option mismatches and zero maintained-count mismatches. This is
 branch-option implementation diagnostics only. The dynamic-MRO choice audit
-`scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --summary-json`
 checks the actual minimum-remaining-options center choice on both dynamic
 searches. It recomputes all unassigned-center option lists at every reached
 state, finds zero center-choice mismatches, zero helper/direct option
 mismatches, and zero maintained-count mismatches. This is branch-choice
 implementation diagnostics only. The frontier-coverage crosswalk
-`scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --summary-json`
 reruns the dynamic no-vertex-circle brancher and verifies that its 184
 complete selected-row assignments match the stored frontier classification
 artifact row-for-row, with zero status mismatches. This is stored-frontier
-coverage bookkeeping only. The dihedral-orbit audit
+coverage bookkeeping only; use `--json` for the full audit records. The
+dihedral-orbit audit
 `scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`
 independently replays the 18 dihedral relabelings for the stored motif-family
 representatives and cross-checks the 184 frontier-classification rows against

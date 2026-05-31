@@ -40,6 +40,37 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "row_size",
+    "pair_cap",
+    "max_selected_indegree",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
+DYNAMIC_MRO_SUMMARY_KEYS = (
+    "row_order_rule",
+    "vertex_circle_pruning",
+    "row0_choices",
+    "nodes_visited",
+    "full_assignments",
+    "counts",
+    "choice_contexts",
+    "center_option_contexts",
+    "helper_option_total",
+    "empty_choice_contexts",
+    "child_prune_attempts",
+    "chosen_center_mismatches",
+    "chosen_option_mismatches",
+    "helper_direct_option_mismatches",
+    "count_array_mismatches",
+)
 
 N = 9
 ROW_SIZE = 4
@@ -512,6 +543,23 @@ def _check_equal(errors: list[str], name: str, actual: Any, expected: Any) -> No
         errors.append(f"{name} mismatch: {actual!r} != {expected!r}")
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view without histograms."""
+
+    summary = {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+    audits = payload.get("dynamic_mro_audits")
+    if isinstance(audits, Mapping):
+        summary["dynamic_mro_audit_summaries"] = {
+            audit_key: {
+                key: audit[key]
+                for key in DYNAMIC_MRO_SUMMARY_KEYS
+                if isinstance(audit, Mapping) and key in audit
+            }
+            for audit_key, audit in audits.items()
+        }
+    return summary
+
+
 def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     audits = payload["dynamic_mro_audits"]
     with_vertex = audits["with_vertex_circle_pruning"]
@@ -533,7 +581,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="validate the audit")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON without histograms",
+    )
     return parser.parse_args(argv)
 
 
@@ -544,7 +598,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_dynamic_mro_choice_payload(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle dynamic MRO choice audit")

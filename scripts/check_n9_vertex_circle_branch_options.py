@@ -38,6 +38,32 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "row_size",
+    "pair_cap",
+    "max_selected_indegree",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
+BRANCH_OPTION_SUMMARY_KEYS = (
+    "row_order_rule",
+    "vertex_circle_pruning",
+    "nodes_visited",
+    "full_assignments",
+    "status_counts",
+    "option_contexts",
+    "helper_option_total",
+    "empty_option_contexts",
+    "option_mismatches",
+    "count_array_mismatches",
+)
 
 N = 9
 ROW_SIZE = 4
@@ -357,6 +383,18 @@ def _check_equal(errors: list[str], name: str, actual: Any, expected: Any) -> No
         errors.append(f"{name} mismatch: {actual!r} != {expected!r}")
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view."""
+
+    summary = {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+    audit = payload.get("branch_option_audit")
+    if isinstance(audit, Mapping):
+        summary["branch_option_audit_summary"] = {
+            key: audit[key] for key in BRANCH_OPTION_SUMMARY_KEYS if key in audit
+        }
+    return summary
+
+
 def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     summary = payload["branch_option_audit"]
     return [
@@ -374,7 +412,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="validate the audit")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON summary",
+    )
     return parser.parse_args(argv)
 
 
@@ -385,7 +429,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_branch_option_payload(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle branch-option audit")
