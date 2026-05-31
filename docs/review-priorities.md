@@ -267,19 +267,20 @@ provide a counterexample, or supply a transfer theorem.
 Current frontier-assignment audit:
 
 ```bash
-python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --summary-json
 ```
 
 This command checks the stored 184 frontier assignments directly for row
 shape, center coverage, pairwise row-intersection caps, two-overlap crossing,
 witness-pair capacity, and selected-indegree capacity. It does not prove
 frontier coverage, brancher soundness, strict-edge geometry, selected-distance
-quotient soundness, `n=9`, or complete review.
+quotient soundness, `n=9`, or complete review. Use `--json` when the full
+example error block is needed.
 
 Current branching-order replay:
 
 ```bash
-python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json
 ```
 
 This command reruns the search with a fixed center order `0,1,...,8` after row
@@ -287,7 +288,8 @@ This command reruns the search with a fixed center order `0,1,...,8` after row
 also closes the vertex-circle-pruned search and reaches the same `184`
 pre-vertex-circle frontier classification as the dynamic MRO artifact. It does
 not prove the filters, independently replay vertex-circle geometry, prove
-`n=9`, or complete review.
+`n=9`, or complete review. Use `--json` when the full fixed-order replay
+sections are needed.
 
 Current strict-edge geometry audit:
 

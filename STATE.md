@@ -678,9 +678,10 @@ proof or source-of-truth promotion. See
 `docs/n9-regular-tournament-kalmanson-audit.md` and
 `docs/n9-one-reciprocal-kalmanson-audit.md`.
 A fixed-center-order replay,
-`scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`,
+`scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json`,
 checks agreement with the dynamic minimum-remaining-options brancher on the
-closed search and 184-frontier classification. It is also a review aid only.
+closed search and 184-frontier classification. It is also a review aid only;
+use `--json` when the full fixed-order replay sections are needed.
 The strict-edge geometry audit
 `scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json`
 checks the local proper-interval inequality generator for all 630 candidate
@@ -712,11 +713,12 @@ assignments for monotone obstruction persistence and checker/replay status
 agreement. It is stored-frontier diagnostics only and leaves frontier coverage,
 brancher soundness, strict-edge geometry, and quotient soundness separate.
 The frontier-assignment audit
-`scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --summary-json`
 checks the stored 184 frontier assignments directly for row shape, center
 coverage, row-pair intersection/crossing, witness-pair capacity, and
 selected-indegree capacity. It is stored-frontier diagnostics only, not
-frontier coverage or brancher soundness.
+frontier coverage or brancher soundness. Use `--json` when the full example
+error block is needed.
 The branch-option audit
 `scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json`
 walks the fixed-order no-vertex-circle search states and compares

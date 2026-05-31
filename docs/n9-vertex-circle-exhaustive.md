@@ -265,26 +265,27 @@ The frontier-assignment audit command checks the stored 184 frontier rows
 directly against the base incidence/order filters:
 
 ```bash
-python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --summary-json
 ```
 
 It verifies row shape, center coverage, pairwise row-intersection cap,
 two-overlap crossing, witness-pair capacity, and selected-indegree capacity on
 the stored frontier assignments. This is stored-frontier diagnostics only, not
 frontier coverage, brancher soundness, strict-edge geometry, quotient
-soundness, or a completed `n=9` review.
+soundness, or a completed `n=9` review. Use `--json` when the full example
+error block is needed.
 
 The MRO branching replay command checks a separate fixed center order against
 the stored dynamic minimum-remaining-options artifact:
 
 ```bash
-python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json
 ```
 
 It closes the fixed-order vertex-circle-pruned search and reaches the same
 `184 = 158 + 26` no-vertex-circle frontier classification. It is a
 branch-order audit only, not a proof of the filters or a completed `n=9`
-review.
+review. Use `--json` when the full fixed-order replay sections are needed.
 
 The strict-edge geometry audit command checks the local vertex-circle
 inequality generator:
