@@ -1871,7 +1871,7 @@ It reuses the same necessary-filter helpers and vertex-circle status helper,
 so the scope is branch-order agreement, not independent filter or geometry
 soundness.
 
-When run with `--check --assert-expected --json`, the fixed-order replay
+When run with `--check --assert-expected --summary-json`, the fixed-order replay
 closes the main search with `37,544` visited nodes and `0` full assignments.
 Its no-vertex-circle cross-check visits `520,782` nodes and leaves the same
 `184` pre-vertex-circle full assignments with the same `158` self-edge and
@@ -1880,7 +1880,8 @@ only that the fixed center order and dynamic MRO order agree on these stored
 frontier counts and classifications. It does not prove the pruning filters,
 independently replay vertex-circle geometry, prove `n=9`, claim a
 counterexample, or update the official/global status. Check it with
-`python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json`.
+Use `--json` when the full fixed-order replay sections are needed.
 
 ### n=9 vertex-circle strict-edge geometry audit
 
@@ -1978,7 +1979,7 @@ checks row shape, row-center coverage, pairwise row-intersection caps,
 two-overlap crossing, witness-pair capacity, and selected-indegree capacity on
 the stored assignments.
 
-When run with `--check --assert-expected --json`, the audit checks `184`
+When run with `--check --assert-expected --summary-json`, the audit checks `184`
 assignments and `1,656` selected rows, with status counts `158` self-edge and
 `26` strict-cycle. The center-pair intersection and witness-pair frequency
 histograms are both `0: 72`, `1: 3,168`, and `2: 3,384`; all `3,384`
@@ -1990,7 +1991,8 @@ selected-indegree-cap errors. This is stored-frontier diagnostics only. It does
 not prove frontier coverage, brancher soundness, strict-edge geometry,
 selected-distance quotient soundness, `n=9`, a counterexample, or any
 official/global status update. Check it with
-`python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --summary-json`.
+Use `--json` when the full example error block is needed.
 
 ### n=9 vertex-circle branch-option audit
 

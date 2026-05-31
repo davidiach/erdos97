@@ -95,7 +95,7 @@ A replayable fixed-order audit now checks the same control-flow issue without
 calling the dynamic minimum-remaining-options brancher:
 
 ```bash
-python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json
 ```
 
 The replay always chooses centers in the deterministic order `0,1,...,8`
@@ -105,6 +105,7 @@ assignments. With vertex-circle pruning disabled it visits `520,782` nodes and
 reaches the same `184` pre-vertex-circle frontier assignments, classified as
 `158` self-edges and `26` strict cycles. This checks branching agreement only;
 it does not prove the pruning lemmas or independently replay the geometry.
+Use `--json` when the full fixed-order replay sections are needed.
 
 ## Scope
 

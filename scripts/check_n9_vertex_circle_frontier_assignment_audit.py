@@ -39,6 +39,37 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "row_size",
+    "pair_cap",
+    "max_selected_indegree",
+    "source_artifact",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
+FRONTIER_ASSIGNMENT_SUMMARY_KEYS = (
+    "assignment_count",
+    "row_count_total",
+    "status_counts",
+    "row_shape_errors",
+    "center_coverage_errors",
+    "intersection_cap_violations",
+    "two_overlap_crossing_violations",
+    "witness_pair_cap_violations",
+    "selected_indegree_cap_violations",
+    "center_pair_intersection_histogram",
+    "two_overlap_crossing_count",
+    "witness_pair_frequency_histogram",
+    "selected_indegree_value_histogram",
+    "assignment_witness_pair_profiles",
+)
 
 N = 9
 ROW_SIZE = 4
@@ -413,6 +444,18 @@ def _check_equal(errors: list[str], name: str, actual: Any, expected: Any) -> No
         errors.append(f"{name} mismatch: {actual!r} != {expected!r}")
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view without example errors."""
+
+    summary = {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+    audit = payload.get("frontier_assignment_audit")
+    if isinstance(audit, Mapping):
+        summary["frontier_assignment_audit_summary"] = {
+            key: audit[key] for key in FRONTIER_ASSIGNMENT_SUMMARY_KEYS if key in audit
+        }
+    return summary
+
+
 def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     summary = payload["frontier_assignment_audit"]
     return [
@@ -436,7 +479,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument("--check", action="store_true", help="validate the audit")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON without example errors",
+    )
     return parser.parse_args(argv)
 
 
@@ -452,7 +501,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_frontier_assignment_audit(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle frontier assignment audit")

@@ -37,6 +37,28 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "source_artifact",
+    "review_independence",
+    "dynamic_mro_summary",
+    "comparison_summary",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
+FIXED_ORDER_SUMMARY_KEYS = (
+    "row_order_rule",
+    "vertex_circle_pruning",
+    "row0_choices",
+    "nodes_visited",
+    "full_assignments",
+    "counts",
+)
 
 DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "n9_vertex_circle_exhaustive.json"
 EXPECTED_FIXED_MAIN_NODES = 37_544
@@ -330,6 +352,19 @@ def _check_equal(errors: list[str], name: str, actual: Any, expected: Any) -> bo
     return True
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view."""
+
+    summary = {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+    for key in ("fixed_center_order_main", "fixed_center_order_cross_check"):
+        section = payload.get(key)
+        if isinstance(section, Mapping):
+            summary[f"{key}_summary"] = {
+                field: section[field] for field in FIXED_ORDER_SUMMARY_KEYS if field in section
+            }
+    return summary
+
+
 def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     comparison = payload["comparison_summary"]
     return [
@@ -352,7 +387,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--artifact", type=Path, default=DEFAULT_ARTIFACT)
     parser.add_argument("--check", action="store_true", help="validate the replay")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON summary",
+    )
     return parser.parse_args(argv)
 
 
@@ -378,7 +419,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_mro_branching_replay(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle MRO branching replay")

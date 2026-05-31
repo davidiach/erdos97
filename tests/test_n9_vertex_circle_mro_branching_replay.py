@@ -21,6 +21,7 @@ from scripts.check_n9_vertex_circle_mro_branching_replay import (
     fixed_center_order_search,
     load_artifact,
     mro_branching_replay_payload,
+    summary_json_payload,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -114,3 +115,43 @@ def test_mro_branching_replay_cli_json() -> None:
     parsed = json.loads(result.stdout)
     assert parsed["validation_status"] == "passed"
     assert parsed["comparison_summary"]["cross_check_status_counts_match"] is True
+
+
+def test_mro_branching_replay_summary_json_payload(
+    replay_payload: dict[str, object],
+) -> None:
+    summary = summary_json_payload(replay_payload)
+
+    assert "fixed_center_order_main" not in summary
+    assert "fixed_center_order_cross_check" not in summary
+    assert summary["schema"] == replay_payload["schema"]
+    assert summary["claim_scope"] == replay_payload["claim_scope"]
+    assert summary["review_independence"] == replay_payload["review_independence"]
+    assert summary["comparison_summary"] == replay_payload["comparison_summary"]
+    fixed_main = summary["fixed_center_order_main_summary"]
+    fixed_cross = summary["fixed_center_order_cross_check_summary"]
+    assert fixed_main["nodes_visited"] == EXPECTED_FIXED_MAIN_NODES
+    assert fixed_cross["nodes_visited"] == EXPECTED_FIXED_CROSS_NODES
+    assert fixed_cross["counts"] == EXPECTED_FIXED_CROSS_COUNTS
+    assert summary["validation_status"] == "passed"
+
+
+def test_mro_branching_replay_cli_summary_json(
+    replay_payload: dict[str, object],
+) -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_mro_branching_replay.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    expected = json.loads(json.dumps(summary_json_payload(replay_payload), sort_keys=True))
+    assert json.loads(result.stdout) == expected

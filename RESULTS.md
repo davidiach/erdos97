@@ -1086,10 +1086,11 @@ self-edge records, assignment uniqueness, and digest agreement without
 importing the Kalmanson generator module. It is still stored-certificate
 bookkeeping only, not brancher coverage or a proof of `n=9`.
 A fixed-center-order replay command,
-`scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`,
+`scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json`,
 also closes the vertex-circle-pruned search and reaches the same
 `184 = 158 + 26` pre-vertex-circle frontier classification as the dynamic
-minimum-remaining-options artifact. This checks branch-order agreement only.
+minimum-remaining-options artifact. This checks branch-order agreement only;
+use `--json` when the full fixed-order replay sections are needed.
 The strict-edge geometry audit
 `scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json`
 checks that every candidate selected row produces exactly the proper-interval
@@ -1123,10 +1124,11 @@ assignments. It finds zero checker/replay status mismatches and zero stored
 extension violations for obstructed subsets. This is stored-frontier pruning
 diagnostics only.
 The frontier-assignment audit
-`scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --summary-json`
 checks the stored 184 frontier assignments directly. It records zero row-shape,
 center-coverage, crossing, witness-pair-cap, and selected-indegree-cap errors;
-this is stored-frontier diagnostics only.
+this is stored-frontier diagnostics only. Use `--json` when the full example
+error block is needed.
 The branch-option audit
 `scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json`
 checks 520,598 no-vertex-circle fixed-order option contexts and finds zero

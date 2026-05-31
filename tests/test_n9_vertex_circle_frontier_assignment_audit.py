@@ -15,6 +15,7 @@ from scripts.check_n9_vertex_circle_frontier_assignment_audit import (
     EXPECTED_WITNESS_PAIR_FREQUENCY_HISTOGRAM,
     assert_expected_frontier_assignment_audit,
     frontier_assignment_audit_payload,
+    summary_json_payload,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -87,3 +88,42 @@ def test_frontier_assignment_audit_cli_json() -> None:
     assert summary["two_overlap_crossing_violations"] == 0
     assert summary["witness_pair_cap_violations"] == 0
     assert summary["selected_indegree_cap_violations"] == 0
+
+
+def test_frontier_assignment_audit_summary_json_payload() -> None:
+    payload = frontier_assignment_audit_payload()
+
+    summary = summary_json_payload(payload)
+
+    assert "frontier_assignment_audit" not in summary
+    assert summary["schema"] == payload["schema"]
+    assert summary["claim_scope"] == payload["claim_scope"]
+    audit_summary = summary["frontier_assignment_audit_summary"]
+    assert audit_summary["assignment_count"] == 184
+    assert audit_summary["status_counts"] == {"self_edge": 158, "strict_cycle": 26}
+    assert audit_summary["witness_pair_frequency_histogram"] == (
+        EXPECTED_WITNESS_PAIR_FREQUENCY_HISTOGRAM
+    )
+    assert audit_summary["selected_indegree_cap_violations"] == 0
+    assert "example_errors" not in audit_summary
+    assert summary["validation_status"] == "passed"
+
+
+def test_frontier_assignment_audit_cli_summary_json() -> None:
+    payload = frontier_assignment_audit_payload()
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_frontier_assignment_audit.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    expected = json.loads(json.dumps(summary_json_payload(payload), sort_keys=True))
+    assert json.loads(result.stdout) == expected

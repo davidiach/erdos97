@@ -96,9 +96,10 @@ Use this queue when no more specific issue is selected.
    arithmetic for the exhaustive artifact without rerunning the brancher; use
    `--json` when the full expected-count block is needed.
    The branching replay
-   `python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json`
    now reruns the same filters with fixed center order and checks agreement
-   with the dynamic minimum-remaining-options artifact.
+   with the dynamic minimum-remaining-options artifact; use `--json` when the
+   full fixed-order replay sections are needed.
    The strict-edge geometry replay
    `python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json`
    independently checks the proper-interval strict-edge generator for all
@@ -150,9 +151,10 @@ Use this queue when no more specific issue is selected.
    stored full motif representatives and already obstruct by direct quotient
    replay.
    The frontier-assignment audit
-   `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --summary-json`
    checks the stored 184 frontier assignments directly against row shape,
-   row-pair crossing, witness-pair capacity, and selected-indegree capacity.
+   row-pair crossing, witness-pair capacity, and selected-indegree capacity;
+   use `--json` when the full example error block is needed.
    The partial-pruning replay
    `python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`
    checks all nonempty selected-row subsets of the stored 184 frontier
@@ -484,9 +486,10 @@ Use this queue when no more specific issue is selected.
    lemmas, and vertex-circle certificates still need review. Use `--json`
    when the full expected-count block is needed.
    The MRO branching replay command,
-   `python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --json`,
+   `python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json`,
    covers the branch-order checklist item only; the pruning lemmas and
-   vertex-circle certificates still need separate review.
+   vertex-circle certificates still need separate review. Use `--json` when
+   the full fixed-order replay sections are needed.
    The strict-edge geometry command,
    `python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json`,
    covers the local vertex-circle strict-edge generator only; quotient
@@ -545,10 +548,11 @@ Use this queue when no more specific issue is selected.
    compact-core obstruction replay; local-lemma completeness, frontier
    coverage, brancher soundness, and full n=9 review remain separate scopes.
    The frontier-assignment command,
-   `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --json`,
+   `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --summary-json`,
    covers only the stored 184 frontier rows under those base predicates;
    brancher coverage, strict-edge geometry, quotient soundness, and pruning
-   remain separate review scopes.
+   remain separate review scopes. Use `--json` when the full example error
+   block is needed.
 
 ## Task CB-N9-T01 - Review Vertex-Circle Self-Edge Template
 
