@@ -707,11 +707,13 @@ regions, with region/cycle length counts `1:13`, `2:1`, and `3:2`.
 It is a diagnostic reformulation only, not local-lemma completeness, a bridge
 proof, or an `n=9` proof.
 The partial-pruning audit
-`scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --summary-json`
 checks all 94,024 nonempty selected-row subsets of the stored 184 frontier
 assignments for monotone obstruction persistence and checker/replay status
 agreement. It is stored-frontier diagnostics only and leaves frontier coverage,
 brancher soundness, strict-edge geometry, and quotient soundness separate.
+Use `--json` instead when mismatch examples or other full diagnostic fields are
+needed.
 The frontier-assignment audit
 `scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --summary-json`
 checks the stored 184 frontier assignments directly for row shape, center

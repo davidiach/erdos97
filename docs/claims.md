@@ -1966,7 +1966,9 @@ stored-frontier pruning diagnostics only. It does not prove frontier coverage,
 brancher soundness, strict-edge geometry, selected-distance quotient
 soundness, `n=9`, a counterexample, or any official/global status update.
 Check it with
-`python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --summary-json`;
+use `--json` instead when mismatch examples or other full diagnostic fields are
+needed.
 
 ### n=9 vertex-circle frontier-assignment audit
 

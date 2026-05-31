@@ -320,14 +320,15 @@ per-view status and mismatch example blocks are needed.
 Current partial-pruning audit:
 
 ```bash
-python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --summary-json
 ```
 
 This command scans all nonempty selected-row subsets of the 184 stored
 pre-vertex-circle frontier assignments. It checks monotone obstruction
 persistence and checker/replay status agreement on those stored subsets only.
 It does not prove frontier coverage, brancher soundness, strict-edge geometry,
-selected-distance quotient soundness, `n=9`, or complete review.
+selected-distance quotient soundness, `n=9`, or complete review. Use `--json`
+instead when mismatch examples or other full diagnostic fields are needed.
 
 ## Priority 6 - mine a reusable vertex-circle lemma
 

@@ -47,6 +47,31 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "row_size",
+    "source_artifact",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
+FRONTIER_SUBSET_SUMMARY_KEYS = (
+    "assignment_count",
+    "full_status_counts",
+    "subset_count",
+    "subset_status_counts",
+    "obstructed_subset_count",
+    "extension_violations",
+    "checker_replay_status_mismatches",
+    "min_obstruction_size_counts",
+    "stored_row_order_prefix_total",
+    "stored_row_order_prefix_status_counts",
+)
 
 EXPECTED_ASSIGNMENT_COUNT = 184
 EXPECTED_SUBSET_COUNT = 94_024
@@ -178,6 +203,20 @@ def assert_expected_partial_pruning(payload: Mapping[str, Any]) -> None:
             raise AssertionError(f"{key} mismatch: {summary.get(key)!r} != {value!r}")
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view without mismatch examples."""
+
+    summary = {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+    subset_audit = payload.get("frontier_subset_audit")
+    if isinstance(subset_audit, Mapping):
+        summary["frontier_subset_audit_summary"] = {
+            key: subset_audit[key]
+            for key in FRONTIER_SUBSET_SUMMARY_KEYS
+            if key in subset_audit
+        }
+    return summary
+
+
 def _audit_frontier_subsets(frontier: Mapping[str, Any]) -> dict[str, Any]:
     assignments = frontier.get("assignments")
     if not isinstance(assignments, list):
@@ -307,7 +346,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument("--check", action="store_true", help="validate the audit")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON without mismatch examples",
+    )
     return parser.parse_args(argv)
 
 
@@ -323,7 +368,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_partial_pruning(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle partial-pruning audit")

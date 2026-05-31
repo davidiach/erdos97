@@ -316,7 +316,7 @@ needed.
 The partial-pruning audit command checks stored-frontier row subsets:
 
 ```bash
-python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --summary-json
 ```
 
 It scans all 94,024 nonempty row subsets from the 184 stored frontier
@@ -324,7 +324,8 @@ assignments, checks that every obstructed subset extends only to a stored full
 assignment that remains obstructed, and compares checker status with the
 reusable quotient replay. This is stored-frontier pruning diagnostics only, not
 frontier coverage, brancher soundness, strict-edge geometry, quotient
-soundness, or a completed `n=9` review.
+soundness, or a completed `n=9` review. Use `--json` instead when mismatch
+examples or other full diagnostic fields are needed.
 
 ## Commands
 

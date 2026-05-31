@@ -1118,11 +1118,12 @@ finite descent regions and extracted strict-cycle certificates. It records
 `1:13`, `2:1`, and `3:2`. This is diagnostic local-packet data only, not a
 proof of `n=9` or a bridge proof.
 The partial-pruning audit
-`scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --summary-json`
 checks all 94,024 nonempty selected-row subsets of the stored 184 frontier
 assignments. It finds zero checker/replay status mismatches and zero stored
 extension violations for obstructed subsets. This is stored-frontier pruning
-diagnostics only.
+diagnostics only. Use `--json` instead when mismatch examples or other full
+diagnostic fields are needed.
 The frontier-assignment audit
 `scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --summary-json`
 checks the stored 184 frontier assignments directly. It records zero row-shape,

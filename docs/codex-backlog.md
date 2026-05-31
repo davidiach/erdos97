@@ -156,10 +156,11 @@ Use this queue when no more specific issue is selected.
    row-pair crossing, witness-pair capacity, and selected-indegree capacity;
    use `--json` when the full example error block is needed.
    The partial-pruning replay
-   `python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --summary-json`
    checks all nonempty selected-row subsets of the stored 184 frontier
    assignments for monotone obstruction persistence and checker/replay status
-   agreement only.
+   agreement only; use `--json` when the full mismatch examples or diagnostic
+   fields are needed.
 3. Continue the minimal fragile-cover bridge after the stored block-6
    vertex-circle full-extension audit
    `data/certificates/block6_fragile_vertex_circle_extension_audit.json`.

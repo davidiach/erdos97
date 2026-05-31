@@ -98,11 +98,13 @@ pre-vertex-circle assignments, and does not prove the full `n=9` finite case.
 ## Stored-frontier Replay
 
 The command
-`scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --summary-json`
 turns the monotonicity note into a stored-frontier diagnostic. It scans every
 nonempty subset of selected rows from the 184 stored pre-vertex-circle frontier
 assignments in
 `data/certificates/n9_vertex_circle_frontier_motif_classification.json`.
+Use `--json` instead when mismatch examples or other full diagnostic fields are
+needed.
 
 The replay checks:
 
@@ -131,7 +133,7 @@ partial-pruning step on the stored frontier only.
 Run the stored-frontier partial-pruning audit:
 
 ```bash
-python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --summary-json
 ```
 
 Run the exhaustive checker and the targeted artifact test:
