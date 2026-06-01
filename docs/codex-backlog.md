@@ -541,11 +541,12 @@ Use this queue when no more specific issue is selected.
    soundness, dihedral orbit bookkeeping, and full n=9 review remain separate
    scopes. Use `--json` when the full example error block is needed.
    The frontier-comparison command,
-   `python scripts/compare_n9_vertex_circle_frontier.py --check --assert-expected --json`,
+   `python scripts/compare_n9_vertex_circle_frontier.py --check --assert-expected --summary-json`,
    covers only the stored P18/C19 comparison against current local-core and
    vertex-circle helpers; exact-core non-embedding, P18 strict-cycle behavior,
    and C19 fixed-order pass behavior remain guardrails, not a proof of `n=9`,
-   counterexample, or transfer theorem.
+   counterexample, or transfer theorem. Use `--json` when the full pattern
+   records are needed.
    The local-core subset audit command,
    `python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --summary-json`,
    covers only the compact-core-to-full-representative subset relation and

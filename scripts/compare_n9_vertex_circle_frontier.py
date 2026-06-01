@@ -7,6 +7,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from typing import Any, Mapping
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
@@ -21,6 +22,32 @@ from erdos97.path_display import display_path  # noqa: E402
 
 DEFAULT_OUT = ROOT / "data" / "certificates" / "n9_vertex_circle_frontier_comparison.json"
 DEFAULT_ARTIFACT = DEFAULT_OUT
+SUMMARY_JSON_KEYS = (
+    "type",
+    "trust",
+    "scope",
+    "notes",
+    "n9_local_core_artifact",
+    "interpretation",
+)
+EXACT_CORE_EMBEDDING_SUMMARY_KEYS = (
+    "pattern",
+    "order",
+    "exact_core_embedding_hits",
+    "checked_core_count",
+    "cyclic_order_preserving_maps_tested",
+)
+PATTERN_VERTEX_CIRCLE_SUMMARY_KEYS = (
+    "pattern",
+    "order",
+    "obstructed",
+    "status",
+    "core_size",
+    "vertex_support_size",
+    "cycle_length",
+    "span_signature",
+    "matching_n9_strict_cycle_span_bucket_count",
+)
 
 
 def load_json(path: Path) -> object:
@@ -43,9 +70,43 @@ def artifact_check_errors(payload: object, artifact: Path) -> list[str]:
     return []
 
 
+def _summarize_records(
+    records: object,
+    keys: tuple[str, ...],
+) -> list[dict[str, Any]]:
+    if not isinstance(records, list):
+        return []
+    return [
+        {key: record[key] for key in keys if key in record}
+        for record in records
+        if isinstance(record, Mapping)
+    ]
+
+
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view without detailed records."""
+
+    summary = {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+    summary["exact_core_embedding_summary"] = _summarize_records(
+        payload.get("exact_core_embedding_results"),
+        EXACT_CORE_EMBEDDING_SUMMARY_KEYS,
+    )
+    summary["pattern_vertex_circle_summary"] = _summarize_records(
+        payload.get("pattern_vertex_circle_results"),
+        PATTERN_VERTEX_CIRCLE_SUMMARY_KEYS,
+    )
+    return summary
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--json", action="store_true", help="print stable JSON")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="print stable JSON")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="print compact reviewer-facing JSON without detailed records",
+    )
     parser.add_argument("--write", action="store_true", help="write stable JSON artifact")
     parser.add_argument("--out", default=str(DEFAULT_OUT), help="path used by --write")
     parser.add_argument(
@@ -75,7 +136,9 @@ def main() -> int:
         out.parent.mkdir(parents=True, exist_ok=True)
         with out.open("w", encoding="utf-8", newline="\n") as handle:
             handle.write(json.dumps(payload, indent=2, sort_keys=True) + "\n")
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     else:
         print("n=9 vertex-circle frontier comparison")

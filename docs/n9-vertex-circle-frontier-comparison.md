@@ -50,8 +50,10 @@ Check the stored comparison artifact:
 python scripts/compare_n9_vertex_circle_frontier.py \
   --check \
   --assert-expected \
-  --json
+  --summary-json
 ```
+
+Use `--json` when the full pattern records are needed.
 
 Regenerate the comparison artifact:
 
