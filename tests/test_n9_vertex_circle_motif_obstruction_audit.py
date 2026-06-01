@@ -12,6 +12,7 @@ from scripts.check_n9_vertex_circle_motif_obstruction_audit import (
     DEFAULT_MOTIF_FAMILIES,
     assert_expected_motif_obstruction_audit,
     motif_obstruction_audit_payload,
+    summary_json_payload,
 )
 
 
@@ -112,3 +113,43 @@ def test_motif_obstruction_audit_cli_json() -> None:
     payload = json.loads(result.stdout)
     assert payload["validation_status"] == "passed"
     assert payload["motif_obstruction_audit"]["family_count"] == 16
+
+
+def test_motif_obstruction_audit_summary_json_payload() -> None:
+    payload = motif_obstruction_audit_payload()
+
+    summary = summary_json_payload(payload)
+
+    assert "motif_obstruction_audit" not in summary
+    assert summary["schema"] == payload["schema"]
+    assert summary["claim_scope"] == payload["claim_scope"]
+    audit_summary = summary["motif_obstruction_audit_summary"]
+    assert audit_summary["family_count"] == 16
+    assert audit_summary["computed_status_counts"] == {
+        "self_edge": 13,
+        "strict_cycle": 3,
+    }
+    assert audit_summary["self_edge_conflict_mismatches"] == 0
+    assert audit_summary["strict_cycle_chain_mismatches"] == 0
+    assert "example_errors" not in audit_summary
+    assert summary["validation_status"] == "passed"
+
+
+def test_motif_obstruction_audit_cli_summary_json() -> None:
+    payload = motif_obstruction_audit_payload()
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_motif_obstruction_audit.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    expected = json.loads(json.dumps(summary_json_payload(payload), sort_keys=True))
+    assert json.loads(result.stdout) == expected

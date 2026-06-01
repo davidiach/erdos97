@@ -14,6 +14,7 @@ from scripts.check_n9_vertex_circle_partial_pruning import (
     EXPECTED_SUBSET_STATUS_COUNTS,
     assert_expected_partial_pruning,
     partial_pruning_payload,
+    summary_json_payload,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -72,3 +73,43 @@ def test_partial_pruning_cli_json() -> None:
     assert summary["min_obstruction_size_counts"] == {"3": 182, "4": 2}
     assert summary["extension_violations"] == 0
     assert summary["checker_replay_status_mismatches"] == 0
+
+
+def test_partial_pruning_summary_json_payload() -> None:
+    payload = partial_pruning_payload()
+
+    summary = summary_json_payload(payload)
+
+    assert "frontier_subset_audit" not in summary
+    assert summary["schema"] == payload["schema"]
+    assert summary["claim_scope"] == payload["claim_scope"]
+    audit_summary = summary["frontier_subset_audit_summary"]
+    assert audit_summary["assignment_count"] == 184
+    assert audit_summary["subset_status_counts"] == EXPECTED_SUBSET_STATUS_COUNTS
+    assert audit_summary["min_obstruction_size_counts"] == (
+        EXPECTED_MIN_OBSTRUCTION_SIZE_COUNTS
+    )
+    assert audit_summary["extension_violations"] == 0
+    assert audit_summary["checker_replay_status_mismatches"] == 0
+    assert "example_mismatches" not in audit_summary
+    assert summary["validation_status"] == "passed"
+
+
+def test_partial_pruning_cli_summary_json() -> None:
+    payload = partial_pruning_payload()
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_partial_pruning.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    expected = json.loads(json.dumps(summary_json_payload(payload), sort_keys=True))
+    assert json.loads(result.stdout) == expected

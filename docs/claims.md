@@ -1955,7 +1955,7 @@ stored subset extends to a stored full assignment that remains obstructed. It
 also compares the repo-native checker status with the reusable quotient replay
 status on every subset.
 
-When run with `--check --assert-expected --json`, the audit checks `94,024`
+When run with `--check --assert-expected --summary-json`, the audit checks `94,024`
 nonempty row subsets. It records `35,418` `ok` subsets, `24,890` self-edge
 subsets, and `33,716` strict-cycle subsets, with `58,606` obstructed subsets
 in total. The minimal obstruction size distribution is `182` assignments first
@@ -1966,7 +1966,8 @@ stored-frontier pruning diagnostics only. It does not prove frontier coverage,
 brancher soundness, strict-edge geometry, selected-distance quotient
 soundness, `n=9`, a counterexample, or any official/global status update.
 Check it with
-`python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --summary-json`.
+Use `--json` when the full mismatch example block is needed.
 
 ### n=9 vertex-circle frontier-assignment audit
 
@@ -2085,7 +2086,7 @@ canonical representatives, stored orbit sizes, orbit disjointness, and the
 assignment-to-orbit maps in
 `data/certificates/n9_vertex_circle_frontier_motif_classification.json`.
 
-When run with `--check --assert-expected --json`, the audit checks `16` stored
+When run with `--check --assert-expected --summary-json`, the audit checks `16` stored
 motif families with family status counts `13` self-edge and `3` strict-cycle.
 The stored orbit sizes have histogram `2: 5`, `6: 2`, and `18: 9`; their
 disjoint orbit union contains `184` rows. The frontier classification contains
@@ -2099,7 +2100,8 @@ orbits. The orbit-union and classification-row SHA-256 digest is
 dihedral orbit bookkeeping only. It does not prove frontier coverage, filter
 soundness, strict-edge geometry, selected-distance quotient soundness, `n=9`, a
 counterexample, or any official/global status update. Check it with
-`python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --summary-json`.
+Use `--json` when the full mismatch example block is needed.
 
 ### n=9 vertex-circle motif-obstruction audit
 
@@ -2112,7 +2114,7 @@ quotient classes and vertex-circle strict interval inequalities with a small
 local implementation, then verifies each stored representative self-edge path
 or strict-cycle edge list.
 
-When run with `--check --assert-expected --json`, the audit reports computed
+When run with `--check --assert-expected --summary-json`, the audit reports computed
 and stored representative status counts `13` self-edge and `3` strict-cycle.
 The self-edge representatives contain `276` checked self-edge conflicts. The
 strict-edge tables contain `1,053` strict edges for self-edge representatives
@@ -2125,7 +2127,8 @@ brancher soundness, incidence-filter soundness, dihedral orbit bookkeeping,
 strict-edge geometry in general, selected-distance quotient soundness in
 general, `n=9`, a counterexample, or any official/global status update. Check
 it with
-`python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --summary-json`.
+Use `--json` when the full example error block is needed.
 
 ### n=9 vertex-circle local-core subset audit
 
@@ -2139,7 +2142,7 @@ subset of the corresponding full motif representative and then replays the
 compact rows directly to confirm that they already force the recorded self-edge
 or strict-cycle obstruction status.
 
-When run with `--check --assert-expected --json`, the audit checks `16` local
+When run with `--check --assert-expected --summary-json`, the audit checks `16` local
 cores with computed and stored status counts `13` self-edge and `3`
 strict-cycle. The compact core sizes have histogram `3: 5`, `4: 6`, `5: 2`,
 and `6: 3`; the orbit-size sum is `184`. The self-edge cores have size
@@ -2152,7 +2155,8 @@ It does not prove local-lemma completeness, frontier coverage, brancher
 soundness, motif-orbit bookkeeping, strict-edge geometry in general,
 selected-distance quotient soundness in general, `n=9`, a counterexample, or
 any official/global status update. Check it with
-`python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`.
+`python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --summary-json`.
+Use `--json` when the full example error block is needed.
 
 ### n=9 vertex-circle focused packet catalog audit
 

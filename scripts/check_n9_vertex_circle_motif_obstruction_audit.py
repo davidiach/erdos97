@@ -42,6 +42,32 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "row_size",
+    "source_artifact",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
+MOTIF_OBSTRUCTION_SUMMARY_KEYS = (
+    "family_count",
+    "computed_status_counts",
+    "stored_status_counts",
+    "strict_edge_count_by_status",
+    "self_edge_count_by_status",
+    "strict_cycle_length_counts",
+    "stored_status_mismatches",
+    "self_edge_conflict_mismatches",
+    "equality_path_mismatches",
+    "strict_cycle_edge_mismatches",
+    "strict_cycle_chain_mismatches",
+)
 
 EXPECTED_FAMILY_COUNT = 16
 EXPECTED_STATUS_COUNTS = {"self_edge": 13, "strict_cycle": 3}
@@ -556,6 +582,18 @@ def _check_equal(errors: list[str], name: str, actual: Any, expected: Any) -> No
         errors.append(f"{name} mismatch: {actual!r} != {expected!r}")
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view without example errors."""
+
+    summary = {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+    audit = payload.get("motif_obstruction_audit")
+    if isinstance(audit, Mapping):
+        summary["motif_obstruction_audit_summary"] = {
+            key: audit[key] for key in MOTIF_OBSTRUCTION_SUMMARY_KEYS if key in audit
+        }
+    return summary
+
+
 def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     summary = payload["motif_obstruction_audit"]
     return [
@@ -579,7 +617,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--motif-families", type=Path, default=DEFAULT_MOTIF_FAMILIES)
     parser.add_argument("--check", action="store_true", help="validate the audit")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON without example errors",
+    )
     return parser.parse_args(argv)
 
 
@@ -603,7 +647,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_motif_obstruction_audit(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle motif obstruction audit")

@@ -42,6 +42,34 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "row_size",
+    "source_artifacts",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
+LOCAL_CORE_SUBSET_SUMMARY_KEYS = (
+    "family_count",
+    "orbit_size_sum",
+    "stored_status_counts",
+    "computed_status_counts",
+    "core_size_counts",
+    "status_core_size_counts",
+    "strict_cycle_length_counts",
+    "family_id_mismatches",
+    "orbit_size_mismatches",
+    "status_mismatches",
+    "core_size_mismatches",
+    "subset_mismatches",
+    "unobstructed_core_count",
+)
 
 EXPECTED_FAMILY_COUNT = 16
 EXPECTED_ORBIT_SIZE_SUM = 184
@@ -509,6 +537,18 @@ def _check_equal(errors: list[str], name: str, actual: Any, expected: Any) -> No
         errors.append(f"{name} mismatch: {actual!r} != {expected!r}")
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view without example errors."""
+
+    summary = {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+    audit = payload.get("local_core_subset_audit")
+    if isinstance(audit, Mapping):
+        summary["local_core_subset_audit_summary"] = {
+            key: audit[key] for key in LOCAL_CORE_SUBSET_SUMMARY_KEYS if key in audit
+        }
+    return summary
+
+
 def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     summary = payload["local_core_subset_audit"]
     return [
@@ -532,7 +572,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--local-core-packet", type=Path, default=DEFAULT_LOCAL_CORE_PACKET)
     parser.add_argument("--check", action="store_true", help="validate the audit")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON without example errors",
+    )
     return parser.parse_args(argv)
 
 
@@ -557,7 +603,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_local_core_subset_audit(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle local-core subset audit")

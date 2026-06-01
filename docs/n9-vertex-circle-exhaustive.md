@@ -224,7 +224,7 @@ soundness, or a completed `n=9` review.
 The dihedral-orbit audit command checks stored motif-family orbit bookkeeping:
 
 ```bash
-python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --summary-json
 ```
 
 It independently enumerates the 18 dihedral relabelings of the stored 16
@@ -232,13 +232,14 @@ motif representatives, checks canonical representatives and orbit sizes, and
 verifies that the stored frontier-classification rows match the disjoint orbit
 union with stable canonical label maps. This is orbit bookkeeping only, not
 frontier coverage, filter soundness, strict-edge geometry, quotient soundness,
-or a completed `n=9` review.
+or a completed `n=9` review. Use `--json` when the full mismatch example block
+is needed.
 
 The motif-obstruction audit command checks the stored representative
 certificates for those 16 motif families:
 
 ```bash
-python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --summary-json
 ```
 
 It recomputes the selected-distance quotient classes and vertex-circle
@@ -246,20 +247,21 @@ strict interval inequalities with a small local implementation, then verifies
 each stored self-edge equality path or strict-cycle edge chain. This is
 stored-certificate bookkeeping only, not frontier coverage, brancher
 soundness, incidence-filter soundness, dihedral orbit bookkeeping, or a
-completed `n=9` review.
+completed `n=9` review. Use `--json` when the full example error block is
+needed.
 
 The local-core subset audit command checks the compact local cores against the
 full motif representatives:
 
 ```bash
-python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --summary-json
 ```
 
 It verifies that every compact local-core row is copied from the corresponding
 full motif representative and that the compact row set alone gives the stored
 self-edge or strict-cycle status under a direct quotient replay. This is
 cross-artifact bookkeeping only, not local-lemma completeness or a completed
-`n=9` review.
+`n=9` review. Use `--json` when the full example error block is needed.
 
 The frontier-assignment audit command checks the stored 184 frontier rows
 directly against the base incidence/order filters:
@@ -316,7 +318,7 @@ needed.
 The partial-pruning audit command checks stored-frontier row subsets:
 
 ```bash
-python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --summary-json
 ```
 
 It scans all 94,024 nonempty row subsets from the 184 stored frontier
@@ -324,7 +326,8 @@ assignments, checks that every obstructed subset extends only to a stored full
 assignment that remains obstructed, and compares checker status with the
 reusable quotient replay. This is stored-frontier pruning diagnostics only, not
 frontier coverage, brancher soundness, strict-edge geometry, quotient
-soundness, or a completed `n=9` review.
+soundness, or a completed `n=9` review. Use `--json` when the full mismatch
+example block is needed.
 
 ## Commands
 

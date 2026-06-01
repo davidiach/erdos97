@@ -1118,11 +1118,11 @@ finite descent regions and extracted strict-cycle certificates. It records
 `1:13`, `2:1`, and `3:2`. This is diagnostic local-packet data only, not a
 proof of `n=9` or a bridge proof.
 The partial-pruning audit
-`scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --summary-json`
 checks all 94,024 nonempty selected-row subsets of the stored 184 frontier
 assignments. It finds zero checker/replay status mismatches and zero stored
 extension violations for obstructed subsets. This is stored-frontier pruning
-diagnostics only.
+diagnostics only. Use `--json` when the full mismatch example block is needed.
 The frontier-assignment audit
 `scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --summary-json`
 checks the stored 184 frontier assignments directly. It records zero row-shape,
@@ -1146,16 +1146,18 @@ complete selected-row assignments match the stored frontier classification
 artifact row-for-row, with zero status mismatches. This is stored-frontier
 coverage bookkeeping only; use `--json` for the full audit records. The
 dihedral-orbit audit
-`scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --summary-json`
 independently replays the 18 dihedral relabelings for the stored motif-family
 representatives and cross-checks the 184 frontier-classification rows against
-those disjoint orbits. It is orbit bookkeeping only.
+those disjoint orbits. It is orbit bookkeeping only. Use `--json` when the
+full mismatch example block is needed.
 The motif-obstruction audit
-`scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --summary-json`
 treats the 16 stored motif representatives as input and checks their
 representative self-edge equality paths or strict-cycle edge chains after
 recomputing quotient classes and strict interval edges. It is
-stored-certificate bookkeeping only.
+stored-certificate bookkeeping only. Use `--json` when the full example error
+block is needed.
 The frontier comparison
 `scripts/compare_n9_vertex_circle_frontier.py --check --assert-expected --json`
 checks the stored P18/C19 comparison artifact against the current local-core
@@ -1164,10 +1166,11 @@ the recorded P18 and C19 patterns, while preserving the P18 strict-cycle and
 C19 fixed-order pass guardrails. It is comparison diagnostics only, not a
 transfer theorem, counterexample, or proof of `n=9`.
 The local-core subset audit
-`scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --summary-json`
 checks that the compact local-core packet rows are exact subsets of the stored
 full motif representatives and already force the same obstruction status by
-direct quotient replay. It is compact-core bookkeeping only.
+direct quotient replay. It is compact-core bookkeeping only. Use `--json` when
+the full example error block is needed.
 The focused packet catalog audit
 `scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --summary-json`
 checks that the 12 focused local-lemma packets, source template packet records,

@@ -16,6 +16,7 @@ from scripts.check_n9_vertex_circle_dihedral_orbit_audit import (
     EXPECTED_ROWS_SHA256,
     assert_expected_dihedral_orbit_audit,
     dihedral_orbit_audit_payload,
+    summary_json_payload,
 )
 
 
@@ -114,3 +115,40 @@ def test_dihedral_orbit_audit_cli_json() -> None:
     payload = json.loads(result.stdout)
     assert payload["validation_status"] == "passed"
     assert payload["dihedral_orbit_audit"]["orbit_union_row_count"] == 184
+
+
+def test_dihedral_orbit_audit_summary_json_payload() -> None:
+    payload = dihedral_orbit_audit_payload()
+
+    summary = summary_json_payload(payload)
+
+    assert "dihedral_orbit_audit" not in summary
+    assert summary["schema"] == payload["schema"]
+    assert summary["claim_scope"] == payload["claim_scope"]
+    audit_summary = summary["dihedral_orbit_audit_summary"]
+    assert audit_summary["family_count"] == 16
+    assert audit_summary["orbit_union_row_count"] == 184
+    assert audit_summary["canonical_label_map_mismatches"] == 0
+    assert audit_summary["orbit_union_rows_sha256"] == EXPECTED_ROWS_SHA256
+    assert "example_mismatches" not in audit_summary
+    assert summary["validation_status"] == "passed"
+
+
+def test_dihedral_orbit_audit_cli_summary_json() -> None:
+    payload = dihedral_orbit_audit_payload()
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_vertex_circle_dihedral_orbit_audit.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    expected = json.loads(json.dumps(summary_json_payload(payload), sort_keys=True))
+    assert json.loads(result.stdout) == expected
