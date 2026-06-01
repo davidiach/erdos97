@@ -137,29 +137,32 @@ Use this queue when no more specific issue is selected.
    stored frontier classification artifact; use `--json` when the full
    mismatch example block is needed.
    The dihedral-orbit audit
-   `python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --summary-json`
    independently checks the stored 16 motif representatives, their labelled
    dihedral orbits, and the assignment-to-orbit maps in the frontier
-   classification artifact.
+   classification artifact; use `--json` when the full mismatch example block
+   is needed.
    The motif-obstruction audit
-   `python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --summary-json`
    checks the stored representative self-edge paths and strict-cycle records
-   for those 16 motif families with a small local quotient replay.
+   for those 16 motif families with a small local quotient replay; use
+   `--json` when the full example error block is needed.
    The local-core subset audit
-   `python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --summary-json`
    checks that the compact row-local certificates are exact subsets of their
    stored full motif representatives and already obstruct by direct quotient
-   replay.
+   replay; use `--json` when the full example error block is needed.
    The frontier-assignment audit
    `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --summary-json`
    checks the stored 184 frontier assignments directly against row shape,
    row-pair crossing, witness-pair capacity, and selected-indegree capacity;
    use `--json` when the full example error block is needed.
    The partial-pruning replay
-   `python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json`
+   `python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --summary-json`
    checks all nonempty selected-row subsets of the stored 184 frontier
    assignments for monotone obstruction persistence and checker/replay status
-   agreement only.
+   agreement only; use `--json` when the full mismatch example block is
+   needed.
 3. Continue the minimal fragile-cover bridge after the stored block-6
    vertex-circle full-extension audit
    `data/certificates/block6_fragile_vertex_circle_extension_audit.json`.
@@ -526,16 +529,17 @@ Use this queue when no more specific issue is selected.
    soundness remain separate review scopes. Use `--json` when the full
    mismatch example block is needed.
    The dihedral-orbit audit command,
-   `python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`,
+   `python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --summary-json`,
    covers only stored motif-family orbit bookkeeping and assignment-to-orbit
    agreement; frontier coverage, filter soundness, vertex-circle geometry, and
-   quotient soundness remain separate review scopes.
+   quotient soundness remain separate review scopes. Use `--json` when the
+   full mismatch example block is needed.
    The motif-obstruction audit command,
-   `python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json`,
+   `python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --summary-json`,
    covers only stored representative obstruction records for the 16 motif
    families; frontier coverage, brancher soundness, incidence-filter
    soundness, dihedral orbit bookkeeping, and full n=9 review remain separate
-   scopes.
+   scopes. Use `--json` when the full example error block is needed.
    The frontier-comparison command,
    `python scripts/compare_n9_vertex_circle_frontier.py --check --assert-expected --json`,
    covers only the stored P18/C19 comparison against current local-core and
@@ -543,10 +547,11 @@ Use this queue when no more specific issue is selected.
    and C19 fixed-order pass behavior remain guardrails, not a proof of `n=9`,
    counterexample, or transfer theorem.
    The local-core subset audit command,
-   `python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`,
+   `python scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --summary-json`,
    covers only the compact-core-to-full-representative subset relation and
    compact-core obstruction replay; local-lemma completeness, frontier
    coverage, brancher soundness, and full n=9 review remain separate scopes.
+   Use `--json` when the full example error block is needed.
    The frontier-assignment command,
    `python scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --summary-json`,
    covers only the stored 184 frontier rows under those base predicates;

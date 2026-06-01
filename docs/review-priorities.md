@@ -229,7 +229,7 @@ or complete independent review.
 Current dihedral-orbit audit:
 
 ```bash
-python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --summary-json
 ```
 
 This command treats the stored motif-family artifact and frontier
@@ -237,12 +237,13 @@ classification as inputs. It independently replays the cyclic/reflection
 dihedral relabelings, checks canonical representatives and orbit sizes, and
 crosswalks the 184 stored classification rows back to the disjoint motif
 orbits. It is orbit bookkeeping only, not frontier coverage, filter soundness,
-or a proof of `n=9`.
+or a proof of `n=9`. Use `--json` when the full mismatch example block is
+needed.
 
 Current motif-obstruction audit:
 
 ```bash
-python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --summary-json
 ```
 
 This command treats the stored 16 motif representatives as inputs, recomputes
@@ -250,7 +251,7 @@ selected-distance quotient classes and vertex-circle strict interval edges,
 and checks the stored representative self-edge equality paths or strict-cycle
 edge chains. It is stored-certificate bookkeeping only, not frontier coverage,
 brancher soundness, incidence-filter soundness, dihedral orbit bookkeeping, or
-a proof of `n=9`.
+a proof of `n=9`. Use `--json` when the full example error block is needed.
 
 Current frontier comparison:
 
@@ -320,14 +321,15 @@ per-view status and mismatch example blocks are needed.
 Current partial-pruning audit:
 
 ```bash
-python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --summary-json
 ```
 
 This command scans all nonempty selected-row subsets of the 184 stored
 pre-vertex-circle frontier assignments. It checks monotone obstruction
 persistence and checker/replay status agreement on those stored subsets only.
 It does not prove frontier coverage, brancher soundness, strict-edge geometry,
-selected-distance quotient soundness, `n=9`, or complete review.
+selected-distance quotient soundness, `n=9`, or complete review. Use `--json`
+when the full mismatch example block is needed.
 
 ## Priority 6 - mine a reusable vertex-circle lemma
 
@@ -355,9 +357,10 @@ handoffs rather than re-extracting T01 or T10.
 - use `docs/n9-vertex-circle-local-cores.md` as the row-local certificate list
   to keep those lemmas small;
 - use
-  `scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`
+  `scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --summary-json`
   to compare the compact row-local certificates against the full motif
-  representatives and verify that the compact rows alone still obstruct;
+  representatives and verify that the compact rows alone still obstruct; use
+  `--json` when the full example error block is needed;
 - use `data/certificates/n9_vertex_circle_self_edge_path_join.json` as the
   assignment-level replay aid for transformed self-edge equality paths;
 - use `data/certificates/n9_vertex_circle_self_edge_template_packet.json` to

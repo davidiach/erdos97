@@ -41,21 +41,23 @@ review-pending diagnostic classification, not an independent proof and not a
 promotion of the n=9 finite-case status.
 
 The dihedral-orbit audit
-`scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --summary-json`
 then checks the orbit bookkeeping from the other direction: it treats the
 stored motif representatives and assignment-level classification as input,
 independently replays all 18 cyclic/reflection relabelings, verifies the
 canonical representatives and orbit sizes, and checks that the 184 stored
 classification rows are exactly the disjoint orbit union. This is still
-review-pending bookkeeping, not a proof of `n=9`.
+review-pending bookkeeping, not a proof of `n=9`. Use `--json` when the full
+mismatch example block is needed.
 
 The motif-obstruction audit
-`scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --summary-json`
 treats the 16 stored representatives as input and replays their representative
 obstruction records. It recomputes the selected-distance quotient classes and
 all vertex-circle strict interval edges, then checks the stored self-edge
 conflict plus equality path or the stored strict-cycle edge chain. This is a
-stored-certificate audit only, not frontier coverage or a proof of `n=9`.
+stored-certificate audit only, not frontier coverage or a proof of `n=9`. Use
+`--json` when the full example error block is needed.
 
 The self-edge equality-path join
 `data/certificates/n9_vertex_circle_self_edge_path_join.json` then restricts
@@ -98,12 +100,13 @@ most 6 selected rows. Its template diagnostic groups those 16 local cores into
 templates. These buckets are review aids for lemma mining; they are not an
 independent n=9 proof path.
 The local-core subset audit
-`scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json`
+`scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --summary-json`
 treats the motif-family artifact and compact local-core packet as inputs. It
 checks that each compact core is a literal subset of its full motif
 representative and that the compact rows alone still force the recorded
 self-edge or strict-cycle obstruction. This is cross-artifact bookkeeping
-only, not a local-lemma completeness theorem.
+only, not a local-lemma completeness theorem. Use `--json` when the full
+example error block is needed.
 
 The derived catalog
 `data/certificates/n9_vertex_circle_template_lemma_catalog.json` puts those 12

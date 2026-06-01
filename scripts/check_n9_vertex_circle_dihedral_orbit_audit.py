@@ -48,6 +48,42 @@ PROVENANCE = {
         "--check --assert-expected --json"
     ),
 }
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "row_size",
+    "dihedral_map_count",
+    "source_artifacts",
+    "validation_status",
+    "validation_errors",
+    "interpretation",
+    "provenance",
+)
+DIHEDRAL_ORBIT_SUMMARY_KEYS = (
+    "family_count",
+    "classification_assignment_count",
+    "unique_classification_row_count",
+    "orbit_union_row_count",
+    "orbit_union_status_counts",
+    "classification_status_counts",
+    "family_status_counts",
+    "orbit_size_counts",
+    "canonical_rep_mismatches",
+    "orbit_size_mismatches",
+    "orbit_overlap_count",
+    "classification_missing_from_orbits",
+    "orbit_missing_from_classification",
+    "classification_duplicate_rows",
+    "classification_family_mismatches",
+    "classification_status_mismatches",
+    "canonical_label_map_mismatches",
+    "assignment_id_mismatches",
+    "orbit_union_rows_sha256",
+    "classification_rows_sha256",
+)
 
 EXPECTED_ASSIGNMENT_COUNT = 184
 EXPECTED_FAMILY_COUNT = 16
@@ -470,6 +506,18 @@ def _check_equal(errors: list[str], name: str, actual: Any, expected: Any) -> No
         errors.append(f"{name} mismatch: {actual!r} != {expected!r}")
 
 
+def summary_json_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view without mismatch examples."""
+
+    summary = {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+    audit = payload.get("dihedral_orbit_audit")
+    if isinstance(audit, Mapping):
+        summary["dihedral_orbit_audit_summary"] = {
+            key: audit[key] for key in DIHEDRAL_ORBIT_SUMMARY_KEYS if key in audit
+        }
+    return summary
+
+
 def summary_lines(payload: Mapping[str, Any]) -> list[str]:
     summary = payload["dihedral_orbit_audit"]
     return [
@@ -498,7 +546,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument("--check", action="store_true", help="validate the audit")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="emit JSON payload")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON without mismatch examples",
+    )
     return parser.parse_args(argv)
 
 
@@ -523,7 +577,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.assert_expected:
         assert_expected_dihedral_orbit_audit(payload)
 
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(payload), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     elif payload.get("validation_status") == "passed":
         print("n=9 vertex-circle dihedral orbit audit")
