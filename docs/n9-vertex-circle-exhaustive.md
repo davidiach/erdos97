@@ -119,8 +119,9 @@ The combined local-lemma audit-path command
 checks the focused packet/catalog, focused mini-replay, aggregate/simple
 replay, exhaustive/local-lemma, and relation-skeleton/local-lemma handoffs as
 one review-pending diagnostic chain. It is still bookkeeping only, not packet
-soundness or an `n=9` proof. Use `--json` instead when the full layer and
-manifest records are needed.
+soundness or an `n=9` proof. The compact summary includes source-artifact and
+input-manifest rollups; use `--json` instead when the full layer and manifest
+records are needed.
 
 The input-data audit command
 `scripts/check_n9_vertex_circle_input_audit.py` treats the checked-in

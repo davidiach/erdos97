@@ -273,8 +273,10 @@ Run:
 python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json
 ```
 
-Use `--json` instead of `--summary-json` when the full layer and manifest
-records are needed for audit.
+The compact `--summary-json` output includes the adjacent handoff checks, a
+per-layer source-artifact contract summary, and an input-manifest summary. Use
+`--json` instead when the full layer and manifest records are needed for
+audit.
 
 Check:
 

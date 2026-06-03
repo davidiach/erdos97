@@ -697,10 +697,12 @@ manifest-contract records are needed. If validation fails after a complete
 payload is available, the text mode prints those same compact summary lines
 before the detailed validation errors. With either JSON flag, failed runs
 return machine-readable diagnostics and exit nonzero when `--check` is
-supplied; `--summary-json` keeps only the compact rollup fields, while `--json`
-returns the full payload. Regression coverage exercises both layer-side and
-manifest-side contract failures so those two failure classes stay separate in
-text and JSON summaries. When `--assert-expected` is also supplied, an
+supplied; `--summary-json` keeps only the compact rollup fields, including
+the layer source-artifact contract summary and input-manifest summary, while
+`--json` returns the full per-artifact and per-layer payload. Regression
+coverage exercises both layer-side and manifest-side contract failures so
+those two failure classes stay separate in text and JSON summaries. When
+`--assert-expected` is also supplied, an
 expected-shape failure is recorded in `validation_errors` instead of replacing
 the JSON diagnostic with a traceback. If payload construction itself fails, the
 fallback payload records `failure_stage: payload_construction` and the Python

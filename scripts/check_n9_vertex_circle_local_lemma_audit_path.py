@@ -465,6 +465,61 @@ EXPECTED_CLOSED_DESCENT_COMPANION_SUMMARY = {
     },
     "region_class_count_counts": {"1": 13, "2": 1, "3": 2},
 }
+EXPECTED_SOURCE_ARTIFACT_CONTRACT_SUMMARY = {
+    "status": "passed",
+    "layer_count": 5,
+    "passed_layer_count": 5,
+    "failed_layer_count": 0,
+    "failed_layers": [],
+    "expected_artifact_count": 13,
+    "observed_artifact_count": 13,
+    "missing_source_artifact_paths": [],
+    "unexpected_source_artifact_paths": [],
+    "duplicate_source_artifact_paths": [],
+    "mismatched_source_artifacts": [],
+    "malformed_source_artifact_count": 0,
+    "layer_statuses": [
+        {
+            "layer_id": "focused_packet_catalog",
+            "status": "passed",
+            "expected_artifact_count": 4,
+            "observed_artifact_count": 4,
+        },
+        {
+            "layer_id": "focused_minireplay",
+            "status": "passed",
+            "expected_artifact_count": 0,
+            "observed_artifact_count": 0,
+        },
+        {
+            "layer_id": "aggregate_simple_replay",
+            "status": "passed",
+            "expected_artifact_count": 2,
+            "observed_artifact_count": 2,
+        },
+        {
+            "layer_id": "exhaustive_local_lemma",
+            "status": "passed",
+            "expected_artifact_count": 4,
+            "observed_artifact_count": 4,
+        },
+        {
+            "layer_id": "relation_skeleton_local_lemma",
+            "status": "passed",
+            "expected_artifact_count": 3,
+            "observed_artifact_count": 3,
+        },
+    ],
+}
+EXPECTED_INPUT_MANIFEST_SUMMARY = {
+    "artifact_count": 33,
+    "listed_artifact_count": 33,
+    "digest_algorithm": "sha256",
+    "role_reference_count": 35,
+    "manifest_consistency_status": "passed",
+    "missing_from_manifest": [],
+    "unreferenced_manifest_paths": [],
+}
 EXPECTED_SUMMARY_LINES = [
     f"schema: {SCHEMA}",
     f"status: {STATUS}",
@@ -510,6 +565,8 @@ SUMMARY_JSON_KEYS = (
     "layer_summaries",
     "handoff_checks",
     "closed_descent_companion",
+    "source_artifact_contract_summary",
+    "input_manifest_summary",
     "manifest_contract_summary",
     "audit_contract_summary",
 )
@@ -616,6 +673,9 @@ def local_lemma_audit_path_payload(
         layers["relation_skeleton_closed_descent"],
         errors,
     )
+    source_artifact_contract_summary = _source_artifact_contract_summary(
+        layer_source_artifact_contracts
+    )
     input_manifest = (
         dict(input_manifest_payload)
         if input_manifest_payload is not None
@@ -644,6 +704,10 @@ def local_lemma_audit_path_payload(
         claim_payloads=manifest_claim_payloads,
     )
     manifest_consistency = _manifest_consistency(layers, input_manifest, errors)
+    input_manifest_summary = _input_manifest_summary(
+        input_manifest,
+        manifest_consistency,
+    )
     manifest_contract_summary = _manifest_contract_summary(
         {
             "manifest_role_contract": manifest_role_contract,
@@ -693,7 +757,9 @@ def local_lemma_audit_path_payload(
         },
         "closed_descent_companion": closed_descent_companion,
         "audit_contract_summary": audit_contract_summary,
+        "source_artifact_contract_summary": source_artifact_contract_summary,
         "input_manifest": input_manifest,
+        "input_manifest_summary": input_manifest_summary,
         "manifest_role_contract": manifest_role_contract,
         "manifest_digest_contract": manifest_digest_contract,
         "manifest_header_contract": manifest_header_contract,
@@ -750,7 +816,9 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_layer_input_contracts(payload)
     _assert_expected_focused_minireplay_record_path_contract(payload)
     _assert_expected_closed_descent_companion(payload)
+    _assert_expected_source_artifact_contract_summary(payload)
     _assert_expected_input_manifest(payload)
+    _assert_expected_input_manifest_summary(payload)
     _assert_expected_manifest_role_contract(payload)
     _assert_expected_manifest_digest_contract(payload)
     _assert_expected_manifest_header_contract(payload)
@@ -1060,6 +1128,19 @@ def _assert_expected_closed_descent_companion(payload: Mapping[str, Any]) -> Non
         )
 
 
+def _assert_expected_source_artifact_contract_summary(
+    payload: Mapping[str, Any],
+) -> None:
+    summary = payload.get("source_artifact_contract_summary")
+    if not isinstance(summary, Mapping):
+        raise AssertionError("source_artifact_contract_summary must be an object")
+    if dict(summary) != EXPECTED_SOURCE_ARTIFACT_CONTRACT_SUMMARY:
+        raise AssertionError(
+            "source_artifact_contract_summary mismatch: "
+            f"{dict(summary)!r} != {EXPECTED_SOURCE_ARTIFACT_CONTRACT_SUMMARY!r}"
+        )
+
+
 def _assert_expected_input_manifest(payload: Mapping[str, Any]) -> None:
     manifest = payload.get("input_manifest")
     if not isinstance(manifest, Mapping):
@@ -1104,6 +1185,17 @@ def _assert_expected_input_manifest(payload: Mapping[str, Any]) -> None:
         size = artifact.get("size_bytes")
         if not isinstance(size, int) or size <= 0:
             raise AssertionError(f"bad size for {artifact.get('path')!r}")
+
+
+def _assert_expected_input_manifest_summary(payload: Mapping[str, Any]) -> None:
+    summary = payload.get("input_manifest_summary")
+    if not isinstance(summary, Mapping):
+        raise AssertionError("input_manifest_summary must be an object")
+    if dict(summary) != EXPECTED_INPUT_MANIFEST_SUMMARY:
+        raise AssertionError(
+            "input_manifest_summary mismatch: "
+            f"{dict(summary)!r} != {EXPECTED_INPUT_MANIFEST_SUMMARY!r}"
+        )
 
 
 def _assert_expected_manifest_role_contract(payload: Mapping[str, Any]) -> None:
@@ -2172,6 +2264,143 @@ def _manifest_contract_summary(
         "failed_contract_count": len(failed_contracts),
         "failed_contracts": failed_contracts,
         "contract_statuses": contract_statuses,
+    }
+
+
+def _source_artifact_contract_summary(
+    contracts: list[dict[str, Any]],
+) -> dict[str, Any]:
+    layer_statuses: list[dict[str, Any]] = []
+    failed_layers: list[str] = []
+    missing_paths: list[dict[str, str]] = []
+    unexpected_paths: list[dict[str, str]] = []
+    duplicate_paths: list[dict[str, str]] = []
+    mismatched_artifacts: list[dict[str, Any]] = []
+    expected_artifact_count = 0
+    observed_artifact_count = 0
+    malformed_artifact_count = 0
+
+    for layer_id in EXPECTED_LAYER_IDS:
+        contract = next(
+            (
+                item
+                for item in contracts
+                if isinstance(item, Mapping) and item.get("layer_id") == layer_id
+            ),
+            {},
+        )
+        status = contract.get("status") if isinstance(contract, Mapping) else "missing"
+        if not isinstance(status, str):
+            status = "failed"
+        expected_count = _optional_int(contract.get("expected_artifact_count")) or 0
+        observed_count = _optional_int(contract.get("observed_artifact_count")) or 0
+        malformed_count = _optional_int(
+            contract.get("malformed_source_artifact_count")
+        ) or 0
+        expected_artifact_count += expected_count
+        observed_artifact_count += observed_count
+        malformed_artifact_count += malformed_count
+        if status != "passed":
+            failed_layers.append(layer_id)
+        layer_statuses.append(
+            {
+                "layer_id": layer_id,
+                "status": status,
+                "expected_artifact_count": expected_count,
+                "observed_artifact_count": observed_count,
+            }
+        )
+        missing_paths.extend(
+            _layer_path_records(
+                layer_id,
+                contract.get("missing_source_artifact_paths"),
+            )
+        )
+        unexpected_paths.extend(
+            _layer_path_records(
+                layer_id,
+                contract.get("unexpected_source_artifact_paths"),
+            )
+        )
+        duplicate_paths.extend(
+            _layer_path_records(
+                layer_id,
+                contract.get("duplicate_source_artifact_paths"),
+            )
+        )
+        mismatched_artifacts.extend(
+            _layer_mismatch_records(
+                layer_id,
+                contract.get("mismatched_source_artifacts"),
+            )
+        )
+
+    return {
+        "status": "passed" if not failed_layers else "failed",
+        "layer_count": len(EXPECTED_LAYER_IDS),
+        "passed_layer_count": len(EXPECTED_LAYER_IDS) - len(failed_layers),
+        "failed_layer_count": len(failed_layers),
+        "failed_layers": failed_layers,
+        "expected_artifact_count": expected_artifact_count,
+        "observed_artifact_count": observed_artifact_count,
+        "missing_source_artifact_paths": missing_paths,
+        "unexpected_source_artifact_paths": unexpected_paths,
+        "duplicate_source_artifact_paths": duplicate_paths,
+        "mismatched_source_artifacts": mismatched_artifacts,
+        "malformed_source_artifact_count": malformed_artifact_count,
+        "layer_statuses": layer_statuses,
+    }
+
+
+def _layer_path_records(layer_id: str, paths: Any) -> list[dict[str, str]]:
+    if not isinstance(paths, list):
+        return []
+    return [
+        {"layer_id": layer_id, "path": str(path)}
+        for path in paths
+        if isinstance(path, str)
+    ]
+
+
+def _layer_mismatch_records(layer_id: str, mismatches: Any) -> list[dict[str, Any]]:
+    if not isinstance(mismatches, list):
+        return []
+    records: list[dict[str, Any]] = []
+    for mismatch in mismatches:
+        if not isinstance(mismatch, Mapping):
+            continue
+        records.append({"layer_id": layer_id, **dict(mismatch)})
+    return records
+
+
+def _input_manifest_summary(
+    input_manifest: Mapping[str, Any],
+    manifest_consistency: Mapping[str, Any],
+) -> dict[str, Any]:
+    artifacts = input_manifest.get("artifacts")
+    artifact_records = artifacts if isinstance(artifacts, list) else []
+    role_reference_count = 0
+    listed_artifact_count = 0
+    for artifact in artifact_records:
+        if not isinstance(artifact, Mapping):
+            continue
+        listed_artifact_count += 1
+        roles = artifact.get("roles")
+        if isinstance(roles, list):
+            role_reference_count += sum(1 for role in roles if isinstance(role, str))
+    status = manifest_consistency.get("status")
+    return {
+        "artifact_count": input_manifest.get("artifact_count"),
+        "listed_artifact_count": listed_artifact_count,
+        "digest_algorithm": input_manifest.get("digest_algorithm"),
+        "role_reference_count": role_reference_count,
+        "manifest_consistency_status": status if isinstance(status, str) else "failed",
+        "missing_from_manifest": _string_list(
+            manifest_consistency.get("missing_from_manifest")
+        ),
+        "unreferenced_manifest_paths": _string_list(
+            manifest_consistency.get("unreferenced_manifest_paths")
+        ),
     }
 
 

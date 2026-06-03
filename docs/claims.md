@@ -2333,10 +2333,11 @@ closed-descent crosswalk against the same `16` relation skeletons and `184`
 orbit records. It records `33` input artifacts and checks the layer contracts,
 layer provenance, layer source artifacts, claim scope guards, layer
 output/input contracts, focused mini-replay record paths, handoff checks, the
-closed-descent companion summary, and manifest contracts. This is a
-cross-artifact audit path only. It does not prove packet soundness,
-mini-replay soundness, local-lemma completeness, frontier coverage, `n=9`, a
-counterexample, or any official/global status update. Check it with
+closed-descent companion summary, source-artifact contract rollup,
+input-manifest rollup, and manifest contracts. This is a cross-artifact audit
+path only. It does not prove packet soundness, mini-replay soundness,
+local-lemma completeness, frontier coverage, `n=9`, a counterexample, or any
+official/global status update. Check it with
 `python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json`;
 use `--json` instead when the full layer and manifest records are needed.
 
