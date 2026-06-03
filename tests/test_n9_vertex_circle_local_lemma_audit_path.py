@@ -1026,6 +1026,19 @@ def test_local_lemma_audit_path_rejects_source_artifact_drift() -> None:
             "observed": "renamed aggregate source",
         }
     ]
+    assert payload["source_artifact_contract_summary"]["status"] == "failed"
+    assert payload["source_artifact_contract_summary"]["failed_layers"] == [
+        "aggregate_simple_replay"
+    ]
+    assert payload["source_artifact_contract_summary"]["mismatched_source_artifacts"] == [
+        {
+            "layer_id": "aggregate_simple_replay",
+            "path": "data/certificates/n9_vertex_circle_local_lemmas.json",
+            "key": "role",
+            "expected": "aggregate local-lemma scan",
+            "observed": "renamed aggregate source",
+        }
+    ]
     assert any(
         "aggregate_simple_replay source_artifacts mismatch" in error
         for error in payload["validation_errors"]
@@ -2043,6 +2056,10 @@ def test_local_lemma_audit_path_summary_json_payload() -> None:
     assert parsed["coverage_summary"]["assignment_count"] == 184
     assert parsed["audit_contract_summary"]["status"] == "passed"
     assert parsed["manifest_contract_summary"]["status"] == "passed"
+    assert parsed["source_artifact_contract_summary"]["status"] == "passed"
+    assert parsed["source_artifact_contract_summary"]["expected_artifact_count"] == 13
+    assert parsed["input_manifest_summary"]["artifact_count"] == 33
+    assert parsed["input_manifest_summary"]["role_reference_count"] == 35
     assert "audit_path" not in parsed
     assert "input_manifest" not in parsed
 
