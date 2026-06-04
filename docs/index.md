@@ -626,6 +626,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`gpt55-pro-zip8-triage-2026-06-04.md`](gpt55-pro-zip8-triage-2026-06-04.md):
   triage of the eighth June 4 GPT-5.5 Pro zip; records a fast chunked C++
   replay packet as duplicate corroborating provenance only.
+- [`gpt55-pro-zip9-triage-2026-06-04.md`](gpt55-pro-zip9-triage-2026-06-04.md):
+  triage of the ninth June 4 GPT-5.5 Pro zip; records an independent `n=9`
+  turn-capacity replay packet as corroborating provenance only.
 - [`two-parabola-lens-closure.md`](two-parabola-lens-closure.md): structured
   opposite-chain parabolic-lens closure equations for a possible future exact
   search, plus a bounded rational-grid negative-control artifact; search
