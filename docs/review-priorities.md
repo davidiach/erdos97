@@ -507,6 +507,11 @@ selected-witness assignments.
 Target: `docs/n10-vertex-circle-singleton-slices.md` and
 `data/certificates/n10_vertex_circle_singleton_slices.json`.
 
+Reviewer packet: `docs/n10-vertex-circle-singleton-review-packet.md` collects
+the current evidence layers, reproduction commands, missing promotion evidence,
+and safe acceptance outcomes. It is a worksheet only and does not promote the
+n=10 singleton artifact beyond draft.
+
 The incoming n=10 continuation covers all 126 row0 singleton slices and records
 zero full selected-witness assignments under the pair/crossing/count plus
 vertex-circle filters. Treat this as a draft until an independent audit checks:
