@@ -9,6 +9,11 @@ established source-of-truth local result remains the repo-local,
 machine-checked selected-witness `n <= 8` artifact; the n=9 and n=10
 vertex-circle packages are still review-pending.
 
+Reviewer packet: `docs/n10-vertex-circle-singleton-review-packet.md` collects
+the current evidence layers, reproduction commands, missing promotion evidence,
+and safe acceptance outcomes. It is a worksheet only and does not promote the
+n=10 singleton artifact beyond draft.
+
 ## What is checked
 
 The checker labels a hypothetical bad decagon in cyclic order `0,...,9` and
@@ -158,8 +163,8 @@ should check:
 - that vertex-circle partial pruning uses only already-fixed selected rows and
   selected-distance equalities;
 - that the generic repo-native checker and the archived C++ checker agree
-  beyond the selected n=10 singleton spot-checks, or that a second independent verifier
-  replays all terminal conflicts;
+  beyond the selected n=10 singleton spot-checks, or that a second independent
+  verifier replays all terminal conflicts;
 - that the secondary first-five replay is treated only as prefix agreement
   under an extra necessary filter, not as all-slice coverage;
 - that the artifact remains scoped to the selected-witness n=10 finite case

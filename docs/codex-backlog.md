@@ -905,6 +905,7 @@ Issue: none yet.
 
 Read first:
 
+- `docs/n10-vertex-circle-singleton-review-packet.md`
 - `docs/n10-vertex-circle-singleton-slices.md`
 - `src/erdos97/generic_vertex_search.py`
 - `src/erdos97/n10_vertex_circle_singletons.py`
@@ -921,6 +922,9 @@ python -m pytest tests/test_n10_vertex_circle_singletons.py -q -m "artifact"
 
 Expected artifacts:
 
+- a reviewer packet separating primary artifact counts, input-data audit,
+  selected spot replay, secondary first-five replay, and missing promotion
+  evidence;
 - independent review notes for the generic checker and the imported singleton rows;
 - an input-data audit checking the stored `[0,126)` row0 singleton coverage,
   witness masks/lists, and aggregate arithmetic without rerunning the search;
