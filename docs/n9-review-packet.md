@@ -103,6 +103,7 @@ python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --a
 python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json
 python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json
 python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json
+python scripts/check_turn_inequality_indexing.py --check --assert-expected --summary-json
 python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
 ```
 
@@ -167,6 +168,9 @@ The quotient/local-lemma audits should confirm:
 
 The turn-packing replay should confirm:
 
+- the indexing audit checks `70` row-offset subsets, `630` row instances, `504`
+  unique center/pair/orientation records, and `7560` emitted term records with
+  no mismatches;
 - source frontier assignment count is `184`;
 - integer dual certificate count is `184`;
 - all weak turn systems are infeasible by stored integer arithmetic;

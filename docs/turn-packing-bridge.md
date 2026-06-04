@@ -67,16 +67,18 @@ a contradiction.
 The replay command
 
 ```bash
+python scripts/check_turn_inequality_indexing.py --check --assert-expected --summary-json
 python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
 ```
 
-checks the stored `n=9` frontier artifact. Use `--json` instead when the full
-certificate rows are needed. It regenerates the 184 complete
-selected-witness assignments surviving the pair/crossing/count filters before
-vertex-circle pruning and verifies one integer turn-packing certificate for
-each assignment. The replay is arithmetic after the stored interval choices:
-180 certificates use `lambda = 1` and five intervals; 4 use `lambda = 2` and
-nine intervals.
+first checks the offset/indexing convention used to generate weak turn
+intervals, then checks the stored `n=9` frontier artifact. Use `--json`
+instead when the full certificate rows are needed. The frontier replay
+regenerates the 184 complete selected-witness assignments surviving the
+pair/crossing/count filters before vertex-circle pruning and verifies one
+integer turn-packing certificate for each assignment. The replay is arithmetic
+after the stored interval choices: 180 certificates use `lambda = 1` and five
+intervals; 4 use `lambda = 2` and nine intervals.
 
 This is review-pending finite-case evidence only. It does not promote the
 repo source-of-truth status, and it does not imply a general theorem without a
