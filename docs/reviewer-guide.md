@@ -262,6 +262,7 @@ Check:
 
 Primary references:
 
+- `docs/n9-review-packet.md`
 - `docs/n9-vertex-circle-local-lemmas.md`
 - `docs/relation-skeleton-catalog.md`
 - `docs/n9-reduction-chain.md`
