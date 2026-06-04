@@ -22,6 +22,11 @@ that justifies doing it anyway.
 
 Use this queue when no more specific issue is selected.
 
+Bridge target map: `docs/lemma-driven-bridge-targets.md` is the current
+claim-neutral ledger for choosing bridge work. Prefer PRs that prove one of
+its named lemma contracts or reject one of its negative controls under explicit
+minimal/rich-class hypotheses.
+
 1. Review the aggregate `n=9` vertex-circle local-lemma scan against the
    focused T01/T02/T03/T04/T05/T06/T07/T08/T09 self-edge packets and the focused T10/T11/T12
    strict-cycle packets, keeping it scoped as proof-mining scaffolding rather
@@ -286,6 +291,10 @@ Use this queue when no more specific issue is selected.
 4. Use the bootstrap-core crosswalk and the bootstrap / vertex-circle overlay
    in `docs/bootstrap-core-crosswalk.md` and
    `docs/bootstrap-vertex-circle-overlay.md` to design a sharper condition.
+   The umbrella target ledger is `docs/lemma-driven-bridge-targets.md`; it
+   ranks `81:3` connector forcing, `151:6` endpoint-`8` outside-pair forcing,
+   hard strict-endpoint forcing, local-template forcing, and block-6
+   negative-control exclusion as the bridge contracts worth attacking.
    The current singleton-rich stuck/frontier motifs all survive the weighted
    ledger, while the two tight `n=9` non-ear rows both land on the `T12/F16`
    strict-cycle template without yielding a bootstrap-core-only contradiction.

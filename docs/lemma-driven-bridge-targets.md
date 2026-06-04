@@ -1,0 +1,221 @@
+# Lemma-driven Bridge Targets
+
+Status: `BRIDGE_ROADMAP_ONLY`.
+
+Claim scope: proof-planning map for bridge lemmas from arbitrary or minimal
+counterexamples to currently checked local obstruction packets.
+
+Source of truth: `README.md`, `STATE.md`, `RESULTS.md`, `docs/claims.md`, and
+`metadata/erdos97.yaml`.
+
+Last assembled: 2026-06-04.
+
+## Non-claims
+
+- This map does not prove Erdos Problem #97.
+- This map does not claim a counterexample.
+- This map does not prove `n=9`, `n=10`, or any larger finite case.
+- This map does not promote review-pending local-lemma packets.
+- This map does not update the official/global status.
+
+## Purpose
+
+The bridge program has many checked diagnostics now. The useful next step is
+not another broad catalogue unless it proves a new necessary condition. This
+map names the bridge lemmas that would actually connect the existing finite
+packets to arbitrary or minimal counterexamples, and it records the negative
+controls each candidate must survive.
+
+## Current proved footholds
+
+- Minimality gives exact critical 4-ties: every minimal counterexample admits
+  a fragile-cover witness system. See `docs/minimal-fragile-cover-bridge.md`.
+- Adaptive peeling gives the ear-orderable/radius-blocker fork. A non-ear
+  counterexample contains a radius-blocker. See
+  `docs/adaptive-radius-blocker-bridge.md`.
+- Rich-triple closure gives the bootstrap fork. If the bootstrap rank is at
+  most `3`, an ear-orderable selected-witness system exists; otherwise a
+  minimal generator has deletion closures, private halos, and a weighted
+  outside-pair capacity ledger. See `docs/bootstrap-core-bridge.md`.
+- Strict quotient self-edges and directed strict cycles are valid local
+  obstruction criteria once the relevant selected-distance equalities and
+  vertex-circle strict edges are genuinely available. See
+  `docs/n9-vertex-circle-self-edge-criterion.md` and
+  `docs/n9-vertex-circle-strict-cycle-criterion.md`.
+
+These are necessary-structure or local-obstruction lemmas only. They do not
+force one of the stored local templates by themselves.
+
+## Best current finite targets
+
+| Target | Current evidence | Missing lemma |
+| --- | --- | --- |
+| `T01`--`T12` local templates | `docs/n9-vertex-circle-local-lemma-review-packet.md` packages 12 templates, 16 families, and 184 stored assignments | A proof that a minimal/rich-support counterexample must contain one of these local cores, without enumerating the whole frontier |
+| non-ear frontier rows `81` and `151` | `docs/bridge-lemma-frontier.md` and `docs/bootstrap-vertex-circle-overlay.md` isolate the two tight `n=9` non-ear rows and their `T12/F16` strict-cycle landing | A bootstrap/rich-class lemma that makes the needed T12 row relations genuinely available |
+| source `81`, row `3` | `docs/bootstrap-t12-81-3-closure-target.md` and `docs/bootstrap-t12-81-3-rich-triple-contract.md` reduce the target to the connector pair `[0,1]` | Force a genuine center-`3` rich class containing `[0,1]`, or classify the label-`6` connector-avoiding escape |
+| source `151`, row `6` | `docs/bootstrap-t12-151-6-outside-pair-connector-contract.md` splits endpoint-`8` supports from private-halo-only pair `[3,5]` | Force an endpoint-`8` outside-pair support, or prove the `[3,5]` private-halo-only escape is geometrically impossible |
+| source `151`, rows `7` and `8` | `docs/bootstrap-t12-hard-strict-endpoints.md` isolates missing strict-edge endpoint sets | Supply the hard endpoint labels from genuine closure/support geometry, not fixed-row bookkeeping |
+| block-6 fragile family | `docs/block6-fragile-vertex-circle-extension-audit.md` and `docs/bridge-negative-controls.md` record exact negative controls | A minimal/rich-class condition that rejects the family beyond fixed natural/block-preserving order slices |
+
+## Recommended lemma contracts
+
+### Contract A: exact local-template forcing
+
+Statement shape:
+
+```text
+Under stated minimal/rich-support hypotheses, a counterexample contains one of
+the T01--T12 selected-distance quotient local cores.
+```
+
+Useful evidence:
+
+- `scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json`
+- `scripts/check_relation_skeleton_local_lemma_crosswalk.py --check --assert-expected --summary-json`
+- `scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --summary-json`
+
+Required guardrails:
+
+- Do not assume the review-pending 184-frontier brancher is already a theorem.
+- State exact incidence, order, support-size, and richness hypotheses.
+- Make clear whether the lemma forces a selected row, a rich class, or only a
+  connector equality.
+
+### Contract B: `81:3` connector forcing
+
+Statement shape:
+
+```text
+In the bootstrap-core setting for the source-81 closure target, either center
+3 has a genuine rich class containing witnesses 0 and 1, or a specified
+connector-avoiding label-6 supply must occur before center 3 activates.
+```
+
+Useful evidence:
+
+- `docs/bootstrap-t12-81-3-closure-target.md`
+- `docs/bootstrap-t12-81-3-rich-triple-contract.md`
+- `docs/bootstrap-t12-81-3-chain-closure-csp.md`
+- `docs/bootstrap-t12-81-3-repeated-support-saturation-audit.md`
+
+Required guardrails:
+
+- Closure exposure of the fixed selected row is not rich-class forcing.
+- Full target-label visibility does not pin the fourth witness; see
+  `docs/closure-activation-negative-controls.md`.
+- The repeated-support saturation packet closes only the stored-prefix,
+  same-center-disjoint repeated-support model.
+
+### Contract C: endpoint-8 outside-pair forcing
+
+Statement shape:
+
+```text
+For the source-151 row-6 outside-pair target, any genuine outside-pair support
+compatible with the bootstrap/private-halo hypotheses includes endpoint 8.
+```
+
+Useful evidence:
+
+- `docs/bootstrap-t12-151-6-outside-pair-connector-contract.md`
+- `docs/bootstrap-t12-151-6-outside-pair-full-neighborhood-vertex-circle.md`
+- `docs/bootstrap-t12-relation-sufficient-rows.md`
+
+Required guardrails:
+
+- The fixed full-neighborhood vertex-circle packet kills selected-row
+  neighborhoods, not support existence.
+- The private-halo-only pair `[3,5]` is the named escape and must be excluded
+  or explicitly realized as an escape mechanism.
+
+### Contract D: hard strict-endpoint forcing
+
+Statement shape:
+
+```text
+For the source-151 row-7/row-8 hard strict-endpoint targets, the missing
+strict-edge endpoint labels are forced by genuine deletion-closure or singleton
+support geometry.
+```
+
+Useful evidence:
+
+- `docs/bootstrap-t12-hard-strict-endpoints.md`
+- `docs/bootstrap-t12-open-connector-pair.md`
+- `docs/bootstrap-t12-singleton-full-neighborhood-crosswalk.md`
+
+Required guardrails:
+
+- Singleton support does not automatically supply both connector endpoints.
+- Another selected-row neighborhood widening over the same packets is low
+  leverage unless it proves support existence or a new necessary condition.
+
+### Contract E: block-6 negative-control exclusion
+
+Statement shape:
+
+```text
+Every fragile-cover system from a minimal counterexample satisfies an extra
+minimal/rich-class condition that the block-6 negative-control family fails.
+```
+
+Useful evidence:
+
+- `docs/minimal-fragile-cover-bridge.md`
+- `docs/bridge-negative-controls.md`
+- `docs/block6-fragile-vertex-circle-extension-audit.md`
+- `docs/block6-fragile-sixth-row-survivor-catalog.md`
+
+Required guardrails:
+
+- Fragile-cover hypergraph constraints, full-row extension, row-circle
+  Ptolemy product-cancellation, and local row-depth closure each have exact
+  negative controls.
+- Vertex-circle pruning alone has the reversed-second-block clean-row escape;
+  those 16 rows need Kalmanson certificates in their fixed orders.
+- A useful condition should either handle arbitrary cyclic orders/all
+  full-row extensions or explain why minimal/rich-class geometry avoids that
+  quantifier.
+
+## Low-leverage moves to avoid
+
+- Repeating selected-row neighborhood widenings around `81:3`, `81:8`,
+  `151:5`, `151:6`, or `151:8` without a support-existence or row-forcing
+  theorem.
+- Treating closure exposure as selected-row availability.
+- Treating a fixed selected-row obstruction as an all-rich-class or
+  all-cyclic-order obstruction.
+- Treating vertex-circle cleanliness of an abstract row system as Euclidean
+  realizability or counterexample evidence.
+- Using the block-6 fragile rows to refute the problem; they are guardrails
+  against overstrong bridge claims, not candidates.
+
+## Acceptance standard for the next bridge PR
+
+A bridge PR should be considered high leverage if it does at least one of:
+
+- states and proves a new necessary condition for minimal counterexamples;
+- turns one of the contracts above into a checked exact lemma;
+- rejects a named negative control under clearly stated minimal/rich-class
+  hypotheses;
+- replaces an enumeration layer with a smaller reusable local lemma and a
+  replayable certificate.
+
+It should not claim a proof of Erdos Problem #97, `n=9`, `n=10`, or an official
+status change unless the full source-of-truth review standard is separately
+met.
+
+## Smoke commands
+
+Use these commands to replay the current bridge-target evidence:
+
+```bash
+python scripts/check_bridge_lemma_frontier.py --check --assert-expected --json
+python scripts/check_bootstrap_core_bridge.py --assert-expected
+python scripts/check_bootstrap_t12_bridge_target_map.py --check --assert-expected --json
+python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json
+python scripts/check_bootstrap_t12_81_3_repeated_support_saturation_audit.py --check --assert-expected --summary-json
+python scripts/check_bootstrap_t12_singleton_full_neighborhood_crosswalk.py --check --assert-expected --json
+python scripts/check_block6_fragile_sixth_row_survivors.py --assert-expected --json
+python scripts/check_block6_reversed_block_clean_kalmanson.py --check --assert-expected --json
+```

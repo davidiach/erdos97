@@ -11,6 +11,10 @@ For each missing T12/F16 row, which exact bridge lemma would have to be proved
 before the stored vertex-circle strict-cycle certificate can be used?
 ```
 
+For the broader bridge-lemma ledger that places this T12 map alongside the
+fragile-cover and local-template negative controls, see
+`docs/lemma-driven-bridge-targets.md`.
+
 The checked artifact is:
 
 ```bash
