@@ -341,6 +341,9 @@ when the full mismatch example block is needed.
 Target: `docs/n9-vertex-circle-obstruction-shapes.md` and
 `docs/n9-vertex-circle-motif-families.md`.
 
+Local-lemma reviewer packet:
+`docs/n9-vertex-circle-local-lemma-review-packet.md`.
+
 The n=9 obstruction-shape diagnostic shows that the 184 pre-vertex-circle
 frontier assignments are killed by 158 self-edges and 26 strict cycles, all
 strict cycles having length 2 or 3. This makes the most promising proof push a

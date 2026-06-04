@@ -42,6 +42,7 @@ It would not prove the general problem for larger polygons.
 - `docs/n9-vertex-circle-strict-edge-geometry-audit.md`
 - `docs/n9-vertex-circle-quotient-soundness-audit.md`
 - `docs/n9-vertex-circle-local-lemmas.md`
+- `docs/n9-vertex-circle-local-lemma-review-packet.md`
 - `docs/relation-skeleton-catalog.md`
 - `docs/turn-inequality-lemma.md`
 - `docs/turn-packing-bridge.md`
