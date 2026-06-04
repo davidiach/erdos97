@@ -7,6 +7,11 @@ Source of truth: `STATE.md`, `RESULTS.md`, `docs/claims.md`,
 `metadata/erdos97.yaml`.
 Last reviewed: unreviewed packet draft, 2026-05-10.
 
+Companion proof trail: `../docs/n8-proof-trail.md` joins this selected-witness
+artifact packet with the geometric octagon proof note and the literature-backed
+Dumitrescu shortcut. It is a worksheet only and does not change this packet's
+claim scope.
+
 This packet packages the current `n=8` selected-witness finite-case artifacts
 for independent review. It does not change the repository status. No general
 proof and no counterexample are claimed, and the official/global status remains

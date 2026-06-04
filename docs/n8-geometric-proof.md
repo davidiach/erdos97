@@ -10,6 +10,10 @@ draft until it has independent mathematical review.
 
 It does not prove Erdos Problem #97. The case `n >= 9` remains open.
 
+Reviewer trail: `docs/n8-proof-trail.md` places this proof note alongside the
+selected-witness finite artifact and the literature-backed Dumitrescu shortcut.
+It is a worksheet only and does not promote any claim.
+
 Here a bad polygon means a strictly convex polygon in which every vertex has at
 least four other vertices at one common distance from that vertex.
 

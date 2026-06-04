@@ -55,6 +55,9 @@ put detailed reconciliation in the canonical synthesis.
   literature-backed review note giving the short apex-isosceles count that
   rules out 4-bad convex polygons with `n <= 8`; not a source-of-truth status
   update.
+- [`n8-proof-trail.md`](n8-proof-trail.md): claim-neutral reviewer map joining
+  the geometric octagon trap, selected-witness finite artifact route, and
+  literature-backed shortcut for `n <= 8`.
 - [`diameter-lens-local-lemmas.md`](diameter-lens-local-lemmas.md): local
   diameter-pair lemmas, the seven-point lens-cap negative control, and the
   selected/full-rich-class branching caution; review-pending local geometry
@@ -381,6 +384,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n8-geometric-proof.md`](n8-geometric-proof.md): proof-note draft giving a
   compact geometric obstruction for bad convex octagons via isosceles-triangle
   counting and exterior-turn angles.
+- [`n8-proof-trail.md`](n8-proof-trail.md): human-auditable proof trail for
+  `n <= 8`, keeping the geometric, selected-witness, and literature-backed
+  routes separate.
 - [`n9-vertex-circle-exhaustive.md`](n9-vertex-circle-exhaustive.md):
   review-pending exhaustive `n=9` selected-witness checker using the
   vertex-circle strict-chord filter.
