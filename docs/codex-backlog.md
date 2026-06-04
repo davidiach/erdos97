@@ -478,7 +478,11 @@ Use this queue when no more specific issue is selected.
    against the deterministic exporter, but this is environment/preflight
    bookkeeping only and not proof evidence.
 6. Audit `n=8` class `14` or the review-pending `n=9` vertex-circle checker
-   with an independent input-data replay. The current SymPy-free
+   with an independent input-data replay. The `n <= 8` proof-trail map is
+   `docs/n8-proof-trail.md`; use it to keep the
+   geometric octagon note, selected-witness artifact route, and
+   literature-backed shortcut separate during review.
+   The current SymPy-free
    `n=8` replay command,
    `python scripts/independent_n8_obstruction_recheck.py --check --json`,
    covers the cyclic-order counts and 11 non-Groebner survivor-class kills;

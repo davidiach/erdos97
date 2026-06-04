@@ -187,12 +187,18 @@ invariants:
 1. `STATE.md`
 2. `RESULTS.md`
 3. `docs/n7-fano-enumeration.md`
-4. `docs/n8-incidence-enumeration.md`
-5. `docs/n8-exact-survivors.md`
-6. `docs/round2/round2_merged_report.md`
-7. `docs/verification-contract.md`
-8. `docs/n8-geometric-proof.md`
-9. `docs/review-priorities.md`
+4. `docs/n8-proof-trail.md`
+5. `docs/n8-incidence-enumeration.md`
+6. `docs/n8-exact-survivors.md`
+7. `docs/round2/round2_merged_report.md`
+8. `docs/verification-contract.md`
+9. `docs/n8-geometric-proof.md`
+10. `docs/review-priorities.md`
+
+For the joined `n <= 8` review route, start with
+`docs/n8-proof-trail.md`. It separates the geometric octagon trap, the
+selected-witness finite artifact, and the literature-backed shortcut while
+preserving the repo-local status boundary.
 
 ## Review target A - `n=7`
 

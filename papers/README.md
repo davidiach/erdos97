@@ -11,3 +11,6 @@ status remains in `../STATE.md`, `../RESULTS.md`, `../docs/claims.md`, and
 - [`n8-reviewer-packet.md`](n8-reviewer-packet.md): claim-neutral reviewer
   packet for the repo-local machine-checked `n=8` selected-witness finite-case
   artifact.
+- [`../docs/n8-proof-trail.md`](../docs/n8-proof-trail.md): docs-side
+  reviewer map joining the geometric, selected-witness, and literature-backed
+  `n <= 8` routes.

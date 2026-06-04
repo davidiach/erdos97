@@ -15,6 +15,10 @@ trust deltas, and forbidden overclaiming text, see `docs/codex-backlog.md`.
 
 Target: `docs/n8-geometric-proof.md`.
 
+Proof trail: `docs/n8-proof-trail.md` joins the geometric proof note, the
+machine-checked selected-witness artifact route, and the literature-backed
+Dumitrescu shortcut into one claim-neutral reviewer map.
+
 Ask independent geometry reviewers to check:
 
 - the base-apex lemma and its strict-convexity use;
@@ -29,6 +33,10 @@ any exact gap. If the note survives review, keep it as the main human-readable
 small-case proof route, with the computational pipeline as an audit appendix.
 
 ## Priority 2 - audit and extend the n=8 checker
+
+Proof trail: `docs/n8-proof-trail.md` records how the selected-witness artifact
+route, independent artifact audit, SymPy-free partial recheck, residual
+checker, and class `14` checker fit together.
 
 Audit the current checker, and extend it toward a more independent `n=8`
 finite-artifact check that treats the checked-in JSON and certificate data as
