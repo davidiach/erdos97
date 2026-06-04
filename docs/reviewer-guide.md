@@ -381,6 +381,9 @@ Check:
 - Independent review of the `n=10` singleton-slice draft should check the
   primary search implementation, row0 singleton split, partial vertex-circle
   pruning, and all-slice replay gap before any n=10 promotion.
+- Bridge work should start from `docs/lemma-driven-bridge-targets.md` and
+  state which minimal/rich-class lemma contract or negative control it
+  addresses before adding another finite packet.
 - Independent reproduction of `certificates/n8_exact_analysis.json`.
 - A Lean, SMT, interval, or algebraic certificate checker would be high value.
 

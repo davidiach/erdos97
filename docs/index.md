@@ -202,6 +202,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bridge-lemma-frontier.md`](bridge-lemma-frontier.md): replayable
   n=8/n=9 ear-orderability and obstruction cross-tab for Bridge Lemma A'
   proof-mining targets.
+- [`lemma-driven-bridge-targets.md`](lemma-driven-bridge-targets.md):
+  claim-neutral bridge target ledger naming the current lemma contracts and
+  negative controls for the minimal/rich-class bridge program.
 - [`adaptive-radius-blocker-bridge.md`](adaptive-radius-blocker-bridge.md):
   adaptive selected-witness peeling versus radius-blocker bridge fork.
 - [`radius-blocker-vertex-circle-pilot.md`](radius-blocker-vertex-circle-pilot.md):

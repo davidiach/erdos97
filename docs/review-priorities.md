@@ -648,6 +648,11 @@ benchmarks for the larger frontier:
 Target: `docs/minimal-fragile-cover-bridge.md` and
 `src/erdos97/fragile_hypergraph.py`.
 
+Bridge target map: `docs/lemma-driven-bridge-targets.md` summarizes the
+current proved footholds, finite targets, candidate bridge-lemma contracts, and
+negative controls. Use it to choose a lemma that would strengthen the bridge
+rather than another fixed selected-row neighborhood replay.
+
 Minimality proves that every minimal counterexample has a fragile-cover
 witness system, but the block-6 abstract family shows the current hypergraph
 axioms are too weak. The current checker now also has an optional full-row

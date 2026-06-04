@@ -76,3 +76,7 @@ This is useful because it separates three questions that were easy to blur:
 The diagnostic does not prove the bridge. Its value is that it gives future
 work six concrete, reproducible edge cases instead of a vague instruction to
 "look at stuck sets."
+
+For the current lemma-facing target ledger that connects these edge cases to
+bootstrap/T12 packets and fragile-cover negative controls, see
+`docs/lemma-driven-bridge-targets.md`.
