@@ -84,6 +84,10 @@ Use this queue when no more specific issue is selected.
    inputs. The T10 paired-square entry audit
    `python scripts/check_n9_t10_paired_square_entry.py --check --assert-expected --json`
    remains a diagnostic companion, not a theorem.
+   The turn-inequality indexing audit
+   `python scripts/check_turn_inequality_indexing.py --check --assert-expected --summary-json`
+   checks the n=9 weak-turn interval indexing convention against the term
+   emitter before certificate replay; it does not prove the geometric lemma.
    The turn-inequality frontier replay
    `python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json`
    checks stored integer dual certificates for all 184 regenerated

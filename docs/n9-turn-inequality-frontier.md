@@ -27,12 +27,18 @@ data/certificates/n9_turn_inequality_frontier.json
 The generator and checker are:
 
 ```bash
+python scripts/check_turn_inequality_indexing.py --check --assert-expected --summary-json
 python scripts/check_n9_turn_inequality_frontier.py --assert-expected --write
 python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
 ```
 
-The check command is also registered in `scripts/run_artifact_audit.py` and
-listed in the raw audit command set in `README.md`.
+The first command is source-level indexing scaffolding. It does not read or
+write the frontier artifact; it exhaustively checks that the term emitter uses
+the two interval supports stated in `docs/turn-inequality-lemma.md`.
+
+The frontier artifact check command is also registered in
+`scripts/run_artifact_audit.py` and listed in the raw audit command set in
+`README.md`.
 Use `--json` instead when the full stored certificate rows are needed.
 
 ## Candidate Turn Lemma
@@ -96,6 +102,8 @@ status `self_edge`, and is also `unsat` under the weak turn system.
 Before this can support a theorem-style n=9 claim, reviewers should check:
 
 - the geometric turn lemma and all offset/index conventions;
+- the indexing audit command above, which verifies the implementation
+  convention but not the geometry;
 - that the regenerated 184-assignment frontier is the intended source frontier
   and is not hiding symmetry quotient assumptions;
 - the stored integer dual certificates and their arithmetic verifier;
@@ -107,7 +115,8 @@ Before this can support a theorem-style n=9 claim, reviewers should check:
 ## Fast Reproduction
 
 ```bash
+python scripts/check_turn_inequality_indexing.py --check --assert-expected --summary-json
 python scripts/check_n9_turn_inequality_frontier.py --assert-expected --json
 python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
-python -m pytest tests/test_n9_turn_inequality_frontier.py -q
+python -m pytest tests/test_turn_inequality_indexing.py tests/test_n9_turn_inequality_frontier.py -q
 ```
