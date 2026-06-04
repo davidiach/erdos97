@@ -602,6 +602,36 @@ put detailed reconciliation in the canonical synthesis.
 - [`gpt-pro-followup-triage-2026-05-19.md`](gpt-pro-followup-triage-2026-05-19.md):
   triage of the May 19 GPT Pro output batch; imports only the scoped ellipse
   model-case note and keeps the parabolic descent as duplicate provenance.
+- [`gpt55-pro-zip1-triage-2026-06-04.md`](gpt55-pro-zip1-triage-2026-06-04.md):
+  triage of the first June 4 GPT-5.5 Pro zip; records the compact `n=10`
+  full-slice replay as duplicate provenance only, not a status update.
+- [`gpt55-pro-zip2-triage-2026-06-04.md`](gpt55-pro-zip2-triage-2026-06-04.md):
+  triage of the second June 4 GPT-5.5 Pro zip; records the standalone C++
+  `n=10` full-slice rerun packet as stronger corroborating provenance only.
+- [`gpt55-pro-zip3-triage-2026-06-04.md`](gpt55-pro-zip3-triage-2026-06-04.md):
+  triage of the third June 4 GPT-5.5 Pro zip; records the expanded C++ replay
+  packet as corroborating provenance for existing `n=9` and `n=10` artifacts.
+- [`gpt55-pro-zip4-triage-2026-06-04.md`](gpt55-pro-zip4-triage-2026-06-04.md):
+  triage of the fourth June 4 GPT-5.5 Pro zip; records a cap-free independent
+  `n=9` frontier replay as provenance only.
+- [`gpt55-pro-zip5-triage-2026-06-04.md`](gpt55-pro-zip5-triage-2026-06-04.md):
+  triage of the fifth June 4 GPT-5.5 Pro zip; records another standalone
+  `n=10` C++ replay packet as duplicate corroborating provenance only.
+- [`gpt55-pro-zip6-triage-2026-06-04.md`](gpt55-pro-zip6-triage-2026-06-04.md):
+  triage of the sixth June 4 GPT-5.5 Pro zip; records the Kalmanson
+  one-cancellation strict-edge filter as a follow-up candidate only.
+- [`gpt55-pro-zip7-triage-2026-06-04.md`](gpt55-pro-zip7-triage-2026-06-04.md):
+  triage of the seventh June 4 GPT-5.5 Pro zip; records a compact C++ replay
+  bundle as duplicate corroborating provenance only.
+- [`gpt55-pro-zip8-triage-2026-06-04.md`](gpt55-pro-zip8-triage-2026-06-04.md):
+  triage of the eighth June 4 GPT-5.5 Pro zip; records a fast chunked C++
+  replay packet as duplicate corroborating provenance only.
+- [`gpt55-pro-zip9-triage-2026-06-04.md`](gpt55-pro-zip9-triage-2026-06-04.md):
+  triage of the ninth June 4 GPT-5.5 Pro zip; records an independent `n=9`
+  turn-capacity replay packet as corroborating provenance only.
+- [`gpt55-pro-zip10-triage-2026-06-04.md`](gpt55-pro-zip10-triage-2026-06-04.md):
+  triage of the tenth June 4 GPT-5.5 Pro zip; records a localized-cap C++
+  vertex-circle replay packet as duplicate corroborating provenance only.
 - [`two-parabola-lens-closure.md`](two-parabola-lens-closure.md): structured
   opposite-chain parabolic-lens closure equations for a possible future exact
   search, plus a bounded rational-grid negative-control artifact; search
