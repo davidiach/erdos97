@@ -7,6 +7,10 @@ review-pending `n=9` vertex-circle template packets. It does not prove `n=9`,
 does not claim a counterexample, does not independently review the exhaustive
 checker, and does not update the official/global status of Erdos Problem #97.
 
+For a reviewer-facing packet that ties the focused T01-T12 notes, relation
+skeletons, aggregate replay, exhaustive crosswalk, and manifest checks into one
+audit path, see `docs/n9-vertex-circle-local-lemma-review-packet.md`.
+
 The companion checker is:
 
 ```bash
