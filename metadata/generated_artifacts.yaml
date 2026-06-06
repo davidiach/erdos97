@@ -683,7 +683,7 @@ artifacts:
     generator: scripts/check_n9_turn_inequality_frontier.py
     command: python scripts/check_n9_turn_inequality_frontier.py --assert-expected --write
     checker: scripts/check_n9_turn_inequality_frontier.py
-    check_command: python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json
+    check_command: python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING

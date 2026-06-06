@@ -45,7 +45,8 @@ verify-n9-review:
 	$(PYTHON) scripts/analyze_n9_vertex_circle_obstruction_shapes.py --check --assert-expected --json
 	$(PYTHON) scripts/analyze_n9_vertex_circle_motif_families.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_inversive_incidence_pilot.py --check --assert-expected --json
-	$(PYTHON) scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --json
+	$(PYTHON) scripts/check_turn_inequality_indexing.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json
