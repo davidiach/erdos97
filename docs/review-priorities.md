@@ -214,7 +214,7 @@ geometry, selected-distance quotient soundness, `n=9`, or complete review. Use
 Current Kalmanson self-edge replay:
 
 ```bash
-python scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --json
+python scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --summary-json
 ```
 
 This command treats the stored 184 terminal assignments as certificate inputs
@@ -222,12 +222,12 @@ and checks that each has one strict Kalmanson inequality whose two sides reduce
 to the same selected-distance quotient multiset. It is a compact certificate
 replay only; it does not independently audit brancher coverage, the
 pair/crossing filters, the Kalmanson geometric convention, `n=9`, or complete
-review.
+review. Use `--json` when the full replay payload is needed.
 
 Independent Kalmanson self-edge input replay:
 
 ```bash
-python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --json
+python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json
 ```
 
 This command intentionally avoids importing the Kalmanson self-edge generator
@@ -236,7 +236,8 @@ rechecks row shape, row-pair crossing, witness-pair capacity,
 selected-distance quotienting, stored strict Kalmanson self-edges, assignment
 uniqueness, and the certificate digest. It is still a stored-certificate audit:
 it does not regenerate the 184 frontier, audit brancher coverage, prove `n=9`,
-or complete independent review.
+or complete independent review. Use `--json` when the first stored self-edge
+example record is needed.
 
 Current dihedral-orbit audit:
 

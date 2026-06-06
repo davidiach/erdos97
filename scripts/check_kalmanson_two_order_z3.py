@@ -31,7 +31,10 @@ from typing import NamedTuple, Sequence
 try:
     from z3 import Distinct, Int, Or, Solver, sat, unsat
 except ImportError as exc:  # pragma: no cover - depends on optional dev dep
-    raise SystemExit("z3-solver is required for this checker") from exc
+    Distinct = Int = Or = Solver = sat = unsat = None  # type: ignore[assignment]
+    Z3_IMPORT_ERROR: ImportError | None = exc
+else:
+    Z3_IMPORT_ERROR = None
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(Path(__file__).resolve().parent) not in sys.path:
@@ -45,6 +48,13 @@ Quad = tuple[int, int, int, int]
 Clause = tuple[Quad, Quad]
 
 
+def require_z3() -> None:
+    """Raise a clear error when the optional Z3 dependency is unavailable."""
+
+    if Z3_IMPORT_ERROR is not None:
+        raise RuntimeError("z3-solver is required for this checker") from Z3_IMPORT_ERROR
+
+
 class Conflict(NamedTuple):
     left_kind: int
     left_quad: Quad
@@ -53,6 +63,10 @@ class Conflict(NamedTuple):
 
 
 def _make_solver(n: int, random_seed: int) -> tuple[Solver, list[object]]:
+    require_z3()
+    assert Distinct is not None
+    assert Int is not None
+    assert Solver is not None
     positions = [Int(f"p{label}") for label in range(n)]
     solver = Solver()
     solver.set("random_seed", random_seed)
@@ -72,6 +86,8 @@ def _clause_key(left: Quad, right: Quad) -> Clause:
 
 
 def _add_clause(solver: Solver, positions: Sequence[object], clause: Clause) -> None:
+    require_z3()
+    assert Or is not None
     left, right = clause
     solver.add(
         Or(
@@ -365,25 +381,30 @@ def main() -> int:
     parser.add_argument("--random-seed", type=int, default=7)
     args = parser.parse_args()
 
-    if args.certificate:
-        payload = verify_certificate(json.loads(args.certificate.read_text(encoding="utf-8")))
-    else:
-        if args.name is None or args.n is None or args.offsets is None:
-            raise SystemExit("--name, --n, and --offsets are required unless --certificate is used")
-        if args.n <= 0:
-            raise SystemExit("--n must be positive")
-        if args.max_iterations <= 0:
-            raise SystemExit("--max-iterations must be positive")
-        if args.conflict_cap <= 0:
-            raise SystemExit("--conflict-cap must be positive")
-        payload = generate_certificate(
-            args.name,
-            args.n,
-            args.offsets,
-            max_iterations=args.max_iterations,
-            conflict_cap=args.conflict_cap,
-            random_seed=args.random_seed,
-        )
+    try:
+        if args.certificate:
+            payload = verify_certificate(json.loads(args.certificate.read_text(encoding="utf-8")))
+        else:
+            if args.name is None or args.n is None or args.offsets is None:
+                raise SystemExit("--name, --n, and --offsets are required unless --certificate is used")
+            if args.n <= 0:
+                raise SystemExit("--n must be positive")
+            if args.max_iterations <= 0:
+                raise SystemExit("--max-iterations must be positive")
+            if args.conflict_cap <= 0:
+                raise SystemExit("--conflict-cap must be positive")
+            payload = generate_certificate(
+                args.name,
+                args.n,
+                args.offsets,
+                max_iterations=args.max_iterations,
+                conflict_cap=args.conflict_cap,
+                random_seed=args.random_seed,
+            )
+    except RuntimeError as exc:
+        if "z3-solver is required" in str(exc):
+            parser.error(str(exc))
+        raise
 
     if args.assert_unsat:
         assert_unsat(payload)

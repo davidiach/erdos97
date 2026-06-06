@@ -37,6 +37,19 @@ def test_independent_replay_payload_checks_certificate() -> None:
     assert summary["first_self_edge"]["inequality"] == "K1"
 
 
+def test_independent_replay_summary_json_payload_omits_example() -> None:
+    module = load_replay_module()
+    payload = json.loads(ARTIFACT.read_text(encoding="utf-8"))
+
+    summary = module.summary_json_payload(module.audit_certificate_payload(payload))
+
+    assert summary["status"] == "ok"
+    assert summary["certificates_checked"] == 184
+    assert summary["unique_assignments_checked"] == 184
+    assert summary["digest_matches"] is True
+    assert "first_self_edge" not in summary
+
+
 def test_independent_replay_rejects_mutated_self_edge() -> None:
     module = load_replay_module()
     payload = json.loads(ARTIFACT.read_text(encoding="utf-8"))
@@ -69,3 +82,43 @@ def test_independent_replay_cli_json() -> None:
     assert payload["status"] == "ok"
     assert payload["certificates_checked"] == 184
     assert payload["unique_assignments_checked"] == 184
+
+
+def test_independent_replay_cli_summary_json() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(SCRIPT),
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        check=True,
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+    )
+    payload = json.loads(result.stdout)
+
+    assert payload["status"] == "ok"
+    assert payload["certificates_checked"] == 184
+    assert payload["unique_assignments_checked"] == 184
+    assert "first_self_edge" not in payload
+
+
+def test_independent_replay_cli_rejects_json_and_summary_json() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(SCRIPT),
+            "--check",
+            "--json",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+
+    assert result.returncode == 2
+    assert "not allowed with argument --json" in result.stderr

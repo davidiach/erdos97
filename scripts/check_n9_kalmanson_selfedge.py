@@ -40,7 +40,13 @@ def write_json(path: Path, payload: dict[str, object]) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--n", type=int, default=9)
-    parser.add_argument("--json", action="store_true", help="print stable JSON")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true", help="print stable JSON")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="print stable JSON without certificate arrays",
+    )
     parser.add_argument("--summary-only", action="store_true", help="omit certificate arrays")
     parser.add_argument("--write", action="store_true", help="write the full artifact")
     parser.add_argument("--out", default=str(DEFAULT_OUT), help="path used by --write")
@@ -73,7 +79,9 @@ def main() -> int:
         write_json(Path(args.out), payload)
 
     elapsed = perf_counter() - start
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_payload(result), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(result, indent=2, sort_keys=True))
     else:
         print("review-pending n=9 Kalmanson self-edge checker")

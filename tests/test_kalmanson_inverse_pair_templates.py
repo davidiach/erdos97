@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import importlib.util
 import subprocess
 import sys
 from pathlib import Path
@@ -14,7 +15,13 @@ from scripts.analyze_kalmanson_inverse_pair_templates import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-pytestmark = pytest.mark.slow
+pytestmark = [
+    pytest.mark.slow,
+    pytest.mark.skipif(
+        importlib.util.find_spec("z3") is None,
+        reason="z3-solver is required for this diagnostic",
+    ),
+]
 
 
 def test_kalmanson_inverse_pair_template_diagnostic_expected_counts() -> None:

@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 C19_Z3_CERTIFICATE = ROOT / "data" / "certificates" / "c19_skew_all_orders_kalmanson_z3.json"
@@ -29,6 +31,8 @@ def test_c19_kalmanson_z3_certificate_shape() -> None:
 
 
 def test_c19_kalmanson_z3_certificate_replays_unsat() -> None:
+    pytest.importorskip("z3")
+
     result = subprocess.run(
         [
             sys.executable,

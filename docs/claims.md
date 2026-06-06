@@ -880,11 +880,12 @@ stable certificate-list digest is
 `8e5344265e774ce352d64e16e0480eaff4ad6051a69051a304a3f9145db0e3c5`.
 
 Check the certificate replay with
-`python scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --json`.
+`python scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --summary-json`.
 This is a compact audit aid for the review-pending `n=9` frontier only. It does
 not independently complete review of the brancher filters, does not promote
 `n=9` to source-of-truth theorem status, does not prove Erdos Problem #97, and
-does not provide a counterexample. See `docs/n9-kalmanson-selfedge.md`.
+does not provide a counterexample. Use `--json` when the full replay payload is
+needed. See `docs/n9-kalmanson-selfedge.md`.
 
 ### n=9 compact independent brancher audit
 

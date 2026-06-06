@@ -123,11 +123,12 @@ minimal/rich-class hypotheses.
    and frontier rows; use `--json` when the full per-view status and mismatch
    example blocks are needed.
    The Kalmanson self-edge independent replay
-   `python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --json`
+   `python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json`
    treats the stored `n9_kalmanson_selfedge` certificate as input data and
    replays row shape, pair/crossing filters, witness-pair capacity,
    selected-distance quotienting, stored Kalmanson self-edges, and digest
-   agreement without importing the Kalmanson generator module.
+   agreement without importing the Kalmanson generator module; use `--json`
+   when the first stored self-edge example record is needed.
    The incidence-filter replay
    `python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json`
    checks the row-level two-overlap crossing, witness-pair cap, and

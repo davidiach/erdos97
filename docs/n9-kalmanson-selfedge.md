@@ -82,25 +82,26 @@ Replay the checked-in certificate without rerunning the brancher:
 ```bash
 python scripts/check_n9_kalmanson_selfedge.py \
   --verify-certificate data/certificates/n9_kalmanson_selfedge.json \
-  --assert-expected --json
+  --assert-expected --summary-json
 ```
 
 The replay mode verifies the stored self-edge rows and the stable digest from
 the certificate list. It is a certificate replay, not an independent proof of
-the brancher filters.
+the brancher filters. Use `--json` when the full replay payload is needed.
 
 Independent reviewer-facing replay:
 
 ```bash
 python scripts/check_n9_kalmanson_selfedge_independent_replay.py \
-  --check --assert-expected --json
+  --check --assert-expected --summary-json
 ```
 
 This second replay intentionally does not import
 `erdos97.n9_kalmanson_selfedge` and does not run the search brancher. It treats
 the checked-in JSON as input data, then independently checks row shape,
 two-overlap crossing, witness-pair capacity, selected-distance quotienting,
-the stored strict Kalmanson self-edge, and the certificate-list digest.
+the stored strict Kalmanson self-edge, and the certificate-list digest. Use
+`--json` when the first stored self-edge example record is needed.
 
 ## Audit boundary
 
