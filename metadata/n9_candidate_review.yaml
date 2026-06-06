@@ -6,6 +6,7 @@ canonical_command: make verify-n9-candidate
 review_gate_ledger: metadata/n9_review_gate_ledger.yaml
 review_evidence_matrix: metadata/n9_review_evidence_matrix.yaml
 review_dossier: metadata/n9_review_dossier.yaml
+review_run_bundle: metadata/n9_review_run_bundle.yaml
 claim_scope: >
   Compact review manifest for the current review-pending n=9 selected-witness
   candidate. It records the command surface, documents, formalization-facing
@@ -40,6 +41,7 @@ harness_documents:
   - docs/n9-review-gate-ledger.md
   - docs/n9-review-evidence-matrix.md
   - docs/n9-review-dossier.md
+  - docs/n9-review-run-bundle.md
   - docs/n9-reduction-chain.md
   - docs/n9-review-packet.md
   - docs/turn-inequality-lemma.md
@@ -112,6 +114,8 @@ routes:
         command: python scripts/check_n9_review_evidence_matrix.py --check --summary-json
       - id: n9_review_dossier
         command: python scripts/check_n9_review_dossier.py --check --summary-json
+      - id: n9_review_run_bundle
+        command: python scripts/check_n9_review_run_bundle.py --check --summary-json
 
   - id: lean_guardrails
     title: Lean pilot guardrails

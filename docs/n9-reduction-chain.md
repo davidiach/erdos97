@@ -114,6 +114,11 @@ The reviewer dossier `metadata/n9_review_dossier.yaml`, checked by
 `python scripts/check_n9_review_dossier.py --check --summary-json`, assembles
 the same dependencies into an on-demand Markdown worksheet for written review.
 
+The run-capture contract `metadata/n9_review_run_bundle.yaml`, checked by
+`python scripts/check_n9_review_run_bundle.py --check --summary-json`, can also
+execute the compact command surface with `--run` and emit digest-level
+provenance for one reviewer run.
+
 The most important global gap is separate:
 
 ```text

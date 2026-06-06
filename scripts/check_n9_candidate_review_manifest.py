@@ -26,6 +26,7 @@ TRUST = "REVIEW_PENDING_DIAGNOSTIC"
 REVIEW_GATE_LEDGER = "metadata/n9_review_gate_ledger.yaml"
 REVIEW_EVIDENCE_MATRIX = "metadata/n9_review_evidence_matrix.yaml"
 REVIEW_DOSSIER = "metadata/n9_review_dossier.yaml"
+REVIEW_RUN_BUNDLE = "metadata/n9_review_run_bundle.yaml"
 REQUIRED_FORBIDDEN_PROMOTIONS = {
     "general proof of Erdos Problem #97",
     "proof of n=9",
@@ -45,6 +46,7 @@ SUMMARY_JSON_REVIEW_COMMAND_PREFIXES = (
     "python scripts/check_n9_review_gate_ledger.py",
     "python scripts/check_n9_review_evidence_matrix.py",
     "python scripts/check_n9_review_dossier.py",
+    "python scripts/check_n9_review_run_bundle.py",
     "python scripts/check_n9_vertex_circle_input_audit.py",
     "python scripts/check_n9_vertex_circle_incidence_filters.py",
     "python scripts/check_n9_vertex_circle_mro_branching_replay.py",
@@ -246,6 +248,11 @@ def validate_manifest(
         errors.append(f"review_dossier must be {REVIEW_DOSSIER!r}")
     elif not repo_path(REVIEW_DOSSIER).exists():
         errors.append(f"review_dossier does not exist: {REVIEW_DOSSIER}")
+    review_run_bundle = payload.get("review_run_bundle")
+    if review_run_bundle != REVIEW_RUN_BUNDLE:
+        errors.append(f"review_run_bundle must be {REVIEW_RUN_BUNDLE!r}")
+    elif not repo_path(REVIEW_RUN_BUNDLE).exists():
+        errors.append(f"review_run_bundle does not exist: {REVIEW_RUN_BUNDLE}")
 
     claim_scope = payload.get("claim_scope")
     if not isinstance(claim_scope, str) or not claim_scope.strip():
@@ -299,6 +306,7 @@ def summary_payload(payload: dict[str, Any], errors: Sequence[str]) -> dict[str,
         "review_gate_ledger": payload.get("review_gate_ledger"),
         "review_evidence_matrix": payload.get("review_evidence_matrix"),
         "review_dossier": payload.get("review_dossier"),
+        "review_run_bundle": payload.get("review_run_bundle"),
         "route_count": len(routes) if isinstance(routes, list) else 0,
         "route_ids": route_ids,
         "command_count": len(flatten_route_commands(payload)),

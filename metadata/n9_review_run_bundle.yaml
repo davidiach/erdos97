@@ -1,0 +1,94 @@
+schema: erdos97.n9_review_run_bundle.v1
+status: REVIEW_RUN_BUNDLE_ONLY
+trust: REVIEW_PENDING_DIAGNOSTIC
+candidate_manifest: metadata/n9_candidate_review.yaml
+review_gate_ledger: metadata/n9_review_gate_ledger.yaml
+review_evidence_matrix: metadata/n9_review_evidence_matrix.yaml
+review_dossier: metadata/n9_review_dossier.yaml
+canonical_command: python scripts/check_n9_review_run_bundle.py --check --summary-json
+live_replay_command: python scripts/check_n9_review_run_bundle.py --check --run --summary-json
+markdown_command: python scripts/check_n9_review_run_bundle.py --markdown
+claim_scope: >
+  Machine-readable run-capture contract for the compact review-pending n=9
+  selected-witness harness. It records the manifest command surface, linked
+  review contracts, command-output digests, return codes, durations, and
+  evidence-matrix validation status for one reviewer run. It does not prove
+  n=9, does not prove Erdos Problem #97, does not claim a counterexample, does
+  not complete independent review, and does not update the official/global
+  status.
+
+forbidden_promotions:
+  - "general proof of Erdos Problem #97"
+  - proof of n=9
+  - "counterexample to Erdos Problem #97"
+  - official/global status update
+  - completed independent review
+  - formal proof of the Euclidean turn lemma
+
+required_documents:
+  - docs/n9-candidate-promotion-harness.md
+  - docs/n9-review-packet.md
+  - docs/n9-review-gate-ledger.md
+  - docs/n9-review-evidence-matrix.md
+  - docs/n9-review-dossier.md
+  - docs/n9-review-run-bundle.md
+  - docs/n9-reduction-chain.md
+
+expected_route_ids:
+  - manifest_contract
+  - lean_guardrails
+  - vertex_circle_route
+  - turn_packing_route
+  - kalmanson_corroboration
+
+output_modes:
+  - summary-json
+  - json
+  - markdown
+
+capture_contract:
+  executes_manifest_commands: true
+  validates_evidence_matrix_expectations: true
+  writes_generated_artifacts: false
+  records_stdout_sha256: true
+  records_stderr_sha256: true
+  records_duration_seconds: true
+  output_preview_chars: 240
+  required_record_fields:
+    - id
+    - route_id
+    - command_id
+    - command
+    - returncode
+    - duration_seconds
+    - stdout_sha256
+    - stderr_sha256
+    - stdout_preview
+    - stderr_preview
+    - output_format
+    - validation_status
+    - error_count
+    - first_errors
+  required_summary_fields:
+    - schema
+    - status
+    - trust
+    - route_count
+    - command_count
+    - evidence_record_count
+    - run_capture_enabled
+    - run_record_count
+    - failed_run_record_count
+    - run_record_digest
+    - validation_status
+    - validation_error_count
+
+reviewer_use:
+  static_contract: python scripts/check_n9_review_run_bundle.py --check --summary-json
+  live_capture: python scripts/check_n9_review_run_bundle.py --check --run --summary-json
+  worksheet: python scripts/check_n9_review_run_bundle.py --markdown
+  interpretation: >
+    A passed live capture says the compact n=9 manifest commands completed in
+    the current checkout and their compact outputs matched the evidence matrix.
+    It is execution provenance and drift detection only, not mathematical
+    acceptance of any open review gate.
