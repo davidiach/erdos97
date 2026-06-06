@@ -28,6 +28,18 @@ That checker compares the manifest command list with the Makefile target,
 verifies referenced docs and Lean files exist, and keeps the review gates
 explicitly open. It does not run the mathematical replay commands.
 
+The route contract points to the review-gate ledger
+`metadata/n9_review_gate_ledger.yaml`, checked by:
+
+```bash
+python scripts/check_n9_review_gate_ledger.py --check --summary-json
+```
+
+That checker maps the compact harness to the A6/A7, A8, A10, B1/B3, and
+corroborating Kalmanson review gates, then checks those gates against
+`docs/n9-reduction-chain.md`, `docs/n9-review-packet.md`, and the route
+manifest. It is review bookkeeping only, not mathematical evidence.
+
 Run:
 
 ```bash
@@ -46,16 +58,17 @@ The target first runs the Lean pilot guardrails:
 
 ```bash
 python scripts/check_n9_candidate_review_manifest.py --check --summary-json
+python scripts/check_n9_review_gate_ledger.py --check --summary-json
 python scripts/check_lean_sketch_integrity.py
 python scripts/check_lean_files.py
 ```
 
-The manifest checker runs before the Lean pilot guardrails. The Lean layer
-includes `lean/Erdos97/TurnPacking.lean`, a dependency-free formal contract
-for the turn-packing route. It pins the forward/reverse interval support
-convention and proves the small arithmetic kernel behind the stored dual
-certificates: a lower bound exceeding the total coefficient budget has no
-realization. It does not prove the Euclidean exterior-turn lemma.
+The manifest and gate-ledger checkers run before the Lean pilot guardrails.
+The Lean layer includes `lean/Erdos97/TurnPacking.lean`, a dependency-free
+formal contract for the turn-packing route. It pins the forward/reverse
+interval support convention and proves the small arithmetic kernel behind the
+stored dual certificates: a lower bound exceeding the total coefficient budget
+has no realization. It does not prove the Euclidean exterior-turn lemma.
 
 The target then runs the compact vertex-circle route checks:
 

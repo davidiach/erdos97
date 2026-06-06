@@ -69,6 +69,12 @@ checked by
 It keeps the Makefile command sequence, referenced review files, and open
 review gates synchronized.
 
+The machine-readable gate ledger is `metadata/n9_review_gate_ledger.yaml`,
+checked by
+`python scripts/check_n9_review_gate_ledger.py --check --summary-json`. It maps
+the compact harness commands to the open A6/A7, A8, A10, B1/B3, and
+corroborating Kalmanson review gates plus the acceptance outcomes below.
+
 ## Review routes
 
 ### Route A: vertex-circle closure
@@ -121,6 +127,8 @@ The target expands to the layer-specific commands below and includes
 `make verify-lean`-equivalent guardrails for the local Lean pilot.
 
 ```bash
+python scripts/check_n9_candidate_review_manifest.py --check --summary-json
+python scripts/check_n9_review_gate_ledger.py --check --summary-json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json
 python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json

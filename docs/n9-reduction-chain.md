@@ -97,6 +97,13 @@ The most important finite-case review targets are:
   source frontier;
 - for the turn route, the exterior-turn lemma and interval indexing.
 
+The machine-readable review-gate ledger
+`metadata/n9_review_gate_ledger.yaml`, checked by
+`python scripts/check_n9_review_gate_ledger.py --check --summary-json`, maps
+these targets to the compact harness evidence commands and to the acceptance
+outcomes in `docs/n9-review-packet.md`. The ledger is review bookkeeping only;
+it does not mark any gate accepted.
+
 The most important global gap is separate:
 
 ```text

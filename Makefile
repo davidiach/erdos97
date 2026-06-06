@@ -41,6 +41,7 @@ verify-kalmanson:
 
 verify-n9-candidate:
 	$(PYTHON) scripts/check_n9_candidate_review_manifest.py --check --summary-json
+	$(PYTHON) scripts/check_n9_review_gate_ledger.py --check --summary-json
 	$(PYTHON) scripts/check_lean_sketch_integrity.py
 	$(PYTHON) scripts/check_lean_files.py
 	$(PYTHON) scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json

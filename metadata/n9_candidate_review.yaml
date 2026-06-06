@@ -3,6 +3,7 @@ status: REVIEW_HARNESS_ONLY
 trust: REVIEW_PENDING_DIAGNOSTIC
 target: verify-n9-candidate
 canonical_command: make verify-n9-candidate
+review_gate_ledger: metadata/n9_review_gate_ledger.yaml
 claim_scope: >
   Compact review manifest for the current review-pending n=9 selected-witness
   candidate. It records the command surface, documents, formalization-facing
@@ -55,13 +56,30 @@ review_gates:
     still_open: true
   - id: vertex_circle_geometry
     review_requirement: >
-      Review the vertex-circle strict-edge geometry rule and quotient replay
-      soundness before treating the vertex-circle route as theorem-grade.
+      Review the vertex-circle strict-edge geometry rule before treating the
+      vertex-circle route as theorem-grade.
+    still_open: true
+  - id: quotient_replay
+    review_requirement: >
+      Review the selected-distance quotient replay, self-edge criterion,
+      strict-cycle criterion, and local-lemma handoffs before treating the
+      vertex-circle route as theorem-grade.
     still_open: true
   - id: turn_geometry
     review_requirement: >
       Review the Euclidean exterior-turn lemma and interval indexing before
       treating the turn-packing route as theorem-grade.
+    still_open: true
+  - id: turn_arithmetic
+    review_requirement: >
+      Review the integer dual certificate arithmetic for all 184 weak turn
+      systems before treating the turn-packing route as theorem-grade.
+    still_open: true
+  - id: kalmanson_corroboration
+    review_requirement: >
+      Review the stored-input Kalmanson replay only as corroborating
+      stored-certificate audit support unless the primary route dependencies
+      are separately accepted.
     still_open: true
   - id: lean_compilation
     review_requirement: >
@@ -83,6 +101,8 @@ routes:
     commands:
       - id: n9_candidate_review_manifest
         command: python scripts/check_n9_candidate_review_manifest.py --check --summary-json
+      - id: n9_review_gate_ledger
+        command: python scripts/check_n9_review_gate_ledger.py --check --summary-json
 
   - id: lean_guardrails
     title: Lean pilot guardrails
