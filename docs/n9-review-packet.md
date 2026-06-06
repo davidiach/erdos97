@@ -51,6 +51,18 @@ It would not prove the general problem for larger polygons.
 The canonical dependency map is `docs/n9-reduction-chain.md`. This packet is a
 review worksheet for that map, not a replacement for it.
 
+The compact promotion-review harness is
+`docs/n9-candidate-promotion-harness.md`. It provides a single command surface
+for the Lean pilot guardrails, the vertex-circle route, the turn-packing route,
+and the stored-input Kalmanson replay:
+
+```bash
+make verify-n9-candidate
+```
+
+Passing this target is not a status promotion; it only confirms that the
+current compact review harness is internally consistent.
+
 ## Review routes
 
 ### Route A: vertex-circle closure
@@ -94,6 +106,13 @@ reduction and decoder replay are independently audited.
 
 Run these first. They are the shortest current command set that exercises the
 main `n=9` route boundaries without running the whole artifact audit.
+
+```bash
+make verify-n9-candidate
+```
+
+The target expands to the layer-specific commands below and includes
+`make verify-lean`-equivalent guardrails for the local Lean pilot.
 
 ```bash
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json

@@ -52,7 +52,7 @@ if its geometric turn lemma is accepted.
 | B1 | If two selected witnesses at offsets `1 <= a < b <= 8` are equidistant from center `i`, then two exterior-turn sums are strictly greater than `pi/2`. | `docs/turn-inequality-lemma.md`. | proof-facing review-pending |
 | B2 | Replacing the strict inequalities by weak normalized inequalities `>= 1` is legitimate. | Strict geometry implies the weaker closed halfspace, if B1 is correct. | conditional on B1 |
 | B3 | For each of the 184 assignments, the weak turn system has an integer turn-packing/Farkas contradiction. | `data/certificates/n9_turn_inequality_frontier.json` checked by `scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json`; use `--json` for full certificate rows. | machine-checked review-pending |
-| B4 | The certificate principle is elementary: if `m > 4*lambda` intervals are forced and each turn variable appears at most `lambda` times, then `sum t_i = 4` is contradicted. | `docs/turn-packing-bridge.md`. | proved, assuming stored intervals are forced |
+| B4 | The certificate principle is elementary: if `m > 4*lambda` intervals are forced and each turn variable appears at most `lambda` times, then `sum t_i = 4` is contradicted. | `docs/turn-packing-bridge.md` and the dependency-free arithmetic kernel in `lean/Erdos97/TurnPacking.lean`. | proved, assuming stored intervals are forced |
 | B5 | Therefore no true bad nonagon exists, assuming A6-A7, B1, and B3 survive independent review. | Follows from the chain above. | review-pending conditional |
 
 This route has a different bottleneck from Chain A. Its final contradictions
@@ -106,6 +106,17 @@ There is no bridge from arbitrary larger counterexamples to the n=9 frontier.
 Thus none of these artifacts proves Erdos Problem #97.
 
 ## Minimal Review Command Set
+
+The compact promotion-review harness runs the Lean pilot guardrails, the
+vertex-circle review path, the turn-packing route, and the stored-input
+Kalmanson replay:
+
+```bash
+make verify-n9-candidate
+```
+
+Passing this target does not complete independent review or promote the
+source-of-truth status.
 
 For the vertex-circle route:
 

@@ -19,6 +19,57 @@ def _make_target_commands(target: str) -> list[str]:
     return commands
 
 
+def test_verify_n9_candidate_is_compact_promotion_review_harness() -> None:
+    commands = _make_target_commands("verify-n9-candidate")
+    expected_chain = [
+        "python scripts/check_lean_sketch_integrity.py",
+        "python scripts/check_lean_files.py",
+        "python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json",
+        (
+            "python scripts/check_n9_vertex_circle_input_audit.py "
+            "--check --assert-expected --summary-json"
+        ),
+        (
+            "python scripts/check_n9_vertex_circle_incidence_filters.py "
+            "--check --assert-expected --summary-json"
+        ),
+        (
+            "python scripts/check_n9_vertex_circle_mro_branching_replay.py "
+            "--check --assert-expected --summary-json"
+        ),
+        (
+            "python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py "
+            "--check --assert-expected --summary-json"
+        ),
+        (
+            "python scripts/check_n9_vertex_circle_strict_edge_geometry.py "
+            "--check --assert-expected --summary-json"
+        ),
+        (
+            "python scripts/check_n9_vertex_circle_quotient_soundness.py "
+            "--check --assert-expected --summary-json"
+        ),
+        (
+            "python scripts/check_n9_vertex_circle_local_lemma_audit_path.py "
+            "--check --assert-expected --summary-json"
+        ),
+        (
+            "python scripts/check_turn_inequality_indexing.py "
+            "--check --assert-expected --summary-json"
+        ),
+        (
+            "python scripts/check_n9_turn_inequality_frontier.py "
+            "--check --assert-expected --summary-json"
+        ),
+        (
+            "python scripts/check_n9_kalmanson_selfedge_independent_replay.py "
+            "--check --assert-expected --summary-json"
+        ),
+    ]
+
+    assert commands == expected_chain
+
+
 def test_verify_n9_review_includes_documented_frontier_audits() -> None:
     commands = _make_target_commands("verify-n9-review")
     expected_chain = [

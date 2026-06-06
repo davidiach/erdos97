@@ -84,6 +84,14 @@ instances, `504` unique center/pair/orientation records, and `7560` emitted
 term records. This is an indexing audit only; it does not prove the geometric
 lemma.
 
+The Lean pilot file `lean/Erdos97/TurnPacking.lean` now records the
+formalization-facing version of this machine contract. It defines the
+forward/reverse support functions and the abstract
+`TurnLemmaForcesWeakIntervals` predicate that a future Euclidean proof should
+instantiate. It also proves the elementary arithmetic kernel behind the stored
+turn-packing dual certificates. This is still not a Lean proof of the
+geometric lemma.
+
 ## Proof Sketch
 
 Let

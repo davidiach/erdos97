@@ -1,6 +1,6 @@
 PYTHON ?= python
 
-.PHONY: verify-lint verify-fast verify-lean verify-pytest-artifacts verify-pytest-all verify-n8 verify-kalmanson verify-n9-review verify-bridge-frontier verify-n10-review verify-artifacts audit-artifacts verify-all
+.PHONY: verify-lint verify-fast verify-lean verify-pytest-artifacts verify-pytest-all verify-n8 verify-kalmanson verify-n9-candidate verify-n9-review verify-bridge-frontier verify-n10-review verify-artifacts audit-artifacts verify-all
 
 verify-lint:
 	$(PYTHON) scripts/check_text_clean.py
@@ -38,6 +38,21 @@ verify-kalmanson:
 	$(PYTHON) scripts/probe_c19_proof_tooling.py --check-c19-cnf-summary --json
 	$(PYTHON) scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --json
 	$(PYTHON) scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json
+
+verify-n9-candidate:
+	$(PYTHON) scripts/check_lean_sketch_integrity.py
+	$(PYTHON) scripts/check_lean_files.py
+	$(PYTHON) scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_turn_inequality_indexing.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json
 
 verify-n9-review:
 	$(PYTHON) scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json

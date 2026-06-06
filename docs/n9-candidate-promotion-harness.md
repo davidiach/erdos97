@@ -1,0 +1,99 @@
+# n=9 Candidate Promotion Harness
+
+Status: `REVIEW_HARNESS_ONLY`.
+
+This note records the compact command surface for reviewing the current
+repo-local `n=9` selected-witness candidate. It does not prove Erdos Problem
+#97, does not claim a counterexample, does not update the official/global
+status, and does not promote the review-pending `n=9` artifacts. Independent
+mathematical review remains required before any theorem-style use.
+
+## Purpose
+
+The repository now has several independent-looking `n=9` obstruction routes:
+the vertex-circle quotient route, the turn-packing route, and algebraic /
+Kalmanson corroboration. The useful promotion-grade surface is not the full
+artifact audit, which is intentionally broad. It is the shortest command chain
+that exercises the current finite-case review bottlenecks and the
+formalization-facing turn-packing contract.
+
+Run:
+
+```bash
+make verify-n9-candidate
+```
+
+Use `PYTHON=.venv/bin/python` if working in the local virtual environment:
+
+```bash
+make verify-n9-candidate PYTHON=.venv/bin/python
+```
+
+## What It Checks
+
+The target first runs the Lean pilot guardrails:
+
+```bash
+python scripts/check_lean_sketch_integrity.py
+python scripts/check_lean_files.py
+```
+
+The Lean layer includes `lean/Erdos97/TurnPacking.lean`, a dependency-free
+formal contract for the turn-packing route. It pins the forward/reverse
+interval support convention and proves the small arithmetic kernel behind the
+stored dual certificates: a lower bound exceeding the total coefficient budget
+has no realization. It does not prove the Euclidean exterior-turn lemma.
+
+The target then runs the compact vertex-circle route checks:
+
+```bash
+python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
+python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json
+python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json
+python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json
+python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --summary-json
+python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json
+python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json
+python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json
+```
+
+These commands cover row-0/input conventions, incidence filters, branch-order
+agreement, frontier coverage, strict-edge geometry, quotient replay, and the
+local-lemma handoff path. They are review aids, not an independent review by
+themselves.
+
+The target then runs the compact turn-packing route checks:
+
+```bash
+python scripts/check_turn_inequality_indexing.py --check --assert-expected --summary-json
+python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
+```
+
+These commands check the machine indexing convention and the stored integer
+dual certificates for all `184` regenerated frontier assignments. They still
+depend on independent review of the geometric turn lemma in
+`docs/turn-inequality-lemma.md`.
+
+Finally, the target runs the stored-input Kalmanson replay:
+
+```bash
+python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json
+```
+
+This is corroborating stored-certificate audit support. It does not replace
+the vertex-circle or turn-packing review routes.
+
+## Promotion Boundary
+
+Passing `make verify-n9-candidate` means the compact review harness is
+internally consistent at the current repository revision. It does not mean:
+
+- Erdos Problem #97 is solved;
+- the official/global status changed;
+- the general problem for larger polygons is proved;
+- the `n=9` candidate has completed independent review;
+- the exterior-turn lemma has been formally proved in Lean.
+
+The intended next promotion step is a written independent review that accepts
+or rejects the specific dependencies listed in `docs/n9-reduction-chain.md`
+and `docs/n9-review-packet.md`.
