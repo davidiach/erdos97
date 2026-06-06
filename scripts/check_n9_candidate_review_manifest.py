@@ -24,6 +24,7 @@ TARGET = "verify-n9-candidate"
 STATUS = "REVIEW_HARNESS_ONLY"
 TRUST = "REVIEW_PENDING_DIAGNOSTIC"
 REVIEW_GATE_LEDGER = "metadata/n9_review_gate_ledger.yaml"
+REVIEW_EVIDENCE_MATRIX = "metadata/n9_review_evidence_matrix.yaml"
 REQUIRED_FORBIDDEN_PROMOTIONS = {
     "general proof of Erdos Problem #97",
     "proof of n=9",
@@ -41,6 +42,7 @@ REQUIRED_CLAIM_SCOPE_PHRASES = (
 )
 SUMMARY_JSON_REVIEW_COMMAND_PREFIXES = (
     "python scripts/check_n9_review_gate_ledger.py",
+    "python scripts/check_n9_review_evidence_matrix.py",
     "python scripts/check_n9_vertex_circle_input_audit.py",
     "python scripts/check_n9_vertex_circle_incidence_filters.py",
     "python scripts/check_n9_vertex_circle_mro_branching_replay.py",
@@ -230,6 +232,13 @@ def validate_manifest(
         errors.append(f"review_gate_ledger must be {REVIEW_GATE_LEDGER!r}")
     elif not repo_path(REVIEW_GATE_LEDGER).exists():
         errors.append(f"review_gate_ledger does not exist: {REVIEW_GATE_LEDGER}")
+    review_evidence_matrix = payload.get("review_evidence_matrix")
+    if review_evidence_matrix != REVIEW_EVIDENCE_MATRIX:
+        errors.append(f"review_evidence_matrix must be {REVIEW_EVIDENCE_MATRIX!r}")
+    elif not repo_path(REVIEW_EVIDENCE_MATRIX).exists():
+        errors.append(
+            f"review_evidence_matrix does not exist: {REVIEW_EVIDENCE_MATRIX}"
+        )
 
     claim_scope = payload.get("claim_scope")
     if not isinstance(claim_scope, str) or not claim_scope.strip():
@@ -281,6 +290,7 @@ def summary_payload(payload: dict[str, Any], errors: Sequence[str]) -> dict[str,
         "trust": payload.get("trust"),
         "target": payload.get("target"),
         "review_gate_ledger": payload.get("review_gate_ledger"),
+        "review_evidence_matrix": payload.get("review_evidence_matrix"),
         "route_count": len(routes) if isinstance(routes, list) else 0,
         "route_ids": route_ids,
         "command_count": len(flatten_route_commands(payload)),

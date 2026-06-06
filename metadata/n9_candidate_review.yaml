@@ -4,6 +4,7 @@ trust: REVIEW_PENDING_DIAGNOSTIC
 target: verify-n9-candidate
 canonical_command: make verify-n9-candidate
 review_gate_ledger: metadata/n9_review_gate_ledger.yaml
+review_evidence_matrix: metadata/n9_review_evidence_matrix.yaml
 claim_scope: >
   Compact review manifest for the current review-pending n=9 selected-witness
   candidate. It records the command surface, documents, formalization-facing
@@ -103,6 +104,8 @@ routes:
         command: python scripts/check_n9_candidate_review_manifest.py --check --summary-json
       - id: n9_review_gate_ledger
         command: python scripts/check_n9_review_gate_ledger.py --check --summary-json
+      - id: n9_review_evidence_matrix
+        command: python scripts/check_n9_review_evidence_matrix.py --check --summary-json
 
   - id: lean_guardrails
     title: Lean pilot guardrails

@@ -75,6 +75,13 @@ checked by
 the compact harness commands to the open A6/A7, A8, A10, B1/B3, and
 corroborating Kalmanson review gates plus the acceptance outcomes below.
 
+The machine-readable evidence matrix is
+`metadata/n9_review_evidence_matrix.yaml`, checked by
+`python scripts/check_n9_review_evidence_matrix.py --check --summary-json`.
+Run
+`python scripts/check_n9_review_evidence_matrix.py --check --run --summary-json`
+when a live replay of the compact output invariants is needed.
+
 ## Review routes
 
 ### Route A: vertex-circle closure
@@ -129,6 +136,7 @@ The target expands to the layer-specific commands below and includes
 ```bash
 python scripts/check_n9_candidate_review_manifest.py --check --summary-json
 python scripts/check_n9_review_gate_ledger.py --check --summary-json
+python scripts/check_n9_review_evidence_matrix.py --check --summary-json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json
 python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json
