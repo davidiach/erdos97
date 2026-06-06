@@ -14,6 +14,9 @@ put detailed reconciliation in the canonical synthesis.
   artifacts and exact certificates.
 - [`review-priorities.md`](review-priorities.md): current independent-review
   priorities; planning guidance only, not mathematical evidence.
+- [`n9-candidate-promotion-harness.md`](n9-candidate-promotion-harness.md):
+  compact review harness for the current review-pending `n=9`
+  selected-witness candidate; command surface only, not a status promotion.
 - [`gpt55-solver-brief.md`](gpt55-solver-brief.md): front-loaded LLM
   solver-steering brief with anti-loop guardrails, hard status boundaries, and
   live frontier output contracts; prompt context only, not mathematical

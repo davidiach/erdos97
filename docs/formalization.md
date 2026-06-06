@@ -19,6 +19,9 @@ official problem. Its first layer is deliberately abstract:
   `HasFourEquidistantProperty` interface;
 - `lean/Erdos97/CertificateFormats.lean` records tiny certificate shapes for
   later Python-to-Lean kernels;
+- `lean/Erdos97/TurnPacking.lean` records the formalization-facing contract for
+  the review-pending turn-packing route: forward/reverse weak interval supports
+  and the elementary dual-certificate arithmetic kernel;
 - `lean/Erdos97/Sketches/` contains AI-editable sketch shells marked with
   `-- EVOLVE-BLOCK-START` and `-- EVOLVE-BLOCK-END`.
 
@@ -55,16 +58,22 @@ between:
 Do not start by formalizing the entire open problem. Start with local finite
 and geometric lemmas:
 
-1. Two-circle intersection cap: if two distinct circles share at least three
+1. Exterior-turn inequality bridge: instantiate the abstract
+   `TurnLemmaForcesWeakIntervals` contract in `lean/Erdos97/TurnPacking.lean`
+   from a real Euclidean strict-convex polygon model, matching
+   `docs/turn-inequality-lemma.md`.
+2. Two-circle intersection cap: if two distinct circles share at least three
    points, contradiction.
-2. Pair-sharing cap: for distinct centers `a,b`, `|S_a cap S_b| <= 2`.
-3. Incidence count ruling out `n <= 6`.
-4. `n=7` Fano/parity obstruction, if feasible.
-5. Certificate checker for `n=8` survivor obstruction.
+3. Pair-sharing cap: for distinct centers `a,b`, `|S_a cap S_b| <= 2`.
+4. Incidence count ruling out `n <= 6`.
+5. `n=7` Fano/parity obstruction, if feasible.
+6. Certificate checker for `n=8` survivor obstruction.
 
 ## Longer-term targets
 
 - A Lean-readable certificate format for finite incidence patterns.
+- A Lean-readable turn-packing certificate format connected to the Python
+  `n9_turn_inequality_frontier` integer dual records.
 - A verified checker for perpendicularity/equal-distance obstruction steps.
 - A bridge from local selected-witness artifacts to the Lean
   `HasNEquidistantProperty 4` statement.
