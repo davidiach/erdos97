@@ -31,10 +31,10 @@ def test_n9_review_run_bundle_payload_contains_expected_layers() -> None:
     bundle = build_bundle_payload(payload)
 
     assert len(bundle["routes"]) == 5
-    assert len(bundle["command_records"]) == 18
+    assert len(bundle["command_records"]) == 19
     assert len(bundle["review_gates"]) == 6
     assert len(bundle["infrastructure_gates"]) == 2
-    assert len(bundle["evidence_records"]) == 18
+    assert len(bundle["evidence_records"]) == 19
 
 
 def test_n9_review_run_bundle_rejects_missing_capture_field() -> None:
@@ -70,8 +70,8 @@ def test_n9_review_run_bundle_summary_is_static_by_default() -> None:
 
     summary = summary_payload(payload, [], run_capture_enabled=False)
 
-    assert summary["command_count"] == 18
-    assert summary["evidence_record_count"] == 18
+    assert summary["command_count"] == 19
+    assert summary["evidence_record_count"] == 19
     assert summary["run_capture_enabled"] is False
     assert summary["run_record_count"] == 0
 

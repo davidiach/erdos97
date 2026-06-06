@@ -79,6 +79,12 @@ minimal/rich-class hypotheses.
    executes the current compact n=9 manifest command surface and records
    digest-level provenance for one reviewer run. It is drift detection and
    execution evidence only, not independent mathematical review.
+   The compact decision-intake checker
+   `python scripts/check_n9_review_decision_intake.py --check --summary-json`
+   validates the gate/outcome schema for external written-review records; use
+   `--template` to print a fillable draft and `--decision <path>` to validate a
+   supplied record. It does not accept gates or update source-of-truth status
+   files by itself.
    The focused mini-replay commands
    `python scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json`,
    `python scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json`,

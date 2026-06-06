@@ -94,6 +94,14 @@ The machine-readable reviewer run bundle is
 one live run as digest-level provenance with
 `python scripts/check_n9_review_run_bundle.py --check --run --summary-json`.
 
+The machine-readable reviewer-decision intake is
+`metadata/n9_review_decision_intake.yaml`, checked by
+`python scripts/check_n9_review_decision_intake.py --check --summary-json`.
+Print a fillable template with
+`python scripts/check_n9_review_decision_intake.py --template`, then validate a
+filled external decision with
+`python scripts/check_n9_review_decision_intake.py --decision path/to/decision.yaml --check --summary-json`.
+
 ## Review routes
 
 ### Route A: vertex-circle closure
@@ -151,6 +159,7 @@ python scripts/check_n9_review_gate_ledger.py --check --summary-json
 python scripts/check_n9_review_evidence_matrix.py --check --summary-json
 python scripts/check_n9_review_dossier.py --check --summary-json
 python scripts/check_n9_review_run_bundle.py --check --summary-json
+python scripts/check_n9_review_decision_intake.py --check --summary-json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json
 python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json

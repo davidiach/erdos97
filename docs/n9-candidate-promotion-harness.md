@@ -90,6 +90,29 @@ The live capture validates compact outputs against the evidence matrix and
 records hashes/previews only. It does not write a generated artifact and does
 not accept any review gate.
 
+The reviewer-decision intake contract is
+`metadata/n9_review_decision_intake.yaml`, checked by:
+
+```bash
+python scripts/check_n9_review_decision_intake.py --check --summary-json
+```
+
+To print a fillable decision template, run:
+
+```bash
+python scripts/check_n9_review_decision_intake.py --template
+```
+
+To validate an external written-review record, run:
+
+```bash
+python scripts/check_n9_review_decision_intake.py --decision path/to/decision.yaml --check --summary-json
+```
+
+The intake checker validates gate partitions and allowed outcomes only. It
+does not update source-of-truth status files and does not accept any gate by
+itself.
+
 Run:
 
 ```bash
@@ -112,12 +135,14 @@ python scripts/check_n9_review_gate_ledger.py --check --summary-json
 python scripts/check_n9_review_evidence_matrix.py --check --summary-json
 python scripts/check_n9_review_dossier.py --check --summary-json
 python scripts/check_n9_review_run_bundle.py --check --summary-json
+python scripts/check_n9_review_decision_intake.py --check --summary-json
 python scripts/check_lean_sketch_integrity.py
 python scripts/check_lean_files.py
 ```
 
-The manifest, gate-ledger, evidence-matrix, dossier, and run-bundle checkers
-run before the Lean pilot guardrails. The Lean layer includes
+The manifest, gate-ledger, evidence-matrix, dossier, run-bundle, and
+decision-intake checkers run before the Lean pilot guardrails. The Lean layer
+includes
 `lean/Erdos97/TurnPacking.lean`, a dependency-free formal contract for the
 turn-packing route. It pins the forward/reverse interval support convention
 and proves the small arithmetic kernel behind the stored dual certificates: a

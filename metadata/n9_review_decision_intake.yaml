@@ -1,0 +1,143 @@
+schema: erdos97.n9_review_decision_intake.v1
+status: REVIEW_DECISION_INTAKE_ONLY
+trust: REVIEW_PENDING_DIAGNOSTIC
+candidate_manifest: metadata/n9_candidate_review.yaml
+review_gate_ledger: metadata/n9_review_gate_ledger.yaml
+review_evidence_matrix: metadata/n9_review_evidence_matrix.yaml
+review_dossier: metadata/n9_review_dossier.yaml
+review_run_bundle: metadata/n9_review_run_bundle.yaml
+canonical_command: python scripts/check_n9_review_decision_intake.py --check --summary-json
+template_command: python scripts/check_n9_review_decision_intake.py --template
+markdown_command: python scripts/check_n9_review_decision_intake.py --markdown
+claim_scope: >
+  Machine-readable reviewer-decision intake contract for the compact
+  review-pending n=9 selected-witness harness. It defines how a written
+  independent review can record accepted gates, rejected gates, exact gaps,
+  run-bundle provenance, and the only allowed follow-up outcomes. It does not
+  prove n=9, does not prove Erdos Problem #97, does not claim a counterexample,
+  does not complete independent review, and does not update the official/global
+  status.
+
+forbidden_promotions:
+  - "general proof of Erdos Problem #97"
+  - proof of n=9
+  - "counterexample to Erdos Problem #97"
+  - official/global status update
+  - completed independent review
+  - formal proof of the Euclidean turn lemma
+
+required_documents:
+  - docs/n9-candidate-promotion-harness.md
+  - docs/n9-review-packet.md
+  - docs/n9-review-gate-ledger.md
+  - docs/n9-review-evidence-matrix.md
+  - docs/n9-review-dossier.md
+  - docs/n9-review-run-bundle.md
+  - docs/n9-review-decision-intake.md
+  - docs/n9-reduction-chain.md
+
+decision_record_schema: erdos97.n9_review_decision_record.v1
+decision_statuses:
+  - draft
+  - final
+decision_gate_partitions:
+  - accepted_gates
+  - rejected_gates
+  - not_reviewed_gates
+required_decision_fields:
+  - schema
+  - decision_status
+  - reviewer_name
+  - review_date
+  - reviewed_git_head
+  - run_bundle_digest
+  - recommended_outcome
+  - accepted_gates
+  - rejected_gates
+  - not_reviewed_gates
+  - precise_gaps
+  - acknowledgements
+  - notes
+required_acknowledgements:
+  - no_general_proof_claimed
+  - no_counterexample_claimed
+  - official_status_unchanged
+  - source_of_truth_pr_required
+
+outcome_rules:
+  - id: accepted_vertex_circle_route
+    required_accepted_gates:
+      - frontier_enumeration
+      - vertex_circle_geometry
+      - quotient_obstruction_replay
+      - independent_review
+    blocks_if_rejected_or_unreviewed:
+      - frontier_enumeration
+      - vertex_circle_geometry
+      - quotient_obstruction_replay
+      - independent_review
+    follow_up_boundary: >
+      Allows only a separate source-of-truth proposal for the repo-local n=9
+      finite case. It does not prove the general problem and does not update
+      the official/global status.
+  - id: accepted_turn_route
+    required_accepted_gates:
+      - frontier_enumeration
+      - turn_geometry
+      - turn_arithmetic_replay
+      - independent_review
+    blocks_if_rejected_or_unreviewed:
+      - frontier_enumeration
+      - turn_geometry
+      - turn_arithmetic_replay
+      - independent_review
+    follow_up_boundary: >
+      Allows only a separate source-of-truth proposal for the repo-local n=9
+      finite case, conditional on the accepted Euclidean turn lemma. It does
+      not prove the general problem and does not update the official/global
+      status.
+  - id: accepted_corrob_only
+    required_accepted_gates:
+      - kalmanson_corroboration
+      - independent_review
+    blocks_if_rejected_or_unreviewed:
+      - kalmanson_corroboration
+      - independent_review
+    follow_up_boundary: >
+      Records corroborating stored-certificate evidence only. It blocks any
+      theorem-style n=9 status proposal unless a primary route is separately
+      accepted.
+  - id: gap_found
+    required_accepted_gates: []
+    blocks_if_rejected_or_unreviewed: []
+    requires_precise_gaps: true
+    follow_up_boundary: >
+      Records a mathematical or implementation gap and blocks theorem-style
+      promotion until the gap is resolved and reviewed.
+
+decision_template:
+  schema: erdos97.n9_review_decision_record.v1
+  decision_status: draft
+  reviewer_name: ""
+  review_date: ""
+  reviewed_git_head: ""
+  run_bundle_digest: ""
+  recommended_outcome: gap_found
+  accepted_gates: []
+  rejected_gates: []
+  not_reviewed_gates:
+    - frontier_enumeration
+    - vertex_circle_geometry
+    - quotient_obstruction_replay
+    - turn_geometry
+    - turn_arithmetic_replay
+    - kalmanson_corroboration
+    - lean_compilation
+    - independent_review
+  precise_gaps: []
+  acknowledgements:
+    no_general_proof_claimed: false
+    no_counterexample_claimed: false
+    official_status_unchanged: false
+    source_of_truth_pr_required: false
+  notes: ""

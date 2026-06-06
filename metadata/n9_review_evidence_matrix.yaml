@@ -31,7 +31,7 @@ evidence_records:
       - path: validation_status
         equals: passed
       - path: command_count
-        equals: 18
+        equals: 19
       - path: review_gate_count
         equals: 8
       - path: review_gate_ledger
@@ -63,7 +63,7 @@ evidence_records:
       - path: validation_status
         equals: passed
       - path: evidence_record_count
-        equals: 18
+        equals: 19
       - path: live_replay_enabled
         equals: false
 
@@ -80,7 +80,7 @@ evidence_records:
       - path: review_gate_count
         equals: 6
       - path: evidence_record_count
-        equals: 18
+        equals: 19
       - path: review_question_count
         equals: 6
 
@@ -95,10 +95,27 @@ evidence_records:
       - path: route_count
         equals: 5
       - path: command_count
-        equals: 18
+        equals: 19
       - path: evidence_record_count
-        equals: 18
+        equals: 19
       - path: run_capture_enabled
+        equals: false
+
+  - id: n9_review_decision_intake
+    route_id: manifest_contract
+    command_id: n9_review_decision_intake
+    output_format: json
+    ledger_gate_ids: []
+    expectations:
+      - path: validation_status
+        equals: passed
+      - path: gate_count
+        equals: 8
+      - path: review_outcome_count
+        equals: 4
+      - path: outcome_rule_count
+        equals: 4
+      - path: decision_loaded
         equals: false
 
   - id: lean_sketch_integrity
