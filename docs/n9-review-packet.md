@@ -82,6 +82,12 @@ Run
 `python scripts/check_n9_review_evidence_matrix.py --check --run --summary-json`
 when a live replay of the compact output invariants is needed.
 
+The machine-readable reviewer dossier is `metadata/n9_review_dossier.yaml`,
+checked by
+`python scripts/check_n9_review_dossier.py --check --summary-json`. Render the
+on-demand Markdown worksheet with
+`python scripts/check_n9_review_dossier.py --markdown`.
+
 ## Review routes
 
 ### Route A: vertex-circle closure
@@ -137,6 +143,7 @@ The target expands to the layer-specific commands below and includes
 python scripts/check_n9_candidate_review_manifest.py --check --summary-json
 python scripts/check_n9_review_gate_ledger.py --check --summary-json
 python scripts/check_n9_review_evidence_matrix.py --check --summary-json
+python scripts/check_n9_review_dossier.py --check --summary-json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json
 python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json

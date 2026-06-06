@@ -25,6 +25,7 @@ def test_verify_n9_candidate_is_compact_promotion_review_harness() -> None:
         "python scripts/check_n9_candidate_review_manifest.py --check --summary-json",
         "python scripts/check_n9_review_gate_ledger.py --check --summary-json",
         "python scripts/check_n9_review_evidence_matrix.py --check --summary-json",
+        "python scripts/check_n9_review_dossier.py --check --summary-json",
         "python scripts/check_lean_sketch_integrity.py",
         "python scripts/check_lean_files.py",
         "python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json",

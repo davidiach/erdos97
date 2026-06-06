@@ -110,6 +110,10 @@ checked by
 pins the compact command outputs to expected reviewer-facing invariants. Use
 `--run` on that checker to replay those invariants live.
 
+The reviewer dossier `metadata/n9_review_dossier.yaml`, checked by
+`python scripts/check_n9_review_dossier.py --check --summary-json`, assembles
+the same dependencies into an on-demand Markdown worksheet for written review.
+
 The most important global gap is separate:
 
 ```text
