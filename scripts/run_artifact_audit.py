@@ -400,13 +400,29 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="turn_inequality_indexing",
+        command=(
+            "python",
+            "scripts/check_turn_inequality_indexing.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ),
+        claim_scope=(
+            "Indexing-convention audit for the review-pending n=9 "
+            "turn-inequality frontier replay; checks weak interval supports "
+            "only and does not prove the geometric turn lemma, n=9, "
+            "counterexample, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_turn_inequality_frontier",
         command=(
             "python",
             "scripts/check_n9_turn_inequality_frontier.py",
             "--check",
             "--assert-expected",
-            "--json",
+            "--summary-json",
         ),
         claim_scope=(
             "Review-pending n=9 turn-inequality frontier replay with stored "

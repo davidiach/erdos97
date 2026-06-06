@@ -36,8 +36,12 @@ def test_verify_n9_review_includes_documented_frontier_audits() -> None:
             "--check --assert-expected --json"
         ),
         (
+            "python scripts/check_turn_inequality_indexing.py "
+            "--check --assert-expected --summary-json"
+        ),
+        (
             "python scripts/check_n9_turn_inequality_frontier.py "
-            "--check --assert-expected --json"
+            "--check --assert-expected --summary-json"
         ),
         (
             "python scripts/check_n9_vertex_circle_input_audit.py "
