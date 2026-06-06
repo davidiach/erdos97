@@ -31,7 +31,7 @@ evidence_records:
       - path: validation_status
         equals: passed
       - path: command_count
-        equals: 16
+        equals: 17
       - path: review_gate_count
         equals: 8
       - path: review_gate_ledger
@@ -63,9 +63,26 @@ evidence_records:
       - path: validation_status
         equals: passed
       - path: evidence_record_count
-        equals: 16
+        equals: 17
       - path: live_replay_enabled
         equals: false
+
+  - id: n9_review_dossier
+    route_id: manifest_contract
+    command_id: n9_review_dossier
+    output_format: json
+    ledger_gate_ids: []
+    expectations:
+      - path: validation_status
+        equals: passed
+      - path: section_count
+        equals: 6
+      - path: review_gate_count
+        equals: 6
+      - path: evidence_record_count
+        equals: 17
+      - path: review_question_count
+        equals: 6
 
   - id: lean_sketch_integrity
     route_id: lean_guardrails

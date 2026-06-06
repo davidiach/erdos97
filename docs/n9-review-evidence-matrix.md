@@ -21,6 +21,8 @@ python scripts/check_n9_review_evidence_matrix.py --check --summary-json
 The route manifest records the command sequence. The gate ledger records which
 independent-review gates those commands support. The evidence matrix records
 the expected compact output invariants for every command in the harness.
+The reviewer dossier in `metadata/n9_review_dossier.yaml` then assembles these
+contracts into an on-demand Markdown worksheet.
 
 This makes two kinds of drift visible:
 
@@ -59,6 +61,7 @@ The matrix covers all commands in `make verify-n9-candidate`:
 - the route manifest checker;
 - the review-gate ledger checker;
 - the evidence matrix checker itself in contract-only mode;
+- the reviewer dossier checker;
 - Lean sketch and optional Lean compilation guardrails;
 - the compact vertex-circle route commands;
 - the compact turn-packing route commands;

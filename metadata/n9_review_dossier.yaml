@@ -1,0 +1,131 @@
+schema: erdos97.n9_review_dossier.v1
+status: REVIEW_DOSSIER_ONLY
+trust: REVIEW_PENDING_DIAGNOSTIC
+candidate_manifest: metadata/n9_candidate_review.yaml
+review_gate_ledger: metadata/n9_review_gate_ledger.yaml
+review_evidence_matrix: metadata/n9_review_evidence_matrix.yaml
+canonical_command: python scripts/check_n9_review_dossier.py --check --summary-json
+markdown_command: python scripts/check_n9_review_dossier.py --markdown
+claim_scope: >
+  Machine-readable reviewer-dossier contract for the compact review-pending
+  n=9 selected-witness harness. It assembles the route manifest, review gates,
+  evidence-output matrix, acceptance outcomes, and open blockers into a single
+  review worksheet. It does not prove n=9, does not prove Erdos Problem #97,
+  does not claim a counterexample, does not complete independent review, and
+  does not update the official/global status.
+
+forbidden_promotions:
+  - "general proof of Erdos Problem #97"
+  - proof of n=9
+  - "counterexample to Erdos Problem #97"
+  - official/global status update
+  - completed independent review
+  - formal proof of the Euclidean turn lemma
+
+required_documents:
+  - docs/n9-candidate-promotion-harness.md
+  - docs/n9-review-packet.md
+  - docs/n9-review-gate-ledger.md
+  - docs/n9-review-evidence-matrix.md
+  - docs/n9-review-dossier.md
+  - docs/n9-reduction-chain.md
+
+sections:
+  - id: scope_boundary
+    title: Scope Boundary
+    source: candidate_manifest.claim_scope
+    required_phrases:
+      - does not prove n=9
+      - does not prove Erdos Problem #97
+      - does not claim a counterexample
+      - does not complete independent review
+      - does not update the official/global status
+  - id: command_surface
+    title: Compact Command Surface
+    source: candidate_manifest.routes
+    required_ids:
+      - manifest_contract
+      - lean_guardrails
+      - vertex_circle_route
+      - turn_packing_route
+      - kalmanson_corroboration
+  - id: review_gates
+    title: Open Review Gates
+    source: review_gate_ledger.review_gates
+    required_ids:
+      - frontier_enumeration
+      - vertex_circle_geometry
+      - quotient_obstruction_replay
+      - turn_geometry
+      - turn_arithmetic_replay
+      - kalmanson_corroboration
+  - id: infrastructure_gates
+    title: Infrastructure Gates
+    source: review_gate_ledger.infrastructure_gates
+    required_ids:
+      - lean_compilation
+      - independent_review
+  - id: evidence_matrix
+    title: Output Invariant Matrix
+    source: review_evidence_matrix.evidence_records
+    required_ids:
+      - n9_candidate_review_manifest
+      - n9_review_gate_ledger
+      - n9_review_evidence_matrix
+      - n9_review_dossier
+      - lean_sketch_integrity
+      - lean_files
+      - n9_vertex_circle_exhaustive
+      - n9_vertex_circle_input_audit
+      - n9_vertex_circle_incidence_filters
+      - n9_vertex_circle_mro_branching_replay
+      - n9_vertex_circle_frontier_coverage_crosswalk
+      - n9_vertex_circle_strict_edge_geometry
+      - n9_vertex_circle_quotient_soundness
+      - n9_vertex_circle_local_lemma_audit_path
+      - turn_inequality_indexing
+      - n9_turn_inequality_frontier
+      - n9_kalmanson_selfedge_independent_replay
+  - id: acceptance_outcomes
+    title: Acceptance Outcomes
+    source: review_gate_ledger.review_outcomes
+    required_ids:
+      - accepted_vertex_circle_route
+      - accepted_turn_route
+      - accepted_corrob_only
+      - gap_found
+
+review_questions:
+  - gate_id: frontier_enumeration
+    worksheet_prompt: >
+      Does the reviewer accept that A2-A5 are the intended selected-witness
+      filters and that the 184 frontier has no hidden symmetry quotient?
+  - gate_id: vertex_circle_geometry
+    worksheet_prompt: >
+      Does the reviewer accept the vertex-circle nested-chord strict-edge
+      geometry and the proper-interval convention?
+  - gate_id: quotient_obstruction_replay
+    worksheet_prompt: >
+      Does the reviewer accept the selected-distance quotient replay,
+      self-edge criterion, strict-cycle criterion, and local-lemma handoffs?
+  - gate_id: turn_geometry
+    worksheet_prompt: >
+      Does the reviewer accept the Euclidean exterior-turn lemma, interval
+      indexing, and weak-inequality boundary step?
+  - gate_id: turn_arithmetic_replay
+    worksheet_prompt: >
+      Does the reviewer accept the stored integer dual certificate arithmetic
+      for all 184 weak turn systems?
+  - gate_id: kalmanson_corroboration
+    worksheet_prompt: >
+      Does the reviewer accept the stored-input Kalmanson replay as
+      corroboration only, without treating it as a primary route?
+
+decision_fields:
+  - reviewer_name
+  - review_date
+  - accepted_gates
+  - rejected_gates
+  - precise_gaps
+  - recommended_outcome
+  - notes
