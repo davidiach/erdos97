@@ -20,6 +20,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`../metadata/n9_review_dossier.yaml`](../metadata/n9_review_dossier.yaml):
   machine-readable reviewer-dossier contract joining the compact n=9 command
   surface, open gates, output invariants, and decision fields.
+- [`../metadata/n9_review_run_bundle.yaml`](../metadata/n9_review_run_bundle.yaml):
+  machine-readable run-capture contract for digesting one compact `n=9`
+  reviewer run without writing a generated artifact.
 - [`upstream-alignment.md`](upstream-alignment.md): alignment notes for
   `teorth/erdosproblems` and the official problem page.
 - [`reviewer-guide.md`](reviewer-guide.md): audit route for finite-case
@@ -37,6 +40,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-review-dossier.md`](n9-review-dossier.md): guide to the checked
   reviewer dossier and on-demand Markdown worksheet for the compact `n=9`
   review harness.
+- [`n9-review-run-bundle.md`](n9-review-run-bundle.md): guide to the checked
+  reviewer run-capture contract and optional live digest replay for the compact
+  `n=9` review harness.
 - [`gpt55-solver-brief.md`](gpt55-solver-brief.md): front-loaded LLM
   solver-steering brief with anti-loop guardrails, hard status boundaries, and
   live frontier output contracts; prompt context only, not mathematical

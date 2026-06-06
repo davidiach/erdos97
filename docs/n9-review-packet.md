@@ -88,6 +88,12 @@ checked by
 on-demand Markdown worksheet with
 `python scripts/check_n9_review_dossier.py --markdown`.
 
+The machine-readable reviewer run bundle is
+`metadata/n9_review_run_bundle.yaml`, checked by
+`python scripts/check_n9_review_run_bundle.py --check --summary-json`. Capture
+one live run as digest-level provenance with
+`python scripts/check_n9_review_run_bundle.py --check --run --summary-json`.
+
 ## Review routes
 
 ### Route A: vertex-circle closure
@@ -144,6 +150,7 @@ python scripts/check_n9_candidate_review_manifest.py --check --summary-json
 python scripts/check_n9_review_gate_ledger.py --check --summary-json
 python scripts/check_n9_review_evidence_matrix.py --check --summary-json
 python scripts/check_n9_review_dossier.py --check --summary-json
+python scripts/check_n9_review_run_bundle.py --check --summary-json
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json
 python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json

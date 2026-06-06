@@ -23,6 +23,8 @@ independent-review gates those commands support. The evidence matrix records
 the expected compact output invariants for every command in the harness.
 The reviewer dossier in `metadata/n9_review_dossier.yaml` then assembles these
 contracts into an on-demand Markdown worksheet.
+The run bundle in `metadata/n9_review_run_bundle.yaml` captures one live
+reviewer run as command statuses, durations, output hashes, and short previews.
 
 This makes two kinds of drift visible:
 
@@ -62,6 +64,7 @@ The matrix covers all commands in `make verify-n9-candidate`:
 - the review-gate ledger checker;
 - the evidence matrix checker itself in contract-only mode;
 - the reviewer dossier checker;
+- the reviewer run-bundle checker in contract-only mode;
 - Lean sketch and optional Lean compilation guardrails;
 - the compact vertex-circle route commands;
 - the compact turn-packing route commands;

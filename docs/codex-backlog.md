@@ -74,6 +74,11 @@ minimal/rich-class hypotheses.
    adjacent handoff checks that identify where any future count/schema drift
    first appears. Use `--json` instead when the full layer and manifest
    records are needed.
+   The compact review run-bundle checker
+   `python scripts/check_n9_review_run_bundle.py --check --run --summary-json`
+   executes the current compact n=9 manifest command surface and records
+   digest-level provenance for one reviewer run. It is drift detection and
+   execution evidence only, not independent mathematical review.
    The focused mini-replay commands
    `python scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json`,
    `python scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json`,

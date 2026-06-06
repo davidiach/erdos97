@@ -28,6 +28,7 @@ required_documents:
   - docs/n9-review-gate-ledger.md
   - docs/n9-review-evidence-matrix.md
   - docs/n9-review-dossier.md
+  - docs/n9-review-run-bundle.md
   - docs/n9-reduction-chain.md
 
 sections:
@@ -73,6 +74,7 @@ sections:
       - n9_review_gate_ledger
       - n9_review_evidence_matrix
       - n9_review_dossier
+      - n9_review_run_bundle
       - lean_sketch_integrity
       - lean_files
       - n9_vertex_circle_exhaustive

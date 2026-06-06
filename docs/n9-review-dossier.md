@@ -20,6 +20,9 @@ The dossier checker assembles those contracts into a single view:
 - the allowed acceptance outcomes;
 - the decision fields a written review should fill in.
 
+The separate run-bundle checker records digest-level provenance for one actual
+execution of the same compact command surface.
+
 ## Commands
 
 Validate the dossier contract:
@@ -36,6 +39,15 @@ python scripts/check_n9_review_dossier.py --markdown
 
 The Markdown renderer does not write a generated artifact. It is an on-demand
 review aid so the source contracts remain the source of truth.
+
+For a live command-run capture, use:
+
+```bash
+python scripts/check_n9_review_run_bundle.py --check --run --summary-json
+```
+
+That command records hashes and short previews only. It is execution
+provenance, not a review decision.
 
 ## Boundary
 

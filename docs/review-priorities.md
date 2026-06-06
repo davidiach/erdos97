@@ -124,6 +124,9 @@ Target: `docs/n9-vertex-circle-exhaustive.md`.
 Reviewer packet: `docs/n9-review-packet.md` collects the current dependency
 map, reproduction commands, expected invariants, and acceptance outcomes for
 the review. It is a worksheet only and does not promote any `n=9` claim.
+The run-capture aid `docs/n9-review-run-bundle.md` records digest-level
+provenance for one execution of the compact command surface; it is drift
+detection only and does not replace written independent review.
 
 The 2026-05-03 archive bundle has been refactored into a repo-native checker
 that leaves 0 full `n=9` selected-witness assignments after exact

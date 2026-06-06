@@ -73,6 +73,23 @@ python scripts/check_n9_review_dossier.py --markdown
 The worksheet is a review aid only; it does not write a generated artifact and
 does not mark any gate accepted.
 
+The run-capture contract is `metadata/n9_review_run_bundle.yaml`, checked by:
+
+```bash
+python scripts/check_n9_review_run_bundle.py --check --summary-json
+```
+
+To execute the compact command surface and emit digest-level provenance for one
+reviewer run, use:
+
+```bash
+python scripts/check_n9_review_run_bundle.py --check --run --summary-json
+```
+
+The live capture validates compact outputs against the evidence matrix and
+records hashes/previews only. It does not write a generated artifact and does
+not accept any review gate.
+
 Run:
 
 ```bash
@@ -94,12 +111,13 @@ python scripts/check_n9_candidate_review_manifest.py --check --summary-json
 python scripts/check_n9_review_gate_ledger.py --check --summary-json
 python scripts/check_n9_review_evidence_matrix.py --check --summary-json
 python scripts/check_n9_review_dossier.py --check --summary-json
+python scripts/check_n9_review_run_bundle.py --check --summary-json
 python scripts/check_lean_sketch_integrity.py
 python scripts/check_lean_files.py
 ```
 
-The manifest, gate-ledger, evidence-matrix, and dossier checkers run before
-the Lean pilot guardrails. The Lean layer includes
+The manifest, gate-ledger, evidence-matrix, dossier, and run-bundle checkers
+run before the Lean pilot guardrails. The Lean layer includes
 `lean/Erdos97/TurnPacking.lean`, a dependency-free formal contract for the
 turn-packing route. It pins the forward/reverse interval support convention
 and proves the small arithmetic kernel behind the stored dual certificates: a
