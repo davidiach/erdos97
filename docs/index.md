@@ -14,6 +14,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`../metadata/n9_review_gate_ledger.yaml`](../metadata/n9_review_gate_ledger.yaml):
   machine-readable review-gate ledger mapping the compact `n=9` harness to
   still-open independent-review gates and acceptance outcomes.
+- [`../metadata/n9_review_evidence_matrix.yaml`](../metadata/n9_review_evidence_matrix.yaml):
+  machine-readable output-invariant matrix for every command in the compact
+  `n=9` review harness, including optional live replay.
 - [`upstream-alignment.md`](upstream-alignment.md): alignment notes for
   `teorth/erdosproblems` and the official problem page.
 - [`reviewer-guide.md`](reviewer-guide.md): audit route for finite-case
@@ -25,6 +28,9 @@ put detailed reconciliation in the canonical synthesis.
   selected-witness candidate; command surface only, not a status promotion.
 - [`n9-review-gate-ledger.md`](n9-review-gate-ledger.md): guide to the checked
   review-gate ledger for A6/A7, A8, A10, B1/B3, and corroborating n=9 routes.
+- [`n9-review-evidence-matrix.md`](n9-review-evidence-matrix.md): guide to the
+  checked output-invariant matrix and optional live replay mode for the compact
+  `n=9` review harness.
 - [`gpt55-solver-brief.md`](gpt55-solver-brief.md): front-loaded LLM
   solver-steering brief with anti-loop guardrails, hard status boundaries, and
   live frontier output contracts; prompt context only, not mathematical

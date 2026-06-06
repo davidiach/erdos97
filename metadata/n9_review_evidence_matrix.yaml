@@ -1,0 +1,295 @@
+schema: erdos97.n9_review_evidence_matrix.v1
+status: REVIEW_EVIDENCE_MATRIX_ONLY
+trust: REVIEW_PENDING_DIAGNOSTIC
+candidate_manifest: metadata/n9_candidate_review.yaml
+review_gate_ledger: metadata/n9_review_gate_ledger.yaml
+canonical_command: python scripts/check_n9_review_evidence_matrix.py --check --summary-json
+live_replay_command: python scripts/check_n9_review_evidence_matrix.py --check --run --summary-json
+claim_scope: >
+  Machine-readable evidence-output contract for the compact review-pending n=9
+  selected-witness harness. It maps every harness command to expected compact
+  output invariants and can optionally replay the commands live. It does not
+  prove n=9, does not prove Erdos Problem #97, does not claim a counterexample,
+  does not complete independent review, and does not update the official/global
+  status.
+
+forbidden_promotions:
+  - "general proof of Erdos Problem #97"
+  - proof of n=9
+  - "counterexample to Erdos Problem #97"
+  - official/global status update
+  - completed independent review
+  - formal proof of the Euclidean turn lemma
+
+evidence_records:
+  - id: n9_candidate_review_manifest
+    route_id: manifest_contract
+    command_id: n9_candidate_review_manifest
+    output_format: json
+    ledger_gate_ids: []
+    expectations:
+      - path: validation_status
+        equals: passed
+      - path: command_count
+        equals: 16
+      - path: review_gate_count
+        equals: 8
+      - path: review_gate_ledger
+        equals: metadata/n9_review_gate_ledger.yaml
+      - path: review_evidence_matrix
+        equals: metadata/n9_review_evidence_matrix.yaml
+
+  - id: n9_review_gate_ledger
+    route_id: manifest_contract
+    command_id: n9_review_gate_ledger
+    output_format: json
+    ledger_gate_ids: []
+    expectations:
+      - path: validation_status
+        equals: passed
+      - path: review_gate_count
+        equals: 6
+      - path: infrastructure_gate_count
+        equals: 2
+      - path: review_outcome_count
+        equals: 4
+
+  - id: n9_review_evidence_matrix
+    route_id: manifest_contract
+    command_id: n9_review_evidence_matrix
+    output_format: json
+    ledger_gate_ids: []
+    expectations:
+      - path: validation_status
+        equals: passed
+      - path: evidence_record_count
+        equals: 16
+      - path: live_replay_enabled
+        equals: false
+
+  - id: lean_sketch_integrity
+    route_id: lean_guardrails
+    command_id: lean_sketch_integrity
+    output_format: text
+    ledger_gate_ids:
+      - lean_compilation
+    text_expectations:
+      - contains: Lean sketch integrity checks passed
+
+  - id: lean_files
+    route_id: lean_guardrails
+    command_id: lean_files
+    output_format: text
+    ledger_gate_ids:
+      - lean_compilation
+    text_expectations:
+      - contains_any:
+          - lake not found; skipped Lean compilation
+          - checked
+
+  - id: n9_vertex_circle_exhaustive
+    route_id: vertex_circle_route
+    command_id: n9_vertex_circle_exhaustive
+    output_format: json
+    ledger_gate_ids:
+      - frontier_enumeration
+    expectations:
+      - path: main_search.full_assignments
+        equals: 0
+      - path: main_search.row0_choices
+        equals: 70
+      - path: cross_check_without_vertex_circle_pruning.full_assignments
+        equals: 184
+      - path: cross_check_without_vertex_circle_pruning.counts.self_edge
+        equals: 158
+      - path: cross_check_without_vertex_circle_pruning.counts.strict_cycle
+        equals: 26
+      - path: trust
+        equals: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+
+  - id: n9_vertex_circle_input_audit
+    route_id: vertex_circle_route
+    command_id: n9_vertex_circle_input_audit
+    output_format: json
+    ledger_gate_ids:
+      - frontier_enumeration
+    expectations:
+      - path: validation_status
+        equals: passed
+      - path: coverage_summary.expected_row0_choices
+        equals: 70
+      - path: coverage_summary.cross_check_full_assignments
+        equals: 184
+      - path: coverage_summary.main_full_assignments
+        equals: 0
+
+  - id: n9_vertex_circle_incidence_filters
+    route_id: vertex_circle_route
+    command_id: n9_vertex_circle_incidence_filters
+    output_format: json
+    ledger_gate_ids:
+      - frontier_enumeration
+    expectations:
+      - path: validation_status
+        equals: passed
+      - path: n
+        equals: 9
+      - path: row_size
+        equals: 4
+      - path: max_indegree
+        equals: 5
+      - path: selected_indegree_cap_summary.local_column_predicate_mismatches
+        equals: 0
+      - path: witness_pair_cap_summary.local_cap_predicate_mismatches
+        equals: 0
+
+  - id: n9_vertex_circle_mro_branching_replay
+    route_id: vertex_circle_route
+    command_id: n9_vertex_circle_mro_branching_replay
+    output_format: json
+    ledger_gate_ids:
+      - frontier_enumeration
+    expectations:
+      - path: validation_status
+        equals: passed
+      - path: comparison_summary.main_full_assignments_match
+        equals: true
+      - path: comparison_summary.cross_check_full_assignments_match
+        equals: true
+      - path: fixed_center_order_cross_check_summary.full_assignments
+        equals: 184
+      - path: fixed_center_order_main_summary.full_assignments
+        equals: 0
+
+  - id: n9_vertex_circle_frontier_coverage_crosswalk
+    route_id: vertex_circle_route
+    command_id: n9_vertex_circle_frontier_coverage_crosswalk
+    output_format: json
+    ledger_gate_ids:
+      - frontier_enumeration
+    expectations:
+      - path: validation_status
+        equals: passed
+      - path: frontier_coverage_crosswalk_summary.generated_assignment_count
+        equals: 184
+      - path: frontier_coverage_crosswalk_summary.stored_assignment_count
+        equals: 184
+      - path: frontier_coverage_crosswalk_summary.set_matches
+        equals: true
+      - path: frontier_coverage_crosswalk_summary.sequence_matches
+        equals: true
+      - path: frontier_coverage_crosswalk_summary.status_mismatches
+        equals: 0
+
+  - id: n9_vertex_circle_strict_edge_geometry
+    route_id: vertex_circle_route
+    command_id: n9_vertex_circle_strict_edge_geometry
+    output_format: json
+    ledger_gate_ids:
+      - vertex_circle_geometry
+    expectations:
+      - path: validation_status
+        equals: passed
+      - path: selected_rows_checked
+        equals: 630
+      - path: total_strict_edges
+        equals: 5670
+      - path: strict_edge_mismatches
+        equals: 0
+      - path: quotient_replay_strict_edge_mismatches
+        equals: 0
+
+  - id: n9_vertex_circle_quotient_soundness
+    route_id: vertex_circle_route
+    command_id: n9_vertex_circle_quotient_soundness
+    output_format: json
+    ledger_gate_ids:
+      - quotient_obstruction_replay
+    expectations:
+      - path: validation_status
+        equals: passed
+      - path: frontier_full_assignments_summary.row_set_count
+        equals: 184
+      - path: frontier_full_assignments_summary.status_counts.self_edge
+        equals: 158
+      - path: frontier_full_assignments_summary.status_counts.strict_cycle
+        equals: 26
+      - path: frontier_full_assignments_summary.status_mismatches
+        equals: 0
+
+  - id: n9_vertex_circle_local_lemma_audit_path
+    route_id: vertex_circle_route
+    command_id: n9_vertex_circle_local_lemma_audit_path
+    output_format: json
+    ledger_gate_ids:
+      - quotient_obstruction_replay
+    expectations:
+      - path: validation_status
+        equals: passed
+      - path: coverage_summary.assignment_count
+        equals: 184
+      - path: coverage_summary.family_count
+        equals: 16
+      - path: coverage_summary.template_count
+        equals: 12
+      - path: audit_contract_summary.status
+        equals: passed
+      - path: manifest_contract_summary.status
+        equals: passed
+
+  - id: turn_inequality_indexing
+    route_id: turn_packing_route
+    command_id: turn_inequality_indexing
+    output_format: json
+    ledger_gate_ids:
+      - turn_geometry
+    expectations:
+      - path: validation_status
+        equals: passed
+      - path: row_offset_subset_count
+        equals: 70
+      - path: row_instance_count
+        equals: 630
+      - path: index_record_count
+        equals: 504
+      - path: observed_term_count
+        equals: 7560
+      - path: mismatch_count
+        equals: 0
+
+  - id: n9_turn_inequality_frontier
+    route_id: turn_packing_route
+    command_id: n9_turn_inequality_frontier
+    output_format: json
+    ledger_gate_ids:
+      - frontier_enumeration
+      - turn_arithmetic_replay
+    expectations:
+      - path: source_frontier.assignment_count
+        equals: 184
+      - path: farkas_replay.certificate_count
+        equals: 184
+      - path: farkas_replay.deficit_histogram.1
+        equals: 184
+      - path: z3_replay.status_counts.unsat
+        equals: 184
+      - path: trust
+        equals: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+
+  - id: n9_kalmanson_selfedge_independent_replay
+    route_id: kalmanson_corroboration
+    command_id: n9_kalmanson_selfedge_independent_replay
+    output_format: json
+    ledger_gate_ids:
+      - kalmanson_corroboration
+    expectations:
+      - path: status
+        equals: ok
+      - path: certificates_checked
+        equals: 184
+      - path: unique_assignments_checked
+        equals: 184
+      - path: digest_matches
+        equals: true
+      - path: self_edge_failures
+        equals: 0

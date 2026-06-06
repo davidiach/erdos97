@@ -22,6 +22,10 @@ records why those commands matter for independent review: which reduction-chain
 steps they support, which review gate remains open, and which acceptance
 outcome would consume the gate.
 
+The companion evidence matrix is
+`metadata/n9_review_evidence_matrix.yaml`. It records the expected output
+invariants for each command named by the route manifest and this gate ledger.
+
 This separation keeps the review surface honest. A command can be reproducible
 and still leave a proof-facing gate open.
 

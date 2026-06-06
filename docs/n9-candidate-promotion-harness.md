@@ -40,6 +40,23 @@ corroborating Kalmanson review gates, then checks those gates against
 `docs/n9-reduction-chain.md`, `docs/n9-review-packet.md`, and the route
 manifest. It is review bookkeeping only, not mathematical evidence.
 
+The route contract also points to the evidence matrix
+`metadata/n9_review_evidence_matrix.yaml`, checked by:
+
+```bash
+python scripts/check_n9_review_evidence_matrix.py --check --summary-json
+```
+
+That checker validates the expected reviewer-facing output invariants for
+every command in this harness. To execute the command chain and check the live
+outputs against the matrix, run:
+
+```bash
+python scripts/check_n9_review_evidence_matrix.py --check --run --summary-json
+```
+
+Live replay is still harness validation, not independent mathematical review.
+
 Run:
 
 ```bash
@@ -59,16 +76,18 @@ The target first runs the Lean pilot guardrails:
 ```bash
 python scripts/check_n9_candidate_review_manifest.py --check --summary-json
 python scripts/check_n9_review_gate_ledger.py --check --summary-json
+python scripts/check_n9_review_evidence_matrix.py --check --summary-json
 python scripts/check_lean_sketch_integrity.py
 python scripts/check_lean_files.py
 ```
 
-The manifest and gate-ledger checkers run before the Lean pilot guardrails.
-The Lean layer includes `lean/Erdos97/TurnPacking.lean`, a dependency-free
-formal contract for the turn-packing route. It pins the forward/reverse
-interval support convention and proves the small arithmetic kernel behind the
-stored dual certificates: a lower bound exceeding the total coefficient budget
-has no realization. It does not prove the Euclidean exterior-turn lemma.
+The manifest, gate-ledger, and evidence-matrix checkers run before the Lean
+pilot guardrails. The Lean layer includes `lean/Erdos97/TurnPacking.lean`, a
+dependency-free formal contract for the turn-packing route. It pins the
+forward/reverse interval support convention and proves the small arithmetic
+kernel behind the stored dual certificates: a lower bound exceeding the total
+coefficient budget has no realization. It does not prove the Euclidean
+exterior-turn lemma.
 
 The target then runs the compact vertex-circle route checks:
 

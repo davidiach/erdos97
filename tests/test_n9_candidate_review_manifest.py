@@ -56,6 +56,18 @@ def test_n9_candidate_review_manifest_requires_review_gate_ledger() -> None:
     assert "review_gate_ledger must be 'metadata/n9_review_gate_ledger.yaml'" in errors
 
 
+def test_n9_candidate_review_manifest_requires_review_evidence_matrix() -> None:
+    payload = deepcopy(load_manifest(MANIFEST))
+    payload["review_evidence_matrix"] = "metadata/other.yaml"
+
+    errors = validate_manifest(payload)
+
+    assert (
+        "review_evidence_matrix must be 'metadata/n9_review_evidence_matrix.yaml'"
+        in errors
+    )
+
+
 def test_n9_candidate_review_manifest_pins_summary_json_review_surfaces() -> None:
     payload = deepcopy(load_manifest(MANIFEST))
     command = payload["routes"][2]["commands"][1]

@@ -104,6 +104,12 @@ these targets to the compact harness evidence commands and to the acceptance
 outcomes in `docs/n9-review-packet.md`. The ledger is review bookkeeping only;
 it does not mark any gate accepted.
 
+The companion evidence matrix `metadata/n9_review_evidence_matrix.yaml`,
+checked by
+`python scripts/check_n9_review_evidence_matrix.py --check --summary-json`,
+pins the compact command outputs to expected reviewer-facing invariants. Use
+`--run` on that checker to replay those invariants live.
+
 The most important global gap is separate:
 
 ```text
