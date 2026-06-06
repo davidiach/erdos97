@@ -8,6 +8,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`../STATE.md`](../STATE.md): short working dashboard.
 - [`../metadata/erdos97.yaml`](../metadata/erdos97.yaml): canonical status
   metadata separating official/global status from local repo claims.
+- [`../metadata/n9_candidate_review.yaml`](../metadata/n9_candidate_review.yaml):
+  machine-readable route contract for the compact `n=9` candidate review
+  harness; not mathematical evidence and not a status promotion.
 - [`upstream-alignment.md`](upstream-alignment.md): alignment notes for
   `teorth/erdosproblems` and the official problem page.
 - [`reviewer-guide.md`](reviewer-guide.md): audit route for finite-case

@@ -17,6 +17,17 @@ artifact audit, which is intentionally broad. It is the shortest command chain
 that exercises the current finite-case review bottlenecks and the
 formalization-facing turn-packing contract.
 
+The machine-readable route contract is
+`metadata/n9_candidate_review.yaml`, checked by:
+
+```bash
+python scripts/check_n9_candidate_review_manifest.py --check --summary-json
+```
+
+That checker compares the manifest command list with the Makefile target,
+verifies referenced docs and Lean files exist, and keeps the review gates
+explicitly open. It does not run the mathematical replay commands.
+
 Run:
 
 ```bash
@@ -34,15 +45,17 @@ make verify-n9-candidate PYTHON=.venv/bin/python
 The target first runs the Lean pilot guardrails:
 
 ```bash
+python scripts/check_n9_candidate_review_manifest.py --check --summary-json
 python scripts/check_lean_sketch_integrity.py
 python scripts/check_lean_files.py
 ```
 
-The Lean layer includes `lean/Erdos97/TurnPacking.lean`, a dependency-free
-formal contract for the turn-packing route. It pins the forward/reverse
-interval support convention and proves the small arithmetic kernel behind the
-stored dual certificates: a lower bound exceeding the total coefficient budget
-has no realization. It does not prove the Euclidean exterior-turn lemma.
+The manifest checker runs before the Lean pilot guardrails. The Lean layer
+includes `lean/Erdos97/TurnPacking.lean`, a dependency-free formal contract
+for the turn-packing route. It pins the forward/reverse interval support
+convention and proves the small arithmetic kernel behind the stored dual
+certificates: a lower bound exceeding the total coefficient budget has no
+realization. It does not prove the Euclidean exterior-turn lemma.
 
 The target then runs the compact vertex-circle route checks:
 
