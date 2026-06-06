@@ -119,6 +119,11 @@ The run-capture contract `metadata/n9_review_run_bundle.yaml`, checked by
 execute the compact command surface with `--run` and emit digest-level
 provenance for one reviewer run.
 
+The decision-intake contract `metadata/n9_review_decision_intake.yaml`, checked
+by `python scripts/check_n9_review_decision_intake.py --check --summary-json`,
+validates external written-review records against the same gates and allowed
+outcomes.
+
 The most important global gap is separate:
 
 ```text

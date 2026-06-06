@@ -31,7 +31,7 @@ def test_n9_review_dossier_payload_contains_expected_layers() -> None:
     assert len(dossier["routes"]) == 5
     assert len(dossier["review_gates"]) == 6
     assert len(dossier["infrastructure_gates"]) == 2
-    assert len(dossier["evidence_records"]) == 18
+    assert len(dossier["evidence_records"]) == 19
 
 
 def test_n9_review_dossier_rejects_missing_section_id() -> None:

@@ -89,6 +89,18 @@ def test_n9_candidate_review_manifest_requires_review_run_bundle() -> None:
     )
 
 
+def test_n9_candidate_review_manifest_requires_review_decision_intake() -> None:
+    payload = deepcopy(load_manifest(MANIFEST))
+    payload["review_decision_intake"] = "metadata/other.yaml"
+
+    errors = validate_manifest(payload)
+
+    assert (
+        "review_decision_intake must be 'metadata/n9_review_decision_intake.yaml'"
+        in errors
+    )
+
+
 def test_n9_candidate_review_manifest_pins_summary_json_review_surfaces() -> None:
     payload = deepcopy(load_manifest(MANIFEST))
     command = payload["routes"][2]["commands"][1]

@@ -25,6 +25,8 @@ In live mode, the checker:
 
 The digest capture is useful for comparing review runs without placing large
 command outputs in docs or metadata.
+After a reviewer has a run digest and written notes, the decision-intake
+checker validates any external decision record against the current gate ledger.
 
 ## Commands
 
@@ -48,6 +50,12 @@ python scripts/check_n9_review_run_bundle.py --markdown
 
 Use `--json` with `--run` when the per-command digest records are needed.
 Those records still contain only hashes and previews, not full command output.
+
+Validate a filled decision record against the current gate ledger:
+
+```bash
+python scripts/check_n9_review_decision_intake.py --decision path/to/decision.yaml --check --summary-json
+```
 
 ## Boundary
 

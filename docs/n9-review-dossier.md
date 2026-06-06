@@ -22,6 +22,8 @@ The dossier checker assembles those contracts into a single view:
 
 The separate run-bundle checker records digest-level provenance for one actual
 execution of the same compact command surface.
+The reviewer-decision intake checker validates how an external written review
+records accepted gates, rejected gates, exact gaps, and allowed outcomes.
 
 ## Commands
 
@@ -48,6 +50,12 @@ python scripts/check_n9_review_run_bundle.py --check --run --summary-json
 
 That command records hashes and short previews only. It is execution
 provenance, not a review decision.
+
+For a decision-record template, use:
+
+```bash
+python scripts/check_n9_review_decision_intake.py --template
+```
 
 ## Boundary
 
