@@ -1,0 +1,144 @@
+schema: erdos97.n9_candidate_review.v1
+status: REVIEW_HARNESS_ONLY
+trust: REVIEW_PENDING_DIAGNOSTIC
+target: verify-n9-candidate
+canonical_command: make verify-n9-candidate
+claim_scope: >
+  Compact review manifest for the current review-pending n=9 selected-witness
+  candidate. It records the command surface, documents, formalization-facing
+  files, and review gates for independent audit. It does not prove n=9, does
+  not prove Erdos Problem #97, does not claim a counterexample, does not
+  complete independent review, and does not update the official/global status.
+
+candidate_claim_under_review: >
+  No strictly convex 9-gon has a selected 4-witness row at every vertex.
+  This is a repo-local finite-case candidate only.
+
+forbidden_promotions:
+  - "general proof of Erdos Problem #97"
+  - proof of n=9
+  - "counterexample to Erdos Problem #97"
+  - official/global status update
+  - completed independent review
+  - formal proof of the Euclidean turn lemma
+
+source_of_truth_files:
+  - README.md
+  - STATE.md
+  - RESULTS.md
+  - metadata/erdos97.yaml
+  - docs/claims.md
+  - docs/review-priorities.md
+  - docs/n9-reduction-chain.md
+  - docs/n9-review-packet.md
+
+harness_documents:
+  - docs/n9-candidate-promotion-harness.md
+  - docs/n9-reduction-chain.md
+  - docs/n9-review-packet.md
+  - docs/turn-inequality-lemma.md
+  - docs/turn-packing-bridge.md
+  - docs/formalization.md
+
+formalization_files:
+  - lean/Erdos97/TurnPacking.lean
+  - lean/Erdos97/CertificateFormats.lean
+  - docs/formalization.md
+  - docs/turn-inequality-lemma.md
+
+review_gates:
+  - id: source_frontier
+    review_requirement: >
+      Review that the 184 regenerated pair/crossing/count frontier assignments
+      are the intended pre-obstruction source frontier and do not hide symmetry
+      quotient assumptions.
+    still_open: true
+  - id: vertex_circle_geometry
+    review_requirement: >
+      Review the vertex-circle strict-edge geometry rule and quotient replay
+      soundness before treating the vertex-circle route as theorem-grade.
+    still_open: true
+  - id: turn_geometry
+    review_requirement: >
+      Review the Euclidean exterior-turn lemma and interval indexing before
+      treating the turn-packing route as theorem-grade.
+    still_open: true
+  - id: lean_compilation
+    review_requirement: >
+      Run python scripts/check_lean_files.py --require-lean on a machine with
+      Lake installed before treating Lean pilot files as compile-checked.
+    still_open: true
+  - id: independent_review
+    review_requirement: >
+      Obtain written independent review identifying accepted lemmas and exact
+      gaps before any public theorem-style use.
+    still_open: true
+
+routes:
+  - id: manifest_contract
+    title: Review manifest contract
+    claim_scope: >
+      Checks this manifest against the Makefile target and filesystem. It does
+      not run the mathematical replay commands and does not promote any claim.
+    commands:
+      - id: n9_candidate_review_manifest
+        command: python scripts/check_n9_candidate_review_manifest.py --check --summary-json
+
+  - id: lean_guardrails
+    title: Lean pilot guardrails
+    claim_scope: >
+      Checks Lean sketch block integrity and compiles Lean files only when Lake
+      is available. This is a formalization guardrail only, not a proof of the
+      Euclidean turn lemma.
+    commands:
+      - id: lean_sketch_integrity
+        command: python scripts/check_lean_sketch_integrity.py
+      - id: lean_files
+        command: python scripts/check_lean_files.py
+
+  - id: vertex_circle_route
+    title: Compact vertex-circle review path
+    claim_scope: >
+      Exercises row0/input conventions, incidence filters, branch-order
+      agreement, frontier coverage, strict-edge geometry, quotient replay, and
+      local-lemma handoffs. This is review-pending finite-case audit support
+      only.
+    commands:
+      - id: n9_vertex_circle_exhaustive
+        command: python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
+      - id: n9_vertex_circle_input_audit
+        command: python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json
+      - id: n9_vertex_circle_incidence_filters
+        command: python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json
+      - id: n9_vertex_circle_mro_branching_replay
+        command: python scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json
+      - id: n9_vertex_circle_frontier_coverage_crosswalk
+        command: python scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --summary-json
+      - id: n9_vertex_circle_strict_edge_geometry
+        command: python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json
+      - id: n9_vertex_circle_quotient_soundness
+        command: python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json
+      - id: n9_vertex_circle_local_lemma_audit_path
+        command: python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json
+
+  - id: turn_packing_route
+    title: Compact turn-packing review path
+    claim_scope: >
+      Checks machine interval indexing and stored integer dual certificates for
+      the same 184 source-frontier assignments. It remains conditional on the
+      Euclidean turn lemma and independent review.
+    commands:
+      - id: turn_inequality_indexing
+        command: python scripts/check_turn_inequality_indexing.py --check --assert-expected --summary-json
+      - id: n9_turn_inequality_frontier
+        command: python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
+
+  - id: kalmanson_corroboration
+    title: Stored-input Kalmanson corroboration
+    claim_scope: >
+      Replays stored n=9 Kalmanson self-edge certificates without importing the
+      generator module. This is corroborating stored-certificate audit support
+      only.
+    commands:
+      - id: n9_kalmanson_selfedge_independent_replay
+        command: python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json

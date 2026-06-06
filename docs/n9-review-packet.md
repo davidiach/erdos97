@@ -63,6 +63,12 @@ make verify-n9-candidate
 Passing this target is not a status promotion; it only confirms that the
 current compact review harness is internally consistent.
 
+The machine-readable route contract is `metadata/n9_candidate_review.yaml`,
+checked by
+`python scripts/check_n9_candidate_review_manifest.py --check --summary-json`.
+It keeps the Makefile command sequence, referenced review files, and open
+review gates synchronized.
+
 ## Review routes
 
 ### Route A: vertex-circle closure
