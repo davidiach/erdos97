@@ -1,0 +1,246 @@
+schema: erdos97.n9_review_gate_ledger.v1
+status: REVIEW_GATE_LEDGER_ONLY
+trust: REVIEW_PENDING_DIAGNOSTIC
+candidate_manifest: metadata/n9_candidate_review.yaml
+canonical_command: python scripts/check_n9_review_gate_ledger.py --check --summary-json
+claim_scope: >
+  Machine-readable review-gate ledger for the current review-pending n=9
+  selected-witness candidate. It records the exact independent-review gates,
+  evidence commands, acceptance paths, and still-open blockers. It does not
+  prove n=9, does not prove Erdos Problem #97, does not claim a counterexample,
+  does not complete independent review, and does not update the official/global
+  status.
+
+forbidden_promotions:
+  - "general proof of Erdos Problem #97"
+  - proof of n=9
+  - "counterexample to Erdos Problem #97"
+  - official/global status update
+  - completed independent review
+  - formal proof of the Euclidean turn lemma
+
+source_of_truth_files:
+  - README.md
+  - STATE.md
+  - RESULTS.md
+  - metadata/erdos97.yaml
+  - metadata/n9_candidate_review.yaml
+  - docs/claims.md
+  - docs/review-priorities.md
+  - docs/n9-reduction-chain.md
+  - docs/n9-review-packet.md
+  - docs/n9-candidate-promotion-harness.md
+
+review_outcomes:
+  - id: accepted_vertex_circle_route
+    title: Vertex-circle route accepted
+    required_gates:
+      - frontier_enumeration
+      - vertex_circle_geometry
+      - quotient_obstruction_replay
+    claim_boundary: >
+      Would support a follow-up source-of-truth proposal for the repo-local n=9
+      finite case only, not the general Erdos Problem #97 status.
+  - id: accepted_turn_route
+    title: Turn-packing route accepted
+    required_gates:
+      - frontier_enumeration
+      - turn_geometry
+      - turn_arithmetic_replay
+    claim_boundary: >
+      Would support a follow-up source-of-truth proposal for the repo-local n=9
+      finite case only, conditional on the accepted Euclidean turn lemma.
+  - id: accepted_corrob_only
+    title: Corroborating artifacts accepted only
+    required_gates:
+      - kalmanson_corroboration
+    claim_boundary: >
+      Reproduces corroborating stored-certificate evidence while leaving at
+      least one proof-facing route dependency unreviewed.
+  - id: gap_found
+    title: Precise gap found
+    required_gates: []
+    claim_boundary: >
+      Records a mathematical or implementation gap and blocks any theorem-style
+      promotion until the gap is resolved and reviewed.
+
+review_gates:
+  - id: frontier_enumeration
+    title: A6/A7 source frontier enumeration
+    route: shared_source_frontier
+    manifest_gate: source_frontier
+    status: machine_checked_review_pending
+    still_open: true
+    reduction_steps:
+      - A6
+      - A7
+      - B0
+    review_question: >
+      Do the row filters and brancher enumerate exactly the intended 184
+      selected-witness source-frontier assignments without hidden symmetry
+      quotient assumptions?
+    evidence_commands:
+      - n9_vertex_circle_exhaustive
+      - n9_vertex_circle_input_audit
+      - n9_vertex_circle_incidence_filters
+      - n9_vertex_circle_mro_branching_replay
+      - n9_vertex_circle_frontier_coverage_crosswalk
+    referenced_docs:
+      - docs/n9-reduction-chain.md
+      - docs/n9-review-packet.md
+      - docs/n9-vertex-circle-exhaustive.md
+      - docs/n9-vertex-circle-independent-recheck.md
+    blockers:
+      - Independent agreement that A2-A5 match the selected-witness formulation.
+      - Independent agreement that row0 coverage and MRO branching do not hide
+        a symmetry quotient.
+
+  - id: vertex_circle_geometry
+    title: A8 vertex-circle strict-edge geometry
+    route: vertex_circle
+    manifest_gate: vertex_circle_geometry
+    status: proof_facing_review_pending
+    still_open: true
+    reduction_steps:
+      - A8
+    review_question: >
+      Does the vertex-circle nested-chord rule force the strict ordinary-distance
+      inequalities emitted by the checker?
+    evidence_commands:
+      - n9_vertex_circle_strict_edge_geometry
+    referenced_docs:
+      - docs/n9-reduction-chain.md
+      - docs/n9-review-packet.md
+      - docs/n9-vertex-circle-strict-edge-geometry-audit.md
+      - docs/claims.md
+    blockers:
+      - Written independent review of the chord-nesting geometry.
+      - Agreement that the proper-interval containment convention is exact.
+
+  - id: quotient_obstruction_replay
+    title: A10 quotient obstruction replay
+    route: vertex_circle
+    manifest_gate: quotient_replay
+    status: machine_checked_review_pending
+    still_open: true
+    reduction_steps:
+      - A9
+      - A10
+    review_question: >
+      Do the selected-distance quotients and local-lemma handoffs faithfully
+      replay strict self-edge and strict-cycle contradictions for all 184
+      frontier assignments?
+    evidence_commands:
+      - n9_vertex_circle_quotient_soundness
+      - n9_vertex_circle_local_lemma_audit_path
+    referenced_docs:
+      - docs/n9-reduction-chain.md
+      - docs/n9-review-packet.md
+      - docs/n9-vertex-circle-certificate-chain.md
+      - docs/n9-vertex-circle-quotient-soundness-audit.md
+      - docs/n9-vertex-circle-local-lemma-review-packet.md
+      - docs/relation-skeleton-catalog.md
+    blockers:
+      - Independent review of self-edge and strict-cycle impossibility criteria.
+      - Independent review that focused packets are faithful transformations of
+        the full frontier records they cite.
+
+  - id: turn_geometry
+    title: B1/B2 exterior-turn geometry
+    route: turn_packing
+    manifest_gate: turn_geometry
+    status: proof_facing_review_pending
+    still_open: true
+    reduction_steps:
+      - B1
+      - B2
+    review_question: >
+      Does each equidistant witness pair force the two indexed exterior-turn
+      intervals used by the weak turn system?
+    evidence_commands:
+      - turn_inequality_indexing
+    referenced_docs:
+      - docs/n9-reduction-chain.md
+      - docs/n9-review-packet.md
+      - docs/turn-inequality-lemma.md
+      - docs/turn-packing-bridge.md
+    blockers:
+      - Proof-facing review of the Euclidean exterior-turn lemma.
+      - Boundary-case review for replacing strict inequalities by weak
+        normalized inequalities.
+
+  - id: turn_arithmetic_replay
+    title: B3/B4 turn-packing arithmetic replay
+    route: turn_packing
+    manifest_gate: turn_arithmetic
+    status: machine_checked_review_pending
+    still_open: true
+    reduction_steps:
+      - B3
+      - B4
+    review_question: >
+      Do the stored integer dual certificates contradict every regenerated weak
+      turn system over the 184 source-frontier assignments?
+    evidence_commands:
+      - n9_turn_inequality_frontier
+    referenced_docs:
+      - docs/n9-reduction-chain.md
+      - docs/n9-review-packet.md
+      - docs/n9-turn-inequality-frontier.md
+      - docs/turn-packing-bridge.md
+      - docs/formalization.md
+    blockers:
+      - Independent review of the arithmetic replay without relying on Z3.
+      - Compile-check the Lean pilot on a machine with Lake installed before
+        treating it as formalized support.
+
+  - id: kalmanson_corroboration
+    title: Stored-input Kalmanson corroboration
+    route: corroboration
+    manifest_gate: kalmanson_corroboration
+    status: machine_checked_review_pending
+    still_open: true
+    reduction_steps:
+      - C0
+      - C4
+    review_question: >
+      Does the stored-input Kalmanson replay corroborate the same frontier
+      without replacing either primary route?
+    evidence_commands:
+      - n9_kalmanson_selfedge_independent_replay
+    referenced_docs:
+      - docs/n9-reduction-chain.md
+      - docs/n9-review-packet.md
+      - docs/n9-vertex-circle-certificate-chain.md
+    blockers:
+      - Independent review of the stored-certificate inputs if this route is
+        used beyond corroboration.
+      - No standalone claim unless the family reduction and primary route
+        dependencies are separately accepted.
+
+infrastructure_gates:
+  - id: lean_compilation
+    title: Lean pilot compilation
+    manifest_gate: lean_compilation
+    still_open: true
+    requirement: >
+      Run python scripts/check_lean_files.py --require-lean on a machine with
+      Lake installed before treating Lean pilot files as compile-checked.
+    referenced_docs:
+      - docs/formalization.md
+      - docs/turn-packing-bridge.md
+      - docs/turn-inequality-lemma.md
+    evidence_commands:
+      - lean_sketch_integrity
+      - lean_files
+  - id: independent_review
+    title: Written independent review
+    manifest_gate: independent_review
+    still_open: true
+    requirement: >
+      Obtain written independent review that identifies accepted lemmas,
+      accepted replay boundaries, and exact gaps before any theorem-style use.
+    referenced_docs:
+      - docs/review-priorities.md
+      - docs/n9-review-packet.md
+      - docs/n9-reduction-chain.md

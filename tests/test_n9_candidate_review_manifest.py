@@ -47,6 +47,15 @@ def test_n9_candidate_review_manifest_requires_forbidden_promotions() -> None:
     assert any("forbidden_promotions missing" in error for error in errors)
 
 
+def test_n9_candidate_review_manifest_requires_review_gate_ledger() -> None:
+    payload = deepcopy(load_manifest(MANIFEST))
+    payload["review_gate_ledger"] = "metadata/other.yaml"
+
+    errors = validate_manifest(payload)
+
+    assert "review_gate_ledger must be 'metadata/n9_review_gate_ledger.yaml'" in errors
+
+
 def test_n9_candidate_review_manifest_pins_summary_json_review_surfaces() -> None:
     payload = deepcopy(load_manifest(MANIFEST))
     command = payload["routes"][2]["commands"][1]

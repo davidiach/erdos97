@@ -11,6 +11,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`../metadata/n9_candidate_review.yaml`](../metadata/n9_candidate_review.yaml):
   machine-readable route contract for the compact `n=9` candidate review
   harness; not mathematical evidence and not a status promotion.
+- [`../metadata/n9_review_gate_ledger.yaml`](../metadata/n9_review_gate_ledger.yaml):
+  machine-readable review-gate ledger mapping the compact `n=9` harness to
+  still-open independent-review gates and acceptance outcomes.
 - [`upstream-alignment.md`](upstream-alignment.md): alignment notes for
   `teorth/erdosproblems` and the official problem page.
 - [`reviewer-guide.md`](reviewer-guide.md): audit route for finite-case
@@ -20,6 +23,8 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-candidate-promotion-harness.md`](n9-candidate-promotion-harness.md):
   compact review harness for the current review-pending `n=9`
   selected-witness candidate; command surface only, not a status promotion.
+- [`n9-review-gate-ledger.md`](n9-review-gate-ledger.md): guide to the checked
+  review-gate ledger for A6/A7, A8, A10, B1/B3, and corroborating n=9 routes.
 - [`gpt55-solver-brief.md`](gpt55-solver-brief.md): front-loaded LLM
   solver-steering brief with anti-loop guardrails, hard status boundaries, and
   live frontier output contracts; prompt context only, not mathematical

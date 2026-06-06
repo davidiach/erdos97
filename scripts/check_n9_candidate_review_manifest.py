@@ -23,6 +23,7 @@ SCHEMA = "erdos97.n9_candidate_review.v1"
 TARGET = "verify-n9-candidate"
 STATUS = "REVIEW_HARNESS_ONLY"
 TRUST = "REVIEW_PENDING_DIAGNOSTIC"
+REVIEW_GATE_LEDGER = "metadata/n9_review_gate_ledger.yaml"
 REQUIRED_FORBIDDEN_PROMOTIONS = {
     "general proof of Erdos Problem #97",
     "proof of n=9",
@@ -39,6 +40,7 @@ REQUIRED_CLAIM_SCOPE_PHRASES = (
     "does not update the official/global status",
 )
 SUMMARY_JSON_REVIEW_COMMAND_PREFIXES = (
+    "python scripts/check_n9_review_gate_ledger.py",
     "python scripts/check_n9_vertex_circle_input_audit.py",
     "python scripts/check_n9_vertex_circle_incidence_filters.py",
     "python scripts/check_n9_vertex_circle_mro_branching_replay.py",
@@ -223,6 +225,11 @@ def validate_manifest(
         errors.append(f"target is {payload.get('target')!r}, expected {TARGET!r}")
     if payload.get("canonical_command") != f"make {TARGET}":
         errors.append(f"canonical_command must be 'make {TARGET}'")
+    review_gate_ledger = payload.get("review_gate_ledger")
+    if review_gate_ledger != REVIEW_GATE_LEDGER:
+        errors.append(f"review_gate_ledger must be {REVIEW_GATE_LEDGER!r}")
+    elif not repo_path(REVIEW_GATE_LEDGER).exists():
+        errors.append(f"review_gate_ledger does not exist: {REVIEW_GATE_LEDGER}")
 
     claim_scope = payload.get("claim_scope")
     if not isinstance(claim_scope, str) or not claim_scope.strip():
@@ -273,6 +280,7 @@ def summary_payload(payload: dict[str, Any], errors: Sequence[str]) -> dict[str,
         "status": payload.get("status"),
         "trust": payload.get("trust"),
         "target": payload.get("target"),
+        "review_gate_ledger": payload.get("review_gate_ledger"),
         "route_count": len(routes) if isinstance(routes, list) else 0,
         "route_ids": route_ids,
         "command_count": len(flatten_route_commands(payload)),
