@@ -1072,19 +1072,20 @@ all 184 regenerated pair/crossing/count frontier assignments. It records all
 indexing conventions remain review-pending, so this does not promote `n=9`.
 Use `--json` instead when the full certificate rows are needed.
 The compact Kalmanson self-edge replay
-`scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --json`
+`scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --summary-json`
 checks a separate certificate in which each of those 184 terminal assignments
 has a single strict Kalmanson inequality whose two sides become the same
 quotient multiset after selected-distance quotienting. This is a
 review-pending audit aid only; it does not independently complete review of the
-brancher or promote `n=9`.
+brancher or promote `n=9`. Use `--json` when the full replay payload is needed.
 The independent replay
-`scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --json`
+`scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json`
 treats that stored certificate as input data and rechecks row shape, row-pair
 crossing, witness-pair capacity, selected-distance quotienting, the stored
 self-edge records, assignment uniqueness, and digest agreement without
 importing the Kalmanson generator module. It is still stored-certificate
-bookkeeping only, not brancher coverage or a proof of `n=9`.
+bookkeeping only, not brancher coverage or a proof of `n=9`. Use `--json` when
+the first stored self-edge example record is needed.
 A fixed-center-order replay command,
 `scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json`,
 also closes the vertex-circle-pruned search and reaches the same

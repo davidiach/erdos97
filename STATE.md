@@ -657,16 +657,18 @@ review-pending finite-case evidence only: the geometric turn lemma and
 indexing conventions remain the review bottleneck, and this does not promote
 `n=9`. Use `--json` instead when the full certificate rows are needed.
 The compact Kalmanson self-edge replay
-`scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --json`
+`scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --summary-json`
 checks a stored certificate with one strict Kalmanson self-edge for each of the
 same 184 terminal assignments. It is a certificate replay and audit aid only,
-not an independent completion of brancher review or a promotion of `n=9`.
+not an independent completion of brancher review or a promotion of `n=9`. Use
+`--json` when the full replay payload is needed.
 The independent stored-input replay
-`scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --json`
+`scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json`
 checks the same JSON without importing the Kalmanson generator module: row
 shape, incidence filters, selected-distance quotients, stored self-edges, and
 the digest. It is still stored-certificate auditing only, not brancher
-coverage or a promotion of `n=9`.
+coverage or a promotion of `n=9`. Use `--json` when the first stored self-edge
+example record is needed.
 The fixed-order Kalmanson branch cuts now cover both no-reciprocal and
 exactly-one-reciprocal selected-pair regimes. The no-reciprocal regular
 tournament audit forces at least one reciprocal selected pair; the

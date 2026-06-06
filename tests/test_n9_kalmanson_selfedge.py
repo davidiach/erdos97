@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -80,3 +82,46 @@ def test_certificate_artifact_replays_without_brancher() -> None:
     assert summary_payload(payload)["killed_by_kalmanson_self_edge"] == EXPECTED_KILLS
     assert summary_payload(payload)["unkilled"] == EXPECTED_UNKILLED
     assert summary_payload(payload)["certificate_sha256"] == EXPECTED_CERTIFICATE_SHA256
+
+
+def test_certificate_verify_cli_summary_json() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_kalmanson_selfedge.py",
+            "--verify-certificate",
+            "data/certificates/n9_kalmanson_selfedge.json",
+            "--assert-expected",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    summary = json.loads(result.stdout)
+    assert summary["mode"] == "verify_certificate"
+    assert summary["verified_certificates"] == EXPECTED_KILLS
+    assert summary["certificate_sha256"] == EXPECTED_CERTIFICATE_SHA256
+    assert "certificates" not in summary
+    assert "unkilled_assignments" not in summary
+
+
+def test_certificate_verify_cli_rejects_json_and_summary_json() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_n9_kalmanson_selfedge.py",
+            "--verify-certificate",
+            "data/certificates/n9_kalmanson_selfedge.json",
+            "--json",
+            "--summary-json",
+        ],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+
+    assert result.returncode == 2
+    assert "not allowed with argument --json" in result.stderr

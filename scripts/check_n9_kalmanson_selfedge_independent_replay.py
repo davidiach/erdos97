@@ -33,6 +33,20 @@ EXPECTED_UNKILLED = 0
 EXPECTED_CERTIFICATE_SHA256 = (
     "8e5344265e774ce352d64e16e0480eaff4ad6051a69051a304a3f9145db0e3c5"
 )
+SUMMARY_JSON_KEYS = (
+    "schema",
+    "source_schema",
+    "status",
+    "trust",
+    "claim_scope",
+    "n",
+    "certificates_checked",
+    "unique_assignments_checked",
+    "incidence_filter_failures",
+    "self_edge_failures",
+    "certificate_sha256",
+    "digest_matches",
+)
 
 Pair = tuple[int, int]
 
@@ -313,13 +327,25 @@ def audit_certificate_payload(payload: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def summary_json_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    """Return the compact reviewer-facing JSON view without example records."""
+
+    return {key: payload[key] for key in SUMMARY_JSON_KEYS if key in payload}
+
+
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     """Parse CLI arguments."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--certificate", type=Path, default=DEFAULT_CERTIFICATE)
     parser.add_argument("--check", action="store_true", help="run the replay audit")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--json", action="store_true")
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--json", action="store_true")
+    output_group.add_argument(
+        "--summary-json",
+        action="store_true",
+        help="emit compact reviewer-facing JSON without example records",
+    )
     return parser.parse_args(argv)
 
 
@@ -337,7 +363,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         expect_equal("certificates_checked", summary["certificates_checked"], EXPECTED_TERMINALS)
         expect_equal("unique_assignments_checked", summary["unique_assignments_checked"], EXPECTED_TERMINALS)
         expect_equal("digest_matches", summary["digest_matches"], True)
-    if args.json:
+    if args.summary_json:
+        print(json.dumps(summary_json_payload(summary), indent=2, sort_keys=True))
+    elif args.json:
         print(json.dumps(summary, indent=2, sort_keys=True))
     else:
         print("independent n=9 Kalmanson self-edge certificate replay")

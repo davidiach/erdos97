@@ -536,9 +536,9 @@ artifacts:
     generator: scripts/check_n9_kalmanson_selfedge.py
     command: python scripts/check_n9_kalmanson_selfedge.py --write --assert-expected --summary-only
     checker: scripts/check_n9_kalmanson_selfedge.py
-    check_command: python scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --json
+    check_command: python scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --summary-json
     independent_replay: scripts/check_n9_kalmanson_selfedge_independent_replay.py
-    independent_replay_command: python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --json
+    independent_replay_command: python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
