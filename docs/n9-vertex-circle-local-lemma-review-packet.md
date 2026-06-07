@@ -43,6 +43,7 @@ auditable.
 - `docs/n9-vertex-circle-self-edge-criterion.md`
 - `docs/n9-vertex-circle-strict-cycle-criterion.md`
 - `docs/n9-vertex-circle-t01-self-edge-lemma.md`
+- `docs/n9-vertex-circle-t01-soundness-review-2026-06-07.md`
 - `docs/n9-vertex-circle-t02-self-edge-lemma.md`
 - `docs/n9-vertex-circle-t03-self-edge-lemma.md`
 - `docs/n9-vertex-circle-t04-self-edge-lemma.md`
@@ -54,6 +55,7 @@ auditable.
 - `docs/n9-vertex-circle-t10-strict-cycle-lemma.md`
 - `docs/n9-vertex-circle-t11-strict-cycle-lemma.md`
 - `docs/n9-vertex-circle-t12-strict-cycle-lemma.md`
+- `docs/n9-vertex-circle-local-lemma-audit-note-2026-06-07.md`
 
 The focused T-notes are reviewer-facing local arguments. The JSON artifacts
 and scripts below check their accounting and replay contracts.
@@ -137,6 +139,15 @@ For each focused packet or relation skeleton, a reviewer should check:
 The packet soundness review is mathematical. The audit commands check
 bookkeeping, replay consistency, and schema contracts; they do not replace the
 human review of each local relation.
+
+The 2026-06-07 internal audit note records an `accepted_A10_bookkeeping`
+outcome for the checked artifact handoff chain, while leaving packet soundness
+and any `n=9` status movement review-pending.
+
+The 2026-06-07 T01 soundness review records
+`accepted_packet_soundness_T01` for the single T01/F09 self-edge implication
+under its displayed local hypotheses. This does not review the other T02-T12
+packets and does not promote A10 as a whole.
 
 ## Aggregate bookkeeping obligations
 

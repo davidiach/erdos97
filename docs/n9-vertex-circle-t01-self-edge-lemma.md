@@ -92,6 +92,11 @@ derived from the self-edge template packet and the template lemma catalog, but
 the local argument above uses only the three displayed selected rows plus the
 displayed cyclic order.
 
+An internal soundness review of this local implication is recorded in
+`docs/n9-vertex-circle-t01-soundness-review-2026-06-07.md`. That note accepts
+only the T01/F09 local implication under the displayed hypotheses; it does not
+promote the aggregate A10 layer, the `n=9` finite case, or the global problem.
+
 ## Vertex-circle Strict Inequality
 
 At vertex `0`, the selected witnesses occur in boundary/angular order
