@@ -441,6 +441,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-local-lemmas.md`](n9-vertex-circle-local-lemmas.md):
   review-pending proof-facing extraction of reusable vertex-circle self-edge
   and strict-cycle local lemma candidates.
+- [`n9-vertex-circle-local-lemma-audit-note-2026-06-07.md`](n9-vertex-circle-local-lemma-audit-note-2026-06-07.md):
+  internal audit note accepting the A10 local-lemma bookkeeping handoff while
+  leaving packet soundness, `n=9`, and global status review-pending.
 - [`n9-vertex-circle-certificate-chain.md`](n9-vertex-circle-certificate-chain.md):
   assignment-id bridge from the review-pending `n=9` frontier artifacts to the
   12 local quotient-obstruction templates.
@@ -453,6 +456,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-t01-self-edge-lemma.md`](n9-vertex-circle-t01-self-edge-lemma.md):
   focused review-pending T01/F09 self-edge local lemma packet for proof
   mining.
+- [`n9-vertex-circle-t01-soundness-review-2026-06-07.md`](n9-vertex-circle-t01-soundness-review-2026-06-07.md):
+  internal soundness review accepting only the T01/F09 local self-edge
+  implication under its displayed hypotheses; not an A10 or `n=9` promotion.
 - [`n9-t01-self-edge-minireplay.md`](n9-t01-self-edge-minireplay.md):
   minimal input-data replay of the T01/F09 local self-edge equality chain and
   strict chord containment; proof-mining scaffolding only.
