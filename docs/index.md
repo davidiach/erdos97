@@ -563,6 +563,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-t12-strict-cycle-lemma.md`](n9-vertex-circle-t12-strict-cycle-lemma.md):
   focused review-pending T12/F16 strict-cycle local lemma packet for proof
   mining.
+- [`n9-vertex-circle-t12-soundness-review-2026-06-08.md`](n9-vertex-circle-t12-soundness-review-2026-06-08.md):
+  internal soundness review accepting only the T12/F16 local strict-cycle
+  implication under its displayed hypotheses; not a bootstrap bridge, A10, or
+  `n=9` promotion.
 - [`n9-t12-strict-cycle-minireplay.md`](n9-t12-strict-cycle-minireplay.md):
   minimal input-data replay of the T12/F16 local strict-cycle equality
   connectors and chord containments; proof-mining scaffolding only.
