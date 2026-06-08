@@ -57,6 +57,9 @@ derived from the strict-cycle template packet and the template lemma catalog,
 but the local argument below uses only the six displayed selected rows plus
 the displayed cyclic order.
 
+The 2026-06-08 internal soundness review for this packet is
+`docs/n9-vertex-circle-t12-soundness-review-2026-06-08.md`.
+
 ## Vertex-circle Strict Inequalities
 
 At vertex `2`, the selected witnesses occur in boundary/angular order
