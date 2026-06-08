@@ -181,6 +181,7 @@ It does not support any of the following stronger statements:
 
 ## Next Packet
 
-The remaining strict-cycle soundness review target is T11/F07. After T11, the
-strict-cycle packet family will have one internal soundness note for each of
-T10, T11, and T12, while the self-edge packets T02-T09 will still need review.
+The follow-up T11/F07 soundness review is now recorded, so the strict-cycle
+packet family has one internal soundness note for each of T10, T11, and T12.
+The remaining focused local-lemma packet soundness review targets are the
+self-edge packets T02-T09.

@@ -557,6 +557,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-t11-strict-cycle-lemma.md`](n9-vertex-circle-t11-strict-cycle-lemma.md):
   focused review-pending T11/F07 strict-cycle local lemma packet for proof
   mining.
+- [`n9-vertex-circle-t11-soundness-review-2026-06-08.md`](n9-vertex-circle-t11-soundness-review-2026-06-08.md):
+  internal soundness review accepting only the T11/F07 local strict-cycle
+  implication under its displayed hypotheses; not an A10 or `n=9` promotion.
 - [`n9-t11-strict-cycle-minireplay.md`](n9-t11-strict-cycle-minireplay.md):
   minimal input-data replay of the T11/F07 local strict-cycle equality
   connectors and chord containments; proof-mining scaffolding only.
