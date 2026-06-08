@@ -111,6 +111,6 @@ It does not support any of the following stronger statements:
 
 ## Next Packet
 
-The next useful soundness review target is T10/F12, the smallest strict-cycle
-packet. It checks the other obstruction primitive: a directed cycle in the
-selected-distance quotient rather than a reflexive strict edge.
+Follow-up soundness reviews are now recorded for T02 and for the strict-cycle
+packets T10, T11, and T12. The remaining focused local-lemma packet soundness
+review targets are the self-edge packets T03-T09.

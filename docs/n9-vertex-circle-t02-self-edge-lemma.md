@@ -16,6 +16,10 @@ It is derived from:
 - `data/certificates/n9_vertex_circle_self_edge_template_packet.json`
 - `data/certificates/n9_vertex_circle_template_lemma_catalog.json`
 
+An internal soundness review of this focused multi-family implication is
+recorded in
+`docs/n9-vertex-circle-t02-soundness-review-2026-06-08.md`.
+
 The packet covers 40 assignment ids across four families:
 
 ```text
