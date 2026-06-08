@@ -55,6 +55,7 @@ auditable.
 - `docs/n9-vertex-circle-t10-strict-cycle-lemma.md`
 - `docs/n9-vertex-circle-t10-soundness-review-2026-06-08.md`
 - `docs/n9-vertex-circle-t11-strict-cycle-lemma.md`
+- `docs/n9-vertex-circle-t11-soundness-review-2026-06-08.md`
 - `docs/n9-vertex-circle-t12-strict-cycle-lemma.md`
 - `docs/n9-vertex-circle-t12-soundness-review-2026-06-08.md`
 - `docs/n9-vertex-circle-local-lemma-audit-note-2026-06-07.md`
@@ -153,16 +154,21 @@ packets and does not promote A10 as a whole.
 
 The 2026-06-08 T10 soundness review records
 `accepted_packet_soundness_T10` for the single T10/F12 strict-cycle implication
-under its displayed local hypotheses. Together with the T01 review, this
-checks one self-edge packet and one strict-cycle packet, while leaving T02-T09,
-T11, T12, aggregate A10 review, `n=9`, and global status review-pending.
+under its displayed local hypotheses.
+
+The 2026-06-08 T11 soundness review records
+`accepted_packet_soundness_T11` for the single T11/F07 strict-cycle implication
+under its displayed local hypotheses.
 
 The 2026-06-08 T12 soundness review records
 `accepted_packet_soundness_T12` for the single T12/F16 strict-cycle implication
 under its displayed local hypotheses. It is bridge-facing because current
 bootstrap/T12 diagnostics land on T12/F16, but it does not prove the missing
-row-forcing or rich-support forcing bridge step. T02-T09, T11, aggregate A10
-review, `n=9`, and global status remain review-pending.
+row-forcing or rich-support forcing bridge step.
+
+Together with the T01 review, the three strict-cycle notes check one self-edge
+packet and all three strict-cycle packets. T02-T09, aggregate A10 review,
+`n=9`, and global status remain review-pending.
 
 ## Aggregate bookkeeping obligations
 
