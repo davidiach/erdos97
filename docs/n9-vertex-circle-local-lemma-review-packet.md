@@ -53,6 +53,7 @@ auditable.
 - `docs/n9-vertex-circle-t08-self-edge-lemma.md`
 - `docs/n9-vertex-circle-t09-self-edge-lemma.md`
 - `docs/n9-vertex-circle-t10-strict-cycle-lemma.md`
+- `docs/n9-vertex-circle-t10-soundness-review-2026-06-08.md`
 - `docs/n9-vertex-circle-t11-strict-cycle-lemma.md`
 - `docs/n9-vertex-circle-t12-strict-cycle-lemma.md`
 - `docs/n9-vertex-circle-local-lemma-audit-note-2026-06-07.md`
@@ -148,6 +149,12 @@ The 2026-06-07 T01 soundness review records
 `accepted_packet_soundness_T01` for the single T01/F09 self-edge implication
 under its displayed local hypotheses. This does not review the other T02-T12
 packets and does not promote A10 as a whole.
+
+The 2026-06-08 T10 soundness review records
+`accepted_packet_soundness_T10` for the single T10/F12 strict-cycle implication
+under its displayed local hypotheses. Together with the T01 review, this
+checks one self-edge packet and one strict-cycle packet, while leaving T02-T09,
+T11, T12, aggregate A10 review, `n=9`, and global status review-pending.
 
 ## Aggregate bookkeeping obligations
 
