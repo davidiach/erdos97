@@ -510,6 +510,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-t03-self-edge-lemma.md`](n9-vertex-circle-t03-self-edge-lemma.md):
   focused review-pending T03 multi-family self-edge local lemma packet for
   proof mining.
+- [`n9-vertex-circle-t03-soundness-review-2026-06-08.md`](n9-vertex-circle-t03-soundness-review-2026-06-08.md):
+  internal soundness review accepting only the two T03 local self-edge
+  implications under their displayed hypotheses; not an A10 or `n=9`
+  promotion.
 - [`n9-t03-self-edge-minireplay.md`](n9-t03-self-edge-minireplay.md):
   minimal input-data replay of the two T03 local self-edge family packets;
   proof-mining scaffolding only.
