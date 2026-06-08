@@ -16,6 +16,9 @@ derived from:
 - `data/certificates/n9_vertex_circle_self_edge_template_packet.json`
 - `data/certificates/n9_vertex_circle_template_lemma_catalog.json`
 
+An internal soundness review of this focused implication is recorded in
+`docs/n9-vertex-circle-t04-soundness-review-2026-06-08.md`.
+
 The template covers two assignment ids:
 
 ```text
