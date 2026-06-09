@@ -7875,6 +7875,85 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_transfer_paths
+    path: data/certificates/bootstrap_t12_151_6_label4_transfer_paths.json
+    sha256: 7b83b33c0d34d6bebdf8e8f3e2e90969b451c54ecd0631c0afc967d2cc3f53ee
+    size_bytes: 19976
+    kind: proof_target_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_transfer_paths.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_transfer_paths.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_transfer_paths.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_transfer_paths.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 private-halo [3,5] label-4 transfer-path ledger; records shortest selected-distance equality paths from label-4 pairs to residual strict-cycle endpoint pairs, with 11 direct endpoint class incidences, 5 one-edge transfer incidences, and 3 two-edge transfer incidences. This is not outside-pair support existence, not row forcing, not a proof that [3,5] is impossible, not endpoint-8 forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_transfer_paths.v1
+      status: BOOTSTRAP_T12_151_6_LABEL4_TRANSFER_PATHS_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 7
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.label4_transfer_path_class_signature_incidence_count: 19
+      summary.label4_transfer_path_class_occurrence_incidence_count: 23
+      summary.direct_endpoint_transfer_class_signature_incidence_count: 11
+      summary.direct_endpoint_transfer_class_occurrence_incidence_count: 14
+      summary.one_equality_edge_transfer_class_signature_incidence_count: 5
+      summary.one_equality_edge_transfer_class_occurrence_incidence_count: 5
+      summary.two_equality_edge_transfer_class_signature_incidence_count: 3
+      summary.two_equality_edge_transfer_class_occurrence_incidence_count: 4
+      summary.signatures_with_positive_transfer_class: 8
+      summary.occurrences_with_positive_transfer_class: 9
+      summary.transfer_edge_count_signature_counts.0: 11
+      summary.transfer_edge_count_signature_counts.1: 5
+      summary.transfer_edge_count_signature_counts.2: 3
+      summary.transfer_edge_count_occurrence_counts.0: 14
+      summary.transfer_edge_count_occurrence_counts.1: 5
+      summary.transfer_edge_count_occurrence_counts.2: 4
+      summary.direct_cycle_edge_access_transfer_edge_signature_counts.0: 11
+      summary.direct_cycle_edge_access_transfer_edge_signature_counts.1: 3
+      summary.direct_cycle_edge_access_transfer_edge_signature_counts.2: 3
+      summary.direct_cycle_edge_access_transfer_edge_occurrence_counts.0: 14
+      summary.direct_cycle_edge_access_transfer_edge_occurrence_counts.1: 3
+      summary.direct_cycle_edge_access_transfer_edge_occurrence_counts.2: 4
+      summary.quotient_equality_only_access_transfer_edge_signature_counts.1: 2
+      summary.quotient_equality_only_access_transfer_edge_occurrence_counts.1: 2
+      summary.positive_transfer_path_edge_signature_counts_by_row.5: 6
+      summary.positive_transfer_path_edge_signature_counts_by_row.6: 3
+      summary.positive_transfer_path_edge_signature_counts_by_row.7: 2
+      summary.positive_transfer_path_edge_occurrence_counts_by_row.5: 7
+      summary.positive_transfer_path_edge_occurrence_counts_by_row.6: 4
+      summary.positive_transfer_path_edge_occurrence_counts_by_row.7: 2
+      summary.transfer_status: LABEL4_TRANSFER_PATHS_PINNED_FOR_EVERY_RESIDUAL_CYCLE_CLASS
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_transfer_paths.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_transfer_paths.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - the private-halo-only pair 3,5 is impossible
+      - label-4 transfer paths prove the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e
