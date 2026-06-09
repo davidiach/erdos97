@@ -44,6 +44,7 @@ harness_documents:
   - docs/n9-review-dossier.md
   - docs/n9-review-run-bundle.md
   - docs/n9-review-decision-intake.md
+  - docs/n9-vertex-circle-route-decision-request.md
   - docs/n9-reduction-chain.md
   - docs/n9-review-packet.md
   - docs/turn-inequality-lemma.md
@@ -122,6 +123,8 @@ routes:
         command: python scripts/check_n9_review_decision_intake.py --check --summary-json
       - id: n9_vertex_circle_route_decision_preflight
         command: python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json
+      - id: n9_vertex_circle_route_decision_request
+        command: python scripts/check_n9_vertex_circle_route_decision_request.py --check --summary-json
 
   - id: lean_guardrails
     title: Lean pilot guardrails

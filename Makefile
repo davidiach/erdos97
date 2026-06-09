@@ -47,6 +47,7 @@ verify-n9-candidate:
 	$(PYTHON) scripts/check_n9_review_run_bundle.py --check --summary-json
 	$(PYTHON) scripts/check_n9_review_decision_intake.py --check --summary-json
 	$(PYTHON) scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_route_decision_request.py --check --summary-json
 	$(PYTHON) scripts/check_lean_sketch_integrity.py
 	$(PYTHON) scripts/check_lean_files.py
 	$(PYTHON) scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json

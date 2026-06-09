@@ -25,7 +25,9 @@ execution of the same compact command surface.
 The reviewer-decision intake checker validates how an external written review
 records accepted gates, rejected gates, exact gaps, and allowed outcomes.
 The vertex-circle route decision preflight appears in the same command surface
-as a non-decisive guard before any written review record is validated.
+as a non-decisive guard before any written review record is validated. The
+vertex-circle route decision request appears alongside it as the checked
+request packet for that future written review.
 
 ## Commands
 
