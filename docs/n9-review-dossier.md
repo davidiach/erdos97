@@ -24,6 +24,8 @@ The separate run-bundle checker records digest-level provenance for one actual
 execution of the same compact command surface.
 The reviewer-decision intake checker validates how an external written review
 records accepted gates, rejected gates, exact gaps, and allowed outcomes.
+The vertex-circle route decision preflight appears in the same command surface
+as a non-decisive guard before any written review record is validated.
 
 ## Commands
 

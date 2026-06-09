@@ -77,6 +77,7 @@ sections:
       - n9_review_dossier
       - n9_review_run_bundle
       - n9_review_decision_intake
+      - n9_vertex_circle_route_decision_preflight
       - lean_sketch_integrity
       - lean_files
       - n9_vertex_circle_exhaustive

@@ -113,6 +113,16 @@ The intake checker validates gate partitions and allowed outcomes only. It
 does not update source-of-truth status files and does not accept any gate by
 itself.
 
+The vertex-circle route decision preflight is checked by:
+
+```bash
+python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json
+```
+
+It verifies that the internal A6/A7, A8, and A10 notes are present, that the
+vertex-circle route gates remain open, and that a real route decision still
+requires written independent review. It is preflight infrastructure only.
+
 Run:
 
 ```bash
@@ -127,7 +137,8 @@ make verify-n9-candidate PYTHON=.venv/bin/python
 
 ## What It Checks
 
-The target first runs the Lean pilot guardrails:
+The target first runs the review-infrastructure checks and Lean pilot
+guardrails:
 
 ```bash
 python scripts/check_n9_candidate_review_manifest.py --check --summary-json
@@ -136,13 +147,14 @@ python scripts/check_n9_review_evidence_matrix.py --check --summary-json
 python scripts/check_n9_review_dossier.py --check --summary-json
 python scripts/check_n9_review_run_bundle.py --check --summary-json
 python scripts/check_n9_review_decision_intake.py --check --summary-json
+python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json
 python scripts/check_lean_sketch_integrity.py
 python scripts/check_lean_files.py
 ```
 
-The manifest, gate-ledger, evidence-matrix, dossier, run-bundle, and
-decision-intake checkers run before the Lean pilot guardrails. The Lean layer
-includes
+The manifest, gate-ledger, evidence-matrix, dossier, run-bundle,
+decision-intake, and vertex-circle preflight checkers run before the Lean pilot
+guardrails. The Lean layer includes
 `lean/Erdos97/TurnPacking.lean`, a dependency-free formal contract for the
 turn-packing route. It pins the forward/reverse interval support convention
 and proves the small arithmetic kernel behind the stored dual certificates: a

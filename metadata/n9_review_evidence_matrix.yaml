@@ -31,7 +31,7 @@ evidence_records:
       - path: validation_status
         equals: passed
       - path: command_count
-        equals: 19
+        equals: 20
       - path: review_gate_count
         equals: 8
       - path: review_gate_ledger
@@ -63,7 +63,7 @@ evidence_records:
       - path: validation_status
         equals: passed
       - path: evidence_record_count
-        equals: 19
+        equals: 20
       - path: live_replay_enabled
         equals: false
 
@@ -80,7 +80,7 @@ evidence_records:
       - path: review_gate_count
         equals: 6
       - path: evidence_record_count
-        equals: 19
+        equals: 20
       - path: review_question_count
         equals: 6
 
@@ -95,9 +95,9 @@ evidence_records:
       - path: route_count
         equals: 5
       - path: command_count
-        equals: 19
+        equals: 20
       - path: evidence_record_count
-        equals: 19
+        equals: 20
       - path: run_capture_enabled
         equals: false
 
@@ -116,6 +116,27 @@ evidence_records:
       - path: outcome_rule_count
         equals: 4
       - path: decision_loaded
+        equals: false
+
+  - id: n9_vertex_circle_route_decision_preflight
+    route_id: manifest_contract
+    command_id: n9_vertex_circle_route_decision_preflight
+    output_format: json
+    ledger_gate_ids: []
+    expectations:
+      - path: validation_status
+        equals: passed
+      - path: status
+        equals: REVIEW_PREFLIGHT_ONLY
+      - path: route_outcome
+        equals: accepted_vertex_circle_route
+      - path: all_required_gates_still_open
+        equals: true
+      - path: internal_review_note_count
+        equals: 3
+      - path: draft_vertex_circle_decision_shape_validation_status
+        equals: passed
+      - path: source_of_truth_update_allowed
         equals: false
 
   - id: lean_sketch_integrity

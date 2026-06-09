@@ -49,6 +49,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-review-decision-intake.md`](n9-review-decision-intake.md): guide to the
   checked reviewer-decision intake template and external decision-file
   validator for the compact `n=9` review harness.
+- [`n9-vertex-circle-route-decision-preflight.md`](n9-vertex-circle-route-decision-preflight.md):
+  checked preflight for handing the internal A6/A7, A8, and A10 vertex-circle
+  notes into the still-open written-review decision intake.
 - [`gpt55-solver-brief.md`](gpt55-solver-brief.md): front-loaded LLM
   solver-steering brief with anti-loop guardrails, hard status boundaries, and
   live frontier output contracts; prompt context only, not mathematical

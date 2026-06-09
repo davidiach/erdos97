@@ -68,6 +68,7 @@ The matrix covers all commands in `make verify-n9-candidate`:
 - the reviewer dossier checker;
 - the reviewer run-bundle checker in contract-only mode;
 - the reviewer decision-intake checker in contract-only mode;
+- the vertex-circle route decision preflight in preflight-only mode;
 - Lean sketch and optional Lean compilation guardrails;
 - the compact vertex-circle route commands;
 - the compact turn-packing route commands;

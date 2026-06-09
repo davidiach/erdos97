@@ -43,7 +43,7 @@ def test_n9_review_evidence_matrix_covers_manifest_commands() -> None:
     }
 
     assert record_command_ids == _manifest_command_ids()
-    assert len(record_command_ids) == 19
+    assert len(record_command_ids) == 20
 
 
 def test_n9_review_evidence_matrix_rejects_missing_manifest_command() -> None:

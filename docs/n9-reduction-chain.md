@@ -124,6 +124,12 @@ by `python scripts/check_n9_review_decision_intake.py --check --summary-json`,
 validates external written-review records against the same gates and allowed
 outcomes.
 
+The vertex-circle route decision preflight
+`scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`
+checks that the internal A6/A7, A8, and A10 notes are ready for that intake
+while the route gates and independent-review gate remain open. It is not a
+review decision.
+
 The most important global gap is separate:
 
 ```text
