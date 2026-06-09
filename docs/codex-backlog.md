@@ -30,7 +30,10 @@ minimal/rich-class hypotheses.
 1. Use the 2026-06-09 internal aggregate A10 review note as input for an
    explicit source-of-truth A10 gate decision, keeping any decision scoped as
    proof-mining scaffolding under stored-frontier and strict-edge assumptions
-   rather than an `n=9` proof. Start from
+   rather than an `n=9` proof. The 2026-06-09 internal A8 review note now
+   records the local nested-chord strict-edge rule and checker-equivalence
+   contract as internally accepted, but it does not close the
+   `vertex_circle_geometry` gate without an explicit written decision. Start from
    `docs/n9-vertex-circle-local-lemma-review-packet.md`, which records the
    current five-layer audit path and review boundary. The aggregate note
    records the focused T01-T12 packet-soundness notes plus the A10 bookkeeping
@@ -129,8 +132,9 @@ minimal/rich-class hypotheses.
    The strict-edge geometry replay
    `python scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json`
    independently checks the proper-interval strict-edge generator for all
-   candidate selected rows; use `--json` when the full mismatch example block
-   is needed.
+   candidate selected rows; the 2026-06-09 internal A8 review note records the
+   corresponding local geometry review without closing the formal gate. Use
+   `--json` when the full mismatch example block is needed.
    The quotient-soundness replay
    `python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json`
    checks selected-distance quotient status agreement on the stored local-core

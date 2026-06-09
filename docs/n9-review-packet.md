@@ -220,6 +220,11 @@ The strict-edge geometry audit should confirm:
 - strict-edge mismatches and quotient-replay strict-edge mismatches are both
   `0`.
 
+The 2026-06-09 internal A8 review note records acceptance of that local
+nested-chord rule and checker-equivalence contract only. It does not close the
+machine-readable `vertex_circle_geometry` gate without an explicit written
+review decision.
+
 The quotient/local-lemma audits should confirm:
 
 - the self-edge/strict-cycle split remains `158 + 26`;

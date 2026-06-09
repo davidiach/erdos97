@@ -138,6 +138,11 @@ This audit checks implementation agreement with the strict-edge lemma. It
 does not audit the later selected-distance quotient graph, self-edge
 criterion, strict-cycle criterion, or exhaustive assignment coverage.
 
+A 2026-06-09 internal review note records
+`accepted_A8_strict_edge_geometry_internal` for this local strict-edge rule
+and checker-equivalence contract. The machine-readable `vertex_circle_geometry`
+gate remains open until an explicit written review decision is supplied.
+
 ## Scope
 
 This audit covers only the local vertex-circle strict-edge generation rule:
