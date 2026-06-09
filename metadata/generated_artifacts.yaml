@@ -8036,6 +8036,83 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_transfer_length_components
+    path: data/certificates/bootstrap_t12_151_6_label4_transfer_length_components.json
+    sha256: c01fce2fef2297ee7df6330f80ab6fd22e6978a9dc4bccf1dbf80ce212b1c1a1
+    size_bytes: 20935
+    kind: proof_target_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_transfer_length_components.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_transfer_length_components.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_transfer_length_components.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_transfer_length_components.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 private-halo [3,5] label-4 transfer length-component ledger; collapses positive transfer obligations into 6 undirected segment-length components over 9 segments, with the only row-6 route equal to D[0,6]=D[4,5]=D[5,6]. This is not outside-pair support existence, not row forcing, not a proof that [3,5] is impossible, not endpoint-8 forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_transfer_length_components.v1
+      status: BOOTSTRAP_T12_151_6_LABEL4_TRANSFER_LENGTH_COMPONENTS_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 7
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.source_unique_edge_obligation_count: 7
+      summary.source_unique_path_motif_count: 6
+      summary.source_positive_transfer_signature_count: 8
+      summary.source_positive_transfer_occurrence_count: 9
+      summary.length_component_count: 6
+      summary.unique_segment_count: 9
+      summary.component_size_counts.2: 5
+      summary.component_size_counts.3: 1
+      summary.unique_segment_count_by_cyclic_gap.1: 2
+      summary.unique_segment_count_by_cyclic_gap.2: 1
+      summary.unique_segment_count_by_cyclic_gap.3: 4
+      summary.unique_segment_count_by_cyclic_gap.4: 2
+      summary.component_count_by_geometry_class.diagonal_only_equality: 2
+      summary.component_count_by_geometry_class.edge_diagonal_equality: 3
+      summary.component_count_by_geometry_class.edge_edge_diagonal_chain: 1
+      summary.component_signature_count_by_geometry_class.diagonal_only_equality: 2
+      summary.component_signature_count_by_geometry_class.edge_diagonal_equality: 3
+      summary.component_signature_count_by_geometry_class.edge_edge_diagonal_chain: 3
+      summary.component_occurrence_count_by_geometry_class.diagonal_only_equality: 2
+      summary.component_occurrence_count_by_geometry_class.edge_diagonal_equality: 3
+      summary.component_occurrence_count_by_geometry_class.edge_edge_diagonal_chain: 4
+      summary.component_with_edge_to_diagonal_equality_count: 4
+      summary.component_with_row6_connector_step_count: 1
+      summary.component_with_target_center_count: 1
+      summary.label8_free_component_count: 6
+      summary.cascade_component_key: D[0,6]=D[4,5]=D[5,6]
+      summary.cascade_component_signature_count: 3
+      summary.cascade_component_occurrence_count: 4
+      summary.component_status: ROW_LOCAL_LABEL4_TRANSFER_LENGTH_COMPONENTS_PINNED
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_transfer_length_components.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_transfer_length_components.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - the private-halo-only pair 3,5 is impossible
+      - label-4 transfer length components prove the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

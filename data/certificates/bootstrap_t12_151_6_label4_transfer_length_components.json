@@ -1,0 +1,744 @@
+{
+  "claim_scope": "Proof-target diagnostic for the source-151 row-6 private-halo-only outside-pair lane. It collapses the row-local label-4 transfer obligations into undirected segment-length components and cyclic-gap profiles. The packet identifies six equal-length component targets, including the repeated row-5/row-6 connector cascade D[4,5]=D[5,6]=D[0,6]. This does not prove outside-pair support existence, does not prove row forcing, does not prove pair [3,5] impossible, does not prove endpoint-8 forcing, does not prove n=9, does not prove the bridge, is not a counterexample, and is not a global status update.",
+  "interpretation": [
+    "Each length component is the undirected segment-length equality class induced by one unique transfer-path motif.",
+    "The only component that reaches row 6 is the connector cascade D[0,6]=D[4,5]=D[5,6], which contains two hull edges and one cyclic-gap-3 diagonal.",
+    "The remaining positive transfers split into three edge-to-diagonal row-5 equalities and two diagonal-only row-7 equalities.",
+    "This is a bridge-target geometry ledger only; it does not prove support existence, row forcing, endpoint-8 forcing, or impossibility of the private pair."
+  ],
+  "length_component_records": [
+    {
+      "access_mode_counts": {
+        "quotient_equality_only": 1
+      },
+      "component_key": "D[0,5]=D[4,5]",
+      "contains_diagonal": true,
+      "contains_edge_to_diagonal_equality": true,
+      "contains_hull_edge": true,
+      "contains_label4_segment": true,
+      "contains_row6_connector_step": false,
+      "contains_target_center": false,
+      "cyclic_gap_counts": {
+        "1": 1,
+        "4": 1
+      },
+      "geometry_class": "edge_diagonal_equality",
+      "label8_free": true,
+      "occurrence_incidence_count": 1,
+      "path_shape": "one_edge_row5_label4_spoke_swap",
+      "row_obligation_keys_by_row": {
+        "5": [
+          "row5:[4,5]=[0,5]"
+        ]
+      },
+      "segment_count": 2,
+      "segment_kind_counts": {
+        "cyclic_gap_4_diagonal": 1,
+        "hull_edge": 1
+      },
+      "segments": [
+        {
+          "contains_label4": false,
+          "contains_label8": false,
+          "contains_target_center": false,
+          "cyclic_gap": 4,
+          "pair": [
+            0,
+            5
+          ],
+          "segment_key": "D[0,5]",
+          "segment_kind": "cyclic_gap_4_diagonal"
+        },
+        {
+          "contains_label4": true,
+          "contains_label8": false,
+          "contains_target_center": false,
+          "cyclic_gap": 1,
+          "pair": [
+            4,
+            5
+          ],
+          "segment_key": "D[4,5]",
+          "segment_kind": "hull_edge"
+        }
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        4
+      ],
+      "source_obligation_keys": [
+        "row5:[4,5]=[0,5]"
+      ],
+      "source_path_motif_key": "row5:[4,5]=[0,5]",
+      "transfer_record_indices": [
+        8
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 3
+      },
+      "component_key": "D[0,6]=D[4,5]=D[5,6]",
+      "contains_diagonal": true,
+      "contains_edge_to_diagonal_equality": true,
+      "contains_hull_edge": true,
+      "contains_label4_segment": true,
+      "contains_row6_connector_step": true,
+      "contains_target_center": true,
+      "cyclic_gap_counts": {
+        "1": 2,
+        "3": 1
+      },
+      "geometry_class": "edge_edge_diagonal_chain",
+      "label8_free": true,
+      "occurrence_incidence_count": 4,
+      "path_shape": "two_edge_row5_row6_connector_cascade",
+      "row_obligation_keys_by_row": {
+        "5": [
+          "row5:[4,5]=[5,6]"
+        ],
+        "6": [
+          "row6:[5,6]=[0,6]"
+        ]
+      },
+      "segment_count": 3,
+      "segment_kind_counts": {
+        "cyclic_gap_3_diagonal": 1,
+        "hull_edge": 2
+      },
+      "segments": [
+        {
+          "contains_label4": false,
+          "contains_label8": false,
+          "contains_target_center": true,
+          "cyclic_gap": 3,
+          "pair": [
+            0,
+            6
+          ],
+          "segment_key": "D[0,6]",
+          "segment_kind": "cyclic_gap_3_diagonal"
+        },
+        {
+          "contains_label4": true,
+          "contains_label8": false,
+          "contains_target_center": false,
+          "cyclic_gap": 1,
+          "pair": [
+            4,
+            5
+          ],
+          "segment_key": "D[4,5]",
+          "segment_kind": "hull_edge"
+        },
+        {
+          "contains_label4": false,
+          "contains_label8": false,
+          "contains_target_center": true,
+          "cyclic_gap": 1,
+          "pair": [
+            5,
+            6
+          ],
+          "segment_key": "D[5,6]",
+          "segment_kind": "hull_edge"
+        }
+      ],
+      "signature_incidence_count": 3,
+      "signature_indices": [
+        7,
+        8,
+        9
+      ],
+      "source_obligation_keys": [
+        "row5:[4,5]=[5,6]",
+        "row6:[5,6]=[0,6]"
+      ],
+      "source_path_motif_key": "row5:[4,5]=[5,6] -> row6:[5,6]=[0,6]",
+      "transfer_record_indices": [
+        13,
+        15,
+        17
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 1
+      },
+      "component_key": "D[1,7]=D[4,7]",
+      "contains_diagonal": true,
+      "contains_edge_to_diagonal_equality": false,
+      "contains_hull_edge": false,
+      "contains_label4_segment": true,
+      "contains_row6_connector_step": false,
+      "contains_target_center": false,
+      "cyclic_gap_counts": {
+        "3": 2
+      },
+      "geometry_class": "diagonal_only_equality",
+      "label8_free": true,
+      "occurrence_incidence_count": 1,
+      "path_shape": "one_edge_row7_label4_spoke_swap",
+      "row_obligation_keys_by_row": {
+        "7": [
+          "row7:[4,7]=[1,7]"
+        ]
+      },
+      "segment_count": 2,
+      "segment_kind_counts": {
+        "cyclic_gap_3_diagonal": 2
+      },
+      "segments": [
+        {
+          "contains_label4": false,
+          "contains_label8": false,
+          "contains_target_center": false,
+          "cyclic_gap": 3,
+          "pair": [
+            1,
+            7
+          ],
+          "segment_key": "D[1,7]",
+          "segment_kind": "cyclic_gap_3_diagonal"
+        },
+        {
+          "contains_label4": true,
+          "contains_label8": false,
+          "contains_target_center": false,
+          "cyclic_gap": 3,
+          "pair": [
+            4,
+            7
+          ],
+          "segment_key": "D[4,7]",
+          "segment_kind": "cyclic_gap_3_diagonal"
+        }
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        3
+      ],
+      "source_obligation_keys": [
+        "row7:[4,7]=[1,7]"
+      ],
+      "source_path_motif_key": "row7:[4,7]=[1,7]",
+      "transfer_record_indices": [
+        6
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "quotient_equality_only": 1
+      },
+      "component_key": "D[2,5]=D[4,5]",
+      "contains_diagonal": true,
+      "contains_edge_to_diagonal_equality": true,
+      "contains_hull_edge": true,
+      "contains_label4_segment": true,
+      "contains_row6_connector_step": false,
+      "contains_target_center": false,
+      "cyclic_gap_counts": {
+        "1": 1,
+        "3": 1
+      },
+      "geometry_class": "edge_diagonal_equality",
+      "label8_free": true,
+      "occurrence_incidence_count": 1,
+      "path_shape": "one_edge_row5_label4_spoke_swap",
+      "row_obligation_keys_by_row": {
+        "5": [
+          "row5:[4,5]=[2,5]"
+        ]
+      },
+      "segment_count": 2,
+      "segment_kind_counts": {
+        "cyclic_gap_3_diagonal": 1,
+        "hull_edge": 1
+      },
+      "segments": [
+        {
+          "contains_label4": false,
+          "contains_label8": false,
+          "contains_target_center": false,
+          "cyclic_gap": 3,
+          "pair": [
+            2,
+            5
+          ],
+          "segment_key": "D[2,5]",
+          "segment_kind": "cyclic_gap_3_diagonal"
+        },
+        {
+          "contains_label4": true,
+          "contains_label8": false,
+          "contains_target_center": false,
+          "cyclic_gap": 1,
+          "pair": [
+            4,
+            5
+          ],
+          "segment_key": "D[4,5]",
+          "segment_kind": "hull_edge"
+        }
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        6
+      ],
+      "source_obligation_keys": [
+        "row5:[4,5]=[2,5]"
+      ],
+      "source_path_motif_key": "row5:[4,5]=[2,5]",
+      "transfer_record_indices": [
+        12
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 1
+      },
+      "component_key": "D[2,7]=D[4,7]",
+      "contains_diagonal": true,
+      "contains_edge_to_diagonal_equality": false,
+      "contains_hull_edge": false,
+      "contains_label4_segment": true,
+      "contains_row6_connector_step": false,
+      "contains_target_center": false,
+      "cyclic_gap_counts": {
+        "3": 1,
+        "4": 1
+      },
+      "geometry_class": "diagonal_only_equality",
+      "label8_free": true,
+      "occurrence_incidence_count": 1,
+      "path_shape": "one_edge_row7_label4_spoke_swap",
+      "row_obligation_keys_by_row": {
+        "7": [
+          "row7:[4,7]=[2,7]"
+        ]
+      },
+      "segment_count": 2,
+      "segment_kind_counts": {
+        "cyclic_gap_3_diagonal": 1,
+        "cyclic_gap_4_diagonal": 1
+      },
+      "segments": [
+        {
+          "contains_label4": false,
+          "contains_label8": false,
+          "contains_target_center": false,
+          "cyclic_gap": 4,
+          "pair": [
+            2,
+            7
+          ],
+          "segment_key": "D[2,7]",
+          "segment_kind": "cyclic_gap_4_diagonal"
+        },
+        {
+          "contains_label4": true,
+          "contains_label8": false,
+          "contains_target_center": false,
+          "cyclic_gap": 3,
+          "pair": [
+            4,
+            7
+          ],
+          "segment_key": "D[4,7]",
+          "segment_kind": "cyclic_gap_3_diagonal"
+        }
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        5
+      ],
+      "source_obligation_keys": [
+        "row7:[4,7]=[2,7]"
+      ],
+      "source_path_motif_key": "row7:[4,7]=[2,7]",
+      "transfer_record_indices": [
+        10
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 1
+      },
+      "component_key": "D[4,5]=D[5,7]",
+      "contains_diagonal": true,
+      "contains_edge_to_diagonal_equality": true,
+      "contains_hull_edge": true,
+      "contains_label4_segment": true,
+      "contains_row6_connector_step": false,
+      "contains_target_center": false,
+      "cyclic_gap_counts": {
+        "1": 1,
+        "2": 1
+      },
+      "geometry_class": "edge_diagonal_equality",
+      "label8_free": true,
+      "occurrence_incidence_count": 1,
+      "path_shape": "one_edge_row5_label4_spoke_swap",
+      "row_obligation_keys_by_row": {
+        "5": [
+          "row5:[4,5]=[5,7]"
+        ]
+      },
+      "segment_count": 2,
+      "segment_kind_counts": {
+        "cyclic_gap_2_diagonal": 1,
+        "hull_edge": 1
+      },
+      "segments": [
+        {
+          "contains_label4": true,
+          "contains_label8": false,
+          "contains_target_center": false,
+          "cyclic_gap": 1,
+          "pair": [
+            4,
+            5
+          ],
+          "segment_key": "D[4,5]",
+          "segment_kind": "hull_edge"
+        },
+        {
+          "contains_label4": false,
+          "contains_label8": false,
+          "contains_target_center": false,
+          "cyclic_gap": 2,
+          "pair": [
+            5,
+            7
+          ],
+          "segment_key": "D[5,7]",
+          "segment_kind": "cyclic_gap_2_diagonal"
+        }
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        1
+      ],
+      "source_obligation_keys": [
+        "row5:[4,5]=[5,7]"
+      ],
+      "source_path_motif_key": "row5:[4,5]=[5,7]",
+      "transfer_record_indices": [
+        2
+      ]
+    }
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_label4_transfer_length_components.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_151_6_label4_transfer_length_components.py"
+  },
+  "schema": "erdos97.bootstrap_t12_151_6_label4_transfer_length_components.v1",
+  "segment_records": [
+    {
+      "component_keys": [
+        "D[0,5]=D[4,5]"
+      ],
+      "component_occurrence_incidence_count": 1,
+      "component_signature_incidence_count": 1,
+      "contains_label4": false,
+      "contains_label8": false,
+      "contains_target_center": false,
+      "cyclic_gap": 4,
+      "geometry_class_counts": {
+        "edge_diagonal_equality": 1
+      },
+      "pair": [
+        0,
+        5
+      ],
+      "path_shape_counts": {
+        "one_edge_row5_label4_spoke_swap": 1
+      },
+      "segment_key": "D[0,5]",
+      "segment_kind": "cyclic_gap_4_diagonal"
+    },
+    {
+      "component_keys": [
+        "D[0,6]=D[4,5]=D[5,6]"
+      ],
+      "component_occurrence_incidence_count": 4,
+      "component_signature_incidence_count": 3,
+      "contains_label4": false,
+      "contains_label8": false,
+      "contains_target_center": true,
+      "cyclic_gap": 3,
+      "geometry_class_counts": {
+        "edge_edge_diagonal_chain": 1
+      },
+      "pair": [
+        0,
+        6
+      ],
+      "path_shape_counts": {
+        "two_edge_row5_row6_connector_cascade": 1
+      },
+      "segment_key": "D[0,6]",
+      "segment_kind": "cyclic_gap_3_diagonal"
+    },
+    {
+      "component_keys": [
+        "D[1,7]=D[4,7]"
+      ],
+      "component_occurrence_incidence_count": 1,
+      "component_signature_incidence_count": 1,
+      "contains_label4": false,
+      "contains_label8": false,
+      "contains_target_center": false,
+      "cyclic_gap": 3,
+      "geometry_class_counts": {
+        "diagonal_only_equality": 1
+      },
+      "pair": [
+        1,
+        7
+      ],
+      "path_shape_counts": {
+        "one_edge_row7_label4_spoke_swap": 1
+      },
+      "segment_key": "D[1,7]",
+      "segment_kind": "cyclic_gap_3_diagonal"
+    },
+    {
+      "component_keys": [
+        "D[2,5]=D[4,5]"
+      ],
+      "component_occurrence_incidence_count": 1,
+      "component_signature_incidence_count": 1,
+      "contains_label4": false,
+      "contains_label8": false,
+      "contains_target_center": false,
+      "cyclic_gap": 3,
+      "geometry_class_counts": {
+        "edge_diagonal_equality": 1
+      },
+      "pair": [
+        2,
+        5
+      ],
+      "path_shape_counts": {
+        "one_edge_row5_label4_spoke_swap": 1
+      },
+      "segment_key": "D[2,5]",
+      "segment_kind": "cyclic_gap_3_diagonal"
+    },
+    {
+      "component_keys": [
+        "D[2,7]=D[4,7]"
+      ],
+      "component_occurrence_incidence_count": 1,
+      "component_signature_incidence_count": 1,
+      "contains_label4": false,
+      "contains_label8": false,
+      "contains_target_center": false,
+      "cyclic_gap": 4,
+      "geometry_class_counts": {
+        "diagonal_only_equality": 1
+      },
+      "pair": [
+        2,
+        7
+      ],
+      "path_shape_counts": {
+        "one_edge_row7_label4_spoke_swap": 1
+      },
+      "segment_key": "D[2,7]",
+      "segment_kind": "cyclic_gap_4_diagonal"
+    },
+    {
+      "component_keys": [
+        "D[0,5]=D[4,5]",
+        "D[0,6]=D[4,5]=D[5,6]",
+        "D[2,5]=D[4,5]",
+        "D[4,5]=D[5,7]"
+      ],
+      "component_occurrence_incidence_count": 7,
+      "component_signature_incidence_count": 6,
+      "contains_label4": true,
+      "contains_label8": false,
+      "contains_target_center": false,
+      "cyclic_gap": 1,
+      "geometry_class_counts": {
+        "edge_diagonal_equality": 3,
+        "edge_edge_diagonal_chain": 1
+      },
+      "pair": [
+        4,
+        5
+      ],
+      "path_shape_counts": {
+        "one_edge_row5_label4_spoke_swap": 3,
+        "two_edge_row5_row6_connector_cascade": 1
+      },
+      "segment_key": "D[4,5]",
+      "segment_kind": "hull_edge"
+    },
+    {
+      "component_keys": [
+        "D[1,7]=D[4,7]",
+        "D[2,7]=D[4,7]"
+      ],
+      "component_occurrence_incidence_count": 2,
+      "component_signature_incidence_count": 2,
+      "contains_label4": true,
+      "contains_label8": false,
+      "contains_target_center": false,
+      "cyclic_gap": 3,
+      "geometry_class_counts": {
+        "diagonal_only_equality": 2
+      },
+      "pair": [
+        4,
+        7
+      ],
+      "path_shape_counts": {
+        "one_edge_row7_label4_spoke_swap": 2
+      },
+      "segment_key": "D[4,7]",
+      "segment_kind": "cyclic_gap_3_diagonal"
+    },
+    {
+      "component_keys": [
+        "D[0,6]=D[4,5]=D[5,6]"
+      ],
+      "component_occurrence_incidence_count": 4,
+      "component_signature_incidence_count": 3,
+      "contains_label4": false,
+      "contains_label8": false,
+      "contains_target_center": true,
+      "cyclic_gap": 1,
+      "geometry_class_counts": {
+        "edge_edge_diagonal_chain": 1
+      },
+      "pair": [
+        5,
+        6
+      ],
+      "path_shape_counts": {
+        "two_edge_row5_row6_connector_cascade": 1
+      },
+      "segment_key": "D[5,6]",
+      "segment_kind": "hull_edge"
+    },
+    {
+      "component_keys": [
+        "D[4,5]=D[5,7]"
+      ],
+      "component_occurrence_incidence_count": 1,
+      "component_signature_incidence_count": 1,
+      "contains_label4": false,
+      "contains_label8": false,
+      "contains_target_center": false,
+      "cyclic_gap": 2,
+      "geometry_class_counts": {
+        "edge_diagonal_equality": 1
+      },
+      "pair": [
+        5,
+        7
+      ],
+      "path_shape_counts": {
+        "one_edge_row5_label4_spoke_swap": 1
+      },
+      "segment_key": "D[5,7]",
+      "segment_kind": "cyclic_gap_2_diagonal"
+    }
+  ],
+  "source_artifacts": [
+    {
+      "obligation_status": "ROW_LOCAL_LABEL4_TRANSFER_OBLIGATIONS_PINNED",
+      "path": "data/certificates/bootstrap_t12_151_6_label4_transfer_obligations.json",
+      "role": "source 151:6 label-4 transfer obligations",
+      "schema": "erdos97.bootstrap_t12_151_6_label4_transfer_obligations.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_TRANSFER_OBLIGATIONS_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_151_6_LABEL4_TRANSFER_LENGTH_COMPONENTS_DIAGNOSTIC_ONLY",
+  "summary": {
+    "cascade_component_key": "D[0,6]=D[4,5]=D[5,6]",
+    "cascade_component_occurrence_count": 4,
+    "cascade_component_signature_count": 3,
+    "component_count_by_geometry_class": {
+      "diagonal_only_equality": 2,
+      "edge_diagonal_equality": 3,
+      "edge_edge_diagonal_chain": 1
+    },
+    "component_count_by_path_shape": {
+      "one_edge_row5_label4_spoke_swap": 3,
+      "one_edge_row7_label4_spoke_swap": 2,
+      "two_edge_row5_row6_connector_cascade": 1
+    },
+    "component_occurrence_count_by_geometry_class": {
+      "diagonal_only_equality": 2,
+      "edge_diagonal_equality": 3,
+      "edge_edge_diagonal_chain": 4
+    },
+    "component_occurrence_count_by_path_shape": {
+      "one_edge_row5_label4_spoke_swap": 3,
+      "one_edge_row7_label4_spoke_swap": 2,
+      "two_edge_row5_row6_connector_cascade": 4
+    },
+    "component_signature_count_by_geometry_class": {
+      "diagonal_only_equality": 2,
+      "edge_diagonal_equality": 3,
+      "edge_edge_diagonal_chain": 3
+    },
+    "component_signature_count_by_path_shape": {
+      "one_edge_row5_label4_spoke_swap": 3,
+      "one_edge_row7_label4_spoke_swap": 2,
+      "two_edge_row5_row6_connector_cascade": 3
+    },
+    "component_size_counts": {
+      "2": 5,
+      "3": 1
+    },
+    "component_status": "ROW_LOCAL_LABEL4_TRANSFER_LENGTH_COMPONENTS_PINNED",
+    "component_with_edge_to_diagonal_equality_count": 4,
+    "component_with_hull_edge_count": 4,
+    "component_with_label4_segment_count": 6,
+    "component_with_only_diagonals_count": 2,
+    "component_with_row6_connector_step_count": 1,
+    "component_with_target_center_count": 1,
+    "diagonal_segment_count": 7,
+    "hull_edge_segment_count": 2,
+    "label8_free_component_count": 6,
+    "length_component_count": 6,
+    "private_support_pair": [
+      3,
+      5
+    ],
+    "private_target_center_class": [
+      0,
+      3,
+      5,
+      7
+    ],
+    "source_positive_transfer_occurrence_count": 9,
+    "source_positive_transfer_signature_count": 8,
+    "source_unique_edge_obligation_count": 7,
+    "source_unique_path_motif_count": 6,
+    "target_center": 6,
+    "target_row_key": "151:6",
+    "unique_segment_count": 9,
+    "unique_segment_count_by_cyclic_gap": {
+      "1": 2,
+      "2": 1,
+      "3": 4,
+      "4": 2
+    },
+    "unique_segment_count_by_kind": {
+      "cyclic_gap_2_diagonal": 1,
+      "cyclic_gap_3_diagonal": 4,
+      "cyclic_gap_4_diagonal": 2,
+      "hull_edge": 2
+    }
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

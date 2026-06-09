@@ -986,6 +986,16 @@ condition that the surviving multi-block family does not automatically satisfy:
   obligation is the repeated connector step `[5,6]=[0,6]` after row `5`
   supplies `[4,5]=[5,6]`. This is still a bridge target, not support
   existence, row forcing, endpoint-`8` forcing, or `[3,5]` impossibility.
+- bootstrap/T12 focused `151:6` label-`4` transfer length-component evidence,
+  as recorded in
+  `docs/bootstrap-t12-151-6-label4-transfer-length-components.md`, collapsing
+  those row-local obligations into `6` undirected segment-length components
+  over `9` distinct segments. The packet splits the components into `3`
+  edge-diagonal cases, `2` diagonal-only cases, and the unique row-`6`
+  connector cascade `D[0,6]=D[4,5]=D[5,6]`, tying two hull edges to a
+  cyclic-gap-`3` diagonal. This is still a support-geometry target, not
+  support existence, row forcing, endpoint-`8` forcing, or `[3,5]`
+  impossibility.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed
