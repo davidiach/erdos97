@@ -7796,6 +7796,85 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_quotient_roles
+    path: data/certificates/bootstrap_t12_151_6_label4_quotient_roles.json
+    sha256: d3359e7bdfa4768f5755392b72545070276bc13727ac0996b585ccc0e6739859
+    size_bytes: 28580
+    kind: proof_target_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_quotient_roles.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_quotient_roles.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_quotient_roles.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_quotient_roles.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 private-halo [3,5] label-4 quotient-role ledger; every label-8-free residual strict cycle has a label-4-bearing quotient class, with 8 direct-cycle-edge signatures and 2 quotient-equality-only signatures. This is not outside-pair support existence, not row forcing, not a proof that [3,5] is impossible, not endpoint-8 forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_quotient_roles.v1
+      status: BOOTSTRAP_T12_151_6_LABEL4_QUOTIENT_ROLES_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 7
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.label8_free_distinct_exact_signature_count: 10
+      summary.label8_free_occurrence_count: 12
+      summary.signatures_with_label4_cycle_quotient_class: 10
+      summary.occurrences_with_label4_cycle_quotient_class: 12
+      summary.direct_cycle_edge_label4_signature_count: 8
+      summary.direct_cycle_edge_label4_occurrence_count: 10
+      summary.quotient_equality_only_label4_signature_count: 2
+      summary.quotient_equality_only_label4_occurrence_count: 2
+      summary.label4_cycle_quotient_class_signature_incidence_count: 19
+      summary.label4_cycle_quotient_class_occurrence_incidence_count: 23
+      summary.label4_cycle_quotient_class_count_signature_counts.1: 3
+      summary.label4_cycle_quotient_class_count_signature_counts.2: 5
+      summary.label4_cycle_quotient_class_count_signature_counts.3: 2
+      summary.label4_cycle_quotient_class_count_occurrence_counts.1: 3
+      summary.label4_cycle_quotient_class_count_occurrence_counts.2: 7
+      summary.label4_cycle_quotient_class_count_occurrence_counts.3: 2
+      summary.label4_pair_members_per_cycle_class_signature_counts.1: 16
+      summary.label4_pair_members_per_cycle_class_signature_counts.2: 2
+      summary.label4_pair_members_per_cycle_class_signature_counts.4: 1
+      summary.label4_pair_members_per_cycle_class_occurrence_counts.1: 19
+      summary.label4_pair_members_per_cycle_class_occurrence_counts.2: 3
+      summary.label4_pair_members_per_cycle_class_occurrence_counts.4: 1
+      'summary.direct_cycle_edge_label4_auxiliary_pair_signature_counts.2,3': 2
+      'summary.direct_cycle_edge_label4_auxiliary_pair_signature_counts.5,8': 3
+      'summary.direct_cycle_edge_label4_auxiliary_pair_occurrence_counts.2,3': 3
+      'summary.direct_cycle_edge_label4_auxiliary_pair_occurrence_counts.5,8': 4
+      'summary.quotient_equality_only_auxiliary_pair_signature_counts.3,5': 1
+      'summary.quotient_equality_only_auxiliary_pair_signature_counts.4,5': 1
+      'summary.quotient_equality_only_auxiliary_pair_occurrence_counts.3,5': 1
+      'summary.quotient_equality_only_auxiliary_pair_occurrence_counts.4,5': 1
+      summary.role_status: LABEL4_REACHES_EVERY_LABEL8_FREE_RESIDUAL_STRICT_CYCLE
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_quotient_roles.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_quotient_roles.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - the private-halo-only pair 3,5 is impossible
+      - label-4 quotient roles prove the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

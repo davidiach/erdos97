@@ -409,6 +409,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-151-6-label8-free-residual-targets.md`](bootstrap-t12-151-6-label8-free-residual-targets.md):
   checked residual-target ledger showing every label-`8`-free exact signature
   requires auxiliary witness label `4`.
+- [`bootstrap-t12-151-6-label4-quotient-roles.md`](bootstrap-t12-151-6-label4-quotient-roles.md):
+  checked quotient-role ledger showing label `4` reaches every residual strict
+  cycle directly or through selected-distance equalities.
 - [`bootstrap-t12-151-singleton-support-audit.md`](bootstrap-t12-151-singleton-support-audit.md):
   source-`151` singleton-support audit covering rows `151:5` and `151:8`.
 - [`bootstrap-t12-151-singleton-two-row-drop.md`](bootstrap-t12-151-singleton-two-row-drop.md):

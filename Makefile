@@ -202,6 +202,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_private_lane_core_catalog.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_private_lane_strict_core_split.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label8_free_residual_targets.py --check --assert-expected --json
+	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_quotient_roles.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_support_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_two_row_drop.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_full_neighborhood_vertex_circle.py --check --assert-expected --json

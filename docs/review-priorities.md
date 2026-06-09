@@ -963,6 +963,13 @@ condition that the surviving multi-block family does not automatically satisfy:
   have strict-cycle edges that do not directly mention label `4`; this is a
   support-geometry target only, not a proof of support existence, row forcing,
   endpoint-`8` forcing, or impossibility of `[3,5]`.
+- bootstrap/T12 focused `151:6` label-`4` quotient-role evidence, as recorded
+  in `docs/bootstrap-t12-151-6-label4-quotient-roles.md`, showing that every
+  label-`8`-free residual strict cycle has a label-`4`-bearing quotient class:
+  `8` signatures reach label `4` directly through cycle-edge endpoints, and
+  `2` signatures reach label `4` only through selected-distance quotient
+  equalities. This is still a bridge target, not a support-existence, row
+  forcing, endpoint-`8` forcing, or `[3,5]` impossibility proof.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed
