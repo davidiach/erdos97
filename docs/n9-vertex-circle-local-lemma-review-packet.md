@@ -8,7 +8,7 @@ Source of truth: `docs/n9-reduction-chain.md`,
 `docs/n9-review-packet.md`, `docs/n9-vertex-circle-local-lemmas.md`,
 `docs/relation-skeleton-catalog.md`, and `metadata/erdos97.yaml`.
 
-Last assembled: 2026-06-04.
+Last assembled: 2026-06-09.
 
 ## Non-claims
 
@@ -67,6 +67,7 @@ auditable.
 - `docs/n9-vertex-circle-t12-strict-cycle-lemma.md`
 - `docs/n9-vertex-circle-t12-soundness-review-2026-06-08.md`
 - `docs/n9-vertex-circle-local-lemma-audit-note-2026-06-07.md`
+- `docs/n9-vertex-circle-a10-aggregate-review-2026-06-09.md`
 
 The focused T-notes are reviewer-facing local arguments. The JSON artifacts
 and scripts below check their accounting and replay contracts.
@@ -207,8 +208,14 @@ row-forcing or rich-support forcing bridge step.
 
 Together, these notes check all nine self-edge packets and all three
 strict-cycle packets. Focused packet-soundness notes are now recorded for
-T01-T12, while aggregate A10 review, `n=9`, and global status remain
-review-pending.
+T01-T12.
+
+The 2026-06-09 aggregate A10 review note records
+`accepted_packet_soundness_T01_T12` for those focused packets and
+`accepted_A10_bookkeeping_after_packet_soundness` for the stored aggregate
+handoff chain. It remains an internal review note under the stored-frontier and
+strict-edge assumptions; source-of-truth A10 promotion, `n=9`, and global
+status remain review-pending.
 
 ## Aggregate bookkeeping obligations
 
