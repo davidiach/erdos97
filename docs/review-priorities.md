@@ -970,6 +970,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   `2` signatures reach label `4` only through selected-distance quotient
   equalities. This is still a bridge target, not a support-existence, row
   forcing, endpoint-`8` forcing, or `[3,5]` impossibility proof.
+- bootstrap/T12 focused `151:6` label-`4` transfer-path evidence, as recorded
+  in `docs/bootstrap-t12-151-6-label4-transfer-paths.md`, pinning shortest
+  selected-distance paths from label-`4` pairs to residual strict-cycle
+  endpoint pairs. Among the `19` label-`4` cycle-class incidences, `11` are
+  direct endpoint hits, `5` require one equality edge, and `3` require two
+  equality edges; the positive transfer-path edges occur only in rows `5`,
+  `6`, and `7`. This is still a bridge target, not support existence, row
+  forcing, endpoint-`8` forcing, or `[3,5]` impossibility.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

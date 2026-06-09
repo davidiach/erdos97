@@ -412,6 +412,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-151-6-label4-quotient-roles.md`](bootstrap-t12-151-6-label4-quotient-roles.md):
   checked quotient-role ledger showing label `4` reaches every residual strict
   cycle directly or through selected-distance equalities.
+- [`bootstrap-t12-151-6-label4-transfer-paths.md`](bootstrap-t12-151-6-label4-transfer-paths.md):
+  checked transfer-path ledger pinning shortest selected-distance equality
+  paths from label-`4` pairs to residual strict-cycle endpoint pairs.
 - [`bootstrap-t12-151-singleton-support-audit.md`](bootstrap-t12-151-singleton-support-audit.md):
   source-`151` singleton-support audit covering rows `151:5` and `151:8`.
 - [`bootstrap-t12-151-singleton-two-row-drop.md`](bootstrap-t12-151-singleton-two-row-drop.md):

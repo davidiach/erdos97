@@ -517,8 +517,13 @@ minimal/rich-class hypotheses.
    then shows that label `4` reaches a strict-cycle quotient class in all `10`
    residual signatures: `8` signatures by direct cycle-edge endpoints, and `2`
    signatures only through selected-distance quotient equalities. This is still
-   selected-row diagnostic evidence only, so the next useful PR should prove a
-   support-geometry exclusion for the direct/equality-only label-`4` transfer
+   selected-row diagnostic evidence only. The transfer-path ledger
+   `python scripts/check_bootstrap_t12_151_6_label4_transfer_paths.py --check --assert-expected --json`
+   pins the selected-distance equality paths into those cycle classes: `11`
+   class incidences are direct endpoint hits, `5` need one equality edge, and
+   `3` need two equality edges; the positive transfer edges occur only in rows
+   `5`, `6`, and `7`. The next useful PR should prove a support-geometry
+   exclusion for those row-`5`/`6`/`7` direct/equality-only label-`4` transfer
    modes, or prove that such label-`4` support forces endpoint `8` /
    a label-`8`-visible row-`6` local core, not another selected-row
    neighborhood widening around `151:6`. The
