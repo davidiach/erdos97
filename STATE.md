@@ -565,14 +565,20 @@ private-support, rich-class, row-forcing, or activation-provenance hypotheses.
 The support-hypothesis ledger makes that extra layer explicit: the cascade
 requires center `5` with witnesses `[4,6]` and center `6` with witnesses
 `[0,5]`, while none of the seven centered label-`4` transfer requirements is
-the exact private pair `[3,5]`.
+the exact private pair `[3,5]`. The cascade row-criticality packet then checks
+the three auxiliary-center-`5,8` cascade signatures and finds a sharp
+three-row boundary: `{5,6,8}` is strict-cycle obstructed, while all `18`
+nonempty proper row truncations are quotient-clean. The remaining bridge
+target therefore has to force the row-`8` strict endpoint row as well as the
+row-`5`/row-`6` cascade equalities.
 This is still proof-mining bookkeeping only, not support existence, row
 forcing, endpoint-`8` forcing, `[3,5]` impossibility, simultaneous realization
 of all components, `n=9`, or the bridge.
 See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
 `docs/bootstrap-t12-151-6-label4-transfer-length-components.md`, plus
 `docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md` and
-`docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md`.
+`docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md`, plus
+`docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md`.
 
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation

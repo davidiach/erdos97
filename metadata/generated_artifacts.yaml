@@ -8277,6 +8277,92 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_cascade_row_criticality
+    path: data/certificates/bootstrap_t12_151_6_label4_cascade_row_criticality.json
+    sha256: 5ed8c86ac0baf68c3e0c96d5e4955d425f73a4159cdaa8e5fa2d5ae9ccf5e5f3
+    size_bytes: 19178
+    kind: proof_target_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_cascade_row_criticality.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_cascade_row_criticality.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_cascade_row_criticality.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_cascade_row_criticality.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 private-halo [3,5] label-4 cascade row-criticality diagnostic; checks that the three cascade signatures with auxiliary center pair 5,8 are strict-cycle obstructed only with the full local row package {5,6,8}, while every nonempty proper row truncation is quotient-clean. This does not prove support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_cascade_row_criticality.v1
+      status: BOOTSTRAP_T12_151_6_LABEL4_CASCADE_ROW_CRITICALITY_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 7
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.cascade_component_key: D[0,6]=D[4,5]=D[5,6]
+      summary.cascade_auxiliary_center_pair: 5,8
+      summary.cascade_required_support_centers:
+        - 5
+        - 6
+      summary.cascade_required_witness_pairs:
+        -
+          - 4
+          - 6
+        -
+          - 0
+          - 5
+      summary.required_core_centers:
+        - 5
+        - 6
+        - 8
+      summary.cascade_signature_indices:
+        - 7
+        - 8
+        - 9
+      summary.cascade_signature_count: 3
+      summary.cascade_occurrence_count: 4
+      summary.cascade_full_core_status_counts.strict_cycle: 3
+      summary.cascade_full_core_occurrence_status_counts.strict_cycle: 4
+      summary.cascade_full_core_cycle_length_signature_counts.2: 1
+      summary.cascade_full_core_cycle_length_signature_counts.3: 2
+      summary.proper_truncation_record_count: 18
+      summary.proper_truncation_occurrence_count: 24
+      summary.proper_truncation_status_counts.ok: 18
+      summary.row_subset_status_counts_by_size.1.ok: 9
+      summary.row_subset_status_counts_by_size.2.ok: 9
+      summary.row_subset_status_counts_by_size.3.strict_cycle: 3
+      summary.clean_deletion_signature_counts_by_deleted_center.5: 3
+      summary.clean_deletion_signature_counts_by_deleted_center.6: 3
+      summary.clean_deletion_signature_counts_by_deleted_center.8: 3
+      summary.full_core_cycle_edge_row_pair_signature_counts.5,8: 3
+      summary.criticality_status: CASCADE_CORES_ARE_THREE_ROW_CRITICAL_FOR_VERTEX_CIRCLE_REPLAY
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_cascade_row_criticality.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_cascade_row_criticality.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - the private-halo-only pair 3,5 is impossible
+      - label-4 cascade row-criticality proves the bridge
+      - row-criticality proves support existence
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

@@ -1,0 +1,866 @@
+{
+  "cascade_signature_records": [
+    {
+      "all_proper_truncations_clean": true,
+      "auxiliary_center_pair": "5,8",
+      "full_core_centers": [
+        5,
+        6,
+        8
+      ],
+      "full_core_cycle_edge_count": 3,
+      "full_core_cycle_edge_rows": [
+        5,
+        8
+      ],
+      "full_core_cycle_edges": [
+        {
+          "inner_class": [
+            2,
+            6
+          ],
+          "inner_interval": [
+            1,
+            3
+          ],
+          "inner_pair": [
+            2,
+            6
+          ],
+          "outer_class": [
+            0,
+            6
+          ],
+          "outer_interval": [
+            0,
+            3
+          ],
+          "outer_pair": [
+            0,
+            6
+          ],
+          "row": 8,
+          "witness_order": [
+            0,
+            2,
+            4,
+            6
+          ]
+        },
+        {
+          "inner_class": [
+            4,
+            6
+          ],
+          "inner_interval": [
+            2,
+            3
+          ],
+          "inner_pair": [
+            4,
+            6
+          ],
+          "outer_class": [
+            2,
+            6
+          ],
+          "outer_interval": [
+            1,
+            3
+          ],
+          "outer_pair": [
+            2,
+            6
+          ],
+          "row": 8,
+          "witness_order": [
+            0,
+            2,
+            4,
+            6
+          ]
+        },
+        {
+          "inner_class": [
+            0,
+            6
+          ],
+          "inner_interval": [
+            0,
+            1
+          ],
+          "inner_pair": [
+            6,
+            7
+          ],
+          "outer_class": [
+            4,
+            6
+          ],
+          "outer_interval": [
+            0,
+            3
+          ],
+          "outer_pair": [
+            4,
+            6
+          ],
+          "row": 5,
+          "witness_order": [
+            6,
+            7,
+            1,
+            4
+          ]
+        }
+      ],
+      "full_core_status": "strict_cycle",
+      "full_core_strict_edge_count": 27,
+      "multiplicity": 1,
+      "next_proof_obligation": "Force the full local row package {5,6,8}: rows 5 and 6 supply the cascade equalities, while row 8 supplies the additional strict endpoint row.",
+      "proper_truncation_records": [
+        {
+          "centers": [
+            5
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            6,
+            8
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 9
+        },
+        {
+          "centers": [
+            6
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            5,
+            8
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 9
+        },
+        {
+          "centers": [
+            8
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            5,
+            6
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 9
+        },
+        {
+          "centers": [
+            5,
+            6
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            8
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 18
+        },
+        {
+          "centers": [
+            5,
+            8
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            6
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 18
+        },
+        {
+          "centers": [
+            6,
+            8
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            5
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 18
+        }
+      ],
+      "rows": [
+        {
+          "center": 5,
+          "witnesses": [
+            1,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            3,
+            5,
+            7
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            2,
+            4,
+            6
+          ]
+        }
+      ],
+      "signature_index": 7,
+      "target_row_intersections": [
+        {
+          "center": 5,
+          "intersection": [
+            7
+          ]
+        },
+        {
+          "center": 8,
+          "intersection": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "all_proper_truncations_clean": true,
+      "auxiliary_center_pair": "5,8",
+      "full_core_centers": [
+        5,
+        6,
+        8
+      ],
+      "full_core_cycle_edge_count": 2,
+      "full_core_cycle_edge_rows": [
+        5,
+        8
+      ],
+      "full_core_cycle_edges": [
+        {
+          "inner_class": [
+            4,
+            6
+          ],
+          "inner_interval": [
+            1,
+            2
+          ],
+          "inner_pair": [
+            4,
+            6
+          ],
+          "outer_class": [
+            0,
+            6
+          ],
+          "outer_interval": [
+            0,
+            2
+          ],
+          "outer_pair": [
+            0,
+            6
+          ],
+          "row": 8,
+          "witness_order": [
+            0,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "inner_class": [
+            0,
+            6
+          ],
+          "inner_interval": [
+            0,
+            2
+          ],
+          "inner_pair": [
+            3,
+            6
+          ],
+          "outer_class": [
+            4,
+            6
+          ],
+          "outer_interval": [
+            0,
+            3
+          ],
+          "outer_pair": [
+            4,
+            6
+          ],
+          "row": 5,
+          "witness_order": [
+            6,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "full_core_status": "strict_cycle",
+      "full_core_strict_edge_count": 27,
+      "multiplicity": 1,
+      "next_proof_obligation": "Force the full local row package {5,6,8}: rows 5 and 6 supply the cascade equalities, while row 8 supplies the additional strict endpoint row.",
+      "proper_truncation_records": [
+        {
+          "centers": [
+            5
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            6,
+            8
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 9
+        },
+        {
+          "centers": [
+            6
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            5,
+            8
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 9
+        },
+        {
+          "centers": [
+            8
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            5,
+            6
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 9
+        },
+        {
+          "centers": [
+            5,
+            6
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            8
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 18
+        },
+        {
+          "centers": [
+            5,
+            8
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            6
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 18
+        },
+        {
+          "centers": [
+            6,
+            8
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            5
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 18
+        }
+      ],
+      "rows": [
+        {
+          "center": 5,
+          "witnesses": [
+            2,
+            3,
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            3,
+            5,
+            7
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            6,
+            7
+          ]
+        }
+      ],
+      "signature_index": 8,
+      "target_row_intersections": [
+        {
+          "center": 5,
+          "intersection": [
+            3
+          ]
+        },
+        {
+          "center": 8,
+          "intersection": [
+            0,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "all_proper_truncations_clean": true,
+      "auxiliary_center_pair": "5,8",
+      "full_core_centers": [
+        5,
+        6,
+        8
+      ],
+      "full_core_cycle_edge_count": 3,
+      "full_core_cycle_edge_rows": [
+        5,
+        8
+      ],
+      "full_core_cycle_edges": [
+        {
+          "inner_class": [
+            1,
+            6
+          ],
+          "inner_interval": [
+            1,
+            3
+          ],
+          "inner_pair": [
+            1,
+            6
+          ],
+          "outer_class": [
+            0,
+            6
+          ],
+          "outer_interval": [
+            0,
+            3
+          ],
+          "outer_pair": [
+            0,
+            6
+          ],
+          "row": 8,
+          "witness_order": [
+            0,
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "inner_class": [
+            4,
+            6
+          ],
+          "inner_interval": [
+            2,
+            3
+          ],
+          "inner_pair": [
+            4,
+            6
+          ],
+          "outer_class": [
+            1,
+            6
+          ],
+          "outer_interval": [
+            1,
+            3
+          ],
+          "outer_pair": [
+            1,
+            6
+          ],
+          "row": 8,
+          "witness_order": [
+            0,
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "inner_class": [
+            0,
+            6
+          ],
+          "inner_interval": [
+            0,
+            1
+          ],
+          "inner_pair": [
+            6,
+            7
+          ],
+          "outer_class": [
+            4,
+            6
+          ],
+          "outer_interval": [
+            0,
+            3
+          ],
+          "outer_pair": [
+            4,
+            6
+          ],
+          "row": 5,
+          "witness_order": [
+            6,
+            7,
+            2,
+            4
+          ]
+        }
+      ],
+      "full_core_status": "strict_cycle",
+      "full_core_strict_edge_count": 27,
+      "multiplicity": 2,
+      "next_proof_obligation": "Force the full local row package {5,6,8}: rows 5 and 6 supply the cascade equalities, while row 8 supplies the additional strict endpoint row.",
+      "proper_truncation_records": [
+        {
+          "centers": [
+            5
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            6,
+            8
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 9
+        },
+        {
+          "centers": [
+            6
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            5,
+            8
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 9
+        },
+        {
+          "centers": [
+            8
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            5,
+            6
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 9
+        },
+        {
+          "centers": [
+            5,
+            6
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            8
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 18
+        },
+        {
+          "centers": [
+            5,
+            8
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            6
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 18
+        },
+        {
+          "centers": [
+            6,
+            8
+          ],
+          "cycle_edge_count": 0,
+          "deleted_centers": [
+            5
+          ],
+          "obstructed": false,
+          "self_edge_count": 0,
+          "status": "ok",
+          "strict_edge_count": 18
+        }
+      ],
+      "rows": [
+        {
+          "center": 5,
+          "witnesses": [
+            2,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            3,
+            5,
+            7
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        }
+      ],
+      "signature_index": 9,
+      "target_row_intersections": [
+        {
+          "center": 5,
+          "intersection": [
+            7
+          ]
+        },
+        {
+          "center": 8,
+          "intersection": [
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "claim_scope": "Proof-target diagnostic for the source-151 row-6 private-halo-only label-4 cascade. It joins the support-hypothesis ledger to the label-8-free residual target signatures and checks that the three cascade signatures with auxiliary center pair 5,8 are vertex-circle strict-cycle obstructed only when all three local rows 5,6,8 are present. Every nonempty proper row truncation is quotient-clean. This does not prove support existence, does not prove row forcing, does not prove pair [3,5] impossible, does not prove endpoint-8 forcing, does not prove n=9, does not prove the bridge, is not a counterexample, and is not a global status update.",
+  "interpretation": [
+    "The row-6 cascade signatures are exactly the label-8-free residual signatures with auxiliary center pair 5,8.",
+    "All three rows 5,6,8 are needed for the recorded vertex-circle strict cycles: deleting any one of them leaves a quotient-clean two-row truncation.",
+    "Rows 5 and 6 supply the cascade equalities named by the support ledger, while row 8 supplies the additional strict endpoint row used by the residual cycle.",
+    "This packet is a row-criticality target, not support existence, row forcing, endpoint-8 forcing, or a proof that [3,5] is impossible."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_label4_cascade_row_criticality.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_151_6_label4_cascade_row_criticality.py"
+  },
+  "schema": "erdos97.bootstrap_t12_151_6_label4_cascade_row_criticality.v1",
+  "source_artifacts": [
+    {
+      "ledger_status": null,
+      "path": "data/certificates/bootstrap_t12_151_6_label8_free_residual_targets.json",
+      "role": "source 151:6 label-8-free residual targets",
+      "schema": "erdos97.bootstrap_t12_151_6_label8_free_residual_targets.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL8_FREE_RESIDUAL_TARGETS_DIAGNOSTIC_ONLY",
+      "target_status": "LABEL8_FREE_RESIDUAL_SIGNATURES_REQUIRE_AUXILIARY_LABEL4",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "ledger_status": "LABEL4_SUPPORT_HYPOTHESES_PINNED_NOT_DISCHARGED",
+      "path": "data/certificates/bootstrap_t12_151_6_label4_support_hypothesis_ledger.json",
+      "role": "source 151:6 label-4 support-hypothesis ledger",
+      "schema": "erdos97.bootstrap_t12_151_6_label4_support_hypothesis_ledger.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_SUPPORT_HYPOTHESIS_LEDGER_DIAGNOSTIC_ONLY",
+      "target_status": null,
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_151_6_LABEL4_CASCADE_ROW_CRITICALITY_DIAGNOSTIC_ONLY",
+  "summary": {
+    "cascade_auxiliary_center_pair": "5,8",
+    "cascade_component_key": "D[0,6]=D[4,5]=D[5,6]",
+    "cascade_full_core_cycle_length_occurrence_counts": {
+      "2": 1,
+      "3": 3
+    },
+    "cascade_full_core_cycle_length_signature_counts": {
+      "2": 1,
+      "3": 2
+    },
+    "cascade_full_core_occurrence_status_counts": {
+      "strict_cycle": 4
+    },
+    "cascade_full_core_status_counts": {
+      "strict_cycle": 3
+    },
+    "cascade_full_core_strict_edge_count_signature_counts": {
+      "27": 3
+    },
+    "cascade_occurrence_count": 4,
+    "cascade_required_support_centers": [
+      5,
+      6
+    ],
+    "cascade_required_witness_pairs": [
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        5
+      ]
+    ],
+    "cascade_signature_count": 3,
+    "cascade_signature_indices": [
+      7,
+      8,
+      9
+    ],
+    "clean_deletion_occurrence_counts_by_deleted_center": {
+      "5": 4,
+      "6": 4,
+      "8": 4
+    },
+    "clean_deletion_signature_counts_by_deleted_center": {
+      "5": 3,
+      "6": 3,
+      "8": 3
+    },
+    "criticality_status": "CASCADE_CORES_ARE_THREE_ROW_CRITICAL_FOR_VERTEX_CIRCLE_REPLAY",
+    "full_core_cycle_edge_row_pair_occurrence_counts": {
+      "5,8": 4
+    },
+    "full_core_cycle_edge_row_pair_signature_counts": {
+      "5,8": 3
+    },
+    "private_support_pair": [
+      3,
+      5
+    ],
+    "private_target_center_class": [
+      0,
+      3,
+      5,
+      7
+    ],
+    "proper_truncation_occurrence_count": 24,
+    "proper_truncation_occurrence_status_counts": {
+      "ok": 24
+    },
+    "proper_truncation_record_count": 18,
+    "proper_truncation_status_counts": {
+      "ok": 18
+    },
+    "required_core_centers": [
+      5,
+      6,
+      8
+    ],
+    "row_subset_occurrence_status_counts_by_size": {
+      "1": {
+        "ok": 12
+      },
+      "2": {
+        "ok": 12
+      },
+      "3": {
+        "strict_cycle": 4
+      }
+    },
+    "row_subset_status_counts_by_size": {
+      "1": {
+        "ok": 9
+      },
+      "2": {
+        "ok": 9
+      },
+      "3": {
+        "strict_cycle": 3
+      }
+    },
+    "source_label8_free_distinct_exact_signature_count": 10,
+    "source_label8_free_occurrence_count": 12,
+    "source_support_ledger_status": "LABEL4_SUPPORT_HYPOTHESES_PINNED_NOT_DISCHARGED",
+    "source_support_need_record_count": 6,
+    "source_unique_centered_support_requirement_count": 7,
+    "target_center": 6,
+    "target_row_key": "151:6"
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

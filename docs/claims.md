@@ -1239,6 +1239,19 @@ not give one polygon realizing all six components at once and does not prove
 support existence, row forcing, endpoint-`8` forcing, `[3,5]` impossibility,
 `n=9`, the bootstrap bridge, or Erdos Problem #97.
 
+The support-hypothesis ledger for the same label-`4` transfer components
+refines this into the centered equal-distance inputs a future bridge proof
+would need. The unique row-`6` cascade needs center `5` with witness pair
+`[4,6]` and center `6` with witness pair `[0,5]`, and no label-`4` transfer
+support requirement is the exact private pair `[3,5]`. The cascade
+row-criticality packet then checks the three cascade signatures with auxiliary
+center pair `5,8`: the full local row package `{5,6,8}` is a vertex-circle
+strict cycle, while every nonempty proper row truncation is quotient-clean.
+This sharpens the bridge target to force row `8` as the strict endpoint row,
+in addition to the row-`5`/row-`6` cascade equalities. It still does not prove
+support existence, row forcing, endpoint-`8` forcing, `[3,5]` impossibility,
+`n=9`, the bootstrap bridge, or Erdos Problem #97.
+
 The source-`151` singleton-support audit in
 `docs/bootstrap-t12-151-singleton-support-audit.md` covers rows `151:5` and
 `151:8`. In both fixed source-`151` neighborhoods, only the original target row

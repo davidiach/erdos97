@@ -208,6 +208,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_transfer_length_components.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_transfer_component_feasibility.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_support_hypothesis_ledger.py --check --assert-expected --json
+	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_cascade_row_criticality.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_support_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_two_row_drop.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_full_neighborhood_vertex_circle.py --check --assert-expected --json
