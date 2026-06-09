@@ -492,6 +492,9 @@ put detailed reconciliation in the canonical synthesis.
   soundness notes plus the A10 bookkeeping handoff under stored-frontier and
   strict-edge assumptions; not a source-of-truth A10, `n=9`, or global-status
   promotion.
+- [`n9-vertex-circle-route-decision-preflight.md`](n9-vertex-circle-route-decision-preflight.md):
+  checked handoff preflight joining the internal A6/A7, A8, and A10 review
+  notes to the still-open vertex-circle route decision-intake requirements.
 - [`n9-vertex-circle-certificate-chain.md`](n9-vertex-circle-certificate-chain.md):
   assignment-id bridge from the review-pending `n=9` frontier artifacts to the
   12 local quotient-obstruction templates.

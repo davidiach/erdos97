@@ -130,6 +130,10 @@ detection only and does not replace written independent review.
 The decision-intake aid `docs/n9-review-decision-intake.md` validates any
 external written-review record against the open gate ledger and allowed
 outcomes; it is still intake validation only.
+The vertex-circle route preflight
+`docs/n9-vertex-circle-route-decision-preflight.md` checks that the internal
+A6/A7, A8, and A10 notes are ready to hand to the decision intake while the
+route gates remain open and independent written review remains required.
 
 The 2026-05-03 archive bundle has been refactored into a repo-native checker
 that leaves 0 full `n=9` selected-witness assignments after exact

@@ -51,6 +51,17 @@ Render the Markdown worksheet to stdout:
 python scripts/check_n9_review_decision_intake.py --markdown
 ```
 
+Preflight the vertex-circle route handoff before filling a decision record:
+
+```bash
+python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json
+```
+
+The preflight checks that the internal A6/A7, A8, and A10 review notes are
+present and boundary-safe, that the relevant route gates remain open, and that
+`accepted_vertex_circle_route` still requires `independent_review`. It does not
+accept any gate or replace a written decision.
+
 ## Boundary
 
 Even a valid final decision record is only intake validation. An accepted
