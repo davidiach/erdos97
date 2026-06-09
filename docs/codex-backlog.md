@@ -502,11 +502,16 @@ minimal/rich-class hypotheses.
    The private-lane core catalog
    `python scripts/check_bootstrap_t12_151_6_private_lane_core_catalog.py --check --assert-expected --json`
    then shows that every one of the `12` private-lane survivors has a
-   three-row strict-cycle core containing row `6 -> [0,3,5,7]`. This is still
-   selected-row diagnostic evidence only, so the next useful PR should attack
-   genuine support existence or forcing for endpoint-`8` versus `[3,5]`, or
-   prove a reusable lemma forcing one of those row-`6` local cores, not another
-   selected-row neighborhood widening around `151:6`. The
+   three-row strict-cycle core containing row `6 -> [0,3,5,7]`. The
+   strict-core split
+   `python scripts/check_bootstrap_t12_151_6_private_lane_strict_core_split.py --check --assert-expected --json`
+   refines those cores into `32` label-`8`-visible occurrences and `12`
+   label-`8`-free occurrences, with `10` distinct exact label-`8`-free
+   signatures. This is still selected-row diagnostic evidence only, so the
+   next useful PR should attack the residual label-`8`-free signatures as
+   genuine support-geometry exclusions, or prove a reusable lemma forcing one
+   of the label-`8`-visible row-`6` local cores, not another selected-row
+   neighborhood widening around `151:6`. The
    source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine
