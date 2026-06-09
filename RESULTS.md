@@ -919,6 +919,20 @@ row forcing, `n=9`, or the bootstrap bridge. See
 `scripts/check_bootstrap_t12_151_6_outside_pair_connector_contract.py`, and
 `data/certificates/bootstrap_t12_151_6_outside_pair_connector_contract.json`.
 
+The source-`151` row-`6` private-lane residual packets now identify the
+row-local label-`4` obligations left by the connector-avoiding pair `[3,5]`.
+After the label-`8`-free residual-target, quotient-role, and transfer-path
+ledgers, the obligation checker records `8` positive transfer incidences, `7`
+unique centered equality obligations, and `6` path motifs. Every positive
+transfer starts with a label-`4` spoke swap at row `5` or row `7`, while the
+only row-`6` transfer obligation is the connector step `[5,6]=[0,6]` after
+row `5` supplies `[4,5]=[5,6]`. This is still a finite diagnostic only, not a
+proof of support existence, row forcing, endpoint-`8` forcing, `[3,5]`
+impossibility, `n=9`, or the bootstrap bridge. See
+`docs/bootstrap-t12-151-6-label4-transfer-obligations.md`,
+`scripts/check_bootstrap_t12_151_6_label4_transfer_obligations.py`, and
+`data/certificates/bootstrap_t12_151_6_label4_transfer_obligations.json`.
+
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses
 bootstrap-core witnesses `[2,4]` and singleton supports `7` and `8`; row
