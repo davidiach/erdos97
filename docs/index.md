@@ -357,6 +357,12 @@ put detailed reconciliation in the canonical synthesis.
   replayable wrong-fourth, full-row, and closure-visibility negative controls
   for overstrong closure-activation bridge claims; provenance and guardrail
   data only.
+- [`bootstrap-t12-anti-activation-negative-control.md`](bootstrap-t12-anti-activation-negative-control.md):
+  focused full selected-row anti-activation control showing closure exposure
+  of a center and three witnesses does not pin the target fourth witness.
+- [`closure-visibility-anti-activation-control.md`](closure-visibility-anti-activation-control.md):
+  focused sparse control separating target-label visibility in a closure from
+  activation by the target triple.
 - [`bootstrap-t12-81-3-repeated-support-catalogue-audit.md`](bootstrap-t12-81-3-repeated-support-catalogue-audit.md):
   one-layer repeated-support audit for the stored `81:3` chain-closure prefix
   survivors.

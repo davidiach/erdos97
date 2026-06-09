@@ -97,12 +97,15 @@ Useful evidence:
 - `docs/bootstrap-t12-81-3-rich-triple-contract.md`
 - `docs/bootstrap-t12-81-3-chain-closure-csp.md`
 - `docs/bootstrap-t12-81-3-repeated-support-saturation-audit.md`
+- `docs/closure-visibility-anti-activation-control.md`
 
 Required guardrails:
 
 - Closure exposure of the fixed selected row is not rich-class forcing.
 - Full target-label visibility does not pin the fourth witness; see
   `docs/closure-activation-negative-controls.md`.
+- Target-label visibility in a deletion closure is not the same as activation
+  provenance by the target triple.
 - The repeated-support saturation packet closes only the stored-prefix,
   same-center-disjoint repeated-support model.
 
@@ -143,10 +146,13 @@ Useful evidence:
 - `docs/bootstrap-t12-hard-strict-endpoints.md`
 - `docs/bootstrap-t12-open-connector-pair.md`
 - `docs/bootstrap-t12-singleton-full-neighborhood-crosswalk.md`
+- `docs/bootstrap-t12-anti-activation-negative-control.md`
 
 Required guardrails:
 
 - Singleton support does not automatically supply both connector endpoints.
+- A full selected-row closure exposure can still switch the target fourth
+  witness.
 - Another selected-row neighborhood widening over the same packets is low
   leverage unless it proves support existence or a new necessary condition.
 
