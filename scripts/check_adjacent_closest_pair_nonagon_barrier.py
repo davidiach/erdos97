@@ -25,7 +25,7 @@ CLAIM_SCOPE = (
     "Finite combinatorial audit of the adjacent closest-pair n=9 boundary. "
     "It enumerates selected witness rows at centers 0, 1, 2, and 8 under the "
     "closest-pair endpoint exclusions, two-circle row-pair cap, and "
-    "two-overlap crossing-bisector rule. It proves only the conditional "
+    "two-overlap crossing-bisector rule. It checks only the conditional "
     "subcase where a globally closest pair is a polygon side; it does not "
     "prove n=9, does not prove Erdos Problem #97, does not claim a "
     "counterexample, and does not update the official/global status."
