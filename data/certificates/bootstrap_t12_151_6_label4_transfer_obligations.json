@@ -1,0 +1,1116 @@
+{
+  "claim_scope": "Proof-target diagnostic for the source-151 row-6 private-halo-only outside-pair lane. It refines the label-4 transfer-path ledger into row-local selected-distance equality obligations. Every positive transfer starts with a label-4 spoke swap at row 5 or row 7; the only row-6 obligations are the second step of a repeated row-5 to row-6 connector cascade. This does not prove outside-pair support existence, does not prove row forcing, does not prove pair [3,5] impossible, does not prove endpoint-8 forcing, does not prove n=9, does not prove the bridge, is not a counterexample, and is not a global status update.",
+  "interpretation": [
+    "This packet records only positive-length transfer paths; direct endpoint hits have no row-local equality obligation beyond the already visible strict-cycle endpoint.",
+    "All positive transfers start with a row-5 or row-7 equality from a label-4 spoke to a non-label-4 spoke at the same center.",
+    "The only row-6 obligation is the connector step [5,6]=[0,6], and it appears only after the row-5 step [4,5]=[5,6].",
+    "This is a bridge-target obligation ledger only; it does not prove support existence, row forcing, endpoint-8 forcing, or impossibility of the private pair."
+  ],
+  "path_motif_records": [
+    {
+      "access_mode_counts": {
+        "quotient_equality_only": 1
+      },
+      "occurrence_incidence_count": 1,
+      "path_motif_key": "row5:[4,5]=[0,5]",
+      "path_obligation_keys": [
+        "row5:[4,5]=[0,5]"
+      ],
+      "path_shape": "one_edge_row5_label4_spoke_swap",
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        4
+      ],
+      "transfer_edge_count": 1,
+      "transfer_record_indices": [
+        8
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "quotient_equality_only": 1
+      },
+      "occurrence_incidence_count": 1,
+      "path_motif_key": "row5:[4,5]=[2,5]",
+      "path_obligation_keys": [
+        "row5:[4,5]=[2,5]"
+      ],
+      "path_shape": "one_edge_row5_label4_spoke_swap",
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        6
+      ],
+      "transfer_edge_count": 1,
+      "transfer_record_indices": [
+        12
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 3
+      },
+      "occurrence_incidence_count": 4,
+      "path_motif_key": "row5:[4,5]=[5,6] -> row6:[5,6]=[0,6]",
+      "path_obligation_keys": [
+        "row5:[4,5]=[5,6]",
+        "row6:[5,6]=[0,6]"
+      ],
+      "path_shape": "two_edge_row5_row6_connector_cascade",
+      "signature_incidence_count": 3,
+      "signature_indices": [
+        7,
+        8,
+        9
+      ],
+      "transfer_edge_count": 2,
+      "transfer_record_indices": [
+        13,
+        15,
+        17
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 1
+      },
+      "occurrence_incidence_count": 1,
+      "path_motif_key": "row5:[4,5]=[5,7]",
+      "path_obligation_keys": [
+        "row5:[4,5]=[5,7]"
+      ],
+      "path_shape": "one_edge_row5_label4_spoke_swap",
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        1
+      ],
+      "transfer_edge_count": 1,
+      "transfer_record_indices": [
+        2
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 1
+      },
+      "occurrence_incidence_count": 1,
+      "path_motif_key": "row7:[4,7]=[1,7]",
+      "path_obligation_keys": [
+        "row7:[4,7]=[1,7]"
+      ],
+      "path_shape": "one_edge_row7_label4_spoke_swap",
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        3
+      ],
+      "transfer_edge_count": 1,
+      "transfer_record_indices": [
+        6
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 1
+      },
+      "occurrence_incidence_count": 1,
+      "path_motif_key": "row7:[4,7]=[2,7]",
+      "path_obligation_keys": [
+        "row7:[4,7]=[2,7]"
+      ],
+      "path_shape": "one_edge_row7_label4_spoke_swap",
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        5
+      ],
+      "transfer_edge_count": 1,
+      "transfer_record_indices": [
+        10
+      ]
+    }
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_label4_transfer_obligations.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_151_6_label4_transfer_obligations.py"
+  },
+  "schema": "erdos97.bootstrap_t12_151_6_label4_transfer_obligations.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_t12_151_6_label4_transfer_paths.json",
+      "role": "source 151:6 label-4 transfer paths",
+      "schema": "erdos97.bootstrap_t12_151_6_label4_transfer_paths.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_TRANSFER_PATHS_DIAGNOSTIC_ONLY",
+      "transfer_status": "LABEL4_TRANSFER_PATHS_PINNED_FOR_EVERY_RESIDUAL_CYCLE_CLASS",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_151_6_LABEL4_TRANSFER_OBLIGATIONS_DIAGNOSTIC_ONLY",
+  "summary": {
+    "direct_cycle_access_positive_transfer_occurrence_count": 7,
+    "direct_cycle_access_positive_transfer_record_count": 6,
+    "label4_spoke_swap_edge_occurrence_count": 9,
+    "label4_spoke_swap_edge_signature_count": 8,
+    "obligation_status": "ROW_LOCAL_LABEL4_TRANSFER_OBLIGATIONS_PINNED",
+    "path_shape_occurrence_counts": {
+      "one_edge_row5_label4_spoke_swap": 3,
+      "one_edge_row7_label4_spoke_swap": 2,
+      "two_edge_row5_row6_connector_cascade": 4
+    },
+    "path_shape_signature_counts": {
+      "one_edge_row5_label4_spoke_swap": 3,
+      "one_edge_row7_label4_spoke_swap": 2,
+      "two_edge_row5_row6_connector_cascade": 3
+    },
+    "positive_transfer_edge_occurrence_counts_by_row": {
+      "5": 7,
+      "6": 4,
+      "7": 2
+    },
+    "positive_transfer_edge_signature_counts_by_row": {
+      "5": 6,
+      "6": 3,
+      "7": 2
+    },
+    "private_support_pair": [
+      3,
+      5
+    ],
+    "private_target_center_class": [
+      0,
+      3,
+      5,
+      7
+    ],
+    "quotient_equality_only_transfer_occurrence_count": 2,
+    "quotient_equality_only_transfer_record_count": 2,
+    "row6_connector_step_occurrence_count": 4,
+    "row6_connector_step_signature_count": 3,
+    "row_local_transfer_edge_occurrence_count": 13,
+    "row_local_transfer_edge_signature_count": 11,
+    "row_local_transfer_obligation_occurrence_count": 9,
+    "row_local_transfer_obligation_record_count": 8,
+    "source_label4_transfer_path_class_signature_incidence_count": 19,
+    "source_positive_transfer_class_occurrence_incidence_count": 9,
+    "source_positive_transfer_class_signature_incidence_count": 8,
+    "target_center": 6,
+    "target_center_touching_edge_occurrence_count": 8,
+    "target_center_touching_edge_signature_count": 6,
+    "target_row_key": "151:6",
+    "two_edge_connector_cascade_occurrence_count": 4,
+    "two_edge_connector_cascade_signature_count": 3,
+    "unique_edge_obligation_count": 7,
+    "unique_path_motif_count": 6
+  },
+  "transfer_obligation_records": [
+    {
+      "access_mode": "direct_cycle_edge",
+      "auxiliary_center_pair": "2,5",
+      "chosen_cycle_endpoint_pair": [
+        5,
+        7
+      ],
+      "chosen_label4_pair": [
+        4,
+        5
+      ],
+      "multiplicity": 1,
+      "path_shape": "one_edge_row5_label4_spoke_swap",
+      "row_obligations": [
+        {
+          "centered_distance_equality": {
+            "center": 5,
+            "left_pair": [
+              4,
+              5
+            ],
+            "right_pair": [
+              5,
+              7
+            ],
+            "witness_pair": [
+              4,
+              7
+            ]
+          },
+          "edge_index": 0,
+          "from_pair": [
+            4,
+            5
+          ],
+          "label4_spoke_swap": true,
+          "obligation_key": "row5:[4,5]=[5,7]",
+          "obligation_role": "row5_label4_spoke_swap",
+          "row": 5,
+          "row6_connector_step": false,
+          "row_witness_pair": [
+            4,
+            7
+          ],
+          "to_pair": [
+            5,
+            7
+          ],
+          "touches_target_center": false
+        }
+      ],
+      "signature_index": 1,
+      "transfer_edge_count": 1,
+      "transfer_mode": "one_equality_edge",
+      "transfer_record_index": 2
+    },
+    {
+      "access_mode": "direct_cycle_edge",
+      "auxiliary_center_pair": "2,7",
+      "chosen_cycle_endpoint_pair": [
+        1,
+        7
+      ],
+      "chosen_label4_pair": [
+        4,
+        7
+      ],
+      "multiplicity": 1,
+      "path_shape": "one_edge_row7_label4_spoke_swap",
+      "row_obligations": [
+        {
+          "centered_distance_equality": {
+            "center": 7,
+            "left_pair": [
+              4,
+              7
+            ],
+            "right_pair": [
+              1,
+              7
+            ],
+            "witness_pair": [
+              1,
+              4
+            ]
+          },
+          "edge_index": 0,
+          "from_pair": [
+            4,
+            7
+          ],
+          "label4_spoke_swap": true,
+          "obligation_key": "row7:[4,7]=[1,7]",
+          "obligation_role": "row7_label4_spoke_swap",
+          "row": 7,
+          "row6_connector_step": false,
+          "row_witness_pair": [
+            1,
+            4
+          ],
+          "to_pair": [
+            1,
+            7
+          ],
+          "touches_target_center": false
+        }
+      ],
+      "signature_index": 3,
+      "transfer_edge_count": 1,
+      "transfer_mode": "one_equality_edge",
+      "transfer_record_index": 6
+    },
+    {
+      "access_mode": "quotient_equality_only",
+      "auxiliary_center_pair": "3,5",
+      "chosen_cycle_endpoint_pair": [
+        0,
+        5
+      ],
+      "chosen_label4_pair": [
+        4,
+        5
+      ],
+      "multiplicity": 1,
+      "path_shape": "one_edge_row5_label4_spoke_swap",
+      "row_obligations": [
+        {
+          "centered_distance_equality": {
+            "center": 5,
+            "left_pair": [
+              4,
+              5
+            ],
+            "right_pair": [
+              0,
+              5
+            ],
+            "witness_pair": [
+              0,
+              4
+            ]
+          },
+          "edge_index": 0,
+          "from_pair": [
+            4,
+            5
+          ],
+          "label4_spoke_swap": true,
+          "obligation_key": "row5:[4,5]=[0,5]",
+          "obligation_role": "row5_label4_spoke_swap",
+          "row": 5,
+          "row6_connector_step": false,
+          "row_witness_pair": [
+            0,
+            4
+          ],
+          "to_pair": [
+            0,
+            5
+          ],
+          "touches_target_center": false
+        }
+      ],
+      "signature_index": 4,
+      "transfer_edge_count": 1,
+      "transfer_mode": "one_equality_edge",
+      "transfer_record_index": 8
+    },
+    {
+      "access_mode": "direct_cycle_edge",
+      "auxiliary_center_pair": "3,7",
+      "chosen_cycle_endpoint_pair": [
+        2,
+        7
+      ],
+      "chosen_label4_pair": [
+        4,
+        7
+      ],
+      "multiplicity": 1,
+      "path_shape": "one_edge_row7_label4_spoke_swap",
+      "row_obligations": [
+        {
+          "centered_distance_equality": {
+            "center": 7,
+            "left_pair": [
+              4,
+              7
+            ],
+            "right_pair": [
+              2,
+              7
+            ],
+            "witness_pair": [
+              2,
+              4
+            ]
+          },
+          "edge_index": 0,
+          "from_pair": [
+            4,
+            7
+          ],
+          "label4_spoke_swap": true,
+          "obligation_key": "row7:[4,7]=[2,7]",
+          "obligation_role": "row7_label4_spoke_swap",
+          "row": 7,
+          "row6_connector_step": false,
+          "row_witness_pair": [
+            2,
+            4
+          ],
+          "to_pair": [
+            2,
+            7
+          ],
+          "touches_target_center": false
+        }
+      ],
+      "signature_index": 5,
+      "transfer_edge_count": 1,
+      "transfer_mode": "one_equality_edge",
+      "transfer_record_index": 10
+    },
+    {
+      "access_mode": "quotient_equality_only",
+      "auxiliary_center_pair": "4,5",
+      "chosen_cycle_endpoint_pair": [
+        2,
+        5
+      ],
+      "chosen_label4_pair": [
+        4,
+        5
+      ],
+      "multiplicity": 1,
+      "path_shape": "one_edge_row5_label4_spoke_swap",
+      "row_obligations": [
+        {
+          "centered_distance_equality": {
+            "center": 5,
+            "left_pair": [
+              4,
+              5
+            ],
+            "right_pair": [
+              2,
+              5
+            ],
+            "witness_pair": [
+              2,
+              4
+            ]
+          },
+          "edge_index": 0,
+          "from_pair": [
+            4,
+            5
+          ],
+          "label4_spoke_swap": true,
+          "obligation_key": "row5:[4,5]=[2,5]",
+          "obligation_role": "row5_label4_spoke_swap",
+          "row": 5,
+          "row6_connector_step": false,
+          "row_witness_pair": [
+            2,
+            4
+          ],
+          "to_pair": [
+            2,
+            5
+          ],
+          "touches_target_center": false
+        }
+      ],
+      "signature_index": 6,
+      "transfer_edge_count": 1,
+      "transfer_mode": "one_equality_edge",
+      "transfer_record_index": 12
+    },
+    {
+      "access_mode": "direct_cycle_edge",
+      "auxiliary_center_pair": "5,8",
+      "chosen_cycle_endpoint_pair": [
+        0,
+        6
+      ],
+      "chosen_label4_pair": [
+        4,
+        5
+      ],
+      "multiplicity": 1,
+      "path_shape": "two_edge_row5_row6_connector_cascade",
+      "row_obligations": [
+        {
+          "centered_distance_equality": {
+            "center": 5,
+            "left_pair": [
+              4,
+              5
+            ],
+            "right_pair": [
+              5,
+              6
+            ],
+            "witness_pair": [
+              4,
+              6
+            ]
+          },
+          "edge_index": 0,
+          "from_pair": [
+            4,
+            5
+          ],
+          "label4_spoke_swap": true,
+          "obligation_key": "row5:[4,5]=[5,6]",
+          "obligation_role": "row5_label4_to_target_center_step",
+          "row": 5,
+          "row6_connector_step": false,
+          "row_witness_pair": [
+            4,
+            6
+          ],
+          "to_pair": [
+            5,
+            6
+          ],
+          "touches_target_center": true
+        },
+        {
+          "centered_distance_equality": {
+            "center": 6,
+            "left_pair": [
+              5,
+              6
+            ],
+            "right_pair": [
+              0,
+              6
+            ],
+            "witness_pair": [
+              0,
+              5
+            ]
+          },
+          "edge_index": 1,
+          "from_pair": [
+            5,
+            6
+          ],
+          "label4_spoke_swap": false,
+          "obligation_key": "row6:[5,6]=[0,6]",
+          "obligation_role": "row6_target_connector_step",
+          "row": 6,
+          "row6_connector_step": true,
+          "row_witness_pair": [
+            0,
+            5
+          ],
+          "to_pair": [
+            0,
+            6
+          ],
+          "touches_target_center": true
+        }
+      ],
+      "signature_index": 7,
+      "transfer_edge_count": 2,
+      "transfer_mode": "two_equality_edges",
+      "transfer_record_index": 13
+    },
+    {
+      "access_mode": "direct_cycle_edge",
+      "auxiliary_center_pair": "5,8",
+      "chosen_cycle_endpoint_pair": [
+        0,
+        6
+      ],
+      "chosen_label4_pair": [
+        4,
+        5
+      ],
+      "multiplicity": 1,
+      "path_shape": "two_edge_row5_row6_connector_cascade",
+      "row_obligations": [
+        {
+          "centered_distance_equality": {
+            "center": 5,
+            "left_pair": [
+              4,
+              5
+            ],
+            "right_pair": [
+              5,
+              6
+            ],
+            "witness_pair": [
+              4,
+              6
+            ]
+          },
+          "edge_index": 0,
+          "from_pair": [
+            4,
+            5
+          ],
+          "label4_spoke_swap": true,
+          "obligation_key": "row5:[4,5]=[5,6]",
+          "obligation_role": "row5_label4_to_target_center_step",
+          "row": 5,
+          "row6_connector_step": false,
+          "row_witness_pair": [
+            4,
+            6
+          ],
+          "to_pair": [
+            5,
+            6
+          ],
+          "touches_target_center": true
+        },
+        {
+          "centered_distance_equality": {
+            "center": 6,
+            "left_pair": [
+              5,
+              6
+            ],
+            "right_pair": [
+              0,
+              6
+            ],
+            "witness_pair": [
+              0,
+              5
+            ]
+          },
+          "edge_index": 1,
+          "from_pair": [
+            5,
+            6
+          ],
+          "label4_spoke_swap": false,
+          "obligation_key": "row6:[5,6]=[0,6]",
+          "obligation_role": "row6_target_connector_step",
+          "row": 6,
+          "row6_connector_step": true,
+          "row_witness_pair": [
+            0,
+            5
+          ],
+          "to_pair": [
+            0,
+            6
+          ],
+          "touches_target_center": true
+        }
+      ],
+      "signature_index": 8,
+      "transfer_edge_count": 2,
+      "transfer_mode": "two_equality_edges",
+      "transfer_record_index": 15
+    },
+    {
+      "access_mode": "direct_cycle_edge",
+      "auxiliary_center_pair": "5,8",
+      "chosen_cycle_endpoint_pair": [
+        0,
+        6
+      ],
+      "chosen_label4_pair": [
+        4,
+        5
+      ],
+      "multiplicity": 2,
+      "path_shape": "two_edge_row5_row6_connector_cascade",
+      "row_obligations": [
+        {
+          "centered_distance_equality": {
+            "center": 5,
+            "left_pair": [
+              4,
+              5
+            ],
+            "right_pair": [
+              5,
+              6
+            ],
+            "witness_pair": [
+              4,
+              6
+            ]
+          },
+          "edge_index": 0,
+          "from_pair": [
+            4,
+            5
+          ],
+          "label4_spoke_swap": true,
+          "obligation_key": "row5:[4,5]=[5,6]",
+          "obligation_role": "row5_label4_to_target_center_step",
+          "row": 5,
+          "row6_connector_step": false,
+          "row_witness_pair": [
+            4,
+            6
+          ],
+          "to_pair": [
+            5,
+            6
+          ],
+          "touches_target_center": true
+        },
+        {
+          "centered_distance_equality": {
+            "center": 6,
+            "left_pair": [
+              5,
+              6
+            ],
+            "right_pair": [
+              0,
+              6
+            ],
+            "witness_pair": [
+              0,
+              5
+            ]
+          },
+          "edge_index": 1,
+          "from_pair": [
+            5,
+            6
+          ],
+          "label4_spoke_swap": false,
+          "obligation_key": "row6:[5,6]=[0,6]",
+          "obligation_role": "row6_target_connector_step",
+          "row": 6,
+          "row6_connector_step": true,
+          "row_witness_pair": [
+            0,
+            5
+          ],
+          "to_pair": [
+            0,
+            6
+          ],
+          "touches_target_center": true
+        }
+      ],
+      "signature_index": 9,
+      "transfer_edge_count": 2,
+      "transfer_mode": "two_equality_edges",
+      "transfer_record_index": 17
+    }
+  ],
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "unique_edge_obligation_records": [
+    {
+      "access_mode_counts": {
+        "quotient_equality_only": 1
+      },
+      "centered_distance_equality": {
+        "center": 5,
+        "left_pair": [
+          4,
+          5
+        ],
+        "right_pair": [
+          0,
+          5
+        ],
+        "witness_pair": [
+          0,
+          4
+        ]
+      },
+      "from_pair": [
+        4,
+        5
+      ],
+      "label4_spoke_swap": true,
+      "obligation_key": "row5:[4,5]=[0,5]",
+      "obligation_role": "row5_label4_spoke_swap",
+      "occurrence_incidence_count": 1,
+      "path_shape_counts": {
+        "one_edge_row5_label4_spoke_swap": 1
+      },
+      "row": 5,
+      "row6_connector_step": false,
+      "row_witness_pair": [
+        0,
+        4
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        4
+      ],
+      "to_pair": [
+        0,
+        5
+      ],
+      "touches_target_center": false,
+      "transfer_record_indices": [
+        8
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "quotient_equality_only": 1
+      },
+      "centered_distance_equality": {
+        "center": 5,
+        "left_pair": [
+          4,
+          5
+        ],
+        "right_pair": [
+          2,
+          5
+        ],
+        "witness_pair": [
+          2,
+          4
+        ]
+      },
+      "from_pair": [
+        4,
+        5
+      ],
+      "label4_spoke_swap": true,
+      "obligation_key": "row5:[4,5]=[2,5]",
+      "obligation_role": "row5_label4_spoke_swap",
+      "occurrence_incidence_count": 1,
+      "path_shape_counts": {
+        "one_edge_row5_label4_spoke_swap": 1
+      },
+      "row": 5,
+      "row6_connector_step": false,
+      "row_witness_pair": [
+        2,
+        4
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        6
+      ],
+      "to_pair": [
+        2,
+        5
+      ],
+      "touches_target_center": false,
+      "transfer_record_indices": [
+        12
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 3
+      },
+      "centered_distance_equality": {
+        "center": 5,
+        "left_pair": [
+          4,
+          5
+        ],
+        "right_pair": [
+          5,
+          6
+        ],
+        "witness_pair": [
+          4,
+          6
+        ]
+      },
+      "from_pair": [
+        4,
+        5
+      ],
+      "label4_spoke_swap": true,
+      "obligation_key": "row5:[4,5]=[5,6]",
+      "obligation_role": "row5_label4_to_target_center_step",
+      "occurrence_incidence_count": 4,
+      "path_shape_counts": {
+        "two_edge_row5_row6_connector_cascade": 3
+      },
+      "row": 5,
+      "row6_connector_step": false,
+      "row_witness_pair": [
+        4,
+        6
+      ],
+      "signature_incidence_count": 3,
+      "signature_indices": [
+        7,
+        8,
+        9
+      ],
+      "to_pair": [
+        5,
+        6
+      ],
+      "touches_target_center": true,
+      "transfer_record_indices": [
+        13,
+        15,
+        17
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 1
+      },
+      "centered_distance_equality": {
+        "center": 5,
+        "left_pair": [
+          4,
+          5
+        ],
+        "right_pair": [
+          5,
+          7
+        ],
+        "witness_pair": [
+          4,
+          7
+        ]
+      },
+      "from_pair": [
+        4,
+        5
+      ],
+      "label4_spoke_swap": true,
+      "obligation_key": "row5:[4,5]=[5,7]",
+      "obligation_role": "row5_label4_spoke_swap",
+      "occurrence_incidence_count": 1,
+      "path_shape_counts": {
+        "one_edge_row5_label4_spoke_swap": 1
+      },
+      "row": 5,
+      "row6_connector_step": false,
+      "row_witness_pair": [
+        4,
+        7
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        1
+      ],
+      "to_pair": [
+        5,
+        7
+      ],
+      "touches_target_center": false,
+      "transfer_record_indices": [
+        2
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 3
+      },
+      "centered_distance_equality": {
+        "center": 6,
+        "left_pair": [
+          5,
+          6
+        ],
+        "right_pair": [
+          0,
+          6
+        ],
+        "witness_pair": [
+          0,
+          5
+        ]
+      },
+      "from_pair": [
+        5,
+        6
+      ],
+      "label4_spoke_swap": false,
+      "obligation_key": "row6:[5,6]=[0,6]",
+      "obligation_role": "row6_target_connector_step",
+      "occurrence_incidence_count": 4,
+      "path_shape_counts": {
+        "two_edge_row5_row6_connector_cascade": 3
+      },
+      "row": 6,
+      "row6_connector_step": true,
+      "row_witness_pair": [
+        0,
+        5
+      ],
+      "signature_incidence_count": 3,
+      "signature_indices": [
+        7,
+        8,
+        9
+      ],
+      "to_pair": [
+        0,
+        6
+      ],
+      "touches_target_center": true,
+      "transfer_record_indices": [
+        13,
+        15,
+        17
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 1
+      },
+      "centered_distance_equality": {
+        "center": 7,
+        "left_pair": [
+          4,
+          7
+        ],
+        "right_pair": [
+          1,
+          7
+        ],
+        "witness_pair": [
+          1,
+          4
+        ]
+      },
+      "from_pair": [
+        4,
+        7
+      ],
+      "label4_spoke_swap": true,
+      "obligation_key": "row7:[4,7]=[1,7]",
+      "obligation_role": "row7_label4_spoke_swap",
+      "occurrence_incidence_count": 1,
+      "path_shape_counts": {
+        "one_edge_row7_label4_spoke_swap": 1
+      },
+      "row": 7,
+      "row6_connector_step": false,
+      "row_witness_pair": [
+        1,
+        4
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        3
+      ],
+      "to_pair": [
+        1,
+        7
+      ],
+      "touches_target_center": false,
+      "transfer_record_indices": [
+        6
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 1
+      },
+      "centered_distance_equality": {
+        "center": 7,
+        "left_pair": [
+          4,
+          7
+        ],
+        "right_pair": [
+          2,
+          7
+        ],
+        "witness_pair": [
+          2,
+          4
+        ]
+      },
+      "from_pair": [
+        4,
+        7
+      ],
+      "label4_spoke_swap": true,
+      "obligation_key": "row7:[4,7]=[2,7]",
+      "obligation_role": "row7_label4_spoke_swap",
+      "occurrence_incidence_count": 1,
+      "path_shape_counts": {
+        "one_edge_row7_label4_spoke_swap": 1
+      },
+      "row": 7,
+      "row6_connector_step": false,
+      "row_witness_pair": [
+        2,
+        4
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        5
+      ],
+      "to_pair": [
+        2,
+        7
+      ],
+      "touches_target_center": false,
+      "transfer_record_indices": [
+        10
+      ]
+    }
+  ],
+  "validation_errors": [],
+  "validation_status": "passed"
+}

@@ -522,11 +522,16 @@ minimal/rich-class hypotheses.
    pins the selected-distance equality paths into those cycle classes: `11`
    class incidences are direct endpoint hits, `5` need one equality edge, and
    `3` need two equality edges; the positive transfer edges occur only in rows
-   `5`, `6`, and `7`. The next useful PR should prove a support-geometry
-   exclusion for those row-`5`/`6`/`7` direct/equality-only label-`4` transfer
-   modes, or prove that such label-`4` support forces endpoint `8` /
-   a label-`8`-visible row-`6` local core, not another selected-row
-   neighborhood widening around `151:6`. The
+   `5`, `6`, and `7`. The row-local obligation ledger
+   `python scripts/check_bootstrap_t12_151_6_label4_transfer_obligations.py --check --assert-expected --json`
+   then splits those positive transfers into `7` unique centered equality
+   obligations and `6` path motifs: every positive transfer starts with a
+   label-`4` spoke swap at row `5` or `7`, and every row-`6` obligation is the
+   connector step `[5,6]=[0,6]` after the repeated row-`5` step
+   `[4,5]=[5,6]`. The next useful PR should prove a support-geometry exclusion
+   for those row-local label-`4` transfer obligations, or prove that such
+   label-`4` support forces endpoint `8` / a label-`8`-visible row-`6` local
+   core, not another selected-row neighborhood widening around `151:6`. The
    source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine
