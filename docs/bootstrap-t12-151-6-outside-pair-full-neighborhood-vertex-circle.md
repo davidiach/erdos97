@@ -71,6 +71,16 @@ self-edge:     20
 strict-cycle:   8
 ```
 
+The derivative partition
+`docs/bootstrap-t12-151-6-outside-pair-escape-partition.md` splits these
+survivors by support role:
+
+```text
+private-halo-only connector-avoiding basic survivors: 12
+endpoint-8 connector-available basic survivors:       16
+vertex-circle survivors in both groups:                0
+```
+
 The checked scan status is:
 
 ```text

@@ -393,6 +393,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-151-6-outside-pair-connector-contract.md`](bootstrap-t12-151-6-outside-pair-connector-contract.md):
   connector contract splitting the source-`151` row-`6` endpoint-`8` outside
   supports from the private-halo-only connector escape.
+- [`bootstrap-t12-151-6-outside-pair-escape-partition.md`](bootstrap-t12-151-6-outside-pair-escape-partition.md):
+  crosswalk partitioning the source-`151` row-`6` full-neighborhood survivors
+  by private-halo-only versus endpoint-`8` support role.
 - [`bootstrap-t12-151-singleton-support-audit.md`](bootstrap-t12-151-singleton-support-audit.md):
   source-`151` singleton-support audit covering rows `151:5` and `151:8`.
 - [`bootstrap-t12-151-singleton-two-row-drop.md`](bootstrap-t12-151-singleton-two-row-drop.md):

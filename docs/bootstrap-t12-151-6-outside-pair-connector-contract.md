@@ -88,6 +88,12 @@ Can genuine outside-pair/rich-class geometry force one of [3,8] or [5,8],
 or can the private-halo-only pair [3,5] realize the connector-avoiding escape?
 ```
 
+The companion partition
+`docs/bootstrap-t12-151-6-outside-pair-escape-partition.md` locates this escape
+inside the full-neighborhood packet: private-halo-only rows leave `12`
+basic-filter survivors, while endpoint-`8` connector-available rows leave
+`16`; exact vertex-circle replay kills all `28`.
+
 Either outcome would reduce the bridge gap. Forcing an endpoint-`8` support
 gives the needed connector without proving the full fixed row. Explaining the
 `[3,5]` escape would isolate the exact geometric route that keeps the connector
