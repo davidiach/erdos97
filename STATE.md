@@ -543,6 +543,20 @@ escape. This remains diagnostic bookkeeping only, not outside-pair support
 existence, row forcing, `n=9`, or the bridge. See
 `docs/bootstrap-t12-151-6-outside-pair-connector-contract.md`.
 
+The source-`151` row-`6` private-lane residual packets now refine that
+connector-avoiding escape down to row-local label-`4` transfer obligations.
+The label-`8`-free strict-core split leaves `10` distinct exact residual
+signatures; every one needs auxiliary label `4`, and the transfer-path ledger
+pins shortest selected-distance paths from label-`4` pairs into the residual
+strict-cycle endpoint classes. The row-local obligation ledger then records
+`8` positive transfer incidences, `7` unique equality obligations, and `6` path
+motifs: every positive transfer starts with a label-`4` spoke swap at row `5`
+or row `7`, and every row-`6` obligation is the connector step `[5,6]=[0,6]`
+after the row-`5` step `[4,5]=[5,6]`. This is still proof-mining bookkeeping
+only, not support existence, row forcing, endpoint-`8` forcing, `[3,5]`
+impossibility, `n=9`, or the bridge. See
+`docs/bootstrap-t12-151-6-label4-transfer-obligations.md`.
+
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation
 rows built from its bootstrap-core witnesses plus one singleton support; in

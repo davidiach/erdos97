@@ -107,6 +107,30 @@ closest pairs in strictly convex polygons need not be adjacent. See
 `docs/closest-pair-radius-barrier.md` and
 `scripts/check_adjacent_closest_pair_nonagon_barrier.py`.
 
+### Restricted symmetric two-orbit reductions
+
+Status: `EXACT_OBSTRUCTION` for the stated symmetry classes only.
+
+For a full `C_k`-symmetric strictly convex configuration with `k >= 3` and at
+most two noncentral rotation orbits, the per-circle cap forces any bad row to
+split its four witnesses as `2+2` across the two orbits. Pair symmetry forces
+the orbit phases to be same-ray or half-step modulo `2*pi/k`; same-ray makes
+the smaller orbit non-vertex, and half-step reduces to the alternating
+two-radius regular family already killed by the exact checker. The `k=3`
+hexagon boundary is handled separately by the factor
+`3 - (1 + b^2 - b) = (2 - b)(b + 1)` on `1/2 < b < 2`.
+A direct gear-equation certificate gives the same half-step obstruction by
+forcing one expression to be both at least and strictly below
+`4 sin^2(pi/(2k))`.
+
+The same note records the local radius-ratio vertex condition
+`R_min >= R_max*cos(pi/k)` and the exterior-center obstruction for at most
+three concentric circles. These are narrow symmetry-class obstructions only:
+they do not cover `k=2`, mirror-only symmetry, partial orbits, three or more
+noncentral orbits, four or more exterior-center concentric circles, `n=9`, or
+Erdos Problem #97. See `docs/symmetric-two-orbit-reduction.md` and
+`scripts/check_two_orbit_radius_propagation.py`.
+
 ### Lemma: minimal-counterexample critical tie
 
 Status: proved.
@@ -894,6 +918,20 @@ row forcing, `n=9`, or the bootstrap bridge. See
 `docs/bootstrap-t12-151-6-outside-pair-connector-contract.md`,
 `scripts/check_bootstrap_t12_151_6_outside_pair_connector_contract.py`, and
 `data/certificates/bootstrap_t12_151_6_outside_pair_connector_contract.json`.
+
+The source-`151` row-`6` private-lane residual packets now identify the
+row-local label-`4` obligations left by the connector-avoiding pair `[3,5]`.
+After the label-`8`-free residual-target, quotient-role, and transfer-path
+ledgers, the obligation checker records `8` positive transfer incidences, `7`
+unique centered equality obligations, and `6` path motifs. Every positive
+transfer starts with a label-`4` spoke swap at row `5` or row `7`, while the
+only row-`6` transfer obligation is the connector step `[5,6]=[0,6]` after
+row `5` supplies `[4,5]=[5,6]`. This is still a finite diagnostic only, not a
+proof of support existence, row forcing, endpoint-`8` forcing, `[3,5]`
+impossibility, `n=9`, or the bootstrap bridge. See
+`docs/bootstrap-t12-151-6-label4-transfer-obligations.md`,
+`scripts/check_bootstrap_t12_151_6_label4_transfer_obligations.py`, and
+`data/certificates/bootstrap_t12_151_6_label4_transfer_obligations.json`.
 
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses

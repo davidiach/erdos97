@@ -978,6 +978,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   equality edges; the positive transfer-path edges occur only in rows `5`,
   `6`, and `7`. This is still a bridge target, not support existence, row
   forcing, endpoint-`8` forcing, or `[3,5]` impossibility.
+- bootstrap/T12 focused `151:6` label-`4` transfer-obligation evidence, as
+  recorded in `docs/bootstrap-t12-151-6-label4-transfer-obligations.md`,
+  splitting the positive transfer paths into `7` unique row-local equality
+  obligations and `6` path motifs. Every positive transfer starts with a
+  label-`4` spoke swap at row `5` or row `7`, while the only row-`6`
+  obligation is the repeated connector step `[5,6]=[0,6]` after row `5`
+  supplies `[4,5]=[5,6]`. This is still a bridge target, not support
+  existence, row forcing, endpoint-`8` forcing, or `[3,5]` impossibility.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed
