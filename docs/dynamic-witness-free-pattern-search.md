@@ -113,8 +113,8 @@ asymmetric cells ran at 8 restarts because the single-cell driver passed
 the next pass corrects it.
 
 Outcome unchanged and sharpened: still no candidate. The best strictly
-convex relative spread across all 39 cells is `8.3e-5` (`m=7, t=3`), and it
-is a floor-riding degeneration (margin `2.1e-7`, separation at the
+convex relative spread across all 39 cells is `4.3e-5` (`m=7, t=5`), and it
+is a floor-riding degeneration (margin `5.4e-8`, separation at the
 anti-cluster floor). Every strictly convex record below `1e-3` is either
 flagged `near_pair_floor` or has margin below `1e-5`; healthy-margin
 plateaus stay at relative spreads near `1e-2` or above. The unconstrained

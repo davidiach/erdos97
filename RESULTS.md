@@ -1439,8 +1439,9 @@ factor matches the `m = 3` window-endpoint hit. It is not a proof of Erdos
 Problem #97 and says nothing about three or more orbits. See
 `docs/two-orbit-circulant-obstruction.md`; machine audit:
 `scripts/check_two_orbit_dynamic_window_lemma.py --max-m 400 --assert-clear`
-(5,313,300 offset pairs, zero window roots, one exact `m = 3` boundary hit
-at `x = sec(pi/3)`, excluded by strictness).
+(5,313,300 offset pairs float64-screened with high-precision escalation for
+the one exact `m = 3` boundary hit at `x = sec(pi/3)`, zero window roots,
+boundary hit excluded by strictness).
 
 ### Lemma draft (review pending): half-step matching for multi-orbit cyclic configurations
 
@@ -1489,8 +1490,8 @@ basin. See `docs/dynamic-witness-free-pattern-search.md` and
 
 A second deep pass reran the 32 symmetric `t >= 3` cells at 64 restarts each
 plus asymmetric `n = 10..16`. Outcome unchanged and sharpened: still no
-candidate, best strictly convex relative spread `8.3e-5` (a floor-riding
-degeneration at margin `2.1e-7`), every strictly convex record below `1e-3`
+candidate, best strictly convex relative spread `4.3e-5` (a floor-riding
+degeneration at margin `5.4e-8`), every strictly convex record below `1e-3`
 either flagged `near_pair_floor` or with margin below `1e-5`, and the
 unconstrained lane near `1e-7`, consistent with exact nonconvex solutions
 existing while the strictly convex side walls off. See

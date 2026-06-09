@@ -875,8 +875,9 @@ symmetric two-orbit reduction note
 (`docs/symmetric-two-orbit-reduction.md`), whose gear equation is
 algebraically identical to this note's row equation; the two are mutual
 second-source provenance. See `docs/two-orbit-circulant-obstruction.md` and
-the audit checker `scripts/check_two_orbit_dynamic_window_lemma.py` (clear
-for `m <= 400` with one exact `m = 3` boundary hit excluded by strictness).
+the audit checker `scripts/check_two_orbit_dynamic_window_lemma.py`
+(float64-screened clear for `m <= 400`, with high-precision escalation for
+one exact `m = 3` boundary hit excluded by strictness).
 
 A companion dynamic-witness free-pattern searcher
 (`scripts/search_dynamic_witness.py`) lets every center re-select its best

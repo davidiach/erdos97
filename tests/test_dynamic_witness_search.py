@@ -5,7 +5,9 @@ from __future__ import annotations
 import math
 
 import numpy as np
+from pytest import MonkeyPatch
 
+import erdos97.dynamic_witness_search as dws
 from erdos97.dynamic_witness_search import (
     GuardConfig,
     evaluate_configuration,
@@ -83,3 +85,56 @@ def test_search_cell_smoke() -> None:
     }
     assert len(best["windows"]) == 2
     assert all(len(entry["witnesses"]) == 4 for entry in best["windows"])
+
+
+def test_search_cell_keeps_low_margin_convex_refinement_candidate(
+    monkeypatch: MonkeyPatch,
+) -> None:
+    """Tiered reports must inspect every refinement endpoint, not one winner."""
+
+    def fake_report(relative_spread: float, guards_satisfied: bool) -> dict[str, object]:
+        return {
+            "n": 8,
+            "max_window_spread": relative_spread,
+            "max_relative_spread": relative_spread,
+            "strictly_convex": True,
+            "guards_satisfied": guards_satisfied,
+            "convexity": {
+                "diameter": 1.0,
+                "min_cross_normalized": 1e-8,
+                "min_angle_gap": 0.1,
+                "min_pair_normalized": 0.5,
+                "min_edge_normalized": 0.5,
+            },
+            "windows": [],
+        }
+
+    def fake_refine(
+        m: int,
+        t: int,
+        x0: np.ndarray,
+        guards: GuardConfig,
+        max_cycles: int = 12,
+        max_nfev: int = 400,
+    ) -> tuple[
+        np.ndarray,
+        dict[str, object],
+        list[tuple[np.ndarray, dict[str, object]]],
+    ]:
+        del m, x0, guards, max_cycles, max_nfev
+        feasible_high_spread = (np.zeros(2 * t - 2), fake_report(0.5, True))
+        convex_low_spread = (np.ones(2 * t - 2), fake_report(0.01, False))
+        return feasible_high_spread[0], feasible_high_spread[1], [
+            feasible_high_spread,
+            convex_low_spread,
+        ]
+
+    monkeypatch.setattr(dws, "_refine_with_candidates", fake_refine)
+
+    record = search_cell(
+        4, 2, restarts=1, seed=7, guards=GuardConfig(require_convexity=False)
+    )
+
+    assert record["best_feasible"]["max_relative_spread"] == 0.5
+    assert record["best_convex"]["max_relative_spread"] == 0.01
+    assert record["best"]["max_relative_spread"] == 0.01

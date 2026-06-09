@@ -13,11 +13,12 @@ counterexample are claimed.
   family: no strictly convex union of two concentric regular `m`-gons is
   4-bad, for any radii and any relative rotation
   (`docs/two-orbit-circulant-obstruction.md`, audit checker
-  `scripts/check_two_orbit_dynamic_window_lemma.py`). This is a restricted
-  family obstruction, not a change to the official/global open status. It
-  was derived independently of the same-day restricted symmetric two-orbit
-  reduction note (`docs/symmetric-two-orbit-reduction.md`); the two notes
-  now cross-reference each other as mutual second-source provenance.
+  `scripts/check_two_orbit_dynamic_window_lemma.py`, with float64 screening
+  plus high-precision escalation). This is a restricted family obstruction,
+  not a change to the official/global open status. It was derived
+  independently of the same-day restricted symmetric two-orbit reduction note
+  (`docs/symmetric-two-orbit-reduction.md`); the two notes now
+  cross-reference each other as mutual second-source provenance.
 - Added the dynamic-witness free-pattern searcher
   (`src/erdos97/dynamic_witness_search.py`,
   `scripts/search_dynamic_witness.py`) and its first recorded equivariant

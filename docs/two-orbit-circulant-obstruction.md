@@ -179,20 +179,22 @@ finishes the proof.) QED (review pending).
 
 ## Machine audit
 
-`scripts/check_two_orbit_dynamic_window_lemma.py` independently checks, for
+`scripts/check_two_orbit_dynamic_window_lemma.py` independently screens, for
 every `m` in a range and every valid `(a, p)`, that the quadratic `E_A` has
-no root in the open window, using two redundant formulations (direct root
-location and the `T`-interval form) that are required to agree, with
-60-digit arithmetic and exact sympy escalation near boundaries:
+no root in the open window. The vectorized float64 screen evaluates two
+redundant formulations (direct root location and the `T`-interval form) and
+escalates any possible root, boundary case, or formulation mismatch to
+60-digit arithmetic with exact sympy zero-equivalence checks near boundaries:
 
 ```bash
 python scripts/check_two_orbit_dynamic_window_lemma.py --max-m 120 --assert-clear
 ```
 
-Recorded result: `m = 3..120`, `142,190` pairs checked, zero window roots,
-and exactly one boundary equality hit, at `m = 3`, `a = 1`, `p = 1`, which
-is the `x = sec h` equality case identified in Step 5 and excluded by strict
-convexity. The default `--max-m 400` run is also clear.
+Recorded result: `m = 3..120`, `142,190` pairs float64-screened, one
+high-precision escalation, zero window roots, and exactly one boundary
+equality hit, at `m = 3`, `a = 1`, `p = 1`, which is the `x = sec h`
+equality case identified in Step 5 and excluded by strict convexity. The
+default `--max-m 400` run is also clear.
 
 ## Scope and non-claims
 

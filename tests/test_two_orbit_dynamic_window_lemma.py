@@ -24,11 +24,16 @@ def test_valid_pairs_counts() -> None:
 
 def test_window_clear_up_to_m_60_with_single_boundary_hit() -> None:
     total_boundary = 0
+    total_high_precision = 0
     for m in range(3, 61):
         record = check_m(m)
         assert record["window_roots"] == [], f"unexpected window root at m={m}"
+        assert record["float64_screened_pairs"] == len(valid_pairs(m))
+        assert record["high_precision_pairs"] <= record["pairs_checked"]
         total_boundary += record["boundary_hits"]
+        total_high_precision += record["high_precision_pairs"]
     assert total_boundary == 1
+    assert total_high_precision >= total_boundary
 
 
 def test_m3_boundary_is_exactly_sec_h() -> None:

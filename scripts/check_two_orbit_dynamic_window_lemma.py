@@ -15,18 +15,20 @@ same-orbit pair ``{A_{+a}, A_{-a}}`` and one cross-orbit pair with odd offset
     x^2 - 2*x*cos(p*h) + 1 - 4*sin(a*h)^2 = 0
 
 must have a root in the strict-convexity window ``(cos h, sec h)``.  This
-script verifies, for every ``m`` up to ``--max-m`` and every valid pair
-``(a, p)``, that no root lies in the open window.  Two redundant tests are
-used and must agree:
+script screens every ``m`` up to ``--max-m`` and every valid pair ``(a, p)``
+for a possible root in the open window.  The float64 screen evaluates two
+redundant tests:
 
 1. root-location: both quadratic roots are outside ``(cos h, sec h)``;
 2. interval form: ``T = cos(2rh) + cos(2(r+1)h) - 2*cos(2ah)`` with
    ``p = 2r + 1`` is outside the open interval
    ``(-sin(h)^2, (1 - 2*cos(2ah)) * sin(h)^2)``.
 
-Borderline values (within ``1e-30`` of zero at 60-digit precision) are
-escalated to exact sympy zero-equivalence checks; the only equality cases
-expected are exact window-boundary hits, which are excluded by strictness.
+Pairs that look like roots, boundary hits, or formulation mismatches at
+float precision are rechecked with 60-digit mpmath arithmetic. Borderline
+values (within ``1e-30`` of zero at 60-digit precision) are escalated to exact
+sympy zero-equivalence checks; the only equality cases expected are exact
+window-boundary hits, which are excluded by strictness.
 
 This checker is an audit aid for a review-pending lemma draft about one
 restricted configuration family. It is not a proof of Erdos Problem #97 and
@@ -172,9 +174,10 @@ def _fast_screen(m: int) -> list[tuple[int, int]]:
 
 def check_m(m: int) -> dict[str, object]:
     pairs = valid_pairs(m)
+    slow_pairs = _fast_screen(m)
     violations: list[dict[str, int]] = []
     boundary_hits = 0
-    for a, p in _fast_screen(m):
+    for a, p in slow_pairs:
         in_window, boundary = window_root_exists(m, a, p)
         boundary_hits += boundary
         mirror = interval_form_root_exists(m, a, p)
@@ -188,6 +191,8 @@ def check_m(m: int) -> dict[str, object]:
     return {
         "m": m,
         "pairs_checked": len(pairs),
+        "float64_screened_pairs": len(pairs),
+        "high_precision_pairs": len(slow_pairs),
         "window_roots": violations,
         "boundary_hits": boundary_hits,
     }
@@ -206,11 +211,13 @@ def main() -> int:
     args = parser.parse_args()
 
     total_pairs = 0
+    total_high_precision = 0
     total_boundary = 0
     bad: list[dict[str, object]] = []
     for m in range(args.min_m, args.max_m + 1):
         record = check_m(m)
         total_pairs += record["pairs_checked"]
+        total_high_precision += record["high_precision_pairs"]
         total_boundary += record["boundary_hits"]
         if record["window_roots"]:
             bad.append(record)
@@ -224,6 +231,9 @@ def main() -> int:
         "min_m": args.min_m,
         "max_m": args.max_m,
         "pairs_checked": total_pairs,
+        "float64_screened_pairs": total_pairs,
+        "high_precision_pairs": total_high_precision,
+        "fast_screen_band": FAST_BAND,
         "boundary_equality_hits": total_boundary,
         "cells_with_window_roots": bad,
         "clear": not bad,
@@ -233,6 +243,7 @@ def main() -> int:
     else:
         print(
             f"m={args.min_m}..{args.max_m}: pairs={total_pairs} "
+            f"high_precision={total_high_precision} "
             f"boundary_hits={total_boundary} clear={not bad}"
         )
     if args.assert_clear and bad:

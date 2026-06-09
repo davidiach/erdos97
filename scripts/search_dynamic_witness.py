@@ -165,7 +165,11 @@ def main() -> int:
     if args.out:
         args.out.mkdir(parents=True, exist_ok=True)
         out_path = args.out / "summary.json"
-        out_path.write_text(json.dumps(payload, indent=1, sort_keys=True) + "\n")
+        out_path.write_text(
+            json.dumps(payload, indent=1, sort_keys=True) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
         print(f"wrote {out_path}")
     if args.json:
         print(json.dumps(payload, indent=1, sort_keys=True))

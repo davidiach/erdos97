@@ -298,12 +298,29 @@ def refine(
 ) -> tuple[Array, dict[str, object]]:
     """Alternate dynamic witness assignment with Levenberg-Marquardt steps."""
 
+    best_x, final_report, _ = _refine_with_candidates(
+        m, t, x0, guards, max_cycles=max_cycles, max_nfev=max_nfev
+    )
+    return best_x, final_report
+
+
+def _refine_with_candidates(
+    m: int,
+    t: int,
+    x0: Array,
+    guards: GuardConfig,
+    max_cycles: int = 12,
+    max_nfev: int = 400,
+) -> tuple[Array, dict[str, object], list[tuple[Array, dict[str, object]]]]:
+    """Refine while retaining every cycle endpoint for later tiered reporting."""
+
     if t < 2:
         raise ValueError("dynamic-witness refinement needs at least two orbits")
     x = np.array(x0, dtype=float)
     centers = [j * m for j in range(t)]
     best_x = x.copy()
     best_metric = float("inf")
+    candidates: list[tuple[Array, dict[str, object]]] = []
     previous_keys: set[tuple[tuple[int, ...], ...]] = set()
     for _ in range(max_cycles):
         radii, thetas = _unpack(x, t)
@@ -322,6 +339,7 @@ def refine(
         radii, thetas = _unpack(x, t)
         points = unfold_orbits(m, radii, thetas)
         report = evaluate_configuration(points, centers, guards)
+        candidates.append((x.copy(), report))
         feasible = bool(report["guards_satisfied"])
         metric = float(report["max_relative_spread"]) + (0.0 if feasible else 1e3)
         if metric < best_metric:
@@ -333,7 +351,9 @@ def refine(
     radii, thetas = _unpack(best_x, t)
     points = unfold_orbits(m, radii, thetas)
     final_report = evaluate_configuration(points, centers, guards)
-    return best_x, final_report
+    if not candidates:
+        candidates.append((best_x.copy(), final_report))
+    return best_x, final_report, candidates
 
 
 def convex_ok(report: dict[str, object], guards: GuardConfig) -> bool:
@@ -428,19 +448,20 @@ def search_cell(
         th = base_angles + rng.normal(0.0, jitter * 2.0 * np.pi / n, size=t - 1)
         x0 = np.concatenate([u, th])
         stage_results: list[tuple[Array, dict[str, object]]] = []
-        x1, _ = refine(m, t, x0, guards, max_cycles=max_cycles)
-        radii, thetas = _unpack(x1, t)
-        report1 = evaluate_configuration(
-            unfold_orbits(m, radii, thetas), centers, guards
+        x1, _, candidates1 = _refine_with_candidates(
+            m, t, x0, guards, max_cycles=max_cycles
         )
-        stage_results.append((x1, report1))
+        stage_results.extend(candidates1)
         if guards.require_convexity:
-            x2, _ = refine(m, t, x1, annealed_guards, max_cycles=4)
-            radii, thetas = _unpack(x2, t)
-            report2 = evaluate_configuration(
-                unfold_orbits(m, radii, thetas), centers, guards
+            _, _, candidates2 = _refine_with_candidates(
+                m, t, x1, annealed_guards, max_cycles=4
             )
-            stage_results.append((x2, report2))
+            for candidate_x, _ in candidates2:
+                radii, thetas = _unpack(candidate_x, t)
+                report = evaluate_configuration(
+                    unfold_orbits(m, radii, thetas), centers, guards
+                )
+                stage_results.append((candidate_x, report))
         restart_feasible = False
         restart_convex = False
         for x, report in stage_results:
