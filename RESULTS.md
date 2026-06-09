@@ -107,6 +107,30 @@ closest pairs in strictly convex polygons need not be adjacent. See
 `docs/closest-pair-radius-barrier.md` and
 `scripts/check_adjacent_closest_pair_nonagon_barrier.py`.
 
+### Restricted symmetric two-orbit reductions
+
+Status: `EXACT_OBSTRUCTION` for the stated symmetry classes only.
+
+For a full `C_k`-symmetric strictly convex configuration with `k >= 3` and at
+most two noncentral rotation orbits, the per-circle cap forces any bad row to
+split its four witnesses as `2+2` across the two orbits. Pair symmetry forces
+the orbit phases to be same-ray or half-step modulo `2*pi/k`; same-ray makes
+the smaller orbit non-vertex, and half-step reduces to the alternating
+two-radius regular family already killed by the exact checker. The `k=3`
+hexagon boundary is handled separately by the factor
+`3 - (1 + b^2 - b) = (2 - b)(b + 1)` on `1/2 < b < 2`.
+A direct gear-equation certificate gives the same half-step obstruction by
+forcing one expression to be both at least and strictly below
+`4 sin^2(pi/(2k))`.
+
+The same note records the local radius-ratio vertex condition
+`R_min >= R_max*cos(pi/k)` and the exterior-center obstruction for at most
+three concentric circles. These are narrow symmetry-class obstructions only:
+they do not cover `k=2`, mirror-only symmetry, partial orbits, three or more
+noncentral orbits, four or more exterior-center concentric circles, `n=9`, or
+Erdos Problem #97. See `docs/symmetric-two-orbit-reduction.md` and
+`scripts/check_two_orbit_radius_propagation.py`.
+
 ### Lemma: minimal-counterexample critical tie
 
 Status: proved.
