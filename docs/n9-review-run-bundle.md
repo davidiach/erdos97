@@ -29,7 +29,9 @@ After a reviewer has a run digest and written notes, the decision-intake
 checker validates any external decision record against the current gate ledger.
 The vertex-circle route decision preflight is included as a compact
 pre-decision guard: it checks that the internal A6/A7, A8, and A10 notes are
-ready for intake while the relevant gates remain open.
+ready for intake while the relevant gates remain open. The route decision
+request checker is included too, so the captured command surface also verifies
+the requested gate partition and reviewer workflow without accepting any gate.
 
 ## Commands
 

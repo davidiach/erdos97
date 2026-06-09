@@ -109,6 +109,12 @@ It verifies that the internal A6/A7, A8, and A10 review notes are present,
 that the route gates remain open, and that `accepted_vertex_circle_route`
 still requires written independent review. It is not a decision record.
 
+The explicit vertex-circle route decision request is
+`docs/n9-vertex-circle-route-decision-request.md`, checked by
+`python scripts/check_n9_vertex_circle_route_decision_request.py --check --summary-json`.
+It records the requested `accepted_vertex_circle_route` gate partition and
+reviewer commands. It is still only a request packet, not a written decision.
+
 ## Review routes
 
 ### Route A: vertex-circle closure
@@ -168,6 +174,7 @@ python scripts/check_n9_review_dossier.py --check --summary-json
 python scripts/check_n9_review_run_bundle.py --check --summary-json
 python scripts/check_n9_review_decision_intake.py --check --summary-json
 python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json
+python scripts/check_n9_vertex_circle_route_decision_request.py --check --summary-json
 python scripts/check_lean_sketch_integrity.py
 python scripts/check_lean_files.py
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json

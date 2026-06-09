@@ -30,6 +30,7 @@ required_documents:
   - docs/n9-review-dossier.md
   - docs/n9-review-run-bundle.md
   - docs/n9-review-decision-intake.md
+  - docs/n9-vertex-circle-route-decision-request.md
   - docs/n9-reduction-chain.md
 
 sections:
@@ -78,6 +79,7 @@ sections:
       - n9_review_run_bundle
       - n9_review_decision_intake
       - n9_vertex_circle_route_decision_preflight
+      - n9_vertex_circle_route_decision_request
       - lean_sketch_integrity
       - lean_files
       - n9_vertex_circle_exhaustive

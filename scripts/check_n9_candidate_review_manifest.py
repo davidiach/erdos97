@@ -50,6 +50,7 @@ SUMMARY_JSON_REVIEW_COMMAND_PREFIXES = (
     "python scripts/check_n9_review_run_bundle.py",
     "python scripts/check_n9_review_decision_intake.py",
     "python scripts/check_n9_vertex_circle_route_decision_preflight.py",
+    "python scripts/check_n9_vertex_circle_route_decision_request.py",
     "python scripts/check_n9_vertex_circle_input_audit.py",
     "python scripts/check_n9_vertex_circle_incidence_filters.py",
     "python scripts/check_n9_vertex_circle_mro_branching_replay.py",

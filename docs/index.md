@@ -52,6 +52,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-route-decision-preflight.md`](n9-vertex-circle-route-decision-preflight.md):
   checked preflight for handing the internal A6/A7, A8, and A10 vertex-circle
   notes into the still-open written-review decision intake.
+- [`n9-vertex-circle-route-decision-request.md`](n9-vertex-circle-route-decision-request.md):
+  checked request packet spelling out the vertex-circle route gate partition
+  and reviewer commands without accepting any gate.
 - [`gpt55-solver-brief.md`](gpt55-solver-brief.md): front-loaded LLM
   solver-steering brief with anti-loop guardrails, hard status boundaries, and
   live frontier output contracts; prompt context only, not mathematical
@@ -500,6 +503,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-route-decision-preflight.md`](n9-vertex-circle-route-decision-preflight.md):
   checked handoff preflight joining the internal A6/A7, A8, and A10 review
   notes to the still-open vertex-circle route decision-intake requirements.
+- [`n9-vertex-circle-route-decision-request.md`](n9-vertex-circle-route-decision-request.md):
+  checked reviewer request packet for the same vertex-circle route decision;
+  request-only, not a gate acceptance or `n=9` status promotion.
 - [`n9-vertex-circle-certificate-chain.md`](n9-vertex-circle-certificate-chain.md):
   assignment-id bridge from the review-pending `n=9` frontier artifacts to the
   12 local quotient-obstruction templates.
