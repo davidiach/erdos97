@@ -1426,7 +1426,83 @@ stored zero-conflict conclusion while recording that the older probe's
 `rows_seen` counters were not full-row counts. It is a fixed-order filter
 diagnostic only, not an all-order obstruction or proof of Erdos Problem #97.
 
+### Lemma draft (review pending): two-orbit circulant configurations
+
+Status: `LEMMA` draft, review pending; restricted family only.
+
+No strictly convex polygon whose vertex set is two concentric regular
+`m`-gons (any radii, any relative rotation, `m >= 3`) has four equidistant
+other vertices at every vertex. The proof first forces the relative rotation
+to `0` (impossible by a ray argument) or the exact half-step `pi/m`, then
+forces each first-orbit witness row to one same-orbit pair plus one
+cross-orbit pair, and finally shows the resulting radius-ratio quadratic has
+no root in the strict-convexity window `(cos(pi/m), sec(pi/m))` by a
+four-case cosine-ladder argument. Within its family this supersedes the
+fixed quarter-turn half-step ansatz obstruction, and it is an independent
+second-source derivation of the same family obstruction as the restricted
+symmetric two-orbit reduction entry above: that note's gear equation is
+algebraically identical to the row equation here, and its `k = 3` boundary
+factor matches the `m = 3` window-endpoint hit. It is not a proof of Erdos
+Problem #97 and says nothing about three or more orbits. See
+`docs/two-orbit-circulant-obstruction.md`; machine audit:
+`scripts/check_two_orbit_dynamic_window_lemma.py --max-m 400 --assert-clear`
+(5,313,300 offset pairs float64-screened with high-precision escalation for
+the one exact `m = 3` boundary hit at `x = sec(pi/3)`, zero window roots,
+boundary hit excluded by strictness).
+
+### Lemma draft (review pending): half-step matching for multi-orbit cyclic configurations
+
+Status: `LEMMA` draft, review pending; structural reduction only.
+
+In any strictly convex union of `t >= 2` noncentral `C_m` orbits, no
+pairwise orbit offset is `0 mod 2*pi/m`, and the half-step pairs
+(offset exactly `pi/m`) form a partial matching on the orbits: no orbit can
+be half-step-aligned with two others, since the two partners would then be
+mutually aligned. Any row using two witnesses from a foreign orbit forces
+that orbit pair to be half-step, so for `t = 3` at least two pairwise
+offsets are generic and the rows of at least one orbit are forced into
+own-pair-plus-two-singles shape, carrying two distance equations each.
+Every `t = 3` branch is strictly overdetermined (three unknowns against at
+least four equations, or four against six). This is structural reduction
+bookkeeping toward the window analyses; it is not an obstruction for
+`t >= 3`, not an `n`-range exclusion, and not a proof of Erdos Problem #97.
+See `docs/half-step-matching-reduction.md`.
+
 ## Numerical Attempts
+
+### Dynamic-witness free-pattern sweep (2026-06-09)
+
+Status: `NUMERICAL_EVIDENCE`; no candidate found.
+
+The dynamic-witness searcher lets every center re-select its best witness
+4-set (minimum-spread window over sorted squared distances) at every
+evaluation, so one continuous run probes all witness patterns reachable by a
+configuration family instead of one registered pattern at a time. The first
+recorded sweep covers cyclic-equivariant cells `C_m` with `t` orbits for
+`10 <= n = m*t <= 36` plus small asymmetric cells, with hard anti-cluster
+separation floors and convexity-margin guards plus floor annealing.
+
+No run approached the candidate gate. Strictly convex local optima plateau at
+relative spreads around `1e-2` to `1e-1` at healthy margins; every strictly
+convex record below spread `2e-3` has normalized convexity margin below
+`1e-4`, and the smallest spreads (about `1e-4`) also pin the pairwise
+separation at the anti-cluster floor, which is the historical
+B12/AlphaEvolve cluster degeneration mode, recorded here as boundary
+diagnostics rather than near-misses. With the convexity guard dropped, a
+deterministic seeded test converges to the exact nonconvex 24-point
+metric-linear configuration at relative spread below `1e-10`, confirming
+the alternation machinery can land on exact solutions that are in its
+basin. See `docs/dynamic-witness-free-pattern-search.md` and
+`data/runs/dynamic_witness_sweep_2026-06-09/summary.json`.
+
+A second deep pass reran the 32 symmetric `t >= 3` cells at 64 restarts each
+plus asymmetric `n = 10..16`. Outcome unchanged and sharpened: still no
+candidate, best strictly convex relative spread `4.3e-5` (a floor-riding
+degeneration at margin `5.4e-8`), every strictly convex record below `1e-3`
+either flagged `near_pair_floor` or with margin below `1e-5`, and the
+unconstrained lane near `1e-7`, consistent with exact nonconvex solutions
+existing while the strictly convex side walls off. See
+`data/runs/dynamic_witness_sweep_2026-06-09b/summary.json`.
 
 ### C13_sidon_1_2_4_10
 

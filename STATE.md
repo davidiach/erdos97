@@ -865,6 +865,45 @@ that all-exact-four layer, and does not change the global status. See
 `docs/n10-q2-rich-vertex-circle.md`, and
 `docs/n10-q1-rich-vertex-circle.md`.
 
+## Two-orbit family obstruction and free-pattern search (2026-06-09)
+
+A review-pending lemma draft now covers the whole two-orbit circulant family:
+no strictly convex polygon whose vertex set is two concentric regular
+`m`-gons (any radii, any relative rotation, `m >= 3`) is 4-bad. The proof
+forces the relative rotation to the exact half-step `pi/m`, forces each
+first-orbit row to one same-orbit pair plus one cross-orbit pair, and shows
+the resulting radius-ratio quadratic has no root in the strict-convexity
+window. Within its family this supersedes the fixed quarter-turn half-step
+ansatz; it is not a proof of Erdos Problem #97 and says nothing about three
+or more orbits. It was derived independently of the same-day restricted
+symmetric two-orbit reduction note
+(`docs/symmetric-two-orbit-reduction.md`), whose gear equation is
+algebraically identical to this note's row equation; the two are mutual
+second-source provenance. See `docs/two-orbit-circulant-obstruction.md` and
+the audit checker `scripts/check_two_orbit_dynamic_window_lemma.py`
+(float64-screened clear for `m <= 400`, with high-precision escalation for
+one exact `m = 3` boundary hit excluded by strictness).
+
+A companion dynamic-witness free-pattern searcher
+(`scripts/search_dynamic_witness.py`) lets every center re-select its best
+witness 4-set at each evaluation, probing all witness patterns reachable by a
+configuration family at once, with hard anti-cluster floors against the known
+degenerate exploit. Its first equivariant sweep (`10 <= n <= 36`) found no
+candidate: strictly convex optima plateau at relative spreads near `1e-2`,
+and the smallest spreads occur only in floor-riding degenerations. A second
+deep pass (64 restarts on every `t >= 3` symmetric cell, asymmetric
+`n = 10..16`) sharpened the same outcome with no candidate. This is
+`NUMERICAL_EVIDENCE` only; see
+`docs/dynamic-witness-free-pattern-search.md`.
+
+A follow-up half-step matching reduction records the `t >= 3` structure:
+no aligned orbit pairs exist, half-step pairs form a partial matching on
+the orbits, and for three orbits at least two pairwise offsets are generic,
+forcing own-pair-plus-two-singles rows with two equations each, so every
+`t = 3` branch is strictly overdetermined. This is review-pending
+structural reduction bookkeeping toward window analyses, not an
+obstruction. See `docs/half-step-matching-reduction.md`.
+
 ## Best saved near-miss
 
 The best saved near-miss is still the historical `B12_3x4_danzer_lift`

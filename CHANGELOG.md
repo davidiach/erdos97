@@ -7,6 +7,32 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-06-09
+
+- Added a review-pending lemma draft covering the full two-orbit circulant
+  family: no strictly convex union of two concentric regular `m`-gons is
+  4-bad, for any radii and any relative rotation
+  (`docs/two-orbit-circulant-obstruction.md`, audit checker
+  `scripts/check_two_orbit_dynamic_window_lemma.py`, with float64 screening
+  plus high-precision escalation). This is a restricted family obstruction,
+  not a change to the official/global open status. It was derived
+  independently of the same-day restricted symmetric two-orbit reduction note
+  (`docs/symmetric-two-orbit-reduction.md`); the two notes now
+  cross-reference each other as mutual second-source provenance.
+- Added the dynamic-witness free-pattern searcher
+  (`src/erdos97/dynamic_witness_search.py`,
+  `scripts/search_dynamic_witness.py`) and its first recorded equivariant
+  sweep artifact (`data/runs/dynamic_witness_sweep_2026-06-09/`), recorded
+  as `NUMERICAL_EVIDENCE` with no candidate found and explicit
+  anti-degeneracy floors against the cluster exploit. A second deep pass at
+  4x the restart budget (`data/runs/dynamic_witness_sweep_2026-06-09b/`)
+  sharpened the same no-candidate outcome.
+- Added the review-pending half-step matching reduction for multi-orbit
+  cyclic configurations (`docs/half-step-matching-reduction.md`): no
+  aligned orbit pairs, half-step pairs form a partial matching, and every
+  `t = 3` branch is strictly overdetermined. Structural reduction
+  bookkeeping only.
+
 ## 2026-05-10
 
 - Added `docs/public-provenance.md` as the public replacement map for old
