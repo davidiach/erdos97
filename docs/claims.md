@@ -1228,6 +1228,17 @@ pairs `[3,8]` and `[5,8]`, and the connector-avoiding private-halo-only pair
 support existence, row forcing, `n=9`, the bootstrap bridge, or Erdos Problem
 #97.
 
+The follow-up source-`151` row-`6` label-`4` transfer ledgers isolate the
+private-halo-only residual target. They first split positive transfers into
+row-local equality obligations, then collapse those obligations into six
+segment-length components, including the row-`5`/row-`6` cascade
+`D[0,6]=D[4,5]=D[5,6]`. The component-feasibility negative control gives a
+strict cyclic convex `9`-gon arc witness for each component considered alone.
+This rejects component-alone impossibility as a bridge shortcut, but it does
+not give one polygon realizing all six components at once and does not prove
+support existence, row forcing, endpoint-`8` forcing, `[3,5]` impossibility,
+`n=9`, the bootstrap bridge, or Erdos Problem #97.
+
 The source-`151` singleton-support audit in
 `docs/bootstrap-t12-151-singleton-support-audit.md` covers rows `151:5` and
 `151:8`. In both fixed source-`151` neighborhoods, only the original target row

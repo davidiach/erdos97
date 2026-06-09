@@ -103,6 +103,13 @@ This does not prove that the residual support geometry is impossible. It turns
 the row-local label-`4` transfer obligations into exact edge/diagonal cases
 that a future support-geometry lemma can attack directly.
 
+The companion feasibility negative control
+`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md` checks the
+opposite boundary: each of these six components, considered by itself, has a
+strict cyclic convex `9`-gon arc witness. Thus a future exclusion must use
+additional private-support, rich-class, row-forcing, or activation-provenance
+hypotheses rather than the bare equal-length component alone.
+
 ## What This Does Not Prove
 
 This artifact does not prove outside-pair support existence, does not prove row

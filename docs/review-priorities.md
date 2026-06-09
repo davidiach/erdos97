@@ -996,6 +996,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   cyclic-gap-`3` diagonal. This is still a support-geometry target, not
   support existence, row forcing, endpoint-`8` forcing, or `[3,5]`
   impossibility.
+- bootstrap/T12 focused `151:6` label-`4` transfer component-feasibility
+  negative-control evidence, as recorded in
+  `docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`, giving
+  a strict cyclic convex `9`-gon arc witness for each of the six
+  length-components considered alone, including a modulus-`13` witness for
+  the row-`6` cascade. This rejects component-alone impossibility only; the
+  remaining target must use genuine private-support, rich-class, row-forcing,
+  or activation-provenance hypotheses.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

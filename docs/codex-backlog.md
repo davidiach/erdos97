@@ -534,10 +534,15 @@ minimal/rich-class hypotheses.
    over `9` segments: `3` edge-diagonal components, `2` diagonal-only
    components, and the row-`5`/row-`6` connector cascade
    `D[0,6]=D[4,5]=D[5,6]`, which ties two hull edges to a cyclic-gap-`3`
-   diagonal. The next useful PR should prove a support-geometry exclusion for
-   one of those six components, especially the connector cascade, or prove that
-   such label-`4` support forces endpoint `8` / a label-`8`-visible row-`6`
-   local core, not another selected-row neighborhood widening around `151:6`.
+   diagonal. The component-feasibility negative control
+   `python scripts/check_bootstrap_t12_151_6_label4_transfer_component_feasibility.py --check --assert-expected --json`
+   gives a strict cyclic convex `9`-gon arc witness for each component
+   considered alone, including a modulus-`13` witness for the connector
+   cascade. The next useful PR should therefore prove a support-geometry
+   exclusion under genuine private-support or rich-class hypotheses, or prove
+   that such label-`4` support forces endpoint `8` / a label-`8`-visible
+   row-`6` local core, not a component-alone impossibility claim and not
+   another selected-row neighborhood widening around `151:6`.
    The source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine
