@@ -552,10 +552,15 @@ strict-cycle endpoint classes. The row-local obligation ledger then records
 `8` positive transfer incidences, `7` unique equality obligations, and `6` path
 motifs: every positive transfer starts with a label-`4` spoke swap at row `5`
 or row `7`, and every row-`6` obligation is the connector step `[5,6]=[0,6]`
-after the row-`5` step `[4,5]=[5,6]`. This is still proof-mining bookkeeping
-only, not support existence, row forcing, endpoint-`8` forcing, `[3,5]`
-impossibility, `n=9`, or the bridge. See
-`docs/bootstrap-t12-151-6-label4-transfer-obligations.md`.
+after the row-`5` step `[4,5]=[5,6]`. The length-component ledger then
+collapses those obligations into `6` undirected segment-length components over
+`9` distinct segments. There are `3` edge-diagonal components, `2`
+diagonal-only components, and one row-`5`/row-`6` connector cascade
+`D[0,6]=D[4,5]=D[5,6]`, tying two hull edges to a cyclic-gap-`3` diagonal.
+This is still proof-mining bookkeeping only, not support existence, row
+forcing, endpoint-`8` forcing, `[3,5]` impossibility, `n=9`, or the bridge.
+See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
+`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`.
 
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation

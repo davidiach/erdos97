@@ -528,11 +528,17 @@ minimal/rich-class hypotheses.
    obligations and `6` path motifs: every positive transfer starts with a
    label-`4` spoke swap at row `5` or `7`, and every row-`6` obligation is the
    connector step `[5,6]=[0,6]` after the repeated row-`5` step
-   `[4,5]=[5,6]`. The next useful PR should prove a support-geometry exclusion
-   for those row-local label-`4` transfer obligations, or prove that such
-   label-`4` support forces endpoint `8` / a label-`8`-visible row-`6` local
-   core, not another selected-row neighborhood widening around `151:6`. The
-   source-`151` singleton-support audit in
+   `[4,5]=[5,6]`. The length-component ledger
+   `python scripts/check_bootstrap_t12_151_6_label4_transfer_length_components.py --check --assert-expected --json`
+   collapses those obligations into `6` undirected segment-length components
+   over `9` segments: `3` edge-diagonal components, `2` diagonal-only
+   components, and the row-`5`/row-`6` connector cascade
+   `D[0,6]=D[4,5]=D[5,6]`, which ties two hull edges to a cyclic-gap-`3`
+   diagonal. The next useful PR should prove a support-geometry exclusion for
+   one of those six components, especially the connector cascade, or prove that
+   such label-`4` support forces endpoint `8` / a label-`8`-visible row-`6`
+   local core, not another selected-row neighborhood widening around `151:6`.
+   The source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine
    support-existence and row-forcing bridge questions open. The singleton

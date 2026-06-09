@@ -926,12 +926,19 @@ ledgers, the obligation checker records `8` positive transfer incidences, `7`
 unique centered equality obligations, and `6` path motifs. Every positive
 transfer starts with a label-`4` spoke swap at row `5` or row `7`, while the
 only row-`6` transfer obligation is the connector step `[5,6]=[0,6]` after
-row `5` supplies `[4,5]=[5,6]`. This is still a finite diagnostic only, not a
-proof of support existence, row forcing, endpoint-`8` forcing, `[3,5]`
-impossibility, `n=9`, or the bootstrap bridge. See
+row `5` supplies `[4,5]=[5,6]`. The length-component checker collapses those
+obligations into `6` undirected segment-length components over `9` distinct
+segments: `3` edge-diagonal components, `2` diagonal-only components, and one
+row-`5`/row-`6` connector cascade `D[0,6]=D[4,5]=D[5,6]`. This is still a
+finite diagnostic only, not a proof of support existence, row forcing,
+endpoint-`8` forcing, `[3,5]` impossibility, `n=9`, or the bootstrap bridge.
+See
 `docs/bootstrap-t12-151-6-label4-transfer-obligations.md`,
 `scripts/check_bootstrap_t12_151_6_label4_transfer_obligations.py`, and
-`data/certificates/bootstrap_t12_151_6_label4_transfer_obligations.json`.
+`data/certificates/bootstrap_t12_151_6_label4_transfer_obligations.json`, plus
+`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`,
+`scripts/check_bootstrap_t12_151_6_label4_transfer_length_components.py`, and
+`data/certificates/bootstrap_t12_151_6_label4_transfer_length_components.json`.
 
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses
