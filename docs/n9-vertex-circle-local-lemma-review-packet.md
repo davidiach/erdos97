@@ -59,6 +59,7 @@ auditable.
 - `docs/n9-vertex-circle-t08-self-edge-lemma.md`
 - `docs/n9-vertex-circle-t08-soundness-review-2026-06-09.md`
 - `docs/n9-vertex-circle-t09-self-edge-lemma.md`
+- `docs/n9-vertex-circle-t09-soundness-review-2026-06-09.md`
 - `docs/n9-vertex-circle-t10-strict-cycle-lemma.md`
 - `docs/n9-vertex-circle-t10-soundness-review-2026-06-08.md`
 - `docs/n9-vertex-circle-t11-strict-cycle-lemma.md`
@@ -186,6 +187,10 @@ The 2026-06-09 T08 soundness review records
 `accepted_packet_soundness_T08` for the single T08/F02 self-edge implication
 under its displayed local hypotheses.
 
+The 2026-06-09 T09 soundness review records
+`accepted_packet_soundness_T09` for the single T09/F03 self-edge implication
+under its displayed local hypotheses.
+
 The 2026-06-08 T10 soundness review records
 `accepted_packet_soundness_T10` for the single T10/F12 strict-cycle implication
 under its displayed local hypotheses.
@@ -200,8 +205,9 @@ under its displayed local hypotheses. It is bridge-facing because current
 bootstrap/T12 diagnostics land on T12/F16, but it does not prove the missing
 row-forcing or rich-support forcing bridge step.
 
-Together, these notes check eight self-edge packets and all three strict-cycle
-packets. T09, aggregate A10 review, `n=9`, and global status remain
+Together, these notes check all nine self-edge packets and all three
+strict-cycle packets. Focused packet-soundness notes are now recorded for
+T01-T12, while aggregate A10 review, `n=9`, and global status remain
 review-pending.
 
 ## Aggregate bookkeeping obligations

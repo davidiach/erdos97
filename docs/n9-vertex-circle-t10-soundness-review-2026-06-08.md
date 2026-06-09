@@ -164,5 +164,6 @@ It does not support any of the following stronger statements:
 
 The follow-up T11/F07 and T12/F16 soundness reviews are now recorded, so the
 strict-cycle packet family has one internal soundness note for each of T10,
-T11, and T12. The remaining focused local-lemma packet soundness review
-target is the self-edge packet T09.
+T11, and T12. Focused packet-soundness notes are now recorded for T01-T12,
+while aggregate A10 review, `n=9`, and global status all remain
+review-pending.
