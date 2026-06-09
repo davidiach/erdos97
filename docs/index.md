@@ -403,6 +403,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-151-6-private-lane-core-catalog.md`](bootstrap-t12-151-6-private-lane-core-catalog.md):
   checked catalog showing every private-halo `[3,5]` lane survivor has a
   three-row strict-cycle core containing row `6 -> [0,3,5,7]`.
+- [`bootstrap-t12-151-6-private-lane-strict-core-split.md`](bootstrap-t12-151-6-private-lane-strict-core-split.md):
+  checked proof-target split of all row-`6` three-row strict-cycle cores into
+  label-`8`-visible and label-`8`-free cases.
 - [`bootstrap-t12-151-singleton-support-audit.md`](bootstrap-t12-151-singleton-support-audit.md):
   source-`151` singleton-support audit covering rows `151:5` and `151:8`.
 - [`bootstrap-t12-151-singleton-two-row-drop.md`](bootstrap-t12-151-singleton-two-row-drop.md):

@@ -947,6 +947,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   has a three-row strict-cycle core containing row `6 -> [0,3,5,7]`. This is
   local selected-row proof-mining data only; it does not prove the private
   pair `[3,5]` is impossible under genuine rich-class support geometry.
+- bootstrap/T12 focused `151:6` private-lane strict-core split evidence, as
+  recorded in
+  `docs/bootstrap-t12-151-6-private-lane-strict-core-split.md`, splitting all
+  `44` row-`6` three-row strict-cycle cores into `32` label-`8`-visible cores
+  and `12` label-`8`-free cores. The `10` distinct exact label-`8`-free
+  signatures are the concrete residual private-pair targets; this still does
+  not prove support existence, row forcing, endpoint-`8` forcing, or that pair
+  `[3,5]` is impossible.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

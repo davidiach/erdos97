@@ -7639,6 +7639,77 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_private_lane_strict_core_split
+    path: data/certificates/bootstrap_t12_151_6_private_lane_strict_core_split.json
+    sha256: 3f1793bd7d7ef9989547e38f72abbcba5a6970b13f8c0d2039911c7b69ee6360
+    size_bytes: 135230
+    kind: proof_target_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_private_lane_strict_core_split.py
+    command: python scripts/check_bootstrap_t12_151_6_private_lane_strict_core_split.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_private_lane_strict_core_split.py
+    check_command: python scripts/check_bootstrap_t12_151_6_private_lane_strict_core_split.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 private-halo [3,5] lane row-6 strict-core split; all 44 row-6 three-row strict-cycle cores are split into 32 label-8-visible cores and 12 label-8-free cores, with 10 distinct exact label-8-free signatures. This is not outside-pair support existence, not row forcing, not a proof that [3,5] is impossible, not endpoint-8 forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_private_lane_strict_core_split.v1
+      status: BOOTSTRAP_T12_151_6_PRIVATE_LANE_STRICT_CORE_SPLIT_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 7
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.source_private_lane_survivor_count: 12
+      summary.row6_three_row_strict_core_count: 44
+      summary.assignments_with_row6_three_row_strict_core: 12
+      summary.label8_visible_core_count: 32
+      summary.label8_free_core_count: 12
+      summary.assignments_with_label8_visible_core: 12
+      summary.assignments_with_label8_free_core: 8
+      summary.assignments_without_label8_free_core: 4
+      summary.center8_core_count: 9
+      summary.assignments_with_center8_core: 7
+      summary.label8_free_center8_core_count: 4
+      summary.distinct_exact_core_count: 36
+      summary.label8_visible_distinct_exact_core_count: 26
+      summary.label8_free_distinct_exact_core_count: 10
+      'summary.auxiliary_center_pair_counts.0,1': 5
+      'summary.auxiliary_center_pair_counts.2,3': 5
+      'summary.auxiliary_center_pair_counts.4,7': 5
+      'summary.auxiliary_center_pair_counts.5,8': 5
+      'summary.label8_visible_auxiliary_center_pair_counts.0,1': 5
+      'summary.label8_visible_auxiliary_center_pair_counts.4,7': 5
+      'summary.label8_free_auxiliary_center_pair_counts.2,3': 3
+      'summary.label8_free_auxiliary_center_pair_counts.5,8': 4
+      summary.split_status: PRIVATE_LANE_ROW6_STRICT_CORES_SPLIT_BY_LABEL8_VISIBILITY
+      provenance.generator: scripts/check_bootstrap_t12_151_6_private_lane_strict_core_split.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_private_lane_strict_core_split.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - the private-halo-only pair 3,5 is impossible
+      - the private-lane strict-core split proves the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e
