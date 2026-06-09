@@ -25,11 +25,17 @@ Run the full selected-row anti-activation checker with:
 python scripts/check_bootstrap_t12_anti_activation_negative_control.py --check --assert-expected --json
 ```
 
+Focused note:
+`docs/bootstrap-t12-anti-activation-negative-control.md`.
+
 Run the closure-visibility replay checker with:
 
 ```bash
 python scripts/check_closure_visibility_anti_activation_control.py --check --assert-expected --json
 ```
+
+Focused note:
+`docs/closure-visibility-anti-activation-control.md`.
 
 Regenerate the checked JSON artifacts with:
 
@@ -179,6 +185,9 @@ keeps the abstract countermodels replayable.
 
 ## Full selected-row anti-activation control
 
+For the focused note, see
+`docs/bootstrap-t12-anti-activation-negative-control.md`.
+
 The checked artifact is
 `data/certificates/bootstrap_t12_anti_activation_negative_control.json`. It is
 a full abstract selected-row incidence system on cyclic order:
@@ -220,6 +229,9 @@ counterexample. It only rules out deriving the pinned fourth witness `6` from
 these abstract incidence and closure checks alone.
 
 ## Closure-visibility anti-activation control
+
+For the focused note, see
+`docs/closure-visibility-anti-activation-control.md`.
 
 The checked artifact is
 `data/certificates/closure_visibility_anti_activation_control.json`.
