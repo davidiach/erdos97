@@ -430,9 +430,11 @@ handoffs rather than re-extracting T01 or T10.
   to replay the focused review-pending T11/F07 strict-cycle local lemma packet;
 - use `data/certificates/n9_vertex_circle_t12_strict_cycle_lemma_packet.json`
   to replay the focused review-pending T12/F16 strict-cycle local lemma packet;
-- review the aggregate local-lemma scan after the T01/T02/T03/T04/T05/T06/T07/T08/T09
-  self-edge and T10/T11/T12 strict-cycle integrations, keeping it scoped as proof-mining
-  coverage of stored packets rather than an independent `n=9` proof;
+- use the 2026-06-09 aggregate A10 review note as the current internal review
+  record for the T01/T02/T03/T04/T05/T06/T07/T08/T09 self-edge and
+  T10/T11/T12 strict-cycle integrations, keeping it scoped as proof-mining
+  coverage of stored packets rather than an independent `n=9` proof or
+  source-of-truth A10 promotion;
 - use
   `scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --summary-json`
   to cross-check the 12 focused packet JSON files against the source template

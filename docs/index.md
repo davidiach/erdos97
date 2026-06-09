@@ -479,6 +479,11 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-local-lemma-audit-note-2026-06-07.md`](n9-vertex-circle-local-lemma-audit-note-2026-06-07.md):
   internal audit note accepting the A10 local-lemma bookkeeping handoff while
   leaving packet soundness, `n=9`, and global status review-pending.
+- [`n9-vertex-circle-a10-aggregate-review-2026-06-09.md`](n9-vertex-circle-a10-aggregate-review-2026-06-09.md):
+  internal aggregate review note accepting the focused T01-T12 packet
+  soundness notes plus the A10 bookkeeping handoff under stored-frontier and
+  strict-edge assumptions; not a source-of-truth A10, `n=9`, or global-status
+  promotion.
 - [`n9-vertex-circle-certificate-chain.md`](n9-vertex-circle-certificate-chain.md):
   assignment-id bridge from the review-pending `n=9` frontier artifacts to the
   12 local quotient-obstruction templates.

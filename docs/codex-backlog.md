@@ -27,13 +27,16 @@ claim-neutral ledger for choosing bridge work. Prefer PRs that prove one of
 its named lemma contracts or reject one of its negative controls under explicit
 minimal/rich-class hypotheses.
 
-1. Review the aggregate `n=9` vertex-circle local-lemma scan against the
-   focused T01/T02/T03/T04/T05/T06/T07/T08/T09 self-edge packets and the focused T10/T11/T12
-   strict-cycle packets, keeping it scoped as proof-mining scaffolding rather
-   than an `n=9` proof. Start from
+1. Use the 2026-06-09 internal aggregate A10 review note as input for an
+   explicit source-of-truth A10 gate decision, keeping any decision scoped as
+   proof-mining scaffolding under stored-frontier and strict-edge assumptions
+   rather than an `n=9` proof. Start from
    `docs/n9-vertex-circle-local-lemma-review-packet.md`, which records the
-   current five-layer audit path and review boundary. The focused packet
-   catalog audit command
+   current five-layer audit path and review boundary. The aggregate note
+   records the focused T01-T12 packet-soundness notes plus the A10 bookkeeping
+   handoff; source-of-truth A10 promotion, `n=9`, and global status remain
+   review-pending until an explicit decision record is supplied. The focused
+   packet catalog audit command
    `python scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --summary-json`
    now checks that the focused packet coverage, source template records,
    source catalog records, and aggregate focused-note crosschecks agree before
