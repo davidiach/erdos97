@@ -31,6 +31,19 @@ witness pattern) and the alternating two-radius paired-distance note. The new
 content is that *every* offset `phi`, *every* radius ratio, and *every*
 witness pattern are excluded at once.
 
+Independent corroboration: the contemporaneous note
+`docs/symmetric-two-orbit-reduction.md` (merged the same day, derived
+independently) proves the same family obstruction by a different route. Its
+per-circle cap and phase alignment match Steps 1-3 below; its "gear
+equation" `rho^2 - 2 rho cos(eps) + 2 cos(delta) - 1 = 0` is algebraically
+identical to the row equation `E_A` of Step 3 (substitute
+`4 sin^2(ah) = 2 - 2 cos(delta)`); and its `4 sin^2(pi/(2k))` squeeze is an
+alternative to the Step 5 cosine ladder. Its `k = 3` boundary factor
+`(2 - b)(b + 1)` on `1/2 < b < 2` is the same `m = 3` window-endpoint hit
+(`x = sec(pi/3) = 2`) identified below. The two derivations should be read
+as mutual second-source provenance; differences in coverage are noted in
+the scope section.
+
 ## Proof
 
 Fix `R = 1`. Reindexing `B_k -> B_{k+1}` shifts `phi` by `2h`, and complex
@@ -187,6 +200,14 @@ convexity. The default `--max-m 400` run is also clear.
   regular `m`-gons. It says nothing about three or more orbits, non-cyclic
   configurations, or the general problem; the official/global status of
   Erdos Problem #97 remains falsifiable/open.
+- Relative to `docs/symmetric-two-orbit-reduction.md`: this note's window
+  analysis explicitly includes the equal-radius case `x = 1` (the regular
+  `2m`-gon decomposition) inside the same case ladder, states the offset
+  forcing with the antipode and odd-`m` pole micro-cases spelled out, and
+  adds the exhaustive two-formulation machine audit over all `(a, p)`
+  offset pairs for `m <= 400`. The reduction note adds, beyond this note,
+  the local radius-ratio vertex bound and the exterior-center
+  concentric-circle obstruction.
 - The numerical dynamic-witness sweep
   (`docs/dynamic-witness-free-pattern-search.md`) is consistent with this
   lemma: all its strictly convex `t = 2` cells plateau at relative spreads

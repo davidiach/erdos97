@@ -1431,7 +1431,11 @@ forces each first-orbit witness row to one same-orbit pair plus one
 cross-orbit pair, and finally shows the resulting radius-ratio quadratic has
 no root in the strict-convexity window `(cos(pi/m), sec(pi/m))` by a
 four-case cosine-ladder argument. Within its family this supersedes the
-fixed quarter-turn half-step ansatz obstruction. It is not a proof of Erdos
+fixed quarter-turn half-step ansatz obstruction, and it is an independent
+second-source derivation of the same family obstruction as the restricted
+symmetric two-orbit reduction entry above: that note's gear equation is
+algebraically identical to the row equation here, and its `k = 3` boundary
+factor matches the `m = 3` window-endpoint hit. It is not a proof of Erdos
 Problem #97 and says nothing about three or more orbits. See
 `docs/two-orbit-circulant-obstruction.md`; machine audit:
 `scripts/check_two_orbit_dynamic_window_lemma.py --max-m 400 --assert-clear`
