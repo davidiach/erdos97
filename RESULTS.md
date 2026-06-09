@@ -119,6 +119,9 @@ the smaller orbit non-vertex, and half-step reduces to the alternating
 two-radius regular family already killed by the exact checker. The `k=3`
 hexagon boundary is handled separately by the factor
 `3 - (1 + b^2 - b) = (2 - b)(b + 1)` on `1/2 < b < 2`.
+A direct gear-equation certificate gives the same half-step obstruction by
+forcing one expression to be both at least and strictly below
+`4 sin^2(pi/(2k))`.
 
 The same note records the local radius-ratio vertex condition
 `R_min >= R_max*cos(pi/k)` and the exterior-center obstruction for at most

@@ -780,6 +780,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`gpt55-pro-zip10-triage-2026-06-04.md`](gpt55-pro-zip10-triage-2026-06-04.md):
   triage of the tenth June 4 GPT-5.5 Pro zip; records a localized-cap C++
   vertex-circle replay packet as duplicate corroborating provenance only.
+- [`archive-research-pass-2026-06-09.md`](archive-research-pass-2026-06-09.md):
+  triage of the June 9 research-pass archive; imports the gear-equation
+  two-orbit certificate and records duplicate `n=9` reproduction provenance.
 - [`two-parabola-lens-closure.md`](two-parabola-lens-closure.md): structured
   opposite-chain parabolic-lens closure equations for a possible future exact
   search, plus a bounded rational-grid negative-control artifact; search

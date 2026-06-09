@@ -21,6 +21,8 @@ from erdos97.two_orbit_radius_propagation import (  # noqa: E402
     concentric_outside_hull_summary,
     concentric_outside_hull_to_json,
     cyclic_crossing_search_to_json,
+    gear_equation_summary,
+    gear_equation_to_json,
     linearized_escape_summary,
     linearized_escape_to_json,
     radius_ratio_summary,
@@ -122,6 +124,16 @@ def assert_radius_ratio(k: int) -> None:
         raise AssertionError(f"expected cos(pi/{k}) to be positive")
 
 
+def assert_gear_equation(k: int) -> None:
+    summary = gear_equation_summary(k)
+    if summary.status != "exact_gear_equation_obstruction_not_general_proof":
+        raise AssertionError(f"unexpected gear-equation status for k={k}")
+    if not summary.left_margin_nonnegative:
+        raise AssertionError(f"expected nonnegative left margin for k={k}")
+    if not summary.right_strict_gap_positive:
+        raise AssertionError(f"expected positive strict right gap for k={k}")
+
+
 def assert_symmetric_two_orbit_reduction(k: int) -> None:
     summary = symmetric_two_orbit_reduction_summary(k)
     expected = "exact_reduction_to_alternating_family_obstruction_not_general_proof"
@@ -211,10 +223,26 @@ def print_linearized_escape_summary(t: int, *, t_max: int | None) -> None:
 
 
 def print_radius_ratio_summary(k: int, *, k_max: int | None) -> None:
-    rows = [radius_ratio_summary(current_k) for current_k in range(k, (k_max or k) + 1)]
+    rows = [
+        radius_ratio_summary(current_k)
+        for current_k in range(k, (k_max or k) + 1)
+    ]
     print("k  status                                           inradius factor")
     for row in rows:
         print(f"{row.k}  {row.status:<48}  {row.inradius_factor}")
+
+
+def print_gear_equation_summary(k: int, *, k_max: int | None) -> None:
+    rows = [
+        gear_equation_summary(current_k)
+        for current_k in range(k, (k_max or k) + 1)
+    ]
+    print("k  n  status                                           left ok  right ok")
+    for row in rows:
+        print(
+            f"{row.k}  {row.n}  {row.status:<48}  "
+            f"{row.left_margin_nonnegative}  {row.right_strict_gap_positive}"
+        )
 
 
 def print_symmetric_two_orbit_reduction_summary(
@@ -303,12 +331,22 @@ def main() -> int:
     parser.add_argument(
         "--k-max",
         type=int,
-        help="with --radius-ratio or --two-orbit-reduction, scan --k through --k-max",
+        help="with k-scanning modes, scan --k through --k-max",
     )
     parser.add_argument(
         "--assert-radius-ratio",
         action="store_true",
         help="assert the selected k values satisfy the radius-ratio certificate",
+    )
+    parser.add_argument(
+        "--gear-equation",
+        action="store_true",
+        help="check the direct two-orbit gear-equation inequality certificate",
+    )
+    parser.add_argument(
+        "--assert-gear-equation",
+        action="store_true",
+        help="assert the selected k values pass the gear-equation check",
     )
     parser.add_argument(
         "--two-orbit-reduction",
@@ -351,6 +389,8 @@ def main() -> int:
         raise SystemExit("--assert-decagon-crossing requires --decagon-crossing")
     if args.assert_radius_ratio and not args.radius_ratio:
         raise SystemExit("--assert-radius-ratio requires --radius-ratio")
+    if args.assert_gear_equation and not args.gear_equation:
+        raise SystemExit("--assert-gear-equation requires --gear-equation")
     if args.assert_two_orbit_reduction and not args.two_orbit_reduction:
         raise SystemExit("--assert-two-orbit-reduction requires --two-orbit-reduction")
     if args.assert_concentric_outside and not args.concentric_outside:
@@ -360,6 +400,7 @@ def main() -> int:
         args.alternating_family,
         args.decagon_crossing,
         args.radius_ratio,
+        args.gear_equation,
         args.two_orbit_reduction,
         args.concentric_outside,
     ]
@@ -411,7 +452,10 @@ def main() -> int:
 
     if args.radius_ratio:
         k_values = range(args.k, (args.k_max or args.k) + 1)
-        rows = [radius_ratio_to_json(radius_ratio_summary(current_k)) for current_k in k_values]
+        rows = [
+            radius_ratio_to_json(radius_ratio_summary(current_k))
+            for current_k in k_values
+        ]
         if args.assert_radius_ratio:
             for current_k in k_values:
                 assert_radius_ratio(current_k)
@@ -422,6 +466,24 @@ def main() -> int:
             print_radius_ratio_summary(args.k, k_max=args.k_max)
             if args.assert_radius_ratio:
                 print("OK: radius-ratio expectation verified")
+        return 0
+
+    if args.gear_equation:
+        k_values = range(args.k, (args.k_max or args.k) + 1)
+        rows = [
+            gear_equation_to_json(gear_equation_summary(current_k))
+            for current_k in k_values
+        ]
+        if args.assert_gear_equation:
+            for current_k in k_values:
+                assert_gear_equation(current_k)
+        if args.json:
+            output = rows[0] if args.k_max is None else rows
+            print(json.dumps(output, indent=2, sort_keys=True))
+        else:
+            print_gear_equation_summary(args.k, k_max=args.k_max)
+            if args.assert_gear_equation:
+                print("OK: gear-equation expectation verified")
         return 0
 
     if args.two_orbit_reduction:

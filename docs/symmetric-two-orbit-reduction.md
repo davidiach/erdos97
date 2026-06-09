@@ -78,6 +78,84 @@ This can vanish only at the non-strict endpoint `b=2` or at the irrelevant
 negative value `b=-1`. Thus the `k=3` boundary case is also excluded inside
 the strict convexity interval.
 
+## Direct gear-equation certificate
+
+The 2026-06-09 research-pass archive also supplied a direct trigonometric
+certificate for the same half-step family. It is worth recording because it
+does not rely on scanning every adjacent paired-offset gap.
+
+Scale the larger radius to `1`, write the smaller radius as `rho`, and set
+
+```text
+h = pi/k.
+```
+
+In the strict alternating gear window,
+
+```text
+cos h < rho < 1.
+```
+
+For a larger-orbit vertex at angle `0`, a same-orbit symmetric pair has even
+angular offset
+
+```text
+delta = 2a h,       0 < delta < pi,
+```
+
+and a smaller-orbit symmetric pair has odd half-step offset
+
+```text
+epsilon = (2b+1)h,  0 < epsilon < pi.
+```
+
+Equating those two squared distances gives
+
+```text
+rho^2 - 2 rho cos(epsilon) + 2 cos(delta) - 1 = 0.
+```
+
+Since `cos h < rho < 1`, write `rho = cos x` with `0 < x < h`. Rearranging
+the gear equation gives
+
+```text
+cos(delta) - cos(epsilon)
+  = (1/2) sin^2 x - cos(epsilon) (1 - cos x).
+```
+
+The right-hand side has absolute value strictly less than
+
+```text
+(1/2) sin^2 h + (1 - cos h)
+  = (1 - cos h)(3 + cos h)/2
+  < 2(1 - cos h)
+  = 4 sin^2(h/2).
+```
+
+The parity of `delta/h` and `epsilon/h` forces
+`(delta-epsilon)/2` to be a nonzero odd multiple of `h/2`, while
+`(delta+epsilon)/2` lies between `3h/2` and `pi - 3h/2`. Hence
+
+```text
+|cos(delta) - cos(epsilon)|
+  >= 2 sin(3h/2) sin(h/2).
+```
+
+For `k >= 3`, put `t = h/2 <= pi/6`. Then
+
+```text
+sin(3t) = sin(t)(3 - 4 sin^2 t) >= 2 sin(t),
+```
+
+so
+
+```text
+2 sin(3h/2) sin(h/2) >= 4 sin^2(h/2).
+```
+
+The same expression would therefore have to be both at least
+`4 sin^2(h/2)` and strictly less than `4 sin^2(h/2)`, a contradiction.
+
 ## Radius-ratio bound
 
 The half-step reduction also gives a reusable necessary convex-hull bound. If
@@ -129,6 +207,12 @@ python scripts/check_two_orbit_radius_propagation.py \
   --assert-radius-ratio
 
 python scripts/check_two_orbit_radius_propagation.py \
+  --gear-equation \
+  --k 3 \
+  --k-max 12 \
+  --assert-gear-equation
+
+python scripts/check_two_orbit_radius_propagation.py \
   --two-orbit-reduction \
   --k 3 \
   --k-max 12 \
@@ -144,6 +228,7 @@ The JSON status strings are:
 
 ```text
 exact_necessary_radius_bound_not_general_proof
+exact_gear_equation_obstruction_not_general_proof
 exact_reduction_to_alternating_family_obstruction_not_general_proof
 exact_exterior_center_obstruction_not_general_proof
 ```

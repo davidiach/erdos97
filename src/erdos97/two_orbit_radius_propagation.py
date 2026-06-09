@@ -108,6 +108,24 @@ class RadiusRatioSummary:
 
 
 @dataclass(frozen=True)
+class GearEquationSummary:
+    """Direct gear-equation inequality obstruction for two rotation orbits."""
+
+    k: int
+    n: int
+    h: object
+    left_lower_bound: object
+    common_threshold: object
+    right_upper_bound: object
+    left_margin: object
+    right_strict_gap: object
+    left_margin_nonnegative: bool
+    right_strict_gap_positive: bool
+    status: str
+    claim_scope: str
+
+
+@dataclass(frozen=True)
 class SymmetricTwoOrbitReductionSummary:
     """Reduction summary for a two-orbit ``C_k`` symmetric configuration."""
 
@@ -499,6 +517,50 @@ def radius_ratio_summary(k: int) -> RadiusRatioSummary:
     )
 
 
+def gear_equation_summary(k: int) -> GearEquationSummary:
+    """Return the direct inequality certificate for the two-orbit gear equation.
+
+    After phase locking, a covered two-orbit candidate has alternating radii.
+    For a larger-orbit vertex, equating a same-orbit pair at even offset
+    ``delta`` with a smaller-orbit pair at odd half-step offset ``epsilon``
+    gives the gear equation. In the strict convexity window the right-hand
+    side has absolute value below ``4*sin(h/2)^2``, while the parity of the
+    offsets forces the left-hand side to be at least that threshold.
+    """
+
+    _check_rotation_order(k)
+    sp = _sympy()
+    h = sp.pi / k
+    left_lower_bound = sp.simplify(2 * sp.sin(3 * h / 2) * sp.sin(h / 2))
+    common_threshold = sp.simplify(4 * sp.sin(h / 2) ** 2)
+    right_upper_bound = sp.simplify((1 - sp.cos(h)) * (3 + sp.cos(h)) / 2)
+    left_margin = sp.simplify(left_lower_bound - common_threshold)
+    right_strict_gap = sp.simplify(common_threshold - right_upper_bound)
+    left_ok = _is_nonnegative(left_margin)
+    right_ok = _is_positive(right_strict_gap)
+    return GearEquationSummary(
+        k=k,
+        n=2 * k,
+        h=h,
+        left_lower_bound=left_lower_bound,
+        common_threshold=common_threshold,
+        right_upper_bound=right_upper_bound,
+        left_margin=left_margin,
+        right_strict_gap=right_strict_gap,
+        left_margin_nonnegative=left_ok,
+        right_strict_gap_positive=right_ok,
+        status=(
+            "exact_gear_equation_obstruction_not_general_proof"
+            if left_ok and right_ok
+            else "certificate_check_failed"
+        ),
+        claim_scope=(
+            "larger-orbit row in a strict two-radius half-step C_k gear; "
+            "not a general proof or counterexample"
+        ),
+    )
+
+
 def symmetric_two_orbit_reduction_summary(
     k: int,
 ) -> SymmetricTwoOrbitReductionSummary:
@@ -737,6 +799,31 @@ def radius_ratio_to_json(summary: RadiusRatioSummary) -> dict[str, object]:
     }
 
 
+def gear_equation_to_json(summary: GearEquationSummary) -> dict[str, object]:
+    """Return a JSON-friendly gear-equation summary."""
+
+    return {
+        "type": "two_orbit_gear_equation_obstruction",
+        "status": summary.status,
+        "k": summary.k,
+        "n": summary.n,
+        "h": str(summary.h),
+        "left_lower_bound": str(summary.left_lower_bound),
+        "common_threshold": str(summary.common_threshold),
+        "right_upper_bound": str(summary.right_upper_bound),
+        "left_margin": str(summary.left_margin),
+        "right_strict_gap": str(summary.right_strict_gap),
+        "left_margin_nonnegative": summary.left_margin_nonnegative,
+        "right_strict_gap_positive": summary.right_strict_gap_positive,
+        "claim_scope": summary.claim_scope,
+        "interpretation": (
+            "In the strict gear window, the gear equation would require the "
+            "same value to be both at least the common threshold and strictly "
+            "below it. This kills only the stated two-orbit half-step class."
+        ),
+    }
+
+
 def symmetric_two_orbit_reduction_to_json(
     summary: SymmetricTwoOrbitReductionSummary,
 ) -> dict[str, object]:
@@ -935,5 +1022,15 @@ def _is_positive(value: object) -> bool:
     if simplified.is_positive is True:
         return True
     if simplified.is_positive is False:
+        return False
+    return False
+
+
+def _is_nonnegative(value: object) -> bool:
+    sp = _sympy()
+    simplified = sp.simplify(value)
+    if simplified.is_nonnegative is True:
+        return True
+    if simplified.is_nonnegative is False:
         return False
     return False

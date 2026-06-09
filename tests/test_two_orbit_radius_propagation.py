@@ -12,6 +12,8 @@ from erdos97.two_orbit_radius_propagation import (
     concentric_outside_hull_summary,
     concentric_outside_hull_to_json,
     cyclic_crossing_search_to_json,
+    gear_equation_summary,
+    gear_equation_to_json,
     linearized_escape_summary,
     linearized_escape_to_json,
     radius_ratio_summary,
@@ -156,6 +158,33 @@ def test_radius_ratio_json_keeps_scope_narrow() -> None:
     assert row["type"] == "regular_orbit_radius_ratio_bound"
     assert row["status"] == "exact_necessary_radius_bound_not_general_proof"
     assert "not sufficient for Erdos #97" in str(row["interpretation"])
+
+
+def test_gear_equation_certificate_covers_rotation_orders() -> None:
+    for k in range(3, 13):
+        summary = gear_equation_summary(k)
+
+        assert summary.status == "exact_gear_equation_obstruction_not_general_proof"
+        assert summary.left_margin_nonnegative
+        assert summary.right_strict_gap_positive
+        assert sp.N(summary.right_strict_gap, 50) > 0
+
+
+def test_gear_equation_boundary_is_k3_left_margin_zero() -> None:
+    summary = gear_equation_summary(3)
+
+    assert sp.simplify(summary.left_margin) == 0
+    assert sp.N(summary.right_strict_gap, 50) > 0
+
+
+def test_gear_equation_json_keeps_scope_narrow() -> None:
+    row = gear_equation_to_json(gear_equation_summary(5))
+
+    assert row["type"] == "two_orbit_gear_equation_obstruction"
+    assert row["status"] == "exact_gear_equation_obstruction_not_general_proof"
+    assert "kills only the stated two-orbit half-step class" in str(
+        row["interpretation"]
+    )
 
 
 def test_symmetric_two_orbit_reduction_covers_k3_boundary_case() -> None:

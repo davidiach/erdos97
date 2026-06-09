@@ -2453,6 +2453,10 @@ kills `k >= 4`, and the `k=3` hexagon is excluded by the boundary certificate
 ```
 
 on the strict convexity interval `1/2 < b < 2`.
+The same half-step class also has a direct gear-equation certificate: parity
+of the two symmetric offsets forces the left side to be at least
+`4 sin^2(pi/(2k))`, while the strict gear window forces the rearranged right
+side to be strictly below that threshold.
 
 The same note records the local necessary radius bound
 `R_min >= R_max*cos(pi/k)` and the exterior-center obstruction for at most
