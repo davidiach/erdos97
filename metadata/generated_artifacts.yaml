@@ -8190,6 +8190,93 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_support_hypothesis_ledger
+    path: data/certificates/bootstrap_t12_151_6_label4_support_hypothesis_ledger.json
+    sha256: 9949a8a1890dedc14dc6005fbfd395d2943c1267adf36e3f583930071f381407
+    size_bytes: 35167
+    kind: proof_target_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_support_hypothesis_ledger.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_support_hypothesis_ledger.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_support_hypothesis_ledger.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_support_hypothesis_ledger.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 private-halo [3,5] label-4 transfer support-hypothesis ledger; refines the 6 length components into 7 centered support requirements, with the only row-6 route requiring center 5 witnesses [4,6] and center 6 witnesses [0,5], while no support requirement is the exact private pair [3,5]. This does not discharge support hypotheses, prove outside-pair support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_support_hypothesis_ledger.v1
+      status: BOOTSTRAP_T12_151_6_LABEL4_SUPPORT_HYPOTHESIS_LEDGER_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 7
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.source_length_component_count: 6
+      summary.source_feasible_component_count: 6
+      summary.support_need_record_count: 6
+      summary.unique_centered_support_requirement_count: 7
+      summary.component_count_by_required_support_center_count.1: 5
+      summary.component_count_by_required_support_center_count.2: 1
+      summary.component_incidence_count_by_required_center.5: 4
+      summary.component_incidence_count_by_required_center.6: 1
+      summary.component_incidence_count_by_required_center.7: 2
+      summary.components_requiring_row6_target_connector_count: 1
+      summary.components_requiring_private_target_class_witness_subset_count: 1
+      summary.components_requiring_exact_private_support_pair_count: 0
+      summary.unique_requirements_with_exact_private_support_pair_count: 0
+      summary.components_requiring_label4_witness_count: 6
+      summary.components_requiring_label8_witness_count: 0
+      summary.component_count_by_access_mode.direct_cycle_edge: 4
+      summary.component_count_by_access_mode.quotient_equality_only: 2
+      summary.positive_transfer_signature_count_by_access_mode.direct_cycle_edge: 6
+      summary.positive_transfer_signature_count_by_access_mode.quotient_equality_only: 2
+      summary.cascade_component_key: D[0,6]=D[4,5]=D[5,6]
+      summary.cascade_component_signature_count: 3
+      summary.cascade_component_occurrence_count: 4
+      summary.cascade_required_support_centers:
+        - 5
+        - 6
+      summary.cascade_required_witness_pairs:
+        -
+          - 4
+          - 6
+        -
+          - 0
+          - 5
+      summary.cascade_auxiliary_center_pair_signature_counts.5,8: 3
+      summary.cascade_auxiliary_center_pair_occurrence_counts.5,8: 4
+      summary.component_alone_obstruction_status: COMPONENT_ALONE_IMPOSSIBILITY_REJECTED
+      summary.source_component_status: ROW_LOCAL_LABEL4_TRANSFER_LENGTH_COMPONENTS_PINNED
+      summary.source_obligation_status: ROW_LOCAL_LABEL4_TRANSFER_OBLIGATIONS_PINNED
+      summary.ledger_status: LABEL4_SUPPORT_HYPOTHESES_PINNED_NOT_DISCHARGED
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_support_hypothesis_ledger.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_support_hypothesis_ledger.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - the private-halo-only pair 3,5 is impossible
+      - label-4 support hypotheses prove the bridge
+      - support hypotheses are discharged
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

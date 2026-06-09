@@ -2660,6 +2660,24 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_support_hypothesis_ledger",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_label4_support_hypothesis_ledger.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Support-hypothesis ledger for the source 151 row 6 label-4 "
+            "transfer components; pins the genuine centered support "
+            "hypotheses still needed after the component-alone negative "
+            "controls, not outside-pair support existence, not row forcing, "
+            "not a proof that [3,5] is impossible, not endpoint-8 forcing, "
+            "not an n=9 proof, not a bridge proof, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",

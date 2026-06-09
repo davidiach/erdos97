@@ -538,11 +538,17 @@ minimal/rich-class hypotheses.
    `python scripts/check_bootstrap_t12_151_6_label4_transfer_component_feasibility.py --check --assert-expected --json`
    gives a strict cyclic convex `9`-gon arc witness for each component
    considered alone, including a modulus-`13` witness for the connector
-   cascade. The next useful PR should therefore prove a support-geometry
-   exclusion under genuine private-support or rich-class hypotheses, or prove
-   that such label-`4` support forces endpoint `8` / a label-`8`-visible
-   row-`6` local core, not a component-alone impossibility claim and not
-   another selected-row neighborhood widening around `151:6`.
+   cascade. The support-hypothesis ledger
+   `python scripts/check_bootstrap_t12_151_6_label4_support_hypothesis_ledger.py --check --assert-expected --json`
+   pins the extra layer: the six components induce seven centered support
+   requirements; the row-`6` cascade needs center `5` with witnesses `[4,6]`
+   and center `6` with witnesses `[0,5]`; no label-`4` transfer support
+   requirement is the exact private pair `[3,5]`. The next useful PR should
+   therefore prove a support-geometry exclusion under genuine private-support
+   or rich-class hypotheses, or prove that such label-`4` support forces
+   endpoint `8` / a label-`8`-visible row-`6` local core, not a
+   component-alone impossibility claim and not another selected-row
+   neighborhood widening around `151:6`.
    The source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine
