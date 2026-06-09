@@ -933,6 +933,13 @@ condition that the surviving multi-block family does not automatically satisfy:
   witnesses `0` and `8` supplies `[0,6]=[8,6]`. The remaining target is to
   force an endpoint-`8` support or analyze the private-halo-only pair `[3,5]`;
   this is not support existence, row forcing, or a bridge proof.
+- bootstrap/T12 focused `151:6` endpoint-`8` forcing preflight evidence, as
+  recorded in
+  `docs/bootstrap-t12-151-6-endpoint8-forcing-preflight.md`, checking that
+  current connector-contract plus escape-partition evidence is not enough to
+  accept endpoint-`8` forcing: the private-halo-only `[3,5]` lane has `12`
+  basic-filter survivors. This is a gate-status diagnostic only, not a proof
+  that endpoint `8` is forced and not a proof that `[3,5]` is impossible.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

@@ -7502,6 +7502,73 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_endpoint8_forcing_preflight
+    path: data/certificates/bootstrap_t12_151_6_endpoint8_forcing_preflight.json
+    sha256: c4cb7c3cfe0de353b0ce9c701d8878b9d99f80a06c2f4d5e95e74c901fc565c0
+    size_bytes: 5575
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_endpoint8_forcing_preflight.py
+    command: python scripts/check_bootstrap_t12_151_6_endpoint8_forcing_preflight.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_endpoint8_forcing_preflight.py
+    check_command: python scripts/check_bootstrap_t12_151_6_endpoint8_forcing_preflight.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 endpoint-8 forcing preflight; current connector-contract plus escape-partition evidence does not force endpoint 8 because the private-halo-only pair [3,5] remains a connector-avoiding basic-filter escape. This is not endpoint-8 support existence, not row forcing, not a proof that [3,5] is impossible, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_endpoint8_forcing_preflight.v1
+      status: BOOTSTRAP_T12_151_6_ENDPOINT8_FORCING_PREFLIGHT_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.source_record_ids:
+        - 151
+      summary.target_center: 6
+      summary.bootstrap_core_witnesses:
+        - 0
+      summary.connector_pair:
+        - 0
+        - 8
+      summary.endpoint8_support_pairs:
+        - [3, 8]
+        - [5, 8]
+      summary.blocking_escape_support_pairs:
+        - [3, 5]
+      summary.connector_conditional_available: true
+      summary.private_halo_only_target_row_count: 4
+      summary.private_halo_only_basic_survivor_count: 12
+      summary.private_halo_only_vertex_circle_survivor_count: 0
+      summary.endpoint8_connector_available_target_row_count: 9
+      summary.endpoint8_connector_available_basic_survivor_count: 16
+      summary.endpoint8_connector_available_vertex_circle_survivor_count: 0
+      summary.all_selected_row_diagnostic_survivors_vertex_circle_obstructed: true
+      summary.gate_status: NOT_READY_PRIVATE_HALO_ONLY_ESCAPE_SURVIVES_BASIC_FILTERS
+      summary.endpoint8_forced_by_current_evidence: false
+      summary.endpoint8_forcing_blocked_by_private_halo_escape: true
+      summary.private_halo_escape_status: PRIVATE_HALO_ONLY_PAIR_3_5_REMAINS_OPEN
+      decision.answer: do_not_accept_endpoint8_forcing_claim
+      decision.endpoint8_forced_by_current_evidence: false
+      decision.blocking_basic_survivor_count: 12
+      provenance.generator: scripts/check_bootstrap_t12_151_6_endpoint8_forcing_preflight.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_endpoint8_forcing_preflight.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - the private-halo-only pair 3,5 is impossible
+      - the endpoint-8 forcing preflight proves the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

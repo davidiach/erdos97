@@ -1,0 +1,126 @@
+{
+  "claim_scope": "Proof-mining preflight for the source-151 row-6 endpoint-8 outside-pair forcing question. It checks the current connector contract and escape partition and records that endpoint-8 support is not forced by current evidence because the private-halo-only pair [3,5] remains a live connector-avoiding support lane under basic incidence/crossing filters. This does not prove endpoint-8 support existence, does not prove row forcing, does not prove pair [3,5] impossible, does not prove n=9, does not prove the bridge, is not a counterexample, and is not a global status update.",
+  "decision": {
+    "answer": "do_not_accept_endpoint8_forcing_claim",
+    "blocking_basic_survivor_count": 12,
+    "blocking_escape_status": "PRIVATE_HALO_ONLY_PAIR_3_5_REMAINS_OPEN",
+    "blocking_escape_support_pairs": [
+      [
+        3,
+        5
+      ]
+    ],
+    "can_use_connector_if_endpoint8_support_hypothesis_supplied": true,
+    "decision_question": "Can current checked evidence accept the lemma that any genuine 151:6 outside-pair support must include endpoint 8?",
+    "endpoint8_forced_by_current_evidence": false,
+    "gate_status": "NOT_READY_PRIVATE_HALO_ONLY_ESCAPE_SURVIVES_BASIC_FILTERS",
+    "required_next_lemma": "Prove under genuine minimal/rich-class hypotheses that endpoint 8 is forced in the outside-pair support, or prove that the private-halo-only pair [3,5] cannot occur."
+  },
+  "interpretation": [
+    "The connector contract is useful only conditionally: if a genuine center-6 rich class contains witnesses 0 and 8, then the equality connector [0,6]=[8,6] is available.",
+    "The current outside-pair ledger still has the connector-avoiding support pair [3,5].",
+    "The escape partition shows that private-halo-only rows survive basic filters, so endpoint-8 forcing is not justified by incidence/crossing evidence alone.",
+    "The vertex-circle replay kills all selected-row diagnostic survivors, but it is not a support-existence or row-forcing lemma."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_endpoint8_forcing_preflight.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_151_6_endpoint8_forcing_preflight.py"
+  },
+  "schema": "erdos97.bootstrap_t12_151_6_endpoint8_forcing_preflight.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_t12_151_6_outside_pair_connector_contract.json",
+      "role": "source 151:6 outside-pair connector contract",
+      "schema": "erdos97.bootstrap_t12_151_6_outside_pair_connector_contract.v1",
+      "status": "BOOTSTRAP_T12_151_6_OUTSIDE_PAIR_CONNECTOR_CONTRACT_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "path": "data/certificates/bootstrap_t12_151_6_outside_pair_escape_partition.json",
+      "role": "source 151:6 outside-pair escape partition",
+      "schema": "erdos97.bootstrap_t12_151_6_outside_pair_escape_partition.v1",
+      "status": "BOOTSTRAP_T12_151_6_OUTSIDE_PAIR_ESCAPE_PARTITION_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_151_6_ENDPOINT8_FORCING_PREFLIGHT_DIAGNOSTIC_ONLY",
+  "summary": {
+    "all_selected_row_diagnostic_survivors_vertex_circle_obstructed": true,
+    "blocking_escape_support_pairs": [
+      [
+        3,
+        5
+      ]
+    ],
+    "bootstrap_core_witnesses": [
+      0
+    ],
+    "connector_conditional_available": true,
+    "connector_contract_escape_status": "CONNECTOR_ESCAPE_REQUIRES_PRIVATE_HALO_ONLY_PAIR_3_5",
+    "connector_contract_support_existence_status": "OPEN_TARGET_NOT_PROVED",
+    "connector_distance_pairs": [
+      [
+        0,
+        6
+      ],
+      [
+        8,
+        6
+      ]
+    ],
+    "connector_pair": [
+      0,
+      8
+    ],
+    "endpoint8_connector_available_basic_survivor_count": 16,
+    "endpoint8_connector_available_target_row_count": 9,
+    "endpoint8_connector_available_vertex_circle_survivor_count": 0,
+    "endpoint8_forced_by_current_evidence": false,
+    "endpoint8_forcing_blocked_by_private_halo_escape": true,
+    "endpoint8_support_pairs": [
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "gate_status": "NOT_READY_PRIVATE_HALO_ONLY_ESCAPE_SURVIVES_BASIC_FILTERS",
+    "next_required_lemma": "Prove under genuine minimal/rich-class hypotheses that endpoint 8 is forced in the outside-pair support, or prove that the private-halo-only pair [3,5] cannot occur.",
+    "outside_support_pairs": [
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "preflight_reasons": [
+      "The endpoint-8 support pairs [3,8] and [5,8] would supply the connector conditionally.",
+      "The connector-avoiding support pair [3,5] still exists in the outside-pair ledger.",
+      "The private-halo-only lane has 12 complete assignments after basic filters.",
+      "Vertex-circle replay kills those selected-row assignments but does not prove support existence or row forcing."
+    ],
+    "private_halo_escape_status": "PRIVATE_HALO_ONLY_PAIR_3_5_REMAINS_OPEN",
+    "private_halo_only_basic_survivor_count": 12,
+    "private_halo_only_target_row_count": 4,
+    "private_halo_only_vertex_circle_survivor_count": 0,
+    "source_escape_partition_scan_status": "PRIVATE_HALO_ONLY_AND_ENDPOINT8_SURVIVORS_ALL_VERTEX_CIRCLE_OBSTRUCTED",
+    "source_record_ids": [
+      151
+    ],
+    "target_center": 6,
+    "target_row_key": "151:6"
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

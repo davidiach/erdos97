@@ -2510,6 +2510,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_endpoint8_forcing_preflight",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_endpoint8_forcing_preflight.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Endpoint-8 forcing red-light preflight for source 151 row 6; "
+            "not endpoint-8 support existence, not a proof that [3,5] is "
+            "impossible, not row forcing, not an n=9 proof, not a bridge "
+            "proof, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",

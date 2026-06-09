@@ -396,6 +396,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-151-6-outside-pair-escape-partition.md`](bootstrap-t12-151-6-outside-pair-escape-partition.md):
   crosswalk partitioning the source-`151` row-`6` full-neighborhood survivors
   by private-halo-only versus endpoint-`8` support role.
+- [`bootstrap-t12-151-6-endpoint8-forcing-preflight.md`](bootstrap-t12-151-6-endpoint8-forcing-preflight.md):
+  checked red-light preflight recording that current evidence does not force
+  endpoint `8` because the private-halo-only `[3,5]` lane survives basic
+  filters.
 - [`bootstrap-t12-151-singleton-support-audit.md`](bootstrap-t12-151-singleton-support-audit.md):
   source-`151` singleton-support audit covering rows `151:5` and `151:8`.
 - [`bootstrap-t12-151-singleton-two-row-drop.md`](bootstrap-t12-151-singleton-two-row-drop.md):
