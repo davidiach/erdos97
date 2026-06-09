@@ -1442,6 +1442,24 @@ Problem #97 and says nothing about three or more orbits. See
 (5,313,300 offset pairs, zero window roots, one exact `m = 3` boundary hit
 at `x = sec(pi/3)`, excluded by strictness).
 
+### Lemma draft (review pending): half-step matching for multi-orbit cyclic configurations
+
+Status: `LEMMA` draft, review pending; structural reduction only.
+
+In any strictly convex union of `t >= 2` noncentral `C_m` orbits, no
+pairwise orbit offset is `0 mod 2*pi/m`, and the half-step pairs
+(offset exactly `pi/m`) form a partial matching on the orbits: no orbit can
+be half-step-aligned with two others, since the two partners would then be
+mutually aligned. Any row using two witnesses from a foreign orbit forces
+that orbit pair to be half-step, so for `t = 3` at least two pairwise
+offsets are generic and the rows of at least one orbit are forced into
+own-pair-plus-two-singles shape, carrying two distance equations each.
+Every `t = 3` branch is strictly overdetermined (three unknowns against at
+least four equations, or four against six). This is structural reduction
+bookkeeping toward the window analyses; it is not an obstruction for
+`t >= 3`, not an `n`-range exclusion, and not a proof of Erdos Problem #97.
+See `docs/half-step-matching-reduction.md`.
+
 ## Numerical Attempts
 
 ### Dynamic-witness free-pattern sweep (2026-06-09)
@@ -1468,6 +1486,15 @@ metric-linear configuration at relative spread below `1e-10`, confirming
 the alternation machinery can land on exact solutions that are in its
 basin. See `docs/dynamic-witness-free-pattern-search.md` and
 `data/runs/dynamic_witness_sweep_2026-06-09/summary.json`.
+
+A second deep pass reran the 32 symmetric `t >= 3` cells at 64 restarts each
+plus asymmetric `n = 10..16`. Outcome unchanged and sharpened: still no
+candidate, best strictly convex relative spread `8.3e-5` (a floor-riding
+degeneration at margin `2.1e-7`), every strictly convex record below `1e-3`
+either flagged `near_pair_floor` or with margin below `1e-5`, and the
+unconstrained lane near `1e-7`, consistent with exact nonconvex solutions
+existing while the strictly convex side walls off. See
+`data/runs/dynamic_witness_sweep_2026-06-09b/summary.json`.
 
 ### C13_sidon_1_2_4_10
 

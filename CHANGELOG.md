@@ -23,7 +23,14 @@ counterexample are claimed.
   `scripts/search_dynamic_witness.py`) and its first recorded equivariant
   sweep artifact (`data/runs/dynamic_witness_sweep_2026-06-09/`), recorded
   as `NUMERICAL_EVIDENCE` with no candidate found and explicit
-  anti-degeneracy floors against the cluster exploit.
+  anti-degeneracy floors against the cluster exploit. A second deep pass at
+  4x the restart budget (`data/runs/dynamic_witness_sweep_2026-06-09b/`)
+  sharpened the same no-candidate outcome.
+- Added the review-pending half-step matching reduction for multi-orbit
+  cyclic configurations (`docs/half-step-matching-reduction.md`): no
+  aligned orbit pairs, half-step pairs form a partial matching, and every
+  `t = 3` branch is strictly overdetermined. Structural reduction
+  bookkeeping only.
 
 ## 2026-05-10
 

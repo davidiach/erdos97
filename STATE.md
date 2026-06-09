@@ -884,9 +884,19 @@ witness 4-set at each evaluation, probing all witness patterns reachable by a
 configuration family at once, with hard anti-cluster floors against the known
 degenerate exploit. Its first equivariant sweep (`10 <= n <= 36`) found no
 candidate: strictly convex optima plateau at relative spreads near `1e-2`,
-and the smallest spreads occur only in floor-riding degenerations. This is
+and the smallest spreads occur only in floor-riding degenerations. A second
+deep pass (64 restarts on every `t >= 3` symmetric cell, asymmetric
+`n = 10..16`) sharpened the same outcome with no candidate. This is
 `NUMERICAL_EVIDENCE` only; see
 `docs/dynamic-witness-free-pattern-search.md`.
+
+A follow-up half-step matching reduction records the `t >= 3` structure:
+no aligned orbit pairs exist, half-step pairs form a partial matching on
+the orbits, and for three orbits at least two pairwise offsets are generic,
+forcing own-pair-plus-two-singles rows with two equations each, so every
+`t = 3` branch is strictly overdetermined. This is review-pending
+structural reduction bookkeeping toward window analyses, not an
+obstruction. See `docs/half-step-matching-reduction.md`.
 
 ## Best saved near-miss
 

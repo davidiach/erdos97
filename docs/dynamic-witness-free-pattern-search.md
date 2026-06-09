@@ -101,6 +101,26 @@ cells, pushing the dynamic-witness spread toward zero forces the
 configuration toward the convexity boundary or the separation floor. No cell
 shows an interior strictly convex basin with spread tending to zero.
 
+## Second recorded run (deep pass)
+
+Artifact: `data/runs/dynamic_witness_sweep_2026-06-09b/summary.json`.
+This pass reruns the 32 symmetric `t >= 3` cells at 64 restarts each (4x the
+first budget; the `t = 2` family is now covered exactly by
+`docs/two-orbit-circulant-obstruction.md` and
+`docs/symmetric-two-orbit-reduction.md`), plus asymmetric `n = 10..16`. The
+asymmetric cells ran at 8 restarts because the single-cell driver passed
+`--restarts` but not `--asym-restarts`; that flag gap is recorded here so
+the next pass corrects it.
+
+Outcome unchanged and sharpened: still no candidate. The best strictly
+convex relative spread across all 39 cells is `8.3e-5` (`m=7, t=3`), and it
+is a floor-riding degeneration (margin `2.1e-7`, separation at the
+anti-cluster floor). Every strictly convex record below `1e-3` is either
+flagged `near_pair_floor` or has margin below `1e-5`; healthy-margin
+plateaus stay at relative spreads near `1e-2` or above. The unconstrained
+lane meanwhile reaches `1.1e-7` (`m=8, t=4`), consistent with exact
+nonconvex solutions existing while the strictly convex side walls off.
+
 ## Non-claims
 
 - This is a finite, seeded, heuristic search; it proves nothing about

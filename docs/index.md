@@ -795,6 +795,11 @@ put detailed reconciliation in the canonical synthesis.
   review-pending lemma draft excluding all two-orbit circulant
   configurations (any radii, any relative rotation) with its audit checker;
   a restricted-family obstruction, not a general proof.
+- [`half-step-matching-reduction.md`](half-step-matching-reduction.md):
+  review-pending matching lemma for multi-orbit cyclic configurations (no
+  aligned orbit pairs; half-step pairs form a partial matching) with the
+  forced `t = 3` row-shape catalogue and equation systems; structural
+  reduction bookkeeping, not an obstruction or proof.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`n9-base-apex-d3-p19-degree-obstruction.md`](n9-base-apex-d3-p19-degree-obstruction.md):
