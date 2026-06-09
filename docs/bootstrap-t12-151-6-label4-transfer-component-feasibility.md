@@ -87,6 +87,12 @@ or any of the five other label-`4` transfer components, from the bare
 equal-length component alone. A successful exclusion has to use extra
 private-support, rich-class, row-forcing, or activation-provenance hypotheses.
 
+The follow-up support-hypothesis ledger
+`docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md` pins that extra
+layer: the cascade needs center `5` with witnesses `[4,6]` and center `6` with
+witnesses `[0,5]`; the exact private pair `[3,5]` is not directly supplied by
+any label-`4` transfer requirement.
+
 ## What This Does Not Prove
 
 This artifact does not give one polygon realizing all six components at once,

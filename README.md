@@ -148,10 +148,15 @@ The current label-`4` transfer ledger collapses that private lane to six
 equal-length segment components, including the unique row-`6` cascade
 `D[0,6]=D[4,5]=D[5,6]`; a companion cyclic-arc negative control shows each
 component is feasible by itself, so any obstruction must use extra
-private-support or rich-class hypotheses. See
+private-support or rich-class hypotheses. The support-hypothesis ledger then
+pins those extra inputs: the cascade needs center `5` with witnesses `[4,6]`
+and center `6` with witnesses `[0,5]`, while no label-`4` transfer support
+requirement is the exact private pair `[3,5]`. See
 [`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`](docs/bootstrap-t12-151-6-label4-transfer-length-components.md)
 and
-[`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md).
+[`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md),
+plus
+[`docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md`](docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md).
 On the source-`81` side, the `81:3` ordered chain-closure, one-layer
 repeated-support, two-repeated-support, and repeated-support saturation packets
 close the current bounded support-chain continuations under basic

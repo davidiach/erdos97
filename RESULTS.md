@@ -935,7 +935,11 @@ strict cyclic convex `9`-gon arc witness for each of those six components
 considered alone, including a modulus-`13` witness for the row-`6` cascade.
 Thus component-alone impossibility is rejected, and any future exclusion must
 use extra private-support, rich-class, row-forcing, or activation-provenance
-hypotheses. This is not a proof of support existence, row forcing,
+hypotheses. The support-hypothesis ledger names those extra inputs: the six
+components induce seven centered support requirements, the row-`6` cascade
+requires center `5` with witnesses `[4,6]` and center `6` with witnesses
+`[0,5]`, and none of the seven requirements is the exact private pair
+`[3,5]`. This is not a proof of support existence, row forcing,
 endpoint-`8` forcing, `[3,5]` impossibility, simultaneous realization of all
 components, `n=9`, or the bootstrap bridge.
 See
@@ -948,7 +952,10 @@ See
 plus `docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`,
 `scripts/check_bootstrap_t12_151_6_label4_transfer_component_feasibility.py`,
 and
-`data/certificates/bootstrap_t12_151_6_label4_transfer_component_feasibility.json`.
+`data/certificates/bootstrap_t12_151_6_label4_transfer_component_feasibility.json`,
+plus `docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md`,
+`scripts/check_bootstrap_t12_151_6_label4_support_hypothesis_ledger.py`, and
+`data/certificates/bootstrap_t12_151_6_label4_support_hypothesis_ledger.json`.
 
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses

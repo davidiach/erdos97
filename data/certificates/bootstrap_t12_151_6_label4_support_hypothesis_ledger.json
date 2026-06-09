@@ -1,0 +1,1217 @@
+{
+  "claim_scope": "Proof-target diagnostic for the source-151 row-6 private-halo-only outside-pair lane. It refines the six label-4 transfer length components into the genuine centered support hypotheses that a future support-geometry exclusion must add. The ledger records that the only component using the target center is the cascade D[0,6]=D[4,5]=D[5,6], and that no label-4 transfer support requirement is the exact private support pair [3,5]. This does not discharge those support hypotheses, does not prove outside-pair support existence, does not prove row forcing, does not prove pair [3,5] impossible, does not prove endpoint-8 forcing, does not prove n=9, does not prove the bridge, is not a counterexample, and is not a global status update.",
+  "interpretation": [
+    "Each support requirement is a centered equal-distance hypothesis from the row-local transfer-obligation ledger.",
+    "The row-6 cascade requires two support centers: center 5 with witnesses [4,6], and center 6 with witnesses [0,5].",
+    "None of the seven centered support requirements is the exact private pair [3,5], so the private-pair hypothesis remains an additional geometric input.",
+    "The component-alone cyclic witnesses remain negative controls; this packet only names the extra hypotheses a future exclusion must use."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_label4_support_hypothesis_ledger.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_151_6_label4_support_hypothesis_ledger.py"
+  },
+  "schema": "erdos97.bootstrap_t12_151_6_label4_support_hypothesis_ledger.v1",
+  "source_artifacts": [
+    {
+      "component_alone_obstruction_status": null,
+      "component_status": "ROW_LOCAL_LABEL4_TRANSFER_LENGTH_COMPONENTS_PINNED",
+      "obligation_status": null,
+      "path": "data/certificates/bootstrap_t12_151_6_label4_transfer_length_components.json",
+      "role": "source 151:6 label-4 transfer length components",
+      "schema": "erdos97.bootstrap_t12_151_6_label4_transfer_length_components.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_TRANSFER_LENGTH_COMPONENTS_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "component_alone_obstruction_status": null,
+      "component_status": null,
+      "obligation_status": "ROW_LOCAL_LABEL4_TRANSFER_OBLIGATIONS_PINNED",
+      "path": "data/certificates/bootstrap_t12_151_6_label4_transfer_obligations.json",
+      "role": "source 151:6 label-4 transfer obligations",
+      "schema": "erdos97.bootstrap_t12_151_6_label4_transfer_obligations.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_TRANSFER_OBLIGATIONS_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "component_alone_obstruction_status": "COMPONENT_ALONE_IMPOSSIBILITY_REJECTED",
+      "component_status": null,
+      "obligation_status": null,
+      "path": "data/certificates/bootstrap_t12_151_6_label4_transfer_component_feasibility.json",
+      "role": "source 151:6 component-alone feasibility controls",
+      "schema": "erdos97.bootstrap_t12_151_6_label4_transfer_component_feasibility.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_TRANSFER_COMPONENT_FEASIBILITY_NEGATIVE_CONTROLS",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_151_6_LABEL4_SUPPORT_HYPOTHESIS_LEDGER_DIAGNOSTIC_ONLY",
+  "summary": {
+    "cascade_auxiliary_center_pair_occurrence_counts": {
+      "5,8": 4
+    },
+    "cascade_auxiliary_center_pair_signature_counts": {
+      "5,8": 3
+    },
+    "cascade_component_key": "D[0,6]=D[4,5]=D[5,6]",
+    "cascade_component_occurrence_count": 4,
+    "cascade_component_signature_count": 3,
+    "cascade_required_support_centers": [
+      5,
+      6
+    ],
+    "cascade_required_witness_pairs": [
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        5
+      ]
+    ],
+    "component_alone_obstruction_status": "COMPONENT_ALONE_IMPOSSIBILITY_REJECTED",
+    "component_count_by_access_mode": {
+      "direct_cycle_edge": 4,
+      "quotient_equality_only": 2
+    },
+    "component_count_by_required_support_center_count": {
+      "1": 5,
+      "2": 1
+    },
+    "component_incidence_count_by_required_center": {
+      "5": 4,
+      "6": 1,
+      "7": 2
+    },
+    "components_requiring_exact_private_support_pair_count": 0,
+    "components_requiring_label4_witness_count": 6,
+    "components_requiring_label8_witness_count": 0,
+    "components_requiring_private_target_class_witness_subset_count": 1,
+    "components_requiring_row6_target_connector_count": 1,
+    "components_requiring_target_center_as_auxiliary_witness_count": 1,
+    "components_with_center8_auxiliary_center_count": 1,
+    "ledger_status": "LABEL4_SUPPORT_HYPOTHESES_PINNED_NOT_DISCHARGED",
+    "positive_transfer_occurrence_counts_by_auxiliary_center_pair": {
+      "2,5": 1,
+      "2,7": 1,
+      "3,5": 1,
+      "3,7": 1,
+      "4,5": 1,
+      "5,8": 4
+    },
+    "positive_transfer_signature_count_by_access_mode": {
+      "direct_cycle_edge": 6,
+      "quotient_equality_only": 2
+    },
+    "positive_transfer_signature_counts_by_auxiliary_center_pair": {
+      "2,5": 1,
+      "2,7": 1,
+      "3,5": 1,
+      "3,7": 1,
+      "4,5": 1,
+      "5,8": 3
+    },
+    "private_support_pair": [
+      3,
+      5
+    ],
+    "private_target_center_class": [
+      0,
+      3,
+      5,
+      7
+    ],
+    "source_component_status": "ROW_LOCAL_LABEL4_TRANSFER_LENGTH_COMPONENTS_PINNED",
+    "source_feasible_component_count": 6,
+    "source_length_component_count": 6,
+    "source_obligation_status": "ROW_LOCAL_LABEL4_TRANSFER_OBLIGATIONS_PINNED",
+    "source_unique_segment_count": 9,
+    "support_need_record_count": 6,
+    "support_requirement_occurrence_count_by_center": {
+      "5": 7,
+      "6": 4,
+      "7": 2
+    },
+    "support_requirement_occurrence_count_by_role": {
+      "row5_label4_spoke_swap": 3,
+      "row5_label4_to_target_center_step": 4,
+      "row6_target_connector_step": 4,
+      "row7_label4_spoke_swap": 2
+    },
+    "support_requirement_signature_count_by_center": {
+      "5": 6,
+      "6": 3,
+      "7": 2
+    },
+    "support_requirement_signature_count_by_role": {
+      "row5_label4_spoke_swap": 3,
+      "row5_label4_to_target_center_step": 3,
+      "row6_target_connector_step": 3,
+      "row7_label4_spoke_swap": 2
+    },
+    "target_center": 6,
+    "target_row_key": "151:6",
+    "unique_centered_support_requirement_count": 7,
+    "unique_requirements_with_exact_private_support_pair_count": 0,
+    "unique_requirements_with_private_target_class_witness_subset_count": 1,
+    "unique_support_requirement_count_by_center": {
+      "5": 4,
+      "6": 1,
+      "7": 2
+    },
+    "unique_support_requirement_count_by_role": {
+      "row5_label4_spoke_swap": 3,
+      "row5_label4_to_target_center_step": 1,
+      "row6_target_connector_step": 1,
+      "row7_label4_spoke_swap": 2
+    }
+  },
+  "support_need_records": [
+    {
+      "access_mode_counts": {
+        "quotient_equality_only": 1
+      },
+      "auxiliary_center_pair_occurrence_counts": {
+        "3,5": 1
+      },
+      "auxiliary_center_pair_signature_counts": {
+        "3,5": 1
+      },
+      "component_alone_feasible": true,
+      "component_alone_witness_modulus": 12,
+      "component_alone_witness_scope": "component_alone_only",
+      "component_key": "D[0,5]=D[4,5]",
+      "geometry_class": "edge_diagonal_equality",
+      "next_proof_obligation": "Exclude D[0,5]=D[4,5] only after adding the genuine auxiliary label-4 support and the private target-row support hypotheses.",
+      "occurrence_incidence_count": 1,
+      "path_shape": "one_edge_row5_label4_spoke_swap",
+      "required_support_center_count": 1,
+      "required_support_centers": [
+        5
+      ],
+      "required_support_roles": [
+        "row5_label4_spoke_swap"
+      ],
+      "required_witness_pairs": [
+        [
+          0,
+          4
+        ]
+      ],
+      "requires_exact_private_support_pair": false,
+      "requires_label4_witness": true,
+      "requires_label8_witness": false,
+      "requires_private_target_class_witness_subset": false,
+      "requires_row6_target_connector": false,
+      "requires_target_center_as_auxiliary_witness": false,
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        4
+      ],
+      "source_path_motif_key": "row5:[4,5]=[0,5]",
+      "support_requirements": [
+        {
+          "center": 5,
+          "center_is_target_center": false,
+          "centered_distance_equality": {
+            "center": 5,
+            "left_pair": [
+              4,
+              5
+            ],
+            "right_pair": [
+              0,
+              5
+            ],
+            "witness_pair": [
+              0,
+              4
+            ]
+          },
+          "label4_as_witness": true,
+          "label8_as_witness": false,
+          "left_pair": [
+            4,
+            5
+          ],
+          "obligation_role": "row5_label4_spoke_swap",
+          "occurrence_incidence_count": 1,
+          "requirement_key": "row5:[4,5]=[0,5]",
+          "right_pair": [
+            0,
+            5
+          ],
+          "signature_incidence_count": 1,
+          "signature_indices": [
+            4
+          ],
+          "support_hypothesis": "center 5 has a selected-distance support class containing witnesses 0 and 4",
+          "target_center_as_auxiliary_witness": false,
+          "transfer_record_indices": [
+            8
+          ],
+          "witness_pair": [
+            0,
+            4
+          ],
+          "witness_pair_equals_private_support_pair": false,
+          "witness_pair_subset_of_private_target_class": false
+        }
+      ],
+      "transfer_record_indices": [
+        8
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 3
+      },
+      "auxiliary_center_pair_occurrence_counts": {
+        "5,8": 4
+      },
+      "auxiliary_center_pair_signature_counts": {
+        "5,8": 3
+      },
+      "component_alone_feasible": true,
+      "component_alone_witness_modulus": 13,
+      "component_alone_witness_scope": "component_alone_only",
+      "component_key": "D[0,6]=D[4,5]=D[5,6]",
+      "geometry_class": "edge_edge_diagonal_chain",
+      "next_proof_obligation": "Exclude the cascade only after adding the genuine row-5 [4,6] support, row-6 private-class [0,5] support, and private-pair [3,5] or rich-class hypotheses.",
+      "occurrence_incidence_count": 4,
+      "path_shape": "two_edge_row5_row6_connector_cascade",
+      "required_support_center_count": 2,
+      "required_support_centers": [
+        5,
+        6
+      ],
+      "required_support_roles": [
+        "row5_label4_to_target_center_step",
+        "row6_target_connector_step"
+      ],
+      "required_witness_pairs": [
+        [
+          4,
+          6
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "requires_exact_private_support_pair": false,
+      "requires_label4_witness": true,
+      "requires_label8_witness": false,
+      "requires_private_target_class_witness_subset": true,
+      "requires_row6_target_connector": true,
+      "requires_target_center_as_auxiliary_witness": true,
+      "signature_incidence_count": 3,
+      "signature_indices": [
+        7,
+        8,
+        9
+      ],
+      "source_path_motif_key": "row5:[4,5]=[5,6] -> row6:[5,6]=[0,6]",
+      "support_requirements": [
+        {
+          "center": 5,
+          "center_is_target_center": false,
+          "centered_distance_equality": {
+            "center": 5,
+            "left_pair": [
+              4,
+              5
+            ],
+            "right_pair": [
+              5,
+              6
+            ],
+            "witness_pair": [
+              4,
+              6
+            ]
+          },
+          "label4_as_witness": true,
+          "label8_as_witness": false,
+          "left_pair": [
+            4,
+            5
+          ],
+          "obligation_role": "row5_label4_to_target_center_step",
+          "occurrence_incidence_count": 4,
+          "requirement_key": "row5:[4,5]=[5,6]",
+          "right_pair": [
+            5,
+            6
+          ],
+          "signature_incidence_count": 3,
+          "signature_indices": [
+            7,
+            8,
+            9
+          ],
+          "support_hypothesis": "center 5 has a selected-distance support class containing witnesses 4 and 6",
+          "target_center_as_auxiliary_witness": true,
+          "transfer_record_indices": [
+            13,
+            15,
+            17
+          ],
+          "witness_pair": [
+            4,
+            6
+          ],
+          "witness_pair_equals_private_support_pair": false,
+          "witness_pair_subset_of_private_target_class": false
+        },
+        {
+          "center": 6,
+          "center_is_target_center": true,
+          "centered_distance_equality": {
+            "center": 6,
+            "left_pair": [
+              5,
+              6
+            ],
+            "right_pair": [
+              0,
+              6
+            ],
+            "witness_pair": [
+              0,
+              5
+            ]
+          },
+          "label4_as_witness": false,
+          "label8_as_witness": false,
+          "left_pair": [
+            5,
+            6
+          ],
+          "obligation_role": "row6_target_connector_step",
+          "occurrence_incidence_count": 4,
+          "requirement_key": "row6:[5,6]=[0,6]",
+          "right_pair": [
+            0,
+            6
+          ],
+          "signature_incidence_count": 3,
+          "signature_indices": [
+            7,
+            8,
+            9
+          ],
+          "support_hypothesis": "center 6 has a selected-distance support class containing witnesses 0 and 5",
+          "target_center_as_auxiliary_witness": false,
+          "transfer_record_indices": [
+            13,
+            15,
+            17
+          ],
+          "witness_pair": [
+            0,
+            5
+          ],
+          "witness_pair_equals_private_support_pair": false,
+          "witness_pair_subset_of_private_target_class": true
+        }
+      ],
+      "transfer_record_indices": [
+        13,
+        15,
+        17
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 1
+      },
+      "auxiliary_center_pair_occurrence_counts": {
+        "2,7": 1
+      },
+      "auxiliary_center_pair_signature_counts": {
+        "2,7": 1
+      },
+      "component_alone_feasible": true,
+      "component_alone_witness_modulus": 9,
+      "component_alone_witness_scope": "component_alone_only",
+      "component_key": "D[1,7]=D[4,7]",
+      "geometry_class": "diagonal_only_equality",
+      "next_proof_obligation": "Exclude D[1,7]=D[4,7] only after adding the genuine auxiliary label-4 support and the private target-row support hypotheses.",
+      "occurrence_incidence_count": 1,
+      "path_shape": "one_edge_row7_label4_spoke_swap",
+      "required_support_center_count": 1,
+      "required_support_centers": [
+        7
+      ],
+      "required_support_roles": [
+        "row7_label4_spoke_swap"
+      ],
+      "required_witness_pairs": [
+        [
+          1,
+          4
+        ]
+      ],
+      "requires_exact_private_support_pair": false,
+      "requires_label4_witness": true,
+      "requires_label8_witness": false,
+      "requires_private_target_class_witness_subset": false,
+      "requires_row6_target_connector": false,
+      "requires_target_center_as_auxiliary_witness": false,
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        3
+      ],
+      "source_path_motif_key": "row7:[4,7]=[1,7]",
+      "support_requirements": [
+        {
+          "center": 7,
+          "center_is_target_center": false,
+          "centered_distance_equality": {
+            "center": 7,
+            "left_pair": [
+              4,
+              7
+            ],
+            "right_pair": [
+              1,
+              7
+            ],
+            "witness_pair": [
+              1,
+              4
+            ]
+          },
+          "label4_as_witness": true,
+          "label8_as_witness": false,
+          "left_pair": [
+            4,
+            7
+          ],
+          "obligation_role": "row7_label4_spoke_swap",
+          "occurrence_incidence_count": 1,
+          "requirement_key": "row7:[4,7]=[1,7]",
+          "right_pair": [
+            1,
+            7
+          ],
+          "signature_incidence_count": 1,
+          "signature_indices": [
+            3
+          ],
+          "support_hypothesis": "center 7 has a selected-distance support class containing witnesses 1 and 4",
+          "target_center_as_auxiliary_witness": false,
+          "transfer_record_indices": [
+            6
+          ],
+          "witness_pair": [
+            1,
+            4
+          ],
+          "witness_pair_equals_private_support_pair": false,
+          "witness_pair_subset_of_private_target_class": false
+        }
+      ],
+      "transfer_record_indices": [
+        6
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "quotient_equality_only": 1
+      },
+      "auxiliary_center_pair_occurrence_counts": {
+        "4,5": 1
+      },
+      "auxiliary_center_pair_signature_counts": {
+        "4,5": 1
+      },
+      "component_alone_feasible": true,
+      "component_alone_witness_modulus": 14,
+      "component_alone_witness_scope": "component_alone_only",
+      "component_key": "D[2,5]=D[4,5]",
+      "geometry_class": "edge_diagonal_equality",
+      "next_proof_obligation": "Exclude D[2,5]=D[4,5] only after adding the genuine auxiliary label-4 support and the private target-row support hypotheses.",
+      "occurrence_incidence_count": 1,
+      "path_shape": "one_edge_row5_label4_spoke_swap",
+      "required_support_center_count": 1,
+      "required_support_centers": [
+        5
+      ],
+      "required_support_roles": [
+        "row5_label4_spoke_swap"
+      ],
+      "required_witness_pairs": [
+        [
+          2,
+          4
+        ]
+      ],
+      "requires_exact_private_support_pair": false,
+      "requires_label4_witness": true,
+      "requires_label8_witness": false,
+      "requires_private_target_class_witness_subset": false,
+      "requires_row6_target_connector": false,
+      "requires_target_center_as_auxiliary_witness": false,
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        6
+      ],
+      "source_path_motif_key": "row5:[4,5]=[2,5]",
+      "support_requirements": [
+        {
+          "center": 5,
+          "center_is_target_center": false,
+          "centered_distance_equality": {
+            "center": 5,
+            "left_pair": [
+              4,
+              5
+            ],
+            "right_pair": [
+              2,
+              5
+            ],
+            "witness_pair": [
+              2,
+              4
+            ]
+          },
+          "label4_as_witness": true,
+          "label8_as_witness": false,
+          "left_pair": [
+            4,
+            5
+          ],
+          "obligation_role": "row5_label4_spoke_swap",
+          "occurrence_incidence_count": 1,
+          "requirement_key": "row5:[4,5]=[2,5]",
+          "right_pair": [
+            2,
+            5
+          ],
+          "signature_incidence_count": 1,
+          "signature_indices": [
+            6
+          ],
+          "support_hypothesis": "center 5 has a selected-distance support class containing witnesses 2 and 4",
+          "target_center_as_auxiliary_witness": false,
+          "transfer_record_indices": [
+            12
+          ],
+          "witness_pair": [
+            2,
+            4
+          ],
+          "witness_pair_equals_private_support_pair": false,
+          "witness_pair_subset_of_private_target_class": false
+        }
+      ],
+      "transfer_record_indices": [
+        12
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 1
+      },
+      "auxiliary_center_pair_occurrence_counts": {
+        "3,7": 1
+      },
+      "auxiliary_center_pair_signature_counts": {
+        "3,7": 1
+      },
+      "component_alone_feasible": true,
+      "component_alone_witness_modulus": 10,
+      "component_alone_witness_scope": "component_alone_only",
+      "component_key": "D[2,7]=D[4,7]",
+      "geometry_class": "diagonal_only_equality",
+      "next_proof_obligation": "Exclude D[2,7]=D[4,7] only after adding the genuine auxiliary label-4 support and the private target-row support hypotheses.",
+      "occurrence_incidence_count": 1,
+      "path_shape": "one_edge_row7_label4_spoke_swap",
+      "required_support_center_count": 1,
+      "required_support_centers": [
+        7
+      ],
+      "required_support_roles": [
+        "row7_label4_spoke_swap"
+      ],
+      "required_witness_pairs": [
+        [
+          2,
+          4
+        ]
+      ],
+      "requires_exact_private_support_pair": false,
+      "requires_label4_witness": true,
+      "requires_label8_witness": false,
+      "requires_private_target_class_witness_subset": false,
+      "requires_row6_target_connector": false,
+      "requires_target_center_as_auxiliary_witness": false,
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        5
+      ],
+      "source_path_motif_key": "row7:[4,7]=[2,7]",
+      "support_requirements": [
+        {
+          "center": 7,
+          "center_is_target_center": false,
+          "centered_distance_equality": {
+            "center": 7,
+            "left_pair": [
+              4,
+              7
+            ],
+            "right_pair": [
+              2,
+              7
+            ],
+            "witness_pair": [
+              2,
+              4
+            ]
+          },
+          "label4_as_witness": true,
+          "label8_as_witness": false,
+          "left_pair": [
+            4,
+            7
+          ],
+          "obligation_role": "row7_label4_spoke_swap",
+          "occurrence_incidence_count": 1,
+          "requirement_key": "row7:[4,7]=[2,7]",
+          "right_pair": [
+            2,
+            7
+          ],
+          "signature_incidence_count": 1,
+          "signature_indices": [
+            5
+          ],
+          "support_hypothesis": "center 7 has a selected-distance support class containing witnesses 2 and 4",
+          "target_center_as_auxiliary_witness": false,
+          "transfer_record_indices": [
+            10
+          ],
+          "witness_pair": [
+            2,
+            4
+          ],
+          "witness_pair_equals_private_support_pair": false,
+          "witness_pair_subset_of_private_target_class": false
+        }
+      ],
+      "transfer_record_indices": [
+        10
+      ]
+    },
+    {
+      "access_mode_counts": {
+        "direct_cycle_edge": 1
+      },
+      "auxiliary_center_pair_occurrence_counts": {
+        "2,5": 1
+      },
+      "auxiliary_center_pair_signature_counts": {
+        "2,5": 1
+      },
+      "component_alone_feasible": true,
+      "component_alone_witness_modulus": 10,
+      "component_alone_witness_scope": "component_alone_only",
+      "component_key": "D[4,5]=D[5,7]",
+      "geometry_class": "edge_diagonal_equality",
+      "next_proof_obligation": "Exclude D[4,5]=D[5,7] only after adding the genuine auxiliary label-4 support and the private target-row support hypotheses.",
+      "occurrence_incidence_count": 1,
+      "path_shape": "one_edge_row5_label4_spoke_swap",
+      "required_support_center_count": 1,
+      "required_support_centers": [
+        5
+      ],
+      "required_support_roles": [
+        "row5_label4_spoke_swap"
+      ],
+      "required_witness_pairs": [
+        [
+          4,
+          7
+        ]
+      ],
+      "requires_exact_private_support_pair": false,
+      "requires_label4_witness": true,
+      "requires_label8_witness": false,
+      "requires_private_target_class_witness_subset": false,
+      "requires_row6_target_connector": false,
+      "requires_target_center_as_auxiliary_witness": false,
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        1
+      ],
+      "source_path_motif_key": "row5:[4,5]=[5,7]",
+      "support_requirements": [
+        {
+          "center": 5,
+          "center_is_target_center": false,
+          "centered_distance_equality": {
+            "center": 5,
+            "left_pair": [
+              4,
+              5
+            ],
+            "right_pair": [
+              5,
+              7
+            ],
+            "witness_pair": [
+              4,
+              7
+            ]
+          },
+          "label4_as_witness": true,
+          "label8_as_witness": false,
+          "left_pair": [
+            4,
+            5
+          ],
+          "obligation_role": "row5_label4_spoke_swap",
+          "occurrence_incidence_count": 1,
+          "requirement_key": "row5:[4,5]=[5,7]",
+          "right_pair": [
+            5,
+            7
+          ],
+          "signature_incidence_count": 1,
+          "signature_indices": [
+            1
+          ],
+          "support_hypothesis": "center 5 has a selected-distance support class containing witnesses 4 and 7",
+          "target_center_as_auxiliary_witness": false,
+          "transfer_record_indices": [
+            2
+          ],
+          "witness_pair": [
+            4,
+            7
+          ],
+          "witness_pair_equals_private_support_pair": false,
+          "witness_pair_subset_of_private_target_class": false
+        }
+      ],
+      "transfer_record_indices": [
+        2
+      ]
+    }
+  ],
+  "support_requirement_records": [
+    {
+      "center": 5,
+      "center_is_target_center": false,
+      "centered_distance_equality": {
+        "center": 5,
+        "left_pair": [
+          4,
+          5
+        ],
+        "right_pair": [
+          0,
+          5
+        ],
+        "witness_pair": [
+          0,
+          4
+        ]
+      },
+      "component_count": 1,
+      "component_geometry_class_counts": {
+        "edge_diagonal_equality": 1
+      },
+      "component_keys": [
+        "D[0,5]=D[4,5]"
+      ],
+      "component_path_shape_counts": {
+        "one_edge_row5_label4_spoke_swap": 1
+      },
+      "label4_as_witness": true,
+      "label8_as_witness": false,
+      "left_pair": [
+        4,
+        5
+      ],
+      "obligation_role": "row5_label4_spoke_swap",
+      "occurrence_incidence_count": 1,
+      "requirement_key": "row5:[4,5]=[0,5]",
+      "right_pair": [
+        0,
+        5
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        4
+      ],
+      "support_hypothesis": "center 5 has a selected-distance support class containing witnesses 0 and 4",
+      "target_center_as_auxiliary_witness": false,
+      "transfer_record_indices": [
+        8
+      ],
+      "witness_pair": [
+        0,
+        4
+      ],
+      "witness_pair_equals_private_support_pair": false,
+      "witness_pair_subset_of_private_target_class": false
+    },
+    {
+      "center": 5,
+      "center_is_target_center": false,
+      "centered_distance_equality": {
+        "center": 5,
+        "left_pair": [
+          4,
+          5
+        ],
+        "right_pair": [
+          2,
+          5
+        ],
+        "witness_pair": [
+          2,
+          4
+        ]
+      },
+      "component_count": 1,
+      "component_geometry_class_counts": {
+        "edge_diagonal_equality": 1
+      },
+      "component_keys": [
+        "D[2,5]=D[4,5]"
+      ],
+      "component_path_shape_counts": {
+        "one_edge_row5_label4_spoke_swap": 1
+      },
+      "label4_as_witness": true,
+      "label8_as_witness": false,
+      "left_pair": [
+        4,
+        5
+      ],
+      "obligation_role": "row5_label4_spoke_swap",
+      "occurrence_incidence_count": 1,
+      "requirement_key": "row5:[4,5]=[2,5]",
+      "right_pair": [
+        2,
+        5
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        6
+      ],
+      "support_hypothesis": "center 5 has a selected-distance support class containing witnesses 2 and 4",
+      "target_center_as_auxiliary_witness": false,
+      "transfer_record_indices": [
+        12
+      ],
+      "witness_pair": [
+        2,
+        4
+      ],
+      "witness_pair_equals_private_support_pair": false,
+      "witness_pair_subset_of_private_target_class": false
+    },
+    {
+      "center": 5,
+      "center_is_target_center": false,
+      "centered_distance_equality": {
+        "center": 5,
+        "left_pair": [
+          4,
+          5
+        ],
+        "right_pair": [
+          5,
+          6
+        ],
+        "witness_pair": [
+          4,
+          6
+        ]
+      },
+      "component_count": 1,
+      "component_geometry_class_counts": {
+        "edge_edge_diagonal_chain": 1
+      },
+      "component_keys": [
+        "D[0,6]=D[4,5]=D[5,6]"
+      ],
+      "component_path_shape_counts": {
+        "two_edge_row5_row6_connector_cascade": 1
+      },
+      "label4_as_witness": true,
+      "label8_as_witness": false,
+      "left_pair": [
+        4,
+        5
+      ],
+      "obligation_role": "row5_label4_to_target_center_step",
+      "occurrence_incidence_count": 4,
+      "requirement_key": "row5:[4,5]=[5,6]",
+      "right_pair": [
+        5,
+        6
+      ],
+      "signature_incidence_count": 3,
+      "signature_indices": [
+        7,
+        8,
+        9
+      ],
+      "support_hypothesis": "center 5 has a selected-distance support class containing witnesses 4 and 6",
+      "target_center_as_auxiliary_witness": true,
+      "transfer_record_indices": [
+        13,
+        15,
+        17
+      ],
+      "witness_pair": [
+        4,
+        6
+      ],
+      "witness_pair_equals_private_support_pair": false,
+      "witness_pair_subset_of_private_target_class": false
+    },
+    {
+      "center": 5,
+      "center_is_target_center": false,
+      "centered_distance_equality": {
+        "center": 5,
+        "left_pair": [
+          4,
+          5
+        ],
+        "right_pair": [
+          5,
+          7
+        ],
+        "witness_pair": [
+          4,
+          7
+        ]
+      },
+      "component_count": 1,
+      "component_geometry_class_counts": {
+        "edge_diagonal_equality": 1
+      },
+      "component_keys": [
+        "D[4,5]=D[5,7]"
+      ],
+      "component_path_shape_counts": {
+        "one_edge_row5_label4_spoke_swap": 1
+      },
+      "label4_as_witness": true,
+      "label8_as_witness": false,
+      "left_pair": [
+        4,
+        5
+      ],
+      "obligation_role": "row5_label4_spoke_swap",
+      "occurrence_incidence_count": 1,
+      "requirement_key": "row5:[4,5]=[5,7]",
+      "right_pair": [
+        5,
+        7
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        1
+      ],
+      "support_hypothesis": "center 5 has a selected-distance support class containing witnesses 4 and 7",
+      "target_center_as_auxiliary_witness": false,
+      "transfer_record_indices": [
+        2
+      ],
+      "witness_pair": [
+        4,
+        7
+      ],
+      "witness_pair_equals_private_support_pair": false,
+      "witness_pair_subset_of_private_target_class": false
+    },
+    {
+      "center": 6,
+      "center_is_target_center": true,
+      "centered_distance_equality": {
+        "center": 6,
+        "left_pair": [
+          5,
+          6
+        ],
+        "right_pair": [
+          0,
+          6
+        ],
+        "witness_pair": [
+          0,
+          5
+        ]
+      },
+      "component_count": 1,
+      "component_geometry_class_counts": {
+        "edge_edge_diagonal_chain": 1
+      },
+      "component_keys": [
+        "D[0,6]=D[4,5]=D[5,6]"
+      ],
+      "component_path_shape_counts": {
+        "two_edge_row5_row6_connector_cascade": 1
+      },
+      "label4_as_witness": false,
+      "label8_as_witness": false,
+      "left_pair": [
+        5,
+        6
+      ],
+      "obligation_role": "row6_target_connector_step",
+      "occurrence_incidence_count": 4,
+      "requirement_key": "row6:[5,6]=[0,6]",
+      "right_pair": [
+        0,
+        6
+      ],
+      "signature_incidence_count": 3,
+      "signature_indices": [
+        7,
+        8,
+        9
+      ],
+      "support_hypothesis": "center 6 has a selected-distance support class containing witnesses 0 and 5",
+      "target_center_as_auxiliary_witness": false,
+      "transfer_record_indices": [
+        13,
+        15,
+        17
+      ],
+      "witness_pair": [
+        0,
+        5
+      ],
+      "witness_pair_equals_private_support_pair": false,
+      "witness_pair_subset_of_private_target_class": true
+    },
+    {
+      "center": 7,
+      "center_is_target_center": false,
+      "centered_distance_equality": {
+        "center": 7,
+        "left_pair": [
+          4,
+          7
+        ],
+        "right_pair": [
+          1,
+          7
+        ],
+        "witness_pair": [
+          1,
+          4
+        ]
+      },
+      "component_count": 1,
+      "component_geometry_class_counts": {
+        "diagonal_only_equality": 1
+      },
+      "component_keys": [
+        "D[1,7]=D[4,7]"
+      ],
+      "component_path_shape_counts": {
+        "one_edge_row7_label4_spoke_swap": 1
+      },
+      "label4_as_witness": true,
+      "label8_as_witness": false,
+      "left_pair": [
+        4,
+        7
+      ],
+      "obligation_role": "row7_label4_spoke_swap",
+      "occurrence_incidence_count": 1,
+      "requirement_key": "row7:[4,7]=[1,7]",
+      "right_pair": [
+        1,
+        7
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        3
+      ],
+      "support_hypothesis": "center 7 has a selected-distance support class containing witnesses 1 and 4",
+      "target_center_as_auxiliary_witness": false,
+      "transfer_record_indices": [
+        6
+      ],
+      "witness_pair": [
+        1,
+        4
+      ],
+      "witness_pair_equals_private_support_pair": false,
+      "witness_pair_subset_of_private_target_class": false
+    },
+    {
+      "center": 7,
+      "center_is_target_center": false,
+      "centered_distance_equality": {
+        "center": 7,
+        "left_pair": [
+          4,
+          7
+        ],
+        "right_pair": [
+          2,
+          7
+        ],
+        "witness_pair": [
+          2,
+          4
+        ]
+      },
+      "component_count": 1,
+      "component_geometry_class_counts": {
+        "diagonal_only_equality": 1
+      },
+      "component_keys": [
+        "D[2,7]=D[4,7]"
+      ],
+      "component_path_shape_counts": {
+        "one_edge_row7_label4_spoke_swap": 1
+      },
+      "label4_as_witness": true,
+      "label8_as_witness": false,
+      "left_pair": [
+        4,
+        7
+      ],
+      "obligation_role": "row7_label4_spoke_swap",
+      "occurrence_incidence_count": 1,
+      "requirement_key": "row7:[4,7]=[2,7]",
+      "right_pair": [
+        2,
+        7
+      ],
+      "signature_incidence_count": 1,
+      "signature_indices": [
+        5
+      ],
+      "support_hypothesis": "center 7 has a selected-distance support class containing witnesses 2 and 4",
+      "target_center_as_auxiliary_witness": false,
+      "transfer_record_indices": [
+        10
+      ],
+      "witness_pair": [
+        2,
+        4
+      ],
+      "witness_pair_equals_private_support_pair": false,
+      "witness_pair_subset_of_private_target_class": false
+    }
+  ],
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

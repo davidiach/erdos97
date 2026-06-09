@@ -1004,6 +1004,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   the row-`6` cascade. This rejects component-alone impossibility only; the
   remaining target must use genuine private-support, rich-class, row-forcing,
   or activation-provenance hypotheses.
+- bootstrap/T12 focused `151:6` label-`4` support-hypothesis evidence, as
+  recorded in
+  `docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md`, pinning the
+  `7` centered support requirements behind those six components. The unique
+  row-`6` cascade needs center `5` with witnesses `[4,6]` and center `6` with
+  witnesses `[0,5]`, while no label-`4` transfer support requirement is the
+  exact private pair `[3,5]`. The remaining target is to inject genuine
+  private-pair/rich-class geometry into that support layer.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

@@ -110,6 +110,12 @@ strict cyclic convex `9`-gon arc witness. Thus a future exclusion must use
 additional private-support, rich-class, row-forcing, or activation-provenance
 hypotheses rather than the bare equal-length component alone.
 
+The support-hypothesis ledger
+`docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md` names those
+additional inputs. In particular, the cascade requires center `5` with
+witnesses `[4,6]` and center `6` with witnesses `[0,5]`, while none of the
+label-`4` transfer support requirements is the exact private pair `[3,5]`.
+
 ## What This Does Not Prove
 
 This artifact does not prove outside-pair support existence, does not prove row
