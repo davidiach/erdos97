@@ -217,6 +217,12 @@ classification artifact. It does not prove filter soundness, strict-edge
 geometry, selected-distance quotient soundness, `n=9`, or complete review. Use
 `--json` instead when the full mismatch example block is needed.
 
+The 2026-06-09 internal A6/A7 review note records
+`accepted_A6_A7_source_frontier_internal` for the row0, incidence-filter,
+branch-option, dynamic-MRO, frontier-coverage, fixed-order replay, compact
+brancher, and mixed-rich landing evidence bundle. Treat it as input to a
+formal review-decision record, not as a source-of-truth gate closure.
+
 Current Kalmanson self-edge replay:
 
 ```bash

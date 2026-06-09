@@ -27,13 +27,14 @@ claim-neutral ledger for choosing bridge work. Prefer PRs that prove one of
 its named lemma contracts or reject one of its negative controls under explicit
 minimal/rich-class hypotheses.
 
-1. Use the 2026-06-09 internal aggregate A10 review note as input for an
-   explicit source-of-truth A10 gate decision, keeping any decision scoped as
-   proof-mining scaffolding under stored-frontier and strict-edge assumptions
-   rather than an `n=9` proof. The 2026-06-09 internal A8 review note now
-   records the local nested-chord strict-edge rule and checker-equivalence
-   contract as internally accepted, but it does not close the
-   `vertex_circle_geometry` gate without an explicit written decision. Start from
+1. Use the 2026-06-09 internal A6/A7, A8, and A10 review notes as input for an
+   explicit vertex-circle route gate decision, keeping any decision scoped as
+   repo-local `n=9` review infrastructure rather than a general proof. The
+   A6/A7 note records the source-frontier enumeration evidence bundle, the A8
+   note records the local nested-chord strict-edge rule and checker-equivalence
+   contract, and the A10 note records focused packet soundness plus aggregate
+   bookkeeping. None of these notes closes its machine-readable gate without an
+   explicit written decision. Start from
    `docs/n9-vertex-circle-local-lemma-review-packet.md`, which records the
    current five-layer audit path and review boundary. The aggregate note
    records the focused T01-T12 packet-soundness notes plus the A10 bookkeeping

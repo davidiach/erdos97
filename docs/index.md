@@ -449,6 +449,10 @@ put detailed reconciliation in the canonical synthesis.
   `n=9` pre-vertex-circle frontier; negative proof-mining information only.
 - [`n9-vertex-circle-row0-root-audit.md`](n9-vertex-circle-row0-root-audit.md):
   row0-root enumeration audit for the exhaustive `n=9` vertex-circle checker.
+- [`n9-vertex-circle-a6-a7-frontier-review-2026-06-09.md`](n9-vertex-circle-a6-a7-frontier-review-2026-06-09.md):
+  internal review note accepting the A6/A7 source-frontier enumeration evidence
+  bundle while leaving the formal review gate, A8/A10 source-of-truth
+  decisions, `n=9`, and global status open.
 - [`n9-vertex-circle-mro-branching-audit.md`](n9-vertex-circle-mro-branching-audit.md):
   minimum-remaining-options branching audit for the exhaustive `n=9`
   vertex-circle checker.

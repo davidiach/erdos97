@@ -212,6 +212,10 @@ The branch-order/frontier audits should confirm:
   boundary;
 - the stored frontier assignment set and labels agree with regenerated rows.
 
+The 2026-06-09 internal A6/A7 review note records acceptance of the
+source-frontier evidence bundle only. It does not close the machine-readable
+`frontier_enumeration` gate without an explicit written review decision.
+
 The strict-edge geometry audit should confirm:
 
 - `630` candidate selected rows are checked;

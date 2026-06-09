@@ -195,6 +195,13 @@ filter soundness, strict-edge geometry, quotient soundness, or a completed
 `n=9` review. Use `--json` instead when the full mismatch example block is
 needed.
 
+A 2026-06-09 internal source-frontier review note records
+`accepted_A6_A7_source_frontier_internal` for the row0, incidence-filter,
+branch-option, dynamic-MRO, frontier-coverage, fixed-order replay, compact
+brancher, and mixed-rich landing evidence bundle. The machine-readable
+`frontier_enumeration` gate remains open until an explicit written review
+decision is supplied.
+
 The compact independent brancher command gives a smaller second audit path:
 
 ```bash
