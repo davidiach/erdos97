@@ -2574,6 +2574,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_quotient_roles",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_label4_quotient_roles.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Label-4 quotient-role ledger for source 151 row 6 residual "
+            "strict cycles; not outside-pair support existence, not row "
+            "forcing, not a proof that [3,5] is impossible, not endpoint-8 "
+            "forcing, not an n=9 proof, not a bridge proof, and not a "
+            "counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",
