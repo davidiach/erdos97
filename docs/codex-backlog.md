@@ -507,11 +507,16 @@ minimal/rich-class hypotheses.
    `python scripts/check_bootstrap_t12_151_6_private_lane_strict_core_split.py --check --assert-expected --json`
    refines those cores into `32` label-`8`-visible occurrences and `12`
    label-`8`-free occurrences, with `10` distinct exact label-`8`-free
-   signatures. This is still selected-row diagnostic evidence only, so the
-   next useful PR should attack the residual label-`8`-free signatures as
-   genuine support-geometry exclusions, or prove a reusable lemma forcing one
-   of the label-`8`-visible row-`6` local cores, not another selected-row
-   neighborhood widening around `151:6`. The
+   signatures. The residual target ledger
+   `python scripts/check_bootstrap_t12_151_6_label8_free_residual_targets.py --check --assert-expected --json`
+   shows that every residual signature requires auxiliary witness label `4`;
+   `8` signatures use label `4` in both auxiliary rows, while `2` signatures
+   have strict-cycle edges that do not directly mention label `4`. This is
+   still selected-row diagnostic evidence only, so the next useful PR should
+   prove a support-geometry exclusion for these label-`4` residuals, or prove
+   that such label-`4` support forces endpoint `8` / a label-`8`-visible row-`6`
+   local core, not another selected-row neighborhood widening around `151:6`.
+   The
    source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine

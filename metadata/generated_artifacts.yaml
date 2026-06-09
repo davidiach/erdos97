@@ -7710,6 +7710,92 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label8_free_residual_targets
+    path: data/certificates/bootstrap_t12_151_6_label8_free_residual_targets.json
+    sha256: 3da8006b4ae16506c2d565dfe734d916a6d4d86b08f1a1ffabad3da02d5882dd
+    size_bytes: 36051
+    kind: proof_target_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label8_free_residual_targets.py
+    command: python scripts/check_bootstrap_t12_151_6_label8_free_residual_targets.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label8_free_residual_targets.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label8_free_residual_targets.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 private-halo [3,5] label-8-free residual target ledger; all 10 distinct exact label-8-free signatures require label 4 as an auxiliary-row witness, 8 signatures have label 4 in both auxiliary rows, and 2 signatures have strict-cycle edges that do not directly mention label 4. This is not outside-pair support existence, not row forcing, not a proof that [3,5] is impossible, not endpoint-8 forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label8_free_residual_targets.v1
+      status: BOOTSTRAP_T12_151_6_LABEL8_FREE_RESIDUAL_TARGETS_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 7
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.label8_free_distinct_exact_signature_count: 10
+      summary.label8_free_occurrence_count: 12
+      summary.auxiliary_row_signature_incidence_count: 20
+      summary.auxiliary_row_occurrence_count: 24
+      summary.label4_auxiliary_row_signature_incidence_count: 18
+      summary.label4_auxiliary_row_occurrence_count: 22
+      summary.signatures_with_any_label4_auxiliary_row: 10
+      summary.signatures_with_all_auxiliary_rows_label4: 8
+      summary.occurrences_with_all_auxiliary_rows_label4: 10
+      summary.signatures_with_label4_free_strict_cycle_edges: 2
+      summary.occurrences_with_label4_free_strict_cycle_edges: 2
+      summary.signatures_with_center8_as_auxiliary_center: 3
+      summary.occurrences_with_center8_as_auxiliary_center: 4
+      summary.signatures_without_center8_as_auxiliary_center: 7
+      summary.occurrences_without_center8_as_auxiliary_center: 8
+      'summary.auxiliary_center_pair_signature_counts.2,3': 2
+      'summary.auxiliary_center_pair_signature_counts.5,8': 3
+      'summary.auxiliary_center_pair_occurrence_counts.2,3': 3
+      'summary.auxiliary_center_pair_occurrence_counts.5,8': 4
+      'summary.all_auxiliary_rows_label4_pair_signature_counts.2,3': 2
+      'summary.all_auxiliary_rows_label4_pair_signature_counts.5,8': 3
+      'summary.all_auxiliary_rows_label4_pair_occurrence_counts.2,3': 3
+      'summary.all_auxiliary_rows_label4_pair_occurrence_counts.5,8': 4
+      'summary.target_row_intersection_profile_signature_counts.1,2': 6
+      'summary.target_row_intersection_profile_occurrence_counts.1,2': 6
+      summary.auxiliary_row_intersection_size_signature_counts.1: 4
+      summary.auxiliary_row_intersection_size_signature_counts.2: 6
+      summary.auxiliary_row_intersection_size_occurrence_counts.1: 5
+      summary.auxiliary_row_intersection_size_occurrence_counts.2: 7
+      summary.cycle_edge_count_signature_counts.2: 2
+      summary.cycle_edge_count_signature_counts.3: 7
+      summary.cycle_edge_count_signature_counts.4: 1
+      summary.cycle_edge_count_occurrence_counts.2: 2
+      summary.cycle_edge_count_occurrence_counts.3: 9
+      summary.cycle_edge_count_occurrence_counts.4: 1
+      summary.strict_edge_count_signature_counts.27: 10
+      summary.strict_edge_count_occurrence_counts.27: 12
+      summary.target_status: LABEL8_FREE_RESIDUAL_SIGNATURES_REQUIRE_AUXILIARY_LABEL4
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label8_free_residual_targets.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label8_free_residual_targets.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - the private-halo-only pair 3,5 is impossible
+      - label-4 residual targets prove the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e
