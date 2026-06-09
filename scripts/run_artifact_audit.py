@@ -2642,6 +2642,24 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_transfer_component_feasibility",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_label4_transfer_component_feasibility.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Exact cyclic-arc negative controls for the source 151 row 6 "
+            "label-4 transfer length components; rejects component-alone "
+            "impossibility only, not simultaneous realization of all "
+            "components, not outside-pair support existence, not row forcing, "
+            "not a proof that [3,5] is impossible, not endpoint-8 forcing, "
+            "not an n=9 proof, not a bridge proof, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",

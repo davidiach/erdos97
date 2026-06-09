@@ -144,6 +144,14 @@ outside support at center `6` would give connector `[0,6]=[8,6]`, while the
 private-halo-only pair `[3,5]` is the connector-avoiding escape still open.
 See
 [`docs/bootstrap-t12-151-6-outside-pair-connector-contract.md`](docs/bootstrap-t12-151-6-outside-pair-connector-contract.md).
+The current label-`4` transfer ledger collapses that private lane to six
+equal-length segment components, including the unique row-`6` cascade
+`D[0,6]=D[4,5]=D[5,6]`; a companion cyclic-arc negative control shows each
+component is feasible by itself, so any obstruction must use extra
+private-support or rich-class hypotheses. See
+[`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`](docs/bootstrap-t12-151-6-label4-transfer-length-components.md)
+and
+[`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md).
 On the source-`81` side, the `81:3` ordered chain-closure, one-layer
 repeated-support, two-repeated-support, and repeated-support saturation packets
 close the current bounded support-chain continuations under basic

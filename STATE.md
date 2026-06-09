@@ -557,10 +557,17 @@ collapses those obligations into `6` undirected segment-length components over
 `9` distinct segments. There are `3` edge-diagonal components, `2`
 diagonal-only components, and one row-`5`/row-`6` connector cascade
 `D[0,6]=D[4,5]=D[5,6]`, tying two hull edges to a cyclic-gap-`3` diagonal.
+The component-feasibility negative control gives a strict cyclic convex
+`9`-gon arc witness for each component considered alone, including a
+modulus-`13` witness for the row-`6` cascade. Thus component-alone
+impossibility is rejected, and any future exclusion must use extra
+private-support, rich-class, row-forcing, or activation-provenance hypotheses.
 This is still proof-mining bookkeeping only, not support existence, row
-forcing, endpoint-`8` forcing, `[3,5]` impossibility, `n=9`, or the bridge.
+forcing, endpoint-`8` forcing, `[3,5]` impossibility, simultaneous realization
+of all components, `n=9`, or the bridge.
 See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
-`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`.
+`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`, plus
+`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`.
 
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation
