@@ -955,6 +955,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   signatures are the concrete residual private-pair targets; this still does
   not prove support existence, row forcing, endpoint-`8` forcing, or that pair
   `[3,5]` is impossible.
+- bootstrap/T12 focused `151:6` label-`8`-free residual-target evidence, as
+  recorded in
+  `docs/bootstrap-t12-151-6-label8-free-residual-targets.md`, showing that all
+  `10` distinct exact residual signatures require auxiliary witness label `4`.
+  Eight signatures use label `4` in both auxiliary rows, and two signatures
+  have strict-cycle edges that do not directly mention label `4`; this is a
+  support-geometry target only, not a proof of support existence, row forcing,
+  endpoint-`8` forcing, or impossibility of `[3,5]`.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed
