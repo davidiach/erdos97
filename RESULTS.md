@@ -91,6 +91,22 @@ indegrees are all 4, adjacent row-pairs meet in exactly one selected witness,
 nonadjacent row-pairs meet in exactly two, and the common-witness map is a
 crossing permutation of the 20 octagon diagonals.
 
+### Lemma: adjacent closest-pair nonagon barrier
+
+Status: `LEMMA` / structural necessary condition.
+
+An endpoint of a globally closest pair cannot use the closest-pair distance as
+its four-rich radius. Combining this radius barrier with the adjacent-row
+crossing-bisector cap gives a conditional small nonagon obstruction: if an
+all-bad polygon has a globally closest pair that is a polygon side, then it
+has at least ten vertices.
+
+Equivalently, any hypothetical all-bad nonagon must have every globally closest
+pair realized by a diagonal rather than by a side. This is not an `n=9` proof:
+closest pairs in strictly convex polygons need not be adjacent. See
+`docs/closest-pair-radius-barrier.md` and
+`scripts/check_adjacent_closest_pair_nonagon_barrier.py`.
+
 ### Lemma: minimal-counterexample critical tie
 
 Status: proved.
