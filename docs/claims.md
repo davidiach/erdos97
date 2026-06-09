@@ -2434,6 +2434,34 @@ The finite boundary check
 enumerates the relevant rows at centers `0`, `1`, `2`, and `8` and finds zero
 complete assignments.
 
+### Symmetric two-orbit reductions
+
+Status: `EXACT_OBSTRUCTION` for the restricted symmetry classes only.
+
+For a full `C_k`-symmetric strictly convex configuration with `k >= 3` and at
+most two noncentral rotation orbits, the per-circle cap forces every bad row
+to split its four witnesses as `2+2` across the two orbits. Equal-distance
+pairs then force the two orbit phases to be either same-ray or half-step
+modulo `2*pi/k`. The same-ray case makes the smaller-radius orbit non-vertex:
+each smaller-radius point lies on the segment from the rotation center to the
+larger-radius point on the same ray. The half-step case reduces to the
+alternating two-radius regular family. The existing alternating-family checker
+kills `k >= 4`, and the `k=3` hexagon is excluded by the boundary certificate
+
+```text
+3 - (1 + b^2 - b) = (2 - b)(b + 1)
+```
+
+on the strict convexity interval `1/2 < b < 2`.
+
+The same note records the local necessary radius bound
+`R_min >= R_max*cos(pi/k)` and the exterior-center obstruction for at most
+three concentric circles. These are restricted exact lemmas only. They do not
+cover `k=2`, mirror-only symmetry, partial orbits, three or more noncentral
+orbits, four or more exterior-center concentric circles, `n=9`, or Erdos
+Problem #97. See `docs/symmetric-two-orbit-reduction.md` and check with
+`python scripts/check_two_orbit_radius_propagation.py --two-orbit-reduction --k 3 --k-max 12 --assert-two-orbit-reduction`.
+
 ### Threefold pair-lift obstruction
 
 Status: `LEMMA` / `FAILED_SEARCH_MECHANISM`.

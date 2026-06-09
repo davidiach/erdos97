@@ -9,11 +9,17 @@ from erdos97.two_orbit_radius_propagation import (
     alternating_two_radius_family_summary,
     alternating_two_radius_family_to_json,
     alternating_turns,
+    concentric_outside_hull_summary,
+    concentric_outside_hull_to_json,
     cyclic_crossing_search_to_json,
     linearized_escape_summary,
     linearized_escape_to_json,
+    radius_ratio_summary,
+    radius_ratio_to_json,
     selected_distance_residuals,
     summary_to_json,
+    symmetric_two_orbit_reduction_summary,
+    symmetric_two_orbit_reduction_to_json,
     two_orbit_summary,
 )
 
@@ -133,3 +139,83 @@ def test_alternating_decagon_crossing_json_keeps_scope_narrow() -> None:
     assert row["status"] == "NO_CYCLIC_ORDER"
     assert row["survivor"] is None
     assert "not an n=10 completeness theorem" in str(row["interpretation"])
+
+
+def test_radius_ratio_bound_is_positive_for_rotation_orders() -> None:
+    for k in range(3, 13):
+        summary = radius_ratio_summary(k)
+
+        assert summary.status == "exact_necessary_radius_bound_not_general_proof"
+        assert summary.positive_factor
+        assert sp.N(summary.inradius_factor, 50) > 0
+
+
+def test_radius_ratio_json_keeps_scope_narrow() -> None:
+    row = radius_ratio_to_json(radius_ratio_summary(5))
+
+    assert row["type"] == "regular_orbit_radius_ratio_bound"
+    assert row["status"] == "exact_necessary_radius_bound_not_general_proof"
+    assert "not sufficient for Erdos #97" in str(row["interpretation"])
+
+
+def test_symmetric_two_orbit_reduction_covers_k3_boundary_case() -> None:
+    summary = symmetric_two_orbit_reduction_summary(3)
+
+    assert summary.status == (
+        "exact_reduction_to_alternating_family_obstruction_not_general_proof"
+    )
+    assert summary.n == 6
+    assert summary.witness_split == (2, 2)
+    assert summary.small_k_boundary_case
+    assert str(summary.small_k_gap_certificate) == "-(b - 2)*(b + 1)"
+
+
+def test_symmetric_two_orbit_reduction_uses_alternating_family_for_k_ge_4() -> None:
+    for k in range(4, 10):
+        summary = symmetric_two_orbit_reduction_summary(k)
+
+        assert summary.status == (
+            "exact_reduction_to_alternating_family_obstruction_not_general_proof"
+        )
+        assert summary.n == 2 * k
+        assert summary.witness_split == (2, 2)
+        assert summary.reduces_to_alternating_family
+        assert summary.all_gap_certificates_positive
+        assert not summary.small_k_boundary_case
+
+
+def test_symmetric_two_orbit_reduction_json_keeps_scope_narrow() -> None:
+    row = symmetric_two_orbit_reduction_to_json(
+        symmetric_two_orbit_reduction_summary(4)
+    )
+
+    assert row["type"] == "symmetric_two_orbit_reduction"
+    assert row["status"] == (
+        "exact_reduction_to_alternating_family_obstruction_not_general_proof"
+    )
+    assert "not a general proof or counterexample" in str(row["claim_scope"])
+
+
+def test_concentric_outside_hull_obstruction_covers_at_most_three_circles() -> None:
+    for circle_count in (1, 2, 3):
+        summary = concentric_outside_hull_summary(circle_count)
+
+        assert summary.status == "exact_exterior_center_obstruction_not_general_proof"
+        assert summary.covered_by_lemma
+        assert summary.pigeonhole_forces_same_circle_pair
+        assert summary.extreme_pair_obstruction
+
+
+def test_concentric_outside_hull_obstruction_marks_four_circles_uncovered() -> None:
+    summary = concentric_outside_hull_summary(4)
+
+    assert summary.status == "not_covered_by_three_circle_pigeonhole"
+    assert not summary.covered_by_lemma
+
+
+def test_concentric_outside_hull_json_keeps_scope_narrow() -> None:
+    row = concentric_outside_hull_to_json(concentric_outside_hull_summary(3))
+
+    assert row["type"] == "concentric_exterior_center_obstruction"
+    assert row["status"] == "exact_exterior_center_obstruction_not_general_proof"
+    assert "not a general proof or counterexample" in str(row["claim_scope"])

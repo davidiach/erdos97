@@ -18,11 +18,17 @@ from erdos97.two_orbit_radius_propagation import (  # noqa: E402
     alternating_turns,
     alternating_two_radius_family_summary,
     alternating_two_radius_family_to_json,
+    concentric_outside_hull_summary,
+    concentric_outside_hull_to_json,
     cyclic_crossing_search_to_json,
     linearized_escape_summary,
     linearized_escape_to_json,
+    radius_ratio_summary,
+    radius_ratio_to_json,
     selected_distance_residuals,
     summary_to_json,
+    symmetric_two_orbit_reduction_summary,
+    symmetric_two_orbit_reduction_to_json,
     two_orbit_summary,
 )
 
@@ -108,6 +114,41 @@ def assert_decagon_crossing() -> None:
         )
 
 
+def assert_radius_ratio(k: int) -> None:
+    summary = radius_ratio_summary(k)
+    if summary.status != "exact_necessary_radius_bound_not_general_proof":
+        raise AssertionError(f"unexpected radius-ratio status for k={k}")
+    if not summary.positive_factor:
+        raise AssertionError(f"expected cos(pi/{k}) to be positive")
+
+
+def assert_symmetric_two_orbit_reduction(k: int) -> None:
+    summary = symmetric_two_orbit_reduction_summary(k)
+    expected = "exact_reduction_to_alternating_family_obstruction_not_general_proof"
+    if summary.status != expected:
+        raise AssertionError(f"unexpected symmetric reduction status for k={k}")
+    if summary.witness_split != (2, 2):
+        raise AssertionError(f"unexpected witness split for k={k}")
+    if not summary.reduces_to_alternating_family:
+        raise AssertionError(f"expected alternating-family reduction for k={k}")
+    if not summary.all_gap_certificates_positive:
+        raise AssertionError(f"expected positive gap certificates for k={k}")
+
+
+def assert_concentric_outside_hull(circle_count: int) -> None:
+    summary = concentric_outside_hull_summary(circle_count)
+    if circle_count <= 3:
+        expected = "exact_exterior_center_obstruction_not_general_proof"
+        if summary.status != expected:
+            raise AssertionError(
+                f"unexpected exterior-center status for {circle_count} circles"
+            )
+        if not summary.extreme_pair_obstruction:
+            raise AssertionError("expected angular-extreme pair obstruction")
+    elif summary.status != "not_covered_by_three_circle_pigeonhole":
+        raise AssertionError(f"unexpected non-covered status: {summary.status}")
+
+
 def print_summary(t: int) -> None:
     summary = two_orbit_summary(t)
     print("t  m  n  distance_eq  A_gap  B_gap  turn_B<0  turn_A>0  forced_concave")
@@ -169,10 +210,44 @@ def print_linearized_escape_summary(t: int, *, t_max: int | None) -> None:
         )
 
 
+def print_radius_ratio_summary(k: int, *, k_max: int | None) -> None:
+    rows = [radius_ratio_summary(current_k) for current_k in range(k, (k_max or k) + 1)]
+    print("k  status                                           inradius factor")
+    for row in rows:
+        print(f"{row.k}  {row.status:<48}  {row.inradius_factor}")
+
+
+def print_symmetric_two_orbit_reduction_summary(
+    k: int,
+    *,
+    k_max: int | None,
+) -> None:
+    rows = [
+        symmetric_two_orbit_reduction_summary(current_k)
+        for current_k in range(k, (k_max or k) + 1)
+    ]
+    print("k  n  status                                                     small-k")
+    for row in rows:
+        print(
+            f"{row.k}  {row.n}  {row.status:<58}  "
+            f"{row.small_k_boundary_case}"
+        )
+
+
+def print_concentric_outside_hull_summary(circle_count: int) -> None:
+    summary = concentric_outside_hull_summary(circle_count)
+    print("concentric exterior-center obstruction")
+    print(f"circle count: {summary.circle_count}")
+    print(f"covered by lemma: {summary.covered_by_lemma}")
+    print(f"status: {summary.status}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--t", type=int, default=2, help="positive integer with m=4t")
     parser.add_argument("--m", type=int, default=5, help="integer m >= 4 for alternating-family checks")
+    parser.add_argument("--k", type=int, default=3, help="integer k >= 3 for C_k reduction checks")
+    parser.add_argument("--circle-count", type=int, default=3, help="number of concentric circles")
     parser.add_argument("--json", action="store_true", help="print JSON")
     parser.add_argument("--assert-expected", action="store_true")
     parser.add_argument(
@@ -221,6 +296,41 @@ def main() -> int:
         help="assert that the selected t values have a linearized escape",
     )
     parser.add_argument(
+        "--radius-ratio",
+        action="store_true",
+        help="check the regular-orbit radius-ratio necessary bound",
+    )
+    parser.add_argument(
+        "--k-max",
+        type=int,
+        help="with --radius-ratio or --two-orbit-reduction, scan --k through --k-max",
+    )
+    parser.add_argument(
+        "--assert-radius-ratio",
+        action="store_true",
+        help="assert the selected k values satisfy the radius-ratio certificate",
+    )
+    parser.add_argument(
+        "--two-orbit-reduction",
+        action="store_true",
+        help="check the restricted C_k two-orbit reduction",
+    )
+    parser.add_argument(
+        "--assert-two-orbit-reduction",
+        action="store_true",
+        help="assert the selected k values pass the two-orbit reduction check",
+    )
+    parser.add_argument(
+        "--concentric-outside",
+        action="store_true",
+        help="check the at-most-three-circles exterior-center obstruction",
+    )
+    parser.add_argument(
+        "--assert-concentric-outside",
+        action="store_true",
+        help="assert the exterior-center obstruction for --circle-count",
+    )
+    parser.add_argument(
         "--verify-all-rows",
         action="store_true",
         help="also verify all selected row distances and alternating turns",
@@ -231,13 +341,28 @@ def main() -> int:
         raise SystemExit("--t-max must be at least --t")
     if args.m_max is not None and args.m_max < args.m:
         raise SystemExit("--m-max must be at least --m")
+    if args.k_max is not None and args.k_max < args.k:
+        raise SystemExit("--k-max must be at least --k")
     if args.assert_linearized_escape and not args.linearized_escape:
         raise SystemExit("--assert-linearized-escape requires --linearized-escape")
     if args.assert_alternating_family and not args.alternating_family:
         raise SystemExit("--assert-alternating-family requires --alternating-family")
     if args.assert_decagon_crossing and not args.decagon_crossing:
         raise SystemExit("--assert-decagon-crossing requires --decagon-crossing")
-    modes = [args.linearized_escape, args.alternating_family, args.decagon_crossing]
+    if args.assert_radius_ratio and not args.radius_ratio:
+        raise SystemExit("--assert-radius-ratio requires --radius-ratio")
+    if args.assert_two_orbit_reduction and not args.two_orbit_reduction:
+        raise SystemExit("--assert-two-orbit-reduction requires --two-orbit-reduction")
+    if args.assert_concentric_outside and not args.concentric_outside:
+        raise SystemExit("--assert-concentric-outside requires --concentric-outside")
+    modes = [
+        args.linearized_escape,
+        args.alternating_family,
+        args.decagon_crossing,
+        args.radius_ratio,
+        args.two_orbit_reduction,
+        args.concentric_outside,
+    ]
     if sum(bool(mode) for mode in modes) > 1:
         raise SystemExit("choose only one special mode")
 
@@ -282,6 +407,59 @@ def main() -> int:
             print_alternating_family_summary(args.m, m_max=args.m_max)
             if args.assert_alternating_family:
                 print("OK: alternating-family expectation verified")
+        return 0
+
+    if args.radius_ratio:
+        k_values = range(args.k, (args.k_max or args.k) + 1)
+        rows = [radius_ratio_to_json(radius_ratio_summary(current_k)) for current_k in k_values]
+        if args.assert_radius_ratio:
+            for current_k in k_values:
+                assert_radius_ratio(current_k)
+        if args.json:
+            output = rows[0] if args.k_max is None else rows
+            print(json.dumps(output, indent=2, sort_keys=True))
+        else:
+            print_radius_ratio_summary(args.k, k_max=args.k_max)
+            if args.assert_radius_ratio:
+                print("OK: radius-ratio expectation verified")
+        return 0
+
+    if args.two_orbit_reduction:
+        k_values = range(args.k, (args.k_max or args.k) + 1)
+        rows = [
+            symmetric_two_orbit_reduction_to_json(
+                symmetric_two_orbit_reduction_summary(current_k)
+            )
+            for current_k in k_values
+        ]
+        if args.assert_two_orbit_reduction:
+            for current_k in k_values:
+                assert_symmetric_two_orbit_reduction(current_k)
+        if args.json:
+            output = rows[0] if args.k_max is None else rows
+            print(json.dumps(output, indent=2, sort_keys=True))
+        else:
+            print_symmetric_two_orbit_reduction_summary(args.k, k_max=args.k_max)
+            if args.assert_two_orbit_reduction:
+                print("OK: two-orbit reduction expectation verified")
+        return 0
+
+    if args.concentric_outside:
+        summary = concentric_outside_hull_summary(args.circle_count)
+        if args.assert_concentric_outside:
+            assert_concentric_outside_hull(args.circle_count)
+        if args.json:
+            print(
+                json.dumps(
+                    concentric_outside_hull_to_json(summary),
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+        else:
+            print_concentric_outside_hull_summary(args.circle_count)
+            if args.assert_concentric_outside:
+                print("OK: concentric exterior-center expectation verified")
         return 0
 
     if args.decagon_crossing:

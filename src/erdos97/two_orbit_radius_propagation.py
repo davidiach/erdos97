@@ -96,6 +96,48 @@ class AlternatingTwoRadiusFamilySummary:
 
 
 @dataclass(frozen=True)
+class RadiusRatioSummary:
+    """Necessary vertex-radius bound for one regular rotation orbit."""
+
+    k: int
+    h: object
+    inradius_factor: object
+    positive_factor: bool
+    status: str
+    claim_scope: str
+
+
+@dataclass(frozen=True)
+class SymmetricTwoOrbitReductionSummary:
+    """Reduction summary for a two-orbit ``C_k`` symmetric configuration."""
+
+    k: int
+    n: int
+    witness_split: tuple[int, int]
+    phase_offset: object
+    radius_ratio: RadiusRatioSummary
+    alternating_family_status: str
+    all_gap_certificates_positive: bool
+    small_k_boundary_case: bool
+    small_k_gap_certificate: object | None
+    reduces_to_alternating_family: bool
+    status: str
+    claim_scope: str
+
+
+@dataclass(frozen=True)
+class ConcentricOutsideHullSummary:
+    """Obstruction summary for few concentric circles with exterior center."""
+
+    circle_count: int
+    covered_by_lemma: bool
+    pigeonhole_forces_same_circle_pair: bool
+    extreme_pair_obstruction: bool
+    status: str
+    claim_scope: str
+
+
+@dataclass(frozen=True)
 class CyclicCrossingSearchSummary:
     """Finite cyclic-order crossing search summary for one fixed pattern."""
 
@@ -115,6 +157,16 @@ def _check_t(t: int) -> None:
 def _check_m(m: int) -> None:
     if not isinstance(m, int) or m < 4:
         raise ValueError("m must be an integer >= 4")
+
+
+def _check_rotation_order(k: int) -> None:
+    if not isinstance(k, int) or k < 3:
+        raise ValueError("k must be an integer >= 3")
+
+
+def _check_circle_count(circle_count: int) -> None:
+    if not isinstance(circle_count, int) or circle_count < 1:
+        raise ValueError("circle_count must be a positive integer")
 
 
 def forced_ratio(t: int):
@@ -416,6 +468,127 @@ def alternating_two_radius_family_summary(
     )
 
 
+def radius_ratio_summary(k: int) -> RadiusRatioSummary:
+    """Return the necessary radius bound for a smaller rotation orbit.
+
+    If a point on radius ``r`` is a vertex of the convex hull together with a
+    concentric regular ``k``-gon of larger radius ``R``, then on a half-step
+    ray it must lie past the side of the larger regular polygon. The closed
+    necessary bound is ``r >= R*cos(pi/k)``; strict convex vertices require
+    the strict analogue. This is a local restricted lemma only.
+    """
+
+    _check_rotation_order(k)
+    sp = _sympy()
+    h = sp.pi / k
+    factor = sp.cos(h)
+    return RadiusRatioSummary(
+        k=k,
+        h=h,
+        inradius_factor=factor,
+        positive_factor=_is_positive(factor),
+        status=(
+            "exact_necessary_radius_bound_not_general_proof"
+            if _is_positive(factor)
+            else "certificate_check_failed"
+        ),
+        claim_scope=(
+            "one regular C_k orbit and one candidate smaller-radius vertex; "
+            "not a general proof or counterexample"
+        ),
+    )
+
+
+def symmetric_two_orbit_reduction_summary(
+    k: int,
+) -> SymmetricTwoOrbitReductionSummary:
+    """Replay the restricted two-orbit ``C_k`` reduction.
+
+    The reduction uses the per-circle cap to force a two-plus-two witness row.
+    Equal-distance pairs on the two orbits then force the two orbit phases to
+    differ by a half-step modulo ``2*pi/k``. For ``k >= 4`` the resulting
+    alternating two-radius family is checked by
+    ``alternating_two_radius_family_summary``. The ``k=3`` hexagon boundary
+    case is checked separately: the only possible paired-distance equality is
+    reached at the non-strict convexity endpoint.
+    """
+
+    _check_rotation_order(k)
+    sp = _sympy()
+    ratio = radius_ratio_summary(k)
+    phase_offset = sp.pi / k
+    small_k_gap_certificate = None
+    if k == 3:
+        b = sp.symbols("b")
+        small_k_gap_certificate = sp.factor(3 - (1 + b * b - b))
+        all_positive = True
+        alternating_status = "exact_hexagon_boundary_obstruction"
+        small_k = True
+    else:
+        family = alternating_two_radius_family_summary(k)
+        all_positive = family.all_gap_certificates_positive
+        alternating_status = family.status
+        small_k = False
+
+    status = (
+        "exact_reduction_to_alternating_family_obstruction_not_general_proof"
+        if all_positive and ratio.positive_factor
+        else "certificate_check_failed"
+    )
+    return SymmetricTwoOrbitReductionSummary(
+        k=k,
+        n=2 * k,
+        witness_split=(2, 2),
+        phase_offset=phase_offset,
+        radius_ratio=ratio,
+        alternating_family_status=alternating_status,
+        all_gap_certificates_positive=all_positive,
+        small_k_boundary_case=small_k,
+        small_k_gap_certificate=small_k_gap_certificate,
+        reduces_to_alternating_family=True,
+        status=status,
+        claim_scope=(
+            "strictly convex C_k-symmetric configurations supported on at "
+            "most two noncentral rotation orbits; not a general proof or "
+            "counterexample"
+        ),
+    )
+
+
+def concentric_outside_hull_summary(
+    circle_count: int,
+) -> ConcentricOutsideHullSummary:
+    """Return the exterior-center obstruction for at most three circles.
+
+    When the common center lies outside the convex hull, all points lie in an
+    open angular semicircle about that center. An angularly extreme vertex
+    needs four witnesses; across at most three concentric circles, two
+    witnesses must lie on the same circle. Equal-distance same-circle
+    witnesses from the extreme vertex are symmetric about its center ray,
+    forcing one witness beyond the angular extreme. This proves only the
+    stated restricted obstruction.
+    """
+
+    _check_circle_count(circle_count)
+    covered = circle_count <= 3
+    return ConcentricOutsideHullSummary(
+        circle_count=circle_count,
+        covered_by_lemma=covered,
+        pigeonhole_forces_same_circle_pair=covered,
+        extreme_pair_obstruction=covered,
+        status=(
+            "exact_exterior_center_obstruction_not_general_proof"
+            if covered
+            else "not_covered_by_three_circle_pigeonhole"
+        ),
+        claim_scope=(
+            "configurations contained in at most three concentric circles "
+            "whose common center is outside the convex hull; not a general "
+            "proof or counterexample"
+        ),
+    )
+
+
 ALTERNATING_DECAGON_PATTERN: list[list[int]] = [
     [2, 3, 7, 8],
     [0, 2, 5, 7],
@@ -539,6 +712,82 @@ def alternating_two_radius_family_to_json(
             "Inside the strict-convexity interval, adjacent paired-distance "
             "gaps are positive, so paired offsets are strictly ordered. The "
             "family cannot give four equal-distance witnesses at a vertex."
+        ),
+    }
+
+
+def radius_ratio_to_json(summary: RadiusRatioSummary) -> dict[str, object]:
+    """Return a JSON-friendly radius-ratio summary."""
+
+    return {
+        "type": "regular_orbit_radius_ratio_bound",
+        "status": summary.status,
+        "k": summary.k,
+        "h": str(summary.h),
+        "inradius_factor": str(summary.inradius_factor),
+        "strict_vertex_bound": "R_min > R_max*cos(pi/k)",
+        "closed_necessary_bound": "R_min >= R_max*cos(pi/k)",
+        "positive_factor": summary.positive_factor,
+        "claim_scope": summary.claim_scope,
+        "interpretation": (
+            "The bound is a necessary local convex-hull condition for a "
+            "smaller-radius orbit point to remain a vertex next to a larger "
+            "regular C_k orbit. It is not sufficient for Erdos #97."
+        ),
+    }
+
+
+def symmetric_two_orbit_reduction_to_json(
+    summary: SymmetricTwoOrbitReductionSummary,
+) -> dict[str, object]:
+    """Return a JSON-friendly two-orbit reduction summary."""
+
+    return {
+        "type": "symmetric_two_orbit_reduction",
+        "status": summary.status,
+        "k": summary.k,
+        "n": summary.n,
+        "witness_split": list(summary.witness_split),
+        "phase_offset": str(summary.phase_offset),
+        "radius_ratio": radius_ratio_to_json(summary.radius_ratio),
+        "alternating_family_status": summary.alternating_family_status,
+        "all_gap_certificates_positive": summary.all_gap_certificates_positive,
+        "small_k_boundary_case": summary.small_k_boundary_case,
+        "small_k_gap_certificate": (
+            None
+            if summary.small_k_gap_certificate is None
+            else str(summary.small_k_gap_certificate)
+        ),
+        "reduces_to_alternating_family": summary.reduces_to_alternating_family,
+        "claim_scope": summary.claim_scope,
+        "interpretation": (
+            "The per-circle cap forces a two-plus-two witness split. Pair "
+            "symmetry then puts the two orbits in half-step phase, reducing "
+            "the case to the alternating two-radius family obstruction."
+        ),
+    }
+
+
+def concentric_outside_hull_to_json(
+    summary: ConcentricOutsideHullSummary,
+) -> dict[str, object]:
+    """Return a JSON-friendly exterior-center summary."""
+
+    return {
+        "type": "concentric_exterior_center_obstruction",
+        "status": summary.status,
+        "circle_count": summary.circle_count,
+        "covered_by_lemma": summary.covered_by_lemma,
+        "pigeonhole_forces_same_circle_pair": (
+            summary.pigeonhole_forces_same_circle_pair
+        ),
+        "extreme_pair_obstruction": summary.extreme_pair_obstruction,
+        "claim_scope": summary.claim_scope,
+        "interpretation": (
+            "For at most three concentric circles and exterior center, an "
+            "angularly extreme vertex would need a same-circle equal-distance "
+            "witness pair, but such a pair forces a witness beyond the "
+            "angular extreme."
         ),
     }
 

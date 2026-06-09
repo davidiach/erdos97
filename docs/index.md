@@ -197,6 +197,9 @@ put detailed reconciliation in the canonical synthesis.
   non-promoting n=9 frontier sweep.
 - [`two-orbit-radius-propagation.md`](two-orbit-radius-propagation.md): exact
   obstruction for a half-step two-orbit near-regular ansatz.
+- [`symmetric-two-orbit-reduction.md`](symmetric-two-orbit-reduction.md):
+  restricted `C_k` two-orbit reduction, radius-ratio bound, and
+  exterior-center concentric-circle obstruction for narrow symmetry classes.
 - [`threefold-pair-lift-obstruction.md`](threefold-pair-lift-obstruction.md):
   narrow Danzer-style 3-fold lift obstruction for rows using same-orbit mates
   plus one other orbit-pair.
