@@ -89,3 +89,23 @@ def test_n9_vertex_circle_route_preflight_requires_independent_review() -> None:
         )
         for error in errors
     )
+
+
+def test_n9_vertex_circle_route_preflight_rejects_malformed_gate_lists() -> None:
+    ledger = load_ledger(LEDGER)
+    intake = deepcopy(load_intake(INTAKE))
+    rules = intake.get("outcome_rules")
+    assert isinstance(rules, list)
+    for rule in rules:
+        if isinstance(rule, dict) and rule.get("id") == "accepted_vertex_circle_route":
+            rule["required_accepted_gates"] = None
+            break
+    else:
+        raise AssertionError("accepted_vertex_circle_route rule not found")
+
+    _, errors = validate_preflight(ledger=ledger, intake=intake)
+
+    assert (
+        "intake accepted_vertex_circle_route.required_accepted_gates must be a list"
+        in errors
+    )

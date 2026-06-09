@@ -155,6 +155,26 @@ def _outcome_rule(intake: dict[str, Any], outcome_id: str) -> dict[str, Any]:
     return {}
 
 
+def _gate_list(
+    payload: dict[str, Any],
+    key: str,
+    *,
+    label: str,
+    errors: list[str],
+) -> tuple[str, ...]:
+    values = payload.get(key)
+    if not isinstance(values, list):
+        errors.append(f"{label}.{key} must be a list")
+        return ()
+    strings: list[str] = []
+    for index, value in enumerate(values):
+        if not isinstance(value, str):
+            errors.append(f"{label}.{key}[{index}] must be a string")
+            continue
+        strings.append(value)
+    return tuple(strings)
+
+
 def _decision_template_gate_ids(intake: dict[str, Any]) -> set[str]:
     template = intake.get("decision_template", {})
     if not isinstance(template, dict):
@@ -261,7 +281,12 @@ def validate_preflight(
             errors.append(f"gate {gate_id!r} must remain open before review intake")
 
     ledger_outcome = _review_outcome(ledger, ACCEPTED_VERTEX_CIRCLE_ROUTE)
-    ledger_required = tuple(ledger_outcome.get("required_gates", []))
+    ledger_required = _gate_list(
+        ledger_outcome,
+        "required_gates",
+        label="ledger accepted_vertex_circle_route",
+        errors=errors,
+    )
     if set(ledger_required) != set(VERTEX_CIRCLE_ROUTE_GATES):
         errors.append(
             "ledger accepted_vertex_circle_route must require exactly "
@@ -269,8 +294,18 @@ def validate_preflight(
         )
 
     intake_rule = _outcome_rule(intake, ACCEPTED_VERTEX_CIRCLE_ROUTE)
-    intake_required = tuple(intake_rule.get("required_accepted_gates", []))
-    intake_blocking = tuple(intake_rule.get("blocks_if_rejected_or_unreviewed", []))
+    intake_required = _gate_list(
+        intake_rule,
+        "required_accepted_gates",
+        label="intake accepted_vertex_circle_route",
+        errors=errors,
+    )
+    intake_blocking = _gate_list(
+        intake_rule,
+        "blocks_if_rejected_or_unreviewed",
+        label="intake accepted_vertex_circle_route",
+        errors=errors,
+    )
     if set(intake_required) != set(DECISION_REQUIRED_ACCEPTED_GATES):
         errors.append(
             "intake accepted_vertex_circle_route must require exactly "
@@ -286,7 +321,17 @@ def validate_preflight(
     errors.extend(note_errors)
 
     draft_decision = _draft_vertex_circle_decision_record(intake)
-    draft_errors = validate_decision_record(draft_decision, intake, gate_ledger=ledger)
+    try:
+        draft_errors = validate_decision_record(
+            draft_decision,
+            intake,
+            gate_ledger=ledger,
+        )
+    except TypeError as exc:
+        draft_errors = [
+            "decision-intake draft shape validation could not run cleanly: "
+            f"{exc}"
+        ]
     errors.extend(
         f"draft vertex-circle decision shape: {error}" for error in draft_errors
     )
