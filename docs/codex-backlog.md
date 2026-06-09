@@ -27,7 +27,9 @@ claim-neutral ledger for choosing bridge work. Prefer PRs that prove one of
 its named lemma contracts or reject one of its negative controls under explicit
 minimal/rich-class hypotheses.
 
-1. Use the 2026-06-09 internal A6/A7, A8, and A10 review notes as input for an
+1. Use the vertex-circle route decision preflight
+   `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`
+   to hand the 2026-06-09 internal A6/A7, A8, and A10 review notes into an
    explicit vertex-circle route gate decision, keeping any decision scoped as
    repo-local `n=9` review infrastructure rather than a general proof. The
    A6/A7 note records the source-frontier enumeration evidence bundle, the A8

@@ -102,6 +102,13 @@ Print a fillable template with
 filled external decision with
 `python scripts/check_n9_review_decision_intake.py --decision path/to/decision.yaml --check --summary-json`.
 
+The vertex-circle route decision preflight is
+`docs/n9-vertex-circle-route-decision-preflight.md`, checked by
+`python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`.
+It verifies that the internal A6/A7, A8, and A10 review notes are present,
+that the route gates remain open, and that `accepted_vertex_circle_route`
+still requires written independent review. It is not a decision record.
+
 ## Review routes
 
 ### Route A: vertex-circle closure
