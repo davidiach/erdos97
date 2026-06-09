@@ -467,6 +467,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-strict-edge-geometry-audit.md`](n9-vertex-circle-strict-edge-geometry-audit.md):
   local geometric audit of the vertex-circle proper-interval strict-edge rule
   used by the exhaustive `n=9` vertex-circle checker.
+- [`n9-vertex-circle-a8-strict-edge-review-2026-06-09.md`](n9-vertex-circle-a8-strict-edge-review-2026-06-09.md):
+  internal review note accepting the local A8 nested-chord strict-edge rule
+  and checker-equivalence contract while leaving the formal review gate,
+  A6/A7, quotient soundness, `n=9`, and global status open.
 - [`n9-vertex-circle-quotient-soundness-audit.md`](n9-vertex-circle-quotient-soundness-audit.md):
   quotient-graph soundness audit for selected-distance unioning, self-edge
   contradictions, directed strict-cycle contradictions, and the diagnostic

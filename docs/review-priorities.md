@@ -325,6 +325,11 @@ review selected-distance quotient soundness, branch coverage, the crossing
 filters, prove `n=9`, or complete review. Use `--json` instead when the full
 mismatch example block is needed.
 
+The 2026-06-09 internal A8 review note records
+`accepted_A8_strict_edge_geometry_internal` for the local nested-chord rule
+and checker-equivalence contract. Treat it as input to a formal
+review-decision record, not as a source-of-truth gate closure.
+
 Current quotient-soundness audit:
 
 ```bash
