@@ -940,6 +940,13 @@ condition that the surviving multi-block family does not automatically satisfy:
   accept endpoint-`8` forcing: the private-halo-only `[3,5]` lane has `12`
   basic-filter survivors. This is a gate-status diagnostic only, not a proof
   that endpoint `8` is forced and not a proof that `[3,5]` is impossible.
+- bootstrap/T12 focused `151:6` private-lane core-catalog evidence, as
+  recorded in
+  `docs/bootstrap-t12-151-6-private-lane-core-catalog.md`, extracting minimal
+  vertex-circle cores from those `12` private-lane survivors. Every survivor
+  has a three-row strict-cycle core containing row `6 -> [0,3,5,7]`. This is
+  local selected-row proof-mining data only; it does not prove the private
+  pair `[3,5]` is impossible under genuine rich-class support geometry.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

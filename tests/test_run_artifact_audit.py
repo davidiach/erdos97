@@ -264,6 +264,11 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--check --assert-expected --json"
         in command_texts
     )
+    assert (
+        "python scripts/check_bootstrap_t12_151_6_private_lane_core_catalog.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
     assert ordered_command_texts.index(
         "python scripts/check_n9_selected_baseline_escape_budget_overlay.py --check --json"
     ) < ordered_command_texts.index(
@@ -463,6 +468,8 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_bootstrap_t12_151_6_outside_pair_escape_partition.py "
         "--check --assert-expected --json",
         "python scripts/check_bootstrap_t12_151_6_endpoint8_forcing_preflight.py "
+        "--check --assert-expected --json",
+        "python scripts/check_bootstrap_t12_151_6_private_lane_core_catalog.py "
         "--check --assert-expected --json",
         "python scripts/check_bootstrap_t12_151_singleton_support_audit.py --check "
         "--assert-expected --json",
