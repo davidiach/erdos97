@@ -7435,6 +7435,73 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_outside_pair_escape_partition
+    path: data/certificates/bootstrap_t12_151_6_outside_pair_escape_partition.json
+    sha256: 4f139bf40ca66a2e195719b042eb6ff5d4a09a7c9f2f64ca235502a9d50c7073
+    size_bytes: 16047
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_outside_pair_escape_partition.py
+    command: python scripts/check_bootstrap_t12_151_6_outside_pair_escape_partition.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_outside_pair_escape_partition.py
+    check_command: python scripts/check_bootstrap_t12_151_6_outside_pair_escape_partition.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 outside-pair escape-partition crosswalk; private-halo-only connector-avoiding rows have 12 basic-filter survivors and endpoint-8 connector-available rows have 16, but all 28 are vertex-circle obstructed. This is not outside-pair support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_outside_pair_escape_partition.v1
+      status: BOOTSTRAP_T12_151_6_OUTSIDE_PAIR_ESCAPE_PARTITION_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.source_record_ids:
+        - 151
+      summary.target_center: 6
+      summary.target_center_candidate_count: 13
+      summary.target_row_count_by_partition.private_halo_only_connector_avoiding: 4
+      summary.target_row_count_by_partition.endpoint8_connector_available: 8
+      summary.target_row_count_by_partition.mixed_private_and_endpoint8: 1
+      summary.basic_filter_complete_assignment_count_by_partition.private_halo_only_connector_avoiding: 12
+      summary.basic_filter_complete_assignment_count_by_partition.endpoint8_connector_available: 9
+      summary.basic_filter_complete_assignment_count_by_partition.mixed_private_and_endpoint8: 7
+      summary.connector_avoiding_basic_survivor_count: 12
+      summary.connector_available_basic_survivor_count: 16
+      summary.vertex_circle_status_counts_by_partition.private_halo_only_connector_avoiding.self_edge: 10
+      summary.vertex_circle_status_counts_by_partition.private_halo_only_connector_avoiding.strict_cycle: 2
+      summary.vertex_circle_status_counts_by_partition.endpoint8_connector_available.self_edge: 7
+      summary.vertex_circle_status_counts_by_partition.endpoint8_connector_available.strict_cycle: 2
+      summary.vertex_circle_status_counts_by_partition.mixed_private_and_endpoint8.self_edge: 3
+      summary.vertex_circle_status_counts_by_partition.mixed_private_and_endpoint8.strict_cycle: 4
+      summary.connector_avoiding_vertex_circle_survivor_count: 0
+      summary.connector_available_vertex_circle_survivor_count: 0
+      summary.basic_filter_complete_assignment_count: 28
+      summary.basic_filter_non_original_row6_assignment_count: 21
+      summary.vertex_circle_status_counts.self_edge: 20
+      summary.vertex_circle_status_counts.strict_cycle: 8
+      summary.vertex_circle_surviving_assignment_count: 0
+      summary.search_node_count: 13439
+      summary.empty_domain_count: 7097
+      summary.scan_status: PRIVATE_HALO_ONLY_AND_ENDPOINT8_SURVIVORS_ALL_VERTEX_CIRCLE_OBSTRUCTED
+      provenance.generator: scripts/check_bootstrap_t12_151_6_outside_pair_escape_partition.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_outside_pair_escape_partition.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - the 151:6 outside support exists
+      - the 151:6 escape partition proves the bridge
+      - the private-halo-only pair 3,5 is impossible
+      - endpoint-8 support is forced
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

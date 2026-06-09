@@ -491,7 +491,13 @@ minimal/rich-class hypotheses.
    `docs/bootstrap-t12-151-6-outside-pair-connector-contract.md` narrows that
    support question: endpoint-`8` pairs `[3,8]` and `[5,8]` would supply the
    needed connector, while private-halo-only `[3,5]` is the unique
-   connector-avoiding outside-pair escape. The
+   connector-avoiding outside-pair escape. The escape partition in
+   `docs/bootstrap-t12-151-6-outside-pair-escape-partition.md` now shows this
+   private-halo-only lane has `12` basic-filter survivors, while the
+   endpoint-`8` connector-available lanes have `16`; vertex-circle replay kills
+   all `28`. This is a diagnostic split only, so the next useful PR should
+   attack support existence or forcing for endpoint-`8` versus `[3,5]`, not
+   another selected-row neighborhood widening around `151:6`. The
    source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine
