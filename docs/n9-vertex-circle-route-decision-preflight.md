@@ -50,6 +50,13 @@ The next required external artifact remains a filled decision record checked by:
 python scripts/check_n9_review_decision_intake.py --decision path/to/decision.yaml --check --summary-json
 ```
 
+For a checked request packet that spells out the requested vertex-circle gate
+partition and reviewer commands, run:
+
+```bash
+python scripts/check_n9_vertex_circle_route_decision_request.py --check --summary-json
+```
+
 Even a valid accepted route decision would only support a separate
 source-of-truth proposal for the repo-local `n=9` finite case. It would not
 prove Erdos Problem #97 for all larger polygons or change the official/global

@@ -1,0 +1,104 @@
+schema: erdos97.n9_vertex_circle_route_decision_request.v1
+status: REVIEW_DECISION_REQUEST_ONLY
+trust: REVIEW_PENDING_DIAGNOSTIC
+candidate_manifest: metadata/n9_candidate_review.yaml
+review_gate_ledger: metadata/n9_review_gate_ledger.yaml
+review_evidence_matrix: metadata/n9_review_evidence_matrix.yaml
+review_dossier: metadata/n9_review_dossier.yaml
+review_run_bundle: metadata/n9_review_run_bundle.yaml
+review_decision_intake: metadata/n9_review_decision_intake.yaml
+route_preflight: docs/n9-vertex-circle-route-decision-preflight.md
+canonical_command: python scripts/check_n9_vertex_circle_route_decision_request.py --check --summary-json
+markdown_command: python scripts/check_n9_vertex_circle_route_decision_request.py --markdown
+preflight_command: python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json
+run_capture_command: python scripts/check_n9_review_run_bundle.py --check --run --summary-json
+decision_template_command: python scripts/check_n9_review_decision_intake.py --template
+decision_validation_command: python scripts/check_n9_review_decision_intake.py --decision path/to/decision.yaml --check --summary-json
+claim_scope: >
+  Machine-readable request packet for asking an external reviewer to decide
+  the still-open vertex-circle route gates for the compact review-pending n=9
+  selected-witness harness. It records the requested gate partition, exact
+  commands, internal-note inputs, and boundary acknowledgements. It does not
+  prove n=9, does not prove Erdos Problem #97, does not claim a counterexample,
+  does not complete independent review, does not accept any review gate, and
+  does not update the official/global status.
+
+forbidden_promotions:
+  - "general proof of Erdos Problem #97"
+  - proof of n=9
+  - "counterexample to Erdos Problem #97"
+  - official/global status update
+  - completed independent review
+  - accepted review gate
+  - formal proof of the Euclidean turn lemma
+
+request_documents:
+  - docs/n9-vertex-circle-route-decision-preflight.md
+  - docs/n9-review-decision-intake.md
+  - docs/n9-review-run-bundle.md
+  - docs/n9-review-packet.md
+  - docs/n9-vertex-circle-local-lemma-review-packet.md
+  - docs/n9-vertex-circle-a6-a7-frontier-review-2026-06-09.md
+  - docs/n9-vertex-circle-a8-strict-edge-review-2026-06-09.md
+  - docs/n9-vertex-circle-a10-aggregate-review-2026-06-09.md
+
+internal_review_notes:
+  - id: a6_a7_source_frontier
+    gate_id: frontier_enumeration
+    path: docs/n9-vertex-circle-a6-a7-frontier-review-2026-06-09.md
+    expected_outcomes:
+      - accepted_A6_A7_source_frontier_internal
+  - id: a8_strict_edge_geometry
+    gate_id: vertex_circle_geometry
+    path: docs/n9-vertex-circle-a8-strict-edge-review-2026-06-09.md
+    expected_outcomes:
+      - accepted_A8_strict_edge_geometry_internal
+  - id: a10_quotient_obstruction
+    gate_id: quotient_obstruction_replay
+    path: docs/n9-vertex-circle-a10-aggregate-review-2026-06-09.md
+    expected_outcomes:
+      - accepted_packet_soundness_T01_T12
+      - accepted_A10_bookkeeping_after_packet_soundness
+
+requested_outcome: accepted_vertex_circle_route
+requested_accepted_gates:
+  - frontier_enumeration
+  - vertex_circle_geometry
+  - quotient_obstruction_replay
+  - independent_review
+requested_rejected_gates: []
+requested_not_reviewed_gates:
+  - turn_geometry
+  - turn_arithmetic_replay
+  - kalmanson_corroboration
+  - lean_compilation
+
+external_reviewer_required: true
+source_of_truth_update_allowed: false
+decision_record_status: draft_request_only
+required_acknowledgements:
+  no_general_proof_claimed: true
+  no_counterexample_claimed: true
+  official_status_unchanged: true
+  source_of_truth_pr_required: true
+
+reviewer_steps:
+  - id: preflight
+    command: python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json
+    purpose: >
+      Confirm that the internal vertex-circle route notes are present and that
+      the route gates remain open before written review intake.
+  - id: live_run_capture
+    command: python scripts/check_n9_review_run_bundle.py --check --run --summary-json
+    purpose: >
+      Capture command-output digests for the checkout being reviewed. This is
+      execution provenance only.
+  - id: template
+    command: python scripts/check_n9_review_decision_intake.py --template
+    purpose: >
+      Print the fillable decision record schema.
+  - id: filled_decision_validation
+    command: python scripts/check_n9_review_decision_intake.py --decision path/to/decision.yaml --check --summary-json
+    purpose: >
+      Validate the written decision record against the current gate ledger and
+      allowed outcomes.
