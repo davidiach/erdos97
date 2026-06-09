@@ -116,7 +116,7 @@ It does not support any of the following stronger statements:
 
 ## Next Packet
 
-The remaining focused self-edge soundness review targets are T06-T09. After
-T05, the reviewed packet-soundness set is T01, T02, T03, T04, T05, and
+The remaining focused self-edge soundness review targets are T07-T09. After
+T06, the reviewed packet-soundness set is T01, T02, T03, T04, T05, T06, and
 T10-T12, while aggregate A10 review, `n=9`, and global status all remain
 review-pending.
