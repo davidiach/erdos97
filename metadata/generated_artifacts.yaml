@@ -7569,6 +7569,76 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_private_lane_core_catalog
+    path: data/certificates/bootstrap_t12_151_6_private_lane_core_catalog.json
+    sha256: 4f9802827253e56620c8149080918fe6e615b3455824911423b89fa91e7cd1e8
+    size_bytes: 32712
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_private_lane_core_catalog.py
+    command: python scripts/check_bootstrap_t12_151_6_private_lane_core_catalog.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_private_lane_core_catalog.py
+    check_command: python scripts/check_bootstrap_t12_151_6_private_lane_core_catalog.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 private-halo [3,5] lane minimal-core catalogue; every selected-row diagnostic survivor in the private lane has a three-row strict-cycle core containing row 6 -> [0,3,5,7]. This is not outside-pair support existence, not row forcing, not a proof that [3,5] is impossible, not endpoint-8 forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_private_lane_core_catalog.v1
+      status: BOOTSTRAP_T12_151_6_PRIVATE_LANE_CORE_CATALOG_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 7
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.source_private_lane_survivor_count: 12
+      summary.source_vertex_circle_status_counts.self_edge: 10
+      summary.source_vertex_circle_status_counts.strict_cycle: 2
+      summary.all_minimal_core_occurrence_count: 282
+      summary.all_minimal_core_size_counts.3: 124
+      summary.all_minimal_core_size_counts.4: 144
+      summary.all_minimal_core_size_counts.5: 14
+      summary.all_minimal_core_status_counts.self_edge: 42
+      summary.all_minimal_core_status_counts.strict_cycle: 240
+      summary.row6_minimal_core_occurrence_count: 118
+      summary.row6_minimal_core_size_counts.3: 48
+      summary.row6_minimal_core_size_counts.4: 64
+      summary.row6_minimal_core_size_counts.5: 6
+      summary.row6_minimal_core_status_counts.self_edge: 6
+      summary.row6_minimal_core_status_counts.strict_cycle: 112
+      summary.assignments_with_row6_minimal_core: 12
+      summary.assignments_with_row6_three_row_core: 12
+      summary.chosen_row6_core_count: 12
+      summary.chosen_row6_core_size_counts.3: 12
+      summary.chosen_row6_core_status_counts.strict_cycle: 12
+      summary.chosen_distinct_exact_core_count: 10
+      summary.catalog_status: PRIVATE_HALO_ONLY_LANE_HAS_ROW6_THREE_ROW_STRICT_CYCLE_CORES
+      provenance.generator: scripts/check_bootstrap_t12_151_6_private_lane_core_catalog.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_private_lane_core_catalog.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - the private-halo-only pair 3,5 is impossible
+      - the private-lane core catalog proves the bridge
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

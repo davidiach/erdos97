@@ -199,6 +199,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_outside_pair_full_neighborhood_vertex_circle.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_outside_pair_escape_partition.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_endpoint8_forcing_preflight.py --check --assert-expected --json
+	$(PYTHON) scripts/check_bootstrap_t12_151_6_private_lane_core_catalog.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_support_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_two_row_drop.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_full_neighborhood_vertex_circle.py --check --assert-expected --json

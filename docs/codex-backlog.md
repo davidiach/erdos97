@@ -499,8 +499,13 @@ minimal/rich-class hypotheses.
    `python scripts/check_bootstrap_t12_151_6_endpoint8_forcing_preflight.py --check --assert-expected --json`
    records the current red-light gate: endpoint `8` is not forced by present
    evidence because `[3,5]` remains a connector-avoiding basic-filter escape.
-   This is a diagnostic split only, so the next useful PR should attack
-   support existence or forcing for endpoint-`8` versus `[3,5]`, not another
+   The private-lane core catalog
+   `python scripts/check_bootstrap_t12_151_6_private_lane_core_catalog.py --check --assert-expected --json`
+   then shows that every one of the `12` private-lane survivors has a
+   three-row strict-cycle core containing row `6 -> [0,3,5,7]`. This is still
+   selected-row diagnostic evidence only, so the next useful PR should attack
+   genuine support existence or forcing for endpoint-`8` versus `[3,5]`, or
+   prove a reusable lemma forcing one of those row-`6` local cores, not another
    selected-row neighborhood widening around `151:6`. The
    source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
