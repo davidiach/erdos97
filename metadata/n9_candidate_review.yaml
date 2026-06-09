@@ -120,6 +120,8 @@ routes:
         command: python scripts/check_n9_review_run_bundle.py --check --summary-json
       - id: n9_review_decision_intake
         command: python scripts/check_n9_review_decision_intake.py --check --summary-json
+      - id: n9_vertex_circle_route_decision_preflight
+        command: python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json
 
   - id: lean_guardrails
     title: Lean pilot guardrails

@@ -167,6 +167,9 @@ python scripts/check_n9_review_evidence_matrix.py --check --summary-json
 python scripts/check_n9_review_dossier.py --check --summary-json
 python scripts/check_n9_review_run_bundle.py --check --summary-json
 python scripts/check_n9_review_decision_intake.py --check --summary-json
+python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json
+python scripts/check_lean_sketch_integrity.py
+python scripts/check_lean_files.py
 python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 python scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json
 python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json

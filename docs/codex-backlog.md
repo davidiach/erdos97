@@ -94,6 +94,11 @@ minimal/rich-class hypotheses.
    `--template` to print a fillable draft and `--decision <path>` to validate a
    supplied record. It does not accept gates or update source-of-truth status
    files by itself.
+   The vertex-circle route decision preflight
+   `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`
+   is now part of the compact harness. It checks that the internal A6/A7, A8,
+   and A10 notes are present and that the route still requires written
+   independent review before any source-of-truth proposal.
    The focused mini-replay commands
    `python scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json`,
    `python scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json`,
