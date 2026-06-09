@@ -62,6 +62,16 @@ present and boundary-safe, that the relevant route gates remain open, and that
 `accepted_vertex_circle_route` still requires `independent_review`. It does not
 accept any gate or replace a written decision.
 
+Validate the explicit vertex-circle decision-request packet:
+
+```bash
+python scripts/check_n9_vertex_circle_route_decision_request.py --check --summary-json
+```
+
+The request packet records the exact requested gate partition and reviewer
+commands for the vertex-circle route. It is still a request only, not a
+decision record and not a status update.
+
 ## Boundary
 
 Even a valid final decision record is only intake validation. An accepted

@@ -41,7 +41,12 @@ minimal/rich-class hypotheses.
    current five-layer audit path and review boundary. The aggregate note
    records the focused T01-T12 packet-soundness notes plus the A10 bookkeeping
    handoff; source-of-truth A10 promotion, `n=9`, and global status remain
-   review-pending until an explicit decision record is supplied. The focused
+   review-pending until an explicit decision record is supplied. The checked
+   decision-request packet
+   `python scripts/check_n9_vertex_circle_route_decision_request.py --check --summary-json`
+   records the exact requested vertex-circle gate partition and reviewer
+   commands without accepting any gate or updating source-of-truth status. The
+   focused
    packet catalog audit command
    `python scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --summary-json`
    now checks that the focused packet coverage, source template records,
