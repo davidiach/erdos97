@@ -165,4 +165,4 @@ It does not support any of the following stronger statements:
 The follow-up T11/F07 and T12/F16 soundness reviews are now recorded, so the
 strict-cycle packet family has one internal soundness note for each of T10,
 T11, and T12. The remaining focused local-lemma packet soundness review
-targets are the self-edge packets T08-T09.
+target is the self-edge packet T09.

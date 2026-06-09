@@ -112,5 +112,5 @@ It does not support any of the following stronger statements:
 ## Next Packet
 
 Follow-up soundness reviews are now recorded for T02, T03, T04, T05, T06, T07,
-and for the strict-cycle packets T10, T11, and T12. The remaining focused
-local-lemma packet soundness review targets are the self-edge packets T08-T09.
+T08, and for the strict-cycle packets T10, T11, and T12. The remaining focused
+local-lemma packet soundness review target is the self-edge packet T09.
