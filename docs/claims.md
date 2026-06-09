@@ -2418,6 +2418,22 @@ Thus in any counterexample, every endpoint of a globally closest pair must use
 a four-rich distance class at radius strictly larger than the closest-pair
 distance. This is a structural constraint only, not a proof of Erdos #97.
 
+The same closest-pair exclusion combines with the crossing-bisector rule to
+give a conditional nonagon subcase: if an all-bad polygon has a globally
+closest pair that is a polygon side, then it has at least ten vertices. The
+borderline `n = 9` case would force the selected rows at the two neighboring
+endpoints to cover the other seven labels with one overlap; the rows at the
+next vertices on either side are then forced to share both closest-pair
+endpoints, contradicting the opposite-arc requirement for two common witnesses.
+Equivalently, any hypothetical all-bad nonagon must have every globally
+closest pair realized by a diagonal rather than a side. This is still only a
+conditional structural lemma: closest pairs in strictly convex polygons need
+not be adjacent, and the result does not prove `n = 9` or the full problem.
+The finite boundary check
+`scripts/check_adjacent_closest_pair_nonagon_barrier.py --check --summary-json`
+enumerates the relevant rows at centers `0`, `1`, `2`, and `8` and finds zero
+complete assignments.
+
 ### Threefold pair-lift obstruction
 
 Status: `LEMMA` / `FAILED_SEARCH_MECHANISM`.
