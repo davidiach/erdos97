@@ -794,6 +794,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.
+- [`mixed-radius-bipartite-fr-lift-homotopies.md`](mixed-radius-bipartite-fr-lift-homotopies.md):
+  mixed-radius support-arc, polar-arc, and frozen-distance two-arc probes of
+  the `B20_4x5_FR_lift` incidence scaffold; failed-route numerical evidence
+  only, with convexity and edge/pair collapse as the active obstruction.
 - [`two-orbit-circulant-obstruction.md`](two-orbit-circulant-obstruction.md):
   review-pending lemma draft excluding all two-orbit circulant
   configurations (any radii, any relative rotation) with its audit checker;

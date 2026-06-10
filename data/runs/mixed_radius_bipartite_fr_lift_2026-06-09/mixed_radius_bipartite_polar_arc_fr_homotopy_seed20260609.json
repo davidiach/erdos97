@@ -1,0 +1,1403 @@
+{
+  "S": [
+    [
+      5,
+      15,
+      7,
+      18
+    ],
+    [
+      6,
+      16,
+      8,
+      19
+    ],
+    [
+      7,
+      17,
+      9,
+      15
+    ],
+    [
+      8,
+      18,
+      5,
+      16
+    ],
+    [
+      9,
+      19,
+      6,
+      17
+    ],
+    [
+      10,
+      0,
+      12,
+      3
+    ],
+    [
+      11,
+      1,
+      13,
+      4
+    ],
+    [
+      12,
+      2,
+      14,
+      0
+    ],
+    [
+      13,
+      3,
+      10,
+      1
+    ],
+    [
+      14,
+      4,
+      11,
+      2
+    ],
+    [
+      15,
+      5,
+      17,
+      8
+    ],
+    [
+      16,
+      6,
+      18,
+      9
+    ],
+    [
+      17,
+      7,
+      19,
+      5
+    ],
+    [
+      18,
+      8,
+      15,
+      6
+    ],
+    [
+      19,
+      9,
+      16,
+      7
+    ],
+    [
+      0,
+      10,
+      2,
+      13
+    ],
+    [
+      1,
+      11,
+      3,
+      14
+    ],
+    [
+      2,
+      12,
+      4,
+      10
+    ],
+    [
+      3,
+      13,
+      0,
+      11
+    ],
+    [
+      4,
+      14,
+      1,
+      12
+    ]
+  ],
+  "best_path_summary": {
+    "drop": 0,
+    "final_diagnostics": {
+      "area2": 5.483449994449034,
+      "convexity_margin": -0.00025795643703454586,
+      "eq_rms": 0.7722542278017873,
+      "max_rel_spread": 1.9632559651288282,
+      "max_spread": 3.0792504422983957,
+      "min_edge_length": 0.06526136877227974,
+      "min_pair_distance": 0.06526136877227974
+    },
+    "last_t": 0.0,
+    "termination": "convexity_floor_riding"
+  },
+  "convexity_margin": -0.00025795643703454586,
+  "coordinates": [
+    [
+      0.8262572341824415,
+      -1.5240309861008356e-17
+    ],
+    [
+      0.900928110669237,
+      0.2856344514323685
+    ],
+    [
+      0.9378197950846527,
+      0.4242647775180059
+    ],
+    [
+      0.9749075539338916,
+      0.5782063978171221
+    ],
+    [
+      0.9761985983801197,
+      0.6434549951834208
+    ],
+    [
+      0.6365218124450345,
+      0.6901471220110148
+    ],
+    [
+      -0.433307166412618,
+      0.8370944906300257
+    ],
+    [
+      -0.5324909584626619,
+      0.8014510513790669
+    ],
+    [
+      -0.625100000208391,
+      0.6285446299633762
+    ],
+    [
+      -0.6825550674938332,
+      0.521186337343054
+    ],
+    [
+      -0.8470225748298543,
+      0.21345611456103086
+    ],
+    [
+      -0.8926828425218172,
+      0.12372017160312676
+    ],
+    [
+      -0.9603636122345665,
+      -0.11994115621566305
+    ],
+    [
+      -1.0088302547515142,
+      -0.29373061789285293
+    ],
+    [
+      -1.0893595231020436,
+      -0.5845264121513434
+    ],
+    [
+      0.16200443802700865,
+      -1.0885151516579128
+    ],
+    [
+      0.264023364998011,
+      -1.03678193400594
+    ],
+    [
+      0.35801282667029594,
+      -0.9808322453732748
+    ],
+    [
+      0.449460085029215,
+      -0.888628304254933
+    ],
+    [
+      0.5855781805973936,
+      -0.7542047178896923
+    ]
+  ],
+  "distance_table": [
+    {
+      "S_i": [
+        5,
+        15,
+        7,
+        18
+      ],
+      "i": 0,
+      "mean_sqdistance": 1.3896390965942653,
+      "relative_spread": 1.422108706738543,
+      "spread": 1.976217858490988,
+      "sqdistances": [
+        0.5123025802819583,
+        1.6260970125891598,
+        2.4885204387729463,
+        0.9316363547329966
+      ]
+    },
+    {
+      "S_i": [
+        6,
+        16,
+        8,
+        19
+      ],
+      "i": 1,
+      "mean_sqdistance": 1.9664462407893613,
+      "relative_spread": 0.6436169385277236,
+      "spread": 1.2656381092761995,
+      "sqdistances": [
+        2.0842919494415755,
+        2.1544327515342503,
+        2.4463491857289092,
+        1.1807110764527098
+      ]
+    },
+    {
+      "S_i": [
+        7,
+        17,
+        9,
+        15
+      ],
+      "i": 2,
+      "mean_sqdistance": 2.534989506986249,
+      "relative_spread": 0.23128671087674604,
+      "spread": 0.5863093851779135,
+      "sqdistances": [
+        2.304083197186064,
+        2.310473764359787,
+        2.6350084840351675,
+        2.8903925823639773
+      ]
+    },
+    {
+      "S_i": [
+        8,
+        18,
+        5,
+        16
+      ],
+      "i": 3,
+      "mean_sqdistance": 2.057709118622201,
+      "relative_spread": 1.4513752110052116,
+      "spread": 2.986508006227645,
+      "sqdistances": [
+        2.562558110927979,
+        2.4276990857811462,
+        0.1270356357760168,
+        3.1135436420036617
+      ]
+    },
+    {
+      "S_i": [
+        9,
+        19,
+        6,
+        17
+      ],
+      "i": 4,
+      "mean_sqdistance": 2.479278944109315,
+      "relative_spread": 0.4018345476478391,
+      "spread": 0.9962599329989787,
+      "sqdistances": [
+        2.7664133487403615,
+        2.106036984336368,
+        2.0242027551807764,
+        3.020462688179755
+      ]
+    },
+    {
+      "S_i": [
+        10,
+        0,
+        12,
+        3
+      ],
+      "i": 5,
+      "mean_sqdistance": 1.5684406399327233,
+      "relative_spread": 1.9632559651288282,
+      "spread": 3.0792504422983957,
+      "sqdistances": [
+        2.428138265598506,
+        0.5123025802819583,
+        3.2062860780744127,
+        0.1270356357760168
+      ]
+    },
+    {
+      "S_i": [
+        11,
+        1,
+        13,
+        4
+      ],
+      "i": 6,
+      "mean_sqdistance": 1.6096039716867871,
+      "relative_spread": 0.8476389488303222,
+      "spread": 1.3643630185937,
+      "sqdistances": [
+        0.7199289308478757,
+        2.0842919494415755,
+        1.6099922512769214,
+        2.0242027551807764
+      ]
+    },
+    {
+      "S_i": [
+        12,
+        2,
+        14,
+        0
+      ],
+      "i": 7,
+      "mean_sqdistance": 2.0139195929297067,
+      "relative_spread": 0.7232075380884786,
+      "spread": 1.4564818307108442,
+      "sqdistances": [
+        1.032038608062102,
+        2.304083197186064,
+        2.231036127697715,
+        2.4885204387729463
+      ]
+    },
+    {
+      "S_i": [
+        13,
+        3,
+        10,
+        1
+      ],
+      "i": 8,
+      "mean_sqdistance": 1.5570739856156073,
+      "relative_spread": 1.50346741889525,
+      "spread": 2.3410100061824366,
+      "sqdistances": [
+        0.9978405410599991,
+        2.562558110927979,
+        0.2215481047455421,
+        2.4463491857289092
+      ]
+    },
+    {
+      "S_i": [
+        14,
+        4,
+        11,
+        2
+      ],
+      "i": 9,
+      "mean_sqdistance": 1.7479113542547229,
+      "relative_spread": 1.4670539828877724,
+      "spread": 2.5642803139941512,
+      "sqdistances": [
+        1.388090549497152,
+        2.7664133487403615,
+        0.2021330347462103,
+        2.6350084840351675
+      ]
+    },
+    {
+      "S_i": [
+        15,
+        5,
+        17,
+        8
+      ],
+      "i": 10,
+      "mean_sqdistance": 2.0603465166554638,
+      "relative_spread": 1.2895340076632122,
+      "spread": 2.6568869007976597,
+      "sqdistances": [
+        2.7132646907346034,
+        2.428138265598506,
+        2.878435005543202,
+        0.2215481047455421
+      ]
+    },
+    {
+      "S_i": [
+        16,
+        6,
+        18,
+        9
+      ],
+      "i": 11,
+      "mean_sqdistance": 1.608248356944865,
+      "relative_spread": 1.6316286153626343,
+      "spread": 2.6240640398011816,
+      "sqdistances": [
+        2.684734387637982,
+        0.7199289308478757,
+        2.826197074547392,
+        0.2021330347462103
+      ]
+    },
+    {
+      "S_i": [
+        17,
+        7,
+        19,
+        5
+      ],
+      "i": 12,
+      "mean_sqdistance": 2.3774502201697203,
+      "relative_spread": 0.9145291251806301,
+      "spread": 2.1742474700123107,
+      "sqdistances": [
+        2.4792499020504453,
+        1.032038608062102,
+        2.7922262924919203,
+        3.2062860780744127
+      ]
+    },
+    {
+      "S_i": [
+        18,
+        8,
+        15,
+        6
+      ],
+      "i": 13,
+      "mean_sqdistance": 1.772720774399898,
+      "relative_spread": 0.8363829502582923,
+      "spread": 1.4826734312767513,
+      "sqdistances": [
+        2.4805139723367504,
+        0.9978405410599991,
+        2.0025363329259216,
+        1.6099922512769214
+      ]
+    },
+    {
+      "S_i": [
+        19,
+        9,
+        16,
+        7
+      ],
+      "i": 14,
+      "mean_sqdistance": 2.1223785036892666,
+      "relative_spread": 0.6813659706321412,
+      "spread": 1.4461164892150287,
+      "sqdistances": [
+        2.8342070387121807,
+        1.388090549497152,
+        2.036180298850019,
+        2.231036127697715
+      ]
+    },
+    {
+      "S_i": [
+        0,
+        10,
+        2,
+        13
+      ],
+      "i": 15,
+      "mean_sqdistance": 2.308072654653415,
+      "relative_spread": 0.5477711315654692,
+      "spread": 1.2642955697748175,
+      "sqdistances": [
+        1.6260970125891598,
+        2.7132646907346034,
+        2.8903925823639773,
+        2.0025363329259216
+      ]
+    },
+    {
+      "S_i": [
+        1,
+        11,
+        3,
+        14
+      ],
+      "i": 16,
+      "mean_sqdistance": 2.4972227700064784,
+      "relative_spread": 0.43142460340086036,
+      "spread": 1.077363343153643,
+      "sqdistances": [
+        2.1544327515342503,
+        2.684734387637982,
+        3.1135436420036617,
+        2.036180298850019
+      ]
+    },
+    {
+      "S_i": [
+        2,
+        12,
+        4,
+        10
+      ],
+      "i": 17,
+      "mean_sqdistance": 2.6721553400332976,
+      "relative_spread": 0.26569897085815414,
+      "spread": 0.7099889238199681,
+      "sqdistances": [
+        2.310473764359787,
+        2.4792499020504453,
+        3.020462688179755,
+        2.878435005543202
+      ]
+    },
+    {
+      "S_i": [
+        3,
+        13,
+        0,
+        11
+      ],
+      "i": 18,
+      "mean_sqdistance": 2.1665116218495712,
+      "relative_spread": 0.874475216614343,
+      "spread": 1.8945607198143954,
+      "sqdistances": [
+        2.4276990857811462,
+        2.4805139723367504,
+        0.9316363547329966,
+        2.826197074547392
+      ]
+    },
+    {
+      "S_i": [
+        4,
+        14,
+        1,
+        12
+      ],
+      "i": 19,
+      "mean_sqdistance": 2.2282953479982948,
+      "relative_spread": 0.7420452426761232,
+      "spread": 1.653495962259471,
+      "sqdistances": [
+        2.106036984336368,
+        2.8342070387121807,
+        1.1807110764527098,
+        2.7922262924919203
+      ]
+    }
+  ],
+  "does_not_claim": [
+    "general proof of Erdos Problem #97",
+    "counterexample to Erdos Problem #97",
+    "exact equality from floating residuals alone"
+  ],
+  "elapsed_sec": 10.722257137298584,
+  "eq_rms": 0.7722542278017873,
+  "exact_verifier_triggered": false,
+  "homotopy": {
+    "corrector": "scipy.optimize.least_squares",
+    "equations": "For each drop d, t=0 enforces the other three witnesses and t=1 enforces all four.",
+    "exact_recheck_trigger": {
+      "convexity": 0.0001,
+      "max_spread": 1e-10
+    },
+    "floors": {
+      "convex": 0.0001,
+      "edge": 0.001,
+      "pair": 0.001
+    },
+    "predictor": "constant first step, then secant predictor",
+    "step_control": {
+      "acceptance_order": "check convexity_margin and min_edge_length before equality residual",
+      "growth": 1.25,
+      "initial_dt": 0.05,
+      "max_dt": 0.15,
+      "min_dt": 0.0001,
+      "shrink_on_reject": 0.5
+    }
+  },
+  "loss": 0.7722542278017873,
+  "max_rel_spread": 1.9632559651288282,
+  "max_spread": 3.0792504422983957,
+  "min_edge_length": 0.06526136877227974,
+  "min_pair_distance": 0.06526136877227974,
+  "mode": "polar_arc_independent_per_vertex_radii",
+  "n": 20,
+  "notes": [
+    "all accepted paths terminated before t=1 or rode the convexity/edge floor"
+  ],
+  "parameterization": {
+    "angle_gaps": "gap_i = gap_floor + softmax(z)_i * (2*pi - n*gap_floor)",
+    "arc_blocks": [
+      "A0 labels 0..4",
+      "B0 labels 5..9",
+      "A1 labels 10..14",
+      "B1 labels 15..19"
+    ],
+    "bipartite_property": "for row i=5*a+b, selected witnesses have a parity opposite to center a",
+    "boundary_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "class_labels": [
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B"
+    ],
+    "convexity_contract": "not assumed by chart; every accepted point checks all edge-vs-all-vertices margins before residual",
+    "name": "mixed_radius_bipartite_polar_arc_family",
+    "normalization": "centroid removed, RMS radius set to 1, p0 rotation gauge",
+    "per_vertex_radii": "rho_i = radius_floor + exp(s_i), one independent radius parameter per vertex",
+    "vertex_classes": {
+      "A": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "B": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    }
+  },
+  "paths": [
+    {
+      "accepted_points": [
+        {
+          "active_rms": 0.9663685148804678,
+          "checked_order": [
+            "convexity_margin",
+            "min_edge_length",
+            "min_pair_distance",
+            "active/equality residual"
+          ],
+          "convexity_margin": -0.00025795643703454586,
+          "eq_rms": 0.7722542278017873,
+          "max_rel_spread": 1.9632559651288282,
+          "max_spread": 3.0792504422983957,
+          "min_edge_length": 0.06526136877227974,
+          "min_pair_distance": 0.06526136877227974,
+          "t": 0.0
+        }
+      ],
+      "drop": 0,
+      "final_diagnostics": {
+        "area2": 5.483449994449034,
+        "convexity_margin": -0.00025795643703454586,
+        "eq_rms": 0.7722542278017873,
+        "max_rel_spread": 1.9632559651288282,
+        "max_spread": 3.0792504422983957,
+        "min_edge_length": 0.06526136877227974,
+        "min_pair_distance": 0.06526136877227974
+      },
+      "final_x": [
+        0.5441360819729599,
+        -0.5092710914400476,
+        -0.6143084382585401,
+        -1.4355694389910365,
+        0.3999479543385049,
+        1.7826520647889987,
+        -0.7073945104059092,
+        -0.0986674984418972,
+        -0.4901762702769092,
+        0.5995749594372894,
+        -0.6852745317608412,
+        0.21341171109222998,
+        -0.2313625242038235,
+        0.1006453004289795,
+        1.8666893079366729,
+        -0.5500952298815762,
+        -0.5372137587452226,
+        -0.3698622089143599,
+        0.16064435152156947,
+        1.7656807769786516,
+        -0.43518901278844757,
+        -0.23375444462166695,
+        -0.1229732848510743,
+        -0.004957200335597781,
+        0.03396841786682943,
+        -0.1511188614988824,
+        0.0039955391587667075,
+        0.02752804131232503,
+        -0.035933107420616006,
+        -0.06082446434125468,
+        -0.05498794411501425,
+        -0.034129596278056326,
+        0.008577487256843555,
+        0.06718743484153904,
+        0.195585647790493,
+        -0.08233242704532823,
+        -0.12638360282193037,
+        -0.16572262918885416,
+        -0.232831943521353,
+        -0.29889327300293883
+      ],
+      "last_t": 0.0,
+      "rejected_steps": [
+        {
+          "active_rms": 0.7926585605863832,
+          "attempted_t": 0.05,
+          "convexity_margin": -0.00011553660224067428,
+          "dt": 0.05,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 2.810787608075191,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.046653678687191884,
+          "min_pair_distance": 0.046653678687191884,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 0
+        },
+        {
+          "active_rms": 0.7923913631690083,
+          "attempted_t": 0.025,
+          "convexity_margin": -0.00011526937874089659,
+          "dt": 0.025,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 2.810754131281813,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.04666758897016238,
+          "min_pair_distance": 0.04666758897016238,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 1
+        },
+        {
+          "active_rms": 0.7923245216846344,
+          "attempted_t": 0.0125,
+          "convexity_margin": -0.00011520226448976257,
+          "dt": 0.0125,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 2.8107458124920353,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.04667107577575761,
+          "min_pair_distance": 0.04667107577575761,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 2
+        },
+        {
+          "active_rms": 0.7923078090124307,
+          "attempted_t": 0.00625,
+          "convexity_margin": -0.00011518540456758718,
+          "dt": 0.00625,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 2.8107437201996466,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.04667194888419753,
+          "min_pair_distance": 0.04667194888419753,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 3
+        }
+      ],
+      "termination": "convexity_floor_riding"
+    },
+    {
+      "accepted_points": [
+        {
+          "active_rms": 0.9654912449776918,
+          "checked_order": [
+            "convexity_margin",
+            "min_edge_length",
+            "min_pair_distance",
+            "active/equality residual"
+          ],
+          "convexity_margin": -0.0003573314452589571,
+          "eq_rms": 0.8087561460649797,
+          "max_rel_spread": 1.8189702247549453,
+          "max_spread": 3.748968795205331,
+          "min_edge_length": 0.0928660804146777,
+          "min_pair_distance": 0.0928660804146777,
+          "t": 0.0
+        }
+      ],
+      "drop": 1,
+      "final_diagnostics": {
+        "area2": 5.805530796020312,
+        "convexity_margin": -0.0003573314452589571,
+        "eq_rms": 0.8087561460649797,
+        "max_rel_spread": 1.8189702247549453,
+        "max_spread": 3.748968795205331,
+        "min_edge_length": 0.0928660804146777,
+        "min_pair_distance": 0.0928660804146777
+      },
+      "final_x": [
+        -0.13291655216889176,
+        -0.03096237105978213,
+        -0.16236938951358318,
+        0.1694783137023996,
+        0.6102701455013684,
+        0.3298144456542721,
+        -0.055157852159886236,
+        0.06646724535254708,
+        -0.6044087946113578,
+        0.24407600092989493,
+        -0.07631056457848209,
+        -0.09380699196459776,
+        0.054154953280043404,
+        0.008298711069792136,
+        -0.3169457527238166,
+        -0.31249419897411523,
+        -0.8616792969840349,
+        0.3555486212081909,
+        -0.15942187017126708,
+        0.789082843891925,
+        0.04438090087258649,
+        0.08786018797451105,
+        0.20392644888679312,
+        0.3971046456372899,
+        -0.11937738276944723,
+        -0.5101228957673103,
+        -0.5622994446904266,
+        -0.4985565765149447,
+        -0.31510300401993946,
+        -0.16060652856529756,
+        0.4985926722744154,
+        0.4144370926721451,
+        0.2920133545990762,
+        0.12286683426628649,
+        -0.018357163868536724,
+        -0.210855204771994,
+        -0.3634840415556197,
+        -0.4222882511154849,
+        -0.49490801675075746,
+        -0.45111497757252006
+      ],
+      "last_t": 0.0,
+      "rejected_steps": [
+        {
+          "active_rms": 0.9473722470072911,
+          "attempted_t": 0.05,
+          "convexity_margin": -9.254297744953899e-06,
+          "dt": 0.05,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 3.6256701794144637,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.0914858165936346,
+          "min_pair_distance": 0.0914858165936346,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 0
+        },
+        {
+          "active_rms": 0.947205106458912,
+          "attempted_t": 0.025,
+          "convexity_margin": -9.245786972145176e-06,
+          "dt": 0.025,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 3.625799096897838,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.09148280590997215,
+          "min_pair_distance": 0.09148280590997215,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 1
+        },
+        {
+          "active_rms": 0.9471633106794728,
+          "attempted_t": 0.0125,
+          "convexity_margin": -9.243690238511237e-06,
+          "dt": 0.0125,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 3.625831410403241,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.09148205243269296,
+          "min_pair_distance": 0.09148205243269296,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 2
+        },
+        {
+          "active_rms": 0.9471528610027634,
+          "attempted_t": 0.00625,
+          "convexity_margin": -9.243130764016727e-06,
+          "dt": 0.00625,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 3.6258394954355873,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.09148186393074245,
+          "min_pair_distance": 0.09148186393074245,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 3
+        }
+      ],
+      "termination": "convexity_floor_riding"
+    },
+    {
+      "accepted_points": [
+        {
+          "active_rms": 0.8077470067279311,
+          "checked_order": [
+            "convexity_margin",
+            "min_edge_length",
+            "min_pair_distance",
+            "active/equality residual"
+          ],
+          "convexity_margin": -0.002809932885582872,
+          "eq_rms": 0.9515203758547262,
+          "max_rel_spread": 2.1577541425592353,
+          "max_spread": 3.887544286383471,
+          "min_edge_length": 0.04201299757677151,
+          "min_pair_distance": 0.04201299757677151,
+          "t": 0.0
+        }
+      ],
+      "drop": 2,
+      "final_diagnostics": {
+        "area2": 5.660403592211843,
+        "convexity_margin": -0.002809932885582872,
+        "eq_rms": 0.9515203758547262,
+        "max_rel_spread": 2.1577541425592353,
+        "max_spread": 3.887544286383471,
+        "min_edge_length": 0.04201299757677151,
+        "min_pair_distance": 0.04201299757677151
+      },
+      "final_x": [
+        -1.0537922297910698,
+        0.18071657552497913,
+        1.1688481044631347,
+        0.29212890316426227,
+        1.3066517673154245,
+        0.5301276463287052,
+        -1.1643744213083085,
+        -0.3746627125542865,
+        -0.5774527990770643,
+        1.3913430923574424,
+        0.3580318955426269,
+        -0.34734140177208706,
+        -2.2990445303979055,
+        -0.23901244257821638,
+        -0.8696816395885213,
+        0.6809814738228815,
+        0.38103834183669544,
+        0.8759079812803365,
+        -0.06652670713323446,
+        -0.6686397527332868,
+        -0.4126168686811289,
+        -0.39874417358326747,
+        -0.2992321078860504,
+        0.37114876686162623,
+        0.5352688134413767,
+        -0.1098725137390439,
+        -0.1184677012568993,
+        -0.1028203771257399,
+        -0.046937468056856176,
+        -0.1297604032819952,
+        -0.1904124895592868,
+        0.011973178065938403,
+        0.1752729194667574,
+        0.20310792197916325,
+        0.47153682372994615,
+        0.38781270676872187,
+        -0.18928823341880982,
+        -0.3949471568883942,
+        -0.45886267472422415,
+        -0.4194517539340887
+      ],
+      "last_t": 0.0,
+      "rejected_steps": [
+        {
+          "active_rms": 0.7658080910081683,
+          "attempted_t": 0.05,
+          "convexity_margin": -0.00030561422476176915,
+          "dt": 0.05,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 3.900401708786495,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.043291896691262946,
+          "min_pair_distance": 0.043291896691262946,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 0
+        },
+        {
+          "active_rms": 0.7644595652721371,
+          "attempted_t": 0.025,
+          "convexity_margin": -0.00030611651314155306,
+          "dt": 0.025,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 3.9016923425800343,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.04328890256692915,
+          "min_pair_distance": 0.04328890256692915,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 1
+        },
+        {
+          "active_rms": 0.764121990485252,
+          "attempted_t": 0.0125,
+          "convexity_margin": -0.00030624169383248676,
+          "dt": 0.0125,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 3.902014892821368,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.043288148719493685,
+          "min_pair_distance": 0.043288148719493685,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 2
+        },
+        {
+          "active_rms": 0.7640375685235569,
+          "attempted_t": 0.00625,
+          "convexity_margin": -0.0003062731718700834,
+          "dt": 0.00625,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 3.9020955119680014,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.04328796404345633,
+          "min_pair_distance": 0.04328796404345633,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 3
+        }
+      ],
+      "termination": "convexity_floor_riding"
+    },
+    {
+      "accepted_points": [
+        {
+          "active_rms": 0.9487970429139957,
+          "checked_order": [
+            "convexity_margin",
+            "min_edge_length",
+            "min_pair_distance",
+            "active/equality residual"
+          ],
+          "convexity_margin": -0.0041871453493450145,
+          "eq_rms": 0.978098520311861,
+          "max_rel_spread": 1.8955967632924866,
+          "max_spread": 3.6050536166576284,
+          "min_edge_length": 0.08733114484831868,
+          "min_pair_distance": 0.08733114484831868,
+          "t": 0.0
+        }
+      ],
+      "drop": 3,
+      "final_diagnostics": {
+        "area2": 6.071516816444188,
+        "convexity_margin": -0.0041871453493450145,
+        "eq_rms": 0.978098520311861,
+        "max_rel_spread": 1.8955967632924866,
+        "max_spread": 3.6050536166576284,
+        "min_edge_length": 0.08733114484831868,
+        "min_pair_distance": 0.08733114484831868
+      },
+      "final_x": [
+        1.1667309880676389,
+        0.13943872598394805,
+        -0.19522370217080215,
+        -0.3420478060293173,
+        -0.2239275361952547,
+        0.18069546686000518,
+        0.3897908671557666,
+        0.13700566291436822,
+        -0.8917089467889484,
+        0.4269560039087877,
+        0.11642014296701493,
+        -0.15368922602223103,
+        -0.3683678336302132,
+        0.5069549113341574,
+        0.39144072043622796,
+        -0.15513497852792799,
+        0.24599663379421915,
+        -1.4404070540580483,
+        -0.5775179802166431,
+        -0.15889039694787166,
+        0.15755881361159318,
+        0.0830534818958237,
+        -0.13288712736518613,
+        -0.23180988100591945,
+        -0.28108212156740575,
+        -0.2866134016615617,
+        -0.19552618433125057,
+        -0.15726323536589623,
+        -0.23431910945449913,
+        -0.2366910925023399,
+        -0.10670989112268751,
+        0.13108982369937197,
+        0.2869554841368552,
+        0.23186883144747708,
+        0.03670530016872165,
+        0.07139972022102312,
+        0.15090855834629135,
+        0.23583816168519559,
+        0.21197121684112707,
+        0.19048850926483246
+      ],
+      "last_t": 0.0,
+      "rejected_steps": [
+        {
+          "active_rms": 0.8097398146351331,
+          "attempted_t": 0.05,
+          "convexity_margin": -0.00563448379325108,
+          "dt": 0.05,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 3.669877525809552,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.07549802476185177,
+          "min_pair_distance": 0.07549802476185177,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 0
+        },
+        {
+          "active_rms": 0.8088141728978531,
+          "attempted_t": 0.025,
+          "convexity_margin": -0.005744907836017147,
+          "dt": 0.025,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 3.6699551675626907,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.07549536547249341,
+          "min_pair_distance": 0.07549536547249341,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 1
+        },
+        {
+          "active_rms": 0.8085825494463612,
+          "attempted_t": 0.0125,
+          "convexity_margin": -0.005772454921863301,
+          "dt": 0.0125,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 3.669974500435025,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.07549470476157487,
+          "min_pair_distance": 0.07549470476157487,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 2
+        },
+        {
+          "active_rms": 0.8085246306631613,
+          "attempted_t": 0.00625,
+          "convexity_margin": -0.005779347976436542,
+          "dt": 0.00625,
+          "edge_ok": true,
+          "margin_ok": false,
+          "max_spread": 3.6699793406179393,
+          "message": "The maximum number of function evaluations is exceeded.",
+          "min_edge_length": 0.0754945396446478,
+          "min_pair_distance": 0.0754945396446478,
+          "nfev": 8,
+          "pair_ok": true,
+          "residual_ok": false,
+          "step": 3
+        }
+      ],
+      "termination": "convexity_floor_riding"
+    }
+  ],
+  "pattern_family": "mixed-radius bipartite polar arc homotopy",
+  "pattern_formula": "i=(a,b), S_i=(a,b)+[(1,0),(3,0),(1,2),(3,-2)] mod (4,5); classes by parity of a",
+  "pattern_name": "B20_4x5_FR_lift_mixed_radius_bipartite_polar_arc_homotopy",
+  "pattern_notes": "Uses the repo's FR-lift incidence template, not an exact historical Fishburn-Reeds coordinate certificate.",
+  "schema_version": "mixed_radius_bipartite_polar_arc_homotopy_v1",
+  "seed": 20260609,
+  "seed_records": [
+    {
+      "active_rms_at_t0": 0.9663685148804678,
+      "attempt": 0,
+      "cost": 28.026208254437353,
+      "diagnostics": {
+        "area2": 5.483449994449034,
+        "convexity_margin": -0.00025795643703454586,
+        "eq_rms": 0.7722542278017873,
+        "max_rel_spread": 1.9632559651288282,
+        "max_spread": 3.0792504422983957,
+        "min_edge_length": 0.06526136877227974,
+        "min_pair_distance": 0.06526136877227974
+      },
+      "drop": 0,
+      "message": "The maximum number of function evaluations is exceeded.",
+      "nfev": 12,
+      "optimality": 14.534186763646318,
+      "score": 0.9753174258063315,
+      "status": 0
+    },
+    {
+      "active_rms_at_t0": 0.9654912449776918,
+      "attempt": 0,
+      "cost": 27.981070770501994,
+      "diagnostics": {
+        "area2": 5.805530796020312,
+        "convexity_margin": -0.0003573314452589571,
+        "eq_rms": 0.8087561460649797,
+        "max_rel_spread": 1.8189702247549453,
+        "max_spread": 3.748968795205331,
+        "min_edge_length": 0.0928660804146777,
+        "min_pair_distance": 0.0928660804146777
+      },
+      "drop": 1,
+      "message": "The maximum number of function evaluations is exceeded.",
+      "nfev": 12,
+      "optimality": 46.67106026704404,
+      "score": 0.9769245311091657,
+      "status": 0
+    },
+    {
+      "active_rms_at_t0": 0.8077470067279311,
+      "attempt": 0,
+      "cost": 19.85749937933732,
+      "diagnostics": {
+        "area2": 5.660403592211843,
+        "convexity_margin": -0.002809932885582872,
+        "eq_rms": 0.9515203758547262,
+        "max_rel_spread": 2.1577541425592353,
+        "max_spread": 3.887544286383471,
+        "min_edge_length": 0.04201299757677151,
+        "min_pair_distance": 0.04201299757677151
+      },
+      "drop": 2,
+      "message": "The maximum number of function evaluations is exceeded.",
+      "nfev": 12,
+      "optimality": 199.31602686843124,
+      "score": 0.8804953288675029,
+      "status": 0
+    },
+    {
+      "active_rms_at_t0": 0.9487970429139957,
+      "attempt": 0,
+      "cost": 28.07298475867003,
+      "diagnostics": {
+        "area2": 6.071516816444188,
+        "convexity_margin": -0.0041871453493450145,
+        "eq_rms": 0.978098520311861,
+        "max_rel_spread": 1.8955967632924866,
+        "max_spread": 3.6050536166576284,
+        "min_edge_length": 0.08733114484831868,
+        "min_pair_distance": 0.08733114484831868
+      },
+      "drop": 3,
+      "message": "The maximum number of function evaluations is exceeded.",
+      "nfev": 12,
+      "optimality": 341.45094679678675,
+      "score": 1.0559756766476212,
+      "status": 0
+    }
+  ],
+  "source_pattern_name": "B20_4x5_FR_lift",
+  "status": "FAILED_APPROACH",
+  "success": false,
+  "trust_label": "FAILED_APPROACH",
+  "x": [
+    0.5441360819729599,
+    -0.5092710914400476,
+    -0.6143084382585401,
+    -1.4355694389910365,
+    0.3999479543385049,
+    1.7826520647889987,
+    -0.7073945104059092,
+    -0.0986674984418972,
+    -0.4901762702769092,
+    0.5995749594372894,
+    -0.6852745317608412,
+    0.21341171109222998,
+    -0.2313625242038235,
+    0.1006453004289795,
+    1.8666893079366729,
+    -0.5500952298815762,
+    -0.5372137587452226,
+    -0.3698622089143599,
+    0.16064435152156947,
+    1.7656807769786516,
+    -0.43518901278844757,
+    -0.23375444462166695,
+    -0.1229732848510743,
+    -0.004957200335597781,
+    0.03396841786682943,
+    -0.1511188614988824,
+    0.0039955391587667075,
+    0.02752804131232503,
+    -0.035933107420616006,
+    -0.06082446434125468,
+    -0.05498794411501425,
+    -0.034129596278056326,
+    0.008577487256843555,
+    0.06718743484153904,
+    0.195585647790493,
+    -0.08233242704532823,
+    -0.12638360282193037,
+    -0.16572262918885416,
+    -0.232831943521353,
+    -0.29889327300293883
+  ]
+}
