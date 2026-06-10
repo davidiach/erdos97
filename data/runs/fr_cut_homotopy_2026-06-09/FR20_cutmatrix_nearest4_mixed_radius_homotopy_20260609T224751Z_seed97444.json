@@ -1,0 +1,773 @@
+{
+  "S3": [
+    [
+      15,
+      18,
+      19
+    ],
+    [
+      14,
+      17,
+      19
+    ],
+    [
+      13,
+      16,
+      19
+    ],
+    [
+      12,
+      17,
+      18
+    ],
+    [
+      11,
+      16,
+      18
+    ],
+    [
+      10,
+      16,
+      17
+    ],
+    [
+      12,
+      14,
+      15
+    ],
+    [
+      11,
+      13,
+      15
+    ],
+    [
+      10,
+      13,
+      14
+    ],
+    [
+      10,
+      11,
+      12
+    ],
+    [
+      5,
+      8,
+      9
+    ],
+    [
+      4,
+      7,
+      9
+    ],
+    [
+      3,
+      6,
+      9
+    ],
+    [
+      2,
+      7,
+      8
+    ],
+    [
+      1,
+      6,
+      8
+    ],
+    [
+      0,
+      6,
+      7
+    ],
+    [
+      2,
+      4,
+      5
+    ],
+    [
+      1,
+      3,
+      5
+    ],
+    [
+      0,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2
+    ]
+  ],
+  "S4": [
+    [
+      15,
+      18,
+      19,
+      17
+    ],
+    [
+      14,
+      17,
+      19,
+      18
+    ],
+    [
+      13,
+      16,
+      19,
+      17
+    ],
+    [
+      12,
+      17,
+      18,
+      16
+    ],
+    [
+      11,
+      16,
+      18,
+      17
+    ],
+    [
+      10,
+      16,
+      17,
+      18
+    ],
+    [
+      12,
+      14,
+      15,
+      13
+    ],
+    [
+      11,
+      13,
+      15,
+      14
+    ],
+    [
+      10,
+      13,
+      14,
+      15
+    ],
+    [
+      10,
+      11,
+      12,
+      13
+    ],
+    [
+      5,
+      8,
+      9,
+      7
+    ],
+    [
+      4,
+      7,
+      9,
+      8
+    ],
+    [
+      3,
+      6,
+      9,
+      7
+    ],
+    [
+      2,
+      7,
+      8,
+      6
+    ],
+    [
+      1,
+      6,
+      8,
+      7
+    ],
+    [
+      0,
+      6,
+      7,
+      8
+    ],
+    [
+      2,
+      4,
+      5,
+      3
+    ],
+    [
+      1,
+      3,
+      5,
+      4
+    ],
+    [
+      0,
+      3,
+      4,
+      5
+    ],
+    [
+      0,
+      1,
+      2,
+      3
+    ]
+  ],
+  "config": {
+    "common_w": 1.0,
+    "conv_floor": 1e-08,
+    "edge_floor": 0.0001,
+    "exact_trigger_margin": 0.0001,
+    "exact_trigger_rms": 1e-10,
+    "gap_floor_fraction": 0.003,
+    "gap_w": 2.0,
+    "geom_w": 10.0,
+    "initial_step": 0.5,
+    "lr_tether": 1e-05,
+    "max_nfev_corrector": 20,
+    "max_nfev_seed": 80,
+    "max_step": 0.5,
+    "max_steps": 2,
+    "min_step": 0.05,
+    "pair_floor": 0.0001,
+    "seed_jitter": 0.0,
+    "y_pad": 0.025
+  },
+  "environment": {
+    "created_utc": "2026-06-09T22:47:51.184126+00:00",
+    "numpy": "2.3.5",
+    "python": "3.13.5 (main, Jun 25 2025, 18:55:22) [GCC 14.2.0]",
+    "scipy": "1.17.0"
+  },
+  "exact_verifier_results": [],
+  "exact_verifier_triggered": false,
+  "fishburn_reeds_seed": {
+    "A_i": "(-x_i,y_i), labels 0..9",
+    "B_i": "(x_i,y_i), labels 10..19",
+    "boundary_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      19,
+      18,
+      17,
+      16,
+      15,
+      14,
+      13,
+      12,
+      11,
+      10
+    ],
+    "coordinate_table_scaled_by": 0.001,
+    "seed_matrix_edges_1_indexed": [
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        3
+      ],
+      [
+        7,
+        5
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        8,
+        6
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        10,
+        2
+      ],
+      [
+        10,
+        3
+      ]
+    ]
+  },
+  "fourth_witness_rule": "nearest",
+  "fourth_witnesses_by_center_label": [
+    17,
+    18,
+    17,
+    16,
+    17,
+    18,
+    13,
+    14,
+    15,
+    13,
+    7,
+    8,
+    7,
+    6,
+    7,
+    8,
+    3,
+    4,
+    5,
+    3
+  ],
+  "homotopy": {
+    "step_control": {
+      "acceptance_order": "convexity margin, min edge, min pair checked before residual",
+      "corrector": "scipy.optimize.least_squares(method='lm')",
+      "initial_step": 0.5,
+      "max_step": 0.5,
+      "min_step": 0.05,
+      "predictor": "previous corrected point",
+      "reject_action": "halve step; terminate below min_step"
+    },
+    "t0": "Fishburn--Reeds 3-neighbor cut matrix with soft common-radius tie",
+    "t1": "same rows plus closest non-edge fourth witness; per-center radii independent"
+  },
+  "interpretation": {
+    "label": "NUMERICAL_EVIDENCE",
+    "text": "No counterexample candidate is claimed; floating-point equalities are diagnostics only."
+  },
+  "paths": [
+    {
+      "accepted_points": [
+        {
+          "diagnostics": {
+            "active_convexity_edge_vertex": [
+              6,
+              7,
+              8
+            ],
+            "active_min_edge": [
+              6,
+              7
+            ],
+            "active_min_pair": [
+              6,
+              7
+            ],
+            "class_geometry": {
+              "A_diameter": 1.01639340809872,
+              "A_x_range": [
+                -1.0276583201351523,
+                -0.7686587400052852
+              ],
+              "B_diameter": 1.01639340809872,
+              "B_x_range": [
+                0.768658740005285,
+                1.027658320135152
+              ],
+              "cut_gap_min_B_x_minus_max_A_x": 1.5373174800105702
+            },
+            "convexity_margin": 1.5158141958273918e-07,
+            "full4_equal_distance": {
+              "max_relative_spread": 0.02129769282943345,
+              "max_spread": 0.0821074954883163,
+              "rms_centered_residual": 0.011255038974842717
+            },
+            "full4_radius_residual": {
+              "max_abs": 0.08210749548610385,
+              "rms": 0.01299619956373039
+            },
+            "min_edge_length": 0.004145366745006794,
+            "min_gap_A": 0.002003622208999966,
+            "min_gap_B": 0.002003622208999966,
+            "min_pair_distance": 0.004145366745006794,
+            "seed3_equal_distance": {
+              "max_relative_spread": 2.0309535256185574e-12,
+              "max_spread": 7.87148124459236e-12,
+              "rms_centered_residual": 2.408229526945243e-12
+            },
+            "seed3_radius_residual": {
+              "max_abs": 5.24558174674894e-12,
+              "rms": 2.408229544006119e-12
+            },
+            "signed_area2_in_boundary_order": -3.7299287260192444,
+            "t": 0.0
+          },
+          "solver": {
+            "cost": 5.709325660318806,
+            "message": "t=0 is the Fishburn-Reeds coordinate-table seed; no geometry-improving correction applied",
+            "nfev": 0,
+            "stage": "published_FR_table_no_t0_corrector",
+            "success": true
+          },
+          "step_index": 0
+        },
+        {
+          "diagnostics": {
+            "active_convexity_edge_vertex": [
+              18,
+              17,
+              16
+            ],
+            "active_min_edge": [
+              7,
+              8
+            ],
+            "active_min_pair": [
+              7,
+              8
+            ],
+            "class_geometry": {
+              "A_diameter": 1.7195948891843102,
+              "A_x_range": [
+                -1.1888597258622737,
+                -0.22355562600117174
+              ],
+              "B_diameter": 1.7195949243895137,
+              "B_x_range": [
+                0.22355570726898735,
+                1.1888597297554142
+              ],
+              "cut_gap_min_B_x_minus_max_A_x": 0.44711133327015906
+            },
+            "convexity_margin": 0.00024598215304482904,
+            "full4_equal_distance": {
+              "max_relative_spread": 0.10515609176724441,
+              "max_spread": 0.3497915506123377,
+              "rms_centered_residual": 0.0783604180491692
+            },
+            "full4_radius_residual": {
+              "max_abs": 0.17795178570613546,
+              "rms": 0.07961368178102335
+            },
+            "min_edge_length": 0.11097570024416799,
+            "min_gap_A": 2.681039651344721e-05,
+            "min_gap_B": 2.6811949016240858e-05,
+            "min_pair_distance": 0.11097570024416799,
+            "seed3_equal_distance": {
+              "max_relative_spread": 0.08449460261693274,
+              "max_spread": 0.29282656417245256,
+              "rms_centered_residual": 0.06503782737803623
+            },
+            "seed3_radius_residual": {
+              "max_abs": 0.171839768582299,
+              "rms": 0.06732712947365069
+            },
+            "signed_area2_in_boundary_order": -5.801919223086172,
+            "t": 0.5
+          },
+          "solver": {
+            "cost": 0.9527011870031961,
+            "incoming_step": 0.5,
+            "message": "The maximum number of function evaluations is exceeded.",
+            "nfev": 20,
+            "optimality": 0.050383327776676146,
+            "status": 0,
+            "success": false
+          },
+          "step_index": 1
+        },
+        {
+          "diagnostics": {
+            "active_convexity_edge_vertex": [
+              6,
+              7,
+              8
+            ],
+            "active_min_edge": [
+              7,
+              8
+            ],
+            "active_min_pair": [
+              7,
+              8
+            ],
+            "class_geometry": {
+              "A_diameter": 1.7021251888769684,
+              "A_x_range": [
+                -1.187792761153184,
+                -0.24550607362839477
+              ],
+              "B_diameter": 1.7021248339182544,
+              "B_x_range": [
+                0.24550544991590376,
+                1.1877927834912059
+              ],
+              "cut_gap_min_B_x_minus_max_A_x": 0.49101152354429856
+            },
+            "convexity_margin": 0.00025536184469754884,
+            "full4_equal_distance": {
+              "max_relative_spread": 0.09558976077814474,
+              "max_spread": 0.3198066940630344,
+              "rms_centered_residual": 0.07221496028106647
+            },
+            "full4_radius_residual": {
+              "max_abs": 0.18926921026221377,
+              "rms": 0.07221937026978872
+            },
+            "min_edge_length": 0.10047858088905424,
+            "min_gap_A": 0.013445988575788353,
+            "min_gap_B": 0.013445989055879433,
+            "min_pair_distance": 0.10047858088905424,
+            "seed3_equal_distance": {
+              "max_relative_spread": 0.0778531545075432,
+              "max_spread": 0.27079055018953113,
+              "rms_centered_residual": 0.06453818475657648
+            },
+            "seed3_radius_residual": {
+              "max_abs": 0.18926921026221377,
+              "rms": 0.06966021904615083
+            },
+            "signed_area2_in_boundary_order": -5.764655269845146,
+            "t": 1.0
+          },
+          "solver": {
+            "cost": 0.9895768137921966,
+            "incoming_step": 0.5,
+            "message": "The maximum number of function evaluations is exceeded.",
+            "nfev": 20,
+            "optimality": 0.038536222217914196,
+            "status": 0,
+            "success": false
+          },
+          "step_index": 2
+        }
+      ],
+      "final_geometry_first_diagnostics": {
+        "active_convexity_edge_vertex": [
+          6,
+          7,
+          8
+        ],
+        "active_min_edge": [
+          7,
+          8
+        ],
+        "active_min_pair": [
+          7,
+          8
+        ],
+        "convexity_margin": 0.00025536184469754884,
+        "min_edge_length": 0.10047858088905424,
+        "min_pair_distance": 0.10047858088905424
+      },
+      "final_residual_diagnostics": {
+        "full4_equal_distance": {
+          "max_relative_spread": 0.09558976077814474,
+          "max_spread": 0.3198066940630344,
+          "rms_centered_residual": 0.07221496028106647
+        },
+        "full4_radius_residual": {
+          "max_abs": 0.18926921026221377,
+          "rms": 0.07221937026978872
+        },
+        "seed3_equal_distance": {
+          "max_relative_spread": 0.0778531545075432,
+          "max_spread": 0.27079055018953113,
+          "rms_centered_residual": 0.06453818475657648
+        },
+        "seed3_radius_residual": {
+          "max_abs": 0.18926921026221377,
+          "rms": 0.06966021904615083
+        }
+      },
+      "final_t": 1.0,
+      "final_x": [
+        -2.2082809074394,
+        -2.0458334091848775,
+        -1.1508053577277366,
+        -0.5201744661754808,
+        -0.6852210974243039,
+        -1.1005908777254467,
+        0.512899347617327,
+        -1.7587601522873835,
+        -1.8624647548322004,
+        -1.6768477102590764,
+        -2.2770439063229273,
+        -2.2083613305317096,
+        -2.045923757697161,
+        -1.1508949874032977,
+        -0.520265921517886,
+        -0.6853132965457677,
+        -1.100681486109049,
+        0.5128061784382388,
+        -1.7588499140591543,
+        -1.8625564930945617,
+        -1.676941729212736,
+        -2.2771356256836803,
+        -1.9669275591133326,
+        -1.6460575265125676,
+        -1.3548878577195158,
+        -1.1214240650924632,
+        -1.0138242194715807,
+        -0.9834306710681989,
+        -1.7375157884968655,
+        -1.8949234581038508,
+        -2.070634801806873,
+        -2.5599611098834103,
+        -1.9669257349889828,
+        -1.646056587906257,
+        -1.3548871432113734,
+        -1.1214236869906125,
+        -1.0138241220074113,
+        -0.9834306083122085,
+        -1.7375163453899387,
+        -1.8949245830401311,
+        -2.070636316781833,
+        -2.5599634377693086,
+        1.191737607423439,
+        1.234993140073777,
+        1.2527680665731256,
+        1.2602165819302888,
+        1.2460223487619533,
+        1.2073244467527602,
+        1.2772244447177155,
+        1.237298178668305,
+        1.203836969122834,
+        1.206886565230612,
+        1.1917376423137496,
+        1.2349931273947994,
+        1.2527680362994191,
+        1.2602166226690996,
+        1.2460223638036791,
+        1.207324447448383,
+        1.2772244543313613,
+        1.2372981392183817,
+        1.2038369408431997,
+        1.2068865885617115
+      ],
+      "path_seed": 97444,
+      "rejected_points": [],
+      "termination_reason": "reached_t1"
+    }
+  ],
+  "pattern_name": "FR20_cut_matrix_nearest4_mixed_radius_cut_arc_homotopy",
+  "schema": "erdos97.numerical_run.v1",
+  "seed": 97444,
+  "summary": {
+    "all_terminated_by_geometry_collapse": false,
+    "best_full4_rms_point": {
+      "convexity_margin": 1.5158141958273918e-07,
+      "full4_max_spread": 0.0821074954883163,
+      "full4_rms_centered_residual": 0.011255038974842717,
+      "min_edge_length": 0.004145366745006794,
+      "path_seed": 97444,
+      "t": 0.0
+    },
+    "deepest_path": {
+      "final_convexity_margin": 0.00025536184469754884,
+      "final_full4_rms_centered_residual": 0.07221496028106647,
+      "final_t": 1.0,
+      "path_seed": 97444,
+      "termination_reason": "reached_t1"
+    },
+    "num_paths": 1,
+    "num_paths_geometry_collapse": 0,
+    "num_paths_reached_t1": 1
+  },
+  "trust_label": "NUMERICAL_EVIDENCE"
+}
