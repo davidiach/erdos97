@@ -151,12 +151,19 @@ component is feasible by itself, so any obstruction must use extra
 private-support or rich-class hypotheses. The support-hypothesis ledger then
 pins those extra inputs: the cascade needs center `5` with witnesses `[4,6]`
 and center `6` with witnesses `[0,5]`, while no label-`4` transfer support
-requirement is the exact private pair `[3,5]`. See
+requirement is the exact private pair `[3,5]`. The cascade row-criticality
+packet then checks the three auxiliary-center-`5,8` cascade signatures: the
+full local row package `{5,6,8}` is strict-cycle obstructed, but every
+nonempty proper row truncation is quotient-clean. Thus a bridge proof must
+also force the row-`8` strict endpoint row, not only the row-`5`/row-`6`
+cascade equalities. See
 [`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`](docs/bootstrap-t12-151-6-label4-transfer-length-components.md)
 and
 [`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md),
 plus
-[`docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md`](docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md).
+[`docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md`](docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md)
+and
+[`docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md`](docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md).
 On the source-`81` side, the `81:3` ordered chain-closure, one-layer
 repeated-support, two-repeated-support, and repeated-support saturation packets
 close the current bounded support-chain continuations under basic

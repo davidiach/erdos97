@@ -1012,6 +1012,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   witnesses `[0,5]`, while no label-`4` transfer support requirement is the
   exact private pair `[3,5]`. The remaining target is to inject genuine
   private-pair/rich-class geometry into that support layer.
+- bootstrap/T12 focused `151:6` label-`4` cascade row-criticality evidence,
+  as recorded in
+  `docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md`, checking that
+  the three auxiliary-center-`5,8` cascade signatures are strict-cycle
+  obstructed with the full local row package `{5,6,8}`, while every nonempty
+  proper row truncation is quotient-clean. The remaining target is to force
+  row `8` as the strict endpoint row alongside the row-`5`/row-`6` cascade
+  equalities, or to find a different genuine support-rich obstruction.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed
