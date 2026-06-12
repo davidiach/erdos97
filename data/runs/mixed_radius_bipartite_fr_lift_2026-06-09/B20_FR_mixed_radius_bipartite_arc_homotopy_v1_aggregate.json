@@ -1,0 +1,24 @@
+{
+  "pattern_name": "B20_FR_mixed_radius_bipartite_arc_homotopy_v1",
+  "trust_label": "FAILED_APPROACH",
+  "seeds": [
+    9702,
+    9703,
+    9705
+  ],
+  "run_files": [
+    "B20_FR_mixed_radius_bipartite_arc_homotopy_v1_seed9702.json",
+    "B20_FR_mixed_radius_bipartite_arc_homotopy_v1_seed9703.json",
+    "B20_FR_mixed_radius_bipartite_arc_homotopy_v1_seed9705.json"
+  ],
+  "status_counts": {
+    "CONVEXITY_COLLAPSE_AT_T0": 3
+  },
+  "min_convexity_margin_seen_terminal": -1.493749668887716e-09,
+  "max_convexity_margin_seen_terminal": -7.008048988290495e-10,
+  "min_edge_length_seen_terminal": 3.17389323829136e-09,
+  "min_active_residual_rms_terminal": 1.6378464745244328e-08,
+  "min_full4_eq_rms_terminal": 1.2203971535728687e-08,
+  "counterexample_candidate_gate_passes": false,
+  "interpretation": "All corrected t=0 FR-base solutions in this two-arc mixed-radius family reach the three-witness equations only on a non-strict/collision boundary; no accepted convex homotopy point exists, so no t=1 counterexample candidate is recorded."
+}
