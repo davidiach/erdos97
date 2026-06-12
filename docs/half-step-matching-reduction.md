@@ -122,5 +122,11 @@ the form settled in the two-orbit notes.
   elimination for the generic branch over the discrete index choices, with
   the same exact audit pattern as
   `scripts/check_two_orbit_dynamic_window_lemma.py`.
+- First finite-`m` execution of both targets (2026-06-12): the
+  paired-cosine reduction and four-branch screen in
+  `docs/three-orbit-window-closure.md` close all discrete cells for
+  `m = 3..16` at screen precision, with the `m = 0 mod 4` quarter cells
+  exactly characterized as degenerate one-parameter families and recorded
+  as the remaining open sub-cases.
 - None of this covers partial orbits, mirror-only symmetry, or asymmetric
   configurations, and none of it changes any repository status.

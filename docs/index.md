@@ -807,6 +807,12 @@ put detailed reconciliation in the canonical synthesis.
   aligned orbit pairs; half-step pairs form a partial matching) with the
   forced `t = 3` row-shape catalogue and equation systems; structural
   reduction bookkeeping, not an obstruction or proof.
+- [`three-orbit-window-closure.md`](three-orbit-window-closure.md):
+  review-pending paired-cosine reduction for the three-orbit (t=3) family
+  with a four-branch finite-`m` closure screen (`m = 3..16`), exact
+  characterization of the degenerate `m = 0 mod 4` quarter cells as named
+  open sub-cases, and a 60/240-digit escalation audit; screen evidence
+  only, not an all-`m` lemma, an exact certificate, or a proof.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`n9-base-apex-d3-p19-degree-obstruction.md`](n9-base-apex-d3-p19-degree-obstruction.md):

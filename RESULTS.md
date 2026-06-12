@@ -1491,6 +1491,31 @@ bookkeeping toward the window analyses; it is not an obstruction for
 `t >= 3`, not an `n`-range exclusion, and not a proof of Erdos Problem #97.
 See `docs/half-step-matching-reduction.md`.
 
+### Three-orbit (t=3) paired-cosine reduction and finite-m closure screen
+
+Status: `LEMMA` draft (review pending) for the reduction;
+`NUMERICAL_EVIDENCE` with exact-escalation bookkeeping for the per-`m`
+screen verdicts; the `m = 0 mod 4` quarter cells are named open sub-cases.
+
+For three concentric regular `m`-gon orbits, the normalization
+`0 < beta < gamma < 2h` admits at most one half-step offset, splitting the
+search into four exhaustive branches; every witness row decomposes into
+equidistance atoms whose equations are linear in the cosine/sine of one
+unknown offset, and pairing the two equations on each offset pins the radii
+by univariate polynomials (the `B`-`C` half-step branch is homogeneous and
+pins the radius ratio to algebraic constants). The screen enumerates every
+discrete branch cell for `m = 3..16`, refutes every float64 candidate by
+60-digit deterministic re-derivation or excludes it as an exact boundary
+hit, and finds no feasible survivor and no unresolved case. The branch-`G`
+pinning identity degenerates exactly at `m = 0 mod 4`, `a1 = a2 = m/4`,
+`s = m/2`; those quarter cells carry one-parameter solution families, are
+skipped by the point screen, and remain open. Not an all-`m` lemma, not an
+exact certificate for the screened cells, and not a proof of Erdos Problem
+#97. See `docs/three-orbit-window-closure.md`,
+`scripts/check_three_orbit_window_closure.py --min-m 3 --max-m 16
+--assert-clear`, and
+`data/certificates/three_orbit_window_closure_m3_16.json`.
+
 ## Numerical Attempts
 
 ### Dynamic-witness free-pattern sweep (2026-06-09)

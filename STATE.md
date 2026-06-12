@@ -922,6 +922,18 @@ forcing own-pair-plus-two-singles rows with two equations each, so every
 structural reduction bookkeeping toward window analyses, not an
 obstruction. See `docs/half-step-matching-reduction.md`.
 
+The first `t = 3` execution of that program is now recorded (2026-06-12):
+a paired-cosine reduction collapses every discrete branch cell to
+univariate radius pinning plus closed-form offset recovery, and a
+float64-plus-60-digit-escalation screen closes all cells for `m = 3..16`
+with no feasible survivor and no unresolved case. The single structural
+degeneracy is exactly characterized: for `m = 0 mod 4` the quarter cells
+(`a1 = a2 = m/4`, `s = m/2`) collapse to one-parameter families and remain
+named open sub-cases. This is a review-pending reduction plus a screen
+verdict, not an all-`m` lemma and not an exact certificate. See
+`docs/three-orbit-window-closure.md` and
+`data/certificates/three_orbit_window_closure_m3_16.json`.
+
 ## Best saved near-miss
 
 The best saved near-miss is still the historical `B12_3x4_danzer_lift`
