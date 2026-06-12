@@ -180,12 +180,13 @@ class MPBackend:
             return []
         try:
             roots = mp.polyroots(arr, maxsteps=5000, extraprec=2 * self.dps)
-        except Exception as exc:
-            # a root-finding failure must escalate, never silently read as
-            # "no roots" (which downstream would become a refuted verdict)
-            raise EscalationInconclusive(
-                f"mp.polyroots failed at dps={self.dps}: {exc}"
-            ) from exc
+        except Exception:
+            # Durand-Kerner stalls on multiple roots at high precision;
+            # fall back to low-precision seeding plus multiplicity-adaptive
+            # Newton refinement at full precision, and only report an
+            # inconclusive escalation if that also fails -- a root-finding
+            # failure must never silently read as "no roots"
+            roots = self._seeded_roots(arr)
         imag_tol = mp.mpf(10) ** (-(self.dps // 3))
         out = []
         for r in roots:
@@ -194,6 +195,55 @@ class MPBackend:
             ):
                 out.append(mp.re(r))
         return out
+
+    def _seeded_roots(self, arr):
+        mp = self._ctx()
+        deg = len(arr) - 1
+        with mp.workdps(30):
+            try:
+                seeds = mp.polyroots(
+                    [mp.mpf(c) for c in arr], maxsteps=2000, extraprec=120
+                )
+            except Exception as exc:
+                raise EscalationInconclusive(
+                    f"seed polyroots failed at dps=30: {exc}"
+                ) from exc
+        mp.mp.dps = self.dps
+        d1 = [c * (deg - i) for i, c in enumerate(arr[:-1])]
+        d2 = [c * (deg - 1 - i) for i, c in enumerate(d1[:-1])]
+        refined = []
+        tol = mp.mpf(10) ** (-(self.dps - 12))
+        for seed in seeds:
+            if abs(mp.im(seed)) > mp.mpf("1e-8") * max(1, abs(mp.re(seed))):
+                continue
+            x = mp.mpf(mp.re(seed))
+            converged = False
+            for _ in range(120):
+                f = mp.polyval(arr, x)
+                fp = mp.polyval(d1, x)
+                if fp == 0:
+                    break
+                mu = 1
+                if d2:
+                    fpp = mp.polyval(d2, x)
+                    denom = 1 - f * fpp / (fp * fp)
+                    if denom > mp.mpf("0.1"):
+                        mu = max(1, min(deg, int(mp.nint(1 / denom))))
+                step = mu * f / fp
+                x = x - step
+                if abs(step) <= tol * max(1, abs(x)):
+                    converged = True
+                    break
+            if converged:
+                refined.append(mp.mpc(x))
+        if seeds and not refined and any(
+            abs(mp.im(s)) <= mp.mpf("1e-8") * max(1, abs(mp.re(s)))
+            for s in seeds
+        ):
+            raise EscalationInconclusive(
+                f"Newton refinement failed for all real seeds at dps={self.dps}"
+            )
+        return refined
 
     def is_zero(self, v):
         return abs(v) < self.band
