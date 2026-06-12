@@ -68,6 +68,10 @@ MARGIN_BAND = "1e-30"
 SEED = 20260612
 
 
+class EscalationInconclusive(RuntimeError):
+    """High-precision re-derivation could not be completed soundly."""
+
+
 # ---------------------------------------------------------------------------
 # Math backends: the same deterministic solution path runs in float64 for
 # the screen and in 60-digit mpmath for escalation.
@@ -175,9 +179,13 @@ class MPBackend:
         if len(arr) <= 1:
             return []
         try:
-            roots = mp.polyroots(arr, maxsteps=200, extraprec=240)
-        except Exception:
-            return []
+            roots = mp.polyroots(arr, maxsteps=5000, extraprec=2 * self.dps)
+        except Exception as exc:
+            # a root-finding failure must escalate, never silently read as
+            # "no roots" (which downstream would become a refuted verdict)
+            raise EscalationInconclusive(
+                f"mp.polyroots failed at dps={self.dps}: {exc}"
+            ) from exc
         imag_tol = mp.mpf(10) ** (-(self.dps // 3))
         out = []
         for r in roots:
@@ -765,7 +773,20 @@ def halfstep_cell_solutions(be, m: int, which: str, desc: dict) -> list[Solution
 # ---------------------------------------------------------------------------
 
 
+RHO_FLOOR = 1e-9
+
+
 def bc_ratio_options(be, m: int, center_is_b: bool) -> list[dict]:
+    """Ratio options for BC-branch pinned rows, keyed by content.
+
+    Options with ratio (or discriminant) within ``RHO_FLOOR`` of zero are
+    excluded deterministically in every backend: an exactly-zero ratio is a
+    rounding-noise sign away from inclusion otherwise, and any ratio below
+    the floor is window-killed regardless (z/y < 1e-9 cannot keep both
+    radii inside ``(cos h, sec h)``), so the exclusion loses no solutions
+    while keeping float64 and high-precision option lists aligned.
+    """
+
     h = be_pi(be) / m
     out = []
     for a in own_pair_avals(m):
@@ -773,12 +794,15 @@ def bc_ratio_options(be, m: int, center_is_b: bool) -> list[dict]:
         for o in odd_offsets(m):
             c = be.cos(o * h)
             disc = c * c - 1 + t
-            if disc < 0:
-                continue
+            if disc < RHO_FLOOR * RHO_FLOOR:
+                if disc > -RHO_FLOOR * RHO_FLOOR:
+                    disc = be.num(0)
+                else:
+                    continue
             root = be.sqrt(disc)
             for sgn in (1, -1):
                 rho = c + sgn * root
-                if rho <= 0:
+                if rho <= RHO_FLOOR:
                     continue
                 ratio = rho if center_is_b else 1 / rho
                 out.append(
@@ -786,7 +810,7 @@ def bc_ratio_options(be, m: int, center_is_b: bool) -> list[dict]:
                 )
         if m % 2 == 1:
             rho = 2 * be.sin(a * h) - 1
-            if rho > 0:
+            if rho > RHO_FLOOR:
                 ratio = rho if center_is_b else 1 / rho
                 out.append({"ratio": ratio, "leftover": "pole", "a": a})
     if m % 2 == 0:
@@ -795,7 +819,7 @@ def bc_ratio_options(be, m: int, center_is_b: bool) -> list[dict]:
             root = be.sqrt(c * c + 3)
             for sgn in (1, -1):
                 rho = c + sgn * root
-                if rho <= 0:
+                if rho <= RHO_FLOOR:
                     continue
                 ratio = rho if center_is_b else 1 / rho
                 out.append(
@@ -807,6 +831,20 @@ def bc_ratio_options(be, m: int, center_is_b: bool) -> list[dict]:
                     }
                 )
     return out
+
+
+def bc_option_from_meta(be, m: int, meta: dict, center_is_b: bool) -> dict | None:
+    """Rebuild one BC ratio option from its content key at backend precision."""
+
+    for opt in bc_ratio_options(be, m, center_is_b):
+        if (
+            opt["leftover"] == meta["leftover"]
+            and opt.get("a") == meta.get("a")
+            and opt.get("o") == meta.get("o")
+            and opt.get("sgn") == meta.get("sgn")
+        ):
+            return opt
+    return None
 
 
 def bc_solutions(
@@ -893,8 +931,13 @@ def screen_bc(m: int) -> tuple[int, list[dict]]:
     avals = own_pair_avals(m)
     systems = 0
     candidates = []
-    for ib, opt_b in enumerate(b_opts):
-        for ic, opt_c in enumerate(c_opts):
+    def content_key(opt: dict) -> dict:
+        return {
+            k: opt[k] for k in ("leftover", "a", "o", "sgn") if k in opt
+        }
+
+    for opt_b in b_opts:
+        for opt_c in c_opts:
             systems += 1
             if abs(opt_b["ratio"] - opt_c["ratio"]) > JOIN_BAND * max(
                 1.0, abs(opt_b["ratio"])
@@ -914,8 +957,8 @@ def screen_bc(m: int) -> tuple[int, list[dict]]:
                                         "branch": "BC",
                                         "m": m,
                                         "desc": {
-                                            "ib": ib,
-                                            "ic": ic,
+                                            "opt_b": content_key(opt_b),
+                                            "opt_c": content_key(opt_c),
                                             "a1": a1,
                                             "k1": k1,
                                             "j1": j1,
@@ -932,13 +975,17 @@ def screen_bc(m: int) -> tuple[int, list[dict]]:
 
 
 def bc_cell_solutions(be, m: int, desc: dict) -> list[Solution]:
-    b_opts = bc_ratio_options(be, m, center_is_b=True)
-    c_opts = bc_ratio_options(be, m, center_is_b=False)
+    opt_b = bc_option_from_meta(be, m, desc["opt_b"], center_is_b=True)
+    opt_c = bc_option_from_meta(be, m, desc["opt_c"], center_is_b=False)
+    if opt_b is None or opt_c is None:
+        raise EscalationInconclusive(
+            f"BC option content key not reproducible at {be.name}: {desc}"
+        )
     return bc_solutions(
         be,
         m,
-        b_opts[desc["ib"]],
-        c_opts[desc["ic"]],
+        opt_b,
+        opt_c,
         desc["a1"],
         desc["k1"],
         desc["j1"],
@@ -1096,11 +1143,17 @@ def escalate(cand: dict) -> dict:
     """
 
     be = MPBackend(60)
-    sols = cell_solutions(be, cand)
-    if not sols:
-        return {"verdict": "refuted", "reason": "cell empty at high precision"}
-    sols240: dict = {}
-    results = [_classify_solution(cand, sol, sols240) for sol in sols]
+    try:
+        sols = cell_solutions(be, cand)
+        if not sols:
+            return {
+                "verdict": "refuted",
+                "reason": "cell empty at high precision",
+            }
+        sols240: dict = {}
+        results = [_classify_solution(cand, sol, sols240) for sol in sols]
+    except EscalationInconclusive as exc:
+        return {"verdict": "unresolved", "reason": str(exc)}
     return max(results, key=lambda r: VERDICT_RANK[r["verdict"]])
 
 

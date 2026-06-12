@@ -45,9 +45,11 @@ Because `O` is interior and the `3m` angles are distinct, the points are in
 strictly convex position iff the angular-order polygon
 `..., C_{-1}, A_0, B_0, C_0, A_1, ...` has positive turns; by `C_m`
 equivariance the three per-period turn determinants at `A_0`, `B_0`, `C_0`
-suffice. Comparing each vertex with the chord between its angular
-neighbors of the unit orbit gives the necessary radius window
-`cos h < y, z < 1/cos h`, the same window as the two-orbit note.
+suffice. Chord comparisons give the necessary radius window
+`cos h < y, z < 1/cos h` (lower bound: a `B`- or `C`-vertex must lie
+strictly outside the chord `A_0 A_1`; upper bound: `A_1` must lie strictly
+outside the chord between the consecutive `B`- or `C`-orbit points
+straddling it), the same window as the two-orbit note.
 
 ## Atom catalogue
 
@@ -192,6 +194,22 @@ gap at all.
 - The official/global status of Erdos Problem #97 is unchanged
   (falsifiable/open); no repository source-of-truth claim is modified by
   this note.
+
+## Adversarial review reconciliation (2026-06-12)
+
+A fresh-context adversarial review independently re-derived the atom
+catalogue, all equation forms and sign conventions (with raw fsolve-planted
+systems and end-to-end coordinate checks), the quarter-cell
+characterization, and the verdict ladder, and confirmed the recorded
+artifact as stated. It flagged two latent infrastructure defects, both
+verified unexercised in the recorded run and hardened immediately after:
+BC candidate cells are now keyed by option content instead of positions in
+a data-dependent list (options with ratio within `1e-9` of zero are
+excluded deterministically in every backend; such ratios are window-killed
+regardless, so no solution is lost), and a high-precision root-finding
+failure now raises an escalation-inconclusive verdict (counted as
+unresolved) instead of reading as an empty cell. The artifact was
+regenerated with the hardened code.
 
 ## Next steps recorded for the loop
 
