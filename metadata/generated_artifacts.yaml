@@ -9008,3 +9008,31 @@ artifacts:
       - official/global status update
       - source-of-truth strongest result
       - general proof of Erdos Problem #97
+  - id: three_orbit_window_closure_m3_16
+    path: data/certificates/three_orbit_window_closure_m3_16.json
+    sha256: 3570531eb801680d3e0cc71b4c0eca1b6fe365c40e8579832f1d4642351ac1f7
+    size_bytes: 5945
+    kind: restricted_family_screen_artifact
+    generator: scripts/check_three_orbit_window_closure.py
+    command: python scripts/check_three_orbit_window_closure.py --min-m 3 --max-m 16 --audit-samples 40 --write-artifact data/certificates/three_orbit_window_closure_m3_16.json
+    checker: scripts/check_three_orbit_window_closure.py
+    check_command: python scripts/check_three_orbit_window_closure.py --min-m 3 --max-m 8 --audit-samples 10 --assert-clear
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Float64 screen of all four offset branches of the three-orbit (t=3) concentric regular m-gon family for m = 3..16, with 60-digit deterministic re-derivation of every candidate, 240-digit boundary handling, and the m = 0 mod 4 quarter cells recorded as named open sub-cases; screen evidence only, not an all-m lemma, not an exact certificate for screened cells, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.three_orbit_window_closure.v1
+      status: REVIEW_PENDING_SCREEN_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      clear: true
+      min_m: 3
+      max_m: 16
+      ms_with_survivors: []
+    forbidden_claims:
+      - all-m three-orbit obstruction
+      - exact certificate for screened cells
+      - quarter cells closed
+      - general proof of Erdos Problem #97
+      - official/global status update
