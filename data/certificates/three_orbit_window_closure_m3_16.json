@@ -31,11 +31,11 @@
  },
  "records": [
   {
-   "boundary_exclusions": 0,
+   "boundary_exclusions": 1,
    "feasible_survivors": [],
    "m": 3,
    "open_quarter_cells": 0,
-   "refuted": 6,
+   "refuted": 5,
    "screen_candidates": 6,
    "self_audit": {
     "configs_checked": 159,
@@ -69,11 +69,11 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 0,
+   "boundary_exclusions": 4,
    "feasible_survivors": [],
    "m": 5,
    "open_quarter_cells": 0,
-   "refuted": 24,
+   "refuted": 20,
    "screen_candidates": 24,
    "self_audit": {
     "configs_checked": 157,
@@ -88,11 +88,11 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 2,
+   "boundary_exclusions": 9,
    "feasible_survivors": [],
    "m": 6,
    "open_quarter_cells": 0,
-   "refuted": 38,
+   "refuted": 31,
    "screen_candidates": 40,
    "self_audit": {
     "configs_checked": 159,
@@ -101,17 +101,17 @@
    "systems_screened": {
     "AB": 81,
     "AC": 81,
-    "BC": 64,
+    "BC": 49,
     "G": 24
    },
    "unresolved": []
   },
   {
-   "boundary_exclusions": 3,
+   "boundary_exclusions": 14,
    "feasible_survivors": [],
    "m": 7,
    "open_quarter_cells": 0,
-   "refuted": 159,
+   "refuted": 148,
    "screen_candidates": 162,
    "self_audit": {
     "configs_checked": 160,
@@ -126,11 +126,11 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 9,
+   "boundary_exclusions": 36,
    "feasible_survivors": [],
    "m": 8,
    "open_quarter_cells": 1,
-   "refuted": 103,
+   "refuted": 76,
    "screen_candidates": 112,
    "self_audit": {
     "configs_checked": 155,
@@ -145,11 +145,11 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 33,
+   "boundary_exclusions": 65,
    "feasible_survivors": [],
    "m": 9,
    "open_quarter_cells": 0,
-   "refuted": 399,
+   "refuted": 367,
    "screen_candidates": 432,
    "self_audit": {
     "configs_checked": 153,
@@ -164,11 +164,11 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 1,
+   "boundary_exclusions": 15,
    "feasible_survivors": [],
    "m": 10,
    "open_quarter_cells": 0,
-   "refuted": 230,
+   "refuted": 216,
    "screen_candidates": 231,
    "self_audit": {
     "configs_checked": 160,
@@ -183,11 +183,11 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 17,
+   "boundary_exclusions": 48,
    "feasible_survivors": [],
    "m": 11,
    "open_quarter_cells": 0,
-   "refuted": 828,
+   "refuted": 797,
    "screen_candidates": 845,
    "self_audit": {
     "configs_checked": 155,
@@ -202,11 +202,11 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 95,
+   "boundary_exclusions": 148,
    "feasible_survivors": [],
    "m": 12,
    "open_quarter_cells": 1,
-   "refuted": 702,
+   "refuted": 649,
    "screen_candidates": 797,
    "self_audit": {
     "configs_checked": 156,
@@ -215,17 +215,17 @@
    "systems_screened": {
     "AB": 1296,
     "AC": 1296,
-    "BC": 1024,
+    "BC": 841,
     "G": 299
    },
    "unresolved": []
   },
   {
-   "boundary_exclusions": 151,
+   "boundary_exclusions": 211,
    "feasible_survivors": [],
    "m": 13,
    "open_quarter_cells": 0,
-   "refuted": 1499,
+   "refuted": 1439,
    "screen_candidates": 1650,
    "self_audit": {
     "configs_checked": 158,
@@ -240,11 +240,11 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 34,
+   "boundary_exclusions": 75,
    "feasible_survivors": [],
    "m": 14,
    "open_quarter_cells": 0,
-   "refuted": 1028,
+   "refuted": 987,
    "screen_candidates": 1062,
    "self_audit": {
     "configs_checked": 156,
@@ -259,11 +259,11 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 101,
+   "boundary_exclusions": 139,
    "feasible_survivors": [],
    "m": 15,
    "open_quarter_cells": 0,
-   "refuted": 2662,
+   "refuted": 2624,
    "screen_candidates": 2763,
    "self_audit": {
     "configs_checked": 157,
@@ -278,11 +278,11 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 144,
+   "boundary_exclusions": 225,
    "feasible_survivors": [],
    "m": 16,
    "open_quarter_cells": 1,
-   "refuted": 1565,
+   "refuted": 1484,
    "screen_candidates": 1709,
    "self_audit": {
     "configs_checked": 156,
@@ -301,12 +301,12 @@
  "scope": "three concentric regular m-gon orbits (t=3), all radii, all relative rotations, all selected-witness rows; float64 screen with 60-digit deterministic re-derivation of candidates and 240-digit boundary rechecks; the m = 0 mod 4 quarter cells are skipped and recorded as named open sub-cases; not an all-m lemma, not an exact certificate for screened cells, not a proof of Erdos Problem #97, and not a counterexample claim",
  "status": "REVIEW_PENDING_SCREEN_ONLY",
  "tool": "scripts/check_three_orbit_window_closure.py",
- "total_boundary_exclusions": 590,
+ "total_boundary_exclusions": 990,
  "total_screen_candidates": 9834,
  "total_systems": {
   "AB": 15155,
   "AC": 15155,
-  "BC": 10758,
+  "BC": 10560,
   "G": 3552
  },
  "trust": "REVIEW_PENDING_DIAGNOSTIC"

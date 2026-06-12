@@ -9010,8 +9010,8 @@ artifacts:
       - general proof of Erdos Problem #97
   - id: three_orbit_window_closure_m3_16
     path: data/certificates/three_orbit_window_closure_m3_16.json
-    sha256: 3570531eb801680d3e0cc71b4c0eca1b6fe365c40e8579832f1d4642351ac1f7
-    size_bytes: 5945
+    sha256: 546540a8b296b00bd7006f768b73a8997e62f2d6cf259308adb5ad97b427096c
+    size_bytes: 5946
     kind: restricted_family_screen_artifact
     generator: scripts/check_three_orbit_window_closure.py
     command: python scripts/check_three_orbit_window_closure.py --min-m 3 --max-m 16 --audit-samples 40 --write-artifact data/certificates/three_orbit_window_closure_m3_16.json
