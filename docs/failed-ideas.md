@@ -262,6 +262,32 @@ not proof routes.
 
 Current status: failed proof shortcut / provenance guardrail.
 
+## 20. Fishburn--Reeds cut-matrix nearest-fourth homotopy
+
+Trust label: `FAILED_APPROACH` / `NUMERICAL_EVIDENCE`.
+
+What was tried: a decimal transcription of the Fishburn--Reeds 20-point
+`k=3` table was used as a two-class cut-matrix scaffold. The 30 cross-cut
+Fishburn--Reeds rows supplied the three-witness `t=0` system, and each row was
+augmented by its nearest non-edge fourth witness. The homotopy then tracked
+toward a row-wise mixed-radius four-witness system with independent
+per-center radii.
+
+Failure mode: the informative imported runs either stayed on the
+strict-convexity boundary before leaving `t=0`, or reached `t=1` with
+four-witness residuals far above candidate scale. The clearest collapse run
+records best four-witness RMS residual about `1.13e-2`, max spread about
+`8.21e-2`, convexity margin about `1.52e-7`, and minimum edge length about
+`4.15e-3`. The endpoint-reaching run has final four-witness RMS residual about
+`7.22e-2`, so it is not a near candidate.
+
+Scope caveat: this is not an exact Fishburn--Reeds coordinate continuation.
+The imported script embeds a decimal table transcription and treats the
+Fishburn--Reeds construction as a `k=3` scaffold only. No run met the
+exactification threshold in `docs/exactification-plan.md`, no standalone exact
+verifier was invoked, and no `COUNTEREXAMPLE_CANDIDATE` is recorded. See
+`docs/fr-cut-homotopy.md`.
+
 [^lit]: Public consolidation: `public-provenance.md#literature-digest`.
 [^forest]: Public consolidation: `public-provenance.md#forest-lemma-failure`.
 [^rank]: Public consolidation: `public-provenance.md#rank-and-bridge-status`.

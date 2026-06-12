@@ -791,6 +791,9 @@ put detailed reconciliation in the canonical synthesis.
   free-pattern numerical searcher where every center re-selects its best
   witness 4-set per evaluation, with anti-cluster floors and a recorded
   equivariant sweep; `NUMERICAL_EVIDENCE` only, no candidate found.
+- [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
+  cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
+  numerical evidence only, not an exact coordinate certificate.
 - [`two-orbit-circulant-obstruction.md`](two-orbit-circulant-obstruction.md):
   review-pending lemma draft excluding all two-orbit circulant
   configurations (any radii, any relative rotation) with its audit checker;
