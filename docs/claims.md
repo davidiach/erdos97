@@ -1258,9 +1258,13 @@ preflight in
 records that current support evidence does not force that target: the
 label-`4` support ledger has no center-`8` support requirement, no label-`8`
 support witness, and no support requirement containing the full triple
-`[0,4,6]`. It still does not prove support existence, row forcing,
-endpoint-`8` forcing, `[3,5]` impossibility, `n=9`, the bootstrap bridge, or
-Erdos Problem #97.
+`[0,4,6]`. The source-crosswalk follow-up in
+`docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md` also records
+that the existing source-`151` row-`8` singleton packet is not such a source:
+its candidates use core `[1,2]` plus supports `[5,7]`, and none contains a
+pair or full triple from `[0,4,6]`. It still does not prove support existence,
+row forcing, endpoint-`8` forcing, `[3,5]` impossibility, `n=9`, the bootstrap
+bridge, or Erdos Problem #97.
 
 The source-`151` singleton-support audit in
 `docs/bootstrap-t12-151-singleton-support-audit.md` covers rows `151:5` and

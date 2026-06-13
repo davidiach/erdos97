@@ -578,7 +578,11 @@ strict cycles. A center-`8` rich-triple preflight then records that current
 support evidence does not yet force this target: the support ledger has
 centered requirements at `5`, `6`, and `7`, no center-`8` support
 requirement, no label-`8` support witness, and no support requirement
-containing the full triple `[0,4,6]`.
+containing the full triple `[0,4,6]`. A source-crosswalk follow-up now also
+rules out reusing the existing source-`151` row-`8` singleton packet as this
+cascade source: its checked row-`8` candidates are built from core `[1,2]` and
+one support from `[5,7]`, so none contains a pair or full triple from
+`[0,4,6]`.
 This is still proof-mining bookkeeping only, not support existence, row
 forcing, endpoint-`8` forcing, `[3,5]` impossibility, simultaneous realization
 of all components, `n=9`, or the bridge.
@@ -588,7 +592,8 @@ See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
 `docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md`, plus
 `docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md` and
 `docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md`, plus
-`docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md`.
+`docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md` and
+`docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md`.
 
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation
