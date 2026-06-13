@@ -7,6 +7,21 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-06-12
+
+- Added the three-orbit (t=3) paired-cosine reduction and finite-m closure
+  screen (`docs/three-orbit-window-closure.md`,
+  `scripts/check_three_orbit_window_closure.py`,
+  `data/certificates/three_orbit_window_closure_m3_16.json`,
+  `tests/test_three_orbit_window_closure.py`). All four offset branches are
+  enumerated for `m = 3..16`; every screen candidate is refuted by 60-digit
+  deterministic re-derivation or excluded as an exact boundary hit. The
+  branch-G quarter cells (`m = 0 mod 4`, `a1 = a2 = m/4`, `s = m/2`) are
+  exactly characterized as one-parameter degenerate families and recorded
+  as named open sub-cases. Review-pending reduction plus screen evidence
+  only: no all-`m` lemma, no exact certificate for screened cells, and no
+  change to the official/global open status.
+
 ## 2026-06-09
 
 - Added a review-pending lemma draft covering the full two-orbit circulant

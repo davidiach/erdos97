@@ -3157,6 +3157,30 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "finite-case result, or an official/global status update."
         ),
     ),
+    AuditCommand(
+        ident="three_orbit_window_closure_screen",
+        command=(
+            "python",
+            "scripts/check_three_orbit_window_closure.py",
+            "--min-m",
+            "3",
+            "--max-m",
+            "8",
+            "--audit-samples",
+            "10",
+            "--assert-clear",
+            "--check-artifact",
+            "data/certificates/three_orbit_window_closure_m3_16.json",
+        ),
+        claim_scope=(
+            "Sub-range replay of the three-orbit (t=3) finite-m closure "
+            "screen with its atom-catalogue audit; float64 screen with "
+            "60-digit escalation only, the m = 0 mod 4 quarter cells stay "
+            "named open sub-cases, and it is not an all-m lemma, an exact "
+            "certificate, a proof of Erdos Problem #97, or an "
+            "official/global status update."
+        ),
+    ),
 )
 
 

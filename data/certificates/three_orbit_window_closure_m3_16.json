@@ -1,0 +1,313 @@
+{
+ "clear": true,
+ "eq_accept": "1e-45",
+ "eq_reject": "1e-20",
+ "join_band": 1e-07,
+ "margin_band": "1e-30",
+ "max_m": 16,
+ "min_m": 3,
+ "ms_fully_screened": [
+  3,
+  5,
+  6,
+  7,
+  9,
+  10,
+  11,
+  13,
+  14,
+  15
+ ],
+ "ms_with_open_quarter_cells": [
+  4,
+  8,
+  12,
+  16
+ ],
+ "ms_with_survivors": [],
+ "provenance": {
+  "command": "python scripts/check_three_orbit_window_closure.py --min-m 3 --max-m 16 --audit-samples 40 --write-artifact data/certificates/three_orbit_window_closure_m3_16.json",
+  "generator": "scripts/check_three_orbit_window_closure.py"
+ },
+ "records": [
+  {
+   "boundary_exclusions": 1,
+   "feasible_survivors": [],
+   "m": 3,
+   "open_quarter_cells": 0,
+   "refuted": 5,
+   "screen_candidates": 6,
+   "self_audit": {
+    "configs_checked": 159,
+    "m": 3
+   },
+   "systems_screened": {
+    "AB": 4,
+    "AC": 4,
+    "BC": 4,
+    "G": 3
+   },
+   "unresolved": []
+  },
+  {
+   "boundary_exclusions": 0,
+   "feasible_survivors": [],
+   "m": 4,
+   "open_quarter_cells": 1,
+   "refuted": 1,
+   "screen_candidates": 1,
+   "self_audit": {
+    "configs_checked": 151,
+    "m": 4
+   },
+   "systems_screened": {
+    "AB": 16,
+    "AC": 16,
+    "BC": 16,
+    "G": 3
+   },
+   "unresolved": []
+  },
+  {
+   "boundary_exclusions": 4,
+   "feasible_survivors": [],
+   "m": 5,
+   "open_quarter_cells": 0,
+   "refuted": 20,
+   "screen_candidates": 24,
+   "self_audit": {
+    "configs_checked": 157,
+    "m": 5
+   },
+   "systems_screened": {
+    "AB": 36,
+    "AC": 36,
+    "BC": 36,
+    "G": 20
+   },
+   "unresolved": []
+  },
+  {
+   "boundary_exclusions": 9,
+   "feasible_survivors": [],
+   "m": 6,
+   "open_quarter_cells": 0,
+   "refuted": 29,
+   "screen_candidates": 38,
+   "self_audit": {
+    "configs_checked": 159,
+    "m": 6
+   },
+   "systems_screened": {
+    "AB": 81,
+    "AC": 81,
+    "BC": 49,
+    "G": 24
+   },
+   "unresolved": []
+  },
+  {
+   "boundary_exclusions": 14,
+   "feasible_survivors": [],
+   "m": 7,
+   "open_quarter_cells": 0,
+   "refuted": 138,
+   "screen_candidates": 152,
+   "self_audit": {
+    "configs_checked": 160,
+    "m": 7
+   },
+   "systems_screened": {
+    "AB": 144,
+    "AC": 144,
+    "BC": 100,
+    "G": 63
+   },
+   "unresolved": []
+  },
+  {
+   "boundary_exclusions": 28,
+   "feasible_survivors": [],
+   "m": 8,
+   "open_quarter_cells": 1,
+   "refuted": 85,
+   "screen_candidates": 113,
+   "self_audit": {
+    "configs_checked": 155,
+    "m": 8
+   },
+   "systems_screened": {
+    "AB": 256,
+    "AC": 256,
+    "BC": 196,
+    "G": 71
+   },
+   "unresolved": []
+  },
+  {
+   "boundary_exclusions": 68,
+   "feasible_survivors": [],
+   "m": 9,
+   "open_quarter_cells": 0,
+   "refuted": 366,
+   "screen_candidates": 434,
+   "self_audit": {
+    "configs_checked": 153,
+    "m": 9
+   },
+   "systems_screened": {
+    "AB": 400,
+    "AC": 400,
+    "BC": 289,
+    "G": 144
+   },
+   "unresolved": []
+  },
+  {
+   "boundary_exclusions": 11,
+   "feasible_survivors": [],
+   "m": 10,
+   "open_quarter_cells": 0,
+   "refuted": 250,
+   "screen_candidates": 261,
+   "self_audit": {
+    "configs_checked": 160,
+    "m": 10
+   },
+   "systems_screened": {
+    "AB": 625,
+    "AC": 625,
+    "BC": 484,
+    "G": 160
+   },
+   "unresolved": []
+  },
+  {
+   "boundary_exclusions": 51,
+   "feasible_survivors": [],
+   "m": 11,
+   "open_quarter_cells": 0,
+   "refuted": 803,
+   "screen_candidates": 854,
+   "self_audit": {
+    "configs_checked": 155,
+    "m": 11
+   },
+   "systems_screened": {
+    "AB": 900,
+    "AC": 900,
+    "BC": 676,
+    "G": 275
+   },
+   "unresolved": []
+  },
+  {
+   "boundary_exclusions": 152,
+   "feasible_survivors": [],
+   "m": 12,
+   "open_quarter_cells": 1,
+   "refuted": 628,
+   "screen_candidates": 780,
+   "self_audit": {
+    "configs_checked": 156,
+    "m": 12
+   },
+   "systems_screened": {
+    "AB": 1296,
+    "AC": 1296,
+    "BC": 841,
+    "G": 299
+   },
+   "unresolved": []
+  },
+  {
+   "boundary_exclusions": 210,
+   "feasible_survivors": [],
+   "m": 13,
+   "open_quarter_cells": 0,
+   "refuted": 1460,
+   "screen_candidates": 1670,
+   "self_audit": {
+    "configs_checked": 158,
+    "m": 13
+   },
+   "systems_screened": {
+    "AB": 1764,
+    "AC": 1764,
+    "BC": 1156,
+    "G": 468
+   },
+   "unresolved": []
+  },
+  {
+   "boundary_exclusions": 76,
+   "feasible_survivors": [],
+   "m": 14,
+   "open_quarter_cells": 0,
+   "refuted": 967,
+   "screen_candidates": 1043,
+   "self_audit": {
+    "configs_checked": 156,
+    "m": 14
+   },
+   "systems_screened": {
+    "AB": 2401,
+    "AC": 2401,
+    "BC": 1681,
+    "G": 504
+   },
+   "unresolved": []
+  },
+  {
+   "boundary_exclusions": 131,
+   "feasible_survivors": [],
+   "m": 15,
+   "open_quarter_cells": 0,
+   "refuted": 2609,
+   "screen_candidates": 2740,
+   "self_audit": {
+    "configs_checked": 157,
+    "m": 15
+   },
+   "systems_screened": {
+    "AB": 3136,
+    "AC": 3136,
+    "BC": 2116,
+    "G": 735
+   },
+   "unresolved": []
+  },
+  {
+   "boundary_exclusions": 212,
+   "feasible_survivors": [],
+   "m": 16,
+   "open_quarter_cells": 1,
+   "refuted": 1598,
+   "screen_candidates": 1810,
+   "self_audit": {
+    "configs_checked": 156,
+    "m": 16
+   },
+   "systems_screened": {
+    "AB": 4096,
+    "AC": 4096,
+    "BC": 2916,
+    "G": 783
+   },
+   "unresolved": []
+  }
+ ],
+ "schema": "erdos97.three_orbit_window_closure.v1",
+ "scope": "three concentric regular m-gon orbits (t=3), all radii, all relative rotations, all selected-witness rows; float64 screen with 60-digit deterministic re-derivation of candidates and 240-digit boundary rechecks; the m = 0 mod 4 quarter cells are skipped and recorded as named open sub-cases; not an all-m lemma, not an exact certificate for screened cells, not a proof of Erdos Problem #97, and not a counterexample claim",
+ "status": "REVIEW_PENDING_SCREEN_ONLY",
+ "tool": "scripts/check_three_orbit_window_closure.py",
+ "total_boundary_exclusions": 967,
+ "total_screen_candidates": 9926,
+ "total_systems": {
+  "AB": 15155,
+  "AC": 15155,
+  "BC": 10560,
+  "G": 3552
+ },
+ "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}
