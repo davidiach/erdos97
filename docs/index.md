@@ -813,6 +813,12 @@ put detailed reconciliation in the canonical synthesis.
   characterization of the degenerate `m = 0 mod 4` quarter cells as named
   open sub-cases, and a 60/240-digit escalation audit; screen evidence
   only, not an all-`m` lemma, an exact certificate, or a proof.
+- [`three-square-m4-exact-closure.md`](three-square-m4-exact-closure.md):
+  exact SMT (z3) closure of the smallest three-orbit quarter cell, `m = 4`
+  (three concentric squares, `n = 12`): branch-G 4-badness reduces to three
+  explicit algebraic conditions, all 64 sign/witness combinations are UNSAT
+  inside the strict-convexity window; `EXACT_OBSTRUCTION` for the restricted
+  three-square family, not all of `m = 4`, not `m = 8/12/16`, not a proof.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`n9-base-apex-d3-p19-degree-obstruction.md`](n9-base-apex-d3-p19-degree-obstruction.md):

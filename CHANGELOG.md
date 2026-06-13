@@ -7,6 +7,21 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-06-13
+
+- Closed the `m = 4` (three concentric squares, `n = 12`) quarter cell exactly,
+  the smallest open sub-case left by the three-orbit finite-m closure screen.
+  Branch-G 4-badness reduces to three explicit algebraic conditions on the
+  radii and offsets, and an SMT (z3) certificate shows all 64 discrete
+  sign/witness combinations are UNSAT inside the strict-convexity radius window
+  (convexity inequalities are not even needed). Added
+  `docs/three-square-m4-exact-closure.md`,
+  `scripts/check_three_square_m4_closure.py`,
+  `data/certificates/three_square_m4_closure.json` (managed manifest entry,
+  registered audit command), trust `EXACT_OBSTRUCTION` (SMT). Restricted-family
+  result: the m=4 half-step branches remain screen-grade, the `m = 8, 12, 16`
+  quarter cells remain open, and the official/global status is unchanged.
+
 ## 2026-06-12
 
 - Added the three-orbit (t=3) paired-cosine reduction and finite-m closure

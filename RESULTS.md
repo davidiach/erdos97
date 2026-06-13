@@ -1516,6 +1516,32 @@ exact certificate for the screened cells, and not a proof of Erdos Problem
 --assert-clear`, and
 `data/certificates/three_orbit_window_closure_m3_16.json`.
 
+### Exact SMT closure of the m=4 three-square quarter cell (n=12)
+
+Status: `LEMMA` draft (review pending) for the reduction; `EXACT_OBSTRUCTION`
+(SMT certificate) for the infeasibility decision.
+
+The smallest open three-orbit quarter cell, `m = 4` (three concentric
+squares, `n = 12`), is closed exactly. Because a square's only own
+equidistance pair from a vertex is its 90-degree diagonal pair, branch-G
+4-badness of three squares is equivalent to three explicit algebraic
+conditions: `P(y) in {+-cos b, +-sin b}`, `P(z) in {+-cos g, +-sin g}`, and
+`Q(y,z) in {+-cos(g-b), +-sin(g-b)}`, with `P(r)=(r^2-1)/(2r)` and
+`Q=(z^2-y^2)/(2yz)` (equivalently `P=sinh(ln r)`, `Q=sinh(ln z - ln y)`). A z3
+nonlinear-real-arithmetic certificate shows that, together with the
+strict-convexity radius window `cos h < y,z < 1/cos h` and
+`0 < b < g < pi/2`, all 64 discrete sign/witness combinations are UNSAT --
+without even invoking the convexity inequalities, so the strictly convex case
+is a fortiori empty. Hence no strictly convex three-square configuration is
+branch-G 4-bad. SMT UNSAT is an accepted exact-obstruction certificate here
+(as with the existing Kalmanson z3 certificates). Restricted-family result:
+the `m = 4` half-step branches AB/AC/BC are screen-grade in the three-orbit
+artifact, the `m = 8, 12, 16` quarter cells remain open, and the
+official/global status is unchanged. See
+`docs/three-square-m4-exact-closure.md`,
+`scripts/check_three_square_m4_closure.py --assert-clear`, and
+`data/certificates/three_square_m4_closure.json`.
+
 ## Numerical Attempts
 
 ### Dynamic-witness free-pattern sweep (2026-06-09)

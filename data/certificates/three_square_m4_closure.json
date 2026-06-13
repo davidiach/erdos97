@@ -1,0 +1,29 @@
+{
+ "clear": true,
+ "combos_total": 64,
+ "faithfulness_ok": true,
+ "in_window_no_convexity": {
+  "sat": 0,
+  "unknown": 0,
+  "unsat": 64
+ },
+ "m": 4,
+ "n": 12,
+ "nonvacuity_witness": {
+  "beta_deg": 0.0,
+  "gamma_deg": 90.0,
+  "note": "degenerate boundary limit; excluded by strict convexity",
+  "y": 1.0,
+  "z": 1.0
+ },
+ "provenance": {
+  "command": "python scripts/check_three_square_m4_closure.py --assert-clear --write-artifact data/certificates/three_square_m4_closure.json",
+  "generator": "scripts/check_three_square_m4_closure.py"
+ },
+ "sat_combos": [],
+ "schema": "erdos97.three_square_m4_closure.v1",
+ "scope": "Three concentric regular 4-gons (n=12), branch G: the conjunction of the 4-bad conditions (i),(ii),(iii) and the strict-convexity radius window cos h < y,z < 1/cos h with 0<beta<gamma<pi/2 is SMT (z3) UNSAT over all 64 discrete sign/witness combinations; convexity inequalities are not even required. Exact obstruction for this restricted family; AB/AC/BC half-step branches for m=4 are screen-grade in the main three-orbit artifact; not an all-m result, not a proof of Erdos Problem #97, not a counterexample.",
+ "status": "EXACT_OBSTRUCTION_SMT",
+ "trust": "EXACT_OBSTRUCTION",
+ "unknown_combos": []
+}

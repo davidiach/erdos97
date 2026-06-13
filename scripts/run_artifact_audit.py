@@ -3181,6 +3181,24 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "official/global status update."
         ),
     ),
+    AuditCommand(
+        ident="three_square_m4_exact_closure",
+        command=(
+            "python",
+            "scripts/check_three_square_m4_closure.py",
+            "--assert-clear",
+        ),
+        claim_scope=(
+            "SMT (z3) exact obstruction that no strictly convex three "
+            "concentric square (n=12) configuration is branch-G 4-bad; all "
+            "64 discrete sign/witness combinations are UNSAT inside the "
+            "strict-convexity radius window. Restricted-family exact "
+            "obstruction only; not all of m=4 (half-step branches are "
+            "screen-grade), not the m=8/12/16 quarter cells, not a proof of "
+            "Erdos Problem #97, not a counterexample, and not an "
+            "official/global status update."
+        ),
+    ),
 )
 
 

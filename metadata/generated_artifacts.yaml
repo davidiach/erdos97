@@ -9058,3 +9058,34 @@ artifacts:
       - quarter cells closed
       - general proof of Erdos Problem #97
       - official/global status update
+  - id: three_square_m4_closure
+    path: data/certificates/three_square_m4_closure.json
+    sha256: 39501c2a3fded246d3b3124ab968ca0601b215057fb9f154b31b35b275404986
+    size_bytes: 1225
+    kind: smt_certificate_artifact
+    generator: scripts/check_three_square_m4_closure.py
+    command: python scripts/check_three_square_m4_closure.py --assert-clear --write-artifact data/certificates/three_square_m4_closure.json
+    checker: scripts/check_three_square_m4_closure.py
+    check_command: python scripts/check_three_square_m4_closure.py --assert-clear
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_OBSTRUCTION
+    claim_scope: SMT (z3) certificate that no strictly convex three concentric regular 4-gon (n=12) configuration is branch-G 4-bad; all 64 discrete sign/witness combinations of the 4-bad conditions are UNSAT inside the strict-convexity radius window. Exact obstruction for this restricted family only; m=4 half-step branches are screen-grade in the three-orbit artifact; not an all-m result, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.three_square_m4_closure.v1
+      status: EXACT_OBSTRUCTION_SMT
+      trust: EXACT_OBSTRUCTION
+      clear: true
+      m: 4
+      n: 12
+      faithfulness_ok: true
+      in_window_no_convexity.unsat: 64
+      in_window_no_convexity.sat: 0
+      in_window_no_convexity.unknown: 0
+    forbidden_claims:
+      - all of m=4 closed exactly
+      - m=8 m=12 m=16 quarter cells closed
+      - general proof of Erdos Problem #97
+      - counterexample
+      - official/global status update

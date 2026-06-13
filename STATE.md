@@ -934,6 +934,18 @@ verdict, not an all-`m` lemma and not an exact certificate. See
 `docs/three-orbit-window-closure.md` and
 `data/certificates/three_orbit_window_closure_m3_16.json`.
 
+The smallest of those quarter cells, `m = 4` (three concentric squares,
+`n = 12`), is now closed exactly (2026-06-13). Branch-G 4-badness reduces to
+three explicit algebraic conditions on the radii and offsets, and an SMT (z3)
+certificate shows all 64 discrete sign/witness combinations are UNSAT inside
+the strict-convexity radius window (the convexity inequalities are not even
+needed). This is an `EXACT_OBSTRUCTION` for the restricted three-square
+family; the `m = 4` half-step branches remain screen-grade and the
+`m = 8, 12, 16` quarter cells remain open. See
+`docs/three-square-m4-exact-closure.md`,
+`scripts/check_three_square_m4_closure.py`, and
+`data/certificates/three_square_m4_closure.json`.
+
 ## Best saved near-miss
 
 The best saved near-miss is still the historical `B12_3x4_danzer_lift`
