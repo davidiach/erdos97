@@ -969,6 +969,15 @@ plus `docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md`,
 plus `docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md`,
 `scripts/check_bootstrap_t12_151_6_label4_cascade_endpoint8_targets.py`, and
 `data/certificates/bootstrap_t12_151_6_label4_cascade_endpoint8_targets.json`.
+The center-`8` rich-triple preflight in
+`docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md`,
+`scripts/check_bootstrap_t12_151_6_label4_center8_rich_triple_preflight.py`,
+and
+`data/certificates/bootstrap_t12_151_6_label4_center8_rich_triple_preflight.json`
+then records the current gate status
+`NOT_READY_NO_CENTER8_RICH_TRIPLE_SOURCE`: the support ledger has no
+center-`8` support requirement, no label-`8` support witness, and no support
+requirement containing the full triple `[0,4,6]`.
 
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses

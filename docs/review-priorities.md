@@ -1029,6 +1029,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   target is to force that center-`8` rich triple from genuine
   private-pair/rich-class geometry, or to find a different support-rich
   obstruction.
+- bootstrap/T12 focused `151:6` label-`4` center-`8` rich-triple preflight
+  evidence, as recorded in
+  `docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md`, checking
+  that current support evidence does not yet force the `[0,4,6]` target. The
+  support ledger has requirements at centers `5`, `6`, and `7`, no center-`8`
+  support requirement, no label-`8` support witness, and no support
+  requirement containing the full triple `[0,4,6]`. This is a gate diagnostic
+  only, not a proof that the center-`8` rich triple is impossible or forced.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

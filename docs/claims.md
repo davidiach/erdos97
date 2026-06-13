@@ -1252,9 +1252,15 @@ in addition to the row-`5`/row-`6` cascade equalities. The endpoint-target
 follow-up strengthens the conditional form of that target: for each stored
 cascade package, every center-`8` rich class containing `[0,4,6]` keeps the
 quotient replay obstructed, covering `93` signature-level rich supersets
-(`72` self-edges and `21` strict cycles). It still does not prove support
-existence, row forcing, endpoint-`8` forcing, `[3,5]` impossibility, `n=9`,
-the bootstrap bridge, or Erdos Problem #97.
+(`72` self-edges and `21` strict cycles). The center-`8` rich-triple
+preflight in
+`docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md` then
+records that current support evidence does not force that target: the
+label-`4` support ledger has no center-`8` support requirement, no label-`8`
+support witness, and no support requirement containing the full triple
+`[0,4,6]`. It still does not prove support existence, row forcing,
+endpoint-`8` forcing, `[3,5]` impossibility, `n=9`, the bootstrap bridge, or
+Erdos Problem #97.
 
 The source-`151` singleton-support audit in
 `docs/bootstrap-t12-151-singleton-support-audit.md` covers rows `151:5` and

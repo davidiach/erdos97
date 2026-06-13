@@ -95,6 +95,12 @@ So the next bridge target is sharper than forcing one of the three previously
 seen row-`8` exact rows. It is enough, conditionally, to force the rich endpoint
 triple `[0,4,6]` at center `8` alongside the row-`5`/row-`6` cascade package.
 
+The follow-up
+[`bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md`](bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md)
+checks current support evidence for that forcing step. It records that the
+target is not yet forced: the support ledger has no center-`8` support
+requirement and no support requirement containing the full triple `[0,4,6]`.
+
 This is still a conditional target. It does not show that a minimal or
 bootstrap-core counterexample must contain that rich class.
 

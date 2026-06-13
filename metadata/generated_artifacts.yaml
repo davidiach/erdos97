@@ -8467,6 +8467,112 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_center8_rich_triple_preflight
+    path: data/certificates/bootstrap_t12_151_6_label4_center8_rich_triple_preflight.json
+    sha256: 52c2c0ab1159d9fb02e0a46a9bbebd26fb56727f753b8d2aea5cb2984176f84b
+    size_bytes: 8978
+    kind: proof_target_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_center8_rich_triple_preflight.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_center8_rich_triple_preflight.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_center8_rich_triple_preflight.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_rich_triple_preflight.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 private-halo [3,5] label-4 cascade center-8 rich-triple preflight; records that every stored cascade package is conditionally obstructed by a center-8 rich class containing [0,4,6], but the current support ledger has no center-8 support requirement and does not force that rich triple. This is a gate diagnostic only; it does not prove support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_center8_rich_triple_preflight.v1
+      status: BOOTSTRAP_T12_151_6_LABEL4_CENTER8_RICH_TRIPLE_PREFLIGHT_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 7
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.cascade_component_key: D[0,6]=D[4,5]=D[5,6]
+      summary.cascade_required_support_centers:
+        - 5
+        - 6
+      summary.cascade_required_witness_pairs:
+        -
+          - 4
+          - 6
+        -
+          - 0
+          - 5
+      summary.required_core_centers:
+        - 5
+        - 6
+        - 8
+      summary.conditional_center8_target_center: 8
+      summary.conditional_center8_triple:
+        - 0
+        - 4
+        - 6
+      summary.conditional_target_status: ENDPOINT8_RICH_TRIPLE_SUFFICES_CONDITIONALLY
+      summary.conditional_rich_superset_signature_record_count: 93
+      summary.conditional_rich_superset_obstructed_count: 93
+      summary.support_requirement_centers:
+        - 5
+        - 6
+        - 7
+      summary.support_requirement_center8_count: 0
+      summary.support_requirements_with_label8_witness_count: 0
+      summary.center8_requirement_with_full_triple_count: 0
+      summary.endpoint_triple_pair_requirements_any_center:
+        -
+          - 0
+          - 4
+        -
+          - 4
+          - 6
+      summary.endpoint_triple_pair_requirements_at_center8: []
+      summary.endpoint_triple_pair_requirements_missing_any_center:
+        -
+          - 0
+          - 6
+      summary.components_with_center8_auxiliary_center_count: 1
+      summary.center8_auxiliary_pair_is_not_center8_support_requirement: true
+      summary.outside_pair_endpoint8_preflight_target_center: 6
+      summary.outside_pair_endpoint8_support_pairs:
+        -
+          - 3
+          - 8
+        -
+          - 5
+          - 8
+      summary.outside_pair_endpoint8_gate_status: NOT_READY_PRIVATE_HALO_ONLY_ESCAPE_SURVIVES_BASIC_FILTERS
+      summary.current_evidence_forces_center8_rich_triple: false
+      summary.gate_status: NOT_READY_NO_CENTER8_RICH_TRIPLE_SOURCE
+      summary.decision_status: CENTER8_RICH_TRIPLE_NOT_FORCED_BY_CURRENT_SUPPORT_LEDGER
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_center8_rich_triple_preflight.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_center8_rich_triple_preflight.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - center-8 rich triple is forced
+      - the private-halo-only pair 3,5 is impossible
+      - center-8 rich-triple preflight proves the bridge
+      - endpoint target proves support existence
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

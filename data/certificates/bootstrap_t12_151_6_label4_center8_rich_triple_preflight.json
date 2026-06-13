@@ -1,0 +1,226 @@
+{
+  "claim_scope": "Proof-mining preflight for the source-151 row-6 label-4 cascade. It joins the label-4 support-hypothesis ledger, the cascade endpoint-8 target packet, and the older endpoint-8 outside-pair forcing preflight to check whether current checked evidence already supplies the new center-8 rich-class target [0,4,6]. It records that the target is a conditional quotient obstruction but is not forced by the current support ledger: there is no centered support requirement at center 8, and no current support requirement contains the full center-8 triple. This does not prove support existence, does not prove row forcing, does not prove endpoint-8 forcing, does not prove that pair [3,5] is impossible, does not prove n=9, does not prove the bootstrap bridge, is not a counterexample, and is not a global status update.",
+  "decision": {
+    "answer": "do_not_accept_center8_rich_triple_forcing_claim",
+    "blocking_reason": "The current label-4 support ledger has requirements at centers 5, 6, and 7 only; it has no centered support requirement at center 8 and no support requirement containing the full witness triple [0,4,6].",
+    "conditional_obstruction_available_if_hypothesis_supplied": true,
+    "current_evidence_forces_center8_rich_triple": false,
+    "decision_question": "Can current checked support evidence accept the claim that the source-151 row-6 label-4 cascade forces a genuine center-8 rich class containing [0,4,6]?",
+    "decision_status": "CENTER8_RICH_TRIPLE_NOT_FORCED_BY_CURRENT_SUPPORT_LEDGER",
+    "gate_status": "NOT_READY_NO_CENTER8_RICH_TRIPLE_SOURCE",
+    "required_next_lemma": "Prove from genuine minimal/rich-class geometry that center 8 has a rich class containing [0,4,6] alongside the row-5/row-6 cascade package, or find a different support-rich obstruction."
+  },
+  "endpoint8_distinction_records": [
+    {
+      "conditional_supply": "center-6 support with witnesses 0 and 8 supplies [0,6]=[8,6]",
+      "forced_by_current_evidence": false,
+      "gate_status": "NOT_READY_PRIVATE_HALO_ONLY_ESCAPE_SURVIVES_BASIC_FILTERS",
+      "row_center": 6,
+      "source_doc": "docs/bootstrap-t12-151-6-endpoint8-forcing-preflight.md",
+      "support_pairs": [
+        [
+          3,
+          8
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "target_name": "endpoint-8 outside-pair support",
+      "uses_label_8_as_witness": true
+    },
+    {
+      "conditional_supply": "center-8 rich class containing [0,4,6] obstructs the stored row-5/row-6 cascade packages",
+      "forced_by_current_evidence": false,
+      "row_center": 8,
+      "source_doc": "docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md",
+      "target_name": "center-8 rich-triple row target",
+      "target_status": "ENDPOINT8_RICH_TRIPLE_SUFFICES_CONDITIONALLY",
+      "uses_label_8_as_center": true,
+      "witness_triple": [
+        0,
+        4,
+        6
+      ]
+    }
+  ],
+  "interpretation": [
+    "The cascade endpoint-target packet proves a conditional local obstruction: every center-8 rich class containing [0,4,6] obstructs the stored row-5/row-6 cascade packages.",
+    "The label-4 support ledger does not supply that center-8 rich class; its centered support requirements live at centers 5, 6, and 7.",
+    "The phrase endpoint-8 appears in two different proof targets: an older center-6 outside-pair support target using witness 8, and the newer center-8 rich-triple target.",
+    "Current checked evidence therefore identifies a sharp conditional target, not a forcing lemma."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_label4_center8_rich_triple_preflight.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_151_6_label4_center8_rich_triple_preflight.py"
+  },
+  "schema": "erdos97.bootstrap_t12_151_6_label4_center8_rich_triple_preflight.v1",
+  "source_artifacts": [
+    {
+      "gate_status": null,
+      "ledger_status": "LABEL4_SUPPORT_HYPOTHESES_PINNED_NOT_DISCHARGED",
+      "path": "data/certificates/bootstrap_t12_151_6_label4_support_hypothesis_ledger.json",
+      "role": "source 151:6 label-4 support-hypothesis ledger",
+      "schema": "erdos97.bootstrap_t12_151_6_label4_support_hypothesis_ledger.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_SUPPORT_HYPOTHESIS_LEDGER_DIAGNOSTIC_ONLY",
+      "target_status": null,
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "gate_status": null,
+      "ledger_status": null,
+      "path": "data/certificates/bootstrap_t12_151_6_label4_cascade_endpoint8_targets.json",
+      "role": "source 151:6 label-4 cascade endpoint-8 targets",
+      "schema": "erdos97.bootstrap_t12_151_6_label4_cascade_endpoint8_targets.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_CASCADE_ENDPOINT8_TARGETS_DIAGNOSTIC_ONLY",
+      "target_status": "ENDPOINT8_RICH_TRIPLE_SUFFICES_CONDITIONALLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "gate_status": "NOT_READY_PRIVATE_HALO_ONLY_ESCAPE_SURVIVES_BASIC_FILTERS",
+      "ledger_status": null,
+      "path": "data/certificates/bootstrap_t12_151_6_endpoint8_forcing_preflight.json",
+      "role": "source 151:6 endpoint-8 outside-pair forcing preflight",
+      "schema": "erdos97.bootstrap_t12_151_6_endpoint8_forcing_preflight.v1",
+      "status": "BOOTSTRAP_T12_151_6_ENDPOINT8_FORCING_PREFLIGHT_DIAGNOSTIC_ONLY",
+      "target_status": null,
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_151_6_LABEL4_CENTER8_RICH_TRIPLE_PREFLIGHT_DIAGNOSTIC_ONLY",
+  "summary": {
+    "cascade_component_key": "D[0,6]=D[4,5]=D[5,6]",
+    "cascade_required_support_centers": [
+      5,
+      6
+    ],
+    "cascade_required_witness_pairs": [
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        5
+      ]
+    ],
+    "center8_auxiliary_pair_is_not_center8_support_requirement": true,
+    "center8_requirement_with_full_triple_count": 0,
+    "components_with_center8_auxiliary_center_count": 1,
+    "conditional_center8_target_center": 8,
+    "conditional_center8_triple": [
+      0,
+      4,
+      6
+    ],
+    "conditional_rich_superset_obstructed_count": 93,
+    "conditional_rich_superset_signature_record_count": 93,
+    "conditional_target_status": "ENDPOINT8_RICH_TRIPLE_SUFFICES_CONDITIONALLY",
+    "current_evidence_forces_center8_rich_triple": false,
+    "decision_status": "CENTER8_RICH_TRIPLE_NOT_FORCED_BY_CURRENT_SUPPORT_LEDGER",
+    "endpoint_triple_pair_requirements_any_center": [
+      [
+        0,
+        4
+      ],
+      [
+        4,
+        6
+      ]
+    ],
+    "endpoint_triple_pair_requirements_at_center8": [],
+    "endpoint_triple_pair_requirements_missing_any_center": [
+      [
+        0,
+        6
+      ]
+    ],
+    "gate_status": "NOT_READY_NO_CENTER8_RICH_TRIPLE_SOURCE",
+    "outside_pair_endpoint8_gate_status": "NOT_READY_PRIVATE_HALO_ONLY_ESCAPE_SURVIVES_BASIC_FILTERS",
+    "outside_pair_endpoint8_preflight_target_center": 6,
+    "outside_pair_endpoint8_support_pairs": [
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "private_support_pair": [
+      3,
+      5
+    ],
+    "private_target_center_class": [
+      0,
+      3,
+      5,
+      7
+    ],
+    "required_core_centers": [
+      5,
+      6,
+      8
+    ],
+    "support_ledger_status": "LABEL4_SUPPORT_HYPOTHESES_PINNED_NOT_DISCHARGED",
+    "support_requirement_center8_count": 0,
+    "support_requirement_centers": [
+      5,
+      6,
+      7
+    ],
+    "support_requirements_with_label8_witness_count": 0,
+    "target_center": 6,
+    "target_row_key": "151:6"
+  },
+  "support_requirement_audit": [
+    {
+      "answer": false,
+      "audit_question": "Does the current label-4 support ledger contain any centered support requirement at center 8?",
+      "matching_requirement_count": 0,
+      "matching_requirement_keys": []
+    },
+    {
+      "answer": false,
+      "audit_question": "Does the current label-4 support ledger contain any support requirement whose center is 8 and whose witnesses include the full target triple [0,4,6]?",
+      "matching_requirement_count": 0,
+      "matching_requirement_keys": []
+    },
+    {
+      "answer": "partial_pair_coverage_only",
+      "audit_question": "Which endpoint-triple witness pairs appear anywhere in the current support ledger?",
+      "covered_pairs_any_center": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "covered_pairs_at_center8": [],
+      "matching_requirement_keys": [
+        "row5:[4,5]=[0,5]",
+        "row5:[4,5]=[5,6]"
+      ],
+      "missing_pairs_any_center": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "answer": false,
+      "audit_question": "Does the current label-4 support ledger use label 8 as a support witness?",
+      "matching_requirement_count": 0,
+      "matching_requirement_keys": []
+    }
+  ],
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "validation_errors": [],
+  "validation_status": "passed"
+}
