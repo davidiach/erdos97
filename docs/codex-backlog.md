@@ -581,12 +581,17 @@ minimal/rich-class hypotheses.
    `python scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.py --check --assert-expected --json`
    then allows one additional non-completion row replacement after each target
    completion; all `6624` one-completion plus one-repair candidates still
-   fail basic filters before vertex-circle replay.
+   fail basic filters before vertex-circle replay. The depth-two repair
+   command
+   `python scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_three_row_repairs.py --check --assert-expected --json`
+   then allows two additional arbitrary non-completion row replacements after
+   each target completion; all `1599696` one-completion plus two-repair
+   candidates still fail basic filters before vertex-circle replay.
    The next useful PR should therefore prove a support-geometry exclusion
    under genuine private-support or rich-class hypotheses, prove center
    migration for the off-center `[0,4,6]` rows, or obstruct target-sparse
    assignments `0` and `11` by something stronger than one completion plus
-   one repair, not a component-alone impossibility claim, not arbitrary
+   two arbitrary repairs, not a component-alone impossibility claim, not arbitrary
    label-`8` visibility, and not another selected-row neighborhood widening
    around `151:6`.
    The source-`151` singleton-support audit in
