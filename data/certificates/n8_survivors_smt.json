@@ -1,0 +1,91 @@
+{
+ "classes_total": 15,
+ "clear": true,
+ "n": 8,
+ "non_unsat_classes": [],
+ "provenance": {
+  "command": "python scripts/check_n8_survivors_smt.py --assert-clear --write-artifact data/certificates/n8_survivors_smt.json",
+  "generator": "scripts/check_n8_survivors_smt.py"
+ },
+ "records": [
+  {
+   "class": 0,
+   "equations": 72,
+   "verdict": "unsat"
+  },
+  {
+   "class": 1,
+   "equations": 64,
+   "verdict": "unsat"
+  },
+  {
+   "class": 2,
+   "equations": 64,
+   "verdict": "unsat"
+  },
+  {
+   "class": 3,
+   "equations": 64,
+   "verdict": "unsat"
+  },
+  {
+   "class": 4,
+   "equations": 64,
+   "verdict": "unsat"
+  },
+  {
+   "class": 5,
+   "equations": 64,
+   "verdict": "unsat"
+  },
+  {
+   "class": 6,
+   "equations": 72,
+   "verdict": "unsat"
+  },
+  {
+   "class": 7,
+   "equations": 66,
+   "verdict": "unsat"
+  },
+  {
+   "class": 8,
+   "equations": 66,
+   "verdict": "unsat"
+  },
+  {
+   "class": 9,
+   "equations": 64,
+   "verdict": "unsat"
+  },
+  {
+   "class": 10,
+   "equations": 66,
+   "verdict": "unsat"
+  },
+  {
+   "class": 11,
+   "equations": 72,
+   "verdict": "unsat"
+  },
+  {
+   "class": 12,
+   "equations": 64,
+   "verdict": "unsat"
+  },
+  {
+   "class": 13,
+   "equations": 64,
+   "verdict": "unsat"
+  },
+  {
+   "class": 14,
+   "equations": 64,
+   "verdict": "unsat"
+  }
+ ],
+ "schema": "erdos97.n8_survivors_smt.v1",
+ "scope": "Independent z3 (NRA) cross-check that none of the 15 n=8 selected-witness survivor classes has a strictly convex octagon realization: for each class the equal-distance + perpendicular-bisector constraints together with strict convexity (label order) are UNSAT. Independent in the decision procedure (z3 NRA vs the existing Groebner / cyclic-order arguments), covering all 15 classes including the four Groebner-dependent ones (3,4,5,14) that the SymPy-free recheck skips. Repo-local exact-obstruction cross-check pending external review; not a general proof of Erdos Problem #97, not a counterexample, not an official/global status update.",
+ "status": "EXACT_OBSTRUCTION_SMT",
+ "trust": "EXACT_OBSTRUCTION"
+}

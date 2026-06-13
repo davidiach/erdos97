@@ -9116,3 +9116,31 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample
       - official/global status update
+  - id: n8_survivors_smt
+    path: data/certificates/n8_survivors_smt.json
+    sha256: 3599c41f9dac3c330e602df109bc3095dff8085c0d7e25584f7e2ab47678898e
+    size_bytes: 2051
+    kind: smt_certificate_artifact
+    generator: scripts/check_n8_survivors_smt.py
+    command: python scripts/check_n8_survivors_smt.py --assert-clear --write-artifact data/certificates/n8_survivors_smt.json
+    checker: scripts/check_n8_survivors_smt.py
+    check_command: python scripts/check_n8_survivors_smt.py --assert-clear
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_OBSTRUCTION
+    claim_scope: Independent z3 (NRA) cross-check that none of the 15 n=8 selected-witness survivor classes has a strictly convex octagon realization (equal-distance + perpendicular-bisector constraints plus strict convexity are UNSAT for every class). Independent decision procedure relative to the existing Groebner / cyclic-order arguments; covers all 15 classes including the four Groebner-dependent ones (3,4,5,14) the SymPy-free recheck skips. Repo-local exact-obstruction cross-check pending external review; not a general proof of Erdos Problem #97, not a counterexample, not an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n8_survivors_smt.v1
+      status: EXACT_OBSTRUCTION_SMT
+      trust: EXACT_OBSTRUCTION
+      clear: true
+      n: 8
+      classes_total: 15
+      non_unsat_classes: []
+    forbidden_claims:
+      - replaces the n=8 exact survivor artifacts
+      - independent of the incidence enumeration
+      - general proof of Erdos Problem #97
+      - counterexample
+      - official/global status update

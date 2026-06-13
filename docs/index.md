@@ -458,6 +458,12 @@ put detailed reconciliation in the canonical synthesis.
 - [`n8-residual-certificates.md`](n8-residual-certificates.md): focused audit
   of the class `3`, `4`, and `5` duplicate, collinearity, and Groebner
   certificates.
+- [`n8-survivors-smt-cross-check.md`](n8-survivors-smt-cross-check.md):
+  independent z3 (NRA) second source covering all 15 `n=8` survivor classes
+  uniformly -- each is UNSAT under equal-distance + perpendicular-bisector
+  constraints with strict convexity -- including the four Groebner-dependent
+  classes the SymPy-free recheck skips; a different decision procedure, not a
+  status change.
 - [`n8-geometric-proof.md`](n8-geometric-proof.md): proof-note draft giving a
   compact geometric obstruction for bad convex octagons via isosceles-triangle
   counting and exterior-turn angles.

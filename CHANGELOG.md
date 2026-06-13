@@ -9,6 +9,21 @@ counterexample are claimed.
 
 ## 2026-06-13
 
+- Added an independent SMT (z3 NRA) second source for the `n = 8`
+  exact-survivor obstruction (`docs/n8-survivors-smt-cross-check.md`,
+  `scripts/check_n8_survivors_smt.py`,
+  `data/certificates/n8_survivors_smt.json`, tests, managed manifest entry +
+  registered audit command). For each of the 15 reconstructed survivor
+  classes, the equal-distance + perpendicular-bisector constraints together
+  with strict convexity (label order) are UNSAT, so no class has a strictly
+  convex octagon realization. This uses a different decision procedure than
+  the existing artifacts (z3 NRA vs SymPy Groebner bases and the cyclic-order
+  argument) and uniformly covers all 15 classes -- including the four
+  Groebner-dependent classes (3, 4, 5, 14) the SymPy-free recheck deliberately
+  skips. Trust `EXACT_OBSTRUCTION` (SMT), repo-local cross-check pending
+  external review; strengthens but does not replace the existing `n = 8`
+  artifacts; no status change.
+
 - Closed the `m = 4` (three concentric squares, `n = 12`) quarter cell exactly,
   the smallest open sub-case left by the three-orbit finite-m closure screen.
   Branch-G 4-badness reduces to three explicit algebraic conditions on the

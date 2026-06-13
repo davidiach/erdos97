@@ -3216,6 +3216,24 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "not a counterexample, not an official/global status update."
         ),
     ),
+    AuditCommand(
+        ident="n8_survivors_smt_cross_check",
+        command=(
+            "python",
+            "scripts/check_n8_survivors_smt.py",
+            "--assert-clear",
+        ),
+        claim_scope=(
+            "Independent z3 (NRA) second source for the n=8 exact-survivor "
+            "obstruction: all 15 survivor classes are UNSAT under "
+            "equal-distance + perpendicular-bisector constraints with strict "
+            "convexity, covering the four Groebner-dependent classes the "
+            "SymPy-free recheck skips. Different decision procedure, same "
+            "problem statement; repo-local cross-check pending external "
+            "review, not a general proof of Erdos Problem #97, not a "
+            "counterexample, not an official/global status update."
+        ),
+    ),
 )
 
 

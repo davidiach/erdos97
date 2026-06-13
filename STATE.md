@@ -45,6 +45,17 @@ the Groebner-based classes `3`, `4`, `5`, and `14`, so it is a defensive
 cross-check rather than an independent replacement for the full exact
 survivor artifact. See `docs/n8-independent-obstruction.md`.
 
+A further independent second source now covers all 15 classes uniformly with a
+different decision procedure: `scripts/check_n8_survivors_smt.py` asks z3
+nonlinear real arithmetic whether any strictly convex octagon (label order)
+satisfies each class's equal-distance + perpendicular-bisector constraints,
+and finds every class UNSAT. This cross-checks both the cyclic-order class and
+all fourteen PB+ED classes -- including the four Groebner-dependent ones the
+SymPy-free recheck skips -- without using Groebner bases or the cyclic-order
+combinatorics. Repo-local exact-obstruction cross-check pending external
+review. See `docs/n8-survivors-smt-cross-check.md` and
+`data/certificates/n8_survivors_smt.json`.
+
 The class `14` Groebner-dependent branch now has a small focused audit checker:
 `scripts/check_n8_class14_certificate.py --check --json` rebuilds that one
 `PB+ED` system, compares the stored Groebner basis, derives the four real
