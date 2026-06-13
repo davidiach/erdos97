@@ -582,7 +582,12 @@ containing the full triple `[0,4,6]`. A source-crosswalk follow-up now also
 rules out reusing the existing source-`151` row-`8` singleton packet as this
 cascade source: its checked row-`8` candidates are built from core `[1,2]` and
 one support from `[5,7]`, so none contains a pair or full triple from
-`[0,4,6]`.
+`[0,4,6]`. A core-route follow-up joins the private-lane strict-core split
+with the endpoint target: `8` of `9` center-`8` local cores contain `[0,4,6]`,
+but only `4` of the `32` label-`8`-visible cores are label-`8`-visible and
+target-compatible, and `6` of the `12` private-lane assignments still have no
+center-`8` target core. Thus label-`8` visibility alone is not a forcing
+source for the center-`8` cascade target.
 This is still proof-mining bookkeeping only, not support existence, row
 forcing, endpoint-`8` forcing, `[3,5]` impossibility, simultaneous realization
 of all components, `n=9`, or the bridge.
@@ -593,7 +598,8 @@ See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
 `docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md` and
 `docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md`, plus
 `docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md` and
-`docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md`.
+`docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md`, plus
+`docs/bootstrap-t12-151-6-label4-center8-core-route.md`.
 
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation

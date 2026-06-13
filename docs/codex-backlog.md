@@ -562,12 +562,19 @@ minimal/rich-class hypotheses.
    `python scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py --check --assert-expected --json`
    records that the existing source-`151` row-`8` singleton/one-outside packet
    does not supply this target: its row-`8` candidates use core `[1,2]` and
-   supports `[5,7]`, and contain no pair from `[0,4,6]`.
+   supports `[5,7]`, and contain no pair from `[0,4,6]`. The core-route
+   command
+   `python scripts/check_bootstrap_t12_151_6_label4_center8_core_route.py --check --assert-expected --json`
+   records that the private-lane strict-core split contains the desired route
+   but does not force it: `8` of `9` center-`8` cores contain `[0,4,6]`, only
+   `4` of `32` label-`8`-visible cores are visible and target-compatible, and
+   `6` of `12` assignments have no center-`8` target core.
    The next useful PR should therefore prove a support-geometry exclusion
    under genuine private-support or rich-class hypotheses, or add a new
    geometric forcing source for the center-`8` rich triple / a
-   label-`8`-visible row-`6` local core, not a component-alone impossibility
-   claim and not another selected-row neighborhood widening around `151:6`.
+   target-compatible center-`8` row-`6` local core, not a component-alone
+   impossibility claim, not arbitrary label-`8` visibility, and not another
+   selected-row neighborhood widening around `151:6`.
    The source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine

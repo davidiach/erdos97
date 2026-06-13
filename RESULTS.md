@@ -985,7 +985,16 @@ then records
 `NOT_READY_EXISTING_SOURCE151_CENTER8_SINGLETON_DOES_NOT_SUPPLY_CASCADE_TRIPLE`:
 the existing source-`151` row-`8` singleton packet uses core `[1,2]` and
 singleton supports `[5,7]`; its nine checked row candidates contain no pair
-and no full triple from the cascade target `[0,4,6]`.
+and no full triple from the cascade target `[0,4,6]`. The core-route follow-up
+in `docs/bootstrap-t12-151-6-label4-center8-core-route.md`,
+`scripts/check_bootstrap_t12_151_6_label4_center8_core_route.py`, and
+`data/certificates/bootstrap_t12_151_6_label4_center8_core_route.json` records
+`NOT_READY_CENTER8_TARGET_COMPATIBLE_CORE_NOT_FORCED`: among the private-lane
+strict-core split, `8` of `9` center-`8` local cores contain `[0,4,6]`, but
+only `4` of the `32` label-`8`-visible cores are label-`8`-visible and
+target-compatible, and `6` of the `12` assignments still have no center-`8`
+target core. This pins the next local target to a target-compatible center-`8`
+core, not arbitrary label-`8` visibility.
 
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses

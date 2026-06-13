@@ -1262,9 +1262,14 @@ support witness, and no support requirement containing the full triple
 `docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md` also records
 that the existing source-`151` row-`8` singleton packet is not such a source:
 its candidates use core `[1,2]` plus supports `[5,7]`, and none contains a
-pair or full triple from `[0,4,6]`. It still does not prove support existence,
-row forcing, endpoint-`8` forcing, `[3,5]` impossibility, `n=9`, the bootstrap
-bridge, or Erdos Problem #97.
+pair or full triple from `[0,4,6]`. The core-route follow-up in
+`docs/bootstrap-t12-151-6-label4-center8-core-route.md` records that the
+desired route is present but not forced: `8` of `9` center-`8` cores in the
+private-lane strict-core split contain `[0,4,6]`, but only `4` of `32`
+label-`8`-visible cores are label-`8`-visible and target-compatible, and `6`
+of `12` private-lane assignments have no center-`8` target core. It still does
+not prove support existence, row forcing, endpoint-`8` forcing, `[3,5]`
+impossibility, `n=9`, the bootstrap bridge, or Erdos Problem #97.
 
 The source-`151` singleton-support audit in
 `docs/bootstrap-t12-151-singleton-support-audit.md` covers rows `151:5` and

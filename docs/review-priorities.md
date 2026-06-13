@@ -1045,6 +1045,15 @@ condition that the surviving multi-block family does not automatically satisfy:
   `[5,7]`, so no checked row contains a pair or full triple from `[0,4,6]`.
   The remaining target is still a genuine new center-`8` geometric source or
   a different support-rich obstruction.
+- bootstrap/T12 focused `151:6` label-`4` center-`8` core-route evidence, as
+  recorded in
+  `docs/bootstrap-t12-151-6-label4-center8-core-route.md`, checking the
+  private-lane strict-core split against the conditional endpoint target. It
+  finds `8` of `9` center-`8` cores target-compatible with `[0,4,6]`, but only
+  `4` of `32` label-`8`-visible cores are both label-`8`-visible and
+  target-compatible, and `6` private-lane assignments still lack any center-`8`
+  target core. The remaining target is to force a target-compatible center-`8`
+  local core, not merely label-`8` visibility.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

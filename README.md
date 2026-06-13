@@ -166,7 +166,13 @@ requirement at center `8` and no support requirement containing the full
 triple `[0,4,6]`. The source-crosswalk follow-up prevents reusing the existing
 source-`151` row-`8` singleton packet for that target: its row-`8` activation
 family is built from core `[1,2]` and singleton supports `[5,7]`, so no checked
-candidate contains even a pair from `[0,4,6]`. See
+candidate contains even a pair from `[0,4,6]`. A core-route follow-up then
+joins the private-lane strict-core split with the endpoint target: `8` of `9`
+center-`8` local cores contain `[0,4,6]`, but only `4` of the `32`
+label-`8`-visible cores are label-`8`-visible and target-compatible, and `6`
+of the `12` private-lane assignments still have no center-`8` target core. The
+next useful lemma must force a target-compatible center-`8` local core, not
+merely label-`8` visibility. See
 [`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`](docs/bootstrap-t12-151-6-label4-transfer-length-components.md)
 and
 [`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md),
@@ -179,7 +185,9 @@ with
 and
 [`docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md`](docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md)
 plus
-[`docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md`](docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md).
+[`docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md`](docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md)
+and
+[`docs/bootstrap-t12-151-6-label4-center8-core-route.md`](docs/bootstrap-t12-151-6-label4-center8-core-route.md).
 On the source-`81` side, the `81:3` ordered chain-closure, one-layer
 repeated-support, two-repeated-support, and repeated-support saturation packets
 close the current bounded support-chain continuations under basic
