@@ -1542,6 +1542,33 @@ official/global status is unchanged. See
 `scripts/check_three_square_m4_closure.py --assert-clear`, and
 `data/certificates/three_square_m4_closure.json`.
 
+### Three-orbit quarter-cell A-row reduction and boundary-band lemma
+
+Status: `LEMMA` (exact, self-checked) for the reductions; `NUMERICAL_EVIDENCE`
+for the `m = 8, 12, 16` non-convexity; `m = 4` closed exactly above.
+
+Two exact, `m`-uniform lemmas reduce the remaining quarter cells. (1) A-row
+reduction: in every quarter cell the A-row and B-row own pair is the 90-pair,
+so `A_0` is 4-bad only if it has a B-vertex and a C-vertex at squared distance
+2, i.e. `P(y) in {cos(b+2kh)}` and `P(z) in {cos(g+2kh)}`; these involve only
+the A/B rows and are uniform in the C-row choice `a3`, so the quarter cell
+closes iff `A_0` cannot be 4-bad. (2) Boundary-band confinement: since
+`pi/2 ≡ 0 (mod 2h)` for `m = 0 mod 4` and `|P| < P(sec h)` in the window, those
+witness offsets are forced into `(0, delta) ∪ (2h - delta, 2h)`,
+`delta = arcsin(P(sec h))` -- the cross orbit must nearly align with the A
+orbit. A float grid over `m in {4,8,12,16}` finds every sampled witness
+configuration strictly non-convex, but the locus is **tangent** to the
+convexity boundary (the maximum minimum-turn is `< 0` yet vanishes and is
+grid-dependent), so for `m >= 8` this is evidence of closure, not a
+certificate; those cells remain open. Recorded route limit: the exact-SMT
+route does not scale past `m = 4` (z3 NRA times out on the cubic turn
+determinants and the witness disjunctions). The clean open lemma that would
+close all quarter cells: on the witness locus inside the window the minimum
+per-period turn determinant is `<= 0`, with equality only at the degenerate
+orbit-coincidence limit. See `docs/quarter-cell-closure.md`,
+`scripts/check_quarter_cell_closure.py --assert-clear`, and
+`data/certificates/quarter_cell_closure.json`.
+
 ## Numerical Attempts
 
 ### Dynamic-witness free-pattern sweep (2026-06-09)

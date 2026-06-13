@@ -819,6 +819,12 @@ put detailed reconciliation in the canonical synthesis.
   explicit algebraic conditions, all 64 sign/witness combinations are UNSAT
   inside the strict-convexity window; `EXACT_OBSTRUCTION` for the restricted
   three-square family, not all of `m = 4`, not `m = 8/12/16`, not a proof.
+- [`quarter-cell-closure.md`](quarter-cell-closure.md): the A-row reduction
+  (a three-orbit quarter cell closes iff `A_0` cannot be 4-bad, uniform in the
+  C-row choice `a3`) and the exact boundary-band confinement lemma, plus a
+  float grid showing the witness locus is tangent to the convexity boundary;
+  exact lemmas + `NUMERICAL_EVIDENCE` for `m = 8, 12, 16` (which remain open),
+  with the exact-SMT route recorded as not scaling past `m = 4`.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`n9-base-apex-d3-p19-degree-obstruction.md`](n9-base-apex-d3-p19-degree-obstruction.md):

@@ -9089,3 +9089,30 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample
       - official/global status update
+  - id: quarter_cell_closure
+    path: data/certificates/quarter_cell_closure.json
+    sha256: ad9cc8e3bd965f4fd9a0199d2666b1ead927213818408ce64ae37ad90cc67e1b
+    size_bytes: 2489
+    kind: restricted_family_screen_artifact
+    generator: scripts/check_quarter_cell_closure.py
+    command: python scripts/check_quarter_cell_closure.py --assert-clear --write-artifact data/certificates/quarter_cell_closure.json
+    checker: scripts/check_quarter_cell_closure.py
+    check_command: python scripts/check_quarter_cell_closure.py --assert-clear
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Three-orbit (t=3) quarter cells (m=0 mod 4). Exact m-uniform self-tested lemmas - the A-row reduction (the cell closes iff A_0 cannot be 4-bad, uniform in the C-row choice a3) and the boundary-band confinement of the offsets - plus a float grid over m in {4,8,12,16} showing every sampled witness config is strictly non-convex. The locus is tangent to the convexity boundary, so for m>=8 this is evidence of closure, not a certificate; m=4 is closed exactly by SMT elsewhere and m=8,12,16 remain open. Records that the exact-SMT route does not scale past m=4. Not an all-m lemma, not a proof of Erdos Problem #97, not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.quarter_cell_closure.v1
+      status: REDUCTION_AND_TANGENCY_EVIDENCE
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      clear: true
+      boundary_band_lemma_ok: true
+    forbidden_claims:
+      - m=8 m=12 m=16 quarter cells closed
+      - exact certificate for m>=8
+      - all-m quarter-cell obstruction
+      - general proof of Erdos Problem #97
+      - counterexample
+      - official/global status update

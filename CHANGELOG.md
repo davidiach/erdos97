@@ -21,6 +21,20 @@ counterexample are claimed.
   registered audit command), trust `EXACT_OBSTRUCTION` (SMT). Restricted-family
   result: the m=4 half-step branches remain screen-grade, the `m = 8, 12, 16`
   quarter cells remain open, and the official/global status is unchanged.
+- Reduced and partially settled the remaining `m = 8, 12, 16` quarter cells
+  (`docs/quarter-cell-closure.md`, `scripts/check_quarter_cell_closure.py`,
+  `data/certificates/quarter_cell_closure.json`). Two exact, `m`-uniform
+  self-tested lemmas: the **A-row reduction** (a quarter cell closes iff `A_0`
+  cannot be 4-bad, uniform in the C-row choice `a3`) and the **boundary-band
+  confinement** of the offsets. A float grid for `m in {4,8,12,16}` shows every
+  sampled witness configuration is strictly non-convex, but the locus is
+  **tangent** to the convexity boundary (margin vanishes, grid-dependent), so
+  for `m >= 8` this is evidence of closure, not a certificate -- those cells
+  remain open. Recorded route limits: the exact-SMT route does not scale past
+  `m = 4` (z3 NRA times out on the cubic turn determinants / witness
+  disjunctions), and a float screen cannot certify closure due to the tangency.
+  Trust: `LEMMA` (exact) for the reductions, `NUMERICAL_EVIDENCE` for the
+  `m >= 8` non-convexity. No status change.
 
 ## 2026-06-12
 

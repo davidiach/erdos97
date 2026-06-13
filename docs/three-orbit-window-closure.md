@@ -141,7 +141,12 @@ certificate shows they are infeasible inside the strict-convexity radius
 window over all 64 discrete sign/witness combinations (convexity inequalities
 are not even needed). See `docs/three-square-m4-exact-closure.md` and
 `scripts/check_three_square_m4_closure.py`. The `m = 8, 12, 16` quarter cells
-remain open; that reduction is the template.
+are reduced and partially settled (`docs/quarter-cell-closure.md`): two exact
+`m`-uniform lemmas (the A-row reduction -- the cell closes iff `A_0` cannot be
+4-bad, uniform in `a3` -- and the boundary-band confinement) plus float-grid
+evidence that the witness locus is tangent to the convexity boundary. For
+`m >= 8` this is evidence of closure, not a certificate, and those cells
+remain open; the exact-SMT route is recorded as not scaling past `m = 4`.
 
 ## Machine screen
 

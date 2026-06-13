@@ -946,6 +946,20 @@ family; the `m = 4` half-step branches remain screen-grade and the
 `scripts/check_three_square_m4_closure.py`, and
 `data/certificates/three_square_m4_closure.json`.
 
+The `m = 8, 12, 16` quarter cells are now reduced and partially settled
+(2026-06-13). Two exact, `m`-uniform self-tested lemmas: the A-row reduction
+(a quarter cell closes iff `A_0` cannot be 4-bad, uniform in the C-row choice
+`a3`) and the boundary-band confinement of the offsets. A float grid shows
+every sampled witness configuration is strictly non-convex, but the locus is
+tangent to the convexity boundary (vanishing, grid-dependent margin), so for
+`m >= 8` this is evidence of closure, not a certificate, and those cells
+remain open; the exact-SMT route is recorded as not scaling past `m = 4`. The
+clean open lemma is: on the witness locus inside the window, the minimum
+per-period turn determinant is `<= 0`, with equality only at the degenerate
+orbit-coincidence limit. See `docs/quarter-cell-closure.md`,
+`scripts/check_quarter_cell_closure.py`, and
+`data/certificates/quarter_cell_closure.json`.
+
 ## Best saved near-miss
 
 The best saved near-miss is still the historical `B12_3x4_danzer_lift`

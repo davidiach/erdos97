@@ -3199,6 +3199,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "official/global status update."
         ),
     ),
+    AuditCommand(
+        ident="three_orbit_quarter_cell_closure",
+        command=(
+            "python",
+            "scripts/check_quarter_cell_closure.py",
+            "--assert-clear",
+        ),
+        claim_scope=(
+            "Three-orbit quarter cells (m=0 mod 4): self-tested exact A-row "
+            "reduction and boundary-band confinement lemmas, plus a float "
+            "grid over m in {4,8,12,16} showing every sampled witness config "
+            "is strictly non-convex. Tangency-limited evidence for m>=8 (not "
+            "a certificate; those cells remain open), m=4 closed exactly "
+            "elsewhere; not an all-m lemma, not a proof of Erdos Problem #97, "
+            "not a counterexample, not an official/global status update."
+        ),
+    ),
 )
 
 

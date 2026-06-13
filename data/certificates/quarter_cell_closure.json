@@ -1,0 +1,74 @@
+{
+ "boundary_band_lemma_ok": true,
+ "clear": true,
+ "ms_clear": [
+  4,
+  8,
+  12,
+  16
+ ],
+ "provenance": {
+  "command": "python scripts/check_quarter_cell_closure.py --assert-clear --write-artifact data/certificates/quarter_cell_closure.json",
+  "generator": "scripts/check_quarter_cell_closure.py"
+ },
+ "records": [
+  {
+   "argmax": {
+    "beta": 0.001367674543,
+    "gamma": 1.569428652252,
+    "y": 1.0013686093821916,
+    "z": 1.0013686093821916
+   },
+   "clear": true,
+   "grid": 160,
+   "ii_configs": 51040,
+   "m": 4,
+   "max_min_turn": -3.746181525912394e-06
+  },
+  {
+   "argmax": {
+    "beta": 0.000310109247,
+    "gamma": 0.000674262309,
+    "y": 0.9996899388413816,
+    "z": 1.0006744895729411
+   },
+   "clear": true,
+   "grid": 160,
+   "ii_configs": 51040,
+   "m": 8,
+   "max_min_turn": -4.182660583879511e-07
+  },
+  {
+   "argmax": {
+    "beta": 0.523284393373,
+    "gamma": 0.523340030337,
+    "y": 1.0003144316383317,
+    "z": 0.9997412882158441
+   },
+   "clear": true,
+   "grid": 120,
+   "ii_configs": 28680,
+   "m": 12,
+   "max_min_turn": -1.6269434347865084e-07
+  },
+  {
+   "argmax": {
+    "beta": 2.7864051e-05,
+    "gamma": 0.392671217648,
+    "y": 1.0000278644388112,
+    "z": 1.0000278644388112
+   },
+   "clear": true,
+   "grid": 120,
+   "ii_configs": 28680,
+   "m": 16,
+   "max_min_turn": -1.552853914153433e-09
+  }
+ ],
+ "schema": "erdos97.quarter_cell_closure.v1",
+ "scope": "Three-orbit (t=3) quarter cells (m=0 mod 4, A/B-row own pair = m/4). Exact, m-uniform self-tested lemmas: (1) A_0 is 4-bad only if the A_0 B-/C-witness conditions (i)&(ii) hold, uniform in the C-row choice a3, so the quarter cell closes iff A_0 cannot be 4-bad; (2) the boundary-band confinement of beta,gamma. Float grid for m in {4,8,12,16}: every sampled (i)&(ii) config is strictly non-convex (max min-turn < 0), but the margin is tangent to 0 and grid-dependent, so for m>=8 this is EVIDENCE of closure, not a certificate. m=4 is closed exactly by SMT elsewhere; m=8,12,16 remain open. Records that the exact-SMT route does not scale past m=4. Not an all-m lemma, not a proof of Erdos Problem #97, not a counterexample.",
+ "status": "REDUCTION_AND_TANGENCY_EVIDENCE",
+ "tangency_note": "the 4-bad locus is tangent to the convexity boundary: max min-turn over (i)&(ii) configs is < 0 but approaches 0 as m grows (sup 0 at the degenerate orbit-coincidence limit, excluded by strict convexity); screen reliable for bounded m",
+ "trust": "REVIEW_PENDING_DIAGNOSTIC",
+ "turn_tol": 1e-12
+}
