@@ -1280,7 +1280,12 @@ vertex-circle replay. The repair-extension follow-up in
 `docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md`
 then allows one additional non-completion row replacement after each target
 completion; all `6624` one-completion plus one-repair candidates fail basic
-filters before vertex-circle replay. These packets still do not prove
+filters before vertex-circle replay. The depth-two follow-up in
+`docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md`
+then allows two additional arbitrary non-completion row replacements after
+each target completion; all `1599696` one-completion plus two-repair
+candidates fail basic filters before vertex-circle replay. These packets
+still do not prove
 assignments `0` and `11` impossible, center migration, support existence, row
 forcing, endpoint-`8` forcing, `[3,5]` impossibility, `n=9`, the bootstrap
 bridge, or Erdos Problem #97.

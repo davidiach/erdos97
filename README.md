@@ -184,7 +184,11 @@ does not prove those assignments impossible. A repair-extension follow-up then
 allows one additional non-completion row replacement after each target
 completion; all `6624` such candidates still fail basic filters, so even the
 one-completion plus one-repair route is blocked without proving an exact
-target-sparse obstruction. See
+target-sparse obstruction. A depth-two repair packet then allows two
+additional non-completion row replacements after the target completion; all
+`1599696` one-completion plus two-repair candidates still fail basic filters,
+so this selected-row repair route is blocked through two arbitrary extra rows
+without proving a geometric target-sparse obstruction. See
 [`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`](docs/bootstrap-t12-151-6-label4-transfer-length-components.md)
 and
 [`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md),
@@ -205,7 +209,9 @@ plus
 and
 [`docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md),
 plus
-[`docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md).
+[`docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md)
+and
+[`docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md).
 On the source-`81` side, the `81:3` ordered chain-closure, one-layer
 repeated-support, two-repeated-support, and repeated-support saturation packets
 close the current bounded support-chain continuations under basic

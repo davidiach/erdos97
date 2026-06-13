@@ -176,6 +176,12 @@ Required guardrails:
   additional arbitrary non-completion row replacement, all `6624` repair
   candidates fail basic filters. This still does not prove an exact
   target-sparse obstruction.
+- The target-sparse three-row repair packet records that even after allowing
+  two additional arbitrary non-completion row replacements, all `1599696`
+  depth-two repair candidates fail basic filters. This still does not prove
+  assignments `0` and `11` impossible; the remaining target needs genuine
+  support geometry, center migration, or a mechanism beyond two arbitrary
+  extra row repairs.
 - The private-halo-only pair `[3,5]` is the named escape and must be excluded
   or explicitly realized as an escape mechanism.
 
