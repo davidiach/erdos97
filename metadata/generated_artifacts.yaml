@@ -8944,6 +8944,108 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs
+    path: data/certificates/bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.json
+    sha256: b0c47ad38bdddabb725170b0d02f8144ba571c41ce2cfb041ae29924c38cf9d8
+    size_bytes: 19282
+    kind: proof_target_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 label-4 center-8 target-sparse one-completion plus one-repair preflight; records that all 6624 repair-extension candidates for assignments 0 and 11 fail basic filters before vertex-circle replay. This is a diagnostic only; it does not prove assignments 0 and 11 impossible, center migration, support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.v1
+      status: BOOTSTRAP_T12_151_6_LABEL4_CENTER8_TARGET_SPARSE_TWO_ROW_REPAIRS_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 7
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.source_completion_gate_status: NOT_READY_TARGET_SPARSE_ONE_ROW_COMPLETIONS_FAIL_BASIC_FILTERS
+      summary.source_completion_status: TARGET_SPARSE_ONE_ROW_COMPLETIONS_ALL_BASIC_FILTER_BLOCKED
+      summary.target_sparse_assignment_indices:
+        - 0
+        - 11
+      summary.source_completion_attempt_count: 12
+      summary.repair_centers_per_completion: 8
+      summary.candidate_rows_per_repair_center: 69
+      summary.repair_candidate_count: 6624
+      summary.repair_basic_filter_surviving_candidate_count: 0
+      summary.vertex_circle_checked_repair_candidate_count: 0
+      summary.repair_records_with_basic_filter_survivor_count: 0
+      summary.assignment_repair_candidate_counts.0: 1104
+      summary.assignment_repair_candidate_counts.11: 5520
+      summary.repair_center_counts.0: 828
+      summary.repair_center_counts.1: 828
+      summary.repair_center_counts.2: 552
+      summary.repair_center_counts.3: 690
+      summary.repair_center_counts.4: 828
+      summary.repair_center_counts.5: 828
+      summary.repair_center_counts.6: 828
+      summary.repair_center_counts.7: 414
+      summary.repair_center_counts.8: 828
+      summary.completion_row_repair_candidate_counts.0,1,4,6: 2208
+      summary.completion_row_repair_candidate_counts.0,2,4,6: 552
+      summary.completion_row_repair_candidate_counts.0,3,4,6: 552
+      summary.completion_row_repair_candidate_counts.0,4,5,6: 552
+      summary.completion_row_repair_candidate_counts.0,4,6,7: 552
+      summary.completion_row_repair_candidate_counts.0,4,6,8: 2208
+      summary.missing_target_repair_candidate_counts.0: 1104
+      summary.missing_target_repair_candidate_counts.4: 3312
+      summary.missing_target_repair_candidate_counts.6: 2208
+      summary.endpoint_exact_row_allowed_repair_candidate_count: 4416
+      summary.endpoint_exact_row_disallowed_repair_candidate_count: 2208
+      summary.failure_attempt_reason_counts.crossing: 6624
+      summary.failure_attempt_reason_counts.selected_indegree_cap: 1260
+      summary.failure_attempt_reason_counts.witness_pair_cap: 6582
+      summary.failure_detail_counts.crossing: 36962
+      summary.failure_detail_counts.selected_indegree_cap: 1260
+      summary.failure_detail_counts.witness_pair_cap: 19141
+      summary.one_completion_one_repair_survives_basic_filters: false
+      summary.current_evidence_forces_target_sparse_obstruction: false
+      summary.gate_status: NOT_READY_TARGET_SPARSE_TWO_ROW_REPAIRS_FAIL_BASIC_FILTERS
+      summary.repair_status: TARGET_SPARSE_ONE_COMPLETION_ONE_REPAIR_ALL_BASIC_FILTER_BLOCKED
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - center-8 rich triple is forced
+      - label-8 visibility forces center-8 [0,4,6]
+      - off-center target rows force center-8 [0,4,6]
+      - center migration is proved
+      - one-row target-sparse completion proves impossibility
+      - one-completion plus one-repair proves impossibility
+      - target-sparse assignments 0 and 11 are impossible
+      - target-sparse two-row repairs prove the bridge
+      - the center-8 target-compatible local core is forced
+      - assignments 0 and 11 are impossible
+      - the private-halo-only pair 3,5 is impossible
+      - endpoint target proves support existence
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

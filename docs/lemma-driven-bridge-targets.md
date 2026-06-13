@@ -172,6 +172,10 @@ Required guardrails:
   have no one-row repair: all `12` completions of target-pair rows to
   `[0,4,6]` fail basic filters before vertex-circle replay. This is not yet a
   proof that those assignments are impossible.
+- The target-sparse two-row repair packet records that even after allowing one
+  additional arbitrary non-completion row replacement, all `6624` repair
+  candidates fail basic filters. This still does not prove an exact
+  target-sparse obstruction.
 - The private-halo-only pair `[3,5]` is the named escape and must be excluded
   or explicitly realized as an escape mechanism.
 

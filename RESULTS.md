@@ -1011,7 +1011,17 @@ records `NOT_READY_TARGET_SPARSE_ONE_ROW_COMPLETIONS_FAIL_BASIC_FILTERS`:
 for assignments `0` and `11`, all `12` one-row completions of target-pair rows
 to `[0,4,6]` fail basic filters before vertex-circle replay. This rules out
 that one-row repair inside the fixed selected-row assignments, but it does not
-prove the target-sparse assignments impossible.
+prove the target-sparse assignments impossible. The repair-extension follow-up
+in
+`docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md`,
+`scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.py`,
+and
+`data/certificates/bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.json`
+records `NOT_READY_TARGET_SPARSE_TWO_ROW_REPAIRS_FAIL_BASIC_FILTERS`: after
+each target completion, all `6624` one-additional-row repair candidates fail
+basic filters before vertex-circle replay. This blocks the one-completion plus
+one-repair route, but still does not prove assignments `0` and `11`
+impossible.
 
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses

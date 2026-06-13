@@ -595,7 +595,10 @@ strict core. A target-sparse completion preflight then records that all `12`
 one-row completions of target-pair rows to `[0,4,6]` for assignments `0` and
 `11` fail basic filters by witness-pair caps and crossings before
 vertex-circle replay; this blocks only the one-row repair route, not the
-assignments themselves.
+assignments themselves. A repair-extension follow-up then allows one
+additional arbitrary non-completion row replacement after each target
+completion; all `6624` one-completion plus one-repair candidates still fail
+basic filters before vertex-circle replay.
 This is still proof-mining bookkeeping only, not support existence, row
 forcing, center migration, endpoint-`8` forcing, `[3,5]` impossibility,
 simultaneous realization of all components, `n=9`, or the bridge.
@@ -609,7 +612,8 @@ See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
 `docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md`, plus
 `docs/bootstrap-t12-151-6-label4-center8-core-route.md` and
 `docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md`, plus
-`docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md`.
+`docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md` and
+`docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md`.
 
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation
