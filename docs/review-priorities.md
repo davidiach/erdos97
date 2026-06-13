@@ -1054,6 +1054,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   target-compatible, and `6` private-lane assignments still lack any center-`8`
   target core. The remaining target is to force a target-compatible center-`8`
   local core, not merely label-`8` visibility.
+- bootstrap/T12 focused `151:6` label-`4` center-`8` residual target-row
+  evidence, as recorded in
+  `docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md`, checking
+  the six no-center-`8`-target residual assignments. Four residual assignments
+  contain `[0,4,6]` only as off-center strict-core rows at centers `2`, `5`,
+  or `7`; assignments `0` and `11` are target-sparse. The remaining target is
+  a genuine center-migration lemma for the off-center rows, or a separate
+  obstruction for the target-sparse assignments.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

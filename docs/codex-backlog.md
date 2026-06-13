@@ -568,13 +568,18 @@ minimal/rich-class hypotheses.
    records that the private-lane strict-core split contains the desired route
    but does not force it: `8` of `9` center-`8` cores contain `[0,4,6]`, only
    `4` of `32` label-`8`-visible cores are visible and target-compatible, and
-   `6` of `12` assignments have no center-`8` target core.
+   `6` of `12` assignments have no center-`8` target core. The residual
+   target-row command
+   `python scripts/check_bootstrap_t12_151_6_label4_center8_residual_target_rows.py --check --assert-expected --json`
+   splits those six residual assignments: four contain `[0,4,6]` only as
+   off-center strict-core rows at centers `2`, `5`, or `7`, while assignments
+   `0` and `11` are target-sparse.
    The next useful PR should therefore prove a support-geometry exclusion
-   under genuine private-support or rich-class hypotheses, or add a new
-   geometric forcing source for the center-`8` rich triple / a
-   target-compatible center-`8` row-`6` local core, not a component-alone
-   impossibility claim, not arbitrary label-`8` visibility, and not another
-   selected-row neighborhood widening around `151:6`.
+   under genuine private-support or rich-class hypotheses, prove center
+   migration for the off-center `[0,4,6]` rows, or obstruct target-sparse
+   assignments `0` and `11`, not a component-alone impossibility claim, not
+   arbitrary label-`8` visibility, and not another selected-row neighborhood
+   widening around `151:6`.
    The source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine

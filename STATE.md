@@ -587,10 +587,14 @@ with the endpoint target: `8` of `9` center-`8` local cores contain `[0,4,6]`,
 but only `4` of the `32` label-`8`-visible cores are label-`8`-visible and
 target-compatible, and `6` of the `12` private-lane assignments still have no
 center-`8` target core. Thus label-`8` visibility alone is not a forcing
-source for the center-`8` cascade target.
+source for the center-`8` cascade target. A residual target-row split then
+records that four of those six residual assignments contain `[0,4,6]` only as
+off-center strict-core rows at centers `2`, `5`, or `7`, while assignments `0`
+and `11` are target-sparse and contain no full `[0,4,6]` row in any residual
+strict core.
 This is still proof-mining bookkeeping only, not support existence, row
-forcing, endpoint-`8` forcing, `[3,5]` impossibility, simultaneous realization
-of all components, `n=9`, or the bridge.
+forcing, center migration, endpoint-`8` forcing, `[3,5]` impossibility,
+simultaneous realization of all components, `n=9`, or the bridge.
 See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
 `docs/bootstrap-t12-151-6-label4-transfer-length-components.md`, plus
 `docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md` and
@@ -599,7 +603,8 @@ See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
 `docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md`, plus
 `docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md` and
 `docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md`, plus
-`docs/bootstrap-t12-151-6-label4-center8-core-route.md`.
+`docs/bootstrap-t12-151-6-label4-center8-core-route.md` and
+`docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md`.
 
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation

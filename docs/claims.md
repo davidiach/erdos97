@@ -1267,9 +1267,14 @@ pair or full triple from `[0,4,6]`. The core-route follow-up in
 desired route is present but not forced: `8` of `9` center-`8` cores in the
 private-lane strict-core split contain `[0,4,6]`, but only `4` of `32`
 label-`8`-visible cores are label-`8`-visible and target-compatible, and `6`
-of `12` private-lane assignments have no center-`8` target core. It still does
-not prove support existence, row forcing, endpoint-`8` forcing, `[3,5]`
-impossibility, `n=9`, the bootstrap bridge, or Erdos Problem #97.
+of `12` private-lane assignments have no center-`8` target core. The residual
+target-row follow-up in
+`docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md` splits those
+six assignments: four contain `[0,4,6]` only as off-center strict-core rows,
+and assignments `0` and `11` contain no full target triple in any residual
+strict-core row. It still does not prove center migration, support existence,
+row forcing, endpoint-`8` forcing, `[3,5]` impossibility, `n=9`, the bootstrap
+bridge, or Erdos Problem #97.
 
 The source-`151` singleton-support audit in
 `docs/bootstrap-t12-151-singleton-support-audit.md` covers rows `151:5` and

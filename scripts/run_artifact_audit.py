@@ -2773,6 +2773,25 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_center8_residual_target_rows",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_label4_center8_residual_target_rows.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Center-8 residual target-row diagnostic for the source 151 row 6 "
+            "label-4 private-lane split; records that four of six residual "
+            "assignments contain [0,4,6] only as off-center strict-core rows, "
+            "while assignments 0 and 11 are target-sparse, not center "
+            "migration, not support existence, not row forcing, not "
+            "endpoint-8 forcing, not a proof that [3,5] is impossible, not "
+            "an n=9 proof, not a bridge proof, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",

@@ -994,7 +994,15 @@ strict-core split, `8` of `9` center-`8` local cores contain `[0,4,6]`, but
 only `4` of the `32` label-`8`-visible cores are label-`8`-visible and
 target-compatible, and `6` of the `12` assignments still have no center-`8`
 target core. This pins the next local target to a target-compatible center-`8`
-core, not arbitrary label-`8` visibility.
+core, not arbitrary label-`8` visibility. The residual target-row follow-up in
+`docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md`,
+`scripts/check_bootstrap_t12_151_6_label4_center8_residual_target_rows.py`, and
+`data/certificates/bootstrap_t12_151_6_label4_center8_residual_target_rows.json`
+records `NOT_READY_RESIDUAL_TARGET_ROWS_DO_NOT_FORCE_CENTER8`: four residual
+assignments have `[0,4,6]` only as off-center rows at centers `2`, `5`, or
+`7`, while assignments `0` and `11` are target-sparse. This splits the next
+task into center migration for the off-center rows or a separate obstruction
+for the target-sparse assignments.
 
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses
