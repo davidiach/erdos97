@@ -9741,3 +9741,104 @@ artifacts:
       - quarter cells closed
       - general proof of Erdos Problem #97
       - official/global status update
+  - id: three_square_m4_closure
+    path: data/certificates/three_square_m4_closure.json
+    sha256: 6b8a8bb943d783894d2b607897fab82ced955005ebec4a29258bd40872359f15
+    size_bytes: 1453
+    kind: smt_certificate_artifact
+    generator: scripts/check_three_square_m4_closure.py
+    command: python scripts/check_three_square_m4_closure.py --assert-clear --write-artifact data/certificates/three_square_m4_closure.json
+    checker: scripts/check_three_square_m4_closure.py
+    check_command: python scripts/check_three_square_m4_closure.py --assert-clear
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_OBSTRUCTION
+    claim_scope: SMT (z3) certificate that no strictly convex three concentric regular 4-gon (n=12) configuration is branch-G 4-bad; all 64 discrete sign/witness combinations of the 4-bad conditions are UNSAT inside the strict-convexity radius window. Exact obstruction for this restricted family only; m=4 half-step branches are screen-grade in the three-orbit artifact; not an all-m result, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.three_square_m4_closure.v1
+      status: EXACT_OBSTRUCTION_SMT
+      trust: EXACT_OBSTRUCTION
+      clear: true
+      m: 4
+      n: 12
+      faithfulness_ok: true
+      in_window_no_convexity.unsat: 64
+      in_window_no_convexity.sat: 0
+      in_window_no_convexity.unknown: 0
+    forbidden_claims:
+      - all of m=4 closed exactly
+      - m=8 m=12 m=16 quarter cells closed
+      - general proof of Erdos Problem #97
+      - counterexample
+      - official/global status update
+  - id: quarter_cell_closure
+    path: data/certificates/quarter_cell_closure.json
+    sha256: a7214ad31ea417ac1ddfbbd43f32dae5476650f9db8a00f2fd628bbf21342804
+    size_bytes: 2739
+    kind: restricted_family_screen_artifact
+    generator: scripts/check_quarter_cell_closure.py
+    command: python scripts/check_quarter_cell_closure.py --assert-clear --write-artifact data/certificates/quarter_cell_closure.json
+    checker: scripts/check_quarter_cell_closure.py
+    check_command: python scripts/check_quarter_cell_closure.py --assert-clear
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Three-orbit (t=3) quarter cells (m=0 mod 4). Exact m-uniform self-tested lemmas - the A-row reduction (the cell closes iff A_0 cannot be 4-bad, uniform in the C-row choice a3) and the boundary-band confinement of the offsets - plus a float grid over m in {4,8,12,16} showing every sampled witness config is strictly non-convex. The locus is tangent to the convexity boundary, so for m>=8 this is evidence of closure, not a certificate; m=4 is closed exactly by SMT elsewhere and m=8,12,16 remain open. Records that the exact-SMT route does not scale past m=4. Not an all-m lemma, not a proof of Erdos Problem #97, not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.quarter_cell_closure.v1
+      status: REDUCTION_AND_TANGENCY_EVIDENCE
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      clear: true
+      boundary_band_lemma_ok: true
+    forbidden_claims:
+      - m=8 m=12 m=16 quarter cells closed
+      - exact certificate for m>=8
+      - all-m quarter-cell obstruction
+      - general proof of Erdos Problem #97
+      - counterexample
+      - official/global status update
+  - id: n8_survivors_smt
+    path: data/certificates/n8_survivors_smt.json
+    sha256: d515c45dae7c9d21ce85125b8bb58c0b6c8011a61571a5e38db660f9468fe949
+    size_bytes: 3169
+    kind: smt_certificate_artifact
+    generator: scripts/check_n8_survivors_smt.py
+    command: python scripts/check_n8_survivors_smt.py --assert-clear --write-artifact data/certificates/n8_survivors_smt.json
+    checker: scripts/check_n8_survivors_smt.py
+    check_command: python scripts/check_n8_survivors_smt.py --assert-clear
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_OBSTRUCTION
+    claim_scope: Independent z3 (NRA) cross-check that none of the 15 n=8 selected-witness survivor classes has a strictly convex octagon realization (equal-distance + perpendicular-bisector constraints plus strict convexity are UNSAT for every class). Independent decision procedure relative to the existing Groebner / cyclic-order arguments; covers all 15 classes including the four Groebner-dependent ones (3,4,5,14) the SymPy-free recheck skips. Repo-local exact-obstruction cross-check pending external review; not a general proof of Erdos Problem #97, not a counterexample, not an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n8_survivors_smt.v1
+      status: EXACT_OBSTRUCTION_SMT
+      trust: EXACT_OBSTRUCTION
+      clear: true
+      n: 8
+      classes_total: 15
+      not_strictly_convex_unsat_failures: []
+      order_independent_unsat_classes:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+    forbidden_claims:
+      - replaces the n=8 exact survivor artifacts
+      - independent of the incidence enumeration
+      - general proof of Erdos Problem #97
+      - counterexample
+      - official/global status update

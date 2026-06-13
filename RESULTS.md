@@ -254,6 +254,22 @@ classes `3`, `4`, and `5`: duplicate vertices, collinearity, and the class `5`
 Groebner-y2 contradiction after the recorded substitutions. It is another
 repo-local review aid, not a status upgrade.
 
+An independent SMT cross-check in `docs/n8-survivors-smt-cross-check.md`
+(`scripts/check_n8_survivors_smt.py`) covers all 15 classes uniformly with a
+different decision procedure: z3 nonlinear real arithmetic finds, for every
+class, that the equal-distance + perpendicular-bisector constraints together
+with order-free strict convex position (every vertex exposed in some
+direction, so no assumption that the canonical label order is the boundary
+order) are UNSAT, so no class has a strictly convex octagon realization in any
+order. In fact 14 of the 15 classes are already UNSAT with no convexity
+assumption at all (order-independent); only class 14 needs the exposed-vertex
+constraint. This is a second source for both the cyclic-order class and all
+fourteen PB+ED classes -- including the four Groebner-dependent ones (`3`,
+`4`, `5`, `14`) the SymPy-free recheck skips -- using neither Groebner bases
+nor the cyclic-order combinatorics. `EXACT_OBSTRUCTION` (SMT), repo-local
+cross-check pending external review; it strengthens but does not replace the
+existing artifacts. See `data/certificates/n8_survivors_smt.json`.
+
 ### Proof-note draft: geometric exclusion of n <= 8
 
 Status: proof-note draft; independent review requested.
@@ -1575,6 +1591,59 @@ exact certificate for the screened cells, and not a proof of Erdos Problem
 `scripts/check_three_orbit_window_closure.py --min-m 3 --max-m 16
 --assert-clear`, and
 `data/certificates/three_orbit_window_closure_m3_16.json`.
+
+### Exact SMT closure of the m=4 three-square quarter cell (n=12)
+
+Status: `LEMMA` draft (review pending) for the reduction; `EXACT_OBSTRUCTION`
+(SMT certificate) for the infeasibility decision.
+
+The smallest open three-orbit quarter cell, `m = 4` (three concentric
+squares, `n = 12`), is closed exactly. Because a square's only own
+equidistance pair from a vertex is its 90-degree diagonal pair, branch-G
+4-badness of three squares is equivalent to three explicit algebraic
+conditions: `P(y) in {+-cos b, +-sin b}`, `P(z) in {+-cos g, +-sin g}`, and
+`Q(y,z) in {+-cos(g-b), +-sin(g-b)}`, with `P(r)=(r^2-1)/(2r)` and
+`Q=(z^2-y^2)/(2yz)` (equivalently `P=sinh(ln r)`, `Q=sinh(ln z - ln y)`). A z3
+nonlinear-real-arithmetic certificate shows that, together with the
+strict-convexity radius window `cos h < y,z < 1/cos h` and
+`0 < b < g < pi/2`, all 64 discrete sign/witness combinations are UNSAT --
+without even invoking the convexity inequalities, so the strictly convex case
+is a fortiori empty. Hence no strictly convex three-square configuration is
+branch-G 4-bad. SMT UNSAT is an accepted exact-obstruction certificate here
+(as with the existing Kalmanson z3 certificates). Restricted-family result:
+the `m = 4` half-step branches AB/AC/BC are screen-grade in the three-orbit
+artifact, the `m = 8, 12, 16` quarter cells remain open, and the
+official/global status is unchanged. See
+`docs/three-square-m4-exact-closure.md`,
+`scripts/check_three_square_m4_closure.py --assert-clear`, and
+`data/certificates/three_square_m4_closure.json`.
+
+### Three-orbit quarter-cell A-row reduction and boundary-band lemma
+
+Status: `LEMMA` (exact, self-checked) for the reductions; `NUMERICAL_EVIDENCE`
+for the `m = 8, 12, 16` non-convexity; `m = 4` closed exactly above.
+
+Two exact, `m`-uniform lemmas reduce the remaining quarter cells. (1) A-row
+reduction: in every quarter cell the A-row and B-row own pair is the 90-pair,
+so `A_0` is 4-bad only if it has a B-vertex and a C-vertex at squared distance
+2, i.e. `P(y) in {cos(b+2kh)}` and `P(z) in {cos(g+2kh)}`; these involve only
+the A/B rows and are uniform in the C-row choice `a3`, so the quarter cell
+closes iff `A_0` cannot be 4-bad. (2) Boundary-band confinement: since
+`pi/2 ≡ 0 (mod 2h)` for `m = 0 mod 4` and `|P| < P(sec h)` in the window, those
+witness offsets are forced into `(0, delta) ∪ (2h - delta, 2h)`,
+`delta = arcsin(P(sec h))` -- the cross orbit must nearly align with the A
+orbit. A float grid over `m in {4,8,12,16}` finds every sampled witness
+configuration strictly non-convex, but the locus is **tangent** to the
+convexity boundary (the maximum minimum-turn is `< 0` yet vanishes and is
+grid-dependent), so for `m >= 8` this is evidence of closure, not a
+certificate; those cells remain open. Recorded route limit: the exact-SMT
+route does not scale past `m = 4` (z3 NRA times out on the cubic turn
+determinants and the witness disjunctions). The clean open lemma that would
+close all quarter cells: on the witness locus inside the window the minimum
+per-period turn determinant is `<= 0`, with equality only at the degenerate
+orbit-coincidence limit. See `docs/quarter-cell-closure.md`,
+`scripts/check_quarter_cell_closure.py --assert-clear`, and
+`data/certificates/quarter_cell_closure.json`.
 
 ## Numerical Attempts
 

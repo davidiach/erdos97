@@ -458,6 +458,12 @@ put detailed reconciliation in the canonical synthesis.
 - [`n8-residual-certificates.md`](n8-residual-certificates.md): focused audit
   of the class `3`, `4`, and `5` duplicate, collinearity, and Groebner
   certificates.
+- [`n8-survivors-smt-cross-check.md`](n8-survivors-smt-cross-check.md):
+  independent z3 (NRA) second source covering all 15 `n=8` survivor classes
+  uniformly -- each is UNSAT under equal-distance + perpendicular-bisector
+  constraints with strict convexity -- including the four Groebner-dependent
+  classes the SymPy-free recheck skips; a different decision procedure, not a
+  status change.
 - [`n8-geometric-proof.md`](n8-geometric-proof.md): proof-note draft giving a
   compact geometric obstruction for bad convex octagons via isosceles-triangle
   counting and exterior-turn angles.
@@ -813,6 +819,18 @@ put detailed reconciliation in the canonical synthesis.
   characterization of the degenerate `m = 0 mod 4` quarter cells as named
   open sub-cases, and a 60/240-digit escalation audit; screen evidence
   only, not an all-`m` lemma, an exact certificate, or a proof.
+- [`three-square-m4-exact-closure.md`](three-square-m4-exact-closure.md):
+  exact SMT (z3) closure of the smallest three-orbit quarter cell, `m = 4`
+  (three concentric squares, `n = 12`): branch-G 4-badness reduces to three
+  explicit algebraic conditions, all 64 sign/witness combinations are UNSAT
+  inside the strict-convexity window; `EXACT_OBSTRUCTION` for the restricted
+  three-square family, not all of `m = 4`, not `m = 8/12/16`, not a proof.
+- [`quarter-cell-closure.md`](quarter-cell-closure.md): the A-row reduction
+  (a three-orbit quarter cell closes iff `A_0` cannot be 4-bad, uniform in the
+  C-row choice `a3`) and the exact boundary-band confinement lemma, plus a
+  float grid showing the witness locus is tangent to the convexity boundary;
+  exact lemmas + `NUMERICAL_EVIDENCE` for `m = 8, 12, 16` (which remain open),
+  with the exact-SMT route recorded as not scaling past `m = 4`.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`n9-base-apex-d3-p19-degree-obstruction.md`](n9-base-apex-d3-p19-degree-obstruction.md):

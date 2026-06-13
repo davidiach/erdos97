@@ -7,6 +7,54 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-06-13
+
+- Added an independent SMT (z3 NRA) second source for the `n = 8`
+  exact-survivor obstruction (`docs/n8-survivors-smt-cross-check.md`,
+  `scripts/check_n8_survivors_smt.py`,
+  `data/certificates/n8_survivors_smt.json`, tests, managed manifest entry +
+  registered audit command). For each of the 15 reconstructed survivor
+  classes, the equal-distance + perpendicular-bisector constraints together
+  with order-free strict convex position (every vertex exposed in some
+  direction -- no assumption that the canonical label order is the boundary
+  order) are UNSAT, so no class has a strictly convex octagon realization in
+  any order; 14 of the 15 are already UNSAT with no convexity assumption at
+  all (order-independent), only class 14 needs the exposed-vertex constraint.
+  This uses a different decision procedure than
+  the existing artifacts (z3 NRA vs SymPy Groebner bases and the cyclic-order
+  argument) and uniformly covers all 15 classes -- including the four
+  Groebner-dependent classes (3, 4, 5, 14) the SymPy-free recheck deliberately
+  skips. Trust `EXACT_OBSTRUCTION` (SMT), repo-local cross-check pending
+  external review; strengthens but does not replace the existing `n = 8`
+  artifacts; no status change.
+
+- Closed the `m = 4` (three concentric squares, `n = 12`) quarter cell exactly,
+  the smallest open sub-case left by the three-orbit finite-m closure screen.
+  Branch-G 4-badness reduces to three explicit algebraic conditions on the
+  radii and offsets, and an SMT (z3) certificate shows all 64 discrete
+  sign/witness combinations are UNSAT inside the strict-convexity radius window
+  (convexity inequalities are not even needed). Added
+  `docs/three-square-m4-exact-closure.md`,
+  `scripts/check_three_square_m4_closure.py`,
+  `data/certificates/three_square_m4_closure.json` (managed manifest entry,
+  registered audit command), trust `EXACT_OBSTRUCTION` (SMT). Restricted-family
+  result: the m=4 half-step branches remain screen-grade, the `m = 8, 12, 16`
+  quarter cells remain open, and the official/global status is unchanged.
+- Reduced and partially settled the remaining `m = 8, 12, 16` quarter cells
+  (`docs/quarter-cell-closure.md`, `scripts/check_quarter_cell_closure.py`,
+  `data/certificates/quarter_cell_closure.json`). Two exact, `m`-uniform
+  self-tested lemmas: the **A-row reduction** (a quarter cell closes iff `A_0`
+  cannot be 4-bad, uniform in the C-row choice `a3`) and the **boundary-band
+  confinement** of the offsets. A float grid for `m in {4,8,12,16}` shows every
+  sampled witness configuration is strictly non-convex, but the locus is
+  **tangent** to the convexity boundary (margin vanishes, grid-dependent), so
+  for `m >= 8` this is evidence of closure, not a certificate -- those cells
+  remain open. Recorded route limits: the exact-SMT route does not scale past
+  `m = 4` (z3 NRA times out on the cubic turn determinants / witness
+  disjunctions), and a float screen cannot certify closure due to the tangency.
+  Trust: `LEMMA` (exact) for the reductions, `NUMERICAL_EVIDENCE` for the
+  `m >= 8` non-convexity. No status change.
+
 ## 2026-06-12
 
 - Added the three-orbit (t=3) paired-cosine reduction and finite-m closure

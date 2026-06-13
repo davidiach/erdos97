@@ -3316,6 +3316,59 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "official/global status update."
         ),
     ),
+    AuditCommand(
+        ident="three_square_m4_exact_closure",
+        command=(
+            "python",
+            "scripts/check_three_square_m4_closure.py",
+            "--assert-clear",
+        ),
+        claim_scope=(
+            "SMT (z3) exact obstruction that no strictly convex three "
+            "concentric square (n=12) configuration is branch-G 4-bad; all "
+            "64 discrete sign/witness combinations are UNSAT inside the "
+            "strict-convexity radius window. Restricted-family exact "
+            "obstruction only; not all of m=4 (half-step branches are "
+            "screen-grade), not the m=8/12/16 quarter cells, not a proof of "
+            "Erdos Problem #97, not a counterexample, and not an "
+            "official/global status update."
+        ),
+    ),
+    AuditCommand(
+        ident="three_orbit_quarter_cell_closure",
+        command=(
+            "python",
+            "scripts/check_quarter_cell_closure.py",
+            "--assert-clear",
+        ),
+        claim_scope=(
+            "Three-orbit quarter cells (m=0 mod 4): self-tested exact A-row "
+            "reduction and boundary-band confinement lemmas, plus a float "
+            "grid over m in {4,8,12,16} showing every sampled witness config "
+            "is strictly non-convex. Tangency-limited evidence for m>=8 (not "
+            "a certificate; those cells remain open), m=4 closed exactly "
+            "elsewhere; not an all-m lemma, not a proof of Erdos Problem #97, "
+            "not a counterexample, not an official/global status update."
+        ),
+    ),
+    AuditCommand(
+        ident="n8_survivors_smt_cross_check",
+        command=(
+            "python",
+            "scripts/check_n8_survivors_smt.py",
+            "--assert-clear",
+        ),
+        claim_scope=(
+            "Independent z3 (NRA) second source for the n=8 exact-survivor "
+            "obstruction: all 15 survivor classes are UNSAT under "
+            "equal-distance + perpendicular-bisector constraints with strict "
+            "convexity, covering the four Groebner-dependent classes the "
+            "SymPy-free recheck skips. Different decision procedure, same "
+            "problem statement; repo-local cross-check pending external "
+            "review, not a general proof of Erdos Problem #97, not a "
+            "counterexample, not an official/global status update."
+        ),
+    ),
 )
 
 

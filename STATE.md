@@ -45,6 +45,21 @@ the Groebner-based classes `3`, `4`, `5`, and `14`, so it is a defensive
 cross-check rather than an independent replacement for the full exact
 survivor artifact. See `docs/n8-independent-obstruction.md`.
 
+A further independent second source now covers all 15 classes uniformly with a
+different decision procedure: `scripts/check_n8_survivors_smt.py` asks z3
+nonlinear real arithmetic whether any strictly convex octagon -- encoded
+order-free, every vertex exposed in some direction, so no assumption that the
+canonical label order is the boundary order -- satisfies each class's
+equal-distance + perpendicular-bisector constraints, and finds every class
+UNSAT. In fact 14 of the 15 classes are already UNSAT with no convexity
+assumption at all (order-independent); only class 14 needs the
+exposed-vertex constraint. This cross-checks both the cyclic-order class and
+all fourteen PB+ED classes -- including the four Groebner-dependent ones the
+SymPy-free recheck skips -- without using Groebner bases or the cyclic-order
+combinatorics. Repo-local exact-obstruction cross-check pending external
+review. See `docs/n8-survivors-smt-cross-check.md` and
+`data/certificates/n8_survivors_smt.json`.
+
 The class `14` Groebner-dependent branch now has a small focused audit checker:
 `scripts/check_n8_class14_certificate.py --check --json` rebuilds that one
 `PB+ED` system, compares the stored Groebner basis, derives the four real
@@ -968,6 +983,32 @@ named open sub-cases. This is a review-pending reduction plus a screen
 verdict, not an all-`m` lemma and not an exact certificate. See
 `docs/three-orbit-window-closure.md` and
 `data/certificates/three_orbit_window_closure_m3_16.json`.
+
+The smallest of those quarter cells, `m = 4` (three concentric squares,
+`n = 12`), is now closed exactly (2026-06-13). Branch-G 4-badness reduces to
+three explicit algebraic conditions on the radii and offsets, and an SMT (z3)
+certificate shows all 64 discrete sign/witness combinations are UNSAT inside
+the strict-convexity radius window (the convexity inequalities are not even
+needed). This is an `EXACT_OBSTRUCTION` for the restricted three-square
+family; the `m = 4` half-step branches remain screen-grade and the
+`m = 8, 12, 16` quarter cells remain open. See
+`docs/three-square-m4-exact-closure.md`,
+`scripts/check_three_square_m4_closure.py`, and
+`data/certificates/three_square_m4_closure.json`.
+
+The `m = 8, 12, 16` quarter cells are now reduced and partially settled
+(2026-06-13). Two exact, `m`-uniform self-tested lemmas: the A-row reduction
+(a quarter cell closes iff `A_0` cannot be 4-bad, uniform in the C-row choice
+`a3`) and the boundary-band confinement of the offsets. A float grid shows
+every sampled witness configuration is strictly non-convex, but the locus is
+tangent to the convexity boundary (vanishing, grid-dependent margin), so for
+`m >= 8` this is evidence of closure, not a certificate, and those cells
+remain open; the exact-SMT route is recorded as not scaling past `m = 4`. The
+clean open lemma is: on the witness locus inside the window, the minimum
+per-period turn determinant is `<= 0`, with equality only at the degenerate
+orbit-coincidence limit. See `docs/quarter-cell-closure.md`,
+`scripts/check_quarter_cell_closure.py`, and
+`data/certificates/quarter_cell_closure.json`.
 
 ## Best saved near-miss
 
