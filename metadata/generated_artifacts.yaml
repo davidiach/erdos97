@@ -8739,6 +8739,116 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_center8_residual_target_rows
+    path: data/certificates/bootstrap_t12_151_6_label4_center8_residual_target_rows.json
+    sha256: 35df374ddcabbaf40d3ac0516dba2867858c824d01e2ac359a31a75f37b39901
+    size_bytes: 19841
+    kind: proof_target_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_center8_residual_target_rows.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_center8_residual_target_rows.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_center8_residual_target_rows.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_residual_target_rows.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 label-4 center-8 residual target-row diagnostic; records that four of the six residual assignments contain [0,4,6] only as off-center strict-core rows, while assignments 0 and 11 are target-sparse. This is a gate diagnostic only; it does not prove center migration, support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_center8_residual_target_rows.v1
+      status: BOOTSTRAP_T12_151_6_LABEL4_CENTER8_RESIDUAL_TARGET_ROWS_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 7
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.conditional_center8_target_center: 8
+      summary.conditional_center8_triple:
+        - 0
+        - 4
+        - 6
+      summary.conditional_center8_target_status: ENDPOINT8_RICH_TRIPLE_SUFFICES_CONDITIONALLY
+      summary.source_center8_core_route_gate_status: NOT_READY_CENTER8_TARGET_COMPATIBLE_CORE_NOT_FORCED
+      summary.source_private_lane_assignment_count: 12
+      summary.source_center8_target_assignment_count: 6
+      summary.residual_assignment_count: 6
+      summary.residual_assignment_indices:
+        - 0
+        - 5
+        - 7
+        - 9
+        - 10
+        - 11
+      summary.residual_core_count: 19
+      summary.residual_label8_visible_core_count: 15
+      summary.residual_label8_free_core_count: 4
+      summary.residual_center8_core_count: 1
+      summary.residual_center8_target_core_count: 0
+      summary.residual_assignments_with_off_center_target_row: 4
+      summary.residual_assignments_with_off_center_target_row_indices:
+        - 5
+        - 7
+        - 9
+        - 10
+      summary.residual_assignments_without_any_target_row: 2
+      summary.target_sparse_assignment_indices:
+        - 0
+        - 11
+      summary.off_center_target_row_occurrence_count: 5
+      summary.off_center_target_core_count: 5
+      summary.off_center_target_label8_visible_core_count: 1
+      summary.off_center_target_label8_free_core_count: 4
+      summary.off_center_target_row_center_counts.2: 2
+      summary.off_center_target_row_center_counts.5: 1
+      summary.off_center_target_row_center_counts.7: 2
+      summary.off_center_target_exact_row_counts.0,1,4,6: 1
+      summary.off_center_target_exact_row_counts.0,2,4,6: 2
+      summary.off_center_target_exact_row_counts.0,3,4,6: 2
+      summary.off_center_target_auxiliary_center_pair_counts.2,5: 1
+      summary.off_center_target_auxiliary_center_pair_counts.2,7: 2
+      summary.off_center_target_auxiliary_center_pair_counts.3,5: 1
+      summary.off_center_target_auxiliary_center_pair_counts.3,7: 1
+      summary.target_sparse_max_target_overlap: 2
+      summary.target_sparse_pair_row_occurrence_count: 6
+      summary.target_sparse_pair_overlap_counts.0,4: 2
+      summary.target_sparse_pair_overlap_counts.0,6: 3
+      summary.target_sparse_pair_overlap_counts.4,6: 1
+      summary.current_evidence_forces_center8_target_core: false
+      summary.off_center_target_rows_supply_center8_target: false
+      summary.gate_status: NOT_READY_RESIDUAL_TARGET_ROWS_DO_NOT_FORCE_CENTER8
+      summary.residual_status: RESIDUAL_SPLIT_OFF_CENTER_TARGET_ROWS_OR_TARGET_SPARSE
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_center8_residual_target_rows.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_center8_residual_target_rows.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - center-8 rich triple is forced
+      - label-8 visibility forces center-8 [0,4,6]
+      - off-center target rows force center-8 [0,4,6]
+      - center migration is proved
+      - the center-8 target-compatible local core is forced
+      - assignments 0 and 11 are impossible
+      - the private-halo-only pair 3,5 is impossible
+      - center-8 residual target rows prove the bridge
+      - endpoint target proves support existence
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e
