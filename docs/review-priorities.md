@@ -1070,6 +1070,13 @@ condition that the surviving multi-block family does not automatically satisfy:
   basic filters before vertex-circle replay. The remaining target is a
   genuine target-sparse obstruction or a stronger multi-row/center-migration
   mechanism, not a claim that assignments `0` and `11` are already impossible.
+- bootstrap/T12 focused `151:6` label-`4` center-`8` target-sparse two-row
+  repair evidence, as recorded in
+  `docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md`,
+  checking one additional arbitrary non-completion row replacement after each
+  target-pair completion. All `6624` repair-extension candidates fail basic
+  filters before vertex-circle replay. The remaining target must use genuine
+  support geometry, center migration, or more than one extra repair row.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

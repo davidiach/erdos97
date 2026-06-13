@@ -1,0 +1,615 @@
+{
+  "claim_scope": "Proof-mining repair-extension preflight for the source-151 row-6 label-4 center-8 target-sparse residual cases. It starts from the 12 one-row target completions for assignments 0 and 11, then allows one additional non-completion row to be replaced by any other selected 4-set for that center. All 6624 one-completion plus one-repair candidates fail basic filters before vertex-circle replay. This does not prove assignments 0 and 11 are impossible under genuine geometry, does not prove center migration, does not prove support existence, does not prove row forcing, does not prove endpoint-8 forcing, does not prove that pair [3,5] is impossible, does not prove n=9, does not prove the bootstrap bridge, is not a counterexample, and is not a global status update.",
+  "decision": {
+    "answer": "no_all_one_completion_one_repair_candidates_fail_basic_filters",
+    "blocking_reason": "Every one-completion plus one-repair candidate still has a crossing violation; most also keep witness-pair caps, and some add selected-indegree cap violations.",
+    "current_evidence_forces_target_sparse_obstruction": false,
+    "decision_question": "After completing one target-pair row to [0,4,6], can one additional arbitrary selected-row replacement repair the target-sparse assignment through the basic filters?",
+    "gate_status": "NOT_READY_TARGET_SPARSE_TWO_ROW_REPAIRS_FAIL_BASIC_FILTERS",
+    "one_completion_one_repair_survives_basic_filters": false,
+    "repair_status": "TARGET_SPARSE_ONE_COMPLETION_ONE_REPAIR_ALL_BASIC_FILTER_BLOCKED",
+    "required_next_lemma": "Use genuine support geometry to rule out assignments 0 and 11, prove a center-migration mechanism, or find a stronger multi-row mechanism beyond one completion plus one repair."
+  },
+  "interpretation": [
+    "The target-sparse cases do not have a one-completion plus one-repair escape inside the selected-row basic filters.",
+    "All 6624 repair-extension candidates fail before vertex-circle replay, so this is still a basic-filter preflight rather than an exact quotient obstruction.",
+    "The result does not rule out genuine support geometry, center migration, or a stronger multi-row mechanism.",
+    "This is diagnostic bookkeeping only; it is not row forcing, support existence, pair impossibility, n=9, or a bridge proof."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.py"
+  },
+  "repair_records": [
+    {
+      "all_repair_candidates_fail_basic_filters": true,
+      "assignment_index": 0,
+      "basic_filter_surviving_candidate_count": 0,
+      "completion_endpoint_exact_row_allowed": false,
+      "completion_missing_target_label": 6,
+      "completion_replaced_label": 3,
+      "completion_row_center": 2,
+      "completion_row_key": "0,4,6,8",
+      "completion_row_witnesses": [
+        0,
+        4,
+        6,
+        8
+      ],
+      "failure_attempt_reason_counts": {
+        "crossing": 552,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 542
+      },
+      "failure_detail_counts": {
+        "crossing": 3432,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 1582
+      },
+      "repair_candidate_count": 552,
+      "repair_center_counts": {
+        "0": 69,
+        "1": 69,
+        "3": 69,
+        "4": 69,
+        "5": 69,
+        "6": 69,
+        "7": 69,
+        "8": 69
+      },
+      "source_completion_index": 0,
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "vertex_circle_checked_candidate_count": 0
+    },
+    {
+      "all_repair_candidates_fail_basic_filters": true,
+      "assignment_index": 0,
+      "basic_filter_surviving_candidate_count": 0,
+      "completion_endpoint_exact_row_allowed": true,
+      "completion_missing_target_label": 6,
+      "completion_replaced_label": 8,
+      "completion_row_center": 2,
+      "completion_row_key": "0,3,4,6",
+      "completion_row_witnesses": [
+        0,
+        3,
+        4,
+        6
+      ],
+      "failure_attempt_reason_counts": {
+        "crossing": 552,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 552
+      },
+      "failure_detail_counts": {
+        "crossing": 3414,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 1889
+      },
+      "repair_candidate_count": 552,
+      "repair_center_counts": {
+        "0": 69,
+        "1": 69,
+        "3": 69,
+        "4": 69,
+        "5": 69,
+        "6": 69,
+        "7": 69,
+        "8": 69
+      },
+      "source_completion_index": 1,
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "vertex_circle_checked_candidate_count": 0
+    },
+    {
+      "all_repair_candidates_fail_basic_filters": true,
+      "assignment_index": 11,
+      "basic_filter_surviving_candidate_count": 0,
+      "completion_endpoint_exact_row_allowed": true,
+      "completion_missing_target_label": 6,
+      "completion_replaced_label": 2,
+      "completion_row_center": 3,
+      "completion_row_key": "0,4,5,6",
+      "completion_row_witnesses": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "failure_attempt_reason_counts": {
+        "crossing": 552,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 548
+      },
+      "failure_detail_counts": {
+        "crossing": 3410,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 1507
+      },
+      "repair_candidate_count": 552,
+      "repair_center_counts": {
+        "0": 69,
+        "1": 69,
+        "2": 69,
+        "4": 69,
+        "5": 69,
+        "6": 69,
+        "7": 69,
+        "8": 69
+      },
+      "source_completion_index": 2,
+      "source_core_index": 0,
+      "source_pair_row_index": 0,
+      "vertex_circle_checked_candidate_count": 0
+    },
+    {
+      "all_repair_candidates_fail_basic_filters": true,
+      "assignment_index": 11,
+      "basic_filter_surviving_candidate_count": 0,
+      "completion_endpoint_exact_row_allowed": true,
+      "completion_missing_target_label": 6,
+      "completion_replaced_label": 5,
+      "completion_row_center": 3,
+      "completion_row_key": "0,2,4,6",
+      "completion_row_witnesses": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "failure_attempt_reason_counts": {
+        "crossing": 552,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 548
+      },
+      "failure_detail_counts": {
+        "crossing": 2880,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 1582
+      },
+      "repair_candidate_count": 552,
+      "repair_center_counts": {
+        "0": 69,
+        "1": 69,
+        "2": 69,
+        "4": 69,
+        "5": 69,
+        "6": 69,
+        "7": 69,
+        "8": 69
+      },
+      "source_completion_index": 3,
+      "source_core_index": 0,
+      "source_pair_row_index": 0,
+      "vertex_circle_checked_candidate_count": 0
+    },
+    {
+      "all_repair_candidates_fail_basic_filters": true,
+      "assignment_index": 11,
+      "basic_filter_surviving_candidate_count": 0,
+      "completion_endpoint_exact_row_allowed": true,
+      "completion_missing_target_label": 0,
+      "completion_replaced_label": 1,
+      "completion_row_center": 2,
+      "completion_row_key": "0,4,6,7",
+      "completion_row_witnesses": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "failure_attempt_reason_counts": {
+        "crossing": 552,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 549
+      },
+      "failure_detail_counts": {
+        "crossing": 3372,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 1507
+      },
+      "repair_candidate_count": 552,
+      "repair_center_counts": {
+        "0": 69,
+        "1": 69,
+        "3": 69,
+        "4": 69,
+        "5": 69,
+        "6": 69,
+        "7": 69,
+        "8": 69
+      },
+      "source_completion_index": 4,
+      "source_core_index": 1,
+      "source_pair_row_index": 1,
+      "vertex_circle_checked_candidate_count": 0
+    },
+    {
+      "all_repair_candidates_fail_basic_filters": true,
+      "assignment_index": 11,
+      "basic_filter_surviving_candidate_count": 0,
+      "completion_endpoint_exact_row_allowed": true,
+      "completion_missing_target_label": 0,
+      "completion_replaced_label": 7,
+      "completion_row_center": 2,
+      "completion_row_key": "0,1,4,6",
+      "completion_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "failure_attempt_reason_counts": {
+        "crossing": 552,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 549
+      },
+      "failure_detail_counts": {
+        "crossing": 3342,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 1582
+      },
+      "repair_candidate_count": 552,
+      "repair_center_counts": {
+        "0": 69,
+        "1": 69,
+        "3": 69,
+        "4": 69,
+        "5": 69,
+        "6": 69,
+        "7": 69,
+        "8": 69
+      },
+      "source_completion_index": 5,
+      "source_core_index": 1,
+      "source_pair_row_index": 1,
+      "vertex_circle_checked_candidate_count": 0
+    },
+    {
+      "all_repair_candidates_fail_basic_filters": true,
+      "assignment_index": 11,
+      "basic_filter_surviving_candidate_count": 0,
+      "completion_endpoint_exact_row_allowed": false,
+      "completion_missing_target_label": 4,
+      "completion_replaced_label": 1,
+      "completion_row_center": 7,
+      "completion_row_key": "0,4,6,8",
+      "completion_row_witnesses": [
+        0,
+        4,
+        6,
+        8
+      ],
+      "failure_attempt_reason_counts": {
+        "crossing": 552,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 550
+      },
+      "failure_detail_counts": {
+        "crossing": 2840,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 1582
+      },
+      "repair_candidate_count": 552,
+      "repair_center_counts": {
+        "0": 69,
+        "1": 69,
+        "2": 69,
+        "3": 69,
+        "4": 69,
+        "5": 69,
+        "6": 69,
+        "8": 69
+      },
+      "source_completion_index": 6,
+      "source_core_index": 1,
+      "source_pair_row_index": 2,
+      "vertex_circle_checked_candidate_count": 0
+    },
+    {
+      "all_repair_candidates_fail_basic_filters": true,
+      "assignment_index": 11,
+      "basic_filter_surviving_candidate_count": 0,
+      "completion_endpoint_exact_row_allowed": true,
+      "completion_missing_target_label": 4,
+      "completion_replaced_label": 8,
+      "completion_row_center": 7,
+      "completion_row_key": "0,1,4,6",
+      "completion_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "failure_attempt_reason_counts": {
+        "crossing": 552,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 548
+      },
+      "failure_detail_counts": {
+        "crossing": 2864,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 1582
+      },
+      "repair_candidate_count": 552,
+      "repair_center_counts": {
+        "0": 69,
+        "1": 69,
+        "2": 69,
+        "3": 69,
+        "4": 69,
+        "5": 69,
+        "6": 69,
+        "8": 69
+      },
+      "source_completion_index": 7,
+      "source_core_index": 1,
+      "source_pair_row_index": 2,
+      "vertex_circle_checked_candidate_count": 0
+    },
+    {
+      "all_repair_candidates_fail_basic_filters": true,
+      "assignment_index": 11,
+      "basic_filter_surviving_candidate_count": 0,
+      "completion_endpoint_exact_row_allowed": false,
+      "completion_missing_target_label": 4,
+      "completion_replaced_label": 1,
+      "completion_row_center": 7,
+      "completion_row_key": "0,4,6,8",
+      "completion_row_witnesses": [
+        0,
+        4,
+        6,
+        8
+      ],
+      "failure_attempt_reason_counts": {
+        "crossing": 552,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 550
+      },
+      "failure_detail_counts": {
+        "crossing": 2840,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 1582
+      },
+      "repair_candidate_count": 552,
+      "repair_center_counts": {
+        "0": 69,
+        "1": 69,
+        "2": 69,
+        "3": 69,
+        "4": 69,
+        "5": 69,
+        "6": 69,
+        "8": 69
+      },
+      "source_completion_index": 8,
+      "source_core_index": 3,
+      "source_pair_row_index": 3,
+      "vertex_circle_checked_candidate_count": 0
+    },
+    {
+      "all_repair_candidates_fail_basic_filters": true,
+      "assignment_index": 11,
+      "basic_filter_surviving_candidate_count": 0,
+      "completion_endpoint_exact_row_allowed": true,
+      "completion_missing_target_label": 4,
+      "completion_replaced_label": 8,
+      "completion_row_center": 7,
+      "completion_row_key": "0,1,4,6",
+      "completion_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "failure_attempt_reason_counts": {
+        "crossing": 552,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 548
+      },
+      "failure_detail_counts": {
+        "crossing": 2864,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 1582
+      },
+      "repair_candidate_count": 552,
+      "repair_center_counts": {
+        "0": 69,
+        "1": 69,
+        "2": 69,
+        "3": 69,
+        "4": 69,
+        "5": 69,
+        "6": 69,
+        "8": 69
+      },
+      "source_completion_index": 9,
+      "source_core_index": 3,
+      "source_pair_row_index": 3,
+      "vertex_circle_checked_candidate_count": 0
+    },
+    {
+      "all_repair_candidates_fail_basic_filters": true,
+      "assignment_index": 11,
+      "basic_filter_surviving_candidate_count": 0,
+      "completion_endpoint_exact_row_allowed": false,
+      "completion_missing_target_label": 4,
+      "completion_replaced_label": 1,
+      "completion_row_center": 7,
+      "completion_row_key": "0,4,6,8",
+      "completion_row_witnesses": [
+        0,
+        4,
+        6,
+        8
+      ],
+      "failure_attempt_reason_counts": {
+        "crossing": 552,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 550
+      },
+      "failure_detail_counts": {
+        "crossing": 2840,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 1582
+      },
+      "repair_candidate_count": 552,
+      "repair_center_counts": {
+        "0": 69,
+        "1": 69,
+        "2": 69,
+        "3": 69,
+        "4": 69,
+        "5": 69,
+        "6": 69,
+        "8": 69
+      },
+      "source_completion_index": 10,
+      "source_core_index": 4,
+      "source_pair_row_index": 4,
+      "vertex_circle_checked_candidate_count": 0
+    },
+    {
+      "all_repair_candidates_fail_basic_filters": true,
+      "assignment_index": 11,
+      "basic_filter_surviving_candidate_count": 0,
+      "completion_endpoint_exact_row_allowed": true,
+      "completion_missing_target_label": 4,
+      "completion_replaced_label": 8,
+      "completion_row_center": 7,
+      "completion_row_key": "0,1,4,6",
+      "completion_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "failure_attempt_reason_counts": {
+        "crossing": 552,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 548
+      },
+      "failure_detail_counts": {
+        "crossing": 2864,
+        "selected_indegree_cap": 105,
+        "witness_pair_cap": 1582
+      },
+      "repair_candidate_count": 552,
+      "repair_center_counts": {
+        "0": 69,
+        "1": 69,
+        "2": 69,
+        "3": 69,
+        "4": 69,
+        "5": 69,
+        "6": 69,
+        "8": 69
+      },
+      "source_completion_index": 11,
+      "source_core_index": 4,
+      "source_pair_row_index": 4,
+      "vertex_circle_checked_candidate_count": 0
+    }
+  ],
+  "schema": "erdos97.bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.v1",
+  "source_artifacts": [
+    {
+      "completion_status": null,
+      "gate_status": null,
+      "path": "data/certificates/bootstrap_t12_151_6_outside_pair_full_neighborhood_vertex_circle.json",
+      "role": "source 151:6 outside-pair full-neighborhood packet",
+      "scan_status": "FULL_NEIGHBORHOOD_BASIC_SURVIVORS_ALL_VERTEX_CIRCLE_OBSTRUCTED",
+      "schema": "erdos97.bootstrap_t12_151_6_outside_pair_full_neighborhood_vertex_circle.v1",
+      "status": "BOOTSTRAP_T12_151_6_OUTSIDE_PAIR_FULL_NEIGHBORHOOD_VERTEX_CIRCLE_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "completion_status": "TARGET_SPARSE_ONE_ROW_COMPLETIONS_ALL_BASIC_FILTER_BLOCKED",
+      "gate_status": "NOT_READY_TARGET_SPARSE_ONE_ROW_COMPLETIONS_FAIL_BASIC_FILTERS",
+      "path": "data/certificates/bootstrap_t12_151_6_label4_center8_target_sparse_completions.json",
+      "role": "source 151:6 center-8 target-sparse one-row completions",
+      "scan_status": null,
+      "schema": "erdos97.bootstrap_t12_151_6_label4_center8_target_sparse_completions.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_CENTER8_TARGET_SPARSE_COMPLETIONS_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_151_6_LABEL4_CENTER8_TARGET_SPARSE_TWO_ROW_REPAIRS_DIAGNOSTIC_ONLY",
+  "summary": {
+    "assignment_repair_candidate_counts": {
+      "0": 1104,
+      "11": 5520
+    },
+    "candidate_rows_per_repair_center": 69,
+    "completion_row_repair_candidate_counts": {
+      "0,1,4,6": 2208,
+      "0,2,4,6": 552,
+      "0,3,4,6": 552,
+      "0,4,5,6": 552,
+      "0,4,6,7": 552,
+      "0,4,6,8": 2208
+    },
+    "current_evidence_forces_target_sparse_obstruction": false,
+    "endpoint_exact_row_allowed_repair_candidate_count": 4416,
+    "endpoint_exact_row_disallowed_repair_candidate_count": 2208,
+    "failure_attempt_reason_counts": {
+      "crossing": 6624,
+      "selected_indegree_cap": 1260,
+      "witness_pair_cap": 6582
+    },
+    "failure_detail_counts": {
+      "crossing": 36962,
+      "selected_indegree_cap": 1260,
+      "witness_pair_cap": 19141
+    },
+    "gate_status": "NOT_READY_TARGET_SPARSE_TWO_ROW_REPAIRS_FAIL_BASIC_FILTERS",
+    "missing_target_repair_candidate_counts": {
+      "0": 1104,
+      "4": 3312,
+      "6": 2208
+    },
+    "one_completion_one_repair_survives_basic_filters": false,
+    "private_support_pair": [
+      3,
+      5
+    ],
+    "private_target_center_class": [
+      0,
+      3,
+      5,
+      7
+    ],
+    "repair_basic_filter_surviving_candidate_count": 0,
+    "repair_candidate_count": 6624,
+    "repair_center_counts": {
+      "0": 828,
+      "1": 828,
+      "2": 552,
+      "3": 690,
+      "4": 828,
+      "5": 828,
+      "6": 828,
+      "7": 414,
+      "8": 828
+    },
+    "repair_centers_per_completion": 8,
+    "repair_records_with_basic_filter_survivor_count": 0,
+    "repair_status": "TARGET_SPARSE_ONE_COMPLETION_ONE_REPAIR_ALL_BASIC_FILTER_BLOCKED",
+    "source_completion_attempt_count": 12,
+    "source_completion_gate_status": "NOT_READY_TARGET_SPARSE_ONE_ROW_COMPLETIONS_FAIL_BASIC_FILTERS",
+    "source_completion_status": "TARGET_SPARSE_ONE_ROW_COMPLETIONS_ALL_BASIC_FILTER_BLOCKED",
+    "target_center": 6,
+    "target_row_key": "151:6",
+    "target_sparse_assignment_indices": [
+      0,
+      11
+    ],
+    "vertex_circle_checked_repair_candidate_count": 0
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

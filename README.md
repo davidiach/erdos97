@@ -180,7 +180,11 @@ center migration or a separate target-sparse obstruction. A target-sparse
 completion preflight then checks the cheapest repair for assignments `0` and
 `11`: all `12` one-row completions of target-pair rows to `[0,4,6]` fail
 basic filters before vertex-circle replay. This blocks a one-row repair, but
-does not prove those assignments impossible. See
+does not prove those assignments impossible. A repair-extension follow-up then
+allows one additional non-completion row replacement after each target
+completion; all `6624` such candidates still fail basic filters, so even the
+one-completion plus one-repair route is blocked without proving an exact
+target-sparse obstruction. See
 [`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`](docs/bootstrap-t12-151-6-label4-transfer-length-components.md)
 and
 [`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md),
@@ -199,7 +203,9 @@ and
 plus
 [`docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md`](docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md)
 and
-[`docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md).
+[`docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md),
+plus
+[`docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md).
 On the source-`81` side, the `81:3` ordered chain-closure, one-layer
 repeated-support, two-repeated-support, and repeated-support saturation packets
 close the current bounded support-chain continuations under basic
