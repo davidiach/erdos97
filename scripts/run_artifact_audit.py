@@ -2715,6 +2715,25 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_center8_rich_triple_preflight",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_label4_center8_rich_triple_preflight.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Center-8 rich-triple forcing preflight for the source 151 row 6 "
+            "label-4 cascade signatures; records that the current support "
+            "ledger does not contain a center-8 support requirement and does "
+            "not force the conditional [0,4,6] rich target, not support "
+            "existence, not row forcing, not endpoint-8 forcing, not a proof "
+            "that [3,5] is impossible, not an n=9 proof, not a bridge proof, "
+            "and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",

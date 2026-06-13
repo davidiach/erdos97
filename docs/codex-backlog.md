@@ -552,12 +552,17 @@ minimal/rich-class hypotheses.
    target packet
    `python scripts/check_bootstrap_t12_151_6_label4_cascade_endpoint8_targets.py --check --assert-expected --json`
    then replaces row `8` by every center-`8` rich class containing `[0,4,6]`;
-   all `93` signature-level rich supersets are quotient-obstructed. The next
-   useful PR should therefore prove a support-geometry exclusion under genuine
-   private-support or rich-class hypotheses, or prove that such label-`4`
-   support forces the center-`8` rich triple `[0,4,6]` / a label-`8`-visible
-   row-`6` local core, not a component-alone impossibility claim and not
-   another selected-row neighborhood widening around `151:6`.
+   all `93` signature-level rich supersets are quotient-obstructed. The
+   center-`8` rich-triple preflight
+   `python scripts/check_bootstrap_t12_151_6_label4_center8_rich_triple_preflight.py --check --assert-expected --json`
+   records that current support evidence does not yet force `[0,4,6]` at
+   center `8`: the support ledger has no center-`8` support requirement, no
+   label-`8` support witness, and no requirement containing the full triple.
+   The next useful PR should therefore prove a support-geometry exclusion
+   under genuine private-support or rich-class hypotheses, or add a new
+   geometric forcing source for the center-`8` rich triple / a
+   label-`8`-visible row-`6` local core, not a component-alone impossibility
+   claim and not another selected-row neighborhood widening around `151:6`.
    The source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine
