@@ -108,24 +108,70 @@ def equations(rows, p):
     return eqs
 
 
-def turn(u, v, w):
-    return (v[0] - u[0]) * (w[1] - v[1]) - (v[1] - u[1]) * (w[0] - v[0])
-
-
-def decide_class(rows, timeout_ms: int) -> tuple[str, int]:
+def _solver(timeout_ms):
     import z3
 
-    zvars = {f"{ax}{i}": z3.Real(f"{ax}{i}") for i in range(2, N) for ax in "xy"}
-    p = coords(zvars)
     s = z3.Solver()
     s.set("timeout", timeout_ms)
-    eqs = equations(rows, p)
-    for e in eqs:
-        s.add(e == 0)
+    zvars = {f"{ax}{i}": z3.Real(f"{ax}{i}") for i in range(2, N) for ax in "xy"}
+    return s, zvars
+
+
+def add_distinct(s, p):
+    """All vertices pairwise distinct (no convexity / order assumption)."""
     for i in range(N):
-        s.add(turn(p[(i - 1) % N], p[i], p[(i + 1) % N]) > 0)
-    r = s.check()
-    return str(r), len(eqs)
+        for j in range(i + 1, N):
+            dx = p[i][0] - p[j][0]
+            dy = p[i][1] - p[j][1]
+            s.add(dx * dx + dy * dy > 0)
+
+
+def add_strict_convex_position(s, p):
+    """Order-free strict convex position: every vertex p_k is *exposed* --
+    there is a direction (a_k, b_k) (unit, so nonzero) strictly maximized at
+    p_k over all other vertices. All eight exposed <=> the points are the
+    vertices of a strictly convex octagon, in *some* cyclic order. This makes
+    no assumption that the label order equals the boundary order."""
+    import z3
+
+    for k in range(N):
+        a = z3.Real(f"a{k}")
+        b = z3.Real(f"b{k}")
+        s.add(a * a + b * b == 1)  # unit direction (excludes the zero vector)
+        for j in range(N):
+            if j == k:
+                continue
+            s.add(a * p[k][0] + b * p[k][1] > a * p[j][0] + b * p[j][1])
+
+
+def decide_class(rows, timeout_ms: int) -> dict:
+    """Two z3 verdicts per class, both order-free:
+
+    - ``without_convexity``: ED + PB + gauge + distinct vertices. UNSAT here is
+      an order-independent kill (no convexity assumption at all).
+    - ``strict_convex``: ED + PB + gauge + strict convex position (every vertex
+      exposed). UNSAT here means no strictly convex octagon in *any* order
+      realizes the class -- the conclusion the cross-check needs.
+    """
+    s1, zv1 = _solver(timeout_ms)
+    p1 = coords(zv1)
+    eqs = equations(rows, p1)
+    for e in eqs:
+        s1.add(e == 0)
+    add_distinct(s1, p1)
+    without_convexity = str(s1.check())
+
+    s2, zv2 = _solver(timeout_ms)
+    p2 = coords(zv2)
+    for e in equations(rows, p2):
+        s2.add(e == 0)
+    add_strict_convex_position(s2, p2)
+    strict_convex = str(s2.check())
+    return {
+        "equations": len(eqs),
+        "without_convexity": without_convexity,
+        "strict_convex": strict_convex,
+    }
 
 
 def main() -> int:
@@ -142,10 +188,14 @@ def main() -> int:
     records = []
     for rec in survivors:
         cid = int(rec["id"])
-        verdict, neqs = decide_class(rec["rows"], args.timeout_ms)
-        records.append({"class": cid, "verdict": verdict, "equations": neqs})
-    non_unsat = [r["class"] for r in records if r["verdict"] != "unsat"]
-    clear = len(records) == 15 and not non_unsat
+        d = decide_class(rec["rows"], args.timeout_ms)
+        records.append({"class": cid, **d})
+    # main result: no strictly convex octagon (any order) realizes any class
+    not_convex_unsat = [r["class"] for r in records if r["strict_convex"] != "unsat"]
+    # bonus: classes killed with no convexity assumption at all
+    order_independent = [r["class"] for r in records
+                         if r["without_convexity"] == "unsat"]
+    clear = len(records) == 15 and not not_convex_unsat
     payload = {
         "schema": "erdos97.n8_survivors_smt.v1",
         "status": "EXACT_OBSTRUCTION_SMT" if clear else "INCOMPLETE",
@@ -160,20 +210,28 @@ def main() -> int:
         "scope": (
             "Independent z3 (NRA) cross-check that none of the 15 n=8 "
             "selected-witness survivor classes has a strictly convex octagon "
-            "realization: for each class the equal-distance + "
-            "perpendicular-bisector constraints together with strict "
-            "convexity (label order) are UNSAT. Independent in the decision "
-            "procedure (z3 NRA vs the existing Groebner / cyclic-order "
-            "arguments), covering all 15 classes including the four "
-            "Groebner-dependent ones (3,4,5,14) that the SymPy-free recheck "
-            "skips. Repo-local exact-obstruction cross-check pending external "
-            "review; not a general proof of Erdos Problem #97, not a "
-            "counterexample, not an official/global status update."
+            "realization. For each class the equal-distance + "
+            "perpendicular-bisector constraints together with ORDER-FREE "
+            "strict convex position (every vertex exposed in some direction) "
+            "are UNSAT, so no strictly convex octagon in any boundary order "
+            "realizes the class -- no assumption that the canonical label "
+            "order equals the geometric boundary order. As a stronger bonus, "
+            "14 of the 15 classes are already UNSAT under ED+PB+distinct with "
+            "no convexity assumption at all (order-independent); the remaining "
+            "class (14) needs the strict-convex-position constraint. "
+            "Independent in the decision procedure (z3 NRA vs the existing "
+            "Groebner / cyclic-order arguments), covering all 15 classes "
+            "including the four Groebner-dependent ones (3,4,5,14) the "
+            "SymPy-free recheck skips. Repo-local exact-obstruction "
+            "cross-check pending external review; not a general proof of "
+            "Erdos Problem #97, not a counterexample, not an official/global "
+            "status update."
         ),
         "n": 8,
         "classes_total": len(records),
         "records": records,
-        "non_unsat_classes": non_unsat,
+        "not_strictly_convex_unsat_failures": not_convex_unsat,
+        "order_independent_unsat_classes": order_independent,
         "clear": clear,
     }
     if args.write_artifact:
@@ -184,8 +242,12 @@ def main() -> int:
         print(json.dumps(payload, indent=1, sort_keys=True))
     else:
         for r in records:
-            print(f"class {r['class']:2d}: {r['verdict']} ({r['equations']} eqs)")
-        print(f"all 15 UNSAT: {clear}; non-unsat: {non_unsat}")
+            print(f"class {r['class']:2d}: strict_convex={r['strict_convex']:7s} "
+                  f"without_convexity={r['without_convexity']:7s} "
+                  f"({r['equations']} eqs)")
+        print(f"all 15 not-strictly-convex (UNSAT): {clear}")
+        print(f"order-independent (UNSAT w/o convexity): "
+              f"{len(order_independent)}/15 classes {order_independent}")
     if args.assert_clear and not clear:
         return 1
     return 0

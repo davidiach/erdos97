@@ -24,15 +24,15 @@ class it builds
   pair `(i, j)` with common witnesses `(a, b)`, both centers lie on the
   perpendicular bisector of `p_a p_b`),
 
-and asks z3 whether any **strictly convex** octagon (vertices in cyclic label
-order, all per-period turn determinants `> 0`) satisfies them. Every class is
-**UNSAT** (each in well under a second), so no survivor class has a strictly
-convex realization.
+and asks z3 whether any **strictly convex** octagon satisfies them, encoding
+strict convexity in an **order-free** way (see below). Every class is **UNSAT**,
+so no survivor class has a strictly convex realization in any boundary order.
 
 ## Result
 
 ```text
-classes 0..14 : UNSAT (15/15)
+order-free strict convex position UNSAT : classes 0..14  (15/15)
+already UNSAT with no convexity at all  : 14/15 classes (all but class 14)
 ```
 
 This independently confirms both the cyclic-order conclusion (the single class
@@ -43,21 +43,37 @@ decision procedure.
 
 ## Why this is sound
 
-Any realization of a survivor class is a strictly convex octagon
-`p_0, ..., p_7` in label order with every center equidistant from its
-witnesses. Such a realization satisfies the equal-distance constraints (and
-hence their perpendicular-bisector consequences) together with the strict
-convexity inequalities, so z3 UNSAT for that conjunction means **no realization
+**Order-free strict convex position.** The canonical incidence labelling
+(`center 0, witnesses 1..4`, an isomorphism relabelling) is **not** in general
+the geometric boundary order, so imposing convexity at consecutive *labels*
+would test the wrong thing. Instead the checker requires every vertex `p_k` to
+be **exposed**: there is a direction `(a_k, b_k)` (unit, hence nonzero) that is
+strictly maximized at `p_k` over all other vertices. Eight exposed points are
+exactly the vertices of a strictly convex octagon, in *some* cyclic order --
+with no assumption about which order. So z3 UNSAT for `ED + PB + (all eight
+exposed)` means no strictly convex octagon in **any** boundary order realizes
+the class.
+
+Any realization of a survivor class is such a strictly convex octagon with
+every center equidistant from its witnesses, so it satisfies the
+equal-distance constraints (hence their perpendicular-bisector consequences)
+and has all vertices exposed; z3 UNSAT therefore means **no realization
 exists**. The perpendicular-bisector equations are genuine consequences of the
 equal-distance constraints (shared witnesses `a, b` of both `i` and `j` force
 both centers onto the bisector of `p_a p_b`), so they add no spurious
-constraint; the equal-distance constraints plus convexity already suffice.
+constraint.
 
-The gauge `p_0 = (0,0)`, `p_1 = (1,0)` is without loss of generality: the
-constraints are similarity-covariant (translation, rotation, scaling), and the
-opposite (clockwise) orientation is the `y -> -y` reflection, which preserves
-both the constraints and the gauge -- so checking the counter-clockwise
-orientation alone is conclusive.
+**Stronger for 14 of 15 classes.** For every class except class 14, the system
+`ED + PB + gauge + distinct vertices` is already UNSAT with *no convexity
+assumption at all* -- an order-independent kill. Only class 14 has a feasible
+bare system (its real solution set is non-empty); there the exposed-vertex
+constraint is what forces UNSAT, confirming class 14 has no strictly convex
+realization without invoking its Groebner branch analysis.
+
+**Gauge.** `p_0 = (0,0)`, `p_1 = (1,0)` is without loss of generality: the
+constraints are similarity-covariant (translation, rotation, scaling) and a
+strictly convex octagon always has `p_0 != p_1`, so every similarity class has
+such a representative; nothing is excluded.
 
 ## Independence and scope
 

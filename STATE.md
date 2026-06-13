@@ -47,9 +47,13 @@ survivor artifact. See `docs/n8-independent-obstruction.md`.
 
 A further independent second source now covers all 15 classes uniformly with a
 different decision procedure: `scripts/check_n8_survivors_smt.py` asks z3
-nonlinear real arithmetic whether any strictly convex octagon (label order)
-satisfies each class's equal-distance + perpendicular-bisector constraints,
-and finds every class UNSAT. This cross-checks both the cyclic-order class and
+nonlinear real arithmetic whether any strictly convex octagon -- encoded
+order-free, every vertex exposed in some direction, so no assumption that the
+canonical label order is the boundary order -- satisfies each class's
+equal-distance + perpendicular-bisector constraints, and finds every class
+UNSAT. In fact 14 of the 15 classes are already UNSAT with no convexity
+assumption at all (order-independent); only class 14 needs the
+exposed-vertex constraint. This cross-checks both the cyclic-order class and
 all fourteen PB+ED classes -- including the four Groebner-dependent ones the
 SymPy-free recheck skips -- without using Groebner bases or the cyclic-order
 combinatorics. Repo-local exact-obstruction cross-check pending external

@@ -33,12 +33,26 @@ def test_loads_fifteen_survivors():
 
 def test_groebner_dependent_classes_unsat():
     """The four Groebner-dependent classes (the gap in the SymPy-free recheck)
-    are UNSAT under the independent z3 decision procedure."""
+    have no strictly convex realization under the independent z3 decision
+    procedure (order-free strict convex position is UNSAT)."""
     pytest.importorskip("z3")
     for cid in (3, 4, 5, 14):
-        verdict, neqs = MOD.decide_class(_rows(cid), 60000)
-        assert verdict == "unsat", (cid, verdict)
-        assert neqs == 64
+        d = MOD.decide_class(_rows(cid), 60000)
+        assert d["strict_convex"] == "unsat", (cid, d)
+        assert d["equations"] == 64
+
+
+def test_class14_needs_convexity_others_orderfree():
+    """Class 14 is SAT without convexity (its bare ED+PB system has solutions)
+    but UNSAT under strict convex position; a sample of other classes is
+    already UNSAT with no convexity assumption (order-independent)."""
+    pytest.importorskip("z3")
+    d14 = MOD.decide_class(_rows(14), 60000)
+    assert d14["without_convexity"] == "sat", d14
+    assert d14["strict_convex"] == "unsat", d14
+    for cid in (0, 3, 5):
+        d = MOD.decide_class(_rows(cid), 60000)
+        assert d["without_convexity"] == "unsat", (cid, d)
 
 
 def test_each_center_has_four_witnesses():
@@ -53,5 +67,5 @@ def test_each_center_has_four_witnesses():
 def test_all_fifteen_unsat():
     pytest.importorskip("z3")
     for rec in MOD.load_survivors(MOD.repo_root()):
-        verdict, _ = MOD.decide_class(rec["rows"], 60000)
-        assert verdict == "unsat", (rec["id"], verdict)
+        d = MOD.decide_class(rec["rows"], 60000)
+        assert d["strict_convex"] == "unsat", (rec["id"], d)

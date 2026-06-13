@@ -9118,8 +9118,8 @@ artifacts:
       - official/global status update
   - id: n8_survivors_smt
     path: data/certificates/n8_survivors_smt.json
-    sha256: 3599c41f9dac3c330e602df109bc3095dff8085c0d7e25584f7e2ab47678898e
-    size_bytes: 2051
+    sha256: d515c45dae7c9d21ce85125b8bb58c0b6c8011a61571a5e38db660f9468fe949
+    size_bytes: 3169
     kind: smt_certificate_artifact
     generator: scripts/check_n8_survivors_smt.py
     command: python scripts/check_n8_survivors_smt.py --assert-clear --write-artifact data/certificates/n8_survivors_smt.json
@@ -9137,7 +9137,22 @@ artifacts:
       clear: true
       n: 8
       classes_total: 15
-      non_unsat_classes: []
+      not_strictly_convex_unsat_failures: []
+      order_independent_unsat_classes:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
     forbidden_claims:
       - replaces the n=8 exact survivor artifacts
       - independent of the incidence enumeration

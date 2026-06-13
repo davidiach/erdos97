@@ -258,13 +258,17 @@ An independent SMT cross-check in `docs/n8-survivors-smt-cross-check.md`
 (`scripts/check_n8_survivors_smt.py`) covers all 15 classes uniformly with a
 different decision procedure: z3 nonlinear real arithmetic finds, for every
 class, that the equal-distance + perpendicular-bisector constraints together
-with strict convexity (label order) are UNSAT, so no class has a strictly
-convex octagon realization. This is a second source for both the cyclic-order
-class and all fourteen PB+ED classes -- including the four Groebner-dependent
-ones (`3`, `4`, `5`, `14`) the SymPy-free recheck skips -- using neither
-Groebner bases nor the cyclic-order combinatorics. `EXACT_OBSTRUCTION` (SMT),
-repo-local cross-check pending external review; it strengthens but does not
-replace the existing artifacts. See `data/certificates/n8_survivors_smt.json`.
+with order-free strict convex position (every vertex exposed in some
+direction, so no assumption that the canonical label order is the boundary
+order) are UNSAT, so no class has a strictly convex octagon realization in any
+order. In fact 14 of the 15 classes are already UNSAT with no convexity
+assumption at all (order-independent); only class 14 needs the exposed-vertex
+constraint. This is a second source for both the cyclic-order class and all
+fourteen PB+ED classes -- including the four Groebner-dependent ones (`3`,
+`4`, `5`, `14`) the SymPy-free recheck skips -- using neither Groebner bases
+nor the cyclic-order combinatorics. `EXACT_OBSTRUCTION` (SMT), repo-local
+cross-check pending external review; it strengthens but does not replace the
+existing artifacts. See `data/certificates/n8_survivors_smt.json`.
 
 ### Proof-note draft: geometric exclusion of n <= 8
 
