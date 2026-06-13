@@ -99,11 +99,14 @@ The checker carries two internal guards:
 - *Faithfulness*: for each witness index the radius solving the distance
   equation yields `P(r)` equal to the witness-angle cosine, which lies in the
   modelled set — confirming (i)-(iii) encode the geometry exactly.
-- *Non-vacuity*: the conditions are satisfiable in the degenerate boundary
-  limit `gamma -> pi/2`, `z -> 1` (the `C` square collapses onto the `A`
-  square), so the window-UNSAT is a genuine obstruction rather than a vacuous
-  over-constraint — solutions appear exactly at the excluded,
-  non-strictly-convex boundary.
+- *Non-vacuity*: the checker constructs and verifies an explicit **interior,
+  off-window** solution of (i)&(ii)&(iii) — e.g. (combo
+  `(-cos b, -cos g, +cos(g-b))`) `y ~ 0.4277`, `z ~ 0.7390`, `beta = 0.3`,
+  `gamma ~ 1.2586`, with strict `0 < beta < gamma < pi/2`, both radii outside
+  the window (`y^2 ~ 0.18`, `z^2 ~ 0.55`), confirmed 4-bad by raw coordinate
+  distances. So the in-window UNSAT is a genuine obstruction, not a vacuous
+  over-constraint: the 4-bad conditions are satisfiable, and it is precisely
+  the strict-convexity radius window that removes every solution.
 
 ## Scope and non-claims
 

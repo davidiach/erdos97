@@ -152,33 +152,120 @@ def faithfulness_ok() -> bool:
     return True
 
 
+def _raw_branchG_4bad(y: float, z: float, beta: float, gamma: float,
+                      tol: float = 1e-7) -> bool:
+    """Raw geometric branch-G 4-badness: each of A_0,B_0,C_0 has >=4
+    equidistant co-vertices (using coordinates directly, no reduction)."""
+    h = math.pi / 4
+    ang = [2 * h * k for k in range(4)]
+    pts = {
+        "A": [(math.cos(a), math.sin(a)) for a in ang],
+        "B": [(y * math.cos(beta + a), y * math.sin(beta + a)) for a in ang],
+        "C": [(z * math.cos(gamma + a), z * math.sin(gamma + a)) for a in ang],
+    }
+    for orb in "ABC":
+        c = pts[orb][0]
+        buckets: dict[float, int] = {}
+        for nm in "ABC":
+            for j, q in enumerate(pts[nm]):
+                if nm == orb and j == 0:
+                    continue
+                key = round((c[0] - q[0]) ** 2 + (c[1] - q[1]) ** 2, 7)
+                buckets[key] = buckets.get(key, 0) + 1
+        if max(buckets.values()) < 4:
+            return False
+    return True
+
+
 def nonvacuity_witness() -> dict:
-    """The system is satisfiable in the degenerate boundary limit gamma->pi/2,
-    z->1 (the C square collapses onto the A square): there P(z)=0=cos(pi/2) and
-    the tie holds. This shows the window-UNSAT is a genuine obstruction, not a
-    vacuous over-constraint -- solutions appear exactly at the excluded
-    (non-strictly-convex) boundary."""
-    return {"y": 1.0, "z": 1.0, "beta_deg": 0.0, "gamma_deg": 90.0,
-            "note": "degenerate boundary limit; excluded by strict convexity"}
+    """Construct and VERIFY an interior, off-window solution of (i)&(ii)&(iii),
+    proving the conjunction is non-vacuous: it is satisfiable with strict
+    ``0 < beta < gamma < pi/2`` yet only outside the strict-convexity radius
+    window, which is exactly why the in-window decision is UNSAT rather than
+    vacuously contradictory.
+
+    Combo ``(-cos b, -cos g, +cos(g-b))``: with ``y`` fixed by ``P(y) = -cos b``
+    (``beta`` chosen), bisect ``gamma`` so the tie ``Q(y,z) = cos(gamma-beta)``
+    holds (``z`` fixed by ``P(z) = -cos g``). The returned point is checked
+    against conditions (i)-(iii) and the raw geometric 4-bad definition."""
+
+    def yfor(val: float) -> float:
+        return val + math.sqrt(val * val + 1)  # positive root of P(r)=val
+
+    def q(y: float, z: float) -> float:
+        return (z * z - y * y) / (2 * y * z)
+
+    beta = 0.30
+    y = yfor(-math.cos(beta))
+
+    def tie(gamma: float) -> float:
+        return q(y, yfor(-math.cos(gamma))) - math.cos(gamma - beta)
+
+    lo, hi = beta + 1e-4, math.pi / 2 - 1e-4
+    verified = False
+    gamma = z = float("nan")
+    if tie(lo) * tie(hi) < 0:
+        for _ in range(200):
+            mid = (lo + hi) / 2
+            if tie(lo) * tie(mid) <= 0:
+                hi = mid
+            else:
+                lo = mid
+        gamma = (lo + hi) / 2
+        z = yfor(-math.cos(gamma))
+        cb, sb = math.cos(beta), math.sin(beta)
+        cg, sg = math.cos(gamma), math.sin(gamma)
+
+        def near(v, opts):
+            return min(abs(v - o) for o in opts) < 1e-9
+
+        cond_ok = (
+            near((y * y - 1) / (2 * y), [cb, -cb, sb, -sb])
+            and near((z * z - 1) / (2 * z), [cg, -cg, sg, -sg])
+            and near(q(y, z), [math.cos(gamma - beta), -math.cos(gamma - beta),
+                               math.sin(gamma - beta), -math.sin(gamma - beta)])
+        )
+        off_window = not (
+            1 / math.sqrt(2) < y < math.sqrt(2)
+            and 1 / math.sqrt(2) < z < math.sqrt(2)
+        )
+        strict_order = 0 < beta < gamma < math.pi / 2
+        raw = _raw_branchG_4bad(y, z, beta, gamma)
+        verified = cond_ok and off_window and strict_order and raw
+    return {
+        "y": y, "z": z, "beta": beta, "gamma": gamma,
+        "in_window": (
+            1 / math.sqrt(2) < y < math.sqrt(2)
+            and 1 / math.sqrt(2) < z < math.sqrt(2)
+        ),
+        "raw_4bad": _raw_branchG_4bad(y, z, beta, gamma) if gamma == gamma else False,
+        "verified": verified,
+        "note": (
+            "interior off-window solution of (i)&(ii)&(iii) with strict "
+            "0<beta<gamma<pi/2; satisfiable yet outside the convexity window, "
+            "so the in-window UNSAT is a genuine (non-vacuous) obstruction"
+        ),
+    }
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--timeout-ms", type=int, default=20000)
     ap.add_argument("--assert-clear", action="store_true",
-                    help="exit nonzero unless all 64 combos are UNSAT in-window")
-    ap.add_argument("--check-vacuity", action="store_true",
-                    help="also confirm the system is SAT without the window")
+                    help="exit nonzero unless all 64 combos are UNSAT in-window "
+                         "and both self-tests (faithfulness, non-vacuity) pass")
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--write-artifact", type=str, default="")
     args = ap.parse_args()
 
     faithful = faithfulness_ok()
+    witness = nonvacuity_witness()
     main_res = decide_all(window=True, convex=False, timeout_ms=args.timeout_ms)
     clear = (
         main_res["counts"]["sat"] == 0
         and main_res["counts"]["unknown"] == 0
         and faithful
+        and witness["verified"]
     )
     payload = {
         "schema": "erdos97.three_square_m4_closure.v1",
@@ -209,12 +296,9 @@ def main() -> int:
         "sat_combos": main_res["sat_combos"],
         "unknown_combos": main_res["unknown_combos"],
         "faithfulness_ok": faithful,
-        "nonvacuity_witness": nonvacuity_witness(),
+        "nonvacuity_witness": witness,
         "clear": clear,
     }
-    if args.check_vacuity:
-        novwin = decide_all(window=False, convex=False, timeout_ms=args.timeout_ms)
-        payload["without_window"] = novwin["counts"]
 
     if args.write_artifact:
         with open(args.write_artifact, "w", encoding="utf-8") as fh:
@@ -226,7 +310,8 @@ def main() -> int:
         c = main_res["counts"]
         print(f"m=4 branch-G, in-window, no-convexity over {main_res['total']} "
               f"combos: UNSAT={c['unsat']} SAT={c['sat']} UNKNOWN={c['unknown']}")
-        print(f"faithfulness_ok={faithful}  clear={clear}")
+        print(f"faithfulness_ok={faithful}  "
+              f"nonvacuity_verified={witness['verified']}  clear={clear}")
         if main_res["sat_combos"]:
             print(f"  SAT combos: {main_res['sat_combos']}")
         if main_res["unknown_combos"]:

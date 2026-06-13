@@ -10,11 +10,14 @@
  "m": 4,
  "n": 12,
  "nonvacuity_witness": {
-  "beta_deg": 0.0,
-  "gamma_deg": 90.0,
-  "note": "degenerate boundary limit; excluded by strict convexity",
-  "y": 1.0,
-  "z": 1.0
+  "beta": 0.3,
+  "gamma": 1.258635932578862,
+  "in_window": false,
+  "note": "interior off-window solution of (i)&(ii)&(iii) with strict 0<beta<gamma<pi/2; satisfiable yet outside the convexity window, so the in-window UNSAT is a genuine (non-vacuous) obstruction",
+  "raw_4bad": true,
+  "verified": true,
+  "y": 0.42765584905087106,
+  "z": 0.7389820903191625
  },
  "provenance": {
   "command": "python scripts/check_three_square_m4_closure.py --assert-clear --write-artifact data/certificates/three_square_m4_closure.json",
