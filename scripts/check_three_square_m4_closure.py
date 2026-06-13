@@ -301,7 +301,7 @@ def main() -> int:
     }
 
     if args.write_artifact:
-        with open(args.write_artifact, "w", encoding="utf-8") as fh:
+        with open(args.write_artifact, "w", encoding="utf-8", newline="\n") as fh:
             json.dump(payload, fh, indent=1, sort_keys=True)
             fh.write("\n")
     if args.json:
