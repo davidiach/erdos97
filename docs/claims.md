@@ -1248,9 +1248,13 @@ row-criticality packet then checks the three cascade signatures with auxiliary
 center pair `5,8`: the full local row package `{5,6,8}` is a vertex-circle
 strict cycle, while every nonempty proper row truncation is quotient-clean.
 This sharpens the bridge target to force row `8` as the strict endpoint row,
-in addition to the row-`5`/row-`6` cascade equalities. It still does not prove
-support existence, row forcing, endpoint-`8` forcing, `[3,5]` impossibility,
-`n=9`, the bootstrap bridge, or Erdos Problem #97.
+in addition to the row-`5`/row-`6` cascade equalities. The endpoint-target
+follow-up strengthens the conditional form of that target: for each stored
+cascade package, every center-`8` rich class containing `[0,4,6]` keeps the
+quotient replay obstructed, covering `93` signature-level rich supersets
+(`72` self-edges and `21` strict cycles). It still does not prove support
+existence, row forcing, endpoint-`8` forcing, `[3,5]` impossibility, `n=9`,
+the bootstrap bridge, or Erdos Problem #97.
 
 The source-`151` singleton-support audit in
 `docs/bootstrap-t12-151-singleton-support-audit.md` covers rows `151:5` and

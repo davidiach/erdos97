@@ -570,7 +570,11 @@ the three auxiliary-center-`5,8` cascade signatures and finds a sharp
 three-row boundary: `{5,6,8}` is strict-cycle obstructed, while all `18`
 nonempty proper row truncations are quotient-clean. The remaining bridge
 target therefore has to force the row-`8` strict endpoint row as well as the
-row-`5`/row-`6` cascade equalities.
+row-`5`/row-`6` cascade equalities. The endpoint-target follow-up now shows
+that, for each stored cascade package, any center-`8` rich class containing
+the triple `[0,4,6]` keeps the quotient replay obstructed; across `93`
+signature-level rich supersets the statuses are `72` self-edges and `21`
+strict cycles.
 This is still proof-mining bookkeeping only, not support existence, row
 forcing, endpoint-`8` forcing, `[3,5]` impossibility, simultaneous realization
 of all components, `n=9`, or the bridge.
@@ -578,7 +582,8 @@ See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
 `docs/bootstrap-t12-151-6-label4-transfer-length-components.md`, plus
 `docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md` and
 `docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md`, plus
-`docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md`.
+`docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md` and
+`docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md`.
 
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation

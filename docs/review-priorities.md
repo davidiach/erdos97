@@ -1020,6 +1020,15 @@ condition that the surviving multi-block family does not automatically satisfy:
   proper row truncation is quotient-clean. The remaining target is to force
   row `8` as the strict endpoint row alongside the row-`5`/row-`6` cascade
   equalities, or to find a different genuine support-rich obstruction.
+- bootstrap/T12 focused `151:6` label-`4` cascade endpoint-`8` target
+  evidence, as recorded in
+  `docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md`, replacing
+  row `8` by every center-`8` rich class containing `[0,4,6]` for the three
+  stored cascade packages. All `93` signature-level rich supersets are
+  quotient-obstructed (`72` self-edges and `21` strict cycles). The remaining
+  target is to force that center-`8` rich triple from genuine
+  private-pair/rich-class geometry, or to find a different support-rich
+  obstruction.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

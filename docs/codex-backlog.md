@@ -548,10 +548,14 @@ minimal/rich-class hypotheses.
    `python scripts/check_bootstrap_t12_151_6_label4_cascade_row_criticality.py --check --assert-expected --json`
    then checks that the three auxiliary-center-`5,8` cascade signatures are
    strict-cycle obstructed with the full local row package `{5,6,8}`, while
-   all `18` nonempty proper row truncations are quotient-clean. The next
+   all `18` nonempty proper row truncations are quotient-clean. The endpoint
+   target packet
+   `python scripts/check_bootstrap_t12_151_6_label4_cascade_endpoint8_targets.py --check --assert-expected --json`
+   then replaces row `8` by every center-`8` rich class containing `[0,4,6]`;
+   all `93` signature-level rich supersets are quotient-obstructed. The next
    useful PR should therefore prove a support-geometry exclusion under genuine
    private-support or rich-class hypotheses, or prove that such label-`4`
-   support forces row `8` as the strict endpoint row / a label-`8`-visible
+   support forces the center-`8` rich triple `[0,4,6]` / a label-`8`-visible
    row-`6` local core, not a component-alone impossibility claim and not
    another selected-row neighborhood widening around `151:6`.
    The source-`151` singleton-support audit in

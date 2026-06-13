@@ -156,14 +156,18 @@ packet then checks the three auxiliary-center-`5,8` cascade signatures: the
 full local row package `{5,6,8}` is strict-cycle obstructed, but every
 nonempty proper row truncation is quotient-clean. Thus a bridge proof must
 also force the row-`8` strict endpoint row, not only the row-`5`/row-`6`
-cascade equalities. See
+cascade equalities. A follow-up endpoint-target packet sharpens that row-`8`
+requirement: for each stored cascade package, any center-`8` rich class
+containing witnesses `[0,4,6]` keeps the quotient replay obstructed. See
 [`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`](docs/bootstrap-t12-151-6-label4-transfer-length-components.md)
 and
 [`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md),
 plus
 [`docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md`](docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md)
 and
-[`docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md`](docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md).
+[`docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md`](docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md),
+with
+[`docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md`](docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md).
 On the source-`81` side, the `81:3` ordered chain-closure, one-layer
 repeated-support, two-repeated-support, and repeated-support saturation packets
 close the current bounded support-chain continuations under basic
