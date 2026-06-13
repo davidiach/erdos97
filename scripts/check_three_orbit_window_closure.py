@@ -1332,6 +1332,65 @@ def check_m(m: int, audit_samples: int, rng: np.random.Generator) -> dict:
     }
 
 
+ARTIFACT_RECORD_KEYS = (
+    "systems_screened",
+    "open_quarter_cells",
+    "screen_candidates",
+    "refuted",
+    "boundary_exclusions",
+    "unresolved",
+    "feasible_survivors",
+)
+
+
+def compare_artifact_replay(payload: dict, artifact_path: str) -> list[str]:
+    """Compare deterministic replay fields against a stored artifact.
+
+    The random atom-catalogue audit count depends on ``--audit-samples`` and
+    is intentionally excluded. A subrange replay compares only matching
+    per-m records; a full-range replay also compares aggregate fields.
+    """
+
+    with open(artifact_path, encoding="utf-8") as fh:
+        stored = json.load(fh)
+    stored_records = {
+        rec.get("m"): rec for rec in stored.get("records", []) if isinstance(rec, dict)
+    }
+    errors: list[str] = []
+    for rec in payload["records"]:
+        m = rec["m"]
+        expected = stored_records.get(m)
+        if expected is None:
+            errors.append(f"stored artifact is missing m={m}")
+            continue
+        for key in ARTIFACT_RECORD_KEYS:
+            if rec.get(key) != expected.get(key):
+                errors.append(
+                    f"m={m} {key}: replay {rec.get(key)!r} "
+                    f"!= stored {expected.get(key)!r}"
+                )
+
+    if (
+        payload["min_m"] == stored.get("min_m")
+        and payload["max_m"] == stored.get("max_m")
+    ):
+        for key in (
+            "clear",
+            "total_systems",
+            "total_screen_candidates",
+            "total_boundary_exclusions",
+            "ms_with_survivors",
+            "ms_fully_screened",
+            "ms_with_open_quarter_cells",
+        ):
+            if payload.get(key) != stored.get(key):
+                errors.append(
+                    f"{key}: replay {payload.get(key)!r} "
+                    f"!= stored {stored.get(key)!r}"
+                )
+    return errors
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="three-orbit (t=3) finite-m closure screen"
@@ -1351,6 +1410,12 @@ def main() -> int:
     )
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--write-artifact", type=str, default="")
+    parser.add_argument(
+        "--check-artifact",
+        type=str,
+        default="",
+        help="compare deterministic replay fields against a stored artifact",
+    )
     args = parser.parse_args()
 
     rng = np.random.default_rng(SEED)
@@ -1413,8 +1478,15 @@ def main() -> int:
         ],
         "clear": not bad,
     }
+    if args.check_artifact:
+        errors = compare_artifact_replay(payload, args.check_artifact)
+        if errors:
+            print("artifact replay mismatch:", file=sys.stderr)
+            for err in errors:
+                print(f"- {err}", file=sys.stderr)
+            return 1
     if args.write_artifact:
-        with open(args.write_artifact, "w", encoding="utf-8") as fh:
+        with open(args.write_artifact, "w", encoding="utf-8", newline="\n") as fh:
             json.dump(payload, fh, indent=1, sort_keys=True)
             fh.write("\n")
     if args.json:

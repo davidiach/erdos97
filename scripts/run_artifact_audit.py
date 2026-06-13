@@ -3169,6 +3169,8 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "--audit-samples",
             "10",
             "--assert-clear",
+            "--check-artifact",
+            "data/certificates/three_orbit_window_closure_m3_16.json",
         ),
         claim_scope=(
             "Sub-range replay of the three-orbit (t=3) finite-m closure "

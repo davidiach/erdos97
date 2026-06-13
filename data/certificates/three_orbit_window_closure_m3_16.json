@@ -92,8 +92,8 @@
    "feasible_survivors": [],
    "m": 6,
    "open_quarter_cells": 0,
-   "refuted": 31,
-   "screen_candidates": 40,
+   "refuted": 29,
+   "screen_candidates": 38,
    "self_audit": {
     "configs_checked": 159,
     "m": 6
@@ -111,8 +111,8 @@
    "feasible_survivors": [],
    "m": 7,
    "open_quarter_cells": 0,
-   "refuted": 148,
-   "screen_candidates": 162,
+   "refuted": 138,
+   "screen_candidates": 152,
    "self_audit": {
     "configs_checked": 160,
     "m": 7
@@ -126,12 +126,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 36,
+   "boundary_exclusions": 28,
    "feasible_survivors": [],
    "m": 8,
    "open_quarter_cells": 1,
-   "refuted": 76,
-   "screen_candidates": 112,
+   "refuted": 85,
+   "screen_candidates": 113,
    "self_audit": {
     "configs_checked": 155,
     "m": 8
@@ -145,12 +145,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 65,
+   "boundary_exclusions": 68,
    "feasible_survivors": [],
    "m": 9,
    "open_quarter_cells": 0,
-   "refuted": 367,
-   "screen_candidates": 432,
+   "refuted": 366,
+   "screen_candidates": 434,
    "self_audit": {
     "configs_checked": 153,
     "m": 9
@@ -164,12 +164,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 15,
+   "boundary_exclusions": 11,
    "feasible_survivors": [],
    "m": 10,
    "open_quarter_cells": 0,
-   "refuted": 216,
-   "screen_candidates": 231,
+   "refuted": 250,
+   "screen_candidates": 261,
    "self_audit": {
     "configs_checked": 160,
     "m": 10
@@ -183,12 +183,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 48,
+   "boundary_exclusions": 51,
    "feasible_survivors": [],
    "m": 11,
    "open_quarter_cells": 0,
-   "refuted": 797,
-   "screen_candidates": 845,
+   "refuted": 803,
+   "screen_candidates": 854,
    "self_audit": {
     "configs_checked": 155,
     "m": 11
@@ -202,12 +202,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 148,
+   "boundary_exclusions": 152,
    "feasible_survivors": [],
    "m": 12,
    "open_quarter_cells": 1,
-   "refuted": 649,
-   "screen_candidates": 797,
+   "refuted": 628,
+   "screen_candidates": 780,
    "self_audit": {
     "configs_checked": 156,
     "m": 12
@@ -221,12 +221,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 211,
+   "boundary_exclusions": 210,
    "feasible_survivors": [],
    "m": 13,
    "open_quarter_cells": 0,
-   "refuted": 1439,
-   "screen_candidates": 1650,
+   "refuted": 1460,
+   "screen_candidates": 1670,
    "self_audit": {
     "configs_checked": 158,
     "m": 13
@@ -240,12 +240,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 75,
+   "boundary_exclusions": 76,
    "feasible_survivors": [],
    "m": 14,
    "open_quarter_cells": 0,
-   "refuted": 987,
-   "screen_candidates": 1062,
+   "refuted": 967,
+   "screen_candidates": 1043,
    "self_audit": {
     "configs_checked": 156,
     "m": 14
@@ -259,12 +259,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 139,
+   "boundary_exclusions": 131,
    "feasible_survivors": [],
    "m": 15,
    "open_quarter_cells": 0,
-   "refuted": 2624,
-   "screen_candidates": 2763,
+   "refuted": 2609,
+   "screen_candidates": 2740,
    "self_audit": {
     "configs_checked": 157,
     "m": 15
@@ -278,12 +278,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 225,
+   "boundary_exclusions": 212,
    "feasible_survivors": [],
    "m": 16,
    "open_quarter_cells": 1,
-   "refuted": 1484,
-   "screen_candidates": 1709,
+   "refuted": 1598,
+   "screen_candidates": 1810,
    "self_audit": {
     "configs_checked": 156,
     "m": 16
@@ -301,8 +301,8 @@
  "scope": "three concentric regular m-gon orbits (t=3), all radii, all relative rotations, all selected-witness rows; float64 screen with 60-digit deterministic re-derivation of candidates and 240-digit boundary rechecks; the m = 0 mod 4 quarter cells are skipped and recorded as named open sub-cases; not an all-m lemma, not an exact certificate for screened cells, not a proof of Erdos Problem #97, and not a counterexample claim",
  "status": "REVIEW_PENDING_SCREEN_ONLY",
  "tool": "scripts/check_three_orbit_window_closure.py",
- "total_boundary_exclusions": 990,
- "total_screen_candidates": 9834,
+ "total_boundary_exclusions": 967,
+ "total_screen_candidates": 9926,
  "total_systems": {
   "AB": 15155,
   "AC": 15155,

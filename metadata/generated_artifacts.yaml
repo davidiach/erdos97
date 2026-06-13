@@ -9010,13 +9010,13 @@ artifacts:
       - general proof of Erdos Problem #97
   - id: three_orbit_window_closure_m3_16
     path: data/certificates/three_orbit_window_closure_m3_16.json
-    sha256: 546540a8b296b00bd7006f768b73a8997e62f2d6cf259308adb5ad97b427096c
+    sha256: 747d421be84b09cd4c2c0c952335cd2eabe8faeda693d28e8cc8d21a666c43a4
     size_bytes: 5946
     kind: restricted_family_screen_artifact
     generator: scripts/check_three_orbit_window_closure.py
     command: python scripts/check_three_orbit_window_closure.py --min-m 3 --max-m 16 --audit-samples 40 --write-artifact data/certificates/three_orbit_window_closure_m3_16.json
     checker: scripts/check_three_orbit_window_closure.py
-    check_command: python scripts/check_three_orbit_window_closure.py --min-m 3 --max-m 8 --audit-samples 10 --assert-clear
+    check_command: python scripts/check_three_orbit_window_closure.py --min-m 3 --max-m 8 --audit-samples 10 --assert-clear --check-artifact data/certificates/three_orbit_window_closure_m3_16.json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: REVIEW_PENDING_DIAGNOSTIC
@@ -9029,7 +9029,29 @@ artifacts:
       clear: true
       min_m: 3
       max_m: 16
+      total_screen_candidates: 9926
+      total_boundary_exclusions: 967
+      total_systems.G: 3552
+      total_systems.AB: 15155
+      total_systems.AC: 15155
+      total_systems.BC: 10560
       ms_with_survivors: []
+      ms_fully_screened:
+        - 3
+        - 5
+        - 6
+        - 7
+        - 9
+        - 10
+        - 11
+        - 13
+        - 14
+        - 15
+      ms_with_open_quarter_cells:
+        - 4
+        - 8
+        - 12
+        - 16
     forbidden_claims:
       - all-m three-orbit obstruction
       - exact certificate for screened cells
