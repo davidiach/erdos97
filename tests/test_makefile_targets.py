@@ -422,6 +422,14 @@ def test_verify_bridge_frontier_includes_bootstrap_audits() -> None:
             "--check --assert-expected --json"
         ),
         (
+            "python scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py "
+            "--check --assert-expected --json"
+        ),
+        (
+            "python scripts/check_bootstrap_t12_151_6_label4_center8_core_route.py "
+            "--check --assert-expected --json"
+        ),
+        (
             "python scripts/check_bootstrap_t12_151_singleton_support_audit.py "
             "--check --assert-expected --json"
         ),

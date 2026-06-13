@@ -212,6 +212,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_cascade_endpoint8_targets.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_center8_rich_triple_preflight.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py --check --assert-expected --json
+	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_center8_core_route.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_support_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_two_row_drop.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_full_neighborhood_vertex_circle.py --check --assert-expected --json

@@ -2753,6 +2753,26 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_center8_core_route",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_label4_center8_core_route.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Center-8 core-route diagnostic for the source 151 row 6 label-4 "
+            "private-lane strict-core split; records that 8 of 9 center-8 "
+            "local cores contain [0,4,6], but only 4 of the 32 "
+            "label-8-visible cores are label-8-visible and target-compatible, "
+            "so label-8 visibility alone does not force the center-8 cascade "
+            "target, not support existence, not row forcing, not endpoint-8 "
+            "forcing, not a proof that [3,5] is impossible, not an n=9 proof, "
+            "not a bridge proof, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",
