@@ -2697,6 +2697,24 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_cascade_endpoint8_targets",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_label4_cascade_endpoint8_targets.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Rich endpoint-8 target diagnostic for the source 151 row 6 "
+            "label-4 cascade signatures; checks that every center-8 rich "
+            "class containing [0,4,6] keeps each stored cascade package "
+            "quotient-obstructed, not support existence, not row forcing, "
+            "not a proof that [3,5] is impossible, not endpoint-8 forcing, "
+            "not an n=9 proof, not a bridge proof, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",

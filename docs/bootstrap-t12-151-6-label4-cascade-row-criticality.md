@@ -87,6 +87,12 @@ graph. The next geometric target must either force the row-`8` strict endpoint
 row from genuine support/minimality data, or prove a different support-rich
 obstruction that bypasses this three-row local core.
 
+The follow-up
+[`bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md`](bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md)
+sharpens the first option: for the stored cascade packages, it is enough to
+force a center-`8` rich class containing `[0,4,6]`; every such rich-class
+superset remains quotient-obstructed.
+
 ## What This Does Not Prove
 
 This artifact does not prove support existence, does not prove row forcing,

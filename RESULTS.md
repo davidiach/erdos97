@@ -942,9 +942,13 @@ requires center `5` with witnesses `[4,6]` and center `6` with witnesses
 `[3,5]`. The cascade row-criticality packet then checks the three cascade
 signatures with auxiliary center pair `5,8`: the full local row package
 `{5,6,8}` is strict-cycle obstructed, while every nonempty proper row
-truncation is quotient-clean. This is not a proof of support existence, row
-forcing, endpoint-`8` forcing, `[3,5]` impossibility, simultaneous
-realization of all components, `n=9`, or the bootstrap bridge.
+truncation is quotient-clean. The cascade endpoint-target packet then replaces
+row `8` by every rich center-`8` class containing `[0,4,6]`; all `93`
+signature-level rich supersets remain quotient-obstructed (`72` self-edges
+and `21` strict cycles), so `[0,4,6]` is a sufficient conditional row-`8`
+rich endpoint target for the stored cascade packages. This is not a proof of
+support existence, row forcing, endpoint-`8` forcing, `[3,5]` impossibility,
+simultaneous realization of all components, `n=9`, or the bootstrap bridge.
 See
 `docs/bootstrap-t12-151-6-label4-transfer-obligations.md`,
 `scripts/check_bootstrap_t12_151_6_label4_transfer_obligations.py`, and
@@ -961,7 +965,10 @@ plus `docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md`,
 `data/certificates/bootstrap_t12_151_6_label4_support_hypothesis_ledger.json`,
 plus `docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md`,
 `scripts/check_bootstrap_t12_151_6_label4_cascade_row_criticality.py`, and
-`data/certificates/bootstrap_t12_151_6_label4_cascade_row_criticality.json`.
+`data/certificates/bootstrap_t12_151_6_label4_cascade_row_criticality.json`,
+plus `docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md`,
+`scripts/check_bootstrap_t12_151_6_label4_cascade_endpoint8_targets.py`, and
+`data/certificates/bootstrap_t12_151_6_label4_cascade_endpoint8_targets.json`.
 
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses
