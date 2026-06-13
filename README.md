@@ -163,7 +163,10 @@ center-`8` rich-triple preflight then checks the current support evidence and
 records that this target is not yet forced: the label-`4` support ledger has
 requirements at centers `5`, `6`, and `7`, with no centered support
 requirement at center `8` and no support requirement containing the full
-triple `[0,4,6]`. See
+triple `[0,4,6]`. The source-crosswalk follow-up prevents reusing the existing
+source-`151` row-`8` singleton packet for that target: its row-`8` activation
+family is built from core `[1,2]` and singleton supports `[5,7]`, so no checked
+candidate contains even a pair from `[0,4,6]`. See
 [`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`](docs/bootstrap-t12-151-6-label4-transfer-length-components.md)
 and
 [`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md),
@@ -174,7 +177,9 @@ and
 with
 [`docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md`](docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md)
 and
-[`docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md`](docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md).
+[`docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md`](docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md)
+plus
+[`docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md`](docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md).
 On the source-`81` side, the `81:3` ordered chain-closure, one-layer
 repeated-support, two-repeated-support, and repeated-support saturation packets
 close the current bounded support-chain continuations under basic

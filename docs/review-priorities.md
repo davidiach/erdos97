@@ -1037,6 +1037,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   support requirement, no label-`8` support witness, and no support
   requirement containing the full triple `[0,4,6]`. This is a gate diagnostic
   only, not a proof that the center-`8` rich triple is impossible or forced.
+- bootstrap/T12 focused `151:6` label-`4` center-`8` source-crosswalk evidence,
+  as recorded in
+  `docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md`, checking that
+  the existing source-`151` row-`8` singleton/one-outside packet is not a
+  source for the cascade triple. Its candidates use core `[1,2]` plus supports
+  `[5,7]`, so no checked row contains a pair or full triple from `[0,4,6]`.
+  The remaining target is still a genuine new center-`8` geometric source or
+  a different support-rich obstruction.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

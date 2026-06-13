@@ -8573,6 +8573,85 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_center8_source_crosswalk
+    path: data/certificates/bootstrap_t12_151_6_label4_center8_source_crosswalk.json
+    sha256: 60cb1bf5bc0296de95e124430add409d27953ff2998584d34d949f3ccba7758d
+    size_bytes: 11523
+    kind: proof_target_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 label-4 center-8 source crosswalk; records that the existing source-151 row-8 singleton/one-outside packet uses bootstrap core [1,2] and singleton supports [5,7], so its checked row-8 candidates contain no pair and no full triple from the cascade target [0,4,6]. This is a gate diagnostic only; it does not prove support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_center8_source_crosswalk.v1
+      status: BOOTSTRAP_T12_151_6_LABEL4_CENTER8_SOURCE_CROSSWALK_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.cascade_source_record_id: 151
+      summary.conditional_center8_target_center: 8
+      summary.conditional_center8_triple:
+        - 0
+        - 4
+        - 6
+      summary.conditional_center8_target_status: ENDPOINT8_RICH_TRIPLE_SUFFICES_CONDITIONALLY
+      summary.conditional_center8_preflight_gate_status: NOT_READY_NO_CENTER8_RICH_TRIPLE_SOURCE
+      summary.source151_named_center8_target_row_key: "151:8"
+      summary.source151_named_center8_bootstrap_core_witnesses:
+        - 1
+        - 2
+      summary.source151_named_center8_singleton_support_labels:
+        - 5
+        - 7
+      summary.source151_named_center8_original_row:
+        - 1
+        - 2
+        - 5
+        - 7
+      summary.source151_named_center8_candidate_count: 9
+      summary.source151_named_center8_candidate_overlap_histogram.0: 3
+      summary.source151_named_center8_candidate_overlap_histogram.1: 6
+      summary.source151_named_center8_candidate_rows_with_any_target_label_count: 6
+      summary.source151_named_center8_candidate_rows_with_target_pair_count: 0
+      summary.source151_named_center8_candidate_rows_with_full_target_triple_count: 0
+      summary.source151_named_center8_max_target_triple_overlap: 1
+      summary.source151_one_outside_support_option_count: 2
+      summary.source151_one_outside_activation_overlap_histogram.0: 2
+      summary.source151_one_outside_activation_rows_with_any_target_label_count: 0
+      summary.source151_one_outside_activation_rows_with_full_target_triple_count: 0
+      summary.same_center_as_conditional_target: true
+      summary.same_source_record_as_cascade: true
+      summary.current_source151_named_center8_evidence_supplies_cascade_triple: false
+      summary.gate_status: NOT_READY_EXISTING_SOURCE151_CENTER8_SINGLETON_DOES_NOT_SUPPLY_CASCADE_TRIPLE
+      summary.decision_status: CENTER8_SOURCE151_SINGLETON_PACKET_IS_DISJOINT_FROM_CASCADE_TRIPLE
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - center-8 rich triple is forced
+      - source-151 row-8 singleton packet supplies center-8 [0,4,6]
+      - the private-halo-only pair 3,5 is impossible
+      - center-8 source crosswalk proves the bridge
+      - endpoint target proves support existence
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

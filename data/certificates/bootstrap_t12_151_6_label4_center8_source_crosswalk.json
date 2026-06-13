@@ -1,0 +1,319 @@
+{
+  "claim_scope": "Proof-mining source crosswalk for the source-151 row-6 label-4 center-8 cascade target. It joins the center-8 rich-triple preflight, the source-151 singleton-support audit, the one-outside packet, and the cascade endpoint-8 target packet to check whether the existing source-151 named center-8 singleton/one-outside evidence supplies a center-8 rich class containing [0,4,6]. It records that it does not: the source-151 row-8 singleton target has bootstrap core [1,2] and singleton supports [5,7], so every checked activation candidate contains at most one label from [0,4,6] and no pair from that triple. This does not prove support existence, does not prove row forcing, does not prove endpoint-8 forcing, does not prove that pair [3,5] is impossible, does not prove n=9, does not prove the bootstrap bridge, is not a counterexample, and is not a global status update.",
+  "decision": {
+    "answer": "do_not_reuse_source151_row8_singleton_packet_as_center8_cascade_source",
+    "blocking_reason": "The existing source-151 row-8 singleton target is centered at 8, but its activation family is built from core [1,2] and singleton supports [5,7]. The checked row candidates therefore contain no pair, and no full triple, from [0,4,6].",
+    "current_source151_named_center8_evidence_supplies_cascade_triple": false,
+    "decision_question": "Can the existing source-151 row-8 singleton/one-outside packet be reused as the source for the 151:6 cascade center-8 rich triple [0,4,6]?",
+    "decision_status": "CENTER8_SOURCE151_SINGLETON_PACKET_IS_DISJOINT_FROM_CASCADE_TRIPLE",
+    "gate_status": "NOT_READY_EXISTING_SOURCE151_CENTER8_SINGLETON_DOES_NOT_SUPPLY_CASCADE_TRIPLE",
+    "required_next_lemma": "Add a genuine geometric source for a center-8 rich class containing [0,4,6] in the source-151 row-6 cascade package, or find a different support-rich obstruction."
+  },
+  "interpretation": [
+    "The source-151 row-8 singleton packet and the source-151 row-6 cascade target share center 8 but require different witness geometry.",
+    "The singleton packet proves only an activation-family audit for rows containing [1,2] and one of [5,7]; it does not supply the cascade endpoint triple [0,4,6].",
+    "The center-8 cascade target remains conditional: a future bridge lemma must supply [0,4,6] from genuine minimal/rich-class geometry or bypass this target."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py"
+  },
+  "schema": "erdos97.bootstrap_t12_151_6_label4_center8_source_crosswalk.v1",
+  "source_artifacts": [
+    {
+      "gate_status": "NOT_READY_NO_CENTER8_RICH_TRIPLE_SOURCE",
+      "path": "data/certificates/bootstrap_t12_151_6_label4_center8_rich_triple_preflight.json",
+      "role": "source 151:6 center-8 rich-triple preflight",
+      "scan_status": null,
+      "schema": "erdos97.bootstrap_t12_151_6_label4_center8_rich_triple_preflight.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_CENTER8_RICH_TRIPLE_PREFLIGHT_DIAGNOSTIC_ONLY",
+      "target_status": null,
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "gate_status": null,
+      "path": "data/certificates/bootstrap_t12_151_singleton_support_audit.json",
+      "role": "source 151 singleton-support audit",
+      "scan_status": "ONLY_ORIGINAL_SOURCE151_SINGLETON_ROWS_SURVIVE_SUPPORT_AUDITS",
+      "schema": "erdos97.bootstrap_t12_151_singleton_support_audit.v1",
+      "status": "BOOTSTRAP_T12_151_SINGLETON_SUPPORT_AUDIT_DIAGNOSTIC_ONLY",
+      "target_status": null,
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "gate_status": null,
+      "path": "data/certificates/bootstrap_t12_one_outside.json",
+      "role": "bootstrap/T12 one-outside packet",
+      "scan_status": null,
+      "schema": "erdos97.bootstrap_t12_one_outside.v1",
+      "status": "BOOTSTRAP_T12_ONE_OUTSIDE_DIAGNOSTIC_ONLY",
+      "target_status": null,
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "gate_status": null,
+      "path": "data/certificates/bootstrap_t12_151_6_label4_cascade_endpoint8_targets.json",
+      "role": "source 151:6 cascade endpoint-8 target packet",
+      "scan_status": null,
+      "schema": "erdos97.bootstrap_t12_151_6_label4_cascade_endpoint8_targets.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_CASCADE_ENDPOINT8_TARGETS_DIAGNOSTIC_ONLY",
+      "target_status": "ENDPOINT8_RICH_TRIPLE_SUFFICES_CONDITIONALLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "source_crosswalk_records": [
+    {
+      "blocking_reason": "Every candidate contains [1,2] and one of [5,7], leaving only one remaining label slot for the cascade triple [0,4,6].",
+      "bootstrap_core_witnesses": [
+        1,
+        2
+      ],
+      "candidate_count": 9,
+      "candidate_profiles": [
+        {
+          "contains_full_target_triple": false,
+          "row": [
+            0,
+            1,
+            2,
+            5
+          ],
+          "target_label_overlap": [
+            0
+          ],
+          "target_label_overlap_count": 1,
+          "target_pair_overlap": []
+        },
+        {
+          "contains_full_target_triple": false,
+          "row": [
+            0,
+            1,
+            2,
+            7
+          ],
+          "target_label_overlap": [
+            0
+          ],
+          "target_label_overlap_count": 1,
+          "target_pair_overlap": []
+        },
+        {
+          "contains_full_target_triple": false,
+          "row": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "target_label_overlap": [],
+          "target_label_overlap_count": 0,
+          "target_pair_overlap": []
+        },
+        {
+          "contains_full_target_triple": false,
+          "row": [
+            1,
+            2,
+            3,
+            7
+          ],
+          "target_label_overlap": [],
+          "target_label_overlap_count": 0,
+          "target_pair_overlap": []
+        },
+        {
+          "contains_full_target_triple": false,
+          "row": [
+            1,
+            2,
+            4,
+            5
+          ],
+          "target_label_overlap": [
+            4
+          ],
+          "target_label_overlap_count": 1,
+          "target_pair_overlap": []
+        },
+        {
+          "contains_full_target_triple": false,
+          "row": [
+            1,
+            2,
+            4,
+            7
+          ],
+          "target_label_overlap": [
+            4
+          ],
+          "target_label_overlap_count": 1,
+          "target_pair_overlap": []
+        },
+        {
+          "contains_full_target_triple": false,
+          "row": [
+            1,
+            2,
+            5,
+            6
+          ],
+          "target_label_overlap": [
+            6
+          ],
+          "target_label_overlap_count": 1,
+          "target_pair_overlap": []
+        },
+        {
+          "contains_full_target_triple": false,
+          "row": [
+            1,
+            2,
+            5,
+            7
+          ],
+          "target_label_overlap": [],
+          "target_label_overlap_count": 0,
+          "target_pair_overlap": []
+        },
+        {
+          "contains_full_target_triple": false,
+          "row": [
+            1,
+            2,
+            6,
+            7
+          ],
+          "target_label_overlap": [
+            6
+          ],
+          "target_label_overlap_count": 1,
+          "target_pair_overlap": []
+        }
+      ],
+      "candidate_rows_with_full_target_triple_count": 0,
+      "candidate_rows_with_target_pair_count": 0,
+      "max_target_triple_overlap": 1,
+      "original_target_center_class": [
+        1,
+        2,
+        5,
+        7
+      ],
+      "row_center": 8,
+      "singleton_support_labels": [
+        5,
+        7
+      ],
+      "source_doc": "docs/bootstrap-t12-151-singleton-support-audit.md",
+      "source_name": "source-151 row-8 singleton activation candidates",
+      "source_record_id": 151,
+      "supplies_cascade_triple": false,
+      "target_label_overlap_histogram": {
+        "0": 3,
+        "1": 6
+      },
+      "target_row_key": "151:8",
+      "uses_label_8_as_center": true
+    },
+    {
+      "activation_profiles": [
+        {
+          "contains_full_target_triple": false,
+          "row": [
+            1,
+            2,
+            5
+          ],
+          "target_label_overlap": [],
+          "target_label_overlap_count": 0,
+          "target_pair_overlap": []
+        },
+        {
+          "contains_full_target_triple": false,
+          "row": [
+            1,
+            2,
+            7
+          ],
+          "target_label_overlap": [],
+          "target_label_overlap_count": 0,
+          "target_pair_overlap": []
+        }
+      ],
+      "activation_rows_with_full_target_triple_count": 0,
+      "blocking_reason": "The raw one-outside activation triples are [1,2,5] and [1,2,7], so they contain no label from [0,4,6].",
+      "bootstrap_core_witnesses": [
+        1,
+        2
+      ],
+      "row_center": 8,
+      "source_doc": "docs/bootstrap-t12-one-outside.md",
+      "source_name": "source-151 row-8 one-outside support activations",
+      "source_record_id": 151,
+      "supplies_cascade_triple": false,
+      "support_labels": [
+        5,
+        7
+      ],
+      "support_option_count": 2,
+      "target_label_overlap_histogram": {
+        "0": 2
+      },
+      "target_row_key": "151:8",
+      "uses_label_8_as_center": true
+    }
+  ],
+  "status": "BOOTSTRAP_T12_151_6_LABEL4_CENTER8_SOURCE_CROSSWALK_DIAGNOSTIC_ONLY",
+  "summary": {
+    "cascade_source_record_id": 151,
+    "conditional_center8_preflight_gate_status": "NOT_READY_NO_CENTER8_RICH_TRIPLE_SOURCE",
+    "conditional_center8_target_center": 8,
+    "conditional_center8_target_status": "ENDPOINT8_RICH_TRIPLE_SUFFICES_CONDITIONALLY",
+    "conditional_center8_triple": [
+      0,
+      4,
+      6
+    ],
+    "current_source151_named_center8_evidence_supplies_cascade_triple": false,
+    "decision_status": "CENTER8_SOURCE151_SINGLETON_PACKET_IS_DISJOINT_FROM_CASCADE_TRIPLE",
+    "gate_status": "NOT_READY_EXISTING_SOURCE151_CENTER8_SINGLETON_DOES_NOT_SUPPLY_CASCADE_TRIPLE",
+    "same_center_as_conditional_target": true,
+    "same_source_record_as_cascade": true,
+    "source151_named_center8_bootstrap_core_witnesses": [
+      1,
+      2
+    ],
+    "source151_named_center8_candidate_count": 9,
+    "source151_named_center8_candidate_overlap_histogram": {
+      "0": 3,
+      "1": 6
+    },
+    "source151_named_center8_candidate_rows_with_any_target_label_count": 6,
+    "source151_named_center8_candidate_rows_with_full_target_triple_count": 0,
+    "source151_named_center8_candidate_rows_with_target_pair_count": 0,
+    "source151_named_center8_max_target_triple_overlap": 1,
+    "source151_named_center8_original_row": [
+      1,
+      2,
+      5,
+      7
+    ],
+    "source151_named_center8_singleton_support_labels": [
+      5,
+      7
+    ],
+    "source151_named_center8_target_row_key": "151:8",
+    "source151_one_outside_activation_overlap_histogram": {
+      "0": 2
+    },
+    "source151_one_outside_activation_rows_with_any_target_label_count": 0,
+    "source151_one_outside_activation_rows_with_full_target_triple_count": 0,
+    "source151_one_outside_support_option_count": 2,
+    "target_center": 6,
+    "target_row_key": "151:6"
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

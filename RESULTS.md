@@ -977,7 +977,15 @@ and
 then records the current gate status
 `NOT_READY_NO_CENTER8_RICH_TRIPLE_SOURCE`: the support ledger has no
 center-`8` support requirement, no label-`8` support witness, and no support
-requirement containing the full triple `[0,4,6]`.
+requirement containing the full triple `[0,4,6]`. The source-crosswalk follow-up
+in `docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md`,
+`scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py`, and
+`data/certificates/bootstrap_t12_151_6_label4_center8_source_crosswalk.json`
+then records
+`NOT_READY_EXISTING_SOURCE151_CENTER8_SINGLETON_DOES_NOT_SUPPLY_CASCADE_TRIPLE`:
+the existing source-`151` row-`8` singleton packet uses core `[1,2]` and
+singleton supports `[5,7]`; its nine checked row candidates contain no pair
+and no full triple from the cascade target `[0,4,6]`.
 
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses

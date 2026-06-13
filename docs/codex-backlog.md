@@ -558,6 +558,11 @@ minimal/rich-class hypotheses.
    records that current support evidence does not yet force `[0,4,6]` at
    center `8`: the support ledger has no center-`8` support requirement, no
    label-`8` support witness, and no requirement containing the full triple.
+   The source-crosswalk command
+   `python scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py --check --assert-expected --json`
+   records that the existing source-`151` row-`8` singleton/one-outside packet
+   does not supply this target: its row-`8` candidates use core `[1,2]` and
+   supports `[5,7]`, and contain no pair from `[0,4,6]`.
    The next useful PR should therefore prove a support-geometry exclusion
    under genuine private-support or rich-class hypotheses, or add a new
    geometric forcing source for the center-`8` rich triple / a

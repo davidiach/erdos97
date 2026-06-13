@@ -2734,6 +2734,25 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_center8_source_crosswalk",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Source crosswalk for the source 151 row 6 label-4 center-8 "
+            "cascade target; records that the existing source-151 row-8 "
+            "singleton/one-outside packet uses core [1,2] and supports [5,7], "
+            "so it does not supply a [0,4,6] center-8 rich triple, not "
+            "support existence, not row forcing, not endpoint-8 forcing, not "
+            "a proof that [3,5] is impossible, not an n=9 proof, not a bridge "
+            "proof, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",
