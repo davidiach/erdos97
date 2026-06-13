@@ -176,7 +176,11 @@ merely label-`8` visibility. A residual target-row split then shows that four
 of those six residual assignments contain `[0,4,6]` only as off-center rows
 at centers `2`, `5`, or `7`, while assignments `0` and `11` contain no full
 target triple in any strict-core row. Thus the remaining lane asks for either
-center migration or a separate target-sparse obstruction. See
+center migration or a separate target-sparse obstruction. A target-sparse
+completion preflight then checks the cheapest repair for assignments `0` and
+`11`: all `12` one-row completions of target-pair rows to `[0,4,6]` fail
+basic filters before vertex-circle replay. This blocks a one-row repair, but
+does not prove those assignments impossible. See
 [`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`](docs/bootstrap-t12-151-6-label4-transfer-length-components.md)
 and
 [`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md),
@@ -193,7 +197,9 @@ plus
 and
 [`docs/bootstrap-t12-151-6-label4-center8-core-route.md`](docs/bootstrap-t12-151-6-label4-center8-core-route.md),
 plus
-[`docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md`](docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md).
+[`docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md`](docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md)
+and
+[`docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md).
 On the source-`81` side, the `81:3` ordered chain-closure, one-layer
 repeated-support, two-repeated-support, and repeated-support saturation packets
 close the current bounded support-chain continuations under basic

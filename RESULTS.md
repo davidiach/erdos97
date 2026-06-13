@@ -1002,7 +1002,16 @@ records `NOT_READY_RESIDUAL_TARGET_ROWS_DO_NOT_FORCE_CENTER8`: four residual
 assignments have `[0,4,6]` only as off-center rows at centers `2`, `5`, or
 `7`, while assignments `0` and `11` are target-sparse. This splits the next
 task into center migration for the off-center rows or a separate obstruction
-for the target-sparse assignments.
+for the target-sparse assignments. The target-sparse completion preflight in
+`docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md`,
+`scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_completions.py`,
+and
+`data/certificates/bootstrap_t12_151_6_label4_center8_target_sparse_completions.json`
+records `NOT_READY_TARGET_SPARSE_ONE_ROW_COMPLETIONS_FAIL_BASIC_FILTERS`:
+for assignments `0` and `11`, all `12` one-row completions of target-pair rows
+to `[0,4,6]` fail basic filters before vertex-circle replay. This rules out
+that one-row repair inside the fixed selected-row assignments, but it does not
+prove the target-sparse assignments impossible.
 
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses

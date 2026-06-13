@@ -2792,6 +2792,26 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_center8_target_sparse_completions",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_completions.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Target-sparse one-row completion preflight for the source 151 "
+            "row 6 label-4 center-8 residual assignments 0 and 11; records "
+            "that all 12 one-row completions of target-pair rows to [0,4,6] "
+            "fail basic filters before vertex-circle replay, not a proof "
+            "that assignments 0 and 11 are impossible, not center migration, "
+            "not support existence, not row forcing, not endpoint-8 forcing, "
+            "not a proof that [3,5] is impossible, not an n=9 proof, not a "
+            "bridge proof, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",

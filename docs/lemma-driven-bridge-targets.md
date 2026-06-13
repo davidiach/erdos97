@@ -168,6 +168,10 @@ Required guardrails:
   assignments have `[0,4,6]` only off-center, while assignments `0` and `11`
   have no full target row in any residual strict core. Off-center rows are not
   center-`8` supply without a center-migration lemma.
+- The target-sparse completion packet records that assignments `0` and `11`
+  have no one-row repair: all `12` completions of target-pair rows to
+  `[0,4,6]` fail basic filters before vertex-circle replay. This is not yet a
+  proof that those assignments are impossible.
 - The private-halo-only pair `[3,5]` is the named escape and must be excluded
   or explicitly realized as an escape mechanism.
 

@@ -8849,6 +8849,101 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_center8_target_sparse_completions
+    path: data/certificates/bootstrap_t12_151_6_label4_center8_target_sparse_completions.json
+    sha256: f4df74c7787cf92738d4bb521c159375f468ee4980c72e312abbdac307c53202
+    size_bytes: 26289
+    kind: proof_target_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_completions.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_completions.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_completions.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_completions.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 label-4 center-8 target-sparse one-row completion preflight; records that assignments 0 and 11 have 12 one-row completions of target-pair rows to [0,4,6], and all fail basic filters before vertex-circle replay. This is a diagnostic only; it does not prove assignments 0 and 11 impossible, center migration, support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_center8_target_sparse_completions.v1
+      status: BOOTSTRAP_T12_151_6_LABEL4_CENTER8_TARGET_SPARSE_COMPLETIONS_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 7
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.conditional_center8_target_center: 8
+      summary.conditional_center8_triple:
+        - 0
+        - 4
+        - 6
+      summary.source_residual_gate_status: NOT_READY_RESIDUAL_TARGET_ROWS_DO_NOT_FORCE_CENTER8
+      summary.target_sparse_assignment_indices:
+        - 0
+        - 11
+      summary.target_sparse_pair_row_count: 6
+      summary.completion_attempt_count: 12
+      summary.generated_valid_completion_count: 12
+      summary.basic_filter_surviving_completion_count: 0
+      summary.vertex_circle_checked_completion_count: 0
+      summary.completion_assignment_counts.0: 2
+      summary.completion_assignment_counts.11: 10
+      summary.completion_row_center_counts.2: 4
+      summary.completion_row_center_counts.3: 2
+      summary.completion_row_center_counts.7: 6
+      summary.completion_missing_target_counts.0: 2
+      summary.completion_missing_target_counts.4: 6
+      summary.completion_missing_target_counts.6: 4
+      summary.completion_exact_row_counts.0,1,4,6: 4
+      summary.completion_exact_row_counts.0,2,4,6: 1
+      summary.completion_exact_row_counts.0,3,4,6: 1
+      summary.completion_exact_row_counts.0,4,5,6: 1
+      summary.completion_exact_row_counts.0,4,6,7: 1
+      summary.completion_exact_row_counts.0,4,6,8: 4
+      summary.endpoint_exact_row_allowed_completion_count: 8
+      summary.endpoint_exact_row_disallowed_completion_count: 4
+      summary.failure_attempt_reason_counts.crossing: 12
+      summary.failure_attempt_reason_counts.witness_pair_cap: 12
+      summary.failure_detail_counts.crossing: 29
+      summary.failure_detail_counts.witness_pair_cap: 13
+      summary.one_row_completions_survive_basic_filters: false
+      summary.current_evidence_forces_target_sparse_obstruction: false
+      summary.gate_status: NOT_READY_TARGET_SPARSE_ONE_ROW_COMPLETIONS_FAIL_BASIC_FILTERS
+      summary.completion_status: TARGET_SPARSE_ONE_ROW_COMPLETIONS_ALL_BASIC_FILTER_BLOCKED
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_completions.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_completions.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - center-8 rich triple is forced
+      - label-8 visibility forces center-8 [0,4,6]
+      - off-center target rows force center-8 [0,4,6]
+      - center migration is proved
+      - one-row target-sparse completion proves impossibility
+      - target-sparse assignments 0 and 11 are impossible
+      - target-sparse one-row completions prove the bridge
+      - the center-8 target-compatible local core is forced
+      - assignments 0 and 11 are impossible
+      - the private-halo-only pair 3,5 is impossible
+      - endpoint target proves support existence
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e
