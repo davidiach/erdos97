@@ -9091,8 +9091,8 @@ artifacts:
       - official/global status update
   - id: quarter_cell_closure
     path: data/certificates/quarter_cell_closure.json
-    sha256: ad9cc8e3bd965f4fd9a0199d2666b1ead927213818408ce64ae37ad90cc67e1b
-    size_bytes: 2489
+    sha256: a7214ad31ea417ac1ddfbbd43f32dae5476650f9db8a00f2fd628bbf21342804
+    size_bytes: 2739
     kind: restricted_family_screen_artifact
     generator: scripts/check_quarter_cell_closure.py
     command: python scripts/check_quarter_cell_closure.py --assert-clear --write-artifact data/certificates/quarter_cell_closure.json

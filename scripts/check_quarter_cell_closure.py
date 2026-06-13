@@ -40,10 +40,12 @@ margin), i.e. A_0 cannot be 4-bad. This is float-grade screen evidence
 ``m = 4`` quarter cell is additionally closed exactly by SMT in
 `scripts/check_three_square_m4_closure.py`.
 
-The exact-SMT route does not scale to ``m >= 8`` (z3 nonlinear real arithmetic
-times out on the cubic turn determinants and on the 8+-way witness
-disjunctions), which is why this companion screen exists -- recorded so future
-work does not re-attempt the SMT extension.
+The exact-SMT route did not close ``m >= 8`` in our encoding (z3 nonlinear real
+arithmetic returns ``unknown`` on the 8+-way witness disjunctions and times out
+on the cubic turn determinants in the explicit-combo encoding), which is why
+this companion screen exists -- recorded so future work does not re-attempt
+that particular SMT encoding. A different encoding (e.g. CAD/resultants on the
+band-confined region) may still succeed.
 
 Not an all-m result, not a proof of Erdos Problem #97, not a counterexample.
 """
@@ -199,12 +201,25 @@ def main() -> int:
         "turn_tol": TURN_TOL,
         "tangency_note": (
             "the 4-bad locus is tangent to the convexity boundary: max "
-            "min-turn over (i)&(ii) configs is < 0 but approaches 0 as m "
-            "grows (sup 0 at the degenerate orbit-coincidence limit, "
-            "excluded by strict convexity); screen reliable for bounded m"
+            "min-turn over (i)&(ii) configs is < 0 but its supremum is 0 "
+            "(at the degenerate orbit-coincidence limit, excluded by strict "
+            "convexity), and the sampled max can be driven arbitrarily close "
+            "to 0 by sampling nearer the tangency (non-monotone in grid). So "
+            "the float grid is EVIDENCE of closure, not a certificate, for "
+            "m >= 8"
         ),
         "records": records,
-        "ms_clear": [r["m"] for r in records if r["clear"]],
+        # Per-m closure status, stated unambiguously to prevent any misread of
+        # the grid pass as a closure:
+        #  - m=4 is closed EXACTLY (by SMT in check_three_square_m4_closure.py);
+        #    this screen only corroborates it.
+        #  - m>=8 remain OPEN; the grid pass is tangency-limited EVIDENCE only.
+        "exactly_closed_elsewhere": [m for m in args.ms if m == 4],
+        "open_grid_evidence_only": [r["m"] for r in records
+                                    if r["m"] != 4 and r["clear"]],
+        "grid_all_sampled_nonconvex": [r["m"] for r in records if r["clear"]],
+        # `clear` = the checker's reproducibility pass (lemmas hold AND every
+        # sampled config is strictly non-convex). It does NOT mean m>=8 closed.
         "clear": clear,
     }
     if args.write_artifact:

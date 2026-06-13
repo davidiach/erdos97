@@ -1,8 +1,16 @@
 {
  "boundary_band_lemma_ok": true,
  "clear": true,
- "ms_clear": [
+ "exactly_closed_elsewhere": [
+  4
+ ],
+ "grid_all_sampled_nonconvex": [
   4,
+  8,
+  12,
+  16
+ ],
+ "open_grid_evidence_only": [
   8,
   12,
   16
@@ -68,7 +76,7 @@
  "schema": "erdos97.quarter_cell_closure.v1",
  "scope": "Three-orbit (t=3) quarter cells (m=0 mod 4, A/B-row own pair = m/4). Exact, m-uniform self-tested lemmas: (1) A_0 is 4-bad only if the A_0 B-/C-witness conditions (i)&(ii) hold, uniform in the C-row choice a3, so the quarter cell closes iff A_0 cannot be 4-bad; (2) the boundary-band confinement of beta,gamma. Float grid for m in {4,8,12,16}: every sampled (i)&(ii) config is strictly non-convex (max min-turn < 0), but the margin is tangent to 0 and grid-dependent, so for m>=8 this is EVIDENCE of closure, not a certificate. m=4 is closed exactly by SMT elsewhere; m=8,12,16 remain open. Records that the exact-SMT route does not scale past m=4. Not an all-m lemma, not a proof of Erdos Problem #97, not a counterexample.",
  "status": "REDUCTION_AND_TANGENCY_EVIDENCE",
- "tangency_note": "the 4-bad locus is tangent to the convexity boundary: max min-turn over (i)&(ii) configs is < 0 but approaches 0 as m grows (sup 0 at the degenerate orbit-coincidence limit, excluded by strict convexity); screen reliable for bounded m",
+ "tangency_note": "the 4-bad locus is tangent to the convexity boundary: max min-turn over (i)&(ii) configs is < 0 but its supremum is 0 (at the degenerate orbit-coincidence limit, excluded by strict convexity), and the sampled max can be driven arbitrarily close to 0 by sampling nearer the tangency (non-monotone in grid). So the float grid is EVIDENCE of closure, not a certificate, for m >= 8",
  "trust": "REVIEW_PENDING_DIAGNOSTIC",
  "turn_tol": 1e-12
 }

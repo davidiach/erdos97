@@ -21,9 +21,18 @@ exact turn-sign lemma stated at the end.
 
 ## The A-row reduction
 
+"Quarter cell" means the branch-G cell (no half-step offset) in which the
+A-row and B-row select their own pair at offset `a1 = a2 = m/4` -- the
+residual the generic three-orbit screen skips because its pinning degenerates
+there. Every other branch-G cell (a different own pair `a != m/4`, or a
+half-step branch) is already closed by the generic screen
+(`docs/three-orbit-window-closure.md`); this note handles only the skipped
+`a1 = a2 = m/4` residual, so the reduction below is for that cell.
+
 In a quarter cell the A-row (and B-row) own pair is the 90-degree pair
-`{A_{m/4}, A_{-m/4}}`, at squared distance 2 from `A_0`. So `A_0` is 4-bad only
-if it additionally has a B-vertex and a C-vertex at squared distance 2. With
+`{A_{m/4}, A_{-m/4}}` (`4 sin^2((m/4) h) = 2`), at squared distance 2 from
+`A_0`. So in this cell `A_0` is 4-bad only if it additionally has a B-vertex
+and a C-vertex at squared distance 2. With
 `P(r) = (r^2-1)/(2r)` and `h = pi/m`, a vertex of radius `r` at angle `theta`
 is at squared distance 2 from `A_0 = (1,0)` iff `cos(theta) = P(r)`. The four
 (resp. `m`) B-vertices sit at angles `beta + 2k h`, so:
@@ -62,12 +71,13 @@ near-alignment is exactly what strict convexity forbids.
 Within the boundary bands and the window, the witness locus turns out to be
 **tangent** to the convexity boundary: over a dense grid of `(i)&(ii)`
 configurations with `0 < beta < gamma < 2h`, the maximum of the minimum
-per-period turn determinant is strictly negative but approaches `0` as `m`
-grows, and shrinks further under grid refinement (e.g. `m=16` gives
-`-6.7e-8` at one grid and `-1.6e-9` at a finer one). The supremum is `0`,
+per-period turn determinant is strictly negative but its supremum is `0`,
 attained only in the degenerate orbit-coincidence limit (which strict
-convexity excludes). So every sampled configuration is strictly non-convex,
-but with no uniform margin -- the margin is grid-dependent and tends to `0`.
+convexity excludes). The sampled maximum is **not** monotone in the grid, but
+it can be driven arbitrarily close to `0` by sampling nearer the tangency
+(e.g. a grid of `320` reaches `~-1e-10` for `m = 16`). So every sampled
+configuration is strictly non-convex, but with no uniform margin -- the margin
+is grid-dependent with supremum `0`.
 
 This tangency is why:
 
@@ -83,11 +93,14 @@ This tangency is why:
 
 So future iterations do not re-attempt them:
 
-- **Exact SMT does not scale past `m = 4`.** z3 nonlinear real arithmetic
-  returns `unknown` on the witness-membership disjunctions for `m >= 8`, and
-  times out on the cubic turn determinants in the explicit-combo encoding
-  (both with and without the `(iii)` tie). The `m = 4` success relied on the
-  small (4-value) witness sets and the window making convexity unnecessary.
+- **The exact-SMT encoding used for `m = 4` did not close `m >= 8`.** z3
+  nonlinear real arithmetic returns `unknown` on the witness-membership
+  disjunctions for `m >= 8`, and times out on the cubic turn determinants in
+  the explicit-combo encoding (both with and without the `(iii)` tie). The
+  `m = 4` success relied on the small (4-value) witness sets and the window
+  making convexity unnecessary; neither holds for `m >= 8`. A different
+  encoding (CAD/resultants on the band-confined region, per below) may still
+  succeed -- only this particular SMT encoding is recorded as a dead end.
 - **A blind margin screen cannot close the cells**, because the locus is
   tangent to the convexity boundary (margin `-> 0`).
 
