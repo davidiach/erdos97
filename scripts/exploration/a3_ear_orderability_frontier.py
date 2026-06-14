@@ -54,7 +54,6 @@ import networkx as nx  # noqa: E402  (available per environment)
 from erdos97.bootstrap_cores import (  # noqa: E402
     closure,
     is_inclusion_minimal_generator,
-    search_generating_seed,
 )
 from erdos97.stuck_sets import (  # noqa: E402
     find_minimal_stuck_sets,
@@ -305,11 +304,6 @@ def analyze(target):
     if ms.examples:
         rep["stuck_graph_signature"] = stuck_set_graph_signature(rows, ms.examples[0].vertices)
 
-    # is the WHOLE vertex set a stuck set (every center sees <=2 internal)?
-    full_stuck = all(
-        sum(1 for w in rows[c] if w in set(range(n))) >= 0  # placeholder
-        for c in range(n)
-    )
     internal_full = {c: sum(1 for w in rows[c] if 0 <= w < n) for c in range(n)}
     rep["every_center_internal_in_full"] = internal_full  # = 4 always (sanity)
 
