@@ -1048,6 +1048,20 @@ also fail basic filters before vertex-circle replay. This blocks the
 one-completion plus two-repair route, but still does not prove assignments
 `0` and `11` impossible.
 
+The target-sparse support-cone follow-up in
+`docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md`,
+`scripts/check_bootstrap_t12_151_6_label4_target_sparse_support_cone.py`, and
+`data/certificates/bootstrap_t12_151_6_label4_target_sparse_support_cone.json`
+records `NOT_READY_SUPPORT_CONE_PARTIAL_ENDPOINT_COVERAGE`: after adding the
+cascade support equalities center `5` with `[4,6]` and center `6` with
+`[0,5]`, the target-pair and completion probes have no bounded one- or two-row
+Kalmanson/Altman cone certificate. Adding a center-`8` exact target row covers
+`27` of `30` endpoint-augmented probes, leaving the assignment-`0` endpoint
+rows `[0,1,4,6]`, `[0,2,4,6]`, and `[0,4,6,7]` as next certificate targets.
+This is diagnostic only and still does not prove assignments `0` and `11`
+impossible, support existence, center migration, endpoint-`8` forcing, `[3,5]`
+impossibility, `n=9`, or the bootstrap bridge.
+
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses
 bootstrap-core witnesses `[2,4]` and singleton supports `7` and `8`; row

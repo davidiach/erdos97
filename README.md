@@ -196,7 +196,13 @@ target-sparse obstruction. A depth-two repair packet then allows two
 additional non-completion row replacements after the target completion; all
 `1599696` one-completion plus two-repair candidates still fail basic filters,
 so this selected-row repair route is blocked through two arbitrary extra rows
-without proving a geometric target-sparse obstruction. See
+without proving a geometric target-sparse obstruction. A support-cone follow-up
+then adds the cascade support equalities center `5` with `[4,6]` and center
+`6` with `[0,5]`; target-pair and completion probes still have no bounded
+one- or two-row Kalmanson/Altman cone certificate, while center-`8`
+endpoint-augmented probes are covered in `27` of `30` cases and leave exactly
+three assignment-`0` endpoint rows as next certificate targets. This is still a
+diagnostic only, not a proof that assignments `0` and `11` are impossible. See
 [`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`](docs/bootstrap-t12-151-6-label4-transfer-length-components.md)
 and
 [`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md),
@@ -219,7 +225,9 @@ and
 plus
 [`docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md)
 and
-[`docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md).
+[`docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md),
+plus
+[`docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md`](docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md).
 On the source-`81` side, the `81:3` ordered chain-closure, one-layer
 repeated-support, two-repeated-support, and repeated-support saturation packets
 close the current bounded support-chain continuations under basic
