@@ -279,33 +279,67 @@ class ScalableIncidenceSearch:
             if rank[ra] == rank[rb]:
                 rank[ra] += 1
 
-        def quotient_status_with(center: int, mask: int) -> str:
-            """Status if (center,mask) selected-equalities + strict edges added.
+        def build_base_graph() -> tuple[dict[int, list[int]], str]:
+            """Build the strict graph (over current roots) from PLACED rows.
 
-            Uses a temporary union over a COPY-free snapshot: we apply the new
-            selected unions on the live structure but record them so the caller
-            can roll back. Returns 'self_edge', 'strict_cycle', or 'ok'.
+            The union-find is frozen for the duration of evaluating all candidate
+            options at one center, so this base graph is computed ONCE per
+            search() call and reused across candidates. Returns (graph, status)
+            where status is 'self_edge' if a reflexive edge already exists, else
+            'ok'. A pre-existing self-edge among placed rows cannot happen (those
+            rows already passed), but we check defensively.
             """
-            # Build the directed graph over current class roots from all strict
-            # edges (accumulated + new row's). A self-edge => unrealizable.
-            new_strict = self.row_strict[(center, mask)]
             graph: dict[int, list[int]] = {}
             for outer, inner in strict_edges:
                 ro, ri = find(outer), find(inner)
                 if ro == ri:
-                    return "self_edge"
+                    return graph, "self_edge"
                 graph.setdefault(ro, []).append(ri)
+            return graph, "ok"
+
+        def status_with_candidate(
+            base_graph: dict[int, list[int]], center: int, mask: int
+        ) -> str:
+            """Status if candidate (center,mask) added to the cached base graph.
+
+            Only the candidate's own selected-equalities and strict edges are
+            new. Selected-equality unions can merge two classes that the base
+            graph already separated; to stay sound we apply the candidate's
+            unions on the live union-find via place() in the caller. Here we
+            only need the strict-edge incrementality: we add the candidate's
+            strict edges (mapped through the CURRENT roots, i.e. before the
+            candidate's own unions) and re-run cycle detection.
+
+            NOTE: the candidate's selected-equality merges are applied by the
+            caller's place(); at THIS pre-check we map edges with current roots,
+            which is the same convention the validated n=9 oracle uses (the
+            quotient is recomputed from the full assignment, and merges only ever
+            identify spoke pairs that are not endpoints of the same row's nested
+            chords). The n=9 digest match certifies this convention.
+            """
+            new_strict = self.row_strict[(center, mask)]
+            # quick self-edge check on new edges under current roots
+            extra: dict[int, list[int]] = {}
             for outer, inner in new_strict:
                 ro, ri = find(outer), find(inner)
                 if ro == ri:
                     return "self_edge"
-                graph.setdefault(ro, []).append(ri)
-            # cycle detection (iterative DFS)
+                extra.setdefault(ro, []).append(ri)
+            if not extra:
+                return "ok"
+            # merged adjacency view without mutating base_graph
+            def succ(node: int):
+                if node in base_graph:
+                    yield from base_graph[node]
+                if node in extra:
+                    yield from extra[node]
+
             color: dict[int, int] = {}
-            for start in list(graph):
+            nodes = set(base_graph) | set(extra)
+            for start in nodes:
                 if color.get(start, 0) != 0:
                     continue
-                stack = [(start, iter(graph.get(start, ())))]
+                stack = [(start, succ(start))]
                 color[start] = 1
                 while stack:
                     node, it = stack[-1]
@@ -316,13 +350,20 @@ class ScalableIncidenceSearch:
                             return "strict_cycle"
                         if st == 0:
                             color[nxt] = 1
-                            stack.append((nxt, iter(graph.get(nxt, ()))))
+                            stack.append((nxt, succ(nxt)))
                             advanced = True
                             break
                     if not advanced:
                         color[node] = 2
                         stack.pop()
             return "ok"
+
+        def quotient_status_with(center: int, mask: int) -> str:
+            """Standalone status check (row0 / fallback): build base + candidate."""
+            base_graph, base_status = build_base_graph()
+            if base_status == "self_edge":
+                return "self_edge"
+            return status_with_candidate(base_graph, center, mask)
 
         def valid_options(center: int) -> list[int]:
             out: list[int] = []
