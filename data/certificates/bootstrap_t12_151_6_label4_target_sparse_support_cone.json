@@ -1,0 +1,3647 @@
+{
+  "claim_scope": "Proof-mining support-cone diagnostic for the source-151 row-6 label-4 center-8 target-sparse residual cases. It converts the row-5 [4,6] and row-6 [0,5] cascade support hypotheses into exact selected-distance quotient equalities, probes the assignment-0 and assignment-11 target-pair rows and their one-row target completions with a bounded one- or two-row Kalmanson/Altman cone search, and then repeats the probe after adding each center-8 exact target row containing [0,4,6]. The local target-pair and completion probes have no bounded certificate; the endpoint-augmented probes have bounded certificates for 27 of 30 cases, leaving three assignment-0 endpoint rows uncovered. This does not prove assignments 0 and 11 are impossible, does not prove support existence, does not prove center migration, does not prove row forcing, does not prove endpoint-8 forcing, does not prove that pair [3,5] is impossible, does not prove n=9, does not prove the bootstrap bridge, is not a counterexample, and is not a global status update.",
+  "completion_probe_records": [
+    {
+      "assignment_index": 0,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "completion_missing_target_label": 6,
+      "completion_replaced_label": 3,
+      "completion_row_key": "0,4,6,8",
+      "completion_row_witnesses": [
+        0,
+        4,
+        6,
+        8
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 2,
+      "source_completion_index": 0,
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 0,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            6
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "completion_missing_target_label": 6,
+      "completion_replaced_label": 8,
+      "completion_row_key": "0,3,4,6",
+      "completion_row_witnesses": [
+        0,
+        3,
+        4,
+        6
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 2,
+      "source_completion_index": 1,
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 3,
+          "witnesses": [
+            0,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "completion_missing_target_label": 6,
+      "completion_replaced_label": 2,
+      "completion_row_key": "0,4,5,6",
+      "completion_row_witnesses": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 3,
+      "source_completion_index": 2,
+      "source_core_index": 0,
+      "source_pair_row_index": 0,
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 3,
+          "witnesses": [
+            0,
+            2,
+            4,
+            6
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "completion_missing_target_label": 6,
+      "completion_replaced_label": 5,
+      "completion_row_key": "0,2,4,6",
+      "completion_row_witnesses": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 3,
+      "source_completion_index": 3,
+      "source_core_index": 0,
+      "source_pair_row_index": 0,
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "completion_missing_target_label": 0,
+      "completion_replaced_label": 1,
+      "completion_row_key": "0,4,6,7",
+      "completion_row_witnesses": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 2,
+      "source_completion_index": 4,
+      "source_core_index": 1,
+      "source_pair_row_index": 1,
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "completion_missing_target_label": 0,
+      "completion_replaced_label": 7,
+      "completion_row_key": "0,1,4,6",
+      "completion_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 2,
+      "source_completion_index": 5,
+      "source_core_index": 1,
+      "source_pair_row_index": 1,
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "completion_missing_target_label": 4,
+      "completion_replaced_label": 1,
+      "completion_row_key": "0,4,6,8",
+      "completion_row_witnesses": [
+        0,
+        4,
+        6,
+        8
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 7,
+      "source_completion_index": 6,
+      "source_core_index": 1,
+      "source_pair_row_index": 2,
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "completion_missing_target_label": 4,
+      "completion_replaced_label": 8,
+      "completion_row_key": "0,1,4,6",
+      "completion_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 7,
+      "source_completion_index": 7,
+      "source_core_index": 1,
+      "source_pair_row_index": 2,
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "completion_missing_target_label": 4,
+      "completion_replaced_label": 1,
+      "completion_row_key": "0,4,6,8",
+      "completion_row_witnesses": [
+        0,
+        4,
+        6,
+        8
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 7,
+      "source_completion_index": 8,
+      "source_core_index": 3,
+      "source_pair_row_index": 3,
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "completion_missing_target_label": 4,
+      "completion_replaced_label": 8,
+      "completion_row_key": "0,1,4,6",
+      "completion_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 7,
+      "source_completion_index": 9,
+      "source_core_index": 3,
+      "source_pair_row_index": 3,
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "completion_missing_target_label": 4,
+      "completion_replaced_label": 1,
+      "completion_row_key": "0,4,6,8",
+      "completion_row_witnesses": [
+        0,
+        4,
+        6,
+        8
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 7,
+      "source_completion_index": 10,
+      "source_core_index": 4,
+      "source_pair_row_index": 4,
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "completion_missing_target_label": 4,
+      "completion_replaced_label": 8,
+      "completion_row_key": "0,1,4,6",
+      "completion_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 7,
+      "source_completion_index": 11,
+      "source_core_index": 4,
+      "source_pair_row_index": 4,
+      "strict_row_count": 255
+    }
+  ],
+  "decision": {
+    "answer": "no_not_without_endpoint_target_rows_partial_with_endpoint_rows",
+    "blocking_reason": "The target-pair rows and their one-row target completions have no bounded certificate under the row-5 [4,6] and row-6 [0,5] cascade support equalities. Adding a center-8 exact target row gives bounded certificates for all assignment-11 endpoint augmentations and two assignment-0 endpoint augmentations, but misses three assignment-0 endpoint rows.",
+    "current_evidence_forces_target_sparse_obstruction": false,
+    "decision_question": "Do the pinned cascade support equalities already give a bounded one- or two-row Kalmanson/Altman cone certificate for the target-sparse local rows?",
+    "gate_status": "NOT_READY_SUPPORT_CONE_PARTIAL_ENDPOINT_COVERAGE",
+    "probe_status": "TARGET_SPARSE_SUPPORT_CONE_BOUND_2_PARTIAL_ENDPOINT_ONLY",
+    "required_next_lemma": "Either find a stronger exact cone/Farkas certificate for the three uncovered assignment-0 endpoint rows, prove a genuine center-8 target source excluding those rows, or add a different support-geometry lemma for assignments 0 and 11."
+  },
+  "endpoint_augmented_probe_records": [
+    {
+      "assignment_index": 0,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,1,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "first_bounded_certificate": null,
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "source_target_overlap": [
+        0,
+        4
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 0,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            2,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,2,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "first_bounded_certificate": null,
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "source_target_overlap": [
+        0,
+        4
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 0,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 3,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            3,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,3,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        3,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              2,
+              3,
+              4,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "source_target_overlap": [
+        0,
+        4
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 0,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 8,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,5,6",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              5,
+              6,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "source_target_overlap": [
+        0,
+        4
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 0,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            6,
+            7
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,6,7",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "first_bounded_certificate": null,
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "source_target_overlap": [
+        0,
+        4
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 4,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 3,
+          "witnesses": [
+            0,
+            2,
+            4,
+            5
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,1,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 2,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              4,
+              5
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              4,
+              6,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 3,
+      "row_witnesses": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "source_core_index": 0,
+      "source_pair_row_index": 0,
+      "source_target_overlap": [
+        0,
+        4
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 10,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 3,
+          "witnesses": [
+            0,
+            2,
+            4,
+            5
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            2,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,2,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              2,
+              3,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 3,
+      "row_witnesses": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "source_core_index": 0,
+      "source_pair_row_index": 0,
+      "source_target_overlap": [
+        0,
+        4
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 4,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 3,
+          "witnesses": [
+            0,
+            2,
+            4,
+            5
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            3,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,3,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        3,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 2,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              4,
+              5
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              4,
+              6,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 3,
+      "row_witnesses": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "source_core_index": 0,
+      "source_pair_row_index": 0,
+      "source_target_overlap": [
+        0,
+        4
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 2,
+      "bounded_two_row_certificate_count": 16,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 3,
+          "witnesses": [
+            0,
+            2,
+            4,
+            5
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,5,6",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              5,
+              6,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 3,
+      "row_witnesses": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "source_core_index": 0,
+      "source_pair_row_index": 0,
+      "source_target_overlap": [
+        0,
+        4
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 4,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 3,
+          "witnesses": [
+            0,
+            2,
+            4,
+            5
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            6,
+            7
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,6,7",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 2,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              3,
+              4,
+              5
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              4,
+              6,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 3,
+      "row_witnesses": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "source_core_index": 0,
+      "source_pair_row_index": 0,
+      "source_target_overlap": [
+        0,
+        4
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 4,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            1,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,1,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 2,
+      "row_witnesses": [
+        1,
+        4,
+        6,
+        7
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 1,
+      "source_target_overlap": [
+        4,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 4,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            1,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            2,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,2,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 2,
+      "row_witnesses": [
+        1,
+        4,
+        6,
+        7
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 1,
+      "source_target_overlap": [
+        4,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 4,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            1,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            3,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,3,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        3,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 2,
+      "row_witnesses": [
+        1,
+        4,
+        6,
+        7
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 1,
+      "source_target_overlap": [
+        4,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 2,
+      "bounded_two_row_certificate_count": 13,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            1,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,5,6",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              5,
+              6,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 2,
+      "row_witnesses": [
+        1,
+        4,
+        6,
+        7
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 1,
+      "source_target_overlap": [
+        4,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 3,
+      "bounded_two_row_certificate_count": 14,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            1,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            6,
+            7
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,6,7",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 2,
+      "row_witnesses": [
+        1,
+        4,
+        6,
+        7
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 1,
+      "source_target_overlap": [
+        4,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 3,
+      "bounded_two_row_certificate_count": 14,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,1,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              7,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 2,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 6,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            2,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,2,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              6,
+              7,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 2,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 6,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            3,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,3,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        3,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              6,
+              7,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 2,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 2,
+      "bounded_two_row_certificate_count": 15,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,5,6",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              5,
+              6,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 2,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 6,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            6,
+            7
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,6,7",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              6,
+              7,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 2,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 3,
+      "bounded_two_row_certificate_count": 14,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,1,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              7,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 3,
+      "source_pair_row_index": 3,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 6,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            2,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,2,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              6,
+              7,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 3,
+      "source_pair_row_index": 3,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 6,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            3,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,3,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        3,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              6,
+              7,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 3,
+      "source_pair_row_index": 3,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 2,
+      "bounded_two_row_certificate_count": 15,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,5,6",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              5,
+              6,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 3,
+      "source_pair_row_index": 3,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 6,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            6,
+            7
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,6,7",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              6,
+              7,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 3,
+      "source_pair_row_index": 3,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 3,
+      "bounded_two_row_certificate_count": 14,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,1,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              7,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 4,
+      "source_pair_row_index": 4,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 6,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            2,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,2,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              6,
+              7,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 4,
+      "source_pair_row_index": 4,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 6,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            3,
+            4,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,3,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        3,
+        4,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              6,
+              7,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 4,
+      "source_pair_row_index": 4,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 2,
+      "bounded_two_row_certificate_count": 15,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,5,6",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              5,
+              6,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 4,
+      "source_pair_row_index": 4,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": true,
+      "bounded_single_certificate_count": 1,
+      "bounded_two_row_certificate_count": 6,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            6,
+            7
+          ]
+        }
+      ],
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,6,7",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "first_bounded_certificate": {
+        "certificate_row_count": 1,
+        "claim_strength": "Bounded exact local cone certificate for this encoded quotient input and fixed cyclic order only.",
+        "coefficient_negative_count": 0,
+        "coefficient_positive_count": 0,
+        "coefficient_zero_count": 28,
+        "combined_nonzero_coefficient_count": 0,
+        "nonpositive_sum_verified": true,
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              6,
+              7,
+              8
+            ],
+            "source": "kalmanson",
+            "weight": 1
+          }
+        ]
+      },
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 4,
+      "source_pair_row_index": 4,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    }
+  ],
+  "interpretation": [
+    "The cascade support equalities alone do not give the current bounded cone checker a local target-sparse obstruction.",
+    "The endpoint-augmented probe is sharply partial: assignment 11 is covered, while assignment 0 misses exactly the center-8 rows [0,1,4,6], [0,2,4,6], and [0,4,6,7].",
+    "This packet is a bounded exact certificate search over a local quotient input, not a proof of support existence or a proof that the target-sparse assignments are impossible.",
+    "The next experiment should attack the three uncovered assignment-0 endpoint rows with a higher-row Farkas cone, an endpoint-source lemma, or a geometric support condition."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_support_cone.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_151_6_label4_target_sparse_support_cone.py"
+  },
+  "schema": "erdos97.bootstrap_t12_151_6_label4_target_sparse_support_cone.v1",
+  "source_artifacts": [
+    {
+      "completion_status": null,
+      "gate_status": "NOT_READY_RESIDUAL_TARGET_ROWS_DO_NOT_FORCE_CENTER8",
+      "ledger_status": null,
+      "path": "data/certificates/bootstrap_t12_151_6_label4_center8_residual_target_rows.json",
+      "role": "source 151:6 center-8 residual target rows",
+      "schema": "erdos97.bootstrap_t12_151_6_label4_center8_residual_target_rows.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_CENTER8_RESIDUAL_TARGET_ROWS_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "completion_status": "TARGET_SPARSE_ONE_ROW_COMPLETIONS_ALL_BASIC_FILTER_BLOCKED",
+      "gate_status": "NOT_READY_TARGET_SPARSE_ONE_ROW_COMPLETIONS_FAIL_BASIC_FILTERS",
+      "ledger_status": null,
+      "path": "data/certificates/bootstrap_t12_151_6_label4_center8_target_sparse_completions.json",
+      "role": "source 151:6 target-sparse one-row completions",
+      "schema": "erdos97.bootstrap_t12_151_6_label4_center8_target_sparse_completions.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_CENTER8_TARGET_SPARSE_COMPLETIONS_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "completion_status": null,
+      "gate_status": null,
+      "ledger_status": "LABEL4_SUPPORT_HYPOTHESES_PINNED_NOT_DISCHARGED",
+      "path": "data/certificates/bootstrap_t12_151_6_label4_support_hypothesis_ledger.json",
+      "role": "source 151:6 label-4 support hypothesis ledger",
+      "schema": "erdos97.bootstrap_t12_151_6_label4_support_hypothesis_ledger.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_SUPPORT_HYPOTHESIS_LEDGER_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_151_6_LABEL4_TARGET_SPARSE_SUPPORT_CONE_DIAGNOSTIC_ONLY",
+  "summary": {
+    "all_assignment11_endpoint_augmented_probes_have_bounded_certificate": true,
+    "all_target_pair_and_completion_probes_have_no_bounded_certificate": true,
+    "assignment0_endpoint_augmented_probe_miss_count": 3,
+    "cascade_support_requirements": [
+      {
+        "center": 5,
+        "witness_pair": [
+          4,
+          6
+        ]
+      },
+      {
+        "center": 6,
+        "witness_pair": [
+          0,
+          5
+        ]
+      }
+    ],
+    "completion_bounded_certificate_count": 0,
+    "completion_probe_count": 12,
+    "completion_probe_without_certificate_count": 12,
+    "conditional_center8_exact_four_rows": [
+      [
+        0,
+        1,
+        4,
+        6
+      ],
+      [
+        0,
+        2,
+        4,
+        6
+      ],
+      [
+        0,
+        3,
+        4,
+        6
+      ],
+      [
+        0,
+        4,
+        5,
+        6
+      ],
+      [
+        0,
+        4,
+        6,
+        7
+      ]
+    ],
+    "conditional_center8_target_center": 8,
+    "conditional_center8_triple": [
+      0,
+      4,
+      6
+    ],
+    "current_evidence_forces_target_sparse_obstruction": false,
+    "endpoint_augmented_assignment_certificate_counts": {
+      "0": 2,
+      "11": 25
+    },
+    "endpoint_augmented_assignment_miss_counts": {
+      "0": 3
+    },
+    "endpoint_augmented_bounded_certificate_count": 27,
+    "endpoint_augmented_exact_row_certificate_counts": {
+      "0,1,4,6": 5,
+      "0,2,4,6": 5,
+      "0,3,4,6": 6,
+      "0,4,5,6": 6,
+      "0,4,6,7": 5
+    },
+    "endpoint_augmented_exact_row_miss_counts": {
+      "0,1,4,6": 1,
+      "0,2,4,6": 1,
+      "0,4,6,7": 1
+    },
+    "endpoint_augmented_probe_count": 30,
+    "endpoint_augmented_probe_without_certificate_count": 3,
+    "endpoint_augmented_uncovered_assignment_rows": [
+      {
+        "assignment_index": 0,
+        "row_center": 2,
+        "row_witnesses": [
+          0,
+          3,
+          4,
+          8
+        ],
+        "source_pair_row_index": 0,
+        "uncovered_endpoint_rows": [
+          [
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            6,
+            7
+          ]
+        ]
+      }
+    ],
+    "gate_status": "NOT_READY_SUPPORT_CONE_PARTIAL_ENDPOINT_COVERAGE",
+    "max_certificate_row_count": 2,
+    "private_support_pair": [
+      3,
+      5
+    ],
+    "private_target_center_class": [
+      0,
+      3,
+      5,
+      7
+    ],
+    "probe_status": "TARGET_SPARSE_SUPPORT_CONE_BOUND_2_PARTIAL_ENDPOINT_ONLY",
+    "source_completion_gate_status": "NOT_READY_TARGET_SPARSE_ONE_ROW_COMPLETIONS_FAIL_BASIC_FILTERS",
+    "source_completion_status": "TARGET_SPARSE_ONE_ROW_COMPLETIONS_ALL_BASIC_FILTER_BLOCKED",
+    "source_residual_gate_status": "NOT_READY_RESIDUAL_TARGET_ROWS_DO_NOT_FORCE_CENTER8",
+    "source_support_ledger_status": "LABEL4_SUPPORT_HYPOTHESES_PINNED_NOT_DISCHARGED",
+    "strict_row_count": 255,
+    "strict_row_family": "kalmanson_all_quads_plus_altman_gaps_natural_order",
+    "target_center": 6,
+    "target_pair_bounded_certificate_count": 0,
+    "target_pair_probe_count": 6,
+    "target_pair_probe_without_certificate_count": 6,
+    "target_row_key": "151:6",
+    "target_sparse_assignment_indices": [
+      0,
+      11
+    ]
+  },
+  "support_hypothesis_records": [
+    {
+      "center": 5,
+      "obligation_role": "row5_label4_to_target_center_step",
+      "requirement_key": "row5:[4,5]=[5,6]",
+      "support_hypothesis": "center 5 has a selected-distance support class containing witnesses 4 and 6",
+      "witness_pair": [
+        4,
+        6
+      ]
+    },
+    {
+      "center": 6,
+      "obligation_role": "row6_target_connector_step",
+      "requirement_key": "row6:[5,6]=[0,6]",
+      "support_hypothesis": "center 6 has a selected-distance support class containing witnesses 0 and 5",
+      "witness_pair": [
+        0,
+        5
+      ]
+    }
+  ],
+  "target_pair_probe_records": [
+    {
+      "assignment_index": 0,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "source_target_overlap": [
+        0,
+        4
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 3,
+          "witnesses": [
+            0,
+            2,
+            4,
+            5
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 3,
+      "row_witnesses": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "source_core_index": 0,
+      "source_pair_row_index": 0,
+      "source_target_overlap": [
+        0,
+        4
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            1,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 2,
+      "row_witnesses": [
+        1,
+        4,
+        6,
+        7
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 1,
+      "source_target_overlap": [
+        4,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 2,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 3,
+      "source_pair_row_index": 3,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    },
+    {
+      "assignment_index": 11,
+      "bounded_certificate_found": false,
+      "bounded_single_certificate_count": 0,
+      "bounded_two_row_certificate_count": 0,
+      "centered_class_count": 3,
+      "centered_classes": [
+        {
+          "center": 7,
+          "witnesses": [
+            0,
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        }
+      ],
+      "distance_class_count": 31,
+      "first_bounded_certificate": null,
+      "row_center": 7,
+      "row_witnesses": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "source_core_index": 4,
+      "source_pair_row_index": 4,
+      "source_target_overlap": [
+        0,
+        6
+      ],
+      "strict_row_count": 255
+    }
+  ],
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

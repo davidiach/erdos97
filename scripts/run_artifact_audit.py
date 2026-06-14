@@ -2852,6 +2852,28 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_target_sparse_support_cone",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_label4_target_sparse_support_cone.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Target-sparse support-cone diagnostic for the source 151 row 6 "
+            "label-4 residual assignments 0 and 11; records that cascade "
+            "support equalities alone give no bounded one- or two-row "
+            "Kalmanson/Altman cone certificate, while endpoint-augmented "
+            "local probes are covered in 27 of 30 cases with three "
+            "assignment-0 endpoint misses, not a proof that assignments 0 "
+            "and 11 are impossible, not support existence, not center "
+            "migration, not row forcing, not endpoint-8 forcing, not a proof "
+            "that [3,5] is impossible, not an n=9 proof, not a bridge proof, "
+            "and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",

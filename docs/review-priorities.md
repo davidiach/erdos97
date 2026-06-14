@@ -1086,6 +1086,15 @@ condition that the surviving multi-block family does not automatically satisfy:
   basic filters before vertex-circle replay. The remaining target must use
   genuine support geometry, center migration, or a mechanism beyond one
   completion plus two arbitrary extra row repairs.
+- bootstrap/T12 focused `151:6` label-`4` target-sparse support-cone evidence,
+  as recorded in
+  `docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md`, converting
+  the row-`5` `[4,6]` and row-`6` `[0,5]` cascade supports into exact quotient
+  equalities. The target-pair and completion probes have no bounded one- or
+  two-row Kalmanson/Altman cone certificate, while endpoint-augmented probes
+  are covered in `27` of `30` cases; the three misses are assignment-`0`
+  endpoint rows `[0,1,4,6]`, `[0,2,4,6]`, and `[0,4,6,7]`. This is still not
+  a proof that assignments `0` and `11` are impossible.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed
