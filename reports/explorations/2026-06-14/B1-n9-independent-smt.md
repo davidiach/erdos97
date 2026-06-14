@@ -118,7 +118,37 @@ to nlsat). Compute was bounded to a few minutes total per lane policy, so full
 184-coverage with a *decisive* timeout is not achievable in budget; the runs
 below report coverage honestly.
 
-<!-- COVERAGE_TABLE_PLACEHOLDER -->
+Three runs were executed (z3 4.16.0, on this machine):
+
+| run | per-asg timeout | wall budget | distinct attempted | unsat | sat | unknown |
+|-----|-----------------|-------------|--------------------|-------|-----|---------|
+| R1 (deep prefix) | 6000 ms | 230 s | 48 (A001–A048) | 10 | 0 | 38 |
+| R2 (broad)       | 1500 ms | 220 s | 155 (A001–A155) | 24 | 0 | 131 |
+| R3 (tail)        | 1500 ms | 60 s  | 31 (A049,A050,A156–A184) | 5 | 0 | 26 |
+
+**Consolidated across all three runs (union of decided verdicts):**
+
+| metric | value |
+|--------|-------|
+| distinct assignments attempted | **184 / 184** (whole frontier) |
+| distinct **UNSAT** (independently obstructed, strict convexity encoded) | **30** |
+| distinct **SAT** | **0** |
+| not decided (`unknown` in every run that reached it) | 154 |
+| stored-status of the 30 UNSAT | 29 `self_edge` + 1 `strict_cycle` |
+| motif families with ≥1 UNSAT | 11 / 16 (F01,F02,F03,F04,F06,F07,F08,F09,F10,F11,F14) |
+| local-core templates with ≥1 UNSAT | 8 / 12 (T01,T02,T05,T06,T07,T08,T09,T11) |
+
+The 30 distinct UNSAT assignment IDs:
+`A001 A004 A008 A009 A011 A014 A019 A022 A038 A039 A051 A060 A061 A067 A072
+A073 A076 A085 A098 A099 A101 A114 A119 A121 A136 A166 A168 A178 A182 A184`.
+
+Comparison with the stored claim: the repo records all 184 as vertex-circle
+obstructed (158 self_edge + 26 strict_cycle). This lane independently agrees on
+the 30 it could decide (all UNSAT, **no SAT**), so on the decided subset the two
+methods **corroborate**. The remaining 154 are an honest coverage gap (QF_NRA
+hardness under the few-minute budget), **not** disagreement. The strict_cycle
+families are mostly among the hard/undecided cases (only 1 of 26 strict_cycle
+assignments was decided).
 
 ### Interpretation
 
