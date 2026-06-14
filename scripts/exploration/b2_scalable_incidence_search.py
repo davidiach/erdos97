@@ -229,6 +229,59 @@ class ScalableIncidenceSearch:
             return mj in self.compatible[(i, j)][mi]
         return mi in self.compatible[(j, i)][mj]
 
+    def full_quotient_status(self, assign: dict[int, int]) -> str:
+        """From-scratch vertex-circle quotient status of a COMPLETE assignment.
+
+        Independent recomputation used as a terminal soundness guard: it applies
+        ALL selected-distance equalities (spoke merges) first, then orients every
+        nested-chord strict edge through the final roots, and reports
+        'self_edge', 'strict_cycle', or 'ok'. This is the same logic the
+        validated n=9 oracle uses on full assignments; any survivor of the
+        incremental search is re-confirmed here so the incremental per-candidate
+        convention cannot leak a false survivor.
+        """
+        parent = list(range(self.npairs))
+
+        def find(x: int) -> int:
+            while parent[x] != x:
+                parent[x] = parent[parent[x]]
+                x = parent[x]
+            return x
+
+        def union(a: int, b: int) -> None:
+            ra, rb = find(a), find(b)
+            if ra != rb:
+                parent[rb] = ra
+
+        for center, mask in assign.items():
+            sp = self.row_selpairs[(center, mask)]
+            for p in sp[1:]:
+                union(sp[0], p)
+        graph: dict[int, list[int]] = {}
+        for center, mask in assign.items():
+            for outer, inner in self.row_strict[(center, mask)]:
+                ro, ri = find(outer), find(inner)
+                if ro == ri:
+                    return "self_edge"
+                graph.setdefault(ro, []).append(ri)
+        color: dict[int, int] = {}
+
+        def dfs(node: int) -> bool:
+            color[node] = 1
+            for nxt in graph.get(node, ()):
+                st = color.get(nxt, 0)
+                if st == 1:
+                    return True
+                if st == 0 and dfs(nxt):
+                    return True
+            color[node] = 2
+            return False
+
+        for node in list(graph):
+            if color.get(node, 0) == 0 and dfs(node):
+                return "strict_cycle"
+        return "ok"
+
     # ---- search ----------------------------------------------------------
     def run(self, *, time_budget: float | None = None, collect_survivors: bool = True):
         """Run the full incremental search; return a result dict."""
@@ -431,6 +484,15 @@ class ScalableIncidenceSearch:
                     aborted["flag"] = True
                     return
             if len(assign) == n:
+                # terminal soundness guard: re-confirm with the from-scratch
+                # full quotient (applies all merges before orienting edges).
+                final_status = self.full_quotient_status(assign)
+                if final_status != "ok":
+                    if final_status == "self_edge":
+                        stats["self_edge_prunes"] += 1
+                    else:
+                        stats["strict_cycle_prunes"] += 1
+                    return
                 if collect_survivors:
                     survivors.append(
                         [
@@ -446,8 +508,13 @@ class ScalableIncidenceSearch:
                 if center is not None:
                     stats["incidence_prunes"] += 1
                 return
+            base_graph, base_status = build_base_graph()
+            if base_status == "self_edge":
+                # an already-placed-row self-edge (defensive; should not occur).
+                stats["self_edge_prunes"] += 1
+                return
             for m in opts:
-                status = quotient_status_with(center, m)
+                status = status_with_candidate(base_graph, center, m)
                 if status == "self_edge":
                     stats["self_edge_prunes"] += 1
                     continue
