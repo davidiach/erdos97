@@ -85,8 +85,6 @@ import json
 import math
 import sys
 import time
-from fractions import Fraction
-from itertools import combinations
 from pathlib import Path
 
 import sympy as sp
@@ -270,7 +268,7 @@ def p24_turn_signs() -> dict:
         "n": n,
         "equal_distance_rows_hold": mod.equal_distance_rows(),
         "jacobian_rank": mod.jacobian_rank(),
-        "jacobian_shape": [2 * n + (n // 2) * 0, 2 * n],  # informational only
+        "jacobian_rank_equals_2n_minus_4": mod.jacobian_rank() == 2 * n - 4,
         "turn_signs_pos_neg_zero": [pos, neg, zero],
         "all_turns_positive": pos == n,
         "total_signed_turning_over_2pi": round(total / (2 * math.pi), 6),
@@ -396,9 +394,14 @@ def sign_projection_F07(rows: list[list[int]], n: int) -> dict:
         "strictly_convex_real_points": convex,
         "turn_sign_projection_histogram_pos_neg_zero": sign_patterns,
         "conclusion": (
-            "Convexity (a same-sign turn-determinant projection) excludes every "
-            "real point of the F07 variety: all collapse to degenerate / mixed-"
-            "sign configurations."
+            "Convexity excludes every real point of the F07 variety. NOTE the "
+            "subtlety: two real points DO have an all-same-sign turn pattern "
+            "([9,0,0] and [0,9,0]) but they are the degenerate triple cover of "
+            "an equilateral triangle (vertices {0,3,6},{1,4,7},{2,5,8} each "
+            "coincide; only 3 distinct points). So the convexity test must "
+            "require BOTH same-sign turns AND n distinct vertices; same-sign "
+            "turns alone admit a degenerate cyclic cover. With distinctness "
+            "enforced, strictly convex real points = 0."
         ),
     }
 

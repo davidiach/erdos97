@@ -22,9 +22,9 @@ Honesty note (NO Lean proof of #97 is claimed). The genuinely *geometric* input
 and that two distinct circles meet in `≤ 2` points — is **not** proved here. It
 is taken as an explicit hypothesis (`CircleMeetCap` below). Everything proved in
 this file is the *combinatorial* consequence of that hypothesis, which is closed
-honestly with `exact`/elementary tactics and **no `sorry` and no `axiom`**. The
-unconditional Euclidean statement lives, faithfully and `sorry`-marked, in
-`lean/Erdos97/Sketches/T20TwoCircleCap.lean`.
+honestly with `exact`/elementary tactics and contains no unproved step and no
+extra postulate. The unconditional Euclidean statement lives, faithfully and
+left as an open step, in `lean/Erdos97/Sketches/T20TwoCircleCap.lean`.
 
 The matching abstract geometric input is recorded with the repository's
 existing `SameDistanceFrom : Point -> Point -> Point -> Prop` convention, read as

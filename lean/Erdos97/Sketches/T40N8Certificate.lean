@@ -82,7 +82,6 @@ structure Survivor where
   certificate : KillCertificate
   /-- The certificate must be for this class. -/
   cert_for_class : certificate.classId = classId
-deriving Repr
 
 /-- A survivor is *killed* when its certificate passes the syntactic checker. -/
 def Survivor.killed (s : Survivor) : Prop :=
@@ -95,15 +94,15 @@ instance (s : Survivor) : Decidable s.killed := by
 
 /-- A whole survivor list is killed when every member is killed. -/
 def survivorListKilled (xs : List Survivor) : Prop :=
-  ∀ s ∈ xs, s.killed
+  forall s : Survivor, s ∈ xs -> s.killed
 
 /--
 A `cyclicNoncrossing` certificate with the recorded zero count passes the
 checker. (Pure `Bool`, no `sorry`.)
 -/
-theorem cyclic_kill_checks (classId : Nat) (h : True) :
+theorem cyclic_kill_checks (classId : Nat) :
     (KillCertificate.mk classId KillKind.cyclicNoncrossing 0 false).checks = true := by
-  rfl
+  decide
 
 /--
 A `spanY2Zero` certificate with the ideal-membership flag set passes the

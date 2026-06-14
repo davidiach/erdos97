@@ -463,9 +463,18 @@ def search_n(n: int, seconds: float, seed: int = 0,
     F_eval = make_objective(SearchConfig(n=n, margin=margin, softmin_beta=600.0),
                             subsets)
 
-    best_x = None
-    best_hard = None
-    best_key = None  # (not strict_convex, eq_rms among strictly convex first)
+    # Two trust-distinct records:
+    #   best_strict  -- lowest eq_rms among configurations that pass the FULL
+    #                   strict-convexity witness.  This is the trust-bearing
+    #                   number: residual of an actually strictly convex polygon.
+    #   best_any     -- lowest eq_rms ignoring convexity (typically a boundary
+    #                   degeneration).  This is the #7-style diagnostic; a small
+    #                   value here with a collapsing convexity margin is the
+    #                   known failure mode, NOT a candidate.
+    best_strict_x = None
+    best_strict = None
+    best_any_x = None
+    best_any = None
     restarts = 0
     t0 = monotonic()
 
@@ -487,7 +496,7 @@ def search_n(n: int, seconds: float, seed: int = 0,
         loss = F_eval(x)
         hm = hard_metrics(x, n)
 
-        # basin-hopping accept: prefer strictly convex, then lower loss
+        # basin-hopping accept: prefer lower combined loss
         if loss < incumbent_loss - 1e-9:
             incumbent = x
             incumbent_loss = loss
@@ -495,13 +504,13 @@ def search_n(n: int, seconds: float, seed: int = 0,
         else:
             stall += 1
 
-        # global best ranking: strict-convex configs always beat non-convex;
-        # within a group, lower eq_rms is better.
-        key = (not hm.strict_convex, hm.eq_rms)
-        if best_key is None or key < best_key:
-            best_key = key
-            best_x = x.copy()
-            best_hard = hm
+        if best_any is None or hm.eq_rms < best_any.eq_rms:
+            best_any = hm
+            best_any_x = x.copy()
+        if hm.strict_convex and (best_strict is None
+                                 or hm.eq_rms < best_strict.eq_rms):
+            best_strict = hm
+            best_strict_x = x.copy()
 
         if monotonic() - t0 >= seconds:
             break
@@ -518,8 +527,12 @@ def search_n(n: int, seconds: float, seed: int = 0,
         "restarts": restarts,
         "seed": seed,
         "margin": margin,
-        "best": best_hard.to_json() if best_hard else None,
-        "best_x": best_x.tolist() if best_x is not None else None,
+        "best_strict_convex": best_strict.to_json() if best_strict else None,
+        "best_strict_convex_x": (best_strict_x.tolist()
+                                 if best_strict_x is not None else None),
+        "best_any_residual": best_any.to_json() if best_any else None,
+        "best_any_residual_x": (best_any_x.tolist()
+                                if best_any_x is not None else None),
     }
     return out
 
@@ -539,13 +552,23 @@ def main() -> None:
     for n in args.n:
         res = search_n(n, args.seconds, seed=args.seed, margin=args.margin)
         results.append(res)
-        b = res["best"]
-        print(f"n={n:3d}  restarts={res['restarts']:4d}  "
-              f"eq_rms={b['eq_rms']:.3e}  max_spread={b['max_spread']:.3e}  "
-              f"rel_spread={b['max_rel_spread']:.3e}  "
-              f"conv_margin={b['convexity_margin']:.3e}  "
-              f"strict_convex={b['strict_convex']}  "
-              f"min_edge={b['min_edge_length']:.3e}")
+        s = res["best_strict_convex"]
+        a = res["best_any_residual"]
+        if s is not None:
+            print(f"n={n:3d} STRICT  restarts={res['restarts']:4d}  "
+                  f"eq_rms={s['eq_rms']:.3e}  max_spread={s['max_spread']:.3e}  "
+                  f"rel_spread={s['max_rel_spread']:.3e}  "
+                  f"conv_margin={s['convexity_margin']:.3e}  "
+                  f"min_edge={s['min_edge_length']:.3e}")
+        else:
+            print(f"n={n:3d} STRICT  restarts={res['restarts']:4d}  "
+                  f"(no strictly convex configuration found)")
+        if a is not None:
+            print(f"n={n:3d} ANY     "
+                  f"eq_rms={a['eq_rms']:.3e}  max_spread={a['max_spread']:.3e}  "
+                  f"conv_margin={a['convexity_margin']:.3e}  "
+                  f"strict_convex={a['strict_convex']}  "
+                  f"(diagnostic; small here + collapsing margin = #7 mode)")
         if args.out:
             os.makedirs(args.out, exist_ok=True)
             path = os.path.join(args.out, f"c1_n{n}.json")
@@ -553,13 +576,17 @@ def main() -> None:
                 json.dump(res, fh, indent=2)
             print(f"        wrote {path}")
 
-    # flag any candidate meeting the exactification trigger
+    # flag any STRICTLY CONVEX candidate meeting the exactification trigger.
+    # A small residual that is NOT strictly convex is the known #7 failure mode,
+    # not a candidate.
     for res in results:
-        b = res["best"]
-        if (b["max_spread"] < 1e-10 and b["convexity_margin"] > 1e-3
-                and b["min_edge_length"] > 1e-3 and b["strict_convex"]):
+        s = res["best_strict_convex"]
+        if s is None:
+            continue
+        if (s["max_spread"] < 1e-10 and s["convexity_margin"] > 1e-3
+                and s["min_edge_length"] > 1e-3 and s["strict_convex"]):
             print(f"\n*** EXACTIFICATION-TRIGGER candidate at n={res['n']} "
-                  f"(max_spread {b['max_spread']:.2e}). NOT a counterexample; "
+                  f"(max_spread {s['max_spread']:.2e}). NOT a counterexample; "
                   f"route to docs/exactification-plan.md and save coords. ***")
 
 

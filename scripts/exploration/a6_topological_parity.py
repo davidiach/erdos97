@@ -355,6 +355,69 @@ def summarize(name, results):
     return summary
 
 
+def cross_check_with_repo():
+    """Re-run parity using the repo's OWN forced_perpendicular_graph and
+    odd_forced_perpendicular_cycle, to certify the standalone reimplementation
+    is faithful (no bug in the A6 graph build). Returns a dict of counts.
+    """
+    try:
+        sys.path.insert(0, str(ROOT / "src"))
+        from erdos97.incidence_filters import (
+            forced_perpendicular_graph,
+            odd_forced_perpendicular_cycle,
+        )
+    except Exception as exc:  # pragma: no cover
+        return {"available": False, "error": repr(exc)}
+
+    def passes_parallel(S):
+        graph = forced_perpendicular_graph(S)
+        color = {}
+        for start in sorted(graph):
+            if start in color:
+                continue
+            color[start] = 0
+            q = deque([start])
+            comp = [start]
+            while q:
+                u = q.popleft()
+                for v in sorted(graph[u]):
+                    if v not in color:
+                        color[v] = 1 - color[u]
+                        q.append(v)
+                        comp.append(v)
+            used = [set(), set()]
+            for ch in comp:
+                a, b = ch
+                if a in used[color[ch]] or b in used[color[ch]]:
+                    return False
+                used[color[ch]].update((a, b))
+        return True
+
+    path = (
+        ROOT / "data" / "certificates"
+        / "n9_vertex_circle_frontier_motif_classification.json"
+    )
+    data = json.loads(path.read_text())
+    nb = pk = surv = 0
+    for a in data["assignments"]:
+        S = [None] * 9
+        for r in a["selected_rows"]:
+            S[r[0]] = sorted(r[1:])
+        if odd_forced_perpendicular_cycle(S) is not None:
+            nb += 1
+        elif not passes_parallel(S):
+            pk += 1
+        else:
+            surv += 1
+    return {
+        "available": True,
+        "n9_nonbipartite_repo_oddcycle": nb,
+        "n9_parallel_endpoint_kill": pk,
+        "n9_survive_both": surv,
+        "n9_total": nb + pk + surv,
+    }
+
+
 def main():
     families = []
     n7 = analyze_n7()
@@ -365,6 +428,7 @@ def main():
     families.append(summarize("n9_184_frontier", n9))
 
     report = {
+        "repo_cross_check": cross_check_with_repo(),
         "invariant": "perpendicularity-graph bipartiteness (Z2 slope-consistency / H^1(G_perp;Z2))",
         "strict_convexity_used": [
             "L6 radical-axis perpendicularity (needs perp bisector meets strict polygon in <=2 vertices)",

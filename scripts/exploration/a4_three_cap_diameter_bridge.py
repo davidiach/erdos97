@@ -77,73 +77,76 @@ for n in (8, 9, 10):
     print(f"   n={n}: non-support vertices = n-3 = {n-3};  need >= {need};  => {status}")
 
 # ---------------------------------------------------------------------------
-report("2. MOSER CAP-LEMMA CAVEAT: is the distinct-distance claim true off-circle?")
+report("2. MOSER CAP-LEMMA CAVEAT: the distinct-distance claim needs 'ON the SEC'")
 print("""
 canonical-synthesis Sec 5.4 cap lemma (as stated): 'distances from a chord
 endpoint to convex-position points inside the cap are all distinct.'
 
-For an INSCRIBED polygon this is chord monotonicity: |p x| = 2Rsin(arc/2),
-strictly monotone in the inscribed arc, so distinct. attack-2026-05-05 flags
-that for a NON-inscribed convex polygon this can FAIL. We build an EXACT witness.
+The TRUE (inscribed) statement: for points ON the SEC arc, |p x| = 2R sin(arc/2)
+is strictly monotone in the inscribed arc, hence distinct. We confirm this
+exactly, then show precisely why it FAILS to control the polygon's actual cap
+vertices.
 """)
 
-# Cap of chord pq = the circular segment of the SEC on one side of pq.
-# Put SEC = unit circle (R=1). Diameter-style cap is fine to expose the caveat:
-# take p,q endpoints of a chord; place two convex-position points strictly inside
-# the cap (inside the disk, on the cap side) that are EQUIDISTANT from p.
-# We want them at equal distance from p but at different arc positions -> not on
-# the SEC, hence "convex-position points inside the cap", refuting distinctness.
-
-# Use p=(-1,0). Pick two points X,Y with |pX|=|pY|=rho, both strictly inside the
-# unit disk and on the upper side, in convex position with p,q. Equal distance
-# from p means they lie on a circle around p; intersect that with two distinct
-# interior locations. We just need an exact pair.
+R_unit = R(1)
 p = (R(-1), R(0))
 q = (R(1), R(0))
-# circle around p radius^2 = rho2; choose rho2 = 1 so points are at dist 1 from p.
-# Points on that circle inside the unit disk, upper half:
-# param: p + (cos t, sin t). For the points to be inside unit disk: |point|<1.
-# Try two exact rational points at distance 1 from p that are inside the disk.
-# X = p + (3/5, 4/5) = (-2/5, 4/5);  |X|^2 = 4/25+16/25 = 20/25 = 4/5 < 1  good.
-# Y = p + (4/5, 3/5) = (-1/5, 3/5);  |Y|^2 = 1/25+9/25 = 10/25 = 2/5 < 1  good.
-X = (p[0] + R(3, 5), p[1] + R(4, 5))
-Y = (p[0] + R(4, 5), p[1] + R(3, 5))
-print(f"   SEC = unit circle; p = {p}, q = {q}")
-print(f"   X = {X}, |pX|^2 = {d2(p,X)}, |X|^2 (inside disk if <1) = {X[0]**2+X[1]**2}")
-print(f"   Y = {Y}, |pY|^2 = {d2(p,Y)}, |Y|^2 (inside disk if <1) = {Y[0]**2+Y[1]**2}")
+# (2a) Distances from p to points ON the SEC are strictly monotone in arc.
+arc_pts = [(R(-3, 5), R(4, 5)), (R(0), R(1)), (R(3, 5), R(4, 5)), (R(4, 5), R(3, 5))]
+print("(2a) Points ON the SEC arc, sq-distance from p=(-1,0) (arc order left->right):")
+vals = [(X, d2(p, X)) for X in arc_pts]
+for X, dd in vals:
+    print(f"        x={X}:  |p x|^2 = {dd}")
+seq = [dd for _, dd in vals]
+strictly_mono = all(seq[i] < seq[i + 1] for i in range(len(seq) - 1))
+print(f"     strictly monotone (=> distinct) on the SEC arc: {strictly_mono}   (inscribed Moser holds)")
+
+# (2b) But the polygon's NON-support cap vertices are STRICTLY INSIDE the disk.
+# Exhibit two such interior points at EQUAL distance from p (no convexity claim
+# about them as a quad -- the point is only that monotonicity does NOT see them).
+X = (p[0] + R(3, 5), p[1] + R(4, 5))   # = (-2/5, 4/5), |X|^2 = 4/5 < 1
+Y = (p[0] + R(4, 5), p[1] + R(3, 5))   # = (-1/5, 3/5), |Y|^2 = 2/5 < 1
 equal = d2(p, X) == d2(p, Y)
 inside = (X[0] ** 2 + X[1] ** 2 < 1) and (Y[0] ** 2 + Y[1] ** 2 < 1)
-# convex position p, X, Y, q (upper cap, left-to-right): order p, X, Y, q
-order = [p, X, Y, q]
-turns_ok = cross(p, X, Y) != 0 and cross(X, Y, q) != 0
-print(f"   |pX| = |pY| (NOT distinct): {equal}")
-print(f"   both strictly inside SEC disk (interior of cap): {inside}")
-print(f"""
-   => The bare statement 'distances from chord endpoint p to convex-position
-      points inside the cap are all distinct' is FALSE without the inscribed
-      hypothesis: X,Y are interior convex-position points of the cap at EQUAL
-      distance {d2(p,X)} from p. The cap lemma is only valid for points ON the
-      SEC arc (inscribed), where 2R sin(arc/2) monotonicity applies.
+print("\n(2b) Two points strictly INSIDE the SEC disk, equal distance from p:")
+print(f"        X={X}, |pX|^2={d2(p,X)}, |X|^2={X[0]**2+X[1]**2} (<1: {X[0]**2+X[1]**2<1})")
+print(f"        Y={Y}, |pY|^2={d2(p,Y)}, |Y|^2={Y[0]**2+Y[1]**2} (<1: {Y[0]**2+Y[1]**2<1})")
+print(f"        |pX| = |pY| (equal): {equal};  both strictly interior: {inside}")
+print("""
+   STRUCTURAL CONCLUSION (the actual reason three-cap is hard):
+     In a strictly convex polygon whose SEC is supported by p,q,r, EVERY
+     non-support vertex lies strictly INSIDE the open SEC disk (otherwise the
+     SEC would have a different/larger support). The inscribed monotonicity that
+     proves the diameter case applies ONLY to points on the SEC arc. Therefore
+     the cap lemma controls at most the on-arc vertices -- of which a generic
+     cap has NONE besides the two support endpoints. It gives NO distinctness
+     control over the interior cap vertices, where a bad center's witnesses live.
 
-   CONSEQUENCE for the bridge: the cap lemma can be applied to give 'p has at
-   most 1 witness among cap vertices that lie ON the SEC', but NOT 'at most 1
-   witness among ALL cap vertices'. Cap vertices strictly inside the disk are
-   uncontrolled. This is exactly why the three-cap case does not close by the
-   same one-line counting as the diameter case, and it ALSO means the n=8
-   counting above is only safe because it counts OPPOSITE-cap occupancy (>=2),
-   which does not rely on intra-cap distinctness.
+   (Indeed the failed-idea-#18 arc A1..A4 is itself four convex-position points
+    at equal distance from the hull vertex O -- equidistance among convex-position
+    points is the rule, not the exception, once they are off a common SEC arc.)
+
+   This is why the n=8 cap-occupancy count is phrased via OPPOSITE-cap occupancy
+   (>=2 per support vertex), which needs no intra-cap distinctness, rather than
+   via an intra-cap distinctness bound.
 """)
+turns_ok = True  # (no convex-quad claim made; flag retained for summary)
 
 # ---------------------------------------------------------------------------
 report("3. WHY the DIAMETER case is safe but THREE-CAP is not (the asymmetry)")
 print("""
-Diameter case (proved): SEC supported by antipodal p,q. Then EVERY other vertex
-lies in the closed disk with diameter pq, so angle p-x-q >= pi/2 (Thales) for
-all x. The cap lemma is applied to p as an endpoint of the diameter, and the
-relevant monotonicity holds because all vertices are within the Thales lens; the
-known proof gives E(p),E(q) <= 2, so >=2 good vertices.
+Diameter case (cited as proved; see caveat): SEC supported by antipodal p,q.
+Then EVERY other vertex lies in the closed disk with diameter pq, so angle
+p-x-q >= pi/2 (Thales) for all x. canonical-synthesis Sec 5.4 cites the Moser
+cap lemma (via Dumitrescu's survey) to conclude E(p),E(q) <= 2, hence >=2 good
+vertices. CAVEAT (attack-2026-05-05): the cap-lemma WORDING in Sec 5.4 needs the
+inscribed reading; the diameter conclusion should be re-derived under that
+stricter reading. The repo records that the n=8 cap-occupancy COUNT uses only
+the inscribed special case at SEC-support vertices and is therefore safe; the
+full diameter-case E(p)<=2 statement is cited and REVIEW-flagged, not re-proved
+in this script.
 
-Key structural difference:
+Key structural difference (independent of that caveat):
   - DIAMETER: p is an endpoint of the chord that bounds the ENTIRE point set
     (one lens), so every vertex is 'cap-controlled' from p.
   - THREE-CAP: each support vertex controls only 2 of the 3 caps; the opposite
@@ -189,8 +192,9 @@ n=7 parity argument' attack target named in attack-2026-05-05. It remains OPEN.
 """)
 
 report("SUMMARY")
-print(f"n=8 cap-occupancy closure valid (counting): n-3=5 < 6 -> some support M<=3: True")
-print(f"Moser cap-lemma off-circle distinctness FALSE; exact witness X,Y inside cap "
-      f"at equal dist {d2(p,X)} from p: equal={equal}, inside={inside}, convex={turns_ok}")
+print("n=8 cap-occupancy closure valid (counting): n-3=5 < 6 -> some support M<=3: True")
+print(f"Moser distinctness holds ON the SEC arc ({strictly_mono}) but non-support cap")
+print(f"vertices are strictly interior (witness X,Y equal-dist {d2(p,X)} from p, "
+      f"interior={inside}) so the lemma does NOT control them.")
 print("three-cap bridge gap = no control on OPPOSITE (blind) cap; needs per-cap")
 print("occupancy descent or n=9 (2,2,2) L6-overdetermination. Status: OPEN.")
