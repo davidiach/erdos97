@@ -451,7 +451,7 @@ def main():
     }
     text = json.dumps(artifact, indent=2, sort_keys=True)
     if a.out:
-        with open(a.out, "w") as fh:
+        with open(a.out, "w", encoding="utf-8", newline="\n") as fh:
             fh.write(text + "\n")
         print(a.out)
     if a.json or not a.out:

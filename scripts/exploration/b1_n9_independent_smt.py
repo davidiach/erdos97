@@ -313,8 +313,9 @@ def main() -> int:
             "sat_assignment_ids": sat_ids,
             "results": results,
         }
-        with open(args.json, "w") as fh:
+        with open(args.json, "w", encoding="utf-8", newline="\n") as fh:
             json.dump(payload, fh, indent=2)
+            fh.write("\n")
         print(f"# wrote {args.json}")
 
     return 0

@@ -632,7 +632,11 @@ def main(argv: list[str] | None = None) -> int:
         if rows is not None and len(rows) <= 500:
             payload["survivors"] = rows
             payload["cyclic_order"] = list(range(result["n"]))
-        args.json.write_text(json.dumps(payload, indent=2) + "\n")
+        args.json.write_text(
+            json.dumps(payload, indent=2) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
 
     r = result
     print(

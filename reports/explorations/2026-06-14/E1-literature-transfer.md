@@ -71,7 +71,7 @@ differ per center. Forbidding 4-bad polygons for all n solves #97.
 ### A4. Per-vertex single-circle multiplicity — NO usable upper bound found (key gap)
 - **What I searched for.** A theorem bounding the number of OTHER vertices on ONE circle
   centered at a polygon vertex in convex position (this is exactly m_p(δ); a bound `m_p(δ) ≤ 3`
-  would instantly kill 4-bad). 
+  would instantly kill 4-bad).
 - **Result.** No such sub-trivial upper bound exists in the literature I could find, and the
   repo's own guardrails (`failed-ideas.md` #4, #5, #19) explicitly warn that a circle
   centered at a convex-polygon vertex CAN pass through many other vertices, and that "≤3n"

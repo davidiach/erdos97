@@ -572,8 +572,9 @@ def main() -> None:
         if args.out:
             os.makedirs(args.out, exist_ok=True)
             path = os.path.join(args.out, f"c1_n{n}.json")
-            with open(path, "w") as fh:
+            with open(path, "w", encoding="utf-8", newline="\n") as fh:
                 json.dump(res, fh, indent=2)
+                fh.write("\n")
             print(f"        wrote {path}")
 
     # flag any STRICTLY CONVEX candidate meeting the exactification trigger.
