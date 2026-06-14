@@ -9897,6 +9897,41 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample
       - official/global status update
+
+  - id: quarter_cell_signed_band_preflight
+    path: data/certificates/quarter_cell_signed_band_preflight.json
+    sha256: d77398f17474fc71a5216a305a0d075377cefe1634c3b6917f5b4f9d0fd4e4b6
+    size_bytes: 38931
+    kind: restricted_family_screen_artifact
+    generator: scripts/check_quarter_cell_signed_band_preflight.py
+    command: python scripts/check_quarter_cell_signed_band_preflight.py --write --assert-expected
+    checker: scripts/check_quarter_cell_signed_band_preflight.py
+    check_command: python scripts/check_quarter_cell_signed_band_preflight.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Quarter-cell signed-band turn preflight for the three-orbit (t=3) m=0 mod 4 residual. Records the exact boundary-band case split and the first nonzero negative turn term in each of the 12 signed cells, plus deterministic float stress of those fixed killer turns for m in {8,12,16,20,40,100}. This is not the global sign proof; m=8,12,16 quarter cells remain open, and this is not an all-m three-orbit obstruction, proof of Erdos Problem #97, counterexample, or official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.quarter_cell_signed_band_preflight.v1
+      status: QUARTER_CELL_SIGNED_BAND_TURN_PREFLIGHT_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      signed_case_count: 12
+      leading_killer_case_count: 12
+      leading_sign_ok_for_sample_ms: true
+      sampled_fixed_killer_all_negative: true
+      open_quarter_cells_still_open:
+        - 8
+        - 12
+        - 16
+    forbidden_claims:
+      - m=8 m=12 m=16 quarter cells closed
+      - exact certificate for m>=8
+      - all-m quarter-cell obstruction
+      - all-m three-orbit obstruction
+      - general proof of Erdos Problem #97
+      - counterexample
+      - official/global status update
   - id: n8_survivors_smt
     path: data/certificates/n8_survivors_smt.json
     sha256: d515c45dae7c9d21ce85125b8bb58c0b6c8011a61571a5e38db660f9468fe949

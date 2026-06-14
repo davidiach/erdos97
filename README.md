@@ -108,6 +108,14 @@ The fixed abstract patterns `C19_skew` and `C13_sidon_1_2_4_10` are killed
 across all cyclic orders by exact Kalmanson/Farkas certificate searches. That
 does not settle the larger sparse frontier and does not prove Erdos #97.
 
+Restricted symmetry-family diagnostics are also recorded. The two-orbit
+circulant family has a review-pending obstruction note, and the three-orbit
+program closes the `m = 4` quarter cell exactly while reducing the remaining
+`m = 8, 12, 16` quarter cells to a signed boundary-band turn target. The
+latest signed-band preflight narrows that target to `12` cells with negative
+boundary-leading killer turns, but those cells remain open. See
+[`docs/quarter-cell-signed-band-preflight.md`](docs/quarter-cell-signed-band-preflight.md).
+
 ### Review-pending frontier artifacts
 
 The repo records an exhaustive `n=9` vertex-circle checker as a candidate

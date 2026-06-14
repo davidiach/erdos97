@@ -831,6 +831,10 @@ put detailed reconciliation in the canonical synthesis.
   float grid showing the witness locus is tangent to the convexity boundary;
   exact lemmas + `NUMERICAL_EVIDENCE` for `m = 8, 12, 16` (which remain open),
   with the exact-SMT route recorded as not scaling past `m = 4`.
+- [`quarter-cell-signed-band-preflight.md`](quarter-cell-signed-band-preflight.md):
+  signed boundary-band split for the remaining quarter-cell turn-sign target,
+  recording 12 signed cells and a fixed negative first nonzero boundary term
+  for each; precise proof target only, not closure of `m = 8, 12, 16`.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`n9-base-apex-d3-p19-degree-obstruction.md`](n9-base-apex-d3-p19-degree-obstruction.md):

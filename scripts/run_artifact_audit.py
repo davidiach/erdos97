@@ -3372,6 +3372,25 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="three_orbit_quarter_cell_signed_band_preflight",
+        command=(
+            "python",
+            "scripts/check_quarter_cell_signed_band_preflight.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Signed-band preflight for the three-orbit quarter-cell turn-sign "
+            "lemma: records the boundary-band split and first nonzero "
+            "negative killer-turn term in each signed cell, plus deterministic "
+            "float stress. It is not the global sign proof, does not close "
+            "the m=8/12/16 quarter cells, is not an all-m three-orbit "
+            "obstruction, and is not a proof of Erdos Problem #97, "
+            "counterexample, or official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n8_survivors_smt_cross_check",
         command=(
             "python",
