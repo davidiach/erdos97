@@ -1,0 +1,456 @@
+{
+  "lane": "B1",
+  "type": "b1_n9_independent_smt_v1",
+  "trust": "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING",
+  "scope": "Independent coordinate-geometry z3 corroboration of the stored n=9 vertex-circle frontier obstruction; does not promote n=9, prove Erdos #97, or claim a counterexample.",
+  "encodes_strict_convexity": true,
+  "model": "QF_NRA: 9 (x,y) reals, gauge p0=(0,0) p1=(1,0), all 9 consecutive turns strictly positive, pairwise distinct, 27 equal-squared-distance witness equations",
+  "frontier_file": "/home/user/erdos97/data/certificates/n9_vertex_circle_frontier_motif_classification.json",
+  "total_available": 184,
+  "attempted": 48,
+  "per_assignment_timeout_ms": 6000,
+  "z3_version": "4.16.0",
+  "wall_seconds": 237.581,
+  "counts": {
+    "unsat": 10,
+    "sat": 0,
+    "unknown": 38
+  },
+  "by_stored_status": {
+    "self_edge": {
+      "unsat": 9,
+      "sat": 0,
+      "unknown": 33
+    },
+    "strict_cycle": {
+      "unsat": 1,
+      "sat": 0,
+      "unknown": 5
+    }
+  },
+  "sat_assignment_ids": [],
+  "results": [
+    {
+      "assignment_id": "A001",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 2.3509
+    },
+    {
+      "assignment_id": "A002",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.2038,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A003",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1498,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A004",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.5482
+    },
+    {
+      "assignment_id": "A005",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1054,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A006",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1355,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A007",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1106,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A008",
+      "stored_status": "strict_cycle",
+      "family_id": "F07",
+      "template_id": "T11",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.5696
+    },
+    {
+      "assignment_id": "A009",
+      "stored_status": "self_edge",
+      "family_id": "F08",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0333
+    },
+    {
+      "assignment_id": "A010",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.104,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A011",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0326
+    },
+    {
+      "assignment_id": "A012",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1006,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A013",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1253,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A014",
+      "stored_status": "self_edge",
+      "family_id": "F09",
+      "template_id": "T01",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0413
+    },
+    {
+      "assignment_id": "A015",
+      "stored_status": "strict_cycle",
+      "family_id": "F07",
+      "template_id": "T11",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.0976,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A016",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1267,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A017",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1338,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A018",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1494,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A019",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.034
+    },
+    {
+      "assignment_id": "A020",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1435,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A021",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.2556,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A022",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0697
+    },
+    {
+      "assignment_id": "A023",
+      "stored_status": "self_edge",
+      "family_id": "F13",
+      "template_id": "T04",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1095,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A024",
+      "stored_status": "self_edge",
+      "family_id": "F09",
+      "template_id": "T01",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1313,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A025",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1017,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A026",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1083,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A027",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.137,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A028",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1639,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A029",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.129,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A030",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1733,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A031",
+      "stored_status": "self_edge",
+      "family_id": "F09",
+      "template_id": "T01",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1083,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A032",
+      "stored_status": "strict_cycle",
+      "family_id": "F07",
+      "template_id": "T11",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1115,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A033",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1423,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A034",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1133,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A035",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.111,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A036",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1077,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A037",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1168,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A038",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0848
+    },
+    {
+      "assignment_id": "A039",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0163
+    },
+    {
+      "assignment_id": "A040",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1035,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A041",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1191,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A042",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1018,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A043",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.0918,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A044",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1051,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A045",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.0997,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A046",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.0972,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A047",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.1123,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A048",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 6.0911,
+      "reason": "timeout"
+    }
+  ]
+}

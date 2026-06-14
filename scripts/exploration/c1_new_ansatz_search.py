@@ -413,14 +413,20 @@ def perturb(x: np.ndarray, rng: np.random.Generator, scale: float) -> np.ndarray
 # Basin-hopping driver                                                        #
 # --------------------------------------------------------------------------- #
 def polish(x0: np.ndarray, cfg: SearchConfig, subsets: np.ndarray,
-           schedule=((60.0, 50.0), (200.0, 200.0), (600.0, 800.0),
-                     (1500.0, 3000.0)),
+           schedule=((40.0, 30.0), (150.0, 150.0), (500.0, 600.0),
+                     (1200.0, 2500.0), (3000.0, 8000.0)),
            maxiter=400) -> np.ndarray:
     """Anneal softmin temperature (beta) and convexity weight (w_conv) jointly.
 
     Each stage uses the analytic gradient (jac=True) with L-BFGS-B.  Annealing
     beta sharpens the dynamic 4-subset selection toward the true argmin, while
     annealing w_conv pushes the configuration into the strictly convex region.
+
+    A final convexity-repair stage minimizes the barrier alone with a slightly
+    enlarged target margin so that the reported configuration sits strictly
+    inside the convex region (positive turns), not on its boundary.  This keeps
+    the trust-bearing residuals honest: they describe an actually strictly
+    convex polygon, not a degenerate one.
     """
     x = x0.copy()
     for beta, wc in schedule:
@@ -430,6 +436,20 @@ def polish(x0: np.ndarray, cfg: SearchConfig, subsets: np.ndarray,
             value_and_grad, x, args=(local, subsets), method="L-BFGS-B",
             jac=True,
             options={"maxiter": maxiter, "ftol": 1e-13, "gtol": 1e-11},
+        )
+        x = res.x
+
+    # convexity repair: if the consecutive turns are not comfortably positive,
+    # take a few steps minimizing the barrier with a larger target margin while
+    # the high-beta equal-distance term keeps the witnesses aligned.
+    _, min_turn = _convexity_barrier(x.reshape(cfg.n, 2), cfg.n, cfg.margin)
+    if min_turn < cfg.margin:
+        repair = SearchConfig(n=cfg.n, margin=2.0 * cfg.margin,
+                              w_conv=2.0e4, softmin_beta=3000.0, seed=cfg.seed)
+        res = minimize(
+            value_and_grad, x, args=(repair, subsets), method="L-BFGS-B",
+            jac=True,
+            options={"maxiter": 300, "ftol": 1e-13, "gtol": 1e-11},
         )
         x = res.x
     return x

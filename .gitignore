@@ -17,3 +17,4 @@ outputs/
 runs/tmp/
 artifact-audit-results/
 *.log
+scripts/exploration/__pycache__/

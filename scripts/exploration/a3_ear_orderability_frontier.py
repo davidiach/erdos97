@@ -87,6 +87,43 @@ def singleton_rich(rows):
     return [[list(r)] for r in rows]
 
 
+def overgenerous_closure_generates(seed, classes_by_center, n):
+    """Rich-triple closure that does NOT enforce disjoint classes per center.
+
+    This is an explicit RELAXATION used only for the H1/H2 over-generous upper
+    bounds: a center is added once any of its (possibly overlapping) candidate
+    classes has >=3 vertices already in the closure. Because real geometry forces
+    distinct distance classes at a center to be disjoint, this relaxation can
+    only ADD generating power, never remove it. So if even this relaxed closure
+    cannot generate from any small seed, the genuine geometric closure cannot
+    either: a robust 'no'.
+    """
+    masks_by_center = []
+    for classes in classes_by_center:
+        masks = []
+        for row in classes:
+            m = 0
+            for v in row:
+                m |= 1 << int(v)
+            masks.append(m)
+        masks_by_center.append(masks)
+    cl = 0
+    for v in seed:
+        cl |= 1 << int(v)
+    changed = True
+    while changed:
+        changed = False
+        for c in range(n):
+            if cl & (1 << c):
+                continue
+            for m in masks_by_center[c]:
+                if (m & cl).bit_count() >= 3:
+                    cl |= 1 << c
+                    changed = True
+                    break
+    return cl.bit_count() == n
+
+
 def is_circulant(rows, n):
     """Return offset-set if rows are a circulant pattern S_i = i + offsets, else None."""
     base = sorted((w - 0) % n for w in rows[0])
@@ -158,7 +195,7 @@ def h1_circulant_orbit(rows, n):
     # exhaustive rho with this (non-disjoint) over-rich family
     for size in range(1, 4):
         for seed in itertools.combinations(range(n), size):
-            if closure(seed, rc).generates_all:
+            if overgenerous_closure_generates(seed, rc, n):
                 return {"applicable": True, "rho_leq_3": True, "seed": list(seed)}
     return {"applicable": True, "rho_leq_3": False}
 
@@ -189,7 +226,7 @@ def h2_second_disjoint_class(rows):
         rc.append(classes)
     for size in range(1, 4):
         for seed in itertools.combinations(range(n), size):
-            if closure(seed, rc).generates_all:
+            if overgenerous_closure_generates(seed, rc, n):
                 return {"exists_drop_upper_bound": True, "seed": list(seed),
                         "note": "over-generous (all candidate 2nd classes at once)"}
     return {"exists_drop_upper_bound": False,
