@@ -384,10 +384,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     artifact_path = Path(args.artifact)
     if args.write:
         artifact_path.parent.mkdir(parents=True, exist_ok=True)
-        artifact_path.write_text(
-            json.dumps(payload, indent=1, sort_keys=True) + "\n",
-            encoding="utf-8",
-        )
+        with artifact_path.open("w", encoding="utf-8", newline="\n") as fh:
+            fh.write(json.dumps(payload, indent=1, sort_keys=True) + "\n")
     if args.check:
         stored = _read_json(artifact_path)
         if stored != payload:

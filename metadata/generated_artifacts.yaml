@@ -9900,8 +9900,8 @@ artifacts:
 
   - id: quarter_cell_signed_band_preflight
     path: data/certificates/quarter_cell_signed_band_preflight.json
-    sha256: b4031b25e0ec94c9dd36dadcc8bb577b88ffdb288e0204400e77e624a0cf7794
-    size_bytes: 40485
+    sha256: d77398f17474fc71a5216a305a0d075377cefe1634c3b6917f5b4f9d0fd4e4b6
+    size_bytes: 38931
     kind: restricted_family_screen_artifact
     generator: scripts/check_quarter_cell_signed_band_preflight.py
     command: python scripts/check_quarter_cell_signed_band_preflight.py --write --assert-expected
