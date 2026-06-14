@@ -115,8 +115,13 @@ def main() -> int:
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--assert-expected", action="store_true")
     ap.add_argument("--json", action="store_true")
-    ap.add_argument("--no-write", action="store_true")
+    ap.add_argument("--write", action="store_true", help="write generated artifact")
+    ap.add_argument("--no-write", action="store_true", help="deprecated no-op; output is not written unless --write is set")
     args = ap.parse_args()
+    if args.write and args.no_write:
+        ap.error("--write cannot be combined with --no-write")
+    if args.write and args.check:
+        ap.error("--write cannot be combined with --check")
 
     frontier = rec.enumerate_frontier()
     assert len(frontier) == 184, f"expected 184 frontier systems, got {len(frontier)}"
@@ -213,7 +218,7 @@ def main() -> int:
         else:
             ok = ok and stored == json_report
 
-    if not args.no_write and not args.check:
+    if args.write:
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
         with open(out_path, "w", encoding="utf-8") as fh:
             json.dump(json_report, fh, indent=2)

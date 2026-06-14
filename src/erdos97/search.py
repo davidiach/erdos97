@@ -1003,7 +1003,7 @@ def main() -> None:
     if args.verify:
         diag = verify_json(args.verify, tol=args.tol, min_margin=args.min_margin)
         print(json.dumps(diag, indent=2))
-        return
+        raise SystemExit(0 if diag.get("ok_at_tol") is True else 1)
 
     if args.pattern not in pats:
         raise SystemExit(f"unknown pattern {args.pattern}; use --list-patterns")
