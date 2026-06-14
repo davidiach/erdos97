@@ -46,7 +46,6 @@ from dataclasses import dataclass, field
 from fractions import Fraction
 from typing import Sequence
 
-import numpy as np
 import sympy as sp
 
 
