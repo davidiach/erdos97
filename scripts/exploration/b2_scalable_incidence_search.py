@@ -66,7 +66,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import sys
 import time
 from itertools import combinations
 from pathlib import Path
@@ -627,18 +626,12 @@ def main(argv: list[str] | None = None) -> int:
     payload = build_payload(result)
     if args.json is not None:
         args.json.parent.mkdir(parents=True, exist_ok=True)
-        full = dict(payload)
-        full["result_full"] = result
-        # drop heavy survivor rows from disk unless small
-        if result.get("_survivor_rows") and len(result["_survivor_rows"]) > 500:
-            full["result_full"] = {
-                k: v for k, v in result.items() if k != "_survivor_rows"
-            }
-        else:
-            full["result_full"] = {
-                k: (v if k != "_survivor_rows" else v)
-                for k, v in result.items()
-            }
+        # include survivor rows on disk only when the set is small enough to be
+        # useful for a downstream z3 realizability spot-check.
+        rows = result.get("_survivor_rows")
+        if rows is not None and len(rows) <= 500:
+            payload["survivors"] = rows
+            payload["cyclic_order"] = list(range(result["n"]))
         args.json.write_text(json.dumps(payload, indent=2) + "\n")
 
     r = result

@@ -44,8 +44,9 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from itertools import combinations
 from pathlib import Path
+
+import networkx as nx
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "src"
@@ -108,46 +109,52 @@ def aggarwal_cycles_in_class(
     chain_a: tuple[int, ...],
     chain_b: tuple[int, ...],
     class_pairs: set[Pair],
-    *,
-    max_len: int = 6,
 ):
     """Find Aggarwal cycles whose required entries all lie in ``class_pairs``.
 
     M_Q[a,b] = 1 iff unordered pair {a,b} is in class_pairs and a in A, b in B.
-    A cycle: rows r_1..r_l (distinct consecutive) in A, cols c_1..c_l in B with
-    M_Q[r_i,c_i] = M_Q[r_i,c_{i+1}] = 1 for all i cyclically, l >= 2.
+    An Aggarwal cycle of length l is rows r_1..r_l in A, cols c_1..c_l in B with
+    M_Q[r_i,c_i] = M_Q[r_i,c_{i+1}] = 1 for all i cyclically, l >= 2. This is
+    exactly a cycle of vertex-length 2l in the bipartite 1-graph of M_Q.
 
-    The minimal nontrivial witness is l = 2: rows r1 != r2, cols c1 != c2 with
-    the four entries (r1,c1),(r1,c2),(r2,c2),(r2,c1) all = 1 -- a 2x2 all-ones
-    submatrix. We enumerate 2x2 all-ones submatrices (the canonical 'cycle'
-    seed) and, for completeness, longer even alternating cycles by DFS on the
-    bipartite 1-graph.
+    We return a cycle_basis of that bipartite graph: a minimal independent
+    spanning set of cycles. A nonempty basis witnesses that at least one
+    Aggarwal cycle exists in Q on this cut; l = 2 entries are 2x2 all-ones
+    submatrices, l = 3 are bipartite hexagons, etc.
     """
-    a_idx = {v: i for i, v in enumerate(chain_a)}
-    b_idx = {v: i for i, v in enumerate(chain_b)}
+    a_set = set(chain_a)
+    b_set = set(chain_b)
 
-    def entry(a: int, b: int) -> bool:
-        return pair(a, b) in class_pairs
+    # Build the bipartite 1-graph of M_Q restricted to cross-chain edges in Q.
+    graph = nx.Graph()
+    for u, v in class_pairs:
+        if u in a_set and v in b_set:
+            graph.add_edge(("A", u), ("B", v))
+        elif v in a_set and u in b_set:
+            graph.add_edge(("A", v), ("B", u))
 
-    # 2x2 all-ones submatrices = shortest Aggarwal cycles (l=2).
     cycles = []
-    for r1, r2 in combinations(chain_a, 2):
-        b1 = [b for b in chain_b if entry(r1, b)]
-        b2 = [b for b in chain_b if entry(r2, b)]
-        common = [b for b in b1 if b in set(b2)]
-        for c1, c2 in combinations(common, 2):
-            cycles.append(
-                {
-                    "length": 2,
-                    "rows": [r1, r2],
-                    "cols": [c1, c2],
-                    "row_positions": [a_idx[r1], a_idx[r2]],
-                    "col_positions": [b_idx[c1], b_idx[c2]],
-                    "entries": [
-                        [r1, c1], [r1, c2], [r2, c1], [r2, c2],
-                    ],
-                }
-            )
+    if graph.number_of_edges() < 3:
+        return cycles
+    # A bipartite cycle of vertex-length 2l is an Aggarwal cycle of length l.
+    # cycle_basis gives a minimal spanning set of independent cycles; every
+    # all-ones cycle pattern in M_Q is a sum of these, so a nonempty basis
+    # witnesses that at least one Aggarwal cycle exists in Q on this cut.
+    for basis_cycle in nx.cycle_basis(graph):
+        rows = [node[1] for node in basis_cycle if node[0] == "A"]
+        cols = [node[1] for node in basis_cycle if node[0] == "B"]
+        edges = [
+            sorted((basis_cycle[i][1], basis_cycle[(i + 1) % len(basis_cycle)][1]))
+            for i in range(len(basis_cycle))
+        ]
+        cycles.append(
+            {
+                "length": len(basis_cycle) // 2,
+                "rows": sorted(rows),
+                "cols": sorted(cols),
+                "entries": [list(e) for e in edges],
+            }
+        )
     return cycles
 
 
@@ -168,7 +175,7 @@ def analyze_assignment(
     cuts = contiguous_cuts(order)
     candidate_cycles = []
     for cut_id, (chain_a, chain_b) in enumerate(cuts):
-        a_set, b_set = set(chain_a), set(chain_b)
+        a_set = set(chain_a)
         for root, members in nontrivial.items():
             class_pairs = set(members)
             # cross-chain restriction of this class
@@ -194,11 +201,16 @@ def analyze_assignment(
     obstructions = [
         c for c in candidate_cycles if c["intersection_free_certified"]
     ] if require_intersection_free else candidate_cycles
+    length_hist: dict[int, int] = {}
+    for c in candidate_cycles:
+        length = c["cycle"]["length"]
+        length_hist[length] = length_hist.get(length, 0) + 1
     return {
         "n": n,
         "nontrivial_class_count": len(nontrivial),
         "largest_class_size": max((len(m) for m in nontrivial.values()), default=0),
         "candidate_cycle_count": len(candidate_cycles),
+        "cycle_length_histogram": length_hist,
         "obstruction_count": len(obstructions),
         "obstructions": obstructions[:5],
         "candidate_cycles_sample": candidate_cycles[:3],
@@ -238,6 +250,7 @@ def main() -> int:
 
     total_candidate = 0
     total_obstruction = 0
+    global_length_hist: dict[int, int] = {}
     per_assignment = []
     for a in frontier:
         rows = parse_selected_rows(a["selected_rows"])
@@ -249,6 +262,8 @@ def main() -> int:
         )
         total_candidate += res["candidate_cycle_count"]
         total_obstruction += res["obstruction_count"]
+        for length, count in res["cycle_length_histogram"].items():
+            global_length_hist[length] = global_length_hist.get(length, 0) + count
         per_assignment.append(
             {
                 "assignment_id": a.get("assignment_id"),
@@ -271,6 +286,7 @@ def main() -> int:
         "assignments_checked": len(frontier),
         "assume_intersection_free": args.assume_intersection_free,
         "total_candidate_cycles": total_candidate,
+        "cycle_length_histogram": dict(sorted(global_length_hist.items())),
         "total_certified_obstructions": total_obstruction,
         "assignments_with_candidate_cycle": sum(
             1 for r in per_assignment if r["candidate_cycle_count"] > 0
@@ -287,6 +303,8 @@ def main() -> int:
         print(f"assignments checked: {summary['assignments_checked']}")
         print(f"total candidate Aggarwal cycles (single class, cross-chain): "
               f"{summary['total_candidate_cycles']}")
+        print(f"cycle-length histogram (l -> count): "
+              f"{summary['cycle_length_histogram']}")
         print(f"assignments with >=1 candidate cycle: "
               f"{summary['assignments_with_candidate_cycle']}")
         print(f"certified obstructions (need intersection-free edge): "
