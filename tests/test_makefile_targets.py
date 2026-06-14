@@ -446,6 +446,10 @@ def test_verify_bridge_frontier_includes_bootstrap_audits() -> None:
             "--check --assert-expected --json"
         ),
         (
+            "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_support_cone.py "
+            "--check --assert-expected --json"
+        ),
+        (
             "python scripts/check_bootstrap_t12_151_singleton_support_audit.py "
             "--check --assert-expected --json"
         ),

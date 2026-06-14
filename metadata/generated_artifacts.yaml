@@ -9144,6 +9144,117 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_target_sparse_support_cone
+    path: data/certificates/bootstrap_t12_151_6_label4_target_sparse_support_cone.json
+    sha256: 8a480ce01fd5e392dfc8122da46e898565a7e59aba801ea85f0f072105905ae7
+    size_bytes: 82090
+    kind: proof_target_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_target_sparse_support_cone.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_support_cone.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_target_sparse_support_cone.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_support_cone.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 label-4 target-sparse support-cone diagnostic; records that cascade support equalities alone give no bounded one- or two-row Kalmanson/Altman cone certificate for local target-pair or completion probes, while endpoint-augmented probes are covered in 27 of 30 cases with three assignment-0 endpoint misses. This is a diagnostic only; it does not prove assignments 0 and 11 impossible, support existence, center migration, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_target_sparse_support_cone.v1
+      status: BOOTSTRAP_T12_151_6_LABEL4_TARGET_SPARSE_SUPPORT_CONE_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 7
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.conditional_center8_target_center: 8
+      summary.conditional_center8_triple:
+        - 0
+        - 4
+        - 6
+      summary.source_residual_gate_status: NOT_READY_RESIDUAL_TARGET_ROWS_DO_NOT_FORCE_CENTER8
+      summary.source_completion_gate_status: NOT_READY_TARGET_SPARSE_ONE_ROW_COMPLETIONS_FAIL_BASIC_FILTERS
+      summary.source_completion_status: TARGET_SPARSE_ONE_ROW_COMPLETIONS_ALL_BASIC_FILTER_BLOCKED
+      summary.source_support_ledger_status: LABEL4_SUPPORT_HYPOTHESES_PINNED_NOT_DISCHARGED
+      summary.cascade_support_requirements:
+        - center: 5
+          witness_pair:
+            - 4
+            - 6
+        - center: 6
+          witness_pair:
+            - 0
+            - 5
+      summary.target_sparse_assignment_indices:
+        - 0
+        - 11
+      summary.strict_row_family: kalmanson_all_quads_plus_altman_gaps_natural_order
+      summary.strict_row_count: 255
+      summary.max_certificate_row_count: 2
+      summary.target_pair_probe_count: 6
+      summary.target_pair_bounded_certificate_count: 0
+      summary.target_pair_probe_without_certificate_count: 6
+      summary.completion_probe_count: 12
+      summary.completion_bounded_certificate_count: 0
+      summary.completion_probe_without_certificate_count: 12
+      summary.endpoint_augmented_probe_count: 30
+      summary.endpoint_augmented_bounded_certificate_count: 27
+      summary.endpoint_augmented_probe_without_certificate_count: 3
+      summary.endpoint_augmented_assignment_certificate_counts.0: 2
+      summary.endpoint_augmented_assignment_certificate_counts.11: 25
+      summary.endpoint_augmented_assignment_miss_counts.0: 3
+      summary.endpoint_augmented_exact_row_certificate_counts.0,1,4,6: 5
+      summary.endpoint_augmented_exact_row_certificate_counts.0,2,4,6: 5
+      summary.endpoint_augmented_exact_row_certificate_counts.0,3,4,6: 6
+      summary.endpoint_augmented_exact_row_certificate_counts.0,4,5,6: 6
+      summary.endpoint_augmented_exact_row_certificate_counts.0,4,6,7: 5
+      summary.endpoint_augmented_exact_row_miss_counts.0,1,4,6: 1
+      summary.endpoint_augmented_exact_row_miss_counts.0,2,4,6: 1
+      summary.endpoint_augmented_exact_row_miss_counts.0,4,6,7: 1
+      summary.all_target_pair_and_completion_probes_have_no_bounded_certificate: true
+      summary.all_assignment11_endpoint_augmented_probes_have_bounded_certificate: true
+      summary.assignment0_endpoint_augmented_probe_miss_count: 3
+      summary.current_evidence_forces_target_sparse_obstruction: false
+      summary.gate_status: NOT_READY_SUPPORT_CONE_PARTIAL_ENDPOINT_COVERAGE
+      summary.probe_status: TARGET_SPARSE_SUPPORT_CONE_BOUND_2_PARTIAL_ENDPOINT_ONLY
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_target_sparse_support_cone.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_support_cone.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - center-8 rich triple is forced
+      - label-8 visibility forces center-8 [0,4,6]
+      - off-center target rows force center-8 [0,4,6]
+      - center migration is proved
+      - one-row target-sparse completion proves impossibility
+      - one-completion plus one-repair proves impossibility
+      - one-completion plus two-repairs proves impossibility
+      - target-sparse support-cone probe proves impossibility
+      - endpoint-augmented support-cone coverage proves target-sparse obstruction
+      - target-sparse assignments 0 and 11 are impossible
+      - target-sparse support-cone diagnostics prove the bridge
+      - the center-8 target-compatible local core is forced
+      - assignments 0 and 11 are impossible
+      - the private-halo-only pair 3,5 is impossible
+      - endpoint target proves support existence
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

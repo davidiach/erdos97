@@ -182,6 +182,14 @@ Required guardrails:
   assignments `0` and `11` impossible; the remaining target needs genuine
   support geometry, center migration, or a mechanism beyond two arbitrary
   extra row repairs.
+- The target-sparse support-cone packet records that adding the cascade
+  support equalities center `5` with `[4,6]` and center `6` with `[0,5]` gives
+  no bounded one- or two-row Kalmanson/Altman cone certificate for the local
+  target-pair or completion probes. Adding a center-`8` exact target row
+  covers `27` of `30` endpoint-augmented probes, leaving exactly the
+  assignment-`0` endpoint rows `[0,1,4,6]`, `[0,2,4,6]`, and `[0,4,6,7]`.
+  This is a next-certificate target, not a proof that assignments `0` and
+  `11` are impossible.
 - The private-halo-only pair `[3,5]` is the named escape and must be excluded
   or explicitly realized as an escape mechanism.
 
