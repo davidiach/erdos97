@@ -1194,6 +1194,55 @@ Forbidden overclaiming text:
 - "near miss"
 - "intervals prove exact equality" unless the interval certificate really does
 
+## Task CB-ORBIT-QC - Prove the Quarter-Cell Signed-Band Turn Target
+
+Issue: none yet.
+
+Read first:
+
+- `docs/codex-strategy-instructions.md`
+- `docs/three-orbit-window-closure.md`
+- `docs/quarter-cell-closure.md`
+- `docs/quarter-cell-signed-band-preflight.md`
+- `scripts/check_quarter_cell_closure.py`
+- `scripts/check_quarter_cell_signed_band_preflight.py`
+
+Commands:
+
+```bash
+python scripts/check_quarter_cell_signed_band_preflight.py --check --assert-expected --json
+python scripts/check_quarter_cell_closure.py --assert-clear
+python scripts/check_three_square_m4_closure.py --assert-clear
+```
+
+Expected artifacts:
+
+- an exact analytic, CAD/resultant, or interval certificate proving that the
+  listed fixed killer turn is negative throughout each signed boundary-band
+  cell; or
+- a counter-diagnostic showing exactly which signed cell escapes the proposed
+  fixed killer turn.
+
+Acceptance criteria:
+
+- The result keeps `m = 8, 12, 16` open unless the certificate really covers
+  them.
+- Any closure claim identifies whether it is finite-`m`, all `m = 0 mod 4`,
+  or only a checked sub-band.
+- The result remains scoped to the restricted three-orbit quarter-cell family.
+
+Trust delta: may turn the current tangent preflight into an exact restricted
+family obstruction. It may not prove Erdos Problem #97 or any arbitrary
+selected-witness bridge by itself.
+
+Forbidden overclaiming text:
+
+- "all three-orbit configurations are ruled out" unless the half-step and
+  non-quarter branches are also covered at the same trust level
+- "the quarter cells are closed" without specifying the exact covered `m`
+  range and certificate type
+- "this proves Erdos #97"
+
 ## Cross-Cutting Rules
 
 - Run `make verify-fast` or the raw fast tier after code or documentation

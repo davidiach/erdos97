@@ -1013,7 +1013,14 @@ clean open lemma is: on the witness locus inside the window, the minimum
 per-period turn determinant is `<= 0`, with equality only at the degenerate
 orbit-coincidence limit. See `docs/quarter-cell-closure.md`,
 `scripts/check_quarter_cell_closure.py`, and
-`data/certificates/quarter_cell_closure.json`.
+`data/certificates/quarter_cell_closure.json`. A signed-band preflight now
+splits that remaining turn-sign target into `12` boundary-band/radius-sign
+cells and records a fixed per-cell killer turn whose first nonzero boundary
+term is negative for `m >= 8`, with deterministic grid stress of the same
+killer turns for `m = 8, 12, 16, 20, 40, 100`. This narrows the exact target
+but is not the global sign proof; the `m = 8, 12, 16` quarter cells remain
+open. See `docs/quarter-cell-signed-band-preflight.md` and
+`data/certificates/quarter_cell_signed_band_preflight.json`.
 
 ## Best saved near-miss
 

@@ -1654,6 +1654,20 @@ orbit-coincidence limit. See `docs/quarter-cell-closure.md`,
 `scripts/check_quarter_cell_closure.py --assert-clear`, and
 `data/certificates/quarter_cell_closure.json`.
 
+A signed-band preflight sharpens the open target without closing it. The
+boundary-band witness locus splits into the three band orders `LL`, `LH`, and
+`HH`, and the two radius signs give `12` signed cells. For each signed cell,
+the packet records one fixed per-period turn determinant whose first nonzero
+term at the orbit-coincidence boundary is negative for `m >= 8`; a
+deterministic grid stress of the same fixed killer turns over
+`m = 8, 12, 16, 20, 40, 100` finds no sampled violation. This is a
+`REVIEW_PENDING_DIAGNOSTIC` and a precise exact-sign target only. It is not a
+certificate for `m >= 8`, does not close the `m = 8, 12, 16` quarter cells, and
+does not prove an all-`m` three-orbit obstruction. See
+`docs/quarter-cell-signed-band-preflight.md`,
+`scripts/check_quarter_cell_signed_band_preflight.py --check --assert-expected --json`,
+and `data/certificates/quarter_cell_signed_band_preflight.json`.
+
 ## Numerical Attempts
 
 ### Dynamic-witness free-pattern sweep (2026-06-09)

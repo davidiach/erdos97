@@ -120,6 +120,13 @@ factored form vanishing exactly on the degenerate locus would do it). The SMT
 route is recorded as a dead end for this; an analytic turn-sign argument or an
 exact CAD/resultant computation on the confined region is the recommended path.
 
+Follow-up preflight: `docs/quarter-cell-signed-band-preflight.md` splits the
+boundary-band locus into three band orders and `12` radius-sign cells. In each
+cell it records a fixed turn determinant whose first nonzero boundary term is
+negative for `m >= 8`, with deterministic grid stress of the same fixed turns.
+That narrows the exact target but does not prove the full sign-definiteness
+statement, so the `m = 8, 12, 16` cells remain open.
+
 ## Reproduce
 
 ```bash
