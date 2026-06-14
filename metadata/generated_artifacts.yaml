@@ -458,7 +458,7 @@ artifacts:
     size_bytes: 93632
     kind: independent_audit_diagnostic_artifact
     generator: scripts/n9_vertex_circle_minimal_cores.py
-    command: python scripts/n9_vertex_circle_minimal_cores.py --json
+    command: python scripts/n9_vertex_circle_minimal_cores.py --write --json
     checker: scripts/n9_vertex_circle_minimal_cores.py
     check_command: python scripts/n9_vertex_circle_minimal_cores.py --check --assert-expected --json
     direct_edit_allowed: false
