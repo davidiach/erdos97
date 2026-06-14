@@ -9940,3 +9940,34 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample
       - official/global status update
+
+  - id: n9_parallel_endpoint_closure
+    path: data/certificates/n9_parallel_endpoint_closure.json
+    sha256: ccd26864666d471ce20831bd7466bcdd2a10fb3e3dc1fac000b77ff6e029b664
+    size_bytes: 61304
+    kind: finite_case_diagnostic
+    generator: scripts/check_n9_parallel_endpoint_closure.py
+    command: python scripts/check_n9_parallel_endpoint_closure.py --write
+    checker: scripts/check_n9_parallel_endpoint_closure.py
+    check_command: python scripts/check_n9_parallel_endpoint_closure.py --check --assert-expected
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: >
+      Lighter combinatorial second-source closure of the review-pending n=9
+      pre-vertex-circle frontier: all 184 stored frontier assignments are killed
+      by the parity (odd forced-perpendicular cycle) and parallel-endpoint
+      necessary-condition filters, with no vertex-circle quotient reasoning. The
+      underlying n=9 frontier enumeration remains review-pending.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_parallel_endpoint_closure.v1
+      summary.total: 184
+      summary.killed_by_parity_odd_cycle: 22
+      summary.killed_by_parallel_endpoint: 162
+      summary.survive_both: 0
+    forbidden_claims:
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - independent proof of the n=9 finite case
+      - official/global status update

@@ -180,6 +180,57 @@ def odd_forced_perpendicular_cycle(
     return None
 
 
+def forced_parallel_endpoint_violation(
+    S: Sequence[Sequence[int]],
+) -> tuple[Chord, Chord, list[int]] | None:
+    """Return two forced-parallel chords sharing a vertex, or ``None``.
+
+    Within each connected component of the forced-perpendicularity graph a proper
+    2-coloring splits the chords into two slope classes: along a perpendicularity
+    edge the slope flips by pi/2 (lemma L6), so two chords of the *same* color in
+    the same component are forced to share a slope class, i.e. they are forced
+    parallel. Two forced-parallel chords that share a polygon vertex would place
+    three vertices on one line, which strict convexity forbids (lemma L2, distinct
+    vertices). Such a same-color, shared-endpoint pair is therefore a sound
+    necessary-condition obstruction to Euclidean realizability.
+
+    This refines the parity obstruction :func:`odd_forced_perpendicular_cycle`
+    and is meant to be applied to systems whose forced-perpendicularity graph is
+    already bipartite (no odd cycle); run that parity check first. Returns
+    ``(chord_u, chord_v, shared_vertices)`` for one witnessing pair, or ``None``
+    when no forced-parallel pair shares a vertex.
+    """
+    graph = forced_perpendicular_graph(S)
+    color: dict[Chord, int] = {}
+    component: dict[Chord, int] = {}
+    next_component = 0
+    for start in sorted(graph):
+        if start in color:
+            continue
+        color[start] = 0
+        component[start] = next_component
+        queue: deque[Chord] = deque([start])
+        while queue:
+            u = queue.popleft()
+            for v in sorted(graph[u]):
+                if v not in color:
+                    color[v] = 1 - color[u]
+                    component[v] = next_component
+                    queue.append(v)
+        next_component += 1
+
+    buckets: dict[tuple[int, int], list[Chord]] = defaultdict(list)
+    for chord in sorted(graph):
+        buckets[(component[chord], color[chord])].append(chord)
+
+    for chords in buckets.values():
+        for u, v in combinations(chords, 2):
+            shared = sorted(set(u) & set(v))
+            if shared:
+                return (u, v, shared)
+    return None
+
+
 def _canonical_directed_cycle(
     cycle: tuple[Chord, Chord, Chord, Chord],
 ) -> tuple[Chord, Chord, Chord, Chord]:
