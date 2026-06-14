@@ -254,6 +254,8 @@ def _validate_inputs(ms: Sequence[int], grid: int) -> None:
         raise ValueError("at least one m-value is required")
     if any(m < 8 for m in ms):
         raise ValueError("quarter-cell signed-band preflight is scoped to m >= 8")
+    if any(m % 4 != 0 for m in ms):
+        raise ValueError("quarter-cell signed-band preflight is scoped to m = 0 mod 4")
     if grid < 2:
         raise ValueError("grid must be at least 2 so LL/HH samples are nonempty")
 

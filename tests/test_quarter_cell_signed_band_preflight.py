@@ -48,6 +48,8 @@ def test_payload_rejects_vacuous_sampling_inputs() -> None:
         MOD.build_payload((), grid=12)
     with pytest.raises(ValueError, match="m >= 8"):
         MOD.build_payload((4,), grid=12)
+    with pytest.raises(ValueError, match="m = 0 mod 4"):
+        MOD.build_payload((9,), grid=12)
     with pytest.raises(ValueError, match="grid must be at least 2"):
         MOD.build_payload((8,), grid=1)
 
