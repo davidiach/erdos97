@@ -23,15 +23,15 @@ It is NOT a proof of Erdos Problem #97 and claims no Lean proof of it.
 
 * The certificate *format* and the *checker* (`Survivor.killed`,
   `survivorListKilled`) are defined and the structural lemmas about them are
-  proved WITHOUT `sorry` (pure `Bool`/`List` combinatorics).
+  proved WITHOUT any open step (pure `Bool`/`List` combinatorics).
 * The **soundness bridge** — that a `killed` certificate really implies the
   survivor has no strictly-convex Euclidean realization — is the genuine
-  geometric/algebraic content and is STATED but left `sorry`
+  geometric/algebraic content and is STATED but left open
   (`killed_implies_no_realization`). It needs the squared-distance ideal
   membership / cyclic-order crossing facts that live in the Python checker and
   would need mathlib to formalise.
 * The top-level `n8_all_survivors_killed_open` is STATED over an abstract
-  survivor list and left `sorry`: feeding the actual 15 certificates is data the
+  survivor list and left open: feeding the actual 15 certificates is data the
   Python tooling owns, not reproved here.
 -/
 
