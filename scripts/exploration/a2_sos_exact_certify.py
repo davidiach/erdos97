@@ -88,42 +88,109 @@ def monomials_up_to(gens, deg):
 # --------------------------------------------------------------------------- #
 # (A) Exact linear Nullstellensatz certificate  sum lambda_k g_k = 1          #
 # --------------------------------------------------------------------------- #
+def _poly_dict(expr, gens):
+    """Expanded polynomial as {exponent_tuple: Fraction}."""
+    p = sp.Poly(sp.expand(expr), *gens)
+    out = {}
+    for monom, coeff in p.terms():
+        out[tuple(monom)] = Fraction(int(sp.numer(coeff)), int(sp.denom(coeff)))
+    return out
+
+
+def _solve_rational_system(rows, rhs, ncols):
+    """Solve A c = rhs over QQ for ANY particular solution (Fraction arithmetic).
+
+    ``rows`` is a list of dict{col_index: Fraction}; ``rhs`` a list of Fraction.
+    Returns a list of Fraction of length ncols, or None if inconsistent.
+    """
+    # dense Gaussian elimination with partial structure; ncols is modest here.
+    A = [[Fraction(0)] * (ncols + 1) for _ in range(len(rows))]
+    for i, row in enumerate(rows):
+        for c, v in row.items():
+            A[i][c] = v
+        A[i][ncols] = rhs[i]
+    m = len(A)
+    pivots = []
+    r = 0
+    for c in range(ncols):
+        piv = None
+        for i in range(r, m):
+            if A[i][c] != 0:
+                piv = i
+                break
+        if piv is None:
+            continue
+        A[r], A[piv] = A[piv], A[r]
+        inv = A[r][c]
+        A[r] = [v / inv for v in A[r]]
+        for i in range(m):
+            if i != r and A[i][c] != 0:
+                f = A[i][c]
+                A[i] = [a - f * b for a, b in zip(A[i], A[r])]
+        pivots.append(c)
+        r += 1
+        if r == m:
+            break
+    # consistency: any all-zero LHS row with nonzero rhs => inconsistent
+    for i in range(m):
+        if all(A[i][c] == 0 for c in range(ncols)) and A[i][ncols] != 0:
+            return None
+    sol = [Fraction(0)] * ncols
+    for i, c in enumerate(pivots):
+        sol[c] = A[i][ncols]
+    return sol
+
+
 def find_nullstellensatz_certificate(gens, eqs, mult_deg=1):
     """Search for rational lambda_k with deg<=mult_deg and sum lambda_k g_k = 1.
 
     Returns (found, lambdas) where lambdas is a list of sympy polynomials over QQ.
-    The search is an EXACT rational linear-algebra feasibility problem; no SDP
-    and no floating point are involved.
+    The search is an EXACT rational linear feasibility problem solved with
+    ``fractions.Fraction`` Gaussian elimination; no SDP, no floating point.
     """
     n = len(gens)
     mm = monomials_up_to(gens, mult_deg)
-    # unknown coefficient symbols c_{k,j}
-    cvars = []
+    eqd = [_poly_dict(g, gens) for g in eqs]
+    # columns: (k, j) flattened; coefficient of output monomial in mono_j * g_k
+    col = 0
+    col_index = {}
+    out_monos = {}  # output exponent tuple -> row index
+    triples = []  # (row, col, frac)
+    for k in range(len(eqs)):
+        for j, a in enumerate(mm):
+            col_index[(k, j)] = col
+            for e, c in eqd[k].items():
+                me = tuple(x + y for x, y in zip(e, a))
+                if me not in out_monos:
+                    out_monos[me] = len(out_monos)
+                triples.append((out_monos[me], col, c))
+            col += 1
+    nrows = len(out_monos)
+    ncols = col
+    rows = [dict() for _ in range(nrows)]
+    for ri, ci, c in triples:
+        rows[ri][ci] = rows[ri].get(ci, Fraction(0)) + c
+    # rhs: identity polynomial is the constant 1
+    const = tuple([0] * n)
+    rhs = [Fraction(0)] * nrows
+    if const in out_monos:
+        rhs[out_monos[const]] = Fraction(1)
+    else:
+        return False, None  # cannot produce a constant term
+    csol = _solve_rational_system(rows, rhs, ncols)
+    if csol is None:
+        return False, None
     lambdas = []
     for k in range(len(eqs)):
-        row = [sp.Symbol(f"c_{k}_{j}") for j in range(len(mm))]
-        cvars.extend(row)
-        mono_terms = [
-            sp.prod([gens[v] ** mm[j][v] for v in range(n)]) for j in range(len(mm))
-        ]
-        lambdas.append(sum(row[j] * mono_terms[j] for j in range(len(mm))))
-    expr = sp.expand(sum(lambdas[k] * eqs[k] for k in range(len(eqs))) - 1)
-    poly = sp.Poly(expr, *gens)
-    # one linear equation (in cvars) per monomial coefficient
-    lin = list(poly.coeffs())
-    sol = sp.linsolve(lin, cvars)
-    if len(sol) == 0:
-        return False, None
-    point = next(iter(sol))
-    # free parameters -> set to 0 for a concrete certificate
-    subs = {}
-    for var, val in zip(cvars, point):
-        for fp in val.free_symbols:
-            subs[fp] = 0
-    concrete = [sp.nsimplify(v.subs(subs)) for v in point]
-    cmap = dict(zip(cvars, concrete))
-    lam_concrete = [sp.expand(lam.subs(cmap)) for lam in lambdas]
-    return True, lam_concrete
+        lam = sp.Integer(0)
+        for j, a in enumerate(mm):
+            coeff = csol[col_index[(k, j)]]
+            if coeff != 0:
+                lam += sp.Rational(coeff.numerator, coeff.denominator) * sp.prod(
+                    [gens[v] ** a[v] for v in range(n)]
+                )
+        lambdas.append(sp.expand(lam))
+    return True, lambdas
 
 
 def verify_nullstellensatz(gens, eqs, lambdas):
@@ -235,10 +302,10 @@ def main():
             "trust_label": "EXACT_OBSTRUCTION" if ok else "UNVERIFIED",
             "num_equalities": len(eqs),
             "num_nonzero_multipliers": sum(1 for lam in lambdas if lam != 0),
-            "max_multiplier_degree": max(
+            "max_multiplier_degree": int(max(
                 (sp.total_degree(sp.Poly(lam, *gens)) for lam in lambdas if lam != 0),
                 default=0,
-            ),
+            )),
         }
         if args.json:
             out["multipliers"] = certificate_to_rationals(lambdas, gens)

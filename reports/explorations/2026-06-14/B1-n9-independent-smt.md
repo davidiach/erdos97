@@ -190,8 +190,13 @@ python scripts/exploration/b1_n9_independent_smt.py \
     --json data/exploration/b1_n9_independent_smt_results.json
 ```
 
-The JSON output records `counts`, `by_stored_status`, `sat_assignment_ids`
-(empty), and a per-assignment `results` list with z3 verdict and elapsed time.
+The checked-in `data/exploration/b1_n9_independent_smt_results.json` is the **R2
+snapshot only** (155 attempted, 24 UNSAT, 0 SAT, `encodes_strict_convexity:
+true`), because each run overwrites the file. The consolidated 30 distinct UNSAT
+/ 184 attempted figure is the union over R1+R2+R3 reported in the tables above,
+not a single JSON. The JSON output records `counts`, `by_stored_status`,
+`sat_assignment_ids` (empty), and a per-assignment `results` list with z3
+verdict and elapsed time.
 Results vary slightly run-to-run because timeouts/`unknown` depend on machine
 speed; the set of fast-UNSAT assignments is stable, and **no SAT** is the
 invariant claim.
