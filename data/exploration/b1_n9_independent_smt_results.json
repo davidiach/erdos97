@@ -1,0 +1,1405 @@
+{
+  "lane": "B1",
+  "type": "b1_n9_independent_smt_v1",
+  "trust": "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING",
+  "scope": "Independent coordinate-geometry z3 corroboration of the stored n=9 vertex-circle frontier obstruction; does not promote n=9, prove Erdos #97, or claim a counterexample.",
+  "encodes_strict_convexity": true,
+  "model": "QF_NRA: 9 (x,y) reals, gauge p0=(0,0) p1=(1,0), all 9 consecutive turns strictly positive, pairwise distinct, 27 equal-squared-distance witness equations",
+  "frontier_file": "/home/user/erdos97/data/certificates/n9_vertex_circle_frontier_motif_classification.json",
+  "total_available": 184,
+  "attempted": 155,
+  "per_assignment_timeout_ms": 1500,
+  "z3_version": "4.16.0",
+  "wall_seconds": 221.045,
+  "counts": {
+    "unsat": 24,
+    "sat": 0,
+    "unknown": 131
+  },
+  "by_stored_status": {
+    "self_edge": {
+      "unsat": 23,
+      "sat": 0,
+      "unknown": 110
+    },
+    "strict_cycle": {
+      "unsat": 1,
+      "sat": 0,
+      "unknown": 21
+    }
+  },
+  "sat_assignment_ids": [],
+  "results": [
+    {
+      "assignment_id": "A001",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6728,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A002",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6324,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A003",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6705,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A004",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.7008
+    },
+    {
+      "assignment_id": "A005",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6344,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A006",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6614,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A007",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.679,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A008",
+      "stored_status": "strict_cycle",
+      "family_id": "F07",
+      "template_id": "T11",
+      "z3_result": "unsat",
+      "elapsed_seconds": 1.0818
+    },
+    {
+      "assignment_id": "A009",
+      "stored_status": "self_edge",
+      "family_id": "F08",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0757
+    },
+    {
+      "assignment_id": "A010",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.7792,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A011",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0726
+    },
+    {
+      "assignment_id": "A012",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6548,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A013",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6336,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A014",
+      "stored_status": "self_edge",
+      "family_id": "F09",
+      "template_id": "T01",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0404
+    },
+    {
+      "assignment_id": "A015",
+      "stored_status": "strict_cycle",
+      "family_id": "F07",
+      "template_id": "T11",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.599,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A016",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5881,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A017",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5907,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A018",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.7413,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A019",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0529
+    },
+    {
+      "assignment_id": "A020",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.594,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A021",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.7004,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A022",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0549
+    },
+    {
+      "assignment_id": "A023",
+      "stored_status": "self_edge",
+      "family_id": "F13",
+      "template_id": "T04",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6512,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A024",
+      "stored_status": "self_edge",
+      "family_id": "F09",
+      "template_id": "T01",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6448,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A025",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6111,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A026",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5954,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A027",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5952,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A028",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5954,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A029",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6346,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A030",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6116,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A031",
+      "stored_status": "self_edge",
+      "family_id": "F09",
+      "template_id": "T01",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6799,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A032",
+      "stored_status": "strict_cycle",
+      "family_id": "F07",
+      "template_id": "T11",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6491,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A033",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6728,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A034",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6046,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A035",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6589,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A036",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6432,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A037",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6963,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A038",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.1774
+    },
+    {
+      "assignment_id": "A039",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0377
+    },
+    {
+      "assignment_id": "A040",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6099,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A041",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.7027,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A042",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5993,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A043",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6007,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A044",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6061,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A045",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5963,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A046",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.603,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A047",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6079,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A048",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5919,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A049",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5921,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A050",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5891,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A051",
+      "stored_status": "self_edge",
+      "family_id": "F14",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0327
+    },
+    {
+      "assignment_id": "A052",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5908,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A053",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5928,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A054",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5953,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A055",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5911,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A056",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6289,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A057",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5917,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A058",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6055,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A059",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5968,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A060",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0333
+    },
+    {
+      "assignment_id": "A061",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0341
+    },
+    {
+      "assignment_id": "A062",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5972,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A063",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.601,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A064",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6104,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A065",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6161,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A066",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5911,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A067",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0114
+    },
+    {
+      "assignment_id": "A068",
+      "stored_status": "self_edge",
+      "family_id": "F15",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6136,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A069",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6149,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A070",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6042,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A071",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5953,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A072",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0077
+    },
+    {
+      "assignment_id": "A073",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0185
+    },
+    {
+      "assignment_id": "A074",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6194,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A075",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.9256,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A076",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.487
+    },
+    {
+      "assignment_id": "A077",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5906,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A078",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6084,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A079",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5949,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A080",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5926,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A081",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6068,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A082",
+      "stored_status": "strict_cycle",
+      "family_id": "F16",
+      "template_id": "T12",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6181,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A083",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.63,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A084",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6028,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A085",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0093
+    },
+    {
+      "assignment_id": "A086",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.601,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A087",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6041,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A088",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6256,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A089",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.634,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A090",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.7339,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A091",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6852,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A092",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.7209,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A093",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6359,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A094",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6361,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A095",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5983,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A096",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5944,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A097",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.651,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A098",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0155
+    },
+    {
+      "assignment_id": "A099",
+      "stored_status": "self_edge",
+      "family_id": "F14",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0169
+    },
+    {
+      "assignment_id": "A100",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6204,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A101",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0088
+    },
+    {
+      "assignment_id": "A102",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5962,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A103",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.773,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A104",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5952,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A105",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6776,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A106",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6605,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A107",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6217,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A108",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6734,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A109",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6263,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A110",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6302,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A111",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6309,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A112",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6171,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A113",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6161,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A114",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.1523
+    },
+    {
+      "assignment_id": "A115",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.7419,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A116",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6575,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A117",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5995,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A118",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5982,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A119",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0066
+    },
+    {
+      "assignment_id": "A120",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.626,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A121",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0164
+    },
+    {
+      "assignment_id": "A122",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6037,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A123",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5967,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A124",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6427,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A125",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6962,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A126",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6826,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A127",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.607,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A128",
+      "stored_status": "self_edge",
+      "family_id": "F06",
+      "template_id": "T07",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.599,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A129",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.635,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A130",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6111,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A131",
+      "stored_status": "self_edge",
+      "family_id": "F15",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6191,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A132",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6447,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A133",
+      "stored_status": "self_edge",
+      "family_id": "F10",
+      "template_id": "T05",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6592,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A134",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6222,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A135",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6265,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A136",
+      "stored_status": "self_edge",
+      "family_id": "F08",
+      "template_id": "T02",
+      "z3_result": "unsat",
+      "elapsed_seconds": 0.0279
+    },
+    {
+      "assignment_id": "A137",
+      "stored_status": "strict_cycle",
+      "family_id": "F07",
+      "template_id": "T11",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5989,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A138",
+      "stored_status": "self_edge",
+      "family_id": "F04",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6159,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A139",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6479,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A140",
+      "stored_status": "self_edge",
+      "family_id": "F09",
+      "template_id": "T01",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6272,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A141",
+      "stored_status": "strict_cycle",
+      "family_id": "F07",
+      "template_id": "T11",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6023,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A142",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6383,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A143",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6348,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A144",
+      "stored_status": "self_edge",
+      "family_id": "F03",
+      "template_id": "T09",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6087,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A145",
+      "stored_status": "self_edge",
+      "family_id": "F01",
+      "template_id": "T02",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.663,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A146",
+      "stored_status": "self_edge",
+      "family_id": "F11",
+      "template_id": "T06",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.652,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A147",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6138,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A148",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6272,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A149",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6335,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A150",
+      "stored_status": "self_edge",
+      "family_id": "F02",
+      "template_id": "T08",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6136,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A151",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6043,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A152",
+      "stored_status": "strict_cycle",
+      "family_id": "F16",
+      "template_id": "T12",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6021,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A153",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6568,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A154",
+      "stored_status": "strict_cycle",
+      "family_id": "F12",
+      "template_id": "T10",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.6157,
+      "reason": "timeout"
+    },
+    {
+      "assignment_id": "A155",
+      "stored_status": "self_edge",
+      "family_id": "F05",
+      "template_id": "T03",
+      "z3_result": "unknown",
+      "elapsed_seconds": 1.5977,
+      "reason": "timeout"
+    }
+  ]
+}

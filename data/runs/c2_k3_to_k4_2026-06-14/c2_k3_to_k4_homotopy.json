@@ -1,0 +1,625 @@
+{
+  "asymmetric_arm_high_precision": {
+    "base_b": 1.0103629710818451,
+    "claim_scope": "deformation scan from one convex alternating m-gon base; the single-vertex lift and the all-even-center simultaneous lift are compared. The global value is a NEAR-MISS diagnostic only and never an obstruction; nothing here proves Erdos #97 or gives a counterexample",
+    "continuation_parameter": "hard equality on the 4-set spread (no soft weight t)",
+    "convex_window": [
+      0.8660254037844387,
+      1.1547005383792515
+    ],
+    "dps": 45,
+    "fourth_witness_rule": "local paired-distance 4-set D(c,c+-1)=D(c,c+-2)",
+    "global_all_even_centers": {
+      "best": {
+        "convex_margin_mpmath": 0.02998202874624613,
+        "min_pair_mpmath": 0.11905211321349897,
+        "trial": 3,
+        "worst_center_relative_spread": 6.394395820000588e-07
+      },
+      "exactification_threshold": 1e-10,
+      "meets_exactification_threshold": false,
+      "note": "Best simultaneous worst-center relative spread at fixed convex margin. It does NOT reach the exactification threshold and is recorded as a near-miss; this is not evidence of an obstruction nor of a counterexample."
+    },
+    "interpretation": "Local 4-set lift: free (single convex vertex easily concyclic). Global simultaneous lift: numerically tight, only a near-miss, establishing nothing on its own. The exact content of this lane is the symmetric-arm closed-form window obstruction.",
+    "local_single_vertex": {
+      "convex_margin_mpmath": 0.049948579583524326,
+      "min_pair_mpmath": 0.1807255635866029,
+      "note": "A lone strictly-convex vertex with four concyclic neighbours is geometrically unconstrained; this being easy shows the #97 difficulty is GLOBAL (all vertices at once), not local.",
+      "relative_spread": 2.7516920071666774e-09,
+      "single_convex_4set_realized": true
+    },
+    "m": 6,
+    "n": 12,
+    "trust_label": "NUMERICAL_EVIDENCE"
+  },
+  "environment": {
+    "created_utc": "2026-06-14T08:03:11.066981+00:00",
+    "mpmath": "1.3.0",
+    "python": "3.11.15",
+    "sympy": "1.14.0"
+  },
+  "lane": "C2 exact/validated homotopy lifting a 4th witness from a k=3 base",
+  "new_ingredient_vs_failed_idea_20": "geometric continuation parameter (radius-ratio / vertex position) with the 4th equality enforced exactly/by validated mpmath Newton, fourth witness = paired-distance merge (not nearest-non-edge), and exact/high-precision signed turn determinants as the convexity read",
+  "overall_interpretation": "Symmetric arm (exact): no even-vertex 4-set is realizable inside the strict-convexity window of the alternating two-radius family, with a closed-form certificate for the nearest merge. Asymmetric arm (high precision): a single convex vertex 4-set is easy, so the lift is locally unobstructed; the simultaneous all-even-center lift is only a near-miss and establishes nothing. Neither arm proves Erdos #97 nor gives a counterexample.",
+  "problem": "Erdos #97 (k=4 selected-witness)",
+  "schema": "erdos97.c2_k3_to_k4_homotopy.v1",
+  "symmetric_arm_exact": {
+    "claim_scope": "alternating two-radius regular m-gon family only; an even-vertex 4-equal-distance class requires a b outside the strict-convexity window for every tested m",
+    "m_values": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      12
+    ],
+    "nearest_merge_closed_form_certificate": {
+      "both_endpoints_negative_on_0_pi4": true,
+      "identity_check_q_cos": "0",
+      "identity_check_q_sec": "0",
+      "interpretation": "q(cos h) = -3 sin^2 h < 0 and q(sec h) = sin^2 h (1-4cos^2 h)/cos^2 h < 0 on (0, pi/4] because 4 cos^2 h >= 2 > 1 there; q opens upward so no merge root lies in the strict-convexity window.",
+      "q_at_cos_h": "-3*sin(h)**2",
+      "q_at_sec_h_times_cos2h": "-(cos(2*h) - cos(4*h))/2",
+      "q_at_sec_h_times_cos2h_signfactor": "-cos(2*h)/2 + cos(4*h)/2"
+    },
+    "nearest_merge_root_in_window_any_m": false,
+    "no_merge_root_in_convex_window_any_m": true,
+    "per_m": [
+      {
+        "any_merge_root_in_window": false,
+        "convex_window": [
+          0.7071067811865476,
+          1.4142135623730951
+        ],
+        "m": 4,
+        "merge_roots": [
+          {
+            "b_exact": "sqrt(sqrt(3) + 2)",
+            "b_float": 1.9318516525781366,
+            "in_convex_window": false,
+            "r_even": 2,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(2 - sqrt(3))",
+            "b_float": 0.5176380902050415,
+            "in_convex_window": false,
+            "r_even": 2,
+            "r_odd": 3
+          }
+        ],
+        "n": 8
+      },
+      {
+        "any_merge_root_in_window": false,
+        "convex_window": [
+          0.8090169943749475,
+          1.2360679774997898
+        ],
+        "m": 5,
+        "merge_roots": [
+          {
+            "b_exact": "1/4 + sqrt(5)/4 + sqrt(30 - 6*sqrt(5))/4",
+            "b_float": 1.8270909152852017,
+            "in_convex_window": false,
+            "r_even": 2,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "3/2 - sqrt(5)/2",
+            "b_float": 0.38196601125010515,
+            "in_convex_window": false,
+            "r_even": 2,
+            "r_odd": 3
+          },
+          {
+            "b_exact": "sqrt(5)/2 + 3/2",
+            "b_float": 2.618033988749895,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "-sqrt(5)/4 + 1/4 + sqrt(6*sqrt(5) + 30)/4",
+            "b_float": 1.3382612127177165,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 3
+          }
+        ],
+        "n": 10
+      },
+      {
+        "any_merge_root_in_window": false,
+        "convex_window": [
+          0.8660254037844386,
+          1.1547005383792515
+        ],
+        "m": 6,
+        "merge_roots": [
+          {
+            "b_exact": "sqrt(3)",
+            "b_float": 1.7320508075688772,
+            "in_convex_window": false,
+            "r_even": 2,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(sqrt(33)/2 + 7/2)",
+            "b_float": 2.5243377989621387,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(2)",
+            "b_float": 1.4142135623730951,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 3
+          },
+          {
+            "b_exact": "sqrt(7/2 - sqrt(33)/2)",
+            "b_float": 0.7922869913932613,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 5
+          }
+        ],
+        "n": 12
+      },
+      {
+        "any_merge_root_in_window": false,
+        "convex_window": [
+          0.9009688679024191,
+          1.1099162641747424
+        ],
+        "m": 7,
+        "merge_roots": [
+          {
+            "b_exact": "-sqrt(-2*cos(2*pi/7) + cos(pi/7)**2 + 1) + cos(pi/7)",
+            "b_float": 0.1494601871728485,
+            "in_convex_window": false,
+            "r_even": 2,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "5*2**(38/75)*3**(26/175)*5**(17/21)*7**(64/75)/98",
+            "b_float": 1.6524775486319898,
+            "in_convex_window": false,
+            "r_even": 2,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "cos(pi/7) + sqrt(2*sin(pi/14) + cos(pi/7)**2 + 1)",
+            "b_float": 2.403229420816592,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "2*sin(pi/14) + 1",
+            "b_float": 1.445041867912629,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 3
+          },
+          {
+            "b_exact": "-cos(2*pi/7) + sqrt(cos(2*pi/7)**2 + 2*sin(pi/14) + 1)",
+            "b_float": 0.7306820487327901,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 5
+          },
+          {
+            "b_exact": "1 + 2*cos(pi/7)",
+            "b_float": 2.801937735804838,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sin(pi/14) + sqrt(6*cos(pi/7) + 6)/2",
+            "b_float": 1.9111456115722816,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 3
+          },
+          {
+            "b_exact": "-cos(2*pi/7) + sqrt(cos(2*pi/7)**2 + 1 + 2*cos(pi/7))",
+            "b_float": 1.1627568969000581,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 5
+          }
+        ],
+        "n": 14
+      },
+      {
+        "any_merge_root_in_window": false,
+        "convex_window": [
+          0.9238795325112867,
+          1.082392200292394
+        ],
+        "m": 8,
+        "merge_roots": [
+          {
+            "b_exact": "-sqrt(6 - 3*sqrt(2))/2 + sqrt(sqrt(2) + 2)/2",
+            "b_float": 0.2610523844401032,
+            "in_convex_window": false,
+            "r_even": 2,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(6 - 3*sqrt(2))/2 + sqrt(sqrt(2) + 2)/2",
+            "b_float": 1.5867066805824703,
+            "in_convex_window": false,
+            "r_even": 2,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(sqrt(2) + 2)/2 + sqrt(sqrt(2) + 6)/2",
+            "b_float": 2.2853322091009924,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(2 - sqrt(2))/2 + sqrt(6 - sqrt(2))/2",
+            "b_float": 1.4534059031327142,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 3
+          },
+          {
+            "b_exact": "-sqrt(2 - sqrt(2))/2 + sqrt(6 - sqrt(2))/2",
+            "b_float": 0.6880390384025346,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 5
+          },
+          {
+            "b_exact": "-sqrt(sqrt(2) + 2)/2 + sqrt(sqrt(2) + 6)/2",
+            "b_float": 0.43757314407841896,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 7
+          },
+          {
+            "b_exact": "sqrt(sqrt(2) + 2)/2 + sqrt(6 + 5*sqrt(2))/2",
+            "b_float": 2.7315761201515825,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(2 - sqrt(2))/2 + sqrt(3*sqrt(2) + 6)/2",
+            "b_float": 1.9828897227476208,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 3
+          },
+          {
+            "b_exact": "-sqrt(2 - sqrt(2))/2 + sqrt(3*sqrt(2) + 6)/2",
+            "b_float": 1.2175228580174413,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 5
+          },
+          {
+            "b_exact": "-sqrt(sqrt(2) + 2)/2 + sqrt(6 + 5*sqrt(2))/2",
+            "b_float": 0.8838170551290088,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 7
+          }
+        ],
+        "n": 16
+      },
+      {
+        "any_merge_root_in_window": false,
+        "convex_window": [
+          0.9510565162951535,
+          1.0514622242382672
+        ],
+        "m": 10,
+        "merge_roots": [
+          {
+            "b_exact": "-sqrt(18 - 6*sqrt(5))/4 + sqrt(2*sqrt(5) + 10)/4",
+            "b_float": 0.4158233816355187,
+            "in_convex_window": false,
+            "r_even": 2,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(18 - 6*sqrt(5))/4 + sqrt(2*sqrt(5) + 10)/4",
+            "b_float": 1.4862896509547885,
+            "in_convex_window": false,
+            "r_even": 2,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(2)*(sqrt(sqrt(5) + 5) + sqrt(17 - 3*sqrt(5)))/4",
+            "b_float": 2.085285112495046,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(2)*(sqrt(5 - sqrt(5)) + sqrt(17 - 5*sqrt(5)))/4",
+            "b_float": 1.4406964516928746,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 3
+          },
+          {
+            "b_exact": "-1/2 + sqrt(5)/2",
+            "b_float": 0.6180339887498949,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 5
+          },
+          {
+            "b_exact": "sqrt(2)*(-sqrt(5 - sqrt(5)) + sqrt(17 - 5*sqrt(5)))/4",
+            "b_float": 0.26512594710792836,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 7
+          },
+          {
+            "b_exact": "sqrt(2)*(-sqrt(sqrt(5) + 5) + sqrt(17 - 3*sqrt(5)))/4",
+            "b_float": 0.18317207990473897,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 9
+          },
+          {
+            "b_exact": "sqrt(2)*(sqrt(sqrt(5) + 5) + sqrt(9 + 5*sqrt(5)))/4",
+            "b_float": 2.5393079088452652,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(10 - 2*sqrt(5))/4 + sqrt(6*sqrt(5) + 18)/4",
+            "b_float": 1.9890437907365466,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 3
+          },
+          {
+            "b_exact": "sqrt(1/2 + sqrt(5)/2)",
+            "b_float": 1.272019649514069,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 5
+          },
+          {
+            "b_exact": "-sqrt(10 - 2*sqrt(5))/4 + sqrt(6*sqrt(5) + 18)/4",
+            "b_float": 0.8134732861516004,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 7
+          },
+          {
+            "b_exact": "sqrt(2)*(-sqrt(sqrt(5) + 5) + sqrt(9 + 5*sqrt(5)))/4",
+            "b_float": 0.637194876254958,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 9
+          },
+          {
+            "b_exact": "sqrt(2)*(sqrt(sqrt(5) + 5) + sqrt(5*sqrt(5) + 17))/4",
+            "b_float": 2.827900272695075,
+            "in_convex_window": false,
+            "r_even": 8,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(2)*(sqrt(5 - sqrt(5)) + sqrt(3*sqrt(5) + 17))/4",
+            "b_float": 2.3092745759777586,
+            "in_convex_window": false,
+            "r_even": 8,
+            "r_odd": 3
+          },
+          {
+            "b_exact": "1/2 + sqrt(5)/2",
+            "b_float": 1.618033988749895,
+            "in_convex_window": false,
+            "r_even": 8,
+            "r_odd": 5
+          },
+          {
+            "b_exact": "sqrt(2)*(-sqrt(5 - sqrt(5)) + sqrt(3*sqrt(5) + 17))/4",
+            "b_float": 1.1337040713928122,
+            "in_convex_window": false,
+            "r_even": 8,
+            "r_odd": 7
+          },
+          {
+            "b_exact": "sqrt(2)*(-sqrt(sqrt(5) + 5) + sqrt(5*sqrt(5) + 17))/4",
+            "b_float": 0.9257872401047681,
+            "in_convex_window": false,
+            "r_even": 8,
+            "r_odd": 9
+          }
+        ],
+        "n": 20
+      },
+      {
+        "any_merge_root_in_window": false,
+        "convex_window": [
+          0.9659258262890683,
+          1.035276180410083
+        ],
+        "m": 12,
+        "merge_roots": [
+          {
+            "b_exact": "sqrt(2)",
+            "b_float": 1.4142135623730951,
+            "in_convex_window": false,
+            "r_even": 2,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(2 - sqrt(3))",
+            "b_float": 0.5176380902050415,
+            "in_convex_window": false,
+            "r_even": 2,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(sqrt(3) + 2)",
+            "b_float": 1.9318516525781366,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(2)",
+            "b_float": 1.4142135623730951,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 3
+          },
+          {
+            "b_exact": "sqrt(2 - sqrt(3))",
+            "b_float": 0.5176380902050415,
+            "in_convex_window": false,
+            "r_even": 4,
+            "r_odd": 5
+          },
+          {
+            "b_exact": "sqrt(2)/4 + sqrt(6)/4 + sqrt(sqrt(3) + 6)/2",
+            "b_float": 2.3562540975589217,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(sqrt(3) + 2)",
+            "b_float": 1.9318516525781366,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 3
+          },
+          {
+            "b_exact": "-sqrt(2)/4 + sqrt(6)/4 + sqrt(6 - sqrt(3))/2",
+            "b_float": 1.2917698174570318,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 5
+          },
+          {
+            "b_exact": "-sqrt(6)/4 + sqrt(2)/4 + sqrt(6 - sqrt(3))/2",
+            "b_float": 0.7741317272519902,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 7
+          },
+          {
+            "b_exact": "sqrt(2 - sqrt(3))",
+            "b_float": 0.5176380902050415,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 9
+          },
+          {
+            "b_exact": "-sqrt(6)/4 - sqrt(2)/4 + sqrt(sqrt(3) + 6)/2",
+            "b_float": 0.4244024449807852,
+            "in_convex_window": false,
+            "r_even": 6,
+            "r_odd": 11
+          },
+          {
+            "b_exact": "sqrt(2)/4 + sqrt(6)/4 + sqrt(sqrt(3) + 10)/2",
+            "b_float": 2.6785298966720097,
+            "in_convex_window": false,
+            "r_even": 8,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(sqrt(5) + 3)",
+            "b_float": 2.288245611270737,
+            "in_convex_window": false,
+            "r_even": 8,
+            "r_odd": 3
+          },
+          {
+            "b_exact": "-sqrt(2)/4 + sqrt(6)/4 + sqrt(10 - sqrt(3))/2",
+            "b_float": 1.6965211345869107,
+            "in_convex_window": false,
+            "r_even": 8,
+            "r_odd": 5
+          },
+          {
+            "b_exact": "-sqrt(6)/4 + sqrt(2)/4 + sqrt(10 - sqrt(3))/2",
+            "b_float": 1.1788830443818692,
+            "in_convex_window": false,
+            "r_even": 8,
+            "r_odd": 7
+          },
+          {
+            "b_exact": "sqrt(3 - sqrt(5))",
+            "b_float": 0.8740320488976422,
+            "in_convex_window": false,
+            "r_even": 8,
+            "r_odd": 9
+          },
+          {
+            "b_exact": "-sqrt(6)/4 - sqrt(2)/4 + sqrt(sqrt(3) + 10)/2",
+            "b_float": 0.7466782440938733,
+            "in_convex_window": false,
+            "r_even": 8,
+            "r_odd": 11
+          },
+          {
+            "b_exact": "sqrt(2)/4 + sqrt(6)/4 + sqrt(6 + 5*sqrt(3))/2",
+            "b_float": 2.880361385262286,
+            "in_convex_window": false,
+            "r_even": 10,
+            "r_odd": 1
+          },
+          {
+            "b_exact": "sqrt(2)*(1 + sqrt(3 + 2*sqrt(3)))/2",
+            "b_float": 2.5048973161401826,
+            "in_convex_window": false,
+            "r_even": 10,
+            "r_odd": 3
+          },
+          {
+            "b_exact": "sqrt(sqrt(3) + 2)",
+            "b_float": 1.9318516525781366,
+            "in_convex_window": false,
+            "r_even": 10,
+            "r_odd": 5
+          },
+          {
+            "b_exact": "sqrt(2)",
+            "b_float": 1.4142135623730951,
+            "in_convex_window": false,
+            "r_even": 10,
+            "r_odd": 7
+          },
+          {
+            "b_exact": "sqrt(2)*(-1 + sqrt(3 + 2*sqrt(3)))/2",
+            "b_float": 1.0906837537670875,
+            "in_convex_window": false,
+            "r_even": 10,
+            "r_odd": 9
+          },
+          {
+            "b_exact": "-sqrt(6)/4 - sqrt(2)/4 + sqrt(6 + 5*sqrt(3))/2",
+            "b_float": 0.9485097326841494,
+            "in_convex_window": false,
+            "r_even": 10,
+            "r_odd": 11
+          }
+        ],
+        "n": 24
+      }
+    ],
+    "trust_label": "EXACT_OBSTRUCTION"
+  }
+}
