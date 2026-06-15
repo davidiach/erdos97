@@ -1062,6 +1062,19 @@ This is diagnostic only and still does not prove assignments `0` and `11`
 impossible, support existence, center migration, endpoint-`8` forcing, `[3,5]`
 impossibility, `n=9`, or the bootstrap bridge.
 
+The target-sparse full-cone miss follow-up in
+`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md`,
+`scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_misses.py`,
+and
+`data/certificates/bootstrap_t12_151_6_label4_target_sparse_full_cone_misses.json`
+records `NOT_READY_FULL_CONE_MISSES_REMAIN_OPEN`: the three uncovered
+assignment-`0` endpoint quotients admit no solver witness in either normalized
+zero-sum or normalized nonpositive LP screen over the same `255`
+natural-order Kalmanson/Altman strict rows. No exact dual infeasibility
+certificate is stored, so this is still diagnostic only and does not prove that
+no current-row-family certificate exists, assignments `0` and `11` impossible,
+`n=9`, or the bootstrap bridge.
+
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses
 bootstrap-core witnesses `[2,4]` and singleton supports `7` and `8`; row

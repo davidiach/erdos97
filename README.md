@@ -201,8 +201,12 @@ then adds the cascade support equalities center `5` with `[4,6]` and center
 `6` with `[0,5]`; target-pair and completion probes still have no bounded
 one- or two-row Kalmanson/Altman cone certificate, while center-`8`
 endpoint-augmented probes are covered in `27` of `30` cases and leave exactly
-three assignment-`0` endpoint rows as next certificate targets. This is still a
-diagnostic only, not a proof that assignments `0` and `11` are impossible. See
+three assignment-`0` endpoint rows as next certificate targets. A full-cone
+miss follow-up then probes those three quotients with arbitrary nonnegative
+weights over the same `255` natural-order Kalmanson/Altman strict rows; HiGHS
+reports both normalized zero-sum and nonpositive LP screens infeasible, but no
+exact dual infeasibility certificate is stored. This is still a diagnostic
+only, not a proof that assignments `0` and `11` are impossible. See
 [`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`](docs/bootstrap-t12-151-6-label4-transfer-length-components.md)
 and
 [`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md),
@@ -227,7 +231,9 @@ plus
 and
 [`docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md),
 plus
-[`docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md`](docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md).
+[`docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md`](docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md)
+and
+[`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md`](docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md).
 On the source-`81` side, the `81:3` ordered chain-closure, one-layer
 repeated-support, two-repeated-support, and repeated-support saturation packets
 close the current bounded support-chain continuations under basic

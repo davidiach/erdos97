@@ -1,0 +1,358 @@
+{
+  "claim_scope": "Proof-mining diagnostic for the three source-151 row-6 label-4 assignment-0 endpoint rows left uncovered by the bounded support-cone packet. It reuses the exact selected-distance quotient equalities from that packet and asks a stronger linear-programming screen over the full current natural-order Kalmanson/Altman strict-row family: whether any nonnegative normalized combination gives either an exact zero-sum row or a nonpositive row. HiGHS reports both screens infeasible for all three local quotients, but this artifact stores no exact dual infeasibility certificate. It is therefore a solver diagnostic only; it does not prove that no current-row-family certificate exists, does not prove assignments 0 and 11 are impossible, does not prove support existence, does not prove center migration, does not prove row forcing, does not prove endpoint-8 forcing, does not prove that pair [3,5] is impossible, does not prove n=9, does not prove the bootstrap bridge, is not a counterexample, and is not a global status update.",
+  "decision": {
+    "answer": "no_solver_certificate_found_and_no_exact_infeasibility_certificate_stored",
+    "blocking_reason": "Both normalized LP screens report infeasible for all three misses, but the artifact stores no exact dual certificate. The current row-family search is therefore pruned only as a diagnostic, not discharged as an exact nonexistence theorem.",
+    "current_evidence_forces_target_sparse_obstruction": false,
+    "decision_question": "Do the three uncovered assignment-0 endpoint quotients admit a full nonnegative combination certificate from the current natural-order Kalmanson/Altman strict-row family?",
+    "exact_infeasibility_certificates_stored": false,
+    "gate_status": "NOT_READY_FULL_CONE_MISSES_REMAIN_OPEN",
+    "probe_status": "TARGET_SPARSE_FULL_CONE_LP_SCREEN_NO_CERTIFICATE_FOR_THREE_MISSES",
+    "required_next_lemma": "Add exact infeasibility certificates for these LP screens, enlarge the strict-row family, prove a genuine endpoint-row source exclusion, or add a new support-geometry condition for the target-sparse assignments."
+  },
+  "full_cone_probe_records": [
+    {
+      "assignment_index": 0,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        }
+      ],
+      "claim_strength": "Solver-only full-row-family LP screen for this encoded quotient input and fixed cyclic order; no exact infeasibility certificate is stored.",
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,1,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "exact_infeasibility_certificate_stored": false,
+      "full_cone_solver_certificate_found": false,
+      "lp_solver": "scipy.optimize.linprog(method=highs)",
+      "nonpositive_inequalities_screen": {
+        "distance_class_count": 28,
+        "equality_constraint_count": 1,
+        "exact_certificate_stored": false,
+        "feasible": false,
+        "inequality_constraint_count": 28,
+        "mode": "nonpositive_inequalities_normalized",
+        "normalization": "sum_weights_equals_1",
+        "normalized_status": "infeasible_reported_by_highs",
+        "scipy_status_code": 2,
+        "solver": "scipy.optimize.linprog(method=highs)",
+        "solver_result_is_not_exact_certificate": true,
+        "variable_count": 255
+      },
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "strict_row_count": 255,
+      "strict_row_family": "kalmanson_all_quads_plus_altman_gaps_natural_order",
+      "zero_sum_equalities_screen": {
+        "distance_class_count": 28,
+        "equality_constraint_count": 29,
+        "exact_certificate_stored": false,
+        "feasible": false,
+        "inequality_constraint_count": 0,
+        "mode": "zero_sum_equalities_normalized",
+        "normalization": "sum_weights_equals_1",
+        "normalized_status": "infeasible_reported_by_highs",
+        "scipy_status_code": 2,
+        "solver": "scipy.optimize.linprog(method=highs)",
+        "solver_result_is_not_exact_certificate": true,
+        "variable_count": 255
+      }
+    },
+    {
+      "assignment_index": 0,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            2,
+            4,
+            6
+          ]
+        }
+      ],
+      "claim_strength": "Solver-only full-row-family LP screen for this encoded quotient input and fixed cyclic order; no exact infeasibility certificate is stored.",
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,2,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "exact_infeasibility_certificate_stored": false,
+      "full_cone_solver_certificate_found": false,
+      "lp_solver": "scipy.optimize.linprog(method=highs)",
+      "nonpositive_inequalities_screen": {
+        "distance_class_count": 28,
+        "equality_constraint_count": 1,
+        "exact_certificate_stored": false,
+        "feasible": false,
+        "inequality_constraint_count": 28,
+        "mode": "nonpositive_inequalities_normalized",
+        "normalization": "sum_weights_equals_1",
+        "normalized_status": "infeasible_reported_by_highs",
+        "scipy_status_code": 2,
+        "solver": "scipy.optimize.linprog(method=highs)",
+        "solver_result_is_not_exact_certificate": true,
+        "variable_count": 255
+      },
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "strict_row_count": 255,
+      "strict_row_family": "kalmanson_all_quads_plus_altman_gaps_natural_order",
+      "zero_sum_equalities_screen": {
+        "distance_class_count": 28,
+        "equality_constraint_count": 29,
+        "exact_certificate_stored": false,
+        "feasible": false,
+        "inequality_constraint_count": 0,
+        "mode": "zero_sum_equalities_normalized",
+        "normalization": "sum_weights_equals_1",
+        "normalized_status": "infeasible_reported_by_highs",
+        "scipy_status_code": 2,
+        "solver": "scipy.optimize.linprog(method=highs)",
+        "solver_result_is_not_exact_certificate": true,
+        "variable_count": 255
+      }
+    },
+    {
+      "assignment_index": 0,
+      "centered_class_count": 4,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            6,
+            7
+          ]
+        }
+      ],
+      "claim_strength": "Solver-only full-row-family LP screen for this encoded quotient input and fixed cyclic order; no exact infeasibility certificate is stored.",
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,6,7",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "exact_infeasibility_certificate_stored": false,
+      "full_cone_solver_certificate_found": false,
+      "lp_solver": "scipy.optimize.linprog(method=highs)",
+      "nonpositive_inequalities_screen": {
+        "distance_class_count": 28,
+        "equality_constraint_count": 1,
+        "exact_certificate_stored": false,
+        "feasible": false,
+        "inequality_constraint_count": 28,
+        "mode": "nonpositive_inequalities_normalized",
+        "normalization": "sum_weights_equals_1",
+        "normalized_status": "infeasible_reported_by_highs",
+        "scipy_status_code": 2,
+        "solver": "scipy.optimize.linprog(method=highs)",
+        "solver_result_is_not_exact_certificate": true,
+        "variable_count": 255
+      },
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "strict_row_count": 255,
+      "strict_row_family": "kalmanson_all_quads_plus_altman_gaps_natural_order",
+      "zero_sum_equalities_screen": {
+        "distance_class_count": 28,
+        "equality_constraint_count": 29,
+        "exact_certificate_stored": false,
+        "feasible": false,
+        "inequality_constraint_count": 0,
+        "mode": "zero_sum_equalities_normalized",
+        "normalization": "sum_weights_equals_1",
+        "normalized_status": "infeasible_reported_by_highs",
+        "scipy_status_code": 2,
+        "solver": "scipy.optimize.linprog(method=highs)",
+        "solver_result_is_not_exact_certificate": true,
+        "variable_count": 255
+      }
+    }
+  ],
+  "interpretation": [
+    "The bounded support-cone packet left exactly three assignment-0 endpoint rows; this packet probes those same three local quotients with arbitrary nonnegative row weights over the current strict-row family.",
+    "HiGHS reports infeasible for both the normalized zero-sum and normalized nonpositive LP screens on every miss.",
+    "Because no exact dual infeasibility certificate is stored, the result is only a diagnostic route-pruning artifact, not an exact proof that no current-row-family certificate exists.",
+    "The next exact task is to certify these infeasibility screens, add a stronger row family, or prove a geometric reason the three endpoint rows cannot occur."
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_misses.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_misses.py"
+  },
+  "schema": "erdos97.bootstrap_t12_151_6_label4_target_sparse_full_cone_misses.v1",
+  "source_artifacts": [
+    {
+      "gate_status": "NOT_READY_SUPPORT_CONE_PARTIAL_ENDPOINT_COVERAGE",
+      "path": "data/certificates/bootstrap_t12_151_6_label4_target_sparse_support_cone.json",
+      "probe_status": "TARGET_SPARSE_SUPPORT_CONE_BOUND_2_PARTIAL_ENDPOINT_ONLY",
+      "role": "source 151:6 label-4 target-sparse support-cone packet",
+      "schema": "erdos97.bootstrap_t12_151_6_label4_target_sparse_support_cone.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_TARGET_SPARSE_SUPPORT_CONE_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_151_6_LABEL4_TARGET_SPARSE_FULL_CONE_MISSES_DIAGNOSTIC_ONLY",
+  "summary": {
+    "all_full_cone_lp_screens_report_infeasible": true,
+    "all_misses_are_assignment0_source_pair0": true,
+    "current_evidence_forces_target_sparse_obstruction": false,
+    "exact_infeasibility_certificates_stored": false,
+    "full_cone_probe_count": 3,
+    "full_cone_solver_certificate_found_count": 0,
+    "gate_status": "NOT_READY_FULL_CONE_MISSES_REMAIN_OPEN",
+    "lp_screen_modes": [
+      "zero_sum_equalities_normalized",
+      "nonpositive_inequalities_normalized"
+    ],
+    "lp_solver": "scipy.optimize.linprog(method=highs)",
+    "nonpositive_inequalities_feasible_count": 0,
+    "probe_status": "TARGET_SPARSE_FULL_CONE_LP_SCREEN_NO_CERTIFICATE_FOR_THREE_MISSES",
+    "source_endpoint_augmented_bounded_certificate_count": 27,
+    "source_endpoint_augmented_probe_count": 30,
+    "source_endpoint_augmented_probe_without_certificate_count": 3,
+    "source_support_cone_gate_status": "NOT_READY_SUPPORT_CONE_PARTIAL_ENDPOINT_COVERAGE",
+    "source_support_cone_probe_status": "TARGET_SPARSE_SUPPORT_CONE_BOUND_2_PARTIAL_ENDPOINT_ONLY",
+    "source_support_cone_status": "BOOTSTRAP_T12_151_6_LABEL4_TARGET_SPARSE_SUPPORT_CONE_DIAGNOSTIC_ONLY",
+    "strict_row_count": 255,
+    "strict_row_family": "kalmanson_all_quads_plus_altman_gaps_natural_order",
+    "target_center": 6,
+    "target_row_key": "151:6",
+    "uncovered_endpoint_rows": [
+      [
+        0,
+        1,
+        4,
+        6
+      ],
+      [
+        0,
+        2,
+        4,
+        6
+      ],
+      [
+        0,
+        4,
+        6,
+        7
+      ]
+    ],
+    "zero_sum_equalities_feasible_count": 0
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

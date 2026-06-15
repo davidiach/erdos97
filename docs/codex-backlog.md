@@ -595,13 +595,21 @@ minimal/rich-class hypotheses.
    adding a center-`8` exact target row covers `27` of `30` endpoint-augmented
    probes and leaves exactly the assignment-`0` endpoint rows `[0,1,4,6]`,
    `[0,2,4,6]`, and `[0,4,6,7]` as next certificate targets.
+   The target-sparse full-cone miss command
+   `python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_misses.py --check --assert-expected --json`
+   probes exactly those three quotient misses with arbitrary nonnegative
+   weights over the same `255` natural-order Kalmanson/Altman strict rows.
+   HiGHS reports both normalized zero-sum and nonpositive LP screens
+   infeasible for all three, but no exact dual infeasibility certificate is
+   stored.
    The next useful PR should therefore prove a support-geometry exclusion
-   under genuine private-support or rich-class hypotheses, prove center
+   under genuine private-support or rich-class hypotheses, exactly certify the
+   full-cone infeasibility screens, enlarge the strict-row family, prove center
    migration for the off-center `[0,4,6]` rows, or obstruct target-sparse
-   assignments `0` and `11` by something stronger than one completion plus
-   two arbitrary repairs, not a component-alone impossibility claim, not arbitrary
-   label-`8` visibility, and not another selected-row neighborhood widening
-   around `151:6`.
+   assignments `0` and `11` by something stronger than one completion plus two
+   arbitrary repairs, not a component-alone impossibility claim, not arbitrary
+   label-`8` visibility, and not another selected-row neighborhood widening or
+   repeated solver-only cone screen around `151:6`.
    The source-`151` singleton-support audit in
    `docs/bootstrap-t12-151-singleton-support-audit.md` applies the same local
    audit shape to rows `151:5` and `151:8`; it also leaves the genuine

@@ -188,8 +188,13 @@ Required guardrails:
   target-pair or completion probes. Adding a center-`8` exact target row
   covers `27` of `30` endpoint-augmented probes, leaving exactly the
   assignment-`0` endpoint rows `[0,1,4,6]`, `[0,2,4,6]`, and `[0,4,6,7]`.
-  This is a next-certificate target, not a proof that assignments `0` and
-  `11` are impossible.
+  The target-sparse full-cone miss packet probes those three quotients with
+  arbitrary nonnegative weights over the same `255` natural-order
+  Kalmanson/Altman strict rows; HiGHS reports both normalized LP screens
+  infeasible, but no exact dual infeasibility certificate is stored. The next
+  target is exact infeasibility certification, a stronger row family, or a
+  genuine endpoint/source geometry lemma, not another solver-only replay of
+  the same cone.
 - The private-halo-only pair `[3,5]` is the named escape and must be excluded
   or explicitly realized as an escape mechanism.
 

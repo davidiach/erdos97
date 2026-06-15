@@ -218,6 +218,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_three_row_repairs.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_target_sparse_support_cone.py --check --assert-expected --json
+	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_misses.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_support_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_two_row_drop.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_singleton_full_neighborhood_vertex_circle.py --check --assert-expected --json
