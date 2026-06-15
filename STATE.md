@@ -623,8 +623,12 @@ completion probes have no bounded one- or two-row Kalmanson/Altman cone
 certificate, while adding a center-`8` exact target row covers `27` of `30`
 endpoint-augmented probes and leaves exactly the assignment-`0` endpoint rows
 `[0,1,4,6]`, `[0,2,4,6]`, and `[0,4,6,7]`.
-This is still proof-mining bookkeeping only, not support existence, row
-forcing, center migration, endpoint-`8` forcing, `[3,5]` impossibility,
+The full-cone miss follow-up probes exactly those three quotients with
+arbitrary nonnegative weights over the same `255` natural-order
+Kalmanson/Altman strict rows; HiGHS reports both normalized zero-sum and
+nonpositive LP screens infeasible, but no exact dual infeasibility certificate
+is stored. This is still proof-mining bookkeeping only, not support existence,
+row forcing, center migration, endpoint-`8` forcing, `[3,5]` impossibility,
 simultaneous realization of all components, a target-sparse obstruction,
 `n=9`, or the bridge.
 See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
@@ -641,7 +645,8 @@ See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
 `docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md`,
 plus
 `docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md`
-and `docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md`.
+and `docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md`, plus
+`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md`.
 
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation

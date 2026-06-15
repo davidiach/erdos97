@@ -2890,6 +2890,30 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_target_sparse_full_cone_misses",
+        command=(
+            "python",
+            "scripts/"
+            "check_bootstrap_t12_151_6_label4_target_sparse_full_cone_misses.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Target-sparse full-cone miss diagnostic for the source 151 row 6 "
+            "label-4 residual assignment-0 endpoint misses; records that the "
+            "three missed endpoint quotients have no solver witness in "
+            "normalized zero-sum or nonpositive LP screens over the current "
+            "natural-order Kalmanson/Altman row family, but stores no exact "
+            "dual infeasibility certificate, not a proof that no current-row-"
+            "family certificate exists, not a proof that assignments 0 and "
+            "11 are impossible, not support existence, not center migration, "
+            "not row forcing, not endpoint-8 forcing, not a proof that [3,5] "
+            "is impossible, not an n=9 proof, not a bridge proof, and not a "
+            "counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",

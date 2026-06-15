@@ -88,10 +88,14 @@ certificate. Assignment `0` still has three endpoint rows uncovered:
 [0,4,6,7]
 ```
 
-So the next exact task is no longer vague. Either find a higher-row
-Farkas/cone certificate for those three local quotients, prove that genuine
-geometry cannot supply those endpoint rows, or add a different support
-condition that reaches assignment `0`.
+The immediate higher-row follow-up is now recorded in
+`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md`. It probes
+those three quotients with arbitrary nonnegative weights over the same current
+Kalmanson/Altman row family and finds no solver witness, while storing no exact
+dual infeasibility certificate. So the next exact task is now to certify that
+LP infeasibility, add a stronger row family, prove that genuine geometry cannot
+supply those endpoint rows, or add a different support condition that reaches
+assignment `0`.
 
 ## What This Does Not Prove
 

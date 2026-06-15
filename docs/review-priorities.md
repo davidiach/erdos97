@@ -1095,6 +1095,16 @@ condition that the surviving multi-block family does not automatically satisfy:
   are covered in `27` of `30` cases; the three misses are assignment-`0`
   endpoint rows `[0,1,4,6]`, `[0,2,4,6]`, and `[0,4,6,7]`. This is still not
   a proof that assignments `0` and `11` are impossible.
+- bootstrap/T12 focused `151:6` label-`4` target-sparse full-cone miss
+  evidence, as recorded in
+  `docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md`,
+  probing exactly those three uncovered assignment-`0` endpoint quotients with
+  arbitrary nonnegative weights over the current `255` natural-order
+  Kalmanson/Altman strict rows. HiGHS reports both normalized zero-sum and
+  nonpositive LP screens infeasible for all three, but no exact dual
+  infeasibility certificate is stored. The remaining target is exact
+  infeasibility certification, a stronger row family, or a geometric endpoint
+  exclusion, not a repeated full-cone solver screen.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed
