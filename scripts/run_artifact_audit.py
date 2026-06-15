@@ -602,6 +602,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_parallel_endpoint_closure",
+        command=(
+            "python",
+            "scripts/check_n9_parallel_endpoint_closure.py",
+            "--check",
+            "--assert-expected",
+        ),
+        claim_scope=(
+            "Lighter parity + parallel-endpoint combinatorial closure of the "
+            "184 review-pending n=9 pre-vertex-circle frontier assignments; "
+            "necessary-condition second source only, not a proof of n=9, "
+            "counterexample, independent review completion, or official/global "
+            "status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_high_risk_frontier_packet",
         command=(
             "python",
