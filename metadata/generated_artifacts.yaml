@@ -677,8 +677,8 @@ artifacts:
 
   - id: n9_turn_inequality_frontier
     path: data/certificates/n9_turn_inequality_frontier.json
-    sha256: 9de2666f7bce8e92bb2134caae449588a67ef902ae45b6bbc30c1687588603b8
-    size_bytes: 82873
+    sha256: c18927110eeb7eaaa8ce00c61573b0c72c4b81c0aed29f054b46cd9b8658ee55
+    size_bytes: 82883
     kind: finite_case_artifact
     generator: scripts/check_n9_turn_inequality_frontier.py
     command: python scripts/check_n9_turn_inequality_frontier.py --assert-expected --write

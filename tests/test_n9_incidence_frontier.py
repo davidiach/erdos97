@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+import json
+from collections import Counter
+from pathlib import Path
+
 import pytest
 
 from erdos97.incidence_filters import row_ptolemy_product_cancellation_certificates
@@ -24,6 +28,7 @@ EXPECTED_FILTER_ORDER = [
     "mutual_midpoint_collapse",
     "phi4_rectangle_trap",
     "row_ptolemy_product_cancellation",
+    "parallel_endpoint_violation",
     "accepted_frontier",
 ]
 
@@ -127,6 +132,33 @@ def test_default_bounded_scan_has_no_remaining_accepted_frontier() -> None:
     assert payload["full_classification_counts"]["row_ptolemy_product_cancellation"] == 1
     assert payload["accepted_frontier_count"] == 0
     assert payload["full_classification_counts"]["accepted_frontier"] == 0
+
+
+def test_full_chain_closes_184_frontier_at_incidence_layer() -> None:
+    # Wiring the parallel-endpoint necessary filter into the classify_pattern
+    # chain closes the entire stored 184 pre-vertex-circle frontier at the
+    # incidence layer (natural order): no assignment reaches accepted_frontier.
+    # Sound second source; does not re-derive the frontier or prove n=9.
+    frontier_path = (
+        Path(__file__).resolve().parents[1]
+        / "data"
+        / "certificates"
+        / "n9_vertex_circle_frontier_motif_classification.json"
+    )
+    data = json.loads(frontier_path.read_text(encoding="utf-8"))
+    counts: Counter[str] = Counter()
+    for entry in data["assignments"]:
+        rows: list[list[int]] = [[] for _ in range(9)]
+        for row in entry["selected_rows"]:
+            rows[row[0]] = sorted(row[1:])
+        counts[str(classify_pattern(rows, list(range(9)))["status"])] += 1
+
+    assert sum(counts.values()) == 184
+    assert counts["accepted_frontier"] == 0
+    assert counts["odd_forced_perpendicular_cycle"] == 22
+    assert counts["phi4_rectangle_trap"] == 36
+    assert counts["row_ptolemy_product_cancellation"] == 26
+    assert counts["parallel_endpoint_violation"] == 100
 
 
 def test_checker_assert_expected_allows_zero_example_payloads() -> None:

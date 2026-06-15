@@ -91,9 +91,32 @@ Checked artifact: `data/certificates/n9_parallel_endpoint_closure.json` (managed
 `metadata/generated_artifacts.yaml`). Exploration provenance:
 `reports/explorations/2026-06-14/A6-topological-parity.md`.
 
-## Suggested follow-up
+## Now wired into the incidence-frontier chain
 
-A separately reviewed change could apply the parallel-endpoint necessary filter inside
-`src/erdos97/n9_incidence_frontier.py` so the frontier closes at the incidence layer.
-That touches review-pending source and should be made under its own review, not bundled
-with this additive second-source diagnostic.
+`src/erdos97/n9_incidence_frontier.py` now applies the parallel-endpoint filter as the
+final gate of its `classify_pattern` necessary-filter chain (after the parity, mutual-
+midpoint, phi4-rectangle-trap, and row-Ptolemy filters, immediately before
+`accepted_frontier`). With it wired in, the natural-order chain closes the entire stored
+184-assignment frontier at the incidence layer:
+
+| `classify_pattern` status (natural order) | assignments |
+| --- | ---: |
+| `odd_forced_perpendicular_cycle` (parity) | 22 |
+| `phi4_rectangle_trap` (fixed-order) | 36 |
+| `row_ptolemy_product_cancellation` (fixed-order) | 26 |
+| `parallel_endpoint_violation` | 100 |
+| `accepted_frontier` | 0 |
+
+No assignment survives to `accepted_frontier`. Parity and parallel-endpoint are
+order-independent filters; the rectangle-trap and row-Ptolemy filters are
+natural-order-specific, so this particular split is a natural-order statement (the
+order-independent parity + parallel-endpoint pair alone already closes all 184 as
+22 + 162, per the summary table above). The previously escaping side-cap benchmark
+pattern recorded in `n9_turn_inequality_frontier` is now caught by the parallel-endpoint
+gate.
+
+This remains `REVIEW_PENDING_DIAGNOSTIC`: wiring the filter in does not re-derive the
+frontier, prove the n=9 finite case, prove Erdos Problem #97, or change official/global
+status. The bounded `run_bounded_scan` diagnostic is unaffected by default (its three
+checked patterns are caught by earlier filters; `parallel_endpoint_violation` and
+`accepted_frontier` both remain 0 there).
