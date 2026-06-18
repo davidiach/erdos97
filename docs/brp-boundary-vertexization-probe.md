@@ -51,6 +51,14 @@ Run:
 python3 scripts/check_brp_boundary_probe.py --assert-expected
 ```
 
+The checked artifact is
+`data/certificates/brp_boundary_vertexization_probe.json`, managed by
+`metadata/generated_artifacts.yaml`. Replay the artifact check with:
+
+```bash
+python3 scripts/check_brp_boundary_probe.py --check --assert-expected --json
+```
+
 The checker:
 
 - represents vertex-to-vertex squared distances exactly in `Q(sqrt(3))` for
@@ -58,10 +66,10 @@ The checker:
 - enumerates every distinct circle centered at a seed vertex and passing
   through another seed vertex;
 - intersects each such circle numerically with the 12 seed boundary edges;
-- separates hits at modeled vertices from hits in edge interiors.
-- runs a small synthetic `A5` edge-pocket scan with
-  `A5(t,h)=A4+t*(B1-A4)+h*unit_normal(A4B1)`, rotating the result to `B5`
-  and `C5`. This is only a stress test, not the source paper's `A5`.
+- separates hits at modeled vertices from hits in edge interiors;
+- runs a small signed synthetic `A5` edge-pocket scan with
+  `A5(t,h)=A4+t*(B1-A4)+h*unit_left_normal(A4B1)`, rotating the result to
+  `B5` and `C5`. This is only a stress test, not the source paper's `A5`.
 
 ## Current result
 
@@ -74,7 +82,7 @@ max seed-vertex hits on one centered circle: 2
 max seed-boundary hits on one centered circle: 5
 circles with at least four boundary hits: 45
 circles with at least four seed vertices: 0
-synthetic A5 edge-pocket candidates: 18
+synthetic A5 edge-pocket candidates: 36
 strictly convex synthetic A5 candidates: 0
 synthetic candidates with at least four vertices on a centered circle: 0
 ```
@@ -84,10 +92,11 @@ many centered circles hit the polygonal boundary four or five times, but none
 hits four modeled seed vertices.
 
 The synthetic `A5` pocket scan is also a useful failed route: the sampled
-normal-offset candidates do not remain strictly convex. This says the missing
-`A5` step cannot be replaced by a naive point inserted around the tiny
-`A4B1` edge pocket. It is still not evidence against the full contrarian lane:
-the source construction's Lemma 3.1 choice is existential, and the relevant
+signed normal-offset stand-ins do not remain strictly convex. This only
+rejects those 36 sampled edge-pocket candidates; it does not rule out other
+naive edge-pocket placements or the source construction's existential `A5`.
+It is still not evidence against the full contrarian lane: the source
+construction's Lemma 3.1 choice is existential, and the relevant
 edge-parameter closure remains unmodeled.
 
 ## Next steps

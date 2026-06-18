@@ -34,8 +34,9 @@ def _load_json(path: Path) -> dict[str, object]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json", action="store_true", help="print stable JSON")
-    parser.add_argument("--write", action="store_true", help="write the JSON payload")
-    parser.add_argument("--check", action="store_true", help="check an existing JSON payload")
+    mode_group = parser.add_mutually_exclusive_group()
+    mode_group.add_argument("--write", action="store_true", help="write the JSON payload")
+    mode_group.add_argument("--check", action="store_true", help="check an existing JSON payload")
     parser.add_argument("--assert-expected", action="store_true")
     parser.add_argument("--tol", type=float, default=ROOT_TOL)
     parser.add_argument("--artifact", default=str(DEFAULT_ARTIFACT))
@@ -53,7 +54,7 @@ def main() -> int:
     if args.assert_expected:
         assert_expected_counts(payload)
 
-    if args.write and not args.check:
+    if args.write:
         artifact.parent.mkdir(parents=True, exist_ok=True)
         artifact.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
@@ -84,7 +85,7 @@ def main() -> int:
         print(f"synthetic A5 best vertex hits: {synthetic['best_max_vertex_hits']}")
         if args.assert_expected:
             print("OK: expected BRP boundary diagnostic counts verified")
-        if args.write and not args.check:
+        if args.write:
             print(f"wrote {display_path(artifact, ROOT)}")
         if args.check:
             print(f"OK: {display_path(artifact, ROOT)} is current")

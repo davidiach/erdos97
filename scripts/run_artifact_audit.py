@@ -1674,6 +1674,24 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="brp_boundary_vertexization_probe",
+        command=(
+            "python",
+            "scripts/check_brp_boundary_probe.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Float64 boundary-hit diagnostic for the quoted 12-point "
+            "Barany--Roldan-Pensado seed before A5 insertion with a signed "
+            "synthetic A5 edge-pocket stress scan; not a finite extraction "
+            "from the body, not the final 15-gon, not a proof of Erdos "
+            "Problem #97, not a counterexample, and not an official/global "
+            "status update."
+        ),
+    ),
+    AuditCommand(
         ident="rich_support_counting_bound",
         command=(
             "python",

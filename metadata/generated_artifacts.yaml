@@ -3443,6 +3443,42 @@ artifacts:
       - source-of-truth strongest result
       - general proof of Erdos Problem #97
 
+  - id: brp_boundary_vertexization_probe
+    path: data/certificates/brp_boundary_vertexization_probe.json
+    sha256: 158434c458b6616d9f9fd1bf90958e6b3434ec5c84520e0b257c9a6c5b785aa8
+    size_bytes: 34413
+    kind: numerical_geometric_diagnostic_artifact
+    generator: scripts/check_brp_boundary_probe.py
+    command: python scripts/check_brp_boundary_probe.py --write --assert-expected
+    checker: scripts/check_brp_boundary_probe.py
+    check_command: python scripts/check_brp_boundary_probe.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Float64 boundary-hit diagnostic for the quoted 12-point Barany--Roldan-Pensado seed before A5 insertion; records seed-boundary circle hits versus modeled seed-vertex hits and a signed sampled synthetic A5 edge-pocket stress scan. Not a finite extraction, not the final 15-gon, not a proof, not a counterexample, and not an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.brp_boundary_vertexization_probe.v1
+      status: BOUNDARY_VERTEXIZATION_DIAGNOSTIC_ONLY
+      trust: NUMERICAL_GEOMETRIC_DIAGNOSTIC
+      provenance.command: python scripts/check_brp_boundary_probe.py --write --assert-expected
+      summary.seed_vertex_count: 12
+      summary.distinct_centered_vertex_radii: 120
+      summary.max_vertex_hits_on_seed: 2
+      summary.max_boundary_hits_on_seed_edges: 5
+      summary.circles_with_at_least_four_seed_vertices: 0
+      summary.circles_with_at_least_four_boundary_hits: 45
+      synthetic_a5_scan.candidate_count: 36
+      synthetic_a5_scan.strictly_convex_candidate_count: 0
+      synthetic_a5_scan.candidates_with_at_least_four_vertices: 0
+    forbidden_claims:
+      - proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - finite-vertex extraction from the Barany--Roldan-Pensado body
+      - model of the source paper's A5 insertion or final 15-gon
+      - exact or interval certificate for boundary intersections
+      - official/global status update
+
   - id: two_parabola_lens_grid_search
     path: data/certificates/two_parabola_lens_grid_search.json
     sha256: b514282e4d5a6ebc096551e6e61ab354d6fc90fda592f1f8e494993fb03e5c18

@@ -22,9 +22,10 @@ BASE_POINTS: tuple[tuple[str, int, int], ...] = (
 )
 ORBIT_PREFIXES = ("A", "B", "C")
 DEFAULT_A5_PARAMETERS: tuple[tuple[Fraction, Fraction], ...] = tuple(
-    (Fraction(t, 4), Fraction(h))
+    (Fraction(t, 4), Fraction(sign * h))
     for t in (1, 2, 3)
     for h in (1, 2, 5, 10, 20, 50)
+    for sign in (-1, 1)
 )
 SQRT3 = math.sqrt(3.0)
 ROOT_TOL = 1e-9
@@ -176,14 +177,14 @@ def brp_candidate_15gon(t_value: Fraction, normal_offset: Fraction) -> tuple[Num
 
     The source paper proves existence of an A5 near A4 using Lemma 3.1 but does
     not give coordinates. This two-parameter family is a diagnostic stand-in:
-    it inserts A5 between A4 and B1, offset on one normal side of that edge,
+    it inserts A5 between A4 and B1, offset on either normal side of that edge,
     then rotates it to B5/C5. It is not claimed to be the paper's chosen point.
     """
 
     if not Fraction(0) < t_value < Fraction(1):
         raise ValueError("t_value must lie strictly between 0 and 1")
-    if normal_offset <= 0:
-        raise ValueError("normal_offset must be positive")
+    if normal_offset == 0:
+        raise ValueError("normal_offset must be nonzero")
     seed = brp_seed_numeric_vertices()
     by_label = {vertex.label: vertex.numeric for vertex in seed}
     a4 = by_label["A4"]
@@ -499,6 +500,7 @@ def _candidate_to_json(candidate: Candidate15Summary) -> dict[str, object]:
     return {
         "t": _format_fraction(candidate.t_value),
         "normal_offset": _format_fraction(candidate.normal_offset),
+        "normal_side": "left" if candidate.normal_offset > 0 else "right",
         "strictly_convex": candidate.strictly_convex,
         "min_turn_area2": candidate.min_turn_area2,
         "max_vertex_hits": candidate.max_vertex_hits,
@@ -532,6 +534,14 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
         "schema": SCHEMA,
         "status": STATUS,
         "trust": TRUST,
+        "provenance": {
+            "generator": "scripts/check_brp_boundary_probe.py",
+            "command": "python scripts/check_brp_boundary_probe.py --write --assert-expected",
+            "notes": (
+                "Float64 boundary-intersection diagnostic for the quoted "
+                "Barany--Roldan-Pensado 12-point seed before A5 insertion."
+            ),
+        },
         "source": {
             "construction": "Barany--Roldan-Pensado 3-fold seed before A5 insertion",
             "base_points": [
@@ -559,16 +569,17 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
         },
         "synthetic_a5_scan": {
             "description": (
-                "A5(t,h)=A4+t*(B1-A4)+h*unit_normal(A4B1), "
-                "then rotated to B5/C5; diagnostic stand-in only, not the "
-                "source paper's A5."
+                "A5(t,h)=A4+t*(B1-A4)+h*unit_left_normal(A4B1), "
+                "with signed h and rotations to B5/C5; diagnostic stand-in "
+                "only, not the source paper's A5."
             ),
             "parameters": [
                 {
                     "t": _format_fraction(t_value),
-                    "normal_offset": _format_fraction(outward_offset),
+                    "normal_offset": _format_fraction(normal_offset),
+                    "normal_side": "left" if normal_offset > 0 else "right",
                 }
-                for t_value, outward_offset in DEFAULT_A5_PARAMETERS
+                for t_value, normal_offset in DEFAULT_A5_PARAMETERS
             ],
             "candidate_count": len(candidate_scan),
             "strictly_convex_candidate_count": convex_candidate_count,
@@ -578,9 +589,9 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
                 1 for candidate in candidate_scan if candidate.circles_with_at_least_four_vertices
             ),
             "interpretation": (
-                "No sampled synthetic pocket candidate is strictly convex; "
-                "boundary-hit counts in this subscan are therefore nonconvex "
-                "stress diagnostics only."
+                "This signed normal-offset scan is a diagnostic stress test "
+                "only. It samples nearby synthetic A5 placements but does not "
+                "model the source paper's existential A5 constraints."
             ),
             "candidates": [_candidate_to_json(candidate) for candidate in candidate_scan],
         },
@@ -597,8 +608,8 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
             "Float64 boundary-hit diagnostic for the 12-point three-fold seed "
             "quoted in the Barany--Roldan-Pensado convex-body discussion. It "
             "measures the gap between centered circle hits on polygon edges and "
-            "hits at the modeled seed vertices, and includes a synthetic A5 "
-            "edge-pocket scan as a failed first closure stress test."
+            "hits at the modeled seed vertices, and includes a limited signed "
+            "synthetic A5 edge-pocket closure stress test."
         ),
         "does_not_claim": [
             "proof of Erdos Problem #97",
@@ -659,7 +670,7 @@ def assert_expected_counts(payload: dict[str, object]) -> None:
     if not isinstance(synthetic, dict):
         raise AssertionError("payload.synthetic_a5_scan must be an object")
     expected_synthetic = {
-        "candidate_count": 18,
+        "candidate_count": 36,
         "strictly_convex_candidate_count": 0,
         "best_max_vertex_hits": 2,
         "best_max_boundary_hits": 8,

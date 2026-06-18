@@ -46,9 +46,13 @@ def test_payload_keeps_vertexization_gap_explicit() -> None:
 
     assert payload["schema"] == "erdos97.brp_boundary_vertexization_probe.v1"
     assert payload["trust"] == "NUMERICAL_GEOMETRIC_DIAGNOSTIC"
+    assert payload["provenance"]["generator"] == "scripts/check_brp_boundary_probe.py"
     assert_expected_counts(payload)
     assert payload["summary"]["max_boundary_hits_on_seed_edges"] >= 4
     assert payload["summary"]["circles_with_at_least_four_seed_vertices"] == 0
+    candidates = payload["synthetic_a5_scan"]["candidates"]
+    assert {candidate["normal_side"] for candidate in candidates} == {"left", "right"}
+    assert payload["synthetic_a5_scan"]["candidate_count"] == 36
     assert payload["synthetic_a5_scan"]["strictly_convex_candidate_count"] == 0
     assert payload["synthetic_a5_scan"]["candidates_with_at_least_four_vertices"] == 0
     assert "counterexample to Erdos Problem #97" in payload["does_not_claim"]
@@ -97,3 +101,40 @@ def test_cli_write_check_roundtrip(tmp_path: Path) -> None:
         stderr=subprocess.PIPE,
     )
     assert check.returncode == 0, check.stderr
+
+
+def test_cli_default_artifact_check_is_reproducible() -> None:
+    check = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_brp_boundary_probe.py",
+            "--check",
+            "--assert-expected",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    assert check.returncode == 0, check.stderr
+
+
+def test_cli_write_check_modes_are_exclusive(tmp_path: Path) -> None:
+    artifact = tmp_path / "brp_probe.json"
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_brp_boundary_probe.py",
+            "--artifact",
+            str(artifact),
+            "--write",
+            "--check",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    assert result.returncode != 0
+    assert "not allowed with argument" in result.stderr
