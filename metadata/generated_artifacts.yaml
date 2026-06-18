@@ -3445,8 +3445,8 @@ artifacts:
 
   - id: brp_boundary_vertexization_probe
     path: data/certificates/brp_boundary_vertexization_probe.json
-    sha256: 158434c458b6616d9f9fd1bf90958e6b3434ec5c84520e0b257c9a6c5b785aa8
-    size_bytes: 34413
+    sha256: c9ce88089495d559f00a901cc0ea99f7202ead8bc31ea614b2b4740c4a7eab6f
+    size_bytes: 34036
     kind: numerical_geometric_diagnostic_artifact
     generator: scripts/check_brp_boundary_probe.py
     command: python scripts/check_brp_boundary_probe.py --write --assert-expected

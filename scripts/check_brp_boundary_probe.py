@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -31,6 +32,52 @@ def _load_json(path: Path) -> dict[str, object]:
     return payload
 
 
+def _assert_payload_current(
+    stored: object,
+    current: object,
+    *,
+    tol: float,
+    path: str = "$",
+) -> None:
+    if isinstance(stored, float) or isinstance(current, float):
+        if not isinstance(stored, (int, float)) or not isinstance(current, (int, float)):
+            raise AssertionError(f"{path}: numeric type mismatch")
+        if not math.isclose(float(stored), float(current), rel_tol=tol, abs_tol=tol):
+            raise AssertionError(f"{path}: expected {current!r}, got {stored!r}")
+        return
+
+    if isinstance(stored, dict) and isinstance(current, dict):
+        stored_keys = set(stored)
+        current_keys = set(current)
+        if stored_keys != current_keys:
+            missing = sorted(current_keys - stored_keys)
+            extra = sorted(stored_keys - current_keys)
+            raise AssertionError(f"{path}: key mismatch; missing={missing}, extra={extra}")
+        for key in sorted(stored):
+            _assert_payload_current(
+                stored[key],
+                current[key],
+                tol=tol,
+                path=f"{path}.{key}",
+            )
+        return
+
+    if isinstance(stored, list) and isinstance(current, list):
+        if len(stored) != len(current):
+            raise AssertionError(f"{path}: expected length {len(current)}, got {len(stored)}")
+        for index, (stored_item, current_item) in enumerate(zip(stored, current, strict=True)):
+            _assert_payload_current(
+                stored_item,
+                current_item,
+                tol=tol,
+                path=f"{path}[{index}]",
+            )
+        return
+
+    if stored != current:
+        raise AssertionError(f"{path}: expected {current!r}, got {stored!r}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json", action="store_true", help="print stable JSON")
@@ -46,8 +93,7 @@ def main() -> int:
     if args.check:
         payload = _load_json(artifact)
         current = build_payload(tol=args.tol)
-        if payload != current:
-            raise AssertionError("BRP boundary vertexization probe artifact is not current")
+        _assert_payload_current(payload, current, tol=args.tol)
     else:
         payload = build_payload(tol=args.tol)
 

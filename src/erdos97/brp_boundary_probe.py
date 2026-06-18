@@ -30,6 +30,7 @@ DEFAULT_A5_PARAMETERS: tuple[tuple[Fraction, Fraction], ...] = tuple(
 SQRT3 = math.sqrt(3.0)
 ROOT_TOL = 1e-9
 DISTANCE_TOL = 1e-6
+JSON_FLOAT_DIGITS = 9
 
 
 @dataclass(frozen=True, order=True)
@@ -110,6 +111,13 @@ def _format_fraction(value: Fraction) -> str:
     if value.denominator == 1:
         return str(value.numerator)
     return f"{value.numerator}/{value.denominator}"
+
+
+def _json_float(value: float) -> float:
+    rounded = round(value, JSON_FLOAT_DIGITS)
+    if rounded == 0.0:
+        return 0.0
+    return rounded
 
 
 def quad_to_json(value: Quad) -> str:
@@ -248,8 +256,8 @@ def numeric_convexity_summary(vertices: tuple[NumericVertex, ...]) -> dict[str, 
         turns.append(_orientation2(previous.numeric, vertex.numeric, following.numeric))
     return {
         "strictly_convex_in_seed_order": all(turn > 0.0 for turn in turns),
-        "min_turn_area2": min(turns),
-        "max_turn_area2": max(turns),
+        "min_turn_area2": _json_float(min(turns)),
+        "max_turn_area2": _json_float(max(turns)),
     }
 
 
@@ -481,7 +489,7 @@ def _profile_to_json(profile: CircleProfile) -> dict[str, object]:
     return {
         "center": profile.center,
         "radius_squared_exact": quad_to_json(profile.radius_key),
-        "radius_squared_float": profile.radius_squared,
+        "radius_squared_float": _json_float(profile.radius_squared),
         "vertex_hit_count": len(profile.vertex_hits),
         "boundary_hit_count": profile.boundary_hit_count,
         "interior_hit_count": len(profile.interior_hits),
@@ -489,7 +497,7 @@ def _profile_to_json(profile: CircleProfile) -> dict[str, object]:
         "interior_hits": [
             {
                 "edge": list(hit.edge),
-                "t": hit.t,
+                "t": _json_float(hit.t),
             }
             for hit in profile.interior_hits
         ],
@@ -502,7 +510,7 @@ def _candidate_to_json(candidate: Candidate15Summary) -> dict[str, object]:
         "normal_offset": _format_fraction(candidate.normal_offset),
         "normal_side": "left" if candidate.normal_offset > 0 else "right",
         "strictly_convex": candidate.strictly_convex,
-        "min_turn_area2": candidate.min_turn_area2,
+        "min_turn_area2": _json_float(candidate.min_turn_area2),
         "max_vertex_hits": candidate.max_vertex_hits,
         "max_boundary_hits": candidate.max_boundary_hits,
         "circles_with_at_least_four_vertices": candidate.circles_with_at_least_four_vertices,

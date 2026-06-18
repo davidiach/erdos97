@@ -119,6 +119,53 @@ def test_cli_default_artifact_check_is_reproducible() -> None:
     assert check.returncode == 0, check.stderr
 
 
+def test_cli_check_tolerates_tiny_float_drift(tmp_path: Path) -> None:
+    artifact = tmp_path / "brp_probe.json"
+    payload = build_payload()
+    payload["convexity"]["min_turn_area2"] += 1e-12
+    artifact.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+    check = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_brp_boundary_probe.py",
+            "--artifact",
+            str(artifact),
+            "--check",
+            "--assert-expected",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    assert check.returncode == 0, check.stderr
+
+
+def test_cli_check_rejects_material_float_drift(tmp_path: Path) -> None:
+    artifact = tmp_path / "brp_probe.json"
+    payload = build_payload()
+    payload["convexity"]["min_turn_area2"] += 1e-4
+    artifact.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+    check = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_brp_boundary_probe.py",
+            "--artifact",
+            str(artifact),
+            "--check",
+            "--assert-expected",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    assert check.returncode != 0
+    assert "$.convexity.min_turn_area2" in check.stderr
+
+
 def test_cli_write_check_modes_are_exclusive(tmp_path: Path) -> None:
     artifact = tmp_path / "brp_probe.json"
 

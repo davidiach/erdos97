@@ -10,28 +10,28 @@
             "A3",
             "A4"
           ],
-          "t": 0.955030125243
+          "t": 0.955030125
         },
         {
           "edge": [
             "B2",
             "B3"
           ],
-          "t": 0.979925648445
+          "t": 0.979925648
         },
         {
           "edge": [
             "B3",
             "B4"
           ],
-          "t": 0.868959625935
+          "t": 0.868959626
         },
         {
           "edge": [
             "C1",
             "C2"
           ],
-          "t": 0.399998621735
+          "t": 0.399998622
         }
       ],
       "radius_squared_exact": "2189906 + 359000*sqrt3",
@@ -51,28 +51,28 @@
             "A3",
             "A4"
           ],
-          "t": 0.973566915008
+          "t": 0.973566915
         },
         {
           "edge": [
             "B2",
             "B3"
           ],
-          "t": 0.479634499052
+          "t": 0.479634499
         },
         {
           "edge": [
             "B3",
             "B4"
           ],
-          "t": 0.672516352848
+          "t": 0.672516353
         },
         {
           "edge": [
             "C2",
             "C3"
           ],
-          "t": 0.058306805156
+          "t": 0.058306805
         }
       ],
       "radius_squared_exact": "2004034 + 251724*sqrt3",
@@ -92,32 +92,32 @@
             "A3",
             "A4"
           ],
-          "t": 0.99982219509
+          "t": 0.999822195
         },
         {
           "edge": [
             "B1",
             "B2"
           ],
-          "t": 0.002955183549
+          "t": 0.002955184
         },
         {
           "edge": [
             "B2",
             "B3"
           ],
-          "t": 0.479634499052
+          "t": 0.479634499
         },
         {
           "edge": [
             "C3",
             "C4"
           ],
-          "t": 0.022938552995
+          "t": 0.022938553
         }
       ],
       "radius_squared_exact": "2004034 - 251724*sqrt3",
-      "radius_squared_float": 1568035.2425155318,
+      "radius_squared_float": 1568035.242515532,
       "vertex_hit_count": 1,
       "vertex_hits": [
         "B2"
@@ -133,32 +133,32 @@
             "A1",
             "A2"
           ],
-          "t": 0.374759906134
+          "t": 0.374759906
         },
         {
           "edge": [
             "B3",
             "B4"
           ],
-          "t": 0.954380149942
+          "t": 0.95438015
         },
         {
           "edge": [
             "C2",
             "C3"
           ],
-          "t": 0.99866030234
+          "t": 0.998660302
         },
         {
           "edge": [
             "C3",
             "C4"
           ],
-          "t": 0.876202425305
+          "t": 0.876202425
         }
       ],
       "radius_squared_exact": "1543030 + 740577*sqrt3",
-      "radius_squared_float": 2825746.9909169367,
+      "radius_squared_float": 2825746.990916937,
       "vertex_hit_count": 1,
       "vertex_hits": [
         "C3"
@@ -174,28 +174,28 @@
             "A1",
             "A2"
           ],
-          "t": 0.399998621735
+          "t": 0.399998622
         },
         {
           "edge": [
             "B3",
             "B4"
           ],
-          "t": 0.955030125243
+          "t": 0.955030125
         },
         {
           "edge": [
             "C2",
             "C3"
           ],
-          "t": 0.979925648445
+          "t": 0.979925648
         },
         {
           "edge": [
             "C3",
             "C4"
           ],
-          "t": 0.868959625935
+          "t": 0.868959626
         }
       ],
       "radius_squared_exact": "2189906 + 359000*sqrt3",
@@ -215,28 +215,28 @@
             "A2",
             "A3"
           ],
-          "t": 0.058306805156
+          "t": 0.058306805
         },
         {
           "edge": [
             "B3",
             "B4"
           ],
-          "t": 0.973566915008
+          "t": 0.973566915
         },
         {
           "edge": [
             "C2",
             "C3"
           ],
-          "t": 0.479634499052
+          "t": 0.479634499
         },
         {
           "edge": [
             "C3",
             "C4"
           ],
-          "t": 0.672516352848
+          "t": 0.672516353
         }
       ],
       "radius_squared_exact": "2004034 + 251724*sqrt3",
@@ -256,32 +256,32 @@
             "A3",
             "A4"
           ],
-          "t": 0.022938552995
+          "t": 0.022938553
         },
         {
           "edge": [
             "B3",
             "B4"
           ],
-          "t": 0.99982219509
+          "t": 0.999822195
         },
         {
           "edge": [
             "C1",
             "C2"
           ],
-          "t": 0.002955183549
+          "t": 0.002955184
         },
         {
           "edge": [
             "C2",
             "C3"
           ],
-          "t": 0.479634499052
+          "t": 0.479634499
         }
       ],
       "radius_squared_exact": "2004034 - 251724*sqrt3",
-      "radius_squared_float": 1568035.2425155318,
+      "radius_squared_float": 1568035.242515532,
       "vertex_hit_count": 1,
       "vertex_hits": [
         "C2"
@@ -297,32 +297,32 @@
             "A2",
             "A3"
           ],
-          "t": 0.998660302343
+          "t": 0.998660302
         },
         {
           "edge": [
             "A3",
             "A4"
           ],
-          "t": 0.876202425305
+          "t": 0.876202425
         },
         {
           "edge": [
             "B1",
             "B2"
           ],
-          "t": 0.374759906134
+          "t": 0.374759906
         },
         {
           "edge": [
             "C3",
             "C4"
           ],
-          "t": 0.954380149942
+          "t": 0.95438015
         }
       ],
       "radius_squared_exact": "1543030 + 740577*sqrt3",
-      "radius_squared_float": 2825746.9909169367,
+      "radius_squared_float": 2825746.990916937,
       "vertex_hit_count": 1,
       "vertex_hits": [
         "A3"
@@ -338,28 +338,28 @@
             "A2",
             "A3"
           ],
-          "t": 0.979925648445
+          "t": 0.979925648
         },
         {
           "edge": [
             "A3",
             "A4"
           ],
-          "t": 0.868959625935
+          "t": 0.868959626
         },
         {
           "edge": [
             "B1",
             "B2"
           ],
-          "t": 0.399998621735
+          "t": 0.399998622
         },
         {
           "edge": [
             "C3",
             "C4"
           ],
-          "t": 0.955030125243
+          "t": 0.955030125
         }
       ],
       "radius_squared_exact": "2189906 + 359000*sqrt3",
@@ -379,28 +379,28 @@
             "A2",
             "A3"
           ],
-          "t": 0.479634499052
+          "t": 0.479634499
         },
         {
           "edge": [
             "A3",
             "A4"
           ],
-          "t": 0.672516352848
+          "t": 0.672516353
         },
         {
           "edge": [
             "B2",
             "B3"
           ],
-          "t": 0.058306805156
+          "t": 0.058306805
         },
         {
           "edge": [
             "C3",
             "C4"
           ],
-          "t": 0.973566915008
+          "t": 0.973566915
         }
       ],
       "radius_squared_exact": "2004034 + 251724*sqrt3",
@@ -420,32 +420,32 @@
             "A1",
             "A2"
           ],
-          "t": 0.002955183549
+          "t": 0.002955184
         },
         {
           "edge": [
             "A2",
             "A3"
           ],
-          "t": 0.479634499052
+          "t": 0.479634499
         },
         {
           "edge": [
             "B3",
             "B4"
           ],
-          "t": 0.022938552995
+          "t": 0.022938553
         },
         {
           "edge": [
             "C3",
             "C4"
           ],
-          "t": 0.99982219509
+          "t": 0.999822195
         }
       ],
       "radius_squared_exact": "2004034 - 251724*sqrt3",
-      "radius_squared_float": 1568035.2425155318,
+      "radius_squared_float": 1568035.242515532,
       "vertex_hit_count": 1,
       "vertex_hits": [
         "A2"
@@ -461,32 +461,32 @@
             "A3",
             "A4"
           ],
-          "t": 0.954380149942
+          "t": 0.95438015
         },
         {
           "edge": [
             "B2",
             "B3"
           ],
-          "t": 0.998660302343
+          "t": 0.998660302
         },
         {
           "edge": [
             "B3",
             "B4"
           ],
-          "t": 0.876202425305
+          "t": 0.876202425
         },
         {
           "edge": [
             "C1",
             "C2"
           ],
-          "t": 0.374759906134
+          "t": 0.374759906
         }
       ],
       "radius_squared_exact": "1543030 + 740577*sqrt3",
-      "radius_squared_float": 2825746.9909169367,
+      "radius_squared_float": 2825746.990916937,
       "vertex_hit_count": 1,
       "vertex_hits": [
         "B3"
@@ -504,14 +504,14 @@
             "A3",
             "A4"
           ],
-          "t": 0.999387074654
+          "t": 0.999387075
         },
         {
           "edge": [
             "B3",
             "B4"
           ],
-          "t": 0.990185482564
+          "t": 0.990185483
         }
       ],
       "radius_squared_exact": "3000000",
@@ -532,14 +532,14 @@
             "A3",
             "A4"
           ],
-          "t": 0.989220990074
+          "t": 0.98922099
         },
         {
           "edge": [
             "B3",
             "B4"
           ],
-          "t": 0.726454587078
+          "t": 0.726454587
         }
       ],
       "radius_squared_exact": "2501496",
@@ -560,7 +560,7 @@
             "B3",
             "B4"
           ],
-          "t": 0.240702342216
+          "t": 0.240702342
         }
       ],
       "radius_squared_exact": "1634718",
@@ -594,14 +594,14 @@
             "B3",
             "B4"
           ],
-          "t": 0.999387074654
+          "t": 0.999387075
         },
         {
           "edge": [
             "C3",
             "C4"
           ],
-          "t": 0.990185482564
+          "t": 0.990185483
         }
       ],
       "radius_squared_exact": "3000000",
@@ -622,14 +622,14 @@
             "B3",
             "B4"
           ],
-          "t": 0.989220990074
+          "t": 0.98922099
         },
         {
           "edge": [
             "C3",
             "C4"
           ],
-          "t": 0.726454587078
+          "t": 0.726454587
         }
       ],
       "radius_squared_exact": "2501496",
@@ -650,7 +650,7 @@
             "C3",
             "C4"
           ],
-          "t": 0.240702342216
+          "t": 0.240702342
         }
       ],
       "radius_squared_exact": "1634718",
@@ -684,14 +684,14 @@
             "A3",
             "A4"
           ],
-          "t": 0.990185482564
+          "t": 0.990185483
         },
         {
           "edge": [
             "C3",
             "C4"
           ],
-          "t": 0.999387074654
+          "t": 0.999387075
         }
       ],
       "radius_squared_exact": "3000000",
@@ -712,14 +712,14 @@
             "A3",
             "A4"
           ],
-          "t": 0.726454587078
+          "t": 0.726454587
         },
         {
           "edge": [
             "C3",
             "C4"
           ],
-          "t": 0.989220990074
+          "t": 0.98922099
         }
       ],
       "radius_squared_exact": "2501496",
@@ -740,7 +740,7 @@
             "A3",
             "A4"
           ],
-          "t": 0.240702342216
+          "t": 0.240702342
         }
       ],
       "radius_squared_exact": "1634718",
@@ -767,8 +767,8 @@
   ],
   "claim_scope": "Float64 boundary-hit diagnostic for the 12-point three-fold seed quoted in the Barany--Roldan-Pensado convex-body discussion. It measures the gap between centered circle hits on polygon edges and hits at the modeled seed vertices, and includes a limited signed synthetic A5 edge-pocket closure stress test.",
   "convexity": {
-    "max_turn_area2": 146403.00000000003,
-    "min_turn_area2": 19.492354670772542,
+    "max_turn_area2": 146403.0,
+    "min_turn_area2": 19.492354671,
     "strictly_convex_in_seed_order": true
   },
   "does_not_claim": [
@@ -876,7 +876,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -133.09255722860885,
+        "min_turn_area2": -133.092557229,
         "normal_offset": "-1",
         "normal_side": "right",
         "strictly_convex": false,
@@ -887,7 +887,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -5.361586286528747,
+        "min_turn_area2": -5.361586287,
         "normal_offset": "1",
         "normal_side": "left",
         "strictly_convex": false,
@@ -898,7 +898,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -280.80438046029644,
+        "min_turn_area2": -280.80438046,
         "normal_offset": "-2",
         "normal_side": "right",
         "strictly_convex": false,
@@ -909,7 +909,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -10.723172573056504,
+        "min_turn_area2": -10.723172573,
         "normal_offset": "2",
         "normal_side": "left",
         "strictly_convex": false,
@@ -920,7 +920,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -723.9398501553841,
+        "min_turn_area2": -723.939850155,
         "normal_offset": "-5",
         "normal_side": "right",
         "strictly_convex": false,
@@ -931,7 +931,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -26.807931432639,
+        "min_turn_area2": -26.807931433,
         "normal_offset": "5",
         "normal_side": "left",
         "strictly_convex": false,
@@ -942,7 +942,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -1462.4989663138301,
+        "min_turn_area2": -1462.498966314,
         "normal_offset": "-10",
         "normal_side": "right",
         "strictly_convex": false,
@@ -953,7 +953,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -53.61586286527786,
+        "min_turn_area2": -53.615862865,
         "normal_offset": "10",
         "normal_side": "left",
         "strictly_convex": false,
@@ -964,7 +964,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -2939.6171986307545,
+        "min_turn_area2": -2939.617198631,
         "normal_offset": "-20",
         "normal_side": "right",
         "strictly_convex": false,
@@ -975,7 +975,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -107.23172573055501,
+        "min_turn_area2": -107.231725731,
         "normal_offset": "20",
         "normal_side": "left",
         "strictly_convex": false,
@@ -986,7 +986,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -7370.971895581516,
+        "min_turn_area2": -7370.971895582,
         "normal_offset": "-50",
         "normal_side": "right",
         "strictly_convex": false,
@@ -997,7 +997,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -756.4274572486756,
+        "min_turn_area2": -756.427457249,
         "normal_offset": "50",
         "normal_side": "left",
         "strictly_convex": false,
@@ -1008,7 +1008,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -137.96564589631924,
+        "min_turn_area2": -137.965645896,
         "normal_offset": "-1",
         "normal_side": "right",
         "strictly_convex": false,
@@ -1019,7 +1019,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -5.36158628652926,
+        "min_turn_area2": -5.361586287,
         "normal_offset": "1",
         "normal_side": "left",
         "strictly_convex": false,
@@ -1030,7 +1030,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -285.67746912799305,
+        "min_turn_area2": -285.677469128,
         "normal_offset": "-2",
         "normal_side": "right",
         "strictly_convex": false,
@@ -1041,7 +1041,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -10.723172573056827,
+        "min_turn_area2": -10.723172573,
         "normal_offset": "2",
         "normal_side": "left",
         "strictly_convex": false,
@@ -1052,7 +1052,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -728.812938823078,
+        "min_turn_area2": -728.812938823,
         "normal_offset": "-5",
         "normal_side": "right",
         "strictly_convex": false,
@@ -1063,7 +1063,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -26.80793143263999,
+        "min_turn_area2": -26.807931433,
         "normal_offset": "5",
         "normal_side": "left",
         "strictly_convex": false,
@@ -1074,7 +1074,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -1467.3720549815225,
+        "min_turn_area2": -1467.372054982,
         "normal_offset": "-10",
         "normal_side": "right",
         "strictly_convex": false,
@@ -1085,7 +1085,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -53.61586286527819,
+        "min_turn_area2": -53.615862865,
         "normal_offset": "10",
         "normal_side": "left",
         "strictly_convex": false,
@@ -1096,7 +1096,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -2944.4902872984467,
+        "min_turn_area2": -2944.490287298,
         "normal_offset": "-20",
         "normal_side": "right",
         "strictly_convex": false,
@@ -1107,7 +1107,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -107.23172573055552,
+        "min_turn_area2": -107.231725731,
         "normal_offset": "20",
         "normal_side": "left",
         "strictly_convex": false,
@@ -1118,7 +1118,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -7375.844984249208,
+        "min_turn_area2": -7375.844984249,
         "normal_offset": "-50",
         "normal_side": "right",
         "strictly_convex": false,
@@ -1129,7 +1129,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 8,
         "max_vertex_hits": 2,
-        "min_turn_area2": -268.07931432638725,
+        "min_turn_area2": -268.079314326,
         "normal_offset": "50",
         "normal_side": "left",
         "strictly_convex": false,
@@ -1140,7 +1140,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -142.8387345639993,
+        "min_turn_area2": -142.838734564,
         "normal_offset": "-1",
         "normal_side": "right",
         "strictly_convex": false,
@@ -1151,7 +1151,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -5.361586286529688,
+        "min_turn_area2": -5.361586287,
         "normal_offset": "1",
         "normal_side": "left",
         "strictly_convex": false,
@@ -1162,7 +1162,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -290.5505577956896,
+        "min_turn_area2": -290.550557796,
         "normal_offset": "-2",
         "normal_side": "right",
         "strictly_convex": false,
@@ -1173,7 +1173,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -10.723172573057443,
+        "min_turn_area2": -10.723172573,
         "normal_offset": "2",
         "normal_side": "left",
         "strictly_convex": false,
@@ -1184,7 +1184,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -733.6860274907744,
+        "min_turn_area2": -733.686027491,
         "normal_offset": "-5",
         "normal_side": "right",
         "strictly_convex": false,
@@ -1195,7 +1195,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -26.807931432640608,
+        "min_turn_area2": -26.807931433,
         "normal_offset": "5",
         "normal_side": "left",
         "strictly_convex": false,
@@ -1206,7 +1206,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -1472.245143649222,
+        "min_turn_area2": -1472.245143649,
         "normal_offset": "-10",
         "normal_side": "right",
         "strictly_convex": false,
@@ -1217,7 +1217,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -53.6158628652788,
+        "min_turn_area2": -53.615862865,
         "normal_offset": "10",
         "normal_side": "left",
         "strictly_convex": false,
@@ -1228,7 +1228,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -2949.3633759661434,
+        "min_turn_area2": -2949.363375966,
         "normal_offset": "-20",
         "normal_side": "right",
         "strictly_convex": false,
@@ -1239,7 +1239,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 7,
         "max_vertex_hits": 2,
-        "min_turn_area2": -107.23172573055615,
+        "min_turn_area2": -107.231725731,
         "normal_offset": "20",
         "normal_side": "left",
         "strictly_convex": false,
@@ -1250,7 +1250,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 5,
         "max_vertex_hits": 2,
-        "min_turn_area2": -7380.718072916897,
+        "min_turn_area2": -7380.718072917,
         "normal_offset": "-50",
         "normal_side": "right",
         "strictly_convex": false,
@@ -1261,7 +1261,7 @@
         "circles_with_at_least_four_vertices": 0,
         "max_boundary_hits": 8,
         "max_vertex_hits": 2,
-        "min_turn_area2": -268.07931432638793,
+        "min_turn_area2": -268.079314326,
         "normal_offset": "50",
         "normal_side": "left",
         "strictly_convex": false,
