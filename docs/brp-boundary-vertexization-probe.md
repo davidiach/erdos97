@@ -80,6 +80,11 @@ The checker:
   witness:
   `t in [239999/10000000, 240001/10000000]` and
   `h in [-50001/10000000, -49999/10000000]`.
+- records the centered-circle boundary support profiles for the sampled
+  synthetic 15-gon from `t=3/125, h=-1/200`, including the best boundary-rich
+  circles. These radii and edge parameters are float64 diagnostics, not exact
+  algebraic certificates. The sampled support scan uses a `1e-7` edge-root
+  boundary margin to avoid platform-dependent near-endpoint root counts.
 
 ## Current result
 
@@ -105,6 +110,10 @@ sampled-witness centered circles with four vertices: 0
 float64 A5 interval box checks pass: yes
 interval max local turn upper bound: -0.026805405
 interval rotated 15-gon min turn lower bound: 0.026803636
+sampled 15-gon centered-circle profiles: 195
+sampled 15-gon max boundary hits: 6
+sampled 15-gon circles with at least four boundary hits: 87
+sampled 15-gon circles with at least four vertices: 0
 ```
 
 Thus the modeled 12-point seed shows the expected continuous/discrete gap:
@@ -148,6 +157,17 @@ rotated synthetic 15-gon strictly convex. This is still not an exact algebraic
 certificate for the source `Q(sqrt(3))` coordinates and it does not certify
 the BRP boundary-intersection count throughout the box.
 
+The sampled boundary-support scan makes the final-polygon diagnostic more
+concrete. For the same sampled synthetic 15-gon, the checker enumerates 195
+centered circles through modeled vertices, finds three circles with six
+boundary hits, and records the best profiles centered at `A3`, `B3`, and `C3`.
+Each of those circles hits two modeled vertices and four edge-interior points.
+Across the sampled 15-gon, 87 centered circles have at least four boundary
+hits, while no centered circle has four modeled vertices. This sharpens the
+boundary-to-vertex gap for the sampled stand-in only; it does not replay the
+source paper's continuum argument, does not certify the boundary hits exactly,
+and does not produce a finite counterexample.
+
 ## Next steps
 
 Useful follow-up work should avoid more visual inspection and instead make the
@@ -155,7 +175,8 @@ edge-interior hits algebraic:
 
 1. Replace the float64 interval box with an exact algebraic or directed-decimal
    certificate over the source coordinates.
-2. Certify the BRP boundary-intersection counts for the sampled final 15-gon.
+2. Certify the sampled final-15-gon boundary hits with exact algebraic or
+   interval checks.
 3. Promote each interior circle-edge hit to a candidate vertex parameter.
 4. Iterate the closure condition: promoted vertices become centers that must
    themselves acquire four vertex hits.
@@ -171,6 +192,6 @@ Do not cite this probe as:
 - a proof of Erdos Problem #97;
 - a counterexample or counterexample candidate;
 - a finite extraction from the Barany--Roldan-Pensado body;
-- a check of the final 15-gon;
+- an exact check of the source paper's final 15-gon;
 - an exact construction of the actual existential `A5` from Lemma 3.1;
 - an exact certificate for boundary intersections.

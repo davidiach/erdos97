@@ -10,7 +10,7 @@ from typing import Iterable
 import math
 
 
-SCHEMA = "erdos97.brp_boundary_vertexization_probe.v3"
+SCHEMA = "erdos97.brp_boundary_vertexization_probe.v4"
 STATUS = "BOUNDARY_VERTEXIZATION_DIAGNOSTIC_ONLY"
 TRUST = "NUMERICAL_GEOMETRIC_DIAGNOSTIC"
 
@@ -42,6 +42,8 @@ SQRT3 = math.sqrt(3.0)
 ROOT_TOL = 1e-9
 DISTANCE_TOL = 1e-6
 JSON_FLOAT_DIGITS = 9
+SAMPLED_A5_BOUNDARY_PROFILE_LIMIT = 12
+SAMPLED_A5_BOUNDARY_ROOT_TOL = 1e-7
 
 
 @dataclass(frozen=True, order=True)
@@ -1166,6 +1168,121 @@ def lemma31_a5_interval_box_probe() -> dict[str, object]:
     }
 
 
+def _sampled_profile_sort_key(profile: CircleProfile) -> tuple[object, ...]:
+    return (
+        -profile.boundary_hit_count,
+        -len(profile.vertex_hits),
+        -len(profile.interior_hits),
+        profile.center,
+        _json_float(profile.radius_squared),
+        profile.vertex_hits,
+        tuple((hit.edge, hit.t) for hit in profile.interior_hits),
+    )
+
+
+def _sampled_profile_to_json(profile: CircleProfile) -> dict[str, object]:
+    return {
+        "center": profile.center,
+        "radius_squared_float": _json_float(profile.radius_squared),
+        "vertex_hit_count": len(profile.vertex_hits),
+        "boundary_hit_count": profile.boundary_hit_count,
+        "interior_hit_count": len(profile.interior_hits),
+        "vertex_hits": list(profile.vertex_hits),
+        "interior_hits": [
+            {
+                "edge": list(hit.edge),
+                "t": _json_float(hit.t),
+            }
+            for hit in profile.interior_hits
+        ],
+    }
+
+
+def sampled_a5_boundary_support_scan(
+    *,
+    root_tol: float = ROOT_TOL,
+    distance_tol: float = DISTANCE_TOL,
+    profile_limit: int = SAMPLED_A5_BOUNDARY_PROFILE_LIMIT,
+) -> dict[str, object]:
+    """Record boundary-rich centered circles for the sampled synthetic 15-gon."""
+
+    if profile_limit <= 0:
+        raise ValueError("profile_limit must be positive")
+    effective_root_tol = max(root_tol, SAMPLED_A5_BOUNDARY_ROOT_TOL)
+    vertices = brp_candidate_15gon(
+        LEMMA31_A5_WITNESS_T,
+        LEMMA31_A5_WITNESS_NORMAL_OFFSET,
+    )
+    profiles = _numeric_circle_profiles(
+        vertices,
+        root_tol=effective_root_tol,
+        distance_tol=distance_tol,
+    )
+    convexity = numeric_convexity_summary(vertices)
+    max_vertex_hits = max(len(profile.vertex_hits) for profile in profiles)
+    max_boundary_hits = max(profile.boundary_hit_count for profile in profiles)
+    max_interior_hits = max(len(profile.interior_hits) for profile in profiles)
+    best_boundary_profiles = sorted(
+        (profile for profile in profiles if profile.boundary_hit_count == max_boundary_hits),
+        key=_sampled_profile_sort_key,
+    )
+    rich_boundary_profiles = sorted(
+        (profile for profile in profiles if profile.boundary_hit_count >= 4),
+        key=_sampled_profile_sort_key,
+    )
+    return {
+        "status": "SAMPLED_A5_BOUNDARY_SUPPORT_DIAGNOSTIC",
+        "coordinate_model": (
+            "Float64 sampled synthetic 15-gon from the recorded Lemma 3.1 "
+            "A5 witness. The serialized radii and edge parameters are "
+            "diagnostic approximations, not exact algebraic certificates."
+        ),
+        "boundary_root_tol": _json_float(effective_root_tol),
+        "sampled_witness": {
+            "t": _format_fraction(LEMMA31_A5_WITNESS_T),
+            "normal_offset": _format_fraction(LEMMA31_A5_WITNESS_NORMAL_OFFSET),
+            "normal_side": "right",
+        },
+        "vertex_order": [vertex.label for vertex in vertices],
+        "summary": {
+            "profile_count": len(profiles),
+            "strictly_convex": bool(convexity["strictly_convex_in_seed_order"]),
+            "min_turn_area2": convexity["min_turn_area2"],
+            "max_vertex_hits": max_vertex_hits,
+            "max_boundary_hits": max_boundary_hits,
+            "max_interior_hits": max_interior_hits,
+            "circles_with_at_least_four_vertices": sum(
+                1 for profile in profiles if len(profile.vertex_hits) >= 4
+            ),
+            "circles_with_at_least_four_boundary_hits": sum(
+                1 for profile in profiles if profile.boundary_hit_count >= 4
+            ),
+            "circles_with_at_least_six_boundary_hits": sum(
+                1 for profile in profiles if profile.boundary_hit_count >= 6
+            ),
+        },
+        "histograms": {
+            "vertex_hit_count": _histogram(len(profile.vertex_hits) for profile in profiles),
+            "boundary_hit_count": _histogram(profile.boundary_hit_count for profile in profiles),
+            "interior_hit_count": _histogram(len(profile.interior_hits) for profile in profiles),
+        },
+        "best_boundary_circles": [
+            _sampled_profile_to_json(profile) for profile in best_boundary_profiles
+        ],
+        "top_boundary_circles": [
+            _sampled_profile_to_json(profile)
+            for profile in rich_boundary_profiles[:profile_limit]
+        ],
+        "interpretation": (
+            "The sampled final 15-gon keeps the BRP-style boundary richness "
+            "visible at edge interiors: centered circles can hit six boundary "
+            "points, while no centered circle hits four modeled vertices. This "
+            "does not replay the source paper's continuum proof and does not "
+            "turn the sampled polygon into a finite counterexample."
+        ),
+    }
+
+
 def _histogram(values: Iterable[int]) -> dict[str, int]:
     return {str(key): value for key, value in sorted(Counter(values).items())}
 
@@ -1213,6 +1330,7 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
     candidate_scan = synthetic_a5_scan(root_tol=tol)
     a5_constraint_scan = lemma31_a5_constraint_scan(root_tol=tol)
     a5_interval_box = lemma31_a5_interval_box_probe()
+    sampled_boundary_scan = sampled_a5_boundary_support_scan(root_tol=tol)
     convex_candidate_count = sum(1 for candidate in candidate_scan if candidate.strictly_convex)
     best_candidate_vertex_hits = max(candidate.max_vertex_hits for candidate in candidate_scan)
     best_candidate_boundary_hits = max(candidate.max_boundary_hits for candidate in candidate_scan)
@@ -1234,7 +1352,8 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
             "command": "python scripts/check_brp_boundary_probe.py --write --assert-expected",
             "notes": (
                 "Float64 boundary-intersection diagnostic for the quoted "
-                "Barany--Roldan-Pensado 12-point seed before A5 insertion."
+                "Barany--Roldan-Pensado 12-point seed and sampled synthetic "
+                "15-gon after one A5 insertion."
             ),
         },
         "source": {
@@ -1245,7 +1364,10 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
             ],
             "rotations_degrees": [0, 120, 240],
             "modeled_vertices": [vertex.label for vertex in vertices],
-            "not_modeled": "the A5 insertion and the final 15-gon edge-parameter closure",
+            "not_modeled": (
+                "the A5 insertion from the source paper as exact coordinates "
+                "and the final 15-gon edge-parameter closure"
+            ),
         },
         "convexity": seed_convexity_summary(vertices),
         "summary": {
@@ -1293,6 +1415,7 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
         "lemma31_preflight": lemma31_preflight(),
         "lemma31_a5_constraint_scan": a5_constraint_scan,
         "lemma31_a5_interval_box_probe": a5_interval_box,
+        "sampled_a5_boundary_support_scan": sampled_boundary_scan,
         "histograms": {
             "vertex_hit_count": _histogram(len(profile.vertex_hits) for profile in profiles),
             "boundary_hit_count": _histogram(profile.boundary_hit_count for profile in profiles),
@@ -1309,7 +1432,8 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
             "hits at the modeled seed vertices, and includes a limited signed "
             "synthetic A5 edge-pocket closure stress test, a Lemma 3.1 "
             "role-precondition preflight, and a bounded sampled A5 constraint "
-            "probe with a tiny float64 interval-box follow-up."
+            "probe with a tiny float64 interval-box follow-up plus an explicit "
+            "boundary-support scan on the sampled synthetic 15-gon."
         ),
         "does_not_claim": [
             "proof of Erdos Problem #97",
@@ -1319,10 +1443,11 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
             "exact construction of the source paper's existential A5",
             "exact algebraic or formal interval certificate for the sampled A5",
             "exact or interval certificate for boundary intersections",
+            "replay of the source paper's continuum boundary-intersection proof",
         ],
         "next_steps": [
             "replace the float64 A5 interval box with exact algebraic or directed-decimal coordinates",
-            "certify BRP boundary-intersection counts for the sampled final 15-gon",
+            "certify sampled final-15-gon boundary hits with exact algebraic or interval checks",
             "promote edge-interior hits to symbolic edge parameters",
             "iterate the promoted hits as new candidate vertices",
             "replace float boundary intersections by exact algebraic or interval checks",
@@ -1497,6 +1622,58 @@ def assert_expected_counts(payload: dict[str, object]) -> None:
         raise AssertionError("unexpected A5 interval local-turn bound")
     if rotated_interval_checks.get("min_turn_lower_bound") != 0.026803636:
         raise AssertionError("unexpected A5 interval 15-gon turn bound")
+
+    sampled_support = payload.get("sampled_a5_boundary_support_scan")
+    if not isinstance(sampled_support, dict):
+        raise AssertionError("payload.sampled_a5_boundary_support_scan must be an object")
+    sampled_summary = sampled_support.get("summary")
+    sampled_histograms = sampled_support.get("histograms")
+    best_sampled_boundary = sampled_support.get("best_boundary_circles")
+    if not isinstance(sampled_summary, dict):
+        raise AssertionError(
+            "payload.sampled_a5_boundary_support_scan.summary must be an object"
+        )
+    if not isinstance(sampled_histograms, dict):
+        raise AssertionError(
+            "payload.sampled_a5_boundary_support_scan.histograms must be an object"
+        )
+    if not isinstance(best_sampled_boundary, list):
+        raise AssertionError(
+            "payload.sampled_a5_boundary_support_scan.best_boundary_circles must be a list"
+        )
+    expected_sampled_summary = {
+        "profile_count": 195,
+        "strictly_convex": True,
+        "max_vertex_hits": 2,
+        "max_boundary_hits": 6,
+        "max_interior_hits": 4,
+        "circles_with_at_least_four_vertices": 0,
+        "circles_with_at_least_four_boundary_hits": 87,
+        "circles_with_at_least_six_boundary_hits": 3,
+    }
+    for key, expected in expected_sampled_summary.items():
+        if sampled_summary.get(key) != expected:
+            raise AssertionError(
+                f"sampled_a5_boundary_support_scan.summary.{key}: "
+                f"expected {expected}, got {sampled_summary.get(key)}"
+            )
+    expected_sampled_histograms = {
+        "vertex_hit_count": {"1": 174, "2": 21},
+        "boundary_hit_count": {"1": 12, "2": 75, "3": 21, "4": 69, "5": 15, "6": 3},
+        "interior_hit_count": {"0": 15, "1": 75, "2": 30, "3": 57, "4": 18},
+    }
+    for key, expected in expected_sampled_histograms.items():
+        if sampled_histograms.get(key) != expected:
+            raise AssertionError(
+                f"sampled_a5_boundary_support_scan.histograms.{key}: "
+                f"expected {expected}, got {sampled_histograms.get(key)}"
+            )
+    if [profile.get("center") for profile in best_sampled_boundary] != [
+        "A3",
+        "B3",
+        "C3",
+    ]:
+        raise AssertionError("unexpected sampled 15-gon best boundary centers")
 
     synthetic = payload.get("synthetic_a5_scan")
     if not isinstance(synthetic, dict):
