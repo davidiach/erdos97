@@ -793,6 +793,10 @@ put detailed reconciliation in the canonical synthesis.
   opposite-chain parabolic-lens closure equations for a possible future exact
   search, plus a bounded rational-grid negative-control artifact; search
   scaffold only, not counterexample evidence.
+- [`brp-boundary-vertexization-probe.md`](brp-boundary-vertexization-probe.md):
+  first seed-only diagnostic for the Barany--Roldan-Pensado convex-body
+  boundary lane, measuring seed-boundary circle hits versus modeled seed-vertex
+  hits; numerical diagnostic only, not a finite extraction or counterexample.
 - [`dynamic-witness-free-pattern-search.md`](dynamic-witness-free-pattern-search.md):
   free-pattern numerical searcher where every center re-selects its best
   witness 4-set per evaluation, with anti-cluster floors and a recorded
