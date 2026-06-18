@@ -134,6 +134,16 @@ def test_default_bounded_scan_has_no_remaining_accepted_frontier() -> None:
     assert payload["full_classification_counts"]["accepted_frontier"] == 0
 
 
+def test_parallel_endpoint_witness_requires_bipartite_parity_graph() -> None:
+    payload = run_bounded_scan(max_examples=1)
+    odd_examples = payload["examples"]["odd_forced_perpendicular_cycle"]
+
+    assert len(odd_examples) == 1
+    assert odd_examples[0]["status"] == "odd_forced_perpendicular_cycle"
+    assert odd_examples[0]["odd_forced_perpendicular_cycle"] is not None
+    assert odd_examples[0]["forced_parallel_endpoint_violation"] is None
+
+
 def test_full_chain_closes_184_frontier_at_incidence_layer() -> None:
     # Wiring the parallel-endpoint necessary filter into the classify_pattern
     # chain closes the entire stored 184 pre-vertex-circle frontier at the

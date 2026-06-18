@@ -248,7 +248,9 @@ def classify_pattern(
     indegree_violations = _indegree_violations(S)
     column_pair_violations = _column_pair_violations(S)
     odd_cycle = odd_forced_perpendicular_cycle(S)
-    parallel_endpoint = forced_parallel_endpoint_violation(S)
+    parallel_endpoint = (
+        None if odd_cycle is not None else forced_parallel_endpoint_violation(S)
+    )
     matrix = mutual_midpoint_matrix(S)
     forced_classes = forced_equal_classes_from_matrix(matrix, N)
     rectangle_traps = phi4_rectangle_trap_certificates(S, order)

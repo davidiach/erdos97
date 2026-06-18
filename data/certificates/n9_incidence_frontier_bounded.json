@@ -426,19 +426,7 @@
         "crossing_bisector_violations": [],
         "directed_phi_4_cycle_count": 0,
         "forced_equality_classes": [],
-        "forced_parallel_endpoint_violation": [
-          [
-            0,
-            6
-          ],
-          [
-            0,
-            7
-          ],
-          [
-            0
-          ]
-        ],
+        "forced_parallel_endpoint_violation": null,
         "indegrees": [
           4,
           4,
