@@ -3445,8 +3445,8 @@ artifacts:
 
   - id: brp_boundary_vertexization_probe
     path: data/certificates/brp_boundary_vertexization_probe.json
-    sha256: 3f866e33529520d59bd8d26ad7068a671829488b05cc88a1b7c695f0692054a4
-    size_bytes: 57164
+    sha256: 26ca602ee7c473b1c113df95c8410ce2bde41dd2230e93d498bdee8a0bc1ab51
+    size_bytes: 67262
     kind: numerical_geometric_diagnostic_artifact
     generator: scripts/check_brp_boundary_probe.py
     command: python scripts/check_brp_boundary_probe.py --write --assert-expected
@@ -3455,10 +3455,10 @@ artifacts:
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: REVIEW_PENDING_DIAGNOSTIC
-    claim_scope: Float64 boundary-hit diagnostic for the quoted 12-point Barany--Roldan-Pensado seed and the sampled synthetic 15-gon after one A5 insertion; records seed-boundary circle hits versus modeled seed-vertex hits, a signed sampled synthetic A5 edge-pocket stress scan, a Lemma 3.1 role-precondition preflight, one bounded sampled numerical A5 constraint witness, a tiny float64 interval-box check around that witness, and explicit sampled-15-gon boundary-support circles. Not a finite extraction, not an exact final 15-gon certificate, not a proof, not a counterexample, and not an official/global status update.
+    claim_scope: Float64 boundary-hit diagnostic for the quoted 12-point Barany--Roldan-Pensado seed and the sampled synthetic 15-gon after one A5 insertion; records seed-boundary circle hits versus modeled seed-vertex hits, a signed sampled synthetic A5 edge-pocket stress scan, a Lemma 3.1 role-precondition preflight, one bounded sampled numerical A5 constraint witness, a tiny float64 interval-box check around that witness, explicit sampled-15-gon boundary-support circles, and an exact rational checker-float64 replay splitting the tolerant six-hit buckets into exact-radius siblings. Not a finite extraction, not an exact final 15-gon certificate, not a proof, not a counterexample, and not an official/global status update.
     json_top_level_type: object
     expected_json:
-      schema: erdos97.brp_boundary_vertexization_probe.v4
+      schema: erdos97.brp_boundary_vertexization_probe.v5
       status: BOUNDARY_VERTEXIZATION_DIAGNOSTIC_ONLY
       trust: NUMERICAL_GEOMETRIC_DIAGNOSTIC
       provenance.command: python scripts/check_brp_boundary_probe.py --write --assert-expected
@@ -3481,6 +3481,10 @@ artifacts:
       sampled_a5_boundary_support_scan.summary.circles_with_at_least_four_vertices: 0
       sampled_a5_boundary_support_scan.summary.circles_with_at_least_four_boundary_hits: 87
       sampled_a5_boundary_support_scan.summary.circles_with_at_least_six_boundary_hits: 3
+      sampled_a5_six_hit_rational_replay.summary.tolerant_six_hit_bucket_count: 3
+      sampled_a5_six_hit_rational_replay.summary.exact_radius_replay_count: 6
+      sampled_a5_six_hit_rational_replay.summary.max_certified_boundary_hits_at_exact_radius: 5
+      sampled_a5_six_hit_rational_replay.summary.buckets_with_nonzero_vertex_distance_gap: 3
       synthetic_a5_scan.candidates_with_at_least_four_vertices: 0
       lemma31_preflight.status: LEMMA31_ROLE_PREFLIGHT_ONLY_A5_NOT_CONSTRUCTED
       lemma31_preflight.role_mapping.A: A3

@@ -44,7 +44,7 @@ def test_exact_distance_detects_rotation_symmetry() -> None:
 def test_payload_keeps_vertexization_gap_explicit() -> None:
     payload = build_payload()
 
-    assert payload["schema"] == "erdos97.brp_boundary_vertexization_probe.v4"
+    assert payload["schema"] == "erdos97.brp_boundary_vertexization_probe.v5"
     assert payload["trust"] == "NUMERICAL_GEOMETRIC_DIAGNOSTIC"
     assert payload["provenance"]["generator"] == "scripts/check_brp_boundary_probe.py"
     assert_expected_counts(payload)
@@ -179,6 +179,32 @@ def test_payload_keeps_vertexization_gap_explicit() -> None:
         profile["boundary_hit_count"] == 6
         for profile in sampled_support["best_boundary_circles"]
     )
+    rational_replay = payload["sampled_a5_six_hit_rational_replay"]
+    assert rational_replay["status"] == "CHECKER_FLOAT64_RATIONAL_BUCKET_SPLIT_REPLAY"
+    assert rational_replay["boundary_root_margin"] == 1e-07
+    assert rational_replay["root_bracket_width"] == "1/1000000000"
+    assert rational_replay["summary"] == {
+        "tolerant_six_hit_bucket_count": 3,
+        "exact_radius_replay_count": 6,
+        "max_certified_boundary_hits_at_exact_radius": 5,
+        "max_exact_vertex_hits_at_exact_radius": 1,
+        "buckets_with_nonzero_vertex_distance_gap": 3,
+    }
+    assert [bucket["center"] for bucket in rational_replay["buckets"]] == [
+        "A3",
+        "B3",
+        "C3",
+    ]
+    for bucket in rational_replay["buckets"]:
+        assert bucket["gap_is_inside_distance_bucket"] is True
+        assert [
+            replay["certified_boundary_hit_count"]
+            for replay in bucket["exact_radius_replays"]
+        ] == [5, 3]
+        assert [
+            replay["certified_interior_root_count"]
+            for replay in bucket["exact_radius_replays"]
+        ] == [4, 2]
     assert "counterexample to Erdos Problem #97" in payload["does_not_claim"]
     assert "the A5 insertion" in str(payload["source"]["not_modeled"])
 

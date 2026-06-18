@@ -49,9 +49,12 @@ are claimed here.
   Lemma 3.1 bullets and rotated 15-gon convexity in the checker model. The
   follow-up sampled boundary-support scan enumerates 195 centered circles on
   the sampled synthetic 15-gon, finds three with six boundary hits, and still
-  finds none with four modeled vertices. This remains a float64 diagnostic: it
-  is not an exact A5 certificate, does not replay the final BRP
-  boundary-intersection proof, and gives no counterexample; see
+  finds none with four modeled vertices. The exact rational replay over the
+  checker binary64 coordinates then splits those tolerant six-hit buckets into
+  exact-radius siblings with maximum certified boundary count `5`. This
+  remains a float64 diagnostic: it is not an exact A5 certificate, does not
+  replay the final BRP boundary-intersection proof, and gives no
+  counterexample; see
   `docs/brp-boundary-vertexization-probe.md`.
 - The canonical synthesis corrects a prior uniform-radius shortcut:
   Edelsbrunner--Hajnal's `2n-7` unit-distance result is a lower-bound
