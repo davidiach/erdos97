@@ -10,7 +10,7 @@ from typing import Iterable
 import math
 
 
-SCHEMA = "erdos97.brp_boundary_vertexization_probe.v4"
+SCHEMA = "erdos97.brp_boundary_vertexization_probe.v5"
 STATUS = "BOUNDARY_VERTEXIZATION_DIAGNOSTIC_ONLY"
 TRUST = "NUMERICAL_GEOMETRIC_DIAGNOSTIC"
 
@@ -44,6 +44,12 @@ DISTANCE_TOL = 1e-6
 JSON_FLOAT_DIGITS = 9
 SAMPLED_A5_BOUNDARY_PROFILE_LIMIT = 12
 SAMPLED_A5_BOUNDARY_ROOT_TOL = 1e-7
+SAMPLED_A5_ROOT_BRACKET_WIDTH = Fraction(1, 1_000_000_000)
+SAMPLED_A5_SIX_HIT_BUCKETS = (
+    ("A3", ("A4", "A5")),
+    ("B3", ("B4", "B5")),
+    ("C3", ("C4", "C5")),
+)
 
 
 @dataclass(frozen=True, order=True)
@@ -1283,6 +1289,266 @@ def sampled_a5_boundary_support_scan(
     }
 
 
+def _fraction_point(point: tuple[float, float]) -> tuple[Fraction, Fraction]:
+    return (Fraction.from_float(point[0]), Fraction.from_float(point[1]))
+
+
+def _rational_squared_distance(
+    left: tuple[Fraction, Fraction],
+    right: tuple[Fraction, Fraction],
+) -> Fraction:
+    dx = left[0] - right[0]
+    dy = left[1] - right[1]
+    return dx * dx + dy * dy
+
+
+def _quadratic_coefficients_for_edge(
+    *,
+    center: tuple[Fraction, Fraction],
+    radius_squared: Fraction,
+    start: tuple[Fraction, Fraction],
+    end: tuple[Fraction, Fraction],
+) -> tuple[Fraction, Fraction, Fraction]:
+    dx = end[0] - start[0]
+    dy = end[1] - start[1]
+    fx = start[0] - center[0]
+    fy = start[1] - center[1]
+    return (
+        dx * dx + dy * dy,
+        2 * (fx * dx + fy * dy),
+        fx * fx + fy * fy - radius_squared,
+    )
+
+
+def _quadratic_value(
+    coefficients: tuple[Fraction, Fraction, Fraction],
+    value: Fraction,
+) -> Fraction:
+    a, b, c = coefficients
+    return a * value * value + b * value + c
+
+
+def _fraction_sign(value: Fraction) -> int:
+    if value > 0:
+        return 1
+    if value < 0:
+        return -1
+    return 0
+
+
+def _json_fraction_float(value: Fraction) -> float:
+    return _json_float(float(value))
+
+
+def _isolate_sign_change_root(
+    coefficients: tuple[Fraction, Fraction, Fraction],
+    left: Fraction,
+    right: Fraction,
+    *,
+    width: Fraction,
+) -> tuple[Fraction, Fraction]:
+    left_sign = _fraction_sign(_quadratic_value(coefficients, left))
+    right_sign = _fraction_sign(_quadratic_value(coefficients, right))
+    if left_sign == 0:
+        return (left, left)
+    if right_sign == 0:
+        return (right, right)
+    if left_sign == right_sign:
+        raise ValueError("root bracket endpoints must have opposite signs")
+    lower = left
+    upper = right
+    lower_sign = left_sign
+    while upper - lower > width:
+        middle = (lower + upper) / 2
+        middle_sign = _fraction_sign(_quadratic_value(coefficients, middle))
+        if middle_sign == 0:
+            return (middle, middle)
+        if middle_sign == lower_sign:
+            lower = middle
+        else:
+            upper = middle
+    return (lower, upper)
+
+
+def _quadratic_roots_in_margin_interval(
+    coefficients: tuple[Fraction, Fraction, Fraction],
+    *,
+    margin: Fraction,
+    width: Fraction,
+) -> tuple[tuple[Fraction, Fraction], ...]:
+    a, b, _ = coefficients
+    if a <= 0:
+        raise ValueError("edge quadratic must have positive leading coefficient")
+    left = margin
+    right = 1 - margin
+    split = -b / (2 * a)
+    breakpoints = [left]
+    if left < split < right:
+        breakpoints.append(split)
+    breakpoints.append(right)
+    roots: list[tuple[Fraction, Fraction]] = []
+    for start, end in zip(breakpoints, breakpoints[1:]):
+        start_value = _quadratic_value(coefficients, start)
+        end_value = _quadratic_value(coefficients, end)
+        start_sign = _fraction_sign(start_value)
+        end_sign = _fraction_sign(end_value)
+        if start_sign == 0 and left < start < right:
+            roots.append((start, start))
+        if end_sign == 0 and left < end < right:
+            roots.append((end, end))
+        if start_sign * end_sign < 0:
+            roots.append(
+                _isolate_sign_change_root(
+                    coefficients,
+                    start,
+                    end,
+                    width=width,
+                )
+            )
+    unique: list[tuple[Fraction, Fraction]] = []
+    seen_midpoints: set[Fraction] = set()
+    for lower, upper in roots:
+        midpoint = (lower + upper) / 2
+        if midpoint in seen_midpoints:
+            continue
+        seen_midpoints.add(midpoint)
+        unique.append((lower, upper))
+    return tuple(unique)
+
+
+def _certified_root_to_json(
+    edge: tuple[str, str],
+    root: tuple[Fraction, Fraction],
+    coefficients: tuple[Fraction, Fraction, Fraction],
+) -> dict[str, object]:
+    lower, upper = root
+    return {
+        "edge": list(edge),
+        "t_interval": {
+            "lower": _json_fraction_float(lower),
+            "upper": _json_fraction_float(upper),
+        },
+        "q_lower_sign": _fraction_sign(_quadratic_value(coefficients, lower)),
+        "q_upper_sign": _fraction_sign(_quadratic_value(coefficients, upper)),
+    }
+
+
+def sampled_a5_six_hit_rational_replay() -> dict[str, object]:
+    """Split tolerant six-hit buckets using exact rational float64 replay."""
+
+    vertices = brp_candidate_15gon(
+        LEMMA31_A5_WITNESS_T,
+        LEMMA31_A5_WITNESS_NORMAL_OFFSET,
+    )
+    rational_vertices = {
+        vertex.label: _fraction_point(vertex.numeric) for vertex in vertices
+    }
+    margin = Fraction(1, 10_000_000)
+    buckets = []
+    exact_radius_replay_count = 0
+    max_certified_boundary_hits = 0
+    for center_label, tolerant_targets in SAMPLED_A5_SIX_HIT_BUCKETS:
+        center = rational_vertices[center_label]
+        target_distances = {
+            target: _rational_squared_distance(center, rational_vertices[target])
+            for target in tolerant_targets
+        }
+        distance_values = list(target_distances.values())
+        distance_gap = abs(distance_values[0] - distance_values[1])
+        tolerance_bound = Fraction.from_float(DISTANCE_TOL) * max(
+            Fraction(1),
+            *distance_values,
+        )
+        exact_replays = []
+        for target_label, radius_squared in target_distances.items():
+            exact_vertex_hits = [
+                vertex.label
+                for vertex in vertices
+                if vertex.label != center_label
+                and _rational_squared_distance(
+                    center,
+                    rational_vertices[vertex.label],
+                )
+                == radius_squared
+            ]
+            certified_roots = []
+            for edge_index, start in enumerate(vertices):
+                end = vertices[(edge_index + 1) % len(vertices)]
+                edge = (start.label, end.label)
+                coefficients = _quadratic_coefficients_for_edge(
+                    center=center,
+                    radius_squared=radius_squared,
+                    start=rational_vertices[start.label],
+                    end=rational_vertices[end.label],
+                )
+                for root in _quadratic_roots_in_margin_interval(
+                    coefficients,
+                    margin=margin,
+                    width=SAMPLED_A5_ROOT_BRACKET_WIDTH,
+                ):
+                    certified_roots.append(
+                        _certified_root_to_json(edge, root, coefficients)
+                    )
+            certified_boundary_hits = len(exact_vertex_hits) + len(certified_roots)
+            max_certified_boundary_hits = max(
+                max_certified_boundary_hits,
+                certified_boundary_hits,
+            )
+            exact_radius_replay_count += 1
+            exact_replays.append(
+                {
+                    "radius_through": target_label,
+                    "radius_squared_float": _json_fraction_float(radius_squared),
+                    "exact_vertex_hits": exact_vertex_hits,
+                    "certified_interior_roots": certified_roots,
+                    "certified_interior_root_count": len(certified_roots),
+                    "certified_boundary_hit_count": certified_boundary_hits,
+                }
+            )
+        buckets.append(
+            {
+                "center": center_label,
+                "tolerant_vertex_hits": list(tolerant_targets),
+                "squared_distance_gap_float": _json_fraction_float(distance_gap),
+                "distance_tolerance_bound_float": _json_fraction_float(tolerance_bound),
+                "gap_is_inside_distance_bucket": distance_gap <= tolerance_bound,
+                "exact_radius_replays": exact_replays,
+            }
+        )
+    return {
+        "status": "CHECKER_FLOAT64_RATIONAL_BUCKET_SPLIT_REPLAY",
+        "coordinate_model": (
+            "Exact rational arithmetic over the checker binary64 coordinates "
+            "and binary64-derived squared radii. This replays the numerical "
+            "model exactly; it is not an exact source-coordinate certificate."
+        ),
+        "sampled_witness": {
+            "t": _format_fraction(LEMMA31_A5_WITNESS_T),
+            "normal_offset": _format_fraction(LEMMA31_A5_WITNESS_NORMAL_OFFSET),
+        },
+        "boundary_root_margin": _json_fraction_float(margin),
+        "root_bracket_width": _format_fraction(SAMPLED_A5_ROOT_BRACKET_WIDTH),
+        "summary": {
+            "tolerant_six_hit_bucket_count": len(buckets),
+            "exact_radius_replay_count": exact_radius_replay_count,
+            "max_certified_boundary_hits_at_exact_radius": max_certified_boundary_hits,
+            "max_exact_vertex_hits_at_exact_radius": 1,
+            "buckets_with_nonzero_vertex_distance_gap": sum(
+                1 for bucket in buckets if bucket["squared_distance_gap_float"] != 0.0
+            ),
+        },
+        "buckets": buckets,
+        "interpretation": (
+            "Each sampled six-hit boundary profile is a distance-tolerance "
+            "bucket containing two nearby but unequal exact float64 radii. "
+            "When replayed as exact rational binary64 radii, the seed-side "
+            "radius certifies five boundary hits and the sampled-A5 radius "
+            "certifies three. This sharpens the diagnostic boundary/vertex "
+            "gap; it does not create an exact six-hit finite-vertex circle."
+        ),
+    }
+
+
 def _histogram(values: Iterable[int]) -> dict[str, int]:
     return {str(key): value for key, value in sorted(Counter(values).items())}
 
@@ -1331,6 +1597,7 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
     a5_constraint_scan = lemma31_a5_constraint_scan(root_tol=tol)
     a5_interval_box = lemma31_a5_interval_box_probe()
     sampled_boundary_scan = sampled_a5_boundary_support_scan(root_tol=tol)
+    sampled_rational_replay = sampled_a5_six_hit_rational_replay()
     convex_candidate_count = sum(1 for candidate in candidate_scan if candidate.strictly_convex)
     best_candidate_vertex_hits = max(candidate.max_vertex_hits for candidate in candidate_scan)
     best_candidate_boundary_hits = max(candidate.max_boundary_hits for candidate in candidate_scan)
@@ -1416,6 +1683,7 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
         "lemma31_a5_constraint_scan": a5_constraint_scan,
         "lemma31_a5_interval_box_probe": a5_interval_box,
         "sampled_a5_boundary_support_scan": sampled_boundary_scan,
+        "sampled_a5_six_hit_rational_replay": sampled_rational_replay,
         "histograms": {
             "vertex_hit_count": _histogram(len(profile.vertex_hits) for profile in profiles),
             "boundary_hit_count": _histogram(profile.boundary_hit_count for profile in profiles),
@@ -1433,7 +1701,9 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
             "synthetic A5 edge-pocket closure stress test, a Lemma 3.1 "
             "role-precondition preflight, and a bounded sampled A5 constraint "
             "probe with a tiny float64 interval-box follow-up plus an explicit "
-            "boundary-support scan on the sampled synthetic 15-gon."
+            "boundary-support scan on the sampled synthetic 15-gon and an exact "
+            "rational replay of the sampled six-hit radius buckets inside the "
+            "checker float64 model."
         ),
         "does_not_claim": [
             "proof of Erdos Problem #97",
@@ -1443,11 +1713,12 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
             "exact construction of the source paper's existential A5",
             "exact algebraic or formal interval certificate for the sampled A5",
             "exact or interval certificate for boundary intersections",
+            "exact six-hit finite-radius circle in the sampled 15-gon",
             "replay of the source paper's continuum boundary-intersection proof",
         ],
         "next_steps": [
             "replace the float64 A5 interval box with exact algebraic or directed-decimal coordinates",
-            "certify sampled final-15-gon boundary hits with exact algebraic or interval checks",
+            "replace the checker-float64 rational replay with source-coordinate interval checks",
             "promote edge-interior hits to symbolic edge parameters",
             "iterate the promoted hits as new candidate vertices",
             "replace float boundary intersections by exact algebraic or interval checks",
@@ -1674,6 +1945,43 @@ def assert_expected_counts(payload: dict[str, object]) -> None:
         "C3",
     ]:
         raise AssertionError("unexpected sampled 15-gon best boundary centers")
+
+    rational_replay = payload.get("sampled_a5_six_hit_rational_replay")
+    if not isinstance(rational_replay, dict):
+        raise AssertionError("payload.sampled_a5_six_hit_rational_replay must be an object")
+    replay_summary = rational_replay.get("summary")
+    replay_buckets = rational_replay.get("buckets")
+    if not isinstance(replay_summary, dict):
+        raise AssertionError(
+            "payload.sampled_a5_six_hit_rational_replay.summary must be an object"
+        )
+    if not isinstance(replay_buckets, list):
+        raise AssertionError(
+            "payload.sampled_a5_six_hit_rational_replay.buckets must be a list"
+        )
+    expected_replay_summary = {
+        "tolerant_six_hit_bucket_count": 3,
+        "exact_radius_replay_count": 6,
+        "max_certified_boundary_hits_at_exact_radius": 5,
+        "max_exact_vertex_hits_at_exact_radius": 1,
+        "buckets_with_nonzero_vertex_distance_gap": 3,
+    }
+    for key, expected in expected_replay_summary.items():
+        if replay_summary.get(key) != expected:
+            raise AssertionError(
+                f"sampled_a5_six_hit_rational_replay.summary.{key}: "
+                f"expected {expected}, got {replay_summary.get(key)}"
+            )
+    if [bucket.get("center") for bucket in replay_buckets] != ["A3", "B3", "C3"]:
+        raise AssertionError("unexpected rational replay bucket centers")
+    for bucket in replay_buckets:
+        if bucket.get("gap_is_inside_distance_bucket") is not True:
+            raise AssertionError("expected six-hit bucket gap to lie inside tolerance")
+        exact_replays = bucket.get("exact_radius_replays")
+        if not isinstance(exact_replays, list):
+            raise AssertionError("rational replay exact_radius_replays must be a list")
+        if [replay.get("certified_boundary_hit_count") for replay in exact_replays] != [5, 3]:
+            raise AssertionError("expected exact-radius six-hit bucket split to be 5/3")
 
     synthetic = payload.get("synthetic_a5_scan")
     if not isinstance(synthetic, dict):

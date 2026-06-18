@@ -85,6 +85,10 @@ The checker:
   circles. These radii and edge parameters are float64 diagnostics, not exact
   algebraic certificates. The sampled support scan uses a `1e-7` edge-root
   boundary margin to avoid platform-dependent near-endpoint root counts.
+- replays the three tolerant six-hit radius buckets using exact rational
+  arithmetic over the checker's binary64 coordinates. This splits each bucket
+  into its exact-radius siblings rather than treating the two nearby vertex
+  radii as equal.
 
 ## Current result
 
@@ -114,6 +118,8 @@ sampled 15-gon centered-circle profiles: 195
 sampled 15-gon max boundary hits: 6
 sampled 15-gon circles with at least four boundary hits: 87
 sampled 15-gon circles with at least four vertices: 0
+sampled six-hit exact-radius replays: 6
+sampled six-hit exact-radius max boundary hits: 5
 ```
 
 Thus the modeled 12-point seed shows the expected continuous/discrete gap:
@@ -168,6 +174,18 @@ boundary-to-vertex gap for the sampled stand-in only; it does not replay the
 source paper's continuum argument, does not certify the boundary hits exactly,
 and does not produce a finite counterexample.
 
+The rational replay sharpens that last sentence. The three six-hit profiles
+are tolerance buckets: for example, at center `A3`, the distances to `A4` and
+sampled `A5` differ by about `0.003791257` in squared-radius units, well inside
+the checker's `1e-6` relative distance bucket near radius squared `1568593`.
+When each nearby radius is replayed exactly over the binary64 coordinates, the
+seed-side radius certifies one exact vertex hit and four interior edge roots,
+for five boundary hits, while the sampled-`A5` radius certifies one exact
+vertex hit and two interior edge roots, for three boundary hits. The same
+`5/3` split occurs for the rotated centers `B3` and `C3`. Thus the sampled
+diagnostic still exposes boundary richness, but it does not contain an exact
+six-hit finite-radius circle even in the checker's float64 model.
+
 ## Next steps
 
 Useful follow-up work should avoid more visual inspection and instead make the
@@ -175,8 +193,8 @@ edge-interior hits algebraic:
 
 1. Replace the float64 interval box with an exact algebraic or directed-decimal
    certificate over the source coordinates.
-2. Certify the sampled final-15-gon boundary hits with exact algebraic or
-   interval checks.
+2. Replace the checker-float64 rational replay with source-coordinate interval
+   checks.
 3. Promote each interior circle-edge hit to a candidate vertex parameter.
 4. Iterate the closure condition: promoted vertices become centers that must
    themselves acquire four vertex hits.
@@ -195,3 +213,4 @@ Do not cite this probe as:
 - an exact check of the source paper's final 15-gon;
 - an exact construction of the actual existential `A5` from Lemma 3.1;
 - an exact certificate for boundary intersections.
+- an exact six-hit finite-radius circle in the sampled 15-gon.

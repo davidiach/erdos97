@@ -114,11 +114,13 @@ def main() -> int:
         a5_scan = payload["lemma31_a5_constraint_scan"]
         a5_interval = payload["lemma31_a5_interval_box_probe"]
         sampled_support = payload["sampled_a5_boundary_support_scan"]
+        rational_replay = payload["sampled_a5_six_hit_rational_replay"]
         angle_abc = preflight["angle_ABC"]
         bprime_budget = preflight["bprime_neighbourhood_budget"]
         filter_counts = a5_scan["filter_counts"]
         witnesses = a5_scan["sampled_witnesses"]
         sampled_summary = sampled_support["summary"]
+        replay_summary = rational_replay["summary"]
         print("BRP boundary-to-vertex diagnostic")
         print(f"seed vertices: {summary['seed_vertex_count']}")
         print(f"strictly convex seed order: {convexity['strictly_convex_in_seed_order']}")
@@ -176,6 +178,14 @@ def main() -> int:
         print(
             "sampled 15-gon circles with >=4 vertices: "
             f"{sampled_summary['circles_with_at_least_four_vertices']}"
+        )
+        print(
+            "sampled six-hit exact-radius max boundary hits: "
+            f"{replay_summary['max_certified_boundary_hits_at_exact_radius']}"
+        )
+        print(
+            "sampled six-hit exact-radius replays: "
+            f"{replay_summary['exact_radius_replay_count']}"
         )
         if args.assert_expected:
             print("OK: expected BRP boundary diagnostic counts verified")
