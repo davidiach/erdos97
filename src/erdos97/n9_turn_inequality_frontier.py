@@ -831,7 +831,7 @@ def assert_expected_payload(payload: dict[str, object] | None = None) -> None:
         raise AssertionError("malformed benchmark")
     expected_benchmark = {
         "frontier_assignment_index_1based": EXPECTED_SIDE_CAP_PATTERN_INDEX,
-        "natural_order_classify_status": "accepted_frontier",
+        "natural_order_classify_status": "parallel_endpoint_violation",
         "vertex_circle_status": "self_edge",
         "turn_z3_status": "unsat",
         "side_sensitive_pair_cap_violation_count": 0,

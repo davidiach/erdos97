@@ -16,6 +16,7 @@ from erdos97.incidence_filters import (
     adjacent_pairs,
     crossing_bisector_violations,
     forced_equal_classes_from_matrix,
+    forced_parallel_endpoint_violation,
     mutual_midpoint_matrix,
     normalize_chord,
     odd_forced_perpendicular_cycle,
@@ -54,6 +55,7 @@ FULL_CLASSIFICATION_STATUSES = (
     "mutual_midpoint_collapse",
     "phi4_rectangle_trap",
     "row_ptolemy_product_cancellation",
+    "parallel_endpoint_violation",
     "accepted_frontier",
 )
 
@@ -246,6 +248,9 @@ def classify_pattern(
     indegree_violations = _indegree_violations(S)
     column_pair_violations = _column_pair_violations(S)
     odd_cycle = odd_forced_perpendicular_cycle(S)
+    parallel_endpoint = (
+        None if odd_cycle is not None else forced_parallel_endpoint_violation(S)
+    )
     matrix = mutual_midpoint_matrix(S)
     forced_classes = forced_equal_classes_from_matrix(matrix, N)
     rectangle_traps = phi4_rectangle_trap_certificates(S, order)
@@ -272,6 +277,8 @@ def classify_pattern(
         status = "phi4_rectangle_trap"
     elif row_ptolemy_certificates:
         status = "row_ptolemy_product_cancellation"
+    elif parallel_endpoint is not None:
+        status = "parallel_endpoint_violation"
 
     return {
         "status": status,
@@ -299,6 +306,15 @@ def classify_pattern(
             None
             if odd_cycle is None
             else [_json_chord(chord) for chord in odd_cycle]
+        ),
+        "forced_parallel_endpoint_violation": (
+            None
+            if parallel_endpoint is None
+            else [
+                _json_chord(parallel_endpoint[0]),
+                _json_chord(parallel_endpoint[1]),
+                list(parallel_endpoint[2]),
+            ]
         ),
         "forced_equality_classes": forced_classes[:max_details],
         "rectangle_trap_certificates": rectangle_traps[:max_details],
@@ -573,6 +589,7 @@ def run_bounded_scan(
             "mutual_midpoint_collapse",
             "phi4_rectangle_trap",
             "row_ptolemy_product_cancellation",
+            "parallel_endpoint_violation",
             "accepted_frontier",
         ],
     }

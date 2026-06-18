@@ -30,6 +30,7 @@ EXPECTED_FILTER_ORDER = [
     "mutual_midpoint_collapse",
     "phi4_rectangle_trap",
     "row_ptolemy_product_cancellation",
+    "parallel_endpoint_violation",
     "accepted_frontier",
 ]
 

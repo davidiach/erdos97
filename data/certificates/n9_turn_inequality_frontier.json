@@ -14,7 +14,7 @@
         4
       ],
       "name": "gpt_pro_output_10_side_cap_pattern",
-      "natural_order_classify_status": "accepted_frontier",
+      "natural_order_classify_status": "parallel_endpoint_violation",
       "natural_order_phi_edges": 18,
       "natural_order_rectangle_trap_4_cycles": 0,
       "natural_order_row_ptolemy_product_cancellation_count": 0,
