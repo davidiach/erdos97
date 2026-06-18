@@ -27,6 +27,8 @@ DEFAULT_A5_PARAMETERS: tuple[tuple[Fraction, Fraction], ...] = tuple(
     for h in (1, 2, 5, 10, 20, 50)
     for sign in (-1, 1)
 )
+LEMMA31_ROLE_LABELS = ("A3", "A4", "B1", "B2")
+LEMMA31_DEFAULT_BPRIME_FRACTION = Fraction(1, 100)
 SQRT3 = math.sqrt(3.0)
 ROOT_TOL = 1e-9
 DISTANCE_TOL = 1e-6
@@ -267,6 +269,15 @@ def _numeric_squared_distance(left: NumericVertex, right: NumericVertex) -> floa
     return dx * dx + dy * dy
 
 
+def _point_squared_distance(
+    left: tuple[float, float],
+    right: tuple[float, float],
+) -> float:
+    dx = left[0] - right[0]
+    dy = left[1] - right[1]
+    return dx * dx + dy * dy
+
+
 def _same_distance(left: float, right: float, tol: float) -> bool:
     return abs(left - right) <= tol * max(1.0, abs(left), abs(right))
 
@@ -481,6 +492,121 @@ def synthetic_a5_scan(
     )
 
 
+def _angle_degrees(
+    left: tuple[float, float],
+    middle: tuple[float, float],
+    right: tuple[float, float],
+) -> float:
+    first = (left[0] - middle[0], left[1] - middle[1])
+    second = (right[0] - middle[0], right[1] - middle[1])
+    dot = first[0] * second[0] + first[1] * second[1]
+    first_len = math.hypot(*first)
+    second_len = math.hypot(*second)
+    cosine = max(-1.0, min(1.0, dot / (first_len * second_len)))
+    return math.degrees(math.acos(cosine))
+
+
+def _point_on_segment_by_fraction(
+    start: tuple[float, float],
+    end: tuple[float, float],
+    fraction: Fraction,
+) -> tuple[float, float]:
+    t = float(fraction)
+    return (
+        start[0] + t * (end[0] - start[0]),
+        start[1] + t * (end[1] - start[1]),
+    )
+
+
+def lemma31_preflight() -> dict[str, object]:
+    """Check the Lemma 3.1 role mapping used by the BRP construction."""
+
+    seed = brp_seed_numeric_vertices()
+    by_label = {vertex.label: vertex for vertex in seed}
+    a_label, b_label, c_label, d_label = LEMMA31_ROLE_LABELS
+    a_point = by_label[a_label].numeric
+    b_point = by_label[b_label].numeric
+    c_point = by_label[c_label].numeric
+    d_point = by_label[d_label].numeric
+    role_vertices = tuple(by_label[label] for label in LEMMA31_ROLE_LABELS)
+    role_convexity = numeric_convexity_summary(role_vertices)
+    clockwise_target = (d_point, c_point, b_point, a_point)
+    clockwise_turns = [
+        _orientation2(
+            clockwise_target[index - 1],
+            clockwise_target[index],
+            clockwise_target[(index + 1) % len(clockwise_target)],
+        )
+        for index in range(len(clockwise_target))
+    ]
+    ba = (a_point[0] - b_point[0], a_point[1] - b_point[1])
+    bc = (c_point[0] - b_point[0], c_point[1] - b_point[1])
+    ba_dot_bc = ba[0] * bc[0] + ba[1] * bc[1]
+    bprime_fraction_ceiling = _point_squared_distance(c_point, b_point) / (
+        2.0 * ba_dot_bc
+    )
+    bprime = _point_on_segment_by_fraction(
+        b_point,
+        a_point,
+        LEMMA31_DEFAULT_BPRIME_FRACTION,
+    )
+    bprime_radius_squared = _point_squared_distance(bprime, b_point)
+    c_distance_to_bprime_squared = _point_squared_distance(c_point, bprime)
+    angle_abc_degrees = _angle_degrees(a_point, b_point, c_point)
+    return {
+        "status": "LEMMA31_ROLE_PREFLIGHT_ONLY_A5_NOT_CONSTRUCTED",
+        "role_mapping": {
+            "A": a_label,
+            "B": b_label,
+            "C": c_label,
+            "D": d_label,
+            "candidate_C1_name_in_paper_construction": "A5",
+        },
+        "role_order": {
+            "labels_counterclockwise": list(LEMMA31_ROLE_LABELS),
+            "strictly_convex_counterclockwise": bool(
+                role_convexity["strictly_convex_in_seed_order"]
+            ),
+            "min_turn_area2": role_convexity["min_turn_area2"],
+            "clockwise_target_without_C1": [d_label, c_label, b_label, a_label],
+            "clockwise_target_without_C1_verified": all(
+                turn < 0.0 for turn in clockwise_turns
+            ),
+        },
+        "angle_ABC": {
+            "degrees": _json_float(angle_abc_degrees),
+            "acute": angle_abc_degrees < 90.0,
+        },
+        "bprime_neighbourhood_budget": {
+            "definition": "Bprime = B + tau*(A-B)",
+            "default_tau": _format_fraction(LEMMA31_DEFAULT_BPRIME_FRACTION),
+            "tau_ceiling_for_C_outside_S_Bprime": _json_float(bprime_fraction_ceiling),
+            "default_tau_inside_ceiling": (
+                float(LEMMA31_DEFAULT_BPRIME_FRACTION) < bprime_fraction_ceiling
+            ),
+            "default_radius": _json_float(math.sqrt(bprime_radius_squared)),
+            "C_distance_to_default_Bprime": _json_float(
+                math.sqrt(c_distance_to_bprime_squared)
+            ),
+            "C_outside_default_S_Bprime": (
+                c_distance_to_bprime_squared > bprime_radius_squared
+            ),
+        },
+        "a5_constraints_remaining": [
+            "find C1=A5 such that D,C,C1,B,A are extreme and clockwise",
+            "place A5 outside the circle centered at A and passing through B",
+            "keep angle A-B-A5 acute",
+            "make segment C-A5 intersect S_Bprime twice",
+            "preserve the final 15-gon convexity after 120-degree rotations",
+        ],
+        "claim_scope": (
+            "Verifies the source Lemma 3.1 role preconditions for the BRP seed "
+            "using A=A3, B=A4, C=B1, D=B2 and records a reproducible Bprime "
+            "neighbourhood budget. It does not construct A5."
+        ),
+    }
+
+
 def _histogram(values: Iterable[int]) -> dict[str, int]:
     return {str(key): value for key, value in sorted(Counter(values).items())}
 
@@ -603,6 +729,7 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
             ),
             "candidates": [_candidate_to_json(candidate) for candidate in candidate_scan],
         },
+        "lemma31_preflight": lemma31_preflight(),
         "histograms": {
             "vertex_hit_count": _histogram(len(profile.vertex_hits) for profile in profiles),
             "boundary_hit_count": _histogram(profile.boundary_hit_count for profile in profiles),
@@ -617,17 +744,19 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
             "quoted in the Barany--Roldan-Pensado convex-body discussion. It "
             "measures the gap between centered circle hits on polygon edges and "
             "hits at the modeled seed vertices, and includes a limited signed "
-            "synthetic A5 edge-pocket closure stress test."
+            "synthetic A5 edge-pocket closure stress test plus a Lemma 3.1 "
+            "role-precondition preflight."
         ),
         "does_not_claim": [
             "proof of Erdos Problem #97",
             "counterexample to Erdos Problem #97",
             "finite-vertex extraction from the Barany--Roldan-Pensado body",
             "model of the source paper's A5 insertion or final 15-gon",
+            "construction of the source paper's existential A5",
             "exact or interval certificate for boundary intersections",
         ],
         "next_steps": [
-            "add the A5 edge-parameter insertion once the source construction is pinned",
+            "solve or parameterize A5 under the recorded Lemma 3.1 constraints",
             "promote edge-interior hits to symbolic edge parameters",
             "iterate the promoted hits as new candidate vertices",
             "replace float boundary intersections by exact algebraic or interval checks",
@@ -673,6 +802,29 @@ def assert_expected_counts(payload: dict[str, object]) -> None:
 
     if convexity.get("strictly_convex_in_seed_order") is not True:
         raise AssertionError("seed order is expected to be strictly convex")
+
+    preflight = payload.get("lemma31_preflight")
+    if not isinstance(preflight, dict):
+        raise AssertionError("payload.lemma31_preflight must be an object")
+    if preflight.get("status") != "LEMMA31_ROLE_PREFLIGHT_ONLY_A5_NOT_CONSTRUCTED":
+        raise AssertionError("unexpected lemma31_preflight.status")
+    role_order = preflight.get("role_order")
+    angle_abc = preflight.get("angle_ABC")
+    bprime_budget = preflight.get("bprime_neighbourhood_budget")
+    if not isinstance(role_order, dict):
+        raise AssertionError("payload.lemma31_preflight.role_order must be an object")
+    if not isinstance(angle_abc, dict):
+        raise AssertionError("payload.lemma31_preflight.angle_ABC must be an object")
+    if not isinstance(bprime_budget, dict):
+        raise AssertionError(
+            "payload.lemma31_preflight.bprime_neighbourhood_budget must be an object"
+        )
+    if role_order.get("strictly_convex_counterclockwise") is not True:
+        raise AssertionError("Lemma 3.1 role order is expected to be convex")
+    if angle_abc.get("acute") is not True:
+        raise AssertionError("Lemma 3.1 role angle ABC is expected to be acute")
+    if bprime_budget.get("C_outside_default_S_Bprime") is not True:
+        raise AssertionError("C is expected to be outside the default S_Bprime")
 
     synthetic = payload.get("synthetic_a5_scan")
     if not isinstance(synthetic, dict):

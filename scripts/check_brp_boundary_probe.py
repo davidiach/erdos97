@@ -110,6 +110,9 @@ def main() -> int:
         summary = payload["summary"]
         convexity = payload["convexity"]
         synthetic = payload["synthetic_a5_scan"]
+        preflight = payload["lemma31_preflight"]
+        angle_abc = preflight["angle_ABC"]
+        bprime_budget = preflight["bprime_neighbourhood_budget"]
         print("BRP boundary-to-vertex diagnostic")
         print(f"seed vertices: {summary['seed_vertex_count']}")
         print(f"strictly convex seed order: {convexity['strictly_convex_in_seed_order']}")
@@ -129,6 +132,11 @@ def main() -> int:
             f"{synthetic['strictly_convex_candidate_count']} / {synthetic['candidate_count']}"
         )
         print(f"synthetic A5 best vertex hits: {synthetic['best_max_vertex_hits']}")
+        print(f"Lemma 3.1 role angle ABC degrees: {angle_abc['degrees']}")
+        print(
+            "Lemma 3.1 default Bprime valid: "
+            f"{bprime_budget['C_outside_default_S_Bprime']}"
+        )
         if args.assert_expected:
             print("OK: expected BRP boundary diagnostic counts verified")
         if args.write:

@@ -70,6 +70,9 @@ The checker:
 - runs a small signed synthetic `A5` edge-pocket scan with
   `A5(t,h)=A4+t*(B1-A4)+h*unit_left_normal(A4B1)`, rotating the result to
   `B5` and `C5`. This is only a stress test, not the source paper's `A5`.
+- records the actual Lemma 3.1 role preflight
+  `A=A3, B=A4, C=B1, D=B2`, including the acute-angle check and a reproducible
+  `Bprime = B + tau*(A-B)` neighbourhood budget.
 
 ## Current result
 
@@ -85,6 +88,8 @@ circles with at least four seed vertices: 0
 synthetic A5 edge-pocket candidates: 36
 strictly convex synthetic A5 candidates: 0
 synthetic candidates with at least four vertices on a centered circle: 0
+Lemma 3.1 role angle ABC: 87.7725247 degrees
+Lemma 3.1 default Bprime tau: 1/100
 ```
 
 Thus the modeled 12-point seed shows the expected continuous/discrete gap:
@@ -99,21 +104,26 @@ It is still not evidence against the full contrarian lane: the source
 construction's Lemma 3.1 choice is existential, and the relevant
 edge-parameter closure remains unmodeled.
 
+The Lemma 3.1 role preflight now pins the source-paper mapping for the local
+insertion step. With `A=A3`, `B=A4`, `C=B1`, and `D=B2`, the four role points
+are strictly convex in counter-clockwise order, the angle `ABC` is acute, and
+the default point `Bprime=A4+(A3-A4)/100` has `B1` outside the circle centered
+at `Bprime` through `A4`. This is still only a preflight: it records the
+constraints an actual `A5` must satisfy, but it does not construct that point.
+
 ## Next steps
 
 Useful follow-up work should avoid more visual inspection and instead make the
 edge-interior hits algebraic:
 
-1. Replace the synthetic pocket scan with the actual Lemma 3.1 constraints for
-   `A=A3`, `B=A4`, `C=B1`, and a suitable `D` from the adjacent seed chain.
-2. Solve or parameterize admissible `A5` choices with strict convexity
+1. Solve or parameterize admissible `A5` choices under the recorded Lemma 3.1
    constraints.
-3. Promote each interior circle-edge hit to a candidate vertex parameter.
-4. Iterate the closure condition: promoted vertices become centers that must
+2. Promote each interior circle-edge hit to a candidate vertex parameter.
+3. Iterate the closure condition: promoted vertices become centers that must
    themselves acquire four vertex hits.
-5. Replace float64 edge intersections with exact algebraic or interval
+4. Replace float64 edge intersections with exact algebraic or interval
    certificates.
-6. If every closure attempt explodes into new edge interiors, extract the
+5. If every closure attempt explodes into new edge interiors, extract the
    failure as a boundary-to-vertex obstruction lemma.
 
 ## Guardrails
@@ -124,5 +134,5 @@ Do not cite this probe as:
 - a counterexample or counterexample candidate;
 - a finite extraction from the Barany--Roldan-Pensado body;
 - a check of the final 15-gon;
-- evidence about the actual existential `A5` from Lemma 3.1;
+- a construction of the actual existential `A5` from Lemma 3.1;
 - an exact certificate for boundary intersections.
