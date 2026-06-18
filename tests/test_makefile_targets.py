@@ -217,6 +217,7 @@ def test_verify_bridge_frontier_includes_bootstrap_audits() -> None:
             "python scripts/check_adjacent_closest_pair_nonagon_barrier.py "
             "--check --summary-json"
         ),
+        "python scripts/check_brp_boundary_probe.py --check --assert-expected --json",
         (
             "python scripts/check_bootstrap_core_crosswalk.py "
             "--check --assert-expected --json"

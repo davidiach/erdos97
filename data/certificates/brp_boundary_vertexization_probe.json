@@ -1,0 +1,1459 @@
+{
+  "best_boundary_circles": [
+    {
+      "boundary_hit_count": 5,
+      "center": "A1",
+      "interior_hit_count": 4,
+      "interior_hits": [
+        {
+          "edge": [
+            "A3",
+            "A4"
+          ],
+          "t": 0.955030125
+        },
+        {
+          "edge": [
+            "B2",
+            "B3"
+          ],
+          "t": 0.979925648
+        },
+        {
+          "edge": [
+            "B3",
+            "B4"
+          ],
+          "t": 0.868959626
+        },
+        {
+          "edge": [
+            "C1",
+            "C2"
+          ],
+          "t": 0.399998622
+        }
+      ],
+      "radius_squared_exact": "2189906 + 359000*sqrt3",
+      "radius_squared_float": 2811712.239917227,
+      "vertex_hit_count": 1,
+      "vertex_hits": [
+        "B3"
+      ]
+    },
+    {
+      "boundary_hit_count": 5,
+      "center": "A2",
+      "interior_hit_count": 4,
+      "interior_hits": [
+        {
+          "edge": [
+            "A3",
+            "A4"
+          ],
+          "t": 0.973566915
+        },
+        {
+          "edge": [
+            "B2",
+            "B3"
+          ],
+          "t": 0.479634499
+        },
+        {
+          "edge": [
+            "B3",
+            "B4"
+          ],
+          "t": 0.672516353
+        },
+        {
+          "edge": [
+            "C2",
+            "C3"
+          ],
+          "t": 0.058306805
+        }
+      ],
+      "radius_squared_exact": "2004034 + 251724*sqrt3",
+      "radius_squared_float": 2440032.757484468,
+      "vertex_hit_count": 1,
+      "vertex_hits": [
+        "B3"
+      ]
+    },
+    {
+      "boundary_hit_count": 5,
+      "center": "A3",
+      "interior_hit_count": 4,
+      "interior_hits": [
+        {
+          "edge": [
+            "A3",
+            "A4"
+          ],
+          "t": 0.999822195
+        },
+        {
+          "edge": [
+            "B1",
+            "B2"
+          ],
+          "t": 0.002955184
+        },
+        {
+          "edge": [
+            "B2",
+            "B3"
+          ],
+          "t": 0.479634499
+        },
+        {
+          "edge": [
+            "C3",
+            "C4"
+          ],
+          "t": 0.022938553
+        }
+      ],
+      "radius_squared_exact": "2004034 - 251724*sqrt3",
+      "radius_squared_float": 1568035.242515532,
+      "vertex_hit_count": 1,
+      "vertex_hits": [
+        "B2"
+      ]
+    },
+    {
+      "boundary_hit_count": 5,
+      "center": "A4",
+      "interior_hit_count": 4,
+      "interior_hits": [
+        {
+          "edge": [
+            "A1",
+            "A2"
+          ],
+          "t": 0.374759906
+        },
+        {
+          "edge": [
+            "B3",
+            "B4"
+          ],
+          "t": 0.95438015
+        },
+        {
+          "edge": [
+            "C2",
+            "C3"
+          ],
+          "t": 0.998660302
+        },
+        {
+          "edge": [
+            "C3",
+            "C4"
+          ],
+          "t": 0.876202425
+        }
+      ],
+      "radius_squared_exact": "1543030 + 740577*sqrt3",
+      "radius_squared_float": 2825746.990916937,
+      "vertex_hit_count": 1,
+      "vertex_hits": [
+        "C3"
+      ]
+    },
+    {
+      "boundary_hit_count": 5,
+      "center": "B1",
+      "interior_hit_count": 4,
+      "interior_hits": [
+        {
+          "edge": [
+            "A1",
+            "A2"
+          ],
+          "t": 0.399998622
+        },
+        {
+          "edge": [
+            "B3",
+            "B4"
+          ],
+          "t": 0.955030125
+        },
+        {
+          "edge": [
+            "C2",
+            "C3"
+          ],
+          "t": 0.979925648
+        },
+        {
+          "edge": [
+            "C3",
+            "C4"
+          ],
+          "t": 0.868959626
+        }
+      ],
+      "radius_squared_exact": "2189906 + 359000*sqrt3",
+      "radius_squared_float": 2811712.239917227,
+      "vertex_hit_count": 1,
+      "vertex_hits": [
+        "C3"
+      ]
+    },
+    {
+      "boundary_hit_count": 5,
+      "center": "B2",
+      "interior_hit_count": 4,
+      "interior_hits": [
+        {
+          "edge": [
+            "A2",
+            "A3"
+          ],
+          "t": 0.058306805
+        },
+        {
+          "edge": [
+            "B3",
+            "B4"
+          ],
+          "t": 0.973566915
+        },
+        {
+          "edge": [
+            "C2",
+            "C3"
+          ],
+          "t": 0.479634499
+        },
+        {
+          "edge": [
+            "C3",
+            "C4"
+          ],
+          "t": 0.672516353
+        }
+      ],
+      "radius_squared_exact": "2004034 + 251724*sqrt3",
+      "radius_squared_float": 2440032.757484468,
+      "vertex_hit_count": 1,
+      "vertex_hits": [
+        "C3"
+      ]
+    },
+    {
+      "boundary_hit_count": 5,
+      "center": "B3",
+      "interior_hit_count": 4,
+      "interior_hits": [
+        {
+          "edge": [
+            "A3",
+            "A4"
+          ],
+          "t": 0.022938553
+        },
+        {
+          "edge": [
+            "B3",
+            "B4"
+          ],
+          "t": 0.999822195
+        },
+        {
+          "edge": [
+            "C1",
+            "C2"
+          ],
+          "t": 0.002955184
+        },
+        {
+          "edge": [
+            "C2",
+            "C3"
+          ],
+          "t": 0.479634499
+        }
+      ],
+      "radius_squared_exact": "2004034 - 251724*sqrt3",
+      "radius_squared_float": 1568035.242515532,
+      "vertex_hit_count": 1,
+      "vertex_hits": [
+        "C2"
+      ]
+    },
+    {
+      "boundary_hit_count": 5,
+      "center": "B4",
+      "interior_hit_count": 4,
+      "interior_hits": [
+        {
+          "edge": [
+            "A2",
+            "A3"
+          ],
+          "t": 0.998660302
+        },
+        {
+          "edge": [
+            "A3",
+            "A4"
+          ],
+          "t": 0.876202425
+        },
+        {
+          "edge": [
+            "B1",
+            "B2"
+          ],
+          "t": 0.374759906
+        },
+        {
+          "edge": [
+            "C3",
+            "C4"
+          ],
+          "t": 0.95438015
+        }
+      ],
+      "radius_squared_exact": "1543030 + 740577*sqrt3",
+      "radius_squared_float": 2825746.990916937,
+      "vertex_hit_count": 1,
+      "vertex_hits": [
+        "A3"
+      ]
+    },
+    {
+      "boundary_hit_count": 5,
+      "center": "C1",
+      "interior_hit_count": 4,
+      "interior_hits": [
+        {
+          "edge": [
+            "A2",
+            "A3"
+          ],
+          "t": 0.979925648
+        },
+        {
+          "edge": [
+            "A3",
+            "A4"
+          ],
+          "t": 0.868959626
+        },
+        {
+          "edge": [
+            "B1",
+            "B2"
+          ],
+          "t": 0.399998622
+        },
+        {
+          "edge": [
+            "C3",
+            "C4"
+          ],
+          "t": 0.955030125
+        }
+      ],
+      "radius_squared_exact": "2189906 + 359000*sqrt3",
+      "radius_squared_float": 2811712.239917227,
+      "vertex_hit_count": 1,
+      "vertex_hits": [
+        "A3"
+      ]
+    },
+    {
+      "boundary_hit_count": 5,
+      "center": "C2",
+      "interior_hit_count": 4,
+      "interior_hits": [
+        {
+          "edge": [
+            "A2",
+            "A3"
+          ],
+          "t": 0.479634499
+        },
+        {
+          "edge": [
+            "A3",
+            "A4"
+          ],
+          "t": 0.672516353
+        },
+        {
+          "edge": [
+            "B2",
+            "B3"
+          ],
+          "t": 0.058306805
+        },
+        {
+          "edge": [
+            "C3",
+            "C4"
+          ],
+          "t": 0.973566915
+        }
+      ],
+      "radius_squared_exact": "2004034 + 251724*sqrt3",
+      "radius_squared_float": 2440032.757484468,
+      "vertex_hit_count": 1,
+      "vertex_hits": [
+        "A3"
+      ]
+    },
+    {
+      "boundary_hit_count": 5,
+      "center": "C3",
+      "interior_hit_count": 4,
+      "interior_hits": [
+        {
+          "edge": [
+            "A1",
+            "A2"
+          ],
+          "t": 0.002955184
+        },
+        {
+          "edge": [
+            "A2",
+            "A3"
+          ],
+          "t": 0.479634499
+        },
+        {
+          "edge": [
+            "B3",
+            "B4"
+          ],
+          "t": 0.022938553
+        },
+        {
+          "edge": [
+            "C3",
+            "C4"
+          ],
+          "t": 0.999822195
+        }
+      ],
+      "radius_squared_exact": "2004034 - 251724*sqrt3",
+      "radius_squared_float": 1568035.242515532,
+      "vertex_hit_count": 1,
+      "vertex_hits": [
+        "A2"
+      ]
+    },
+    {
+      "boundary_hit_count": 5,
+      "center": "C4",
+      "interior_hit_count": 4,
+      "interior_hits": [
+        {
+          "edge": [
+            "A3",
+            "A4"
+          ],
+          "t": 0.95438015
+        },
+        {
+          "edge": [
+            "B2",
+            "B3"
+          ],
+          "t": 0.998660302
+        },
+        {
+          "edge": [
+            "B3",
+            "B4"
+          ],
+          "t": 0.876202425
+        },
+        {
+          "edge": [
+            "C1",
+            "C2"
+          ],
+          "t": 0.374759906
+        }
+      ],
+      "radius_squared_exact": "1543030 + 740577*sqrt3",
+      "radius_squared_float": 2825746.990916937,
+      "vertex_hit_count": 1,
+      "vertex_hits": [
+        "B3"
+      ]
+    }
+  ],
+  "best_vertex_circles": [
+    {
+      "boundary_hit_count": 4,
+      "center": "A1",
+      "interior_hit_count": 2,
+      "interior_hits": [
+        {
+          "edge": [
+            "A3",
+            "A4"
+          ],
+          "t": 0.999387075
+        },
+        {
+          "edge": [
+            "B3",
+            "B4"
+          ],
+          "t": 0.990185483
+        }
+      ],
+      "radius_squared_exact": "3000000",
+      "radius_squared_float": 3000000.0,
+      "vertex_hit_count": 2,
+      "vertex_hits": [
+        "B1",
+        "C1"
+      ]
+    },
+    {
+      "boundary_hit_count": 4,
+      "center": "A2",
+      "interior_hit_count": 2,
+      "interior_hits": [
+        {
+          "edge": [
+            "A3",
+            "A4"
+          ],
+          "t": 0.98922099
+        },
+        {
+          "edge": [
+            "B3",
+            "B4"
+          ],
+          "t": 0.726454587
+        }
+      ],
+      "radius_squared_exact": "2501496",
+      "radius_squared_float": 2501496.0,
+      "vertex_hit_count": 2,
+      "vertex_hits": [
+        "B2",
+        "C2"
+      ]
+    },
+    {
+      "boundary_hit_count": 3,
+      "center": "A3",
+      "interior_hit_count": 1,
+      "interior_hits": [
+        {
+          "edge": [
+            "B3",
+            "B4"
+          ],
+          "t": 0.240702342
+        }
+      ],
+      "radius_squared_exact": "1634718",
+      "radius_squared_float": 1634718.0,
+      "vertex_hit_count": 2,
+      "vertex_hits": [
+        "B3",
+        "C3"
+      ]
+    },
+    {
+      "boundary_hit_count": 2,
+      "center": "A4",
+      "interior_hit_count": 0,
+      "interior_hits": [],
+      "radius_squared_exact": "3019935",
+      "radius_squared_float": 3019935.0,
+      "vertex_hit_count": 2,
+      "vertex_hits": [
+        "B4",
+        "C4"
+      ]
+    },
+    {
+      "boundary_hit_count": 4,
+      "center": "B1",
+      "interior_hit_count": 2,
+      "interior_hits": [
+        {
+          "edge": [
+            "B3",
+            "B4"
+          ],
+          "t": 0.999387075
+        },
+        {
+          "edge": [
+            "C3",
+            "C4"
+          ],
+          "t": 0.990185483
+        }
+      ],
+      "radius_squared_exact": "3000000",
+      "radius_squared_float": 3000000.0,
+      "vertex_hit_count": 2,
+      "vertex_hits": [
+        "A1",
+        "C1"
+      ]
+    },
+    {
+      "boundary_hit_count": 4,
+      "center": "B2",
+      "interior_hit_count": 2,
+      "interior_hits": [
+        {
+          "edge": [
+            "B3",
+            "B4"
+          ],
+          "t": 0.98922099
+        },
+        {
+          "edge": [
+            "C3",
+            "C4"
+          ],
+          "t": 0.726454587
+        }
+      ],
+      "radius_squared_exact": "2501496",
+      "radius_squared_float": 2501496.0,
+      "vertex_hit_count": 2,
+      "vertex_hits": [
+        "A2",
+        "C2"
+      ]
+    },
+    {
+      "boundary_hit_count": 3,
+      "center": "B3",
+      "interior_hit_count": 1,
+      "interior_hits": [
+        {
+          "edge": [
+            "C3",
+            "C4"
+          ],
+          "t": 0.240702342
+        }
+      ],
+      "radius_squared_exact": "1634718",
+      "radius_squared_float": 1634718.0,
+      "vertex_hit_count": 2,
+      "vertex_hits": [
+        "A3",
+        "C3"
+      ]
+    },
+    {
+      "boundary_hit_count": 2,
+      "center": "B4",
+      "interior_hit_count": 0,
+      "interior_hits": [],
+      "radius_squared_exact": "3019935",
+      "radius_squared_float": 3019935.0,
+      "vertex_hit_count": 2,
+      "vertex_hits": [
+        "A4",
+        "C4"
+      ]
+    },
+    {
+      "boundary_hit_count": 4,
+      "center": "C1",
+      "interior_hit_count": 2,
+      "interior_hits": [
+        {
+          "edge": [
+            "A3",
+            "A4"
+          ],
+          "t": 0.990185483
+        },
+        {
+          "edge": [
+            "C3",
+            "C4"
+          ],
+          "t": 0.999387075
+        }
+      ],
+      "radius_squared_exact": "3000000",
+      "radius_squared_float": 3000000.0,
+      "vertex_hit_count": 2,
+      "vertex_hits": [
+        "A1",
+        "B1"
+      ]
+    },
+    {
+      "boundary_hit_count": 4,
+      "center": "C2",
+      "interior_hit_count": 2,
+      "interior_hits": [
+        {
+          "edge": [
+            "A3",
+            "A4"
+          ],
+          "t": 0.726454587
+        },
+        {
+          "edge": [
+            "C3",
+            "C4"
+          ],
+          "t": 0.98922099
+        }
+      ],
+      "radius_squared_exact": "2501496",
+      "radius_squared_float": 2501496.0,
+      "vertex_hit_count": 2,
+      "vertex_hits": [
+        "A2",
+        "B2"
+      ]
+    },
+    {
+      "boundary_hit_count": 3,
+      "center": "C3",
+      "interior_hit_count": 1,
+      "interior_hits": [
+        {
+          "edge": [
+            "A3",
+            "A4"
+          ],
+          "t": 0.240702342
+        }
+      ],
+      "radius_squared_exact": "1634718",
+      "radius_squared_float": 1634718.0,
+      "vertex_hit_count": 2,
+      "vertex_hits": [
+        "A3",
+        "B3"
+      ]
+    },
+    {
+      "boundary_hit_count": 2,
+      "center": "C4",
+      "interior_hit_count": 0,
+      "interior_hits": [],
+      "radius_squared_exact": "3019935",
+      "radius_squared_float": 3019935.0,
+      "vertex_hit_count": 2,
+      "vertex_hits": [
+        "A4",
+        "B4"
+      ]
+    }
+  ],
+  "claim_scope": "Float64 boundary-hit diagnostic for the 12-point three-fold seed quoted in the Barany--Roldan-Pensado convex-body discussion. It measures the gap between centered circle hits on polygon edges and hits at the modeled seed vertices, and includes a limited signed synthetic A5 edge-pocket closure stress test.",
+  "convexity": {
+    "max_turn_area2": 146403.0,
+    "min_turn_area2": 19.492354671,
+    "strictly_convex_in_seed_order": true
+  },
+  "does_not_claim": [
+    "proof of Erdos Problem #97",
+    "counterexample to Erdos Problem #97",
+    "finite-vertex extraction from the Barany--Roldan-Pensado body",
+    "model of the source paper's A5 insertion or final 15-gon",
+    "exact or interval certificate for boundary intersections"
+  ],
+  "histograms": {
+    "boundary_hit_count": {
+      "1": 9,
+      "2": 45,
+      "3": 21,
+      "4": 33,
+      "5": 12
+    },
+    "interior_hit_count": {
+      "0": 12,
+      "1": 45,
+      "2": 24,
+      "3": 27,
+      "4": 12
+    },
+    "vertex_hit_count": {
+      "1": 108,
+      "2": 12
+    }
+  },
+  "next_steps": [
+    "add the A5 edge-parameter insertion once the source construction is pinned",
+    "promote edge-interior hits to symbolic edge parameters",
+    "iterate the promoted hits as new candidate vertices",
+    "replace float boundary intersections by exact algebraic or interval checks"
+  ],
+  "provenance": {
+    "command": "python scripts/check_brp_boundary_probe.py --write --assert-expected",
+    "generator": "scripts/check_brp_boundary_probe.py",
+    "notes": "Float64 boundary-intersection diagnostic for the quoted Barany--Roldan-Pensado 12-point seed before A5 insertion."
+  },
+  "schema": "erdos97.brp_boundary_vertexization_probe.v1",
+  "source": {
+    "base_points": [
+      {
+        "label": "A1",
+        "x": 1000,
+        "y": 0
+      },
+      {
+        "label": "A2",
+        "x": 906,
+        "y": 114
+      },
+      {
+        "label": "A3",
+        "x": 645,
+        "y": 359
+      },
+      {
+        "label": "A4",
+        "x": -498,
+        "y": 871
+      }
+    ],
+    "construction": "Barany--Roldan-Pensado 3-fold seed before A5 insertion",
+    "modeled_vertices": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "not_modeled": "the A5 insertion and the final 15-gon edge-parameter closure",
+    "rotations_degrees": [
+      0,
+      120,
+      240
+    ]
+  },
+  "status": "BOUNDARY_VERTEXIZATION_DIAGNOSTIC_ONLY",
+  "summary": {
+    "circles_with_at_least_four_boundary_hits": 45,
+    "circles_with_at_least_four_seed_vertices": 0,
+    "distinct_centered_vertex_radii": 120,
+    "max_boundary_hits_on_seed_edges": 5,
+    "max_interior_hits_on_one_seed_circle": 4,
+    "max_vertex_hits_on_seed": 2,
+    "seed_edge_count": 12,
+    "seed_vertex_count": 12
+  },
+  "synthetic_a5_scan": {
+    "best_max_boundary_hits": 8,
+    "best_max_vertex_hits": 2,
+    "candidate_count": 36,
+    "candidates": [
+      {
+        "circles_with_at_least_four_boundary_hits": 78,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -133.092557229,
+        "normal_offset": "-1",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "1/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 81,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -5.361586287,
+        "normal_offset": "1",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "1/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 78,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -280.80438046,
+        "normal_offset": "-2",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "1/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 81,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -10.723172573,
+        "normal_offset": "2",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "1/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 87,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -723.939850155,
+        "normal_offset": "-5",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "1/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 81,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -26.807931433,
+        "normal_offset": "5",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "1/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 90,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -1462.498966314,
+        "normal_offset": "-10",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "1/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 87,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -53.615862865,
+        "normal_offset": "10",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "1/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 96,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -2939.617198631,
+        "normal_offset": "-20",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "1/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 87,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -107.231725731,
+        "normal_offset": "20",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "1/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 96,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -7370.971895582,
+        "normal_offset": "-50",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "1/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 87,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -756.427457249,
+        "normal_offset": "50",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "1/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 78,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -137.965645896,
+        "normal_offset": "-1",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "1/2"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 81,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -5.361586287,
+        "normal_offset": "1",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "1/2"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 78,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -285.677469128,
+        "normal_offset": "-2",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "1/2"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 81,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -10.723172573,
+        "normal_offset": "2",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "1/2"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 87,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -728.812938823,
+        "normal_offset": "-5",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "1/2"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 87,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -26.807931433,
+        "normal_offset": "5",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "1/2"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 90,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -1467.372054982,
+        "normal_offset": "-10",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "1/2"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 87,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -53.615862865,
+        "normal_offset": "10",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "1/2"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 93,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -2944.490287298,
+        "normal_offset": "-20",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "1/2"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 87,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -107.231725731,
+        "normal_offset": "20",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "1/2"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 96,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -7375.844984249,
+        "normal_offset": "-50",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "1/2"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 87,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 8,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -268.079314326,
+        "normal_offset": "50",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "1/2"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 78,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -142.838734564,
+        "normal_offset": "-1",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "3/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 81,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -5.361586287,
+        "normal_offset": "1",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "3/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 81,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -290.550557796,
+        "normal_offset": "-2",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "3/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 84,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -10.723172573,
+        "normal_offset": "2",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "3/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 84,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -733.686027491,
+        "normal_offset": "-5",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "3/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 87,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -26.807931433,
+        "normal_offset": "5",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "3/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 90,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -1472.245143649,
+        "normal_offset": "-10",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "3/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 90,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -53.615862865,
+        "normal_offset": "10",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "3/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 93,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -2949.363375966,
+        "normal_offset": "-20",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "3/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 90,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 7,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -107.231725731,
+        "normal_offset": "20",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "3/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 96,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 5,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -7380.718072917,
+        "normal_offset": "-50",
+        "normal_side": "right",
+        "strictly_convex": false,
+        "t": "3/4"
+      },
+      {
+        "circles_with_at_least_four_boundary_hits": 93,
+        "circles_with_at_least_four_vertices": 0,
+        "max_boundary_hits": 8,
+        "max_vertex_hits": 2,
+        "min_turn_area2": -268.079314326,
+        "normal_offset": "50",
+        "normal_side": "left",
+        "strictly_convex": false,
+        "t": "3/4"
+      }
+    ],
+    "candidates_with_at_least_four_vertices": 0,
+    "description": "A5(t,h)=A4+t*(B1-A4)+h*unit_left_normal(A4B1), with signed h and rotations to B5/C5; diagnostic stand-in only, not the source paper's A5.",
+    "interpretation": "This signed normal-offset scan is a diagnostic stress test only. It samples nearby synthetic A5 placements but does not model the source paper's existential A5 constraints.",
+    "parameters": [
+      {
+        "normal_offset": "-1",
+        "normal_side": "right",
+        "t": "1/4"
+      },
+      {
+        "normal_offset": "1",
+        "normal_side": "left",
+        "t": "1/4"
+      },
+      {
+        "normal_offset": "-2",
+        "normal_side": "right",
+        "t": "1/4"
+      },
+      {
+        "normal_offset": "2",
+        "normal_side": "left",
+        "t": "1/4"
+      },
+      {
+        "normal_offset": "-5",
+        "normal_side": "right",
+        "t": "1/4"
+      },
+      {
+        "normal_offset": "5",
+        "normal_side": "left",
+        "t": "1/4"
+      },
+      {
+        "normal_offset": "-10",
+        "normal_side": "right",
+        "t": "1/4"
+      },
+      {
+        "normal_offset": "10",
+        "normal_side": "left",
+        "t": "1/4"
+      },
+      {
+        "normal_offset": "-20",
+        "normal_side": "right",
+        "t": "1/4"
+      },
+      {
+        "normal_offset": "20",
+        "normal_side": "left",
+        "t": "1/4"
+      },
+      {
+        "normal_offset": "-50",
+        "normal_side": "right",
+        "t": "1/4"
+      },
+      {
+        "normal_offset": "50",
+        "normal_side": "left",
+        "t": "1/4"
+      },
+      {
+        "normal_offset": "-1",
+        "normal_side": "right",
+        "t": "1/2"
+      },
+      {
+        "normal_offset": "1",
+        "normal_side": "left",
+        "t": "1/2"
+      },
+      {
+        "normal_offset": "-2",
+        "normal_side": "right",
+        "t": "1/2"
+      },
+      {
+        "normal_offset": "2",
+        "normal_side": "left",
+        "t": "1/2"
+      },
+      {
+        "normal_offset": "-5",
+        "normal_side": "right",
+        "t": "1/2"
+      },
+      {
+        "normal_offset": "5",
+        "normal_side": "left",
+        "t": "1/2"
+      },
+      {
+        "normal_offset": "-10",
+        "normal_side": "right",
+        "t": "1/2"
+      },
+      {
+        "normal_offset": "10",
+        "normal_side": "left",
+        "t": "1/2"
+      },
+      {
+        "normal_offset": "-20",
+        "normal_side": "right",
+        "t": "1/2"
+      },
+      {
+        "normal_offset": "20",
+        "normal_side": "left",
+        "t": "1/2"
+      },
+      {
+        "normal_offset": "-50",
+        "normal_side": "right",
+        "t": "1/2"
+      },
+      {
+        "normal_offset": "50",
+        "normal_side": "left",
+        "t": "1/2"
+      },
+      {
+        "normal_offset": "-1",
+        "normal_side": "right",
+        "t": "3/4"
+      },
+      {
+        "normal_offset": "1",
+        "normal_side": "left",
+        "t": "3/4"
+      },
+      {
+        "normal_offset": "-2",
+        "normal_side": "right",
+        "t": "3/4"
+      },
+      {
+        "normal_offset": "2",
+        "normal_side": "left",
+        "t": "3/4"
+      },
+      {
+        "normal_offset": "-5",
+        "normal_side": "right",
+        "t": "3/4"
+      },
+      {
+        "normal_offset": "5",
+        "normal_side": "left",
+        "t": "3/4"
+      },
+      {
+        "normal_offset": "-10",
+        "normal_side": "right",
+        "t": "3/4"
+      },
+      {
+        "normal_offset": "10",
+        "normal_side": "left",
+        "t": "3/4"
+      },
+      {
+        "normal_offset": "-20",
+        "normal_side": "right",
+        "t": "3/4"
+      },
+      {
+        "normal_offset": "20",
+        "normal_side": "left",
+        "t": "3/4"
+      },
+      {
+        "normal_offset": "-50",
+        "normal_side": "right",
+        "t": "3/4"
+      },
+      {
+        "normal_offset": "50",
+        "normal_side": "left",
+        "t": "3/4"
+      }
+    ],
+    "strictly_convex_candidate_count": 0
+  },
+  "trust": "NUMERICAL_GEOMETRIC_DIAGNOSTIC"
+}
