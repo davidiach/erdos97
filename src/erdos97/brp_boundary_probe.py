@@ -10,7 +10,7 @@ from typing import Iterable
 import math
 
 
-SCHEMA = "erdos97.brp_boundary_vertexization_probe.v1"
+SCHEMA = "erdos97.brp_boundary_vertexization_probe.v2"
 STATUS = "BOUNDARY_VERTEXIZATION_DIAGNOSTIC_ONLY"
 TRUST = "NUMERICAL_GEOMETRIC_DIAGNOSTIC"
 
@@ -29,6 +29,12 @@ DEFAULT_A5_PARAMETERS: tuple[tuple[Fraction, Fraction], ...] = tuple(
 )
 LEMMA31_ROLE_LABELS = ("A3", "A4", "B1", "B2")
 LEMMA31_DEFAULT_BPRIME_FRACTION = Fraction(1, 100)
+LEMMA31_A5_EDGE_T_VALUES = tuple(Fraction(index, 500) for index in range(1, 101))
+LEMMA31_A5_EDGE_NORMAL_OFFSETS = tuple(
+    offset
+    for denominator in (1000, 500, 200, 100, 50, 20, 10, 5, 2, 1)
+    for offset in (Fraction(1, denominator), Fraction(-1, denominator))
+)
 SQRT3 = math.sqrt(3.0)
 ROOT_TOL = 1e-9
 DISTANCE_TOL = 1e-6
@@ -103,6 +109,20 @@ class Candidate15Summary:
     max_boundary_hits: int
     circles_with_at_least_four_vertices: int
     circles_with_at_least_four_boundary_hits: int
+
+
+@dataclass(frozen=True)
+class Lemma31A5ScanSample:
+    t_value: Fraction
+    normal_offset: Fraction
+    point: tuple[float, float]
+    local_clockwise: bool
+    outside_s_a: bool
+    acute_angle: bool
+    segment_crosses_s_bprime_twice: bool
+    s_bprime_roots: tuple[float, ...]
+    local_clockwise_turns: tuple[float, ...]
+    final_15gon: Candidate15Summary | None
 
 
 def _q(value: int | Fraction, sqrt3: int | Fraction = 0) -> Quad:
@@ -197,21 +217,7 @@ def brp_candidate_15gon(t_value: Fraction, normal_offset: Fraction) -> tuple[Num
         raise ValueError("normal_offset must be nonzero")
     seed = brp_seed_numeric_vertices()
     by_label = {vertex.label: vertex.numeric for vertex in seed}
-    a4 = by_label["A4"]
-    b1 = by_label["B1"]
-    edge = (b1[0] - a4[0], b1[1] - a4[1])
-    normal = (-edge[1], edge[0])
-    normal_length = math.hypot(*normal)
-    normal_unit = (
-        normal[0] / normal_length,
-        normal[1] / normal_length,
-    )
-    t = float(t_value)
-    h = float(normal_offset)
-    a5 = (
-        a4[0] + t * edge[0] + h * normal_unit[0],
-        a4[1] + t * edge[1] + h * normal_unit[1],
-    )
+    a5 = _a5_edge_pocket_point(t_value, normal_offset, by_label=by_label)
     vertices: list[NumericVertex] = []
     for orbit, prefix in enumerate(ORBIT_PREFIXES):
         for suffix in ("1", "2", "3", "4"):
@@ -226,6 +232,31 @@ def brp_candidate_15gon(t_value: Fraction, normal_offset: Fraction) -> tuple[Num
             NumericVertex(label=f"{prefix}5", numeric=_rotate_numeric_point(a5, orbit))
         )
     return tuple(vertices)
+
+
+def _a5_edge_pocket_point(
+    t_value: Fraction,
+    normal_offset: Fraction,
+    *,
+    by_label: dict[str, tuple[float, float]],
+) -> tuple[float, float]:
+    """Place A5 near the directed edge A4->B1 with a signed normal offset."""
+
+    a4 = by_label["A4"]
+    b1 = by_label["B1"]
+    edge = (b1[0] - a4[0], b1[1] - a4[1])
+    normal = (-edge[1], edge[0])
+    normal_length = math.hypot(*normal)
+    normal_unit = (
+        normal[0] / normal_length,
+        normal[1] / normal_length,
+    )
+    t = float(t_value)
+    h = float(normal_offset)
+    return (
+        a4[0] + t * edge[0] + h * normal_unit[0],
+        a4[1] + t * edge[1] + h * normal_unit[1],
+    )
 
 
 def exact_squared_distance(left: SeedVertex, right: SeedVertex) -> Quad:
@@ -592,17 +623,210 @@ def lemma31_preflight() -> dict[str, object]:
                 c_distance_to_bprime_squared > bprime_radius_squared
             ),
         },
-        "a5_constraints_remaining": [
-            "find C1=A5 such that D,C,C1,B,A are extreme and clockwise",
-            "place A5 outside the circle centered at A and passing through B",
-            "keep angle A-B-A5 acute",
-            "make segment C-A5 intersect S_Bprime twice",
-            "preserve the final 15-gon convexity after 120-degree rotations",
+        "a5_constraints_remaining_after_sampled_scan": [
+            "upgrade the sampled C1=A5 witness to exact or interval coordinates",
+            "prove a neighbourhood of admissible A5 choices, not only one sample",
+            "certify all source-paper boundary-intersection counts for the final 15-gon",
+            "separate boundary hits from finite selected-vertex hits",
         ],
         "claim_scope": (
             "Verifies the source Lemma 3.1 role preconditions for the BRP seed "
             "using A=A3, B=A4, C=B1, D=B2 and records a reproducible Bprime "
-            "neighbourhood budget. It does not construct A5."
+            "neighbourhood budget. The companion scan records only sampled "
+            "float64 A5 candidates."
+        ),
+    }
+
+
+def _lemma31_a5_sample(
+    t_value: Fraction,
+    normal_offset: Fraction,
+    *,
+    root_tol: float,
+    by_label: dict[str, tuple[float, float]],
+) -> Lemma31A5ScanSample:
+    a_label, b_label, c_label, d_label = LEMMA31_ROLE_LABELS
+    a_point = by_label[a_label]
+    b_point = by_label[b_label]
+    c_point = by_label[c_label]
+    d_point = by_label[d_label]
+    a5 = _a5_edge_pocket_point(t_value, normal_offset, by_label=by_label)
+    local_order = (d_point, c_point, a5, b_point, a_point)
+    local_turns = tuple(
+        _orientation2(
+            local_order[index - 1],
+            local_order[index],
+            local_order[(index + 1) % len(local_order)],
+        )
+        for index in range(len(local_order))
+    )
+    local_clockwise = all(turn < 0.0 for turn in local_turns)
+    outside_s_a = _point_squared_distance(a_point, a5) > _point_squared_distance(
+        a_point,
+        b_point,
+    )
+    ba = (a_point[0] - b_point[0], a_point[1] - b_point[1])
+    ba5 = (a5[0] - b_point[0], a5[1] - b_point[1])
+    acute_angle = ba[0] * ba5[0] + ba[1] * ba5[1] > 0.0
+    bprime = _point_on_segment_by_fraction(
+        b_point,
+        a_point,
+        LEMMA31_DEFAULT_BPRIME_FRACTION,
+    )
+    bprime_radius_squared = _point_squared_distance(bprime, b_point)
+    roots = _edge_roots(
+        center=bprime,
+        radius_squared=bprime_radius_squared,
+        start=c_point,
+        end=a5,
+        tol=root_tol,
+    )
+    segment_crosses_twice = (
+        sum(1 for root in roots if root_tol < root < 1.0 - root_tol) == 2
+    )
+    final_15gon = None
+    if local_clockwise and outside_s_a and acute_angle and segment_crosses_twice:
+        final_15gon = summarize_candidate_15gon(
+            t_value,
+            normal_offset,
+            root_tol=root_tol,
+        )
+    return Lemma31A5ScanSample(
+        t_value=t_value,
+        normal_offset=normal_offset,
+        point=a5,
+        local_clockwise=local_clockwise,
+        outside_s_a=outside_s_a,
+        acute_angle=acute_angle,
+        segment_crosses_s_bprime_twice=segment_crosses_twice,
+        s_bprime_roots=roots,
+        local_clockwise_turns=local_turns,
+        final_15gon=final_15gon,
+    )
+
+
+def _a5_sample_to_json(sample: Lemma31A5ScanSample) -> dict[str, object]:
+    final = sample.final_15gon
+    return {
+        "t": _format_fraction(sample.t_value),
+        "normal_offset": _format_fraction(sample.normal_offset),
+        "normal_side": "left" if sample.normal_offset > 0 else "right",
+        "point_float": {
+            "x": _json_float(sample.point[0]),
+            "y": _json_float(sample.point[1]),
+        },
+        "lemma31_N1_bullets": {
+            "D_C_A5_B_A_extreme_clockwise": sample.local_clockwise,
+            "A5_outside_S_A": sample.outside_s_a,
+            "angle_A_B_A5_acute": sample.acute_angle,
+            "segment_C_A5_intersects_default_S_Bprime_twice": (
+                sample.segment_crosses_s_bprime_twice
+            ),
+            "S_Bprime_roots_on_segment_C_A5": [
+                _json_float(root) for root in sample.s_bprime_roots
+            ],
+            "largest_clockwise_turn_area2": _json_float(
+                max(sample.local_clockwise_turns)
+            ),
+        },
+        "rotated_15gon": None
+        if final is None
+        else {
+            "strictly_convex": final.strictly_convex,
+            "min_turn_area2": _json_float(final.min_turn_area2),
+            "max_vertex_hits": final.max_vertex_hits,
+            "max_boundary_hits": final.max_boundary_hits,
+            "circles_with_at_least_four_vertices": (
+                final.circles_with_at_least_four_vertices
+            ),
+            "circles_with_at_least_four_boundary_hits": (
+                final.circles_with_at_least_four_boundary_hits
+            ),
+        },
+    }
+
+
+def lemma31_a5_constraint_scan(
+    parameters: Iterable[tuple[Fraction, Fraction]] | None = None,
+    *,
+    root_tol: float = ROOT_TOL,
+) -> dict[str, object]:
+    """Sample A5 candidates against the N=1 Lemma 3.1 construction bullets."""
+
+    seed = brp_seed_numeric_vertices()
+    by_label = {vertex.label: vertex.numeric for vertex in seed}
+    if parameters is None:
+        parameters = (
+            (t_value, normal_offset)
+            for t_value in LEMMA31_A5_EDGE_T_VALUES
+            for normal_offset in LEMMA31_A5_EDGE_NORMAL_OFFSETS
+        )
+    samples = [
+        _lemma31_a5_sample(
+            t_value,
+            normal_offset,
+            root_tol=root_tol,
+            by_label=by_label,
+        )
+        for t_value, normal_offset in parameters
+    ]
+    local_clockwise = [sample for sample in samples if sample.local_clockwise]
+    local_outside = [sample for sample in local_clockwise if sample.outside_s_a]
+    local_outside_acute = [sample for sample in local_outside if sample.acute_angle]
+    lemma31_samples = [
+        sample
+        for sample in local_outside_acute
+        if sample.segment_crosses_s_bprime_twice
+    ]
+    final_convex_samples = [
+        sample
+        for sample in lemma31_samples
+        if sample.final_15gon is not None and sample.final_15gon.strictly_convex
+    ]
+    return {
+        "status": "SAMPLED_NUMERICAL_A5_CONSTRAINT_PROBE",
+        "source_lemma_scope": (
+            "N=1 specialization of Lemma 3.1 with "
+            "A=A3, B=A4, C=B1, D=B2, C1=A5, and default "
+            f"Bprime fraction {_format_fraction(LEMMA31_DEFAULT_BPRIME_FRACTION)}."
+        ),
+        "parameterization": {
+            "formula": "A5(t,h)=A4+t*(B1-A4)+h*unit_left_normal(A4B1)",
+            "t_values": {
+                "formula": "i/500 for 1 <= i <= 100",
+                "count": len(LEMMA31_A5_EDGE_T_VALUES),
+                "min": _format_fraction(LEMMA31_A5_EDGE_T_VALUES[0]),
+                "max": _format_fraction(LEMMA31_A5_EDGE_T_VALUES[-1]),
+            },
+            "normal_offsets": [
+                _format_fraction(offset) for offset in LEMMA31_A5_EDGE_NORMAL_OFFSETS
+            ],
+            "sample_count": len(samples),
+        },
+        "filter_counts": {
+            "D_C_A5_B_A_extreme_clockwise": len(local_clockwise),
+            "plus_A5_outside_S_A": len(local_outside),
+            "plus_angle_A_B_A5_acute": len(local_outside_acute),
+            "plus_segment_C_A5_intersects_default_S_Bprime_twice": len(
+                lemma31_samples
+            ),
+            "plus_rotated_15gon_strictly_convex": len(final_convex_samples),
+        },
+        "individual_condition_counts": {
+            "D_C_A5_B_A_extreme_clockwise": sum(
+                1 for sample in samples if sample.local_clockwise
+            ),
+            "A5_outside_S_A": sum(1 for sample in samples if sample.outside_s_a),
+            "angle_A_B_A5_acute": sum(1 for sample in samples if sample.acute_angle),
+            "segment_C_A5_intersects_default_S_Bprime_twice": sum(
+                1 for sample in samples if sample.segment_crosses_s_bprime_twice
+            ),
+        },
+        "sampled_witnesses": [_a5_sample_to_json(sample) for sample in lemma31_samples],
+        "interpretation": (
+            "This is a bounded float64 sample of the local Lemma 3.1 A5 "
+            "constraints, not an exact coordinate certificate and not a "
+            "finite-vertex extraction from the BRP convex-body construction."
         ),
     }
 
@@ -652,6 +876,7 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
     vertices = brp_seed_vertices()
     profiles = all_circle_profiles(tol=tol)
     candidate_scan = synthetic_a5_scan(root_tol=tol)
+    a5_constraint_scan = lemma31_a5_constraint_scan(root_tol=tol)
     convex_candidate_count = sum(1 for candidate in candidate_scan if candidate.strictly_convex)
     best_candidate_vertex_hits = max(candidate.max_vertex_hits for candidate in candidate_scan)
     best_candidate_boundary_hits = max(candidate.max_boundary_hits for candidate in candidate_scan)
@@ -730,6 +955,7 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
             "candidates": [_candidate_to_json(candidate) for candidate in candidate_scan],
         },
         "lemma31_preflight": lemma31_preflight(),
+        "lemma31_a5_constraint_scan": a5_constraint_scan,
         "histograms": {
             "vertex_hit_count": _histogram(len(profile.vertex_hits) for profile in profiles),
             "boundary_hit_count": _histogram(profile.boundary_hit_count for profile in profiles),
@@ -744,19 +970,21 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
             "quoted in the Barany--Roldan-Pensado convex-body discussion. It "
             "measures the gap between centered circle hits on polygon edges and "
             "hits at the modeled seed vertices, and includes a limited signed "
-            "synthetic A5 edge-pocket closure stress test plus a Lemma 3.1 "
-            "role-precondition preflight."
+            "synthetic A5 edge-pocket closure stress test, a Lemma 3.1 "
+            "role-precondition preflight, and a bounded sampled A5 constraint "
+            "probe."
         ),
         "does_not_claim": [
             "proof of Erdos Problem #97",
             "counterexample to Erdos Problem #97",
             "finite-vertex extraction from the Barany--Roldan-Pensado body",
-            "model of the source paper's A5 insertion or final 15-gon",
-            "construction of the source paper's existential A5",
+            "exact model of the source paper's A5 insertion or final 15-gon",
+            "exact construction of the source paper's existential A5",
             "exact or interval certificate for boundary intersections",
         ],
         "next_steps": [
-            "solve or parameterize A5 under the recorded Lemma 3.1 constraints",
+            "upgrade the sampled A5 witness to exact algebraic or interval coordinates",
+            "prove an admissible neighbourhood around the sampled A5 witness",
             "promote edge-interior hits to symbolic edge parameters",
             "iterate the promoted hits as new candidate vertices",
             "replace float boundary intersections by exact algebraic or interval checks",
@@ -825,6 +1053,65 @@ def assert_expected_counts(payload: dict[str, object]) -> None:
         raise AssertionError("Lemma 3.1 role angle ABC is expected to be acute")
     if bprime_budget.get("C_outside_default_S_Bprime") is not True:
         raise AssertionError("C is expected to be outside the default S_Bprime")
+
+    a5_scan = payload.get("lemma31_a5_constraint_scan")
+    if not isinstance(a5_scan, dict):
+        raise AssertionError("payload.lemma31_a5_constraint_scan must be an object")
+    parameterization = a5_scan.get("parameterization")
+    filter_counts = a5_scan.get("filter_counts")
+    individual_condition_counts = a5_scan.get("individual_condition_counts")
+    witnesses = a5_scan.get("sampled_witnesses")
+    if not isinstance(parameterization, dict):
+        raise AssertionError("payload.lemma31_a5_constraint_scan.parameterization must be an object")
+    if not isinstance(filter_counts, dict):
+        raise AssertionError("payload.lemma31_a5_constraint_scan.filter_counts must be an object")
+    if not isinstance(individual_condition_counts, dict):
+        raise AssertionError(
+            "payload.lemma31_a5_constraint_scan.individual_condition_counts must be an object"
+        )
+    if not isinstance(witnesses, list):
+        raise AssertionError("payload.lemma31_a5_constraint_scan.sampled_witnesses must be a list")
+    if parameterization.get("sample_count") != 2000:
+        raise AssertionError("expected 2000 sampled A5 parameters")
+    expected_filter_counts = {
+        "D_C_A5_B_A_extreme_clockwise": 700,
+        "plus_A5_outside_S_A": 290,
+        "plus_angle_A_B_A5_acute": 3,
+        "plus_segment_C_A5_intersects_default_S_Bprime_twice": 1,
+        "plus_rotated_15gon_strictly_convex": 1,
+    }
+    for key, expected in expected_filter_counts.items():
+        if filter_counts.get(key) != expected:
+            raise AssertionError(
+                f"lemma31_a5_constraint_scan.filter_counts.{key}: "
+                f"expected {expected}, got {filter_counts.get(key)}"
+            )
+    expected_individual_counts = {
+        "D_C_A5_B_A_extreme_clockwise": 700,
+        "A5_outside_S_A": 590,
+        "angle_A_B_A5_acute": 1413,
+        "segment_C_A5_intersects_default_S_Bprime_twice": 41,
+    }
+    for key, expected in expected_individual_counts.items():
+        if individual_condition_counts.get(key) != expected:
+            raise AssertionError(
+                f"lemma31_a5_constraint_scan.individual_condition_counts.{key}: "
+                f"expected {expected}, got {individual_condition_counts.get(key)}"
+            )
+    if len(witnesses) != 1:
+        raise AssertionError(f"expected 1 sampled A5 witness, got {len(witnesses)}")
+    witness = witnesses[0]
+    if not isinstance(witness, dict):
+        raise AssertionError("sampled A5 witness must be an object")
+    if witness.get("t") != "3/125" or witness.get("normal_offset") != "-1/200":
+        raise AssertionError("unexpected sampled A5 witness parameters")
+    rotated_15gon = witness.get("rotated_15gon")
+    if not isinstance(rotated_15gon, dict):
+        raise AssertionError("sampled A5 witness must include rotated_15gon summary")
+    if rotated_15gon.get("strictly_convex") is not True:
+        raise AssertionError("sampled A5 witness should keep the rotated 15-gon convex")
+    if rotated_15gon.get("circles_with_at_least_four_vertices") != 0:
+        raise AssertionError("sampled A5 witness should not create four-vertex circles")
 
     synthetic = payload.get("synthetic_a5_scan")
     if not isinstance(synthetic, dict):

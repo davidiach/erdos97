@@ -44,7 +44,7 @@ def test_exact_distance_detects_rotation_symmetry() -> None:
 def test_payload_keeps_vertexization_gap_explicit() -> None:
     payload = build_payload()
 
-    assert payload["schema"] == "erdos97.brp_boundary_vertexization_probe.v1"
+    assert payload["schema"] == "erdos97.brp_boundary_vertexization_probe.v2"
     assert payload["trust"] == "NUMERICAL_GEOMETRIC_DIAGNOSTIC"
     assert payload["provenance"]["generator"] == "scripts/check_brp_boundary_probe.py"
     assert_expected_counts(payload)
@@ -74,6 +74,43 @@ def test_payload_keeps_vertexization_gap_explicit() -> None:
         preflight["bprime_neighbourhood_budget"]["C_outside_default_S_Bprime"]
         is True
     )
+    a5_scan = payload["lemma31_a5_constraint_scan"]
+    assert a5_scan["status"] == "SAMPLED_NUMERICAL_A5_CONSTRAINT_PROBE"
+    assert a5_scan["parameterization"]["sample_count"] == 2000
+    assert a5_scan["filter_counts"] == {
+        "D_C_A5_B_A_extreme_clockwise": 700,
+        "plus_A5_outside_S_A": 290,
+        "plus_angle_A_B_A5_acute": 3,
+        "plus_segment_C_A5_intersects_default_S_Bprime_twice": 1,
+        "plus_rotated_15gon_strictly_convex": 1,
+    }
+    assert a5_scan["individual_condition_counts"] == {
+        "D_C_A5_B_A_extreme_clockwise": 700,
+        "A5_outside_S_A": 590,
+        "angle_A_B_A5_acute": 1413,
+        "segment_C_A5_intersects_default_S_Bprime_twice": 41,
+    }
+    assert len(a5_scan["sampled_witnesses"]) == 1
+    witness = a5_scan["sampled_witnesses"][0]
+    assert witness["t"] == "3/125"
+    assert witness["normal_offset"] == "-1/200"
+    assert witness["normal_side"] == "right"
+    assert witness["lemma31_N1_bullets"] == {
+        "D_C_A5_B_A_extreme_clockwise": True,
+        "A5_outside_S_A": True,
+        "angle_A_B_A5_acute": True,
+        "segment_C_A5_intersects_default_S_Bprime_twice": True,
+        "S_Bprime_roots_on_segment_C_A5": [0.86294581, 0.995615477],
+        "largest_clockwise_turn_area2": -0.026807931,
+    }
+    assert witness["rotated_15gon"] == {
+        "strictly_convex": True,
+        "min_turn_area2": 0.026807931,
+        "max_vertex_hits": 2,
+        "max_boundary_hits": 6,
+        "circles_with_at_least_four_vertices": 0,
+        "circles_with_at_least_four_boundary_hits": 87,
+    }
     assert "counterexample to Erdos Problem #97" in payload["does_not_claim"]
     assert "the A5 insertion" in str(payload["source"]["not_modeled"])
 

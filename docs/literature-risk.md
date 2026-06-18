@@ -41,8 +41,12 @@ are claimed here.
   times, but none hit four modeled seed vertices. This confirms the immediate
   boundary/vertex gap for the seed. The same probe now pins the Lemma 3.1
   role mapping `A=A3, B=A4, C=B1, D=B2` and its acute-angle/pre-neighbourhood
-  checks, but it still does not construct the existential `A5`, check the
-  final 15-gon, or give a counterexample; see
+  checks, and records one sampled local A5 constraint witness
+  `t=3/125, h=-1/200` in the `A4->B1` edge-pocket parameterization. Rotating
+  that sampled point gives a strictly convex numerical 15-gon with maximum
+  centered vertex multiplicity still `2`. This remains a float64 diagnostic:
+  it is not an exact A5 certificate, does not replay the final BRP
+  boundary-intersection proof, and gives no counterexample; see
   `docs/brp-boundary-vertexization-probe.md`.
 - The canonical synthesis corrects a prior uniform-radius shortcut:
   Edelsbrunner--Hajnal's `2n-7` unit-distance result is a lower-bound
