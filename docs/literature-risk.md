@@ -46,10 +46,13 @@ are claimed here.
   that sampled point gives a strictly convex numerical 15-gon with maximum
   centered vertex multiplicity still `2`. A tiny outward-rounded float64
   interval box around the same sampled witness also preserves the local
-  Lemma 3.1 bullets and rotated 15-gon convexity in the checker model. This
-  remains a float64 diagnostic: it is not an exact A5 certificate, does not
-  replay the final BRP boundary-intersection proof, and gives no
-  counterexample; see `docs/brp-boundary-vertexization-probe.md`.
+  Lemma 3.1 bullets and rotated 15-gon convexity in the checker model. The
+  follow-up sampled boundary-support scan enumerates 195 centered circles on
+  the sampled synthetic 15-gon, finds three with six boundary hits, and still
+  finds none with four modeled vertices. This remains a float64 diagnostic: it
+  is not an exact A5 certificate, does not replay the final BRP
+  boundary-intersection proof, and gives no counterexample; see
+  `docs/brp-boundary-vertexization-probe.md`.
 - The canonical synthesis corrects a prior uniform-radius shortcut:
   Edelsbrunner--Hajnal's `2n-7` unit-distance result is a lower-bound
   construction, not an upper bound resolving the subcase. Furedi's separate

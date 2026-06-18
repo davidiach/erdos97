@@ -44,7 +44,7 @@ def test_exact_distance_detects_rotation_symmetry() -> None:
 def test_payload_keeps_vertexization_gap_explicit() -> None:
     payload = build_payload()
 
-    assert payload["schema"] == "erdos97.brp_boundary_vertexization_probe.v3"
+    assert payload["schema"] == "erdos97.brp_boundary_vertexization_probe.v4"
     assert payload["trust"] == "NUMERICAL_GEOMETRIC_DIAGNOSTIC"
     assert payload["provenance"]["generator"] == "scripts/check_brp_boundary_probe.py"
     assert_expected_counts(payload)
@@ -145,6 +145,39 @@ def test_payload_keeps_vertexization_gap_explicit() -> None:
     assert (
         interval_box["rotated_15gon_interval_checks"]["min_turn_lower_bound"]
         == 0.026803636
+    )
+    sampled_support = payload["sampled_a5_boundary_support_scan"]
+    assert sampled_support["status"] == "SAMPLED_A5_BOUNDARY_SUPPORT_DIAGNOSTIC"
+    assert sampled_support["boundary_root_tol"] == 1e-07
+    assert sampled_support["sampled_witness"] == {
+        "t": "3/125",
+        "normal_offset": "-1/200",
+        "normal_side": "right",
+    }
+    assert sampled_support["summary"] == {
+        "profile_count": 195,
+        "strictly_convex": True,
+        "min_turn_area2": 0.026807931,
+        "max_vertex_hits": 2,
+        "max_boundary_hits": 6,
+        "max_interior_hits": 4,
+        "circles_with_at_least_four_vertices": 0,
+        "circles_with_at_least_four_boundary_hits": 87,
+        "circles_with_at_least_six_boundary_hits": 3,
+    }
+    assert sampled_support["histograms"] == {
+        "vertex_hit_count": {"1": 174, "2": 21},
+        "boundary_hit_count": {"1": 12, "2": 75, "3": 21, "4": 69, "5": 15, "6": 3},
+        "interior_hit_count": {"0": 15, "1": 75, "2": 30, "3": 57, "4": 18},
+    }
+    assert [profile["center"] for profile in sampled_support["best_boundary_circles"]] == [
+        "A3",
+        "B3",
+        "C3",
+    ]
+    assert all(
+        profile["boundary_hit_count"] == 6
+        for profile in sampled_support["best_boundary_circles"]
     )
     assert "counterexample to Erdos Problem #97" in payload["does_not_claim"]
     assert "the A5 insertion" in str(payload["source"]["not_modeled"])

@@ -113,10 +113,12 @@ def main() -> int:
         preflight = payload["lemma31_preflight"]
         a5_scan = payload["lemma31_a5_constraint_scan"]
         a5_interval = payload["lemma31_a5_interval_box_probe"]
+        sampled_support = payload["sampled_a5_boundary_support_scan"]
         angle_abc = preflight["angle_ABC"]
         bprime_budget = preflight["bprime_neighbourhood_budget"]
         filter_counts = a5_scan["filter_counts"]
         witnesses = a5_scan["sampled_witnesses"]
+        sampled_summary = sampled_support["summary"]
         print("BRP boundary-to-vertex diagnostic")
         print(f"seed vertices: {summary['seed_vertex_count']}")
         print(f"strictly convex seed order: {convexity['strictly_convex_in_seed_order']}")
@@ -162,6 +164,18 @@ def main() -> int:
         print(
             "Lemma 3.1 A5 interval max local turn upper: "
             f"{a5_interval['lemma31_N1_interval_checks']['max_local_turn_upper_bound']}"
+        )
+        print(
+            "sampled 15-gon max boundary hits: "
+            f"{sampled_summary['max_boundary_hits']}"
+        )
+        print(
+            "sampled 15-gon circles with >=4 boundary hits: "
+            f"{sampled_summary['circles_with_at_least_four_boundary_hits']}"
+        )
+        print(
+            "sampled 15-gon circles with >=4 vertices: "
+            f"{sampled_summary['circles_with_at_least_four_vertices']}"
         )
         if args.assert_expected:
             print("OK: expected BRP boundary diagnostic counts verified")

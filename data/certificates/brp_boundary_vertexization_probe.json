@@ -765,7 +765,7 @@
       ]
     }
   ],
-  "claim_scope": "Float64 boundary-hit diagnostic for the 12-point three-fold seed quoted in the Barany--Roldan-Pensado convex-body discussion. It measures the gap between centered circle hits on polygon edges and hits at the modeled seed vertices, and includes a limited signed synthetic A5 edge-pocket closure stress test, a Lemma 3.1 role-precondition preflight, and a bounded sampled A5 constraint probe with a tiny float64 interval-box follow-up.",
+  "claim_scope": "Float64 boundary-hit diagnostic for the 12-point three-fold seed quoted in the Barany--Roldan-Pensado convex-body discussion. It measures the gap between centered circle hits on polygon edges and hits at the modeled seed vertices, and includes a limited signed synthetic A5 edge-pocket closure stress test, a Lemma 3.1 role-precondition preflight, and a bounded sampled A5 constraint probe with a tiny float64 interval-box follow-up plus an explicit boundary-support scan on the sampled synthetic 15-gon.",
   "convexity": {
     "max_turn_area2": 146403.0,
     "min_turn_area2": 19.492354671,
@@ -778,7 +778,8 @@
     "exact model of the source paper's A5 insertion or final 15-gon",
     "exact construction of the source paper's existential A5",
     "exact algebraic or formal interval certificate for the sampled A5",
-    "exact or interval certificate for boundary intersections"
+    "exact or interval certificate for boundary intersections",
+    "replay of the source paper's continuum boundary-intersection proof"
   ],
   "histograms": {
     "boundary_hit_count": {
@@ -1109,7 +1110,7 @@
   },
   "next_steps": [
     "replace the float64 A5 interval box with exact algebraic or directed-decimal coordinates",
-    "certify BRP boundary-intersection counts for the sampled final 15-gon",
+    "certify sampled final-15-gon boundary hits with exact algebraic or interval checks",
     "promote edge-interior hits to symbolic edge parameters",
     "iterate the promoted hits as new candidate vertices",
     "replace float boundary intersections by exact algebraic or interval checks"
@@ -1117,9 +1118,679 @@
   "provenance": {
     "command": "python scripts/check_brp_boundary_probe.py --write --assert-expected",
     "generator": "scripts/check_brp_boundary_probe.py",
-    "notes": "Float64 boundary-intersection diagnostic for the quoted Barany--Roldan-Pensado 12-point seed before A5 insertion."
+    "notes": "Float64 boundary-intersection diagnostic for the quoted Barany--Roldan-Pensado 12-point seed and sampled synthetic 15-gon after one A5 insertion."
   },
-  "schema": "erdos97.brp_boundary_vertexization_probe.v3",
+  "sampled_a5_boundary_support_scan": {
+    "best_boundary_circles": [
+      {
+        "boundary_hit_count": 6,
+        "center": "A3",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A4",
+              "A5"
+            ],
+            "t": 0.771377555
+          },
+          {
+            "edge": [
+              "A5",
+              "B1"
+            ],
+            "t": 7.282e-06
+          },
+          {
+            "edge": [
+              "B2",
+              "B3"
+            ],
+            "t": 0.488543663
+          },
+          {
+            "edge": [
+              "C3",
+              "C4"
+            ],
+            "t": 0.022744303
+          }
+        ],
+        "radius_squared_float": 1568593.0,
+        "vertex_hit_count": 2,
+        "vertex_hits": [
+          "A4",
+          "A5"
+        ]
+      },
+      {
+        "boundary_hit_count": 6,
+        "center": "B3",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A3",
+              "A4"
+            ],
+            "t": 0.022744303
+          },
+          {
+            "edge": [
+              "B4",
+              "B5"
+            ],
+            "t": 0.771377556
+          },
+          {
+            "edge": [
+              "B5",
+              "C1"
+            ],
+            "t": 7.282e-06
+          },
+          {
+            "edge": [
+              "C2",
+              "C3"
+            ],
+            "t": 0.488543663
+          }
+        ],
+        "radius_squared_float": 1568593.0,
+        "vertex_hit_count": 2,
+        "vertex_hits": [
+          "B4",
+          "B5"
+        ]
+      },
+      {
+        "boundary_hit_count": 6,
+        "center": "C3",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A2",
+              "A3"
+            ],
+            "t": 0.488543663
+          },
+          {
+            "edge": [
+              "B3",
+              "B4"
+            ],
+            "t": 0.022744303
+          },
+          {
+            "edge": [
+              "C4",
+              "C5"
+            ],
+            "t": 0.771377543
+          },
+          {
+            "edge": [
+              "C5",
+              "A1"
+            ],
+            "t": 7.282e-06
+          }
+        ],
+        "radius_squared_float": 1568593.0,
+        "vertex_hit_count": 2,
+        "vertex_hits": [
+          "C4",
+          "C5"
+        ]
+      }
+    ],
+    "boundary_root_tol": 1e-07,
+    "coordinate_model": "Float64 sampled synthetic 15-gon from the recorded Lemma 3.1 A5 witness. The serialized radii and edge parameters are diagnostic approximations, not exact algebraic certificates.",
+    "histograms": {
+      "boundary_hit_count": {
+        "1": 12,
+        "2": 75,
+        "3": 21,
+        "4": 69,
+        "5": 15,
+        "6": 3
+      },
+      "interior_hit_count": {
+        "0": 15,
+        "1": 75,
+        "2": 30,
+        "3": 57,
+        "4": 18
+      },
+      "vertex_hit_count": {
+        "1": 174,
+        "2": 21
+      }
+    },
+    "interpretation": "The sampled final 15-gon keeps the BRP-style boundary richness visible at edge interiors: centered circles can hit six boundary points, while no centered circle hits four modeled vertices. This does not replay the source paper's continuum proof and does not turn the sampled polygon into a finite counterexample.",
+    "sampled_witness": {
+      "normal_offset": "-1/200",
+      "normal_side": "right",
+      "t": "3/125"
+    },
+    "status": "SAMPLED_A5_BOUNDARY_SUPPORT_DIAGNOSTIC",
+    "summary": {
+      "circles_with_at_least_four_boundary_hits": 87,
+      "circles_with_at_least_four_vertices": 0,
+      "circles_with_at_least_six_boundary_hits": 3,
+      "max_boundary_hits": 6,
+      "max_interior_hits": 4,
+      "max_vertex_hits": 2,
+      "min_turn_area2": 0.026807931,
+      "profile_count": 195,
+      "strictly_convex": true
+    },
+    "top_boundary_circles": [
+      {
+        "boundary_hit_count": 6,
+        "center": "A3",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A4",
+              "A5"
+            ],
+            "t": 0.771377555
+          },
+          {
+            "edge": [
+              "A5",
+              "B1"
+            ],
+            "t": 7.282e-06
+          },
+          {
+            "edge": [
+              "B2",
+              "B3"
+            ],
+            "t": 0.488543663
+          },
+          {
+            "edge": [
+              "C3",
+              "C4"
+            ],
+            "t": 0.022744303
+          }
+        ],
+        "radius_squared_float": 1568593.0,
+        "vertex_hit_count": 2,
+        "vertex_hits": [
+          "A4",
+          "A5"
+        ]
+      },
+      {
+        "boundary_hit_count": 6,
+        "center": "B3",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A3",
+              "A4"
+            ],
+            "t": 0.022744303
+          },
+          {
+            "edge": [
+              "B4",
+              "B5"
+            ],
+            "t": 0.771377556
+          },
+          {
+            "edge": [
+              "B5",
+              "C1"
+            ],
+            "t": 7.282e-06
+          },
+          {
+            "edge": [
+              "C2",
+              "C3"
+            ],
+            "t": 0.488543663
+          }
+        ],
+        "radius_squared_float": 1568593.0,
+        "vertex_hit_count": 2,
+        "vertex_hits": [
+          "B4",
+          "B5"
+        ]
+      },
+      {
+        "boundary_hit_count": 6,
+        "center": "C3",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A2",
+              "A3"
+            ],
+            "t": 0.488543663
+          },
+          {
+            "edge": [
+              "B3",
+              "B4"
+            ],
+            "t": 0.022744303
+          },
+          {
+            "edge": [
+              "C4",
+              "C5"
+            ],
+            "t": 0.771377543
+          },
+          {
+            "edge": [
+              "C5",
+              "A1"
+            ],
+            "t": 7.282e-06
+          }
+        ],
+        "radius_squared_float": 1568593.0,
+        "vertex_hit_count": 2,
+        "vertex_hits": [
+          "C4",
+          "C5"
+        ]
+      },
+      {
+        "boundary_hit_count": 5,
+        "center": "A1",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A3",
+              "A4"
+            ],
+            "t": 0.955030125
+          },
+          {
+            "edge": [
+              "B2",
+              "B3"
+            ],
+            "t": 0.979925648
+          },
+          {
+            "edge": [
+              "B3",
+              "B4"
+            ],
+            "t": 0.868959626
+          },
+          {
+            "edge": [
+              "C1",
+              "C2"
+            ],
+            "t": 0.399998622
+          }
+        ],
+        "radius_squared_float": 2811712.239917227,
+        "vertex_hit_count": 1,
+        "vertex_hits": [
+          "B3"
+        ]
+      },
+      {
+        "boundary_hit_count": 5,
+        "center": "A2",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A3",
+              "A4"
+            ],
+            "t": 0.973566915
+          },
+          {
+            "edge": [
+              "B2",
+              "B3"
+            ],
+            "t": 0.479634499
+          },
+          {
+            "edge": [
+              "B3",
+              "B4"
+            ],
+            "t": 0.672516353
+          },
+          {
+            "edge": [
+              "C2",
+              "C3"
+            ],
+            "t": 0.058306805
+          }
+        ],
+        "radius_squared_float": 2440032.757484468,
+        "vertex_hit_count": 1,
+        "vertex_hits": [
+          "B3"
+        ]
+      },
+      {
+        "boundary_hit_count": 5,
+        "center": "A3",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A3",
+              "A4"
+            ],
+            "t": 0.999822195
+          },
+          {
+            "edge": [
+              "B1",
+              "B2"
+            ],
+            "t": 0.002955184
+          },
+          {
+            "edge": [
+              "B2",
+              "B3"
+            ],
+            "t": 0.479634499
+          },
+          {
+            "edge": [
+              "C3",
+              "C4"
+            ],
+            "t": 0.022938553
+          }
+        ],
+        "radius_squared_float": 1568035.242515532,
+        "vertex_hit_count": 1,
+        "vertex_hits": [
+          "B2"
+        ]
+      },
+      {
+        "boundary_hit_count": 5,
+        "center": "A4",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A1",
+              "A2"
+            ],
+            "t": 0.374759906
+          },
+          {
+            "edge": [
+              "B3",
+              "B4"
+            ],
+            "t": 0.95438015
+          },
+          {
+            "edge": [
+              "C2",
+              "C3"
+            ],
+            "t": 0.998660302
+          },
+          {
+            "edge": [
+              "C3",
+              "C4"
+            ],
+            "t": 0.876202425
+          }
+        ],
+        "radius_squared_float": 2825746.990916936,
+        "vertex_hit_count": 1,
+        "vertex_hits": [
+          "C3"
+        ]
+      },
+      {
+        "boundary_hit_count": 5,
+        "center": "A5",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A1",
+              "A2"
+            ],
+            "t": 0.375377217
+          },
+          {
+            "edge": [
+              "B3",
+              "B4"
+            ],
+            "t": 0.954396753
+          },
+          {
+            "edge": [
+              "C2",
+              "C3"
+            ],
+            "t": 0.998188873
+          },
+          {
+            "edge": [
+              "C3",
+              "C4"
+            ],
+            "t": 0.87602434
+          }
+        ],
+        "radius_squared_float": 2825419.998788516,
+        "vertex_hit_count": 1,
+        "vertex_hits": [
+          "C3"
+        ]
+      },
+      {
+        "boundary_hit_count": 5,
+        "center": "B1",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A1",
+              "A2"
+            ],
+            "t": 0.399998622
+          },
+          {
+            "edge": [
+              "B3",
+              "B4"
+            ],
+            "t": 0.955030125
+          },
+          {
+            "edge": [
+              "C2",
+              "C3"
+            ],
+            "t": 0.979925648
+          },
+          {
+            "edge": [
+              "C3",
+              "C4"
+            ],
+            "t": 0.868959626
+          }
+        ],
+        "radius_squared_float": 2811712.239917226,
+        "vertex_hit_count": 1,
+        "vertex_hits": [
+          "C3"
+        ]
+      },
+      {
+        "boundary_hit_count": 5,
+        "center": "B2",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A2",
+              "A3"
+            ],
+            "t": 0.058306805
+          },
+          {
+            "edge": [
+              "B3",
+              "B4"
+            ],
+            "t": 0.973566915
+          },
+          {
+            "edge": [
+              "C2",
+              "C3"
+            ],
+            "t": 0.479634499
+          },
+          {
+            "edge": [
+              "C3",
+              "C4"
+            ],
+            "t": 0.672516353
+          }
+        ],
+        "radius_squared_float": 2440032.757484468,
+        "vertex_hit_count": 1,
+        "vertex_hits": [
+          "C3"
+        ]
+      },
+      {
+        "boundary_hit_count": 5,
+        "center": "B3",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A3",
+              "A4"
+            ],
+            "t": 0.022938553
+          },
+          {
+            "edge": [
+              "B3",
+              "B4"
+            ],
+            "t": 0.999822195
+          },
+          {
+            "edge": [
+              "C1",
+              "C2"
+            ],
+            "t": 0.002955184
+          },
+          {
+            "edge": [
+              "C2",
+              "C3"
+            ],
+            "t": 0.479634499
+          }
+        ],
+        "radius_squared_float": 1568035.242515531,
+        "vertex_hit_count": 1,
+        "vertex_hits": [
+          "C2"
+        ]
+      },
+      {
+        "boundary_hit_count": 5,
+        "center": "B4",
+        "interior_hit_count": 4,
+        "interior_hits": [
+          {
+            "edge": [
+              "A2",
+              "A3"
+            ],
+            "t": 0.998660302
+          },
+          {
+            "edge": [
+              "A3",
+              "A4"
+            ],
+            "t": 0.876202425
+          },
+          {
+            "edge": [
+              "B1",
+              "B2"
+            ],
+            "t": 0.374759906
+          },
+          {
+            "edge": [
+              "C3",
+              "C4"
+            ],
+            "t": 0.95438015
+          }
+        ],
+        "radius_squared_float": 2825746.990916937,
+        "vertex_hit_count": 1,
+        "vertex_hits": [
+          "A3"
+        ]
+      }
+    ],
+    "vertex_order": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5"
+    ]
+  },
+  "schema": "erdos97.brp_boundary_vertexization_probe.v4",
   "source": {
     "base_points": [
       {
@@ -1158,7 +1829,7 @@
       "C3",
       "C4"
     ],
-    "not_modeled": "the A5 insertion and the final 15-gon edge-parameter closure",
+    "not_modeled": "the A5 insertion from the source paper as exact coordinates and the final 15-gon edge-parameter closure",
     "rotations_degrees": [
       0,
       120,
