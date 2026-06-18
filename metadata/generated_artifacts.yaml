@@ -3445,8 +3445,8 @@ artifacts:
 
   - id: brp_boundary_vertexization_probe
     path: data/certificates/brp_boundary_vertexization_probe.json
-    sha256: f564df4c160756e75e245fcb0737f9e9a60f1787a007fe9ae3b9905da6f3fce5
-    size_bytes: 38330
+    sha256: 8573aa4fb4e669365d5e336a307073b4ea269e171ce0f0efee1e862943021592
+    size_bytes: 43167
     kind: numerical_geometric_diagnostic_artifact
     generator: scripts/check_brp_boundary_probe.py
     command: python scripts/check_brp_boundary_probe.py --write --assert-expected
@@ -3455,10 +3455,10 @@ artifacts:
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: REVIEW_PENDING_DIAGNOSTIC
-    claim_scope: Float64 boundary-hit diagnostic for the quoted 12-point Barany--Roldan-Pensado seed before A5 insertion; records seed-boundary circle hits versus modeled seed-vertex hits, a signed sampled synthetic A5 edge-pocket stress scan, a Lemma 3.1 role-precondition preflight, and one bounded sampled numerical A5 constraint witness. Not a finite extraction, not an exact final 15-gon certificate, not a proof, not a counterexample, and not an official/global status update.
+    claim_scope: Float64 boundary-hit diagnostic for the quoted 12-point Barany--Roldan-Pensado seed before A5 insertion; records seed-boundary circle hits versus modeled seed-vertex hits, a signed sampled synthetic A5 edge-pocket stress scan, a Lemma 3.1 role-precondition preflight, one bounded sampled numerical A5 constraint witness, and a tiny float64 interval-box check around that witness. Not a finite extraction, not an exact final 15-gon certificate, not a proof, not a counterexample, and not an official/global status update.
     json_top_level_type: object
     expected_json:
-      schema: erdos97.brp_boundary_vertexization_probe.v2
+      schema: erdos97.brp_boundary_vertexization_probe.v3
       status: BOUNDARY_VERTEXIZATION_DIAGNOSTIC_ONLY
       trust: NUMERICAL_GEOMETRIC_DIAGNOSTIC
       provenance.command: python scripts/check_brp_boundary_probe.py --write --assert-expected
@@ -3473,6 +3473,9 @@ artifacts:
       lemma31_a5_constraint_scan.parameterization.sample_count: 2000
       lemma31_a5_constraint_scan.filter_counts.plus_segment_C_A5_intersects_default_S_Bprime_twice: 1
       lemma31_a5_constraint_scan.filter_counts.plus_rotated_15gon_strictly_convex: 1
+      lemma31_a5_interval_box_probe.all_interval_checks_pass: true
+      lemma31_a5_interval_box_probe.lemma31_N1_interval_checks.max_local_turn_upper_bound: -0.026805405
+      lemma31_a5_interval_box_probe.rotated_15gon_interval_checks.min_turn_lower_bound: 0.026803636
       synthetic_a5_scan.candidates_with_at_least_four_vertices: 0
       lemma31_preflight.status: LEMMA31_ROLE_PREFLIGHT_ONLY_A5_NOT_CONSTRUCTED
       lemma31_preflight.role_mapping.A: A3

@@ -76,6 +76,10 @@ The checker:
 - runs a bounded `N=1` Lemma 3.1 A5 constraint scan near `A4`, using the
   parameterization
   `A5(t,h)=A4+t*(B1-A4)+h*unit_left_normal(A4B1)`.
+- checks a tiny outward-rounded float64 interval box around the sampled
+  witness:
+  `t in [239999/10000000, 240001/10000000]` and
+  `h in [-50001/10000000, -49999/10000000]`.
 
 ## Current result
 
@@ -98,6 +102,9 @@ sampled Lemma 3.1 A5 witnesses: 1
 first sampled witness: t=3/125, h=-1/200
 rotated 15-gon convex for sampled witness: yes
 sampled-witness centered circles with four vertices: 0
+float64 A5 interval box checks pass: yes
+interval max local turn upper bound: -0.026805405
+interval rotated 15-gon min turn lower bound: 0.026803636
 ```
 
 Thus the modeled 12-point seed shows the expected continuous/discrete gap:
@@ -132,13 +139,23 @@ exact certificate. The sampled `A5` remains a float64 point in a bounded search
 family, the final BRP boundary-intersection proof is not replayed, and the
 boundary-hit/finite-vertex gap remains open.
 
+The interval-box follow-up makes the sampled point less brittle inside the
+checker's own numeric model. With outward-rounded float64 interval arithmetic,
+the whole box above keeps `B2,B1,A5,A4,A3` clockwise, keeps `A5` outside the
+circle centered at `A3` through `A4`, keeps the angle `A3 A4 A5` acute, keeps
+the default `S_Bprime` intersection roots inside `(0,1)`, and keeps the
+rotated synthetic 15-gon strictly convex. This is still not an exact algebraic
+certificate for the source `Q(sqrt(3))` coordinates and it does not certify
+the BRP boundary-intersection count throughout the box.
+
 ## Next steps
 
 Useful follow-up work should avoid more visual inspection and instead make the
 edge-interior hits algebraic:
 
-1. Upgrade the sampled `A5` witness to exact algebraic or interval coordinates.
-2. Prove a neighbourhood of admissible `A5` choices around the sampled point.
+1. Replace the float64 interval box with an exact algebraic or directed-decimal
+   certificate over the source coordinates.
+2. Certify the BRP boundary-intersection counts for the sampled final 15-gon.
 3. Promote each interior circle-edge hit to a candidate vertex parameter.
 4. Iterate the closure condition: promoted vertices become centers that must
    themselves acquire four vertex hits.

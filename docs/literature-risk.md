@@ -44,10 +44,12 @@ are claimed here.
   checks, and records one sampled local A5 constraint witness
   `t=3/125, h=-1/200` in the `A4->B1` edge-pocket parameterization. Rotating
   that sampled point gives a strictly convex numerical 15-gon with maximum
-  centered vertex multiplicity still `2`. This remains a float64 diagnostic:
-  it is not an exact A5 certificate, does not replay the final BRP
-  boundary-intersection proof, and gives no counterexample; see
-  `docs/brp-boundary-vertexization-probe.md`.
+  centered vertex multiplicity still `2`. A tiny outward-rounded float64
+  interval box around the same sampled witness also preserves the local
+  Lemma 3.1 bullets and rotated 15-gon convexity in the checker model. This
+  remains a float64 diagnostic: it is not an exact A5 certificate, does not
+  replay the final BRP boundary-intersection proof, and gives no
+  counterexample; see `docs/brp-boundary-vertexization-probe.md`.
 - The canonical synthesis corrects a prior uniform-radius shortcut:
   Edelsbrunner--Hajnal's `2n-7` unit-distance result is a lower-bound
   construction, not an upper bound resolving the subcase. Furedi's separate

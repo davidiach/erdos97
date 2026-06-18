@@ -797,8 +797,9 @@ put detailed reconciliation in the canonical synthesis.
   first seed-only diagnostic for the Barany--Roldan-Pensado convex-body
   boundary lane, measuring seed-boundary circle hits versus modeled seed-vertex
   hits, pinning the Lemma 3.1 role preflight, and recording one sampled local
-  A5 constraint witness; numerical diagnostic only, not a finite extraction,
-  exact A5 construction, or counterexample.
+  A5 constraint witness plus a tiny float64 interval box around it; numerical
+  diagnostic only, not a finite extraction, exact A5 construction, or
+  counterexample.
 - [`dynamic-witness-free-pattern-search.md`](dynamic-witness-free-pattern-search.md):
   free-pattern numerical searcher where every center re-selects its best
   witness 4-set per evaluation, with anti-cluster floors and a recorded

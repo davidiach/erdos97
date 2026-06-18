@@ -10,7 +10,7 @@ from typing import Iterable
 import math
 
 
-SCHEMA = "erdos97.brp_boundary_vertexization_probe.v2"
+SCHEMA = "erdos97.brp_boundary_vertexization_probe.v3"
 STATUS = "BOUNDARY_VERTEXIZATION_DIAGNOSTIC_ONLY"
 TRUST = "NUMERICAL_GEOMETRIC_DIAGNOSTIC"
 
@@ -35,6 +35,9 @@ LEMMA31_A5_EDGE_NORMAL_OFFSETS = tuple(
     for denominator in (1000, 500, 200, 100, 50, 20, 10, 5, 2, 1)
     for offset in (Fraction(1, denominator), Fraction(-1, denominator))
 )
+LEMMA31_A5_WITNESS_T = Fraction(3, 125)
+LEMMA31_A5_WITNESS_NORMAL_OFFSET = Fraction(-1, 200)
+LEMMA31_A5_INTERVAL_RADIUS = Fraction(1, 10_000_000)
 SQRT3 = math.sqrt(3.0)
 ROOT_TOL = 1e-9
 DISTANCE_TOL = 1e-6
@@ -125,6 +128,117 @@ class Lemma31A5ScanSample:
     final_15gon: Candidate15Summary | None
 
 
+@dataclass(frozen=True)
+class FloatInterval:
+    """Small outward-rounded interval over the checker float64 model."""
+
+    lower: float
+    upper: float
+
+    @staticmethod
+    def point(value: float) -> FloatInterval:
+        return FloatInterval(
+            math.nextafter(float(value), -math.inf),
+            math.nextafter(float(value), math.inf),
+        )
+
+    def __add__(self, other: FloatInterval | float) -> FloatInterval:
+        other = _as_interval(other)
+        return FloatInterval(
+            math.nextafter(self.lower + other.lower, -math.inf),
+            math.nextafter(self.upper + other.upper, math.inf),
+        )
+
+    __radd__ = __add__
+
+    def __sub__(self, other: FloatInterval | float) -> FloatInterval:
+        other = _as_interval(other)
+        return FloatInterval(
+            math.nextafter(self.lower - other.upper, -math.inf),
+            math.nextafter(self.upper - other.lower, math.inf),
+        )
+
+    def __rsub__(self, other: FloatInterval | float) -> FloatInterval:
+        return _as_interval(other) - self
+
+    def __neg__(self) -> FloatInterval:
+        return FloatInterval(
+            math.nextafter(-self.upper, -math.inf),
+            math.nextafter(-self.lower, math.inf),
+        )
+
+    def __mul__(self, other: FloatInterval | float) -> FloatInterval:
+        other = _as_interval(other)
+        products = (
+            self.lower * other.lower,
+            self.lower * other.upper,
+            self.upper * other.lower,
+            self.upper * other.upper,
+        )
+        return FloatInterval(
+            math.nextafter(min(products), -math.inf),
+            math.nextafter(max(products), math.inf),
+        )
+
+    __rmul__ = __mul__
+
+    def __truediv__(self, other: FloatInterval | float) -> FloatInterval:
+        other = _as_interval(other)
+        if other.lower <= 0.0 <= other.upper:
+            raise ZeroDivisionError("interval division by range containing zero")
+        reciprocals = (1.0 / other.lower, 1.0 / other.upper)
+        return self * FloatInterval(
+            math.nextafter(min(reciprocals), -math.inf),
+            math.nextafter(max(reciprocals), math.inf),
+        )
+
+    def sqrt(self) -> FloatInterval:
+        if self.lower < 0.0:
+            raise ValueError("cannot take interval sqrt of a negative lower bound")
+        return FloatInterval(
+            math.nextafter(math.sqrt(self.lower), -math.inf),
+            math.nextafter(math.sqrt(self.upper), math.inf),
+        )
+
+
+def _as_interval(value: FloatInterval | float) -> FloatInterval:
+    if isinstance(value, FloatInterval):
+        return value
+    return FloatInterval.point(float(value))
+
+
+def _interval_to_json(value: FloatInterval) -> dict[str, float]:
+    return {
+        "lower": _json_float(value.lower),
+        "upper": _json_float(value.upper),
+    }
+
+
+def _interval_square(value: FloatInterval) -> FloatInterval:
+    return value * value
+
+
+def _interval_point(point: tuple[float, float]) -> tuple[FloatInterval, FloatInterval]:
+    return (FloatInterval.point(point[0]), FloatInterval.point(point[1]))
+
+
+def _interval_orientation2(
+    left: tuple[FloatInterval, FloatInterval],
+    middle: tuple[FloatInterval, FloatInterval],
+    right: tuple[FloatInterval, FloatInterval],
+) -> FloatInterval:
+    return (middle[0] - left[0]) * (right[1] - left[1]) - (
+        middle[1] - left[1]
+    ) * (right[0] - left[0])
+
+
+def _interval_squared_distance(
+    left: tuple[FloatInterval, FloatInterval],
+    right: tuple[FloatInterval, FloatInterval],
+) -> FloatInterval:
+    return _interval_square(left[0] - right[0]) + _interval_square(left[1] - right[1])
+
+
 def _q(value: int | Fraction, sqrt3: int | Fraction = 0) -> Quad:
     return Quad(Fraction(value), Fraction(sqrt3))
 
@@ -179,6 +293,21 @@ def _rotate_numeric_point(point: tuple[float, float], orbit: int) -> tuple[float
     return (
         x * math.cos(angle) - y * math.sin(angle),
         x * math.sin(angle) + y * math.cos(angle),
+    )
+
+
+def _rotate_interval_point(
+    point: tuple[FloatInterval, FloatInterval],
+    orbit: int,
+) -> tuple[FloatInterval, FloatInterval]:
+    if orbit == 0:
+        return point
+    angle = 2.0 * math.pi * orbit / 3.0
+    cosine = FloatInterval.point(math.cos(angle))
+    sine = FloatInterval.point(math.sin(angle))
+    return (
+        point[0] * cosine - point[1] * sine,
+        point[0] * sine + point[1] * cosine,
     )
 
 
@@ -256,6 +385,29 @@ def _a5_edge_pocket_point(
     return (
         a4[0] + t * edge[0] + h * normal_unit[0],
         a4[1] + t * edge[1] + h * normal_unit[1],
+    )
+
+
+def _a5_edge_pocket_interval_point(
+    t_value: FloatInterval,
+    normal_offset: FloatInterval,
+    *,
+    by_label: dict[str, tuple[FloatInterval, FloatInterval]],
+) -> tuple[FloatInterval, FloatInterval]:
+    a4 = by_label["A4"]
+    b1 = by_label["B1"]
+    edge = (b1[0] - a4[0], b1[1] - a4[1])
+    normal = (-edge[1], edge[0])
+    normal_length = (
+        _interval_square(normal[0]) + _interval_square(normal[1])
+    ).sqrt()
+    normal_unit = (
+        normal[0] / normal_length,
+        normal[1] / normal_length,
+    )
+    return (
+        a4[0] + t_value * edge[0] + normal_offset * normal_unit[0],
+        a4[1] + t_value * edge[1] + normal_offset * normal_unit[1],
     )
 
 
@@ -831,6 +983,189 @@ def lemma31_a5_constraint_scan(
     }
 
 
+def _interval_box_endpoints(
+    center: Fraction,
+    radius: Fraction,
+) -> dict[str, str]:
+    return {
+        "lower": _format_fraction(center - radius),
+        "center": _format_fraction(center),
+        "upper": _format_fraction(center + radius),
+        "radius": _format_fraction(radius),
+    }
+
+
+def lemma31_a5_interval_box_probe() -> dict[str, object]:
+    """Certify a tiny A5 neighbourhood in the checker float64 interval model."""
+
+    seed = brp_seed_numeric_vertices()
+    by_label = {vertex.label: _interval_point(vertex.numeric) for vertex in seed}
+    t_center = LEMMA31_A5_WITNESS_T
+    h_center = LEMMA31_A5_WITNESS_NORMAL_OFFSET
+    radius = LEMMA31_A5_INTERVAL_RADIUS
+    t_interval = FloatInterval(
+        math.nextafter(float(t_center - radius), -math.inf),
+        math.nextafter(float(t_center + radius), math.inf),
+    )
+    h_interval = FloatInterval(
+        math.nextafter(float(h_center - radius), -math.inf),
+        math.nextafter(float(h_center + radius), math.inf),
+    )
+    a5 = _a5_edge_pocket_interval_point(
+        t_interval,
+        h_interval,
+        by_label=by_label,
+    )
+    a_label, b_label, c_label, d_label = LEMMA31_ROLE_LABELS
+    a_point = by_label[a_label]
+    b_point = by_label[b_label]
+    c_point = by_label[c_label]
+    d_point = by_label[d_label]
+    local_order = (d_point, c_point, a5, b_point, a_point)
+    local_turns = tuple(
+        _interval_orientation2(
+            local_order[index - 1],
+            local_order[index],
+            local_order[(index + 1) % len(local_order)],
+        )
+        for index in range(len(local_order))
+    )
+    outside_margin = _interval_squared_distance(
+        a_point,
+        a5,
+    ) - _interval_squared_distance(a_point, b_point)
+    ba = (a_point[0] - b_point[0], a_point[1] - b_point[1])
+    ba5 = (a5[0] - b_point[0], a5[1] - b_point[1])
+    acute_dot = ba[0] * ba5[0] + ba[1] * ba5[1]
+    tau = FloatInterval.point(float(LEMMA31_DEFAULT_BPRIME_FRACTION))
+    bprime = (
+        b_point[0] + tau * (a_point[0] - b_point[0]),
+        b_point[1] + tau * (a_point[1] - b_point[1]),
+    )
+    bprime_radius_squared = _interval_squared_distance(bprime, b_point)
+    dx = a5[0] - c_point[0]
+    dy = a5[1] - c_point[1]
+    fx = c_point[0] - bprime[0]
+    fy = c_point[1] - bprime[1]
+    quadratic_a = _interval_square(dx) + _interval_square(dy)
+    quadratic_b = FloatInterval.point(2.0) * (fx * dx + fy * dy)
+    quadratic_c = (
+        _interval_square(fx) + _interval_square(fy) - bprime_radius_squared
+    )
+    discriminant = (
+        quadratic_b * quadratic_b
+        - FloatInterval.point(4.0) * quadratic_a * quadratic_c
+    )
+    sqrt_discriminant = discriminant.sqrt()
+    denominator = FloatInterval.point(2.0) * quadratic_a
+    first_root = (-quadratic_b - sqrt_discriminant) / denominator
+    second_root = (-quadratic_b + sqrt_discriminant) / denominator
+    root_intervals = (first_root, second_root)
+
+    base_vertices = {f"A{suffix}": by_label[f"A{suffix}"] for suffix in ("1", "2", "3", "4")}
+    interval_15gon: list[tuple[str, tuple[FloatInterval, FloatInterval]]] = []
+    for orbit, prefix in enumerate(ORBIT_PREFIXES):
+        for suffix in ("1", "2", "3", "4"):
+            source = base_vertices[f"A{suffix}"]
+            interval_15gon.append(
+                (
+                    f"{prefix}{suffix}",
+                    source if orbit == 0 else _rotate_interval_point(source, orbit),
+                )
+            )
+        interval_15gon.append((f"{prefix}5", _rotate_interval_point(a5, orbit)))
+    rotated_turns = tuple(
+        (
+            label,
+            _interval_orientation2(
+                interval_15gon[index - 1][1],
+                point,
+                interval_15gon[(index + 1) % len(interval_15gon)][1],
+            ),
+        )
+        for index, (label, point) in enumerate(interval_15gon)
+    )
+    local_clockwise = max(turn.upper for turn in local_turns) < 0.0
+    outside_s_a = outside_margin.lower > 0.0
+    acute_angle = acute_dot.lower > 0.0
+    crosses_twice = (
+        discriminant.lower > 0.0
+        and first_root.lower > 0.0
+        and first_root.upper < 1.0
+        and second_root.lower > 0.0
+        and second_root.upper < 1.0
+        and first_root.upper < second_root.lower
+    )
+    rotated_strictly_convex = min(turn.lower for _, turn in rotated_turns) > 0.0
+    return {
+        "status": "FLOAT64_INTERVAL_BOX_DIAGNOSTIC",
+        "coordinate_model": (
+            "Outward-rounded interval arithmetic over the checker float64 "
+            "coordinate model. This is not an exact algebraic certificate for "
+            "the source Q(sqrt(3)) coordinates."
+        ),
+        "box": {
+            "t": _interval_box_endpoints(t_center, radius),
+            "normal_offset": _interval_box_endpoints(h_center, radius),
+            "sampled_witness_center": {
+                "t": _format_fraction(t_center),
+                "normal_offset": _format_fraction(h_center),
+            },
+        },
+        "a5_coordinate_interval": {
+            "x": _interval_to_json(a5[0]),
+            "y": _interval_to_json(a5[1]),
+        },
+        "lemma31_N1_interval_checks": {
+            "D_C_A5_B_A_extreme_clockwise": local_clockwise,
+            "local_turn_intervals": [
+                _interval_to_json(turn) for turn in local_turns
+            ],
+            "max_local_turn_upper_bound": _json_float(
+                max(turn.upper for turn in local_turns)
+            ),
+            "A5_outside_S_A": outside_s_a,
+            "outside_S_A_margin_interval": _interval_to_json(outside_margin),
+            "angle_A_B_A5_acute": acute_angle,
+            "acute_dot_interval": _interval_to_json(acute_dot),
+            "segment_C_A5_intersects_default_S_Bprime_twice": crosses_twice,
+            "S_Bprime_quadratic": {
+                "a": _interval_to_json(quadratic_a),
+                "b": _interval_to_json(quadratic_b),
+                "c": _interval_to_json(quadratic_c),
+                "discriminant": _interval_to_json(discriminant),
+            },
+            "S_Bprime_root_intervals_on_segment_C_A5": [
+                _interval_to_json(root) for root in root_intervals
+            ],
+        },
+        "rotated_15gon_interval_checks": {
+            "strictly_convex": rotated_strictly_convex,
+            "min_turn_lower_bound": _json_float(
+                min(turn.lower for _, turn in rotated_turns)
+            ),
+            "turn_intervals": [
+                {"label": label, **_interval_to_json(turn)}
+                for label, turn in rotated_turns
+            ],
+        },
+        "all_interval_checks_pass": (
+            local_clockwise
+            and outside_s_a
+            and acute_angle
+            and crosses_twice
+            and rotated_strictly_convex
+        ),
+        "interpretation": (
+            "Certifies a small float64-model box around the sampled A5 "
+            "witness for the local Lemma 3.1 bullets and rotated 15-gon "
+            "strict convexity. It does not certify BRP boundary-intersection "
+            "counts, finite-vertex multiplicities throughout the box, or exact "
+            "source-paper coordinates."
+        ),
+    }
+
+
 def _histogram(values: Iterable[int]) -> dict[str, int]:
     return {str(key): value for key, value in sorted(Counter(values).items())}
 
@@ -877,6 +1212,7 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
     profiles = all_circle_profiles(tol=tol)
     candidate_scan = synthetic_a5_scan(root_tol=tol)
     a5_constraint_scan = lemma31_a5_constraint_scan(root_tol=tol)
+    a5_interval_box = lemma31_a5_interval_box_probe()
     convex_candidate_count = sum(1 for candidate in candidate_scan if candidate.strictly_convex)
     best_candidate_vertex_hits = max(candidate.max_vertex_hits for candidate in candidate_scan)
     best_candidate_boundary_hits = max(candidate.max_boundary_hits for candidate in candidate_scan)
@@ -956,6 +1292,7 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
         },
         "lemma31_preflight": lemma31_preflight(),
         "lemma31_a5_constraint_scan": a5_constraint_scan,
+        "lemma31_a5_interval_box_probe": a5_interval_box,
         "histograms": {
             "vertex_hit_count": _histogram(len(profile.vertex_hits) for profile in profiles),
             "boundary_hit_count": _histogram(profile.boundary_hit_count for profile in profiles),
@@ -972,7 +1309,7 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
             "hits at the modeled seed vertices, and includes a limited signed "
             "synthetic A5 edge-pocket closure stress test, a Lemma 3.1 "
             "role-precondition preflight, and a bounded sampled A5 constraint "
-            "probe."
+            "probe with a tiny float64 interval-box follow-up."
         ),
         "does_not_claim": [
             "proof of Erdos Problem #97",
@@ -980,11 +1317,12 @@ def build_payload(tol: float = ROOT_TOL) -> dict[str, object]:
             "finite-vertex extraction from the Barany--Roldan-Pensado body",
             "exact model of the source paper's A5 insertion or final 15-gon",
             "exact construction of the source paper's existential A5",
+            "exact algebraic or formal interval certificate for the sampled A5",
             "exact or interval certificate for boundary intersections",
         ],
         "next_steps": [
-            "upgrade the sampled A5 witness to exact algebraic or interval coordinates",
-            "prove an admissible neighbourhood around the sampled A5 witness",
+            "replace the float64 A5 interval box with exact algebraic or directed-decimal coordinates",
+            "certify BRP boundary-intersection counts for the sampled final 15-gon",
             "promote edge-interior hits to symbolic edge parameters",
             "iterate the promoted hits as new candidate vertices",
             "replace float boundary intersections by exact algebraic or interval checks",
@@ -1112,6 +1450,53 @@ def assert_expected_counts(payload: dict[str, object]) -> None:
         raise AssertionError("sampled A5 witness should keep the rotated 15-gon convex")
     if rotated_15gon.get("circles_with_at_least_four_vertices") != 0:
         raise AssertionError("sampled A5 witness should not create four-vertex circles")
+
+    interval_box = payload.get("lemma31_a5_interval_box_probe")
+    if not isinstance(interval_box, dict):
+        raise AssertionError("payload.lemma31_a5_interval_box_probe must be an object")
+    box = interval_box.get("box")
+    interval_checks = interval_box.get("lemma31_N1_interval_checks")
+    rotated_interval_checks = interval_box.get("rotated_15gon_interval_checks")
+    if not isinstance(box, dict):
+        raise AssertionError("payload.lemma31_a5_interval_box_probe.box must be an object")
+    if not isinstance(interval_checks, dict):
+        raise AssertionError(
+            "payload.lemma31_a5_interval_box_probe.lemma31_N1_interval_checks must be an object"
+        )
+    if not isinstance(rotated_interval_checks, dict):
+        raise AssertionError(
+            "payload.lemma31_a5_interval_box_probe.rotated_15gon_interval_checks must be an object"
+        )
+    if interval_box.get("all_interval_checks_pass") is not True:
+        raise AssertionError("sampled A5 interval box should pass all interval checks")
+    if box.get("t") != {
+        "lower": "239999/10000000",
+        "center": "3/125",
+        "upper": "240001/10000000",
+        "radius": "1/10000000",
+    }:
+        raise AssertionError("unexpected A5 interval t box")
+    if box.get("normal_offset") != {
+        "lower": "-50001/10000000",
+        "center": "-1/200",
+        "upper": "-49999/10000000",
+        "radius": "1/10000000",
+    }:
+        raise AssertionError("unexpected A5 interval normal-offset box")
+    if interval_checks.get("D_C_A5_B_A_extreme_clockwise") is not True:
+        raise AssertionError("A5 interval box should certify local clockwise order")
+    if interval_checks.get("A5_outside_S_A") is not True:
+        raise AssertionError("A5 interval box should stay outside S_A")
+    if interval_checks.get("angle_A_B_A5_acute") is not True:
+        raise AssertionError("A5 interval box should keep angle A-B-A5 acute")
+    if interval_checks.get("segment_C_A5_intersects_default_S_Bprime_twice") is not True:
+        raise AssertionError("A5 interval box should keep two S_Bprime crossings")
+    if rotated_interval_checks.get("strictly_convex") is not True:
+        raise AssertionError("A5 interval box should keep the rotated 15-gon convex")
+    if interval_checks.get("max_local_turn_upper_bound") != -0.026805405:
+        raise AssertionError("unexpected A5 interval local-turn bound")
+    if rotated_interval_checks.get("min_turn_lower_bound") != 0.026803636:
+        raise AssertionError("unexpected A5 interval 15-gon turn bound")
 
     synthetic = payload.get("synthetic_a5_scan")
     if not isinstance(synthetic, dict):
