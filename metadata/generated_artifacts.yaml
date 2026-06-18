@@ -3445,8 +3445,8 @@ artifacts:
 
   - id: brp_boundary_vertexization_probe
     path: data/certificates/brp_boundary_vertexization_probe.json
-    sha256: c9ce88089495d559f00a901cc0ea99f7202ead8bc31ea614b2b4740c4a7eab6f
-    size_bytes: 34036
+    sha256: 424558e32943bcd43f20c84b34bab9b428b495b5e5007c1053beb34170989a6c
+    size_bytes: 35700
     kind: numerical_geometric_diagnostic_artifact
     generator: scripts/check_brp_boundary_probe.py
     command: python scripts/check_brp_boundary_probe.py --write --assert-expected
@@ -3455,7 +3455,7 @@ artifacts:
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: REVIEW_PENDING_DIAGNOSTIC
-    claim_scope: Float64 boundary-hit diagnostic for the quoted 12-point Barany--Roldan-Pensado seed before A5 insertion; records seed-boundary circle hits versus modeled seed-vertex hits and a signed sampled synthetic A5 edge-pocket stress scan. Not a finite extraction, not the final 15-gon, not a proof, not a counterexample, and not an official/global status update.
+    claim_scope: Float64 boundary-hit diagnostic for the quoted 12-point Barany--Roldan-Pensado seed before A5 insertion; records seed-boundary circle hits versus modeled seed-vertex hits, a signed sampled synthetic A5 edge-pocket stress scan, and a Lemma 3.1 role-precondition preflight. Not a finite extraction, not the final 15-gon, not a construction of A5, not a proof, not a counterexample, and not an official/global status update.
     json_top_level_type: object
     expected_json:
       schema: erdos97.brp_boundary_vertexization_probe.v1
@@ -3471,11 +3471,21 @@ artifacts:
       synthetic_a5_scan.candidate_count: 36
       synthetic_a5_scan.strictly_convex_candidate_count: 0
       synthetic_a5_scan.candidates_with_at_least_four_vertices: 0
+      lemma31_preflight.status: LEMMA31_ROLE_PREFLIGHT_ONLY_A5_NOT_CONSTRUCTED
+      lemma31_preflight.role_mapping.A: A3
+      lemma31_preflight.role_mapping.B: A4
+      lemma31_preflight.role_mapping.C: B1
+      lemma31_preflight.role_mapping.D: B2
+      lemma31_preflight.role_order.strictly_convex_counterclockwise: true
+      lemma31_preflight.angle_ABC.acute: true
+      lemma31_preflight.bprime_neighbourhood_budget.default_tau: 1/100
+      lemma31_preflight.bprime_neighbourhood_budget.C_outside_default_S_Bprime: true
     forbidden_claims:
       - proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
       - finite-vertex extraction from the Barany--Roldan-Pensado body
       - model of the source paper's A5 insertion or final 15-gon
+      - construction of the source paper's existential A5
       - exact or interval certificate for boundary intersections
       - official/global status update
 

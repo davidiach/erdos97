@@ -39,8 +39,11 @@ are claimed here.
   distinct circles centered at a modeled seed vertex and passing through
   another modeled seed vertex, `45` hit the 12-edge seed boundary at least four
   times, but none hit four modeled seed vertices. This confirms the immediate
-  boundary/vertex gap for the seed and does not check the final 15-gon or give
-  a counterexample; see `docs/brp-boundary-vertexization-probe.md`.
+  boundary/vertex gap for the seed. The same probe now pins the Lemma 3.1
+  role mapping `A=A3, B=A4, C=B1, D=B2` and its acute-angle/pre-neighbourhood
+  checks, but it still does not construct the existential `A5`, check the
+  final 15-gon, or give a counterexample; see
+  `docs/brp-boundary-vertexization-probe.md`.
 - The canonical synthesis corrects a prior uniform-radius shortcut:
   Edelsbrunner--Hajnal's `2n-7` unit-distance result is a lower-bound
   construction, not an upper bound resolving the subcase. Furedi's separate

@@ -55,6 +55,25 @@ def test_payload_keeps_vertexization_gap_explicit() -> None:
     assert payload["synthetic_a5_scan"]["candidate_count"] == 36
     assert payload["synthetic_a5_scan"]["strictly_convex_candidate_count"] == 0
     assert payload["synthetic_a5_scan"]["candidates_with_at_least_four_vertices"] == 0
+    preflight = payload["lemma31_preflight"]
+    assert preflight["status"] == "LEMMA31_ROLE_PREFLIGHT_ONLY_A5_NOT_CONSTRUCTED"
+    assert preflight["role_mapping"] == {
+        "A": "A3",
+        "B": "A4",
+        "C": "B1",
+        "D": "B2",
+        "candidate_C1_name_in_paper_construction": "A5",
+    }
+    assert preflight["role_order"]["strictly_convex_counterclockwise"] is True
+    assert preflight["role_order"]["clockwise_target_without_C1_verified"] is True
+    assert preflight["angle_ABC"]["acute"] is True
+    assert preflight["angle_ABC"]["degrees"] == 87.7725247
+    assert preflight["bprime_neighbourhood_budget"]["default_tau"] == "1/100"
+    assert preflight["bprime_neighbourhood_budget"]["default_tau_inside_ceiling"] is True
+    assert (
+        preflight["bprime_neighbourhood_budget"]["C_outside_default_S_Bprime"]
+        is True
+    )
     assert "counterexample to Erdos Problem #97" in payload["does_not_claim"]
     assert "the A5 insertion" in str(payload["source"]["not_modeled"])
 

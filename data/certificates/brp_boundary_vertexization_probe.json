@@ -765,7 +765,7 @@
       ]
     }
   ],
-  "claim_scope": "Float64 boundary-hit diagnostic for the 12-point three-fold seed quoted in the Barany--Roldan-Pensado convex-body discussion. It measures the gap between centered circle hits on polygon edges and hits at the modeled seed vertices, and includes a limited signed synthetic A5 edge-pocket closure stress test.",
+  "claim_scope": "Float64 boundary-hit diagnostic for the 12-point three-fold seed quoted in the Barany--Roldan-Pensado convex-body discussion. It measures the gap between centered circle hits on polygon edges and hits at the modeled seed vertices, and includes a limited signed synthetic A5 edge-pocket closure stress test plus a Lemma 3.1 role-precondition preflight.",
   "convexity": {
     "max_turn_area2": 146403.0,
     "min_turn_area2": 19.492354671,
@@ -776,6 +776,7 @@
     "counterexample to Erdos Problem #97",
     "finite-vertex extraction from the Barany--Roldan-Pensado body",
     "model of the source paper's A5 insertion or final 15-gon",
+    "construction of the source paper's existential A5",
     "exact or interval certificate for boundary intersections"
   ],
   "histograms": {
@@ -798,8 +799,56 @@
       "2": 12
     }
   },
+  "lemma31_preflight": {
+    "a5_constraints_remaining": [
+      "find C1=A5 such that D,C,C1,B,A are extreme and clockwise",
+      "place A5 outside the circle centered at A and passing through B",
+      "keep angle A-B-A5 acute",
+      "make segment C-A5 intersect S_Bprime twice",
+      "preserve the final 15-gon convexity after 120-degree rotations"
+    ],
+    "angle_ABC": {
+      "acute": true,
+      "degrees": 87.7725247
+    },
+    "bprime_neighbourhood_budget": {
+      "C_distance_to_default_Bprime": 13.430787105,
+      "C_outside_default_S_Bprime": true,
+      "default_radius": 12.524348286,
+      "default_tau": "1/100",
+      "default_tau_inside_ceiling": true,
+      "definition": "Bprime = B + tau*(A-B)",
+      "tau_ceiling_for_C_outside_S_Bprime": 0.055071551
+    },
+    "claim_scope": "Verifies the source Lemma 3.1 role preconditions for the BRP seed using A=A3, B=A4, C=B1, D=B2 and records a reproducible Bprime neighbourhood budget. It does not construct A5.",
+    "role_mapping": {
+      "A": "A3",
+      "B": "A4",
+      "C": "B1",
+      "D": "B2",
+      "candidate_C1_name_in_paper_construction": "A5"
+    },
+    "role_order": {
+      "clockwise_target_without_C1": [
+        "B2",
+        "B1",
+        "A4",
+        "A3"
+      ],
+      "clockwise_target_without_C1_verified": true,
+      "labels_counterclockwise": [
+        "A3",
+        "A4",
+        "B1",
+        "B2"
+      ],
+      "min_turn_area2": 19.492354671,
+      "strictly_convex_counterclockwise": true
+    },
+    "status": "LEMMA31_ROLE_PREFLIGHT_ONLY_A5_NOT_CONSTRUCTED"
+  },
   "next_steps": [
-    "add the A5 edge-parameter insertion once the source construction is pinned",
+    "solve or parameterize A5 under the recorded Lemma 3.1 constraints",
     "promote edge-interior hits to symbolic edge parameters",
     "iterate the promoted hits as new candidate vertices",
     "replace float boundary intersections by exact algebraic or interval checks"
