@@ -765,7 +765,7 @@
       ]
     }
   ],
-  "claim_scope": "Float64 boundary-hit diagnostic for the 12-point three-fold seed quoted in the Barany--Roldan-Pensado convex-body discussion. It measures the gap between centered circle hits on polygon edges and hits at the modeled seed vertices, and includes a limited signed synthetic A5 edge-pocket closure stress test, a Lemma 3.1 role-precondition preflight, and a bounded sampled A5 constraint probe.",
+  "claim_scope": "Float64 boundary-hit diagnostic for the 12-point three-fold seed quoted in the Barany--Roldan-Pensado convex-body discussion. It measures the gap between centered circle hits on polygon edges and hits at the modeled seed vertices, and includes a limited signed synthetic A5 edge-pocket closure stress test, a Lemma 3.1 role-precondition preflight, and a bounded sampled A5 constraint probe with a tiny float64 interval-box follow-up.",
   "convexity": {
     "max_turn_area2": 146403.0,
     "min_turn_area2": 19.492354671,
@@ -777,6 +777,7 @@
     "finite-vertex extraction from the Barany--Roldan-Pensado body",
     "exact model of the source paper's A5 insertion or final 15-gon",
     "exact construction of the source paper's existential A5",
+    "exact algebraic or formal interval certificate for the sampled A5",
     "exact or interval certificate for boundary intersections"
   ],
   "histograms": {
@@ -879,6 +880,186 @@
     "source_lemma_scope": "N=1 specialization of Lemma 3.1 with A=A3, B=A4, C=B1, D=B2, C1=A5, and default Bprime fraction 1/100.",
     "status": "SAMPLED_NUMERICAL_A5_CONSTRAINT_PROBE"
   },
+  "lemma31_a5_interval_box_probe": {
+    "a5_coordinate_interval": {
+      "x": {
+        "lower": -498.052639401,
+        "upper": -498.052638816
+      },
+      "y": {
+        "lower": 870.882474276,
+        "upper": 870.882475345
+      }
+    },
+    "all_interval_checks_pass": true,
+    "box": {
+      "normal_offset": {
+        "center": "-1/200",
+        "lower": "-50001/10000000",
+        "radius": "1/10000000",
+        "upper": "-49999/10000000"
+      },
+      "sampled_witness_center": {
+        "normal_offset": "-1/200",
+        "t": "3/125"
+      },
+      "t": {
+        "center": "3/125",
+        "lower": "239999/10000000",
+        "radius": "1/10000000",
+        "upper": "240001/10000000"
+      }
+    },
+    "coordinate_model": "Outward-rounded interval arithmetic over the checker float64 coordinate model. This is not an exact algebraic certificate for the source Q(sqrt(3)) coordinates.",
+    "interpretation": "Certifies a small float64-model box around the sampled A5 witness for the local Lemma 3.1 bullets and rotated 15-gon strict convexity. It does not certify BRP boundary-intersection counts, finite-vertex multiplicities throughout the box, or exact source-paper coordinates.",
+    "lemma31_N1_interval_checks": {
+      "A5_outside_S_A": true,
+      "D_C_A5_B_A_extreme_clockwise": true,
+      "S_Bprime_quadratic": {
+        "a": {
+          "lower": 27.383347058,
+          "upper": 27.383359728
+        },
+        "b": {
+          "lower": -50.893648546,
+          "upper": -50.893632506
+        },
+        "c": {
+          "lower": 23.526742261,
+          "upper": 23.526742261
+        },
+        "discriminant": {
+          "lower": 13.196843444,
+          "upper": 13.199668391
+        }
+      },
+      "S_Bprime_root_intervals_on_segment_C_A5": [
+        {
+          "lower": 0.862941914,
+          "upper": 0.862949705
+        },
+        {
+          "lower": 0.995611551,
+          "upper": 0.995619404
+        }
+      ],
+      "acute_dot_interval": {
+        "lower": 0.005787446,
+        "upper": 0.007004343
+      },
+      "angle_A_B_A5_acute": true,
+      "local_turn_intervals": [
+        {
+          "lower": -184702.16455617,
+          "upper": -184702.164556167
+        },
+        {
+          "lower": -18.286047227,
+          "upper": -18.285910858
+        },
+        {
+          "lower": -0.026810457,
+          "upper": -0.026805405
+        },
+        {
+          "lower": -161.283276412,
+          "upper": -161.281754023
+        },
+        {
+          "lower": -191392.635675885,
+          "upper": -191392.635675884
+        }
+      ],
+      "max_local_turn_upper_bound": -0.026805405,
+      "outside_S_A_margin_interval": {
+        "lower": 0.002574451,
+        "upper": 0.005008062
+      },
+      "segment_C_A5_intersects_default_S_Bprime_twice": true
+    },
+    "rotated_15gon_interval_checks": {
+      "min_turn_lower_bound": 0.026803636,
+      "strictly_convex": true,
+      "turn_intervals": [
+        {
+          "label": "A1",
+          "lower": 18.285852206,
+          "upper": 18.286105879
+        },
+        {
+          "label": "A2",
+          "lower": 6724.0,
+          "upper": 6724.0
+        },
+        {
+          "label": "A3",
+          "lower": 146402.999999999,
+          "upper": 146403.000000001
+        },
+        {
+          "label": "A4",
+          "lower": 161.281754079,
+          "upper": 161.283276357
+        },
+        {
+          "label": "A5",
+          "lower": 0.026805405,
+          "upper": 0.026810457
+        },
+        {
+          "label": "B1",
+          "lower": 18.285905931,
+          "upper": 18.286052154
+        },
+        {
+          "label": "B2",
+          "lower": 6723.999999999,
+          "upper": 6724.000000001
+        },
+        {
+          "label": "B3",
+          "lower": 146402.999999998,
+          "upper": 146403.000000001
+        },
+        {
+          "label": "B4",
+          "lower": 161.281689119,
+          "upper": 161.283341317
+        },
+        {
+          "label": "B5",
+          "lower": 0.026804706,
+          "upper": 0.026811157
+        },
+        {
+          "label": "C1",
+          "lower": 18.28588195,
+          "upper": 18.286076135
+        },
+        {
+          "label": "C2",
+          "lower": 6723.999999999,
+          "upper": 6724.000000001
+        },
+        {
+          "label": "C3",
+          "lower": 146402.999999997,
+          "upper": 146403.000000002
+        },
+        {
+          "label": "C4",
+          "lower": 161.281539213,
+          "upper": 161.283491223
+        },
+        {
+          "label": "C5",
+          "lower": 0.026803636,
+          "upper": 0.026812226
+        }
+      ]
+    },
+    "status": "FLOAT64_INTERVAL_BOX_DIAGNOSTIC"
+  },
   "lemma31_preflight": {
     "a5_constraints_remaining_after_sampled_scan": [
       "upgrade the sampled C1=A5 witness to exact or interval coordinates",
@@ -927,8 +1108,8 @@
     "status": "LEMMA31_ROLE_PREFLIGHT_ONLY_A5_NOT_CONSTRUCTED"
   },
   "next_steps": [
-    "upgrade the sampled A5 witness to exact algebraic or interval coordinates",
-    "prove an admissible neighbourhood around the sampled A5 witness",
+    "replace the float64 A5 interval box with exact algebraic or directed-decimal coordinates",
+    "certify BRP boundary-intersection counts for the sampled final 15-gon",
     "promote edge-interior hits to symbolic edge parameters",
     "iterate the promoted hits as new candidate vertices",
     "replace float boundary intersections by exact algebraic or interval checks"
@@ -938,7 +1119,7 @@
     "generator": "scripts/check_brp_boundary_probe.py",
     "notes": "Float64 boundary-intersection diagnostic for the quoted Barany--Roldan-Pensado 12-point seed before A5 insertion."
   },
-  "schema": "erdos97.brp_boundary_vertexization_probe.v2",
+  "schema": "erdos97.brp_boundary_vertexization_probe.v3",
   "source": {
     "base_points": [
       {

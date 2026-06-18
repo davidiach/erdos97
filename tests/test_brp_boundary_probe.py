@@ -44,7 +44,7 @@ def test_exact_distance_detects_rotation_symmetry() -> None:
 def test_payload_keeps_vertexization_gap_explicit() -> None:
     payload = build_payload()
 
-    assert payload["schema"] == "erdos97.brp_boundary_vertexization_probe.v2"
+    assert payload["schema"] == "erdos97.brp_boundary_vertexization_probe.v3"
     assert payload["trust"] == "NUMERICAL_GEOMETRIC_DIAGNOSTIC"
     assert payload["provenance"]["generator"] == "scripts/check_brp_boundary_probe.py"
     assert_expected_counts(payload)
@@ -111,6 +111,41 @@ def test_payload_keeps_vertexization_gap_explicit() -> None:
         "circles_with_at_least_four_vertices": 0,
         "circles_with_at_least_four_boundary_hits": 87,
     }
+    interval_box = payload["lemma31_a5_interval_box_probe"]
+    assert interval_box["status"] == "FLOAT64_INTERVAL_BOX_DIAGNOSTIC"
+    assert interval_box["all_interval_checks_pass"] is True
+    assert interval_box["box"]["t"] == {
+        "lower": "239999/10000000",
+        "center": "3/125",
+        "upper": "240001/10000000",
+        "radius": "1/10000000",
+    }
+    assert interval_box["box"]["normal_offset"] == {
+        "lower": "-50001/10000000",
+        "center": "-1/200",
+        "upper": "-49999/10000000",
+        "radius": "1/10000000",
+    }
+    interval_checks = interval_box["lemma31_N1_interval_checks"]
+    assert interval_checks["D_C_A5_B_A_extreme_clockwise"] is True
+    assert interval_checks["max_local_turn_upper_bound"] == -0.026805405
+    assert interval_checks["A5_outside_S_A"] is True
+    assert interval_checks["outside_S_A_margin_interval"]["lower"] == 0.002574451
+    assert interval_checks["angle_A_B_A5_acute"] is True
+    assert interval_checks["acute_dot_interval"]["lower"] == 0.005787446
+    assert (
+        interval_checks["segment_C_A5_intersects_default_S_Bprime_twice"]
+        is True
+    )
+    assert interval_checks["S_Bprime_root_intervals_on_segment_C_A5"] == [
+        {"lower": 0.862941914, "upper": 0.862949705},
+        {"lower": 0.995611551, "upper": 0.995619404},
+    ]
+    assert interval_box["rotated_15gon_interval_checks"]["strictly_convex"] is True
+    assert (
+        interval_box["rotated_15gon_interval_checks"]["min_turn_lower_bound"]
+        == 0.026803636
+    )
     assert "counterexample to Erdos Problem #97" in payload["does_not_claim"]
     assert "the A5 insertion" in str(payload["source"]["not_modeled"])
 

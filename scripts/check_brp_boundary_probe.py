@@ -112,6 +112,7 @@ def main() -> int:
         synthetic = payload["synthetic_a5_scan"]
         preflight = payload["lemma31_preflight"]
         a5_scan = payload["lemma31_a5_constraint_scan"]
+        a5_interval = payload["lemma31_a5_interval_box_probe"]
         angle_abc = preflight["angle_ABC"]
         bprime_budget = preflight["bprime_neighbourhood_budget"]
         filter_counts = a5_scan["filter_counts"]
@@ -154,6 +155,14 @@ def main() -> int:
                 "Lemma 3.1 first sampled A5: "
                 f"t={witness['t']}, h={witness['normal_offset']}"
             )
+        print(
+            "Lemma 3.1 A5 interval box valid: "
+            f"{a5_interval['all_interval_checks_pass']}"
+        )
+        print(
+            "Lemma 3.1 A5 interval max local turn upper: "
+            f"{a5_interval['lemma31_N1_interval_checks']['max_local_turn_upper_bound']}"
+        )
         if args.assert_expected:
             print("OK: expected BRP boundary diagnostic counts verified")
         if args.write:
