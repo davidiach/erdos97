@@ -327,7 +327,7 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "--verify-certificate",
             "data/certificates/n9_kalmanson_selfedge.json",
             "--assert-expected",
-            "--summary-json",
+            "--json",
         ),
         claim_scope=(
             "Review-pending n=9 selected-witness Kalmanson self-edge "
@@ -342,7 +342,7 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "scripts/check_n9_kalmanson_selfedge_independent_replay.py",
             "--check",
             "--assert-expected",
-            "--summary-json",
+            "--json",
         ),
         claim_scope=(
             "Independent stored-input replay for the review-pending n=9 "
