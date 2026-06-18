@@ -765,7 +765,7 @@
       ]
     }
   ],
-  "claim_scope": "Float64 boundary-hit diagnostic for the 12-point three-fold seed quoted in the Barany--Roldan-Pensado convex-body discussion. It measures the gap between centered circle hits on polygon edges and hits at the modeled seed vertices, and includes a limited signed synthetic A5 edge-pocket closure stress test plus a Lemma 3.1 role-precondition preflight.",
+  "claim_scope": "Float64 boundary-hit diagnostic for the 12-point three-fold seed quoted in the Barany--Roldan-Pensado convex-body discussion. It measures the gap between centered circle hits on polygon edges and hits at the modeled seed vertices, and includes a limited signed synthetic A5 edge-pocket closure stress test, a Lemma 3.1 role-precondition preflight, and a bounded sampled A5 constraint probe.",
   "convexity": {
     "max_turn_area2": 146403.0,
     "min_turn_area2": 19.492354671,
@@ -775,8 +775,8 @@
     "proof of Erdos Problem #97",
     "counterexample to Erdos Problem #97",
     "finite-vertex extraction from the Barany--Roldan-Pensado body",
-    "model of the source paper's A5 insertion or final 15-gon",
-    "construction of the source paper's existential A5",
+    "exact model of the source paper's A5 insertion or final 15-gon",
+    "exact construction of the source paper's existential A5",
     "exact or interval certificate for boundary intersections"
   ],
   "histograms": {
@@ -799,13 +799,92 @@
       "2": 12
     }
   },
+  "lemma31_a5_constraint_scan": {
+    "filter_counts": {
+      "D_C_A5_B_A_extreme_clockwise": 700,
+      "plus_A5_outside_S_A": 290,
+      "plus_angle_A_B_A5_acute": 3,
+      "plus_rotated_15gon_strictly_convex": 1,
+      "plus_segment_C_A5_intersects_default_S_Bprime_twice": 1
+    },
+    "individual_condition_counts": {
+      "A5_outside_S_A": 590,
+      "D_C_A5_B_A_extreme_clockwise": 700,
+      "angle_A_B_A5_acute": 1413,
+      "segment_C_A5_intersects_default_S_Bprime_twice": 41
+    },
+    "interpretation": "This is a bounded float64 sample of the local Lemma 3.1 A5 constraints, not an exact coordinate certificate and not a finite-vertex extraction from the BRP convex-body construction.",
+    "parameterization": {
+      "formula": "A5(t,h)=A4+t*(B1-A4)+h*unit_left_normal(A4B1)",
+      "normal_offsets": [
+        "1/1000",
+        "-1/1000",
+        "1/500",
+        "-1/500",
+        "1/200",
+        "-1/200",
+        "1/100",
+        "-1/100",
+        "1/50",
+        "-1/50",
+        "1/20",
+        "-1/20",
+        "1/10",
+        "-1/10",
+        "1/5",
+        "-1/5",
+        "1/2",
+        "-1/2",
+        "1",
+        "-1"
+      ],
+      "sample_count": 2000,
+      "t_values": {
+        "count": 100,
+        "formula": "i/500 for 1 <= i <= 100",
+        "max": "1/5",
+        "min": "1/500"
+      }
+    },
+    "sampled_witnesses": [
+      {
+        "lemma31_N1_bullets": {
+          "A5_outside_S_A": true,
+          "D_C_A5_B_A_extreme_clockwise": true,
+          "S_Bprime_roots_on_segment_C_A5": [
+            0.86294581,
+            0.995615477
+          ],
+          "angle_A_B_A5_acute": true,
+          "largest_clockwise_turn_area2": -0.026807931,
+          "segment_C_A5_intersects_default_S_Bprime_twice": true
+        },
+        "normal_offset": "-1/200",
+        "normal_side": "right",
+        "point_float": {
+          "x": -498.052639109,
+          "y": 870.88247481
+        },
+        "rotated_15gon": {
+          "circles_with_at_least_four_boundary_hits": 87,
+          "circles_with_at_least_four_vertices": 0,
+          "max_boundary_hits": 6,
+          "max_vertex_hits": 2,
+          "min_turn_area2": 0.026807931,
+          "strictly_convex": true
+        },
+        "t": "3/125"
+      }
+    ],
+    "source_lemma_scope": "N=1 specialization of Lemma 3.1 with A=A3, B=A4, C=B1, D=B2, C1=A5, and default Bprime fraction 1/100.",
+    "status": "SAMPLED_NUMERICAL_A5_CONSTRAINT_PROBE"
+  },
   "lemma31_preflight": {
-    "a5_constraints_remaining": [
-      "find C1=A5 such that D,C,C1,B,A are extreme and clockwise",
-      "place A5 outside the circle centered at A and passing through B",
-      "keep angle A-B-A5 acute",
-      "make segment C-A5 intersect S_Bprime twice",
-      "preserve the final 15-gon convexity after 120-degree rotations"
+    "a5_constraints_remaining_after_sampled_scan": [
+      "upgrade the sampled C1=A5 witness to exact or interval coordinates",
+      "prove a neighbourhood of admissible A5 choices, not only one sample",
+      "certify all source-paper boundary-intersection counts for the final 15-gon",
+      "separate boundary hits from finite selected-vertex hits"
     ],
     "angle_ABC": {
       "acute": true,
@@ -820,7 +899,7 @@
       "definition": "Bprime = B + tau*(A-B)",
       "tau_ceiling_for_C_outside_S_Bprime": 0.055071551
     },
-    "claim_scope": "Verifies the source Lemma 3.1 role preconditions for the BRP seed using A=A3, B=A4, C=B1, D=B2 and records a reproducible Bprime neighbourhood budget. It does not construct A5.",
+    "claim_scope": "Verifies the source Lemma 3.1 role preconditions for the BRP seed using A=A3, B=A4, C=B1, D=B2 and records a reproducible Bprime neighbourhood budget. The companion scan records only sampled float64 A5 candidates.",
     "role_mapping": {
       "A": "A3",
       "B": "A4",
@@ -848,7 +927,8 @@
     "status": "LEMMA31_ROLE_PREFLIGHT_ONLY_A5_NOT_CONSTRUCTED"
   },
   "next_steps": [
-    "solve or parameterize A5 under the recorded Lemma 3.1 constraints",
+    "upgrade the sampled A5 witness to exact algebraic or interval coordinates",
+    "prove an admissible neighbourhood around the sampled A5 witness",
     "promote edge-interior hits to symbolic edge parameters",
     "iterate the promoted hits as new candidate vertices",
     "replace float boundary intersections by exact algebraic or interval checks"
@@ -858,7 +938,7 @@
     "generator": "scripts/check_brp_boundary_probe.py",
     "notes": "Float64 boundary-intersection diagnostic for the quoted Barany--Roldan-Pensado 12-point seed before A5 insertion."
   },
-  "schema": "erdos97.brp_boundary_vertexization_probe.v1",
+  "schema": "erdos97.brp_boundary_vertexization_probe.v2",
   "source": {
     "base_points": [
       {

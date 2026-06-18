@@ -73,6 +73,9 @@ The checker:
 - records the actual Lemma 3.1 role preflight
   `A=A3, B=A4, C=B1, D=B2`, including the acute-angle check and a reproducible
   `Bprime = B + tau*(A-B)` neighbourhood budget.
+- runs a bounded `N=1` Lemma 3.1 A5 constraint scan near `A4`, using the
+  parameterization
+  `A5(t,h)=A4+t*(B1-A4)+h*unit_left_normal(A4B1)`.
 
 ## Current result
 
@@ -90,6 +93,11 @@ strictly convex synthetic A5 candidates: 0
 synthetic candidates with at least four vertices on a centered circle: 0
 Lemma 3.1 role angle ABC: 87.7725247 degrees
 Lemma 3.1 default Bprime tau: 1/100
+Lemma 3.1 A5 constraint samples: 2000
+sampled Lemma 3.1 A5 witnesses: 1
+first sampled witness: t=3/125, h=-1/200
+rotated 15-gon convex for sampled witness: yes
+sampled-witness centered circles with four vertices: 0
 ```
 
 Thus the modeled 12-point seed shows the expected continuous/discrete gap:
@@ -104,26 +112,39 @@ It is still not evidence against the full contrarian lane: the source
 construction's Lemma 3.1 choice is existential, and the relevant
 edge-parameter closure remains unmodeled.
 
-The Lemma 3.1 role preflight now pins the source-paper mapping for the local
+The Lemma 3.1 role preflight pins the source-paper mapping for the local
 insertion step. With `A=A3`, `B=A4`, `C=B1`, and `D=B2`, the four role points
 are strictly convex in counter-clockwise order, the angle `ABC` is acute, and
 the default point `Bprime=A4+(A3-A4)/100` has `B1` outside the circle centered
-at `Bprime` through `A4`. This is still only a preflight: it records the
-constraints an actual `A5` must satisfy, but it does not construct that point.
+at `Bprime` through `A4`.
+
+The follow-up A5 constraint scan samples 100 rational positions close to `A4`
+along `A4->B1` and 20 signed normal offsets. Exactly one sampled point,
+`t=3/125, h=-1/200`, satisfies the `N=1` Lemma 3.1 local bullets in float64:
+`B2,B1,A5,A4,A3` is extreme and clockwise, `A5` is outside the circle centered
+at `A3` through `A4`, the angle `A3 A4 A5` is acute, and the segment `B1A5`
+intersects the default `S_Bprime` twice. Rotating this sampled point gives a
+strictly convex synthetic 15-gon, but its centered vertex circles still have
+maximum vertex multiplicity `2`; no centered circle hits four modeled vertices.
+
+This is a useful next-step witness for the source construction lane, not an
+exact certificate. The sampled `A5` remains a float64 point in a bounded search
+family, the final BRP boundary-intersection proof is not replayed, and the
+boundary-hit/finite-vertex gap remains open.
 
 ## Next steps
 
 Useful follow-up work should avoid more visual inspection and instead make the
 edge-interior hits algebraic:
 
-1. Solve or parameterize admissible `A5` choices under the recorded Lemma 3.1
-   constraints.
-2. Promote each interior circle-edge hit to a candidate vertex parameter.
-3. Iterate the closure condition: promoted vertices become centers that must
+1. Upgrade the sampled `A5` witness to exact algebraic or interval coordinates.
+2. Prove a neighbourhood of admissible `A5` choices around the sampled point.
+3. Promote each interior circle-edge hit to a candidate vertex parameter.
+4. Iterate the closure condition: promoted vertices become centers that must
    themselves acquire four vertex hits.
-4. Replace float64 edge intersections with exact algebraic or interval
+5. Replace float64 edge intersections with exact algebraic or interval
    certificates.
-5. If every closure attempt explodes into new edge interiors, extract the
+6. If every closure attempt explodes into new edge interiors, extract the
    failure as a boundary-to-vertex obstruction lemma.
 
 ## Guardrails
@@ -134,5 +155,5 @@ Do not cite this probe as:
 - a counterexample or counterexample candidate;
 - a finite extraction from the Barany--Roldan-Pensado body;
 - a check of the final 15-gon;
-- a construction of the actual existential `A5` from Lemma 3.1;
+- an exact construction of the actual existential `A5` from Lemma 3.1;
 - an exact certificate for boundary intersections.

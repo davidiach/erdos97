@@ -111,8 +111,11 @@ def main() -> int:
         convexity = payload["convexity"]
         synthetic = payload["synthetic_a5_scan"]
         preflight = payload["lemma31_preflight"]
+        a5_scan = payload["lemma31_a5_constraint_scan"]
         angle_abc = preflight["angle_ABC"]
         bprime_budget = preflight["bprime_neighbourhood_budget"]
+        filter_counts = a5_scan["filter_counts"]
+        witnesses = a5_scan["sampled_witnesses"]
         print("BRP boundary-to-vertex diagnostic")
         print(f"seed vertices: {summary['seed_vertex_count']}")
         print(f"strictly convex seed order: {convexity['strictly_convex_in_seed_order']}")
@@ -137,6 +140,20 @@ def main() -> int:
             "Lemma 3.1 default Bprime valid: "
             f"{bprime_budget['C_outside_default_S_Bprime']}"
         )
+        print(
+            "Lemma 3.1 sampled A5 witnesses: "
+            f"{len(witnesses)} / {a5_scan['parameterization']['sample_count']}"
+        )
+        print(
+            "Lemma 3.1 final convex sampled witnesses: "
+            f"{filter_counts['plus_rotated_15gon_strictly_convex']}"
+        )
+        if witnesses:
+            witness = witnesses[0]
+            print(
+                "Lemma 3.1 first sampled A5: "
+                f"t={witness['t']}, h={witness['normal_offset']}"
+            )
         if args.assert_expected:
             print("OK: expected BRP boundary diagnostic counts verified")
         if args.write:
